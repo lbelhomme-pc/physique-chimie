@@ -1,0 +1,43 @@
+---
+// src/pages/lycee/index.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { lyceeLevels, getLevelLabel } from "../../data/levels";
+
+// Noms courts pour l'affichage dans les pills
+function getShortLabel(slug: string): string {
+  const map: Record<string, string> = {
+    "2nde": "2nde",
+    "1ere-spe": "1ère Spé",
+    "1ere-ens-scientifique": "1ère ES",
+    "terminale-spe": "Term. Spé",
+    "terminale-ens-scientifique": "Term. ES",
+  };
+  return map[slug] ?? getLevelLabel(slug);
+}
+---
+<BaseLayout title="Espace Lycée — Physique-Chimie">
+
+  <nav class="level-nav" aria-label="Niveaux lycée">
+    {lyceeLevels.map(level => (
+      <a href={`/lycee/${level.slug}`} class="nav-pill">
+        {getShortLabel(level.slug)}
+      </a>
+    ))}
+
+  </nav>
+
+  <div style="text-align:center; padding: 3rem 1rem;">
+    <span style="font-size:3rem;">🎓</span>
+    <h1 style="font-size:1.6rem; font-weight:800; color:var(--accent-primary); margin:0.5rem 0;">Espace Lycée</h1>
+    <p style="color:var(--text-muted); font-size:1rem;">Choisis ton niveau pour accéder aux cours de physique-chimie.</p>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .level-nav {
+    display: flex; justify-content: center; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1rem; background: var(--bg-card); border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card); max-width: 850px; margin: 1rem auto; flex-wrap: wrap;
+  }
+</style>

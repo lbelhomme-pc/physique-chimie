@@ -1,0 +1,36 @@
+---
+import { computeRank } from "./rank";
+
+interface Props {
+  totalXp?: number;
+}
+
+const { totalXp = 0 } = Astro.props;
+const { current, next, progress } = computeRank(totalXp);
+const progressPercent = Math.round(progress * 100);
+---
+
+<section class="rank-card" data-rank-card>
+  <div class="rank-header">
+    <h2>🏆 Rang global</h2>
+    <span class="rank-name" data-rank-name>{current.name}</span>
+  </div>
+
+  <p class="rank-xp" data-rank-xp>{totalXp} XP</p>
+
+  <div class="rank-progress">
+    <div
+      class="rank-progress-bar"
+      data-rank-progress-bar
+      style={`width:${progressPercent}%`}
+    ></div>
+  </div>
+
+  <p class="rank-next" data-rank-next>
+    {next ? (
+      <>Prochain rang : <strong>{next.name}</strong> à {next.xp} XP</>
+    ) : (
+      <>Rang maximal atteint.</>
+    )}
+  </p>
+</section>

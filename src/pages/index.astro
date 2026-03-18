@@ -1,0 +1,60 @@
+---
+// src/pages/index.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Dashboard from "../components/pedagogie/Dashboard.tsx";
+
+// ─── Scanner tous les chapitres pour le dashboard ─────────
+const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
+const allFlash = import.meta.glob("/src/data/chapters/**/flashcards.json", { eager: true });
+
+interface ChapterInfo {
+  id: string;
+  title: string;
+  niveau: string;
+  matiere: string;
+  cycle: string;
+  slug: string;
+  flashcardIds: string[];
+}
+
+const chapters: ChapterInfo[] = [];
+
+for (const [path, mod] of Object.entries(allMeta)) {
+  const segments = path.replace("/src/data/chapters/", "").replace("/meta.json", "").split("/");
+  const [cycle, niveau, matiere, slug] = segments;
+
+  const data = (mod as any).default ?? mod;
+  const chapterId = `${cycle}/${niveau}/${matiere}/${slug}`;
+
+  // Récupérer les IDs de flashcards pour le SRS
+  const flashPath = path.replace("meta.json", "flashcards.json");
+  const flashMod = allFlash[flashPath] as any;
+  const flashData = flashMod?.default ?? flashMod;
+  const flashcardIds: string[] = [];
+  if (Array.isArray(flashData)) {
+    flashData.forEach((f: any) => { if (f.id) flashcardIds.push(f.id); });
+  } else if (flashData?.cards) {
+    flashData.cards.forEach((f: any) => { if (f.id) flashcardIds.push(f.id); });
+  }
+
+  chapters.push({
+    id: chapterId,
+    title: data.title ?? slug,
+    niveau,
+    matiere,
+    cycle,
+    slug,
+    flashcardIds,
+  });
+}
+
+// Trier par cycle puis niveau puis matière
+chapters.sort((a, b) => {
+  if (a.cycle !== b.cycle) return a.cycle.localeCompare(b.cycle);
+  if (a.niveau !== b.niveau) return a.niveau.localeCompare(b.niveau);
+  return a.matiere.localeCompare(b.matiere);
+});
+---
+<BaseLayout title="Accueil — Physique-Chimie">
+  <Dashboard client:load chapters={chapters} />
+</BaseLayout>

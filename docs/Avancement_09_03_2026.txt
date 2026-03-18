@@ -1,0 +1,285 @@
+# ETAT_AVANCEMENT_SITE_REVISION_PC
+
+Date : Mars 2026
+
+Projet : Plateforme de révision interactive de physique-chimie (collège → terminale)
+
+Auteur : Ludovic Belhomme
+
+---
+
+# 1. Vision du projet
+
+Créer une plateforme éducative permettant aux élèves de :
+
+* réviser les cours
+* s'entraîner avec des exercices
+* tester leurs connaissances avec des quiz
+* mémoriser avec des flashcards
+* suivre leur progression
+
+Niveaux concernés :
+
+* Collège : 6e / 5e / 4e / 3e
+* Lycée : Seconde / Première / Terminale
+
+  * enseignement scientifique
+  * spécialité physique-chimie
+
+---
+
+# 2. Architecture générale du site
+
+Architecture définie.
+
+Plateforme
+
+Accueil
+
+* tableau de bord
+* mission du jour
+
+Collège
+
+* 6eme
+* 5eme
+* 4eme
+* 3eme
+
+Lycée
+
+* seconde
+* première enseignement scientifique
+* première spécialité physique-chimie
+* terminale enseignement scientifique
+* terminale spécialité physique-chimie
+
+Outils & méthodes
+
+* kit scientifique
+* rappels mathématiques
+* formulaires physique-chimie
+* méthodes scientifiques
+
+Statut : ✔ défini
+
+---
+
+# 3. Structure technique des chapitres
+
+Structure validée.
+
+Chaque chapitre contient exactement :
+
+meta.json
+cours.mdx
+exercices.json
+quiz.json
+flashcards.json
+
+Statut : ✔ défini
+
+---
+
+# 4. Structure des dossiers
+
+Arborescence adoptée :
+
+```
+content/
+  niveau/
+    discipline/
+      chapitre/
+```
+
+Exemple actuel :
+
+```
+content/3eme/chimie/atome/
+```
+
+Statut : ✔ validé
+
+---
+
+# 5. Génération de contenu pédagogique
+
+Prompt principal créé pour générer automatiquement :
+
+* cours
+* exercices
+* quiz
+* flashcards
+
+Statut : ✔ prêt
+
+Document associé :
+
+PROMPTS_GENERATION_CHAPITRES_PC.md
+
+---
+
+# 6. Documentation du projet
+
+Documents créés :
+
+MANUEL_DE_DEVELOPPEMENT_DU_SITE_PC.md
+PROMPTS_GENERATION_CHAPITRES_PC.md
+ETAT_AVANCEMENT_SITE_REVISION_PC.md
+
+Statut : ✔ en place
+
+---
+
+# 7. Chapitres générés
+
+Pour l'instant :
+
+3eme → chimie → atome
+
+Statut : 🟡 début de la base de contenu
+
+---
+
+# 8. Travaux en cours
+
+Liste complète des chapitres du programme officiel en cours de construction à partir du Bulletin officiel.
+
+Objectif :
+
+structurer tous les chapitres de :
+
+* collège
+* lycée
+* spécialité
+* enseignement scientifique
+
+Statut : 🟡 en cours
+
+---
+
+# 9. Fonctionnalités du site
+
+Fonctionnalités prévues :
+
+Tableau de bord élève
+Suivi de progression
+Mission du jour
+Quiz interactifs
+Flashcards avec répétition espacée
+
+Statut :
+
+🔴 pas encore implémenté
+
+---
+
+# 10. UX et accessibilité
+
+Objectif :
+
+site adapté aux élèves dys.
+
+Principes :
+
+* structure claire
+* phrases courtes
+* contraste suffisant
+* navigation simple
+
+Statut :
+
+🟡 à intégrer lors du développement front.
+
+---
+
+# 11. Performance du site
+
+Objectif :
+
+site très rapide.
+
+Choix techniques :
+
+* JSON léger
+* MDX pour les cours
+* architecture simple
+
+Statut :
+
+🟡 à optimiser lors de la construction.
+
+---
+
+# 12. Prochaines étapes prioritaires
+
+Priorité 1 :
+
+Créer la **liste complète des chapitres du programme officiel**.
+
+Priorité 2 :
+
+Générer tous les chapitres collège.
+
+Priorité 3 :
+
+Générer les chapitres lycée.
+
+Priorité 4 :
+
+Créer les pages outils :
+
+* rappels maths
+* méthodes scientifiques
+* formulaires.
+
+Priorité 5 :
+
+Développer le tableau de bord élève.
+
+---
+
+# 13. Vision à long terme
+
+Transformer la plateforme en :
+
+* PWA
+* application mobile
+* plateforme de révision scientifique complète
+
+Possibilité :
+
+* abonnement
+* suivi élève
+* statistiques pédagogiques
+
+---
+
+# 14. Estimation du travail restant
+
+Contenus pédagogiques :
+
+environ **120 à 180 chapitres**.
+
+Avec génération automatisée :
+
+production possible en quelques jours.
+
+Développement plateforme :
+
+plusieurs semaines selon complexité.
+
+---
+
+# 15. Résumé de l'état actuel
+
+Architecture du projet : ✔
+Structure des chapitres : ✔
+Prompts de génération : ✔
+Documentation : ✔
+
+Base de contenu : 🟡 débutée
+
+Fonctionnalités site : 🔴 à développer
+
+Projet global : environ **10–15 % réalisé**

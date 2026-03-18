@@ -1,0 +1,100 @@
+---
+// src/pages/college/[niveau]/index.astro
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { collegeLevels, getLevelLabel } from "../../../data/levels";
+
+export function getStaticPaths() {
+  return collegeLevels.map(level => ({ params: { niveau: level.slug } }));
+}
+
+const { niveau } = Astro.params;
+const niveauLabel = getLevelLabel(niveau!);
+
+const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
+
+interface ChapterInfo { slug: string; title: string; matiere: string; order: number; description: string; icon: string; }
+
+const chapters: ChapterInfo[] = [];
+for (const [path, mod] of Object.entries(allMeta)) {
+  const segments = path.replace("/src/data/chapters/", "").replace("/meta.json", "").split("/");
+  const [cycle, niv, mat, slug] = segments;
+  if (cycle === "college" && niv === niveau) {
+    const data = (mod as any).default ?? mod;
+    chapters.push({
+      slug, title: data.title ?? slug, matiere: mat, order: data.order ?? 99,
+      description: data.description ?? "", icon: mat === "chimie" ? "🧪" : "⚡",
+    });
+  }
+}
+
+const chimie = chapters.filter(c => c.matiere === "chimie").sort((a, b) => a.order - b.order);
+const physique = chapters.filter(c => c.matiere === "physique").sort((a, b) => a.order - b.order);
+---
+<BaseLayout title={`${niveauLabel} — Collège — Physique-Chimie`}>
+
+  <!-- Nav niveaux (le fil d'Ariane EST la nav) -->
+  <nav class="level-nav" aria-label="Niveaux collège">
+    {collegeLevels.map(level => (
+      <a href={`/college/${level.slug}`}
+         class:list={["nav-pill", { active: level.slug === niveau }]}>
+        {getLevelLabel(level.slug)}
+      </a>
+    ))}
+  </nav>
+
+  <!-- Titre simple -->
+  <h1 class="niveau-title">🎒 Collège — {niveauLabel}</h1>
+
+  <!-- Matières + chapitres -->
+  <div class="matieres-grid">
+    <div class="matiere-column">
+      <div class="card-matiere chimie"><span>🧪</span> Chimie</div>
+      <div class="chapters-list">
+        {chimie.length > 0 ? chimie.map(ch => (
+          <a href={`/college/${niveau}/chimie/${ch.slug}`} class="card-chapitre">
+            <span class="chapitre-icon">{ch.icon}</span>
+            <div class="chapitre-info">
+              <span class="chapitre-title">{ch.title}</span>
+              {ch.description && <span class="chapitre-desc">{ch.description}</span>}
+            </div>
+          </a>
+        )) : <p class="empty-msg">Contenu à venir...</p>}
+      </div>
+    </div>
+
+    <div class="matiere-column">
+      <div class="card-matiere physique"><span>⚡</span> Physique</div>
+      <div class="chapters-list">
+        {physique.length > 0 ? physique.map(ch => (
+          <a href={`/college/${niveau}/physique/${ch.slug}`} class="card-chapitre">
+            <span class="chapitre-icon">{ch.icon}</span>
+            <div class="chapitre-info">
+              <span class="chapitre-title">{ch.title}</span>
+              {ch.description && <span class="chapitre-desc">{ch.description}</span>}
+            </div>
+          </a>
+        )) : <p class="empty-msg">Contenu à venir...</p>}
+      </div>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .level-nav {
+    display: flex; justify-content: center; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1rem; background: var(--bg-card); border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card); max-width: 800px; margin: 1rem auto; flex-wrap: wrap;
+  }
+  .niveau-title {
+    text-align: center; font-size: 1.3rem; font-weight: 700; color: var(--accent-primary);
+    margin: 1.5rem 0 1.25rem;
+  }
+  .matieres-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+  .matiere-column { display: flex; flex-direction: column; gap: 0.75rem; }
+  .chapters-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .chapitre-info { display: flex; flex-direction: column; gap: 0.1rem; }
+  .chapitre-desc { font-size: 0.8rem; color: var(--text-muted); }
+  .empty-msg { font-size: 0.9rem; color: var(--text-muted); font-style: italic; text-align: center; padding: 1rem; }
+  @media (max-width: 768px) { .matieres-grid { grid-template-columns: 1fr; } }
+</style>

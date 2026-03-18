@@ -1,0 +1,167 @@
+============================================================
+  RÉSUMÉ DE SÉANCE — 09 mars 2026 (session 2)
+  Plateforme de révision Physique-Chimie
+============================================================
+
+DATE : Dimanche 9 mars 2026
+DURÉE : ~1h
+CONTEXTE : Suite de la session 1 (même journée)
+
+
+------------------------------------------------------------
+1. CE QUI A ÉTÉ FAIT
+------------------------------------------------------------
+
+### A) Confirmation de l'arborescence réelle du projet
+
+L'arbo.txt a été uploadé et analysé. On a découvert que :
+
+- Le contenu est dans : src/data/chapters/ (pas src/content/)
+- Il y a une subdivision college/ et lycee/ dans chapters/
+- Les slugs lycée sont ABRÉGÉS :
+    • 1ere-spe         (pas 1ere-specialite)
+    • 1ere-ens-scientifique  (pas 1ere-enseignement-scientifique)
+    • terminale-spe    (pas terminale-specialite)
+    • terminale-ens-scientifique (pas terminale-enseignement-scientifique)
+
+Structure confirmée :
+  src/data/chapters/
+    college/
+      3eme/chimie/atome/     → meta.json, cours.mdx, quiz.json, etc.
+      3eme/chimie/ions/
+      3eme/chimie/ph/
+      3eme/physique/         → (electricite déjà créé)
+      4eme/chimie/ + physique/
+      5eme/chimie/ + physique/
+      6eme/chimie/ + physique/
+    lycee/
+      2nde/chimie/ + physique/
+      1ere-spe/chimie/ + physique/
+      1ere-ens-scientifique/chimie/ + physique/
+      terminale-spe/chimie/ + physique/
+      terminale-ens-scientifique/chimie/ + physique/
+
+
+### B) Correction et livraison des fichiers de lecture dynamique (v2)
+
+10 fichiers livrés, tous corrigés pour la vraie arborescence :
+
+  FICHIER LIVRÉ                      → DESTINATION
+  ─────────────────────────────────────────────────────────
+  00_GUIDE_LECTURE_DYNAMIQUE_v2.md   → docs/ (référence)
+  01_levels.ts                       → src/data/levels.ts (REMPLACE l'actuel)
+  03_college_index.astro             → src/pages/college/index.astro
+  04_college_niveau.astro            → src/pages/college/[niveau]/index.astro
+  05_college_matiere.astro           → src/pages/college/[niveau]/[matiere]/index.astro
+  06_college_chapitre.astro          → src/pages/college/[niveau]/[matiere]/[chapitre].astro
+  07_lycee_index.astro               → src/pages/lycee/index.astro
+  08_lycee_niveau.astro              → src/pages/lycee/[niveau]/index.astro
+  09_lycee_matiere.astro             → src/pages/lycee/[niveau]/[matiere]/index.astro
+  10_lycee_chapitre.astro            → src/pages/lycee/[niveau]/[matiere]/[chapitre].astro
+
+Corrections clés par rapport à la v1 :
+  • Glob path : "/src/data/chapters/**/meta.json" (au lieu de src/content/)
+  • Parsing : extrait cycle/niveau/matiere/chapitre (4 segments au lieu de 3)
+  • Slugs lycée : alignés sur les vrais noms de dossiers
+
+
+### C) Test réussi — Lecture dynamique fonctionnelle
+
+Screenshot confirmé : la page /college/3eme/physique affiche bien
+"L'électricité — Courant, tension, résistance."
+Le chapitre est lu automatiquement depuis le meta.json dans
+src/data/chapters/college/3eme/physique/electricite/
+
+→ Le système fonctionne : tout chapitre avec un meta.json
+  apparaît automatiquement sans toucher au code.
+
+
+### D) Plan de travail détaillé (10 phases)
+
+Document livré : Plan_Travail_Detaille_Plateforme_PC.md
+
+  PHASE 1  — Onglets + page chapitre          (~2 sessions)
+  PHASE 2  — Composants interactifs            (~3-4 sessions)
+  PHASE 3  — Contenu (premiers chapitres)      (~4-5 sessions)
+  PHASE 4  — Design system + accessibilité     (~3 sessions)
+  PHASE 5  — Gamification (XP, rangs, badges)  (~3 sessions)
+  PHASE 6  — Auth + comptes (Supabase)         (~2-3 sessions)
+  PHASE 7  — Paiement (Stripe, freemium)       (~2 sessions)
+  PHASE 8  — SEO + déploiement                 (~2 sessions)
+  PHASE 9  — Labo simulations                  (~4+ sessions)
+  PHASE 10 — Améliorations continues           (continu)
+
+Calendrier estimé :
+  Mars-Avril 2026  → Phases 1-3 (onglets + composants + contenu)
+  Mai-Juin 2026    → Phases 4-6 (design + gamification + auth) → BETA
+  Juin-Juillet     → Phases 7-8 (paiement + mise en ligne) → LANCEMENT
+  Été 2026         → Phases 3+9 (plus de contenu + simulations)
+  Septembre 2026   → V2 pour la rentrée
+
+
+------------------------------------------------------------
+2. ÉTAT ACTUEL DU PROJET (fin de session 2)
+------------------------------------------------------------
+
+  [✅] Routes collège dynamiques (glob)
+  [✅] Routes lycée dynamiques (glob)
+  [✅] levels.ts unifié (college + lycée, slugs corrects)
+  [✅] Lecture automatique des meta.json
+  [✅] Fil d'Ariane sur toutes les pages
+  [✅] Pages outils-méthodes (squelettes)
+  [✅] Page laboratoire (placeholder)
+  [✅] Pages mémorisation (squelettes)
+
+  [🔲] Système d'onglets sur page chapitre (Cours/Exercices/Quiz/Flashcards)
+  [🔲] Composants interactifs (quiz player, flashcard player, exercices)
+  [🔲] Design / CSS
+  [🔲] Gamification
+  [🔲] Auth / comptes
+  [🔲] Paiement
+  [🔲] SEO / déploiement
+
+
+------------------------------------------------------------
+3. PROCHAINE SESSION — À FAIRE
+------------------------------------------------------------
+
+→ PHASE 1 : Système d'onglets sur la page chapitre
+  • Composant Tabs (React ou Astro)
+  • 4 onglets : Cours | Exercices | Quiz | Flashcards
+  • Rendu du cours MDX avec support KaTeX (formules)
+  • Onglets grisés si pas de contenu
+
+
+------------------------------------------------------------
+4. FICHIERS LIVRÉS AUJOURD'HUI (à conserver)
+------------------------------------------------------------
+
+Session 1 (conversation précédente) :
+  • Feuille_de_Route_Plateforme_PC.docx
+
+Session 2 (cette conversation) :
+  • 00_GUIDE_LECTURE_DYNAMIQUE_v2.md
+  • 01_levels.ts
+  • 03 à 10 : pages .astro (college + lycée)
+  • Plan_Travail_Detaille_Plateforme_PC.md
+
+
+------------------------------------------------------------
+5. RAPPEL — COMMENT AJOUTER UN CHAPITRE
+------------------------------------------------------------
+
+1. Créer le dossier dans src/data/chapters/[cycle]/[niveau]/[matiere]/[slug]/
+2. Y mettre au minimum un meta.json :
+   {
+     "title": "Nom du chapitre",
+     "slug": "nom-du-chapitre",
+     "niveau": "3eme",
+     "matiere": "physique",
+     "theme": "Thème du programme",
+     "order": 1,
+     "description": "Description courte."
+   }
+3. Optionnellement : cours.mdx, quiz.json, flashcards.json, exercices.json
+4. Relancer le build → le chapitre apparaît automatiquement
+
+============================================================

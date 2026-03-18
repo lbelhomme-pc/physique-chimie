@@ -1,0 +1,77 @@
+---
+// src/pages/college/[niveau]/[matiere]/index.astro
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import { collegeLevels, matieres, getLevelLabel, getMatiereLabel } from "../../../../data/levels";
+
+// ─── Scan automatique des meta.json ───────────────────────────
+const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
+
+// ─── Routes statiques ─────────────────────────────────────────
+export function getStaticPaths() {
+  const paths: { params: { niveau: string; matiere: string } }[] = [];
+  for (const lvl of collegeLevels) {
+    for (const mat of matieres) {
+      paths.push({ params: { niveau: lvl.slug, matiere: mat.slug } });
+    }
+  }
+  return paths;
+}
+
+// ─── Params ───────────────────────────────────────────────────
+const { niveau, matiere } = Astro.params;
+const niveauLabel = getLevelLabel(niveau!);
+const matiereLabel = getMatiereLabel(matiere!);
+
+// ─── Filtrer les chapitres de ce niveau + matière ─────────────
+interface ChapterMeta {
+  title: string;
+  slug: string;
+  niveau: string;
+  matiere: string;
+  theme?: string;
+  order?: number;
+  description?: string;
+}
+
+const chapters: ChapterMeta[] = [];
+
+for (const [path, mod] of Object.entries(allMeta)) {
+  // path = "/src/data/chapters/college/3eme/chimie/atome/meta.json"
+  const segments = path.replace("/src/data/chapters/", "").replace("/meta.json", "").split("/");
+  // segments = ["college", "3eme", "chimie", "atome"]
+  const [cycle, niv, mat, chap] = segments;
+
+  if (cycle === "college" && niv === niveau && mat === matiere) {
+    const data = (mod as any).default ?? mod;
+    chapters.push({ ...data, slug: chap });
+  }
+}
+
+// Trier par order puis par title
+chapters.sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || a.title.localeCompare(b.title));
+---
+<BaseLayout title={`${matiereLabel} ${niveauLabel} — Collège`}>
+  <nav aria-label="Fil d'Ariane" class="breadcrumb">
+    <a href="/">Accueil</a> &rsaquo;
+    <a href="/college">Collège</a> &rsaquo;
+    <a href={`/college/${niveau}`}>{niveauLabel}</a> &rsaquo;
+    <strong>{matiereLabel}</strong>
+  </nav>
+
+  <h1>{matiereLabel} — {niveauLabel}</h1>
+
+  {chapters.length === 0 ? (
+    <p>Aucun chapitre disponible pour le moment. Contenu à venir !</p>
+  ) : (
+    <ul class="chapter-list">
+      {chapters.map((ch) => (
+        <li>
+          <a href={`/college/${niveau}/${matiere}/${ch.slug}`}>
+            <strong>{ch.title}</strong>
+            {ch.description && <span class="desc">{ch.description}</span>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</BaseLayout>

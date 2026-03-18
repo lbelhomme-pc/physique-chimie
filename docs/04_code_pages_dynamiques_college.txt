@@ -1,0 +1,187 @@
+Code conservé - version minimale des pages dynamiques collège
+=============================================================
+
+Fichier : src/data/collegeData.ts
+---------------------------------
+export const collegeData = {
+  "6eme": {
+    physique: [],
+    chimie: [],
+  },
+  "5eme": {
+    physique: [],
+    chimie: [],
+  },
+  "4eme": {
+    physique: [],
+    chimie: [],
+  },
+  "3eme": {
+    physique: [],
+    chimie: ["atome", "ions", "ph"],
+  },
+} as const;
+
+export type CollegeNiveau = keyof typeof collegeData;
+export type CollegeMatiere = "physique" | "chimie";
+
+
+Fichier : src/pages/college/[niveau]/index.astro
+-------------------------------------------------
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { collegeData } from "../../../data/collegeData";
+
+export function getStaticPaths() {
+  return Object.keys(collegeData).map((niveau) => ({
+    params: { niveau },
+  }));
+}
+
+const { niveau } = Astro.params;
+
+const niveauData = niveau ? collegeData[niveau as keyof typeof collegeData] : undefined;
+
+if (!niveauData) {
+  throw new Error(`Niveau inconnu : ${niveau}`);
+}
+---
+
+<BaseLayout title={`Collège - ${niveau}`}>
+  <h1>Collège – {niveau}</h1>
+  <p>Choisis une matière.</p>
+
+  <ul>
+    <li>
+      <a href={`/college/${niveau}/physique`}>Physique</a>
+    </li>
+    <li>
+      <a href={`/college/${niveau}/chimie`}>Chimie</a>
+    </li>
+  </ul>
+
+  <p>
+    <a href="/college">← Retour à Collège</a>
+  </p>
+</BaseLayout>
+
+
+Fichier : src/pages/college/[niveau]/[matiere]/index.astro
+-----------------------------------------------------------
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import { collegeData } from "../../../../data/collegeData";
+
+export function getStaticPaths() {
+  const paths = [];
+
+  for (const niveau of Object.keys(collegeData)) {
+    for (const matiere of ["physique", "chimie"]) {
+      paths.push({
+        params: { niveau, matiere },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { niveau, matiere } = Astro.params;
+
+const niveauData = niveau ? collegeData[niveau as keyof typeof collegeData] : undefined;
+
+if (!niveauData) {
+  throw new Error(`Niveau inconnu : ${niveau}`);
+}
+
+if (matiere !== "physique" && matiere !== "chimie") {
+  throw new Error(`Matière inconnue : ${matiere}`);
+}
+
+const chapitres = niveauData[matiere];
+---
+
+<BaseLayout title={`Collège - ${niveau} - ${matiere}`}>
+  <h1>
+    {niveau} – {matiere.charAt(0).toUpperCase() + matiere.slice(1)}
+  </h1>
+
+  {
+    chapitres.length > 0 ? (
+      <>
+        <p>Chapitres disponibles :</p>
+        <ul>
+          {chapitres.map((chapitre) => (
+            <li>
+              <a href={`/college/${niveau}/${matiere}/${chapitre}`}>{chapitre}</a>
+            </li>
+          ))}
+        </ul>
+      </>
+    ) : (
+      <p>Aucun chapitre disponible pour le moment.</p>
+    )
+  }
+
+  <p>
+    <a href={`/college/${niveau}`}>← Retour au niveau {niveau}</a>
+  </p>
+</BaseLayout>
+
+
+Fichier : src/pages/college/[niveau]/[matiere]/[chapitre].astro
+----------------------------------------------------------------
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import { collegeData } from "../../../../../data/collegeData";
+
+export function getStaticPaths() {
+  const paths = [];
+
+  for (const [niveau, matieres] of Object.entries(collegeData)) {
+    for (const matiere of ["physique", "chimie"] as const) {
+      for (const chapitre of matieres[matiere]) {
+        paths.push({
+          params: { niveau, matiere, chapitre },
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { niveau, matiere, chapitre } = Astro.params;
+
+const niveauData = niveau ? collegeData[niveau as keyof typeof collegeData] : undefined;
+
+if (!niveauData) {
+  throw new Error(`Niveau inconnu : ${niveau}`);
+}
+
+if (matiere !== "physique" && matiere !== "chimie") {
+  throw new Error(`Matière inconnue : ${matiere}`);
+}
+
+const chapitreExiste = niveauData[matiere].includes(chapitre as never);
+
+if (!chapitreExiste) {
+  throw new Error(`Chapitre inconnu : ${chapitre}`);
+}
+---
+
+<BaseLayout title={`${chapitre} - ${niveau} - ${matiere}`}>
+  <h1>Chapitre : {chapitre}</h1>
+
+  <p><strong>Niveau :</strong> {niveau}</p>
+  <p><strong>Matière :</strong> {matiere}</p>
+  <p><strong>Chapitre :</strong> {chapitre}</p>
+
+  <p>Page minimale de test OK.</p>
+
+  <ul>
+    <li><a href={`/college/${niveau}`}>Retour au niveau</a></li>
+    <li><a href={`/college/${niveau}/${matiere}`}>Retour à la matière</a></li>
+    <li><a href="/college">Retour à Collège</a></li>
+  </ul>
+</BaseLayout>

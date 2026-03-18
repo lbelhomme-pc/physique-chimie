@@ -1,0 +1,20 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "📌 Statut du chapitre" } = Astro.props;
+---
+
+<section class="chapter-status-card">
+  <div class="chapter-status-top">
+    <h2>{title}</h2>
+    <p class="chapter-status-subtitle">
+      État actuel de ta progression sur ce chapitre.
+    </p>
+  </div>
+
+  <div class="chapter-status-badge" data-chapter-status>
+    ⚪ Non commencé
+  </div>
+</section>

@@ -1,0 +1,124 @@
+---
+// src/pages/college/[niveau]/[matiere]/[chapitre].astro
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import ChapterTabs from "../../../../components/pedagogie/ChapterTabs.astro";
+import QuizPlayer from "../../../../components/pedagogie/QuizPlayer.tsx";
+import FlashcardsPlayer from "../../../../components/pedagogie/FlashcardsPlayer.tsx";
+import ExercicesPlayer from "../../../../components/pedagogie/ExercicesPlayer.tsx";
+import CoursTracker from "../../../../components/pedagogie/CoursTracker.tsx";
+import { getLevelLabel, getMatiereLabel } from "../../../../data/levels";
+
+export function getStaticPaths() {
+  const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
+  const paths: { params: { niveau: string; matiere: string; chapitre: string } }[] = [];
+  for (const [path] of Object.entries(allMeta)) {
+    const segments = path.replace("/src/data/chapters/", "").replace("/meta.json", "").split("/");
+    const [cycle, niv, mat, chap] = segments;
+    if (cycle === "college") paths.push({ params: { niveau: niv, matiere: mat, chapitre: chap } });
+  }
+  return paths;
+}
+
+const allMeta  = import.meta.glob("/src/data/chapters/**/meta.json",       { eager: true });
+const allCours = import.meta.glob("/src/data/chapters/**/cours.mdx",       { eager: true });
+const allExo   = import.meta.glob("/src/data/chapters/**/exercices.json",  { eager: true });
+const allQuiz  = import.meta.glob("/src/data/chapters/**/quiz.json",       { eager: true });
+const allFlash = import.meta.glob("/src/data/chapters/**/flashcards.json", { eager: true });
+
+const { niveau, matiere, chapitre } = Astro.params;
+const niveauLabel  = getLevelLabel(niveau!);
+const matiereLabel = getMatiereLabel(matiere!);
+const basePath = `/src/data/chapters/college/${niveau}/${matiere}/${chapitre}`;
+const chapterId = `college/${niveau}/${matiere}/${chapitre}`;
+const backUrl = `/college/${niveau}`;
+
+const metaMod = allMeta[`${basePath}/meta.json`] as any;
+const meta = metaMod?.default ?? metaMod ?? {};
+const xpConfig = meta.xp ?? undefined;
+
+const coursMod = allCours[`${basePath}/cours.mdx`] as any;
+const CoursContent = coursMod?.Content ?? null;
+
+const exercicesRaw  = (allExo[`${basePath}/exercices.json`]    as any)?.default ?? null;
+const quizRaw       = (allQuiz[`${basePath}/quiz.json`]        as any)?.default ?? null;
+const flashcardsRaw = (allFlash[`${basePath}/flashcards.json`] as any)?.default ?? null;
+
+function getArray(raw: any, key: string): any[] {
+  if (Array.isArray(raw)) return raw;
+  if (raw && Array.isArray(raw[key])) return raw[key];
+  return [];
+}
+
+const exercices  = exercicesRaw  ? getArray(exercicesRaw, "exercices") : [];
+const quizData   = quizRaw       ? getArray(quizRaw, "questions")     : [];
+const flashData  = flashcardsRaw ? getArray(flashcardsRaw, "cards")   : [];
+
+const hasExercices  = exercices.length > 0;
+const hasQuiz       = quizData.length > 0;
+const hasFlashcards = flashData.length > 0;
+---
+<BaseLayout title={`${meta.title ?? chapitre} — ${matiereLabel} ${niveauLabel}`}>
+
+  <!-- Titre du chapitre -->
+  <div class="chapter-header">
+    <h1>{meta.title ?? chapitre}</h1>
+    {meta.theme && <p class="chapter-theme">📂 {meta.theme}</p>}
+  </div>
+
+  <ChapterTabs
+    hasCours={true}
+    hasExercices={hasExercices}
+    hasQuiz={hasQuiz}
+    hasFlashcards={hasFlashcards}
+    exercicesCount={exercices.length}
+    quizCount={quizData.length}
+    flashcardsCount={flashData.length}
+    backUrl={backUrl}
+    backLabel="Retour"
+  >
+    <div slot="cours" class="cours-content">
+      {CoursContent ? (
+        <CoursTracker client:load chapterId={chapterId} xpConfig={xpConfig}>
+          <CoursContent />
+        </CoursTracker>
+      ) : <p style="color:var(--text-muted); font-style:italic;">Le contenu du cours est en cours de rédaction.</p>}
+    </div>
+
+    {hasExercices && (
+      <div slot="exercices">
+        <ExercicesPlayer client:load data={exercices} title={`Exercices — ${meta.title ?? chapitre}`} chapterId={chapterId} xpConfig={xpConfig} />
+      </div>
+    )}
+
+    {hasQuiz && (
+      <div slot="quiz">
+        <QuizPlayer client:load data={quizData} title={`Quiz — ${meta.title ?? chapitre}`} chapterId={chapterId} xpConfig={xpConfig} />
+      </div>
+    )}
+
+    {hasFlashcards && (
+      <div slot="flashcards">
+        <FlashcardsPlayer client:load data={flashData} title={`Flashcards — ${meta.title ?? chapitre}`} chapterId={chapterId} xpConfig={xpConfig} />
+      </div>
+    )}
+  </ChapterTabs>
+
+</BaseLayout>
+
+<style>
+  .chapter-header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .chapter-header h1 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--accent-primary);
+    margin: 0;
+  }
+  .chapter-theme {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0.25rem 0 0;
+  }
+</style>

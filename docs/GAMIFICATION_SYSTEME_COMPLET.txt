@@ -1,0 +1,669 @@
+============================================================
+  SYSTÈME DE GAMIFICATION COMPLET
+  Plateforme Physique-Chimie — Document de référence
+============================================================
+
+
+╔══════════════════════════════════════════════════════════╗
+║  PHILOSOPHIE                                             ║
+║                                                          ║
+║  • On récompense L'EFFORT, jamais de punition           ║
+║  • La gamification MOTIVE mais ne BLOQUE jamais         ║
+║  • Tout le contenu pédagogique reste accessible         ║
+║  • On favorise la régularité plutôt que l'intensité     ║
+║  • On valorise la progression personnelle,              ║
+║    pas la compétition entre élèves                      ║
+╚══════════════════════════════════════════════════════════╝
+
+
+============================================================
+  A. SYSTÈME XP (POINTS D'EXPÉRIENCE)
+============================================================
+
+L'XP est la monnaie universelle de progression.
+Chaque action sur le site en rapporte.
+
+─── Actions de base ────────────────────────────────────────
+
+  ACTION                                    XP
+  ───────────────────────────────────────────────
+  Ouvrir un cours (1ère visite)             +5
+  Lire un cours en entier (scroll 100%)    +10
+  Terminer un quiz (base)                   +5
+    + par bonne réponse                     +2
+    + bonus quiz parfait (10/10)           +10
+    + bonus 1ère tentative parfaite        +15
+  Terminer une série de flashcards          +5
+    + par carte "Je sais"                   +1
+    + bonus 100% "Je sais"                 +10
+  Consulter la correction d'un exercice     +3
+  Terminer TOUS les exercices d'un chap.   +15
+
+─── Bonus de régularité ────────────────────────────────────
+
+  ACTION                                    XP
+  ───────────────────────────────────────────────
+  Connexion quotidienne                    +10
+  Streak 3 jours                           +15
+  Streak 7 jours                           +50
+  Streak 14 jours                         +100
+  Streak 30 jours                         +200
+  Streak 100 jours                        +500
+  Streak 365 jours                       +2000
+
+─── Bonus de combo ─────────────────────────────────────────
+
+Un "combo" se déclenche quand l'élève enchaîne des activités
+dans la même session sans interruption longue (>15 min).
+
+  COMBO                                     BONUS
+  ───────────────────────────────────────────────
+  2 activités enchaînées                    ×1.2
+  3 activités enchaînées                    ×1.5
+  5 activités enchaînées                    ×2.0
+  Le combo se réinitialise après 15 min d'inactivité.
+
+  Exemple : un élève lit le cours (+10), fait le quiz (+15),
+  puis les flashcards (+12). Avec combo ×1.5 sur la 3ème
+  activité : 12 × 1.5 = 18 XP pour les flashcards.
+
+─── Bonus de maîtrise ─────────────────────────────────────
+
+  ACTION                                    XP
+  ───────────────────────────────────────────────
+  Chapitre complété à 100%                +25
+  Toute une matière d'un niveau complétée +100
+  Tout un niveau complété                 +500
+  Améliorer son score sur un quiz déjà fait +5
+
+─── Estimation de gains ────────────────────────────────────
+
+  PROFIL                     XP / JOUR     XP / SEMAINE
+  ───────────────────────────────────────────────────
+  Élève occasionnel          20-40         100-250
+  Élève régulier             50-100        350-700
+  Élève intensif            100-200        700-1400
+
+
+============================================================
+  B. RANGS ET NIVEAUX
+============================================================
+
+Thème : l'échelle de l'univers (du plus petit au plus grand).
+Cohérent avec la physique-chimie.
+
+─── Rangs principaux ───────────────────────────────────────
+
+  #   RANG           XP REQUIS    ICÔNE    COULEUR
+  ────────────────────────────────────────────────────
+  1   Quark              0        🔹       Gris
+  2   Atome            100        ⚛️       Bleu clair
+  3   Molécule         300        🧪       Vert
+  4   Cristal          600        💎       Cyan
+  5   Cellule        1 000        🔬       Violet
+  6   Minéral        1 800        🪨       Marron
+  7   Étoile         3 000        ⭐       Jaune
+  8   Constellation  5 000        ✨       Orange
+  9   Galaxie        8 000        🌌       Bleu foncé
+  10  Supernova     12 000        💥       Rouge
+  11  Trou noir     18 000        🕳️       Noir
+  12  Big Bang      25 000        🌠       Doré
+  13  Univers       40 000        🪐       Arc-en-ciel
+  14  Multivers     60 000        ♾️        Cosmique
+
+  → Rang Étoile (~3-4 semaines de révision régulière)
+  → Rang Univers (~6-8 mois intensifs)
+  → Rang Multivers = prestige, usage sur toute l'année scolaire
+
+─── Sous-niveaux ───────────────────────────────────────────
+
+Chaque rang a 3 sous-niveaux (bronze / argent / or) pour
+donner des micro-objectifs entre les rangs :
+
+  Exemple : Atome Bronze (100 XP) → Atome Argent (166 XP)
+            → Atome Or (233 XP) → Molécule Bronze (300 XP)
+
+  Chaque passage de sous-niveau = petite animation.
+  Chaque passage de rang = animation majeure + notification.
+
+─── Barre de progression ──────────────────────────────────
+
+Toujours visible dans le header ou le dashboard :
+  - XP actuel / XP du prochain rang
+  - Icône du rang actuel
+  - Aperçu du prochain rang
+
+
+============================================================
+  C. BADGES (ACCOMPLISSEMENTS)
+============================================================
+
+3 catégories, 3 niveaux par badge (bronze, argent, or).
+
+─── Badges de Progression ──────────────────────────────────
+
+  BADGE                      CONDITION (OR)
+  ───────────────────────────────────────────────
+  🏁 Premier pas             Terminer 1 / 5 / 10 quiz
+  📖 Rat de bibliothèque     Lire 5 / 15 / 30 cours
+  📝 Travailleur             Faire 10 / 30 / 100 exercices
+  🃏 Collectionneur          Revoir 50 / 200 / 500 flashcards
+  📊 Régulier                Se connecter 7 / 30 / 100 jours
+  🎒 Complet                 Compléter 1 / 5 / 15 chapitres à 100%
+
+─── Badges de Maîtrise ────────────────────────────────────
+
+  BADGE                      CONDITION (OR)
+  ───────────────────────────────────────────────
+  🎯 Sniper                  1 / 3 / 10 quiz parfaits (10/10)
+  💯 Perfectionniste         3 / 5 / 10 quiz parfaits d'affilée
+  🧠 Mémoire d'éléphant     100% "Je sais" sur 1 / 5 / 15 paquets
+  ⚗️ Maître chimiste         100% chimie d'un niveau (3ème / tout collège / tout)
+  🔭 Maître physicien        100% physique d'un niveau
+  🏆 Champion du Brevet      100% programme 3ème
+  🎓 Champion du Bac         100% programme Tle spé
+
+─── Badges de Streak ───────────────────────────────────────
+
+  BADGE                      CONDITION
+  ───────────────────────────────────────────────
+  🔥 Étincelle               Streak de 3 jours
+  🔥 Flamme                  Streak de 7 jours
+  🔥 Brasier                 Streak de 14 jours
+  🔥 Inferno                 Streak de 30 jours
+  🔥 Éternel                 Streak de 100 jours
+  🔥 Légende                 Streak de 365 jours
+
+─── Badges Fun / Secrets ──────────────────────────────────
+
+  BADGE                      CONDITION
+  ───────────────────────────────────────────────
+  🦉 Noctambule              Se connecter après 22h
+  🌅 Lève-tôt                Se connecter avant 7h
+  🎲 Aventurier              Essayer les 4 types d'activité en 1 session
+  🔬 Laborantin              Utiliser le laboratoire de simulations
+  ⚡ Speed runner             Terminer un quiz en moins de 60 secondes
+  🎵 Mélomane                Écouter/voir 5 vidéos récapitulatives
+  🗺️ Explorateur             Visiter toutes les pages du site
+  🌍 Polyglotte              Consulter un chapitre de chaque niveau
+  📅 Veille d'examen         Se connecter la veille d'un jour d'épreuve
+  🥚 Easter egg              Cliquer 10 fois sur le logo (fun)
+
+─── Affichage badges ───────────────────────────────────────
+
+  - Badges grisés = non débloqués (avec condition visible)
+  - Animation de déblocage quand un badge est obtenu
+  - Page "Mes badges" dans le profil avec vitrine
+  - Possibilité de choisir 3 badges "favoris" affichés sur le profil
+
+
+============================================================
+  D. STREAKS (JOURS CONSÉCUTIFS)
+============================================================
+
+─── Règles ─────────────────────────────────────────────────
+
+  - 1 streak = au moins 1 activité complétée dans la journée
+    (un quiz, un paquet de flashcards, ou lire un cours)
+  - Jour de grâce : 1 "gel de streak" gratuit par semaine
+    (l'élève peut rater 1 jour sans perdre son streak)
+  - Gels supplémentaires : achetables avec de l'XP (500 XP = 1 gel)
+  - Le streak se réinitialise à 0 si 2 jours manqués d'affilée
+
+─── Affichage ──────────────────────────────────────────────
+
+  - Compteur 🔥 visible en permanence (header)
+  - Flamme qui grandit avec le streak (petite → moyenne → grande)
+  - Calendrier dans le dashboard (jours verts = actifs, gris = manqués)
+  - Message d'encouragement si streak en danger :
+    "Tu as révisé 12 jours d'affilée ! Fais une petite activité
+     aujourd'hui pour garder ta flamme 🔥"
+
+─── Récompenses streak ────────────────────────────────────
+
+  Voir sections XP (bonus régularité) et Badges (badges streak).
+
+
+============================================================
+  E. RÉPÉTITION ESPACÉE (STYLE ANKI)
+============================================================
+
+Système de mémorisation à long terme basé sur la courbe
+d'oubli d'Ebbinghaus.
+
+─── Principe ───────────────────────────────────────────────
+
+Chaque flashcard a un état individuel par élève :
+
+  {
+    "cardId": "atomes-fc1",
+    "ease": 2.5,           // Facteur de facilité (défaut 2.5)
+    "interval": 1,         // Jours avant prochaine révision
+    "repetitions": 0,      // Nombre de révisions réussies
+    "nextReview": "2026-03-11",  // Date de prochaine révision
+    "lastReview": "2026-03-10",  // Date de dernière révision
+    "lapses": 0            // Nombre d'oublis
+  }
+
+─── Boutons de réponse ────────────────────────────────────
+
+Quand l'élève voit une carte, il choisit :
+
+  BOUTON          ACTION SUR L'INTERVALLE
+  ───────────────────────────────────────────────
+  😰 Pas du tout   → interval = 1 jour
+                     ease = ease - 0.2 (min 1.3)
+                     repetitions = 0
+                     lapses += 1
+
+  😕 Difficile     → interval = interval × 1.2
+                     ease = ease - 0.15
+                     repetitions += 1
+
+  🙂 Bien          → interval = interval × ease
+                     ease inchangé
+                     repetitions += 1
+
+  😎 Facile        → interval = interval × ease × 1.3
+                     ease = ease + 0.15
+                     repetitions += 1
+
+─── Nouveaux intervalles typiques ─────────────────────────
+
+  Carte nouvelle :
+    1ère fois "Bien" → revoir dans 1 jour
+    2ème fois "Bien" → revoir dans 3 jours
+    3ème fois "Bien" → revoir dans 7 jours
+    4ème fois "Bien" → revoir dans 18 jours
+    5ème fois "Bien" → revoir dans 45 jours
+
+  Carte facile :
+    Progresse plus vite (×1.3 supplémentaire à chaque fois)
+
+  Carte oubliée ("Pas du tout") :
+    Retombe à 1 jour, mais garde un ease réduit
+    → elle reviendra plus souvent que les autres
+
+─── Limites quotidiennes ──────────────────────────────────
+
+  - Nouvelles cartes par jour : 20 (paramétrable)
+  - Révisions par jour : illimité (mais suggestion de s'arrêter
+    après 100 cartes pour éviter la fatigue)
+
+─── File de révision ──────────────────────────────────────
+
+  Priorité d'affichage :
+  1. Cartes en retard (nextReview < aujourd'hui)
+  2. Cartes à revoir aujourd'hui (nextReview = aujourd'hui)
+  3. Nouvelles cartes (jamais vues)
+
+─── Intégration avec "Révision du jour" ───────────────────
+
+  La page "Révision du jour" du dashboard affiche :
+  - "🃏 12 cartes à revoir aujourd'hui" (basé sur les intervalles)
+  - "📝 3 nouvelles cartes disponibles"
+  - Répartition par chapitre/matière
+
+─── Stockage ──────────────────────────────────────────────
+
+  Phase actuelle : localStorage
+    Clé : "srs_[userId]_[cardId]"
+    Valeur : { ease, interval, repetitions, nextReview, ... }
+
+  Phase 6 (Auth) : migration vers Supabase
+    Table : srs_progress (user_id, card_id, ease, interval, ...)
+
+
+============================================================
+  F. OBJECTIFS ET DÉFIS
+============================================================
+
+─── Objectifs hebdomadaires ────────────────────────────────
+
+Chaque lundi, 3 objectifs sont proposés (adaptés au niveau) :
+
+  Exemples :
+  🎯 "Terminer 5 quiz cette semaine"           → +50 XP
+  🎯 "Réviser 30 flashcards"                   → +30 XP
+  🎯 "Compléter 2 chapitres à 100%"            → +80 XP
+  🎯 "Obtenir au moins 8/10 à 3 quiz"          → +60 XP
+  🎯 "Faire une activité chaque jour (7/7)"    → +100 XP
+
+  L'élève peut en choisir 1 à 3 parmi les proposés.
+  Compléter les 3 = bonus supplémentaire.
+
+─── Défis chronométrés (optionnel) ────────────────────────
+
+  Mode "Speed Quiz" :
+  - 10 questions, timer visible
+  - XP bonus selon le temps : <60s = ×3, <120s = ×2, <180s = ×1.5
+  - Ne remplace pas le quiz normal (c'est un mode en plus)
+
+  Mode "Survie Flashcards" :
+  - Cartes qui défilent, 10 secondes par carte
+  - 3 vies (3 erreurs = fin)
+  - Score final = nombre de cartes réussies
+
+─── Événements saisonniers ────────────────────────────────
+
+  Liés au calendrier scolaire :
+
+  📅 Septembre    "Rentrée en force"     → XP doublés la 1ère semaine
+  📅 Décembre     "Marathon des révisions" → objectifs spéciaux avant les DS
+  📅 Mars-Avril   "Sprint du Brevet/Bac"  → programme de révision intensif
+  📅 Juin          "Dernière ligne droite"  → rappels quotidiens, XP doublés
+
+  Badges saisonniers (limités dans le temps) :
+  🎄 "Réviseur de Noël"     → 5 quiz pendant les vacances de Noël
+  ☀️ "Pas de vacances"      → streak maintenu pendant les vacances d'été
+
+
+============================================================
+  G. PROGRESSION PAR CHAPITRE / MATIÈRE / NIVEAU
+============================================================
+
+─── Progression par chapitre ──────────────────────────────
+
+  4 activités, chacune vaut 25% :
+
+  ACTIVITÉ          CONDITION DE COMPLÉTION       %
+  ───────────────────────────────────────────────────
+  Cours lu          Scroll 100% du cours          25%
+  Quiz terminé      Au moins 1 tentative          25%
+  Flashcards revues Au moins 1 session            25%
+  Exercices faits   Toutes les corrections vues   25%
+
+  → Barre de progression sur chaque carte de chapitre.
+  → Icône sur la carte : 🔵 (commencé) → 🟢 (complété)
+
+─── Score de maîtrise (séparé de la complétion) ───────────
+
+  Le score de maîtrise reflète la QUALITÉ, pas la quantité :
+
+  COMPOSANTE                    POIDS
+  ───────────────────────────────────────────────────
+  Meilleur score quiz           40%
+  Ratio flashcards "Je sais"   30%
+  Exercices de difficulté 3+   30%
+    complétés
+
+  Affichage :
+  🔴 < 40%    "À travailler"
+  🟠 40-69%   "En progression"
+  🟢 70-89%   "Bien maîtrisé"
+  🌟 90-100%  "Excellent"
+
+─── Progression par matière ────────────────────────────────
+
+  = Moyenne des progressions de tous les chapitres de la matière.
+  Affichée sur la page matière (/college/3eme/chimie).
+
+─── Progression par niveau ─────────────────────────────────
+
+  = Moyenne des progressions chimie + physique.
+  Affichée sur la page niveau (/college/3eme).
+
+─── Progression globale ────────────────────────────────────
+
+  = Vue d'ensemble sur le dashboard.
+  Camembert ou barre par niveau/matière.
+
+
+============================================================
+  H. TABLEAU DE BORD ÉLÈVE
+============================================================
+
+Page : /dashboard
+
+─── Section 1 : En-tête profil ────────────────────────────
+
+  ┌──────────────────────────────────────────────────┐
+  │  ⚛️ Rang : Atome Argent        🔥 Streak : 12   │
+  │  ████████████░░░░░ 247 / 300 XP                  │
+  │  Prochain rang : 🧪 Molécule                     │
+  │                                                    │
+  │  3 badges favoris : 🎯 🔥 📖                     │
+  └──────────────────────────────────────────────────┘
+
+─── Section 2 : Révision du jour ──────────────────────────
+
+  ┌──────────────────────────────────────────────────┐
+  │  📅 Révision du jour                              │
+  │                                                    │
+  │  🃏 14 flashcards à revoir (répétition espacée)  │
+  │     → 6 en chimie, 8 en physique                  │
+  │                                                    │
+  │  📝 Quiz recommandé : Les ions (score : 5/10)    │
+  │                                                    │
+  │  📖 Chapitre à découvrir : L'énergie cinétique   │
+  │                                                    │
+  │  [ Commencer ma révision → ]                      │
+  └──────────────────────────────────────────────────┘
+
+─── Section 3 : Objectifs de la semaine ───────────────────
+
+  ┌──────────────────────────────────────────────────┐
+  │  🎯 Mes objectifs (semaine du 10 mars)            │
+  │                                                    │
+  │  ✅ Terminer 5 quiz           [5/5]              │
+  │  🔲 Réviser 30 flashcards     [18/30]            │
+  │  🔲 Streak 7 jours            [5/7]              │
+  │                                                    │
+  │  Récompense : +100 XP si les 3 complétés         │
+  └──────────────────────────────────────────────────┘
+
+─── Section 4 : Ma progression ────────────────────────────
+
+  ┌──────────────────────────────────────────────────┐
+  │  📊 Progression 3ème                              │
+  │                                                    │
+  │  Chimie    ████████░░  80%  🟢                   │
+  │    Atome        ████████████ 100% 🌟             │
+  │    Ions         ██████░░░░░  60%  🟠             │
+  │    pH           ████░░░░░░░  40%  🟠             │
+  │                                                    │
+  │  Physique  ████░░░░░░  35%  🟠                   │
+  │    Électricité  ████████░░░  75%  🟢             │
+  │    Énergie      ██░░░░░░░░░  15%  🔴             │
+  └──────────────────────────────────────────────────┘
+
+─── Section 5 : Statistiques ──────────────────────────────
+
+  ┌──────────────────────────────────────────────────┐
+  │  📈 Mes stats                                     │
+  │                                                    │
+  │  Cette semaine :                                   │
+  │  ⏱️ Temps total : 2h 34min                        │
+  │  📝 Quiz faits : 8  |  Score moyen : 7.2/10      │
+  │  🃏 Flashcards : 47  |  Taux "Je sais" : 68%    │
+  │  📖 Cours lus : 3                                 │
+  │                                                    │
+  │  Graphique : activité des 30 derniers jours       │
+  │  (barres par jour, comme GitHub contributions)     │
+  └──────────────────────────────────────────────────┘
+
+─── Section 6 : Badges récents ────────────────────────────
+
+  ┌──────────────────────────────────────────────────┐
+  │  🏆 Derniers badges débloqués                     │
+  │                                                    │
+  │  🎯 Sniper (Bronze)     — il y a 2 jours         │
+  │  🔥 Flamme              — il y a 5 jours         │
+  │  📖 Rat de bibliothèque — il y a 1 semaine       │
+  │                                                    │
+  │  [ Voir tous mes badges → ]                       │
+  └──────────────────────────────────────────────────┘
+
+
+============================================================
+  I. NOTIFICATIONS ET MESSAGES
+============================================================
+
+─── Notifications in-app ──────────────────────────────────
+
+  Apparaissent en toast (petit bandeau en haut) :
+
+  - Gain d'XP : "+15 XP 🎉" (discret, en bas à droite)
+  - Passage de rang : animation plein écran + confettis
+  - Badge débloqué : popup avec description + animation
+  - Streak en danger : bandeau "Fais une activité pour
+    garder ton streak de 12 jours 🔥"
+  - Objectif complété : "Bravo ! Objectif terminé 🎯 +50 XP"
+
+─── Tons des messages ─────────────────────────────────────
+
+  TOUJOURS positif et encourageant :
+
+  ✅ "Super, tu progresses !"
+  ✅ "Pas mal ! Tu t'améliores sur ce chapitre."
+  ✅ "6/10, c'est un bon début ! Refais-le demain."
+
+  JAMAIS culpabilisant :
+
+  ❌ "Tu n'as pas révisé hier..."
+  ❌ "Ton score est faible."
+  ❌ "Tu es en retard sur tes objectifs."
+
+
+============================================================
+  J. STOCKAGE DES DONNÉES
+============================================================
+
+─── Phase actuelle (localStorage) ─────────────────────────
+
+  Clés localStorage :
+
+  gamification_xp          → nombre total d'XP
+  gamification_rank        → rang actuel
+  gamification_badges      → ["badge1", "badge2", ...]
+  gamification_streak      → { current: 12, best: 15, lastDate: "..." }
+  gamification_weekly      → { goals: [...], progress: [...] }
+
+  progress_[chapId]        → { cours: true, quiz: true, ... }
+  quiz_scores_[chapId]     → [{ date, score, total }, ...]
+  flash_stats_[chapId]     → { known: 6, review: 4, total: 10 }
+
+  srs_[cardId]             → { ease, interval, nextReview, ... }
+
+  stats_daily_[date]       → { quizDone: 3, flashReviewed: 15, ... }
+
+─── Phase 6 (Supabase) ────────────────────────────────────
+
+  Tables :
+  - users (id, pseudo, email, created_at)
+  - user_xp (user_id, total_xp, rank, streak_current, streak_best)
+  - user_badges (user_id, badge_id, unlocked_at, level)
+  - user_progress (user_id, chapter_id, cours, quiz, flash, exo)
+  - quiz_attempts (user_id, chapter_id, score, total, date)
+  - srs_cards (user_id, card_id, ease, interval, next_review, ...)
+  - user_stats_daily (user_id, date, quiz_done, flash_reviewed, ...)
+  - user_weekly_goals (user_id, week, goals, progress)
+
+  Migration : au premier login, lire le localStorage et
+  pousser vers Supabase, puis supprimer le local.
+
+
+============================================================
+  K. IMPACT SUR LES FICHIERS DE CONTENU
+============================================================
+
+─── meta.json (SEUL FICHIER IMPACTÉ) ──────────────────────
+
+  Champs à ajouter :
+
+  {
+    "title": "L'atome",
+    "slug": "atome",
+    "niveau": "3eme",
+    "matiere": "chimie",
+    "theme": "Organisation et transformation de la matière",
+    "order": 1,
+    "description": "Structure de l'atome, noyau, électrons...",
+    "keywords": ["atome", "proton", "neutron", "électron"],
+
+    "xp": {
+      "cours": 10,
+      "quiz_base": 5,
+      "quiz_per_correct": 2,
+      "quiz_perfect": 10,
+      "flashcards_base": 5,
+      "flashcard_known": 1,
+      "exercice_each": 3,
+      "exercice_all": 15,
+      "chapter_complete": 25
+    },
+
+    "seo": {
+      "meta_title": "L'atome — Cours de chimie 3ème | Physique-Chimie",
+      "meta_description": "Tout comprendre sur l'atome en 3ème : noyau, protons, neutrons, électrons et écriture symbolique.",
+      "canonical": "/college/3eme/chimie/atome",
+      "schema_type": "EducationalContent",
+      "educationalLevel": "Collège — 3ème",
+      "keywords": ["atome", "structure atome", "proton neutron", "chimie 3ème"]
+    }
+  }
+
+─── quiz.json → AUCUN CHANGEMENT ──────────────────────────
+─── flashcards.json → AUCUN CHANGEMENT ────────────────────
+─── exercices.json → AUCUN CHANGEMENT ─────────────────────
+─── cours.mdx → AUCUN CHANGEMENT ──────────────────────────
+
+  → Toute la gamification est côté utilisateur (localStorage/Supabase).
+  → Le meta.json définit les règles XP par chapitre.
+  → Les valeurs XP dans meta.json sont des SUGGESTIONS par défaut.
+     Si elles ne sont pas présentes, le système utilise les valeurs
+     par défaut définies dans le code (config globale).
+
+
+============================================================
+  L. ORDRE D'IMPLÉMENTATION
+============================================================
+
+  Étape 1 — Config et stockage
+    → Définir la config globale gamification (valeurs XP par défaut)
+    → Créer le service localStorage (lire/écrire/migrer)
+    → Mettre à jour meta.json avec le bloc xp + seo
+
+  Étape 2 — Système XP + Rangs
+    → Calcul et attribution des XP après chaque action
+    → Barre de progression XP dans le header/layout
+    → Système de rangs avec seuils
+    → Animation de passage de rang
+
+  Étape 3 — Badges
+    → Définir tous les badges et leurs conditions
+    → Moteur de vérification (après chaque action, check les badges)
+    → Popup de déblocage
+    → Page "Mes badges"
+
+  Étape 4 — Streaks
+    → Calcul du streak quotidien
+    → Gel de streak
+    → Affichage flamme dans le header
+    → Calendrier dans le dashboard
+
+  Étape 5 — Progression par chapitre
+    → Tracker les 4 activités par chapitre
+    → Barres de progression sur les cartes de chapitre
+    → Score de maîtrise
+
+  Étape 6 — Répétition espacée
+    → Modifier FlashcardsPlayer (4 boutons au lieu de 2)
+    → Algorithme SM-2 simplifié
+    → File de révision quotidienne
+    → Page "Révision du jour"
+
+  Étape 7 — Tableau de bord
+    → Page /dashboard complète
+    → Toutes les sections décrites ci-dessus
+
+  Étape 8 — Objectifs hebdomadaires
+    → Génération d'objectifs chaque lundi
+    → Suivi et récompenses
+
+  Étape 9 — Stats et graphiques
+    → Tracking du temps passé
+    → Graphiques d'activité
+    → Rapport hebdomadaire
+
+============================================================

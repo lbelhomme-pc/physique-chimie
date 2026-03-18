@@ -1,0 +1,337 @@
+# MANUEL_DE_DEVELOPPEMENT_DU_SITE_PC
+
+## 1. Objectif du projet
+
+Créer une **plateforme de révision interactive en physique-chimie** destinée aux élèves :
+
+* collège (6e → 3e)
+* lycée (2nde → Terminale)
+
+La plateforme doit permettre :
+
+* révision rapide des cours
+* entraînement progressif
+* mémorisation active
+* suivi de progression
+
+Contenus pédagogiques alignés sur :
+
+* **Bulletin Officiel de l’Éducation nationale**
+* programme français officiel.
+
+---
+
+# 2. Fonctionnalités principales de la plateforme
+
+### Tableau de bord
+
+* progression globale
+* statistiques
+* mission du jour
+* révision recommandée
+* suivi des chapitres
+
+### Contenu pédagogique
+
+Chaque chapitre comporte :
+
+* cours synthétique
+* exercices progressifs
+* quiz
+* flashcards
+
+### Objectifs pédagogiques
+
+* favoriser la mémorisation active
+* progression par difficulté
+* répétition espacée
+* adaptation aux élèves dys
+* navigation simple
+
+---
+
+# 3. Arborescence générale du site
+
+Plateforme
+
+Accueil
+
+* tableau de bord
+* mission du jour
+
+Collège
+
+* 6eme
+* 5eme
+* 4eme
+* 3eme
+
+Lycée
+
+* seconde
+* première enseignement scientifique
+* première spécialité physique-chimie
+* terminale enseignement scientifique
+* terminale spécialité physique-chimie
+
+Outils & méthodes
+
+* kit scientifique
+* rappels mathématiques
+
+  * collège
+  * lycée
+* formulaires physique-chimie
+
+  * collège
+  * lycée
+* méthodes scientifiques
+
+---
+
+# 4. Structure des contenus pédagogiques
+
+Chaque chapitre possède exactement **5 fichiers**.
+
+```
+meta.json
+cours.mdx
+exercices.json
+quiz.json
+flashcards.json
+```
+
+Ordre de génération obligatoire :
+
+1. meta.json
+2. cours.mdx
+3. exercices.json
+4. quiz.json
+5. flashcards.json
+
+---
+
+# 5. Structure des dossiers
+
+Les chapitres sont stockés dans :
+
+```
+content/
+```
+
+Organisation :
+
+```
+content/
+  niveau/
+    discipline/
+      chapitre/
+```
+
+Exemple :
+
+```
+content/3eme/chimie/atome/
+```
+
+Avec :
+
+```
+meta.json
+cours.mdx
+exercices.json
+quiz.json
+flashcards.json
+```
+
+---
+
+# 6. Règles de génération des chapitres
+
+Chaque génération de chapitre suit les règles suivantes :
+
+### Respect strict du programme officiel
+
+Source prioritaire :
+
+Bulletin officiel de l'Éducation nationale.
+
+Le contenu doit :
+
+* respecter les notions du programme
+* ne pas ajouter de notions hors programme
+* rester adapté au niveau.
+
+---
+
+### Style pédagogique
+
+Le cours doit être :
+
+* clair
+* structuré
+* progressif
+* accessible
+
+Éléments obligatoires :
+
+* définitions
+* exemples
+* explications simples
+* analogies si utile.
+
+---
+
+# 7. Exercices
+
+Les exercices doivent :
+
+* être progressifs
+* couvrir les compétences du chapitre
+* aller du simple au plus complexe.
+
+Types d'exercices possibles :
+
+* questions de compréhension
+* calculs
+* raisonnement
+* analyse de documents
+* schémas
+
+---
+
+# 8. Quiz
+
+Les quiz servent à :
+
+* réviser rapidement
+* tester la compréhension
+* renforcer la mémorisation.
+
+Format :
+
+QCM à choix unique.
+
+Chaque question contient :
+
+* question
+* propositions
+* réponse correcte
+* explication.
+
+---
+
+# 9. Flashcards
+
+Objectif :
+
+mémorisation rapide.
+
+Format :
+
+* recto : question
+* verso : réponse
+
+Utilisation prévue :
+
+répétition espacée.
+
+---
+
+# 10. Accessibilité (important)
+
+Le site doit être adapté aux élèves :
+
+* dyslexiques
+* dyspraxiques
+* dysorthographiques
+
+Principes :
+
+* phrases courtes
+* structure claire
+* peu de surcharge visuelle
+* vocabulaire simple.
+
+---
+
+# 11. Performance du site
+
+Objectif :
+
+site rapide.
+
+Donc :
+
+* fichiers légers
+* HTML / MDX optimisés
+* JSON compact.
+
+---
+
+# 12. Avancement actuel du projet
+
+Architecture du site définie.
+
+Structure des chapitres définie :
+
+```
+meta.json
+cours.mdx
+exercices.json
+quiz.json
+flashcards.json
+```
+
+Arborescence actuelle :
+
+```
+content/3eme/chimie/atome/
+```
+
+Le développement consiste maintenant à :
+
+* générer les chapitres
+* remplir la base de contenu
+* construire les fonctionnalités interactives.
+
+---
+
+# 13. Rôle de ChatGPT dans le projet
+
+ChatGPT est utilisé pour :
+
+* générer les chapitres
+* structurer les contenus
+* vérifier la cohérence pédagogique
+* produire les fichiers directement exploitables.
+
+---
+
+# 14. Procédure pour reprendre le projet dans un nouveau chat
+
+Dans une nouvelle conversation :
+
+coller ce document.
+
+Puis écrire :
+
+"Nous continuons le développement du site de révision de physique-chimie.
+Voici le contexte du projet."
+
+Ensuite demander :
+
+* génération de chapitres
+* amélioration du site
+* création de contenu.
+
+---
+
+# 15. Objectif final
+
+Créer une **plateforme complète de révision scientifique** :
+
+* fiable pédagogiquement
+* conforme aux programmes
+* simple à utiliser
+* efficace pour apprendre.

@@ -1,0 +1,30 @@
+---
+// src/pages/college/index.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { collegeLevels, getLevelLabel } from "../../data/levels";
+---
+<BaseLayout title="Espace Collège — Physique-Chimie">
+
+  <nav class="level-nav" aria-label="Niveaux collège">
+    {collegeLevels.map(level => (
+      <a href={`/college/${level.slug}`} class="nav-pill">
+        {getLevelLabel(level.slug)}
+      </a>
+    ))}
+  </nav>
+
+  <div style="text-align:center; padding: 3rem 1rem;">
+    <span style="font-size:3rem;">🎒</span>
+    <h1 style="font-size:1.6rem; font-weight:800; color:var(--accent-primary); margin:0.5rem 0;">Espace Collège</h1>
+    <p style="color:var(--text-muted); font-size:1rem;">Choisis ton niveau pour accéder aux cours de physique-chimie.</p>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .level-nav {
+    display: flex; justify-content: center; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1rem; background: var(--bg-card); border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card); max-width: 800px; margin: 1rem auto; flex-wrap: wrap;
+  }
+</style>

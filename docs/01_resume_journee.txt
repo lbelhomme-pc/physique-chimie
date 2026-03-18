@@ -1,0 +1,96 @@
+Récapitulatif de la séance du 09/03/2026
+======================================
+
+Objectif du jour
+----------------
+Remettre le projet Astro sur des rails : valider l'arborescence, clarifier les routes, sortir des pages blanches, puis faire fonctionner les premières pages dynamiques du collège.
+
+Ce qui a été fait
+-----------------
+1. Analyse de l'avancement du site
+   - Confirmation de la stack Astro.
+   - Vérification de l'arborescence existante.
+   - Identification du dossier src, des pages, des composants pédagogiques et des premiers contenus déjà présents.
+
+2. Validation de la logique générale du site
+   - Structure retenue :
+     * Accueil
+     * Collège
+     * Lycée
+     * Outils & méthodes
+     * Laboratoire
+     * Mémorisation
+   - Navigation par niveaux puis par matière.
+   - Prise en compte des besoins d'accessibilité : fil d'Ariane, mode sombre, mode dys, agrandissement de police.
+
+3. Validation des routes principales
+   - Routes fixes validées :
+     / 
+     /college
+     /lycee
+     /outils-methodes
+     /laboratoire
+     /memorisation
+   - Routes dynamiques prévues :
+     /college/:niveau
+     /college/:niveau/:matiere
+     /college/:niveau/:matiere/:chapitre
+     /lycee/:niveau
+     /lycee/:niveau/:matiere
+     /lycee/:niveau/:matiere/:chapitre
+
+4. Harmonisation de la section "Outils & méthodes"
+   - Le dossier pages/outils a été renommé en pages/outils-methodes.
+   - Vérification des chemins et de la cohérence avec les routes voulues.
+
+5. Compréhension du problème des pages blanches
+   - Diagnostic posé : les fichiers .astro étaient vides.
+   - Conclusion : Astro fonctionnait, mais n'affichait rien car les pages étaient blanches.
+
+6. Mise en place d'un squelette minimal fonctionnel
+   - Création d'un BaseLayout.astro minimal.
+   - Création de pages fixes minimales pour :
+     * Accueil
+     * Collège
+     * Lycée
+     * Outils & méthodes
+     * Laboratoire
+     * Mémorisation
+     * Révision du jour
+     * Méga quiz
+     * Méga flashcards
+   - Résultat : les routes fixes affichent bien quelque chose.
+
+7. Mise en place des premières pages dynamiques minimales du collège
+   - Création d'un fichier de données simple : src/data/collegeData.ts
+   - Création de 3 pages dynamiques :
+     * src/pages/college/[niveau]/index.astro
+     * src/pages/college/[niveau]/[matiere]/index.astro
+     * src/pages/college/[niveau]/[matiere]/[chapitre].astro
+   - Contenus testés :
+     * /college/3eme
+     * /college/3eme/chimie
+     * /college/3eme/chimie/atome
+     * /college/3eme/chimie/ions
+     * /college/3eme/chimie/ph
+   - Résultat : le routage dynamique minimal fonctionne.
+
+8. Point important rappelé
+   - Le système de score / XP / rang existe déjà partiellement dans le projet.
+   - Il ne faut donc pas le replanifier comme une fonctionnalité à inventer, mais comme une fonctionnalité à intégrer proprement plus tard dans l'interface.
+
+État du projet en fin de séance
+-------------------------------
+- Astro fonctionne.
+- Le layout minimal fonctionne.
+- Les pages fixes principales fonctionnent.
+- Les routes dynamiques minimales du collège fonctionnent.
+- Le projet n'est plus à l'état de page blanche.
+- La base technique de navigation est en place.
+
+Prochaine étape logique
+-----------------------
+1. Faire la même mécanique dynamique pour le lycée.
+2. Remplacer les données codées en dur par la lecture réelle des chapitres.
+3. Brancher les vrais fichiers de contenu (meta.json, cours.mdx, exercices.json, quiz.json, flashcards.json).
+4. Ajouter ensuite l'UX : fil d'Ariane, cartes, tableau de bord, accessibilité.

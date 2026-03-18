@@ -1,0 +1,106 @@
+---
+---
+
+<section class="student-dashboard-card" data-student-dashboard>
+  <div class="student-dashboard-top">
+    <div>
+      <h2>👨‍🎓 Tableau de bord</h2>
+      <p class="student-dashboard-subtitle">
+        Retrouve ta progression globale et reprends là où tu t’es arrêté.
+      </p>
+    </div>
+  </div>
+
+  <div class="student-dashboard-grid">
+    <div class="dashboard-stat">
+      <span class="dashboard-stat-label">XP total</span>
+      <strong data-dashboard-total-xp>0 XP</strong>
+    </div>
+
+    <div class="dashboard-stat">
+  <span class="dashboard-stat-label">Streak</span>
+  <strong data-dashboard-streak>0 jour</strong>
+</div>
+    
+
+    <div class="dashboard-stat">
+      <span class="dashboard-stat-label">Rang</span>
+      <strong data-dashboard-rank>Fer</strong>
+    </div>
+
+    <div class="dashboard-stat">
+      <span class="dashboard-stat-label">Maîtrisés</span>
+      <strong data-dashboard-mastered>0</strong>
+    </div>
+
+    <div class="dashboard-stat">
+      <span class="dashboard-stat-label">Révisés</span>
+      <strong data-dashboard-reviewed>0</strong>
+    </div>
+
+    <div class="dashboard-stat">
+      <span class="dashboard-stat-label">En cours</span>
+      <strong data-dashboard-started>0</strong>
+    </div>
+
+    <div class="dashboard-stat">
+      <span class="dashboard-stat-label">Non commencés</span>
+      <strong data-dashboard-new>0</strong>
+    </div>
+  </div>
+
+  <div class="student-dashboard-bottom">
+    <div class="dashboard-last-chapter">
+      <span class="dashboard-stat-label">Dernier chapitre travaillé</span>
+      <strong data-dashboard-last-title>Aucun pour le moment</strong>
+      <p class="dashboard-last-meta" data-dashboard-last-meta>
+        Commence un chapitre pour voir apparaître un raccourci ici.
+      </p>
+    </div>
+
+    <a
+      href="#"
+      class="btn-action btn-primary dashboard-resume-btn"
+      data-dashboard-resume
+      hidden
+    >
+      Reprendre
+    </a>
+  </div>
+
+  <div class="student-dashboard-daily-review">
+    <div class="dashboard-last-chapter">
+      <span class="dashboard-stat-label">Révisions du jour</span>
+      <strong data-dashboard-due-count>0 carte due</strong>
+      <p class="dashboard-last-meta" data-dashboard-due-meta>
+        Rien d’urgent pour le moment.
+      </p>
+    </div>
+
+    <a
+      href="/memorisation/revision-du-jour"
+      class="btn-action btn-primary dashboard-review-btn"
+      data-dashboard-review-link
+    >
+      Commencer
+    </a>
+  </div>
+
+  <div class="dashboard-recommendation-card">
+    <div class="dashboard-recommendation-content">
+      <span class="dashboard-stat-label">🎯 Révision recommandée aujourd’hui</span>
+      <strong data-dashboard-reco-title>Commencer une révision</strong>
+      <p class="dashboard-last-meta" data-dashboard-reco-meta>
+        Le site va te proposer la meilleure prochaine action.
+      </p>
+    </div>
+
+    <a
+      href="/memorisation/revision-du-jour"
+      class="btn-action btn-primary dashboard-reco-btn"
+      data-dashboard-reco-link
+    >
+      Réviser maintenant
+    </a>
+  </div>
+</section>

@@ -1,0 +1,259 @@
+---
+type Flashcard = {
+  id: string;
+  front: string;
+  back: string;
+  difficulty: number;
+  tags?: string[];
+};
+
+interface Props {
+  flashcards: Flashcard[];
+  chapterKey: string;
+}
+
+const { flashcards = [], chapterKey } = Astro.props;
+---
+
+<div class="flashcards-block" data-flashcards-block data-chapter-key={chapterKey}>
+  <div class="flashcards-toolbar">
+    <p class="flashcards-count">
+      <strong>Cartes :</strong> {flashcards.length}
+    </p>
+
+    <div class="flashcards-actions">
+      <button type="button" class="btn-action btn-primary" data-flashcards-show-all>
+        Tout retourner
+      </button>
+      <button type="button" class="btn-action btn-secondary-outline" data-flashcards-reset>
+        Réinitialiser
+      </button>
+    </div>
+  </div>
+
+  <div class="flashcards-grid">
+    {flashcards.map((card, index) => (
+      <button
+        type="button"
+        class="flashcard-flip"
+        data-flashcard
+        data-flashcard-index={String(index)}
+        aria-pressed="false"
+      >
+        <div class="flashcard-flip-inner">
+          <div class="flashcard-face flashcard-front">
+            <p class="flashcard-label">Recto</p>
+            <h3>{card.front}</h3>
+
+            {card.tags && card.tags.length > 0 && (
+              <div class="flashcard-tags">
+                {card.tags.map((tag) => (
+                  <span class="meta-pill">{tag}</span>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div class="flashcard-face flashcard-back">
+            <p class="flashcard-label">Verso</p>
+            <p>{card.back}</p>
+          </div>
+        </div>
+      </button>
+    ))}
+  </div>
+</div>
+
+<script type="module">
+  const STORAGE_KEY = "pc-platform-progress-v2";
+
+  const QUIZ_XP_PER_CORRECT = 5;
+  const PERFECT_QUIZ_BONUS = 10;
+  const PERFECT_FIRST_TRY_BONUS = 10;
+  const FLASHCARDS_COMPLETE_BONUS = 10;
+  const CHAPTER_MASTERED_BONUS = 15;
+
+  const getDefaultChapter = (chapterKey) => ({
+    chapterKey,
+    quizScore: 0,
+    quizTotal: 0,
+    flashcardsFlipped: 0,
+    flashcardsTotal: 0,
+    flashcardsCompleted: false,
+    quizAttempts: 0,
+    bestQuizScore: 0,
+    perfectQuizAwarded: false,
+    perfectFirstTryAwarded: false,
+    flashcardsCompletedAwarded: false,
+    chapterMasteredAwarded: false,
+    xp: 0,
+    status: "new",
+    lastVisitedAt: new Date().toISOString()
+  });
+
+  const getDefaultStore = () => ({
+    totalXp: 0,
+    chapters: {}
+  });
+
+  const readProgressStore = () => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return getDefaultStore();
+      const parsed = JSON.parse(raw);
+      return {
+        totalXp: parsed.totalXp ?? 0,
+        chapters: parsed.chapters ?? {}
+      };
+    } catch {
+      return getDefaultStore();
+    }
+  };
+
+  const writeProgressStore = (store) => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+  };
+
+  const getChapterProgress = (chapterKey) => {
+    const store = readProgressStore();
+    return store.chapters[chapterKey] ?? getDefaultChapter(chapterKey);
+  };
+
+  const recomputeChapterXp = (chapter) => {
+    let xp = 0;
+
+    xp += (chapter.bestQuizScore ?? 0) * QUIZ_XP_PER_CORRECT;
+    if (chapter.perfectQuizAwarded) xp += PERFECT_QUIZ_BONUS;
+    if (chapter.perfectFirstTryAwarded) xp += PERFECT_FIRST_TRY_BONUS;
+    if (chapter.flashcardsCompletedAwarded) xp += FLASHCARDS_COMPLETE_BONUS;
+    if (chapter.chapterMasteredAwarded) xp += CHAPTER_MASTERED_BONUS;
+
+    return xp;
+  };
+
+  const computeChapterStatus = (chapter) => {
+  if (chapter.chapterMasteredAwarded) return "mastered";
+  if ((chapter.quizAttempts ?? 0) > 0) return "reviewed";
+  if ((chapter.flashcardsFlipped ?? 0) > 0) return "started";
+  return "new";
+};
+
+  const updateChapterProgress = (chapterKey, patch) => {
+    const store = readProgressStore();
+    const current = getChapterProgress(chapterKey);
+
+    const next = {
+      ...current,
+      ...patch,
+      chapterKey,
+      lastVisitedAt: new Date().toISOString()
+    };
+
+    next.xp = recomputeChapterXp(next);
+    next.status = computeChapterStatus(next);
+
+    store.chapters[chapterKey] = next;
+    store.totalXp = Object.values(store.chapters).reduce(
+      (sum, chapter) => sum + (chapter.xp ?? 0),
+      0
+    );
+
+    writeProgressStore(store);
+    return { store, chapter: next };
+  };
+
+  const maybeAwardMastery = (chapter) => {
+    const isPerfect =
+      (chapter.bestQuizScore ?? 0) > 0 &&
+      chapter.bestQuizScore === chapter.quizTotal;
+
+    const flashDone = chapter.flashcardsCompletedAwarded === true;
+
+    if (isPerfect && flashDone && !chapter.chapterMasteredAwarded) {
+      chapter.chapterMasteredAwarded = true;
+    }
+
+    return chapter;
+  };
+
+  const blocks = document.querySelectorAll("[data-flashcards-block]");
+
+  blocks.forEach((block) => {
+    const chapterKey = block.getAttribute("data-chapter-key") || "unknown";
+    const cards = block.querySelectorAll("[data-flashcard]");
+    const showAllBtn = block.querySelector("[data-flashcards-show-all]");
+    const resetBtn = block.querySelector("[data-flashcards-reset]");
+
+    const notifyProgress = () => {
+      window.dispatchEvent(new CustomEvent("progress-updated"));
+    };
+
+    const syncProgress = () => {
+      let flippedCount = 0;
+
+      cards.forEach((card) => {
+        if (card.classList.contains("is-flipped")) flippedCount += 1;
+      });
+
+      const completed = flippedCount === cards.length && cards.length > 0;
+      const current = getChapterProgress(chapterKey);
+
+      let nextChapter = {
+        ...current,
+        flashcardsFlipped: flippedCount,
+        flashcardsTotal: cards.length,
+        flashcardsCompleted: completed
+      };
+
+      if (completed && !nextChapter.flashcardsCompletedAwarded) {
+        nextChapter.flashcardsCompletedAwarded = true;
+      }
+
+      nextChapter = maybeAwardMastery(nextChapter);
+
+      updateChapterProgress(chapterKey, nextChapter);
+      notifyProgress();
+    };
+
+    const setCardState = (card, flipped) => {
+      card.classList.toggle("is-flipped", flipped);
+      card.setAttribute("aria-pressed", flipped ? "true" : "false");
+    };
+
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const flipped = card.classList.contains("is-flipped");
+        setCardState(card, !flipped);
+        syncProgress();
+      });
+    });
+
+    showAllBtn?.addEventListener("click", () => {
+      cards.forEach((card) => setCardState(card, true));
+      syncProgress();
+    });
+
+    resetBtn?.addEventListener("click", () => {
+      cards.forEach((card) => setCardState(card, false));
+
+      const current = getChapterProgress(chapterKey);
+      updateChapterProgress(chapterKey, {
+        flashcardsFlipped: 0,
+        flashcardsTotal: cards.length,
+        flashcardsCompleted: false,
+        flashcardsCompletedAwarded: current.flashcardsCompletedAwarded ?? false,
+        chapterMasteredAwarded: current.chapterMasteredAwarded ?? false,
+        bestQuizScore: current.bestQuizScore ?? 0,
+        quizScore: current.quizScore ?? 0,
+        quizTotal: current.quizTotal ?? 0,
+        quizAttempts: current.quizAttempts ?? 0,
+        perfectQuizAwarded: current.perfectQuizAwarded ?? false,
+        perfectFirstTryAwarded: current.perfectFirstTryAwarded ?? false
+      });
+
+      notifyProgress();
+    });
+
+    syncProgress();
+  });
+</script>

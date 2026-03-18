@@ -1,0 +1,153 @@
+---
+// src/layouts/BaseLayout.astro
+// Layout principal — SEO complet, navigation, footer, accessibilité
+
+import DailyLoginTracker from "../components/pedagogie/DailyLoginTracker.tsx";
+import AccessibilityPanel from "../components/accessibility/AccessibilityPanel.tsx";
+import ReadingGuide from "../components/accessibility/ReadingGuide.tsx";
+import ScrollToTop from "../components/ui/ScrollToTop.tsx";
+import "../styles/design-system.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  schemaType?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = "Plateforme gratuite de révision en physique-chimie : cours, exercices, quiz et flashcards du collège au lycée.",
+  canonical,
+  ogImage = "/og-image.png",
+  schemaType,
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = "https://physique-chimie.app"; // ← CHANGE PAR TON DOMAINE
+const siteName = "Physique-Chimie — Révisions interactives";
+const currentPath = Astro.url.pathname;
+const fullUrl = `${siteUrl}${canonical ?? currentPath}`;
+
+function isActive(href: string) {
+  if (href === "/") return currentPath === "/";
+  return currentPath.startsWith(href);
+}
+---
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO de base -->
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={fullUrl}>
+  {noindex && <meta name="robots" content="noindex, nofollow">}
+
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={fullUrl}>
+  <meta property="og:image" content={`${siteUrl}${ogImage}`}>
+  <meta property="og:site_name" content={siteName}>
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={`${siteUrl}${ogImage}`}>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Theme color (barre d'adresse mobile) -->
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD -->
+  {schemaType === "EducationalContent" ? (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": title,
+      "description": description,
+      "url": fullUrl,
+      "provider": {
+        "@type": "Organization",
+        "name": "Physique-Chimie — Ludovic Belhomme",
+        "url": siteUrl
+      },
+      "educationalLevel": "Collège / Lycée",
+      "inLanguage": "fr",
+      "isAccessibleForFree": true
+    })} />
+  ) : (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": siteName,
+      "url": siteUrl,
+      "description": description,
+      "inLanguage": "fr",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": `${siteUrl}/recherche?q={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
+    })} />
+  )}
+</head>
+<body>
+
+  <!-- Navigation principale -->
+  <nav class="main-nav" aria-label="Navigation principale">
+    <a href="/" class:list={["nav-pill", { active: isActive("/") }]}>
+      <span class="nav-emoji">🏠</span> Accueil
+    </a>
+    <a href="/college" class:list={["nav-pill", { active: isActive("/college") }]}>
+      <span class="nav-emoji">🎒</span> Collège
+    </a>
+    <a href="/lycee" class:list={["nav-pill", { active: isActive("/lycee") }]}>
+      <span class="nav-emoji">🎓</span> Lycée
+    </a>
+    <a href="/outils-methodes" class:list={["nav-pill", { active: isActive("/outils-methodes") }]}>
+      <span class="nav-emoji">📐</span> Outils & Méthodes
+    </a>
+    <a href="/laboratoire" class:list={["nav-pill", { active: isActive("/laboratoire") }]}>
+      <span class="nav-emoji">🧪</span> Laboratoire
+    </a>
+  </nav>
+
+  <!-- Contenu principal -->
+  <main class="page-container">
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 - 2026 | <strong>Ludovic Belhomme</strong> — Physique-Chimie</p>
+    <p>Tous droits réservés</p>
+    <a href="mailto:contact@physique-chimie.app">
+      <span>✉️</span> Me contacter
+    </a>
+  </footer>
+
+  <!-- Composants globaux -->
+  <DailyLoginTracker client:load />
+  <AccessibilityPanel client:load />
+  <ReadingGuide client:load />
+  <ScrollToTop client:load />
+
+</body>
+</html>

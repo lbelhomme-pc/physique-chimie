@@ -1,0 +1,368 @@
+============================================================
+  PAGE D'ACCUEIL — Tableau de bord complet
+  Plateforme Physique-Chimie
+============================================================
+
+
+PRINCIPE
+────────
+
+La page d'accueil est le COCKPIT de l'élève.
+En un coup d'œil il voit :
+  - Où il en est (XP, rang, streak)
+  - Ce qu'il doit faire aujourd'hui (révision du jour)
+  - Ses objectifs de la semaine
+  - Sa progression par niveau/matière
+  - Ses stats récentes
+  - Ses dernières récompenses
+  - Un accès rapide à tout le contenu
+
+L'accueil est DIFFÉRENT selon que l'élève est :
+  - Nouveau (pas de données) → version "découverte"
+  - Habitué (données existantes) → version "tableau de bord"
+
+
+============================================================
+  LAYOUT — VERSION TABLEAU DE BORD (élève actif)
+============================================================
+
+URL : / (page d'accueil)
+
+
+┌══════════════════════════════════════════════════════════┐
+│  HEADER (présent sur toutes les pages)                   │
+│                                                          │
+│  Logo   Collège  Lycée  Outils  Labo  Mémorisation      │
+│                                                          │
+│  ⚛️ 247 XP  │  🔥 12  │  [Mon profil]                  │
+│  ████░░ Atome Argent                                     │
+└══════════════════════════════════════════════════════════┘
+
+
+Section 1 — BANDEAU DE BIENVENUE
+─────────────────────────────────
+
+┌──────────────────────────────────────────────────────────┐
+│                                                          │
+│  Salut [Pseudo] ! 👋                                    │
+│                                                          │
+│  ⚛️ Rang : Atome Argent         🔥 Streak : 12 jours   │
+│  ████████████░░░░░░  247 / 300 XP                       │
+│  Prochain rang : 🧪 Molécule (dans 53 XP)              │
+│                                                          │
+│  Badges favoris : 🎯  🔥  📖                           │
+│                                                          │
+└──────────────────────────────────────────────────────────┘
+
+
+Section 2 — RÉVISION DU JOUR (la plus importante)
+──────────────────────────────────────────────────
+
+Algorithme : répétition espacée + chapitres faibles.
+C'est LE bloc qui fait revenir l'élève chaque jour.
+
+┌──────────────────────────────────────────────────────────┐
+│  📅 Ta révision du jour                      10 mars     │
+│                                                          │
+│  ┌────────────────────┐  ┌────────────────────┐         │
+│  │ 🃏 14 flashcards   │  │ 📝 Quiz recommandé │         │
+│  │    à revoir        │  │    Les ions         │         │
+│  │                    │  │    Dernier : 5/10   │         │
+│  │ 6 chimie           │  │                    │         │
+│  │ 8 physique         │  │ [ Refaire → ]      │         │
+│  │                    │  │                    │         │
+│  │ [ Réviser → ]      │  └────────────────────┘         │
+│  └────────────────────┘                                  │
+│                                                          │
+│  ┌────────────────────┐  ┌────────────────────┐         │
+│  │ 📖 Chapitre à      │  │ ✏️ Exercices        │         │
+│  │    découvrir       │  │    à terminer      │         │
+│  │                    │  │                    │         │
+│  │ L'énergie          │  │ pH (3ème chimie)   │         │
+│  │ cinétique          │  │ 3/10 faits         │         │
+│  │                    │  │                    │         │
+│  │ [ Commencer → ]    │  │ [ Continuer → ]    │         │
+│  └────────────────────┘  └────────────────────┘         │
+│                                                          │
+│  ⏱️ Temps estimé : ~20 min                               │
+│                                                          │
+└──────────────────────────────────────────────────────────┘
+
+
+Section 3 — OBJECTIFS DE LA SEMAINE
+────────────────────────────────────
+
+┌──────────────────────────────────────────────────────────┐
+│  🎯 Objectifs de la semaine         Semaine du 10 mars   │
+│                                                          │
+│  ✅ Terminer 5 quiz              [5/5]    +50 XP ✓     │
+│  ████████████████████████████████ 100%                   │
+│                                                          │
+│  🔲 Réviser 30 flashcards        [18/30]                │
+│  ████████████████████░░░░░░░░░░░  60%                   │
+│                                                          │
+│  🔲 Streak 7 jours               [5/7]                  │
+│  ██████████████████░░░░░░░░░░░░░  71%                   │
+│                                                          │
+│  Bonus si les 3 complétés : +100 XP 🎁                  │
+│                                                          │
+└──────────────────────────────────────────────────────────┘
+
+
+Section 4 — MA PROGRESSION
+──────────────────────────
+
+Vue compacte de tous les niveaux/matières.
+L'élève voit d'un coup où il en est.
+
+┌──────────────────────────────────────────────────────────┐
+│  📊 Ma progression                                       │
+│                                                          │
+│  [Collège ▼]  [Lycée]                                   │
+│                                                          │
+│  ┌─── 3ème ────────────────────────────────────────┐    │
+│  │                                                  │    │
+│  │  Chimie    ████████░░  80%  🟢    [ Voir → ]   │    │
+│  │  Physique  ████░░░░░░  35%  🟠    [ Voir → ]   │    │
+│  │                                                  │    │
+│  │  Chapitres : 4/12 complétés                      │    │
+│  │  Score de maîtrise moyen : 62% 🟠               │    │
+│  └──────────────────────────────────────────────────┘    │
+│                                                          │
+│  ┌─── 4ème ────────────────────────────────────────┐    │
+│  │  Chimie    ░░░░░░░░░░   0%  🔴    [ Voir → ]   │    │
+│  │  Physique  ░░░░░░░░░░   0%  🔴    [ Voir → ]   │    │
+│  └──────────────────────────────────────────────────┘    │
+│                                                          │
+│  ┌─── 5ème ────────────────────────────────────────┐    │
+│  │  ...                                             │    │
+│  └──────────────────────────────────────────────────┘    │
+│                                                          │
+└──────────────────────────────────────────────────────────┘
+
+
+Section 5 — ACTIVITÉ RÉCENTE
+─────────────────────────────
+
+Calendrier style GitHub (30 derniers jours) + stats.
+
+┌──────────────────────────────────────────────────────────┐
+│  📈 Mon activité                                         │
+│                                                          │
+│  Lun Mar Mer Jeu Ven Sam Dim                             │
+│  🟩  🟩  🟩  🟩  🟩  ⬜  🟩   ← cette semaine          │
+│  🟩  🟩  ⬜  🟩  🟩  🟩  🟩   ← semaine dernière       │
+│  🟨  🟩  🟩  ⬜  ⬜  🟩  🟩                             │
+│  🟩  🟨  🟩  🟩  🟩  🟩  ⬜                             │
+│                                                          │
+│  🟩 = actif  🟨 = peu actif  ⬜ = inactif               │
+│                                                          │
+│  ─── Cette semaine ───                                   │
+│  ⏱️ 2h 34min   📝 8 quiz   🃏 47 flashcards             │
+│  Score moyen : 7.2/10   Taux "Je sais" : 68%           │
+│                                                          │
+│  ─── Depuis le début ───                                 │
+│  📝 42 quiz faits   🃏 312 flashcards revues             │
+│  ✏️ 28 exercices    📖 15 cours lus                      │
+│  ⏱️ Temps total : 18h 42min                              │
+│                                                          │
+└──────────────────────────────────────────────────────────┘
+
+
+Section 6 — BADGES & RÉCOMPENSES
+─────────────────────────────────
+
+┌──────────────────────────────────────────────────────────┐
+│  🏆 Mes récompenses                                      │
+│                                                          │
+│  Derniers badges :                                       │
+│  ┌──────┐  ┌──────┐  ┌──────┐  ┌──────┐               │
+│  │  🎯  │  │  🔥  │  │  📖  │  │  🎲  │               │
+│  │Sniper│  │Flamme│  │Lecteur│ │Aventur│               │
+│  │Bronze│  │      │  │Argent│  │ier   │               │
+│  │ 2j   │  │ 5j   │  │ 1sem │  │ 2sem │               │
+│  └──────┘  └──────┘  └──────┘  └──────┘               │
+│                                                          │
+│  Prochain badge le plus proche :                         │
+│  🧠 Mémoire d'éléphant — 100% "Je sais" sur 1 paquet  │
+│  ████████████████████░░░░  82% (il te manque 2 cartes)  │
+│                                                          │
+│  [ Voir tous mes badges → ]   12/47 débloqués           │
+│                                                          │
+└──────────────────────────────────────────────────────────┘
+
+
+Section 7 — ACCÈS RAPIDE
+─────────────────────────
+
+Liens rapides vers les sections principales.
+
+┌──────────────────────────────────────────────────────────┐
+│  🚀 Accès rapide                                         │
+│                                                          │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐  │
+│  │ 📚       │ │ 📚       │ │ 🧪       │ │ 🔧       │  │
+│  │ Collège  │ │ Lycée    │ │ Labo     │ │ Outils   │  │
+│  │          │ │          │ │          │ │& Méthodes│  │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────┘  │
+│                                                          │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐  │
+│  │ 🎯       │ │ 🃏       │ │ ⚡       │ │ 📊       │  │
+│  │Méga Quiz │ │Méga Flash│ │ Speed    │ │ Mes      │  │
+│  │          │ │          │ │ Quiz     │ │ Stats    │  │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────┘  │
+│                                                          │
+└──────────────────────────────────────────────────────────┘
+
+
+Section 8 — DERNIER CHAPITRE CONSULTÉ (raccourci)
+──────────────────────────────────────────────────
+
+┌──────────────────────────────────────────────────────────┐
+│  🕐 Reprendre où tu t'es arrêté                          │
+│                                                          │
+│  L'atome (3ème chimie) — Onglet : Quiz                  │
+│  ████████████████████████ 100%  🌟                      │
+│                                                          │
+│  [ Reprendre → ]                                        │
+│                                                          │
+└──────────────────────────────────────────────────────────┘
+
+
+============================================================
+  LAYOUT — VERSION DÉCOUVERTE (nouvel élève)
+============================================================
+
+Quand il n'y a aucune donnée (premier visit), la page
+affiche une version simplifiée et accueillante :
+
+┌══════════════════════════════════════════════════════════┐
+│                                                          │
+│  🧪 Bienvenue sur Physique-Chimie !                     │
+│                                                          │
+│  Révise tes cours, teste tes connaissances               │
+│  et progresse à ton rythme.                              │
+│                                                          │
+│  ┌───────────────────────────────────────────────┐      │
+│  │  👉 Quel est ton niveau ?                      │      │
+│  │                                                 │      │
+│  │  [ 6ème ] [ 5ème ] [ 4ème ] [ 3ème ]          │      │
+│  │  [ 2nde ] [ 1ère ] [ Terminale ]               │      │
+│  │                                                 │      │
+│  └───────────────────────────────────────────────┘      │
+│                                                          │
+│  🎯 Comment ça marche ?                                 │
+│                                                          │
+│  1. 📖 Lis le cours                                     │
+│  2. 📝 Fais les exercices                               │
+│  3. ❓ Teste-toi avec le quiz                           │
+│  4. 🃏 Révise avec les flashcards                       │
+│  5. 🔥 Gagne des XP et monte en rang !                 │
+│                                                          │
+│  ⚛️ Tu commences au rang Quark.                        │
+│  Ton objectif : devenir 🪐 Univers !                   │
+│                                                          │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐               │
+│  │ 📚       │ │ 📚       │ │ 🧪       │               │
+│  │ Collège  │ │ Lycée    │ │ Labo     │               │
+│  │          │ │          │ │          │               │
+│  └──────────┘ └──────────┘ └──────────┘               │
+│                                                          │
+└══════════════════════════════════════════════════════════┘
+
+
+============================================================
+  HEADER GLOBAL (toutes les pages)
+============================================================
+
+Le header inclut en permanence les infos de gamification :
+
+┌──────────────────────────────────────────────────────────┐
+│  [Logo]  Collège  Lycée  Outils  Labo  Mémorisation     │
+│                                                          │
+│              ⚛️ 247 XP  │  🔥 12  │  👤               │
+│              ████░░                                      │
+└──────────────────────────────────────────────────────────┘
+
+  - XP + mini barre de progression (toujours visible)
+  - Streak avec flamme (toujours visible)
+  - Icône profil (lien vers /dashboard ou /badges)
+
+  Sur mobile : XP et streak dans un mini bandeau sous le header.
+
+  Animation quand XP augmente :
+  → Le compteur XP fait un petit bounce
+  → "+10 XP" apparaît en fade-out à côté
+
+  Animation quand streak augmente :
+  → La flamme fait un pulse
+
+
+============================================================
+  PAGES SUPPLÉMENTAIRES
+============================================================
+
+─── /badges ────────────────────────────────────────────────
+
+  Vitrine de tous les badges :
+  - Grille de badges (débloqués en couleur, verrouillés en gris)
+  - Cliquer sur un badge = voir sa condition
+  - Barre de progression vers le prochain badge
+  - Filtre par catégorie (progression, maîtrise, streak, fun)
+  - Compteur : "12/47 badges débloqués"
+
+─── /stats ─────────────────────────────────────────────────
+
+  Page détaillée des statistiques :
+  - Graphique d'activité (30 jours, style GitHub)
+  - Graphique de progression par matière (courbe)
+  - Temps passé par jour/semaine/mois
+  - Meilleurs scores quiz
+  - Taux de "Je sais" flashcards dans le temps
+  - Historique des rangs atteints
+
+─── /revision ──────────────────────────────────────────────
+
+  Page "Révision du jour" dédiée :
+  - File de flashcards à revoir (répétition espacée)
+  - Quiz recommandés (chapitres faibles)
+  - Exercices non terminés
+  - Peut être lancée en un clic depuis l'accueil
+
+
+============================================================
+  RESPONSIVE / MOBILE
+============================================================
+
+Sur mobile, les sections s'empilent verticalement :
+
+  1. Bandeau de bienvenue (compact)
+  2. Révision du jour (priorité maximale)
+  3. Objectifs de la semaine
+  4. Reprendre où tu t'es arrêté
+  5. Progression (accordéon par niveau)
+  6. Accès rapide (grille 2×2)
+  7. Activité + Stats (résumé)
+  8. Badges (carrousel horizontal)
+
+Le header mobile :
+  - Menu burger pour la navigation
+  - XP + streak toujours visibles (mini bandeau)
+
+
+============================================================
+  NOTIFICATIONS SUR L'ACCUEIL
+============================================================
+
+Bannières contextuelles en haut de page :
+
+  🔥 "Plus qu'une activité pour garder ton streak de 12 jours !"
+  🎯 "Tu es à 2 quiz de ton objectif de la semaine !"
+  🏆 "Nouveau badge débloqué : 🔥 Flamme !"
+  📅 "Le Brevet est dans 89 jours. Tu as complété 65% du programme."
+  🎉 "Bravo, tu as atteint le rang 🧪 Molécule !"
+
+  Affichage : 1 notification max à la fois, la plus pertinente.
+  Dismissable (bouton fermer).
+
+============================================================

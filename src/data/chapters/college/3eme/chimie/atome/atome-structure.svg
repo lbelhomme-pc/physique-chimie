@@ -1,0 +1,87 @@
+<svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" style="max-width:500px;margin:1.5rem auto;display:block;">
+  <!-- Fond -->
+  <defs>
+    <radialGradient id="nucleusGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4f46e5" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="protonGrad" cx="40%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </radialGradient>
+    <radialGradient id="neutronGrad" cx="40%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#a3a3a3"/>
+      <stop offset="100%" stop-color="#737373"/>
+    </radialGradient>
+    <radialGradient id="electronGrad" cx="40%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Orbites (ellipses) -->
+  <ellipse cx="250" cy="195" rx="190" ry="140" fill="none" stroke="#c7d2fe" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.7"/>
+  <ellipse cx="250" cy="195" rx="140" ry="100" fill="none" stroke="#c7d2fe" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5" transform="rotate(30, 250, 195)"/>
+  <ellipse cx="250" cy="195" rx="160" ry="115" fill="none" stroke="#c7d2fe" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.6" transform="rotate(-20, 250, 195)"/>
+
+  <!-- Noyau (centre) -->
+  <circle cx="250" cy="195" r="45" fill="url(#nucleusGrad)" opacity="0.15"/>
+  <circle cx="250" cy="195" r="38" fill="url(#nucleusGrad)" opacity="0.25"/>
+
+  <!-- Protons dans le noyau -->
+  <circle cx="237" cy="182" r="12" fill="url(#protonGrad)"/>
+  <text x="237" y="186" text-anchor="middle" fill="white" font-size="10" font-weight="700">p⁺</text>
+
+  <circle cx="263" cy="182" r="12" fill="url(#protonGrad)"/>
+  <text x="263" y="186" text-anchor="middle" fill="white" font-size="10" font-weight="700">p⁺</text>
+
+  <circle cx="250" cy="205" r="12" fill="url(#protonGrad)"/>
+  <text x="250" y="209" text-anchor="middle" fill="white" font-size="10" font-weight="700">p⁺</text>
+
+  <!-- Neutrons dans le noyau -->
+  <circle cx="237" cy="207" r="11" fill="url(#neutronGrad)"/>
+  <text x="237" y="211" text-anchor="middle" fill="white" font-size="9" font-weight="700">n</text>
+
+  <circle cx="263" cy="207" r="11" fill="url(#neutronGrad)"/>
+  <text x="263" y="211" text-anchor="middle" fill="white" font-size="9" font-weight="700">n</text>
+
+  <circle cx="250" cy="178" r="11" fill="url(#neutronGrad)"/>
+  <text x="250" y="182" text-anchor="middle" fill="white" font-size="9" font-weight="700">n</text>
+
+  <!-- Électrons sur les orbites -->
+  <circle cx="440" cy="195" r="9" fill="url(#electronGrad)">
+    <animateTransform attributeName="transform" type="rotate" from="0 250 195" to="360 250 195" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  <text x="440" y="199" text-anchor="middle" fill="white" font-size="8" font-weight="700">
+    <animateTransform attributeName="transform" type="rotate" from="0 250 195" to="360 250 195" dur="6s" repeatCount="indefinite"/>
+    e⁻
+  </text>
+
+  <circle cx="110" cy="120" r="9" fill="url(#electronGrad)">
+    <animateTransform attributeName="transform" type="rotate" from="120 250 195" to="480 250 195" dur="4.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="350" cy="310" r="9" fill="url(#electronGrad)">
+    <animateTransform attributeName="transform" type="rotate" from="240 250 195" to="600 250 195" dur="5.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Légende -->
+  <rect x="20" y="340" width="460" height="50" rx="10" fill="white" fill-opacity="0.7" stroke="#e2e8f0"/>
+
+  <!-- Légende proton -->
+  <circle cx="60" cy="365" r="8" fill="url(#protonGrad)"/>
+  <text x="75" y="369" fill="#1a2332" font-size="12" font-weight="600">Proton (p⁺)</text>
+
+  <!-- Légende neutron -->
+  <circle cx="195" cy="365" r="8" fill="url(#neutronGrad)"/>
+  <text x="210" y="369" fill="#1a2332" font-size="12" font-weight="600">Neutron (n)</text>
+
+  <!-- Légende électron -->
+  <circle cx="340" cy="365" r="8" fill="url(#electronGrad)"/>
+  <text x="355" y="369" fill="#1a2332" font-size="12" font-weight="600">Électron (e⁻)</text>
+
+  <!-- Label noyau -->
+  <line x1="285" y1="170" x2="340" y2="130" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="345" y="128" fill="#4f46e5" font-size="13" font-weight="700">Noyau</text>
+  <text x="345" y="143" fill="#64748b" font-size="10">(protons + neutrons)</text>
+</svg>

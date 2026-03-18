@@ -1,0 +1,251 @@
+============================================================
+  RÉSUMÉ DE SÉANCE — 17 mars 2026 (session 5)
+  Plateforme de révision Physique-Chimie
+============================================================
+
+DATE : Lundi 17 mars 2026
+
+
+------------------------------------------------------------
+1. CE QUI A ÉTÉ FAIT AUJOURD'HUI
+------------------------------------------------------------
+
+### A) Branchement gamification (étape 3)
+  - XPToast.tsx créé (notifications animées)
+  - Quiz, Flashcards, Exercices branchés au moteur
+  - Pages chapitre v6 → passent chapterId + xpConfig
+
+### B) Anti-triche + Input obligatoire
+  - Quiz v4 : shuffle questions + réponses, XP 1x/jour
+  - Flashcards v3 : input texte obligatoire
+  - Exercices v4 : input + auto-évaluation (😰+1 / 😕+2 / 😎+3 XP)
+  - Anti-triche exercices persistant en localStorage
+
+### C) Répétition espacée SRS (étape 4)
+  - srs.ts : algorithme SM-2 complet (4 boutons Anki)
+  - FlashcardsPlayer v4 : écran de choix + 4 boutons + intervalles
+  - Catégorie "En apprentissage" ajoutée
+
+### D) DailyLogin + CoursTracker
+  - DailyLoginTracker.tsx dans le BaseLayout
+  - CoursTracker.tsx (scroll ≥ 90% = cours lu)
+  - Pages chapitre v7
+
+### E) Dashboard d'accueil (étape 6)
+  - Dashboard.tsx (2 versions : découverte + actif)
+  - index.astro remplacé
+
+### F) Phase 4 — Design + Accessibilité DYS
+  - a11y-engine.ts (16 paramètres, 5 profils DYS)
+  - accessibility.css (design system complet)
+  - AccessibilityPanel.tsx (panneau ⚙️)
+  - ReadingGuide.tsx (règle de lecture)
+  - 7 thèmes : Clair, Gris clair, Gris, Sombre, Sépia, Nuit, Auto
+  - Mode Auto : suit l'heure du jour
+
+### G) Migration CSS variables
+  - QuizPlayer v5, FlashcardsPlayer v5, ExercicesPlayer v5
+  - Dashboard v2, XPToast v2
+  - theme-tokens.ts
+  - Tous les composants s'adaptent à tous les thèmes
+
+### H) KaTeX + TTS + Pages badges/stats
+  - MathText.tsx : rendu des formules $...$ dans les composants
+  - TextToSpeech.tsx : bouton "🔊 Écouter" (Web Speech API)
+  - BadgesPage.tsx + badges.astro : vitrine des 23 badges
+  - StatsPage.tsx + stats.astro : stats détaillées + parcours de rangs
+
+### I) Bugfixes
+  - dailyLogin : +5 XP à chaque page → corrigé (1x/jour)
+  - Quiz 1ère question sautée → guard d'hydratation ajouté
+  - QuizPlayer : q.original.question → cur.original.explanation
+  - Daily login : 10 → 5 XP
+
+
+------------------------------------------------------------
+2. CE QUI EST NOUVEAU ET VISIBLE SUR LE SITE
+------------------------------------------------------------
+
+### Page d'accueil (localhost:4321/)
+  NOUVEL ÉLÈVE :
+  - Page de bienvenue avec 5 étapes illustrées
+  - Choix du niveau (Collège/Lycée/Labo/Outils)
+
+  ÉLÈVE ACTIF :
+  - Bandeau : rang (Quark → Multivers) + XP + barre de progression
+  - Flamme streak (🔥 X jours)
+  - Révision du jour : flashcards SRS à revoir + quiz recommandé
+  - Ma progression : barres par chapitre avec icônes 📖✏️❓🃏
+  - Mes stats : quiz faits, flashcards, exercices, cours lus, etc.
+  - Mes badges : grille des badges débloqués
+  - Reprendre : lien vers le dernier chapitre
+  - Accès rapide : Collège / Lycée / Labo / Outils / Mémorisation
+
+### Page chapitre (ex: /college/3eme/chimie/atome)
+  - Onglet Cours : contenu MDX + encadrés colorés + XP au scroll
+  - Onglet Exercices : input obligatoire + auto-évaluation + XP
+  - Onglet Quiz : shuffle + anti-triche + XP + formules KaTeX
+  - Onglet Flashcards : SRS Anki 4 boutons + intervalles + input
+  - Toasts XP en bas à droite après chaque action
+  - Boutons TTS "🔊 Écouter" (à brancher manuellement)
+
+### Page badges (localhost:4321/badges)
+  - Tous les 23 badges affichés
+  - Débloqués en couleur, verrouillés en gris
+  - Niveaux bronze/argent/or
+  - Filtres par catégorie
+
+### Page stats (localhost:4321/stats)
+  - Résumé profil (rang + streak + badges)
+  - Stats globales (quiz, flashcards, exercices, etc.)
+  - Parcours de rangs (timeline des 14 rangs)
+  - Moyennes (XP/jour, taux quiz parfaits, etc.)
+
+### Panneau accessibilité (bouton ⚙️ en bas à gauche)
+  7 THÈMES :
+  - ☀️ Clair
+  - 🌤️ Gris clair (nouveau)
+  - 🌥️ Gris moyen (nouveau)
+  - 🌙 Sombre
+  - 📜 Sépia
+  - 🌅 Nuit (lumière bleue réduite)
+  - 🔄 Auto (clair→gris→sombre selon l'heure)
+
+  5 PROFILS DYS (1 clic) :
+  - ⚙️ Par défaut
+  - 📖 Mode Dyslexie (OpenDyslexic + espacement)
+  - 🖱️ Mode Dyspraxie (grands clics + curseur agrandi)
+  - 🎯 Mode TDAH (concentration + pas d'animations)
+  - 👁️ Confort visuel (sombre + très grand)
+
+  RÉGLAGES GRANULAIRES :
+  - 5 polices (Standard, OpenDyslexic, Comic Sans, Verdana, Arial)
+  - 3 tailles de texte
+  - 3 niveaux d'interlignage
+  - 3 niveaux d'espacement lettres et mots
+  - 3 largeurs de ligne
+  - Règle de lecture (suit le curseur)
+  - Surlignage des liens
+  - Désactivation des animations
+  - Mode concentration
+  - Curseur agrandi
+
+  4 ENCADRÉS MDX STYLISÉS :
+  - Définitions (bleu)
+  - Exemples (vert)
+  - À savoir (jaune)
+  - Règles d'or (rouge)
+
+
+------------------------------------------------------------
+3. CE QUI RESTE À FAIRE
+------------------------------------------------------------
+
+  DESIGN :
+  [🔲] Design pass complet (navigation, cartes, layout, responsive, logo)
+  [🔲] Animations de transition
+
+  FONCTIONNALITÉS :
+  [🔲] Brancher TTS dans les 3 composants (3 lignes par fichier)
+  [🔲] Brancher MathText dans FlashcardsPlayer et ExercicesPlayer
+  [🔲] Objectifs hebdomadaires
+  [🔲] Speed Quiz / Survie Flashcards
+  [🔲] Synthèse vocale sur le cours complet
+
+  CONTENU :
+  [🔲] Convertir les HTML de 3ème en MDX + JSON
+  [🔲] Générer le reste des chapitres
+
+  DÉPLOIEMENT :
+  [🔲] SEO (meta tags, sitemap, schema.org)
+  [🔲] Mise en ligne (Vercel/Netlify)
+
+  PLUS TARD :
+  [🔲] Auth (Supabase) + Paiement (Stripe)
+  [🔲] Labo simulations
+  [🔲] PWA
+
+
+------------------------------------------------------------
+4. VERSIONS ACTUELLES DES COMPOSANTS
+------------------------------------------------------------
+
+  QuizPlayer         v5  (CSS vars + shuffle + anti-triche + hydration guard)
+  FlashcardsPlayer   v5  (CSS vars + SRS Anki + input)
+  ExercicesPlayer    v5  (CSS vars + input + auto-éval + anti-triche)
+  Dashboard          v2  (CSS vars + 2 versions)
+  XPToast            v2  (CSS vars)
+  ChapterTabs        v1  (Astro, inchangé)
+  DailyLoginTracker  v1
+  CoursTracker       v1
+  MathText           v1  (nouveau)
+  TextToSpeech       v1  (nouveau)
+  BadgesPage         v1  (nouveau)
+  StatsPage          v1  (nouveau)
+  AccessibilityPanel v1
+  ReadingGuide       v1
+
+  Moteurs :
+  engine.ts          (gamification — bugfix dailyLogin)
+  config.ts          (daily login 5 XP)
+  srs.ts             (SRS + catégorie "en apprentissage")
+  a11y-engine.ts     (7 thèmes + mode auto)
+
+  Pages chapitre : v7 (CoursTracker intégré)
+
+
+------------------------------------------------------------
+5. FICHIERS LIVRÉS AUJOURD'HUI
+------------------------------------------------------------
+
+  Gamification branchée :
+    XPToast.tsx / v2
+    QuizPlayer v2 → v3 → v4 → v5 (+ bugfix hydration)
+    FlashcardsPlayer v2 → v3 → v4 → v5
+    ExercicesPlayer v2 → v3 → v4 → v5
+    college_chapitre v6 → v7
+    lycee_chapitre v7
+
+  SRS :
+    srs.ts (+ catégorie "en apprentissage")
+
+  Tracking :
+    DailyLoginTracker.tsx
+    CoursTracker.tsx
+
+  Dashboard :
+    Dashboard.tsx / v2
+    index.astro
+
+  Accessibilité :
+    a11y-engine.ts (7 thèmes + auto)
+    accessibility.css (+ thèmes gris clair/gris)
+    AccessibilityPanel.tsx (7 thèmes)
+    ReadingGuide.tsx
+    theme-tokens.ts
+
+  KaTeX + TTS + Pages :
+    MathText.tsx
+    TextToSpeech.tsx
+    BadgesPage.tsx + badges.astro
+    StatsPage.tsx + stats.astro
+
+  Bugfixes :
+    engine.ts (dailyLogin corrigé)
+    QuizPlayer (hydration guard + cur.original.explanation)
+    config.ts (daily login 5 XP)
+
+  Protocoles :
+    PROTOCOLE_BRANCHEMENT_GAMIFICATION.txt
+    PROTOCOLE_CORRECTIONS_V3.txt
+    PROTOCOLE_V4_ANTICHEAT_INPUT.txt
+    PROTOCOLE_SRS.txt
+    PROTOCOLE_DAILY_COURS.txt
+    PROTOCOLE_DASHBOARD.txt
+    PROTOCOLE_FIXES_XP_SRS.txt
+    PROTOCOLE_DESIGN_ACCESSIBILITE.txt
+    PROTOCOLE_THEMES_MIGRATION.txt
+    PROTOCOLE_KATEX.txt
+    PROTOCOLE_TTS_DETAILLE.txt
+
+============================================================

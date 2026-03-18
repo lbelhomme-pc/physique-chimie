@@ -1,0 +1,61 @@
+Fichiers minimaux mis en place le 09/03/2026
+============================================
+
+1. Layout minimal
+-----------------
+src/layouts/BaseLayout.astro
+
+Rôle :
+- structure HTML de base
+- barre de navigation simple
+- slot principal pour afficher les pages
+
+2. Pages fixes minimales
+------------------------
+src/pages/index.astro
+src/pages/college/index.astro
+src/pages/lycee/index.astro
+src/pages/outils-methodes/index.astro
+src/pages/laboratoire/index.astro
+src/pages/memorisation/index.astro
+src/pages/memorisation/revision-du-jour.astro
+src/pages/memorisation/mega-quiz.astro
+src/pages/memorisation/mega-flashcards.astro
+
+Rôle :
+- supprimer les pages blanches
+- tester les routes fixes
+- vérifier que le layout fonctionne
+
+3. Données minimales pour le collège
+------------------------------------
+src/data/collegeData.ts
+
+Rôle :
+- stocker une version minimale des niveaux, matières et chapitres
+- servir de base temporaire pour les pages dynamiques
+
+Contenu test actuel :
+- 6eme : physique / chimie vides
+- 5eme : physique / chimie vides
+- 4eme : physique / chimie vides
+- 3eme :
+  * physique vide
+  * chimie : atome, ions, ph
+
+4. Pages dynamiques minimales du collège
+----------------------------------------
+src/pages/college/[niveau]/index.astro
+src/pages/college/[niveau]/[matiere]/index.astro
+src/pages/college/[niveau]/[matiere]/[chapitre].astro
+
+Rôle :
+- tester les paramètres dynamiques
+- vérifier que getStaticPaths fonctionne
+- tester les niveaux, matières et chapitres
+
+Ce que ces pages affichent
+--------------------------
+- page niveau : le niveau + liens vers Physique et Chimie
+- page matière : la matière + liste des chapitres
+- page chapitre : niveau, matière, chapitre + liens de retour

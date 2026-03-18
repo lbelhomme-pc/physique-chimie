@@ -1,0 +1,171 @@
+============================================================
+  RÉSUMÉ DE SÉANCE — 10 mars 2026 (session 3)
+  Plateforme de révision Physique-Chimie
+============================================================
+
+DATE : Lundi 10 mars 2026
+DURÉE : ~2h30
+
+
+------------------------------------------------------------
+1. CE QUI A ÉTÉ FAIT AUJOURD'HUI
+------------------------------------------------------------
+
+### A) PHASE 1 COMPLÉTÉE — Système d'onglets
+
+  - Composant ChapterTabs.astro créé (4 onglets, badges, navigation clavier)
+  - Pages chapitre collège + lycée mises à jour
+  - Bug corrigé : allMeta not defined (glob dupliqué dans getStaticPaths)
+  - Test réussi sur /college/3eme/chimie/atome
+
+
+### B) PHASE 2 COMPLÉTÉE — Composants interactifs
+
+  3 composants React créés, testés et fonctionnels :
+
+  ✅ QuizPlayer.tsx
+     → Question par question, feedback, score, récapitulatif
+
+  ✅ FlashcardsPlayer.tsx
+     → Animation flip 3D, tri "Je sais"/"À revoir", mélange, stats
+
+  ✅ ExercicesPlayer.tsx
+     → Correction cachée, filtres par difficulté, vue liste/exercice,
+       pastilles de navigation
+
+
+### C) Conversion HTML → MDX/JSON (exemple)
+
+  - Cours atome HTML → cours.mdx (formules LaTeX, encadrés, vidéo)
+  - Exercices atome HTML → exercices.json enrichi
+  - Guide de conversion créé (setup KaTeX pour Astro)
+
+  → Décision : attendre que le moteur soit fini avant de
+    convertir en masse (pour verrouiller les formats)
+
+
+### D) PHASE 5 — Gamification (conception + début implémentation)
+
+  Documents de design produits :
+  - GAMIFICATION_BRAINSTORM.txt (première version)
+  - GAMIFICATION_SYSTEME_COMPLET.txt (version finale)
+    → XP, rangs (14), badges (23), streaks, combos, répétition espacée,
+      objectifs hebdomadaires, défis chronométrés, événements saisonniers
+  - PAGE_ACCUEIL_DASHBOARD.txt
+    → 8 sections, version découverte + version élève actif,
+      header global avec XP/streak
+
+  Code livré :
+  ✅ meta.json FORMAT VERROUILLÉ (blocs xp + seo ajoutés)
+  ✅ config.ts — rangs, badges, constantes
+  ✅ engine.ts — moteur complet (XP, streaks, badges, combos, progression)
+  ✅ useGamification.ts — hook React + notifications
+
+
+------------------------------------------------------------
+2. ÉTAT ACTUEL DU PROJET
+------------------------------------------------------------
+
+  [✅] Routes collège + lycée dynamiques
+  [✅] levels.ts unifié
+  [✅] Lecture automatique des meta.json
+  [✅] Fil d'Ariane
+  [✅] Pages outils-méthodes / laboratoire / mémorisation (squelettes)
+  [✅] Système d'onglets (Cours/Exercices/Quiz/Flashcards)
+  [✅] QuizPlayer interactif
+  [✅] FlashcardsPlayer interactif
+  [✅] ExercicesPlayer interactif
+  [✅] Format meta.json VERROUILLÉ (xp + seo)
+  [✅] Moteur gamification (config + engine + hooks)
+
+  [🔲] Brancher les composants au moteur gamification (étape 3)
+  [🔲] Répétition espacée / Anki (étape 4)
+  [🔲] Header avec XP + streak (étape 5)
+  [🔲] Page d'accueil dashboard (étape 6)
+  [🔲] Pages badges + stats (étape 7)
+  [🔲] Design + accessibilité
+  [🔲] Auth / comptes (Supabase)
+  [🔲] Paiement (Stripe)
+  [🔲] SEO / déploiement
+  [🔲] Contenu en masse
+  [🔲] Laboratoire de simulations
+
+
+------------------------------------------------------------
+3. ARBORESCENCE DES FICHIERS CRÉÉS
+------------------------------------------------------------
+
+  src/components/pedagogie/
+  ├── ChapterTabs.astro
+  ├── QuizPlayer.tsx
+  ├── FlashcardsPlayer.tsx
+  └── ExercicesPlayer.tsx
+
+  src/data/
+  ├── levels.ts
+  ├── gamification/
+  │   ├── config.ts
+  │   ├── engine.ts
+  │   └── useGamification.ts
+  └── chapters/
+      ├── college/3eme/chimie/atome/  (chapitre complet)
+      ├── college/3eme/chimie/ions/
+      ├── college/3eme/chimie/ph/
+      └── college/3eme/physique/electricite/
+
+
+------------------------------------------------------------
+4. PROCHAINE SESSION — À FAIRE
+------------------------------------------------------------
+
+  Étape 3 : Brancher QuizPlayer, FlashcardsPlayer, ExercicesPlayer
+            au moteur gamification (attribution d'XP)
+
+  Étape 4 : Répétition espacée (modifier FlashcardsPlayer,
+            4 boutons Anki, algorithme SM-2)
+
+  Étape 5 : Header global avec XP + barre de progression + streak
+
+  Étape 6 : Page d'accueil = tableau de bord complet
+
+  → Le format meta.json est VERROUILLÉ. Tu peux commencer
+    à produire du contenu en parallèle si tu veux.
+
+
+------------------------------------------------------------
+5. FICHIERS LIVRÉS AUJOURD'HUI
+------------------------------------------------------------
+
+  Phase 1 — Onglets :
+    ChapterTabs.astro
+    GUIDE_ONGLETS.txt
+
+  Phase 2 — Composants :
+    QuizPlayer.tsx           + PROTOCOLE_QUIZPLAYER.txt
+    FlashcardsPlayer.tsx     + PROTOCOLE_FLASHCARDS.txt
+    ExercicesPlayer.tsx      + PROTOCOLE_EXERCICES.txt
+    college_chapitre_v5.astro (version finale Phase 2)
+    lycee_chapitre_v5.astro   (version finale Phase 2)
+
+  Conversion HTML :
+    cours_atome_converted.mdx
+    exercices_atome_converted.json
+    meta_atome_converted.json
+    GUIDE_CONVERSION_HTML.txt
+
+  Gamification — Design :
+    GAMIFICATION_BRAINSTORM.txt
+    GAMIFICATION_SYSTEME_COMPLET.txt
+    PAGE_ACCUEIL_DASHBOARD.txt
+
+  Gamification — Code :
+    meta_template.json (FORMAT VERROUILLÉ)
+    config.ts
+    engine.ts
+    useGamification.ts
+    PROTOCOLE_GAMIFICATION.txt
+
+  Récap :
+    Plan_Travail_Detaille_Plateforme_PC.md
+
+============================================================

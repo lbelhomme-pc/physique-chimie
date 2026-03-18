@@ -1,0 +1,29 @@
+---
+// src/pages/laboratoire.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout title="Laboratoire — Physique-Chimie" description="Simulations interactives de physique-chimie : circuits, optique, mécanique et chimie.">
+  <div style="text-align:center; padding: 3rem 1rem;">
+    <span style="font-size:3rem;">🧪</span>
+    <h1 style="font-size:1.6rem; font-weight:800; color:var(--accent-primary); margin:0.5rem 0;">Laboratoire</h1>
+    <p style="color:var(--text-muted); font-size:1rem; margin-bottom:2rem;">Simulations interactives de physique-chimie.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:1rem; max-width:700px; margin:0 auto;">
+      <div class="card" style="padding:1.5rem; text-align:center; opacity:0.5;">
+        <span style="font-size:2rem;">⚡</span>
+        <p style="font-weight:600; margin-top:0.5rem;">Circuits électriques</p>
+        <span style="font-size:0.75rem; color:var(--accent-warning);">À venir</span>
+      </div>
+      <div class="card" style="padding:1.5rem; text-align:center; opacity:0.5;">
+        <span style="font-size:2rem;">🔭</span>
+        <p style="font-weight:600; margin-top:0.5rem;">Optique</p>
+        <span style="font-size:0.75rem; color:var(--accent-warning);">À venir</span>
+      </div>
+      <div class="card" style="padding:1.5rem; text-align:center; opacity:0.5;">
+        <span style="font-size:2rem;">⚛️</span>
+        <p style="font-weight:600; margin-top:0.5rem;">Structure de l'atome</p>
+        <span style="font-size:0.75rem; color:var(--accent-warning);">À venir</span>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

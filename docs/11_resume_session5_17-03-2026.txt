@@ -1,0 +1,256 @@
+============================================================
+  RÉSUMÉ DE SÉANCE — 17 mars 2026 (session 5)
+  Plateforme de révision Physique-Chimie
+============================================================
+
+DATE : Lundi 17 mars 2026
+DURÉE : ~4h (session longue)
+
+
+------------------------------------------------------------
+1. CE QUI A ÉTÉ FAIT AUJOURD'HUI
+------------------------------------------------------------
+
+### A) Branchement gamification complet
+  - XPToast, Quiz/Flash/Exos branchés au moteur XP
+  - Anti-triche : quiz 1x/jour, exercices 1x/vie
+  - Input obligatoire + auto-évaluation (😰/😕/😎)
+
+### B) Répétition espacée SRS (Anki)
+  - srs.ts : algorithme SM-2, 4 boutons, intervalles 1j→365j
+  - FlashcardsPlayer avec écran de choix + catégorie "En apprentissage"
+
+### C) DailyLogin + CoursTracker
+  - +5 XP/jour connexion, streak automatique
+  - Cours lu au scroll ≥ 90% → +10 XP
+
+### D) Dashboard d'accueil (v1 → v3)
+  - v1 : version complète avec toutes les sections
+  - v3 : version compacte, stats pills, Mega Flash/Quiz
+
+### E) Accessibilité DYS complète
+  - a11y-engine (16 paramètres, 5 profils DYS)
+  - 7 thèmes (Clair, Gris clair, Gris, Sombre, Sépia, Nuit, Auto)
+  - Panneau ⚙️, règle de lecture, OpenDyslexic
+
+### F) Migration CSS variables
+  - Tous les composants React (v5→v7) utilisent var(--xxx)
+  - Tous les thèmes fonctionnent partout
+
+### G) KaTeX + TTS
+  - MathText.tsx : formules $...$ dans quiz/exos/flashcards
+  - TextToSpeech.tsx : bouton 🔊 partout (cours, quiz, flash, exos)
+  - CoursTracker v2 : TTS cours entier + badge "déjà lu"
+
+### H) Bugfixes
+  - dailyLogin : XP à chaque page → corrigé (1x/jour)
+  - Quiz 1ère question sautée → hydration guard
+  - Double icône TTS → corrigé
+  - q.original.question → cur.original.explanation
+
+### I) Design pass complet
+  - design-system.css : fond bleu pâle, police Plus Jakarta Sans
+  - Navigation en pills avec emojis
+  - BaseLayout redesigné + footer + ScrollToTop
+  - Pages collège/lycée : pills niveaux + cartes gradient Chimie/Physique
+  - ChapterTabs v2 : pills arrondies (📖 Cours | ✏️ Exos | 🎯 Quiz | 🃏 Flash)
+  - Page profil unifiée (/profil) : stats + badges + rangs en 1 page
+  - Noms lycée raccourcis (1ère Spé, Term. ES, etc.)
+  - Fil d'Ariane supprimé (la nav = le fil d'Ariane)
+
+
+------------------------------------------------------------
+2. ÉTAT COMPLET DU PROJET
+------------------------------------------------------------
+
+  ✅ TERMINÉ :
+  ──────────
+  [✅] Routes dynamiques collège + lycée
+  [✅] levels.ts unifié
+  [✅] Lecture automatique meta.json
+  [✅] Format meta.json VERROUILLÉ (xp + seo)
+  [✅] Système d'onglets v2 (pills)
+  [✅] QuizPlayer v7 (shuffle, anti-triche, KaTeX, TTS)
+  [✅] FlashcardsPlayer v7 (SRS Anki, input, KaTeX, TTS)
+  [✅] ExercicesPlayer v7 (input, auto-éval, anti-triche, KaTeX, TTS)
+  [✅] Moteur gamification complet (XP, rangs, badges, streaks, combos)
+  [✅] Moteur SRS (répétition espacée SM-2)
+  [✅] DailyLoginTracker + CoursTracker v2
+  [✅] XPToast v2 (notifications)
+  [✅] Dashboard v3 (compact, stats pills, Mega Flash/Quiz)
+  [✅] Page profil unifiée (stats + badges + rangs)
+  [✅] Design system (fond bleu pâle, pills, cartes, responsive)
+  [✅] Accessibilité DYS (7 thèmes, 5 profils, règle de lecture)
+  [✅] 7 thèmes + mode Auto jour/nuit
+  [✅] Migration CSS variables (tous composants)
+  [✅] KaTeX (formules mathématiques)
+  [✅] TTS (synthèse vocale partout)
+  [✅] Navigation pills + footer + ScrollToTop
+  [✅] Pages collège/lycée redesignées
+  [✅] Pages chapitre v8 (onglets pills + backUrl)
+  [✅] MathText + TextToSpeech composants
+  [✅] Anti-triche (quiz 1x/jour, exos 1x/vie)
+
+  🔲 RESTE À FAIRE :
+  ──────────────────
+  [🔲] Contenu 3ème chimie (ions, pH + autres)         — Phase 3
+  [🔲] Contenu 3ème physique (électricité + autres)    — Phase 3
+  [🔲] Contenu autres niveaux (6e→2nde→Term.)          — Phase 3
+  [🔲] Page Outils & Méthodes (layout + contenu)       — Phase 3
+  [🔲] Page Laboratoire (layout + simulations)          — Phase 9
+  [🔲] SEO (meta tags, sitemap, schema.org, OG)        — Phase 8
+  [🔲] Déploiement (Vercel/Netlify)                    — Phase 8
+  [🔲] Auth / comptes utilisateurs (Supabase)          — Phase 6
+  [🔲] Paiement / abonnement (Stripe)                  — Phase 7
+  [🔲] Barre de recherche fonctionnelle                — amélioration
+  [🔲] Mega Flashcards / Mega Quiz (agréger chapitres) — amélioration
+  [🔲] Objectifs hebdomadaires                          — amélioration
+  [🔲] Escape game                                      — post-lancement
+  [🔲] PWA / app mobile (Capacitor)                     — post-lancement
+
+
+------------------------------------------------------------
+3. VERSIONS ACTUELLES DES COMPOSANTS
+------------------------------------------------------------
+
+  QuizPlayer         v7
+  FlashcardsPlayer   v7
+  ExercicesPlayer    v7
+  CoursTracker       v2
+  Dashboard          v3
+  XPToast            v2
+  ChapterTabs        v2
+  DailyLoginTracker  v1
+  MathText           v1
+  TextToSpeech       v1
+  ProfilePage        v1
+  AccessibilityPanel v1
+  ReadingGuide       v1
+  ScrollToTop        v1
+
+  Pages chapitre     v8
+  Pages collège      v2
+  Pages lycée        v2
+
+  Moteurs :
+  engine.ts          (gamification — bugfixé)
+  config.ts          (daily login 5 XP)
+  srs.ts             (SRS + catégorie "en apprentissage")
+  a11y-engine.ts     (7 thèmes + mode auto)
+
+  CSS :
+  design-system.css  (design complet + accessibilité)
+
+
+------------------------------------------------------------
+4. ESTIMATION — SESSIONS RESTANTES AVANT LANCEMENT
+------------------------------------------------------------
+
+Pour un site à 80%+ prêt au lancement :
+
+SESSION 6 — Contenu 3ème (la plus grosse)          ~3-4h
+  • Convertir tous les HTML de 3ème chimie en MDX+JSON
+  • Convertir tous les HTML de 3ème physique en MDX+JSON
+  • Vérifier le rendu KaTeX, les exercices, les quiz
+  • Au moins 8-10 chapitres complets
+
+SESSION 7 — SEO + Déploiement                      ~2h
+  • Meta tags, sitemap.xml, robots.txt
+  • Schema.org (EducationalContent)
+  • Open Graph (partage réseaux sociaux)
+  • Déployer sur Vercel ou Netlify
+  • Nom de domaine
+  • Le site est EN LIGNE
+
+SESSION 8 — Outils & Méthodes + polish             ~2-3h
+  • Page Outils (formulaires, convertisseur, calculatrice)
+  • Page Mémorisation (Mega Flash + Mega Quiz fonctionnels)
+  • Barre de recherche fonctionnelle
+  • Derniers ajustements design
+  • Tests mobiles
+
+SESSION 9 — Auth + Paiement (optionnel au lancement) ~3h
+  • Supabase : inscription, connexion, profil
+  • Migration localStorage → base de données
+  • Stripe : abonnement premium
+  • Verrouillage contenu payant
+
+SESSIONS 10+ — Post-lancement
+  • Contenu autres niveaux (6e, 5e, 4e, lycée)
+  • Laboratoire de simulations
+  • Escape game
+  • PWA / app mobile
+  • Améliorations continues
+
+  ┌─────────────────────────────────────────────┐
+  │  RÉSUMÉ : 3-4 sessions avant mise en ligne  │
+  │  (sessions 6, 7, 8)                         │
+  │                                             │
+  │  Session 6 : Contenu 3ème                   │
+  │  Session 7 : SEO + mise en ligne            │
+  │  Session 8 : Outils + polish                │
+  │                                             │
+  │  → Le site est en ligne avec ~10 chapitres  │
+  │    et toutes les fonctionnalités.           │
+  │                                             │
+  │  L'auth/paiement peut être ajouté APRÈS     │
+  │  le lancement en mode gratuit.              │
+  └─────────────────────────────────────────────┘
+
+
+------------------------------------------------------------
+5. ARBORESCENCE COMPLÈTE
+------------------------------------------------------------
+
+  src/
+  ├── components/
+  │   ├── pedagogie/
+  │   │   ├── ChapterTabs.astro      (v2)
+  │   │   ├── XPToast.tsx            (v2)
+  │   │   ├── MathText.tsx
+  │   │   ├── TextToSpeech.tsx
+  │   │   ├── DailyLoginTracker.tsx
+  │   │   ├── CoursTracker.tsx       (v2)
+  │   │   ├── Dashboard.tsx          (v3)
+  │   │   ├── ProfilePage.tsx
+  │   │   ├── QuizPlayer.tsx         (v7)
+  │   │   ├── FlashcardsPlayer.tsx   (v7)
+  │   │   └── ExercicesPlayer.tsx    (v7)
+  │   ├── accessibility/
+  │   │   ├── AccessibilityPanel.tsx
+  │   │   └── ReadingGuide.tsx
+  │   └── ui/
+  │       └── ScrollToTop.tsx
+  ├── data/
+  │   ├── levels.ts
+  │   ├── gamification/
+  │   │   ├── config.ts
+  │   │   ├── engine.ts
+  │   │   ├── useGamification.ts
+  │   │   └── srs.ts
+  │   ├── accessibility/
+  │   │   └── a11y-engine.ts
+  │   └── chapters/
+  │       ├── college/3eme/chimie/atome/  (complet)
+  │       ├── college/3eme/chimie/ions/
+  │       ├── college/3eme/chimie/ph/
+  │       └── college/3eme/physique/electricite/
+  ├── layouts/
+  │   └── BaseLayout.astro
+  ├── pages/
+  │   ├── index.astro (dashboard)
+  │   ├── profil.astro
+  │   ├── college/
+  │   │   ├── index.astro
+  │   │   └── [niveau]/
+  │   │       ├── index.astro
+  │   │       └── [matiere]/[chapitre].astro (v8)
+  │   └── lycee/
+  │       ├── index.astro
+  │       └── [niveau]/
+  │           ├── index.astro
+  │           └── [matiere]/[chapitre].astro (v8)
+  └── styles/
+      └── design-system.css
+
+============================================================

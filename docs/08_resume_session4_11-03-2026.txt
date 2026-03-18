@@ -1,0 +1,190 @@
+============================================================
+  RÉSUMÉ DE SÉANCE — 11 mars 2026 (session 4)
+  Plateforme de révision Physique-Chimie
+============================================================
+
+DATE : Mardi 11 mars 2026
+
+
+------------------------------------------------------------
+1. CE QUI A ÉTÉ FAIT AUJOURD'HUI
+------------------------------------------------------------
+
+### A) Étape 3 — Branchement composants ↔ gamification
+
+  - Composant XPToast.tsx créé (notifications animées en bas à droite)
+  - QuizPlayer branché → appelle engine.completeQuiz() en fin de quiz
+  - FlashcardsPlayer branché → appelle engine.completeFlashcards()
+  - ExercicesPlayer branché → appelle engine.completeExercice()
+  - Pages chapitre v6 : passent chapterId + xpConfig aux composants
+  - Test réussi : quiz 10/10 → toast XP affiché
+
+
+### B) Corrections anti-triche + input obligatoire
+
+  QuizPlayer v3 → v4 :
+  - Questions ET réponses mélangées à chaque tentative
+  - Anti-triche : XP donnés 1 seule fois par jour par quiz
+  - Bandeau informatif si déjà fait aujourd'hui
+  - Bouton "Recommencer" = re-shuffle complet
+
+  FlashcardsPlayer v2 → v3 → v4 :
+  - Input texte OBLIGATOIRE (l'élève doit écrire avant de voir)
+  - Comparaison côte à côte (sa réponse vs bonne réponse)
+  - Auto-évaluation (2 boutons : Incorrect/Partiel ou Correct)
+  - Mélange automatique au recommencement
+
+  ExercicesPlayer v3 → v4 :
+  - Input texte OBLIGATOIRE
+  - Auto-évaluation 3 niveaux avec XP proportionnels :
+    😰 Incorrect (+1 XP) / 😕 Partiel (+2 XP) / 😎 Correct (+3 XP)
+  - Anti-triche persistant (localStorage, 1 seule récompense par exo)
+  - Indicateur ✅ sur les exercices déjà consultés
+
+
+### C) Étape 4 — Répétition espacée (SRS / Anki)
+
+  Moteur SRS créé (srs.ts) :
+  - Algorithme SM-2 simplifié
+  - 4 boutons : 😰 Oublié / 😕 Difficile / 🙂 Bien / 😎 Facile
+  - Intervalles progressifs : 1j → 3j → 7j → 18j → 45j → ... → 365j max
+  - Stockage par carte dans localStorage
+  - Méthodes : review(), getDueCards(), getNewCards(), getChapterStats()
+  - Aperçu des intervalles sur chaque bouton
+
+  FlashcardsPlayer v4 (refonte complète) :
+  - Écran de choix : "Révision du jour" / "Nouvelles cartes" / "Toutes"
+  - Stats SRS affichées (à revoir / nouvelles / maîtrisées)
+  - 4 boutons Anki avec intervalle affiché sous chaque bouton
+  - Option "Revoir les cartes oubliées" en fin de session
+  - Barre de progression mémorisation
+
+
+### D) Branchement dailyLogin + tracking cours lu
+
+  DailyLoginTracker.tsx :
+  - Composant invisible dans le BaseLayout
+  - Déclenche engine.dailyLogin() 1 fois par jour
+  - Gère le streak automatiquement
+  - +10 XP connexion + bonus streak (7j=+50, 30j=+200, etc.)
+
+  CoursTracker.tsx :
+  - Wrapper autour du contenu MDX
+  - Détecte scroll ≥ 90% → cours marqué comme lu
+  - +10 XP (1 seule fois par chapitre)
+
+  Pages chapitre v7 : intègrent CoursTracker autour du cours
+
+
+------------------------------------------------------------
+2. ÉTAT ACTUEL DU PROJET
+------------------------------------------------------------
+
+  [✅] Routes collège + lycée dynamiques
+  [✅] levels.ts unifié
+  [✅] Lecture automatique des meta.json
+  [✅] Fil d'Ariane
+  [✅] Pages outils-méthodes / laboratoire / mémorisation (squelettes)
+  [✅] Système d'onglets
+  [✅] QuizPlayer (shuffle, anti-triche journalier, XP)
+  [✅] FlashcardsPlayer (input, SRS Anki 4 boutons, XP)
+  [✅] ExercicesPlayer (input, auto-évaluation, anti-triche, XP)
+  [✅] Format meta.json VERROUILLÉ (xp + seo)
+  [✅] Moteur gamification (XP, rangs, badges, streaks, combos)
+  [✅] Moteur SRS (répétition espacée SM-2)
+  [✅] DailyLoginTracker (connexion quotidienne + streak)
+  [✅] CoursTracker (scroll tracking + XP cours lu)
+  [✅] XPToast (notifications animées)
+  [✅] Anti-triche : quiz (1/jour), exercices (1/vie), cours (1/vie)
+
+  [🔲] Header global avec XP + streak (étape 5)
+  [🔲] Page d'accueil dashboard (étape 6)
+  [🔲] Pages badges + stats (étape 7)
+  [🔲] Objectifs hebdomadaires
+  [🔲] Speed Quiz / Survie Flashcards
+  [🔲] Design + accessibilité (Phase 4)
+  [🔲] Rendu KaTeX dans les composants React
+  [🔲] Auth / comptes (Supabase) — Phase 6
+  [🔲] Paiement (Stripe) — Phase 7
+  [🔲] SEO / déploiement — Phase 8
+  [🔲] Contenu en masse — Phase 3
+  [🔲] Laboratoire de simulations — Phase 9
+
+
+------------------------------------------------------------
+3. ARBORESCENCE DES FICHIERS
+------------------------------------------------------------
+
+  src/components/pedagogie/
+  ├── ChapterTabs.astro
+  ├── XPToast.tsx
+  ├── DailyLoginTracker.tsx
+  ├── CoursTracker.tsx
+  ├── QuizPlayer.tsx          (v4)
+  ├── FlashcardsPlayer.tsx    (v4)
+  └── ExercicesPlayer.tsx     (v4)
+
+  src/data/
+  ├── levels.ts
+  ├── gamification/
+  │   ├── config.ts           (rangs, badges, constantes)
+  │   ├── engine.ts           (moteur XP/streaks/badges/progression)
+  │   ├── useGamification.ts  (hooks React + notifications)
+  │   └── srs.ts              (répétition espacée SM-2)
+  └── chapters/
+      ├── college/...
+      └── lycee/...
+
+
+------------------------------------------------------------
+4. VERSIONS DES COMPOSANTS (référence)
+------------------------------------------------------------
+
+  QuizPlayer       : v4 (shuffle + anti-triche journalier)
+  FlashcardsPlayer : v4 (input + SRS Anki 4 boutons)
+  ExercicesPlayer  : v4 (input + auto-éval + anti-triche)
+  Pages chapitre   : v7 (CoursTracker + tous composants branchés)
+
+
+------------------------------------------------------------
+5. PROCHAINE SESSION — À FAIRE
+------------------------------------------------------------
+
+  Étape 5 : Header global avec XP + barre de progression + streak
+  Étape 6 : Page d'accueil = tableau de bord complet
+  Étape 7 : Pages badges + stats
+
+  Le moteur gamification est COMPLET et FONCTIONNEL.
+  Les prochaines étapes sont de l'AFFICHAGE (UI).
+
+  En parallèle : tu peux commencer la production de contenu
+  (le format meta.json est verrouillé).
+
+
+------------------------------------------------------------
+6. FICHIERS LIVRÉS AUJOURD'HUI
+------------------------------------------------------------
+
+  Branchement gamification :
+    XPToast.tsx
+    QuizPlayer_v2.tsx → v3 → v4
+    FlashcardsPlayer_v2.tsx → v3 → v4
+    ExercicesPlayer_v2.tsx → v3 → v4
+    college_chapitre_v6.astro → v7
+    lycee_chapitre_v7.astro
+
+  Répétition espacée :
+    srs.ts
+
+  DailyLogin + Cours :
+    DailyLoginTracker.tsx
+    CoursTracker.tsx
+
+  Protocoles :
+    PROTOCOLE_BRANCHEMENT_GAMIFICATION.txt
+    PROTOCOLE_CORRECTIONS_V3.txt
+    PROTOCOLE_V4_ANTICHEAT_INPUT.txt
+    PROTOCOLE_SRS.txt
+    PROTOCOLE_DAILY_COURS.txt
+
+============================================================

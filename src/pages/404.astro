@@ -1,0 +1,16 @@
+---
+// src/pages/404.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout title="Page introuvable — Physique-Chimie" noindex={true}>
+  <div style="text-align:center; padding: 4rem 1rem;">
+    <span style="font-size:4rem;">🔬</span>
+    <h1 style="font-size:2rem; font-weight:800; color:var(--accent-primary); margin:0.5rem 0;">404 — Page introuvable</h1>
+    <p style="color:var(--text-muted); font-size:1.1rem; margin-bottom:2rem;">
+      Cette page n'existe pas encore... ou a été déplacée.
+    </p>
+    <a href="/" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.7rem 1.5rem; background:var(--accent-primary); color:#fff; border-radius:var(--radius-md); font-weight:600; text-decoration:none; font-size:0.95rem;">
+      🏠 Retour à l'accueil
+    </a>
+  </div>
+</BaseLayout>

@@ -1,0 +1,302 @@
+# PROMPTS_GENERATION_CHAPITRES_PC
+
+Document utilisé pour générer automatiquement les contenus pédagogiques de la plateforme de révision de physique-chimie.
+
+Objectif : produire des chapitres **directement exploitables dans le site web**.
+
+---
+
+# 1. Prompt principal — génération complète d’un chapitre
+
+Ce prompt sert à générer **un chapitre complet**.
+
+```
+Tu es un expert en pédagogie de la physique-chimie dans le système scolaire français.
+
+Ta mission est de générer un chapitre complet directement intégrable dans une plateforme de révision scientifique.
+
+Tu dois respecter STRICTEMENT les règles suivantes.
+
+STRUCTURE DE SORTIE OBLIGATOIRE
+
+Tu dois générer exactement 5 fichiers dans cet ordre :
+
+meta.json
+cours.mdx
+exercices.json
+quiz.json
+flashcards.json
+
+Ne produire AUCUNE explication en dehors des fichiers.
+
+--------------------------------------------------
+
+CONTEXTE DU CHAPITRE
+
+Niveau : [niveau]
+Programme : [college / lycee]
+Matière : [physique / chimie]
+Titre : [titre du chapitre]
+Thème : [thème du programme]
+
+--------------------------------------------------
+
+RÈGLES PÉDAGOGIQUES
+
+Le contenu doit :
+
+- respecter le programme officiel français
+- être adapté au niveau demandé
+- être clair et progressif
+- être adapté aux élèves dys
+- utiliser un vocabulaire simple
+- éviter les phrases trop longues
+
+--------------------------------------------------
+
+COURS
+
+Le fichier cours.mdx doit contenir :
+
+- une introduction simple
+- les définitions importantes
+- les notions essentielles
+- des exemples concrets
+- éventuellement des schémas décrits
+
+Le cours doit rester synthétique.
+
+--------------------------------------------------
+
+EXERCICES
+
+Le fichier exercices.json doit contenir :
+
+10 exercices progressifs :
+
+1 à 3 → très simples  
+4 à 7 → niveau intermédiaire  
+8 à 10 → plus difficiles
+
+Types possibles :
+
+- questions de compréhension
+- calculs
+- analyse de situations
+- raisonnement scientifique
+
+--------------------------------------------------
+
+QUIZ
+
+Le fichier quiz.json doit contenir :
+
+10 questions QCM.
+
+Chaque question contient :
+
+- question
+- propositions
+- réponse correcte
+- explication courte
+
+--------------------------------------------------
+
+FLASHCARDS
+
+Le fichier flashcards.json doit contenir :
+
+10 flashcards :
+
+- recto : question
+- verso : réponse
+
+Objectif : mémorisation rapide.
+
+--------------------------------------------------
+
+Les fichiers doivent être directement exploitables dans un site web.
+```
+
+---
+
+# 2. Prompt — génération rapide d’exercices
+
+Permet d’ajouter des exercices supplémentaires.
+
+```
+Tu es expert en pédagogie en physique-chimie collège et lycée.
+
+Génère 15 exercices progressifs pour le chapitre suivant :
+
+[nom du chapitre]
+
+Niveau : [niveau]
+
+Contraintes :
+
+- exercices progressifs
+- adaptés au programme officiel
+- mélange de raisonnement et calcul
+- adaptés à des élèves en difficulté
+
+Format JSON.
+```
+
+---
+
+# 3. Prompt — génération de quiz
+
+```
+Tu es professeur de physique-chimie.
+
+Génère 20 questions de quiz pour le chapitre :
+
+[nom du chapitre]
+
+Niveau : [niveau]
+
+Format :
+
+QCM à choix unique.
+
+Chaque question contient :
+
+question  
+options  
+bonne réponse  
+explication courte
+```
+
+---
+
+# 4. Prompt — génération de flashcards
+
+```
+Tu es expert en pédagogie scientifique.
+
+Génère 20 flashcards pour le chapitre :
+
+[nom du chapitre]
+
+Niveau : [niveau]
+
+Objectif :
+
+mémorisation rapide des notions essentielles.
+
+Format :
+
+question / réponse
+```
+
+---
+
+# 5. Prompt — génération de fiches méthodes
+
+Utilisé pour les pages :
+
+* méthodes scientifiques
+* rappels mathématiques
+* outils scientifiques.
+
+```
+Tu es professeur de physique-chimie.
+
+Crée une fiche méthode claire pour des élèves de collège ou lycée.
+
+Sujet : [méthode]
+
+La fiche doit contenir :
+
+- définition
+- explication
+- étapes à suivre
+- exemple corrigé
+- erreurs fréquentes
+```
+
+---
+
+# 6. Prompt — génération de QCM massifs
+
+Permet de produire rapidement beaucoup de questions.
+
+```
+Génère 50 QCM sur le thème suivant :
+
+[chapitre]
+
+Niveau : [niveau]
+
+Objectif :
+
+révision rapide.
+
+Format JSON.
+```
+
+---
+
+# 7. Prompt — génération de flashcards pour répétition espacée
+
+```
+Crée un jeu de flashcards optimisé pour la répétition espacée.
+
+Chapitre : [chapitre]
+
+Niveau : [niveau]
+
+Contraintes :
+
+- questions courtes
+- réponses courtes
+- notions essentielles uniquement.
+```
+
+---
+
+# 8. Workflow conseillé pour produire le site
+
+1️⃣ Lister tous les chapitres du programme.
+
+2️⃣ Générer chaque chapitre avec le prompt principal.
+
+3️⃣ Vérifier rapidement le contenu.
+
+4️⃣ Ajouter éventuellement :
+
+* plus d’exercices
+* plus de quiz
+* plus de flashcards.
+
+---
+
+# 9. Objectif à long terme
+
+Construire une base complète de contenus couvrant :
+
+Collège
+
+* 6e
+* 5e
+* 4e
+* 3e
+
+Lycée
+
+* 2nde
+* 1re enseignement scientifique
+* 1re spécialité physique-chimie
+* terminale enseignement scientifique
+* terminale spécialité physique-chimie
+
+---
+
+# 10. Résultat attendu
+
+Une **bibliothèque complète de chapitres scientifiques interactifs** utilisables dans :
+
+* un site web
+* une PWA
+* une application mobile éducative.

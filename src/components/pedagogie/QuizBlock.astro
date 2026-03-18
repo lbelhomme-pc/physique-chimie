@@ -1,0 +1,347 @@
+---
+type QuizQuestion = {
+  id: string;
+  type: string;
+  question: string;
+  choices: string[];
+  answer: number;
+  explanation: string;
+};
+
+interface Props {
+  quiz: QuizQuestion[];
+  chapterKey: string;
+}
+
+const { quiz = [], chapterKey } = Astro.props;
+---
+
+<div class="quiz-block" data-quiz-block data-chapter-key={chapterKey}>
+  <div class="quiz-header">
+    <p class="quiz-counter">
+      <strong>Questions :</strong> {quiz.length}
+    </p>
+    <p class="quiz-score" data-quiz-score>
+      Score : 0 / {quiz.length}
+    </p>
+  </div>
+
+  <div class="quiz-list">
+    {quiz.map((q, index) => (
+      <article
+        class="quiz-card"
+        data-quiz-question
+        data-correct-answer={String(q.answer)}
+      >
+        <div class="mini-card-top">
+          <h3>Question {index + 1}</h3>
+          <span class="difficulty-badge">QCU</span>
+        </div>
+
+        <p class="quiz-question-text"><strong>{q.question}</strong></p>
+
+        <div class="quiz-choices">
+          {q.choices.map((choice, i) => (
+            <button
+              type="button"
+              class="quiz-choice-btn"
+              data-quiz-choice
+              data-choice-index={String(i)}
+            >
+              {choice}
+            </button>
+          ))}
+        </div>
+
+        <div class="quiz-feedback" data-quiz-feedback hidden>
+          <p class="quiz-feedback-title"></p>
+          <p class="quiz-feedback-explanation">
+            <strong>Explication :</strong> {q.explanation}
+          </p>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div class="quiz-actions">
+    <button type="button" class="btn-action btn-primary" data-quiz-reset>
+      Recommencer le quiz
+    </button>
+  </div>
+</div>
+
+<script type="module">
+  const STORAGE_KEY = "pc-platform-progress-v2";
+
+  const QUIZ_XP_PER_CORRECT = 5;
+  const PERFECT_QUIZ_BONUS = 10;
+  const PERFECT_FIRST_TRY_BONUS = 10;
+  const FLASHCARDS_COMPLETE_BONUS = 10;
+  const CHAPTER_MASTERED_BONUS = 15;
+
+  const getDefaultChapter = (chapterKey) => ({
+    chapterKey,
+    quizScore: 0,
+    quizTotal: 0,
+    flashcardsFlipped: 0,
+    flashcardsTotal: 0,
+    flashcardsCompleted: false,
+    quizAttempts: 0,
+    bestQuizScore: 0,
+    perfectQuizAwarded: false,
+    perfectFirstTryAwarded: false,
+    flashcardsCompletedAwarded: false,
+    chapterMasteredAwarded: false,
+    xp: 0,
+    status: "new",
+    lastVisitedAt: new Date().toISOString()
+  });
+
+  const getDefaultStore = () => ({
+    totalXp: 0,
+    chapters: {}
+  });
+
+  const readProgressStore = () => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return getDefaultStore();
+      const parsed = JSON.parse(raw);
+      return {
+        totalXp: parsed.totalXp ?? 0,
+        chapters: parsed.chapters ?? {}
+      };
+    } catch {
+      return getDefaultStore();
+    }
+  };
+
+  const writeProgressStore = (store) => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+  };
+
+  const getChapterProgress = (chapterKey) => {
+    const store = readProgressStore();
+    return store.chapters[chapterKey] ?? getDefaultChapter(chapterKey);
+  };
+
+  const recomputeChapterXp = (chapter) => {
+    let xp = 0;
+
+    xp += (chapter.bestQuizScore ?? 0) * QUIZ_XP_PER_CORRECT;
+    if (chapter.perfectQuizAwarded) xp += PERFECT_QUIZ_BONUS;
+    if (chapter.perfectFirstTryAwarded) xp += PERFECT_FIRST_TRY_BONUS;
+    if (chapter.flashcardsCompletedAwarded) xp += FLASHCARDS_COMPLETE_BONUS;
+    if (chapter.chapterMasteredAwarded) xp += CHAPTER_MASTERED_BONUS;
+
+    return xp;
+  };
+const computeChapterStatus = (chapter) => {
+  if (chapter.chapterMasteredAwarded) return "mastered";
+  if ((chapter.quizAttempts ?? 0) > 0) return "reviewed";
+  if ((chapter.flashcardsFlipped ?? 0) > 0) return "started";
+  return "new";
+};
+
+  const updateChapterProgress = (chapterKey, patch) => {
+    const store = readProgressStore();
+    const current = getChapterProgress(chapterKey);
+
+    const next = {
+      ...current,
+      ...patch,
+      chapterKey,
+      lastVisitedAt: new Date().toISOString()
+    };
+
+    next.xp = recomputeChapterXp(next);
+    next.status = computeChapterStatus(next);
+
+    store.chapters[chapterKey] = next;
+    store.totalXp = Object.values(store.chapters).reduce(
+      (sum, chapter) => sum + (chapter.xp ?? 0),
+      0
+    );
+
+    writeProgressStore(store);
+    return { store, chapter: next };
+  };
+
+  const maybeAwardMastery = (chapter) => {
+    const isPerfect = (chapter.bestQuizScore ?? 0) > 0 && chapter.bestQuizScore === chapter.quizTotal;
+    const flashDone = chapter.flashcardsCompletedAwarded === true;
+
+    if (isPerfect && flashDone && !chapter.chapterMasteredAwarded) {
+      chapter.chapterMasteredAwarded = true;
+    }
+
+    return chapter;
+  };
+
+  const quizBlocks = document.querySelectorAll("[data-quiz-block]");
+
+  quizBlocks.forEach((block) => {
+    const chapterKey = block.getAttribute("data-chapter-key") || "unknown";
+    const questionCards = block.querySelectorAll("[data-quiz-question]");
+    const scoreEl = block.querySelector("[data-quiz-score]");
+    const resetBtn = block.querySelector("[data-quiz-reset]");
+
+    let currentAttemptStarted = false;
+
+    const notifyProgress = () => {
+      window.dispatchEvent(new CustomEvent("progress-updated"));
+    };
+
+    const getCurrentScore = () => {
+      let score = 0;
+      let answered = 0;
+
+      questionCards.forEach((card) => {
+        const state = card.getAttribute("data-state");
+        if (state === "correct") {
+          score += 1;
+          answered += 1;
+        } else if (state === "incorrect") {
+          answered += 1;
+        }
+      });
+
+      return { score, answered, total: questionCards.length };
+    };
+
+    const renderScore = () => {
+      const { score, total } = getCurrentScore();
+      if (scoreEl) {
+        scoreEl.textContent = `Score : ${score} / ${total}`;
+      }
+    };
+
+    const finalizeIfCompleted = () => {
+      const { score, answered, total } = getCurrentScore();
+      renderScore();
+
+      if (answered !== total) return;
+
+      const current = getChapterProgress(chapterKey);
+      const previousBest = current.bestQuizScore ?? 0;
+      const nextBest = Math.max(previousBest, score);
+      const nextAttempts = (current.quizAttempts ?? 0) + 1;
+
+      const patch = {
+        quizScore: score,
+        quizTotal: total,
+        bestQuizScore: nextBest,
+        quizAttempts: nextAttempts
+      };
+
+      let nextChapter = {
+        ...current,
+        ...patch
+      };
+
+      if (nextBest === total && !nextChapter.perfectQuizAwarded) {
+        nextChapter.perfectQuizAwarded = true;
+      }
+
+      if (
+        score === total &&
+        nextAttempts === 1 &&
+        !nextChapter.perfectFirstTryAwarded
+      ) {
+        nextChapter.perfectFirstTryAwarded = true;
+      }
+
+      nextChapter = maybeAwardMastery(nextChapter);
+
+      updateChapterProgress(chapterKey, nextChapter);
+      notifyProgress();
+    };
+
+    questionCards.forEach((card) => {
+      const correctAnswer = Number(card.getAttribute("data-correct-answer"));
+      const choiceButtons = card.querySelectorAll("[data-quiz-choice]");
+      const feedback = card.querySelector("[data-quiz-feedback]");
+      const feedbackTitle = card.querySelector(".quiz-feedback-title");
+
+      choiceButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          if (card.getAttribute("data-locked") === "true") return;
+
+          currentAttemptStarted = true;
+
+          const selectedIndex = Number(button.getAttribute("data-choice-index"));
+          const isCorrect = selectedIndex === correctAnswer;
+
+          card.setAttribute("data-locked", "true");
+          card.setAttribute("data-state", isCorrect ? "correct" : "incorrect");
+
+          choiceButtons.forEach((btn) => {
+            const btnIndex = Number(btn.getAttribute("data-choice-index"));
+            btn.disabled = true;
+
+            if (btnIndex === correctAnswer) {
+              btn.classList.add("is-correct");
+            }
+
+            if (btnIndex === selectedIndex && btnIndex !== correctAnswer) {
+              btn.classList.add("is-incorrect");
+            }
+          });
+
+          if (feedback && feedbackTitle) {
+            feedback.hidden = false;
+            feedbackTitle.textContent = isCorrect
+              ? "✅ Bonne réponse"
+              : "❌ Réponse incorrecte";
+            feedback.classList.toggle("is-correct", isCorrect);
+            feedback.classList.toggle("is-incorrect", !isCorrect);
+          }
+
+          finalizeIfCompleted();
+        });
+      });
+    });
+
+    resetBtn?.addEventListener("click", () => {
+      questionCards.forEach((card) => {
+        card.removeAttribute("data-locked");
+        card.removeAttribute("data-state");
+
+        const choiceButtons = card.querySelectorAll("[data-quiz-choice]");
+        const feedback = card.querySelector("[data-quiz-feedback]");
+
+        choiceButtons.forEach((btn) => {
+          btn.disabled = false;
+          btn.classList.remove("is-correct", "is-incorrect");
+        });
+
+        if (feedback) {
+          feedback.hidden = true;
+          feedback.classList.remove("is-correct", "is-incorrect");
+        }
+      });
+
+      currentAttemptStarted = false;
+      renderScore();
+
+      const current = getChapterProgress(chapterKey);
+      updateChapterProgress(chapterKey, {
+        quizScore: 0,
+        quizTotal: questionCards.length,
+        bestQuizScore: current.bestQuizScore ?? 0,
+        quizAttempts: current.quizAttempts ?? 0,
+        perfectQuizAwarded: current.perfectQuizAwarded ?? false,
+        perfectFirstTryAwarded: current.perfectFirstTryAwarded ?? false,
+        flashcardsCompletedAwarded: current.flashcardsCompletedAwarded ?? false,
+        chapterMasteredAwarded: current.chapterMasteredAwarded ?? false,
+        flashcardsCompleted: current.flashcardsCompleted ?? false,
+        flashcardsFlipped: current.flashcardsFlipped ?? 0,
+        flashcardsTotal: current.flashcardsTotal ?? 0
+      });
+
+      notifyProgress();
+    });
+
+    renderScore();
+  });
+</script>

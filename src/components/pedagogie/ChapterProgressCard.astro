@@ -1,0 +1,40 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  title = "📈 Progression locale",
+  subtitle = "Ta progression sur ce chapitre est enregistrée sur cet appareil."
+} = Astro.props;
+---
+
+<section class="chapter-progress-card" data-chapter-progress-card>
+  <div class="chapter-progress-top">
+    <h2>{title}</h2>
+    <p class="chapter-progress-subtitle">{subtitle}</p>
+  </div>
+
+  <div class="chapter-progress-grid">
+    <div class="progress-stat">
+      <span class="progress-stat-label">Quiz</span>
+      <strong data-progress-quiz-score>0 / 0</strong>
+    </div>
+
+    <div class="progress-stat">
+      <span class="progress-stat-label">Flashcards</span>
+      <strong data-progress-flashcards>0 / 0</strong>
+    </div>
+
+    <div class="progress-stat">
+      <span class="progress-stat-label">XP du chapitre</span>
+      <strong data-progress-xp>0 XP</strong>
+    </div>
+
+    <div class="progress-stat">
+      <span class="progress-stat-label">XP total</span>
+      <strong data-progress-total-xp>0 XP</strong>
+    </div>
+  </div>
+</section>
