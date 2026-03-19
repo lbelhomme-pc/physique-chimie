@@ -7,7 +7,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
 export default defineConfig({
-  site: 'https://physique-chimie.app', // ← CHANGE PAR TON DOMAINE
+  site: 'https://physique-chimie-belhomme.vercel.app/', // ← CHANGE PAR TON DOMAINE
   integrations: [
     react(),
     mdx(),
