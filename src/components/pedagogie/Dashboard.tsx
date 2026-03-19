@@ -5,6 +5,8 @@ import { useState, useEffect, useMemo } from "react";
 import { getGamificationEngine } from "../../data/gamification/engine";
 import { getSRSEngine } from "../../data/gamification/srs";
 import { RANKS, BADGES } from "../../data/gamification/config";
+import SearchBar from "../ui/SearchBar.tsx";
+
 
 const V = {
   bg: "var(--bg-card)", bgSec: "var(--bg-secondary)", bgTer: "var(--bg-tertiary)", bgBody: "var(--bg-body)",
@@ -114,11 +116,15 @@ export default function Dashboard({ chapters }: DashboardProps) {
         </span>
       </div>
 
-      {/* Barre de recherche */}
-      <div style={{display:"flex",alignItems:"center",gap:"0.5rem",maxWidth:700,margin:"1rem auto",padding:"0.75rem 1.25rem",background:V.bg,border:`1px solid ${V.border}`,borderRadius:V.radiusPill,boxShadow:"var(--shadow-xs)"}}>
-        <span>🔍</span>
-        <input type="text" placeholder="Rechercher un chapitre (ex: atomes, ions...)" style={{flex:1,border:"none",background:"transparent",fontSize:"0.95rem",color:V.text,outline:"none",fontFamily:"inherit"}} />
-      </div>
+{/* Barre de recherche */}
+<div style={{maxWidth:700,margin:"1rem auto"}}>
+  <SearchBar
+    chapters={chapters.map(ch => ({
+      ...ch,
+      path: `/${ch.cycle}/${ch.niveau}/${ch.matiere}/${ch.slug}`
+    }))}
+  />
+</div>
 
       {/* Message de bienvenue */}
       <p style={{textAlign:"center",fontSize:"1.1rem",fontWeight:700,color:V.text,margin:"1.5rem 0 0.3rem"}}>

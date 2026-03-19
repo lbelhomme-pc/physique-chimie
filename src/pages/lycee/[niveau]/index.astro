@@ -43,24 +43,23 @@ const physique = chapters.filter(c => c.matiere === "physique").sort((a, b) => a
 ---
 <BaseLayout title={`${niveauLabel} — Lycée — Physique-Chimie`}>
 
-  <nav class="level-nav" aria-label="Niveaux lycée">
+  <nav class="level-nav stagger" aria-label="Niveaux lycée">
     {lyceeLevels.map(level => (
       <a href={`/lycee/${level.slug}`}
          class:list={["nav-pill", { active: level.slug === niveau }]}>
         {getShortLabel(level.slug)}
       </a>
     ))}
-
   </nav>
 
-  <h1 class="niveau-title">🎓 Lycée — {niveauLabel}</h1>
+  <h1 class="niveau-title animate-fade-in">🎓 Lycée — {niveauLabel}</h1>
 
   <div class="matieres-grid">
     <div class="matiere-column">
       <div class="card-matiere chimie"><span>🧪</span> Chimie</div>
-      <div class="chapters-list">
+      <div class="chapters-list stagger">
         {chimie.length > 0 ? chimie.map(ch => (
-          <a href={`/lycee/${niveau}/chimie/${ch.slug}`} class="card-chapitre">
+          <a href={`/lycee/${niveau}/chimie/${ch.slug}`} class="card-chapitre card-hover-lift">
             <span class="chapitre-icon">{ch.icon}</span>
             <div class="chapitre-info">
               <span class="chapitre-title">{ch.title}</span>
@@ -70,11 +69,12 @@ const physique = chapters.filter(c => c.matiere === "physique").sort((a, b) => a
         )) : <p class="empty-msg">Contenu à venir...</p>}
       </div>
     </div>
+
     <div class="matiere-column">
       <div class="card-matiere physique"><span>⚡</span> Physique</div>
-      <div class="chapters-list">
+      <div class="chapters-list stagger">
         {physique.length > 0 ? physique.map(ch => (
-          <a href={`/lycee/${niveau}/physique/${ch.slug}`} class="card-chapitre">
+          <a href={`/lycee/${niveau}/physique/${ch.slug}`} class="card-chapitre card-hover-lift">
             <span class="chapitre-icon">{ch.icon}</span>
             <div class="chapitre-info">
               <span class="chapitre-title">{ch.title}</span>

@@ -32,8 +32,8 @@ const physique = chapters.filter(c => c.matiere === "physique").sort((a, b) => a
 ---
 <BaseLayout title={`${niveauLabel} — Collège — Physique-Chimie`}>
 
-  <!-- Nav niveaux (le fil d'Ariane EST la nav) -->
-  <nav class="level-nav" aria-label="Niveaux collège">
+  <!-- Nav niveaux -->
+  <nav class="level-nav stagger" aria-label="Niveaux collège">
     {collegeLevels.map(level => (
       <a href={`/college/${level.slug}`}
          class:list={["nav-pill", { active: level.slug === niveau }]}>
@@ -42,16 +42,16 @@ const physique = chapters.filter(c => c.matiere === "physique").sort((a, b) => a
     ))}
   </nav>
 
-  <!-- Titre simple -->
-  <h1 class="niveau-title">🎒 Collège — {niveauLabel}</h1>
+  <!-- Titre -->
+  <h1 class="niveau-title animate-fade-in">🎒 Collège — {niveauLabel}</h1>
 
   <!-- Matières + chapitres -->
   <div class="matieres-grid">
     <div class="matiere-column">
       <div class="card-matiere chimie"><span>🧪</span> Chimie</div>
-      <div class="chapters-list">
+      <div class="chapters-list stagger">
         {chimie.length > 0 ? chimie.map(ch => (
-          <a href={`/college/${niveau}/chimie/${ch.slug}`} class="card-chapitre">
+          <a href={`/college/${niveau}/chimie/${ch.slug}`} class="card-chapitre card-hover-lift">
             <span class="chapitre-icon">{ch.icon}</span>
             <div class="chapitre-info">
               <span class="chapitre-title">{ch.title}</span>
@@ -64,9 +64,9 @@ const physique = chapters.filter(c => c.matiere === "physique").sort((a, b) => a
 
     <div class="matiere-column">
       <div class="card-matiere physique"><span>⚡</span> Physique</div>
-      <div class="chapters-list">
+      <div class="chapters-list stagger">
         {physique.length > 0 ? physique.map(ch => (
-          <a href={`/college/${niveau}/physique/${ch.slug}`} class="card-chapitre">
+          <a href={`/college/${niveau}/physique/${ch.slug}`} class="card-chapitre card-hover-lift">
             <span class="chapitre-icon">{ch.icon}</span>
             <div class="chapitre-info">
               <span class="chapitre-title">{ch.title}</span>
