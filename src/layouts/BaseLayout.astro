@@ -26,7 +26,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-const siteUrl = "https://physique-chimie.app"; // ← CHANGE PAR TON DOMAINE
+const siteUrl = "https://physique-chimie-belhomme.vercel.app"; // ← CHANGE PAR TON DOMAINE
 const siteName = "Physique-Chimie — Révisions interactives";
 const currentPath = Astro.url.pathname;
 const fullUrl = `${siteUrl}${canonical ?? currentPath}`;
@@ -40,12 +40,15 @@ function isActive(href: string) {
 <head>
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JPGPYQZ3C"></script>
-<script>
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-9JPGPYQZ3C"></script>
+<script is:inline>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
+  function gtag(...args) {
+    window.dataLayer.push(args);
+  }
+
+  gtag('js', new Date());
   gtag('config', 'G-9JPGPYQZ3C');
 </script>
   <meta charset="UTF-8">
