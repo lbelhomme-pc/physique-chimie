@@ -595,34 +595,74 @@ img { max-width: 100%; height: auto; }
 
 .definition-box {
   background: var(--accent-primary-light);
-  border-left: 4px solid var(--accent-primary);
+  border-left: 5px solid var(--accent-primary);
   border-radius: var(--radius-sm);
-  padding: 1rem 1.25rem;
-  margin: 1.25rem 0;
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.definition-box h3 {
+  color: var(--accent-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.definition-box .katex-display {
+  font-size: 1.25em;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background: rgba(255,255,255,0.5);
+  border-radius: 6px;
 }
 
 .example-box {
   background: var(--accent-success-light);
-  border-left: 4px solid var(--accent-success);
+  border-left: 5px solid var(--accent-success);
   border-radius: var(--radius-sm);
-  padding: 1rem 1.25rem;
-  margin: 1.25rem 0;
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.example-box h3 {
+  color: #047857;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .info-box {
   background: var(--accent-warning-light);
-  border-left: 4px solid var(--accent-warning);
+  border-left: 5px solid var(--accent-warning);
   border-radius: var(--radius-sm);
-  padding: 1rem 1.25rem;
-  margin: 1.25rem 0;
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.info-box h3 {
+  color: #b45309;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .box-regle-or {
   background: var(--accent-danger-light);
-  border-left: 4px solid var(--accent-danger);
+  border-left: 5px solid var(--accent-danger);
   border-radius: var(--radius-sm);
-  padding: 1rem 1.25rem;
-  margin: 1.25rem 0;
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.box-regle-or h3 {
+  color: #dc2626;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -811,6 +851,12 @@ input:focus, textarea:focus {
   .tab-pill { padding: 0.5rem 0.8rem; font-size: 0.8rem; }
 
   .section-card { padding: 1rem; }
+
+  .formule-box { padding: 1rem; }
+  .formule-box .katex-display { font-size: 1.15em; }
+  .retenir-box { padding: 1rem 1.1rem; }
+  .methode-box { padding: 0.9rem 1rem; }
+  .resultat-box { padding: 0.9rem 1rem; }
 }
 
 @media (max-width: 480px) {
@@ -821,33 +867,380 @@ input:focus, textarea:focus {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   COURS MDX
+   COURS MDX — Contenu principal
    ═══════════════════════════════════════════════════════════ */
 
 .cours-content {
   max-width: var(--max-line-width);
   margin: 0 auto;
+  text-align: left;
 }
 
 .cours-content h2 {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
   color: var(--accent-primary);
-  font-size: 1.3rem;
-  font-weight: 700;
-  padding-bottom: 0.3rem;
-  border-bottom: 2px solid var(--accent-primary-light);
+  font-size: 1.35rem;
+  font-weight: 800;
+  padding: 0.5rem 0 0.4rem;
+  border-bottom: 3px solid var(--accent-primary);
+  letter-spacing: -0.01em;
 }
 
 .cours-content h3 {
   margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
   color: var(--text-primary);
   font-size: 1.1rem;
   font-weight: 700;
 }
 
-.cours-content p { margin: 0.75rem 0; }
-.cours-content ul, .cours-content ol { margin: 0.75rem 0; padding-left: 1.5rem; }
-.cours-content li { margin: 0.3rem 0; }
+.cours-content p {
+  margin: 0.75rem 0;
+  line-height: 1.75;
+}
+
+.cours-content ul, .cours-content ol {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+.cours-content li {
+  margin: 0.4rem 0;
+  line-height: 1.7;
+}
+
+.cours-content strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* Tableaux dans les cours */
+.cours-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+}
+
+.cours-content thead th {
+  background: var(--accent-primary);
+  color: #ffffff;
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+}
+
+.cours-content tbody td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+
+.cours-content tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cours-content tbody tr:nth-child(even) {
+  background: var(--bg-secondary);
+}
+
+/* Séparateurs hr */
+.cours-content hr {
+  border: none;
+  height: 1px;
+  background: var(--border-color);
+  margin: 2rem 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FORMULES KaTeX — Mise en valeur
+   ═══════════════════════════════════════════════════════════ */
+
+/* Formules display ($$...$$) — toujours centrées et bien espacées */
+.cours-content .katex-display {
+  margin: 1.5rem 0;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+/* Formules inline — légèrement plus grandes pour lisibilité */
+.cours-content .katex {
+  font-size: 1.05em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BLOCS PÉDAGOGIQUES — Formule, Méthode, Résultat, À retenir
+   ═══════════════════════════════════════════════════════════ */
+
+/* --- BLOC FORMULE : très visible, centré, fond distinctif --- */
+.formule-box {
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  border: 2px solid var(--accent-primary);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  text-align: left;
+  position: relative;
+}
+
+.formule-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.formule-box h3 {
+  color: var(--accent-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.formule-box .katex-display {
+  margin: 1rem 0;
+  padding: 0.75rem 0;
+  font-size: 1.35em;
+  background: rgba(255,255,255,0.6);
+  border-radius: var(--radius-sm);
+}
+
+.formule-box p {
+  margin: 0.4rem 0;
+}
+
+/* Thèmes sombres */
+.a11y-theme-dark .formule-box,
+.a11y-theme-gray .formule-box,
+.a11y-theme-blue-light .formule-box {
+  background: linear-gradient(135deg, #1e1b4b, #1e293b);
+  border-color: var(--accent-primary);
+}
+
+.a11y-theme-dark .formule-box .katex-display,
+.a11y-theme-gray .formule-box .katex-display,
+.a11y-theme-blue-light .formule-box .katex-display {
+  background: rgba(0,0,0,0.2);
+}
+
+.a11y-theme-sepia .formule-box {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-color: var(--accent-primary);
+}
+
+/* --- BLOC SYMBOLES : explication des grandeurs d'une formule --- */
+.symboles-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0.25rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.symboles-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.symboles-list li::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.55em;
+}
+
+.symboles-list li:nth-child(odd) {
+  background: rgba(79, 70, 229, 0.04);
+}
+
+.symboles-list .katex {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+/* --- BLOC MÉTHODE : étapes à suivre --- */
+.methode-box {
+  background: var(--accent-purple-light);
+  border-left: 5px solid var(--accent-purple);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.methode-box h3 {
+  color: var(--accent-purple);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.methode-box ol, .methode-box ul {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.methode-box li {
+  margin: 0.35rem 0;
+  line-height: 1.7;
+}
+
+/* --- BLOC RÉSULTAT : conclusion d'un calcul / résultat final --- */
+.resultat-box {
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  border: 2px solid var(--accent-success);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.resultat-box h3 {
+  color: #047857;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.resultat-box .katex-display {
+  font-size: 1.3em;
+  margin: 0.75rem 0;
+  padding: 0.5rem 0;
+  background: rgba(255,255,255,0.5);
+  border-radius: var(--radius-sm);
+}
+
+.a11y-theme-dark .resultat-box,
+.a11y-theme-gray .resultat-box,
+.a11y-theme-blue-light .resultat-box {
+  background: linear-gradient(135deg, #064e3b, #065f46);
+  border-color: var(--accent-success);
+}
+
+.a11y-theme-dark .resultat-box h3,
+.a11y-theme-gray .resultat-box h3,
+.a11y-theme-blue-light .resultat-box h3 {
+  color: var(--accent-success);
+}
+
+/* --- BLOC À RETENIR : résumé final du chapitre --- */
+.retenir-box {
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  border: 2px solid #dc2626;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0 1rem;
+  text-align: left;
+  position: relative;
+}
+
+.retenir-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #dc2626, #ef4444, #f97316);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.retenir-box h2 {
+  color: #dc2626 !important;
+  font-size: 1.1rem !important;
+  font-weight: 800;
+  margin: 0 0 0.75rem !important;
+  padding: 0 !important;
+  border-bottom: none !important;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.retenir-box ul, .retenir-box ol {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.retenir-box li {
+  padding: 0.4rem 0.5rem 0.4rem 1.5rem;
+  margin: 0.2rem 0;
+  position: relative;
+  line-height: 1.7;
+  border-radius: 6px;
+}
+
+.retenir-box li::before {
+  content: '>';
+  position: absolute;
+  left: 0.3rem;
+  color: #dc2626;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.retenir-box li:nth-child(odd) {
+  background: rgba(220, 38, 38, 0.04);
+}
+
+.retenir-box .katex {
+  font-size: 1.08em;
+}
+
+.a11y-theme-dark .retenir-box,
+.a11y-theme-gray .retenir-box,
+.a11y-theme-blue-light .retenir-box {
+  background: linear-gradient(135deg, #450a0a, #7f1d1d);
+  border-color: #ef4444;
+}
+
+.a11y-theme-dark .retenir-box h2,
+.a11y-theme-gray .retenir-box h2,
+.a11y-theme-blue-light .retenir-box h2 {
+  color: #f87171 !important;
+}
+
+.a11y-theme-sepia .retenir-box {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-color: #b45309;
+}
+
+.a11y-theme-sepia .retenir-box h2 {
+  color: #b45309 !important;
+}
+
+.a11y-theme-sepia .retenir-box li::before {
+  color: #b45309;
+}
 
 /* ═══════════════════════════════════════════════════════════
    ANIMATIONS (désactivables via a11y)

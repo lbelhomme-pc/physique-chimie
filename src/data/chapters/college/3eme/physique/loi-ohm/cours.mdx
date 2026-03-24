@@ -1,61 +1,92 @@
-## 🎯 Objectifs du cours
+## Objectifs du cours
 
-- Connaître la relation $U = R \times I$.
-- Tracer et exploiter la **caractéristique** d'un conducteur ohmique.
-- Maîtriser les unités (Volts, Ampères, Ohms) et les conversions.
+- Connaitre la relation $U = R \times I$.
+- Tracer et exploiter la **caracteristique** d'un conducteur ohmique.
+- Maitriser les unites (Volts, Amperes, Ohms) et les conversions.
 
 ---
 
-## 1. Qu'est-ce qu'une résistance ?
+## 1. Qu'est-ce qu'une resistance ?
 
-Un **conducteur ohmique** (appelé "résistance") est un composant électronique qui :
+Un **conducteur ohmique** (appele "resistance") est un composant electronique qui :
 
-- **Diminue l'intensité** du courant dans un circuit en série.
-- Convertit l'énergie électrique en chaleur : c'est **l'effet Joule**.
+- **Diminue l'intensite** du courant dans un circuit en serie.
+- Convertit l'energie electrique en chaleur : c'est **l'effet Joule**.
 
 ---
 
 ## 2. La formule de la loi d'Ohm
 
-<div class="definition-box">
+<div class="formule-box">
 
-### 📘 La loi d'Ohm
+### Loi d'Ohm
 
-La tension $U$ aux bornes d'un conducteur ohmique est **proportionnelle** à l'intensité $I$ :
+La tension $U$ aux bornes d'un conducteur ohmique est **proportionnelle** a l'intensite $I$ :
 
 $$U = R \times I$$
 
-- $U$ : tension en **Volts (V)**
-- $R$ : résistance en **Ohms ($\Omega$)**
-- $I$ : intensité en **Ampères (A)**
+<ul class="symboles-list">
+<li>$U$ : tension en **Volts (V)**</li>
+<li>$R$ : resistance en **Ohms ($\Omega$)**</li>
+<li>$I$ : intensite en **Amperes (A)**</li>
+</ul>
 
 </div>
 
-On peut aussi écrire :
+On peut aussi ecrire les deux autres formes :
+
+<div class="formule-box">
+
+### Formules derivees
 
 $$R = \frac{U}{I} \qquad \text{et} \qquad I = \frac{U}{R}$$
 
+</div>
+
 <div class="box-regle-or">
 
-### ⚠️ Attention aux unités !
+### Attention aux unites !
 
-L'intensité est souvent en **milliampères (mA)**. Toujours convertir en Ampères : diviser par 1000.
+L'intensite est souvent en **milliamperes (mA)**. Toujours convertir en Amperes avant de calculer : **diviser par 1000**.
 
 Exemple : $50\,mA = 0{,}050\,A$.
 
 </div>
 
+<div class="methode-box">
+
+### Methode : calculer avec la loi d'Ohm
+
+1. **Ecrire** la formule adaptee ($U = R \times I$, $R = U/I$ ou $I = U/R$).
+2. **Convertir** toutes les grandeurs dans les bonnes unites (V, A, $\Omega$).
+3. **Remplacer** les valeurs connues dans la formule.
+4. **Calculer** et donner le resultat avec son unite.
+
+</div>
+
+<div class="example-box">
+
+### Exemple
+
+Une resistance de $R = 100\,\Omega$ est parcourue par un courant de $I = 50\,mA$.
+
+Conversion : $I = 50\,mA = 0{,}050\,A$
+
+$U = R \times I = 100 \times 0{,}050 = 5\,V$
+
+</div>
+
 ---
 
-## 3. La caractéristique d'une résistance
+## 3. La caracteristique d'une resistance
 
-Le graphique de $U$ en fonction de $I$ est toujours **une droite passant par l'origine**. Cela prouve la **proportionnalité**.
+Le graphique de $U$ en fonction de $I$ est toujours **une droite passant par l'origine**. Cela prouve la **proportionnalite**.
 
-<div class="info-box">
+<div class="resultat-box">
 
-### 💡 À retenir
+### Resultat cle
 
-La résistance $R$ correspond au **coefficient directeur** (la pente) de cette droite. Plus la pente est raide, plus $R$ est grande.
+La resistance $R$ correspond au **coefficient directeur** (la pente) de cette droite. Plus la pente est raide, plus $R$ est grande.
 
 </div>
 
@@ -63,15 +94,25 @@ La résistance $R$ correspond au **coefficient directeur** (la pente) de cette d
 
 ## 4. Le montage de mesure
 
-- **L'ampèremètre** se branche en **série** (le courant le traverse).
-- **Le voltmètre** se branche en **dérivation** (parallèle aux bornes du composant).
+<div class="box-regle-or">
+
+### Regles de branchement
+
+- **L'amperemetre** se branche en **serie** (le courant le traverse).
+- **Le voltmetre** se branche en **derivation** (en parallele aux bornes du composant).
+
+</div>
 
 ---
 
-## 📌 L'essentiel à retenir
+<div class="retenir-box">
 
-- $U = R \times I$ — la loi d'Ohm.
-- La résistance s'exprime en **Ohms ($\Omega$)**.
-- Toujours convertir les mA en A (diviser par 1000).
-- Caractéristique = **droite passant par l'origine**.
-- Ampèremètre en **série**, voltmètre en **dérivation**.
+## L'essentiel a retenir
+
+- $U = R \times I$ : la loi d'Ohm.
+- La resistance s'exprime en **Ohms ($\Omega$)**.
+- Toujours convertir les $mA$ en $A$ (diviser par 1000).
+- Caracteristique = **droite passant par l'origine** (proportionnalite).
+- Amperemetre en **serie**, voltmetre en **derivation**.
+
+</div>
