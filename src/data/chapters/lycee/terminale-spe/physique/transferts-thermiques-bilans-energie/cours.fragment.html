@@ -1,0 +1,125 @@
+<section class="course-section">
+  <h2>Objectifs du chapitre</h2>
+  <ul class="objectives-list">
+    <li>Écrire un bilan d'énergie avec le premier principe.</li>
+    <li>Calculer une énergie thermique reçue par un corps.</li>
+    <li>Distinguer conduction, convection et rayonnement.</li>
+    <li>Utiliser un flux thermique et une résistance thermique.</li>
+    <li>Modéliser une évolution de température par une loi exponentielle simple.</li>
+  </ul>
+</section>
+
+<section class="course-section">
+  <h2>1. Énergie interne et premier principe</h2>
+  <p>L'énergie interne \(U\) d'un système est liée à l'agitation microscopique et aux interactions entre ses constituants. Elle peut varier si le système reçoit un travail ou un transfert thermique.</p>
+  <div class="formula-box">\[\Delta U=W+Q\]</div>
+  <p>Dans cette convention, \(W\) et \(Q\) sont positifs lorsqu'ils sont reçus par le système.</p>
+  <div class="warning-box"><strong>Convention.</strong> Un transfert thermique perdu par le système est donc compté négativement dans le bilan du système.</div>
+</section>
+
+<section class="course-section">
+  <h2>2. Échauffement et changement d'état</h2>
+  <p>Pour un solide ou un liquide dont la température varie sans changement d'état, on utilise la capacité thermique massique \(c\).</p>
+  <div class="formula-box">\[Q=mc\Delta T\]</div>
+  <p>Pour un changement d'état à température constante, on utilise l'énergie massique de changement d'état \(L\).</p>
+  <div class="formula-box">\[Q=mL\]</div>
+  <p>La capacité thermique d'un système vaut \(C_{th}=mc\) si sa capacité thermique massique est constante.</p>
+  <div class="formula-box">\[Q=C_{th}\Delta T\]</div>
+</section>
+
+<section class="course-section">
+  <h2>3. Modes de transfert thermique</h2>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 820 300" role="img" aria-labelledby="th-modes-title th-modes-desc">
+    <title id="th-modes-title">Trois modes de transfert thermique</title>
+    <desc id="th-modes-desc">Conduction dans un solide, convection dans un fluide et rayonnement électromagnétique.</desc>
+    <rect x="44" y="40" width="732" height="190" rx="20" fill="#f8fafc" stroke="#e5e7eb" />
+    <rect x="86" y="96" width="150" height="64" rx="12" fill="#fee2e2" stroke="#ef4444" />
+    <text x="103" y="134" font-size="22" font-weight="700" fill="#991b1b">conduction</text>
+    <path d="M246 128 C296 92 326 164 376 128" fill="none" stroke="#ef4444" stroke-width="4" />
+    <rect x="396" y="96" width="150" height="64" rx="12" fill="#dcfce7" stroke="#22c55e" />
+    <text x="417" y="134" font-size="22" font-weight="700" fill="#166534">convection</text>
+    <path d="M578 150 C610 82 654 82 686 150" fill="none" stroke="#f59e0b" stroke-width="4" />
+    <path d="M578 110 C610 178 654 178 686 110" fill="none" stroke="#f59e0b" stroke-width="4" />
+    <text x="586" y="205" font-size="22" font-weight="700" fill="#92400e">rayonnement</text>
+    <text x="122" y="266" font-size="21" fill="#1f2937">Le transfert se fait spontanément du corps chaud vers le corps froid.</text>
+  </svg>
+  <figcaption>Les trois modes peuvent coexister dans une situation réelle.</figcaption>
+</figure>
+  <ul>
+    <li><strong>Conduction :</strong> transfert de proche en proche dans un matériau, sans transport global de matière.</li>
+    <li><strong>Convection :</strong> transfert accompagné d'un déplacement de matière dans un fluide.</li>
+    <li><strong>Rayonnement :</strong> transfert par ondes électromagnétiques, possible même dans le vide.</li>
+  </ul>
+</section>
+
+<section class="course-section">
+  <h2>4. Flux thermique et résistance thermique</h2>
+  <p>Le flux thermique \(\Phi\) est une puissance thermique : c'est l'énergie transférée par unité de temps.</p>
+  <div class="formula-box">\[\Phi=\frac{Q}{\Delta t}\]</div>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 800 300" role="img" aria-labelledby="wall-title wall-desc">
+    <title id="wall-title">Conduction à travers une paroi</title>
+    <desc id="wall-desc">Une paroi d'épaisseur e, de surface S et de conductivité lambda sépare une zone chaude d'une zone froide.</desc>
+    <defs><marker id="heat-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#ef4444" /></marker></defs>
+    <rect x="48" y="40" width="704" height="190" rx="18" fill="#f8fafc" stroke="#e5e7eb" />
+    <rect x="130" y="72" width="170" height="126" rx="12" fill="#fee2e2" stroke="#ef4444" />
+    <rect x="500" y="72" width="170" height="126" rx="12" fill="#dbeafe" stroke="#3b82f6" />
+    <rect x="352" y="60" width="96" height="150" fill="#e2e8f0" stroke="#64748b" stroke-width="3" />
+    <text x="174" y="138" font-size="26" font-weight="700" fill="#991b1b">Tchaud</text>
+    <text x="548" y="138" font-size="26" font-weight="700" fill="#1e3a8a">Tfroid</text>
+    <line x1="300" y1="136" x2="500" y2="136" stroke="#ef4444" stroke-width="5" marker-end="url(#heat-arrow)" />
+    <text x="374" y="44" font-size="22" fill="#334155">e</text>
+    <text x="344" y="252" font-size="22" font-weight="700" fill="#111827">Φ = ΔT / Rth</text>
+  </svg>
+  <figcaption>La résistance thermique d'une paroi plane vaut \(R_{th}=e/(\lambda S)\).</figcaption>
+</figure>
+  <p>Pour une paroi plane de surface \(S\), d'épaisseur \(e\) et de conductivité thermique \(\lambda\) :</p>
+  <div class="formula-box">\[R_{th}=\frac{e}{\lambda S}\]</div>
+  <div class="formula-box">\[\Phi=\frac{T_{chaud}-T_{froid}}{R_{th}}\]</div>
+  <p>Des résistances thermiques en série s'additionnent, comme des résistances électriques en série.</p>
+</section>
+
+<section class="course-section">
+  <h2>5. Évolution temporelle de la température</h2>
+  <p>Si un système de capacité thermique \(C_{th}\) échange avec un thermostat extérieur à travers une résistance thermique \(R_{th}\), l'écart de température décroît souvent de façon exponentielle.</p>
+  <div class="formula-box">\[\tau=R_{th}C_{th}\]</div>
+  <div class="formula-box">\[T(t)-T_{ext}=(T_0-T_{ext})e^{-t/\tau}\]</div>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 800 320" role="img" aria-labelledby="cool-title cool-desc">
+    <title id="cool-title">Évolution temporelle d'une température</title>
+    <desc id="cool-desc">La température d'un système se rapproche exponentiellement de la température extérieure.</desc>
+    <rect x="48" y="32" width="700" height="240" rx="18" fill="#ffffff" stroke="#e5e7eb" />
+    <line x1="104" y1="224" x2="690" y2="224" stroke="#111827" stroke-width="3" />
+    <line x1="104" y1="224" x2="104" y2="62" stroke="#111827" stroke-width="3" />
+    <text x="70" y="68" font-size="20" fill="#111827">T</text><text x="674" y="252" font-size="20" fill="#111827">t</text>
+    <line x1="104" y1="184" x2="680" y2="184" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 8" />
+    <text x="66" y="190" font-size="18" fill="#475569">Text</text>
+    <path d="M104 76 C180 118 260 150 360 168 C466 186 560 186 680 184" fill="none" stroke="#ef4444" stroke-width="5" />
+    <line x1="228" y1="224" x2="228" y2="135" stroke="#10b981" stroke-width="3" stroke-dasharray="7 6" />
+    <text x="214" y="252" font-size="19" fill="#047857">τ</text>
+  </svg>
+  <figcaption>Avec un modèle linéaire, l'écart \(T-T_{ext}\) décroît exponentiellement avec \(\tau=R_{th}C_{th}\).</figcaption>
+</figure>
+</section>
+
+<section class="course-section">
+  <h2>6. Rayonnement thermique</h2>
+  <p>Un corps émet un rayonnement thermique. Pour un corps noir, la puissance surfacique émise est donnée par la loi de Stefan-Boltzmann.</p>
+  <div class="formula-box">\[\varphi=\sigma T^4\]</div>
+  <p>Pour un corps réel, on introduit souvent l'émissivité \(\varepsilon\), comprise entre 0 et 1.</p>
+  <div class="formula-box">\[P=\varepsilon\sigma S\left(T^4-T_{env}^4\right)\]</div>
+  <p>Les températures doivent être exprimées en kelvins.</p>
+</section>
+
+<section class="course-section key-points">
+  <h2>À retenir</h2>
+  <ul>
+    <li>Premier principe : \(\Delta U=W+Q\) avec les énergies reçues positives.</li>
+    <li>Échauffement : \(Q=mc\Delta T\).</li>
+    <li>Changement d'état : \(Q=mL\).</li>
+    <li>Flux thermique : \(\Phi=Q/\Delta t\).</li>
+    <li>Conduction plane : \(R_{th}=e/(\lambda S)\) et \(\Phi=\Delta T/R_{th}\).</li>
+    <li>Rayonnement thermique : la puissance émise varie comme \(T^4\).</li>
+  </ul>
+</section>

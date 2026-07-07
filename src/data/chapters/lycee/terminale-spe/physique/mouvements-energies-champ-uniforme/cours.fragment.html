@@ -1,0 +1,139 @@
+<section class="course-section">
+  <h2>Objectifs du chapitre</h2>
+  <ul class="objectives-list">
+    <li>Modéliser un mouvement dans un champ de pesanteur uniforme.</li>
+    <li>Modéliser le mouvement d'une particule chargée dans un champ électrique uniforme.</li>
+    <li>Utiliser la deuxième loi de Newton pour obtenir l'accélération.</li>
+    <li>Exploiter les équations horaires d'un mouvement à accélération constante.</li>
+    <li>Utiliser le théorème de l'énergie cinétique et la conservation de l'énergie mécanique.</li>
+  </ul>
+</section>
+
+<section class="course-section">
+  <h2>1. Champ uniforme et accélération constante</h2>
+  <p>Un champ est dit uniforme si son vecteur a la même direction, le même sens et la même valeur en tout point de la zone étudiée.</p>
+  <table class="data-table">
+    <thead><tr><th>Champ</th><th>Force</th><th>Accélération si seule cette force agit</th></tr></thead>
+    <tbody>
+      <tr><td>Pesanteur uniforme</td><td>\(\vec P=m\vec g\)</td><td>\(\vec a=\vec g\)</td></tr>
+      <tr><td>Électrique uniforme</td><td>\(\vec F_e=q\vec E\)</td><td>\(\vec a=\frac{q}{m}\vec E\)</td></tr>
+    </tbody>
+  </table>
+  <div class="formula-box">\[\sum \vec F=m\vec a\]</div>
+  <p>Quand la résultante des forces est constante, l'accélération est constante. On peut alors utiliser les équations horaires.</p>
+  <div class="formula-box">\[\vec v(t)=\vec v_0+\vec a t\]</div>
+  <div class="formula-box">\[\vec r(t)=\vec r_0+\vec v_0t+\frac12\vec a t^2\]</div>
+</section>
+
+<section class="course-section">
+  <h2>2. Projectile dans le champ de pesanteur</h2>
+  <p>On choisit un axe \(x\) horizontal et un axe \(y\) vertical vers le haut. Si les frottements de l'air sont négligés, l'accélération vaut \(\vec a=(0,-g)\).</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 800 330" role="img" aria-labelledby="grav-title grav-desc">
+    <title id="grav-title">Projectile dans le champ de pesanteur uniforme</title>
+    <desc id="grav-desc">La trajectoire est parabolique et l'accélération est verticale vers le bas.</desc>
+    <defs><marker id="grav-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1f2937" /></marker></defs>
+    <rect x="42" y="28" width="704" height="244" rx="18" fill="#f8fafc" stroke="#e5e7eb" />
+    <line x1="100" y1="232" x2="690" y2="232" stroke="#111827" stroke-width="3" marker-end="url(#grav-arrow)" />
+    <line x1="100" y1="232" x2="100" y2="58" stroke="#111827" stroke-width="3" marker-end="url(#grav-arrow)" />
+    <text x="674" y="260" font-size="20" fill="#111827">x</text><text x="70" y="66" font-size="20" fill="#111827">y</text>
+    <path d="M116 218 C236 86 386 72 650 218" fill="none" stroke="#4f46e5" stroke-width="5" />
+    <circle cx="116" cy="218" r="8" fill="#4f46e5" />
+    <line x1="138" y1="206" x2="218" y2="146" stroke="#16a34a" stroke-width="4" marker-end="url(#grav-arrow)" />
+    <text x="196" y="134" font-size="20" fill="#166534">v₀</text>
+    <line x1="428" y1="108" x2="428" y2="176" stroke="#ef4444" stroke-width="4" marker-end="url(#grav-arrow)" />
+    <text x="446" y="150" font-size="20" fill="#991b1b">g</text>
+  </svg>
+  <figcaption>Dans un champ de pesanteur uniforme, l'accélération est constante et dirigée vers le bas.</figcaption>
+</figure>
+  <p>Pour un projectile lancé depuis l'origine avec une vitesse initiale \(v_0\) faisant un angle \(\alpha\) avec l'horizontale :</p>
+  <div class="formula-box">\[x(t)=v_0\cos(\alpha)t\]</div>
+  <div class="formula-box">\[y(t)=v_0\sin(\alpha)t-\frac12gt^2\]</div>
+  <p>En éliminant le temps, on obtient une trajectoire parabolique.</p>
+  <div class="formula-box">\[y(x)=x\tan(\alpha)-\frac{g}{2v_0^2\cos^2(\alpha)}x^2\]</div>
+</section>
+
+<section class="course-section">
+  <h2>3. Énergie dans un champ de pesanteur</h2>
+  <p>Le poids est une force conservative. Si les frottements sont négligés, l'énergie mécanique se conserve.</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 790 290" role="img" aria-labelledby="energy-title energy-desc">
+    <title id="energy-title">Conversion énergie potentielle et cinétique</title>
+    <desc id="energy-desc">En chute sans frottements, l'énergie potentielle diminue et l'énergie cinétique augmente.</desc>
+    <rect x="48" y="34" width="690" height="190" rx="18" fill="#f0fdf4" stroke="#bbf7d0" />
+    <line x1="140" y1="190" x2="630" y2="190" stroke="#166534" stroke-width="4" />
+    <circle cx="220" cy="82" r="18" fill="#4f46e5" />
+    <circle cx="502" cy="158" r="18" fill="#4f46e5" />
+    <path d="M220 82 C316 96 394 122 502 158" fill="none" stroke="#4f46e5" stroke-width="4" stroke-dasharray="8 7" />
+    <text x="172" y="64" font-size="21" fill="#166534">Ep grande</text>
+    <text x="528" y="160" font-size="21" fill="#166534">Ec grande</text>
+    <text x="208" y="254" font-size="23" font-weight="700" fill="#166534">Ec + Ep = constante si seuls les champs conservatifs travaillent</text>
+  </svg>
+  <figcaption>Le théorème de l'énergie cinétique et la conservation de l'énergie mécanique évitent souvent de résoudre tout le mouvement.</figcaption>
+</figure>
+  <div class="formula-box">\[E_c=\frac12mv^2\]</div>
+  <div class="formula-box">\[E_{p,pes}=mgz\]</div>
+  <div class="formula-box">\[E_m=E_c+E_p=constante\]</div>
+  <p>Le travail du poids entre deux altitudes \(z_A\) et \(z_B\) vaut :</p>
+  <div class="formula-box">\[W_{A\to B}(\vec P)=mg(z_A-z_B)\]</div>
+</section>
+
+<section class="course-section">
+  <h2>4. Particule chargée dans un champ électrique uniforme</h2>
+  <p>Entre deux plaques parallèles, on peut créer un champ électrique presque uniforme. Sa valeur dépend de la tension \(U\) entre les plaques et de leur distance \(d\).</p>
+  <div class="formula-box">\[E=\frac{U}{d}\]</div>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 800 300" role="img" aria-labelledby="elec-title elec-desc">
+    <title id="elec-title">Particule chargée entre deux plaques</title>
+    <desc id="elec-desc">Le champ électrique uniforme exerce une force qE sur une particule chargée.</desc>
+    <defs><marker id="elec-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2563eb" /></marker></defs>
+    <rect x="42" y="30" width="704" height="210" rx="18" fill="#eff6ff" stroke="#bfdbfe" />
+    <rect x="130" y="62" width="520" height="24" rx="8" fill="#ef4444" />
+    <rect x="130" y="186" width="520" height="24" rx="8" fill="#4f46e5" />
+    <text x="90" y="82" font-size="24" font-weight="700" fill="#991b1b">+</text>
+    <text x="90" y="206" font-size="24" font-weight="700" fill="#312e81">−</text>
+    <g stroke="#2563eb" stroke-width="4" marker-end="url(#elec-arrow)">
+      <line x1="190" y1="94" x2="190" y2="174"/><line x1="310" y1="94" x2="310" y2="174"/><line x1="430" y1="94" x2="430" y2="174"/><line x1="550" y1="94" x2="550" y2="174"/>
+    </g>
+    <circle cx="370" cy="140" r="14" fill="#facc15" stroke="#92400e" stroke-width="3" />
+    <text x="363" y="148" font-size="22" font-weight="700" fill="#92400e">q</text>
+    <text x="596" y="142" font-size="24" font-weight="700" fill="#1d4ed8">E</text>
+    <text x="114" y="270" font-size="21" fill="#1f2937">Pour q &gt; 0, la force a le sens de E ; pour q &lt; 0, elle est opposée.</text>
+  </svg>
+  <figcaption>Dans un champ électrique uniforme, l'accélération vaut \(\vec a=q\vec E/m\).</figcaption>
+</figure>
+  <p>Une particule de charge \(q\) et de masse \(m\) subit la force \(\vec F=q\vec E\). Son accélération est donc :</p>
+  <div class="formula-box">\[\vec a=\frac{q}{m}\vec E\]</div>
+  <div class="warning-box"><strong>Signe de la charge.</strong> Si \(q&gt;0\), la force est dans le sens du champ. Si \(q&lt;0\), elle est dans le sens opposé.</div>
+</section>
+
+<section class="course-section">
+  <h2>5. Énergie électrique</h2>
+  <p>La force électrique est conservative dans un champ électrostatique. Le travail de la force électrique peut s'exprimer à l'aide de la différence de potentiel.</p>
+  <div class="formula-box">\[W_{A\to B}(\vec F_e)=q(V_A-V_B)=qU_{AB}\]</div>
+  <div class="formula-box">\[\Delta E_c=\sum W(\vec F)\]</div>
+  <p>Pour une particule accélérée par une tension \(U\), si elle part du repos et si toute l'énergie électrique devient cinétique :</p>
+  <div class="formula-box">\[\frac12mv^2=|q|U\]</div>
+</section>
+
+<section class="course-section">
+  <h2>6. Méthode de résolution</h2>
+  <ol>
+    <li>Définir le système étudié et le référentiel.</li>
+    <li>Faire le bilan des forces et préciser les hypothèses : frottements négligés ou non.</li>
+    <li>Choisir un repère adapté au champ.</li>
+    <li>Appliquer \(\sum\vec F=m\vec a\), puis projeter.</li>
+    <li>Intégrer pour obtenir \(\vec v(t)\) et \(\vec r(t)\), ou utiliser une méthode énergétique si elle est plus courte.</li>
+  </ol>
+</section>
+
+<section class="course-section key-points">
+  <h2>À retenir</h2>
+  <ul>
+    <li>Dans un champ uniforme seul, l'accélération est constante.</li>
+    <li>En pesanteur uniforme : \(\vec a=\vec g\).</li>
+    <li>Dans un champ électrique uniforme : \(\vec a=q\vec E/m\).</li>
+    <li>Les équations horaires d'un projectile donnent une trajectoire parabolique.</li>
+    <li>Les méthodes énergétiques permettent de relier vitesse, altitude et tension électrique.</li>
+  </ul>
+</section>

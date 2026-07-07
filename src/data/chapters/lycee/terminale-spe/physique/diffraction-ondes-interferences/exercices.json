@@ -1,0 +1,157 @@
+[
+  {
+    "id": "diff-01",
+    "titre": "Angle de diffraction",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Un laser de longueur d’onde $\\lambda=633\\ nm$ éclaire une fente de largeur $a=0,20\\ mm$. Estimer le demi-angle de diffraction $\\theta$.",
+    "aide": "Utiliser $\\theta\\simeq\\lambda/a$ avec les unités SI.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 250\" role=\"img\" aria-label=\"Fente, écran et tache centrale de diffraction\">\n  <rect x=\"44\" y=\"28\" width=\"632\" height=\"170\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#e5e7eb\" />\n  <line x1=\"180\" y1=\"52\" x2=\"180\" y2=\"104\" stroke=\"#111827\" stroke-width=\"7\" />\n  <line x1=\"180\" y1=\"144\" x2=\"180\" y2=\"196\" stroke=\"#111827\" stroke-width=\"7\" />\n  <line x1=\"580\" y1=\"52\" x2=\"580\" y2=\"196\" stroke=\"#64748b\" stroke-width=\"5\" />\n  <rect x=\"572\" y=\"102\" width=\"16\" height=\"44\" fill=\"#facc15\" />\n  <text x=\"318\" y=\"224\" font-size=\"20\" fill=\"#111827\">L ≈ 2Dλ/a</text>\n</svg>",
+    "correction": [
+      "$\\lambda=633\\times10^{-9}\\ m$ et $a=0,20\\times10^{-3}\\ m$.",
+      "$\\theta\\simeq\\lambda/a=633\\times10^{-9}/(0,20\\times10^{-3})=3,17\\times10^{-3}\\ rad$."
+    ]
+  },
+  {
+    "id": "diff-02",
+    "titre": "Largeur de tache centrale",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Une fente de largeur $a=0,10\\ mm$ est éclairée par une lumière de longueur d’onde $\\lambda=650\\ nm$. L’écran est à $D=2,0\\ m$. Calculer la largeur $L$ de la tache centrale.",
+    "aide": "$L\\simeq2D\\lambda/a$.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 250\" role=\"img\" aria-label=\"Fente, écran et tache centrale de diffraction\">\n  <rect x=\"44\" y=\"28\" width=\"632\" height=\"170\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#e5e7eb\" />\n  <line x1=\"180\" y1=\"52\" x2=\"180\" y2=\"104\" stroke=\"#111827\" stroke-width=\"7\" />\n  <line x1=\"180\" y1=\"144\" x2=\"180\" y2=\"196\" stroke=\"#111827\" stroke-width=\"7\" />\n  <line x1=\"580\" y1=\"52\" x2=\"580\" y2=\"196\" stroke=\"#64748b\" stroke-width=\"5\" />\n  <rect x=\"572\" y=\"102\" width=\"16\" height=\"44\" fill=\"#facc15\" />\n  <text x=\"318\" y=\"224\" font-size=\"20\" fill=\"#111827\">L ≈ 2Dλ/a</text>\n</svg>",
+    "correction": [
+      "$a=1,0\\times10^{-4}\\ m$ et $\\lambda=650\\times10^{-9}\\ m$.",
+      "$L=2\\times2,0\\times650\\times10^{-9}/(1,0\\times10^{-4})=2,6\\times10^{-2}\\ m$.",
+      "La tache centrale mesure environ $2,6\\ cm$."
+    ]
+  },
+  {
+    "id": "diff-03",
+    "titre": "Trouver la largeur d’une fente",
+    "niveau": "Méthode",
+    "difficulte": 2,
+    "consigne": "On mesure une tache centrale de largeur $L=1,8\\ cm$ sur un écran placé à $D=1,5\\ m$. La longueur d’onde vaut $\\lambda=600\\ nm$. Déterminer la largeur $a$ de la fente.",
+    "aide": "Isoler $a$ dans $L=2D\\lambda/a$.",
+    "correction": [
+      "$a=2D\\lambda/L$.",
+      "$L=1,8\\times10^{-2}\\ m$.",
+      "$a=2\\times1,5\\times600\\times10^{-9}/(1,8\\times10^{-2})=1,0\\times10^{-4}\\ m$, soit $0,10\\ mm$."
+    ]
+  },
+  {
+    "id": "diff-04",
+    "titre": "Rouge ou bleu ?",
+    "niveau": "Raisonnement",
+    "difficulte": 1,
+    "consigne": "À fente identique, une lumière rouge de $700\\ nm$ ou une lumière bleue de $450\\ nm$ diffracte-t-elle davantage ? Justifier.",
+    "aide": "La diffraction augmente avec la longueur d’onde.",
+    "correction": [
+      "Comme $\\theta\\simeq\\lambda/a$, plus $\\lambda$ est grande, plus l’angle de diffraction est grand.",
+      "La lumière rouge diffracte donc davantage que la lumière bleue à fente identique."
+    ]
+  },
+  {
+    "id": "diff-05",
+    "titre": "Nature d’une interférence",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Deux ondes cohérentes de longueur d’onde $\\lambda=4,0\\ cm$ arrivent en un point avec une différence de marche $\\delta=12\\ cm$. L’interférence est-elle constructive ou destructive ?",
+    "aide": "Comparer δ à un multiple entier de λ.",
+    "correction": [
+      "$\\delta/\\lambda=12/4,0=3$.",
+      "La différence de marche vaut $3\\lambda$, donc l’interférence est constructive."
+    ]
+  },
+  {
+    "id": "diff-06",
+    "titre": "Interférence destructive",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Deux ondes cohérentes ont $\\lambda=2,0\\ cm$. La différence de marche vaut $\\delta=5,0\\ cm$. La superposition est-elle constructive ou destructive ?",
+    "aide": "Une interférence destructive vérifie $\\delta=(k+1/2)\\lambda$.",
+    "correction": [
+      "$\\delta/\\lambda=5,0/2,0=2,5$.",
+      "$2,5=2+0,5$, donc $\\delta=(2+1/2)\\lambda$.",
+      "L’interférence est destructive."
+    ]
+  },
+  {
+    "id": "diff-07",
+    "titre": "Interfrange de Young",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Dans une expérience de Young, les fentes sont séparées de $e=0,30\\ mm$, l’écran est à $D=1,5\\ m$ et la lumière a pour longueur d’onde $\\lambda=600\\ nm$. Calculer l’interfrange $i$.",
+    "aide": "Utiliser $i=\\lambda D/e$.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 250\" role=\"img\" aria-label=\"Franges d'interférences sur un écran\">\n  <rect x=\"44\" y=\"28\" width=\"632\" height=\"170\" rx=\"16\" fill=\"#fffbeb\" stroke=\"#fde68a\" />\n  <line x1=\"170\" y1=\"58\" x2=\"170\" y2=\"86\" stroke=\"#111827\" stroke-width=\"5\" />\n  <line x1=\"170\" y1=\"140\" x2=\"170\" y2=\"170\" stroke=\"#111827\" stroke-width=\"5\" />\n  <line x1=\"550\" y1=\"48\" x2=\"550\" y2=\"188\" stroke=\"#334155\" stroke-width=\"5\" />\n  <g stroke-width=\"8\"><line x1=\"550\" y1=\"64\" x2=\"550\" y2=\"82\" stroke=\"#facc15\"/><line x1=\"550\" y1=\"104\" x2=\"550\" y2=\"122\" stroke=\"#78350f\"/><line x1=\"550\" y1=\"144\" x2=\"550\" y2=\"162\" stroke=\"#facc15\"/></g>\n  <text x=\"300\" y=\"224\" font-size=\"20\" fill=\"#111827\">i = λD/e</text>\n</svg>",
+    "correction": [
+      "$e=3,0\\times10^{-4}\\ m$ et $\\lambda=600\\times10^{-9}\\ m$.",
+      "$i=600\\times10^{-9}\\times1,5/(3,0\\times10^{-4})=3,0\\times10^{-3}\\ m$.",
+      "L’interfrange vaut $3,0\\ mm$."
+    ]
+  },
+  {
+    "id": "diff-08",
+    "titre": "Déterminer une longueur d’onde",
+    "niveau": "Méthode",
+    "difficulte": 2,
+    "consigne": "Dans une expérience de Young, on mesure $i=2,4\\ mm$, avec $D=2,0\\ m$ et $e=0,50\\ mm$. Déterminer la longueur d’onde de la lumière.",
+    "aide": "Isoler $\\lambda$ dans $i=\\lambda D/e$.",
+    "correction": [
+      "$\\lambda=ie/D$.",
+      "$\\lambda=(2,4\\times10^{-3}\\times0,50\\times10^{-3})/2,0=6,0\\times10^{-7}\\ m$.",
+      "Donc $\\lambda=600\\ nm$."
+    ]
+  },
+  {
+    "id": "diff-09",
+    "titre": "Position d’une frange brillante",
+    "niveau": "Application directe",
+    "difficulte": 2,
+    "consigne": "Dans une figure de Young d’interfrange $i=3,0\\ mm$, à quelle distance du centre se trouve la frange brillante d’ordre $k=4$ ?",
+    "aide": "Les franges brillantes sont espacées de l’interfrange.",
+    "correction": [
+      "La position de la frange brillante d’ordre $k$ vaut $x_k=ki$.",
+      "$x_4=4\\times3,0=12\\ mm$."
+    ]
+  },
+  {
+    "id": "diff-10",
+    "titre": "Interférences sonores",
+    "niveau": "Synthèse",
+    "difficulte": 2,
+    "consigne": "Deux haut-parleurs cohérents émettent un son de fréquence $f=680\\ Hz$. La célérité du son vaut $v=340\\ m\\cdot s^{-1}$. En un point M, la différence de marche vaut $\\delta=0,75\\ m$. L’interférence est-elle constructive ou destructive ?",
+    "aide": "Commencer par calculer $\\lambda=v/f$.",
+    "correction": [
+      "$\\lambda=v/f=340/680=0,50\\ m$.",
+      "$\\delta/\\lambda=0,75/0,50=1,5$.",
+      "La différence de marche vaut $(1+1/2)\\lambda$ : l’interférence est destructive."
+    ]
+  },
+  {
+    "id": "diff-11",
+    "titre": "Cohérence des sources",
+    "niveau": "Raisonnement",
+    "difficulte": 2,
+    "consigne": "Pourquoi utilise-t-on une seule source lumineuse pour éclairer les deux fentes dans l’expérience de Young plutôt que deux lampes indépendantes ?",
+    "aide": "Les franges doivent rester stables dans le temps.",
+    "correction": [
+      "Deux lampes indépendantes n’ont pas de déphasage stable.",
+      "Les interférences se brouillent alors très vite.",
+      "En éclairant deux fentes avec la même source, on obtient deux sources secondaires cohérentes."
+    ]
+  },
+  {
+    "id": "diff-12",
+    "titre": "Mesure plus précise",
+    "niveau": "Synthèse",
+    "difficulte": 2,
+    "consigne": "Dans une expérience de Young, pourquoi mesure-t-on souvent la distance entre plusieurs franges plutôt qu’un seul interfrange ?",
+    "aide": "Penser aux incertitudes de lecture sur une règle.",
+    "correction": [
+      "La mesure d’un seul interfrange est petite et donc sensible à l’incertitude de lecture.",
+      "Mesurer la distance entre, par exemple, 10 interfranges puis diviser par 10 réduit l’incertitude relative.",
+      "La détermination de la longueur d’onde est alors plus précise."
+    ]
+  }
+]

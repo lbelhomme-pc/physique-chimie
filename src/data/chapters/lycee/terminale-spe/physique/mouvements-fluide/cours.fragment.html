@@ -1,0 +1,130 @@
+<div class="box-pedagogie box-objectif">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Modéliser un fluide incompressible et un écoulement permanent.</li>
+    <li>Calculer un débit volumique et exploiter la conservation du débit.</li>
+    <li>Utiliser la poussée d'Archimède pour étudier la flottabilité.</li>
+    <li>Appliquer la relation de Bernoulli dans un écoulement sans perte.</li>
+    <li>Interpréter l'effet Venturi et les limites du modèle.</li>
+  </ul>
+</div>
+
+<h2 class="section-title">1. Fluide incompressible et poussée d'Archimède</h2>
+<div class="card chapter-card">
+  <h3>1.1 Modèle du fluide incompressible</h3>
+  <div class="definition-box">
+    Un fluide est modélisé comme <strong>incompressible</strong> lorsque sa masse volumique <math><mi>ρ</mi></math> reste constante au cours de l'écoulement.
+  </div>
+  <p>Ce modèle est très adapté aux liquides usuels. Pour un gaz, il n'est valable que si les vitesses restent faibles devant la célérité du son dans ce gaz.</p>
+
+  <h3>1.2 Poussée d'Archimède</h3>
+  <div class="definition-box">
+    Un corps immergé dans un fluide subit une force verticale vers le haut appelée <strong>poussée d'Archimède</strong>. Sa norme vaut :
+    <div class="formula-wrapper-centered">
+      <div class="formula-content"><math><msub><mi>F</mi><mi>A</mi></msub><mo>=</mo><msub><mi>ρ</mi><mtext>fluide</mtext></msub><mi>V</mi><mi>g</mi></math></div>
+    </div>
+    où <math><mi>V</mi></math> est le volume de fluide déplacé.
+  </div>
+  <div class="svg-wrap" role="img" aria-label="Forces exercées sur un objet immergé">
+    <svg viewBox="0 0 620 310" class="chapter-svg">
+      <defs>
+        <marker id="arrow-fluid-up" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#059669"/></marker>
+        <marker id="arrow-fluid-down" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
+      </defs>
+      <rect x="70" y="90" width="480" height="170" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+      <text x="510" y="120" text-anchor="end" fill="#0369a1" font-weight="700">fluide</text>
+      <circle cx="310" cy="175" r="55" fill="#fed7aa" stroke="#ea580c" stroke-width="3"/>
+      <text x="310" y="182" text-anchor="middle" font-weight="700">objet</text>
+      <path d="M310 120 V55" stroke="#059669" stroke-width="5" marker-end="url(#arrow-fluid-up)"/>
+      <text x="330" y="82" fill="#047857" font-weight="700">F<tspan baseline-shift="sub">A</tspan></text>
+      <path d="M310 230 V290" stroke="#dc2626" stroke-width="5" marker-end="url(#arrow-fluid-down)"/>
+      <text x="330" y="275" fill="#b91c1c" font-weight="700">P</text>
+      <line x1="70" y1="90" x2="550" y2="90" stroke="#0369a1" stroke-width="2"/>
+      <text x="310" y="35" text-anchor="middle">La poussée dépend du volume immergé.</text>
+    </svg>
+  </div>
+  <div class="info-box">
+    Si <math><msub><mi>F</mi><mi>A</mi></msub><mo>&gt;</mo><mi>P</mi></math>, l'objet tend à remonter. Si <math><msub><mi>F</mi><mi>A</mi></msub><mo>&lt;</mo><mi>P</mi></math>, il tend à couler.
+  </div>
+</div>
+
+<h2 class="section-title">2. Écoulement permanent et débit volumique</h2>
+<div class="card chapter-card">
+  <h3>2.1 Débit volumique</h3>
+  <div class="definition-box">
+    Le <strong>débit volumique</strong> est le volume de fluide qui traverse une section par unité de temps :
+    <div class="formula-wrapper-centered">
+      <div class="formula-content"><math><msub><mi>D</mi><mi>v</mi></msub><mo>=</mo><mfrac><mi>V</mi><mi>Δt</mi></mfrac></math></div>
+    </div>
+    Pour une vitesse uniforme sur une section <math><mi>S</mi></math> :
+    <div class="formula-wrapper-centered">
+      <div class="formula-content"><math><msub><mi>D</mi><mi>v</mi></msub><mo>=</mo><mi>v</mi><mi>S</mi></math></div>
+    </div>
+  </div>
+  <p>Unités usuelles : <math><msup><mi>m</mi><mn>3</mn></msup><mo>·</mo><msup><mi>s</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup></math>, L·s<sup>-1</sup> ou L·min<sup>-1</sup>.</p>
+
+  <h3>2.2 Conservation du débit</h3>
+  <p>Pour un fluide incompressible en écoulement permanent, le débit volumique se conserve dans toute conduite :</p>
+  <div class="formula-wrapper-centered">
+    <div class="formula-content"><math><msub><mi>v</mi><mn>1</mn></msub><msub><mi>S</mi><mn>1</mn></msub><mo>=</mo><msub><mi>v</mi><mn>2</mn></msub><msub><mi>S</mi><mn>2</mn></msub></math></div>
+  </div>
+  <div class="svg-wrap" role="img" aria-label="Conservation du débit dans un tube qui se rétrécit">
+    <svg viewBox="0 0 820 280" class="chapter-svg">
+      <defs>
+        <marker id="arrow-flow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+      </defs>
+      <path d="M70 90 H310 C380 90 390 125 430 125 H750 V155 H430 C390 155 380 190 310 190 H70 Z" fill="#dbeafe" stroke="#2563eb" stroke-width="4"/>
+      <path d="M115 140 H250" stroke="#2563eb" stroke-width="5" marker-end="url(#arrow-flow)"/>
+      <path d="M500 140 H690" stroke="#2563eb" stroke-width="8" marker-end="url(#arrow-flow)"/>
+      <line x1="165" y1="90" x2="165" y2="190" stroke="#1e40af" stroke-width="3"/>
+      <line x1="600" y1="125" x2="600" y2="155" stroke="#1e40af" stroke-width="3"/>
+      <text x="165" y="218" text-anchor="middle">section S₁ grande</text>
+      <text x="600" y="218" text-anchor="middle">section S₂ petite</text>
+      <text x="180" y="72" text-anchor="middle" font-weight="700">v₁ faible</text>
+      <text x="610" y="112" text-anchor="middle" font-weight="700">v₂ forte</text>
+      <text x="410" y="250" text-anchor="middle">Quand la section diminue, la vitesse augmente.</text>
+    </svg>
+  </div>
+</div>
+
+<h2 class="section-title">3. Relation de Bernoulli</h2>
+<div class="card chapter-card">
+  <p>Dans un écoulement permanent, incompressible, sans viscosité et le long d'une même ligne de courant, la relation de Bernoulli s'écrit :</p>
+  <div class="definition-box">
+    <div class="formula-wrapper-centered">
+      <div class="formula-content"><math><mi>P</mi><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ρ</mi><msup><mi>v</mi><mn>2</mn></msup><mo>+</mo><mi>ρ</mi><mi>g</mi><mi>z</mi><mo>=</mo><mtext>constante</mtext></math></div>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr><th>Terme</th><th>Signification</th><th>Unité</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><math><mi>P</mi></math></td><td>pression statique</td><td>Pa</td></tr>
+      <tr><td><math><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>ρ</mi><msup><mi>v</mi><mn>2</mn></msup></math></td><td>terme cinétique</td><td>Pa</td></tr>
+      <tr><td><math><mi>ρ</mi><mi>g</mi><mi>z</mi></math></td><td>terme de pesanteur</td><td>Pa</td></tr>
+    </tbody>
+  </table>
+  <div class="example-box">
+    <strong>Effet Venturi :</strong> dans une partie plus étroite d'une conduite horizontale, la vitesse augmente. D'après Bernoulli, si l'altitude ne change pas, la pression diminue.
+  </div>
+</div>
+
+<h2 class="section-title">4. Limites du modèle</h2>
+<div class="card chapter-card">
+  <ul>
+    <li>La relation de Bernoulli idéale néglige la viscosité et les pertes d'énergie.</li>
+    <li>Dans une conduite réelle, la pression diminue souvent dans le sens de l'écoulement à cause des pertes de charge.</li>
+    <li>Les turbulences, les frottements et les variations rapides de section peuvent rendre le modèle insuffisant.</li>
+  </ul>
+</div>
+
+<h2 class="section-title">À retenir</h2>
+<div class="card chapter-card">
+  <ul>
+    <li>Débit volumique : <math><msub><mi>D</mi><mi>v</mi></msub><mo>=</mo><mi>v</mi><mi>S</mi></math>.</li>
+    <li>Conservation du débit : <math><msub><mi>v</mi><mn>1</mn></msub><msub><mi>S</mi><mn>1</mn></msub><mo>=</mo><msub><mi>v</mi><mn>2</mn></msub><msub><mi>S</mi><mn>2</mn></msub></math>.</li>
+    <li>Poussée d'Archimède : <math><msub><mi>F</mi><mi>A</mi></msub><mo>=</mo><mi>ρ</mi><mi>V</mi><mi>g</mi></math>.</li>
+    <li>Bernoulli relie pression, vitesse et altitude dans un écoulement idéal.</li>
+  </ul>
+</div>

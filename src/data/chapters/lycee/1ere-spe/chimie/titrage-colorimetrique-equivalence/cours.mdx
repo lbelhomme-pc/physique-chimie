@@ -1,0 +1,267 @@
+﻿## Objectifs
+
+- Distinguer solution titrée, solution titrante, espèce titrée et espèce titrante.
+- Identifier les critères d'une réaction support de titrage.
+- Définir l'équivalence d'un titrage.
+- Relier l'équivalence au changement de réactif limitant.
+- Établir la relation stœchiométrique à l'équivalence.
+- Calculer une concentration inconnue à partir d'un volume équivalent.
+- Interpréter un repérage colorimétrique et ses limites.
+
+## Prérequis
+
+- Connaître la relation $n=cV$.
+- Savoir convertir des millilitres en litres.
+- Savoir ajuster une équation chimique.
+- Connaître les coefficients stœchiométriques.
+- Identifier un réactif limitant dans un tableau d'avancement.
+- Connaître les bases des réactions d'oxydoréduction.
+
+## Cours
+
+### 1. Principe d'un titrage direct
+
+#### Définition ou idée essentielle
+
+Un titrage sert à déterminer la quantité de matière ou la concentration d'une espèce chimique dans un échantillon. On fait réagir la solution titrée, de concentration inconnue, avec une solution titrante, de concentration connue.
+
+#### Formule ou méthode
+
+Vocabulaire indispensable :
+
+| Terme | Signification |
+| --- | --- |
+| Solution titrée | Solution analysée, placée dans l'erlenmeyer |
+| Espèce titrée | Espèce dont on cherche la quantité ou la concentration |
+| Solution titrante | Solution de concentration connue, placée dans la burette |
+| Espèce titrante | Espèce versée progressivement |
+| Volume équivalent $V_E$ | Volume de solution titrante versé à l'équivalence |
+
+Erreur fréquente : croire que l'équivalence correspond à des volumes égaux. Elle correspond à des quantités introduites dans les proportions de l'équation.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 760 300" role="img" aria-labelledby="fig-montage-title fig-montage-desc">
+    <title id="fig-montage-title">Montage de titrage colorimétrique</title>
+    <desc id="fig-montage-desc">Une burette contenant la solution titrante verse goutte à goutte dans un erlenmeyer contenant la solution titrée.</desc>
+    <line x1="145" y1="35" x2="145" y2="250" stroke="#475569" strokeWidth="6" />
+    <line x1="80" y1="55" x2="210" y2="55" stroke="#475569" strokeWidth="6" />
+    <rect x="310" y="25" width="60" height="170" rx="10" fill="#dbeafe" stroke="#2563eb" />
+    <line x1="340" y1="195" x2="340" y2="230" stroke="#2563eb" strokeWidth="4" />
+    <circle cx="340" cy="242" r="7" fill="#2563eb" />
+    <text x="420" y="78">burette</text>
+    <text x="420" y="105">solution titrante</text>
+    <path d="M285 255 L395 255 L365 195 L315 195 Z" fill="#fef3c7" stroke="#d97706" strokeWidth="3" />
+    <text x="435" y="235">erlenmeyer</text>
+    <text x="435" y="260">solution titrée</text>
+    <line x1="280" y1="270" x2="410" y2="270" stroke="#64748b" strokeWidth="5" />
+    <text x="320" y="20">V versé</text>
+  </svg>
+  <figcaption>La solution titrante est ajoutée progressivement dans la solution titrée jusqu'au repérage de l'équivalence.</figcaption>
+</figure>
+
+#### Exemple
+
+On veut déterminer la concentration en ions fer(II) d'une solution. Les ions fer(II) sont l'espèce titrée. Une solution de permanganate de concentration connue est la solution titrante. Le volume de permanganate versé à l'équivalence permettra de calculer la concentration cherchée.
+
+### 2. Réaction support du titrage
+
+#### Définition ou idée essentielle
+
+La réaction support du titrage est la réaction chimique entre l'espèce titrée et l'espèce titrante. Elle doit être rapide, totale et unique pour que le volume équivalent soit exploitable.
+
+#### Formule ou méthode
+
+Pour une réaction générale :
+
+$$
+aA+bB \rightarrow cC+dD
+$$
+
+si $A$ est l'espèce titrée et $B$ l'espèce titrante, les coefficients $a$ et $b$ seront indispensables dans le calcul à l'équivalence.
+
+Erreur fréquente : appliquer automatiquement $c_AV_A=c_BV_E$. Cette relation n'est vraie que si les coefficients stœchiométriques de $A$ et $B$ sont égaux.
+
+#### Exemple
+
+Pour le titrage des ions fer(II) par les ions permanganate en milieu acide :
+
+$$
+\mathrm{MnO_4^- + 5Fe^{2+} + 8H^+ \rightarrow Mn^{2+} + 5Fe^{3+} + 4H_2O}
+$$
+
+Les coefficients utiles sont $5$ pour $Fe^{2+}$ et $1$ pour $MnO_4^-$.
+
+### 3. Équivalence et réactif limitant
+
+#### Définition ou idée essentielle
+
+L'équivalence est le moment où les réactifs ont été introduits dans les proportions stœchiométriques de l'équation. Avant l'équivalence, l'espèce titrante ajoutée est limitante. Après l'équivalence, l'espèce titrée est consommée et l'espèce titrante est en excès.
+
+#### Formule ou méthode
+
+À l'équivalence :
+
+$$
+\frac{n_{\text{titré}}}{\nu_{\text{titré}}}
+=
+\frac{n_{\text{titrant}}}{\nu_{\text{titrant}}}
+$$
+
+où $\nu$ désigne le coefficient stœchiométrique dans l'équation ajustée.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 760 260" role="img" aria-labelledby="fig-equivalence-title fig-equivalence-desc">
+    <title id="fig-equivalence-title">Avant, à et après l'équivalence</title>
+    <desc id="fig-equivalence-desc">Trois panneaux comparent le réactif limitant avant l'équivalence, à l'équivalence et après l'équivalence.</desc>
+    <rect x="35" y="45" width="200" height="145" rx="12" fill="#eff6ff" stroke="#2563eb" />
+    <text x="135" y="75" textAnchor="middle" fontWeight="700">Avant</text>
+    <text x="135" y="112" textAnchor="middle">titrant limitant</text>
+    <text x="135" y="142" textAnchor="middle">titré en excès</text>
+    <rect x="280" y="45" width="200" height="145" rx="12" fill="#f0fdf4" stroke="#16a34a" />
+    <text x="380" y="75" textAnchor="middle" fontWeight="700">Équivalence</text>
+    <text x="380" y="112" textAnchor="middle">proportions</text>
+    <text x="380" y="142" textAnchor="middle">stœchiométriques</text>
+    <rect x="525" y="45" width="200" height="145" rx="12" fill="#fff7ed" stroke="#ea580c" />
+    <text x="625" y="75" textAnchor="middle" fontWeight="700">Après</text>
+    <text x="625" y="112" textAnchor="middle">titré consommé</text>
+    <text x="625" y="142" textAnchor="middle">titrant en excès</text>
+  </svg>
+  <figcaption>L'équivalence correspond au changement de réactif limitant.</figcaption>
+</figure>
+
+#### Exemple
+
+Dans un titrage $A+B\rightarrow C$, si on n'a pas encore versé assez de $B$, chaque goutte de $B$ est immédiatement consommée : $B$ est limitant. À l'équivalence, $A$ et $B$ sont introduits exactement dans les proportions $1:1$. Après, $B$ reste en excès.
+
+### 4. Relation à l'équivalence
+
+#### Définition ou idée essentielle
+
+La relation à l'équivalence se construit à partir de l'équation ajustée. Elle ne se devine pas : les coefficients stœchiométriques doivent être utilisés.
+
+#### Formule ou méthode
+
+Pour :
+
+$$
+aA+bB \rightarrow cC+dD
+$$
+
+avec $A$ titré et $B$ titrant :
+
+$$
+\frac{n_A}{a}=\frac{n_B}{b}
+$$
+
+Comme $n=cV$, à l'équivalence :
+
+$$
+\frac{c_AV_A}{a}=\frac{c_BV_E}{b}
+$$
+
+Les volumes doivent être exprimés dans la même unité, généralement en litre si les concentrations sont en $\text{mol·L}^{-1}$.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 760 230" role="img" aria-labelledby="fig-relation-title fig-relation-desc">
+    <title id="fig-relation-title">Relation stœchiométrique à l'équivalence</title>
+    <desc id="fig-relation-desc">La relation part de l'équation ajustée puis remplace les quantités de matière par c fois V.</desc>
+    <rect x="45" y="45" width="190" height="110" rx="12" fill="#f8fafc" stroke="#64748b" />
+    <text x="140" y="90" textAnchor="middle">aA + bB</text>
+    <text x="140" y="120" textAnchor="middle">→ produits</text>
+    <path d="M250 100 H330" stroke="#0f172a" strokeWidth="3" markerEnd="url(#arrow-titrage)" />
+    <rect x="350" y="45" width="180" height="110" rx="12" fill="#eef6ff" stroke="#2563eb" />
+    <text x="440" y="92" textAnchor="middle">nA / a</text>
+    <text x="440" y="122" textAnchor="middle">= nB / b</text>
+    <path d="M545 100 H625" stroke="#0f172a" strokeWidth="3" markerEnd="url(#arrow-titrage)" />
+    <rect x="645" y="45" width="85" height="110" rx="12" fill="#f0fdf4" stroke="#16a34a" />
+    <text x="688" y="82" textAnchor="middle">cA VA</text>
+    <text x="688" y="105" textAnchor="middle">/ a</text>
+    <text x="688" y="128" textAnchor="middle">= cB VE / b</text>
+    <defs>
+      <marker id="arrow-titrage" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L9,3 z" fill="#0f172a" />
+      </marker>
+    </defs>
+  </svg>
+  <figcaption>La relation exploitable vient toujours de l'équation ajustée.</figcaption>
+</figure>
+
+#### Exemple
+
+On titre $V_A=10{,}0\ \text{mL}$ d'ions $Fe^{2+}$ par une solution de permanganate de concentration $c_B=2{,}00\times10^{-2}\ \text{mol·L}^{-1}$. On mesure $V_E=12{,}5\ \text{mL}$.
+
+Équation : $5Fe^{2+}+MnO_4^-+8H^+\rightarrow 5Fe^{3+}+Mn^{2+}+4H_2O$.
+
+$$
+\frac{c_AV_A}{5}=\frac{c_BV_E}{1}
+$$
+
+$$
+c_A=\frac{5c_BV_E}{V_A}
+$$
+
+$$
+c_A=\frac{5\times2{,}00\times10^{-2}\times12{,}5\times10^{-3}}{10{,}0\times10^{-3}}
+=1{,}25\times10^{-1}\ \text{mol·L}^{-1}
+$$
+
+La concentration en ions $Fe^{2+}$ vaut $0{,}125\ \text{mol·L}^{-1}$.
+
+### 5. Repérage colorimétrique et erreurs expérimentales
+
+#### Définition ou idée essentielle
+
+Dans un titrage colorimétrique, le changement de couleur sert à repérer l'équivalence. Il n'est pas la définition de l'équivalence. Le changement doit être net et persistant après agitation.
+
+#### Formule ou méthode
+
+Gestes importants :
+
+- rincer la burette avec la solution titrante ;
+- éliminer les bulles d'air ;
+- lire le bas du ménisque à hauteur des yeux ;
+- verser goutte à goutte près de l'équivalence ;
+- agiter pour homogénéiser ;
+- recommencer si l'équivalence a été dépassée.
+
+Erreur fréquente : une goutte en trop augmente $V_E$, donc peut surestimer la quantité d'espèce titrée selon la relation utilisée.
+
+#### Exemple
+
+Si le volume équivalent lu est $12{,}8\ \text{mL}$ au lieu de $12{,}5\ \text{mL}$, le volume utilisé dans le calcul est trop grand. Pour un titrage où $c_A$ est proportionnelle à $V_E$, la concentration calculée sera trop grande.
+
+## À retenir
+
+### Définitions essentielles
+
+- La solution titrée contient l'espèce dont on cherche la concentration.
+- La solution titrante est de concentration connue.
+- L'équivalence correspond aux proportions stœchiométriques, pas à des volumes égaux.
+- Le changement de couleur est un repère expérimental de l'équivalence.
+
+### Formules à connaître
+
+$$
+\frac{n_A}{a}=\frac{n_B}{b}
+\qquad
+\frac{c_AV_A}{a}=\frac{c_BV_E}{b}
+$$
+
+### Méthode importante
+
+1. Identifier l'espèce titrée et l'espèce titrante.
+2. Écrire l'équation ajustée.
+3. Repérer les coefficients utiles.
+4. Écrire la relation à l'équivalence.
+5. Convertir les volumes.
+6. Isoler la grandeur cherchée.
+7. Calculer et conclure avec une unité.
+
+### Pièges classiques
+
+- Utiliser $c_AV_A=c_BV_E$ sans vérifier les coefficients.
+- Confondre $V_A$ et $V_E$.
+- Oublier la conversion des millilitres en litres.
+- Définir l'équivalence uniquement par le changement de couleur.
+
+

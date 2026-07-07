@@ -1,0 +1,220 @@
+﻿## Objectifs
+
+- Utiliser les relations entre tension, intensité, puissance et énergie.
+- Exploiter le modèle d'une source réelle de tension.
+- Calculer une énergie dissipée par effet Joule.
+- Déterminer un rendement.
+- Calculer le travail d'une force constante.
+- Exploiter l'énergie cinétique et l'énergie potentielle de pesanteur.
+
+## Prérequis
+
+- Connaître les unités $\text{V}$, $\text{A}$, $\text{W}$, $\text{J}$ et $\text{s}$.
+- Savoir utiliser $P=\frac{E}{\Delta t}$.
+- Savoir convertir des durées.
+- Connaître la notion de force.
+- Savoir calculer avec des puissances de dix.
+
+## Cours
+
+### 1. Puissance et énergie électriques
+
+#### Définition ou idée essentielle
+
+La puissance électrique reçue ou fournie par un dipôle mesure l'énergie transférée par unité de temps. Elle dépend de la tension à ses bornes et de l'intensité du courant qui le traverse.
+
+#### Formule ou méthode
+
+$$
+P=UI
+\qquad
+E=P\Delta t
+$$
+
+avec :
+
+- $P$ en watt $\text{W}$ ;
+- $U$ en volt $\text{V}$ ;
+- $I$ en ampère $\text{A}$ ;
+- $E$ en joule $\text{J}$ ;
+- $\Delta t$ en seconde $\text{s}$.
+
+Erreur fréquente : utiliser une durée en minute dans $E=P\Delta t$ sans la convertir en seconde.
+
+#### Exemple
+
+Une lampe reçoit $U=12{,}0\ \text{V}$ et est traversée par $I=0{,}50\ \text{A}$.
+
+$$
+P=UI=12{,}0\times0{,}50=6{,}0\ \text{W}
+$$
+
+Pendant $10\ \text{min}=600\ \text{s}$, elle reçoit :
+
+$$
+E=P\Delta t=6{,}0\times600=3{,}6\times10^3\ \text{J}
+$$
+
+### 2. Source réelle, effet Joule et rendement
+
+#### Définition ou idée essentielle
+
+Une source réelle ne transforme pas toute l'énergie disponible en énergie utile. Une partie peut être dissipée par effet Joule, c'est-à-dire sous forme d'énergie thermique dans les conducteurs ou les dipôles résistifs.
+
+#### Formule ou méthode
+
+Pour un conducteur ohmique :
+
+$$
+P_J=RI^2
+$$
+
+Le rendement d'un convertisseur vaut :
+
+$$
+\eta=\frac{E_{\text{utile}}}{E_{\text{reçue}}}
+$$
+
+ou en pourcentage :
+
+$$
+\eta=\frac{E_{\text{utile}}}{E_{\text{reçue}}}\times100
+$$
+
+#### Exemple
+
+Un moteur reçoit $500\ \text{J}$ et fournit $350\ \text{J}$ d'énergie utile.
+
+$$
+\eta=\frac{350}{500}\times100=70{,}0\ \%
+$$
+
+Le rendement du moteur est $70{,}0\ \%$.
+
+### 3. Travail d'une force constante
+
+#### Définition ou idée essentielle
+
+Le travail d'une force mesure l'énergie transférée par cette force lors d'un déplacement. Il dépend de la valeur de la force, de la longueur du déplacement et de l'angle entre les deux.
+
+#### Formule ou méthode
+
+$$
+W_{AB}(\vec{F})=F \times AB \times \cos(\alpha)
+$$
+
+avec :
+
+- $W$ en joule $\text{J}$ ;
+- $F$ en newton $\text{N}$ ;
+- $AB$ en mètre $\text{m}$ ;
+- $\alpha$ angle entre la force et le déplacement.
+
+Si la force aide le mouvement, le travail est positif. Si elle s'oppose au mouvement, il est négatif.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 720 230" role="img" aria-labelledby="fig-travail-title fig-travail-desc">
+    <title id="fig-travail-title">Travail d'une force constante</title>
+    <desc id="fig-travail-desc">Un objet se déplace horizontalement tandis qu'une force forme un angle avec le déplacement.</desc>
+    <rect x="105" y="135" width="95" height="50" rx="8" fill="#e0f2fe" stroke="#0284c7" />
+    <line x1="70" y1="190" x2="650" y2="190" stroke="#64748b" strokeWidth="3" />
+    <path d="M210 160 H500" stroke="#16a34a" strokeWidth="4" markerEnd="url(#arrow-work)" />
+    <text x="360" y="150" textAnchor="middle">déplacement AB</text>
+    <path d="M155 135 L290 65" stroke="#dc2626" strokeWidth="4" markerEnd="url(#arrow-work-red)" />
+    <text x="245" y="70" fill="#dc2626">force F</text>
+    <path d="M238 160 A75 75 0 0 0 225 105" fill="none" stroke="#0f172a" strokeWidth="2" />
+    <text x="255" y="125">angle alpha</text>
+    <defs>
+      <marker id="arrow-work" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L9,3 z" fill="#16a34a" />
+      </marker>
+      <marker id="arrow-work-red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L9,3 z" fill="#dc2626" />
+      </marker>
+    </defs>
+  </svg>
+  <figcaption>Seule la composante de la force dans la direction du déplacement contribue au travail.</figcaption>
+</figure>
+
+#### Exemple
+
+Une force de $40\ \text{N}$ tire un objet sur $3{,}0\ \text{m}$ dans la direction du déplacement.
+
+$$
+W=F\times AB\times\cos(0^\circ)=40\times3{,}0=1{,}2\times10^2\ \text{J}
+$$
+
+La force fournit $120\ \text{J}$ à l'objet.
+
+### 4. Énergies mécaniques
+
+#### Définition ou idée essentielle
+
+L'énergie cinétique dépend de la vitesse. L'énergie potentielle de pesanteur dépend de l'altitude choisie comme référence. L'énergie mécanique est la somme des deux.
+
+#### Formule ou méthode
+
+$$
+E_c=\frac{1}{2}mv^2
+\qquad
+E_{pp}=mgz
+\qquad
+E_m=E_c+E_{pp}
+$$
+
+avec $m$ en $\text{kg}$, $v$ en $\text{m·s}^{-1}$, $z$ en $\text{m}$ et les énergies en $\text{J}$.
+
+#### Exemple
+
+Une balle de masse $m=0{,}20\ \text{kg}$ se déplace à $v=5{,}0\ \text{m·s}^{-1}$.
+
+$$
+E_c=\frac{1}{2}\times0{,}20\times5{,}0^2=2{,}5\ \text{J}
+$$
+
+Son énergie cinétique vaut $2{,}5\ \text{J}$.
+
+## À retenir
+
+### Définitions essentielles
+
+- La puissance est une énergie transférée par unité de temps.
+- L'effet Joule correspond à une dissipation thermique.
+- Un rendement compare l'énergie utile à l'énergie reçue.
+- Le travail d'une force mesure un transfert d'énergie mécanique.
+
+### Formules à connaître
+
+$$
+P=UI
+\qquad
+E=P\Delta t
+\qquad
+P_J=RI^2
+\qquad
+\eta=\frac{E_{\text{utile}}}{E_{\text{reçue}}}
+$$
+
+$$
+W=F\times AB\times\cos(\alpha)
+\qquad
+E_c=\frac{1}{2}mv^2
+\qquad
+E_{pp}=mgz
+$$
+
+### Méthode importante
+
+1. Identifier le transfert d'énergie étudié.
+2. Convertir les grandeurs en unités SI.
+3. Appliquer la relation adaptée.
+4. Interpréter le signe ou le rendement obtenu.
+
+### Pièges classiques
+
+- Oublier de convertir les durées.
+- Confondre puissance et énergie.
+- Donner un rendement supérieur à $100\ \%$ sans remettre le calcul en cause.
+- Oublier le carré de la vitesse dans $E_c$.
+
+

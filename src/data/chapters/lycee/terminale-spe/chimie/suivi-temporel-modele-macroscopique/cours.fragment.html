@@ -1,0 +1,133 @@
+<section class="course-section">
+  <h2>Objectifs du chapitre</h2>
+  <ul class="objectives-list">
+    <li>Décrire l'évolution temporelle d'un système chimique à l'échelle macroscopique.</li>
+    <li>Utiliser l'avancement \(x(t)\) et l'avancement final \(x_f\).</li>
+    <li>Définir et exploiter une vitesse volumique de réaction.</li>
+    <li>Déterminer graphiquement un temps de demi-réaction.</li>
+    <li>Identifier les facteurs cinétiques : température, concentration, catalyseur, surface de contact.</li>
+  </ul>
+</section>
+
+<section class="course-section">
+  <h2>1. Suivre une transformation au cours du temps</h2>
+  <p>Une transformation chimique peut être trop rapide pour être suivie à l'œil nu, ou au contraire assez lente pour mesurer l'évolution d'une grandeur physique au cours du temps.</p>
+  <p>On peut suivre une transformation par :</p>
+  <ul>
+    <li>spectrophotométrie, si une espèce colorée apparaît ou disparaît ;</li>
+    <li>conductimétrie, si la quantité d'ions varie ;</li>
+    <li>mesure de pression ou de volume, si un gaz est formé ;</li>
+    <li>pH-métrie, si des ions oxonium ou hydroxyde interviennent.</li>
+  </ul>
+
+  <figure class="schema-block">
+    <svg class="schema-svg" viewBox="0 0 850 310" role="img" aria-labelledby="follow-title follow-desc">
+      <title id="follow-title">Méthodes de suivi temporel</title>
+      <desc id="follow-desc">Différentes grandeurs physiques peuvent permettre de suivre l'évolution d'une transformation.</desc>
+      <rect x="58" y="40" width="734" height="185" rx="18" fill="#f8fafc" stroke="#e5e7eb" />
+      <rect x="92" y="88" width="150" height="72" rx="14" fill="#eef2ff" stroke="#6366f1" />
+      <rect x="268" y="88" width="150" height="72" rx="14" fill="#ecfeff" stroke="#0891b2" />
+      <rect x="444" y="88" width="150" height="72" rx="14" fill="#f0fdf4" stroke="#16a34a" />
+      <rect x="620" y="88" width="130" height="72" rx="14" fill="#fff7ed" stroke="#f97316" />
+      <text x="112" y="130" font-size="19" fill="#3730a3">Absorbance</text>
+      <text x="286" y="130" font-size="19" fill="#155e75">Conductance</text>
+      <text x="480" y="130" font-size="19" fill="#166534">Pression</text>
+      <text x="670" y="130" font-size="19" fill="#9a3412">pH</text>
+      <text x="170" y="268" font-size="20" fill="#334155">La grandeur suivie doit être reliée à une quantité de matière ou une concentration.</text>
+    </svg>
+    <figcaption>Le suivi expérimental doit toujours être relié au modèle chimique étudié.</figcaption>
+  </figure>
+</section>
+
+<section class="course-section">
+  <h2>2. Avancement et évolution temporelle</h2>
+  <p>Pour une réaction d'équation générale \(aA+bB\rightarrow cC+dD\), l'avancement \(x(t)\) décrit l'état du système au cours du temps.</p>
+  <table class="data-table">
+    <thead>
+      <tr><th>Espèce</th><th>Quantité au temps \(t\)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>\(A\)</td><td>\(n_A(t)=n_A(0)-a\,x(t)\)</td></tr>
+      <tr><td>\(B\)</td><td>\(n_B(t)=n_B(0)-b\,x(t)\)</td></tr>
+      <tr><td>\(C\)</td><td>\(n_C(t)=n_C(0)+c\,x(t)\)</td></tr>
+      <tr><td>\(D\)</td><td>\(n_D(t)=n_D(0)+d\,x(t)\)</td></tr>
+    </tbody>
+  </table>
+  <p>L'avancement final \(x_f\) est la valeur atteinte lorsque le système n'évolue plus de manière mesurable.</p>
+</section>
+
+<section class="course-section">
+  <h2>3. Vitesse volumique de réaction</h2>
+  <p>Dans un volume \(V\) supposé constant, la vitesse volumique de réaction est définie par :</p>
+  <div class="formula-box">\[v(t)=\frac{1}{V}\frac{dx}{dt}\]</div>
+  <p>Elle s'exprime souvent en \(\text{mol}\cdot\text{L}^{-1}\cdot\text{s}^{-1}\) si \(V\) est en litres et \(x\) en moles.</p>
+  <p>Graphiquement, \(\frac{dx}{dt}\) correspond à la pente de la tangente à la courbe \(x(t)\).</p>
+
+  <figure class="schema-block">
+    <svg class="schema-svg" viewBox="0 0 850 330" role="img" aria-labelledby="speed-title speed-desc">
+      <title id="speed-title">Lecture graphique d'une vitesse</title>
+      <desc id="speed-desc">La vitesse est reliée à la pente de la tangente à la courbe d'avancement.</desc>
+      <rect x="58" y="34" width="734" height="230" rx="18" fill="#f8fafc" stroke="#e5e7eb" />
+      <line x1="118" y1="222" x2="710" y2="222" stroke="#111827" stroke-width="3" />
+      <line x1="118" y1="222" x2="118" y2="58" stroke="#111827" stroke-width="3" />
+      <path d="M120 220 C210 125 330 82 500 72 C610 68 670 68 705 68" fill="none" stroke="#4f46e5" stroke-width="5" />
+      <line x1="205" y1="142" x2="385" y2="85" stroke="#f97316" stroke-width="4" />
+      <text x="690" y="252" font-size="20" fill="#111827">t</text>
+      <text x="74" y="70" font-size="20" fill="#111827">x</text>
+      <text x="395" y="96" font-size="20" fill="#9a3412">tangente</text>
+      <text x="230" y="296" font-size="20" fill="#334155">La vitesse diminue souvent quand les réactifs sont consommés.</text>
+    </svg>
+    <figcaption>La vitesse initiale correspond à la pente au début de la transformation.</figcaption>
+  </figure>
+</section>
+
+<section class="course-section">
+  <h2>4. Temps de demi-réaction</h2>
+  <p>Le temps de demi-réaction \(t_{1/2}\) est la durée nécessaire pour que l'avancement atteigne la moitié de sa valeur finale :</p>
+  <div class="formula-box">\[x(t_{1/2})=\frac{x_f}{2}\]</div>
+  <p>Il permet de comparer rapidement la rapidité de deux transformations réalisées dans des conditions différentes.</p>
+
+  <figure class="schema-block">
+    <svg class="schema-svg" viewBox="0 0 850 330" role="img" aria-labelledby="half-title half-desc">
+      <title id="half-title">Lecture du temps de demi-réaction</title>
+      <desc id="half-desc">On lit le temps pour lequel l'avancement atteint la moitié de l'avancement final.</desc>
+      <rect x="58" y="34" width="734" height="230" rx="18" fill="#f8fafc" stroke="#e5e7eb" />
+      <line x1="118" y1="222" x2="710" y2="222" stroke="#111827" stroke-width="3" />
+      <line x1="118" y1="222" x2="118" y2="58" stroke="#111827" stroke-width="3" />
+      <path d="M120 220 C215 130 335 82 500 74 C615 70 675 70 708 70" fill="none" stroke="#4f46e5" stroke-width="5" />
+      <line x1="118" y1="70" x2="700" y2="70" stroke="#94a3b8" stroke-width="3" stroke-dasharray="8 8" />
+      <line x1="118" y1="146" x2="330" y2="146" stroke="#ef4444" stroke-width="3" stroke-dasharray="8 8" />
+      <line x1="330" y1="146" x2="330" y2="222" stroke="#ef4444" stroke-width="3" stroke-dasharray="8 8" />
+      <text x="72" y="76" font-size="18" fill="#334155">x_f</text>
+      <text x="60" y="152" font-size="18" fill="#991b1b">x_f/2</text>
+      <text x="304" y="252" font-size="18" fill="#991b1b">t₁/₂</text>
+      <text x="226" y="296" font-size="20" fill="#334155">On lit d'abord \(x_f/2\), puis le temps correspondant.</text>
+    </svg>
+    <figcaption>Plus \(t_{1/2}\) est petit, plus la transformation est rapide dans les conditions étudiées.</figcaption>
+  </figure>
+</section>
+
+<section class="course-section">
+  <h2>5. Facteurs cinétiques</h2>
+  <p>La vitesse d'une transformation peut être modifiée par plusieurs facteurs :</p>
+  <ul>
+    <li>la température : une température plus élevée accélère généralement la transformation ;</li>
+    <li>les concentrations des réactifs : plus elles sont élevées, plus les rencontres efficaces sont fréquentes ;</li>
+    <li>un catalyseur : il accélère la réaction sans être consommé dans le bilan ;</li>
+    <li>la surface de contact : importante pour un solide réactif.</li>
+  </ul>
+  <div class="warning-box">
+    <strong>À ne pas confondre.</strong> Un facteur cinétique modifie la rapidité d'évolution. Il ne rend pas nécessairement une transformation plus totale.
+  </div>
+</section>
+
+<section class="course-section">
+  <h2>Points-clés</h2>
+  <ul class="summary-list">
+    <li>Un suivi temporel mesure une grandeur reliée à une quantité de matière ou une concentration.</li>
+    <li>L'avancement \(x(t)\) décrit l'évolution du système.</li>
+    <li>La vitesse volumique vaut \(v(t)=\frac{1}{V}\frac{dx}{dt}\).</li>
+    <li>Le temps de demi-réaction vérifie \(x(t_{1/2})=x_f/2\).</li>
+    <li>Température, concentration, catalyseur et surface de contact modifient la vitesse.</li>
+  </ul>
+</section>

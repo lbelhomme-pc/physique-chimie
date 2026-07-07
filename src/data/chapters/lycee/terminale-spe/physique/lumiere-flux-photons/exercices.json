@@ -1,0 +1,157 @@
+[
+  {
+    "id": "photons-01",
+    "titre": "Énergie d’un photon vert",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Calculer l’énergie d’un photon de longueur d’onde $\\lambda=532\\ nm$. Donner le résultat en joules puis en électronvolts.",
+    "aide": "Utiliser la relation pratique en eV, puis convertir si besoin.",
+    "schemaSvg": "<svg viewBox=\"0 0 700 210\" role=\"img\" aria-label=\"Aide sur la relation entre longueur d'onde et énergie\">\n  <rect x=\"28\" y=\"24\" width=\"644\" height=\"150\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#dbeafe\" />\n  <text x=\"72\" y=\"78\" font-size=\"25\" font-weight=\"700\" fill=\"#1e3a8a\">E = hc / λ</text>\n  <text x=\"72\" y=\"124\" font-size=\"20\" fill=\"#1f2937\">λ en m si E est en J</text>\n  <text x=\"360\" y=\"82\" font-size=\"20\" fill=\"#1f2937\">E(eV) ≈ 1240 / λ(nm)</text>\n</svg>",
+    "correction": [
+      "$E(eV)\\simeq1240/532\\approx2,33\\ eV$.",
+      "En joules : $E=2,33\\times1,602\\times10^{-19}\\approx3,73\\times10^{-19}\\ J$."
+    ]
+  },
+  {
+    "id": "photons-02",
+    "titre": "Flux de photons d’un laser",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Un laser rouge de puissance $P=1,0\\ mW$ émet à $\\lambda=650\\ nm$. Estimer le nombre de photons émis par seconde.",
+    "aide": "Calculer l'énergie d'un photon puis utiliser $N/\\Delta t=P/E$.",
+    "correction": [
+      "$E=hc/\\lambda\\simeq(6,626\\times10^{-34}\\times3,00\\times10^8)/(650\\times10^{-9})\\approx3,06\\times10^{-19}\\ J$.",
+      "$P=1,0\\times10^{-3}\\ W$.",
+      "$N/\\Delta t=P/E\\approx1,0\\times10^{-3}/3,06\\times10^{-19}\\approx3,3\\times10^{15}\\ photons\\cdot s^{-1}$."
+    ]
+  },
+  {
+    "id": "photons-03",
+    "titre": "Longueur d’onde seuil",
+    "niveau": "Application directe",
+    "difficulte": 2,
+    "consigne": "Un métal a un travail d’extraction $W_s=2,3\\ eV$. Calculer sa longueur d’onde seuil en nm.",
+    "aide": "À partir de $E(eV)=1240/\\lambda(nm)$.",
+    "correction": [
+      "Au seuil, $W_s=hc/\\lambda_s$.",
+      "$\\lambda_s(nm)=1240/W_s=1240/2,3\\approx5,4\\times10^2\\ nm$.",
+      "La longueur d’onde seuil vaut environ $540\\ nm$."
+    ]
+  },
+  {
+    "id": "photons-04",
+    "titre": "Effet photoélectrique ou non ?",
+    "niveau": "Raisonnement",
+    "difficulte": 2,
+    "consigne": "Le métal précédent est éclairé par une lumière rouge de longueur d’onde $650\\ nm$, puis par une lumière violette de longueur d’onde $405\\ nm$. Dans quel cas l’émission photoélectrique est-elle possible ?",
+    "aide": "Comparer les longueurs d’onde à la longueur d’onde seuil.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 250\" role=\"img\" aria-label=\"Métal éclairé par une lumière monochromatique\">\n  <rect x=\"44\" y=\"32\" width=\"632\" height=\"170\" rx=\"16\" fill=\"#eff6ff\" stroke=\"#bfdbfe\" />\n  <rect x=\"260\" y=\"150\" width=\"220\" height=\"34\" rx=\"8\" fill=\"#94a3b8\" stroke=\"#475569\" />\n  <g stroke=\"#f59e0b\" stroke-width=\"4\"><line x1=\"90\" y1=\"70\" x2=\"270\" y2=\"150\"/><line x1=\"140\" y1=\"58\" x2=\"330\" y2=\"150\"/><line x1=\"190\" y1=\"60\" x2=\"392\" y2=\"150\"/></g>\n  <text x=\"506\" y=\"112\" font-size=\"20\" fill=\"#1d4ed8\">électrons ?</text>\n  <text x=\"92\" y=\"220\" font-size=\"19\" fill=\"#1f2937\">Comparer l'énergie d'un photon au travail d'extraction.</text>\n</svg>",
+    "correction": [
+      "On a trouvé $\\lambda_s\\approx540\\ nm$.",
+      "Pour $650\\ nm$, $\\lambda>\\lambda_s$ : les photons sont trop peu énergétiques, pas d’émission.",
+      "Pour $405\\ nm$, $\\lambda<\\lambda_s$ : les photons sont assez énergétiques, l’émission est possible."
+    ]
+  },
+  {
+    "id": "photons-05",
+    "titre": "Énergie cinétique maximale",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Un métal de travail d’extraction $W_s=2,0\\ eV$ est éclairé par une lumière de longueur d’onde $400\\ nm$. Calculer l’énergie cinétique maximale des électrons émis, en eV.",
+    "aide": "$E_{c,max}=hc/\\lambda-W_s$.",
+    "correction": [
+      "$E_{photon}=1240/400=3,10\\ eV$.",
+      "$E_{c,max}=3,10-2,0=1,10\\ eV$."
+    ]
+  },
+  {
+    "id": "photons-06",
+    "titre": "Tension d’arrêt",
+    "niveau": "Application directe",
+    "difficulte": 2,
+    "consigne": "Dans la situation précédente, déterminer la tension d’arrêt $U_0$.",
+    "aide": "Pour un électron, $E_{c,max}(eV)$ correspond numériquement à $U_0(V)$.",
+    "correction": [
+      "$E_{c,max}=eU_0$.",
+      "Comme $E_{c,max}=1,10\\ eV$, la tension d’arrêt vaut $U_0=1,10\\ V$."
+    ]
+  },
+  {
+    "id": "photons-07",
+    "titre": "Puissance ou fréquence ?",
+    "niveau": "Raisonnement",
+    "difficulte": 2,
+    "consigne": "Une lumière de fréquence inférieure à la fréquence seuil n’arrache aucun électron à un métal. Que se passe-t-il si on augmente fortement la puissance de cette lumière sans changer sa fréquence ?",
+    "aide": "La puissance change le nombre de photons, pas l’énergie de chaque photon.",
+    "correction": [
+      "Chaque photon garde la même énergie $E=h\\nu$.",
+      "Si $\\nu<\\nu_s$, chaque photon reste sous le seuil.",
+      "Augmenter la puissance augmente le nombre de photons reçus, mais ne déclenche pas l’émission photoélectrique."
+    ]
+  },
+  {
+    "id": "photons-08",
+    "titre": "Transition atomique",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Une transition entre deux niveaux d’énergie libère $\\Delta E=2,55\\ eV$. Calculer la longueur d’onde du photon émis.",
+    "aide": "Utiliser $\\lambda(nm)=1240/E(eV)$.",
+    "schemaSvg": "<svg viewBox=\"0 0 700 250\" role=\"img\" aria-label=\"Deux niveaux d'énergie séparés par delta E\">\n  <rect x=\"40\" y=\"28\" width=\"620\" height=\"170\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#e5e7eb\" />\n  <line x1=\"150\" y1=\"150\" x2=\"540\" y2=\"150\" stroke=\"#111827\" stroke-width=\"4\" />\n  <line x1=\"150\" y1=\"72\" x2=\"540\" y2=\"72\" stroke=\"#111827\" stroke-width=\"4\" />\n  <text x=\"558\" y=\"156\" font-size=\"20\" fill=\"#111827\">E bas</text>\n  <text x=\"558\" y=\"78\" font-size=\"20\" fill=\"#111827\">E haut</text>\n  <text x=\"300\" y=\"120\" font-size=\"22\" font-weight=\"700\" fill=\"#4f46e5\">ΔE</text>\n</svg>",
+    "correction": [
+      "$\\lambda=1240/2,55\\approx486\\ nm$.",
+      "Le photon émis appartient au domaine visible, proche du bleu-vert."
+    ]
+  },
+  {
+    "id": "photons-09",
+    "titre": "LED et gap énergétique",
+    "niveau": "Application directe",
+    "difficulte": 2,
+    "consigne": "Une LED émet principalement à $620\\ nm$. Estimer l’écart d’énergie associé en eV.",
+    "aide": "$E(eV)=1240/\\lambda(nm)$.",
+    "correction": [
+      "$E\\approx1240/620=2,00\\ eV$.",
+      "L’écart d’énergie correspondant est donc d’environ $2,0\\ eV$."
+    ]
+  },
+  {
+    "id": "photons-10",
+    "titre": "Énergie d’une impulsion laser",
+    "niveau": "Synthèse",
+    "difficulte": 3,
+    "consigne": "Une impulsion laser de durée $5,0\\ ns$ a une puissance moyenne $P=2,0\\ kW$ pendant l’impulsion et une longueur d’onde $1064\\ nm$. Calculer l’énergie totale de l’impulsion puis le nombre de photons.",
+    "aide": "Commencer par $E_{tot}=P\\Delta t$, puis diviser par l'énergie d'un photon.",
+    "correction": [
+      "$\\Delta t=5,0\\times10^{-9}\\ s$ et $P=2,0\\times10^3\\ W$.",
+      "$E_{tot}=P\\Delta t=1,0\\times10^{-5}\\ J$.",
+      "$E_{ph}=hc/\\lambda\\approx1,87\\times10^{-19}\\ J$.",
+      "$N=E_{tot}/E_{ph}\\approx5,3\\times10^{13}$ photons."
+    ]
+  },
+  {
+    "id": "photons-11",
+    "titre": "Graphique photoélectrique",
+    "niveau": "Approfondissement",
+    "difficulte": 3,
+    "consigne": "On trace $E_{c,max}$ en fonction de la fréquence $\\nu$ pour un métal. Quelle est la signification de la pente et de l’ordonnée à l’origine dans le modèle d’Einstein ?",
+    "aide": "Comparer avec $E_{c,max}=h\\nu-W_s$.",
+    "correction": [
+      "La relation est affine : $E_{c,max}=h\\nu-W_s$.",
+      "La pente du graphique vaut la constante de Planck $h$.",
+      "L’ordonnée à l’origine vaut $-W_s$."
+    ]
+  },
+  {
+    "id": "photons-12",
+    "titre": "Comparer rouge et violet",
+    "niveau": "Synthèse",
+    "difficulte": 2,
+    "consigne": "À puissance lumineuse égale, une lumière rouge de $700\\ nm$ et une lumière violette de $400\\ nm$ contiennent-elles le même nombre de photons par seconde ? Justifier qualitativement.",
+    "aide": "Comparer l’énergie d’un photon rouge et d’un photon violet.",
+    "correction": [
+      "Un photon violet est plus énergétique qu’un photon rouge car sa longueur d’onde est plus petite.",
+      "À puissance égale, l’énergie transportée par seconde est la même.",
+      "Il faut donc moins de photons violets par seconde que de photons rouges pour transporter la même puissance."
+    ]
+  }
+]

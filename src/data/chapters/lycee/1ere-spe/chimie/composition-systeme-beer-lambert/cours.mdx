@@ -1,0 +1,241 @@
+﻿## Objectifs
+
+- Lire un spectre d'absorption UV-visible.
+- Relier qualitativement une couleur observée aux radiations absorbées.
+- Définir l'absorbance et citer ses conditions de mesure.
+- Utiliser la loi de Beer-Lambert $A=kc$ dans son domaine de validité.
+- Construire ou exploiter une gamme étalon.
+- Déterminer une concentration inconnue par interpolation.
+- Identifier les limites d'un dosage spectrophotométrique.
+
+## Prérequis
+
+- Savoir convertir un volume en litre.
+- Connaître la concentration en quantité de matière $c=\frac{n}{V}$.
+- Savoir lire un graphique et l'équation d'une droite.
+- Connaître le domaine visible, environ $400$ à $800\ \text{nm}$.
+- Savoir distinguer grandeur mesurée et grandeur calculée.
+
+## Cours
+
+### 1. Couleur d'une solution et spectre d'absorption
+
+#### Définition ou idée essentielle
+
+Une solution colorée absorbe certaines radiations de la lumière incidente et transmet les autres. La couleur perçue correspond surtout aux radiations transmises, pas aux radiations absorbées. Un spectre d'absorption représente l'absorbance $A$ en fonction de la longueur d'onde $\lambda$.
+
+#### Formule ou méthode
+
+Pour exploiter un spectre :
+
+1. lire l'axe horizontal : longueur d'onde $\lambda$, en nanomètre ;
+2. lire l'axe vertical : absorbance $A$, sans unité ;
+3. repérer la longueur d'onde du maximum d'absorption, notée λmax ;
+4. choisir souvent λmax pour le dosage, car la mesure y est plus sensible.
+
+Erreur fréquente : une solution rouge n'absorbe pas principalement le rouge ; elle transmet surtout du rouge.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 760 280" role="img" aria-labelledby="fig-spectre-title fig-spectre-desc">
+    <title id="fig-spectre-title">Spectre d'absorption d'une solution violette</title>
+    <desc id="fig-spectre-desc">Graphique de l'absorbance en fonction de la longueur d'onde avec un maximum vers 525 nm.</desc>
+    <rect x="60" y="35" width="620" height="190" fill="#ffffff" stroke="#cbd5e1" />
+    <line x1="90" y1="205" x2="650" y2="205" stroke="#0f172a" strokeWidth="2" />
+    <line x1="90" y1="205" x2="90" y2="55" stroke="#0f172a" strokeWidth="2" />
+    <text x="370" y="255" textAnchor="middle">longueur d'onde lambda (nm)</text>
+    <text x="35" y="130" textAnchor="middle" transform="rotate(-90 35 130)">absorbance A</text>
+    <path d="M95 198 C170 195, 240 180, 295 120 C330 82, 375 55, 430 88 C490 125, 525 175, 645 197" fill="none" stroke="#7c3aed" strokeWidth="4" />
+    <line x1="405" y1="205" x2="405" y2="63" stroke="#dc2626" strokeWidth="2" strokeDasharray="6 5" />
+    <text x="405" y="48" textAnchor="middle" fill="#dc2626">lambda max ≈ 525 nm</text>
+    <text x="90" y="228" textAnchor="middle">400</text>
+    <text x="405" y="228" textAnchor="middle">525</text>
+    <text x="650" y="228" textAnchor="middle">800</text>
+  </svg>
+  <figcaption>Le maximum d'absorption indique une longueur d'onde de mesure pertinente pour le dosage.</figcaption>
+</figure>
+
+#### Exemple
+
+Une solution présente un maximum d'absorption vers $520\ \text{nm}$, dans le vert. Elle absorbe fortement une partie du vert et transmet davantage les radiations complémentaires : elle peut paraître rouge-violette. On choisit donc $\lambda = 520\ \text{nm}$ pour mesurer son absorbance.
+
+### 2. Absorbance et spectrophotomètre
+
+#### Définition ou idée essentielle
+
+L'absorbance $A$ mesure l'atténuation d'une radiation lumineuse par une solution. Elle est sans unité. Elle dépend de l'espèce chimique, de sa concentration, de la longueur de cuve, de la longueur d'onde choisie et des conditions expérimentales.
+
+#### Formule ou méthode
+
+Pour obtenir une mesure fiable :
+
+1. régler la longueur d'onde ;
+2. réaliser le blanc avec le solvant et la cuve de référence ;
+3. utiliser des cuves propres, sans bulles et orientées de la même façon ;
+4. mesurer les étalons et l'inconnue dans les mêmes conditions.
+
+Erreur fréquente : comparer deux absorbances mesurées à des longueurs d'onde différentes.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 760 190" role="img" aria-labelledby="fig-spectro-title fig-spectro-desc">
+    <title id="fig-spectro-title">Principe simplifié du spectrophotomètre</title>
+    <desc id="fig-spectro-desc">Une source, un sélecteur de longueur d'onde, une cuve, puis un détecteur mesurent la lumière transmise.</desc>
+    <rect x="35" y="65" width="110" height="60" rx="10" fill="#fef3c7" stroke="#d97706" />
+    <text x="90" y="100" textAnchor="middle">source</text>
+    <path d="M150 95 H250" stroke="#f59e0b" strokeWidth="5" markerEnd="url(#arrow-spectro)" />
+    <rect x="260" y="55" width="130" height="80" rx="10" fill="#e0f2fe" stroke="#0284c7" />
+    <text x="325" y="88" textAnchor="middle">sélection</text>
+    <text x="325" y="110" textAnchor="middle">lambda</text>
+    <path d="M395 95 H465" stroke="#f59e0b" strokeWidth="5" markerEnd="url(#arrow-spectro)" />
+    <rect x="475" y="45" width="70" height="100" rx="8" fill="#ddd6fe" stroke="#7c3aed" />
+    <text x="510" y="98" textAnchor="middle">cuve</text>
+    <path d="M550 95 H630" stroke="#f59e0b" strokeWidth="3" markerEnd="url(#arrow-spectro)" />
+    <rect x="640" y="65" width="90" height="60" rx="10" fill="#f1f5f9" stroke="#475569" />
+    <text x="685" y="100" textAnchor="middle">détecteur</text>
+    <defs>
+      <marker id="arrow-spectro" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+      </marker>
+    </defs>
+  </svg>
+  <figcaption>Le spectrophotomètre mesure la lumière transmise après traversée de la solution.</figcaption>
+</figure>
+
+#### Exemple
+
+Deux solutions d'une même espèce sont mesurées à $520\ \text{nm}$ dans la même cuve. La première a $A=0{,}18$, la seconde $A=0{,}36$. Dans le domaine linéaire, la seconde solution est environ deux fois plus concentrée que la première.
+
+### 3. Loi de Beer-Lambert
+
+#### Définition ou idée essentielle
+
+Dans des conditions fixées et pour des solutions assez diluées, l'absorbance est proportionnelle à la concentration en quantité de matière.
+
+#### Formule ou méthode
+
+$$
+A=kc
+$$
+
+avec :
+
+- $A$ : absorbance, sans unité ;
+- $c$ : concentration en $\text{mol·L}^{-1}$ ;
+- $k$ : coefficient de proportionnalité, dépendant de l'espèce, de la longueur d'onde et de la cuve.
+
+Condition importante : la relation est valable seulement dans le domaine de linéarité établi expérimentalement.
+
+#### Exemple
+
+À $520\ \text{nm}$, on obtient $k=1{,}85\times10^3\ \text{L·mol}^{-1}$. Une solution a $c=2{,}00\times10^{-4}\ \text{mol·L}^{-1}$.
+
+$$
+A=kc=1{,}85\times10^3 \times 2{,}00\times10^{-4}=0{,}370
+$$
+
+L'absorbance attendue est $A=0{,}370$.
+
+### 4. Dosage par étalonnage
+
+#### Définition ou idée essentielle
+
+Un dosage par étalonnage détermine la concentration d'une solution inconnue en comparant son absorbance à celles de solutions étalons de concentrations connues.
+
+#### Formule ou méthode
+
+Méthode :
+
+1. préparer plusieurs solutions étalons ;
+2. mesurer leur absorbance à la même longueur d'onde ;
+3. tracer $A=f(c)$ ;
+4. ajuster une droite si les points sont alignés ;
+5. mesurer l'absorbance de la solution inconnue ;
+6. déterminer sa concentration par interpolation ou par l'équation de la droite.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 760 300" role="img" aria-labelledby="fig-etalonnage-title fig-etalonnage-desc">
+    <title id="fig-etalonnage-title">Courbe d'étalonnage</title>
+    <desc id="fig-etalonnage-desc">Graphique de l'absorbance en fonction de la concentration avec des points expérimentaux, une droite et une solution inconnue.</desc>
+    <rect x="70" y="35" width="580" height="210" fill="#ffffff" stroke="#cbd5e1" />
+    <line x1="100" y1="220" x2="620" y2="220" stroke="#0f172a" strokeWidth="2" />
+    <line x1="100" y1="220" x2="100" y2="60" stroke="#0f172a" strokeWidth="2" />
+    <text x="360" y="280" textAnchor="middle">concentration c (mol·L⁻¹)</text>
+    <text x="35" y="140" textAnchor="middle" transform="rotate(-90 35 140)">absorbance A</text>
+    <line x1="100" y1="215" x2="600" y2="70" stroke="#2563eb" strokeWidth="3" />
+    <circle cx="160" cy="197" r="6" fill="#1d4ed8" />
+    <circle cx="245" cy="174" r="6" fill="#1d4ed8" />
+    <circle cx="335" cy="146" r="6" fill="#1d4ed8" />
+    <circle cx="425" cy="124" r="6" fill="#1d4ed8" />
+    <circle cx="520" cy="94" r="6" fill="#1d4ed8" />
+    <line x1="100" y1="135" x2="380" y2="135" stroke="#dc2626" strokeWidth="2" strokeDasharray="6 5" />
+    <line x1="380" y1="220" x2="380" y2="135" stroke="#dc2626" strokeWidth="2" strokeDasharray="6 5" />
+    <text x="215" y="125" fill="#dc2626">A inconnue</text>
+    <text x="420" y="238" fill="#dc2626">c inconnue</text>
+    <text x="500" y="60" fill="#2563eb">A = kc</text>
+  </svg>
+  <figcaption>La concentration inconnue doit être lue dans le domaine couvert par les étalons : c'est une interpolation.</figcaption>
+</figure>
+
+#### Exemple
+
+Une droite d'étalonnage a pour équation $A = 1800c$, avec $c$ en $\text{mol·L}^{-1}$. Une solution inconnue donne $A=0{,}450$.
+
+$$
+c=\frac{A}{1800}=\frac{0{,}450}{1800}=2{,}50\times10^{-4}\ \text{mol·L}^{-1}
+$$
+
+La concentration de la solution inconnue vaut $2{,}50\times10^{-4}\ \text{mol·L}^{-1}$.
+
+### 5. Limites et qualité des mesures
+
+#### Définition ou idée essentielle
+
+Un dosage spectrophotométrique est fiable seulement si les mesures sont réalisées dans le domaine linéaire et dans des conditions expérimentales maîtrisées.
+
+#### Formule ou méthode
+
+Points à contrôler :
+
+- la solution inconnue doit avoir une absorbance comprise dans la gamme étalon ;
+- le blanc doit être correctement réalisé ;
+- les cuves doivent être propres, sans traces ni bulles ;
+- la longueur d'onde doit rester identique ;
+- les points trop éloignés de la droite doivent être discutés ;
+- une extrapolation hors de la gamme n'est pas fiable.
+
+#### Exemple
+
+Une gamme étalon couvre $1{,}0\times10^{-4}$ à $5{,}0\times10^{-4}\ \text{mol·L}^{-1}$. Le calcul donne pour l'inconnue $7{,}0\times10^{-4}\ \text{mol·L}^{-1}$. Cette valeur est hors gamme : il faut diluer l'inconnue ou préparer une gamme plus adaptée.
+
+## À retenir
+
+### Définitions essentielles
+
+- L'absorbance $A$ est sans unité.
+- Un spectre d'absorption est le graphique $A=f(\lambda)$.
+- Une gamme étalon compare des solutions connues à une solution inconnue.
+- La couleur observée dépend de la lumière transmise.
+
+### Formules à connaître
+
+$$
+A=kc
+\qquad
+c=\frac{A}{k}
+$$
+
+### Méthode importante
+
+1. Choisir une longueur d'onde pertinente, souvent λmax.
+2. Mesurer les étalons dans les mêmes conditions.
+3. Tracer $A=f(c)$ et vérifier l'alignement.
+4. Déterminer la concentration inconnue par interpolation.
+5. Vérifier que le résultat appartient au domaine d'étalonnage.
+
+### Pièges classiques
+
+- Confondre spectre d'absorption et courbe d'étalonnage.
+- Croire que $A=kc$ est valable pour toutes les concentrations.
+- Oublier que l'absorbance n'a pas d'unité.
+- Déterminer une concentration par extrapolation sans discussion.
+
+

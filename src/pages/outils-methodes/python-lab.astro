@@ -1,0 +1,386 @@
+---
+// src/pages/outils-methodes/python-lab.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PyodideLab from "../../components/pedagogie/PyodideLab.tsx";
+---
+
+<BaseLayout
+  title="Laboratoire Python - Physique-Chimie"
+  description="Laboratoire Python interactif avec Pyodide pour tester de petits scripts de physique-chimie dans le navigateur."
+  canonical="/outils-methodes/python-lab"
+  schemaType="EducationalContent"
+>
+  <article class="python-lab-page">
+    <header class="python-lab-hero">
+      <p class="lab-page-eyebrow">Outils et méthodes</p>
+      <h1>Laboratoire Python</h1>
+      <p>
+        Teste de petits scripts pour exploiter des données de physique-chimie : mesures,
+        graphiques, mouvement, vecteurs vitesse, caractéristiques électriques et histogrammes.
+      </p>
+      <div class="lab-page-links" aria-label="Ressources liées">
+        <a href="/outils-methodes/cours-python">Cours Python lycée</a>
+        <a href="/outils-methodes/python">Fiche méthode Python</a>
+        <a href="/outils-methodes/seconde-numerique">Méthodes numériques seconde</a>
+        <a href="/lycee/2nde/physique/mesure-incertitudes">Mesure et incertitudes</a>
+        <a href="/lycee/2nde/physique/signaux-capteurs">Signaux et capteurs</a>
+      </div>
+    </header>
+
+    <section class="lab-page-note" aria-labelledby="lab-warning-title">
+      <h2 id="lab-warning-title">Avant de lancer Python</h2>
+      <p>
+        Le premier chargement peut prendre quelques secondes : Python est téléchargé dans le navigateur.
+        Aucun code n'est envoyé à un serveur Python. Matplotlib est chargé seulement quand un exemple
+        graphique en a besoin.
+      </p>
+    </section>
+
+    <PyodideLab client:load />
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .python-lab-page {
+    margin: 0 auto;
+    max-width: 1120px;
+    padding: 2rem 1rem 3rem;
+  }
+
+  .python-lab-hero {
+    margin: 0 auto 1.25rem;
+    max-width: 820px;
+    text-align: center;
+  }
+
+  .lab-page-eyebrow,
+  .python-lab .lab-eyebrow {
+    color: var(--accent-primary);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.45rem;
+    text-transform: uppercase;
+  }
+
+  .python-lab-hero h1 {
+    color: var(--accent-primary);
+    font-size: clamp(1.7rem, 4vw, 2.55rem);
+    font-weight: 850;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .python-lab-hero p,
+  .lab-page-note p,
+  .python-lab p,
+  .python-lab li {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .python-lab-hero p {
+    margin: 0.75rem auto 1.1rem;
+    max-width: 760px;
+  }
+
+  .lab-page-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    justify-content: center;
+  }
+
+  .lab-page-links a {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    font-weight: 750;
+    padding: 0.5rem 0.85rem;
+    text-decoration: none;
+  }
+
+  .lab-page-links a:hover,
+  .lab-page-links a:focus-visible {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    outline: 3px solid var(--accent-primary-light);
+    outline-offset: 2px;
+  }
+
+  .lab-page-note,
+  .python-lab .lab-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+  }
+
+  .lab-page-note {
+    border-left: 5px solid var(--accent-warning);
+    margin: 1rem 0 1.25rem;
+    padding: 1rem 1.15rem;
+  }
+
+  .lab-page-note h2 {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    margin: 0 0 0.4rem;
+  }
+
+  .python-lab {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .python-lab .lab-panel {
+    padding: 1rem;
+  }
+
+  .python-lab .lab-intro {
+    border-left: 5px solid var(--accent-primary);
+  }
+
+  .python-lab h2,
+  .python-lab h3,
+  .python-lab h4 {
+    color: var(--text-primary);
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .python-lab h2 {
+    font-size: 1.25rem;
+  }
+
+  .python-lab h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .python-lab h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .python-lab .lab-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .python-lab label {
+    color: var(--text-primary);
+    display: grid;
+    font-weight: 800;
+    gap: 0.35rem;
+  }
+
+  .python-lab select,
+  .python-lab textarea {
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font: inherit;
+  }
+
+  .python-lab select {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .python-lab textarea {
+    font-family: Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    min-height: 28rem;
+    padding: 0.85rem;
+    resize: vertical;
+    width: 100%;
+  }
+
+  .python-lab select:focus-visible,
+  .python-lab textarea:focus-visible,
+  .python-lab button:focus-visible,
+  .python-lab .lab-output:focus-visible,
+  .python-lab summary:focus-visible {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  .python-lab .example-note {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 0.9rem;
+    padding: 0.85rem;
+  }
+
+  .python-lab .example-note strong {
+    color: var(--accent-primary);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+  }
+
+  .python-lab .example-note p {
+    margin: 0 0 0.4rem;
+  }
+
+  .python-lab .lab-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 0.75rem;
+  }
+
+  .python-lab button {
+    background: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--radius-pill);
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 800;
+    min-height: 2.55rem;
+    padding: 0.55rem 0.95rem;
+  }
+
+  .python-lab button:hover:not(:disabled) {
+    background: var(--accent-primary-hover);
+    border-color: var(--accent-primary-hover);
+  }
+
+  .python-lab button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .python-lab button:nth-child(3),
+  .python-lab button:nth-child(5) {
+    background: var(--bg-card);
+    color: var(--text-primary);
+  }
+
+  .python-lab .results-header {
+    display: grid;
+    gap: 0.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .python-lab .results-header p {
+    background: var(--accent-primary-light);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-weight: 750;
+    margin: 0;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .python-lab .output-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .python-lab .lab-output,
+  .python-lab .lab-error pre {
+    background: #0f172a;
+    border-radius: var(--radius-sm);
+    color: #e5e7eb;
+    font-family: Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin: 0;
+    min-height: 8rem;
+    overflow: auto;
+    padding: 0.85rem;
+    white-space: pre-wrap;
+  }
+
+  .python-lab .lab-stderr {
+    color: #fecaca;
+  }
+
+  .python-lab .lab-error {
+    background: var(--accent-danger-light);
+    border: 1px solid var(--accent-danger);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    margin: 0.8rem 0;
+    padding: 0.85rem;
+  }
+
+  .python-lab .lab-error strong {
+    color: var(--accent-danger);
+    display: block;
+    margin-bottom: 0.45rem;
+  }
+
+  .python-lab .graph-zone {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    margin-top: 0.9rem;
+    overflow-x: auto;
+    padding: 0.85rem;
+  }
+
+  .python-lab .graph-zone img {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    display: block;
+    height: auto;
+    margin: 0.6rem auto 0;
+    max-width: 100%;
+  }
+
+  .python-lab details {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    margin: 0.6rem 0 0;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .python-lab summary {
+    color: var(--text-primary);
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  .python-lab details p {
+    margin: 0.55rem 0 0;
+  }
+
+  @media (max-width: 860px) {
+    .python-lab .lab-grid,
+    .python-lab .output-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .python-lab textarea {
+      min-height: 22rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .python-lab-page {
+      padding: 1.2rem 0.75rem 2rem;
+    }
+
+    .python-lab .lab-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .python-lab button {
+      width: 100%;
+    }
+  }
+</style>

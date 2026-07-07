@@ -1,0 +1,267 @@
+---
+import type { LabApp } from "../../data/laboratoire/apps";
+import type { GenericLabConfig } from "../../data/laboratoire/genericConfigs";
+
+interface Props {
+  app: LabApp;
+  config: GenericLabConfig;
+}
+
+const { app, config } = Astro.props;
+const contextMetricLabels: Record<string, string[]> = {
+  melanges: ["Aspect", "Phases", "Séparation", "Conclusion"],
+  chronophotographie: ["Écart début", "Écart fin", "Mouvement"],
+  "chaines-energetiques": ["Puissance utile", "Pertes", "Rendement"],
+  "decroissance-radioactive": ["Noyaux restants", "Temps", "Fraction"],
+  "refraction-lumiere": ["Indice n₁", "Indice n₂", "Angle / limite"],
+  "lentilles-images": ["Distance image", "Grandissement", "Nature"],
+  ph: ["pH observé", "[H₃O⁺] relatif", "Nature"],
+  oscilloscope: ["Amplitude", "Période", "Fréquence"],
+  "diffraction-interferences": ["Angle caractéristique", "Interfrange", "Contraste"],
+  "lunette-afocale": ["Écart O₁O₂", "Grossissement", "Foyers", "Image finale"],
+  "poids-masse": ["Masse", "g", "Poids", "À retenir"],
+  "loi-ohm": ["Résistance", "Intensité", "Tension", "Relation"],
+  "puissance-energie": ["Puissance", "Durée", "Énergie", "Appareil"],
+  "bilans-thermiques": ["Écart T", "Sens", "Équilibre", "Modèle"],
+  "titrage-ph-metrique": ["Volume versé", "Équivalence", "pH lu", "Repère"],
+  "titrage-conductimetrique": ["Volume versé", "Équivalence", "σ relative", "Repère"],
+  "test-ions": ["Ion", "Réactif", "Observation", "Conclusion"],
+  "mole-pesee": ["Masse", "Masse molaire", "Quantité", "Espèce"],
+  "simulateur-saisons": ["Jour", "Inclinaison", "Durée du jour", "Saison"],
+  "escape-energie": ["Mission", "Indices", "Énergie utile", "Chaîne"],
+};
+const metricLabels = contextMetricLabels[app.slug] ?? [];
+const hasPlayToggle = app.slug === "systeme-solaire"
+  || app.slug === "melanges"
+  || app.slug === "decroissance-radioactive"
+  || app.slug === "oscilloscope"
+  || app.slug === "poids-masse"
+  || app.slug === "titrage-ph-metrique"
+  || app.slug === "titrage-conductimetrique";
+---
+
+<section
+  class="generic-lab"
+  data-generic-lab
+  data-kind={app.simKind}
+  data-slug={app.slug}
+  data-title={app.title}
+>
+  <aside class="lab-panel generic-lab__controls">
+    <h2 class="lab-panel__title">Paramètres</h2>
+    <p class="lab-panel__subtitle">Manipule les paramètres essentiels et observe directement l'effet sur la simulation.</p>
+
+    {app.slug === "systeme-solaire" && (
+      <div class="solar-guide">
+        <strong>À observer</strong>
+        <span>Clique une planète ou choisis-la dans la liste : les planètes lointaines avancent beaucoup plus lentement.</span>
+      </div>
+    )}
+
+    {app.slug === "melanges" && (
+      <div class="mixture-guide">
+        <strong>À observer</strong>
+        <span>Une seule phase uniforme : homogène. Des couches, grains ou dépôt : hétérogène.</span>
+      </div>
+    )}
+
+    {app.slug === "chronophotographie" && (
+      <div class="chrono-guide">
+        <strong>À observer</strong>
+        <span>Les photos sont prises toutes les mêmes durées : compare seulement les écarts entre positions.</span>
+      </div>
+    )}
+
+    {app.slug === "chaines-energetiques" && (
+      <div class="chain-guide">
+        <strong>À observer</strong>
+        <span>L'énergie reçue se partage entre énergie utile et pertes : le rendement indique la part utile.</span>
+      </div>
+    )}
+
+    {app.slug === "decroissance-radioactive" && (
+      <div class="decay-guide">
+        <strong>À observer</strong>
+        <span>Après chaque demi-vie T½, il reste environ la moitié des noyaux non désintégrés.</span>
+      </div>
+    )}
+
+    {app.slug === "refraction-lumiere" && (
+      <div class="refraction-guide">
+        <strong>À observer</strong>
+        <span>Quand la lumière entre dans un milieu plus réfringent, le rayon se rapproche de la normale.</span>
+      </div>
+    )}
+
+    {app.slug === "lentilles-images" && (
+      <div class="lens-guide">
+        <strong>À observer</strong>
+        <span>Compare la position de l'objet avec le foyer F : cela décide si l'image est réelle ou virtuelle.</span>
+      </div>
+    )}
+
+    {app.slug === "oscilloscope" && (
+      <div class="scope-guide">
+        <strong>À observer</strong>
+        <span>Lis l'amplitude verticalement et une période horizontalement : f = 1 / T.</span>
+      </div>
+    )}
+
+    {app.slug === "lunette-afocale" && (
+      <div class="telescope-guide">
+        <strong>À observer</strong>
+        <span>Construis la lunette en 4 temps : l'objectif forme A₁B₁, puis l'oculaire rend les rayons parallèles.</span>
+      </div>
+    )}
+
+    {app.slug === "poids-masse" && (
+      <div class="weight-guide">
+        <strong>À observer</strong>
+        <span>Clique sur Animer : le ressort s'étire, puis change d'astre pour comparer le poids.</span>
+      </div>
+    )}
+
+    {app.slug === "loi-ohm" && (
+      <div class="ohm-guide">
+        <strong>À observer</strong>
+        <span>Le point de mesure reste sur une droite qui passe par l'origine : U est proportionnelle à I.</span>
+      </div>
+    )}
+
+    {app.slug === "puissance-energie" && (
+      <div class="power-guide">
+        <strong>À observer</strong>
+        <span>Augmente la puissance ou la durée : la réserve d'énergie transférée se remplit plus vite et plus haut.</span>
+      </div>
+    )}
+
+    {app.slug === "bilans-thermiques" && (
+      <div class="thermal-guide">
+        <strong>À observer</strong>
+        <span>La chaleur va spontanément du corps le plus chaud vers le corps le plus froid.</span>
+      </div>
+    )}
+
+    {app.slug === "titrage-ph-metrique" && (
+      <div class="titration-guide">
+        <strong>À observer</strong>
+        <span>Clique sur Titrer : le volume augmente et le saut de pH apparaît près de l'équivalence.</span>
+      </div>
+    )}
+
+    {app.slug === "titrage-conductimetrique" && (
+      <div class="titration-guide">
+        <strong>À observer</strong>
+        <span>Clique sur Titrer : suis la conductivité, puis repère la rupture de pente.</span>
+      </div>
+    )}
+
+    {app.slug === "test-ions" && (
+      <div class="ions-guide">
+        <strong>À observer</strong>
+        <span>Ajoute le réactif : couleur et précipité permettent d'identifier l'ion.</span>
+      </div>
+    )}
+
+    {app.slug === "mole-pesee" && (
+      <div class="mole-guide">
+        <strong>À observer</strong>
+        <span>Pour une même masse, une espèce de masse molaire plus grande contient moins de moles.</span>
+      </div>
+    )}
+
+    {app.slug === "simulateur-saisons" && (
+      <div class="seasons-guide">
+        <strong>À observer</strong>
+        <span>L'axe garde la même direction : les saisons viennent de l'inclinaison, pas de la distance au Soleil.</span>
+      </div>
+    )}
+
+    {app.slug === "escape-energie" && (
+      <div class="escape-guide">
+        <strong>À observer</strong>
+        <span>Reconstitue la chaîne : source, convertisseur, énergie utile et pertes.</span>
+      </div>
+    )}
+
+    <div class="lab-control">
+      <label for={`${app.slug}-a`}>
+        <span data-label-a>{config.controlA}</span> : <span class="lab-value" data-value-a>{config.valueA}</span>{config.unitA ? ` ${config.unitA}` : ""}
+      </label>
+      <input
+        id={`${app.slug}-a`}
+        data-control-a
+        type="range"
+        min={config.minA}
+        max={config.maxA}
+        step={config.stepA ?? 1}
+        value={config.valueA}
+      />
+    </div>
+
+    <div class="lab-control">
+      <label for={`${app.slug}-b`}>
+        <span data-label-b>{config.controlB}</span> : <span class="lab-value" data-value-b>{config.valueB}</span>{config.unitB ? ` ${config.unitB}` : ""}
+      </label>
+      <input
+        id={`${app.slug}-b`}
+        data-control-b
+        type="range"
+        min={config.minB}
+        max={config.maxB}
+        step={config.stepB ?? 1}
+        value={config.valueB}
+      />
+    </div>
+
+    <div class="lab-control">
+      <label for={`${app.slug}-mode`}>{config.modeLabel}</label>
+      <select id={`${app.slug}-mode`} data-mode>
+        {config.modes.map((mode) => <option value={mode}>{mode}</option>)}
+      </select>
+    </div>
+
+    <div class="lab-button-row generic-lab__actions">
+      {hasPlayToggle && (
+        <button class="lab-button is-active" type="button" data-play-toggle aria-pressed="false">Lancer</button>
+      )}
+      <button class="lab-button danger" type="button" data-reset>Réinitialiser</button>
+    </div>
+
+    {app.slug === "systeme-solaire" && (
+      <div class="orbit-metrics" aria-live="polite">
+        <div><span>Distance</span><strong data-orbit-distance>—</strong></div>
+        <div><span>Période</span><strong data-orbit-period>—</strong></div>
+        <div><span>Vitesse</span><strong data-orbit-speed>—</strong></div>
+        <div><span>T²/a³</span><strong data-orbit-ratio>—</strong></div>
+      </div>
+    )}
+
+    {metricLabels.length > 0 && (
+      <div class="lab-context-metrics" aria-live="polite">
+        {metricLabels.map((label, index) => (
+          <div>
+            <span>{label}</span>
+            <strong data-context-metric={`m${index}`}>—</strong>
+          </div>
+        ))}
+      </div>
+    )}
+
+    <div class="lab-readout" aria-live="polite" data-readout>
+      Observation prête.
+    </div>
+  </aside>
+
+  <section class="lab-panel generic-lab__stage" aria-labelledby={`${app.slug}-stage-title`}>
+    <h2 class="lab-panel__title" id={`${app.slug}-stage-title`}>Zone interactive</h2>
+    <p class="lab-panel__subtitle">{config.observation}</p>
+    <div class="lab-canvas-wrap generic-lab__canvas-wrap">
+      <canvas class="lab-canvas generic-lab__canvas" data-canvas aria-label={`Simulation : ${app.title}`}></canvas>
+    </div>
+  </section>
+
+  <script>
+    import "../../scripts/laboratoire/generic-lab-simulator.js";
+  </script>
+</section>

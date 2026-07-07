@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Formulaires collège - Outils & méthodes"
+  description="Formulaires de physique-chimie pour le collège : mécanique, électricité et chimie."
+  canonical="/outils-methodes/formulaires-college"
+  schemaType="EducationalContent"
+>
+  <main class="formula-page">
+    <nav aria-label="Fil d'Ariane" class="breadcrumb">
+      <a href="/">Accueil</a> &rsaquo;
+      <a href="/outils-methodes">Outils & Méthodes</a> &rsaquo;
+      <strong>Formulaires collège</strong>
+    </nav>
+
+    <header class="formula-hero">
+      <p class="eyebrow">Révision rapide</p>
+      <h1>Formulaires collège</h1>
+      <p>Les relations utiles, avec les symboles et les unités à vérifier avant chaque calcul.</p>
+    </header>
+
+    <section class="formula-grid">
+      <article class="formula-card">
+        <h2>Mécanique</h2>
+        <div class="formula-line"><strong>v = d / t</strong><span>v en m·s⁻¹, d en m, t en s</span></div>
+        <div class="formula-line"><strong>P = m × g</strong><span>P en N, m en kg, g ≈ 9,8 N·kg⁻¹</span></div>
+        <div class="formula-line"><strong>E = P × h</strong><span>énergie de position dans un cas simple</span></div>
+        <p class="warning">Piège classique : convertir la durée en secondes avant d'utiliser v = d / t.</p>
+      </article>
+
+      <article class="formula-card">
+        <h2>Électricité</h2>
+        <div class="formula-line"><strong>U = R × I</strong><span>U en V, R en Ω, I en A</span></div>
+        <div class="formula-line"><strong>P = U × I</strong><span>P en W, U en V, I en A</span></div>
+        <div class="formula-line"><strong>E = P × t</strong><span>E en J si P en W et t en s</span></div>
+        <p class="warning">Piège classique : convertir les milliampères en ampères.</p>
+      </article>
+
+      <article class="formula-card">
+        <h2>Chimie</h2>
+        <div class="formula-line"><strong>ρ = m / V</strong><span>masse volumique, par exemple en g·mL⁻¹</span></div>
+        <div class="formula-line"><strong>Cm = m / V</strong><span>concentration en masse, en g·L⁻¹</span></div>
+        <div class="formula-line"><strong>m(solution) = m(solvant) + m(soluté)</strong><span>conservation de la masse lors d'une dissolution</span></div>
+        <p class="warning">Piège classique : ne pas confondre masse volumique et concentration.</p>
+      </article>
+
+      <article class="formula-card">
+        <h2>Signaux et ondes</h2>
+        <div class="formula-line"><strong>f = 1 / T</strong><span>f en Hz, T en s</span></div>
+        <div class="formula-line"><strong>v = d / Δt</strong><span>vitesse de propagation d'un signal</span></div>
+        <p class="warning">Piège classique : convertir les millisecondes en secondes.</p>
+      </article>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .formula-page { max-width: 1000px; margin: 0 auto; padding: 1rem; }
+  .formula-hero { text-align: center; max-width: 720px; margin: 1rem auto 1.5rem; }
+  .eyebrow { color: var(--accent-primary); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 .35rem; }
+  .formula-hero h1 { color: var(--accent-primary); margin: 0 0 .45rem; font-size: 1.7rem; }
+  .formula-hero p { color: var(--text-secondary); line-height: 1.65; }
+  .formula-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 1rem; }
+  .formula-card { background: var(--bg-card); border: 1px solid var(--border-color); border-left: 5px solid var(--accent-primary); border-radius: var(--radius-md); box-shadow: var(--shadow-card); padding: 1rem; }
+  .formula-card h2 { color: var(--accent-primary); font-size: 1.1rem; margin: 0 0 .75rem; }
+  .formula-line { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: .6rem; padding: .7rem; }
+  .formula-line strong { color: var(--text-primary); display: block; font-size: 1.05rem; }
+  .formula-line span, .warning { color: var(--text-secondary); line-height: 1.55; }
+  .warning { background: var(--accent-warning-light); border-radius: 8px; font-weight: 700; padding: .6rem; }
+</style>

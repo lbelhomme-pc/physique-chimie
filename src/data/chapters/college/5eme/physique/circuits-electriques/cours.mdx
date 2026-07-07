@@ -1,0 +1,213 @@
+## Objectifs du cours
+
+- Reconnaître une **boucle de courant** ouverte ou fermée.
+- Utiliser les symboles normalisés d'un circuit électrique.
+- Distinguer un montage **en série** et un montage **en dérivation**.
+- Comprendre les grandeurs **tension** et **intensité**.
+- Connaître les branchements du voltmètre et de l'ampèremètre.
+- Respecter les règles de sécurité électrique.
+
+---
+
+## 1. La boucle de courant
+
+Un circuit électrique fonctionne si le courant peut circuler dans une boucle fermée contenant un générateur.
+
+<div class="definition-box">
+
+### Boucle ouverte ou fermée
+
+- **Boucle fermée** : le courant peut circuler.
+- **Boucle ouverte** : le courant ne peut pas circuler.
+
+</div>
+
+<svg viewBox="0 0 760 300" role="img" aria-labelledby="boucle-title boucle-desc" style="max-width:100%;height:auto;display:block;margin:1.2rem auto;">
+  <title id="boucle-title">Boucle ouverte et boucle fermée</title>
+  <desc id="boucle-desc">Deux circuits simples avec pile, interrupteur et lampe.</desc>
+  <defs>
+    <marker id="arrow-courant" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#10b981"/>
+    </marker>
+  </defs>
+  <rect x="60" y="45" width="280" height="190" rx="16" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+  <text x="200" y="75" text-anchor="middle" font-size="18" font-weight="700" fill="#047857">Circuit fermé</text>
+  <path d="M125 140 L125 110 L275 110 L275 190 L125 190 L125 160" fill="none" stroke="#1f2937" stroke-width="4"/>
+  <line x1="105" y1="140" x2="145" y2="140" stroke="#1f2937" stroke-width="4"/>
+  <line x1="115" y1="160" x2="135" y2="160" stroke="#1f2937" stroke-width="4"/>
+  <circle cx="275" cy="150" r="20" fill="none" stroke="#f59e0b" stroke-width="4"/>
+  <path d="M262 137 L288 163 M288 137 L262 163" stroke="#f59e0b" stroke-width="3"/>
+  <path d="M168 110 L225 110" stroke="#10b981" stroke-width="4" marker-end="url(#arrow-courant)">
+    <animate attributeName="opacity" values="0.35;1;0.35" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+  <text x="200" y="224" text-anchor="middle" font-size="14" fill="#047857">la lampe peut briller</text>
+
+  <rect x="420" y="45" width="280" height="190" rx="16" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  <text x="560" y="75" text-anchor="middle" font-size="18" font-weight="700" fill="#b91c1c">Circuit ouvert</text>
+  <path d="M485 140 L485 110 L635 110 L635 190 L485 190 L485 160" fill="none" stroke="#1f2937" stroke-width="4"/>
+  <line x1="465" y1="140" x2="505" y2="140" stroke="#1f2937" stroke-width="4"/>
+  <line x1="475" y1="160" x2="495" y2="160" stroke="#1f2937" stroke-width="4"/>
+  <line x1="548" y1="110" x2="575" y2="92" stroke="#ef4444" stroke-width="4"/>
+  <line x1="590" y1="110" x2="610" y2="110" stroke="#1f2937" stroke-width="4"/>
+  <circle cx="635" cy="150" r="20" fill="none" stroke="#9ca3af" stroke-width="4"/>
+  <path d="M622 137 L648 163 M648 137 L622 163" stroke="#9ca3af" stroke-width="3"/>
+  <text x="560" y="224" text-anchor="middle" font-size="14" fill="#b91c1c">pas de courant</text>
+</svg>
+
+---
+
+## 2. Les symboles normalisés
+
+Les schémas électriques utilisent des symboles normalisés pour être compris par tous.
+
+<svg viewBox="0 0 760 230" role="img" aria-labelledby="symboles-title symboles-desc" style="max-width:100%;height:auto;display:block;margin:1.2rem auto;">
+  <title id="symboles-title">Symboles électriques usuels</title>
+  <desc id="symboles-desc">Pile, lampe, interrupteur, ampèremètre et voltmètre.</desc>
+  <line x1="80" y1="90" x2="170" y2="90" stroke="#1f2937" stroke-width="4"/>
+  <line x1="105" y1="65" x2="105" y2="115" stroke="#1f2937" stroke-width="4"/>
+  <line x1="130" y1="75" x2="130" y2="105" stroke="#1f2937" stroke-width="4"/>
+  <text x="125" y="155" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">Pile</text>
+
+  <line x1="220" y1="90" x2="300" y2="90" stroke="#1f2937" stroke-width="4"/>
+  <circle cx="260" cy="90" r="25" fill="none" stroke="#1f2937" stroke-width="4"/>
+  <path d="M244 74 L276 106 M276 74 L244 106" stroke="#1f2937" stroke-width="3"/>
+  <text x="260" y="155" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">Lampe</text>
+
+  <line x1="350" y1="90" x2="390" y2="90" stroke="#1f2937" stroke-width="4"/>
+  <line x1="410" y1="90" x2="450" y2="90" stroke="#1f2937" stroke-width="4"/>
+  <line x1="390" y1="90" x2="420" y2="70" stroke="#1f2937" stroke-width="4"/>
+  <text x="400" y="155" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">Interrupteur</text>
+
+  <line x1="510" y1="90" x2="590" y2="90" stroke="#1f2937" stroke-width="4"/>
+  <circle cx="550" cy="90" r="26" fill="#eef2ff" stroke="#4f46e5" stroke-width="4"/>
+  <text x="550" y="97" text-anchor="middle" font-size="22" font-weight="700" fill="#312e81">A</text>
+  <text x="550" y="155" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">Ampèremètre</text>
+
+  <line x1="635" y1="90" x2="720" y2="90" stroke="#1f2937" stroke-width="4"/>
+  <circle cx="678" cy="90" r="26" fill="#ecfdf5" stroke="#10b981" stroke-width="4"/>
+  <text x="678" y="97" text-anchor="middle" font-size="22" font-weight="700" fill="#047857">V</text>
+  <text x="678" y="155" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">Voltmètre</text>
+</svg>
+
+---
+
+## 3. Série et dérivation
+
+<div class="definition-box">
+
+### Association en série
+
+Des dipôles sont **en série** s'ils sont placés les uns à la suite des autres dans une seule boucle.
+
+</div>
+
+<div class="definition-box">
+
+### Association en dérivation
+
+Des dipôles sont **en dérivation** s'ils sont placés sur des branches différentes.
+
+</div>
+
+<svg viewBox="0 0 760 300" role="img" aria-labelledby="série-deriv-title série-deriv-desc" style="max-width:100%;height:auto;display:block;margin:1.2rem auto;">
+  <title id="série-deriv-title">Circuit en série et en dérivation</title>
+  <desc id="série-deriv-desc">Comparaison entre deux lampes en série et deux lampes en dérivation.</desc>
+  <rect x="50" y="40" width="310" height="210" rx="16" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+  <text x="205" y="72" text-anchor="middle" font-size="18" font-weight="700" fill="#312e81">Série</text>
+  <path d="M105 150 L105 105 L305 105 L305 195 L105 195 L105 170" fill="none" stroke="#1f2937" stroke-width="4"/>
+  <line x1="85" y1="150" x2="125" y2="150" stroke="#1f2937" stroke-width="4"/>
+  <line x1="95" y1="170" x2="115" y2="170" stroke="#1f2937" stroke-width="4"/>
+  <circle cx="190" cy="105" r="18" fill="none" stroke="#f59e0b" stroke-width="4"/>
+  <path d="M178 93 L202 117 M202 93 L178 117" stroke="#f59e0b" stroke-width="3"/>
+  <circle cx="260" cy="105" r="18" fill="none" stroke="#f59e0b" stroke-width="4"/>
+  <path d="M248 93 L272 117 M272 93 L248 117" stroke="#f59e0b" stroke-width="3"/>
+  <text x="205" y="225" text-anchor="middle" font-size="14" fill="#475569">une seule boucle</text>
+
+  <rect x="400" y="40" width="310" height="210" rx="16" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+  <text x="555" y="72" text-anchor="middle" font-size="18" font-weight="700" fill="#047857">Dérivation</text>
+  <path d="M455 155 L455 105 L655 105 L655 205 L455 205 L455 175" fill="none" stroke="#1f2937" stroke-width="4"/>
+  <path d="M520 105 L520 205 M590 105 L590 205" stroke="#1f2937" stroke-width="4"/>
+  <line x1="435" y1="155" x2="475" y2="155" stroke="#1f2937" stroke-width="4"/>
+  <line x1="445" y1="175" x2="465" y2="175" stroke="#1f2937" stroke-width="4"/>
+  <circle cx="555" cy="105" r="18" fill="none" stroke="#f59e0b" stroke-width="4"/>
+  <path d="M543 93 L567 117 M567 93 L543 117" stroke="#f59e0b" stroke-width="3"/>
+  <circle cx="555" cy="205" r="18" fill="none" stroke="#f59e0b" stroke-width="4"/>
+  <path d="M543 193 L567 217 M567 193 L543 217" stroke="#f59e0b" stroke-width="3"/>
+  <text x="555" y="238" text-anchor="middle" font-size="14" fill="#475569">plusieurs branches</text>
+</svg>
+
+---
+
+## 4. Tension et intensité
+
+<div class="formule-box">
+
+### Deux grandeurs électriques
+
+<ul class="symboles-list">
+<li>La **tension** se note $U$ et s'exprime en **volt (V)**.</li>
+<li>L'**intensité** se note $I$ et s'exprime en **ampère (A)**.</li>
+</ul>
+
+</div>
+
+L'intensité du courant dans un dipôle se mesure avec un **ampèremètre** branché en **série**.
+
+La tension aux bornes d'un dipôle se mesure avec un **voltmètre** branché en **dérivation**.
+
+<div class="box-regle-or">
+
+### Branchement des appareils
+
+- Ampèremètre : dans la boucle, en série.
+- Voltmètre : aux bornes du dipôle, en dérivation.
+
+</div>
+
+<div class="info-box">
+
+### À manipuler
+
+**Simulation bonus :** [Loi d'Ohm](/laboratoire/loi-ohm)
+
+- Objectif élève : observer un circuit et les mesures de tension et d'intensité.
+- Observe : reste en mode circuit ou point de mesure ; repère où apparaissent $U$ et $I$.
+- Question de sortie : quel appareil sert à mesurer la tension, et quel appareil sert à mesurer l'intensité ?
+
+En 5e, ne cherche pas à retenir la formule : elle sera étudiée plus tard.
+
+</div>
+
+---
+
+## 5. Sécurité électrique
+
+<div class="box-regle-or">
+
+### Danger
+
+La tension du secteur domestique est de **230 V**. Elle est dangereuse. On ne manipule jamais une prise secteur en expérience de classe.
+
+</div>
+
+Règles essentielles :
+
+- ne jamais toucher un fil dénudé ;
+- ne pas manipuler avec les mains mouillées ;
+- utiliser le matériel fourni par le professeur ;
+- couper l'alimentation avant de modifier un montage.
+
+---
+
+<div class="retenir-box">
+
+## À retenir
+
+- Un circuit fonctionne si la boucle de courant est fermée et contient un générateur.
+- Les schémas électriques utilisent des symboles normalisés.
+- Série : dipôles dans une seule boucle ; dérivation : dipôles sur plusieurs branches.
+- La tension $U$ se mesure en volt avec un voltmètre en dérivation.
+- L'intensité $I$ se mesure en ampère avec un ampèremètre en série.
+- L'électricité peut être dangereuse : les règles de sécurité sont obligatoires.
+
+</div>

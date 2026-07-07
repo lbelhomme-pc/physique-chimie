@@ -138,12 +138,12 @@ export default function Dashboard({ chapters }: DashboardProps) {
       <div style={{background:V.bg,borderRadius:V.radius,boxShadow:V.shadow,padding:"1.25rem",marginBottom:"1.5rem",border:`1px solid ${V.borderLight}`}}>
         <h2 style={{fontSize:"1rem",fontWeight:700,color:V.text,textAlign:"center",marginBottom:"1rem"}}>🚀 Espaces de Révisions Globaux</h2>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"0.75rem"}}>
-          <a href="/memorisation" style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.3rem",padding:"1rem",background:V.purpleLt,border:`2px solid ${V.purple}`,borderRadius:V.radiusMd,textDecoration:"none",color:V.purple,fontWeight:700,fontSize:"0.95rem",transition:"transform 0.2s"}}>
+          <a href="/mega-flashcards" style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.3rem",padding:"1rem",background:V.purpleLt,border:`2px solid ${V.purple}`,borderRadius:V.radiusMd,textDecoration:"none",color:V.purple,fontWeight:700,fontSize:"0.95rem",transition:"transform 0.2s"}}>
             <span style={{fontSize:"1.5rem"}}>🃏</span>
             Mega Flashcards
             {globalDue > 0 && <span style={{fontSize:"0.75rem",fontWeight:500,color:V.textMut}}>{globalDue} carte(s) à revoir</span>}
           </a>
-          <a href="/memorisation" style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.3rem",padding:"1rem",background:V.primaryLt,border:`2px solid ${V.primary}`,borderRadius:V.radiusMd,textDecoration:"none",color:V.primary,fontWeight:700,fontSize:"0.95rem",transition:"transform 0.2s"}}>
+          <a href="/mega-quiz" style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.3rem",padding:"1rem",background:V.primaryLt,border:`2px solid ${V.primary}`,borderRadius:V.radiusMd,textDecoration:"none",color:V.primary,fontWeight:700,fontSize:"0.95rem",transition:"transform 0.2s"}}>
             <span style={{fontSize:"1.5rem"}}>❓</span>
             Mega Quiz
             <span style={{fontSize:"0.75rem",fontWeight:500,color:V.textMut}}>Tous chapitres confondus</span>

@@ -1,0 +1,105 @@
+---
+import LabAppLayout from "../../components/laboratoire/LabAppLayout.astro";
+import { labApps } from "../../data/laboratoire/apps";
+
+const app = labApps.find((item) => item.slug === "lois-kepler")!;
+---
+
+<LabAppLayout
+  title={app.title}
+  description={app.objective}
+  icon={app.icon}
+  level={app.level}
+  concept={app.concept}
+  objective={app.objective}
+  legacyPath={app.legacyPath}
+>
+  <section class="lab-grid" data-lab-app="lois-kepler">
+    <aside>
+      <section class="lab-panel" aria-labelledby="kepler-orbite">
+        <h2 class="lab-panel__title" id="kepler-orbite">Paramètres de l'orbite</h2>
+        <p class="lab-panel__subtitle">Fais varier l'ellipse : le Soleil reste placé sur un foyer, pas au centre.</p>
+        <div class="lab-control">
+          <label for="aSlider">Demi-grand axe a : <span class="lab-value" id="aVal">1,0</span> UA</label>
+          <input id="aSlider" type="range" min="0.5" max="3" step="0.1" value="1" />
+        </div>
+        <div class="lab-control">
+          <label for="eSlider">Excentricité e : <span class="lab-value" id="eVal">0,60</span></label>
+          <input id="eSlider" type="range" min="0" max="85" value="60" />
+        </div>
+        <div class="lab-control">
+          <label for="timeSpeed">Vitesse de l'animation : <span class="lab-value" id="speedVal">1,0×</span></label>
+          <input id="timeSpeed" type="range" min="10" max="300" value="100" />
+        </div>
+        <div class="lab-button-row">
+          <button class="lab-button is-active" id="btnKeplerToggle" type="button" aria-pressed="false">Lancer</button>
+          <button class="lab-button danger" id="btnKeplerReset" type="button">Réinitialiser</button>
+        </div>
+      </section>
+
+      <section class="lab-panel" aria-labelledby="kepler-aires">
+        <h2 class="lab-panel__title" id="kepler-aires">Loi des aires</h2>
+        <p class="lab-panel__subtitle">Même durée Δt : compare un secteur près du Soleil et un secteur loin du Soleil.</p>
+        <div class="lab-control">
+          <label for="dtSlider">Durée Δt : <span class="lab-value" id="dtVal">0,12</span> an</label>
+          <input id="dtSlider" type="range" min="0.02" max="0.5" step="0.01" value="0.12" />
+        </div>
+        <div class="lab-button-row">
+          <button class="lab-button is-active" id="btnMeasure" type="button">Comparer deux aires</button>
+          <button class="lab-button danger" id="btnClearAreas" type="button">Effacer</button>
+        </div>
+        <div class="lab-result-grid" aria-live="polite">
+          <div class="lab-result-card">
+            <span>Secteur 1 · près du Soleil</span>
+            <strong>Aire : <span id="valA1">—</span></strong>
+            <strong>v moy. : <span id="valV1">—</span></strong>
+          </div>
+          <div class="lab-result-card">
+            <span>Secteur 2 · loin du Soleil</span>
+            <strong>Aire : <span id="valA2">—</span></strong>
+            <strong>v moy. : <span id="valV2">—</span></strong>
+          </div>
+        </div>
+        <p class="lab-note kepler-area-gap">Écart entre les deux aires : <strong id="valAreaGap">—</strong></p>
+      </section>
+
+      <section class="lab-panel" aria-labelledby="kepler-periodes">
+        <h2 class="lab-panel__title" id="kepler-periodes">Loi des périodes</h2>
+        <div class="lab-formula">T² / a³ = constante</div>
+        <div class="lab-result-grid">
+          <div class="lab-result-card"><span>a</span><strong><span id="k3-a">—</span> UA</strong></div>
+          <div class="lab-result-card"><span>a³</span><strong id="k3-a3">—</strong></div>
+          <div class="lab-result-card"><span>T</span><strong><span id="k3-t">—</span> ans</strong></div>
+          <div class="lab-result-card"><span>T²/a³</span><strong id="valKepler3">—</strong></div>
+        </div>
+        <span class="lab-sr-only" id="k3-t2">—</span>
+      </section>
+
+      <section class="lab-panel" aria-labelledby="kepler-observation-title">
+        <h2 class="lab-panel__title" id="kepler-observation-title">Observation</h2>
+        <div class="lab-readout" id="keplerObservation" aria-live="polite">
+          Compare deux secteurs de même durée pour vérifier la loi des aires.
+        </div>
+        <p class="lab-note">
+          Les aires balayées sont comparables pour une même durée, même si la planète accélère près du Soleil.
+        </p>
+      </section>
+    </aside>
+
+    <section class="lab-panel" aria-labelledby="kepler-scene-title">
+      <h2 class="lab-panel__title" id="kepler-scene-title">Orbite elliptique</h2>
+      <p class="lab-panel__subtitle">La planète va plus vite près du Soleil, mais les aires balayées pendant des durées égales restent égales.</p>
+      <div class="lab-canvas-wrap kepler-scene" id="scene">
+        <canvas class="lab-canvas" id="keplerCanvas" aria-label="Animation d'une planète sur une orbite elliptique"></canvas>
+        <div class="kepler-hud" aria-live="polite">
+          r = <span id="rNow">—</span> UA · v = <span id="vNow">—</span> UA/an · T = <span id="periodNow">—</span> ans
+        </div>
+        <div id="recordingOverlay" class="recording-overlay hidden">Mesure en cours</div>
+      </div>
+    </section>
+  </section>
+
+  <script>
+    import "../../scripts/laboratoire/lois-kepler.js";
+  </script>
+</LabAppLayout>

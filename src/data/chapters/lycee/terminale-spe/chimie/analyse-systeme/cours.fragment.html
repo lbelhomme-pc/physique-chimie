@@ -1,0 +1,108 @@
+<section class="course-section">
+  <h2>Objectifs du chapitre</h2>
+  <ul class="objectives-list">
+    <li>Décrire précisément un système chimique : espèces, phases, quantités.</li>
+    <li>Calculer une quantité de matière à partir d'une masse, d'une concentration ou d'un nombre d'entités.</li>
+    <li>Écrire une équation de réaction en supprimant les espèces spectatrices.</li>
+    <li>Construire et exploiter un tableau d'avancement.</li>
+    <li>Identifier le réactif limitant, l'avancement maximal et un taux d'avancement.</li>
+    <li>Utiliser une courbe d'étalonnage ou la loi de Beer-Lambert pour déterminer une concentration.</li>
+  </ul>
+</section>
+
+<section class="course-section">
+  <h2>1. Décrire un système chimique</h2>
+  <p>Un système chimique est décrit par les espèces présentes, leur état physique, leurs quantités de matière, les conditions de température et de pression, et éventuellement le solvant.</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 790 280" role="img" aria-labelledby="qty-title qty-desc">
+    <title id="qty-title">Relations pour déterminer une quantité de matière</title>
+    <desc id="qty-desc">La quantité de matière peut être calculée à partir d'une masse, d'une concentration ou d'un nombre d'entités.</desc>
+    <rect x="48" y="36" width="690" height="180" rx="20" fill="#f8fafc" stroke="#e5e7eb" />
+    <circle cx="394" cy="126" r="48" fill="#dbeafe" stroke="#3b82f6" stroke-width="3" />
+    <text x="371" y="135" font-size="30" font-weight="700" fill="#1e3a8a">n</text>
+    <rect x="90" y="92" width="150" height="68" rx="14" fill="#fee2e2" stroke="#ef4444" />
+    <text x="128" y="132" font-size="23" font-weight="700" fill="#991b1b">m / M</text>
+    <rect x="552" y="92" width="150" height="68" rx="14" fill="#dcfce7" stroke="#16a34a" />
+    <text x="596" y="132" font-size="23" font-weight="700" fill="#166534">C V</text>
+    <rect x="320" y="202" width="150" height="54" rx="14" fill="#fef3c7" stroke="#f59e0b" />
+    <text x="358" y="236" font-size="22" font-weight="700" fill="#92400e">N / NA</text>
+    <line x1="240" y1="126" x2="346" y2="126" stroke="#64748b" stroke-width="3" />
+    <line x1="442" y1="126" x2="552" y2="126" stroke="#64748b" stroke-width="3" />
+    <line x1="394" y1="174" x2="394" y2="202" stroke="#64748b" stroke-width="3" />
+  </svg>
+  <figcaption>La première étape d'une analyse quantitative est presque toujours de déterminer les quantités de matière initiales.</figcaption>
+</figure>
+  <div class="formula-box">\[n=\frac{m}{M}\]</div>
+  <div class="formula-box">\[n=CV\]</div>
+  <div class="formula-box">\[n=\frac{N}{N_A}\]</div>
+  <p>Les volumes utilisés dans \(n=CV\) doivent être en litres si la concentration est en \(mol\cdot L^{-1}\).</p>
+</section>
+
+<section class="course-section">
+  <h2>2. Équation de réaction et espèces spectatrices</h2>
+  <p>Une équation chimique doit respecter la conservation des éléments et de la charge électrique. En solution aqueuse, certaines espèces peuvent être spectatrices : leurs quantités ne changent pas.</p>
+  <div class="example-box">
+    <strong>Neutralisation acide-base.</strong> Une solution d'acide chlorhydrique contient \(H_3O^+\) et \(Cl^-\). Une solution de soude contient \(Na^+\) et \(HO^-\). L'équation utile est :
+    \[H_3O^+(aq)+HO^-(aq)\to2H_2O(l)\]
+    Les ions \(Na^+\) et \(Cl^-\) sont spectateurs.
+  </div>
+</section>
+
+<section class="course-section">
+  <h2>3. Tableau d'avancement</h2>
+  <p>Pour une réaction modélisée par \(aA+bB\to cC+dD\), l'avancement \(x\) permet de suivre les quantités de matière.</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 840 300" role="img" aria-labelledby="adv-title adv-desc">
+    <title id="adv-title">Tableau d'avancement simplifié</title>
+    <desc id="adv-desc">Les coefficients stœchiométriques indiquent comment les quantités de matière varient avec l'avancement.</desc>
+    <rect x="40" y="36" width="760" height="210" rx="18" fill="#f8fafc" stroke="#e5e7eb" />
+    <text x="92" y="82" font-size="25" font-weight="700" fill="#111827">a A + b B → c C + d D</text>
+    <line x1="80" y1="104" x2="750" y2="104" stroke="#cbd5e1" stroke-width="2" />
+    <text x="96" y="142" font-size="21" fill="#111827">initial</text><text x="260" y="142" font-size="21" fill="#111827">nA0</text><text x="398" y="142" font-size="21" fill="#111827">nB0</text><text x="536" y="142" font-size="21" fill="#111827">0</text><text x="660" y="142" font-size="21" fill="#111827">0</text>
+    <text x="96" y="190" font-size="21" fill="#111827">en cours</text><text x="250" y="190" font-size="21" fill="#991b1b">nA0 - ax</text><text x="388" y="190" font-size="21" fill="#991b1b">nB0 - bx</text><text x="520" y="190" font-size="21" fill="#166534">cx</text><text x="646" y="190" font-size="21" fill="#166534">dx</text>
+  </svg>
+  <figcaption>Le réactif limitant est celui qui donne la plus petite valeur possible de \(x_{max}\).</figcaption>
+</figure>
+  <div class="formula-box">\[x_{max}=\min\left(\frac{n_{A,0}}{a},\frac{n_{B,0}}{b}\right)\]</div>
+  <p>Le réactif qui impose la plus petite valeur de \(x_{max}\) est le réactif limitant.</p>
+</section>
+
+<section class="course-section">
+  <h2>4. Transformation totale ou limitée</h2>
+  <p>Si la transformation est totale, l'avancement final est égal à l'avancement maximal : \(x_f=x_{max}\). Si la transformation est limitée, \(x_f&lt;x_{max}\).</p>
+  <div class="formula-box">\[\tau=\frac{x_f}{x_{max}}\]</div>
+  <p>Le taux d'avancement \(\tau\) permet de quantifier la progression de la transformation. Il vaut 1 pour une transformation totale.</p>
+</section>
+
+<section class="course-section">
+  <h2>5. Dosage et étalonnage</h2>
+  <p>Pour déterminer une concentration inconnue, on peut utiliser une transformation de dosage ou une mesure physique étalonnée, par exemple l'absorbance.</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 790 300" role="img" aria-labelledby="beer-title beer-desc">
+    <title id="beer-title">Courbe d'étalonnage Beer-Lambert</title>
+    <desc id="beer-desc">L'absorbance est proportionnelle à la concentration pour des solutions diluées.</desc>
+    <rect x="50" y="30" width="680" height="220" rx="18" fill="#ffffff" stroke="#e5e7eb" />
+    <line x1="100" y1="210" x2="660" y2="210" stroke="#111827" stroke-width="3" />
+    <line x1="100" y1="210" x2="100" y2="58" stroke="#111827" stroke-width="3" />
+    <text x="74" y="66" font-size="20" fill="#111827">A</text><text x="644" y="238" font-size="20" fill="#111827">C</text>
+    <line x1="112" y1="198" x2="620" y2="72" stroke="#4f46e5" stroke-width="5" />
+    <g fill="#4f46e5"><circle cx="180" cy="182" r="6"/><circle cx="270" cy="160" r="6"/><circle cx="360" cy="138" r="6"/><circle cx="450" cy="116" r="6"/><circle cx="540" cy="94" r="6"/></g>
+    <text x="250" y="52" font-size="22" font-weight="700" fill="#4338ca">A = k C</text>
+  </svg>
+  <figcaption>La loi de Beer-Lambert est utilisable dans un domaine où la courbe d'étalonnage est linéaire.</figcaption>
+</figure>
+  <div class="formula-box">\[A=\varepsilon\ell C\]</div>
+  <p>La loi de Beer-Lambert est valable pour une espèce colorée, une longueur d'onde choisie, une cuve d'épaisseur \(\ell\), et des solutions suffisamment diluées.</p>
+</section>
+
+<section class="course-section key-points">
+  <h2>À retenir</h2>
+  <ul>
+    <li>Déterminer les quantités de matière initiales est la base de l'analyse d'un système.</li>
+    <li>Une équation de réaction conserve les éléments et la charge.</li>
+    <li>Les espèces spectatrices ne figurent pas dans l'équation utile.</li>
+    <li>Le tableau d'avancement donne les quantités à tout instant et à l'état final.</li>
+    <li>Le réactif limitant fixe \(x_{max}\).</li>
+    <li>En étalonnage Beer-Lambert, l'absorbance est proportionnelle à la concentration dans le domaine linéaire.</li>
+  </ul>
+</section>

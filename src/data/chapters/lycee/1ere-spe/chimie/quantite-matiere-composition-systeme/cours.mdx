@@ -1,0 +1,319 @@
+﻿## Objectifs
+
+- Relier nombre d'entités, quantité de matière et constante d'Avogadro.
+- Calculer une masse molaire atomique, moléculaire ou ionique.
+- Déterminer une quantité de matière à partir d'une masse.
+- Utiliser le volume molaire d'un gaz dans des conditions données.
+- Exploiter une composition massique ou volumique.
+- Calculer une concentration en quantité de matière.
+- Relier concentration en masse et concentration en quantité de matière.
+
+## Prérequis
+
+- Savoir lire une formule chimique et utiliser le tableau périodique.
+- Connaître la mole et la constante d'Avogadro $N_A = 6{,}02 \times 10^{23}\ \text{mol}^{-1}$.
+- Savoir convertir des volumes : $1{,}0\ \text{L} = 1000\ \text{mL}$.
+- Distinguer masse, volume, nombre d'entités et quantité de matière.
+- Connaître la concentration en masse $C_m = \frac{m}{V}$.
+
+## Cours
+
+### 1. De l'entité chimique à la mole
+
+#### Définition ou idée essentielle
+
+Une quantité de matière $n$ indique combien de paquets de $6{,}02 \times 10^{23}$ entités chimiques contient un échantillon. Elle s'exprime en mole, de symbole $\text{mol}$.
+
+#### Formule ou méthode
+
+$$
+N = n \times N_A
+$$
+
+avec :
+
+- $N$ : nombre d'entités, sans unité ;
+- $n$ : quantité de matière en $\text{mol}$ ;
+- $N_A$ : constante d'Avogadro en $\text{mol}^{-1}$.
+
+Erreur fréquente : $N$ est un nombre d'entités, alors que $n$ est une quantité de matière en mole.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 760 210" role="img" aria-labelledby="fig-mole-title fig-mole-desc">
+    <title id="fig-mole-title">Passage du microscopique au macroscopique</title>
+    <desc id="fig-mole-desc">Des entités microscopiques sont regroupées en quantité de matière, puis reliées à une masse mesurable.</desc>
+    <rect x="20" y="35" width="190" height="120" rx="12" fill="#eef6ff" stroke="#2563eb" />
+    <text x="115" y="62" textAnchor="middle" fontWeight="700">Entités</text>
+    <text x="115" y="88" textAnchor="middle">N</text>
+    <circle cx="75" cy="120" r="7" fill="#2563eb" />
+    <circle cx="105" cy="112" r="7" fill="#2563eb" />
+    <circle cx="135" cy="124" r="7" fill="#2563eb" />
+    <circle cx="165" cy="112" r="7" fill="#2563eb" />
+    <path d="M230 95 H330" stroke="#334155" strokeWidth="3" markerEnd="url(#arrow-mole)" />
+    <text x="280" y="82" textAnchor="middle">N = n x N_A</text>
+    <rect x="350" y="35" width="170" height="120" rx="12" fill="#f0fdf4" stroke="#16a34a" />
+    <text x="435" y="62" textAnchor="middle" fontWeight="700">Mole</text>
+    <text x="435" y="96" textAnchor="middle">n</text>
+    <text x="435" y="124" textAnchor="middle">en mol</text>
+    <path d="M540 95 H640" stroke="#334155" strokeWidth="3" markerEnd="url(#arrow-mole)" />
+    <text x="590" y="82" textAnchor="middle">m = n x M</text>
+    <rect x="660" y="35" width="80" height="120" rx="12" fill="#fff7ed" stroke="#ea580c" />
+    <text x="700" y="62" textAnchor="middle" fontWeight="700">Masse</text>
+    <text x="700" y="100" textAnchor="middle">m</text>
+    <text x="700" y="125" textAnchor="middle">en g</text>
+    <defs>
+      <marker id="arrow-mole" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+      </marker>
+    </defs>
+  </svg>
+  <figcaption>La mole fait le lien entre l'échelle microscopique des entités et les grandeurs mesurables au laboratoire.</figcaption>
+</figure>
+
+#### Exemple
+
+Un échantillon contient $n = 2{,}00 \times 10^{-2}\ \text{mol}$ de molécules d'eau.
+
+$$
+N = nN_A = 2{,}00 \times 10^{-2} \times 6{,}02 \times 10^{23}
+$$
+
+$$
+N = 1{,}20 \times 10^{22}
+$$
+
+L'échantillon contient environ $1{,}20 \times 10^{22}$ molécules d'eau.
+
+### 2. Masse molaire d'une espèce chimique
+
+#### Définition ou idée essentielle
+
+La masse molaire $M$ d'une espèce chimique est la masse d'une mole de cette espèce. Elle s'exprime en $\text{g·mol}^{-1}$. Pour une molécule ou un ion, on additionne les masses molaires atomiques des éléments présents.
+
+#### Formule ou méthode
+
+Pour une espèce $A_xB_y$ :
+
+$$
+M(A_xB_y)=xM(A)+yM(B)
+$$
+
+Attention : une masse molaire atomique n'est pas la masse d'un atome isolé ; c'est la masse d'une mole d'atomes.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 760 210" role="img" aria-labelledby="fig-molaire-title fig-molaire-desc">
+    <title id="fig-molaire-title">Construction de la masse molaire de l'eau</title>
+    <desc id="fig-molaire-desc">La formule H2O contient deux atomes d'hydrogène et un atome d'oxygène ; la masse molaire est la somme correspondante.</desc>
+    <rect x="30" y="35" width="180" height="130" rx="12" fill="#eef6ff" stroke="#2563eb" />
+    <text x="120" y="70" textAnchor="middle" fontWeight="700">Eau</text>
+    <text x="120" y="112" textAnchor="middle" fontSize="30">H₂O</text>
+    <path d="M230 100 H330" stroke="#334155" strokeWidth="3" markerEnd="url(#arrow-mass)" />
+    <rect x="350" y="30" width="170" height="55" rx="10" fill="#f8fafc" stroke="#64748b" />
+    <text x="435" y="64" textAnchor="middle">2 × M(H)</text>
+    <rect x="350" y="115" width="170" height="55" rx="10" fill="#f8fafc" stroke="#64748b" />
+    <text x="435" y="149" textAnchor="middle">1 × M(O)</text>
+    <path d="M540 100 H640" stroke="#334155" strokeWidth="3" markerEnd="url(#arrow-mass)" />
+    <rect x="655" y="52" width="85" height="96" rx="10" fill="#f0fdf4" stroke="#16a34a" />
+    <text x="697" y="83" textAnchor="middle" fontWeight="700">18,0</text>
+    <text x="697" y="113" textAnchor="middle">g·mol⁻¹</text>
+    <defs>
+      <marker id="arrow-mass" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+      </marker>
+    </defs>
+  </svg>
+  <figcaption>Pour $H_2O$, $M = 2 \times 1{,}0 + 16{,}0 = 18{,}0\ \text{g·mol}^{-1}$.</figcaption>
+</figure>
+
+#### Exemple
+
+On calcule la masse molaire du dioxyde de carbone $CO_2$.
+
+Données : $M(C)=12{,}0\ \text{g·mol}^{-1}$ et $M(O)=16{,}0\ \text{g·mol}^{-1}$.
+
+$$
+M(CO_2)=M(C)+2M(O)=12{,}0+2\times 16{,}0=44{,}0\ \text{g·mol}^{-1}
+$$
+
+Une mole de dioxyde de carbone a donc une masse de $44{,}0\ \text{g}$.
+
+### 3. Quantité de matière et masse
+
+#### Définition ou idée essentielle
+
+Pour un corps pur solide ou liquide, la masse mesurée permet d'obtenir la quantité de matière si l'on connaît la masse molaire.
+
+#### Formule ou méthode
+
+$$
+n=\frac{m}{M}
+$$
+
+avec :
+
+- $n$ en $\text{mol}$ ;
+- $m$ en $\text{g}$ ;
+- $M$ en $\text{g·mol}^{-1}$.
+
+La relation inverse est $m=nM$. Les unités doivent être cohérentes : si $M$ est en $\text{g·mol}^{-1}$, la masse doit être en gramme.
+
+#### Exemple
+
+On dispose de $5{,}85\ \text{g}$ de chlorure de sodium $NaCl$.
+
+$$
+M(NaCl)=23{,}0+35{,}5=58{,}5\ \text{g·mol}^{-1}
+$$
+
+$$
+n=\frac{m}{M}=\frac{5{,}85}{58{,}5}=1{,}00\times10^{-1}\ \text{mol}
+$$
+
+L'échantillon contient $0{,}100\ \text{mol}$ de chlorure de sodium.
+
+### 4. Quantité de matière et volume d'un gaz
+
+#### Définition ou idée essentielle
+
+Le volume molaire $V_m$ d'un gaz est le volume occupé par une mole de gaz dans des conditions de température et de pression données. Ce n'est pas une constante universelle.
+
+#### Formule ou méthode
+
+$$
+n=\frac{V}{V_m}
+$$
+
+avec :
+
+- $n$ en $\text{mol}$ ;
+- $V$ volume du gaz ;
+- $V_m$ volume molaire dans les mêmes unités que $V$.
+
+Erreur fréquente : ne pas utiliser cette relation pour un liquide. Le volume molaire fourni concerne les gaz et dépend des conditions expérimentales.
+
+#### Exemple
+
+Dans les conditions de l'expérience, $V_m = 24{,}0\ \text{L·mol}^{-1}$. Un ballon contient $V = 1{,}20\ \text{L}$ de dioxygène.
+
+$$
+n=\frac{V}{V_m}=\frac{1{,}20}{24{,}0}=5{,}00\times10^{-2}\ \text{mol}
+$$
+
+Le ballon contient $5{,}00\times10^{-2}\ \text{mol}$ de dioxygène.
+
+### 5. Concentration en quantité de matière
+
+#### Définition ou idée essentielle
+
+La concentration en quantité de matière $c$ indique la quantité de soluté dissoute par litre de solution. Elle ne doit pas être confondue avec la concentration en masse $C_m$.
+
+#### Formule ou méthode
+
+$$
+c=\frac{n}{V}
+\qquad
+n=cV
+$$
+
+avec :
+
+- $c$ en $\text{mol·L}^{-1}$ ;
+- $n$ en $\text{mol}$ ;
+- $V$ volume de solution en $\text{L}$.
+
+Lien avec la concentration en masse :
+
+$$
+c=\frac{C_m}{M}
+$$
+
+avec $C_m$ en $\text{g·L}^{-1}$ et $M$ en $\text{g·mol}^{-1}$.
+
+#### Exemple
+
+On dissout $n = 2{,}50\times10^{-2}\ \text{mol}$ de glucose dans $V = 250\ \text{mL}$ de solution.
+
+$$
+V=250\ \text{mL}=0{,}250\ \text{L}
+$$
+
+$$
+c=\frac{n}{V}=\frac{2{,}50\times10^{-2}}{0{,}250}=1{,}00\times10^{-1}\ \text{mol·L}^{-1}
+$$
+
+La solution a une concentration $c=0{,}100\ \text{mol·L}^{-1}$.
+
+### 6. Composition d'un mélange
+
+#### Définition ou idée essentielle
+
+Pour un mélange, on détermine la quantité de matière de chaque espèce séparément. Une composition massique donne une masse ; une composition volumique donne souvent un volume à convertir en quantité de matière.
+
+#### Formule ou méthode
+
+Pour une espèce de pourcentage massique $p$ dans un échantillon de masse totale $m$ :
+
+$$
+m_{\text{espèce}}=\frac{p}{100}m_{\text{totale}}
+$$
+
+Puis :
+
+$$
+n_{\text{espèce}}=\frac{m_{\text{espèce}}}{M_{\text{espèce}}}
+$$
+
+Erreur fréquente : utiliser directement le pourcentage comme une quantité de matière. Le pourcentage donne d'abord une masse ou un volume.
+
+#### Exemple
+
+Un mélange de $20{,}0\ \text{g}$ contient $30{,}0\ \%$ de glucose $C_6H_{12}O_6$. Sa masse molaire vaut $M=180\ \text{g·mol}^{-1}$.
+
+$$
+m_{\text{glucose}}=\frac{30{,}0}{100}\times20{,}0=6{,}00\ \text{g}
+$$
+
+$$
+n_{\text{glucose}}=\frac{6{,}00}{180}=3{,}33\times10^{-2}\ \text{mol}
+$$
+
+Le mélange contient $3{,}33\times10^{-2}\ \text{mol}$ de glucose.
+
+## À retenir
+
+### Définitions essentielles
+
+- La mole relie un nombre immense d'entités à une grandeur mesurable au laboratoire.
+- La masse molaire $M$ est la masse d'une mole d'une espèce chimique.
+- Le volume molaire d'un gaz dépend des conditions de température et de pression.
+- Une concentration en quantité de matière s'exprime en $\text{mol·L}^{-1}$.
+
+### Formules à connaître
+
+$$
+N=nN_A
+\qquad
+n=\frac{m}{M}
+\qquad
+n=\frac{V}{V_m}
+\qquad
+c=\frac{n}{V}
+\qquad
+c=\frac{C_m}{M}
+$$
+
+### Méthode importante
+
+1. Identifier la grandeur connue : masse, volume de gaz, volume de solution, composition ou nombre d'entités.
+2. Convertir les unités avant le calcul.
+3. Choisir la relation correspondant à la situation.
+4. Vérifier que l'unité du résultat est cohérente.
+
+### Pièges classiques
+
+- Confondre masse $m$ et quantité de matière $n$.
+- Utiliser un volume en millilitre dans $c=\frac{n}{V}$ avec $c$ en $\text{mol·L}^{-1}$.
+- Présenter $V_m$ comme une constante universelle.
+- Confondre concentration en masse $C_m$ et concentration en quantité de matière $c$.
+
+

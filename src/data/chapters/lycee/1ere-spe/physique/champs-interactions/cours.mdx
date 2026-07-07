@@ -1,0 +1,172 @@
+﻿## Objectifs
+
+- Identifier une interaction gravitationnelle ou électrostatique.
+- Utiliser la loi de Coulomb.
+- Utiliser la loi de gravitation universelle.
+- Représenter une force par un vecteur.
+- Définir un champ gravitationnel ou électrostatique.
+- Interpréter des lignes de champ.
+
+## Prérequis
+
+- Savoir calculer avec des puissances de dix.
+- Connaître la charge électrique et son unité, le coulomb.
+- Savoir représenter une force par un vecteur.
+- Connaître la relation entre poids et masse $P=mg$.
+- Savoir convertir des distances en mètre.
+
+## Cours
+
+### 1. Interaction électrostatique
+
+#### Définition ou idée essentielle
+
+Deux objets chargés exercent l'un sur l'autre une force électrostatique. Des charges de même signe se repoussent ; des charges de signes opposés s'attirent.
+
+#### Formule ou méthode
+
+La valeur de la force électrostatique entre deux charges ponctuelles vaut :
+
+$$
+F=k\frac{|q_Aq_B|}{d^2}
+$$
+
+avec :
+
+- $F$ en newton $\text{N}$ ;
+- $q_A$ et $q_B$ en coulomb $\text{C}$ ;
+- $d$ en mètre $\text{m}$ ;
+- $k=8{,}99\times10^9\ \text{N·m}^2\text{·C}^{-2}$.
+
+Erreur fréquente : oublier que la formule donne une valeur positive ; le sens de la force se détermine avec les signes des charges.
+
+#### Exemple
+
+Deux charges $q_A=2{,}0\times10^{-6}\ \text{C}$ et $q_B=-3{,}0\times10^{-6}\ \text{C}$ sont séparées de $0{,}50\ \text{m}$.
+
+$$
+F=8{,}99\times10^9\times\frac{2{,}0\times10^{-6}\times3{,}0\times10^{-6}}{0{,}50^2}
+=2{,}2\times10^{-1}\ \text{N}
+$$
+
+Les charges étant de signes opposés, l'interaction est attractive.
+
+### 2. Interaction gravitationnelle
+
+#### Définition ou idée essentielle
+
+Deux corps possédant une masse s'attirent mutuellement par interaction gravitationnelle. Cette interaction est toujours attractive.
+
+#### Formule ou méthode
+
+$$
+F=G\frac{m_Am_B}{d^2}
+$$
+
+avec :
+
+- $F$ en $\text{N}$ ;
+- $m_A$ et $m_B$ en $\text{kg}$ ;
+- $d$ en $\text{m}$ ;
+- $G=6{,}67\times10^{-11}\ \text{N·m}^2\text{·kg}^{-2}$.
+
+Erreur fréquente : utiliser une distance en kilomètre dans la formule sans la convertir en mètre.
+
+#### Exemple
+
+La Terre exerce sur un objet de masse $m=2{,}0\ \text{kg}$ une force proche du poids :
+
+$$
+P=mg=2{,}0\times9{,}81=19{,}6\ \text{N}
+$$
+
+L'objet est attiré vers le centre de la Terre avec une force d'environ $20\ \text{N}$.
+
+### 3. Champ et lignes de champ
+
+#### Définition ou idée essentielle
+
+Un champ associe une grandeur physique à chaque point de l'espace. Un champ gravitationnel ou électrostatique permet de décrire l'action possible sur une masse ou une charge placée en ce point.
+
+#### Formule ou méthode
+
+Pour le champ de pesanteur :
+
+$$
+\vec{P}=m\vec{g}
+$$
+
+Pour un champ électrostatique :
+
+$$
+\vec{F}=q\vec{E}
+$$
+
+Les lignes de champ indiquent la direction et le sens du champ. Elles ne sont pas des trajectoires obligatoires.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 720 230" role="img" aria-labelledby="fig-champ-title fig-champ-desc">
+    <title id="fig-champ-title">Lignes de champ autour d'une charge positive</title>
+    <desc id="fig-champ-desc">Des flèches partent radialement d'une charge positive pour représenter le sens du champ électrostatique.</desc>
+    <circle cx="360" cy="115" r="28" fill="#fee2e2" stroke="#dc2626" strokeWidth="3" />
+    <text x="360" y="123" textAnchor="middle" fontWeight="700">+</text>
+    <line x1="400" y1="115" x2="585" y2="115" stroke="#2563eb" strokeWidth="3" markerEnd="url(#arrow-field)" />
+    <line x1="320" y1="115" x2="135" y2="115" stroke="#2563eb" strokeWidth="3" markerEnd="url(#arrow-field)" />
+    <line x1="360" y1="75" x2="360" y2="25" stroke="#2563eb" strokeWidth="3" markerEnd="url(#arrow-field)" />
+    <line x1="360" y1="155" x2="360" y2="205" stroke="#2563eb" strokeWidth="3" markerEnd="url(#arrow-field)" />
+    <line x1="390" y1="85" x2="520" y2="35" stroke="#2563eb" strokeWidth="3" markerEnd="url(#arrow-field)" />
+    <line x1="330" y1="145" x2="200" y2="195" stroke="#2563eb" strokeWidth="3" markerEnd="url(#arrow-field)" />
+    <defs>
+      <marker id="arrow-field" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L9,3 z" fill="#2563eb" />
+      </marker>
+    </defs>
+  </svg>
+  <figcaption>Autour d'une charge positive, le champ électrostatique est orienté vers l'extérieur.</figcaption>
+</figure>
+
+#### Exemple
+
+Une charge $q=2{,}0\times10^{-6}\ \text{C}$ est placée dans un champ uniforme $E=4{,}0\times10^3\ \text{N·C}^{-1}$.
+
+$$
+F=qE=2{,}0\times10^{-6}\times4{,}0\times10^3=8{,}0\times10^{-3}\ \text{N}
+$$
+
+La force a la même direction que le champ si la charge est positive.
+
+## À retenir
+
+### Définitions essentielles
+
+- Une interaction électrostatique peut être attractive ou répulsive.
+- Une interaction gravitationnelle est toujours attractive.
+- Un champ décrit l'action possible en chaque point de l'espace.
+- Les lignes de champ donnent le sens et la direction du champ.
+
+### Formules à connaître
+
+$$
+F=k\frac{|q_Aq_B|}{d^2}
+\qquad
+F=G\frac{m_Am_B}{d^2}
+\qquad
+\vec{F}=q\vec{E}
+\qquad
+\vec{P}=m\vec{g}
+$$
+
+### Méthode importante
+
+1. Identifier la nature de l'interaction.
+2. Convertir les grandeurs en unités SI.
+3. Calculer la valeur de la force.
+4. Déterminer le sens avec la situation physique.
+
+### Pièges classiques
+
+- Oublier les conversions de distance.
+- Confondre valeur d'une force et vecteur force.
+- Lire les lignes de champ comme des trajectoires.
+
+

@@ -1,0 +1,457 @@
+---
+// src/pages/outils-methodes/python.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Python en physique-chimie - Outils et methodes"
+  description="Page methode pour utiliser Python en physique-chimie : tracer des positions, des vecteurs vitesse, des nuages de points, des histogrammes et comprendre les options Pyodide ou JupyterLite."
+  canonical="/outils-methodes/python"
+  schemaType="EducationalContent"
+>
+  <article class="python-page" id="top">
+    <header class="python-hero">
+      <p class="eyebrow">Outils et methodes</p>
+      <h1>Python en physique-chimie</h1>
+      <p class="hero-text">
+        Une page pour comprendre a quoi sert Python en seconde, lire des scripts courts et les adapter a des mesures de physique-chimie.
+      </p>
+      <div class="quick-links" aria-label="Liens rapides">
+        <a href="/outils-methodes/cours-python">Cours Python complet</a>
+        <a href="#executer">Executer Python sur le site</a>
+        <a href="/outils-methodes/python-lab">Lancer le labo Python</a>
+        <a href="#bases">Regles de base</a>
+        <a href="#positions">Positions</a>
+        <a href="#vecteurs">Vecteurs vitesse</a>
+        <a href="#caracteristique">Caracteristique</a>
+        <a href="#histogramme">Histogramme</a>
+      </div>
+    </header>
+
+    <section class="method-card answer-card" id="executer" aria-labelledby="executer-title">
+      <div class="method-heading">
+        <p class="method-number">Question technique</p>
+        <h2 id="executer-title">Peut-on integrer du Python executable dans le site ?</h2>
+      </div>
+
+      <p>
+        Oui, c'est possible. La meilleure solution depend de l'objectif : simple test rapide, vrai notebook, ou execution cote serveur.
+      </p>
+
+      <div class="table-wrap" role="region" aria-label="Comparaison des solutions Python" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th>Solution</th>
+              <th>Principe</th>
+              <th>Avantage</th>
+              <th>Limite</th>
+              <th>Recommandation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Page statique</td>
+              <td>Scripts affiches, a copier dans un notebook ou un IDE</td>
+              <td>Rapide, fiable, leger</td>
+              <td>Pas d'execution directe</td>
+              <td>A faire maintenant</td>
+            </tr>
+            <tr>
+              <td>Pyodide</td>
+              <td>Python tourne dans le navigateur avec WebAssembly</td>
+              <td>Pas de serveur, tests interactifs possibles</td>
+              <td>Chargement lourd, integration a soigner</td>
+              <td>Bon choix pour un mini-labo Python</td>
+            </tr>
+            <tr>
+              <td>JupyterLite</td>
+              <td>Notebook Jupyter entier dans le navigateur</td>
+              <td>Experience proche d'un vrai notebook</td>
+              <td>Plus lourd et plus complexe</td>
+              <td>Interessant pour une section laboratoire</td>
+            </tr>
+            <tr>
+              <td>Serveur Jupyter</td>
+              <td>Python execute sur un serveur distant</td>
+              <td>Python complet</td>
+              <td>Securite, cout, authentification, maintenance</td>
+              <td>A eviter pour ce site statique</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="recommendation">
+        <strong>Choix conseille.</strong>
+        Utiliser le <a href="/outils-methodes/cours-python">cours Python lycée</a> pour apprendre progressivement les bases,
+        puis le <a href="/outils-methodes/python-lab">laboratoire Python</a> pour tester de petits scripts avec Pyodide,
+        charge uniquement quand l'eleve clique sur "Charger Python".
+      </div>
+    </section>
+
+    <section class="method-card" id="bases" aria-labelledby="bases-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 1</p>
+        <h2 id="bases-title">Les regles de base avant de coder</h2>
+      </div>
+
+      <ul>
+        <li>Un script doit repondre a une question de physique-chimie, pas seulement produire un joli graphique.</li>
+        <li>Les axes doivent toujours avoir un nom et une unite.</li>
+        <li>Dans un texte francais on ecrit souvent 1,25, mais dans Python il faut ecrire <code>1.25</code>.</li>
+        <li>Un modele n'est pas une preuve : il simplifie les mesures pour les interpreter.</li>
+        <li>Un graphique doit se terminer par une phrase de conclusion.</li>
+      </ul>
+
+      <p class="pitfall">
+        Erreur frequente : copier un code sans verifier les unites. Par exemple, la loi d'Ohm demande une intensite en amperes, pas en milliampere.
+      </p>
+    </section>
+
+    <section class="method-card" id="positions" aria-labelledby="positions-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 2</p>
+        <h2 id="positions-title">Tracer des positions successives</h2>
+      </div>
+
+      <p>
+        On modelise le systeme par un point. Chaque couple <code>(x, y)</code> represente une position mesuree a un instant donne.
+      </p>
+
+      <pre class="code-block"><code>import matplotlib.pyplot as plt
+
+t = [0, 1, 2, 3, 4]
+x = [0, 1.2, 2.4, 3.6, 4.8]
+y = [0, 0, 0, 0, 0]
+
+plt.plot(x, y, "o")
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.title("Positions successives d'un mobile")
+plt.axis("equal")
+plt.grid()
+plt.show()</code></pre>
+
+      <div class="result-box">
+        <strong>A retenir.</strong>
+        Si les points sont regulierement espaces pour des durees egales, la valeur de la vitesse peut etre constante.
+      </div>
+    </section>
+
+    <section class="method-card" id="vecteurs" aria-labelledby="vecteurs-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 3</p>
+        <h2 id="vecteurs-title">Representer des vecteurs vitesse</h2>
+      </div>
+
+      <p>
+        Entre deux positions proches, on peut approximer le vecteur vitesse par le vecteur deplacement divise par la duree :
+        <code>v_i ≈ deplacement / Δt</code>.
+      </p>
+
+      <pre class="code-block"><code>import matplotlib.pyplot as plt
+
+x = [0, 1, 2, 3, 4]
+y = [0, 0.5, 2, 4.5, 8]
+dt = 1.0
+
+vx = []
+vy = []
+
+for i in range(len(x) - 1):
+    vx.append((x[i + 1] - x[i]) / dt)
+    vy.append((y[i + 1] - y[i]) / dt)
+
+plt.plot(x, y, "o", label="positions")
+
+for i in range(len(vx)):
+    plt.arrow(
+        x[i], y[i],
+        0.2 * vx[i], 0.2 * vy[i],
+        head_width=0.12,
+        length_includes_head=True
+    )
+
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.title("Vecteurs vitesse approches")
+plt.axis("equal")
+plt.grid()
+plt.show()</code></pre>
+
+      <p class="pitfall">
+        Erreur frequente : le facteur <code>0.2</code> ne change pas la vitesse. Il sert seulement a reduire la longueur des fleches sur le dessin.
+      </p>
+    </section>
+
+    <section class="method-card" id="caracteristique" aria-labelledby="caracteristique-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 4</p>
+        <h2 id="caracteristique-title">Tracer la caracteristique d'un dipole</h2>
+      </div>
+
+      <p>
+        La caracteristique d'un dipole est le graphique de la tension U en fonction de l'intensite I. Pour un conducteur ohmique, les points sont proches d'une droite passant par l'origine.
+      </p>
+
+      <pre class="code-block"><code>import matplotlib.pyplot as plt
+
+I_mA = [0, 20, 40, 60, 80]
+U = [0.0, 1.9, 4.1, 6.0, 8.2]
+
+I = [valeur / 1000 for valeur in I_mA]
+
+plt.plot(I, U, "o")
+plt.xlabel("I (A)")
+plt.ylabel("U (V)")
+plt.title("Caracteristique tension-intensite")
+plt.grid()
+plt.show()
+
+R = U[-1] / I[-1]
+print("Resistance estimee :", R, "ohms")</code></pre>
+
+      <div class="result-box">
+        <strong>Interpretation.</strong>
+        Ici, avec U = 8,2 V et I = 0,080 A, on obtient R ≈ 102,5 Ω.
+      </div>
+    </section>
+
+    <section class="method-card" id="histogramme" aria-labelledby="histogramme-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 5</p>
+        <h2 id="histogramme-title">Construire un histogramme de mesures</h2>
+      </div>
+
+      <p>
+        Un histogramme montre comment les mesures se repartissent. Il aide a observer la dispersion d'une serie.
+      </p>
+
+      <pre class="code-block"><code>import matplotlib.pyplot as plt
+
+mesures = [0.82, 0.85, 0.83, 0.84, 0.82, 0.86, 0.83, 0.84]
+
+plt.hist(mesures, bins=4, edgecolor="black")
+plt.xlabel("Periode T (s)")
+plt.ylabel("Effectif")
+plt.title("Repartition des mesures")
+plt.grid(axis="y")
+plt.show()</code></pre>
+
+      <p class="pitfall">
+        Erreur frequente : changer le nombre de classes peut changer l'apparence de l'histogramme. Il faut donc interpreter le graphique avec prudence.
+      </p>
+    </section>
+
+    <section class="method-card" id="aller-plus-loin" aria-labelledby="plus-title">
+      <div class="method-heading">
+        <p class="method-number">Suite possible</p>
+        <h2 id="plus-title">Vers un vrai labo Python interactif</h2>
+      </div>
+
+      <p>
+        Pour permettre aux eleves de tester le code directement dans le site, la piste la plus adaptee est maintenant disponible dans le <a href="/outils-methodes/python-lab">laboratoire Python</a> :
+      </p>
+      <ol>
+        <li>un bouton "Charger Python" pour eviter de ralentir toute la page ;</li>
+        <li>un editeur de code simple avec quelques exemples verrouilles ;</li>
+        <li>une zone de sortie texte ;</li>
+        <li>une zone graphique pour les figures ;</li>
+        <li>des scripts limites aux usages du programme.</li>
+      </ol>
+      <p>
+        JupyterLite est aussi possible, mais il convient mieux a une page laboratoire avancee qu'a une fiche methode.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .python-page {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 2rem 1rem 3rem;
+  }
+
+  .python-hero {
+    margin: 0 auto 1.5rem;
+    max-width: 780px;
+    text-align: center;
+  }
+
+  .eyebrow,
+  .method-number {
+    color: var(--accent-primary);
+    font-size: 0.76rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.35rem;
+    text-transform: uppercase;
+  }
+
+  .python-hero h1 {
+    color: var(--accent-primary);
+    font-size: clamp(1.55rem, 3vw, 2.25rem);
+    font-weight: 850;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .hero-text {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0.75rem auto 1.2rem;
+    max-width: 720px;
+  }
+
+  .quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .quick-links a {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    color: var(--text-secondary);
+    font-size: 0.86rem;
+    font-weight: 750;
+    padding: 0.45rem 0.8rem;
+    text-decoration: none;
+  }
+
+  .quick-links a:hover,
+  .quick-links a:focus-visible {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    outline: none;
+  }
+
+  .method-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    margin: 1rem 0 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .answer-card {
+    border-left: 5px solid var(--accent-primary);
+  }
+
+  .method-heading {
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 1rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .method-card h2 {
+    color: var(--text-primary);
+    font-size: 1.22rem;
+    margin: 0;
+  }
+
+  .method-card p,
+  .method-card li,
+  .method-card td {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .method-card ol,
+  .method-card ul {
+    margin: 0.65rem 0;
+    padding-left: 1.35rem;
+  }
+
+  .table-wrap {
+    margin: 1rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    border-collapse: collapse;
+    min-width: 760px;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--border-color);
+    padding: 0.6rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: var(--accent-primary);
+    color: #fff;
+    font-weight: 800;
+  }
+
+  code {
+    background: var(--bg-tertiary);
+    border-radius: 5px;
+    color: var(--text-primary);
+    font-size: 0.92em;
+    padding: 0.08rem 0.3rem;
+  }
+
+  .code-block {
+    background: #0f172a;
+    border-radius: var(--radius-sm);
+    color: #e5e7eb;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin: 1rem 0;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+
+  .code-block code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+  }
+
+  .recommendation,
+  .result-box,
+  .pitfall {
+    border-radius: var(--radius-sm);
+    margin: 1rem 0;
+    padding: 0.85rem 1rem;
+  }
+
+  .recommendation,
+  .result-box {
+    background: var(--accent-success-light);
+    border-left: 5px solid var(--accent-success);
+    color: var(--text-secondary);
+  }
+
+  .pitfall {
+    background: var(--accent-warning-light);
+    border-left: 5px solid var(--accent-warning);
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 720px) {
+    .python-page {
+      padding: 1.25rem 0.75rem 2rem;
+    }
+
+    .method-card {
+      padding: 1rem;
+    }
+
+    table {
+      min-width: 680px;
+    }
+  }
+</style>

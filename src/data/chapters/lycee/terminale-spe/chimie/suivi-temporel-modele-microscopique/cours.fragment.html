@@ -1,0 +1,134 @@
+<div class="box-pedagogie box-objectif">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Relier la vitesse d'une transformation aux collisions entre entités.</li>
+    <li>Décrire une transformation par un mécanisme réactionnel.</li>
+    <li>Identifier actes élémentaires, intermédiaires réactionnels et catalyseur.</li>
+    <li>Utiliser la molécularité d'un acte élémentaire pour écrire sa loi de vitesse.</li>
+    <li>Interpréter un profil énergétique et l'effet d'un catalyseur.</li>
+  </ul>
+</div>
+
+<h2 class="section-title">1. Collisions et vitesse de réaction</h2>
+<div class="card chapter-card">
+  <p>À l'échelle microscopique, une transformation chimique suppose que les entités réactives se rencontrent. Toutes les collisions ne conduisent pas à une réaction.</p>
+  <div class="definition-box">
+    Un <strong>choc efficace</strong> est une collision qui possède une énergie suffisante et une orientation favorable pour transformer les réactifs en produits.
+  </div>
+  <table>
+    <thead>
+      <tr><th>Facteur</th><th>Interprétation microscopique</th><th>Effet attendu</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Concentration plus grande</td><td>Collisions plus fréquentes.</td><td>Vitesse plus grande.</td></tr>
+      <tr><td>Température plus grande</td><td>Entités plus rapides et plus énergétiques.</td><td>Vitesse plus grande.</td></tr>
+      <tr><td>Catalyseur</td><td>Chemin réactionnel plus accessible.</td><td>Vitesse plus grande.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="section-title">2. Actes élémentaires et mécanisme réactionnel</h2>
+<div class="card chapter-card">
+  <div class="definition-box">
+    Un <strong>acte élémentaire</strong> est une étape microscopique unique au cours de laquelle des liaisons se rompent et se forment. Un <strong>mécanisme réactionnel</strong> est l'ensemble ordonné des actes élémentaires dont la somme redonne l'équation globale.
+  </div>
+  <div class="definition-box">
+    Un <strong>intermédiaire réactionnel</strong> est formé dans une étape puis consommé dans une étape suivante. Il n'apparaît pas dans l'équation globale.
+  </div>
+  <div class="example-box">
+    <strong>Exemple : décomposition de l'ozone</strong>
+    <ol>
+      <li>O<sub>3</sub> → O<sub>2</sub> + O</li>
+      <li>O<sub>3</sub> + O → 2 O<sub>2</sub></li>
+    </ol>
+    En additionnant les étapes, l'atome O se simplifie. Le bilan est : 2 O<sub>3</sub> → 3 O<sub>2</sub>. L'atome O est un intermédiaire réactionnel.
+  </div>
+  <div class="svg-wrap" role="img" aria-label="Mécanisme en deux actes élémentaires avec un intermédiaire">
+    <svg viewBox="0 0 780 230" class="chapter-svg">
+      <defs>
+        <marker id="arrow-micro" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#334155"/></marker>
+      </defs>
+      <rect x="70" y="80" width="160" height="70" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="3"/>
+      <rect x="315" y="80" width="160" height="70" rx="10" fill="#fef9c3" stroke="#ca8a04" stroke-width="3"/>
+      <rect x="560" y="80" width="150" height="70" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+      <text x="150" y="120" text-anchor="middle" font-weight="700">réactifs</text>
+      <text x="395" y="110" text-anchor="middle" font-weight="700">intermédiaire</text>
+      <text x="395" y="136" text-anchor="middle">formé puis consommé</text>
+      <text x="635" y="120" text-anchor="middle" font-weight="700">produits</text>
+      <path d="M235 115 H305" stroke="#334155" stroke-width="4" marker-end="url(#arrow-micro)"/>
+      <path d="M480 115 H550" stroke="#334155" stroke-width="4" marker-end="url(#arrow-micro)"/>
+      <text x="270" y="78" text-anchor="middle">acte 1</text>
+      <text x="515" y="78" text-anchor="middle">acte 2</text>
+      <text x="390" y="190" text-anchor="middle">Le bilan global ne montre pas toujours les espèces fugaces.</text>
+    </svg>
+  </div>
+</div>
+
+<h2 class="section-title">3. Molécularité et loi de vitesse élémentaire</h2>
+<div class="card chapter-card">
+  <div class="definition-box">
+    La <strong>molécularité</strong> d'un acte élémentaire est le nombre d'entités réactives qui interviennent dans cette étape.
+  </div>
+  <table>
+    <thead>
+      <tr><th>Acte élémentaire</th><th>Molécularité</th><th>Loi de vitesse élémentaire</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>A → produits</td><td>unimoléculaire</td><td>v = k[A]</td></tr>
+      <tr><td>A + B → produits</td><td>bimoléculaire</td><td>v = k[A][B]</td></tr>
+      <tr><td>2 A → produits</td><td>bimoléculaire</td><td>v = k[A]<sup>2</sup></td></tr>
+    </tbody>
+  </table>
+  <div class="info-box">
+    Cette règle s'applique aux <strong>actes élémentaires</strong>. Pour une équation globale, les ordres de réaction doivent être déterminés expérimentalement ou déduits d'un mécanisme validé.
+  </div>
+</div>
+
+<h2 class="section-title">4. Étape cinétiquement déterminante</h2>
+<div class="card chapter-card">
+  <p>Dans un mécanisme, une étape peut être beaucoup plus lente que les autres. Elle limite la vitesse globale de la transformation.</p>
+  <div class="definition-box">
+    L'<strong>étape cinétiquement déterminante</strong> est l'étape lente qui impose, en première approximation, la vitesse de la réaction globale.
+  </div>
+  <div class="example-box">
+    Si un mécanisme comporte une première étape lente puis une seconde étape rapide, la vitesse observée dépend surtout de la première étape.
+  </div>
+</div>
+
+<h2 class="section-title">5. Catalyse et profil énergétique</h2>
+<div class="card chapter-card">
+  <div class="definition-box">
+    Un <strong>catalyseur</strong> accélère une transformation en proposant un chemin réactionnel de plus faible énergie d'activation. Il est consommé dans une étape puis régénéré dans une autre : il n'apparaît pas dans l'équation globale.
+  </div>
+  <div class="svg-wrap" role="img" aria-label="Profil énergétique avec et sans catalyseur">
+    <svg viewBox="0 0 820 340" class="chapter-svg">
+      <path d="M80 280 H760" stroke="#0f172a" stroke-width="3"/>
+      <path d="M80 280 V45" stroke="#0f172a" stroke-width="3"/>
+      <text x="760" y="310" text-anchor="end">avancement</text>
+      <text x="50" y="60" transform="rotate(-90 50 60)">énergie</text>
+      <path d="M100 235 C210 220 255 65 360 70 C470 75 505 210 710 205" fill="none" stroke="#dc2626" stroke-width="5"/>
+      <path d="M100 235 C190 215 230 140 310 145 C390 150 430 105 505 115 C585 125 620 200 710 205" fill="none" stroke="#059669" stroke-width="5"/>
+      <text x="390" y="58" text-anchor="middle" fill="#dc2626" font-weight="700">non catalysé</text>
+      <text x="535" y="105" text-anchor="middle" fill="#059669" font-weight="700">catalysé</text>
+      <text x="120" y="255">réactifs</text>
+      <text x="660" y="225">produits</text>
+      <text x="410" y="300" text-anchor="middle">Le catalyseur change le chemin, pas l'état initial ni l'état final.</text>
+    </svg>
+  </div>
+  <ul>
+    <li>Une catalyse <strong>homogène</strong> met catalyseur et réactifs dans la même phase.</li>
+    <li>Une catalyse <strong>hétérogène</strong> se produit à la surface d'un catalyseur dans une phase différente.</li>
+    <li>Une catalyse <strong>enzymatique</strong> utilise une enzyme, très sélective.</li>
+  </ul>
+</div>
+
+<h2 class="section-title">À retenir</h2>
+<div class="card chapter-card">
+  <ul>
+    <li>Une réaction rapide correspond à davantage de chocs efficaces par unité de temps.</li>
+    <li>Un mécanisme est une succession d'actes élémentaires.</li>
+    <li>Les intermédiaires sont formés puis consommés ; les catalyseurs sont consommés puis régénérés.</li>
+    <li>La loi de vitesse se lit directement seulement pour un acte élémentaire.</li>
+    <li>Un catalyseur abaisse l'énergie d'activation sans modifier le bilan global.</li>
+  </ul>
+</div>

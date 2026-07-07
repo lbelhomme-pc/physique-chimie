@@ -1,0 +1,171 @@
+## Objectifs du cours
+
+- Savoir qu'en physique on peut **modéliser un stock d'énergie** pour un système.
+- Comprendre que ce stock augmente ou diminue lors d'un **transfert d'énergie**.
+- Identifier une **source d'énergie** dans une situation quotidienne.
+- Interpréter une transformation observable comme l'effet d'une variation d'énergie.
+- Utiliser le **joule** comme unité d'énergie.
+
+---
+
+## 1. Qu'est-ce que l'énergie ?
+
+<div class="definition-box">
+
+### Définition
+
+L'**énergie** est une grandeur. En 5e, on la modélise avec un **stock d'énergie** qui peut augmenter ou diminuer lors de transferts. Son unité est le **joule**, noté **J**.
+
+</div>
+
+On peut représenter un stock d'énergie pour différents systèmes : une pile, un aliment, un objet en hauteur, un objet en mouvement, de l'eau chaude...
+
+<svg viewBox="0 0 760 270" role="img" aria-labelledby="stocks-title stocks-desc" style="max-width:100%;height:auto;display:block;margin:1.2rem auto;">
+  <title id="stocks-title">Exemples de systèmes avec un stock d'énergie</title>
+  <desc id="stocks-desc">Pile, eau chaude, objet en hauteur et voiture en mouvement.</desc>
+  <rect x="50" y="45" width="150" height="145" rx="14" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+  <rect x="95" y="82" width="60" height="76" rx="8" fill="#6366f1"/>
+  <rect x="112" y="68" width="26" height="16" rx="4" fill="#4f46e5"/>
+  <text x="125" y="220" text-anchor="middle" font-size="15" font-weight="700" fill="#312e81">pile</text>
+
+  <rect x="225" y="45" width="150" height="145" rx="14" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <path d="M270 92 L330 92 L320 160 L280 160 Z" fill="#fed7aa" stroke="#f97316" stroke-width="3"/>
+  <path d="M278 130 Q300 118 322 130 L320 160 L280 160 Z" fill="#fb923c" opacity="0.75"/>
+  <path d="M286 77 C270 60 305 60 290 43" fill="none" stroke="#f97316" stroke-width="3">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
+  </path>
+  <text x="300" y="220" text-anchor="middle" font-size="15" font-weight="700" fill="#c2410c">eau chaude</text>
+
+  <rect x="400" y="45" width="150" height="145" rx="14" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+  <rect x="455" y="85" width="50" height="45" rx="6" fill="#10b981"/>
+  <line x1="430" y1="158" x2="525" y2="158" stroke="#047857" stroke-width="5"/>
+  <text x="475" y="220" text-anchor="middle" font-size="15" font-weight="700" fill="#047857">objet en hauteur</text>
+
+  <rect x="575" y="45" width="135" height="145" rx="14" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  <rect x="612" y="105" width="64" height="30" rx="8" fill="#ef4444"/>
+  <circle cx="625" cy="140" r="9" fill="#1f2937"/>
+  <circle cx="664" cy="140" r="9" fill="#1f2937"/>
+  <path d="M600 93 L675 93" stroke="#ef4444" stroke-width="3">
+    <animate attributeName="stroke-dasharray" values="4 10;12 4;4 10" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  <text x="642" y="220" text-anchor="middle" font-size="15" font-weight="700" fill="#b91c1c">mouvement</text>
+</svg>
+
+---
+
+## 2. Stock et transfert d'énergie
+
+Le stock d'énergie d'un système change quand il **reçoit** ou **transfère** de l'énergie.
+
+<div class="formule-box">
+
+### Idée principale
+
+Si le stock d'énergie d'un système varie, c'est qu'il y a eu un **transfert d'énergie** vers ce système ou depuis ce système.
+
+</div>
+
+<svg viewBox="0 0 760 260" role="img" aria-labelledby="transfert-title transfert-desc" style="max-width:100%;height:auto;display:block;margin:1.2rem auto;">
+  <title id="transfert-title">Transfert d'énergie</title>
+  <desc id="transfert-desc">Une source transfère de l'énergie à un objet, ce qui produit une transformation observable.</desc>
+  <defs>
+    <marker id="arrow-energy" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L11,4 z" fill="#f97316"/>
+    </marker>
+  </defs>
+  <rect x="65" y="80" width="180" height="90" rx="16" fill="#fff7ed" stroke="#f97316" stroke-width="3"/>
+  <text x="155" y="115" text-anchor="middle" font-size="18" font-weight="700" fill="#c2410c">Source</text>
+  <text x="155" y="142" text-anchor="middle" font-size="14" fill="#475569">stock qui diminue</text>
+  <path d="M265 125 L495 125" stroke="#f97316" stroke-width="8" marker-end="url(#arrow-energy)">
+    <animate attributeName="stroke-dashoffset" values="0;24" dur="1s" repeatCount="indefinite"/>
+  </path>
+  <text x="380" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="#c2410c">transfert d'énergie</text>
+  <rect x="515" y="80" width="180" height="90" rx="16" fill="#eef2ff" stroke="#4f46e5" stroke-width="3"/>
+  <text x="605" y="115" text-anchor="middle" font-size="18" font-weight="700" fill="#312e81">Objet</text>
+  <text x="605" y="142" text-anchor="middle" font-size="14" fill="#475569">transformation visible</text>
+</svg>
+
+<div class="example-box">
+
+### Exemple
+
+Une bouilloire reçoit de l'énergie électrique. L'eau chauffe : sa température augmente. Cette transformation observable montre que le stock d'énergie de l'eau a augmenté.
+
+</div>
+
+---
+
+## 3. Les sources d'énergie
+
+<div class="definition-box">
+
+### Définition
+
+Une **source d'énergie** est un système dont le stock d'énergie diminue lorsqu'il transfère de l'énergie à un autre système.
+
+</div>
+
+Exemples :
+
+- une pile électrique ;
+- un système qui subit une combustion ;
+- le Soleil.
+
+<div class="méthode-box">
+
+### Méthode : analyser une situation énergétique
+
+1. Identifie le **système étudié**.
+2. Repère le système qui lui transfère de l'énergie : c'est la **source**.
+3. Décris l'effet observable : température, vitesse, altitude, lumière, mouvement...
+4. Trace une flèche pour représenter le **transfert d'énergie**.
+
+</div>
+
+---
+
+## 4. Énergie et objets technologiques
+
+La plupart des objets technologiques ont besoin d'un transfert d'énergie pour fonctionner.
+
+| Objet | Source d'énergie | Transformation observable |
+|---|---|---|
+| Lampe | pile ou prise | lumière et chaleur |
+| Trottinette électrique | batterie | mouvement |
+| Téléviseur | prise électrique | image, son, chaleur |
+| Voiture thermique | carburant | mouvement, chaleur, gaz |
+
+<div class="info-box">
+
+### Consommation d'énergie
+
+La consommation d'un objet correspond à l'énergie qu'il faut lui transférer pour assurer son fonctionnement pendant une utilisation donnée.
+
+</div>
+
+<div class="info-box">
+
+### À manipuler
+
+**Simulation :** [Chaînes énergétiques](/laboratoire/chaines-energetiques)  
+**Défi court :** [Escape énergie](/laboratoire/escape-energie)
+
+- Objectif élève : suivre un transfert d'énergie depuis une source jusqu'à un effet utile.
+- Observe : repère la source, le convertisseur, l'énergie utile et les pertes.
+- Question de sortie : dans la chaîne choisie, quelle part du transfert n'est pas utilisée pour l'effet recherché ?
+
+</div>
+
+---
+
+<div class="retenir-box">
+
+## À retenir
+
+- En physique, on peut modéliser un système avec un stock d'énergie.
+- L'énergie s'exprime en joule, noté J.
+- Le stock d'énergie d'un système varie seulement s'il reçoit ou transfère de l'énergie.
+- Une source d'énergie est un système qui transfère de l'énergie en diminuant son stock.
+- Une transformation observable peut indiquer qu'un transfert d'énergie a eu lieu.
+
+</div>

@@ -1,0 +1,179 @@
+﻿## Objectifs
+
+- Distinguer valeur mesurée, valeur moyenne et valeur de référence.
+- Identifier des sources d'incertitude.
+- Calculer une moyenne expérimentale.
+- Estimer une incertitude-type dans une situation simple.
+- Écrire un résultat avec une incertitude et une unité.
+- Comparer un résultat expérimental à une valeur de référence.
+
+## Prérequis
+
+- Savoir calculer une moyenne.
+- Savoir arrondir un résultat.
+- Connaître les unités des grandeurs mesurées.
+- Savoir lire un instrument gradué.
+- Comprendre qu'une mesure expérimentale peut varier.
+
+## Cours
+
+### 1. Variabilité des mesures
+
+#### Définition ou idée essentielle
+
+Une mesure expérimentale n'est jamais parfaitement exacte. Plusieurs mesures d'une même grandeur peuvent donner des valeurs légèrement différentes à cause de l'instrument, du protocole ou de l'opérateur.
+
+#### Formule ou méthode
+
+Pour une série de $N$ mesures $x_i$, la moyenne vaut :
+
+$$
+\overline{x}=\frac{x_1+x_2+\cdots+x_N}{N}
+$$
+
+La moyenne est souvent la meilleure estimation de la grandeur mesurée.
+
+Erreur fréquente : choisir seulement la mesure qui semble la plus jolie au lieu d'exploiter toute la série.
+
+#### Exemple
+
+On mesure trois fois un volume : $10{,}1\ \text{mL}$, $10{,}0\ \text{mL}$ et $10{,}2\ \text{mL}$.
+
+$$
+\overline{V}=\frac{10{,}1+10{,}0+10{,}2}{3}=10{,}1\ \text{mL}
+$$
+
+La meilleure estimation est $10{,}1\ \text{mL}$.
+
+### 2. Incertitude-type
+
+#### Définition ou idée essentielle
+
+L'incertitude-type $u(x)$ quantifie la dispersion ou la qualité d'une mesure. Elle s'exprime dans la même unité que la grandeur mesurée.
+
+#### Formule ou méthode
+
+Dans une approche simple avec une série de mesures, on peut utiliser l'écart-type expérimental ou une valeur fournie par l'énoncé. Pour un instrument gradué, une estimation de l'incertitude peut être donnée par la notice ou par le protocole.
+
+On écrit un résultat sous la forme :
+
+$$
+x = \overline{x} \pm u(x)
+$$
+
+Erreur fréquente : donner une incertitude sans unité ou avec trop de chiffres significatifs.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 720 230" role="img" aria-labelledby="fig-incertitude-title fig-incertitude-desc">
+    <title id="fig-incertitude-title">Dispersion d'une série de mesures</title>
+    <desc id="fig-incertitude-desc">Des points de mesure sont répartis autour d'une moyenne, avec un intervalle d'incertitude représenté.</desc>
+    <line x1="80" y1="145" x2="640" y2="145" stroke="#0f172a" strokeWidth="3" />
+    <text x="80" y="175" textAnchor="middle">9,8</text>
+    <text x="360" y="175" textAnchor="middle">10,1</text>
+    <text x="640" y="175" textAnchor="middle">10,4</text>
+    <circle cx="300" cy="145" r="7" fill="#2563eb" />
+    <circle cx="360" cy="145" r="7" fill="#2563eb" />
+    <circle cx="420" cy="145" r="7" fill="#2563eb" />
+    <line x1="280" y1="95" x2="440" y2="95" stroke="#dc2626" strokeWidth="4" />
+    <line x1="280" y1="85" x2="280" y2="105" stroke="#dc2626" strokeWidth="3" />
+    <line x1="440" y1="85" x2="440" y2="105" stroke="#dc2626" strokeWidth="3" />
+    <line x1="360" y1="70" x2="360" y2="145" stroke="#16a34a" strokeWidth="3" strokeDasharray="6 5" />
+    <text x="360" y="55" textAnchor="middle">moyenne</text>
+    <text x="360" y="83" textAnchor="middle" fill="#dc2626">incertitude</text>
+  </svg>
+  <figcaption>L'incertitude donne une information sur la dispersion ou la confiance accordée à la mesure.</figcaption>
+</figure>
+
+#### Exemple
+
+Un résultat de mesure est donné par $\overline{L}=12{,}4\ \text{cm}$ et $u(L)=0{,}2\ \text{cm}$. On écrit :
+
+$$
+L=(12{,}4 \pm 0{,}2)\ \text{cm}
+$$
+
+La valeur mesurée est compatible avec des valeurs proches de $12{,}4\ \text{cm}$, dans la limite de l'incertitude.
+
+### 3. Écriture d'un résultat
+
+#### Définition ou idée essentielle
+
+Un résultat expérimental doit comporter une valeur, une incertitude et une unité. Le nombre de chiffres affichés doit rester cohérent avec l'incertitude.
+
+#### Formule ou méthode
+
+Règles simples :
+
+- arrondir l'incertitude à un ou deux chiffres significatifs ;
+- arrondir la valeur mesurée au même rang que l'incertitude ;
+- écrire l'unité une seule fois si possible.
+
+#### Exemple
+
+Si un calcul donne $m=5{,}836\ \text{g}$ et $u(m)=0{,}047\ \text{g}$, on peut écrire :
+
+$$
+m=(5{,}84 \pm 0{,}05)\ \text{g}
+$$
+
+La valeur et l'incertitude sont arrondies de façon cohérente.
+
+### 4. Comparer à une valeur de référence
+
+#### Définition ou idée essentielle
+
+Une mesure est compatible avec une valeur de référence si l'écart observé est raisonnable au regard de l'incertitude. Il ne suffit pas que les deux nombres soient proches visuellement.
+
+#### Formule ou méthode
+
+On peut comparer l'écart :
+
+$$
+|\overline{x}-x_{\text{ref}}|
+$$
+
+à l'incertitude fournie. En classe de première, l'énoncé précise souvent le critère de compatibilité à appliquer.
+
+#### Exemple
+
+On mesure $g=(9{,}7\pm0{,}3)\ \text{N·kg}^{-1}$. La valeur de référence est $9{,}81\ \text{N·kg}^{-1}$.
+
+$$
+|9{,}7-9{,}81|=0{,}11\ \text{N·kg}^{-1}
+$$
+
+L'écart est inférieur à $0{,}3\ \text{N·kg}^{-1}$ : la mesure est compatible avec la valeur de référence selon ce critère simple.
+
+## À retenir
+
+### Définitions essentielles
+
+- Une mesure expérimentale est associée à une incertitude.
+- La moyenne résume une série de mesures.
+- L'incertitude s'exprime dans la même unité que la grandeur mesurée.
+- Une comparaison doit tenir compte de l'incertitude.
+
+### Formules à connaître
+
+$$
+\overline{x}=\frac{x_1+x_2+\cdots+x_N}{N}
+\qquad
+x=\overline{x}\pm u(x)
+$$
+
+### Méthode importante
+
+1. Réaliser ou exploiter plusieurs mesures.
+2. Calculer la moyenne.
+3. Associer une incertitude.
+4. Arrondir correctement.
+5. Comparer à une valeur de référence si nécessaire.
+
+### Pièges classiques
+
+- Oublier l'unité de l'incertitude.
+- Donner trop de chiffres après un calcul.
+- Confondre incertitude et erreur certaine.
+- Conclure trop vite qu'une valeur est fausse sans critère.
+
+

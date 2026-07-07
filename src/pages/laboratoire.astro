@@ -1,29 +1,79 @@
 ---
-// src/pages/laboratoire.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
+import LabAppCard from "../components/laboratoire/LabAppCard.astro";
+import { labApps } from "../data/laboratoire/apps";
+import "../styles/laboratoire/global-lab.css";
 ---
-<BaseLayout title="Laboratoire — Physique-Chimie" description="Simulations interactives de physique-chimie : circuits, optique, mécanique et chimie.">
-  <div style="text-align:center; padding: 3rem 1rem;">
-    <span style="font-size:3rem;">🧪</span>
-    <h1 style="font-size:1.6rem; font-weight:800; color:var(--accent-primary); margin:0.5rem 0;">Laboratoire</h1>
-    <p style="color:var(--text-muted); font-size:1rem; margin-bottom:2rem;">Simulations interactives de physique-chimie.</p>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:1rem; max-width:700px; margin:0 auto;">
-      <div class="card" style="padding:1.5rem; text-align:center; opacity:0.5;">
-        <span style="font-size:2rem;">⚡</span>
-        <p style="font-weight:600; margin-top:0.5rem;">Circuits électriques</p>
-        <span style="font-size:0.75rem; color:var(--accent-warning);">À venir</span>
-      </div>
-      <div class="card" style="padding:1.5rem; text-align:center; opacity:0.5;">
-        <span style="font-size:2rem;">🔭</span>
-        <p style="font-weight:600; margin-top:0.5rem;">Optique</p>
-        <span style="font-size:0.75rem; color:var(--accent-warning);">À venir</span>
-      </div>
-      <div class="card" style="padding:1.5rem; text-align:center; opacity:0.5;">
-        <span style="font-size:2rem;">⚛️</span>
-        <p style="font-weight:600; margin-top:0.5rem;">Structure de l'atome</p>
-        <span style="font-size:0.75rem; color:var(--accent-warning);">À venir</span>
-      </div>
+<BaseLayout
+  title="Laboratoire — Physique-Chimie"
+  description="Simulations interactives de physique-chimie migrées dans le nouveau site Astro."
+>
+  <section class="lab-index" data-lab-index>
+    <h1 class="lab-sr-only">Simulations de physique-chimie</h1>
+
+    <div class="lab-library-layout">
+      <aside class="lab-filter-panel" aria-labelledby="lab-filter-title">
+        <div class="lab-filter-panel__head">
+          <h2 id="lab-filter-title">Filtres</h2>
+          <button class="lab-clear-button is-hidden" type="button" data-lab-clear>Effacer</button>
+        </div>
+
+        <fieldset class="lab-filter-group">
+          <legend>🎒 Niveau scolaire</legend>
+          <label><input type="checkbox" value="college" data-lab-filter="level" /> Collège</label>
+          <label><input type="checkbox" value="lycee" data-lab-filter="level" /> Lycée</label>
+        </fieldset>
+
+        <fieldset class="lab-filter-group">
+          <legend>Physique</legend>
+          <label><input type="checkbox" value="physique" data-lab-filter="theme" /> Toute la physique</label>
+          <div class="lab-subfilters">
+            <label><input type="checkbox" value="mouvement" data-lab-filter="topic" /> Mouvement & gravitation</label>
+            <label><input type="checkbox" value="ondes" data-lab-filter="topic" /> Optique, son & ondes</label>
+            <label><input type="checkbox" value="electricite" data-lab-filter="topic" /> Électricité & énergie</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="lab-filter-group">
+          <legend>Chimie</legend>
+          <label><input type="checkbox" value="chimie" data-lab-filter="theme" /> Toute la chimie</label>
+          <div class="lab-subfilters">
+            <label><input type="checkbox" value="matiere" data-lab-filter="topic" /> Structure de la matière</label>
+            <label><input type="checkbox" value="transformations" data-lab-filter="topic" /> Transformations chimiques</label>
+            <label><input type="checkbox" value="acidebase" data-lab-filter="topic" /> Acide / base & pH</label>
+          </div>
+        </fieldset>
+      </aside>
+
+      <main class="lab-results" aria-live="polite">
+        <label class="lab-search-box">
+          <span aria-hidden="true">🔍</span>
+          <span class="lab-sr-only">Rechercher une simulation</span>
+          <input
+            type="search"
+            placeholder="Rechercher une simulation (ex: lentille, atome, condensateur...)"
+            data-lab-search
+          />
+        </label>
+
+        <div class="lab-results-head">
+          <h2 data-lab-results-title>Toutes les simulations</h2>
+          <span data-lab-results-count>{labApps.length} simulations</span>
+        </div>
+
+        <div class="lab-index-grid" aria-label="Applications disponibles">
+          {labApps.map((app) => <LabAppCard app={app} />)}
+        </div>
+
+        <p class="lab-no-results is-hidden" data-lab-no-results>
+          Aucune simulation ne correspond à cette recherche.
+        </p>
+      </main>
     </div>
-  </div>
+
+    <script>
+      import "../scripts/laboratoire/filter-lab-index.js";
+    </script>
+  </section>
 </BaseLayout>

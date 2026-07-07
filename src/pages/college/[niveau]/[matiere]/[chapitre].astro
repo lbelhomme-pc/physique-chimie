@@ -35,6 +35,43 @@ const backUrl = `/college/${niveau}`;
 const metaMod = allMeta[`${basePath}/meta.json`] as any;
 const meta = metaMod?.default ?? metaMod ?? {};
 const xpConfig = meta.xp ?? undefined;
+const seo = meta.seo ?? {};
+const displayTitle = meta.title ?? chapitre;
+const pageTitle = `${displayTitle} — ${matiereLabel} ${niveauLabel}`;
+const routeCanonical = `/college/${niveau}/${matiere}/${chapitre}`;
+
+function textOrFallback(value: unknown, fallback: string): string {
+  return typeof value === "string" && value.trim() ? value.trim() : fallback;
+}
+
+function canonicalOrFallback(value: unknown, fallback: string, expectedPrefix: string): string {
+  if (typeof value !== "string" || !value.trim()) return fallback;
+  const trimmed = value.trim();
+  const path = trimmed.startsWith("http")
+    ? (() => {
+        try {
+          return new URL(trimmed).pathname;
+        } catch {
+          return fallback;
+        }
+      })()
+    : trimmed;
+  if (!path.startsWith("/") || !path.startsWith(expectedPrefix)) return fallback;
+  return path;
+}
+
+function localImageOrFallback(value: unknown, fallback: string): string {
+  return typeof value === "string" && value.trim().startsWith("/") ? value.trim() : fallback;
+}
+
+const seoTitle = textOrFallback(seo.meta_title, pageTitle);
+const seoDescription = textOrFallback(
+  seo.meta_description,
+  textOrFallback(meta.description, `Cours de ${matiereLabel.toLowerCase()} ${niveauLabel} : ${displayTitle}.`)
+);
+const canonical = canonicalOrFallback(seo.canonical, routeCanonical, `/college/${niveau}/${matiere}/`);
+const schemaType = textOrFallback(seo.schema_type, "EducationalContent");
+const ogImage = localImageOrFallback(seo.ogImage ?? seo.og_image ?? meta.ogImage ?? meta.og_image, "/og-image.png");
 
 const coursMod = allCours[`${basePath}/cours.mdx`] as any;
 const CoursContent = coursMod?.Content ?? null;
@@ -57,11 +94,17 @@ const hasExercices  = exercices.length > 0;
 const hasQuiz       = quizData.length > 0;
 const hasFlashcards = flashData.length > 0;
 ---
-<BaseLayout title={`${meta.title ?? chapitre} — ${matiereLabel} ${niveauLabel}`}>
+<BaseLayout
+  title={seoTitle}
+  description={seoDescription}
+  canonical={canonical}
+  ogImage={ogImage}
+  schemaType={schemaType}
+>
 
   <!-- Titre du chapitre -->
   <div class="chapter-header">
-    <h1>{meta.title ?? chapitre}</h1>
+    <h1>{displayTitle}</h1>
     {meta.theme && <p class="chapter-theme">📂 {meta.theme}</p>}
   </div>
 
@@ -86,19 +129,19 @@ const hasFlashcards = flashData.length > 0;
 
     {hasExercices && (
       <div slot="exercices">
-        <ExercicesPlayer client:load data={exercices} title={`Exercices — ${meta.title ?? chapitre}`} chapterId={chapterId} xpConfig={xpConfig} />
+        <ExercicesPlayer client:load data={exercices} title={`Exercices par niveaux — ${displayTitle}`} chapterId={chapterId} xpConfig={xpConfig} />
       </div>
     )}
 
     {hasQuiz && (
       <div slot="quiz">
-        <QuizPlayer client:load data={quizData} title={`Quiz — ${meta.title ?? chapitre}`} chapterId={chapterId} xpConfig={xpConfig} />
+        <QuizPlayer client:load data={quizData} title={`Quiz — ${displayTitle}`} chapterId={chapterId} xpConfig={xpConfig} />
       </div>
     )}
 
     {hasFlashcards && (
       <div slot="flashcards">
-        <FlashcardsPlayer client:load data={flashData} title={`Flashcards — ${meta.title ?? chapitre}`} chapterId={chapterId} xpConfig={xpConfig} />
+        <FlashcardsPlayer client:load data={flashData} title={`Flashcards — ${displayTitle}`} chapterId={chapterId} xpConfig={xpConfig} />
       </div>
     )}
   </ChapterTabs>

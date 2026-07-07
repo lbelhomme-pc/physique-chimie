@@ -1,0 +1,164 @@
+[
+  {
+    "id": "gaz-parfait-01",
+    "titre": "Conversions indispensables",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Convertir les grandeurs suivantes en unités SI : $2,5\\ L$, $850\\ hPa$, $20\\ ^\\circ\\mathrm{C}$ et $3,0\\ bar$.",
+    "aide": "Repérer les unités attendues dans PV = nRT avant tout calcul.",
+    "schemaSvg": "<svg viewBox=\"0 0 700 210\" role=\"img\" aria-label=\"Aide mémoire des unités du gaz parfait\">\n  <rect x=\"28\" y=\"24\" width=\"644\" height=\"150\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#dbeafe\" />\n  <text x=\"70\" y=\"72\" font-size=\"24\" font-weight=\"700\" fill=\"#1e3a8a\">PV = nRT</text>\n  <text x=\"70\" y=\"118\" font-size=\"20\" fill=\"#1f2937\">Pa, m³, mol, K</text>\n  <text x=\"330\" y=\"72\" font-size=\"20\" fill=\"#1f2937\">1 L = 10⁻³ m³</text>\n  <text x=\"330\" y=\"116\" font-size=\"20\" fill=\"#1f2937\">T(K) = θ(°C) + 273,15</text>\n</svg>",
+    "correction": [
+      "$2,5\\ L=2,5\\times10^{-3}\\ m^3$.",
+      "$850\\ hPa=8,50\\times10^4\\ Pa$.",
+      "$20\\ ^\\circ\\mathrm{C}=293,15\\ K$, soit environ $293\\ K$.",
+      "$3,0\\ bar=3,0\\times10^5\\ Pa$."
+    ]
+  },
+  {
+    "id": "gaz-parfait-02",
+    "titre": "Quantité de matière dans une seringue",
+    "niveau": "Calcul guidé",
+    "difficulte": 1,
+    "consigne": "Une seringue contient $V=60,0\\ mL$ d’air à $P=1,01\\times10^5\\ Pa$ et $T=293\\ K$. Calculer la quantité de matière de gaz. On donne $R=8,314\\ J\\cdot mol^{-1}\\cdot K^{-1}$.",
+    "aide": "Isoler $n$ dans $PV=nRT$.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 240\" role=\"img\" aria-label=\"Seringue de gaz avec piston mobile\">\n  <rect x=\"90\" y=\"88\" width=\"420\" height=\"76\" rx=\"18\" fill=\"#eff6ff\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <rect x=\"498\" y=\"78\" width=\"34\" height=\"96\" rx=\"8\" fill=\"#cbd5e1\" stroke=\"#64748b\" stroke-width=\"3\" />\n  <line x1=\"532\" y1=\"126\" x2=\"642\" y2=\"126\" stroke=\"#64748b\" stroke-width=\"8\" />\n  <text x=\"120\" y=\"134\" font-size=\"22\" fill=\"#1e3a8a\">gaz</text>\n  <text x=\"260\" y=\"58\" font-size=\"20\" fill=\"#1f2937\">volume V</text>\n  <path d=\"M260 66 L260 86\" stroke=\"#1f2937\" stroke-width=\"2\" />\n</svg>",
+    "correction": [
+      "$V=60,0\\ mL=6,00\\times10^{-5}\\ m^3$.",
+      "$n=\\dfrac{PV}{RT}=\\dfrac{1,01\\times10^5\\times6,00\\times10^{-5}}{8,314\\times293}$.",
+      "$n\\approx2,49\\times10^{-3}\\ mol$."
+    ]
+  },
+  {
+    "id": "gaz-parfait-03",
+    "titre": "Volume molaire",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Calculer le volume molaire d’un gaz parfait à $25\\ ^\\circ\\mathrm{C}$ sous $1,00\\ bar$. Donner le résultat en $m^3\\cdot mol^{-1}$ puis en $L\\cdot mol^{-1}$.",
+    "aide": "Pour une mole, $V_m=RT/P$.",
+    "correction": [
+      "$T=298\\ K$ et $P=1,00\\times10^5\\ Pa$.",
+      "$V_m=\\dfrac{8,314\\times298}{1,00\\times10^5}=2,48\\times10^{-2}\\ m^3\\cdot mol^{-1}$.",
+      "Donc $V_m\\approx24,8\\ L\\cdot mol^{-1}$."
+    ]
+  },
+  {
+    "id": "gaz-parfait-04",
+    "titre": "Chauffage à volume constant",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Un pneu contient une quantité de gaz constante dans un volume supposé constant. Sa pression vaut $P_1=2,20\\ bar$ à $20\\ ^\\circ\\mathrm{C}$. Quelle pression atteint-il à $50\\ ^\\circ\\mathrm{C}$ ?",
+    "aide": "À $n$ et $V$ constants, $P/T$ est constant. Utiliser les températures en kelvins.",
+    "correction": [
+      "$T_1=293\\ K$ et $T_2=323\\ K$.",
+      "$\\dfrac{P_1}{T_1}=\\dfrac{P_2}{T_2}$ donc $P_2=P_1\\dfrac{T_2}{T_1}$.",
+      "$P_2=2,20\\times\\dfrac{323}{293}\\approx2,43\\ bar$."
+    ]
+  },
+  {
+    "id": "gaz-parfait-05",
+    "titre": "Compression isotherme",
+    "niveau": "Application directe",
+    "difficulte": 2,
+    "consigne": "On comprime lentement un gaz à température constante. Son volume passe de $2,0\\ L$ à $0,80\\ L$ et sa pression initiale vaut $1,0\\ bar$. Déterminer la pression finale.",
+    "aide": "À température et quantité de matière constantes, $P_1V_1=P_2V_2$.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 240\" role=\"img\" aria-label=\"Seringue de gaz avec piston mobile\">\n  <rect x=\"90\" y=\"88\" width=\"420\" height=\"76\" rx=\"18\" fill=\"#eff6ff\" stroke=\"#3b82f6\" stroke-width=\"3\" />\n  <rect x=\"498\" y=\"78\" width=\"34\" height=\"96\" rx=\"8\" fill=\"#cbd5e1\" stroke=\"#64748b\" stroke-width=\"3\" />\n  <line x1=\"532\" y1=\"126\" x2=\"642\" y2=\"126\" stroke=\"#64748b\" stroke-width=\"8\" />\n  <text x=\"120\" y=\"134\" font-size=\"22\" fill=\"#1e3a8a\">gaz</text>\n  <text x=\"260\" y=\"58\" font-size=\"20\" fill=\"#1f2937\">volume V</text>\n  <path d=\"M260 66 L260 86\" stroke=\"#1f2937\" stroke-width=\"2\" />\n</svg>",
+    "correction": [
+      "$P_1V_1=P_2V_2$.",
+      "$P_2=P_1\\dfrac{V_1}{V_2}=1,0\\times\\dfrac{2,0}{0,80}=2,5\\ bar$.",
+      "La pression augmente car le volume diminue."
+    ]
+  },
+  {
+    "id": "gaz-parfait-06",
+    "titre": "Masse volumique de l’air",
+    "niveau": "Méthode",
+    "difficulte": 2,
+    "consigne": "On assimile l’air à un gaz parfait de masse molaire moyenne $M=28,8\\ g\\cdot mol^{-1}$. Calculer sa masse volumique à $20\\ ^\\circ\\mathrm{C}$ sous $1,013\\times10^5\\ Pa$.",
+    "aide": "Utiliser $\\rho=PM/(RT)$ avec $M$ en $kg\\cdot mol^{-1}$.",
+    "correction": [
+      "$M=28,8\\ g\\cdot mol^{-1}=2,88\\times10^{-2}\\ kg\\cdot mol^{-1}$ et $T=293\\ K$.",
+      "$\\rho=\\dfrac{PM}{RT}=\\dfrac{1,013\\times10^5\\times2,88\\times10^{-2}}{8,314\\times293}$.",
+      "$\\rho\\approx1,20\\ kg\\cdot m^{-3}$."
+    ]
+  },
+  {
+    "id": "gaz-parfait-07",
+    "titre": "Gaz formé par une réaction chimique",
+    "niveau": "Synthèse",
+    "difficulte": 2,
+    "consigne": "Une réaction produit $n=3,0\\times10^{-3}\\ mol$ de dihydrogène dans un récipient de volume $V=250\\ mL$ à $T=298\\ K$. Calculer la surpression due au dihydrogène seul.",
+    "aide": "La pression partielle du gaz formé vérifie $P= nRT/V$.",
+    "schemaSvg": "<svg viewBox=\"0 0 700 260\" role=\"img\" aria-label=\"Bouteille de gaz avec variables de pression, volume et température\">\n  <rect x=\"260\" y=\"40\" width=\"180\" height=\"170\" rx=\"34\" fill=\"#ecfeff\" stroke=\"#0891b2\" stroke-width=\"4\" />\n  <rect x=\"310\" y=\"18\" width=\"80\" height=\"42\" rx=\"12\" fill=\"#cffafe\" stroke=\"#0891b2\" stroke-width=\"4\" />\n  <circle cx=\"320\" cy=\"106\" r=\"7\" fill=\"#0891b2\" /><circle cx=\"380\" cy=\"142\" r=\"7\" fill=\"#0891b2\" /><circle cx=\"344\" cy=\"178\" r=\"7\" fill=\"#0891b2\" />\n  <text x=\"70\" y=\"74\" font-size=\"21\" fill=\"#1f2937\">P</text>\n  <text x=\"70\" y=\"126\" font-size=\"21\" fill=\"#1f2937\">V</text>\n  <text x=\"70\" y=\"178\" font-size=\"21\" fill=\"#1f2937\">T</text>\n  <text x=\"520\" y=\"126\" font-size=\"21\" fill=\"#1f2937\">n à déterminer</text>\n</svg>",
+    "correction": [
+      "$V=250\\ mL=2,50\\times10^{-4}\\ m^3$.",
+      "$P=\\dfrac{nRT}{V}=\\dfrac{3,0\\times10^{-3}\\times8,314\\times298}{2,50\\times10^{-4}}$.",
+      "$P\\approx2,97\\times10^4\\ Pa$, soit environ $297\\ hPa$."
+    ]
+  },
+  {
+    "id": "gaz-parfait-08",
+    "titre": "Mélange de gaz",
+    "niveau": "Raisonnement",
+    "difficulte": 2,
+    "consigne": "Dans un récipient de volume constant à température constante, on introduit $0,20\\ mol$ de diazote et $0,050\\ mol$ de dioxygène. La pression totale vaut $1,25\\ bar$. Déterminer les pressions partielles de chaque gaz.",
+    "aide": "Chaque pression partielle est proportionnelle à la quantité de matière du gaz considéré.",
+    "correction": [
+      "La quantité totale vaut $n_{tot}=0,20+0,050=0,250\\ mol$.",
+      "La fraction molaire du diazote vaut $0,20/0,250=0,80$, donc $P(N_2)=0,80\\times1,25=1,00\\ bar$.",
+      "La fraction molaire du dioxygène vaut $0,050/0,250=0,20$, donc $P(O_2)=0,25\\ bar$."
+    ]
+  },
+  {
+    "id": "gaz-parfait-09",
+    "titre": "Bouteille chauffée",
+    "niveau": "Raisonnement",
+    "difficulte": 2,
+    "consigne": "Une bombe aérosol fermée contient un gaz à $4,0\\ bar$ à $20\\ ^\\circ\\mathrm{C}$. On la laisse au soleil et sa température atteint $70\\ ^\\circ\\mathrm{C}$. En supposant $n$ et $V$ constants, calculer la nouvelle pression et commenter le risque.",
+    "aide": "Utiliser $P/T=constante$ avec les températures en kelvins.",
+    "schemaSvg": "<svg viewBox=\"0 0 700 260\" role=\"img\" aria-label=\"Bouteille de gaz avec variables de pression, volume et température\">\n  <rect x=\"260\" y=\"40\" width=\"180\" height=\"170\" rx=\"34\" fill=\"#ecfeff\" stroke=\"#0891b2\" stroke-width=\"4\" />\n  <rect x=\"310\" y=\"18\" width=\"80\" height=\"42\" rx=\"12\" fill=\"#cffafe\" stroke=\"#0891b2\" stroke-width=\"4\" />\n  <circle cx=\"320\" cy=\"106\" r=\"7\" fill=\"#0891b2\" /><circle cx=\"380\" cy=\"142\" r=\"7\" fill=\"#0891b2\" /><circle cx=\"344\" cy=\"178\" r=\"7\" fill=\"#0891b2\" />\n  <text x=\"70\" y=\"74\" font-size=\"21\" fill=\"#1f2937\">P</text>\n  <text x=\"70\" y=\"126\" font-size=\"21\" fill=\"#1f2937\">V</text>\n  <text x=\"70\" y=\"178\" font-size=\"21\" fill=\"#1f2937\">T</text>\n  <text x=\"520\" y=\"126\" font-size=\"21\" fill=\"#1f2937\">n à déterminer</text>\n</svg>",
+    "correction": [
+      "$T_1=293\\ K$ et $T_2=343\\ K$.",
+      "$P_2=4,0\\times\\dfrac{343}{293}\\approx4,7\\ bar$.",
+      "La pression augmente nettement : c’est pourquoi les récipients pressurisés ne doivent pas être chauffés."
+    ]
+  },
+  {
+    "id": "gaz-parfait-10",
+    "titre": "Critiquer le modèle",
+    "niveau": "Synthèse",
+    "difficulte": 3,
+    "consigne": "On veut utiliser $PV=nRT$ pour une bouteille de dioxyde de carbone à haute pression, proche de la liquéfaction. Expliquer pourquoi le modèle du gaz parfait peut devenir insuffisant.",
+    "aide": "Revenir aux hypothèses microscopiques du modèle.",
+    "correction": [
+      "Le modèle suppose des entités très espacées et sans interaction à distance.",
+      "À haute pression, les entités sont plus proches : leur volume propre et leurs interactions ne sont plus négligeables.",
+      "Près d’une liquéfaction, les interactions attractives deviennent importantes. Il faut alors utiliser un modèle plus réaliste ou des données expérimentales."
+    ]
+  },
+  {
+    "id": "gaz-parfait-11",
+    "titre": "Retrouver une température",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Un ballon de volume $V=1,50\\ L$ contient $n=6,0\\times10^{-2}\\ mol$ de gaz sous $P=1,20\\ bar$. Déterminer la température du gaz en kelvins puis en degrés Celsius.",
+    "aide": "Isoler $T$ dans $PV=nRT$.",
+    "correction": [
+      "$P=1,20\\times10^5\\ Pa$ et $V=1,50\\times10^{-3}\\ m^3$.",
+      "$T=\\dfrac{PV}{nR}=\\dfrac{1,20\\times10^5\\times1,50\\times10^{-3}}{6,0\\times10^{-2}\\times8,314}$.",
+      "$T\\approx361\\ K$, soit $\\theta\\approx88\\ ^\\circ\\mathrm{C}$."
+    ]
+  },
+  {
+    "id": "gaz-parfait-12",
+    "titre": "Comparer deux situations",
+    "niveau": "Synthèse",
+    "difficulte": 3,
+    "consigne": "Deux récipients ont le même volume et la même température. Le récipient A contient $0,10\\ mol$ de gaz, le récipient B contient $0,25\\ mol$ du même gaz. Comparer les pressions et donner le rapport $P_B/P_A$.",
+    "aide": "À $V$ et $T$ constants, $P$ est proportionnelle à $n$.",
+    "correction": [
+      "D’après $PV=nRT$, à $V$ et $T$ constants, $P\\propto n$.",
+      "$\\dfrac{P_B}{P_A}=\\dfrac{n_B}{n_A}=\\dfrac{0,25}{0,10}=2,5$.",
+      "La pression dans B est donc 2,5 fois plus grande que dans A."
+    ]
+  }
+]

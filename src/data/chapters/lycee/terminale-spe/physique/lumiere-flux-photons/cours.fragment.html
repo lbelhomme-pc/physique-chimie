@@ -1,0 +1,169 @@
+<section class="course-section">
+  <h2>Objectifs du chapitre</h2>
+  <ul class="objectives-list">
+    <li>Relier énergie, fréquence et longueur d'onde d'un photon.</li>
+    <li>Calculer un flux de photons à partir d'une puissance lumineuse.</li>
+    <li>Interpréter l'effet photoélectrique et la notion de seuil.</li>
+    <li>Utiliser le travail d'extraction et la tension d'arrêt.</li>
+    <li>Relier une transition d'énergie à l'absorption ou l'émission d'un photon.</li>
+  </ul>
+</section>
+
+<section class="course-section">
+  <h2>1. Le photon : quantum de lumière</h2>
+  <p>La lumière peut être décrite comme une onde électromagnétique, mais aussi comme un flux de particules appelées photons. Chaque photon transporte une énergie bien déterminée.</p>
+  <div class="formula-box">
+    \[E=h\nu=\frac{hc}{\lambda}\]
+  </div>
+  <table class="data-table">
+    <thead><tr><th>Grandeur</th><th>Symbole</th><th>Valeur ou unité</th></tr></thead>
+    <tbody>
+      <tr><td>constante de Planck</td><td>\(h\)</td><td>\(6,626\times10^{-34}\ J\cdot s\)</td></tr>
+      <tr><td>vitesse de la lumière dans le vide</td><td>\(c\)</td><td>\(3,00\times10^8\ m\cdot s^{-1}\)</td></tr>
+      <tr><td>électronvolt</td><td>\(eV\)</td><td>\(1\ eV=1,602\times10^{-19}\ J\)</td></tr>
+    </tbody>
+  </table>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 820 260" role="img" aria-labelledby="ph-spectrum-title ph-spectrum-desc">
+    <title id="ph-spectrum-title">Énergie d'un photon et longueur d'onde</title>
+    <desc id="ph-spectrum-desc">Quand la longueur d'onde diminue, la fréquence et l'énergie du photon augmentent.</desc>
+    <defs>
+      <linearGradient id="visible-grad" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0" stop-color="#7c3aed"/><stop offset="0.2" stop-color="#2563eb"/><stop offset="0.4" stop-color="#16a34a"/><stop offset="0.6" stop-color="#facc15"/><stop offset="0.8" stop-color="#f97316"/><stop offset="1" stop-color="#dc2626"/>
+      </linearGradient>
+      <marker id="ph-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#1f2937" /></marker>
+    </defs>
+    <rect x="44" y="34" width="732" height="170" rx="20" fill="#f8fafc" stroke="#e5e7eb" />
+    <line x1="110" y1="126" x2="710" y2="126" stroke="#1f2937" stroke-width="4" marker-end="url(#ph-arrow)" />
+    <rect x="248" y="92" width="310" height="68" rx="14" fill="url(#visible-grad)" stroke="#111827" stroke-width="2" />
+    <text x="318" y="82" font-size="22" font-weight="700" fill="#111827">domaine visible</text>
+    <text x="206" y="184" font-size="20" fill="#111827">400 nm</text>
+    <text x="548" y="184" font-size="20" fill="#111827">800 nm</text>
+    <text x="100" y="76" font-size="20" fill="#1f2937">λ diminue</text>
+    <text x="608" y="76" font-size="20" fill="#1f2937">λ augmente</text>
+    <text x="92" y="232" font-size="21" fill="#4f46e5">Énergie plus grande vers le violet</text>
+    <text x="474" y="232" font-size="21" fill="#dc2626">Énergie plus faible vers le rouge</text>
+  </svg>
+  <figcaption>Comme \(E=hc/\lambda\), un photon violet est plus énergétique qu'un photon rouge.</figcaption>
+</figure>
+  <div class="tip-box"><strong>Formule pratique.</strong> Pour une longueur d'onde en nanomètres : \[E(eV)\simeq\frac{1240}{\lambda(nm)}\]</div>
+</section>
+
+<section class="course-section">
+  <h2>2. Puissance lumineuse et flux de photons</h2>
+  <p>Une puissance lumineuse correspond à une énergie reçue par unité de temps. Si les photons ont tous la même énergie \(E\), on peut estimer combien de photons arrivent chaque seconde.</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 780 280" role="img" aria-labelledby="ph-flux-title ph-flux-desc">
+    <title id="ph-flux-title">Flux de photons</title>
+    <desc id="ph-flux-desc">Un faisceau transporte une puissance lumineuse composée d'un grand nombre de photons par seconde.</desc>
+    <defs><marker id="beam-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#f59e0b" /></marker></defs>
+    <rect x="42" y="46" width="700" height="168" rx="20" fill="#fffbeb" stroke="#fde68a" />
+    <rect x="74" y="104" width="86" height="52" rx="12" fill="#f97316" stroke="#c2410c" />
+    <text x="92" y="137" font-size="20" font-weight="700" fill="#fff">laser</text>
+    <g stroke="#f59e0b" stroke-width="4" marker-end="url(#beam-arrow)">
+      <line x1="170" y1="104" x2="640" y2="80" /><line x1="170" y1="130" x2="640" y2="130" /><line x1="170" y1="156" x2="640" y2="180" />
+    </g>
+    <g fill="#f59e0b"><circle cx="250" cy="118" r="7"/><circle cx="314" cy="139" r="7"/><circle cx="386" cy="102" r="7"/><circle cx="468" cy="155" r="7"/><circle cx="560" cy="124" r="7"/></g>
+    <text x="246" y="238" font-size="24" font-weight="700" fill="#92400e">P = débit d'énergie</text>
+  </svg>
+  <figcaption>Si chaque photon transporte l'énergie \(E\), une puissance \(P\) correspond à un débit \(N/\Delta t=P/E\).</figcaption>
+</figure>
+  <div class="formula-box">
+    \[P=\frac{\Delta E_{tot}}{\Delta t}\]
+    \[\frac{N}{\Delta t}=\frac{P}{E_{photon}}\]
+  </div>
+  <p>Un faisceau laser de faible puissance peut donc contenir un très grand nombre de photons par seconde, car l'énergie d'un photon visible est de l'ordre de \(10^{-19}\ J\).</p>
+</section>
+
+<section class="course-section">
+  <h2>3. Effet photoélectrique</h2>
+  <p>Lorsqu'un métal reçoit de la lumière, il peut émettre des électrons. Cette émission n'a lieu que si l'énergie de chaque photon dépasse une énergie minimale appelée travail d'extraction.</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 820 320" role="img" aria-labelledby="ph-photo-title ph-photo-desc">
+    <title id="ph-photo-title">Effet photoélectrique</title>
+    <desc id="ph-photo-desc">Des photons incidents arrachent des électrons à un métal si leur énergie dépasse le travail d'extraction.</desc>
+    <defs><marker id="e-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2563eb" /></marker></defs>
+    <rect x="52" y="42" width="716" height="220" rx="20" fill="#eff6ff" stroke="#bfdbfe" />
+    <rect x="270" y="182" width="270" height="42" rx="8" fill="#94a3b8" stroke="#475569" />
+    <text x="346" y="211" font-size="22" font-weight="700" fill="#0f172a">métal</text>
+    <g stroke="#f59e0b" stroke-width="4">
+      <line x1="102" y1="86" x2="278" y2="180" /><line x1="150" y1="70" x2="340" y2="178" /><line x1="208" y1="72" x2="404" y2="178" />
+    </g>
+    <g fill="#f59e0b"><circle cx="102" cy="86" r="8"/><circle cx="150" cy="70" r="8"/><circle cx="208" cy="72" r="8"/></g>
+    <g stroke="#2563eb" stroke-width="4" marker-end="url(#e-arrow)">
+      <line x1="390" y1="178" x2="470" y2="92" /><line x1="448" y1="178" x2="558" y2="120" />
+    </g>
+    <g fill="#2563eb"><circle cx="390" cy="178" r="7"/><circle cx="448" cy="178" r="7"/></g>
+    <text x="92" y="272" font-size="21" fill="#92400e">photons incidents</text>
+    <text x="548" y="92" font-size="21" fill="#1d4ed8">électrons émis</text>
+  </svg>
+  <figcaption>L'émission d'électrons ne dépend pas seulement de la puissance reçue : il faut que l'énergie de chaque photon dépasse le seuil.</figcaption>
+</figure>
+  <div class="definition-box"><strong>Travail d'extraction.</strong> Le travail d'extraction \(W_s\) est l'énergie minimale nécessaire pour arracher un électron au métal.</div>
+  <div class="formula-box">
+    \[h\nu \ge W_s\]
+    \[E_{c,max}=h\nu-W_s\]
+  </div>
+  <p>Augmenter la puissance lumineuse augmente le nombre de photons reçus, donc le courant photoélectrique, mais ne permet pas d'arracher des électrons si chaque photon est sous le seuil.</p>
+</section>
+
+<section class="course-section">
+  <h2>4. Fréquence seuil et longueur d'onde seuil</h2>
+  <p>Le seuil photoélectrique peut être exprimé par une fréquence seuil \(\nu_s\) ou une longueur d'onde seuil \(\lambda_s\).</p>
+  <div class="formula-box">
+    \[W_s=h\nu_s=\frac{hc}{\lambda_s}\]
+  </div>
+  <ul>
+    <li>Si \(\nu>\nu_s\), l'effet photoélectrique est possible.</li>
+    <li>Si \(\lambda<\lambda_s\), l'effet photoélectrique est possible.</li>
+    <li>Si \(\lambda>\lambda_s\), les photons ne sont pas assez énergétiques.</li>
+  </ul>
+  <div class="warning-box"><strong>Attention.</strong> Une petite longueur d'onde signifie une grande énergie. Le critère sur \(\lambda\) est donc inversé par rapport au critère sur \(\nu\).</div>
+</section>
+
+<section class="course-section">
+  <h2>5. Tension d'arrêt</h2>
+  <p>Dans une cellule photoélectrique, on peut appliquer une tension qui freine les électrons émis. La tension d'arrêt \(U_0\) permet de remonter à l'énergie cinétique maximale des électrons.</p>
+  <div class="formula-box">
+    \[E_{c,max}=eU_0\]
+    \[eU_0=h\nu-W_s\]
+  </div>
+  <p>Si l'énergie est exprimée en électronvolts, la valeur numérique de \(E_{c,max}\) en eV est égale à la tension d'arrêt en volts pour un électron.</p>
+</section>
+
+<section class="course-section">
+  <h2>6. Interaction photon-matière et niveaux d'énergie</h2>
+  <p>Dans un atome, une molécule ou un solide, l'énergie peut être quantifiée. Un photon est absorbé ou émis si son énergie correspond à l'écart entre deux niveaux.</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 760 310" role="img" aria-labelledby="ph-level-title ph-level-desc">
+    <title id="ph-level-title">Transition d'énergie et photon</title>
+    <desc id="ph-level-desc">Un photon est absorbé ou émis lorsque son énergie correspond à l'écart entre deux niveaux.</desc>
+    <defs><marker id="level-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#4f46e5" /></marker></defs>
+    <rect x="40" y="28" width="680" height="236" rx="18" fill="#f8fafc" stroke="#e5e7eb" />
+    <line x1="150" y1="210" x2="560" y2="210" stroke="#111827" stroke-width="4" />
+    <line x1="150" y1="132" x2="560" y2="132" stroke="#111827" stroke-width="4" />
+    <line x1="150" y1="72" x2="560" y2="72" stroke="#111827" stroke-width="4" />
+    <text x="580" y="216" font-size="20" fill="#111827">E₁</text>
+    <text x="580" y="138" font-size="20" fill="#111827">E₂</text>
+    <text x="580" y="78" font-size="20" fill="#111827">E₃</text>
+    <line x1="330" y1="204" x2="330" y2="78" stroke="#4f46e5" stroke-width="4" marker-end="url(#level-arrow)" />
+    <text x="350" y="146" font-size="23" font-weight="700" fill="#4338ca">ΔE = hν</text>
+  </svg>
+  <figcaption>Une transition d'énergie \(\Delta E\) correspond à un photon d'énergie \(E=h\nu\).</figcaption>
+</figure>
+  <div class="formula-box">
+    \[\Delta E=E_{haut}-E_{bas}=h\nu=\frac{hc}{\lambda}\]
+  </div>
+  <p>Cette idée permet d'interpréter les spectres d'émission et d'absorption, mais aussi le fonctionnement de nombreuses sources lumineuses et capteurs.</p>
+</section>
+
+<section class="course-section key-points">
+  <h2>À retenir</h2>
+  <ul>
+    <li>Un photon transporte l'énergie \(E=h\nu=hc/\lambda\).</li>
+    <li>Le flux de photons vaut \(N/\Delta t=P/E\) pour une lumière monochromatique de puissance \(P\).</li>
+    <li>L'effet photoélectrique exige \(h\nu\ge W_s\).</li>
+    <li>La longueur d'onde seuil vérifie \(\lambda_s=hc/W_s\).</li>
+    <li>Une transition d'énergie \(\Delta E\) correspond à l'absorption ou l'émission d'un photon d'énergie \(\Delta E\).</li>
+  </ul>
+</section>

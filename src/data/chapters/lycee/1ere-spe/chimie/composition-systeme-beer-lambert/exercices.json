@@ -1,0 +1,199 @@
+[
+  {
+    "id": "beer-lambert-exo-01",
+    "title": "Lire un spectre d'absorption",
+    "difficulty": 1,
+    "difficultyLabel": "Lecture",
+    "consigne": "Le spectre d'une solution présente un maximum d'absorption à $\\lambda_{max}=525\\ \\mathrm{nm}$. 1. Indiquer l'axe horizontal et l'axe vertical d'un spectre d'absorption. 2. Proposer une longueur d'onde de mesure adaptée. 3. Dire si l'absorbance possède une unité.",
+    "correction": [
+      "Données utiles : le maximum d'absorption est à $525\\ \\mathrm{nm}$.",
+      "Sur un spectre d'absorption, l'axe horizontal est la longueur d'onde $\\lambda$ en nanomètres et l'axe vertical est l'absorbance $A$.",
+      "On choisit généralement une longueur d'onde proche de $\\lambda_{max}$, donc ici $525\\ \\mathrm{nm}$.",
+      "L'absorbance est une grandeur sans unité.",
+      "Erreur fréquente : écrire une unité sur l'axe vertical, par exemple $A$ en mol.L-1."
+    ],
+    "schemaSvg": null,
+    "schemaCaption": null
+  },
+  {
+    "id": "beer-lambert-exo-02",
+    "title": "Prévoir une couleur",
+    "difficulty": 1,
+    "difficultyLabel": "Lecture",
+    "consigne": "Une espèce en solution absorbe surtout les radiations vertes autour de $520\\ \\mathrm{nm}$. Expliquer qualitativement pourquoi la solution peut apparaître violette ou magenta.",
+    "correction": [
+      "Les radiations principalement absorbées ne sont pas celles qui arrivent majoritairement à l'oeil.",
+      "Si la solution absorbe surtout dans le vert, elle transmet davantage les radiations rouges et bleues.",
+      "La superposition du rouge et du bleu transmis peut donner une couleur perçue violette ou magenta.",
+      "Conclusion : la solution apparaît de la couleur des radiations transmises, pas de la couleur principalement absorbée.",
+      "Erreur fréquente : dire que la solution est violette parce qu'elle absorbe le violet."
+    ],
+    "schemaSvg": null,
+    "schemaCaption": null
+  },
+  {
+    "id": "beer-lambert-exo-03",
+    "title": "Spectre ou étalonnage ?",
+    "difficulty": 1,
+    "difficultyLabel": "Lecture",
+    "consigne": "On donne deux graphiques : graphique A, abscisse $\\lambda$ en nm et ordonnée absorbance ; graphique B, abscisse $c$ en mmol.L-1 et ordonnée absorbance. Identifier le spectre d'absorption et la courbe d'étalonnage.",
+    "correction": [
+      "Un spectre d'absorption représente $A=f(\\lambda)$.",
+      "Le graphique A est donc le spectre d'absorption.",
+      "Une courbe d'étalonnage représente $A=f(c)$.",
+      "Le graphique B est donc la courbe d'étalonnage.",
+      "Vérification : une longueur d'onde sert à choisir la radiation de mesure ; une concentration sert à doser une solution inconnue."
+    ],
+    "schemaSvg": null,
+    "schemaCaption": null
+  },
+  {
+    "id": "beer-lambert-exo-04",
+    "title": "Utiliser $A=k c$",
+    "difficulty": 2,
+    "difficultyLabel": "Application",
+    "consigne": "Dans des conditions fixées, une solution vérifie $A=1200\\,c$ avec $c$ en mol.L-1. Une solution inconnue a $A=0,360$. Déterminer sa concentration.",
+    "correction": [
+      "Données utiles : $A=1200\\,c$ et $A=0,360$.",
+      "Relation littérale : $c=A/1200$.",
+      "Application numérique : $c=0,360/1200=3,00\\times10^{-4}\\ \\mathrm{mol.L^{-1}}$.",
+      "Conclusion : la concentration vaut $3,00\\times10^{-4}\\ \\mathrm{mol.L^{-1}}$ si la mesure appartient au domaine linéaire.",
+      "Erreur fréquente : donner une unité à $A$ ou oublier l'unité de $c$."
+    ],
+    "schemaSvg": null,
+    "schemaCaption": null
+  },
+  {
+    "id": "beer-lambert-exo-05",
+    "title": "Déterminer le coefficient $k$",
+    "difficulty": 2,
+    "difficultyLabel": "Application",
+    "consigne": "Une solution étalon de concentration $c=2,50\\times10^{-4}\\ \\mathrm{mol.L^{-1}}$ a une absorbance $A=0,587$. En supposant $A=k c$, calculer $k$ et préciser son unité.",
+    "correction": [
+      "Données utiles : $c=2,50\\times10^{-4}\\ \\mathrm{mol.L^{-1}}$ et $A=0,587$.",
+      "Relation : $A=k c$, donc $k=A/c$.",
+      "Application numérique : $k=0,587/(2,50\\times10^{-4})=2,35\\times10^3\\ \\mathrm{L.mol^{-1}}$.",
+      "L'absorbance est sans unité, donc l'unité de $k$ est l'inverse de celle de la concentration.",
+      "Conclusion : $k\\approx2,35\\times10^3\\ \\mathrm{L.mol^{-1}}$ pour ces conditions expérimentales."
+    ],
+    "schemaSvg": null,
+    "schemaCaption": null
+  },
+  {
+    "id": "beer-lambert-exo-06",
+    "title": "Choisir la bonne longueur d'onde",
+    "difficulty": 2,
+    "difficultyLabel": "Application",
+    "consigne": "Une espèce colorée a $A=0,95$ à $525\\ \\mathrm{nm}$ pour une solution étalon et $A=0,20$ à $650\\ \\mathrm{nm}$ pour la même solution. Quelle longueur d'onde choisir pour un dosage par étalonnage ? Justifier.",
+    "correction": [
+      "On cherche une longueur d'onde où l'absorbance varie fortement avec la concentration.",
+      "L'absorbance plus grande à $525\\ \\mathrm{nm}$ indique que l'espèce absorbe davantage à cette longueur d'onde.",
+      "On choisit donc $525\\ \\mathrm{nm}$, si les absorbances de la gamme restent dans un domaine mesurable et linéaire.",
+      "Vérification de cohérence : choisir une longueur d'onde peu absorbée rendrait les différences de concentration plus difficiles à détecter.",
+      "Erreur fréquente : choisir la longueur d'onde de la couleur observée sans lire le spectre."
+    ],
+    "schemaSvg": null,
+    "schemaCaption": null
+  },
+  {
+    "id": "beer-lambert-exo-07",
+    "title": "Comparer deux solutions",
+    "difficulty": 2,
+    "difficultyLabel": "Application",
+    "consigne": "Deux solutions d'une même espèce sont mesurées à la même longueur d'onde dans la même cuve. On obtient $A_1=0,240$ et $A_2=0,600$. Si Beer-Lambert est valable, combien de fois la solution 2 est-elle plus concentrée que la solution 1 ?",
+    "correction": [
+      "Dans les mêmes conditions, $A=k c$.",
+      "Le rapport des concentrations est donc égal au rapport des absorbances : $c_2/c_1=A_2/A_1$.",
+      "$c_2/c_1=0,600/0,240=2,50$.",
+      "Conclusion : la solution 2 est 2,50 fois plus concentrée que la solution 1.",
+      "Erreur fréquente : comparer des absorbances mesurées à des longueurs d'onde différentes."
+    ],
+    "schemaSvg": null,
+    "schemaCaption": null
+  },
+  {
+    "id": "beer-lambert-exo-08",
+    "title": "Exploiter une droite d'étalonnage",
+    "difficulty": 3,
+    "difficultyLabel": "Données",
+    "consigne": "Une régression donne $A=3,214\\,c+0,00381$ avec $c$ en mmol.L-1. Une solution inconnue a $A=0,426$. Déterminer $c$ en mmol.L-1 puis en mol.L-1.",
+    "correction": [
+      "Données utiles : $A=0,426$ et $A=3,214\\,c+0,00381$.",
+      "On isole la concentration : $c=(A-0,00381)/3,214$.",
+      "$c=(0,426-0,00381)/3,214=0,131\\ \\mathrm{mmol.L^{-1}}$.",
+      "Conversion : $0,131\\ \\mathrm{mmol.L^{-1}}=1,31\\times10^{-4}\\ \\mathrm{mol.L^{-1}}$.",
+      "Conclusion : $c\\approx1,31\\times10^{-4}\\ \\mathrm{mol.L^{-1}}$.",
+      "Vérification : l'absorbance $0,426$ est entre les absorbances des étalons E3 et E4, la lecture est une interpolation."
+    ],
+    "schemaSvg": null,
+    "schemaCaption": null
+  },
+  {
+    "id": "beer-lambert-exo-09",
+    "title": "Repérer un point aberrant",
+    "difficulty": 3,
+    "difficultyLabel": "Données",
+    "consigne": "On mesure les absorbances suivantes pour des étalons : c = 0,040 ; 0,080 ; 0,120 ; 0,160 ; 0,200 mmol.L-1 et A = 0,133 ; 0,260 ; 0,480 ; 0,514 ; 0,649. Quel point paraît suspect ? Proposer une cause expérimentale.",
+    "correction": [
+      "Les valeurs devraient être presque proportionnelles à la concentration.",
+      "Pour $c=0,120\\ \\mathrm{mmol.L^{-1}}$, l'absorbance $A=0,480$ est trop grande par rapport aux points voisins.",
+      "Le point suspect est donc celui de l'étalon à $0,120\\ \\mathrm{mmol.L^{-1}}$.",
+      "Causes possibles : cuve sale, bulle sur le trajet lumineux, erreur de préparation de l'étalon, mauvaise remise à zéro.",
+      "Conclusion : il faut refaire la mesure ou préparer à nouveau l'étalon avant de garder ce point dans la régression."
+    ],
+    "schemaSvg": null,
+    "schemaCaption": null
+  },
+  {
+    "id": "beer-lambert-exo-10",
+    "title": "Critiquer un protocole",
+    "difficulty": 4,
+    "difficultyLabel": "Esprit critique",
+    "consigne": "Un élève mesure d'abord une solution très concentrée, puis utilise la même cuve sans rinçage pour les solutions plus diluées. Il oublie aussi de faire le blanc. Expliquer deux conséquences possibles sur les absorbances mesurées.",
+    "correction": [
+      "Sans rinçage, la cuve peut contaminer les solutions diluées avec une solution plus concentrée.",
+      "Les absorbances des solutions diluées risquent alors d'être trop grandes.",
+      "Sans blanc, l'appareil ne retire pas correctement l'effet du solvant, de la cuve et du milieu.",
+      "La droite d'étalonnage peut être décalée, avec une ordonnée à l'origine non maîtrisée.",
+      "Conclusion : le protocole ne permet pas une concentration fiable. Il faut faire le blanc, mesurer du moins concentré vers le plus concentré et rincer correctement."
+    ],
+    "schemaSvg": null,
+    "schemaCaption": null
+  },
+  {
+    "id": "beer-lambert-exo-11",
+    "title": "Solution diluée puis solution initiale",
+    "difficulty": 4,
+    "difficultyLabel": "Raisonnement",
+    "consigne": "Une solution inconnue S est diluée 5,00 fois avant mesure. La solution diluée a $A=0,386$. La droite d'étalonnage est $A=2,35\\times10^3\\,c$ avec $c$ en mol.L-1. Déterminer la concentration de la solution diluée puis celle de S.",
+    "correction": [
+      "Données utiles : facteur de dilution $F=5,00$, $A=0,386$ et $A=2,35\\times10^3 c$.",
+      "Pour la solution diluée : $c_{dil}=A/(2,35\\times10^3)$.",
+      "$c_{dil}=0,386/(2,35\\times10^3)=1,64\\times10^{-4}\\ \\mathrm{mol.L^{-1}}$.",
+      "La solution initiale est 5,00 fois plus concentrée : $c_S=F\\,c_{dil}$.",
+      "$c_S=5,00\\times1,64\\times10^{-4}=8,20\\times10^{-4}\\ \\mathrm{mol.L^{-1}}$.",
+      "Conclusion : $c_S\\approx8,20\\times10^{-4}\\ \\mathrm{mol.L^{-1}}$.",
+      "Erreur fréquente : conclure avec la concentration de la solution diluée au lieu de revenir à la solution initiale."
+    ],
+    "schemaSvg": null,
+    "schemaCaption": null
+  },
+  {
+    "id": "beer-lambert-exo-12",
+    "title": "Problème : contrôler une boisson colorée",
+    "difficulty": 5,
+    "difficultyLabel": "Problème",
+    "consigne": "Une boisson contient un colorant. Après dilution par un facteur 10, son absorbance vaut $A=0,321$ à la longueur d'onde choisie. La gamme étalon donne $A=3,214\\,c+0,00381$ avec $c$ en mmol.L-1 et reste linéaire jusqu'à $0,200\\ \\mathrm{mmol.L^{-1}}$. Déterminer la concentration du colorant dans la boisson initiale et vérifier si la mesure est exploitable.",
+    "correction": [
+      "Données utiles : solution mesurée diluée 10 fois, $A=0,321$, droite $A=3,214\\,c+0,00381$.",
+      "Pour la solution diluée : $c_{dil}=(A-0,00381)/3,214$.",
+      "$c_{dil}=(0,321-0,00381)/3,214=0,0987\\ \\mathrm{mmol.L^{-1}}$.",
+      "La boisson initiale est 10 fois plus concentrée : $c_0=10\\times0,0987=0,987\\ \\mathrm{mmol.L^{-1}}$.",
+      "En mol.L-1 : $c_0=9,87\\times10^{-4}\\ \\mathrm{mol.L^{-1}}$.",
+      "Vérification de validité : la solution mesurée, après dilution, est à $0,0987\\ \\mathrm{mmol.L^{-1}}$, dans la gamme $0$ à $0,200\\ \\mathrm{mmol.L^{-1}}$.",
+      "Conclusion : la mesure est exploitable pour la solution diluée, puis on corrige avec le facteur 10 pour conclure sur la boisson initiale."
+    ],
+    "schemaSvg": null,
+    "schemaCaption": null
+  }
+]

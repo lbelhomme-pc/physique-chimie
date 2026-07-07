@@ -12,7 +12,14 @@ interface ShuffledQuestion { original: QuizQuestion; shuffledChoices: string[]; 
 interface QuizPlayerProps { data: QuizQuestion[] | { questions: QuizQuestion[] }; title?: string; chapterId?: string; xpConfig?: { quiz_base?: number; quiz_per_correct?: number; quiz_perfect?: number }; }
 
 function shuffleArray<T>(arr: T[]): T[] { const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
-function prepareQuestions(q: QuizQuestion[]): ShuffledQuestion[] { return shuffleArray(q).map(q=>{const ct=q.choices[q.answer];const sc=shuffleArray(q.choices);return{original:q,shuffledChoices:sc,correctIndex:sc.indexOf(ct)}}); }
+function prepareQuestions(q: QuizQuestion[], shuffle = true): ShuffledQuestion[] {
+  const orderedQuestions = shuffle ? shuffleArray(q) : [...q];
+  return orderedQuestions.map(q=>{
+    const correctChoice=q.choices[q.answer];
+    const choices=shuffle?shuffleArray(q.choices):[...q.choices];
+    return{original:q,shuffledChoices:choices,correctIndex:choices.indexOf(correctChoice)};
+  });
+}
 
 function getQuizRewardKey(c:string){return `quiz_reward_${c}`}
 function canRewardQuizToday(c:string):boolean{if(typeof window==="undefined")return true;try{const d=localStorage.getItem(getQuizRewardKey(c));if(!d)return true;return JSON.parse(d).date!==new Date().toISOString().slice(0,10)}catch{return true}}
@@ -28,7 +35,7 @@ const V = {
 
 export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPlayerProps) {
   const rawQ: QuizQuestion[] = useMemo(() => Array.isArray(data)?data:(data?.questions??[]), [data]);
-  const [questions, setQuestions] = useState(() => prepareQuestions(rawQ));
+  const [questions, setQuestions] = useState(() => prepareQuestions(rawQ, false));
   const [ci, setCi] = useState(0);
   const [sel, setSel] = useState<number|null>(null);
   const [answered, setAnswered] = useState(false);
@@ -38,10 +45,29 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
   const [toasts, setToasts] = useState<ToastItem[]>([]);
   const [xpE, setXpE] = useState(0);
   const [ready, setReady] = useState(false);
+  const [alreadyToday, setAlreadyToday] = useState(false);
   const st = useRef(Date.now());
-  const alreadyToday = chapterId ? !canRewardQuizToday(chapterId) : false;
 
-  useEffect(() => { const timer = setTimeout(() => setReady(true), 300); return () => clearTimeout(timer); }, []);
+  useEffect(() => {
+    setReady(false);
+    setQuestions(prepareQuestions(rawQ, false));
+    setCi(0);
+    setSel(null);
+    setAnswered(false);
+    setScore(0);
+    setFin(false);
+    setAnswers([]);
+    setXpE(0);
+    setAlreadyToday(chapterId ? !canRewardQuizToday(chapterId) : false);
+
+    const timer = setTimeout(() => {
+      setQuestions(prepareQuestions(rawQ, true));
+      st.current = Date.now();
+      setReady(true);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [rawQ, chapterId]);
 
   const total = questions.length;
   if(!total) return <p style={{fontStyle:"italic",color:V.textMut}}>Aucune question disponible.</p>;
@@ -57,8 +83,8 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
 
   function handleValidate(){if(!ready||sel===null||answered)return;setAnswered(true);if(sel===cur.correctIndex)setScore(s=>s+1);setAnswers(p=>[...p,sel])}
   function handleNext(){if(ci+1>=total){setFin(true);finishQuiz()}else{setCi(i=>i+1);setSel(null);setAnswered(false)}}
-  function finishQuiz(){if(chapterId){try{const e=getGamificationEngine();const d=Date.now()-st.current;if(canRewardQuizToday(chapterId)){const r=e.completeQuiz(chapterId,score,total,d,xpConfig);markQuizRewardedToday(chapterId,score,total);setXpE(r.xp);if(r.xp>0)addT({type:"xp",message:`+${r.xp} XP 🎉`,icon:"⚡"});if(r.rankUp)addT({type:"rank_up",message:`Nouveau rang : ${r.rankUp.icon} ${r.rankUp.name} !`,icon:r.rankUp.icon});r.newBadges.forEach(b=>addT({type:"badge",message:`Badge : ${b.icon} ${b.name}`,icon:b.icon}))}else{setXpE(0);addT({type:"xp",message:"Quiz déjà fait aujourd'hui — reviens demain !",icon:"ℹ️"})}}catch(e){console.warn(e)}}}
-  function restart(){setQuestions(prepareQuestions(rawQ));setCi(0);setSel(null);setAnswered(false);setScore(0);setFin(false);setAnswers([]);setXpE(0);st.current=Date.now()}
+  function finishQuiz(){if(chapterId){try{const e=getGamificationEngine();const d=Date.now()-st.current;if(canRewardQuizToday(chapterId)){const r=e.completeQuiz(chapterId,score,total,d,xpConfig);markQuizRewardedToday(chapterId,score,total);setAlreadyToday(true);setXpE(r.xp);if(r.xp>0)addT({type:"xp",message:`+${r.xp} XP 🎉`,icon:"⚡"});if(r.rankUp)addT({type:"rank_up",message:`Nouveau rang : ${r.rankUp.icon} ${r.rankUp.name} !`,icon:r.rankUp.icon});r.newBadges.forEach(b=>addT({type:"badge",message:`Badge : ${b.icon} ${b.name}`,icon:b.icon}))}else{setAlreadyToday(true);setXpE(0);addT({type:"xp",message:"Quiz déjà fait aujourd'hui — reviens demain !",icon:"ℹ️"})}}catch(e){console.warn(e)}}}
+  function restart(){setQuestions(prepareQuestions(rawQ));setCi(0);setSel(null);setAnswered(false);setScore(0);setFin(false);setAnswers([]);setXpE(0);st.current=Date.now();setReady(true)}
 
   // ─── Écran de fin ─────────────────────────────────────
   if(fin){

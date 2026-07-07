@@ -1,0 +1,238 @@
+<section class="course-section">
+  <h2>Objectifs du chapitre</h2>
+  <ul class="objectives-list">
+    <li>Distinguer un acide fort, un acide faible, une base forte et une base faible.</li>
+    <li>Utiliser les constantes \(K_a\), \(\mathrm{p}K_a\), \(K_e\) et \(\mathrm{p}K_e\).</li>
+    <li>Déterminer la composition finale d'une solution contenant un acide ou une base faible.</li>
+    <li>Lire un diagramme de prédominance ou de distribution.</li>
+    <li>Prévoir la forme majoritaire d'un indicateur coloré ou d'un acide \(\alpha\)-aminé selon le pH.</li>
+  </ul>
+</section>
+
+<section class="course-section">
+  <h2>1. Acides et bases forts ou faibles</h2>
+
+  <div class="definition-box">
+    <strong>Acide fort.</strong> Un acide fort réagit totalement avec l'eau. Pour une espèce notée \(AH\), on écrit :
+    \[AH(aq)+H_2O(l) \longrightarrow A^-(aq)+H_3O^+(aq)\]
+  </div>
+
+  <div class="definition-box">
+    <strong>Base forte.</strong> Une base forte réagit totalement avec l'eau. Par exemple, l'ion hydroxyde \(HO^-\) est la base présente dans une solution de soude.
+  </div>
+
+  <div class="definition-box">
+    <strong>Acide faible ou base faible.</strong> La réaction avec l'eau est limitée : elle atteint un état d'équilibre. Les réactifs et les produits coexistent dans l'état final.
+  </div>
+
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 820 260" role="img" aria-labelledby="eq-title eq-desc">
+    <title id="eq-title">Équilibre d'un acide faible dans l'eau</title>
+    <desc id="eq-desc">Un acide AH réagit partiellement avec l'eau pour former A moins et l'ion oxonium.</desc>
+    <rect x="40" y="32" width="740" height="176" rx="20" fill="#eff6ff" stroke="#bfdbfe" />
+    <rect x="82" y="86" width="150" height="62" rx="14" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+    <text x="133" y="124" font-size="30" font-weight="700" fill="#1e3a8a">AH</text>
+    <text x="255" y="124" font-size="30" fill="#1f2937">+</text>
+    <rect x="292" y="86" width="150" height="62" rx="14" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+    <text x="339" y="124" font-size="30" font-weight="700" fill="#1e3a8a">H₂O</text>
+    <text x="474" y="123" font-size="34" font-weight="700" fill="#4f46e5">⇌</text>
+    <rect x="540" y="86" width="150" height="62" rx="14" fill="#ffffff" stroke="#10b981" stroke-width="2" />
+    <text x="565" y="124" font-size="30" font-weight="700" fill="#065f46">A⁻ + H₃O⁺</text>
+    <text x="92" y="184" font-size="20" fill="#1f2937">réaction limitée</text>
+    <text x="516" y="184" font-size="20" fill="#1f2937">état final d'équilibre</text>
+  </svg>
+  <figcaption>Pour un acide faible, la transformation n'est pas totale : à l'état final, il reste de l'acide \(AH\).</figcaption>
+</figure>
+
+  <div class="example-box">
+    <strong>Exemples utiles.</strong>
+    <ul>
+      <li>L'acide chlorhydrique est un acide fort : \(HCl\) est totalement transformé en \(H_3O^+\) et \(Cl^-\) en solution aqueuse.</li>
+      <li>L'acide éthanoïque \(CH_3COOH\) est un acide faible : une partie seulement des molécules cède un proton à l'eau.</li>
+      <li>L'ammoniac \(NH_3\) est une base faible : il capte partiellement un proton de l'eau.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="course-section">
+  <h2>2. Constante d'acidité \(K_a\) et \(\mathrm{p}K_a\)</h2>
+
+  <p>Pour le couple acide-base \(AH/A^-\), la réaction acide avec l'eau s'écrit :</p>
+  \[AH(aq)+H_2O(l) \rightleftharpoons A^-(aq)+H_3O^+(aq)\]
+
+  <div class="formula-box">
+    \[K_a=\frac{[A^-]_{eq}\,[H_3O^+]_{eq}}{[AH]_{eq}}\]
+    \[\mathrm{p}K_a=-\log(K_a) \qquad ; \qquad K_a=10^{-\mathrm{p}K_a}\]
+  </div>
+
+  <p>Plus \(K_a\) est grand, plus l'acide cède facilement un proton. Plus \(\mathrm{p}K_a\) est petit, plus l'acide est fort.</p>
+
+  <div class="tip-box">
+    <strong>Relation de Henderson-Hasselbalch.</strong> Quand les deux formes \(AH\) et \(A^-\) coexistent en solution :
+    \[\mathrm{pH}=\mathrm{p}K_a+\log\left(\frac{[A^-]}{[AH]}\right)\]
+    Cette relation sert surtout à lire les domaines de prédominance et les solutions tampons.
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>Couple acide/base</th><th>Acide</th><th>Base conjuguée</th><th>\(\mathrm{p}K_a\) à 25 °C</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>\(CH_3COOH/CH_3COO^-\)</td><td>acide éthanoïque</td><td>ion éthanoate</td><td>4,76</td></tr>
+      <tr><td>\(HCOOH/HCOO^-\)</td><td>acide méthanoïque</td><td>ion méthanoate</td><td>3,75</td></tr>
+      <tr><td>\(NH_4^+/NH_3\)</td><td>ion ammonium</td><td>ammoniac</td><td>9,25</td></tr>
+      <tr><td>\(H_2CO_3/HCO_3^-\)</td><td>acide carbonique</td><td>ion hydrogénocarbonate</td><td>6,35</td></tr>
+      <tr><td>\(HCO_3^-/CO_3^{2-}\)</td><td>ion hydrogénocarbonate</td><td>ion carbonate</td><td>10,3</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="course-section">
+  <h2>3. Produit ionique de l'eau</h2>
+
+  <p>L'eau pure contient toujours une très petite quantité d'ions oxonium et hydroxyde, issus de l'autoprotolyse de l'eau :</p>
+  \[2H_2O(l) \rightleftharpoons H_3O^+(aq)+HO^-(aq)\]
+
+  <div class="formula-box">
+    \[K_e=[H_3O^+]_{eq}\,[HO^-]_{eq}\]
+    \[\mathrm{p}K_e=-\log(K_e)\]
+  </div>
+
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 780 210" role="img" aria-labelledby="ke-title ke-desc">
+    <title id="ke-title">Lien entre pH, pOH et produit ionique de l'eau</title>
+    <desc id="ke-desc">À 25 degrés Celsius, pH plus pOH vaut quatorze.</desc>
+    <rect x="42" y="30" width="696" height="130" rx="18" fill="#f0fdf4" stroke="#bbf7d0" />
+    <text x="84" y="88" font-size="28" font-weight="700" fill="#166534">À 25 °C</text>
+    <text x="84" y="130" font-size="30" fill="#111827">pK<tspan baseline-shift="sub" font-size="20">e</tspan> = 14,0</text>
+    <line x1="306" y1="58" x2="306" y2="138" stroke="#86efac" stroke-width="3" />
+    <text x="350" y="92" font-size="30" fill="#111827">K<tspan baseline-shift="sub" font-size="20">e</tspan> = [H₃O⁺][HO⁻]</text>
+    <text x="350" y="132" font-size="30" font-weight="700" fill="#166534">pH + pOH = pK<tspan baseline-shift="sub" font-size="20">e</tspan></text>
+  </svg>
+  <figcaption>La valeur \(\mathrm{p}K_e=14,0\) est valable à \(25\,^{\circ}\mathrm{C}\). Elle change avec la température.</figcaption>
+</figure>
+
+  <p>À \(25\,^{\circ}\mathrm{C}\), \(K_e=1,0\times10^{-14}\), donc \(\mathrm{p}K_e=14,0\). Une solution neutre vérifie alors \([H_3O^+]=[HO^-]\), donc \(\mathrm{pH}=7,0\) à \(25\,^{\circ}\mathrm{C}\).</p>
+</section>
+
+<section class="course-section">
+  <h2>4. Composition finale d'une solution d'acide faible</h2>
+
+  <p>On introduit un acide faible \(AH\) de concentration initiale \(C\). On note \(h=[H_3O^+]_{eq}\), en négligeant l'apport très faible de l'eau devant celui de l'acide.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>Espèce</th><th>\(AH\)</th><th>\(A^-\)</th><th>\(H_3O^+\)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>État initial</td><td>\(C\)</td><td>0</td><td>environ 0</td></tr>
+      <tr><td>État final</td><td>\(C-h\)</td><td>\(h\)</td><td>\(h\)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="formula-box">
+    \[K_a=\frac{h^2}{C-h}\]
+    \[\tau=\frac{x_f}{x_{max}}=\frac{h}{C}\]
+  </div>
+
+  <p>Si l'acide est peu dissocié, on peut utiliser l'approximation \(h\ll C\) :</p>
+  <div class="formula-box">
+    \[h\simeq\sqrt{K_a C}\]
+    \[\mathrm{pH}\simeq\frac{1}{2}\left(\mathrm{p}K_a-\log C\right)\]
+  </div>
+
+  <div class="warning-box">
+    <strong>Point de vigilance.</strong> Cette approximation doit toujours être vérifiée après le calcul. Si \(h/C\) n'est pas petit, il faut résoudre l'équation exacte \(K_a(C-h)=h^2\).
+  </div>
+</section>
+
+<section class="course-section">
+  <h2>5. Diagrammes de prédominance et de distribution</h2>
+
+  <p>Pour le couple \(AH/A^-\), la relation \(\mathrm{pH}=\mathrm{p}K_a+\log([A^-]/[AH])\) permet de comparer les deux formes.</p>
+
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 760 190" role="img" aria-labelledby="pred-title pred-desc">
+    <title id="pred-title">Diagramme de prédominance d'un couple acide-base</title>
+    <desc id="pred-desc">Axe de pH séparé en deux domaines autour de pH égal pKa.</desc>
+    <defs>
+      <marker id="arrow-ph" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 Z" fill="#1f2937" />
+      </marker>
+    </defs>
+    <rect x="34" y="26" width="692" height="138" rx="18" fill="#f8fafc" stroke="#dbeafe" />
+    <line x1="110" y1="104" x2="650" y2="104" stroke="#1f2937" stroke-width="4" marker-end="url(#arrow-ph)" />
+    <line x1="380" y1="66" x2="380" y2="142" stroke="#4f46e5" stroke-width="4" />
+    <text x="98" y="139" font-size="22" fill="#1f2937">pH faible</text>
+    <text x="622" y="139" font-size="22" fill="#1f2937">pH</text>
+    <text x="347" y="58" font-size="24" font-weight="700" fill="#4f46e5">pH = pK<tspan baseline-shift="sub" font-size="16">a</tspan></text>
+    <rect x="142" y="72" width="168" height="48" rx="24" fill="#fee2e2" stroke="#ef4444" />
+    <text x="179" y="103" font-size="24" font-weight="700" fill="#991b1b">AH prédomine</text>
+    <rect x="450" y="72" width="168" height="48" rx="24" fill="#dcfce7" stroke="#16a34a" />
+    <text x="490" y="103" font-size="24" font-weight="700" fill="#166534">A⁻ prédomine</text>
+  </svg>
+  <figcaption>Le changement de domaine se fait autour de \(\mathrm{pH}=\mathrm{p}K_a\), mais ce n'est pas une frontière brutale : les deux formes coexistent.</figcaption>
+</figure>
+
+  <ul>
+    <li>Si \(\mathrm{pH}<\mathrm{p}K_a\), alors \([AH]>[A^-]\) : la forme acide prédomine.</li>
+    <li>Si \(\mathrm{pH}=\mathrm{p}K_a\), alors \([AH]=[A^-]\).</li>
+    <li>Si \(\mathrm{pH}>\mathrm{p}K_a\), alors \([A^-]>[AH]\) : la forme basique prédomine.</li>
+  </ul>
+
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 780 310" role="img" aria-labelledby="dist-title dist-desc">
+    <title id="dist-title">Courbes de distribution pour un couple AH/A moins</title>
+    <desc id="dist-desc">Pourcentage de AH qui diminue et pourcentage de A moins qui augmente autour du pKa.</desc>
+    <rect x="32" y="20" width="716" height="260" rx="18" fill="#ffffff" stroke="#e5e7eb" />
+    <line x1="92" y1="238" x2="696" y2="238" stroke="#111827" stroke-width="3" />
+    <line x1="92" y1="238" x2="92" y2="54" stroke="#111827" stroke-width="3" />
+    <text x="61" y="62" font-size="18" fill="#111827">100%</text>
+    <text x="69" y="244" font-size="18" fill="#111827">0%</text>
+    <text x="666" y="266" font-size="18" fill="#111827">pH</text>
+    <line x1="394" y1="238" x2="394" y2="54" stroke="#6366f1" stroke-width="2" stroke-dasharray="8 7" />
+    <text x="360" y="46" font-size="20" font-weight="700" fill="#4f46e5">pK<tspan baseline-shift="sub" font-size="14">a</tspan></text>
+    <path d="M100 70 C210 72 300 92 394 146 C488 200 578 222 688 224" fill="none" stroke="#ef4444" stroke-width="5" />
+    <path d="M100 224 C210 222 300 200 394 146 C488 92 578 72 688 70" fill="none" stroke="#16a34a" stroke-width="5" />
+    <circle cx="394" cy="146" r="7" fill="#4f46e5" />
+    <text x="130" y="94" font-size="22" font-weight="700" fill="#991b1b">forme acide AH</text>
+    <text x="506" y="96" font-size="22" font-weight="700" fill="#166534">forme basique A⁻</text>
+    <text x="410" y="150" font-size="18" fill="#4338ca">50% / 50%</text>
+  </svg>
+  <figcaption>À \(\mathrm{pH}=\mathrm{p}K_a\), les concentrations des deux formes conjuguées sont égales.</figcaption>
+</figure>
+
+  <div class="formula-box">
+    \[\alpha(AH)=\frac{[H_3O^+]}{[H_3O^+]+K_a}\]
+    \[\alpha(A^-)=\frac{K_a}{[H_3O^+]+K_a}\]
+  </div>
+</section>
+
+<section class="course-section">
+  <h2>6. Indicateurs colorés et acides \(\alpha\)-aminés</h2>
+
+  <p>Un indicateur coloré acido-basique est lui-même un couple acide-base, souvent noté \(HIn/In^-\). Les deux formes n'ont pas la même couleur.</p>
+
+  <div class="example-box">
+    <strong>Zone de virage.</strong> Un indicateur change nettement de couleur dans un intervalle proche de \(\mathrm{p}K_a\), souvent autour de \(\mathrm{p}K_a\pm1\). Il doit être choisi pour que sa zone de virage corresponde au saut de pH de l'expérience étudiée.
+  </div>
+
+  <p>Les acides \(\alpha\)-aminés possèdent au moins une fonction acide carboxylique et une fonction amine. Ils peuvent donc jouer le rôle d'acide ou de base selon le pH.</p>
+
+  <div class="definition-box">
+    <strong>Espèce amphotère.</strong> Une espèce amphotère, ou ampholyte, peut se comporter comme un acide dans un couple et comme une base dans un autre couple.
+  </div>
+
+  <p>Pour la glycine, on rencontre notamment les formes \(H_3N^+-CH_2-COOH\), \(H_3N^+-CH_2-COO^-\) et \(H_2N-CH_2-COO^-\). La forme majoritaire dépend du pH et des deux valeurs de \(\mathrm{p}K_a\).</p>
+</section>
+
+<section class="course-section key-points">
+  <h2>À retenir</h2>
+  <ul>
+    <li>Un acide fort ou une base forte réagit totalement avec l'eau ; un acide faible ou une base faible atteint un équilibre.</li>
+    <li>Pour \(AH/A^-\), \(K_a=[A^-][H_3O^+]/[AH]\) et \(\mathrm{p}K_a=-\log K_a\).</li>
+    <li>À \(25\,^{\circ}\mathrm{C}\), \(K_e=[H_3O^+][HO^-]=10^{-14}\) et \(\mathrm{pH}+\mathrm{pOH}=14\).</li>
+    <li>Le diagramme de prédominance se lit autour de \(\mathrm{pH}=\mathrm{p}K_a\).</li>
+    <li>Pour un acide faible de concentration \(C\), la composition finale peut être obtenue avec \(K_a=h^2/(C-h)\).</li>
+  </ul>
+</section>

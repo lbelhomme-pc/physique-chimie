@@ -1,0 +1,353 @@
+## Objectifs
+
+- Distinguer circuit en série et circuit en dérivation.
+- Appliquer la loi des nœuds dans un circuit simple.
+- Appliquer la loi des mailles dans une boucle simple.
+- Lire et exploiter la caractéristique tension-courant d'un dipôle.
+- Utiliser la loi d'Ohm pour un conducteur ohmique.
+- Déterminer graphiquement un point de fonctionnement.
+- Expliquer le principe d'un capteur électrique.
+- Utiliser une courbe d'étalonnage de capteur.
+
+<div class="info-box">
+
+### Fiche BO
+
+**Thème officiel :** Ondes et signaux.
+
+**Notions travaillées :** intensité, tension, circuit en série, circuit en dérivation, loi des nœuds, loi des mailles, caractéristique tension-courant, loi d'Ohm, point de fonctionnement, capteur électrique, étalonnage.
+
+**Capacités exigibles :** exploiter les lois des circuits, mesurer une tension et une intensité, tracer ou utiliser une caractéristique, reconnaître un dipôle ohmique, exploiter un capteur à partir d'une courbe d'étalonnage.
+
+</div>
+
+## Prérequis
+
+- Connaître le rôle d'un générateur et d'un récepteur.
+- Savoir que l'intensité se mesure en ampère.
+- Savoir que la tension se mesure en volt.
+- Savoir lire un graphique.
+- Savoir reconnaître une situation de proportionnalité.
+- Savoir convertir des milliampères en ampères.
+
+## Problématique
+
+Un capteur de température, une lampe ou une résistance produisent ou utilisent un signal électrique.  
+Comment relier les grandeurs électriques mesurées au comportement réel du circuit ?
+
+<div class="activite-box">
+
+### Activité de découverte - Une thermistance dans un réfrigérateur
+
+Une thermistance est placée dans un réfrigérateur. Sa résistance varie avec la température. Un circuit électronique mesure cette résistance pour déclencher ou arrêter le refroidissement.
+
+1. Quelle grandeur physique veut-on surveiller ?
+2. Quelle grandeur électrique le circuit peut-il mesurer ?
+3. Pourquoi faut-il une courbe d'étalonnage ?
+4. Que signifie « le signal électrique représente une information » ?
+
+**Conclusion attendue :** un capteur convertit une grandeur physique en signal électrique exploitable.
+
+</div>
+
+## 1. Grandeurs électriques et types de circuits
+
+### Définition
+
+Un circuit électrique contient au minimum un générateur, un récepteur et des fils de connexion.
+
+Deux grandeurs sont essentielles :
+
+- l'intensité \(I\), en ampères A ;
+- la tension \(U\), en volts V.
+
+Dans un circuit en série, les dipôles sont placés dans une seule boucle.  
+Dans un circuit en dérivation, le courant peut se partager entre plusieurs branches.
+
+### Formule ou méthode
+
+Pour identifier le type de circuit :
+
+1. repérer le générateur ;
+2. suivre les fils ;
+3. chercher s'il existe une seule boucle ou plusieurs branches ;
+4. conclure : série ou dérivation.
+
+### Exemple
+
+Deux lampes placées l'une après l'autre dans la même boucle sont en série.  
+Deux lampes branchées chacune sur une branche différente sont en dérivation.
+
+## 2. Loi des nœuds
+
+### Définition
+
+Un **nœud** est un point du circuit où plusieurs branches se rencontrent.
+
+La loi des nœuds traduit la conservation de la charge électrique :
+
+> la somme des intensités qui arrivent à un nœud est égale à la somme des intensités qui en repartent.
+
+### Formule ou méthode
+
+Pour un nœud avec un courant entrant \(I\) et deux courants sortants \(I_1\) et \(I_2\) :
+
+$$
+I=I_1+I_2
+$$
+
+<figure class="schema-block">
+<svg viewBox="0 0 760 315" role="img" aria-labelledby="noeud-title noeud-desc" style="max-width:100%;height:auto;display:block;margin:auto;">
+  <title id="noeud-title">Loi des nœuds</title>
+  <desc id="noeud-desc">Un courant entrant arrive à un nœud puis se partage entre deux branches sortantes.</desc>
+  <defs>
+    <marker id="current-arrow-b" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#4f46e5"/></marker>
+  </defs>
+  <line x1="90" y1="155" x2="330" y2="155" stroke="#334155" stroke-width="6"/>
+  <line x1="330" y1="155" x2="565" y2="85" stroke="#334155" stroke-width="6"/>
+  <line x1="330" y1="155" x2="565" y2="225" stroke="#334155" stroke-width="6"/>
+  <circle cx="330" cy="155" r="14" fill="#f97316"/>
+  <path d="M135 132 H255" stroke="#4f46e5" stroke-width="4" marker-end="url(#current-arrow-b)"/>
+  <path d="M375 133 L500 96" stroke="#4f46e5" stroke-width="4" marker-end="url(#current-arrow-b)"/>
+  <path d="M375 177 L500 214" stroke="#4f46e5" stroke-width="4" marker-end="url(#current-arrow-b)"/>
+  <text x="195" y="118" text-anchor="middle" font-size="16" font-weight="900" fill="#312e81">I</text>
+  <text x="465" y="82" text-anchor="middle" font-size="16" font-weight="900" fill="#312e81">I₁</text>
+  <text x="465" y="236" text-anchor="middle" font-size="16" font-weight="900" fill="#312e81">I₂</text>
+  <text x="330" y="195" text-anchor="middle" font-size="15" font-weight="900" fill="#c2410c">nœud</text>
+  <text x="380" y="50" text-anchor="middle" font-size="20" font-weight="900" fill="#1e293b">I = I₁ + I₂</text>
+</svg>
+<figcaption>Le courant ne disparaît pas au nœud : il se répartit entre les branches.</figcaption>
+</figure>
+
+### Exemple
+
+Un courant de 180 mA arrive à un nœud. Une branche reçoit 70 mA. L'autre reçoit \(I_2\).
+
+$$
+180=70+I_2
+$$
+
+$$
+I_2=110\ \mathrm{mA}
+$$
+
+## 3. Loi des mailles
+
+### Définition
+
+Une **maille** est une boucle fermée dans un circuit.
+
+La loi des mailles indique que, dans une boucle, les tensions se compensent algébriquement. Au niveau seconde, dans un circuit série simple, la tension du générateur est égale à la somme des tensions aux bornes des récepteurs.
+
+### Formule ou méthode
+
+Pour un générateur alimentant deux dipôles en série :
+
+$$
+U_G=U_1+U_2
+$$
+
+Pour utiliser la loi :
+
+1. identifier la boucle ;
+2. repérer la tension du générateur ;
+3. repérer les tensions des dipôles ;
+4. écrire la relation ;
+5. isoler la grandeur inconnue.
+
+### Exemple
+
+Un générateur impose UG = 9,0 V. Une lampe reçoit U1 = 3,5 V. La résistance en série reçoit U2.
+
+$$
+U_G=U_1+U_2
+$$
+
+$$
+U_2=9{,}0-3{,}5=5{,}5\ \mathrm{V}
+$$
+
+## 4. Caractéristique tension-courant et loi d'Ohm
+
+### Définition
+
+La caractéristique tension-courant d'un dipôle est le graphique qui relie la tension \(U\) à ses bornes et l'intensité \(I\) qui le traverse.
+
+Pour un conducteur ohmique, la caractéristique est une droite passant par l'origine.
+
+### Formule ou méthode
+
+La loi d'Ohm s'écrit :
+
+$$
+U=R\times I
+$$
+
+avec :
+
+- \(U\) en volts V ;
+- \(R\) en ohms Ω ;
+- \(I\) en ampères A.
+
+<figure class="schema-block">
+<svg viewBox="0 0 760 325" role="img" aria-labelledby="ohm-title ohm-desc" style="max-width:100%;height:auto;display:block;margin:auto;">
+  <title id="ohm-title">Caractéristique d'un conducteur ohmique</title>
+  <desc id="ohm-desc">Le graphique de la tension en fonction de l'intensité est une droite passant par l'origine pour un conducteur ohmique.</desc>
+  <line x1="120" y1="260" x2="650" y2="260" stroke="#1e293b" stroke-width="3"/>
+  <line x1="120" y1="260" x2="120" y2="55" stroke="#1e293b" stroke-width="3"/>
+  <path d="M120 260 L605 75" stroke="#4f46e5" stroke-width="5"/>
+  <circle cx="245" cy="212" r="6" fill="#f97316"/>
+  <circle cx="360" cy="168" r="6" fill="#f97316"/>
+  <circle cx="500" cy="115" r="6" fill="#f97316"/>
+  <text x="655" y="266" font-size="15" font-weight="900" fill="#1e293b">I (A)</text>
+  <text x="92" y="58" font-size="15" font-weight="900" fill="#1e293b">U (V)</text>
+  <text x="395" y="64" text-anchor="middle" font-size="18" font-weight="900" fill="#312e81">U = R × I</text>
+</svg>
+<figcaption>La pente de la droite correspond à la résistance \(R\).</figcaption>
+</figure>
+
+### Exemple
+
+Une résistance de \(46\ \Omega\) est branchée sous une tension de 230 V.
+
+$$
+U=R\times I
+$$
+
+$$
+I=\frac{U}{R}=\frac{230}{46}=5{,}0\ \mathrm{A}
+$$
+
+L'intensité du courant vaut 5,0 A.
+
+## 5. Point de fonctionnement
+
+### Définition
+
+Le point de fonctionnement correspond au couple tension-intensité réellement obtenu quand un dipôle est branché dans un circuit.
+
+Graphiquement, il se trouve à l'intersection entre la caractéristique du générateur et celle du dipôle récepteur.
+
+### Formule ou méthode
+
+Pour le déterminer graphiquement :
+
+1. tracer ou lire les deux caractéristiques sur les mêmes axes ;
+2. repérer leur point d'intersection ;
+3. lire l'intensité \(I_P\) et la tension \(U_P\) ;
+4. vérifier que les unités sont cohérentes.
+
+### Exemple
+
+Une DEL n'éclaire presque pas tant que la tension est trop faible. Quand le circuit impose un point de fonctionnement au-dessus de sa tension de seuil, un courant suffisant la traverse et elle éclaire.
+
+## 6. Capteurs électriques et étalonnage
+
+### Définition
+
+Un capteur électrique convertit une grandeur physique ou chimique en signal électrique.
+
+Exemples :
+
+- CTN : sa résistance diminue quand la température augmente ;
+- LDR : sa résistance diminue quand la luminosité augmente ;
+- capteur de pression : sa tension de sortie varie avec la pression.
+
+Une courbe d'étalonnage relie la grandeur mesurée au signal électrique.
+
+### Formule ou méthode
+
+Pour exploiter un capteur :
+
+1. identifier la grandeur mesurée ;
+2. identifier le signal électrique fourni ;
+3. lire ou tracer la courbe d'étalonnage ;
+4. utiliser la courbe pour déterminer la valeur inconnue ;
+5. conclure avec l'unité.
+
+<figure class="schema-block">
+<svg viewBox="0 0 760 300" role="img" aria-labelledby="capteur-title capteur-desc" style="max-width:100%;height:auto;display:block;margin:auto;">
+  <title id="capteur-title">Chaîne de mesure avec capteur</title>
+  <desc id="capteur-desc">Une grandeur physique est convertie par un capteur en signal électrique, puis interprétée grâce à un étalonnage.</desc>
+  <defs>
+    <marker id="sensor-arrow-b" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#4f46e5"/></marker>
+  </defs>
+  <rect x="45" y="95" width="160" height="85" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="125" y="130" text-anchor="middle" font-size="15" font-weight="900" fill="#1d4ed8">grandeur</text>
+  <text x="125" y="154" text-anchor="middle" font-size="13" fill="#475569">température</text>
+  <path d="M220 138 H300" stroke="#4f46e5" stroke-width="4" marker-end="url(#sensor-arrow-b)"/>
+  <rect x="315" y="95" width="160" height="85" rx="16" fill="#fff7ed" stroke="#f97316" stroke-width="3"/>
+  <text x="395" y="130" text-anchor="middle" font-size="15" font-weight="900" fill="#c2410c">capteur</text>
+  <text x="395" y="154" text-anchor="middle" font-size="13" fill="#475569">CTN ou LDR</text>
+  <path d="M490 138 H570" stroke="#4f46e5" stroke-width="4" marker-end="url(#sensor-arrow-b)"/>
+  <rect x="585" y="95" width="130" height="85" rx="16" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+  <text x="650" y="130" text-anchor="middle" font-size="15" font-weight="900" fill="#047857">signal</text>
+  <text x="650" y="154" text-anchor="middle" font-size="13" fill="#475569">U ou R</text>
+  <text x="380" y="226" text-anchor="middle" font-size="15" font-weight="800" fill="#334155">La courbe d'étalonnage permet de retrouver la valeur de la grandeur mesurée.</text>
+</svg>
+<figcaption>Le capteur ne donne pas directement une phrase : il fournit un signal qu'il faut interpréter.</figcaption>
+</figure>
+
+### Exemple
+
+Une LDR est utilisée dans un éclairage automatique. Quand la luminosité diminue, sa résistance augmente ou diminue selon le composant utilisé. Le circuit exploite cette variation pour allumer une lampe au bon moment.
+
+<div class="methode-box">
+
+### Méthode - Exploiter une caractéristique ou une courbe d'étalonnage
+
+1. Lire les grandeurs portées sur les axes.
+2. Vérifier les unités.
+3. Repérer si la courbe est une droite ou non.
+4. Pour un conducteur ohmique, utiliser \(U=R\times I\).
+5. Pour un capteur, lire la valeur inconnue par correspondance graphique.
+6. Conclure avec une unité et une phrase.
+
+Fiches numériques associées : [tracer un nuage de points](/outils-methodes/seconde-numerique#nuage-points), [modéliser une relation simple](/outils-methodes/seconde-numerique#modeliser-relation) et [utiliser une courbe d'étalonnage](/outils-methodes/seconde-numerique#etalonnage-capteur).
+
+</div>
+
+<div class="info-box">
+
+### À manipuler
+
+**Simulation :** [Loi d'Ohm](/laboratoire/loi-ohm)
+
+</div>
+
+<div class="retenir-box">
+
+## À retenir
+
+### Définitions essentielles
+
+- L'intensité \(I\) s'exprime en ampères.
+- La tension \(U\) s'exprime en volts.
+- À un nœud, les intensités entrantes et sortantes se compensent.
+- Dans une maille, les tensions se compensent algébriquement.
+- La caractéristique d'un dipôle relie \(U\) et \(I\).
+- Un conducteur ohmique vérifie la loi d'Ohm.
+- Un capteur convertit une grandeur physique en signal électrique.
+
+### Formules
+
+$$
+I=I_1+I_2
+$$
+
+$$
+U_G=U_1+U_2
+$$
+
+$$
+U=R\times I
+$$
+
+### Pièges classiques
+
+- Utiliser des milliampères dans la loi d'Ohm sans convertir en ampères.
+- Confondre circuit en série et circuit en dérivation.
+- Additionner des intensités sans distinguer les courants entrants et sortants.
+- Croire qu'un capteur mesure toujours directement la grandeur finale sans étalonnage.
+
+</div>

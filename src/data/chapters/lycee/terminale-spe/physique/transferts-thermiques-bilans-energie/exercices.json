@@ -1,0 +1,154 @@
+[
+  {
+    "id": "therm-01",
+    "titre": "Échauffer de l’eau",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Calculer l’énergie nécessaire pour chauffer $m=0,50\\ kg$ d’eau de $20\\ ^\\circ\\mathrm{C}$ à $80\\ ^\\circ\\mathrm{C}$. On donne $c_{eau}=4180\\ J\\cdot kg^{-1}\\cdot K^{-1}$.",
+    "aide": "Utiliser $Q=mc\\Delta T$.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 230\" role=\"img\" aria-label=\"Échauffement d'un liquide dans un récipient\">\n  <rect x=\"44\" y=\"28\" width=\"632\" height=\"160\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#e5e7eb\" />\n  <path d=\"M250 80 L300 170 L420 170 L470 80 Z\" fill=\"#dbeafe\" stroke=\"#2563eb\" stroke-width=\"4\" />\n  <rect x=\"295\" y=\"122\" width=\"130\" height=\"48\" fill=\"#93c5fd\" opacity=\"0.7\" />\n  <text x=\"270\" y=\"218\" font-size=\"20\" fill=\"#111827\">Q = m c ΔT</text>\n</svg>",
+    "correction": [
+      "$\\Delta T=80-20=60\\ K$.",
+      "$Q=0,50\\times4180\\times60=1,25\\times10^5\\ J$.",
+      "Il faut environ $125\\ kJ$."
+    ]
+  },
+  {
+    "id": "therm-02",
+    "titre": "Durée de chauffage",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Une résistance chauffante de puissance utile $P=800\\ W$ fournit l’énergie calculée dans l’exercice précédent. Estimer la durée de chauffage, sans pertes.",
+    "aide": "$P=Q/\\Delta t$.",
+    "correction": [
+      "$\\Delta t=Q/P=1,25\\times10^5/800\\approx157\\ s$.",
+      "Cela correspond à environ $2,6\\ min$."
+    ]
+  },
+  {
+    "id": "therm-03",
+    "titre": "Fusion de glace",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Quelle énergie faut-il fournir pour faire fondre $150\\ g$ de glace à $0\\ ^\\circ\\mathrm{C}$ ? On donne $L_f=3,34\\times10^5\\ J\\cdot kg^{-1}$.",
+    "aide": "Pour un changement d'état à température constante : $Q=mL$.",
+    "correction": [
+      "$m=0,150\\ kg$.",
+      "$Q=mL_f=0,150\\times3,34\\times10^5=5,01\\times10^4\\ J$.",
+      "Il faut environ $50\\ kJ$."
+    ]
+  },
+  {
+    "id": "therm-04",
+    "titre": "Premier principe",
+    "niveau": "Raisonnement",
+    "difficulte": 2,
+    "consigne": "Un système reçoit un travail $W=120\\ J$ et cède un transfert thermique $Q=-80\\ J$ au milieu extérieur. Calculer sa variation d’énergie interne.",
+    "aide": "Dans la convention du cours, les énergies reçues par le système sont positives.",
+    "correction": [
+      "$\\Delta U=W+Q=120+(-80)=40\\ J$.",
+      "L’énergie interne du système augmente de $40\\ J$."
+    ]
+  },
+  {
+    "id": "therm-05",
+    "titre": "Flux thermique dans une paroi",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Une paroi a une résistance thermique $R_{th}=2,5\\ K\\cdot W^{-1}$. La température intérieure vaut $20\\ ^\\circ\\mathrm{C}$ et la température extérieure $5\\ ^\\circ\\mathrm{C}$. Calculer le flux thermique perdu.",
+    "aide": "$\\Phi=\\Delta T/R_{th}$.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 230\" role=\"img\" aria-label=\"Paroi entre milieu chaud et milieu froid\">\n  <rect x=\"44\" y=\"28\" width=\"632\" height=\"160\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#e5e7eb\" />\n  <rect x=\"120\" y=\"70\" width=\"160\" height=\"90\" rx=\"12\" fill=\"#fee2e2\" />\n  <rect x=\"440\" y=\"70\" width=\"160\" height=\"90\" rx=\"12\" fill=\"#dbeafe\" />\n  <rect x=\"330\" y=\"58\" width=\"60\" height=\"114\" fill=\"#e2e8f0\" stroke=\"#64748b\" stroke-width=\"3\" />\n  <text x=\"274\" y=\"216\" font-size=\"20\" fill=\"#111827\">Φ = ΔT / Rth</text>\n</svg>",
+    "correction": [
+      "$\\Delta T=20-5=15\\ K$.",
+      "$\\Phi=15/2,5=6,0\\ W$.",
+      "Le flux est dirigé de l’intérieur chaud vers l’extérieur froid."
+    ]
+  },
+  {
+    "id": "therm-06",
+    "titre": "Résistance d’un mur",
+    "niveau": "Application directe",
+    "difficulte": 2,
+    "consigne": "Un mur de surface $S=12\\ m^2$, d’épaisseur $e=20\\ cm$ et de conductivité $\\lambda=0,80\\ W\\cdot m^{-1}\\cdot K^{-1}$ sépare deux milieux. Calculer sa résistance thermique.",
+    "aide": "$R_{th}=e/(\\lambda S)$.",
+    "correction": [
+      "$e=0,20\\ m$.",
+      "$R_{th}=0,20/(0,80\\times12)=2,08\\times10^{-2}\\ K\\cdot W^{-1}$."
+    ]
+  },
+  {
+    "id": "therm-07",
+    "titre": "Ajouter un isolant",
+    "niveau": "Synthèse",
+    "difficulte": 2,
+    "consigne": "On ajoute à la paroi précédente un isolant de résistance thermique $R_{iso}=1,8\\ K\\cdot W^{-1}$. Quelle est la résistance thermique totale si les couches sont en série ?",
+    "aide": "Les résistances thermiques en série s’additionnent.",
+    "correction": [
+      "$R_{mur}=2,08\\times10^{-2}\\ K\\cdot W^{-1}$.",
+      "$R_{tot}=R_{mur}+R_{iso}\\approx1,82\\ K\\cdot W^{-1}$.",
+      "L’isolant domine très largement la résistance totale."
+    ]
+  },
+  {
+    "id": "therm-08",
+    "titre": "Refroidissement exponentiel",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Un objet initialement à $80\\ ^\\circ\\mathrm{C}$ refroidit dans une pièce à $20\\ ^\\circ\\mathrm{C}$. La constante de temps vaut $\\tau=10\\ min$. Calculer sa température au bout de $10\\ min$.",
+    "aide": "À $t=\\tau$, l’écart à la température extérieure est multiplié par $e^{-1}\\approx0,37$.",
+    "correction": [
+      "L’écart initial vaut $80-20=60\\ K$.",
+      "Au bout de $\\tau$, l’écart vaut $60e^{-1}\\approx22\\ K$.",
+      "La température vaut donc $20+22=42\\ ^\\circ\\mathrm{C}$ environ."
+    ]
+  },
+  {
+    "id": "therm-09",
+    "titre": "Constante de temps thermique",
+    "niveau": "Application directe",
+    "difficulte": 2,
+    "consigne": "Un système a une capacité thermique $C_{th}=1500\\ J\\cdot K^{-1}$ et échange avec l’extérieur à travers une résistance thermique $R_{th}=0,40\\ K\\cdot W^{-1}$. Calculer la constante de temps.",
+    "aide": "$\\tau=R_{th}C_{th}$.",
+    "correction": [
+      "$\\tau=0,40\\times1500=600\\ s$.",
+      "Cela correspond à $10\\ min$."
+    ]
+  },
+  {
+    "id": "therm-10",
+    "titre": "Puissance rayonnée nette",
+    "niveau": "Calcul guidé",
+    "difficulte": 3,
+    "consigne": "Une surface noire de $S=0,20\\ m^2$ est à $T=350\\ K$ dans un environnement à $T_{env}=300\\ K$. Estimer la puissance nette rayonnée. On prend $\\sigma=5,67\\times10^{-8}\\ W\\cdot m^{-2}\\cdot K^{-4}$ et $\\varepsilon=1$.",
+    "aide": "$P=\\varepsilon\\sigma S(T^4-T_{env}^4)$.",
+    "correction": [
+      "$T^4-T_{env}^4=350^4-300^4\\approx6,91\\times10^9\\ K^4$.",
+      "$P=5,67\\times10^{-8}\\times0,20\\times6,91\\times10^9\\approx78\\ W$."
+    ]
+  },
+  {
+    "id": "therm-11",
+    "titre": "Bilan avec pertes",
+    "niveau": "Synthèse",
+    "difficulte": 3,
+    "consigne": "Un appareil fournit une puissance thermique $P_{in}=120\\ W$ à un système qui perd simultanément $35\\ W$ vers l’extérieur. Quelle est la variation d’énergie interne pendant $60\\ s$ ?",
+    "aide": "Faire le bilan des puissances reçues puis multiplier par la durée.",
+    "correction": [
+      "La puissance nette reçue vaut $P_{net}=120-35=85\\ W$.",
+      "Sur $60\\ s$, $\\Delta U=P_{net}\\Delta t=85\\times60=5,1\\times10^3\\ J$."
+    ]
+  },
+  {
+    "id": "therm-12",
+    "titre": "Identifier le mode de transfert",
+    "niveau": "Raisonnement",
+    "difficulte": 1,
+    "consigne": "Associer chaque situation au mode dominant : une cuillère métallique qui chauffe dans une casserole, l’air chaud qui monte au-dessus d’un radiateur, la chaleur du Soleil reçue par la Terre.",
+    "aide": "Chercher s’il y a contact solide, mouvement de fluide ou propagation dans le vide.",
+    "correction": [
+      "Cuillère métallique : conduction.",
+      "Air chaud au-dessus du radiateur : convection.",
+      "Soleil vers Terre : rayonnement."
+    ]
+  }
+]

@@ -1,0 +1,40 @@
+---
+import type { LabApp } from "../../data/laboratoire/apps";
+
+interface Props {
+  app: LabApp;
+}
+
+const { app } = Astro.props;
+const searchText = [
+  app.title,
+  app.level,
+  app.concept,
+  app.theme,
+  app.objective,
+  app.tags.join(" "),
+].join(" ");
+---
+
+<a
+  class={`lab-card lab-card--${app.theme}`}
+  href={app.route}
+  data-lab-card
+  data-app-slug={app.slug}
+  data-theme={app.theme}
+  data-levels={app.levels.join(" ")}
+  data-topics={app.topics.join(" ")}
+  data-search={searchText.toLocaleLowerCase("fr-FR")}
+>
+  <span class="lab-card__visual" aria-hidden="true">
+    <span class="lab-card__icon">{app.icon}</span>
+  </span>
+  <span class="lab-card__body">
+    <span class="lab-card__tags">
+      {app.tags.map((tag) => <span>{tag}</span>)}
+    </span>
+    <strong>{app.title}</strong>
+    <span>{app.objective}</span>
+    <span class="lab-card__action">Lancer la simulation</span>
+  </span>
+</a>

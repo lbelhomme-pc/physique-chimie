@@ -1,0 +1,172 @@
+<section class="course-section">
+  <h2>Objectifs du chapitre</h2>
+  <ul class="objectives-list">
+    <li>Décrire un gaz à l'échelle microscopique et macroscopique.</li>
+    <li>Utiliser l'équation d'état du gaz parfait \(PV=nRT\).</li>
+    <li>Convertir correctement pression, volume et température.</li>
+    <li>Calculer une quantité de matière, une pression, un volume molaire ou une masse volumique.</li>
+    <li>Discuter les limites du modèle du gaz parfait.</li>
+  </ul>
+</section>
+
+<section class="course-section">
+  <h2>1. Décrire l'état d'un gaz</h2>
+  <p>Un gaz est constitué d'entités très espacées, en mouvement permanent et désordonné. À l'échelle macroscopique, on décrit son état avec quelques grandeurs mesurables.</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 790 270" role="img" aria-labelledby="gp-state-title gp-state-desc">
+    <title id="gp-state-title">Grandeurs d'état d'un gaz</title>
+    <desc id="gp-state-desc">Un gaz est décrit par la pression, le volume, la température et la quantité de matière.</desc>
+    <rect x="42" y="38" width="706" height="178" rx="20" fill="#f8fafc" stroke="#e2e8f0" />
+    <text x="78" y="82" font-size="26" font-weight="700" fill="#111827">État macroscopique du gaz</text>
+    <g font-size="22" font-weight="700">
+      <rect x="82" y="118" width="138" height="56" rx="14" fill="#dbeafe" stroke="#3b82f6" />
+      <text x="113" y="153" fill="#1e3a8a">P en Pa</text>
+      <rect x="244" y="118" width="138" height="56" rx="14" fill="#dcfce7" stroke="#22c55e" />
+      <text x="275" y="153" fill="#14532d">V en m³</text>
+      <rect x="406" y="118" width="138" height="56" rx="14" fill="#fee2e2" stroke="#ef4444" />
+      <text x="439" y="153" fill="#991b1b">T en K</text>
+      <rect x="568" y="118" width="138" height="56" rx="14" fill="#fef3c7" stroke="#f59e0b" />
+      <text x="600" y="153" fill="#92400e">n en mol</text>
+    </g>
+    <text x="80" y="246" font-size="21" fill="#334155">La température en kelvins est indispensable dans l'équation d'état.</text>
+  </svg>
+  <figcaption>Le modèle du gaz parfait relie ces quatre grandeurs par une équation simple.</figcaption>
+</figure>
+  <table class="data-table">
+    <thead><tr><th>Grandeur</th><th>Symbole</th><th>Unité SI</th><th>Remarque</th></tr></thead>
+    <tbody>
+      <tr><td>Pression</td><td>\(P\)</td><td>pascal \(Pa\)</td><td>\(1\,bar=1,0\times10^5\,Pa\)</td></tr>
+      <tr><td>Volume</td><td>\(V\)</td><td>mètre cube \(m^3\)</td><td>\(1\,L=1,0\times10^{-3}\,m^3\)</td></tr>
+      <tr><td>Température</td><td>\(T\)</td><td>kelvin \(K\)</td><td>\(T(K)=\theta(^{\circ}C)+273,15\)</td></tr>
+      <tr><td>Quantité de matière</td><td>\(n\)</td><td>mole \(mol\)</td><td>\(n=m/M\)</td></tr>
+    </tbody>
+  </table>
+  <div class="warning-box"><strong>Erreur fréquente.</strong> Dans \(PV=nRT\), la température doit être en kelvins, jamais en degrés Celsius.</div>
+</section>
+
+<section class="course-section">
+  <h2>2. Interprétation microscopique</h2>
+  <p>La pression d'un gaz est liée aux chocs de ses entités sur les parois du récipient. La température mesure l'agitation thermique : quand la température augmente, les entités se déplacent en moyenne plus vite.</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 780 300" role="img" aria-labelledby="gp-part-title gp-part-desc">
+    <title id="gp-part-title">Modèle microscopique d'un gaz</title>
+    <desc id="gp-part-desc">Des entités en mouvement désordonné entrent en collision avec les parois du récipient.</desc>
+    <defs>
+      <marker id="gp-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 Z" fill="#4f46e5" />
+      </marker>
+    </defs>
+    <rect x="46" y="38" width="470" height="210" rx="18" fill="#eef2ff" stroke="#818cf8" stroke-width="3" />
+    <g fill="#4f46e5">
+      <circle cx="118" cy="91" r="12" /><circle cx="202" cy="126" r="12" /><circle cx="312" cy="86" r="12" />
+      <circle cx="430" cy="132" r="12" /><circle cx="142" cy="203" r="12" /><circle cx="276" cy="190" r="12" />
+      <circle cx="404" cy="218" r="12" />
+    </g>
+    <g stroke="#4f46e5" stroke-width="3" marker-end="url(#gp-arrow)">
+      <line x1="118" y1="91" x2="160" y2="70" /><line x1="202" y1="126" x2="178" y2="162" />
+      <line x1="312" y1="86" x2="356" y2="112" /><line x1="430" y1="132" x2="474" y2="104" />
+      <line x1="142" y1="203" x2="105" y2="228" /><line x1="276" y1="190" x2="323" y2="173" />
+      <line x1="404" y1="218" x2="450" y2="232" />
+    </g>
+    <rect x="560" y="64" width="170" height="58" rx="14" fill="#fff" stroke="#c7d2fe" />
+    <text x="582" y="99" font-size="22" font-weight="700" fill="#312e81">chocs sur paroi</text>
+    <rect x="560" y="144" width="170" height="58" rx="14" fill="#fff" stroke="#c7d2fe" />
+    <text x="588" y="179" font-size="22" font-weight="700" fill="#312e81">pression P</text>
+    <text x="72" y="282" font-size="20" fill="#1f2937">Plus les chocs sont nombreux et rapides, plus la pression est grande.</text>
+  </svg>
+  <figcaption>Dans le modèle microscopique, la pression vient des chocs des entités du gaz sur les parois.</figcaption>
+</figure>
+  <ul>
+    <li>Si on augmente la température à volume fixé, les chocs deviennent plus fréquents et plus énergétiques : la pression augmente.</li>
+    <li>Si on diminue le volume à température fixée, les entités rencontrent plus souvent les parois : la pression augmente.</li>
+    <li>Si on ajoute du gaz à volume et température fixés, il y a plus d'entités : la pression augmente.</li>
+  </ul>
+</section>
+
+<section class="course-section">
+  <h2>3. Le modèle du gaz parfait</h2>
+  <div class="definition-box">
+    <strong>Gaz parfait.</strong> Un gaz parfait est un modèle dans lequel les entités sont assimilées à des points matériels sans interaction à distance. Elles n'interagissent que lors de collisions supposées élastiques.
+  </div>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 780 230" role="img" aria-labelledby="gp-law-title gp-law-desc">
+    <title id="gp-law-title">Équation d'état du gaz parfait</title>
+    <desc id="gp-law-desc">PV égale nRT avec les unités à respecter.</desc>
+    <rect x="44" y="38" width="692" height="146" rx="20" fill="#f0fdf4" stroke="#86efac" />
+    <text x="106" y="116" font-size="46" font-weight="700" fill="#166534">PV = nRT</text>
+    <line x1="372" y1="64" x2="372" y2="158" stroke="#bbf7d0" stroke-width="4" />
+    <text x="420" y="92" font-size="22" fill="#111827">P en Pa, V en m³</text>
+    <text x="420" y="126" font-size="22" fill="#111827">n en mol, T en K</text>
+    <text x="420" y="160" font-size="22" fill="#111827">R = 8,314 J·mol⁻¹·K⁻¹</text>
+  </svg>
+  <figcaption>Une erreur d'unité suffit à rendre le résultat faux : litres, degrés Celsius et hectopascals doivent être convertis.</figcaption>
+</figure>
+  <div class="formula-box">
+    \[PV=nRT\]
+    \[R=8,314\;J\cdot mol^{-1}\cdot K^{-1}\]
+  </div>
+  <p>Le modèle fonctionne bien pour des gaz dilués, à pression modérée et température pas trop basse. Il devient moins fiable quand le gaz est très comprimé, très froid, ou proche d'un changement d'état.</p>
+</section>
+
+<section class="course-section">
+  <h2>4. Lois utiles déduites de \(PV=nRT\)</h2>
+  <p>Si certaines grandeurs restent constantes, l'équation d'état permet de prévoir simplement les variations des autres.</p>
+  <table class="data-table">
+    <thead><tr><th>Conditions</th><th>Relation</th><th>Lecture physique</th></tr></thead>
+    <tbody>
+      <tr><td>\(n\) et \(T\) constantes</td><td>\(PV=constante\)</td><td>compression isotherme : si \(V\) diminue, \(P\) augmente</td></tr>
+      <tr><td>\(n\) et \(V\) constantes</td><td>\(P/T=constante\)</td><td>échauffement à volume fixé : \(P\) augmente avec \(T\)</td></tr>
+      <tr><td>\(P\) et \(T\) constantes</td><td>\(V/n=constante\)</td><td>le volume est proportionnel à la quantité de matière</td></tr>
+    </tbody>
+  </table>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 780 320" role="img" aria-labelledby="gp-pv-title gp-pv-desc">
+    <title id="gp-pv-title">Isothermes d'un gaz parfait</title>
+    <desc id="gp-pv-desc">À température constante, la pression diminue quand le volume augmente.</desc>
+    <rect x="48" y="28" width="680" height="250" rx="18" fill="#ffffff" stroke="#e5e7eb" />
+    <line x1="104" y1="236" x2="672" y2="236" stroke="#111827" stroke-width="3" />
+    <line x1="104" y1="236" x2="104" y2="60" stroke="#111827" stroke-width="3" />
+    <text x="72" y="64" font-size="20" fill="#111827">P</text>
+    <text x="654" y="264" font-size="20" fill="#111827">V</text>
+    <path d="M132 78 C190 96 250 126 316 160 C398 202 512 224 650 230" fill="none" stroke="#4f46e5" stroke-width="5" />
+    <path d="M132 126 C210 140 286 168 356 194 C438 222 530 232 650 234" fill="none" stroke="#10b981" stroke-width="5" />
+    <text x="514" y="94" font-size="21" font-weight="700" fill="#4f46e5">température plus élevée</text>
+    <text x="514" y="136" font-size="21" font-weight="700" fill="#047857">température plus basse</text>
+  </svg>
+  <figcaption>À quantité de matière fixée, les courbes \(P=f(V)\) à température constante sont des hyperboles.</figcaption>
+</figure>
+</section>
+
+<section class="course-section">
+  <h2>5. Volume molaire et masse volumique</h2>
+  <p>Le volume molaire d'un gaz parfait est le volume occupé par une mole de gaz dans des conditions données de température et de pression.</p>
+  <div class="formula-box">
+    \[V_m=\frac{V}{n}=\frac{RT}{P}\]
+  </div>
+  <p>La masse volumique d'un gaz parfait de masse molaire \(M\) s'obtient en combinant \(m=nM\) et \(PV=nRT\).</p>
+  <div class="formula-box">
+    \[\rho=\frac{m}{V}=\frac{PM}{RT}\]
+  </div>
+  <div class="example-box"><strong>Exemple.</strong> À \(0\,^{\circ}C\) et \(1,013\times10^5\,Pa\), le volume molaire vaut environ \(22,4\,L\cdot mol^{-1}\).</div>
+</section>
+
+<section class="course-section">
+  <h2>6. Mélanges gazeux</h2>
+  <p>Dans un mélange de gaz parfaits, la pression totale est liée à la quantité totale de matière gazeuse. On peut aussi raisonner avec des pressions partielles.</p>
+  <div class="formula-box">
+    \[P_{tot}V=n_{tot}RT\]
+    \[P_{tot}=P_1+P_2+\cdots\]
+  </div>
+  <p>À température et volume fixés, chaque gaz contribue à la pression totale proportionnellement à sa quantité de matière.</p>
+</section>
+
+<section class="course-section key-points">
+  <h2>À retenir</h2>
+  <ul>
+    <li>Un gaz se décrit par \(P\), \(V\), \(T\) et \(n\).</li>
+    <li>Le modèle du gaz parfait suppose des entités très espacées et sans interaction à distance.</li>
+    <li>L'équation d'état est \(PV=nRT\), avec les unités SI.</li>
+    <li>À volume constant, la pression est proportionnelle à la température en kelvins.</li>
+    <li>Le modèle doit être critiqué quand la pression est élevée, la température basse ou le gaz proche de la liquéfaction.</li>
+  </ul>
+</section>

@@ -1,0 +1,145 @@
+[
+  {
+    "id": "signaux-capteurs-exo-1",
+    "title": "Appliquer la loi des nœuds",
+    "difficulty": 1,
+    "difficultyLabel": "Circuit",
+    "consigne": "À un nœud d'un circuit, un courant d'intensité \\(I=120\\ mA\\) arrive. Deux courants repartent : \\(I_1=45\\ mA\\) et \\(I_2\\).\n\nCalculer \\(I_2\\).",
+    "correction": [
+      "D'après la loi des nœuds, la somme des intensités qui arrivent est égale à la somme des intensités qui repartent.",
+      "On écrit : \\(I=I_1+I_2\\).",
+      "Donc \\(I_2=I-I_1=120-45=75\\ mA\\).",
+      "L'intensité \\(I_2\\) vaut \\(75\\ mA\\)."
+    ],
+    "aides": {
+      "indice": "À un nœud, le courant total qui arrive est égal au courant total qui repart.",
+      "methode": "Écris la loi des nœuds, puis isole l'intensité inconnue.",
+      "erreurFrequente": "Erreur fréquente : additionner toutes les intensités sans distinguer entrée et sortie."
+    }
+  },
+  {
+    "id": "signaux-capteurs-exo-2",
+    "title": "Appliquer la loi des mailles",
+    "difficulty": 1,
+    "difficultyLabel": "Tensions",
+    "consigne": "Dans un circuit série, un générateur impose \\(U_G=12{,}0\\ V\\). Deux dipôles reçoivent les tensions \\(U_1=7{,}5\\ V\\) et \\(U_2\\).\n\nCalculer \\(U_2\\).",
+    "correction": [
+      "Dans ce circuit série simple, \\(U_G=U_1+U_2\\).",
+      "Donc \\(U_2=U_G-U_1\\).",
+      "\\(U_2=12{,}0-7{,}5=4{,}5\\ V\\).",
+      "La tension aux bornes du second dipôle vaut \\(4{,}5\\ V\\)."
+    ],
+    "aides": {
+      "indice": "Dans une boucle série, la tension du générateur se répartit entre les dipôles.",
+      "methode": "Écris \\(U_G=U_1+U_2\\), puis isole \\(U_2\\).",
+      "erreurFrequente": "Erreur fréquente : écrire une relation d'intensités alors que l'exercice porte sur des tensions."
+    }
+  },
+  {
+    "id": "signaux-capteurs-exo-3",
+    "title": "Convertir avant la loi d'Ohm",
+    "difficulty": 2,
+    "difficultyLabel": "Ohm",
+    "consigne": "Une résistance est traversée par un courant d'intensité \\(I=80\\ mA\\). La tension à ses bornes vaut \\(U=4{,}0\\ V\\).\n\nCalculer sa résistance.",
+    "correction": [
+      "On convertit l'intensité : \\(80\\ mA=0{,}080\\ A\\).",
+      "Loi d'Ohm : \\(U=R\\times I\\), donc \\(R=\\dfrac{U}{I}\\).",
+      "\\(R=\\dfrac{4{,}0}{0{,}080}=50\\ \\Omega\\).",
+      "La résistance vaut \\(50\\ \\Omega\\)."
+    ],
+    "aides": {
+      "indice": "La loi d'Ohm utilise l'intensité en ampères.",
+      "methode": "Convertis les mA en A, puis utilise \\(R=U/I\\).",
+      "erreurFrequente": "Erreur fréquente : utiliser \\(80\\) au lieu de \\(0{,}080\\) dans le calcul."
+    }
+  },
+  {
+    "id": "signaux-capteurs-exo-4",
+    "title": "Reconnaître un conducteur ohmique",
+    "difficulty": 2,
+    "difficultyLabel": "Graphique",
+    "consigne": "La caractéristique d'un dipôle est une droite passant par l'origine dans le graphique \\(U=f(I)\\).\n\n1. Le dipôle peut-il être modélisé par un conducteur ohmique ?\n2. Quelle grandeur correspond à la pente de la droite ?",
+    "correction": [
+      "Oui, une droite passant par l'origine indique une proportionnalité entre \\(U\\) et \\(I\\).",
+      "Le dipôle peut être modélisé par un conducteur ohmique.",
+      "La pente de la droite correspond à la résistance \\(R\\)."
+    ],
+    "aides": {
+      "indice": "Cherche si \\(U\\) est proportionnelle à \\(I\\).",
+      "methode": "Regarde l'alignement des points et le passage près de l'origine.",
+      "erreurFrequente": "Erreur fréquente : relier tous les points par une courbe décorative sans modèle physique."
+    }
+  },
+  {
+    "id": "signaux-capteurs-exo-5",
+    "title": "Calculer une intensité",
+    "difficulty": 2,
+    "difficultyLabel": "Application",
+    "consigne": "Un radiateur de résistance \\(R=46\\ \\Omega\\) est branché sous une tension \\(U=230\\ V\\).\n\nCalculer l'intensité du courant qui le traverse.",
+    "correction": [
+      "Loi d'Ohm : \\(U=R\\times I\\).",
+      "On isole \\(I\\) : \\(I=\\dfrac{U}{R}\\).",
+      "\\(I=\\dfrac{230}{46}=5{,}0\\ A\\).",
+      "L'intensité du courant vaut \\(5{,}0\\ A\\)."
+    ],
+    "aides": {
+      "indice": "On cherche une intensité.",
+      "methode": "Pars de \\(U=R I\\), puis isole \\(I\\).",
+      "erreurFrequente": "Erreur fréquente : écrire \\(I=R/U\\) au lieu de \\(I=U/R\\)."
+    }
+  },
+  {
+    "id": "signaux-capteurs-exo-6",
+    "title": "Lire un point de fonctionnement",
+    "difficulty": 3,
+    "difficultyLabel": "Interpréter",
+    "consigne": "Sur un graphique tension-courant, la caractéristique d'un générateur et celle d'une DEL se coupent au point \\(P\\) de coordonnées \\(I_P=25\\ mA\\) et \\(U_P=2{,}1\\ V\\).\n\nInterpréter ce point.",
+    "correction": [
+      "Le point de fonctionnement correspond aux grandeurs réellement prises par le circuit.",
+      "L'intensité dans la DEL vaut \\(25\\ mA\\).",
+      "La tension aux bornes de la DEL vaut \\(2{,}1\\ V\\).",
+      "C'est le couple \\((I,U)\\) compatible à la fois avec le générateur et la DEL."
+    ],
+    "aides": {
+      "indice": "Le point de fonctionnement est un point commun aux deux caractéristiques.",
+      "methode": "Lis l'abscisse pour l'intensité et l'ordonnée pour la tension, avec leurs unités.",
+      "erreurFrequente": "Erreur fréquente : penser que le point de fonctionnement est choisi arbitrairement."
+    }
+  },
+  {
+    "id": "signaux-capteurs-exo-7",
+    "title": "Capteur et grandeur mesurée",
+    "difficulty": 3,
+    "difficultyLabel": "Capteurs",
+    "consigne": "Une LDR est utilisée dans un dispositif d'éclairage automatique. Sa résistance varie avec l'éclairement.\n\n1. Quelle grandeur physique est mesurée ?\n2. Quelle grandeur électrique varie ?\n3. Pourquoi une courbe d'étalonnage est-elle utile ?",
+    "correction": [
+      "La grandeur physique mesurée est l'éclairement ou la luminosité.",
+      "La grandeur électrique qui varie est la résistance de la LDR.",
+      "La courbe d'étalonnage permet de relier une valeur de résistance à une valeur d'éclairement.",
+      "Conclusion : le capteur transforme une information physique en signal électrique exploitable."
+    ],
+    "aides": {
+      "indice": "Une LDR est sensible à la lumière.",
+      "methode": "Identifie l'entrée du capteur, puis sa sortie électrique.",
+      "erreurFrequente": "Erreur fréquente : croire que le capteur affiche directement la valeur physique sans conversion."
+    }
+  },
+  {
+    "id": "signaux-capteurs-exo-8",
+    "title": "Exploiter un capteur de température",
+    "difficulty": 4,
+    "difficultyLabel": "Tâche complexe",
+    "consigne": "Une CTN est utilisée comme capteur de température. Une courbe d'étalonnage indique que sa résistance vaut \\(8{,}0\\ k\\Omega\\) à \\(20^\\circ C\\), \\(5{,}0\\ k\\Omega\\) à \\(30^\\circ C\\) et \\(3{,}2\\ k\\Omega\\) à \\(40^\\circ C\\).\n\nLors d'une mesure, on lit \\(R=5{,}0\\ k\\Omega\\).\n\n1. Estimer la température.\n2. Dire comment évolue la résistance quand la température augmente.\n3. Expliquer pourquoi on parle de capteur électrique.",
+    "correction": [
+      "D'après la courbe ou le tableau d'étalonnage, \\(R=5{,}0\\ k\\Omega\\) correspond à environ \\(30^\\circ C\\).",
+      "Quand la température augmente de \\(20^\\circ C\\) à \\(40^\\circ C\\), la résistance diminue.",
+      "On parle de capteur électrique car une grandeur physique, la température, est convertie en une grandeur électrique, la résistance.",
+      "Conclusion : l'étalonnage permet d'interpréter la mesure électrique."
+    ],
+    "aides": {
+      "indice": "Utilise le tableau comme une courbe d'étalonnage simplifiée.",
+      "methode": "Cherche la résistance mesurée dans les données, puis lis la température associée.",
+      "erreurFrequente": "Erreur fréquente : conclure que la résistance augmente avec la température alors que les valeurs montrent l'inverse."
+    }
+  }
+]

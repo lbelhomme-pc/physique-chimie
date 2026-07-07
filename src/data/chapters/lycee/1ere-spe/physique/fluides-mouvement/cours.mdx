@@ -1,0 +1,184 @@
+﻿## Objectifs
+
+- Définir la pression d'un fluide.
+- Exploiter la relation entre pression, force pressante et surface.
+- Utiliser la loi fondamentale de la statique des fluides.
+- Décrire un mouvement à partir d'un vecteur vitesse.
+- Relier variation de vitesse et résultante des forces.
+- Interpréter une situation simple de mouvement dans un fluide.
+
+## Prérequis
+
+- Connaître les unités $\text{N}$, $\text{m}^2$, $\text{Pa}$, $\text{kg}$ et $\text{m·s}^{-1}$.
+- Savoir calculer une aire simple.
+- Savoir représenter une force par un vecteur.
+- Connaître la masse volumique $\rho=\frac{m}{V}$.
+- Savoir lire une chronophotographie ou des positions successives.
+
+## Cours
+
+### 1. Pression d'un fluide
+
+#### Définition ou idée essentielle
+
+La pression $p$ décrit l'action mécanique exercée par un fluide sur une surface. À force identique, la pression est plus grande si la surface de contact est plus petite.
+
+#### Formule ou méthode
+
+$$
+p=\frac{F}{S}
+$$
+
+avec :
+
+- $p$ en pascal $\text{Pa}$ ;
+- $F$ en newton $\text{N}$ ;
+- $S$ en mètre carré $\text{m}^2$.
+
+Erreur fréquente : utiliser une surface en $\text{cm}^2$ sans la convertir en $\text{m}^2$.
+
+#### Exemple
+
+Une force pressante de $120\ \text{N}$ s'exerce sur une surface de $0{,}020\ \text{m}^2$.
+
+$$
+p=\frac{120}{0{,}020}=6{,}0\times10^3\ \text{Pa}
+$$
+
+La pression exercée vaut $6{,}0\ \text{kPa}$.
+
+### 2. Pression dans un liquide au repos
+
+#### Définition ou idée essentielle
+
+Dans un liquide au repos, la pression augmente avec la profondeur. Deux points situés à la même altitude dans un même liquide au repos ont la même pression.
+
+#### Formule ou méthode
+
+Entre deux points $A$ et $B$ d'un liquide :
+
+$$
+p_B-p_A=\rho g(z_A-z_B)
+$$
+
+Si $B$ est plus bas que $A$, alors $p_B>p_A$.
+
+avec :
+
+- $\rho$ en $\text{kg·m}^{-3}$ ;
+- $g$ en $\text{N·kg}^{-1}$ ;
+- $z$ en $\text{m}$ ;
+- $p$ en $\text{Pa}$.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 720 250" role="img" aria-labelledby="fig-fluide-title fig-fluide-desc">
+    <title id="fig-fluide-title">Pression et profondeur</title>
+    <desc id="fig-fluide-desc">Dans un récipient, un point profond a une pression plus grande qu'un point proche de la surface.</desc>
+    <rect x="180" y="40" width="280" height="170" rx="12" fill="#dbeafe" stroke="#2563eb" strokeWidth="3" />
+    <line x1="180" y1="85" x2="460" y2="85" stroke="#60a5fa" strokeWidth="4" />
+    <circle cx="260" cy="115" r="10" fill="#f97316" />
+    <text x="235" y="112" textAnchor="end">A</text>
+    <circle cx="340" cy="175" r="10" fill="#dc2626" />
+    <text x="365" y="180">B</text>
+    <line x1="500" y1="85" x2="500" y2="175" stroke="#0f172a" strokeWidth="3" markerEnd="url(#arrow-depth)" />
+    <text x="525" y="135">profondeur</text>
+    <text x="360" y="230" textAnchor="middle">pB &gt; pA</text>
+    <defs>
+      <marker id="arrow-depth" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L9,3 z" fill="#0f172a" />
+      </marker>
+    </defs>
+  </svg>
+  <figcaption>La pression augmente quand on descend dans un liquide au repos.</figcaption>
+</figure>
+
+#### Exemple
+
+Dans l'eau, $\rho=1000\ \text{kg·m}^{-3}$. Entre la surface et un point situé $2{,}0\ \text{m}$ plus bas :
+
+$$
+\Delta p=\rho gh=1000\times9{,}81\times2{,}0=2{,}0\times10^4\ \text{Pa}
+$$
+
+La pression augmente d'environ $2{,}0\times10^4\ \text{Pa}$.
+
+### 3. Force pressante
+
+#### Définition ou idée essentielle
+
+La force pressante exercée par un fluide sur une paroi est perpendiculaire à cette paroi. Sa valeur dépend de la pression et de la surface.
+
+#### Formule ou méthode
+
+$$
+F=pS
+$$
+
+avec les mêmes unités que précédemment.
+
+Erreur fréquente : orienter la force pressante parallèlement à la paroi. Elle est normale à la surface.
+
+#### Exemple
+
+Une pression de $1{,}0\times10^5\ \text{Pa}$ agit sur une surface de $2{,}0\times10^{-3}\ \text{m}^2$.
+
+$$
+F=pS=1{,}0\times10^5\times2{,}0\times10^{-3}=2{,}0\times10^2\ \text{N}
+$$
+
+La force pressante vaut $200\ \text{N}$.
+
+### 4. Forces et variation du vecteur vitesse
+
+#### Définition ou idée essentielle
+
+Si la résultante des forces exercées sur un système n'est pas nulle, son vecteur vitesse varie : sa valeur, sa direction ou son sens peut changer.
+
+#### Formule ou méthode
+
+Raisonnement qualitatif attendu :
+
+1. représenter les forces ;
+2. déterminer si elles se compensent ;
+3. relier la résultante à la variation du vecteur vitesse.
+
+Si les forces se compensent, le mouvement peut être rectiligne uniforme ou le système peut rester immobile.
+
+#### Exemple
+
+Une balle qui tombe dans l'air subit son poids vers le bas et une force de frottement vers le haut. Au début, le poids est plus grand : la vitesse augmente vers le bas. Si les forces finissent par se compenser, la vitesse devient constante.
+
+## À retenir
+
+### Définitions essentielles
+
+- La pression est une force pressante par unité de surface.
+- Dans un liquide au repos, la pression augmente avec la profondeur.
+- Une force pressante est perpendiculaire à la surface.
+- Une résultante des forces non nulle modifie le vecteur vitesse.
+
+### Formules à connaître
+
+$$
+p=\frac{F}{S}
+\qquad
+F=pS
+\qquad
+p_B-p_A=\rho g(z_A-z_B)
+$$
+
+### Méthode importante
+
+1. Convertir les surfaces en $\text{m}^2$.
+2. Identifier les altitudes ou la profondeur.
+3. Représenter les forces.
+4. Relier la résultante des forces à l'évolution du mouvement.
+
+### Pièges classiques
+
+- Confondre pression et force.
+- Oublier que la pression s'exprime en pascal.
+- Orienter la force pressante dans le mauvais sens.
+- Conclure sur un mouvement sans analyser les forces.
+
+

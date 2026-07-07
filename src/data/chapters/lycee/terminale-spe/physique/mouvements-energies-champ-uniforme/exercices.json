@@ -1,0 +1,156 @@
+[
+  {
+    "id": "champ-uniforme-01",
+    "titre": "Chute libre simple",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Une bille est lâchée sans vitesse initiale dans le champ de pesanteur uniforme. On néglige les frottements. Calculer sa vitesse et la distance parcourue après $2,0\\ s$. Prendre $g=9,81\\ m\\cdot s^{-2}$.",
+    "aide": "Le mouvement est rectiligne uniformément accéléré.",
+    "correction": [
+      "$v=gt=9,81\\times2,0=19,6\\ m\\cdot s^{-1}$.",
+      "La distance parcourue vaut $d=\\frac12gt^2=0,5\\times9,81\\times(2,0)^2=19,6\\ m$."
+    ]
+  },
+  {
+    "id": "champ-uniforme-02",
+    "titre": "Équations horaires d’un projectile",
+    "niveau": "Méthode",
+    "difficulte": 2,
+    "consigne": "Un projectile est lancé depuis le sol avec $v_0=20\\ m\\cdot s^{-1}$ sous un angle $\\alpha=30^\\circ$. Écrire les équations horaires $x(t)$ et $y(t)$ en négligeant les frottements.",
+    "aide": "Projeter la vitesse initiale sur les axes horizontal et vertical.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 250\" role=\"img\" aria-label=\"Trajectoire parabolique d'un projectile\">\n  <rect x=\"40\" y=\"28\" width=\"640\" height=\"170\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#e5e7eb\" />\n  <line x1=\"90\" y1=\"172\" x2=\"640\" y2=\"172\" stroke=\"#111827\" stroke-width=\"3\" />\n  <line x1=\"90\" y1=\"172\" x2=\"90\" y2=\"54\" stroke=\"#111827\" stroke-width=\"3\" />\n  <path d=\"M100 164 C220 50 360 50 600 164\" fill=\"none\" stroke=\"#4f46e5\" stroke-width=\"5\" />\n  <text x=\"105\" y=\"220\" font-size=\"19\" fill=\"#1f2937\">Décomposer le mouvement selon x et y.</text>\n</svg>",
+    "correction": [
+      "$v_{0x}=v_0\\cos30^\\circ\\approx17,3\\ m\\cdot s^{-1}$.",
+      "$v_{0y}=v_0\\sin30^\\circ=10,0\\ m\\cdot s^{-1}$.",
+      "Donc $x(t)=17,3t$ et $y(t)=10,0t-4,91t^2$ avec les distances en mètres."
+    ]
+  },
+  {
+    "id": "champ-uniforme-03",
+    "titre": "Hauteur maximale",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Pour le projectile précédent, déterminer la hauteur maximale atteinte.",
+    "aide": "Au sommet, la composante verticale de la vitesse est nulle.",
+    "correction": [
+      "$v_y(t)=v_{0y}-gt=10,0-9,81t$.",
+      "Au sommet, $v_y=0$, donc $t_s=10,0/9,81\\approx1,02\\ s$.",
+      "$y(t_s)=10,0\\times1,02-4,91\\times(1,02)^2\\approx5,1\\ m$."
+    ]
+  },
+  {
+    "id": "champ-uniforme-04",
+    "titre": "Vitesse par conservation de l’énergie",
+    "niveau": "Application directe",
+    "difficulte": 2,
+    "consigne": "Une bille tombe sans frottements d’une hauteur $h=3,0\\ m$ en partant du repos. Déterminer sa vitesse juste avant d’atteindre le bas.",
+    "aide": "L’énergie potentielle perdue devient énergie cinétique.",
+    "correction": [
+      "$mgh=\\frac12mv^2$.",
+      "La masse se simplifie : $v=\\sqrt{2gh}=\\sqrt{2\\times9,81\\times3,0}$.",
+      "$v\\approx7,7\\ m\\cdot s^{-1}$."
+    ]
+  },
+  {
+    "id": "champ-uniforme-05",
+    "titre": "Champ entre deux plaques",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Deux plaques parallèles sont séparées de $d=5,0\\ cm$ et soumises à une tension $U=2,0\\ kV$. Calculer la valeur du champ électrique uniforme entre les plaques.",
+    "aide": "Utiliser $E=U/d$ avec les unités SI.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 250\" role=\"img\" aria-label=\"Champ électrique uniforme entre deux plaques\">\n  <rect x=\"50\" y=\"34\" width=\"620\" height=\"160\" rx=\"16\" fill=\"#eff6ff\" stroke=\"#bfdbfe\" />\n  <rect x=\"120\" y=\"60\" width=\"480\" height=\"20\" rx=\"8\" fill=\"#ef4444\" />\n  <rect x=\"120\" y=\"150\" width=\"480\" height=\"20\" rx=\"8\" fill=\"#4f46e5\" />\n  <text x=\"94\" y=\"78\" font-size=\"22\" fill=\"#991b1b\">+</text><text x=\"94\" y=\"168\" font-size=\"22\" fill=\"#312e81\">−</text>\n  <text x=\"270\" y=\"224\" font-size=\"20\" fill=\"#1f2937\">E = U / d</text>\n</svg>",
+    "correction": [
+      "$d=5,0\\ cm=5,0\\times10^{-2}\\ m$ et $U=2,0\\times10^3\\ V$.",
+      "$E=U/d=2,0\\times10^3/(5,0\\times10^{-2})=4,0\\times10^4\\ V\\cdot m^{-1}$."
+    ]
+  },
+  {
+    "id": "champ-uniforme-06",
+    "titre": "Accélération d’un proton",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Un proton de charge $e=1,60\\times10^{-19}\\ C$ et de masse $m_p=1,67\\times10^{-27}\\ kg$ est placé dans un champ électrique uniforme $E=4,0\\times10^4\\ V\\cdot m^{-1}$. Calculer son accélération.",
+    "aide": "Pour une charge positive, $a=qE/m$.",
+    "correction": [
+      "$a=eE/m_p$.",
+      "$a=(1,60\\times10^{-19}\\times4,0\\times10^4)/(1,67\\times10^{-27})$.",
+      "$a\\approx3,8\\times10^{12}\\ m\\cdot s^{-2}$."
+    ]
+  },
+  {
+    "id": "champ-uniforme-07",
+    "titre": "Signe de la charge",
+    "niveau": "Raisonnement",
+    "difficulte": 1,
+    "consigne": "Une particule de charge négative pénètre horizontalement entre deux plaques où le champ électrique est vertical vers le bas. Dans quel sens est sa force électrique ?",
+    "aide": "La force vaut $\\vec F=q\\vec E$.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 250\" role=\"img\" aria-label=\"Champ électrique uniforme entre deux plaques\">\n  <rect x=\"50\" y=\"34\" width=\"620\" height=\"160\" rx=\"16\" fill=\"#eff6ff\" stroke=\"#bfdbfe\" />\n  <rect x=\"120\" y=\"60\" width=\"480\" height=\"20\" rx=\"8\" fill=\"#ef4444\" />\n  <rect x=\"120\" y=\"150\" width=\"480\" height=\"20\" rx=\"8\" fill=\"#4f46e5\" />\n  <text x=\"94\" y=\"78\" font-size=\"22\" fill=\"#991b1b\">+</text><text x=\"94\" y=\"168\" font-size=\"22\" fill=\"#312e81\">−</text>\n  <text x=\"270\" y=\"224\" font-size=\"20\" fill=\"#1f2937\">E = U / d</text>\n</svg>",
+    "correction": [
+      "Comme la charge est négative, la force électrique est opposée au champ.",
+      "Le champ est vers le bas, donc la force sur la particule négative est vers le haut."
+    ]
+  },
+  {
+    "id": "champ-uniforme-08",
+    "titre": "Énergie gagnée par une particule",
+    "niveau": "Application directe",
+    "difficulte": 2,
+    "consigne": "Un électron est accéléré depuis le repos par une tension de $U=500\\ V$. Quelle énergie cinétique gagne-t-il en eV puis en joules ?",
+    "aide": "Une charge élémentaire traversant 1 V gagne 1 eV en valeur absolue.",
+    "correction": [
+      "L’énergie gagnée vaut $500\\ eV$.",
+      "En joules : $E=500\\times1,60\\times10^{-19}=8,0\\times10^{-17}\\ J$."
+    ]
+  },
+  {
+    "id": "champ-uniforme-09",
+    "titre": "Vitesse d’un électron accéléré",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "En reprenant l’énergie cinétique $8,0\\times10^{-17}\\ J$ de l’exercice précédent, calculer la vitesse de l’électron. On donne $m_e=9,11\\times10^{-31}\\ kg$.",
+    "aide": "Utiliser $E_c=\\frac12mv^2$.",
+    "correction": [
+      "$v=\\sqrt{2E_c/m_e}$.",
+      "$v=\\sqrt{2\\times8,0\\times10^{-17}/(9,11\\times10^{-31})}\\approx1,3\\times10^7\\ m\\cdot s^{-1}$.",
+      "Cette vitesse reste inférieure à $c$, mais elle devient déjà importante."
+    ]
+  },
+  {
+    "id": "champ-uniforme-10",
+    "titre": "Travail du poids",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Un objet de masse $0,50\\ kg$ descend d’une altitude $z_A=8,0\\ m$ à une altitude $z_B=2,0\\ m$. Calculer le travail du poids.",
+    "aide": "$W(P)=mg(z_A-z_B)$.",
+    "correction": [
+      "$W(P)=0,50\\times9,81\\times(8,0-2,0)$.",
+      "$W(P)\\approx29\\ J$.",
+      "Le travail est positif car le déplacement se fait vers le bas, dans le sens du poids."
+    ]
+  },
+  {
+    "id": "champ-uniforme-11",
+    "titre": "Travail électrique",
+    "niveau": "Application directe",
+    "difficulte": 2,
+    "consigne": "Une particule de charge $q=+2,0\\ \\mu C$ se déplace entre deux points tels que $U_{AB}=V_A-V_B=150\\ V$. Calculer le travail de la force électrique de A vers B.",
+    "aide": "$W_{A\\to B}=qU_{AB}$.",
+    "correction": [
+      "$q=2,0\\times10^{-6}\\ C$.",
+      "$W=qU_{AB}=2,0\\times10^{-6}\\times150=3,0\\times10^{-4}\\ J$."
+    ]
+  },
+  {
+    "id": "champ-uniforme-12",
+    "titre": "Choisir la bonne méthode",
+    "niveau": "Synthèse",
+    "difficulte": 3,
+    "consigne": "Pour déterminer la vitesse d’une bille sans frottements après une chute de hauteur connue, vaut-il mieux utiliser les équations horaires ou l’énergie ? Justifier.",
+    "aide": "Chercher la méthode qui utilise directement la hauteur et la vitesse.",
+    "correction": [
+      "Les deux méthodes peuvent fonctionner si le mouvement est connu.",
+      "La méthode énergétique est plus directe : $mgh=\\frac12mv^2$ donne la vitesse sans calculer le temps.",
+      "Les équations horaires sont utiles si on demande aussi la durée, la position à chaque instant ou la trajectoire complète."
+    ]
+  }
+]

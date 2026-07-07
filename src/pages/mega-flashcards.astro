@@ -1,0 +1,35 @@
+---
+// src/pages/mega-flashcards.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MegaFlashcardsPlayer from "../components/pedagogie/MegaFlashcardsPlayer.tsx";
+
+const flashFiles = import.meta.glob("../data/chapters/**/flashcards.json", { eager: true });
+const metaFiles = import.meta.glob("../data/chapters/**/meta.json", { eager: true });
+
+const chapterMap: Record<string, { title: string; matiere: string; niveau: string }> = {};
+for (const [path, mod] of Object.entries(metaFiles)) {
+  const meta = (mod as any).default ?? mod;
+  const dir = path.split("/").slice(0, -1).join("/");
+  chapterMap[dir] = { title: meta.title, matiere: meta.matiere, niveau: meta.niveau };
+}
+
+const allCards: any[] = [];
+for (const [path, mod] of Object.entries(flashFiles)) {
+  const cards = (mod as any).default ?? mod;
+  const dir = path.split("/").slice(0, -1).join("/");
+  const info = chapterMap[dir] ?? { title: "?", matiere: "?", niveau: "?" };
+  for (const c of cards as any[]) {
+    allCards.push({ ...c, chapterTitle: info.title, matiere: info.matiere, niveau: info.niveau });
+  }
+}
+---
+<BaseLayout title="Mega Flashcards — Physique-Chimie" description="Toutes les flashcards de tous les chapitres en une seule session.">
+  <div style="text-align:center;padding:1.5rem 0 0.5rem;">
+    <span style="font-size:2.5rem;">🃏</span>
+    <h1 style="font-size:1.6rem;font-weight:800;color:var(--accent-primary);margin:0.3rem 0;">Mega Flashcards</h1>
+    <p style="color:var(--text-muted);font-size:0.95rem;">{allCards.length} cartes disponibles</p>
+  </div>
+  <div style="max-width:700px;margin:0 auto;padding:0 1rem 2rem;">
+    <MegaFlashcardsPlayer client:load allCards={allCards} />
+  </div>
+</BaseLayout>

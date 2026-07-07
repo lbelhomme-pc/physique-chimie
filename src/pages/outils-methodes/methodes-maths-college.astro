@@ -1,0 +1,128 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Méthodes maths collège - Outils & méthodes"
+  description="Méthodes mathématiques utiles en physique-chimie au collège : conversions, proportionnalité, puissances, graphiques, statistiques et vecteurs."
+  canonical="/outils-methodes/methodes-maths-college"
+  schemaType="EducationalContent"
+>
+  <main class="method-page">
+    <nav aria-label="Fil d'Ariane" class="breadcrumb">
+      <a href="/">Accueil</a> &rsaquo;
+      <a href="/outils-methodes">Outils & Méthodes</a> &rsaquo;
+      <strong>Méthodes maths collège</strong>
+    </nav>
+
+    <header class="method-hero">
+      <p class="eyebrow">Ressources transversales</p>
+      <h1>Méthodes maths collège</h1>
+      <p>Les automatismes mathématiques les plus utiles pour réussir les exercices de physique-chimie.</p>
+    </header>
+
+    <section class="method-grid" aria-label="Liste des méthodes">
+      <article class="method-card">
+        <h2>Tableau de conversion</h2>
+        <p>Utilise-le pour convertir une longueur, une masse, un volume ou une capacité sans perdre l'unité.</p>
+        <ol>
+          <li>Écris le chiffre des unités dans la colonne de l'unité de départ.</li>
+          <li>Complète avec des zéros si nécessaire.</li>
+          <li>Place la virgule dans la colonne de l'unité demandée.</li>
+        </ol>
+        <p class="example">Exemple : 2,5 m = 250 cm.</p>
+      </article>
+
+      <article class="method-card">
+        <h2>Proportionnalité</h2>
+        <p>Deux grandeurs sont proportionnelles si l'on passe de l'une à l'autre en multipliant toujours par le même nombre.</p>
+        <ol>
+          <li>Repère les deux grandeurs.</li>
+          <li>Vérifie le coefficient multiplicateur.</li>
+          <li>Utilise un tableau ou un produit en croix.</li>
+        </ol>
+        <p class="example">Exemple : si 1 L contient 5 g de sel, alors 2 L contiennent 10 g.</p>
+      </article>
+
+      <article class="method-card">
+        <h2>Isoler une inconnue</h2>
+        <p>Quand une formule contient la grandeur cherchée, on transforme l'égalité en gardant l'équilibre.</p>
+        <ol>
+          <li>Écris la relation littérale.</li>
+          <li>Entoure la grandeur cherchée.</li>
+          <li>Effectue la même opération des deux côtés.</li>
+        </ol>
+        <p class="example">Exemple : avec v = d / t, on obtient d = v × t.</p>
+      </article>
+
+      <article class="method-card">
+        <h2>Calcul numérique</h2>
+        <p>Un calcul scientifique doit toujours aboutir à une valeur accompagnée d'une unité.</p>
+        <ol>
+          <li>Remplace les grandeurs par les valeurs.</li>
+          <li>Vérifie les unités.</li>
+          <li>Calcule puis rédige une phrase de conclusion.</li>
+        </ol>
+        <p class="example">Exemple : v = 120 m / 20 s = 6 m·s⁻¹.</p>
+      </article>
+
+      <article class="method-card">
+        <h2>Puissances de dix</h2>
+        <p>Elles servent à écrire des nombres très grands ou très petits de façon compacte.</p>
+        <ol>
+          <li>10² signifie 10 × 10.</li>
+          <li>10⁻³ signifie 1 / 1000.</li>
+          <li>La notation scientifique s'écrit a × 10ⁿ avec 1 ≤ a &lt; 10.</li>
+        </ol>
+        <p class="example">Exemple : 3000 = 3,0 × 10³.</p>
+      </article>
+
+      <article class="method-card">
+        <h2>Tracer un graphique</h2>
+        <p>Un graphique doit permettre de lire correctement une relation entre deux grandeurs.</p>
+        <ol>
+          <li>Choisis l'axe horizontal et l'axe vertical.</li>
+          <li>Indique les grandeurs et les unités.</li>
+          <li>Place les points avec une échelle régulière.</li>
+        </ol>
+        <p class="example">Exemple : pour une caractéristique, on trace souvent U en fonction de I.</p>
+      </article>
+
+      <article class="method-card">
+        <h2>Statistiques et pourcentages</h2>
+        <p>Ils permettent d'exploiter une série de mesures ou une composition.</p>
+        <ol>
+          <li>Pour une moyenne, additionne les valeurs puis divise par leur nombre.</li>
+          <li>Pour un pourcentage, rapporte la partie au total.</li>
+          <li>Garde l'unité quand il y en a une.</li>
+        </ol>
+        <p class="example">Exemple : 21 L de dioxygène dans 100 L d'air représentent 21 %.</p>
+      </article>
+
+      <article class="method-card">
+        <h2>Vecteurs au collège</h2>
+        <p>Un vecteur représente une action ou un déplacement avec une direction, un sens et une valeur.</p>
+        <ol>
+          <li>Repère le point d'application.</li>
+          <li>Trace la direction.</li>
+          <li>Choisis le sens et une longueur adaptée à l'échelle.</li>
+        </ol>
+        <p class="example">Exemple : le poids est représenté par une flèche verticale vers le bas.</p>
+      </article>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .method-page { max-width: 1000px; margin: 0 auto; padding: 1rem; }
+  .method-hero { text-align: center; max-width: 720px; margin: 1rem auto 1.5rem; }
+  .eyebrow { color: var(--accent-primary); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 .35rem; }
+  .method-hero h1 { color: var(--accent-primary); margin: 0 0 .45rem; font-size: 1.7rem; }
+  .method-hero p { color: var(--text-secondary); line-height: 1.65; }
+  .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+  .method-card { background: var(--bg-card); border: 1px solid var(--border-color); border-left: 5px solid var(--accent-primary); border-radius: var(--radius-md); box-shadow: var(--shadow-card); padding: 1rem; }
+  .method-card h2 { color: var(--accent-primary); font-size: 1.08rem; margin: 0 0 .5rem; }
+  .method-card p, .method-card li { color: var(--text-secondary); line-height: 1.55; }
+  .method-card ol { padding-left: 1.25rem; }
+  .example { background: var(--accent-primary-light); border-radius: 8px; color: var(--text-primary) !important; font-weight: 700; padding: .55rem .65rem; }
+</style>

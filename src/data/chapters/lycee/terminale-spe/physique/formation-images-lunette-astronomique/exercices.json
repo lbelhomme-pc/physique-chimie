@@ -1,0 +1,161 @@
+[
+  {
+    "id": "lunette-01",
+    "titre": "Utiliser la relation de conjugaison",
+    "niveau": "Application directe",
+    "difficulte": 2,
+    "consigne": "Un objet est placé à $30,0\\ cm$ devant une lentille convergente de distance focale $f'=10,0\\ cm$. Déterminer la position de l'image avec les distances orientées.",
+    "aide": "Prendre $\\overline{OA}=-30,0\\ cm$ et utiliser $1/\\overline{OA'}-1/\\overline{OA}=1/f'$.",
+    "correction": [
+      "$\\frac{1}{\\overline{OA'}}-\\frac{1}{-30,0}=\\frac{1}{10,0}$.",
+      "$\\frac{1}{\\overline{OA'}}=\\frac{1}{10,0}-\\frac{1}{30,0}=\\frac{2}{30,0}$.",
+      "$\\overline{OA'}=15,0\\ cm$.",
+      "L'image est réelle, située à $15,0\\ cm$ après la lentille."
+    ]
+  },
+  {
+    "id": "lunette-02",
+    "titre": "Grandissement",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Dans la situation précédente, calculer le grandissement et dire si l'image est droite ou renversée.",
+    "aide": "Utiliser $\\gamma=\\overline{OA'}/\\overline{OA}$.",
+    "correction": [
+      "$\\gamma=15,0/(-30,0)=-0,50$.",
+      "Le signe négatif indique une image renversée.",
+      "Sa taille est deux fois plus petite que celle de l'objet."
+    ]
+  },
+  {
+    "id": "lunette-03",
+    "titre": "Image d'un astre à l'infini",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "L'objectif d'une lunette a une distance focale $f'_1=80,0\\ cm$. Un astre est vu sous l'angle $\\theta=2,0\\times10^{-3}\\ rad$. Calculer la hauteur de l'image intermédiaire.",
+    "aide": "Pour un petit angle, $A_1B_1\\simeq f'_1\\theta$ avec $f'_1$ en mètres.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 240\" role=\"img\" aria-label=\"Image d'un objet à l'infini par l'objectif\"><rect x=\"45\" y=\"24\" width=\"630\" height=\"160\" rx=\"16\" fill=\"#eef2ff\" stroke=\"#c7d2fe\"/><line x1=\"90\" y1=\"120\" x2=\"630\" y2=\"120\" stroke=\"#111827\" stroke-width=\"3\"/><line x1=\"340\" y1=\"55\" x2=\"340\" y2=\"185\" stroke=\"#0f766e\" stroke-width=\"5\"/><line x1=\"120\" y1=\"82\" x2=\"340\" y2=\"100\" stroke=\"#4f46e5\" stroke-width=\"4\"/><line x1=\"120\" y1=\"132\" x2=\"340\" y2=\"150\" stroke=\"#4f46e5\" stroke-width=\"4\"/><text x=\"206\" y=\"218\" font-size=\"18\" fill=\"#334155\">Rayons quasi parallèles : image dans le plan focal de l'objectif.</text></svg>",
+    "correction": [
+      "$f'_1=80,0\\ cm=0,800\\ m$.",
+      "$A_1B_1\\simeq f'_1\\theta=0,800\\times2,0\\times10^{-3}=1,6\\times10^{-3}\\ m$.",
+      "La hauteur de l'image intermédiaire est $1,6\\ mm$."
+    ]
+  },
+  {
+    "id": "lunette-04",
+    "titre": "Condition afocale",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Une lunette possède un objectif de focale $f'_1=900\\ mm$ et un oculaire de focale $f'_2=25\\ mm$. Quelle distance doit séparer les deux lentilles pour que la lunette soit afocale ?",
+    "aide": "Dans une lunette afocale, le foyer image de l'objectif coïncide avec le foyer objet de l'oculaire.",
+    "correction": [
+      "$O_1O_2=f'_1+f'_2$.",
+      "$O_1O_2=900+25=925\\ mm$.",
+      "La distance entre les lentilles doit être $92,5\\ cm$."
+    ]
+  },
+  {
+    "id": "lunette-05",
+    "titre": "Grossissement angulaire",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Calculer le grossissement d'une lunette afocale ayant $f'_1=900\\ mm$ et $f'_2=25\\ mm$.",
+    "aide": "Le signe indique l'orientation de l'image ; la valeur absolue donne le facteur de grossissement.",
+    "correction": [
+      "$G=-f'_1/f'_2=-900/25=-36$.",
+      "L'image est renversée.",
+      "La valeur absolue du grossissement est $|G|=36$."
+    ]
+  },
+  {
+    "id": "lunette-06",
+    "titre": "Choisir un oculaire",
+    "niveau": "Problème",
+    "difficulte": 2,
+    "consigne": "On souhaite obtenir un grossissement de valeur absolue $|G|=60$ avec un objectif de focale $f'_1=1,20\\ m$. Quelle focale d'oculaire faut-il choisir ?",
+    "aide": "Utiliser $|G|=f'_1/f'_2$.",
+    "correction": [
+      "$f'_2=f'_1/|G|$.",
+      "$f'_2=1,20/60=2,0\\times10^{-2}\\ m$.",
+      "Il faut un oculaire de focale $20\\ mm$."
+    ]
+  },
+  {
+    "id": "lunette-07",
+    "titre": "Angle apparent en sortie",
+    "niveau": "Calcul",
+    "difficulte": 2,
+    "consigne": "Un astre est vu directement sous l'angle $\\theta=1,5\\times10^{-3}\\ rad$. Une lunette afocale a un grossissement $G=-40$. Calculer l'angle $\\theta'$ sous lequel l'image est vue à travers la lunette.",
+    "aide": "Le grossissement angulaire est $G=\\theta'/\\theta$.",
+    "correction": [
+      "$\\theta'=G\\theta$.",
+      "$\\theta'=-40\\times1,5\\times10^{-3}=-6,0\\times10^{-2}\\ rad$.",
+      "La valeur absolue de l'angle apparent est $6,0\\times10^{-2}\\ rad$. Le signe rappelle l'inversion."
+    ]
+  },
+  {
+    "id": "lunette-08",
+    "titre": "Retrouver la focale de l'objectif",
+    "niveau": "Calcul inverse",
+    "difficulte": 2,
+    "consigne": "Une lunette afocale utilise un oculaire de focale $f'_2=12,5\\ mm$ et possède un grossissement de valeur absolue $|G|=80$. Déterminer la focale de l'objectif.",
+    "aide": "Isoler $f'_1$ dans $|G|=f'_1/f'_2$.",
+    "correction": [
+      "$f'_1=|G|f'_2$.",
+      "$f'_1=80\\times12,5=1000\\ mm$.",
+      "La focale de l'objectif est $1,00\\ m$."
+    ]
+  },
+  {
+    "id": "lunette-09",
+    "titre": "Image renversée",
+    "niveau": "Compréhension",
+    "difficulte": 1,
+    "consigne": "Pourquoi l'image donnée par une lunette astronomique de Kepler est-elle renversée ?",
+    "aide": "Regarder le rôle de l'objectif avant celui de l'oculaire.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 235\" role=\"img\" aria-label=\"Image intermédiaire dans une lunette\"><rect x=\"50\" y=\"25\" width=\"620\" height=\"145\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#e5e7eb\"/><line x1=\"100\" y1=\"118\" x2=\"620\" y2=\"118\" stroke=\"#111827\" stroke-width=\"3\"/><line x1=\"260\" y1=\"55\" x2=\"260\" y2=\"180\" stroke=\"#0f766e\" stroke-width=\"5\"/><line x1=\"465\" y1=\"70\" x2=\"465\" y2=\"166\" stroke=\"#0f766e\" stroke-width=\"5\"/><line x1=\"370\" y1=\"82\" x2=\"370\" y2=\"154\" stroke=\"#dc2626\" stroke-width=\"4\"/><text x=\"222\" y=\"207\" font-size=\"18\" fill=\"#334155\">Repérer l'image intermédiaire formée par l'objectif.</text></svg>",
+    "correction": [
+      "L'objectif forme une image intermédiaire réelle et renversée de l'objet lointain.",
+      "L'oculaire grossit l'angle sous lequel cette image intermédiaire est vue.",
+      "La lunette de Kepler donne donc une image finale renversée."
+    ]
+  },
+  {
+    "id": "lunette-10",
+    "titre": "Lunette non afocale",
+    "niveau": "Analyse",
+    "difficulte": 2,
+    "consigne": "Une lunette possède $f'_1=600\\ mm$ et $f'_2=20\\ mm$, mais les lentilles sont séparées de $650\\ mm$. Est-elle afocale ?",
+    "aide": "Comparer la distance réelle à la somme des focales.",
+    "correction": [
+      "La condition afocale impose $O_1O_2=f'_1+f'_2$.",
+      "$f'_1+f'_2=600+20=620\\ mm$.",
+      "La distance réelle vaut $650\\ mm$, donc la lunette n'est pas afocale."
+    ]
+  },
+  {
+    "id": "lunette-11",
+    "titre": "Champ et luminosité",
+    "niveau": "Compréhension",
+    "difficulte": 1,
+    "consigne": "Un élève dit : « Il suffit d'augmenter énormément le grossissement pour mieux voir une planète. » Expliquer pourquoi cette idée est incomplète.",
+    "aide": "Le grossissement n'est pas le seul critère d'observation.",
+    "correction": [
+      "Un fort grossissement agrandit l'angle apparent, mais il peut rendre l'image plus sombre ou moins nette.",
+      "Le diamètre de l'objectif est essentiel car il détermine la quantité de lumière collectée et le pouvoir séparateur.",
+      "Il faut donc adapter grossissement, diamètre et conditions d'observation."
+    ]
+  },
+  {
+    "id": "lunette-12",
+    "titre": "Synthèse numérique",
+    "niveau": "Problème",
+    "difficulte": 3,
+    "consigne": "Une lunette afocale possède un objectif de focale $f'_1=750\\ mm$ et un oculaire de focale $f'_2=15\\ mm$. Donner la distance entre les lentilles, le grossissement signé et sa valeur absolue.",
+    "aide": "Utiliser successivement la condition afocale et la formule du grossissement.",
+    "correction": [
+      "$O_1O_2=f'_1+f'_2=750+15=765\\ mm$.",
+      "$G=-f'_1/f'_2=-750/15=-50$.",
+      "La valeur absolue du grossissement est $|G|=50$."
+    ]
+  }
+]

@@ -1,0 +1,1790 @@
+.page-container:has(.lab-index),
+.page-container:has(.lab-page) {
+  max-width: 1480px;
+}
+
+.lab-index,
+.lab-page {
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+.lab-index-hero,
+.lab-hero {
+  background: linear-gradient(135deg, var(--accent-primary-light), var(--bg-card));
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.lab-index-hero {
+  padding: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.3rem;
+}
+
+.lab-index-hero__icon {
+  display: inline-flex;
+  font-size: 2.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.lab-index-hero__eyebrow,
+.lab-hero__eyebrow,
+.lab-card__meta {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.lab-index-hero h1,
+.lab-hero h1 {
+  color: var(--text-primary);
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  margin: 0.2rem 0 0.7rem;
+}
+
+.lab-index-hero p,
+.lab-hero__objective {
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 760px;
+}
+
+.lab-library-layout {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 325px minmax(0, 1fr);
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.lab-filter-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 1.65rem;
+  position: sticky;
+  top: 1rem;
+}
+
+.lab-filter-panel__head {
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+  padding-bottom: 1rem;
+}
+
+.lab-filter-panel h2 {
+  color: var(--text-primary);
+  font-size: 1.45rem;
+  letter-spacing: 0.04em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.lab-clear-button {
+  background: transparent;
+  border: 0;
+  color: var(--accent-primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 0.3rem;
+}
+
+.lab-clear-button:hover {
+  text-decoration: underline;
+}
+
+.lab-filter-group {
+  border: 0;
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0.85rem 0;
+}
+
+.lab-filter-group legend {
+  color: var(--text-secondary);
+  font-size: 0.93rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.lab-filter-group label {
+  align-items: flex-start;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.95rem;
+  gap: 0.65rem;
+  line-height: 1.25;
+}
+
+.lab-filter-group input {
+  appearance: none;
+  background: var(--bg-input);
+  border: 1.5px solid var(--text-muted);
+  border-radius: 4px;
+  flex: 0 0 auto;
+  height: 1.05rem;
+  margin-top: 0.08rem;
+  padding: 0;
+  width: 1.05rem;
+}
+
+.lab-filter-group input:checked {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.lab-subfilters {
+  border-left: 2px solid var(--border-color);
+  display: grid;
+  gap: 0.7rem;
+  margin: -0.25rem 0 0 0.5rem;
+  padding-left: 1.25rem;
+}
+
+.lab-results {
+  min-width: 0;
+}
+
+.lab-search-box {
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+  padding: 0.85rem 1rem;
+}
+
+.lab-search-box span[aria-hidden="true"] {
+  font-size: 1.25rem;
+}
+
+.lab-search-box input {
+  border: 0;
+  box-shadow: none;
+  color: var(--text-primary);
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 750;
+  min-width: 0;
+  padding: 0.25rem 0;
+}
+
+.lab-search-box input:focus {
+  box-shadow: none;
+}
+
+.lab-results-head {
+  align-items: baseline;
+  display: flex;
+  gap: 0.85rem;
+  justify-content: space-between;
+  margin: 0.4rem 0 1rem;
+}
+
+.lab-results-head h2 {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.lab-results-head span {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.lab-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.35rem;
+}
+
+.lab-no-results {
+  background: var(--accent-warning-light);
+  border-left: 5px solid var(--accent-warning);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-weight: 750;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.lab-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.lab-card:hover {
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.lab-card.is-hidden,
+.is-hidden {
+  display: none !important;
+}
+
+.lab-card__visual {
+  align-items: center;
+  background: linear-gradient(135deg, #ede9fe, #c4b5fd);
+  display: flex;
+  height: 138px;
+  justify-content: center;
+}
+
+.lab-card--physique .lab-card__visual {
+  background: linear-gradient(135deg, #dbeafe, #c4b5fd);
+}
+
+.lab-card--chimie .lab-card__visual {
+  background: linear-gradient(135deg, #dcfce7, #a7f3d0);
+}
+
+.lab-card__icon {
+  align-items: center;
+  display: inline-flex;
+  filter: drop-shadow(0 10px 18px rgba(15, 23, 42, 0.18));
+  font-size: 3rem;
+  height: 4rem;
+  justify-content: center;
+  width: 4rem;
+}
+
+.lab-card[data-app-slug="lois-kepler"] .lab-card__visual {
+  background: linear-gradient(135deg, #ffedd5, #fed7aa);
+}
+
+.lab-card[data-app-slug="gaz-parfaits"] .lab-card__visual {
+  background: linear-gradient(135deg, #e0f2fe, #7dd3fc);
+}
+
+.lab-card[data-app-slug="diffusion-temperature"] .lab-card__visual {
+  background: linear-gradient(135deg, #fce7f3, #bfdbfe);
+}
+
+.lab-card__body {
+  display: grid;
+  flex: 1;
+  gap: 0.85rem;
+  padding: 1.55rem;
+}
+
+.lab-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lab-card__tags span {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 0.45rem;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  padding: 0.25rem 0.55rem;
+  text-transform: uppercase;
+}
+
+.lab-card__body strong {
+  color: var(--text-primary);
+  font-size: 1.23rem;
+  line-height: 1.2;
+}
+
+.lab-card__body > span:not(.lab-card__tags):not(.lab-card__action) {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.lab-card__action {
+  align-self: end;
+  color: var(--accent-primary);
+  font-weight: 850;
+  margin-top: auto;
+}
+
+.lab-breadcrumb {
+  align-items: center;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  font-weight: 700;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.lab-breadcrumb a {
+  color: var(--accent-primary);
+}
+
+.lab-hero {
+  align-items: center;
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: auto 1fr;
+  margin-bottom: 1.3rem;
+  padding: 1.5rem;
+}
+
+.lab-hero__icon {
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  font-size: 2.2rem;
+  height: 4.25rem;
+  justify-content: center;
+  width: 4.25rem;
+}
+
+.lab-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+}
+
+.lab-grid--balanced {
+  grid-template-columns: minmax(280px, 390px) minmax(0, 1fr);
+}
+
+.lab-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 1.15rem;
+}
+
+.lab-panel + .lab-panel {
+  margin-top: 1rem;
+}
+
+.lab-panel__title {
+  align-items: center;
+  color: var(--text-primary);
+  display: flex;
+  font-size: 1.02rem;
+  font-weight: 800;
+  gap: 0.45rem;
+  margin: 0 0 0.75rem;
+}
+
+.lab-panel__subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: -0.3rem 0 0.9rem;
+}
+
+.lab-control {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.lab-control label {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.lab-control input[type="range"] {
+  accent-color: var(--accent-primary);
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+}
+
+.lab-control select {
+  width: 100%;
+}
+
+.lab-control input:focus-visible,
+.lab-control select:focus-visible,
+.lab-button:focus-visible,
+.lab-clear-button:focus-visible,
+.lab-card:focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.32);
+  outline-offset: 3px;
+}
+
+.lab-value,
+.lab-readout strong {
+  color: var(--accent-primary);
+  font-weight: 900;
+}
+
+.lab-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lab-chip,
+.lab-pill {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  display: inline-flex;
+  font-size: 0.84rem;
+  font-weight: 800;
+  padding: 0.35rem 0.65rem;
+}
+
+.lab-readout {
+  background: var(--accent-primary-light);
+  border: 1px solid rgba(79, 70, 229, 0.16);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  line-height: 1.55;
+  padding: 0.85rem;
+}
+
+.lab-formula {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.6;
+  padding: 0.85rem;
+  text-align: center;
+}
+
+.lab-note {
+  background: var(--accent-warning-light);
+  border-left: 5px solid var(--accent-warning);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: 1rem;
+  padding: 0.95rem 1rem;
+}
+
+.lab-button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.lab-button {
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-weight: 800;
+  gap: 0.35rem;
+  justify-content: center;
+  min-height: 2.55rem;
+  padding: 0.55rem 0.85rem;
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
+}
+
+.lab-button:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.lab-button.is-active,
+.lab-button.active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #fff;
+}
+
+.lab-button.danger {
+  border-color: rgba(239, 68, 68, 0.35);
+  color: var(--accent-danger);
+}
+
+.lab-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+  transform: none;
+}
+
+.lab-stage {
+  display: grid;
+  gap: 1rem;
+}
+
+.generic-lab {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+}
+
+.generic-lab__stage {
+  min-width: 0;
+}
+
+.generic-lab__canvas-wrap {
+  min-height: 430px;
+}
+
+.generic-lab__canvas {
+  height: 430px;
+}
+
+.generic-lab__actions {
+  margin-bottom: 1rem;
+}
+
+.solar-guide,
+.mixture-guide,
+.chrono-guide,
+.chain-guide,
+.decay-guide,
+.refraction-guide,
+.lens-guide,
+.scope-guide,
+.telescope-guide,
+.weight-guide,
+.ohm-guide,
+.power-guide,
+.thermal-guide,
+.titration-guide,
+.ions-guide,
+.mole-guide,
+.seasons-guide,
+.escape-guide {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(250, 204, 21, 0.1));
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  display: grid;
+  gap: 0.25rem;
+  line-height: 1.45;
+  margin: 0 0 1rem;
+  padding: 0.8rem;
+}
+
+.solar-guide strong,
+.mixture-guide strong,
+.chrono-guide strong,
+.chain-guide strong,
+.decay-guide strong,
+.refraction-guide strong,
+.lens-guide strong,
+.scope-guide strong,
+.telescope-guide strong,
+.weight-guide strong,
+.ohm-guide strong,
+.power-guide strong,
+.thermal-guide strong,
+.titration-guide strong,
+.ions-guide strong,
+.mole-guide strong,
+.seasons-guide strong,
+.escape-guide strong {
+  color: var(--text-primary);
+}
+
+.mixture-guide {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(16, 185, 129, 0.1));
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.chrono-guide {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(16, 185, 129, 0.1));
+  border-color: rgba(79, 70, 229, 0.22);
+}
+
+.chain-guide {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(245, 158, 11, 0.1));
+  border-color: rgba(16, 185, 129, 0.22);
+}
+
+.decay-guide {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.11), rgba(79, 70, 229, 0.1));
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.refraction-guide {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(79, 70, 229, 0.1));
+  border-color: rgba(14, 165, 233, 0.22);
+}
+
+.lens-guide {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(245, 158, 11, 0.1));
+  border-color: rgba(79, 70, 229, 0.22);
+}
+
+.scope-guide {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.08), rgba(16, 185, 129, 0.1));
+  border-color: rgba(15, 23, 42, 0.16);
+}
+
+.telescope-guide {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(14, 165, 233, 0.1));
+  border-color: rgba(79, 70, 229, 0.2);
+}
+
+.weight-guide {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.13), rgba(239, 68, 68, 0.08));
+  border-color: rgba(245, 158, 11, 0.24);
+}
+
+.ohm-guide {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(79, 70, 229, 0.1));
+  border-color: rgba(14, 165, 233, 0.22);
+}
+
+.power-guide {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(16, 185, 129, 0.1));
+  border-color: rgba(79, 70, 229, 0.22);
+}
+
+.thermal-guide {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.11), rgba(59, 130, 246, 0.1));
+  border-color: rgba(239, 68, 68, 0.18);
+}
+
+.titration-guide {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(245, 158, 11, 0.1));
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.ions-guide {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(79, 70, 229, 0.1));
+  border-color: rgba(16, 185, 129, 0.22);
+}
+
+.mole-guide {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(16, 185, 129, 0.1));
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.seasons-guide {
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.14), rgba(59, 130, 246, 0.1));
+  border-color: rgba(250, 204, 21, 0.25);
+}
+
+.escape-guide {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(245, 158, 11, 0.1));
+  border-color: rgba(79, 70, 229, 0.22);
+}
+
+.generic-lab[data-slug="systeme-solaire"] .generic-lab__canvas-wrap {
+  background: #050816;
+  border-color: rgba(30, 41, 59, 0.28);
+  min-height: 520px;
+}
+
+.generic-lab[data-slug="systeme-solaire"] .generic-lab__canvas {
+  cursor: pointer;
+  height: 520px;
+}
+
+.generic-lab[data-slug="systeme-solaire"] .orbit-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.generic-lab[data-slug="melanges"] .generic-lab__canvas-wrap {
+  background: linear-gradient(135deg, #f8fbff, #eefcf8);
+  min-height: 520px;
+}
+
+.generic-lab[data-slug="melanges"] .generic-lab__canvas {
+  cursor: pointer;
+  height: 520px;
+}
+
+.generic-lab[data-slug="melanges"] .lab-context-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.generic-lab[data-slug="lunette-afocale"] .generic-lab__canvas-wrap {
+  background: linear-gradient(135deg, #f8fbff, #eef2ff);
+  min-height: 540px;
+}
+
+.generic-lab[data-slug="lunette-afocale"] .generic-lab__canvas {
+  height: 540px;
+}
+
+.generic-lab[data-slug="lunette-afocale"] .lab-context-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.generic-lab[data-slug="loi-ohm"] .generic-lab__canvas-wrap {
+  background: linear-gradient(135deg, #f8fbff, #eef7ff);
+  min-height: 500px;
+}
+
+.generic-lab[data-slug="loi-ohm"] .generic-lab__canvas {
+  height: 500px;
+}
+
+.generic-lab[data-slug="poids-masse"] .generic-lab__canvas-wrap {
+  background: linear-gradient(135deg, #f8fbff, #eef7ff);
+  min-height: 500px;
+}
+
+.generic-lab[data-slug="poids-masse"] .generic-lab__canvas {
+  height: 500px;
+}
+
+.generic-lab[data-slug="puissance-energie"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="bilans-thermiques"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="titrage-ph-metrique"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="titrage-conductimetrique"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="test-ions"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="chronophotographie"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="chaines-energetiques"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="decroissance-radioactive"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="refraction-lumiere"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="lentilles-images"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="oscilloscope"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="mole-pesee"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="simulateur-saisons"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="escape-energie"] .generic-lab__canvas-wrap {
+  background: linear-gradient(135deg, #f8fbff, #eef7ff);
+  min-height: 500px;
+}
+
+.generic-lab[data-slug="puissance-energie"] .generic-lab__canvas,
+.generic-lab[data-slug="bilans-thermiques"] .generic-lab__canvas,
+.generic-lab[data-slug="titrage-ph-metrique"] .generic-lab__canvas,
+.generic-lab[data-slug="titrage-conductimetrique"] .generic-lab__canvas,
+.generic-lab[data-slug="test-ions"] .generic-lab__canvas,
+.generic-lab[data-slug="chronophotographie"] .generic-lab__canvas,
+.generic-lab[data-slug="chaines-energetiques"] .generic-lab__canvas,
+.generic-lab[data-slug="decroissance-radioactive"] .generic-lab__canvas,
+.generic-lab[data-slug="refraction-lumiere"] .generic-lab__canvas,
+.generic-lab[data-slug="lentilles-images"] .generic-lab__canvas,
+.generic-lab[data-slug="oscilloscope"] .generic-lab__canvas,
+.generic-lab[data-slug="mole-pesee"] .generic-lab__canvas,
+.generic-lab[data-slug="simulateur-saisons"] .generic-lab__canvas,
+.generic-lab[data-slug="escape-energie"] .generic-lab__canvas {
+  height: 500px;
+}
+
+.generic-lab[data-slug="poids-masse"] .lab-context-metrics,
+.generic-lab[data-slug="loi-ohm"] .lab-context-metrics,
+.generic-lab[data-slug="puissance-energie"] .lab-context-metrics,
+.generic-lab[data-slug="bilans-thermiques"] .lab-context-metrics,
+.generic-lab[data-slug="titrage-ph-metrique"] .lab-context-metrics,
+.generic-lab[data-slug="titrage-conductimetrique"] .lab-context-metrics,
+.generic-lab[data-slug="test-ions"] .lab-context-metrics,
+.generic-lab[data-slug="chronophotographie"] .lab-context-metrics,
+.generic-lab[data-slug="chaines-energetiques"] .lab-context-metrics,
+.generic-lab[data-slug="decroissance-radioactive"] .lab-context-metrics,
+.generic-lab[data-slug="refraction-lumiere"] .lab-context-metrics,
+.generic-lab[data-slug="lentilles-images"] .lab-context-metrics,
+.generic-lab[data-slug="oscilloscope"] .lab-context-metrics,
+.generic-lab[data-slug="mole-pesee"] .lab-context-metrics,
+.generic-lab[data-slug="simulateur-saisons"] .lab-context-metrics,
+.generic-lab[data-slug="escape-energie"] .lab-context-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.orbit-metrics,
+.gas-metrics,
+.diffusion-metrics,
+.lab-context-metrics {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0.85rem 0;
+}
+
+.orbit-metrics div,
+.gas-metrics div,
+.diffusion-metrics div,
+.lab-context-metrics div {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.65rem;
+}
+
+.orbit-metrics span,
+.gas-metrics span,
+.diffusion-metrics span,
+.lab-context-metrics span {
+  color: var(--text-muted);
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 850;
+  margin-bottom: 0.25rem;
+}
+
+.orbit-metrics strong,
+.gas-metrics strong,
+.diffusion-metrics strong,
+.lab-context-metrics strong {
+  color: var(--text-primary);
+  display: block;
+  font-size: 0.96rem;
+  line-height: 1.15;
+}
+
+.lab-canvas-wrap {
+  background: linear-gradient(180deg, var(--bg-secondary), var(--bg-card));
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+.lab-canvas {
+  display: block;
+  height: 380px;
+  width: 100%;
+}
+
+.lab-result-grid {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lab-result-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.8rem;
+}
+
+.lab-result-card span {
+  color: var(--text-muted);
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.lab-result-card strong {
+  color: var(--text-primary);
+  display: block;
+  font-size: 1.05rem;
+  margin-top: 0.2rem;
+}
+
+.lab-sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Circuit RC */
+.rc-schematic {
+  padding: 0.8rem;
+}
+
+.rc-key-grid {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 0.75rem;
+}
+
+.rc-key-grid div,
+.rc-meter-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+}
+
+.rc-key-grid span,
+.rc-meter-card span {
+  color: var(--text-muted);
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 850;
+  margin-bottom: 0.2rem;
+}
+
+.rc-key-grid strong,
+.rc-meter-card strong {
+  color: var(--text-primary);
+  display: block;
+  font-size: 1.05rem;
+}
+
+.rc-time-control {
+  margin-top: 1rem;
+}
+
+.rc-curve-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+}
+
+.rc-curve-options label {
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.86rem;
+  font-weight: 850;
+  gap: 0.35rem;
+  padding: 0.38rem 0.65rem;
+}
+
+.rc-curve-options input {
+  accent-color: var(--accent-primary);
+  margin: 0;
+}
+
+.rc-mission {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  display: grid;
+  gap: 0.25rem;
+  line-height: 1.45;
+  margin-top: 0.75rem;
+  padding: 0.85rem;
+}
+
+.rc-mission strong {
+  color: var(--text-primary);
+}
+
+.rc-circuit-svg {
+  height: auto;
+  max-height: 310px;
+  width: 100%;
+}
+
+.rc-circuit-svg .wire,
+.rc-circuit-svg .component,
+.rc-circuit-svg .switch-blade {
+  fill: none;
+  stroke: var(--text-primary);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 5;
+}
+
+.rc-circuit-svg .component {
+  stroke: var(--accent-primary);
+}
+
+.rc-circuit-svg .node {
+  fill: var(--accent-primary);
+}
+
+.rc-circuit-svg text {
+  fill: var(--text-secondary);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.rc-circuit-svg .rc-small-label {
+  fill: var(--text-muted);
+  font-size: 15px;
+  font-weight: 850;
+}
+
+.rc-circuit-svg .current-arrow {
+  stroke: var(--accent-warning);
+  stroke-linecap: round;
+  stroke-width: 4;
+  transition: opacity 0.18s ease;
+}
+
+.rc-circuit-svg .rc-svg-charge circle {
+  stroke: var(--bg-primary);
+  stroke-width: 2;
+}
+
+.rc-circuit-svg .rc-svg-charge--positive circle {
+  fill: var(--accent-danger);
+}
+
+.rc-circuit-svg .rc-svg-charge--negative circle {
+  fill: #2563eb;
+}
+
+.rc-circuit-svg .rc-svg-charge text {
+  dominant-baseline: middle;
+  fill: #fff;
+  font-size: 12px;
+  font-weight: 950;
+  pointer-events: none;
+}
+
+.rc-circuit-svg .rc-electron {
+  filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.34));
+}
+
+.rc-circuit-svg .rc-electron circle {
+  fill: #2563eb;
+  stroke: #fff;
+  stroke-width: 2.1;
+}
+
+.rc-circuit-svg .rc-electron text {
+  fill: #fff;
+  font-size: 12px;
+  font-weight: 950;
+  pointer-events: none;
+}
+
+.is-rc-running .rc-circuit-svg .switch-blade {
+  animation: rc-switch-start 0.5s ease-out;
+  stroke: var(--accent-warning);
+}
+
+.is-rc-running .rc-circuit-svg .rc-electron {
+  animation: rc-electron-pulse 0.62s ease-in-out infinite alternate;
+}
+
+.is-rc-running .rc-circuit-svg .wire {
+  stroke: color-mix(in srgb, var(--text-primary) 78%, #2563eb 22%);
+}
+
+.rc-circuit-svg .rc-electron-note,
+.rc-circuit-svg .rc-charge-state {
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.rc-circuit-svg .rc-electron-note {
+  fill: #2563eb;
+}
+
+.rc-circuit-svg .rc-charge-state {
+  fill: var(--text-primary);
+}
+
+@keyframes rc-electron-pulse {
+  from {
+    filter: drop-shadow(0 0 3px rgba(37, 99, 235, 0.25));
+  }
+
+  to {
+    filter: drop-shadow(0 0 9px rgba(37, 99, 235, 0.58));
+  }
+}
+
+@keyframes rc-switch-start {
+  0% {
+    stroke-width: 9;
+  }
+
+  100% {
+    stroke-width: 5;
+  }
+}
+
+.rc-current-pill {
+  border-color: rgba(245, 158, 11, 0.32);
+  color: var(--accent-warning);
+}
+
+.rc-current-pill.is-negative {
+  border-color: rgba(239, 68, 68, 0.32);
+  color: var(--accent-danger);
+}
+
+.rc-plates {
+  align-items: center;
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: 1fr;
+  margin-top: 0.8rem;
+}
+
+.rc-plate {
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  min-height: 2.8rem;
+  padding: 0.5rem;
+}
+
+.rc-empty-charge {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.charge-plus,
+.charge-minus {
+  align-items: center;
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 900;
+  height: 1.25rem;
+  justify-content: center;
+  width: 1.25rem;
+}
+
+.charge-plus {
+  background: var(--accent-danger);
+}
+
+.charge-minus {
+  background: #2563eb;
+}
+
+.rc-meter-grid {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.rc-meter-card--primary strong {
+  color: var(--accent-primary);
+}
+
+.rc-meter-card--success strong {
+  color: var(--accent-success);
+}
+
+.rc-meter-card--warning strong {
+  color: var(--accent-warning);
+}
+
+.rc-progress {
+  align-items: center;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin-top: 0.85rem;
+}
+
+.rc-progress__bar {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  height: 0.85rem;
+  overflow: hidden;
+}
+
+.rc-progress__bar span {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-success));
+  display: block;
+  height: 100%;
+  transition: width 0.16s ease;
+  width: 0%;
+}
+
+.rc-progress strong {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+
+.rc-graph-canvas {
+  height: 420px;
+}
+
+/* Kepler */
+.kepler-scene {
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,.18) 0 1px, transparent 2px),
+    radial-gradient(circle at 82% 28%, rgba(255,255,255,.16) 0 1px, transparent 2px),
+    radial-gradient(circle at 70% 72%, rgba(255,255,255,.14) 0 1px, transparent 2px),
+    linear-gradient(135deg, #101827, #172036 55%, #0f172a);
+  min-height: 470px;
+}
+
+.kepler-scene canvas {
+  height: 470px;
+}
+
+.kepler-area-gap {
+  border-top: 1px solid var(--border-color);
+  margin-top: 0.8rem;
+  padding-top: 0.75rem;
+}
+
+.kepler-area-gap strong {
+  color: var(--accent-success);
+}
+
+.is-kepler-running .kepler-scene {
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.18), var(--shadow-lg);
+}
+
+.kepler-hud,
+.recording-overlay {
+  backdrop-filter: blur(10px);
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md);
+  color: #e5edff;
+  font-size: 0.86rem;
+  font-weight: 800;
+  left: 1rem;
+  padding: 0.55rem 0.75rem;
+  position: absolute;
+  top: 1rem;
+}
+
+.recording-overlay {
+  background: rgba(220, 38, 38, 0.86);
+  left: auto;
+  right: 1rem;
+}
+
+.recording-overlay.hidden {
+  display: none;
+}
+
+/* Gaz parfaits */
+.pressure-screen {
+  background: #0f172a;
+  border: 2px solid #1e293b;
+  border-radius: var(--radius-md);
+  color: #22d3ee;
+  font-size: clamp(1.45rem, 5vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  padding: 0.8rem 1rem;
+  text-align: center;
+}
+
+.is-gas-running .gas-cylinder {
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.16), var(--shadow-lg);
+}
+
+.pressure-warning {
+  color: var(--accent-danger);
+  font-size: 0.86rem;
+  font-weight: 900;
+  min-height: 1.2rem;
+  opacity: 0;
+  text-align: center;
+}
+
+.gas-cylinder {
+  background: linear-gradient(90deg, rgba(59,130,246,0.08), rgba(20,184,166,0.08));
+  border: 4px solid rgba(79, 70, 229, 0.36);
+  border-radius: 1rem;
+  height: 360px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gas-cylinder canvas {
+  height: 100%;
+  width: 100%;
+}
+
+.gas-piston {
+  background: linear-gradient(90deg, #475569, #94a3b8);
+  border-left: 4px solid #1e293b;
+  bottom: 0;
+  box-shadow: -6px 0 12px rgba(15,23,42,0.18);
+  position: absolute;
+  top: 0;
+  width: 1rem;
+}
+
+.gas-piston::after {
+  background: #64748b;
+  border-radius: 999px;
+  content: "";
+  height: 0.55rem;
+  left: 1rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4rem;
+}
+
+.volume-ruler {
+  color: var(--text-muted);
+  display: flex;
+  font-size: 0.78rem;
+  font-weight: 800;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+/* Diffusion */
+.diffusion-scene {
+  align-items: end;
+  background: linear-gradient(180deg, #f8fbff, #eef8fb);
+  display: grid;
+  grid-template-columns: 86px minmax(230px, 1fr);
+  min-height: 470px;
+  padding: 1rem;
+  position: relative;
+}
+
+.diffusion-guide {
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  display: grid;
+  gap: 0.2rem;
+  line-height: 1.4;
+  margin: 0.85rem 0;
+  padding: 0.8rem;
+}
+
+.diffusion-guide strong {
+  color: var(--text-primary);
+}
+
+.thermometer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  height: 360px;
+  justify-content: end;
+}
+
+.thermometer-body {
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 19px,
+      rgba(100, 116, 139, 0.32) 20px 21px
+    ),
+    rgba(255,255,255,0.9);
+  border: 2px solid #94a3b8;
+  border-radius: 999px;
+  height: 285px;
+  overflow: hidden;
+  position: relative;
+  width: 24px;
+}
+
+.thermo-liquid {
+  background: #3b82f6;
+  bottom: 0;
+  height: 20%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transition: background-color 0.2s ease, height 0.2s ease;
+}
+
+.thermo-bulb {
+  background: #3b82f6;
+  border: 3px solid #94a3b8;
+  border-radius: 999px;
+  height: 54px;
+  margin-top: -0.8rem;
+  transition: background-color 0.2s ease;
+  width: 54px;
+}
+
+.beaker {
+  align-self: end;
+  background: rgba(255,255,255,0.68);
+  border: 4px solid rgba(30, 41, 59, 0.42);
+  border-top: 0;
+  border-radius: 0 0 1.3rem 1.3rem;
+  height: 390px;
+  overflow: hidden;
+  position: relative;
+}
+
+.diffusion-beaker-hint {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 0.65rem;
+  display: grid;
+  gap: 0.15rem;
+  left: 1rem;
+  padding: 0.45rem 0.6rem;
+  position: absolute;
+  top: 0.8rem;
+  z-index: 3;
+}
+
+.diffusion-beaker-hint strong {
+  color: var(--text-primary);
+  font-size: 0.78rem;
+}
+
+.diffusion-beaker-hint span {
+  color: var(--accent-primary);
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.water {
+  background: linear-gradient(180deg, rgba(125, 211, 252, 0.2), rgba(56, 189, 248, 0.36));
+  bottom: 0;
+  height: 76%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transition: background 0.2s ease;
+}
+
+.surface {
+  background: rgba(14, 165, 233, 0.36);
+  height: 6px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: transform 0.18s ease;
+}
+
+.water.vortex-active .surface {
+  transform: scaleY(1.25);
+}
+
+.diffusion-scene canvas {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+.is-diffusion-running .beaker {
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.14), var(--shadow-md);
+}
+
+.stirrer-bar {
+  background: linear-gradient(90deg, #1e293b 0 18%, #94a3b8 18% 32%, #334155 32% 68%, #cbd5e1 68% 82%, #1e293b 82% 100%);
+  border-radius: 999px;
+  bottom: 1.9rem;
+  box-shadow: 0 5px 12px rgba(15, 23, 42, 0.2);
+  height: 0.48rem;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  transform: translateX(-50%) scaleX(1);
+  transform-origin: 50% 50%;
+  width: 4.2rem;
+  z-index: 3;
+}
+
+.stirrer-bar::before,
+.stirrer-bar::after {
+  background: rgba(226, 232, 240, 0.75);
+  border-radius: 999px;
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 0.6rem;
+}
+
+.stirrer-bar::before {
+  left: 0.22rem;
+}
+
+.stirrer-bar::after {
+  right: 0.22rem;
+}
+
+.stirring-anim {
+  animation: stirrerDepthSpin 0.72s ease-in-out infinite;
+}
+
+@keyframes stirrerDepthSpin {
+  0%,
+  100% {
+    filter: brightness(1);
+    transform: translateX(-50%) scaleX(1) scaleY(1);
+  }
+
+  25% {
+    filter: brightness(0.86);
+    transform: translateX(-50%) scaleX(0.32) scaleY(1.22);
+  }
+
+  50% {
+    filter: brightness(1.08);
+    transform: translateX(-50%) scaleX(0.92) scaleY(1);
+  }
+
+  75% {
+    filter: brightness(0.86);
+    transform: translateX(-50%) scaleX(0.32) scaleY(1.22);
+  }
+}
+
+@media (max-width: 920px) {
+  .lab-library-layout,
+  .generic-lab,
+  .lab-grid,
+  .lab-grid--balanced {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-filter-panel {
+    position: static;
+  }
+
+  .lab-canvas,
+  .generic-lab__canvas,
+  .generic-lab__canvas-wrap,
+  .rc-graph-canvas,
+  .kepler-scene canvas,
+  .kepler-scene {
+    height: 340px;
+    min-height: 340px;
+  }
+
+  .generic-lab[data-slug="systeme-solaire"] .generic-lab__canvas,
+  .generic-lab[data-slug="systeme-solaire"] .generic-lab__canvas-wrap {
+    height: 390px;
+    min-height: 390px;
+  }
+
+  .generic-lab[data-slug="melanges"] .generic-lab__canvas,
+  .generic-lab[data-slug="melanges"] .generic-lab__canvas-wrap {
+    height: 430px;
+    min-height: 430px;
+  }
+
+  .generic-lab[data-slug="lunette-afocale"] .generic-lab__canvas,
+  .generic-lab[data-slug="lunette-afocale"] .generic-lab__canvas-wrap {
+    height: 430px;
+    min-height: 430px;
+  }
+
+  .generic-lab[data-slug="poids-masse"] .generic-lab__canvas,
+  .generic-lab[data-slug="loi-ohm"] .generic-lab__canvas,
+  .generic-lab[data-slug="loi-ohm"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="puissance-energie"] .generic-lab__canvas,
+  .generic-lab[data-slug="puissance-energie"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="bilans-thermiques"] .generic-lab__canvas,
+  .generic-lab[data-slug="bilans-thermiques"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="titrage-ph-metrique"] .generic-lab__canvas,
+  .generic-lab[data-slug="titrage-ph-metrique"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="titrage-conductimetrique"] .generic-lab__canvas,
+  .generic-lab[data-slug="titrage-conductimetrique"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="test-ions"] .generic-lab__canvas,
+  .generic-lab[data-slug="test-ions"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="chronophotographie"] .generic-lab__canvas,
+  .generic-lab[data-slug="chronophotographie"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="chaines-energetiques"] .generic-lab__canvas,
+  .generic-lab[data-slug="chaines-energetiques"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="decroissance-radioactive"] .generic-lab__canvas,
+  .generic-lab[data-slug="decroissance-radioactive"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="refraction-lumiere"] .generic-lab__canvas,
+  .generic-lab[data-slug="refraction-lumiere"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="lentilles-images"] .generic-lab__canvas,
+  .generic-lab[data-slug="lentilles-images"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="oscilloscope"] .generic-lab__canvas,
+  .generic-lab[data-slug="oscilloscope"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="mole-pesee"] .generic-lab__canvas,
+  .generic-lab[data-slug="mole-pesee"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="simulateur-saisons"] .generic-lab__canvas,
+  .generic-lab[data-slug="simulateur-saisons"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="escape-energie"] .generic-lab__canvas,
+  .generic-lab[data-slug="escape-energie"] .generic-lab__canvas-wrap {
+    height: 420px;
+    min-height: 420px;
+  }
+
+  .generic-lab[data-slug="poids-masse"] .generic-lab__canvas,
+  .generic-lab[data-slug="poids-masse"] .generic-lab__canvas-wrap {
+    height: 500px;
+    min-height: 500px;
+  }
+
+  .rc-meter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .lab-index-hero,
+  .lab-hero,
+  .lab-panel,
+  .lab-filter-panel {
+    padding: 1rem;
+  }
+
+  .lab-hero {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .lab-card {
+    min-height: 0;
+  }
+
+  .lab-card__visual {
+    height: 110px;
+  }
+
+  .lab-results-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .lab-search-box input {
+    font-size: 0.92rem;
+  }
+
+  .lab-result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rc-key-grid,
+  .rc-meter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .orbit-metrics,
+  .gas-metrics,
+  .diffusion-metrics,
+  .lab-context-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .generic-lab[data-slug="systeme-solaire"] .orbit-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .generic-lab[data-slug="melanges"] .lab-context-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .generic-lab[data-slug="lunette-afocale"] .lab-context-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .generic-lab[data-slug="poids-masse"] .lab-context-metrics,
+  .generic-lab[data-slug="loi-ohm"] .lab-context-metrics,
+  .generic-lab[data-slug="puissance-energie"] .lab-context-metrics,
+  .generic-lab[data-slug="bilans-thermiques"] .lab-context-metrics,
+  .generic-lab[data-slug="titrage-ph-metrique"] .lab-context-metrics,
+  .generic-lab[data-slug="titrage-conductimetrique"] .lab-context-metrics,
+  .generic-lab[data-slug="test-ions"] .lab-context-metrics,
+  .generic-lab[data-slug="chronophotographie"] .lab-context-metrics,
+  .generic-lab[data-slug="chaines-energetiques"] .lab-context-metrics,
+  .generic-lab[data-slug="decroissance-radioactive"] .lab-context-metrics,
+  .generic-lab[data-slug="refraction-lumiere"] .lab-context-metrics,
+  .generic-lab[data-slug="lentilles-images"] .lab-context-metrics,
+  .generic-lab[data-slug="oscilloscope"] .lab-context-metrics,
+  .generic-lab[data-slug="mole-pesee"] .lab-context-metrics,
+  .generic-lab[data-slug="simulateur-saisons"] .lab-context-metrics,
+  .generic-lab[data-slug="escape-energie"] .lab-context-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .rc-progress {
+    grid-template-columns: 1fr;
+  }
+
+  .diffusion-scene {
+    grid-template-columns: 58px minmax(0, 1fr);
+    min-height: 360px;
+    padding: 0.7rem;
+  }
+
+  .thermometer {
+    height: 285px;
+  }
+
+  .thermometer-body {
+    height: 215px;
+  }
+
+  .beaker {
+    height: 310px;
+  }
+
+  .gas-cylinder {
+    height: 300px;
+  }
+}
+
+@media (max-width: 420px) {
+  .diffusion-scene {
+    gap: 0.65rem;
+    grid-template-columns: 1fr;
+  }
+
+  .thermometer {
+    align-items: end;
+    flex-direction: row;
+    height: 92px;
+    justify-content: center;
+  }
+
+  .thermometer-body {
+    height: 82px;
+    width: 20px;
+  }
+
+  .thermo-bulb {
+    height: 38px;
+    margin: 0 0 0 -0.25rem;
+    width: 38px;
+  }
+
+  .beaker {
+    height: 300px;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-card,
+  .lab-button,
+  .stirring-anim {
+    animation: none !important;
+    transition: none !important;
+  }
+}

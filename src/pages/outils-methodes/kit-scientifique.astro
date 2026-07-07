@@ -1,0 +1,394 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Kit scientifique - Outils & méthodes"
+  description="Calculatrice, convertisseur, traceur graphique, équilibreur d'équations et préparation de solutions pour la physique-chimie."
+  canonical="/outils-methodes/kit-scientifique"
+  schemaType="EducationalContent"
+>
+  <main class="tool-page" aria-labelledby="page-title">
+    <nav aria-label="Fil d'Ariane" class="breadcrumb">
+      <a href="/">Accueil</a> &rsaquo;
+      <a href="/outils-methodes">Outils & Méthodes</a> &rsaquo;
+      <strong>Kit scientifique</strong>
+    </nav>
+
+    <header class="tool-hero">
+      <p class="tool-eyebrow">Outils interactifs</p>
+      <h1 id="page-title">Kit scientifique</h1>
+      <p>Des outils courts pour calculer, convertir, tracer, équilibrer et préparer une solution sans quitter le site.</p>
+    </header>
+
+    <section class="tool-tabs" aria-label="Choisir un outil">
+      <button type="button" class="tool-tab is-active" data-tool-tab="calculator">Calculatrice</button>
+      <button type="button" class="tool-tab" data-tool-tab="converter">Convertisseur</button>
+      <button type="button" class="tool-tab" data-tool-tab="graph">Traceur graphique</button>
+      <button type="button" class="tool-tab" data-tool-tab="balance">Équilibrer</button>
+      <button type="button" class="tool-tab" data-tool-tab="solution">Solutions</button>
+    </section>
+
+    <section class="tool-panel is-active" id="calculator" data-tool-panel>
+      <div class="panel-heading">
+        <h2>Calculatrice scientifique</h2>
+        <p>Utilise le point ou la virgule décimale. Les résultats sont arrondis pour éviter les décimales parasites.</p>
+      </div>
+      <label class="field-label" for="calc-input">Expression</label>
+      <div class="input-row">
+        <input id="calc-input" class="tool-input" value="(12,5 / 2) + 3^2" />
+        <button type="button" class="primary-btn" id="calc-run">Calculer</button>
+      </div>
+      <div class="quick-row" aria-label="Exemples de calculs">
+        <button type="button" data-calc-example="2,5*10^3">2,5 × 10³</button>
+        <button type="button" data-calc-example="sqrt(49)">√49</button>
+        <button type="button" data-calc-example="sin(30)">sin(30°)</button>
+        <button type="button" data-calc-example="3,00e8*8*60">c × 8 min</button>
+      </div>
+      <output id="calc-output" class="result-box" aria-live="polite"></output>
+      <p class="method-note">Fonctions admises : <code>sqrt</code>, <code>sin</code>, <code>cos</code>, <code>tan</code>, <code>log</code>, <code>ln</code>. Les angles trigonométriques sont en degrés.</p>
+    </section>
+
+    <section class="tool-panel" id="converter" data-tool-panel>
+      <div class="panel-heading">
+        <h2>Convertisseur d'unités</h2>
+        <p>Choisis une famille de grandeurs, les unités de départ et d'arrivée, puis vérifie l'ordre de grandeur.</p>
+      </div>
+      <div class="tool-grid-4">
+        <label>Grandeur
+          <select id="conv-kind" class="tool-input"></select>
+        </label>
+        <label>Valeur
+          <input id="conv-value" class="tool-input" value="1" inputmode="decimal" />
+        </label>
+        <label>De
+          <select id="conv-from" class="tool-input"></select>
+        </label>
+        <label>Vers
+          <select id="conv-to" class="tool-input"></select>
+        </label>
+      </div>
+      <button type="button" class="primary-btn" id="conv-run">Convertir</button>
+      <output id="conv-output" class="result-box" aria-live="polite"></output>
+      <p class="method-note">Pour les vitesses, l'outil utilise notamment <strong>1 m·s⁻¹ = 3,6 km·h⁻¹</strong>.</p>
+    </section>
+
+    <section class="tool-panel" id="graph" data-tool-panel>
+      <div class="panel-heading">
+        <h2>Traceur graphique</h2>
+        <p>Saisis des couples de valeurs. L'outil trace les points et estime une droite si les points sont proches d'une proportionnalité.</p>
+      </div>
+      <div class="tool-grid-2">
+        <label>Titre du graphique
+          <input id="graph-title" class="tool-input" value="Caractéristique tension-intensité" />
+        </label>
+        <label>Axes
+          <input id="graph-axes" class="tool-input" value="I (A);U (V)" />
+        </label>
+      </div>
+      <label class="field-label" for="graph-data">Données : une ligne par point, au format x ; y</label>
+      <textarea id="graph-data" class="tool-textarea" rows="6">0;0
+0.02;1.9
+0.04;4.1
+0.06;6.0
+0.08;8.2</textarea>
+      <button type="button" class="primary-btn" id="graph-run">Tracer</button>
+      <div id="graph-output" class="graph-box" aria-live="polite"></div>
+    </section>
+
+    <section class="tool-panel" id="balance" data-tool-panel>
+      <div class="panel-heading">
+        <h2>Équilibrer une équation chimique</h2>
+        <p>Écris une équation non ajustée. Utilise <code>-></code> pour la flèche et <code>+</code> entre les espèces.</p>
+      </div>
+      <label class="field-label" for="balance-input">Équation</label>
+      <div class="input-row">
+        <input id="balance-input" class="tool-input" value="H2 + O2 -> H2O" />
+        <button type="button" class="primary-btn" id="balance-run">Équilibrer</button>
+      </div>
+      <div class="quick-row">
+        <button type="button" data-balance-example="Fe + O2 -> Fe2O3">Fe + O₂</button>
+        <button type="button" data-balance-example="CH4 + O2 -> CO2 + H2O">Combustion</button>
+        <button type="button" data-balance-example="Al + O2 -> Al2O3">Al + O₂</button>
+      </div>
+      <output id="balance-output" class="result-box formula-result" aria-live="polite"></output>
+      <p class="method-note">L'outil aide à vérifier une équation, mais il ne remplace pas la méthode : conserver les éléments puis vérifier les coefficients.</p>
+    </section>
+
+    <section class="tool-panel" id="solution" data-tool-panel>
+      <div class="panel-heading">
+        <h2>Préparer une solution</h2>
+        <p>Deux calculateurs rapides : dissolution avec concentration en masse, et dilution avec la relation <code>C₁V₁ = C₂V₂</code>.</p>
+      </div>
+      <div class="solution-grid">
+        <article class="mini-tool">
+          <h3>Dissolution</h3>
+          <p>Calcule la masse de soluté à peser avec <code>m = Cₘ × V</code>.</p>
+          <label>Concentration massique Cₘ (g·L⁻¹)
+            <input id="sol-cm" class="tool-input" value="5.0" inputmode="decimal" />
+          </label>
+          <label>Volume V (mL)
+            <input id="sol-v" class="tool-input" value="100" inputmode="decimal" />
+          </label>
+          <button type="button" class="primary-btn" id="sol-run">Calculer la masse</button>
+          <output id="sol-output" class="result-box" aria-live="polite"></output>
+        </article>
+        <article class="mini-tool">
+          <h3>Dilution</h3>
+          <p>Calcule le volume de solution mère à prélever avec <code>V₁ = C₂V₂ / C₁</code>.</p>
+          <label>C₁ solution mère (mol·L⁻¹)
+            <input id="dil-c1" class="tool-input" value="0.50" inputmode="decimal" />
+          </label>
+          <label>C₂ solution fille (mol·L⁻¹)
+            <input id="dil-c2" class="tool-input" value="0.10" inputmode="decimal" />
+          </label>
+          <label>V₂ volume final (mL)
+            <input id="dil-v2" class="tool-input" value="100" inputmode="decimal" />
+          </label>
+          <button type="button" class="primary-btn" id="dil-run">Calculer V₁</button>
+          <output id="dil-output" class="result-box" aria-live="polite"></output>
+        </article>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .tool-page { max-width: 980px; margin: 0 auto; padding: 1rem; }
+  .tool-hero { text-align: center; margin: 1rem auto 1.4rem; max-width: 760px; }
+  .tool-eyebrow { color: var(--accent-primary); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 .35rem; }
+  .tool-hero h1 { color: var(--accent-primary); font-size: 1.7rem; margin: 0 0 .45rem; }
+  .tool-hero p, .panel-heading p, .method-note { color: var(--text-secondary); line-height: 1.65; }
+  .tool-tabs { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1rem; }
+  .tool-tab { border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-primary); border-radius: 999px; padding: .55rem .85rem; font-weight: 700; cursor: pointer; }
+  .tool-tab.is-active { border-color: var(--accent-primary); background: var(--accent-primary-light); color: var(--accent-primary); }
+  .tool-panel { display: none; background: var(--bg-card); border: 1px solid var(--border-color); border-left: 5px solid var(--accent-primary); border-radius: var(--radius-md); box-shadow: var(--shadow-card); padding: 1.15rem; }
+  .tool-panel.is-active { display: block; }
+  .panel-heading h2 { color: var(--accent-primary); margin: 0 0 .35rem; font-size: 1.25rem; }
+  .field-label, label { color: var(--text-primary); display: flex; flex-direction: column; gap: .35rem; font-weight: 700; }
+  .tool-input, .tool-textarea { background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); font: inherit; padding: .7rem .8rem; width: 100%; box-sizing: border-box; }
+  .tool-textarea { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; resize: vertical; }
+  .input-row { display: grid; grid-template-columns: 1fr auto; gap: .7rem; align-items: end; margin: .6rem 0; }
+  .primary-btn { background: var(--accent-primary); border: none; border-radius: 10px; color: #fff; cursor: pointer; font-weight: 800; padding: .72rem 1rem; }
+  .primary-btn:hover, .primary-btn:focus-visible { filter: brightness(.96); transform: translateY(-1px); }
+  .quick-row { display: flex; gap: .5rem; flex-wrap: wrap; margin: .65rem 0; }
+  .quick-row button { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 999px; color: var(--text-secondary); cursor: pointer; padding: .4rem .7rem; }
+  .result-box, .graph-box { display: block; margin-top: .8rem; min-height: 2.8rem; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); padding: .85rem; }
+  .formula-result { font-size: 1.12rem; font-weight: 800; }
+  .tool-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin: .7rem 0; }
+  .tool-grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin: .7rem 0; }
+  .solution-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .mini-tool { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem; }
+  .mini-tool h3 { margin-top: 0; color: var(--accent-primary); }
+  .graph-box svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+  @media (max-width: 760px) {
+    .input-row, .tool-grid-2, .tool-grid-4, .solution-grid { grid-template-columns: 1fr; }
+    .primary-btn { width: 100%; }
+  }
+</style>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const toNumber = (value) => Number(String(value).trim().replace(",", "."));
+  const fmt = (value, digits = 6) => Number(value).toLocaleString("fr-FR", { maximumSignificantDigits: digits });
+
+  document.querySelectorAll("[data-tool-tab]").forEach((button) => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll("[data-tool-tab]").forEach((b) => b.classList.remove("is-active"));
+      document.querySelectorAll("[data-tool-panel]").forEach((p) => p.classList.remove("is-active"));
+      button.classList.add("is-active");
+      $(button.dataset.toolTab).classList.add("is-active");
+    });
+  });
+
+  function safeCalc(expression) {
+    const normalized = expression
+      .replace(/,/g, ".")
+      .replace(/×/g, "*")
+      .replace(/÷/g, "/")
+      .replace(/\^/g, "**")
+      .replace(/π/g, "pi")
+      .replace(/√/g, "sqrt");
+    if (!/^[0-9+\-*/().,\s*eEpisncoatlgrq]+$/.test(normalized)) throw new Error("Caractère non autorisé.");
+    const deg = Math.PI / 180;
+    const fn = new Function("sin", "cos", "tan", "sqrt", "log", "ln", "pi", "e", `"use strict"; return (${normalized});`);
+    return fn((x) => Math.sin(x * deg), (x) => Math.cos(x * deg), (x) => Math.tan(x * deg), Math.sqrt, Math.log10, Math.log, Math.PI, Math.E);
+  }
+  $("calc-run").addEventListener("click", () => {
+    try {
+      const value = safeCalc($("calc-input").value);
+      if (!Number.isFinite(value)) throw new Error("Résultat non fini.");
+      $("calc-output").textContent = `Résultat : ${fmt(value, 10)}`;
+    } catch {
+      $("calc-output").textContent = "Expression non reconnue. Vérifie les parenthèses, les signes et les nombres.";
+    }
+  });
+  document.querySelectorAll("[data-calc-example]").forEach((b) => b.addEventListener("click", () => {
+    $("calc-input").value = b.dataset.calcExample;
+    $("calc-run").click();
+  }));
+
+  const unitFamilies = {
+    length: { label: "Longueur", units: [["km", 1000], ["m", 1], ["dm", 0.1], ["cm", 0.01], ["mm", 0.001]] },
+    mass: { label: "Masse", units: [["kg", 1000], ["g", 1], ["mg", 0.001]] },
+    volume: { label: "Volume", units: [["m³", 1000], ["L", 1], ["dL", 0.1], ["cL", 0.01], ["mL", 0.001], ["cm³", 0.001]] },
+    time: { label: "Durée", units: [["h", 3600], ["min", 60], ["s", 1], ["ms", 0.001]] },
+    speed: { label: "Vitesse", units: [["km/h", 1 / 3.6], ["m/s", 1], ["cm/s", 0.01]] },
+    energy: { label: "Énergie", units: [["kWh", 3600000], ["kJ", 1000], ["J", 1], ["eV", 1.602e-19]] }
+  };
+  function fillConverter() {
+    $("conv-kind").innerHTML = Object.entries(unitFamilies).map(([k, f]) => `<option value="${k}">${f.label}</option>`).join("");
+    updateUnits();
+  }
+  function updateUnits() {
+    const family = unitFamilies[$("conv-kind").value];
+    const options = family.units.map(([u, factor]) => `<option value="${factor}">${u}</option>`).join("");
+    $("conv-from").innerHTML = options;
+    $("conv-to").innerHTML = options;
+    $("conv-to").selectedIndex = Math.min(1, family.units.length - 1);
+  }
+  $("conv-kind").addEventListener("change", updateUnits);
+  $("conv-run").addEventListener("click", () => {
+    const value = toNumber($("conv-value").value);
+    if (!Number.isFinite(value)) return $("conv-output").textContent = "Valeur non reconnue.";
+    const result = value * Number($("conv-from").value) / Number($("conv-to").value);
+    const fromUnit = $("conv-from").selectedOptions[0].textContent;
+    const toUnit = $("conv-to").selectedOptions[0].textContent;
+    $("conv-output").textContent = `${fmt(value)} ${fromUnit} = ${fmt(result, 10)} ${toUnit}`;
+  });
+  fillConverter();
+
+  function parsePairs(text) {
+    return text.split(/\n+/).map((line) => line.trim()).filter(Boolean).map((line) => {
+      const [x, y] = line.split(/[;,\t ]+/).map(toNumber);
+      if (!Number.isFinite(x) || !Number.isFinite(y)) throw new Error("Donnée invalide");
+      return { x, y };
+    });
+  }
+  $("graph-run").addEventListener("click", () => {
+    try {
+      const points = parsePairs($("graph-data").value);
+      const [xLabel = "x", yLabel = "y"] = $("graph-axes").value.split(";");
+      const xs = points.map((p) => p.x), ys = points.map((p) => p.y);
+      const minX = Math.min(...xs, 0), maxX = Math.max(...xs, 1);
+      const minY = Math.min(...ys, 0), maxY = Math.max(...ys, 1);
+      const sx = (x) => 65 + ((x - minX) / (maxX - minX || 1)) * 560;
+      const sy = (y) => 300 - ((y - minY) / (maxY - minY || 1)) * 230;
+      const slope = points.reduce((s, p) => s + p.x * p.y, 0) / (points.reduce((s, p) => s + p.x * p.x, 0) || 1);
+      const dots = points.map((p) => `<circle cx="${sx(p.x).toFixed(1)}" cy="${sy(p.y).toFixed(1)}" r="5" fill="#4f46e5"><title>${p.x}; ${p.y}</title></circle>`).join("");
+      const line = `<line x1="${sx(minX)}" y1="${sy(slope * minX)}" x2="${sx(maxX)}" y2="${sy(slope * maxX)}" stroke="#16a34a" stroke-width="3" stroke-dasharray="8 5"/>`;
+      $("graph-output").innerHTML = `<svg viewBox="0 0 680 345" role="img" aria-label="Graphique généré à partir des points saisis">
+        <rect x="0" y="0" width="680" height="345" rx="12" fill="white"/>
+        <text x="340" y="28" text-anchor="middle" font-weight="800" fill="#1e293b">${$("graph-title").value}</text>
+        <line x1="65" y1="300" x2="640" y2="300" stroke="#1e293b" stroke-width="2"/>
+        <line x1="65" y1="300" x2="65" y2="45" stroke="#1e293b" stroke-width="2"/>
+        ${line}${dots}
+        <text x="635" y="330" text-anchor="end" fill="#475569">${xLabel}</text>
+        <text x="15" y="60" fill="#475569">${yLabel}</text>
+      </svg><p class="method-note">Modèle passant par l'origine estimé : ${yLabel.trim()} ≈ ${fmt(slope, 5)} × ${xLabel.trim()}.</p>`;
+    } catch {
+      $("graph-output").textContent = "Impossible de tracer : vérifie le format des données, une ligne par point.";
+    }
+  });
+
+  function parseFormula(formula) {
+    formula = formula.replace(/_/g, "").replace(/\s/g, "");
+    let i = 0;
+    function readGroup(stop) {
+      const counts = {};
+      while (i < formula.length && formula[i] !== stop) {
+        if (formula[i] === "(") {
+          i++;
+          const inner = readGroup(")");
+          i++;
+          const mult = readNumber();
+          for (const [atom, n] of Object.entries(inner)) counts[atom] = (counts[atom] || 0) + n * mult;
+        } else {
+          const atom = formula.slice(i).match(/^[A-Z][a-z]?/);
+          if (!atom) throw new Error("Atome invalide");
+          i += atom[0].length;
+          counts[atom[0]] = (counts[atom[0]] || 0) + readNumber();
+        }
+      }
+      return counts;
+    }
+    function readNumber() {
+      const m = formula.slice(i).match(/^\d+/);
+      if (!m) return 1;
+      i += m[0].length;
+      return Number(m[0]);
+    }
+    return readGroup("");
+  }
+  function solveCoefficients(matrix) {
+    const rows = matrix.length, cols = matrix[0].length;
+    const a = matrix.map((r) => r.slice());
+    let pivot = 0;
+    for (let col = 0; col < cols - 1 && pivot < rows; col++) {
+      let max = pivot;
+      for (let r = pivot + 1; r < rows; r++) if (Math.abs(a[r][col]) > Math.abs(a[max][col])) max = r;
+      [a[pivot], a[max]] = [a[max], a[pivot]];
+      if (Math.abs(a[pivot][col]) < 1e-10) continue;
+      for (let r = 0; r < rows; r++) if (r !== pivot) {
+        const factor = a[r][col] / a[pivot][col];
+        for (let c = col; c < cols; c++) a[r][c] -= factor * a[pivot][c];
+      }
+      pivot++;
+    }
+    const sol = Array(cols).fill(0);
+    sol[cols - 1] = 1;
+    for (let r = 0; r < pivot; r++) {
+      let col = 0;
+      while (col < cols && Math.abs(a[r][col]) < 1e-10) col++;
+      if (col < cols - 1) sol[col] = -a[r][cols - 1] / a[r][col];
+    }
+    for (let q = 1; q <= 120; q++) {
+      const ints = sol.map((x) => Math.round(x * q));
+      if (ints.every((x, i) => x > 0 && Math.abs(x - sol[i] * q) < 1e-7)) return ints;
+    }
+    return null;
+  }
+  function formatFormula(formula) {
+    return formula.replace(/([A-Z][a-z]?)(\d+)/g, "$1<sub>$2</sub>");
+  }
+  $("balance-run").addEventListener("click", () => {
+    try {
+      const sides = $("balance-input").value.split(/->|=/);
+      if (sides.length !== 2) throw new Error("flèche");
+      const left = sides[0].split("+").map((s) => s.trim()).filter(Boolean);
+      const right = sides[1].split("+").map((s) => s.trim()).filter(Boolean);
+      const molecules = [...left, ...right];
+      const parsed = molecules.map(parseFormula);
+      const atoms = [...new Set(parsed.flatMap((m) => Object.keys(m)))];
+      const matrix = atoms.map((atom) => parsed.map((m, i) => (i < left.length ? 1 : -1) * (m[atom] || 0)));
+      const coeffs = solveCoefficients(matrix);
+      if (!coeffs) throw new Error("solve");
+      const render = (arr, start) => arr.map((m, i) => `${coeffs[start + i] === 1 ? "" : coeffs[start + i] + " "}${formatFormula(m)}`).join(" + ");
+      $("balance-output").innerHTML = `${render(left, 0)} → ${render(right, left.length)}`;
+    } catch {
+      $("balance-output").textContent = "Équation non reconnue. Essaie une écriture simple comme H2 + O2 -> H2O.";
+    }
+  });
+  document.querySelectorAll("[data-balance-example]").forEach((b) => b.addEventListener("click", () => {
+    $("balance-input").value = b.dataset.balanceExample;
+    $("balance-run").click();
+  }));
+
+  $("sol-run").addEventListener("click", () => {
+    const cm = toNumber($("sol-cm").value), vMl = toNumber($("sol-v").value);
+    if (!Number.isFinite(cm) || !Number.isFinite(vMl)) return $("sol-output").textContent = "Données non reconnues.";
+    $("sol-output").textContent = `Volume : ${fmt(vMl / 1000)} L ; masse à peser : ${fmt(cm * vMl / 1000)} g.`;
+  });
+  $("dil-run").addEventListener("click", () => {
+    const c1 = toNumber($("dil-c1").value), c2 = toNumber($("dil-c2").value), v2 = toNumber($("dil-v2").value);
+    if (!Number.isFinite(c1) || !Number.isFinite(c2) || !Number.isFinite(v2) || c1 === 0) return $("dil-output").textContent = "Données non reconnues.";
+    $("dil-output").textContent = `Volume de solution mère à prélever : ${fmt((c2 * v2) / c1)} mL.`;
+  });
+
+  $("calc-run").click();
+  $("conv-run").click();
+  $("graph-run").click();
+  $("balance-run").click();
+  $("sol-run").click();
+  $("dil-run").click();
+</script>

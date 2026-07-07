@@ -1,0 +1,122 @@
+<section class="course-section">
+  <h2>Objectifs du chapitre</h2>
+  <ul class="objectives-list">
+    <li>Calculer un rendement de synthèse en tenant compte du réactif limitant et de la pureté.</li>
+    <li>Distinguer amélioration de la vitesse et amélioration de l'état final.</li>
+    <li>Choisir des conditions expérimentales pertinentes : excès, catalyse, chauffage, solvant, extraction.</li>
+    <li>Identifier les étapes de purification et d'analyse d'un produit.</li>
+    <li>Comparer des protocoles avec des critères de sécurité, coût, déchets et chimie plus responsable.</li>
+  </ul>
+</section>
+
+<section class="course-section">
+  <h2>1. Ce qu'on cherche à optimiser</h2>
+  <p>Optimiser une synthèse ne signifie pas seulement obtenir « plus de produit ». Un protocole de synthèse doit être jugé avec plusieurs critères :</p>
+  <ul>
+    <li>la quantité de produit obtenu ;</li>
+    <li>la pureté du produit ;</li>
+    <li>la durée de la transformation ;</li>
+    <li>la sécurité et la simplicité du protocole ;</li>
+    <li>le coût, l'énergie consommée et les déchets produits.</li>
+  </ul>
+
+  <figure class="schema-block">
+    <svg class="schema-svg" viewBox="0 0 860 300" role="img" aria-labelledby="workflow-title workflow-desc">
+      <title id="workflow-title">Chaîne d'une synthèse organique</title>
+      <desc id="workflow-desc">Une synthèse comprend transformation, isolement, purification, analyse et bilan.</desc>
+      <rect x="50" y="50" width="760" height="150" rx="18" fill="#f8fafc" stroke="#e5e7eb" />
+      <rect x="82" y="92" width="125" height="62" rx="12" fill="#eef2ff" stroke="#6366f1" />
+      <rect x="235" y="92" width="125" height="62" rx="12" fill="#ecfeff" stroke="#0891b2" />
+      <rect x="388" y="92" width="125" height="62" rx="12" fill="#f0fdf4" stroke="#16a34a" />
+      <rect x="541" y="92" width="125" height="62" rx="12" fill="#fff7ed" stroke="#f97316" />
+      <rect x="694" y="92" width="84" height="62" rx="12" fill="#fef2f2" stroke="#ef4444" />
+      <text x="101" y="128" font-size="18" fill="#3730a3">Réaction</text>
+      <text x="258" y="128" font-size="18" fill="#155e75">Isolement</text>
+      <text x="404" y="128" font-size="18" fill="#166534">Purification</text>
+      <text x="566" y="128" font-size="18" fill="#9a3412">Analyse</text>
+      <text x="709" y="128" font-size="18" fill="#991b1b">Bilan</text>
+      <text x="190" y="232" font-size="20" fill="#334155">Une synthèse non purifiée ou non analysée n'est pas un résultat exploitable.</text>
+    </svg>
+    <figcaption>Le rendement n'a de sens que si le produit est identifié et suffisamment pur.</figcaption>
+  </figure>
+</section>
+
+<section class="course-section">
+  <h2>2. Rendement et pureté</h2>
+  <p>Le rendement compare la quantité réellement obtenue à la quantité maximale théorique, calculée à partir du réactif limitant.</p>
+  <div class="formula-box">\[\eta=\frac{n_\text{obtenu}}{n_\text{max}}\]</div>
+  <p>Si on travaille avec des masses du même produit :</p>
+  <div class="formula-box">\[\eta=\frac{m_\text{obtenue pure}}{m_\text{max}}\]</div>
+  <p>Si le produit récupéré n'est pas pur, il faut corriger la masse :</p>
+  <div class="formula-box">\[m_\text{pure}=p\,m_\text{brute}\]</div>
+  <p>où \(p\) est la pureté sous forme décimale.</p>
+  <div class="warning-box">
+    <strong>Erreur fréquente.</strong> Un rendement supérieur à \(100\ \%\) signale presque toujours un produit humide, impur ou une erreur de calcul.
+  </div>
+</section>
+
+<section class="course-section">
+  <h2>3. Améliorer la vitesse ou améliorer l'état final</h2>
+  <p>Les paramètres expérimentaux n'ont pas tous le même effet.</p>
+  <table class="data-table">
+    <thead>
+      <tr><th>Action</th><th>Effet principal</th><th>Point de vigilance</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Chauffer</td><td>Accélère souvent la transformation.</td><td>Peut déplacer un équilibre si la réaction est limitée.</td></tr>
+      <tr><td>Ajouter un catalyseur</td><td>Accélère la réaction.</td><td>Ne change pas la composition à l'équilibre.</td></tr>
+      <tr><td>Mettre un réactif en excès</td><td>Peut déplacer l'équilibre vers les produits.</td><td>Il faudra éliminer l'excès ensuite.</td></tr>
+      <tr><td>Retirer un produit formé</td><td>Peut favoriser la formation du produit.</td><td>Nécessite un montage adapté.</td></tr>
+    </tbody>
+  </table>
+
+  <figure class="schema-block">
+    <svg class="schema-svg" viewBox="0 0 860 310" role="img" aria-labelledby="reflux-title reflux-desc">
+      <title id="reflux-title">Chauffage à reflux</title>
+      <desc id="reflux-desc">Le chauffage à reflux accélère une transformation sans perdre les espèces volatiles.</desc>
+      <rect x="70" y="34" width="720" height="220" rx="18" fill="#f8fafc" stroke="#e5e7eb" />
+      <ellipse cx="420" cy="210" rx="70" ry="24" fill="#bfdbfe" stroke="#2563eb" stroke-width="4" />
+      <path d="M360 205 C360 160 390 150 390 120 L450 120 C450 150 480 160 480 205" fill="#dbeafe" stroke="#2563eb" stroke-width="4" />
+      <rect x="398" y="48" width="44" height="86" rx="10" fill="#e0f2fe" stroke="#0891b2" stroke-width="4" />
+      <line x1="390" y1="62" x2="360" y2="62" stroke="#0891b2" stroke-width="4" />
+      <line x1="450" y1="118" x2="486" y2="118" stroke="#0891b2" stroke-width="4" />
+      <path d="M335 238 C370 270 470 270 505 238" fill="none" stroke="#f97316" stroke-width="5" />
+      <text x="525" y="210" font-size="20" fill="#334155">mélange réactionnel</text>
+      <text x="455" y="76" font-size="20" fill="#0e7490">réfrigérant</text>
+      <text x="204" y="292" font-size="20" fill="#334155">Les vapeurs se condensent et retombent dans le ballon.</text>
+    </svg>
+    <figcaption>Le reflux permet de chauffer longtemps sans perdre les espèces volatiles.</figcaption>
+  </figure>
+</section>
+
+<section class="course-section">
+  <h2>4. Isoler, purifier, analyser</h2>
+  <p>Après la réaction, il faut séparer le produit du milieu réactionnel, puis vérifier son identité et sa pureté.</p>
+  <ul>
+    <li><strong>Isolement :</strong> filtration, décantation, extraction liquide-liquide, évaporation du solvant.</li>
+    <li><strong>Purification :</strong> recristallisation, distillation, lavage, chromatographie.</li>
+    <li><strong>Analyse :</strong> chromatographie sur couche mince, spectroscopie IR, température de fusion, température d'ébullition, pH selon le cas.</li>
+  </ul>
+  <p>Une chromatographie sur couche mince permet de comparer le produit obtenu à une référence et de vérifier la présence d'impuretés visibles.</p>
+</section>
+
+<section class="course-section">
+  <h2>5. Chimie plus responsable</h2>
+  <p>Une synthèse peut aussi être optimisée avec des critères environnementaux. L'économie d'atomes mesure la part de la masse des réactifs qui se retrouve dans le produit recherché :</p>
+  <div class="formula-box">\[\text{économie d'atomes}=\frac{M_\text{produit recherché}}{\sum M_\text{réactifs}}\times100\]</div>
+  <p>On cherche aussi à limiter les solvants dangereux, réduire les étapes, économiser l'énergie et éviter les excès difficiles à éliminer.</p>
+  <div class="info-box">
+    <strong>À retenir.</strong> Une synthèse optimisée n'est pas forcément celle qui donne le rendement maximal si elle consomme beaucoup d'énergie ou produit beaucoup de déchets dangereux.
+  </div>
+</section>
+
+<section class="course-section">
+  <h2>Points-clés</h2>
+  <ul class="summary-list">
+    <li>Le rendement se calcule à partir du produit pur et du maximum théorique.</li>
+    <li>Un catalyseur accélère mais ne modifie pas le rendement à l'équilibre.</li>
+    <li>Un réactif en excès ou l'élimination d'un produit peut déplacer un équilibre.</li>
+    <li>Isolement, purification et analyse sont indispensables pour valider la synthèse.</li>
+    <li>Optimiser, c'est aussi réduire les risques, les déchets, le coût et l'énergie consommée.</li>
+  </ul>
+</section>

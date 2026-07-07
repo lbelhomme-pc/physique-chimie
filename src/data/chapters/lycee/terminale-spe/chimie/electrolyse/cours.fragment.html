@@ -1,0 +1,146 @@
+<section class="course-section">
+  <h2>Objectifs du chapitre</h2>
+  <ul class="objectives-list">
+    <li>Comprendre qu'une électrolyse force une transformation d'oxydoréduction non spontanée.</li>
+    <li>Identifier l'anode, la cathode, les oxydations et les réductions.</li>
+    <li>Écrire des demi-équations électroniques et l'équation bilan.</li>
+    <li>Relier courant, charge électrique, quantité d'électrons et quantité de matière produite.</li>
+    <li>Interpréter quelques applications : dépôt métallique, affinage du cuivre, production de dihydrogène.</li>
+  </ul>
+</section>
+
+<section class="course-section">
+  <h2>1. Principe d'une électrolyse</h2>
+  <p>Une électrolyse est une transformation chimique forcée par un générateur. Elle réalise une réaction d'oxydoréduction qui ne se ferait pas spontanément dans les conditions étudiées.</p>
+  <p>Le montage comporte généralement deux électrodes plongées dans un électrolyte, c'est-à-dire une solution ou un liquide ionique conducteur.</p>
+
+  <figure class="schema-block">
+    <svg class="schema-svg" viewBox="0 0 860 390" role="img" aria-labelledby="electrolyse-title electrolyse-desc">
+      <title id="electrolyse-title">Schéma d'un électrolyseur</title>
+      <desc id="electrolyse-desc">Le générateur impose le passage du courant ; réduction à la cathode et oxydation à l'anode.</desc>
+      <defs>
+        <marker id="el-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+          <path d="M0 0 L10 5 L0 10 Z" fill="#111827" />
+        </marker>
+        <marker id="el-blue-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+          <path d="M0 0 L10 5 L0 10 Z" fill="#2563eb" />
+        </marker>
+      </defs>
+      <rect x="48" y="36" width="764" height="292" rx="20" fill="#f8fafc" stroke="#e5e7eb" />
+      <rect x="315" y="58" width="230" height="54" rx="12" fill="#111827" />
+      <text x="366" y="92" font-size="22" fill="#ffffff">Générateur</text>
+      <text x="324" y="48" font-size="22" fill="#dc2626">+</text>
+      <text x="532" y="48" font-size="26" fill="#2563eb">−</text>
+      <path d="M325 112 V155 H210 V220" fill="none" stroke="#111827" stroke-width="4" />
+      <path d="M535 112 V155 H650 V220" fill="none" stroke="#111827" stroke-width="4" />
+      <rect x="150" y="200" width="560" height="105" rx="22" fill="#dbeafe" stroke="#60a5fa" stroke-width="3" />
+      <rect x="200" y="155" width="28" height="138" rx="8" fill="#f59e0b" />
+      <rect x="632" y="155" width="28" height="138" rx="8" fill="#94a3b8" />
+      <text x="160" y="340" font-size="22" fill="#991b1b">Anode : oxydation</text>
+      <text x="555" y="340" font-size="22" fill="#1d4ed8">Cathode : réduction</text>
+      <line x1="300" y1="250" x2="240" y2="250" stroke="#dc2626" stroke-width="4" marker-end="url(#el-arrow)" />
+      <line x1="560" y1="250" x2="620" y2="250" stroke="#2563eb" stroke-width="4" marker-end="url(#el-blue-arrow)" />
+      <text x="334" y="245" font-size="20" fill="#334155">anions</text>
+      <text x="485" y="245" font-size="20" fill="#334155">cations</text>
+    </svg>
+    <figcaption>En électrolyse, la cathode est reliée à la borne négative du générateur et l'anode à la borne positive.</figcaption>
+  </figure>
+
+  <div class="definition-box">
+    <strong>Règle valable partout.</strong> La réduction se produit toujours à la cathode. L'oxydation se produit toujours à l'anode.
+  </div>
+  <p>Dans la solution, les cations migrent vers la cathode, où ils peuvent capter des électrons. Les anions migrent vers l'anode, où ils peuvent céder des électrons ou permettre l'oxydation d'une autre espèce.</p>
+</section>
+
+<section class="course-section">
+  <h2>2. Écrire les réactions aux électrodes</h2>
+  <p>Une électrolyse se décrit par deux demi-équations électroniques : une réduction à la cathode et une oxydation à l'anode. Les électrons échangés dans les deux demi-équations doivent s'annuler dans l'équation bilan.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>Électrode</th><th>Signe en électrolyse</th><th>Type de réaction</th><th>Rôle des électrons</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Cathode</td><td>−</td><td>Réduction</td><td>Les électrons sont consommés.</td></tr>
+      <tr><td>Anode</td><td>+</td><td>Oxydation</td><td>Les électrons sont produits.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Exemple : dépôt de cuivre avec électrodes inertes</h3>
+  <p>Dans une solution contenant des ions cuivre(II), la cathode peut recevoir un dépôt de cuivre métallique :</p>
+  <div class="formula-box">\[\mathrm{Cu}^{2+}(aq)+2e^- \rightarrow \mathrm{Cu}(s)\]</div>
+  <p>Si l'anode est inerte, l'eau peut être oxydée :</p>
+  <div class="formula-box">\[2\mathrm{H_2O}(l)\rightarrow \mathrm{O_2}(g)+4\mathrm{H}^+(aq)+4e^-\]</div>
+  <p>Après équilibrage des électrons, l'équation bilan peut s'écrire :</p>
+  <div class="formula-box">\[2\mathrm{Cu}^{2+}(aq)+2\mathrm{H_2O}(l)\rightarrow 2\mathrm{Cu}(s)+\mathrm{O_2}(g)+4\mathrm{H}^+(aq)\]</div>
+
+  <div class="warning-box">
+    <strong>Attention.</strong> L'ion sulfate \(\mathrm{SO_4}^{2-}\) est souvent spectateur dans ce type d'exemple. Il assure la conduction avec les autres ions, mais n'apparaît pas forcément dans l'équation bilan.
+  </div>
+</section>
+
+<section class="course-section">
+  <h2>3. Loi de Faraday</h2>
+  <p>L'intensité électrique \(I\) mesure un débit de charge. Pendant une durée \(\Delta t\), la charge transférée est :</p>
+  <div class="formula-box">\[Q=I\Delta t\]</div>
+  <p>La quantité de matière d'électrons échangés vaut :</p>
+  <div class="formula-box">\[n(e^-)=\frac{Q}{F}\]</div>
+  <p>où \(F=96485\ \text{C}\cdot\text{mol}^{-1}\) est la constante de Faraday. Elle représente la charge d'une mole d'électrons.</p>
+
+  <figure class="schema-block">
+    <svg class="schema-svg" viewBox="0 0 860 270" role="img" aria-labelledby="faraday-title faraday-desc">
+      <title id="faraday-title">Chaîne de calcul en électrolyse</title>
+      <desc id="faraday-desc">L'intensité et la durée donnent la charge, puis la quantité d'électrons, puis la quantité de produit.</desc>
+      <rect x="54" y="44" width="752" height="144" rx="18" fill="#f8fafc" stroke="#e5e7eb" />
+      <rect x="92" y="86" width="130" height="62" rx="12" fill="#eef2ff" stroke="#6366f1" />
+      <rect x="282" y="86" width="130" height="62" rx="12" fill="#ecfeff" stroke="#0891b2" />
+      <rect x="472" y="86" width="150" height="62" rx="12" fill="#f0fdf4" stroke="#16a34a" />
+      <rect x="680" y="86" width="90" height="62" rx="12" fill="#fff7ed" stroke="#f97316" />
+      <text x="125" y="123" font-size="21" fill="#3730a3">I, Δt</text>
+      <text x="330" y="123" font-size="21" fill="#155e75">Q</text>
+      <text x="510" y="123" font-size="21" fill="#166534">n(e−)</text>
+      <text x="704" y="123" font-size="21" fill="#9a3412">n</text>
+      <line x1="222" y1="117" x2="282" y2="117" stroke="#111827" stroke-width="3" marker-end="url(#el-arrow)" />
+      <line x1="412" y1="117" x2="472" y2="117" stroke="#111827" stroke-width="3" marker-end="url(#el-arrow)" />
+      <line x1="622" y1="117" x2="680" y2="117" stroke="#111827" stroke-width="3" marker-end="url(#el-arrow)" />
+      <text x="230" y="81" font-size="17" fill="#334155">\(Q=I\Delta t\)</text>
+      <text x="418" y="81" font-size="17" fill="#334155">\(n(e^-)=Q/F\)</text>
+      <text x="626" y="81" font-size="17" fill="#334155">stoéchiométrie</text>
+      <text x="174" y="225" font-size="19" fill="#334155">Le tableau d'avancement ou la demi-équation donne le lien avec le produit formé.</text>
+    </svg>
+    <figcaption>La loi de Faraday ne donne pas directement la masse : il faut passer par la stœchiométrie puis par \(m=nM\).</figcaption>
+  </figure>
+</section>
+
+<section class="course-section">
+  <h2>4. Électrolyse de l'eau</h2>
+  <p>L'eau pure conduit très mal le courant. On ajoute un électrolyte pour rendre la solution conductrice sans qu'il soit nécessairement consommé dans l'équation bilan.</p>
+  <p>En milieu acide, les demi-équations peuvent être écrites :</p>
+  <div class="formula-box">\[2\mathrm{H}^+(aq)+2e^- \rightarrow \mathrm{H_2}(g)\]</div>
+  <div class="formula-box">\[2\mathrm{H_2O}(l)\rightarrow \mathrm{O_2}(g)+4\mathrm{H}^+(aq)+4e^-\]</div>
+  <p>En multipliant la première demi-équation par 2, les électrons et les ions \(\mathrm{H}^+\) ajoutés se simplifient dans le bilan :</p>
+  <div class="formula-box">\[2\mathrm{H_2O}(l)\rightarrow 2\mathrm{H_2}(g)+\mathrm{O_2}(g)\]</div>
+  <p>À température et pression identiques, le volume de dihydrogène produit est deux fois plus grand que celui de dioxygène.</p>
+</section>
+
+<section class="course-section">
+  <h2>5. Applications et rendement</h2>
+  <p>Les électrolyses sont utilisées pour déposer un métal, purifier un métal ou produire des espèces chimiques. Les applications classiques sont la galvanoplastie, l'affinage électrolytique du cuivre, la production de dichlore ou la production de dihydrogène.</p>
+  <p>L'énergie électrique consommée par un électrolyseur alimenté sous une tension \(U\) pendant une durée \(\Delta t\) vaut :</p>
+  <div class="formula-box">\[E_\text{élec}=UQ=UI\Delta t\]</div>
+  <p>Dans une installation réelle, toute l'énergie électrique ne devient pas énergie chimique utile : il existe des pertes par effet Joule, surtensions aux électrodes et échauffement. On introduit alors un rendement.</p>
+  <div class="info-box">
+    <strong>À retenir.</strong> L'électrolyse est un outil de conversion : elle transforme de l'énergie électrique en énergie chimique stockée dans les espèces produites.
+  </div>
+</section>
+
+<section class="course-section">
+  <h2>Points-clés</h2>
+  <ul class="summary-list">
+    <li>Électrolyse : transformation d'oxydoréduction forcée par un générateur.</li>
+    <li>Cathode : réduction ; anode : oxydation.</li>
+    <li>En électrolyse, la cathode est reliée à la borne négative et l'anode à la borne positive.</li>
+    <li>La charge transférée vaut \(Q=I\Delta t\), puis \(n(e^-)=Q/F\).</li>
+    <li>La quantité de produit s'obtient avec les coefficients de la demi-équation, puis la masse avec \(m=nM\).</li>
+  </ul>
+</section>

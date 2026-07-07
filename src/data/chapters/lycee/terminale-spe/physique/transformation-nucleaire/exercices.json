@@ -1,0 +1,164 @@
+[
+  {
+    "id": "nuc-01",
+    "titre": "Lire la notation d'un noyau",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Pour le noyau $^{238}_{92}U$, donner le nombre de protons, le nombre de nucléons et le nombre de neutrons.",
+    "aide": "Dans $^{A}_{Z}X$, $Z$ donne les protons et $A$ donne les nucléons.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 230\" role=\"img\" aria-label=\"Notation d'un noyau\"><rect x=\"50\" y=\"25\" width=\"620\" height=\"145\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#e5e7eb\"/><text x=\"320\" y=\"112\" font-size=\"68\" fill=\"#111827\">X</text><text x=\"276\" y=\"73\" font-size=\"32\" fill=\"#4f46e5\">A</text><text x=\"276\" y=\"143\" font-size=\"32\" fill=\"#dc2626\">Z</text><text x=\"190\" y=\"205\" font-size=\"18\" fill=\"#334155\">Utiliser la structure de la notation, puis calculer A − Z.</text></svg>",
+    "correction": [
+      "$Z=92$ donc le noyau contient 92 protons.",
+      "$A=238$ donc il contient 238 nucléons.",
+      "$N=A-Z=238-92=146$ neutrons."
+    ]
+  },
+  {
+    "id": "nuc-02",
+    "titre": "Désintégration alpha",
+    "niveau": "Équation",
+    "difficulte": 2,
+    "consigne": "Compléter l'équation de désintégration alpha du polonium : $^{210}_{84}Po\\rightarrow ? + ^4_2He$.",
+    "aide": "Conserver séparément le nombre de masse $A$ et le numéro atomique $Z$.",
+    "correction": [
+      "Conservation de $A$ : $210=A_Y+4$, donc $A_Y=206$.",
+      "Conservation de $Z$ : $84=Z_Y+2$, donc $Z_Y=82$.",
+      "L'élément de numéro atomique 82 est le plomb : $^{210}_{84}Po\\rightarrow ^{206}_{82}Pb+^4_2He$."
+    ]
+  },
+  {
+    "id": "nuc-03",
+    "titre": "Radioactivité bêta moins",
+    "niveau": "Équation",
+    "difficulte": 2,
+    "consigne": "Le carbone 14 se désintègre par radioactivité $\\beta^-$. Compléter : $^{14}_{6}C\\rightarrow ? + ^0_{-1}e + \\bar\\nu_e$.",
+    "aide": "En $\\beta^-$, le nombre $A$ ne change pas et $Z$ augmente de 1 pour le noyau fils.",
+    "correction": [
+      "Conservation de $A$ : le noyau fils a $A=14$.",
+      "Conservation de $Z$ : $6=Z_Y-1$, donc $Z_Y=7$.",
+      "L'élément $Z=7$ est l'azote : $^{14}_{6}C\\rightarrow ^{14}_{7}N+^0_{-1}e+\\bar\\nu_e$."
+    ]
+  },
+  {
+    "id": "nuc-04",
+    "titre": "Radioactivité bêta plus",
+    "niveau": "Équation",
+    "difficulte": 2,
+    "consigne": "Le sodium 22 peut se désintégrer par radioactivité $\\beta^+$. Écrire l'équation en sachant que le noyau fils est le néon.",
+    "aide": "Un positon a pour écriture $^0_{+1}e$.",
+    "correction": [
+      "En $\\beta^+$, le noyau fils a le même $A$ et un $Z$ inférieur de 1.",
+      "Le sodium a $Z=11$ et le néon $Z=10$.",
+      "$^{22}_{11}Na\\rightarrow ^{22}_{10}Ne+^0_{+1}e+\\nu_e$."
+    ]
+  },
+  {
+    "id": "nuc-05",
+    "titre": "Émission gamma",
+    "niveau": "Compréhension",
+    "difficulte": 1,
+    "consigne": "Un noyau excité $^{60}_{28}Ni^*$ émet un photon gamma. Écrire l'équation et préciser ce qui change dans le noyau.",
+    "aide": "Une émission gamma ne modifie ni $A$ ni $Z$.",
+    "correction": [
+      "$^{60}_{28}Ni^*\\rightarrow ^{60}_{28}Ni+\\gamma$.",
+      "Le noyau perd de l'énergie : il se désexcite.",
+      "Le nombre de protons et le nombre de nucléons ne changent pas."
+    ]
+  },
+  {
+    "id": "nuc-06",
+    "titre": "Demi-vie et fraction restante",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Un échantillon contient initialement $N_0$ noyaux radioactifs. Quelle fraction reste-t-il après trois demi-vies ?",
+    "aide": "Chaque demi-vie divise le nombre de noyaux restants par 2.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 230\" role=\"img\" aria-label=\"Décroissance par demi-vies\"><rect x=\"55\" y=\"25\" width=\"610\" height=\"140\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#e5e7eb\"/><line x1=\"110\" y1=\"130\" x2=\"610\" y2=\"130\" stroke=\"#111827\" stroke-width=\"3\"/><path d=\"M112 55 C210 72 300 92 390 110 C475 124 540 129 608 132\" fill=\"none\" stroke=\"#4f46e5\" stroke-width=\"5\"/><text x=\"195\" y=\"202\" font-size=\"18\" fill=\"#334155\">Repérer le nombre de demi-vies, pas besoin de la valeur de la demi-vie.</text></svg>",
+    "correction": [
+      "Après une demi-vie : $N_0/2$.",
+      "Après deux demi-vies : $N_0/4$.",
+      "Après trois demi-vies : $N_0/8$.",
+      "La fraction restante est donc $1/8=12,5\\ \\%$."
+    ]
+  },
+  {
+    "id": "nuc-07",
+    "titre": "Constante radioactive",
+    "niveau": "Calcul",
+    "difficulte": 2,
+    "consigne": "La demi-vie d'un radioisotope vaut $t_{1/2}=8,0\\ jours$. Calculer sa constante radioactive en $jour^{-1}$.",
+    "aide": "Utiliser $t_{1/2}=\\ln 2/\\lambda$.",
+    "correction": [
+      "$\\lambda=\\ln 2/t_{1/2}$.",
+      "$\\lambda=0,693/8,0=8,66\\times10^{-2}\\ jour^{-1}$.",
+      "La constante radioactive vaut environ $0,087\\ jour^{-1}$."
+    ]
+  },
+  {
+    "id": "nuc-08",
+    "titre": "Activité d'un échantillon",
+    "niveau": "Calcul",
+    "difficulte": 2,
+    "consigne": "Un échantillon contient $N=2,0\\times10^{15}$ noyaux radioactifs. Sa constante radioactive vaut $\\lambda=1,2\\times10^{-6}\\ s^{-1}$. Calculer son activité.",
+    "aide": "L'activité est proportionnelle au nombre de noyaux restants.",
+    "correction": [
+      "$\\mathcal{A}=\\lambda N$.",
+      "$\\mathcal{A}=1,2\\times10^{-6}\\times2,0\\times10^{15}=2,4\\times10^9\\ Bq$.",
+      "L'échantillon subit en moyenne $2,4\\times10^9$ désintégrations par seconde."
+    ]
+  },
+  {
+    "id": "nuc-09",
+    "titre": "Datation au carbone 14",
+    "niveau": "Interprétation",
+    "difficulte": 2,
+    "consigne": "Un fragment organique ne possède plus que 25 % de l'activité d'un organisme vivant comparable. En supposant que la demi-vie du carbone 14 vaut $5730\\ ans$, estimer son âge.",
+    "aide": "L'activité est proportionnelle au nombre de noyaux de carbone 14 restants.",
+    "correction": [
+      "25 % correspond à $1/4$ de la valeur initiale.",
+      "$1/4=(1/2)^2$, donc deux demi-vies se sont écoulées.",
+      "$t=2\\times5730=11460\\ ans$.",
+      "L'âge estimé est donc environ $1,15\\times10^4\\ ans$."
+    ]
+  },
+  {
+    "id": "nuc-10",
+    "titre": "Énergie libérée par défaut de masse",
+    "niveau": "Calcul",
+    "difficulte": 2,
+    "consigne": "Une transformation nucléaire présente un défaut de masse $|\\Delta m|=0,020\\ u$. Calculer l'énergie libérée en MeV. Donnée : $1\\ u\\,c^2=931,5\\ MeV$.",
+    "aide": "Multiplier le défaut de masse exprimé en unité de masse atomique par $931,5\\ MeV$.",
+    "correction": [
+      "$E=|\\Delta m|c^2$.",
+      "$E=0,020\\times931,5=18,6\\ MeV$.",
+      "L'énergie libérée est donc environ $19\\ MeV$."
+    ]
+  },
+  {
+    "id": "nuc-11",
+    "titre": "Réaction de fission",
+    "niveau": "Équilibrage",
+    "difficulte": 3,
+    "consigne": "Compléter le nombre de neutrons émis dans la réaction : $^{235}_{92}U+^1_0n\\rightarrow ^{141}_{56}Ba+^{92}_{36}Kr+x\\,^1_0n$.",
+    "aide": "Conserver le nombre de masse $A$ ; les numéros atomiques permettent aussi de vérifier la cohérence.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 235\" role=\"img\" aria-label=\"Fission nucléaire schématique\"><rect x=\"55\" y=\"25\" width=\"610\" height=\"145\" rx=\"16\" fill=\"#fff7ed\" stroke=\"#fed7aa\"/><circle cx=\"190\" cy=\"100\" r=\"40\" fill=\"#fb923c\" stroke=\"#c2410c\" stroke-width=\"4\"/><circle cx=\"415\" cy=\"80\" r=\"28\" fill=\"#fdba74\" stroke=\"#c2410c\" stroke-width=\"3\"/><circle cx=\"445\" cy=\"130\" r=\"23\" fill=\"#fdba74\" stroke=\"#c2410c\" stroke-width=\"3\"/><text x=\"300\" y=\"108\" font-size=\"34\" fill=\"#64748b\">→</text><text x=\"190\" y=\"205\" font-size=\"18\" fill=\"#334155\">Le schéma ne donne pas x : utiliser la conservation de A.</text></svg>",
+    "correction": [
+      "À gauche : $A=235+1=236$.",
+      "À droite : $A=141+92+x=233+x$.",
+      "$236=233+x$, donc $x=3$.",
+      "Vérification de $Z$ : $92=56+36$, c'est cohérent."
+    ]
+  },
+  {
+    "id": "nuc-12",
+    "titre": "Fusion deutérium-tritium",
+    "niveau": "Synthèse",
+    "difficulte": 2,
+    "consigne": "La fusion deutérium-tritium s'écrit $^2_1H+^3_1H\\rightarrow ^4_2He+^1_0n$. Vérifier la conservation de $A$ et de $Z$, puis dire s'il s'agit d'une fission ou d'une fusion.",
+    "aide": "Comparer les noyaux du côté gauche et du côté droit.",
+    "correction": [
+      "Conservation de $A$ : $2+3=5$ à gauche et $4+1=5$ à droite.",
+      "Conservation de $Z$ : $1+1=2$ à gauche et $2+0=2$ à droite.",
+      "Deux noyaux légers s'assemblent : il s'agit d'une fusion."
+    ]
+  }
+]

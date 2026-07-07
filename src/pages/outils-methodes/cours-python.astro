@@ -1,0 +1,1085 @@
+---
+// src/pages/outils-methodes/cours-python.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ChapterTabs from "../../components/pedagogie/ChapterTabs.astro";
+import QuizPlayer from "../../components/pedagogie/QuizPlayer.tsx";
+import FlashcardsPlayer from "../../components/pedagogie/FlashcardsPlayer.tsx";
+import PythonExercisesRunner from "../../components/pedagogie/PythonExercisesRunner.tsx";
+
+const chapterKey = "outils-methodes-cours-python";
+const interactiveExerciseCount = 8;
+const xpConfig = {
+  quiz_base: 5,
+  quiz_per_correct: 2,
+  quiz_perfect: 10,
+  flashcards_base: 5,
+  flashcard_known: 1
+};
+
+const quiz = [
+  {
+    id: "python-q01",
+    type: "single",
+    question: "Que fait l'instruction print(\"Bonjour\") ?",
+    choices: ["Elle crée une variable.", "Elle affiche Bonjour.", "Elle calcule une moyenne.", "Elle trace un graphique."],
+    answer: 1,
+    explanation: "print affiche dans la console le texte placé entre guillemets."
+  },
+  {
+    id: "python-q02",
+    type: "single",
+    question: "Quelle écriture est correcte pour le nombre décimal douze virgule cinq en Python ?",
+    choices: ["12,5", "12.5", "12:5", "\"12,5\""],
+    answer: 1,
+    explanation: "Python utilise le point décimal. La virgule française provoque une erreur ou un comportement inattendu."
+  },
+  {
+    id: "python-q03",
+    type: "single",
+    question: "Dans distance = 12.5, que signifie le signe = ?",
+    choices: ["Une égalité mathématique à démontrer.", "Une affectation de valeur à une variable.", "Une comparaison.", "Une division."],
+    answer: 1,
+    explanation: "En Python, = affecte la valeur de droite au nom de variable situé à gauche."
+  },
+  {
+    id: "python-q04",
+    type: "single",
+    question: "Avec mesures = [0.82, 0.85, 0.83], que vaut mesures[0] ?",
+    choices: ["0.82", "0.85", "0.83", "3"],
+    answer: 0,
+    explanation: "L'indice du premier élément d'une liste est 0."
+  },
+  {
+    id: "python-q05",
+    type: "single",
+    question: "Quelle expression calcule la moyenne d'une liste mesures ?",
+    choices: ["len(mesures) / sum(mesures)", "sum(mesures) / len(mesures)", "mesures / len(mesures)", "moyenne(mesures)"],
+    answer: 1,
+    explanation: "La moyenne vaut la somme des valeurs divisée par le nombre de valeurs."
+  },
+  {
+    id: "python-q06",
+    type: "single",
+    question: "Pourquoi écrit-on les lignes sous un for avec une indentation ?",
+    choices: ["Pour faire plus joli.", "Pour indiquer les instructions répétées.", "Pour créer une liste.", "Pour convertir les unités."],
+    answer: 1,
+    explanation: "L'indentation définit le bloc d'instructions exécuté à chaque tour de boucle."
+  },
+  {
+    id: "python-q07",
+    type: "single",
+    question: "Quelle instruction compare deux valeurs en Python ?",
+    choices: ["=", "==", ":=", "**"],
+    answer: 1,
+    explanation: "== teste une égalité. Le signe = sert à affecter une valeur."
+  },
+  {
+    id: "python-q08",
+    type: "single",
+    question: "Que renvoie la fonction vitesse(distance, duree) si elle contient return distance / duree ?",
+    choices: ["La durée divisée par la distance.", "La distance divisée par la durée.", "Toujours une valeur en km/h.", "Une liste de positions."],
+    answer: 1,
+    explanation: "Le return renvoie le résultat du calcul distance / duree. L'unité dépend des unités choisies."
+  },
+  {
+    id: "python-q09",
+    type: "single",
+    question: "Pourquoi faut-il écrire plt.xlabel(\"I (A)\") sur une caractéristique électrique ?",
+    choices: ["Pour accélérer le programme.", "Pour indiquer la grandeur et son unité sur l'axe horizontal.", "Pour créer une variable I.", "Pour convertir les ampères en volts."],
+    answer: 1,
+    explanation: "Un graphique scientifique doit préciser la grandeur représentée et son unité."
+  },
+  {
+    id: "python-q10",
+    type: "single",
+    question: "Dans la loi d'Ohm, pourquoi convertir I_mA en A avant de calculer R = U / I ?",
+    choices: ["Parce que U est en ampères.", "Parce que l'ohm s'obtient avec U en volts et I en ampères.", "Parce que Python refuse les mA.", "Parce que le graphique disparaît sinon."],
+    answer: 1,
+    explanation: "Pour obtenir une résistance en ohms, on utilise U en volts et I en ampères."
+  },
+  {
+    id: "python-q11",
+    type: "single",
+    question: "Que montre un histogramme de mesures ?",
+    choices: ["La trajectoire d'un mobile.", "La répartition des valeurs par classes.", "Une équation chimique.", "Une seule valeur exacte."],
+    answer: 1,
+    explanation: "Un histogramme compte combien de mesures appartiennent à chaque intervalle de valeurs."
+  },
+  {
+    id: "python-q12",
+    type: "single",
+    question: "Que signifie NameError: name 'x' is not defined ?",
+    choices: ["La variable x n'a pas été définie avant d'être utilisée.", "Le graphique a trop de points.", "La division est impossible.", "La liste est vide."],
+    answer: 0,
+    explanation: "Python ne connaît pas encore ce nom de variable : il faut vérifier l'orthographe ou l'ordre des lignes."
+  }
+];
+
+const flashcards = [
+  { id: "py-f01", front: "Script", back: "Suite d'instructions Python exécutées dans l'ordre.", difficulty: 1, tags: ["vocabulaire"] },
+  { id: "py-f02", front: "Variable", back: "Nom qui permet de stocker une valeur : nombre, texte, liste, etc.", difficulty: 1, tags: ["base"] },
+  { id: "py-f03", front: "Affectation", back: "Instruction qui donne une valeur à une variable avec le signe =.", difficulty: 1, tags: ["base"] },
+  { id: "py-f04", front: "Point décimal", back: "En Python, on écrit 12.5 et non 12,5.", difficulty: 1, tags: ["piège"] },
+  { id: "py-f05", front: "Liste", back: "Collection ordonnée de valeurs, écrite entre crochets.", difficulty: 1, tags: ["données"] },
+  { id: "py-f06", front: "Indice", back: "Position d'un élément dans une liste. Le premier indice vaut 0.", difficulty: 2, tags: ["liste"] },
+  { id: "py-f07", front: "Boucle for", back: "Structure qui répète des instructions, souvent pour parcourir une liste.", difficulty: 2, tags: ["algorithme"] },
+  { id: "py-f08", front: "Condition if", back: "Structure qui exécute des instructions seulement si une condition est vraie.", difficulty: 2, tags: ["algorithme"] },
+  { id: "py-f09", front: "Fonction", back: "Bloc de code réutilisable qui peut recevoir des paramètres et renvoyer un résultat.", difficulty: 2, tags: ["méthode"] },
+  { id: "py-f10", front: "Bibliothèque", back: "Ensemble de fonctions que l'on importe pour ajouter des possibilités à Python.", difficulty: 1, tags: ["vocabulaire"] },
+  { id: "py-f11", front: "matplotlib", back: "Bibliothèque utilisée pour tracer des graphiques scientifiques.", difficulty: 2, tags: ["graphique"] },
+  { id: "py-f12", front: "Nuage de points", back: "Graphique qui représente des couples de mesures expérimentales.", difficulty: 2, tags: ["graphique"] },
+  { id: "py-f13", front: "Histogramme", back: "Graphique qui montre la répartition d'une série de mesures par classes.", difficulty: 2, tags: ["mesures"] },
+  { id: "py-f14", front: "Erreur d'indentation", back: "Erreur due à un décalage manquant ou incorrect au début d'une ligne.", difficulty: 2, tags: ["erreur"] }
+];
+---
+
+<BaseLayout
+  title="Cours Python lycée - Physique-Chimie"
+  description="Cours progressif de Python pour les élèves de lycée en physique-chimie : variables, listes, boucles, conditions, fonctions, graphiques, mesures et mouvement."
+  canonical="/outils-methodes/cours-python"
+  schemaType="EducationalContent"
+>
+  <article class="python-course" id="top">
+    <header class="course-hero">
+      <p class="eyebrow">Outils et méthodes</p>
+      <h1>Cours Python pour la physique-chimie</h1>
+      <p class="hero-text">
+        Un parcours progressif pour lire, modifier et écrire de petits scripts utiles en lycée :
+        exploiter des mesures, tracer des graphiques, modéliser une relation et représenter un mouvement.
+      </p>
+    </header>
+
+    <ChapterTabs
+      hasCours={true}
+      hasExercices={true}
+      hasQuiz={true}
+      hasFlashcards={true}
+      exercicesCount={interactiveExerciseCount}
+      quizCount={quiz.length}
+      flashcardsCount={flashcards.length}
+      backUrl="/outils-methodes"
+      backLabel="Outils & méthodes"
+    >
+      <div slot="cours" class="course-tab-content">
+    <section class="intro-panel course-special-card course-objectives-card" aria-labelledby="sources-title">
+      <h2 id="sources-title">Objectifs</h2>
+      <p>
+        À la fin de ce cours, tu dois savoir utiliser Python pour répondre à une question simple de physique-chimie,
+        sans perdre de vue les grandeurs, les unités et l'interprétation scientifique.
+      </p>
+      <ul class="objective-list">
+        <li>Lire et modifier un script Python court.</li>
+        <li>Utiliser des variables, des listes, des boucles et des conditions.</li>
+        <li>Écrire une fonction simple pour réutiliser un calcul.</li>
+        <li>Exploiter une série de mesures avec Python.</li>
+        <li>Tracer un graphique scientifique avec titre, axes et unités.</li>
+        <li>Représenter des positions et des vecteurs vitesse.</li>
+        <li>Exploiter une caractéristique tension-intensité ou un histogramme.</li>
+        <li>Lire un message d'erreur simple et corriger le script.</li>
+      </ul>
+      <div class="link-row" aria-label="Ressources liées">
+        <a href="/outils-methodes/python">Fiche Python</a>
+        <a href="/outils-methodes/seconde-numerique">Méthodes numériques seconde</a>
+        <a href="/outils-methodes/python-lab">Laboratoire Python</a>
+        <a href="/lycee/2nde/physique/mesure-incertitudes">Mesure et incertitudes</a>
+        <a href="/lycee/2nde/physique/decrire-mouvement">Décrire un mouvement</a>
+        <a href="/lycee/2nde/physique/signaux-capteurs">Signaux et capteurs</a>
+      </div>
+    </section>
+
+    <section id="modules" class="module-list" aria-labelledby="modules-title">
+      <h2 id="modules-title" class="course-main-heading">Cours</h2>
+
+      <section class="module-card" id="module-0">
+        <p class="module-number">Module 0</p>
+        <h3>Pourquoi Python en physique-chimie ?</h3>
+        <p>
+          Python aide à automatiser un calcul, représenter des données, tester un modèle ou comparer des mesures.
+          Le résultat doit toujours être interprété avec les grandeurs, les unités et le contexte expérimental.
+        </p>
+        <div class="method-box">
+          <strong>Méthode.</strong>
+          Avant de coder, formule la question scientifique : quelle grandeur cherche-t-on, avec quelles données,
+          et quelle conclusion doit-on rédiger ?
+        </div>
+        <div class="remember-box">
+          <strong>À retenir.</strong>
+          Un graphique ou un nombre produit par Python ne remplace jamais l'analyse physique ou chimique.
+        </div>
+      </section>
+
+      <section class="module-card" id="module-1">
+        <p class="module-number">Module 1</p>
+        <h3>Écrire et exécuter un script</h3>
+        <p>
+          Un script est une suite de lignes exécutées dans l'ordre. Une ligne qui commence par <code>#</code> est un commentaire :
+          Python l'ignore, mais elle aide un humain à comprendre le programme.
+        </p>
+        <pre class="code-block"><code># Premier affichage
+print("Bonjour")
+print("Une mesure doit toujours avoir une unité")</code></pre>
+        <p class="example-result">
+          Résultat attendu : les deux phrases sont affichées dans la console, chacune sur une ligne.
+        </p>
+        <div class="pitfall">
+          <strong>Erreur fréquente.</strong>
+          Écrire <code>print(Bonjour)</code> sans guillemets : Python cherche alors une variable nommée <code>Bonjour</code>.
+        </div>
+      </section>
+
+      <section class="module-card" id="module-2">
+        <p class="module-number">Module 2</p>
+        <h3>Variables et valeurs</h3>
+        <p>
+          Une variable est un nom qui stocke une valeur. En Python, le signe <code>=</code> signifie "reçoit la valeur de",
+          et non une égalité mathématique.
+        </p>
+        <pre class="code-block"><code>distance = 12.5
+duree = 2.0
+vitesse = distance / duree
+
+print(vitesse, "m/s")</code></pre>
+        <p class="example-result">
+          Résultat : <code>6.25 m/s</code>. La distance est en mètres et la durée en secondes, donc la vitesse est en mètre par seconde.
+        </p>
+        <div class="pitfall">
+          <strong>Erreur fréquente.</strong>
+          Écrire <code>12,5</code> au lieu de <code>12.5</code>. Python utilise le point décimal.
+        </div>
+      </section>
+
+      <section class="module-card" id="module-3">
+        <p class="module-number">Module 3</p>
+        <h3>Calculs et unités</h3>
+        <p>
+          Python sait calculer, mais il ne connaît pas les unités. Il faut donc les indiquer dans les noms de variables,
+          dans les commentaires ou dans l'affichage.
+        </p>
+        <pre class="code-block"><code>masse_g = 250
+masse_kg = masse_g / 1000
+
+c = 3.00e8
+distance = 3.84e8
+duree = distance / c
+
+print("Masse :", masse_kg, "kg")
+print("Durée :", duree, "s")</code></pre>
+        <p class="example-result">
+          La masse vaut <code>0.25 kg</code>. La durée de propagation vaut environ <code>1.28 s</code>.
+        </p>
+        <div class="remember-box">
+          <strong>À retenir.</strong>
+          <code>3.00e8</code> signifie <code>3,00 x 10^8</code>.
+        </div>
+      </section>
+
+      <section class="module-card" id="module-4">
+        <p class="module-number">Module 4</p>
+        <h3>Listes de mesures</h3>
+        <p>
+          Une liste permet de stocker plusieurs valeurs dans une seule variable. Elle s'écrit entre crochets.
+          L'indice du premier élément vaut 0.
+        </p>
+        <pre class="code-block"><code>mesures = [0.82, 0.85, 0.83, 0.84]
+
+moyenne = sum(mesures) / len(mesures)
+
+print("Première mesure :", mesures[0], "s")
+print("Moyenne :", moyenne, "s")</code></pre>
+        <p class="example-result">
+          La moyenne vaut <code>0.835 s</code>. La première valeur de la liste est <code>0.82 s</code>.
+        </p>
+        <div class="pitfall">
+          <strong>Erreur fréquente.</strong>
+          Chercher la première valeur avec <code>mesures[1]</code> : cela donne en réalité la deuxième valeur.
+        </div>
+      </section>
+
+      <section class="module-card" id="module-5">
+        <p class="module-number">Module 5</p>
+        <h3>Boucles for</h3>
+        <p>
+          Une boucle <code>for</code> répète une action. Elle est utile pour parcourir une liste de mesures ou convertir plusieurs valeurs.
+        </p>
+        <pre class="code-block"><code>intensites_mA = [0, 20, 40, 60, 80]
+intensites_A = []
+
+for valeur in intensites_mA:
+    intensites_A.append(valeur / 1000)
+
+print(intensites_A)</code></pre>
+        <p class="example-result">
+          Résultat : <code>[0.0, 0.02, 0.04, 0.06, 0.08]</code>. Les intensités sont maintenant en ampères.
+        </p>
+        <div class="pitfall">
+          <strong>Erreur fréquente.</strong>
+          Oublier les deux-points après <code>for valeur in intensites_mA:</code> ou oublier l'indentation.
+        </div>
+      </section>
+
+      <section class="module-card" id="module-6">
+        <p class="module-number">Module 6</p>
+        <h3>Conditions if</h3>
+        <p>
+          Une condition permet de choisir une conclusion selon le résultat d'un test.
+          Elle est utile pour comparer une mesure à une valeur de référence.
+        </p>
+        <pre class="code-block"><code>temperature = 38.5
+
+if temperature &gt; 37.5:
+    print("La température est supérieure à la référence.")
+else:
+    print("La température est inférieure ou égale à la référence.")</code></pre>
+        <p class="example-result">
+          La phrase affichée indique que la température est supérieure à la référence.
+        </p>
+        <div class="pitfall">
+          <strong>Erreur fréquente.</strong>
+          Confondre <code>=</code> et <code>==</code>. Le premier affecte une valeur, le second compare deux valeurs.
+        </div>
+      </section>
+
+      <section class="module-card" id="module-7">
+        <p class="module-number">Module 7</p>
+        <h3>Fonctions simples</h3>
+        <p>
+          Une fonction regroupe un calcul que l'on veut réutiliser. Elle peut recevoir des paramètres et renvoyer un résultat avec <code>return</code>.
+        </p>
+        <pre class="code-block"><code>def vitesse(distance, duree):
+    return distance / duree
+
+v = vitesse(12.5, 2.0)
+print(v, "m/s")</code></pre>
+        <p class="example-result">
+          La fonction renvoie <code>6.25</code>. Avec une distance en mètres et une durée en secondes, le résultat est en m/s.
+        </p>
+        <div class="pitfall">
+          <strong>Erreur fréquente.</strong>
+          Oublier l'indentation après <code>def</code>. Le corps de la fonction doit être décalé.
+        </div>
+      </section>
+
+      <section class="module-card" id="module-8">
+        <p class="module-number">Module 8</p>
+        <h3>Tracer un graphique avec matplotlib</h3>
+        <p>
+          La bibliothèque <code>matplotlib</code> permet de tracer des points, des courbes et des histogrammes.
+          Un graphique scientifique doit avoir un titre, des axes nommés et des unités.
+        </p>
+        <pre class="code-block"><code>import matplotlib.pyplot as plt
+
+t = [0, 1, 2, 3, 4]
+x = [0, 1.2, 2.4, 3.6, 4.8]
+
+plt.plot(t, x, "o")
+plt.xlabel("t (s)")
+plt.ylabel("x (m)")
+plt.title("Position en fonction du temps")
+plt.grid()
+plt.show()</code></pre>
+        <div class="method-box">
+          <strong>Méthode.</strong>
+          Place la grandeur choisie en abscisse, la grandeur étudiée en ordonnée, puis indique les unités.
+        </div>
+      </section>
+
+      <section class="module-card" id="module-9">
+        <p class="module-number">Module 9</p>
+        <h3>Nuage de points et modèle</h3>
+        <p>
+          Un nuage de points représente des mesures expérimentales. On ajoute un modèle seulement s'il a un sens scientifique.
+          Pour un conducteur ohmique, la loi <code>U = R x I</code> conduit à une droite passant près de l'origine.
+        </p>
+        <pre class="code-block"><code>import matplotlib.pyplot as plt
+
+I = [0.00, 0.02, 0.04, 0.06, 0.08]
+U = [0.0, 1.0, 2.1, 3.0, 4.1]
+
+plt.plot(I, U, "o")
+plt.xlabel("I (A)")
+plt.ylabel("U (V)")
+plt.title("Caractéristique d'un dipôle")
+plt.grid()
+plt.show()
+
+R = U[-1] / I[-1]
+print("Résistance estimée :", R, "ohms")</code></pre>
+        <p class="example-result">
+          Avec le dernier point, <code>R = 4.1 / 0.08 = 51.25 ohms</code>. On peut annoncer environ <code>51 ohms</code>.
+        </p>
+      </section>
+
+      <section class="module-card" id="module-10">
+        <p class="module-number">Module 10</p>
+        <h3>Histogramme</h3>
+        <p>
+          Un histogramme montre la répartition d'une série de mesures. Il aide à repérer la zone la plus fréquente
+          et à discuter la dispersion.
+        </p>
+        <pre class="code-block"><code>import matplotlib.pyplot as plt
+
+mesures = [0.82, 0.85, 0.83, 0.84, 0.82, 0.86, 0.83, 0.84]
+
+plt.hist(mesures, bins=4, edgecolor="black")
+plt.xlabel("Période T (s)")
+plt.ylabel("Effectif")
+plt.title("Répartition des mesures")
+plt.grid(axis="y")
+plt.show()</code></pre>
+        <div class="pitfall">
+          <strong>Erreur fréquente.</strong>
+          Croire que changer <code>bins</code> ne change rien. Le choix des classes influence l'apparence de l'histogramme.
+        </div>
+      </section>
+
+      <section class="module-card" id="module-11">
+        <p class="module-number">Module 11</p>
+        <h3>Mouvement et vecteurs vitesse</h3>
+        <p>
+          À partir de positions successives séparées par la même durée, on peut estimer les composantes du vecteur vitesse :
+          variation de position divisée par la durée.
+        </p>
+        <pre class="code-block"><code>import matplotlib.pyplot as plt
+
+x = [0, 1, 2, 3, 4]
+y = [0, 0.5, 2, 4.5, 8]
+dt = 1.0
+
+vx = []
+vy = []
+
+for i in range(len(x) - 1):
+    vx.append((x[i + 1] - x[i]) / dt)
+    vy.append((y[i + 1] - y[i]) / dt)
+
+plt.plot(x, y, "o")
+
+for i in range(len(vx)):
+    plt.arrow(
+        x[i], y[i],
+        0.2 * vx[i], 0.2 * vy[i],
+        head_width=0.12,
+        length_includes_head=True
+    )
+
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.title("Vecteurs vitesse approchés")
+plt.axis("equal")
+plt.grid()
+plt.show()</code></pre>
+        <div class="pitfall">
+          <strong>Erreur fréquente.</strong>
+          Le facteur <code>0.2</code> ne modifie pas la vitesse. Il réduit seulement la taille des flèches sur le dessin.
+        </div>
+      </section>
+
+      <section class="module-card" id="module-12">
+        <p class="module-number">Module 12</p>
+        <h3>Lire et corriger une erreur Python</h3>
+        <p>
+          Un message d'erreur n'est pas une punition : c'est une piste. Il faut lire le type d'erreur, la ligne indiquée
+          et le nom concerné.
+        </p>
+        <div class="table-wrap" role="region" aria-label="Erreurs Python fréquentes" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th>Erreur</th>
+                <th>Cause fréquente</th>
+                <th>Exemple à corriger</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>SyntaxError</code></td>
+                <td>Symbole manquant ou instruction incomplète</td>
+                <td><code>for valeur in mesures</code></td>
+              </tr>
+              <tr>
+                <td><code>NameError</code></td>
+                <td>Variable non définie ou mal écrite</td>
+                <td><code>print(inconnu)</code></td>
+              </tr>
+              <tr>
+                <td><code>IndentationError</code></td>
+                <td>Bloc mal décalé</td>
+                <td><code>if x &gt; 0:</code> puis ligne non indentée</td>
+              </tr>
+              <tr>
+                <td><code>TypeError</code></td>
+                <td>Opération impossible avec ce type de valeur</td>
+                <td><code>"14" + 2</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="method-box">
+          <strong>Je vérifie mon code.</strong>
+          Je regarde les guillemets, les parenthèses, les deux-points, l'indentation, puis l'orthographe des variables.
+        </div>
+      </section>
+    </section>
+
+    <section class="final-summary course-special-card course-summary-card" aria-labelledby="summary-title">
+      <h2 id="summary-title">À retenir</h2>
+      <ul>
+        <li>Python utilise le point décimal : <code>0.82</code>, pas <code>0,82</code>.</li>
+        <li>Une variable stocke une valeur ; une liste stocke plusieurs valeurs.</li>
+        <li>Une boucle <code>for</code> répète une action ; une condition <code>if</code> choisit selon un test.</li>
+        <li>Une fonction évite de recopier le même calcul.</li>
+        <li>Un graphique scientifique doit avoir titre, axes, unités et conclusion.</li>
+        <li>Python aide à calculer et représenter ; l'interprétation reste un travail de physique-chimie.</li>
+      </ul>
+    </section>
+      </div>
+
+      <div slot="exercices">
+    <section id="exercices" class="practice-section" aria-labelledby="practice-title">
+      <h2 id="practice-title">Exercices par niveaux</h2>
+      <p>
+        Les exercices commencent par de la lecture de code, puis demandent progressivement de corriger, compléter
+        ou écrire de courts scripts.
+      </p>
+      <PythonExercisesRunner client:load />
+
+      <div class="exercise-list">
+        <details>
+          <summary>Exercice 1 - Lire un script</summary>
+          <p>Que va afficher ce script ?</p>
+          <pre class="code-block"><code>masse = 5.0
+print("Masse :", masse, "g")</code></pre>
+          <div class="correction">
+            <strong>Correction.</strong>
+            Le script affiche <code>Masse : 5.0 g</code>. La variable <code>masse</code> contient la valeur 5.0 et l'unité est ajoutée dans le texte affiché.
+          </div>
+        </details>
+
+        <details>
+          <summary>Exercice 2 - Corriger une erreur</summary>
+          <p>Corrige le script suivant.</p>
+          <pre class="code-block"><code>print(Bonjour)</code></pre>
+          <div class="correction">
+            <strong>Correction.</strong>
+            <pre class="code-block"><code>print("Bonjour")</code></pre>
+            Le mot affiché est un texte : il doit être placé entre guillemets.
+          </div>
+        </details>
+
+        <details>
+          <summary>Exercice 3 - Variable et calcul</summary>
+          <p>Un mobile parcourt 24 m en 6,0 s. Écris le calcul de sa vitesse moyenne.</p>
+          <div class="correction">
+            <strong>Correction.</strong>
+            <pre class="code-block"><code>distance = 24
+duree = 6.0
+vitesse = distance / duree
+print(vitesse, "m/s")</code></pre>
+            La vitesse moyenne vaut <code>4.0 m/s</code>. Les unités sont cohérentes : mètre divisé par seconde.
+          </div>
+        </details>
+
+        <details>
+          <summary>Exercice 4 - Conversion</summary>
+          <p>Convertis les intensités <code>[10, 25, 50]</code> mA en ampères.</p>
+          <div class="correction">
+            <strong>Correction.</strong>
+            <pre class="code-block"><code>intensites_mA = [10, 25, 50]
+intensites_A = []
+
+for valeur in intensites_mA:
+    intensites_A.append(valeur / 1000)
+
+print(intensites_A)</code></pre>
+            Résultat : <code>[0.01, 0.025, 0.05]</code>. On divise par 1000 pour passer de mA à A.
+          </div>
+        </details>
+
+        <details>
+          <summary>Exercice 5 - Liste de mesures</summary>
+          <p>Calcule la moyenne de <code>[19.8, 20.1, 20.0, 19.9]</code> degrés Celsius.</p>
+          <div class="correction">
+            <strong>Correction.</strong>
+            <pre class="code-block"><code>temperatures = [19.8, 20.1, 20.0, 19.9]
+moyenne = sum(temperatures) / len(temperatures)
+print("Moyenne :", moyenne, "°C")</code></pre>
+            La moyenne vaut <code>19.95 °C</code>. On peut conclure que la température moyenne est proche de <code>20.0 °C</code>.
+          </div>
+        </details>
+
+        <details>
+          <summary>Exercice 6 - Boucle</summary>
+          <p>Affiche chaque période de la liste <code>[0.82, 0.84, 0.83]</code> avec l'unité seconde.</p>
+          <div class="correction">
+            <strong>Correction.</strong>
+            <pre class="code-block"><code>periodes = [0.82, 0.84, 0.83]
+
+for periode in periodes:
+    print(periode, "s")</code></pre>
+            La boucle parcourt les valeurs une par une et ajoute l'unité à l'affichage.
+          </div>
+        </details>
+
+        <details>
+          <summary>Exercice 7 - Condition</summary>
+          <p>Une masse volumique mesurée vaut 0,98 g/mL. Écris une condition qui indique si elle est supérieure à 1,00 g/mL.</p>
+          <div class="correction">
+            <strong>Correction.</strong>
+            <pre class="code-block"><code>masse_volumique = 0.98
+reference = 1.00
+
+if masse_volumique &gt; reference:
+    print("La mesure est supérieure à la référence.")
+else:
+    print("La mesure n'est pas supérieure à la référence.")</code></pre>
+            Ici, le programme affiche que la mesure n'est pas supérieure à la référence.
+          </div>
+        </details>
+
+        <details>
+          <summary>Exercice 8 - Fonction</summary>
+          <p>Écris une fonction <code>vitesse(distance, duree)</code> qui renvoie la vitesse moyenne.</p>
+          <div class="correction">
+            <strong>Correction.</strong>
+            <pre class="code-block"><code>def vitesse(distance, duree):
+    return distance / duree
+
+v = vitesse(15, 3)
+print(v, "m/s")</code></pre>
+            Le résultat est <code>5.0 m/s</code>. La fonction peut être réutilisée avec d'autres distances et durées.
+          </div>
+        </details>
+
+        <details>
+          <summary>Exercice 9 - Graphique simple</summary>
+          <p>Complète mentalement le script : il doit afficher x en fonction de t avec un titre et des unités.</p>
+          <div class="correction">
+            <strong>Correction.</strong>
+            <pre class="code-block"><code>import matplotlib.pyplot as plt
+
+t = [0, 1, 2, 3]
+x = [0, 2, 4, 6]
+
+plt.plot(t, x, "o")
+plt.xlabel("t (s)")
+plt.ylabel("x (m)")
+plt.title("Position en fonction du temps")
+plt.grid()
+plt.show()</code></pre>
+            Les axes indiquent les grandeurs et les unités. La conclusion scientifique est que la position augmente régulièrement avec le temps.
+          </div>
+        </details>
+
+        <details>
+          <summary>Exercice 10 - Caractéristique d'un dipôle</summary>
+          <p>On mesure <code>U = 6.0 V</code> pour <code>I = 60 mA</code>. Écris le calcul de la résistance.</p>
+          <div class="correction">
+            <strong>Correction.</strong>
+            <pre class="code-block"><code>U = 6.0
+I_mA = 60
+I = I_mA / 1000
+
+R = U / I
+print("R =", R, "ohms")</code></pre>
+            On obtient <code>R = 100.0 ohms</code>. La conversion de mA en A est indispensable.
+          </div>
+        </details>
+
+        <details>
+          <summary>Exercice 11 - Histogramme</summary>
+          <p>Dans un histogramme de mesures, que risque-t-il de se passer si on choisit trop peu de classes ?</p>
+          <div class="correction">
+            <strong>Correction.</strong>
+            Avec trop peu de classes, les détails de la dispersion disparaissent. Le graphique devient plus simple, mais moins précis pour décrire la répartition des valeurs.
+          </div>
+        </details>
+
+        <details>
+          <summary>Exercice 12 - Vecteurs vitesse</summary>
+          <p>Complète la logique : pour calculer <code>vx</code>, quelle relation utilise-t-on entre deux positions successives ?</p>
+          <div class="correction">
+            <strong>Correction.</strong>
+            <pre class="code-block"><code>vx.append((x[i + 1] - x[i]) / dt)
+vy.append((y[i + 1] - y[i]) / dt)</code></pre>
+            On divise la variation de position par la durée entre deux positions. Les composantes obtenues sont en m/s si x et y sont en mètres et dt en secondes.
+          </div>
+        </details>
+      </div>
+    </section>
+      </div>
+
+      <div slot="quiz">
+    <section id="quiz" class="interactive-section" aria-labelledby="quiz-title">
+      <h2 id="quiz-title">Quiz</h2>
+      <QuizPlayer
+        client:load
+        data={quiz}
+        title="Quiz — Cours Python lycée"
+        chapterId={chapterKey}
+        xpConfig={xpConfig}
+      />
+    </section>
+      </div>
+
+      <div slot="flashcards">
+    <section id="flashcards" class="interactive-section" aria-labelledby="flashcards-title">
+      <h2 id="flashcards-title">Flashcards</h2>
+      <FlashcardsPlayer
+        client:load
+        data={flashcards}
+        title="Flashcards — Cours Python lycée"
+        chapterId={chapterKey}
+        xpConfig={xpConfig}
+      />
+    </section>
+      </div>
+    </ChapterTabs>
+  </article>
+</BaseLayout>
+
+<style>
+  .python-course {
+    margin: 0 auto;
+    max-width: 1040px;
+    padding: 2rem 1rem 3rem;
+  }
+
+  .course-hero {
+    margin: 0 auto 1.5rem;
+    max-width: 820px;
+    text-align: center;
+  }
+
+  .eyebrow,
+  .module-number {
+    color: var(--accent-primary);
+    font-size: 0.76rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.35rem;
+    text-transform: uppercase;
+  }
+
+  .course-hero h1 {
+    color: var(--accent-primary);
+    font-size: clamp(1.65rem, 4vw, 2.55rem);
+    font-weight: 850;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .hero-text,
+  .intro-panel p,
+  .module-card p,
+  .practice-section p,
+  .final-summary li,
+  .toc-panel li {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .hero-text {
+    margin: 0.75rem auto 1.2rem;
+    max-width: 740px;
+  }
+
+  .link-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    justify-content: center;
+  }
+
+  .link-row a {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    color: var(--text-secondary);
+    font-size: 0.86rem;
+    font-weight: 750;
+    padding: 0.45rem 0.8rem;
+    text-decoration: none;
+  }
+
+  .link-row a:hover,
+  .link-row a:focus-visible {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    outline: 3px solid var(--accent-primary-light);
+    outline-offset: 2px;
+  }
+
+  .intro-panel,
+  .module-card,
+  .practice-section,
+  .interactive-section,
+  .final-summary {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    margin: 1rem 0 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .intro-panel {
+    border-left: 5px solid var(--accent-primary);
+  }
+
+  .course-special-card {
+    background: linear-gradient(135deg, var(--accent-primary-light), var(--bg-card));
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent-primary);
+  }
+
+  .module-list > h2,
+  .practice-section h2,
+  .interactive-section h2,
+  .final-summary h2 {
+    color: var(--accent-primary);
+    font-size: 1.2rem;
+    margin: 0 0 0.8rem;
+  }
+
+  .intro-panel h2,
+  .final-summary h2 {
+    align-items: center;
+    color: var(--accent-primary);
+    display: flex;
+    font-size: 0.95rem;
+    font-weight: 850;
+    gap: 0.55rem;
+    letter-spacing: 0.03em;
+    line-height: 1.35;
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .intro-panel h2::before,
+  .final-summary h2::before {
+    background: var(--accent-primary);
+    border-radius: 999px;
+    box-shadow: 0 0 0 5px var(--accent-primary-light);
+    content: "";
+    flex: 0 0 auto;
+    height: 0.8rem;
+    width: 0.8rem;
+  }
+
+  .module-list > h2 {
+    margin-top: 1.7rem;
+  }
+
+  .course-main-heading {
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--accent-primary);
+    display: flex;
+    font-size: 1.1rem;
+    font-weight: 850;
+    gap: 0.55rem;
+    letter-spacing: 0.02em;
+    line-height: 1.35;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .course-main-heading::before {
+    background: var(--accent-primary);
+    border-radius: 999px;
+    box-shadow: 0 0 0 5px var(--accent-primary-light);
+    content: "";
+    flex: 0 0 auto;
+    height: 0.8rem;
+    width: 0.8rem;
+  }
+
+  .objective-list {
+    display: grid;
+    gap: 0.55rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+  }
+
+  .objective-list li {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    line-height: 1.5;
+    padding: 0.75rem 0.85rem 0.75rem 2.35rem;
+    position: relative;
+  }
+
+  .objective-list li::before {
+    align-items: center;
+    background: var(--accent-primary-light);
+    border-radius: 999px;
+    color: var(--accent-primary);
+    content: "✓";
+    display: inline-flex;
+    font-size: 0.8rem;
+    font-weight: 900;
+    height: 1.25rem;
+    justify-content: center;
+    left: 0.75rem;
+    position: absolute;
+    top: 0.82rem;
+    width: 1.25rem;
+  }
+
+  .module-card {
+    scroll-margin-top: 6rem;
+  }
+
+  .module-card h3 {
+    color: var(--text-primary);
+    font-size: 1.24rem;
+    margin: 0 0 0.75rem;
+  }
+
+  code {
+    background: var(--bg-tertiary);
+    border-radius: 5px;
+    color: var(--text-primary);
+    font-size: 0.92em;
+    padding: 0.08rem 0.3rem;
+  }
+
+  .code-block {
+    background: #0f172a;
+    border-radius: var(--radius-sm);
+    color: #e5e7eb;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin: 1rem 0;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+
+  .code-block code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+  }
+
+  .method-box,
+  .remember-box,
+  .pitfall,
+  .example-result,
+  .correction {
+    border-radius: var(--radius-sm);
+    margin: 1rem 0;
+    padding: 0.85rem 1rem;
+  }
+
+  .method-box,
+  .example-result {
+    background: var(--accent-primary-light);
+    border-left: 5px solid var(--accent-primary);
+    color: var(--text-secondary);
+  }
+
+  .remember-box {
+    background: var(--accent-primary-light);
+    border-left: 5px solid var(--accent-primary);
+    color: var(--text-secondary);
+  }
+
+  .correction {
+    background: var(--accent-success-light);
+    border-left: 5px solid var(--accent-success);
+    color: var(--text-secondary);
+  }
+
+  .pitfall {
+    background: var(--accent-warning-light);
+    border-left: 5px solid var(--accent-warning);
+    color: var(--text-secondary);
+  }
+
+  .table-wrap {
+    margin: 1rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    border-collapse: collapse;
+    min-width: 640px;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    line-height: 1.55;
+    padding: 0.6rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: var(--accent-primary);
+    color: #fff;
+    font-weight: 800;
+  }
+
+  .exercise-list {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  details {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem 0.95rem;
+  }
+
+  summary {
+    color: var(--text-primary);
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  summary:focus-visible {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 3px;
+  }
+
+  .final-summary ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .final-summary li::marker {
+    color: var(--accent-primary);
+  }
+
+  @media (max-width: 720px) {
+    .python-course {
+      padding: 1.25rem 0.75rem 2rem;
+    }
+
+    .intro-panel,
+    .module-card,
+    .practice-section,
+    .interactive-section,
+    .final-summary {
+      padding: 1rem;
+    }
+
+    table {
+      min-width: 580px;
+    }
+
+    .objective-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

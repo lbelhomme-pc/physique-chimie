@@ -1,0 +1,160 @@
+<div class="box-pedagogie box-objectif">
+  <strong>Objectifs du chapitre</strong>
+  <ul>
+    <li>Distinguer transformation totale, transformation non totale et état d'équilibre.</li>
+    <li>Écrire et calculer un quotient de réaction <math><msub><mi>Q</mi><mi>r</mi></msub></math>.</li>
+    <li>Prévoir le sens d'évolution spontanée en comparant <math><msub><mi>Q</mi><mrow><mi>r</mi><mo>,</mo><mi>i</mi></mrow></msub></math> à <math><mi>K</mi></math>.</li>
+    <li>Relier une réaction d'oxydoréduction spontanée au fonctionnement d'une pile.</li>
+    <li>Calculer une capacité électrique simple à partir d'une quantité d'électrons échangés.</li>
+  </ul>
+</div>
+
+<h2 class="section-title">1. Transformations non totales et équilibre</h2>
+<div class="card chapter-card">
+  <h3>1.1 Transformation totale ou non totale</h3>
+  <div class="definition-box">
+    Une transformation est <strong>totale</strong> si au moins un réactif est entièrement consommé à l'état final.
+    Elle est <strong>non totale</strong> si, à l'état final, les réactifs et les produits coexistent en quantités mesurables.
+  </div>
+  <p>Une transformation non totale conduit à un <strong>équilibre chimique dynamique</strong> : à l'échelle macroscopique les quantités ne varient plus, mais à l'échelle microscopique les réactions directe et inverse continuent et se compensent.</p>
+  <div class="example-box">
+    <strong>Exemple :</strong> dans l'eau, la réaction entre l'acide éthanoïque et l'eau n'est pas totale :
+    <div class="formula-wrapper-centered">
+      <div class="formula-content">CH<sub>3</sub>COOH(aq) + H<sub>2</sub>O(l) ⇌ CH<sub>3</sub>COO<sup>-</sup>(aq) + H<sub>3</sub>O<sup>+</sup>(aq)</div>
+    </div>
+  </div>
+
+  <h3>1.2 Taux d'avancement final</h3>
+  <div class="definition-box">
+    Le taux d'avancement final vaut :
+    <div class="formula-wrapper-centered">
+      <div class="formula-content"><math><mi>τ</mi><mo>=</mo><mfrac><msub><mi>x</mi><mi>f</mi></msub><msub><mi>x</mi><mtext>max</mtext></msub></mfrac></math></div>
+    </div>
+    Pour une transformation totale, <math><mi>τ</mi><mo>=</mo><mn>1</mn></math>. Pour une transformation non totale, <math><mi>τ</mi><mo>&lt;</mo><mn>1</mn></math>.
+  </div>
+
+  <div class="svg-wrap" role="img" aria-label="Schéma d'un équilibre dynamique entre réactifs et produits">
+    <svg viewBox="0 0 760 260" class="chapter-svg">
+      <defs>
+        <marker id="arrow-blue-evo" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+        <marker id="arrow-red-evo" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker>
+      </defs>
+      <rect x="70" y="70" width="210" height="100" rx="12" fill="#eef2ff" stroke="#4f46e5" stroke-width="3"/>
+      <text x="175" y="112" text-anchor="middle" font-weight="700" fill="#312e81">Réactifs</text>
+      <text x="175" y="142" text-anchor="middle" fill="#334155">A + B</text>
+      <rect x="480" y="70" width="210" height="100" rx="12" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+      <text x="585" y="112" text-anchor="middle" font-weight="700" fill="#065f46">Produits</text>
+      <text x="585" y="142" text-anchor="middle" fill="#334155">C + D</text>
+      <path d="M290 100 C360 55 410 55 470 100" fill="none" stroke="#2563eb" stroke-width="4" marker-end="url(#arrow-blue-evo)"/>
+      <path d="M470 145 C405 195 345 195 290 145" fill="none" stroke="#dc2626" stroke-width="4" marker-end="url(#arrow-red-evo)"/>
+      <text x="380" y="52" text-anchor="middle" fill="#2563eb" font-weight="700">sens direct</text>
+      <text x="380" y="220" text-anchor="middle" fill="#dc2626" font-weight="700">sens inverse</text>
+      <text x="380" y="128" text-anchor="middle" fill="#0f172a">à l'équilibre : vitesses égales</text>
+    </svg>
+  </div>
+</div>
+
+<h2 class="section-title">2. Quotient de réaction et constante d'équilibre</h2>
+<div class="card chapter-card">
+  <h3>2.1 Quotient de réaction</h3>
+  <p>Pour une réaction écrite :</p>
+  <div class="formula-wrapper-centered">
+    <div class="formula-content">a A(aq) + b B(aq) ⇌ c C(aq) + d D(aq)</div>
+  </div>
+  <p>le quotient de réaction s'écrit, en solution aqueuse diluée :</p>
+  <div class="formula-wrapper-centered">
+    <div class="formula-content"><math><msub><mi>Q</mi><mi>r</mi></msub><mo>=</mo><mfrac><mrow><msup><mrow><mo>[</mo><mi>C</mi><mo>]</mo></mrow><mi>c</mi></msup><msup><mrow><mo>[</mo><mi>D</mi><mo>]</mo></mrow><mi>d</mi></msup></mrow><mrow><msup><mrow><mo>[</mo><mi>A</mi><mo>]</mo></mrow><mi>a</mi></msup><msup><mrow><mo>[</mo><mi>B</mi><mo>]</mo></mrow><mi>b</mi></msup></mrow></mfrac></math></div>
+  </div>
+  <div class="info-box">
+    Les solides purs et le solvant eau n'apparaissent pas dans l'expression de <math><msub><mi>Q</mi><mi>r</mi></msub></math>. Les coefficients stœchiométriques deviennent des exposants.
+  </div>
+
+  <h3>2.2 Constante d'équilibre</h3>
+  <div class="definition-box">
+    À l'équilibre, le quotient de réaction prend une valeur constante appelée <strong>constante d'équilibre</strong> :
+    <div class="formula-wrapper-centered">
+      <div class="formula-content"><math><msub><mi>Q</mi><mrow><mi>r</mi><mo>,</mo><mtext>éq</mtext></mrow></msub><mo>=</mo><mi>K</mi><mo stretchy="false">(</mo><mi>T</mi><mo stretchy="false">)</mo></math></div>
+    </div>
+  </div>
+  <p>La constante d'équilibre dépend de la température et de l'équation choisie pour modéliser la réaction.</p>
+</div>
+
+<h2 class="section-title">3. Prévoir le sens d'évolution spontanée</h2>
+<div class="card chapter-card">
+  <p>On calcule d'abord le quotient initial <math><msub><mi>Q</mi><mrow><mi>r</mi><mo>,</mo><mi>i</mi></mrow></msub></math>, puis on le compare à <math><mi>K</mi></math>.</p>
+  <table>
+    <thead>
+      <tr><th>Comparaison</th><th>Évolution spontanée</th><th>Interprétation</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><math><msub><mi>Q</mi><mrow><mi>r</mi><mo>,</mo><mi>i</mi></mrow></msub><mo>&lt;</mo><mi>K</mi></math></td><td>Sens direct</td><td>Le système forme davantage de produits.</td></tr>
+      <tr><td><math><msub><mi>Q</mi><mrow><mi>r</mi><mo>,</mo><mi>i</mi></mrow></msub><mo>&gt;</mo><mi>K</mi></math></td><td>Sens inverse</td><td>Le système forme davantage de réactifs.</td></tr>
+      <tr><td><math><msub><mi>Q</mi><mrow><mi>r</mi><mo>,</mo><mi>i</mi></mrow></msub><mo>=</mo><mi>K</mi></math></td><td>Pas d'évolution macroscopique</td><td>Le système est déjà à l'équilibre.</td></tr>
+    </tbody>
+  </table>
+  <div class="example-box">
+    <strong>Exemple :</strong> si <math><msub><mi>Q</mi><mrow><mi>r</mi><mo>,</mo><mi>i</mi></mrow></msub><mo>=</mo><mn>0,20</mn></math> et <math><mi>K</mi><mo>=</mo><mn>4,0</mn></math>, alors <math><msub><mi>Q</mi><mrow><mi>r</mi><mo>,</mo><mi>i</mi></mrow></msub><mo>&lt;</mo><mi>K</mi></math> : la réaction évolue spontanément dans le sens direct.
+  </div>
+</div>
+
+<h2 class="section-title">4. Oxydoréduction spontanée et piles</h2>
+<div class="card chapter-card">
+  <h3>4.1 Oxydant, réducteur et échange d'électrons</h3>
+  <div class="definition-box">
+    Un <strong>oxydant</strong> capte des électrons. Un <strong>réducteur</strong> cède des électrons. Dans un couple Ox/Red :
+    <div class="formula-wrapper-centered">
+      <div class="formula-content">Ox + n e<sup>-</sup> ⇌ Red</div>
+    </div>
+  </div>
+  <p>Une réaction d'oxydoréduction spontanée peut être exploitée dans une <strong>pile électrochimique</strong> pour produire un courant électrique.</p>
+
+  <h3>4.2 Fonctionnement d'une pile</h3>
+  <ul>
+    <li>À l'<strong>anode</strong>, le réducteur est oxydé : il cède des électrons.</li>
+    <li>À la <strong>cathode</strong>, l'oxydant est réduit : il capte des électrons.</li>
+    <li>Les électrons circulent dans le circuit extérieur de l'anode vers la cathode.</li>
+    <li>Le pont salin ou la membrane assure la circulation des ions et maintient l'électroneutralité.</li>
+  </ul>
+  <div class="svg-wrap" role="img" aria-label="Schéma simplifié d'une pile Daniell">
+    <svg viewBox="0 0 820 330" class="chapter-svg">
+      <defs>
+        <marker id="arrow-electrons-evo" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0f172a"/></marker>
+      </defs>
+      <rect x="80" y="100" width="220" height="150" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+      <rect x="520" y="100" width="220" height="150" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/>
+      <rect x="150" y="70" width="30" height="160" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
+      <rect x="640" y="70" width="30" height="160" fill="#f97316" stroke="#9a3412" stroke-width="2"/>
+      <path d="M165 70 L165 40 L655 40 L655 70" fill="none" stroke="#0f172a" stroke-width="4"/>
+      <path d="M250 40 H560" fill="none" stroke="#0f172a" stroke-width="4" marker-end="url(#arrow-electrons-evo)"/>
+      <text x="410" y="28" text-anchor="middle" font-weight="700">électrons</text>
+      <path d="M305 155 C390 90 455 90 515 155" fill="none" stroke="#64748b" stroke-width="18" stroke-linecap="round"/>
+      <text x="410" y="125" text-anchor="middle" fill="#334155" font-weight="700">pont salin</text>
+      <text x="190" y="280" text-anchor="middle" font-weight="700" fill="#1d4ed8">anode : oxydation</text>
+      <text x="630" y="280" text-anchor="middle" font-weight="700" fill="#c2410c">cathode : réduction</text>
+      <text x="190" y="150" text-anchor="middle">Zn(s) → Zn²⁺ + 2 e⁻</text>
+      <text x="630" y="150" text-anchor="middle">Cu²⁺ + 2 e⁻ → Cu(s)</text>
+      <text x="190" y="205" text-anchor="middle">solution Zn²⁺</text>
+      <text x="630" y="205" text-anchor="middle">solution Cu²⁺</text>
+    </svg>
+  </div>
+
+  <h3>4.3 Capacité électrique d'une pile</h3>
+  <div class="definition-box">
+    La charge électrique maximale transférable vaut :
+    <div class="formula-wrapper-centered">
+      <div class="formula-content"><math><msub><mi>Q</mi><mtext>max</mtext></msub><mo>=</mo><msub><mi>n</mi><mrow><mi>e</mi><mo>-</mo></mrow></msub><mi>F</mi></math></div>
+    </div>
+    avec <math><mi>F</mi><mo>=</mo><mn>96500</mn><mtext> C·mol⁻¹</mtext></math>. La capacité en ampère-heure vaut <math><mi>C</mi><mo>=</mo><mfrac><mi>Q</mi><mn>3600</mn></mfrac></math>.
+  </div>
+</div>
+
+<h2 class="section-title">À retenir</h2>
+<div class="card chapter-card">
+  <ul>
+    <li>Une transformation non totale conduit à un équilibre dynamique.</li>
+    <li>Le quotient de réaction dépend de l'état instantané du système.</li>
+    <li>À l'équilibre, <math><msub><mi>Q</mi><mi>r</mi></msub><mo>=</mo><mi>K</mi></math>.</li>
+    <li>La comparaison de <math><msub><mi>Q</mi><mrow><mi>r</mi><mo>,</mo><mi>i</mi></mrow></msub></math> et <math><mi>K</mi></math> donne le sens d'évolution spontanée.</li>
+    <li>Une pile convertit une transformation d'oxydoréduction spontanée en énergie électrique.</li>
+  </ul>
+</div>

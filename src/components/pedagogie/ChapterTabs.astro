@@ -1,6 +1,6 @@
 ---
 // src/components/pedagogie/ChapterTabs.astro
-// v2 : Style pills arrondi, cohérent avec le design system
+// Onglets de chapitre accessibles et homogènes pour cours, exercices, quiz et flashcards.
 
 interface Props {
   hasCours?: boolean;
@@ -10,7 +10,6 @@ interface Props {
   exercicesCount?: number;
   quizCount?: number;
   flashcardsCount?: number;
-  /** URL de retour (ex: /college/3eme) */
   backUrl?: string;
   backLabel?: string;
 }
@@ -28,58 +27,122 @@ const {
 } = Astro.props;
 ---
 
-<div class="chapter-tabs-wrapper">
-  <!-- Barre d'onglets -->
-  <nav class="chapter-tabs" role="tablist" aria-label="Sections du chapitre">
+<div class="chapter-tabs-wrapper" data-chapter-tabs>
+  <div class="chapter-tabs">
     {backUrl && (
       <a href={backUrl} class="tab-pill tab-back">
-        <span class="tab-emoji">🏠</span> {backLabel}
+        <span>{backLabel}</span>
       </a>
     )}
-    {hasCours && (
-      <button class="tab-pill active" role="tab" aria-selected="true" data-tab="cours">
-        <span class="tab-emoji">📖</span> Cours
-      </button>
-    )}
-    {hasExercices && (
-      <button class="tab-pill" role="tab" aria-selected="false" data-tab="exercices">
-        <span class="tab-emoji">✏️</span> Exercices
-        {exercicesCount > 0 && <span class="tab-badge">{exercicesCount}</span>}
-      </button>
-    )}
-    {hasQuiz && (
-      <button class="tab-pill" role="tab" aria-selected="false" data-tab="quiz">
-        <span class="tab-emoji">🎯</span> Quiz
-        {quizCount > 0 && <span class="tab-badge">{quizCount}</span>}
-      </button>
-    )}
-    {hasFlashcards && (
-      <button class="tab-pill" role="tab" aria-selected="false" data-tab="flashcards">
-        <span class="tab-emoji">🃏</span> Flashcards
-        {flashcardsCount > 0 && <span class="tab-badge">{flashcardsCount}</span>}
-      </button>
-    )}
-  </nav>
 
-  <!-- Panneaux de contenu -->
+    <nav class="chapter-tablist" role="tablist" aria-label="Sections du chapitre">
+      {hasCours && (
+        <button
+          type="button"
+          id="chapter-tab-cours"
+          class="tab-pill active"
+          role="tab"
+          aria-selected="true"
+          aria-controls="chapter-panel-cours"
+          tabindex="0"
+          data-tab="cours"
+        >
+          Cours
+        </button>
+      )}
+      {hasExercices && (
+        <button
+          type="button"
+          id="chapter-tab-exercices"
+          class="tab-pill"
+          role="tab"
+          aria-selected="false"
+          aria-controls="chapter-panel-exercices"
+          tabindex="-1"
+          data-tab="exercices"
+        >
+          Exercices
+          {exercicesCount > 0 && <span class="tab-badge">{exercicesCount}</span>}
+        </button>
+      )}
+      {hasQuiz && (
+        <button
+          type="button"
+          id="chapter-tab-quiz"
+          class="tab-pill"
+          role="tab"
+          aria-selected="false"
+          aria-controls="chapter-panel-quiz"
+          tabindex="-1"
+          data-tab="quiz"
+        >
+          Quiz
+          {quizCount > 0 && <span class="tab-badge">{quizCount}</span>}
+        </button>
+      )}
+      {hasFlashcards && (
+        <button
+          type="button"
+          id="chapter-tab-flashcards"
+          class="tab-pill"
+          role="tab"
+          aria-selected="false"
+          aria-controls="chapter-panel-flashcards"
+          tabindex="-1"
+          data-tab="flashcards"
+        >
+          Flashcards
+          {flashcardsCount > 0 && <span class="tab-badge">{flashcardsCount}</span>}
+        </button>
+      )}
+    </nav>
+  </div>
+
   <div class="tab-panels">
     {hasCours && (
-      <div class="tab-panel active" data-panel="cours" role="tabpanel">
+      <div
+        id="chapter-panel-cours"
+        class="tab-panel active"
+        data-panel="cours"
+        role="tabpanel"
+        aria-labelledby="chapter-tab-cours"
+      >
         <slot name="cours" />
       </div>
     )}
     {hasExercices && (
-      <div class="tab-panel" data-panel="exercices" role="tabpanel">
+      <div
+        id="chapter-panel-exercices"
+        class="tab-panel"
+        data-panel="exercices"
+        role="tabpanel"
+        aria-labelledby="chapter-tab-exercices"
+        hidden
+      >
         <slot name="exercices" />
       </div>
     )}
     {hasQuiz && (
-      <div class="tab-panel" data-panel="quiz" role="tabpanel">
+      <div
+        id="chapter-panel-quiz"
+        class="tab-panel"
+        data-panel="quiz"
+        role="tabpanel"
+        aria-labelledby="chapter-tab-quiz"
+        hidden
+      >
         <slot name="quiz" />
       </div>
     )}
     {hasFlashcards && (
-      <div class="tab-panel" data-panel="flashcards" role="tabpanel">
+      <div
+        id="chapter-panel-flashcards"
+        class="tab-panel"
+        data-panel="flashcards"
+        role="tabpanel"
+        aria-labelledby="chapter-tab-flashcards"
+        hidden
+      >
         <slot name="flashcards" />
       </div>
     )}
@@ -98,9 +161,18 @@ const {
     gap: 0.4rem;
     padding: 0.5rem;
     background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card);
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .chapter-tablist {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -109,16 +181,17 @@ const {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
+    min-height: 44px;
     padding: 0.55rem 1.1rem;
     border-radius: var(--radius-md);
     background: transparent;
     color: var(--text-muted);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9rem;
-    border: none;
+    border: 1px solid transparent;
     cursor: pointer;
     white-space: nowrap;
-    transition: all 0.2s;
+    transition: background 0.2s, border-color 0.2s, color 0.2s, outline-color 0.2s;
     font-family: inherit;
     text-decoration: none;
   }
@@ -128,22 +201,25 @@ const {
     color: var(--text-primary);
   }
 
+  .tab-pill:focus-visible {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 3px;
+  }
+
   .tab-pill.active {
     background: var(--accent-primary-light);
+    border-color: var(--accent-primary);
     color: var(--accent-primary);
   }
 
   .tab-back {
     color: var(--text-secondary);
   }
+
   .tab-back:hover {
     background: var(--bg-tertiary);
     color: var(--text-primary);
     text-decoration: none;
-  }
-
-  .tab-emoji {
-    font-size: 1rem;
   }
 
   .tab-badge {
@@ -157,7 +233,7 @@ const {
     background: var(--bg-tertiary);
     color: var(--text-muted);
     font-size: 0.7rem;
-    font-weight: 700;
+    font-weight: 800;
   }
 
   .tab-pill.active .tab-badge {
@@ -165,7 +241,8 @@ const {
     color: #ffffff;
   }
 
-  .tab-panel {
+  .tab-panel,
+  .tab-panel[hidden] {
     display: none;
   }
 
@@ -179,58 +256,93 @@ const {
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Responsive */
   @media (max-width: 600px) {
+    .chapter-tabs {
+      justify-content: center;
+      overflow-x: visible;
+    }
+
+    .chapter-tablist {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+
     .tab-pill {
+      flex: 1 1 calc(50% - 0.4rem);
+      justify-content: center;
+      min-width: 0;
       padding: 0.45rem 0.8rem;
       font-size: 0.8rem;
+      text-align: center;
+      white-space: normal;
     }
-    .tab-emoji { font-size: 0.9rem; }
+
+    .tab-back {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
   }
 </style>
 
 <script>
-  // Gestion des onglets
   document.addEventListener("DOMContentLoaded", () => {
-    const wrapper = document.querySelector(".chapter-tabs-wrapper");
-    if (!wrapper) return;
+    const wrappers = document.querySelectorAll<HTMLElement>("[data-chapter-tabs]");
 
-    const tabs = wrapper.querySelectorAll<HTMLButtonElement>(".tab-pill[data-tab]");
-    const panels = wrapper.querySelectorAll<HTMLDivElement>(".tab-panel[data-panel]");
+    wrappers.forEach((wrapper) => {
+      const tabs = wrapper.querySelectorAll<HTMLButtonElement>(".tab-pill[data-tab]");
+      const panels = wrapper.querySelectorAll<HTMLDivElement>(".tab-panel[data-panel]");
 
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
+      function activateTab(tab: HTMLButtonElement) {
         const target = tab.dataset.tab;
         if (!target) return;
 
-        // Désactiver tous
-        tabs.forEach((t) => { t.classList.remove("active"); t.setAttribute("aria-selected", "false"); });
-        panels.forEach((p) => p.classList.remove("active"));
+        tabs.forEach((item) => {
+          item.classList.remove("active");
+          item.setAttribute("aria-selected", "false");
+          item.setAttribute("tabindex", "-1");
+        });
 
-        // Activer le cliqué
+        panels.forEach((panel) => {
+          panel.classList.remove("active");
+          panel.hidden = true;
+        });
+
         tab.classList.add("active");
         tab.setAttribute("aria-selected", "true");
+        tab.setAttribute("tabindex", "0");
+
         const panel = wrapper.querySelector<HTMLDivElement>(`.tab-panel[data-panel="${target}"]`);
-        if (panel) panel.classList.add("active");
-      });
-
-      // Navigation clavier
-      tab.addEventListener("keydown", (e) => {
-        const tabsArr = Array.from(tabs);
-        const idx = tabsArr.indexOf(tab);
-        let next = -1;
-
-        if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-          next = (idx + 1) % tabsArr.length;
-        } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-          next = (idx - 1 + tabsArr.length) % tabsArr.length;
+        if (panel) {
+          panel.hidden = false;
+          panel.classList.add("active");
         }
+      }
 
-        if (next >= 0) {
-          e.preventDefault();
-          tabsArr[next].click();
-          tabsArr[next].focus();
-        }
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => activateTab(tab));
+
+        tab.addEventListener("keydown", (event) => {
+          const tabsArray = Array.from(tabs);
+          const index = tabsArray.indexOf(tab);
+          let next = -1;
+
+          if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+            next = (index + 1) % tabsArray.length;
+          } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+            next = (index - 1 + tabsArray.length) % tabsArray.length;
+          } else if (event.key === "Home") {
+            next = 0;
+          } else if (event.key === "End") {
+            next = tabsArray.length - 1;
+          }
+
+          if (next >= 0) {
+            event.preventDefault();
+            activateTab(tabsArray[next]);
+            tabsArray[next].focus();
+          }
+        });
       });
     });
   });

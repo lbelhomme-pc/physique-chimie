@@ -1,0 +1,162 @@
+[
+  {
+    "id": "sat-01",
+    "titre": "Force gravitationnelle Terre-satellite",
+    "niveau": "Application directe",
+    "difficulte": 1,
+    "consigne": "Un satellite de masse $m=850\\ kg$ orbite à la distance $r=7,10\\times10^6\\ m$ du centre de la Terre. Calculer la valeur de la force gravitationnelle exercée par la Terre. Données : $M_T=5,97\\times10^{24}\\ kg$ et $G=6,67\\times10^{-11}\\ SI$.",
+    "aide": "La distance à utiliser est celle entre les centres : ici $r$ est déjà donné.",
+    "correction": [
+      "$F=G\\dfrac{M_Tm}{r^2}$.",
+      "$F=6,67\\times10^{-11}\\times\\dfrac{5,97\\times10^{24}\\times850}{(7,10\\times10^6)^2}$.",
+      "$F\\approx6,7\\times10^3\\ N$."
+    ]
+  },
+  {
+    "id": "sat-02",
+    "titre": "Ne pas confondre altitude et rayon orbital",
+    "niveau": "Point méthode",
+    "difficulte": 1,
+    "consigne": "Un satellite est à l'altitude $h=700\\ km$ au-dessus de la Terre. Calculer son rayon orbital $r$. On donne $R_T=6,37\\times10^6\\ m$.",
+    "aide": "Convertir l'altitude en mètres puis ajouter le rayon terrestre.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 260\" role=\"img\" aria-label=\"Altitude et rayon orbital\"><rect x=\"35\" y=\"24\" width=\"650\" height=\"190\" rx=\"16\" fill=\"#eef2ff\" stroke=\"#c7d2fe\"/><circle cx=\"330\" cy=\"130\" r=\"56\" fill=\"#93c5fd\" stroke=\"#2563eb\" stroke-width=\"4\"/><circle cx=\"470\" cy=\"130\" r=\"12\" fill=\"#f97316\"/><line x1=\"330\" y1=\"130\" x2=\"470\" y2=\"130\" stroke=\"#111827\" stroke-width=\"3\"/><line x1=\"386\" y1=\"130\" x2=\"470\" y2=\"130\" stroke=\"#ef4444\" stroke-width=\"4\"/><text x=\"395\" y=\"119\" font-size=\"19\" fill=\"#991b1b\">altitude h</text><text x=\"355\" y=\"158\" font-size=\"19\" fill=\"#111827\">rayon orbital r</text><text x=\"145\" y=\"224\" font-size=\"18\" fill=\"#334155\">Le schéma rappelle seulement quelle distance choisir.</text></svg>",
+    "correction": [
+      "$h=700\\ km=7,00\\times10^5\\ m$.",
+      "$r=R_T+h=6,37\\times10^6+7,00\\times10^5=7,07\\times10^6\\ m$."
+    ]
+  },
+  {
+    "id": "sat-03",
+    "titre": "Vitesse d'un satellite circulaire",
+    "niveau": "Application directe",
+    "difficulte": 2,
+    "consigne": "Déterminer la vitesse d'un satellite en orbite circulaire de rayon $r=7,07\\times10^6\\ m$ autour de la Terre. Données : $G=6,67\\times10^{-11}\\ SI$ et $M_T=5,97\\times10^{24}\\ kg$.",
+    "aide": "Pour une orbite circulaire, la force gravitationnelle fournit l'accélération centripète.",
+    "correction": [
+      "$v=\\sqrt{\\dfrac{GM_T}{r}}$.",
+      "$v=\\sqrt{\\dfrac{6,67\\times10^{-11}\\times5,97\\times10^{24}}{7,07\\times10^6}}$.",
+      "$v\\approx7,50\\times10^3\\ m\\cdot s^{-1}$, soit environ $7,50\\ km\\cdot s^{-1}$."
+    ]
+  },
+  {
+    "id": "sat-04",
+    "titre": "Période orbitale",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Avec la vitesse trouvée dans l'exercice précédent, calculer la période du satellite. On prendra $r=7,07\\times10^6\\ m$ et $v=7,50\\times10^3\\ m\\cdot s^{-1}$.",
+    "aide": "Un tour correspond à la longueur $2\\pi r$.",
+    "correction": [
+      "$T=\\dfrac{2\\pi r}{v}$.",
+      "$T=\\dfrac{2\\pi\\times7,07\\times10^6}{7,50\\times10^3}\\approx5,92\\times10^3\\ s$.",
+      "Cela représente environ $98,7\\ min$."
+    ]
+  },
+  {
+    "id": "sat-05",
+    "titre": "Satellite géostationnaire",
+    "niveau": "Problème classique",
+    "difficulte": 3,
+    "consigne": "Un satellite géostationnaire a une période $T=86164\\ s$. Calculer son rayon orbital puis son altitude. Données : $G=6,67\\times10^{-11}\\ SI$, $M_T=5,97\\times10^{24}\\ kg$, $R_T=6,37\\times10^6\\ m$.",
+    "aide": "Partir de $T=2\\pi\\sqrt{r^3/(GM_T)}$ puis isoler $r^3$.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 250\" role=\"img\" aria-label=\"Satellite géostationnaire\"><rect x=\"35\" y=\"24\" width=\"650\" height=\"180\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#e5e7eb\"/><circle cx=\"360\" cy=\"118\" r=\"42\" fill=\"#bfdbfe\" stroke=\"#2563eb\" stroke-width=\"4\"/><circle cx=\"530\" cy=\"118\" r=\"12\" fill=\"#f97316\"/><path d=\"M190 118 A170 170 0 1 0 530 118\" fill=\"none\" stroke=\"#6366f1\" stroke-width=\"4\" stroke-dasharray=\"8 7\"/><text x=\"205\" y=\"224\" font-size=\"18\" fill=\"#334155\">Même période que la rotation terrestre, mais conditions d'orbite à vérifier.</text></svg>",
+    "correction": [
+      "$T^2=\\dfrac{4\\pi^2r^3}{GM_T}$ donc $r=\\sqrt[3]{\\dfrac{GM_TT^2}{4\\pi^2}}$.",
+      "$r\\approx4,22\\times10^7\\ m$.",
+      "$h=r-R_T\\approx4,22\\times10^7-6,37\\times10^6=3,58\\times10^7\\ m$.",
+      "L'altitude est donc environ $3,58\\times10^4\\ km$."
+    ]
+  },
+  {
+    "id": "sat-06",
+    "titre": "Lire la troisième loi de Kepler",
+    "niveau": "Exploitation de données",
+    "difficulte": 2,
+    "consigne": "Pour plusieurs satellites d'un même astre, on trace $T^2$ en fonction de $r^3$. La droite obtenue a pour pente $p=9,90\\times10^{-14}\\ s^2\\cdot m^{-3}$. Déterminer la masse de l'astre central.",
+    "aide": "Comparer la pente à l'expression $4\\pi^2/(GM)$.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 260\" role=\"img\" aria-label=\"Graphique T carré en fonction de r cube\"><rect x=\"45\" y=\"24\" width=\"620\" height=\"180\" rx=\"16\" fill=\"#f8fafc\" stroke=\"#e5e7eb\"/><line x1=\"110\" y1=\"180\" x2=\"610\" y2=\"180\" stroke=\"#111827\" stroke-width=\"3\"/><line x1=\"110\" y1=\"180\" x2=\"110\" y2=\"55\" stroke=\"#111827\" stroke-width=\"3\"/><path d=\"M130 166 L590 62\" stroke=\"#4f46e5\" stroke-width=\"5\" fill=\"none\"/><text x=\"555\" y=\"214\" font-size=\"18\" fill=\"#111827\">r³</text><text x=\"70\" y=\"70\" font-size=\"18\" fill=\"#111827\">T²</text><text x=\"220\" y=\"235\" font-size=\"18\" fill=\"#334155\">La pente est donnée dans l'énoncé.</text></svg>",
+    "correction": [
+      "$p=\\dfrac{4\\pi^2}{GM}$ donc $M=\\dfrac{4\\pi^2}{Gp}$.",
+      "$M=\\dfrac{4\\pi^2}{6,67\\times10^{-11}\\times9,90\\times10^{-14}}$.",
+      "$M\\approx5,98\\times10^{24}\\ kg$, valeur cohérente avec la masse de la Terre."
+    ]
+  },
+  {
+    "id": "sat-07",
+    "titre": "Sens de la vitesse et de l'accélération",
+    "niveau": "Raisonnement vectoriel",
+    "difficulte": 1,
+    "consigne": "Pour un satellite en mouvement circulaire uniforme, indiquer la direction de la vitesse et celle de l'accélération. Expliquer pourquoi l'accélération n'est pas nulle.",
+    "aide": "Une grandeur vectorielle peut changer même si sa valeur reste constante.",
+    "schemaSvg": "<svg viewBox=\"0 0 720 250\" role=\"img\" aria-label=\"Satellite en orbite circulaire\"><rect x=\"45\" y=\"24\" width=\"620\" height=\"180\" rx=\"16\" fill=\"#eef2ff\" stroke=\"#c7d2fe\"/><circle cx=\"360\" cy=\"120\" r=\"72\" fill=\"none\" stroke=\"#6366f1\" stroke-width=\"4\"/><circle cx=\"360\" cy=\"120\" r=\"30\" fill=\"#93c5fd\" stroke=\"#2563eb\" stroke-width=\"3\"/><circle cx=\"432\" cy=\"120\" r=\"10\" fill=\"#f97316\"/><text x=\"180\" y=\"224\" font-size=\"18\" fill=\"#334155\">À compléter mentalement : tangente et centre de l'orbite.</text></svg>",
+    "correction": [
+      "La vitesse est tangente à la trajectoire circulaire.",
+      "L'accélération est dirigée vers le centre de l'orbite : elle est centripète.",
+      "La valeur de la vitesse peut être constante, mais la direction du vecteur vitesse change continuellement : il existe donc une accélération."
+    ]
+  },
+  {
+    "id": "sat-08",
+    "titre": "Comparer deux orbites circulaires",
+    "niveau": "Raisonnement",
+    "difficulte": 2,
+    "consigne": "Deux satellites orbitent autour de la même planète. Le satellite A a un rayon orbital plus petit que le satellite B. Comparer qualitativement leurs vitesses et leurs périodes.",
+    "aide": "Regarder le sens de variation de $v=\\sqrt{GM/r}$ et de $T=2\\pi\\sqrt{r^3/(GM)}$.",
+    "correction": [
+      "Quand $r$ augmente, $v=\\sqrt{GM/r}$ diminue.",
+      "Le satellite A, plus proche de la planète, est donc plus rapide.",
+      "Quand $r$ augmente, $T$ augmente : le satellite B a la période la plus longue."
+    ]
+  },
+  {
+    "id": "sat-09",
+    "titre": "Masse d'une planète à partir d'un satellite",
+    "niveau": "Problème",
+    "difficulte": 3,
+    "consigne": "Un satellite naturel décrit une orbite supposée circulaire de rayon $r=4,20\\times10^8\\ m$ autour d'une planète. Sa période vaut $T=1,53\\times10^6\\ s$. Estimer la masse de la planète.",
+    "aide": "Isoler $M$ dans la troisième loi de Kepler.",
+    "correction": [
+      "$\\dfrac{T^2}{r^3}=\\dfrac{4\\pi^2}{GM}$ donc $M=\\dfrac{4\\pi^2r^3}{GT^2}$.",
+      "$M=\\dfrac{4\\pi^2(4,20\\times10^8)^3}{6,67\\times10^{-11}(1,53\\times10^6)^2}$.",
+      "$M\\approx1,9\\times10^{27}\\ kg$."
+    ]
+  },
+  {
+    "id": "sat-10",
+    "titre": "Comète sur orbite elliptique",
+    "niveau": "Compréhension",
+    "difficulte": 2,
+    "consigne": "Une comète se déplace sur une orbite elliptique autour du Soleil. Est-elle plus rapide près du périhélie ou près de l'aphélie ? Justifier avec une loi de Kepler.",
+    "aide": "La deuxième loi de Kepler parle des aires balayées pendant des durées égales.",
+    "correction": [
+      "La comète est plus rapide près du périhélie, lorsqu'elle est la plus proche du Soleil.",
+      "D'après la loi des aires, le rayon Soleil-comète balaie des aires égales pendant des durées égales.",
+      "Quand la comète est proche du Soleil, le rayon est plus court : elle doit parcourir un arc plus grand par unité de temps."
+    ]
+  },
+  {
+    "id": "sat-11",
+    "titre": "Gravité à distance",
+    "niveau": "Calcul guidé",
+    "difficulte": 2,
+    "consigne": "Calculer la valeur du champ de gravitation terrestre à la distance $r=2R_T$ du centre de la Terre. On donne $g_0=9,81\\ m\\cdot s^{-2}$ à la surface terrestre.",
+    "aide": "Le champ varie comme $1/r^2$ ; comparer à la surface, où $r=R_T$.",
+    "correction": [
+      "$g(r)=G M_T/r^2$ et $g_0=G M_T/R_T^2$.",
+      "À $r=2R_T$, $g=G M_T/(2R_T)^2=g_0/4$.",
+      "$g\\approx9,81/4=2,45\\ m\\cdot s^{-2}$."
+    ]
+  },
+  {
+    "id": "sat-12",
+    "titre": "Reconnaître une orbite géostationnaire",
+    "niveau": "Analyse",
+    "difficulte": 2,
+    "consigne": "Un satellite a une période de 24 h et une orbite circulaire inclinée de $30^\\circ$ par rapport au plan équatorial. Peut-on dire qu'il est géostationnaire ? Justifier.",
+    "aide": "La période ne suffit pas : il faut aussi considérer le plan et le sens de l'orbite.",
+    "correction": [
+      "Non, il n'est pas géostationnaire.",
+      "Un satellite géostationnaire doit avoir une orbite circulaire dans le plan de l'équateur, dans le même sens que la rotation terrestre.",
+      "Une orbite inclinée ne permet pas de rester au-dessus d'un même point de l'équateur."
+    ]
+  }
+]

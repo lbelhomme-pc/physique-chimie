@@ -1,0 +1,34 @@
+---
+import LabAppLayout from "../../components/laboratoire/LabAppLayout.astro";
+import GenericLabSimulator from "../../components/laboratoire/GenericLabSimulator.astro";
+import { labApps } from "../../data/laboratoire/apps";
+import { genericLabConfigs } from "../../data/laboratoire/genericConfigs";
+
+export function getStaticPaths() {
+  const explicitRoutes = new Set(["circuit-rc", "lois-kepler", "gaz-parfaits", "diffusion-temperature"]);
+  const genericApps = labApps.filter((app) => !explicitRoutes.has(app.slug));
+  return genericApps.map((app) => ({
+    params: { slug: app.slug },
+    props: { app },
+  }));
+}
+
+const { app } = Astro.props;
+const config = genericLabConfigs[app.slug];
+
+if (!config) {
+  throw new Error(`Configuration manquante pour la simulation "${app.slug}".`);
+}
+---
+
+<LabAppLayout
+  title={app.title}
+  description={app.objective}
+  icon={app.icon}
+  level={app.level}
+  concept={app.concept}
+  objective={app.objective}
+  legacyPath={app.legacyPath}
+>
+  <GenericLabSimulator app={app} config={config} />
+</LabAppLayout>

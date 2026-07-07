@@ -1,0 +1,320 @@
+---
+import katex from "katex";
+
+interface Props {
+  html: string;
+}
+
+const { html } = Astro.props;
+
+function renderLatex(latex: string, displayMode: boolean) {
+  try {
+    return katex.renderToString(latex.trim(), {
+      throwOnError: false,
+      displayMode,
+      output: "html",
+    });
+  } catch {
+    return latex;
+  }
+}
+
+function renderMath(source: string) {
+  return String(source ?? "")
+    .replace(/\$\$([\s\S]*?)\$\$/g, (_, formula) => `<div class="katex-block">${renderLatex(formula, true)}</div>`)
+    .replace(/\\\[([\s\S]*?)\\\]/g, (_, formula) => `<div class="katex-block">${renderLatex(formula, true)}</div>`)
+    .replace(/\\\(([\s\S]*?)\\\)/g, (_, formula) => `<span class="katex-inline">${renderLatex(formula, false)}</span>`)
+    .replace(/(?<!\$)\$(?!\$)(.*?)(?<!\$)\$(?!\$)/g, (_, formula) => `<span class="katex-inline">${renderLatex(formula, false)}</span>`);
+}
+
+function normalizeImportedContent(source: string) {
+  const normalized = String(source ?? "")
+    .replace(
+      /<section[^>]*>\s*<h2[^>]*>\s*(?:Prérequis|PrÃ©requis|Problematique|Problématique|ProblÃ©matique|Activite[\s\S]*?|Activité[\s\S]*?|ActivitÃ©[\s\S]*?|Situation[\s\S]*?)\s*<\/h2>[\s\S]*?<\/section>/gi,
+      "",
+    )
+    .replace(/<div[^>]*class="[^"]*(?:activite-box|activity-box|discovery-box|prerequis-box|problem-box)[^"]*"[^>]*>[\s\S]*?<\/div>/gi, "")
+    .replace(
+      /<p>\s*<strong>\s*Objectifs du chapitre\s*<\/strong>\s*<\/p>\s*(<ul[\s\S]*?<\/ul>)/i,
+      `<section class="objectives-card">
+  <h2 class="objectives-title">Objectifs</h2>
+  $1
+</section>`,
+    )
+    .replace(
+      /<section class="course-section">\s*<h2>\s*Objectifs du chapitre\s*<\/h2>/i,
+      `<section class="course-section objectives-card">
+  <h2 class="objectives-title">Objectifs</h2>`,
+    )
+    .replace(
+      /<h2(?:\s+class="[^"]*")?>\s*Objectifs du chapitre\s*<\/h2>/gi,
+      `<h2 class="objectives-title">Objectifs</h2>`,
+    )
+    .replace(
+      /<h2[^>]*>\s*(?:\d+\s*[./-]\s*)?(?:Points clés|À retenir)\s*<\/h2>\s*<div class="card chapter-card">\s*([\s\S]*?)\s*<\/div>/gi,
+      `<div class="summary-box">
+  <strong class="summary-label">À retenir</strong>
+  $1
+</div>`,
+    )
+    .replace(
+      /<h2[^>]*>\s*(?:\d+\s*[./-]\s*)?(?:Points clés|À retenir)\s*<\/h2>\s*(<ul[\s\S]*?<\/ul>)/gi,
+      `<div class="summary-box">
+  <strong class="summary-label">À retenir</strong>
+  $1
+</div>`,
+    )
+    .replace(
+      /<h2[^>]*>\s*(?:\d+\s*[./-]\s*)?Points clés\s*<\/h2>/gi,
+      `<h2 class="final-summary-title">À retenir</h2>`,
+    )
+    .replace(
+      /<h2[^>]*>\s*(?:\d+\s*[./-]\s*)?À retenir\s*<\/h2>/gi,
+      `<h2 class="final-summary-title">À retenir</h2>`,
+    )
+    .replace(/<strong>\s*Résumé\.?\s*<\/strong>/gi, `<strong class="summary-label">À retenir</strong>`);
+  if (normalized.includes("course-main-heading")) return normalized;
+
+  return normalized.replace(
+    /(<section class="course-section objectives-card">[\s\S]*?<\/section>)(\s*)/i,
+    `$1
+<h2 class="course-main-heading" data-course-section="course">Cours</h2>$2`,
+  );
+}
+
+const renderedHtml = renderMath(normalizeImportedContent(html));
+---
+
+<div class="spe-imported-content" set:html={renderedHtml} />
+
+<style is:global>
+  .spe-imported-content {
+    color: var(--text-primary);
+    line-height: 1.7;
+  }
+
+  .spe-imported-content > * + * {
+    margin-top: 1rem;
+  }
+
+  .spe-imported-content h2,
+  .spe-imported-content h3 {
+    scroll-margin-top: 6rem;
+  }
+
+  .spe-imported-content .objectives-card,
+  .spe-imported-content .box-objectif {
+    background: linear-gradient(135deg, var(--accent-primary-light), var(--bg-card));
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent-primary);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    margin: 0 0 2rem;
+    padding: 1.1rem 1.25rem;
+  }
+
+  .spe-imported-content .objectives-title,
+  .spe-imported-content .box-objectif > strong:first-child {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--accent-primary) !important;
+    font-size: 0.95rem !important;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    line-height: 1.35;
+    margin: 0 0 0.75rem !important;
+    padding: 0 !important;
+    border-bottom: 0 !important;
+    text-transform: uppercase;
+  }
+
+  .spe-imported-content .objectives-title::before,
+  .spe-imported-content .box-objectif > strong:first-child::before {
+    content: "";
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 999px;
+    background: var(--accent-primary);
+    box-shadow: 0 0 0 5px var(--accent-primary-light);
+    flex: 0 0 auto;
+  }
+
+  .spe-imported-content .objectives-card ul,
+  .spe-imported-content .box-objectif ul,
+  .spe-imported-content .objectives-title + ul {
+    margin: 0;
+    padding-left: 1.35rem;
+  }
+
+  .spe-imported-content .objectives-card li,
+  .spe-imported-content .box-objectif li,
+  .spe-imported-content .objectives-title + ul li {
+    margin: 0.35rem 0;
+    line-height: 1.7;
+  }
+
+  .spe-imported-content .section-title {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-primary);
+    font-size: 1.35rem;
+    font-weight: 800;
+    padding: 0.5rem 0 0.4rem;
+    border-bottom: 3px solid var(--accent-primary);
+  }
+
+  .spe-imported-content .chapter-card,
+  .spe-imported-content .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    margin: 1rem 0 1.5rem;
+    padding: 1.25rem;
+  }
+
+  .spe-imported-content .definition-box,
+  .spe-imported-content .example-box,
+  .spe-imported-content .info-box,
+  .spe-imported-content .summary-box {
+    border-radius: var(--radius-sm);
+    margin: 1rem 0;
+    padding: 1rem 1.1rem;
+    line-height: 1.65;
+  }
+
+  .spe-imported-content .definition-box {
+    background: var(--accent-primary-light);
+    border-left: 5px solid var(--accent-primary);
+  }
+
+  .spe-imported-content .example-box {
+    background: var(--accent-success-light);
+    border-left: 5px solid var(--accent-success);
+  }
+
+  .spe-imported-content .info-box {
+    background: var(--accent-warning-light);
+    border-left: 5px solid var(--accent-warning);
+  }
+
+  .spe-imported-content .summary-box {
+    background: var(--accent-primary-light);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent-primary);
+  }
+
+  .spe-imported-content .summary-box,
+  .spe-imported-content .final-summary-title + .chapter-card,
+  .spe-imported-content .final-summary-title + .card,
+  .spe-imported-content .final-summary-title + ul {
+    background: linear-gradient(135deg, var(--accent-primary-light), var(--bg-card));
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent-primary);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    margin: 0 0 1.25rem;
+    padding: 1.1rem 1.25rem;
+  }
+
+  .spe-imported-content .final-summary-title {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--accent-primary) !important;
+    font-size: 0.95rem !important;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    margin: 2rem 0 0.75rem !important;
+    padding: 0 !important;
+    border-bottom: 0 !important;
+    text-transform: uppercase;
+  }
+
+  .spe-imported-content .final-summary-title::before,
+  .spe-imported-content .summary-box > .summary-label:first-child::before,
+  .spe-imported-content .summary-box > strong:first-child::before {
+    content: "";
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 999px;
+    background: var(--accent-primary);
+    box-shadow: 0 0 0 5px var(--accent-primary-light);
+    flex: 0 0 auto;
+  }
+
+  .spe-imported-content .summary-box > .summary-label:first-child,
+  .spe-imported-content .summary-box > strong:first-child {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--accent-primary);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .spe-imported-content .summary-box ul,
+  .spe-imported-content .final-summary-title + .chapter-card ul,
+  .spe-imported-content .final-summary-title + .card ul,
+  .spe-imported-content .final-summary-title + ul {
+    margin: 0;
+    padding-left: 1.35rem;
+  }
+
+  .spe-imported-content svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .spe-imported-content .text-center,
+  .spe-imported-content .formula-wrapper-centered {
+    text-align: center;
+  }
+
+  .spe-imported-content .formula-wrapper-centered,
+  .spe-imported-content .katex-block {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.35rem 0;
+  }
+
+  .spe-imported-content .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1rem 0;
+  }
+
+  .spe-imported-content table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .spe-imported-content th,
+  .spe-imported-content td {
+    border: 1px solid var(--border-color);
+    padding: 0.55rem 0.7rem;
+    vertical-align: top;
+  }
+
+  .spe-imported-content th {
+    background: var(--accent-primary);
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .spe-imported-content tr:nth-child(even) td {
+    background: var(--bg-secondary);
+  }
+
+  @media (max-width: 700px) {
+    .spe-imported-content .chapter-card,
+    .spe-imported-content .card {
+      padding: 1rem;
+    }
+  }
+</style>

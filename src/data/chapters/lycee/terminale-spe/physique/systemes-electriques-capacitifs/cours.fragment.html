@@ -1,0 +1,146 @@
+<section class="course-section">
+  <h2>Objectifs du chapitre</h2>
+  <ul class="objectives-list">
+    <li>Relier intensité et variation de charge électrique.</li>
+    <li>Utiliser le modèle du condensateur : \(q=C u_C\).</li>
+    <li>Établir et exploiter les lois de charge et de décharge d'un circuit RC.</li>
+    <li>Déterminer une constante de temps \(\tau=RC\).</li>
+    <li>Calculer l'énergie stockée dans un condensateur et comprendre le principe des capteurs capacitifs.</li>
+  </ul>
+</section>
+
+<section class="course-section">
+  <h2>1. Courant électrique en régime variable</h2>
+  <p>En régime variable, l'intensité du courant mesure le débit de charge électrique dans une branche du circuit.</p>
+  <div class="formula-box">\[i(t)=\frac{dq}{dt}\]</div>
+  <p>Si la charge \(q\) augmente, l'intensité associée est positive dans le sens choisi. Si la charge diminue, l'intensité peut être négative selon la convention.</p>
+  <div class="tip-box"><strong>Lecture graphique.</strong> Sur une courbe \(q=f(t)\), l'intensité correspond à la pente de la tangente.</div>
+</section>
+
+<section class="course-section">
+  <h2>2. Modèle du condensateur</h2>
+  <p>Un condensateur est formé de deux armatures conductrices séparées par un isolant. Il peut stocker des charges opposées sur ses armatures.</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 760 270" role="img" aria-labelledby="cap-title cap-desc">
+    <title id="cap-title">Condensateur plan</title>
+    <desc id="cap-desc">Deux armatures conductrices séparées par un isolant stockent des charges opposées.</desc>
+    <rect x="52" y="38" width="656" height="178" rx="20" fill="#f8fafc" stroke="#e5e7eb" />
+    <rect x="278" y="72" width="26" height="110" rx="6" fill="#4f46e5" />
+    <rect x="456" y="72" width="26" height="110" rx="6" fill="#ef4444" />
+    <text x="208" y="118" font-size="36" font-weight="700" fill="#4f46e5">+q</text>
+    <text x="506" y="118" font-size="36" font-weight="700" fill="#ef4444">−q</text>
+    <line x1="304" y1="128" x2="456" y2="128" stroke="#94a3b8" stroke-width="3" stroke-dasharray="8 7" />
+    <text x="346" y="116" font-size="22" fill="#334155">isolant</text>
+    <text x="332" y="164" font-size="24" font-weight="700" fill="#111827">u<tspan baseline-shift="sub" font-size="16">C</tspan></text>
+    <text x="106" y="238" font-size="21" fill="#1f2937">La charge stockée est proportionnelle à la tension : q = C uC.</text>
+  </svg>
+  <figcaption>Un condensateur stocke de l'énergie électrique en séparant des charges opposées.</figcaption>
+</figure>
+  <div class="definition-box"><strong>Capacité.</strong> La capacité \(C\) mesure l'aptitude d'un condensateur à stocker une charge pour une tension donnée. Son unité est le farad \(F\).</div>
+  <div class="formula-box">\[q=C u_C\]</div>
+  <p>La charge \(q\) désigne la charge de l'armature positive. La tension \(u_C\) doit être orientée selon la même convention.</p>
+  <div class="formula-box">\[E_C=\frac{1}{2}C u_C^2=\frac{q^2}{2C}\]</div>
+</section>
+
+<section class="course-section">
+  <h2>3. Circuit RC série : charge</h2>
+  <p>On associe un générateur idéal de tension \(E\), une résistance \(R\) et un condensateur \(C\) en série.</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 780 270" role="img" aria-labelledby="rc-circuit-title rc-circuit-desc">
+    <title id="rc-circuit-title">Circuit RC série</title>
+    <desc id="rc-circuit-desc">Un générateur, une résistance et un condensateur sont branchés en série.</desc>
+    <rect x="44" y="34" width="692" height="178" rx="18" fill="#f8fafc" stroke="#e5e7eb" />
+    <line x1="150" y1="130" x2="250" y2="130" stroke="#111827" stroke-width="4" />
+    <polyline points="250,130 266,106 282,154 298,106 314,154 330,106 346,154 362,130" fill="none" stroke="#111827" stroke-width="4" />
+    <text x="286" y="92" font-size="22" font-weight="700" fill="#111827">R</text>
+    <line x1="362" y1="130" x2="460" y2="130" stroke="#111827" stroke-width="4" />
+    <line x1="460" y1="92" x2="460" y2="168" stroke="#4f46e5" stroke-width="5" />
+    <line x1="494" y1="92" x2="494" y2="168" stroke="#4f46e5" stroke-width="5" />
+    <text x="466" y="82" font-size="22" font-weight="700" fill="#4f46e5">C</text>
+    <line x1="494" y1="130" x2="620" y2="130" stroke="#111827" stroke-width="4" />
+    <line x1="620" y1="130" x2="620" y2="196" stroke="#111827" stroke-width="4" />
+    <line x1="620" y1="196" x2="150" y2="196" stroke="#111827" stroke-width="4" />
+    <line x1="150" y1="196" x2="150" y2="130" stroke="#111827" stroke-width="4" />
+    <circle cx="150" cy="130" r="24" fill="#fef3c7" stroke="#f59e0b" stroke-width="4" />
+    <text x="141" y="138" font-size="26" font-weight="700" fill="#92400e">E</text>
+    <text x="260" y="236" font-size="21" fill="#1f2937">La durée de charge dépend du produit R C.</text>
+  </svg>
+  <figcaption>Dans un circuit RC série, la constante de temps vaut \(\tau=RC\).</figcaption>
+</figure>
+  <p>Pendant la charge, la loi des mailles donne \(E=u_R+u_C\). Avec \(u_R=Ri\) et \(i=C\,du_C/dt\), on obtient :</p>
+  <div class="formula-box">\[RC\frac{du_C}{dt}+u_C=E\]</div>
+  <p>Si le condensateur est initialement déchargé, la solution est :</p>
+  <div class="formula-box">\[u_C(t)=E\left(1-e^{-t/RC}\right)\]</div>
+  <div class="formula-box">\[i(t)=\frac{E}{R}e^{-t/RC}\]</div>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 790 330" role="img" aria-labelledby="rc-title rc-desc">
+    <title id="rc-title">Charge d'un condensateur dans un circuit RC</title>
+    <desc id="rc-desc">La tension aux bornes du condensateur augmente exponentiellement vers la tension du générateur.</desc>
+    <rect x="42" y="28" width="702" height="250" rx="18" fill="#ffffff" stroke="#e5e7eb" />
+    <line x1="100" y1="232" x2="690" y2="232" stroke="#111827" stroke-width="3" />
+    <line x1="100" y1="232" x2="100" y2="58" stroke="#111827" stroke-width="3" />
+    <text x="52" y="66" font-size="20" fill="#111827">uC</text><text x="674" y="262" font-size="20" fill="#111827">t</text>
+    <line x1="100" y1="82" x2="680" y2="82" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 8" />
+    <text x="78" y="88" font-size="18" fill="#475569">E</text>
+    <path d="M100 232 C170 170 226 130 300 106 C390 78 508 82 680 82" fill="none" stroke="#4f46e5" stroke-width="5" />
+    <line x1="216" y1="232" x2="216" y2="137" stroke="#10b981" stroke-width="3" stroke-dasharray="7 6" />
+    <text x="196" y="258" font-size="19" fill="#047857">τ</text>
+    <text x="232" y="148" font-size="20" fill="#047857">0,63 E</text>
+  </svg>
+  <figcaption>Lors d'une charge, au bout d'une constante de temps \(\tau\), la tension vaut environ \(63\%\) de sa valeur finale.</figcaption>
+</figure>
+</section>
+
+<section class="course-section">
+  <h2>4. Décharge du condensateur</h2>
+  <p>Lorsqu'un condensateur initialement chargé se décharge dans une résistance, la tension décroît progressivement.</p>
+  <div class="formula-box">\[u_C(t)=U_0 e^{-t/RC}\]</div>
+  <p>Le courant de décharge a un signe qui dépend de l'orientation choisie. Sa valeur absolue décroît exponentiellement.</p>
+  <figure class="schema-block">
+  <svg class="schema-svg" viewBox="0 0 790 310" role="img" aria-labelledby="rd-title rd-desc">
+    <title id="rd-title">Décharge d'un condensateur</title>
+    <desc id="rd-desc">La tension aux bornes du condensateur décroît exponentiellement vers zéro.</desc>
+    <rect x="42" y="28" width="702" height="230" rx="18" fill="#ffffff" stroke="#e5e7eb" />
+    <line x1="100" y1="218" x2="690" y2="218" stroke="#111827" stroke-width="3" />
+    <line x1="100" y1="218" x2="100" y2="58" stroke="#111827" stroke-width="3" />
+    <text x="52" y="66" font-size="20" fill="#111827">uC</text><text x="674" y="248" font-size="20" fill="#111827">t</text>
+    <path d="M100 72 C174 118 244 154 340 184 C442 214 554 218 680 218" fill="none" stroke="#ef4444" stroke-width="5" />
+    <line x1="216" y1="218" x2="216" y2="166" stroke="#10b981" stroke-width="3" stroke-dasharray="7 6" />
+    <text x="196" y="246" font-size="19" fill="#047857">τ</text>
+    <text x="228" y="176" font-size="20" fill="#047857">0,37 U0</text>
+  </svg>
+  <figcaption>Lors d'une décharge, au bout de \(\tau\), la tension vaut environ \(37\%\) de sa valeur initiale.</figcaption>
+</figure>
+</section>
+
+<section class="course-section">
+  <h2>5. Constante de temps</h2>
+  <div class="definition-box"><strong>Constante de temps.</strong> Pour un circuit RC, \(\tau=RC\). Elle s'exprime en secondes.</div>
+  <table class="data-table">
+    <thead><tr><th>Instant</th><th>Charge</th><th>Décharge</th></tr></thead>
+    <tbody>
+      <tr><td>\(t=\tau\)</td><td>\(u_C\approx0,63E\)</td><td>\(u_C\approx0,37U_0\)</td></tr>
+      <tr><td>\(t=3\tau\)</td><td>\(u_C\approx0,95E\)</td><td>\(u_C\approx0,05U_0\)</td></tr>
+      <tr><td>\(t=5\tau\)</td><td>\(u_C\approx0,99E\)</td><td>quasi nulle</td></tr>
+    </tbody>
+  </table>
+  <p>On considère souvent que le régime final est pratiquement atteint au bout de \(5\tau\).</p>
+</section>
+
+<section class="course-section">
+  <h2>6. Capteurs capacitifs</h2>
+  <p>La capacité d'un condensateur dépend de la géométrie des armatures et de l'isolant placé entre elles. Pour un condensateur plan idéal :</p>
+  <div class="formula-box">\[C=\varepsilon\frac{S}{d}\]</div>
+  <p>Modifier la distance \(d\), la surface en regard \(S\) ou le matériau isolant modifie la capacité. C'est le principe de nombreux capteurs capacitifs : écran tactile, détecteur de proximité, jauge de niveau.</p>
+</section>
+
+<section class="course-section key-points">
+  <h2>À retenir</h2>
+  <ul>
+    <li>L'intensité est le débit de charge : \(i=dq/dt\).</li>
+    <li>Pour un condensateur : \(q=Cu_C\).</li>
+    <li>L'énergie stockée vaut \(E_C=\frac12Cu_C^2\).</li>
+    <li>Dans un circuit RC, la constante de temps vaut \(\tau=RC\).</li>
+    <li>Une charge ou une décharge de condensateur suit une évolution exponentielle.</li>
+  </ul>
+</section>

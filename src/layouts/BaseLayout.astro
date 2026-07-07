@@ -6,6 +6,7 @@ import DailyLoginTracker from "../components/pedagogie/DailyLoginTracker.tsx";
 import AccessibilityPanel from "../components/accessibility/AccessibilityPanel.tsx";
 import ReadingGuide from "../components/accessibility/ReadingGuide.tsx";
 import ScrollToTop from "../components/ui/ScrollToTop.tsx";
+import "katex/dist/katex.min.css";
 import "../styles/design-system.css";
 
 interface Props {
@@ -84,10 +85,6 @@ function isActive(href: string) {
   <!-- Theme color (barre d'adresse mobile) -->
   <meta name="theme-color" content="#4f46e5">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-  <!-- KaTeX -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
 
   <!-- Schema.org JSON-LD -->
   {schemaType === "EducationalContent" ? (

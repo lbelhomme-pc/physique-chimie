@@ -1,0 +1,67 @@
+## Objectifs du cours
+
+- Calculer une puissance électrique avec la relation **P = U x I**.
+- Relier puissance, tension et intensité.
+- Comprendre que la puissance fournie par le générateur est répartie entre les récepteurs.
+- Identifier le risque de surintensité avec des appareils en dérivation.
+
+---
+
+## 1. Relation de puissance électrique
+
+<div class="formula-box">
+
+**P = U x I** avec P en watt (W), U en volt (V), I en ampère (A).
+
+</div>
+
+<svg viewBox="0 0 760 260" role="img" aria-labelledby="pelec-title pelec-desc" style="max-width:100%;height:auto;display:block;margin:1.2rem auto;">
+  <title id="pelec-title">Puissance électrique dans un dipôle</title>
+  <desc id="pelec-desc">La puissance électrique dépend de la tension aux bornes et de l'intensité qui traverse le dipôle.</desc>
+  <rect x="70" y="54" width="620" height="145" rx="18" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+  <text x="380" y="104" text-anchor="middle" font-size="30" font-weight="800" fill="#1e293b">P = U x I</text>
+  <text x="250" y="150" text-anchor="middle" font-size="16" fill="#2563eb">U en volt</text>
+  <text x="510" y="150" text-anchor="middle" font-size="16" fill="#dc2626">I en ampère</text>
+  <text x="380" y="180" text-anchor="middle" font-size="16" fill="#16a34a">P en watt</text>
+</svg>
+
+---
+
+## 2. Bilan de puissance dans un circuit
+
+Dans un circuit, la puissance fournie par le générateur est égale à la somme des puissances reçues par les autrès dipôles.
+
+<svg viewBox="0 0 760 300" role="img" aria-labelledby="pbilan-title pbilan-desc" style="max-width:100%;height:auto;display:block;margin:1.2rem auto;">
+  <title id="pbilan-title">Bilan de puissance dans un circuit</title>
+  <desc id="pbilan-desc">Un générateur fournit 12 W, deux lampes reçoivent 5 W et 7 W.</desc>
+  <rect x="80" y="80" width="600" height="150" rx="20" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <rect x="120" y="130" width="80" height="46" rx="8" fill="#facc15" stroke="#ca8a04" stroke-width="3"/><text x="160" y="160" text-anchor="middle" font-size="14" font-weight="700">G</text>
+  <circle cx="360" cy="153" r="28" fill="#fde68a" stroke="#d97706" stroke-width="3"/><text x="360" y="158" text-anchor="middle" font-size="13">5 W</text>
+  <circle cx="540" cy="153" r="28" fill="#fde68a" stroke="#d97706" stroke-width="3"/><text x="540" y="158" text-anchor="middle" font-size="13">7 W</text>
+  <path d="M205 153 L322 153" stroke="#334155" stroke-width="4" marker-end="url(#pe-arrow)"/><path d="M388 153 L512 153" stroke="#334155" stroke-width="4" marker-end="url(#pe-arrow)"/>
+  <defs><marker id="pe-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6 Z" fill="#334155"/></marker></defs>
+  <text x="160" y="115" text-anchor="middle" font-size="15" fill="#854d0e">fournit 12 W</text>
+  <text x="380" y="262" text-anchor="middle" font-size="17" font-weight="700" fill="#1d4ed8">12 W = 5 W + 7 W</text>
+</svg>
+
+---
+
+## 3. Dérivation et surintensité
+
+À tension constante, ajouter de nombreux récepteurs en dérivation augmente la puissance demandée au générateur et peut augmenter l'intensité totale. Sur le secteur, cela peut provoquer une surintensité : c'est le danger des multiprises surchargées.
+
+<div class="warning-box">
+
+### Attention
+
+Une multiprise surchargée n'est pas seulement un calcul : c'est un vrai risque d'échauffement. On respecte toujours les indications de puissance et les dispositifs de protection.
+
+</div>
+
+---
+
+## Mini auto-évaluation
+
+1. Calcule P si U = 6 V et I = 0,5 A.
+2. Pourquoi une multiprise surchargée est-elle dangereuse ?
+3. Que devient la puissance fournie par un générateur dans un circuit ?

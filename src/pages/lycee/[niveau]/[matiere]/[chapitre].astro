@@ -35,6 +35,43 @@ const backUrl = `/lycee/${niveau}`;
 const metaMod = allMeta[`${basePath}/meta.json`] as any;
 const meta = metaMod?.default ?? metaMod ?? {};
 const xpConfig = meta.xp ?? undefined;
+const seo = meta.seo ?? {};
+const displayTitle = meta.title ?? chapitre;
+const pageTitle = `${displayTitle} — ${matiereLabel} ${niveauLabel}`;
+const routeCanonical = `/lycee/${niveau}/${matiere}/${chapitre}`;
+
+function textOrFallback(value: unknown, fallback: string): string {
+  return typeof value === "string" && value.trim() ? value.trim() : fallback;
+}
+
+function canonicalOrFallback(value: unknown, fallback: string, expectedPrefix: string): string {
+  if (typeof value !== "string" || !value.trim()) return fallback;
+  const trimmed = value.trim();
+  const path = trimmed.startsWith("http")
+    ? (() => {
+        try {
+          return new URL(trimmed).pathname;
+        } catch {
+          return fallback;
+        }
+      })()
+    : trimmed;
+  if (!path.startsWith("/") || !path.startsWith(expectedPrefix)) return fallback;
+  return path;
+}
+
+function localImageOrFallback(value: unknown, fallback: string): string {
+  return typeof value === "string" && value.trim().startsWith("/") ? value.trim() : fallback;
+}
+
+const seoTitle = textOrFallback(seo.meta_title, pageTitle);
+const seoDescription = textOrFallback(
+  seo.meta_description,
+  textOrFallback(meta.description, `Cours de ${matiereLabel.toLowerCase()} ${niveauLabel} : ${displayTitle}.`)
+);
+const canonical = canonicalOrFallback(seo.canonical, routeCanonical, `/lycee/${niveau}/${matiere}/`);
+const schemaType = textOrFallback(seo.schema_type, "EducationalContent");
+const ogImage = localImageOrFallback(seo.ogImage ?? seo.og_image ?? meta.ogImage ?? meta.og_image, "/og-image.png");
 
 const coursMod = allCours[`${basePath}/cours.mdx`] as any;
 const CoursContent = coursMod?.Content ?? null;
@@ -56,11 +93,39 @@ const flashData  = flashcardsRaw ? getArray(flashcardsRaw, "cards")   : [];
 const hasExercices  = exercices.length > 0;
 const hasQuiz       = quizData.length > 0;
 const hasFlashcards = flashData.length > 0;
+
+interface ChapterNavItem {
+  slug: string;
+  title: string;
+  order: number;
+}
+
+const chapterNavigation = Object.entries(allMeta)
+  .map(([path, mod]) => {
+    const segments = path.replace("/src/data/chapters/", "").replace("/meta.json", "").split("/");
+    const [cycle, chapterNiveau, chapterMatiere, slug] = segments;
+    const data = (mod as any).default ?? mod;
+    return { cycle, chapterNiveau, chapterMatiere, slug, title: data.title ?? slug, order: data.order ?? 99 };
+  })
+  .filter((item) => item.cycle === "lycee" && item.chapterNiveau === niveau && item.chapterMatiere === matiere)
+  .sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
+
+const currentChapterIndex = chapterNavigation.findIndex((item) => item.slug === chapitre);
+const previousChapter = currentChapterIndex > 0 ? chapterNavigation[currentChapterIndex - 1] : null;
+const nextChapter = currentChapterIndex >= 0 && currentChapterIndex < chapterNavigation.length - 1
+  ? chapterNavigation[currentChapterIndex + 1]
+  : null;
 ---
-<BaseLayout title={`${meta.title ?? chapitre} — ${matiereLabel} ${niveauLabel}`}>
+<BaseLayout
+  title={seoTitle}
+  description={seoDescription}
+  canonical={canonical}
+  ogImage={ogImage}
+  schemaType={schemaType}
+>
 
   <div class="chapter-header">
-    <h1>{meta.title ?? chapitre}</h1>
+    <h1>{displayTitle}</h1>
     {meta.theme && <p class="chapter-theme">📂 {meta.theme}</p>}
   </div>
 
@@ -85,22 +150,38 @@ const hasFlashcards = flashData.length > 0;
 
     {hasExercices && (
       <div slot="exercices">
-        <ExercicesPlayer client:load data={exercices} title={`Exercices — ${meta.title ?? chapitre}`} chapterId={chapterId} xpConfig={xpConfig} />
+        <ExercicesPlayer client:load data={exercices} title={`Exercices par niveaux — ${displayTitle}`} chapterId={chapterId} xpConfig={xpConfig} />
       </div>
     )}
 
     {hasQuiz && (
       <div slot="quiz">
-        <QuizPlayer client:load data={quizData} title={`Quiz — ${meta.title ?? chapitre}`} chapterId={chapterId} xpConfig={xpConfig} />
+        <QuizPlayer client:load data={quizData} title={`Quiz — ${displayTitle}`} chapterId={chapterId} xpConfig={xpConfig} />
       </div>
     )}
 
     {hasFlashcards && (
       <div slot="flashcards">
-        <FlashcardsPlayer client:load data={flashData} title={`Flashcards — ${meta.title ?? chapitre}`} chapterId={chapterId} xpConfig={xpConfig} />
+        <FlashcardsPlayer client:load data={flashData} title={`Flashcards — ${displayTitle}`} chapterId={chapterId} xpConfig={xpConfig} />
       </div>
     )}
   </ChapterTabs>
+
+  <nav class="chapter-pagination" aria-label="Navigation entre les chapitres">
+    {previousChapter ? (
+      <a href={`/lycee/${niveau}/${matiere}/${previousChapter.slug}`} class="chapter-pagination-link previous">
+        <span aria-hidden="true">←</span>
+        <span><small>Chapitre précédent</small>{previousChapter.title}</span>
+      </a>
+    ) : <span />}
+    <a href={`/lycee/${niveau}/${matiere}`} class="chapter-pagination-index">Liste des chapitres</a>
+    {nextChapter ? (
+      <a href={`/lycee/${niveau}/${matiere}/${nextChapter.slug}`} class="chapter-pagination-link next">
+        <span><small>Chapitre suivant</small>{nextChapter.title}</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    ) : <span />}
+  </nav>
 
 </BaseLayout>
 
@@ -108,4 +189,36 @@ const hasFlashcards = flashData.length > 0;
   .chapter-header { text-align: center; margin-bottom: 1rem; }
   .chapter-header h1 { font-size: 1.4rem; font-weight: 800; color: var(--accent-primary); margin: 0; }
   .chapter-theme { font-size: 0.85rem; color: var(--text-muted); margin: 0.25rem 0 0; }
+  .chapter-pagination {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 900px;
+    margin: 1.5rem auto 0;
+  }
+  .chapter-pagination-link, .chapter-pagination-index {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  .chapter-pagination-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+  .chapter-pagination-link span:not([aria-hidden]) { display: flex; flex-direction: column; min-width: 0; }
+  .chapter-pagination-link small { color: var(--text-muted); font-size: 0.75rem; }
+  .chapter-pagination-link.previous { justify-self: start; text-align: left; }
+  .chapter-pagination-link.next { justify-self: end; text-align: right; }
+  .chapter-pagination-index { justify-self: center; font-weight: 600; }
+  .chapter-pagination a:hover { color: var(--accent-primary); text-decoration: underline; }
+  .chapter-pagination a:focus-visible { outline: 3px solid var(--accent-primary); outline-offset: 3px; border-radius: 4px; }
+  @media (max-width: 640px) {
+    .chapter-pagination { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    .chapter-pagination-link.previous, .chapter-pagination-link.next { justify-self: center; text-align: center; }
+    .chapter-pagination-link span:not([aria-hidden]) { align-items: center; }
+    .chapter-pagination > span:empty { display: none; }
+  }
 </style>

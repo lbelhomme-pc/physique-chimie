@@ -1,0 +1,89 @@
+---
+import LabAppLayout from "../../components/laboratoire/LabAppLayout.astro";
+import { labApps } from "../../data/laboratoire/apps";
+
+const app = labApps.find((item) => item.slug === "gaz-parfaits")!;
+---
+
+<LabAppLayout
+  title={app.title}
+  description={app.objective}
+  icon={app.icon}
+  level={app.level}
+  concept={app.concept}
+  objective={app.objective}
+  legacyPath={app.legacyPath}
+>
+  <section class="lab-grid" data-lab-app="gaz-parfaits">
+    <aside>
+      <section class="lab-panel" aria-labelledby="gaz-parametres">
+        <h2 class="lab-panel__title" id="gaz-parametres">Variables d'état</h2>
+        <p class="lab-panel__subtitle">Change une grandeur à la fois pour relier pression, volume, température et quantité de matière.</p>
+        <div class="lab-formula">P = n × R × T / V</div>
+
+        <div class="lab-control">
+          <label for="slider-temp">Température T</label>
+          <input id="slider-temp" type="range" min="-50" max="150" value="20" />
+          <div class="lab-chip-row">
+            <span class="lab-chip" id="val-temp-c">20 °C</span>
+            <span class="lab-chip" id="val-temp-k">293,2 K</span>
+          </div>
+        </div>
+
+        <div class="lab-control">
+          <label for="slider-vol">Volume V : <span class="lab-value" id="val-vol">20</span> L</label>
+          <input id="slider-vol" type="range" min="10" max="50" value="20" />
+        </div>
+
+        <div class="lab-control">
+          <label for="slider-mol">Quantité de matière n : <span class="lab-value" id="val-mol">2,0</span> mol</label>
+          <input id="slider-mol" type="range" min="0.5" max="5" step="0.1" value="2" />
+        </div>
+
+        <div class="lab-button-row">
+          <button class="lab-button is-active" id="btn-gas-toggle" type="button" aria-pressed="false">Lancer</button>
+          <button class="lab-button danger" id="btn-gas-reset" type="button">Réinitialiser</button>
+        </div>
+      </section>
+
+      <section class="lab-panel" aria-labelledby="gaz-observer">
+        <h2 class="lab-panel__title" id="gaz-observer">À observer</h2>
+        <div class="rc-mission">
+          <strong>Objectif</strong>
+          <span id="gas-objective">Lance l'animation puis modifie une seule variable pour voir comment P réagit.</span>
+        </div>
+        <div class="lab-readout" id="gas-observation" aria-live="polite">
+          Observe la pression quand les particules frappent la paroi mobile.
+        </div>
+        <p class="lab-note">
+          À volume constant, augmenter la température ou la quantité de matière augmente la pression : les particules frappent plus souvent ou plus fort les parois.
+        </p>
+      </section>
+    </aside>
+
+    <section class="lab-panel" aria-labelledby="gaz-scene-title">
+      <h2 class="lab-panel__title" id="gaz-scene-title">Seringue virtuelle</h2>
+      <p class="lab-panel__subtitle">La paroi mobile représente le volume disponible pour le gaz.</p>
+      <div class="pressure-screen" id="val-pressure" aria-live="polite">2,44 bar</div>
+      <p class="pressure-warning" id="pressure-warning" aria-live="polite">Surpression : risque de rupture.</p>
+
+      <div class="gas-metrics" aria-live="polite">
+        <div><span>Chocs récents</span><strong id="val-collisions">0</strong></div>
+        <div><span>Densité</span><strong id="val-density">0,10 mol/L</strong></div>
+        <div><span>Vitesse moyenne</span><strong id="val-gas-speed">—</strong></div>
+      </div>
+
+      <div class="gas-cylinder" id="cylinderWalls">
+        <canvas id="gasCanvas" aria-label="Particules de gaz en mouvement dans une seringue"></canvas>
+        <div class="gas-piston" id="piston" aria-hidden="true"></div>
+      </div>
+      <div class="volume-ruler" aria-hidden="true">
+        <span>0 L</span><span>10 L</span><span>20 L</span><span>30 L</span><span>40 L</span><span>50 L</span>
+      </div>
+    </section>
+  </section>
+
+  <script>
+    import "../../scripts/laboratoire/gaz-parfaits.js";
+  </script>
+</LabAppLayout>

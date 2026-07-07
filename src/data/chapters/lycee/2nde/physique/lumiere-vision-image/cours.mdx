@@ -1,0 +1,390 @@
+## Objectifs
+
+- Décrire la propagation rectiligne de la lumière dans un milieu homogène.
+- Utiliser la valeur de la vitesse de la lumière dans le vide ou dans l'air.
+- Définir et utiliser l'indice de réfraction d'un milieu.
+- Appliquer les lois de Snell-Descartes dans une situation simple.
+- Distinguer lumière monochromatique, lumière polychromatique et spectre.
+- Construire l'image donnée par une lentille mince convergente.
+- Utiliser le grandissement pour comparer la taille d'un objet et de son image.
+- Relier l'œil réel au modèle de l'œil réduit.
+
+<div class="info-box">
+
+### Fiche BO
+
+**Thème officiel :** Ondes et signaux.
+
+**Notions travaillées :** rayon lumineux, propagation rectiligne, vitesse de la lumière, indice de réfraction, réflexion, réfraction, dispersion, spectres, lentille convergente, foyer, image réelle, grandissement, œil réduit.
+
+**Capacités exigibles :** exploiter un schéma de propagation, utiliser la loi de Snell-Descartes, interpréter un spectre, construire l'image d'un objet par une lentille convergente, modéliser l'œil par un système optique simple.
+
+</div>
+
+## Prérequis
+
+- Savoir lire un schéma avec des rayons.
+- Connaître la notion de vitesse.
+- Savoir repérer une normale à une surface.
+- Savoir mesurer ou lire un angle.
+- Savoir utiliser un rapport de deux grandeurs.
+
+## Problématique
+
+La lumière nous permet de voir les objets, mais elle peut aussi être déviée, dispersée ou concentrée par des systèmes optiques.  
+Comment modéliser son trajet et expliquer la formation d'une image ?
+
+<div class="activite-box">
+
+### Activité de découverte - Du prisme à l'œil
+
+On observe successivement :
+
+- un faisceau laser traversant de l'air puis du plexiglas ;
+- une lumière blanche dispersée par un prisme ;
+- une lentille convergente formant une image sur un écran.
+
+1. Le rayon lumineux garde-t-il toujours la même direction ?
+2. Pourquoi la lumière blanche peut-elle donner plusieurs couleurs ?
+3. Comment une lentille peut-elle former une image sur un écran ?
+
+**Conclusion attendue :** la lumière se propage rectilignement dans un milieu homogène, mais elle peut changer de direction à une interface ou être dispersée selon les radiations qui la composent.
+
+</div>
+
+## 1. Propagation et vitesse de la lumière
+
+### Définition
+
+Dans le vide, dans l'air et dans un milieu transparent homogène, la lumière se propage en ligne droite. On la modélise par des **rayons lumineux**.
+
+Dans le vide et dans l'air, la vitesse de propagation de la lumière vaut environ :
+
+$$
+c=3{,}00\times10^8\ \mathrm{m\cdot s^{-1}}
+$$
+
+Dans un milieu transparent, la lumière se propage plus lentement que dans le vide.
+
+### Formule ou méthode
+
+L'indice de réfraction \(n\) d'un milieu est défini par :
+
+$$
+n=\frac{c}{v}
+$$
+
+avec :
+
+- \(n\) : indice du milieu, sans unité ;
+- \(c\) : vitesse de la lumière dans le vide en m·s⁻¹ ;
+- \(v\) : vitesse de la lumière dans le milieu en m·s⁻¹.
+
+Comme \(v\leq c\), l'indice d'un milieu transparent est généralement supérieur ou égal à 1.
+
+### Exemple
+
+Dans l'eau, la lumière se propage à environ 2,25 × 10⁸ m·s⁻¹.
+
+$$
+n=\frac{3{,}00\times10^8}{2{,}25\times10^8}=1{,}33
+$$
+
+L'indice de réfraction de l'eau vaut environ 1,33.
+
+## 2. Réflexion et réfraction
+
+### Définition
+
+Quand un rayon lumineux rencontre une surface séparant deux milieux :
+
+- une partie de la lumière peut être **réfléchie** ;
+- une partie peut être **réfractée**, c'est-à-dire changer de direction en entrant dans le second milieu.
+
+Les angles se mesurent toujours par rapport à la **normale** à la surface, pas par rapport à la surface elle-même.
+
+### Formule ou méthode
+
+Pour la réflexion :
+
+$$
+i=r
+$$
+
+Pour la réfraction, la loi de Snell-Descartes s'écrit :
+
+$$
+n_1\sin i_1=n_2\sin i_2
+$$
+
+avec :
+
+- \(n_1\) et \(n_2\) : indices des deux milieux ;
+- \(i_1\) : angle d'incidence ;
+- \(i_2\) : angle de réfraction.
+
+<figure class="schema-block">
+<svg viewBox="0 0 760 360" role="img" aria-labelledby="snell-title snell-desc" style="max-width:100%;height:auto;display:block;margin:auto;">
+  <title id="snell-title">Réflexion et réfraction à une interface</title>
+  <desc id="snell-desc">Un rayon incident arrive sur une surface ; un rayon est réfléchi et un autre est réfracté. Les angles sont mesurés par rapport à la normale.</desc>
+  <defs>
+    <marker id="light-blue-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+    <marker id="light-orange-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#f97316"/></marker>
+  </defs>
+  <rect x="70" y="180" width="620" height="115" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+  <line x1="70" y1="180" x2="690" y2="180" stroke="#0f172a" stroke-width="4"/>
+  <line x1="380" y1="55" x2="380" y2="310" stroke="#64748b" stroke-width="3" stroke-dasharray="8 8"/>
+  <line x1="215" y1="70" x2="380" y2="180" stroke="#2563eb" stroke-width="5" marker-end="url(#light-blue-arrow)"/>
+  <line x1="380" y1="180" x2="545" y2="70" stroke="#f97316" stroke-width="4" marker-end="url(#light-orange-arrow)"/>
+  <line x1="380" y1="180" x2="515" y2="275" stroke="#2563eb" stroke-width="5" marker-end="url(#light-blue-arrow)"/>
+  <text x="205" y="58" text-anchor="middle" font-size="15" font-weight="900" fill="#1d4ed8">rayon incident</text>
+  <text x="552" y="58" text-anchor="middle" font-size="15" font-weight="900" fill="#c2410c">rayon réfléchi</text>
+  <text x="542" y="298" text-anchor="middle" font-size="15" font-weight="900" fill="#1d4ed8">rayon réfracté</text>
+  <text x="405" y="78" font-size="14" font-weight="800" fill="#475569">normale</text>
+  <text x="120" y="165" font-size="14" font-weight="800" fill="#0f172a">milieu 1</text>
+  <text x="120" y="215" font-size="14" font-weight="800" fill="#1d4ed8">milieu 2</text>
+</svg>
+<figcaption>Pour appliquer correctement les lois de Snell-Descartes, les angles doivent être pris par rapport à la normale.</figcaption>
+</figure>
+
+### Exemple
+
+Un rayon passe de l'air n1 = 1,00 vers le verre n2 = 1,50, avec un angle d'incidence i1 = 30°.
+
+$$
+n_1\sin i_1=n_2\sin i_2
+$$
+
+$$
+\sin i_2=\frac{1{,}00\times\sin 30^\circ}{1{,}50}=0{,}333
+$$
+
+Donc \(i_2\approx19^\circ\). Le rayon se rapproche de la normale.
+
+## 3. Couleurs et spectres
+
+### Définition
+
+La lumière blanche est **polychromatique** : elle contient plusieurs radiations colorées.  
+Un rayonnement **monochromatique** correspond à une seule radiation, caractérisée par sa longueur d'onde dans le vide ou dans l'air.
+
+Le domaine visible est approximativement compris entre 400 nm et 800 nm.
+
+Un spectre d'émission peut être :
+
+- continu : bande colorée sans interruption ;
+- de raies : raies colorées séparées.
+
+### Formule ou méthode
+
+Pour interpréter un spectre :
+
+1. identifier s'il est continu ou constitué de raies ;
+2. repérer les longueurs d'onde indiquées ;
+3. relier le spectre à la source étudiée ;
+4. préciser si la lumière est monochromatique ou polychromatique.
+
+<figure class="schema-block">
+<svg viewBox="0 0 760 300" role="img" aria-labelledby="spectre-lumiere-title spectre-lumiere-desc" style="max-width:100%;height:auto;display:block;margin:auto;">
+  <title id="spectre-lumiere-title">Dispersion de la lumière blanche</title>
+  <desc id="spectre-lumiere-desc">Un prisme disperse une lumière blanche en plusieurs radiations visibles, du violet au rouge.</desc>
+  <defs>
+    <marker id="white-light-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#f59e0b"/></marker>
+  </defs>
+  <line x1="55" y1="145" x2="270" y2="145" stroke="#f59e0b" stroke-width="8" marker-end="url(#white-light-arrow)"/>
+  <polygon points="330,70 260,225 425,225" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="3"/>
+  <line x1="430" y1="128" x2="690" y2="75" stroke="#7c3aed" stroke-width="4"/>
+  <line x1="430" y1="140" x2="690" y2="118" stroke="#2563eb" stroke-width="4"/>
+  <line x1="430" y1="152" x2="690" y2="158" stroke="#22c55e" stroke-width="4"/>
+  <line x1="430" y1="164" x2="690" y2="198" stroke="#f97316" stroke-width="4"/>
+  <line x1="430" y1="176" x2="690" y2="238" stroke="#ef4444" stroke-width="4"/>
+  <text x="150" y="118" text-anchor="middle" font-size="15" font-weight="800" fill="#92400e">lumière blanche</text>
+  <text x="575" y="270" text-anchor="middle" font-size="15" font-weight="800" fill="#1e293b">spectre visible</text>
+  <text x="430" y="52" text-anchor="middle" font-size="14" font-weight="800" fill="#475569">400 nm à 800 nm environ</text>
+</svg>
+<figcaption>La dispersion montre que la lumière blanche est composée de plusieurs radiations.</figcaption>
+</figure>
+
+### Exemple
+
+Une lampe à filament chaud donne un spectre continu.  
+Un gaz excité électriquement peut donner un spectre de raies : seules certaines radiations sont émises.
+
+## 4. Lentille convergente et image réelle
+
+### Définition
+
+Une lentille mince convergente est plus épaisse au centre que sur les bords. Elle possède :
+
+- un centre optique \(O\) ;
+- un axe optique ;
+- un foyer objet \(F\) ;
+- un foyer image \(F'\).
+
+Une image réelle peut être recueillie sur un écran.
+
+### Formule ou méthode
+
+Trois rayons remarquables sont utiles :
+
+1. un rayon passant par \(O\) n'est pas dévié ;
+2. un rayon incident parallèle à l'axe ressort en passant par \(F'\) ;
+3. un rayon passant par \(F\) ressort parallèle à l'axe.
+
+<figure class="schema-block">
+<svg viewBox="0 0 760 345" role="img" aria-labelledby="lentille-image-title lentille-image-desc" style="max-width:100%;height:auto;display:block;margin:auto;">
+  <title id="lentille-image-title">Construction d'une image avec une lentille convergente</title>
+  <desc id="lentille-image-desc">Deux rayons issus du sommet d'un objet traversent une lentille convergente et se croisent en un point image renversé.</desc>
+  <defs>
+    <marker id="ray-blue-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+  </defs>
+  <line x1="55" y1="172" x2="705" y2="172" stroke="#94a3b8" stroke-width="3" stroke-dasharray="8 8"/>
+  <path d="M380 45 C350 95 350 250 380 300 C410 250 410 95 380 45 Z" fill="#dbeafe" stroke="#2563eb" stroke-width="4"/>
+  <circle cx="380" cy="172" r="5" fill="#0f172a"/>
+  <circle cx="300" cy="172" r="5" fill="#f97316"/>
+  <circle cx="460" cy="172" r="5" fill="#f97316"/>
+  <text x="380" y="196" text-anchor="middle" font-size="13" font-weight="900" fill="#0f172a">O</text>
+  <text x="300" y="196" text-anchor="middle" font-size="13" font-weight="900" fill="#c2410c">F</text>
+  <text x="460" y="196" text-anchor="middle" font-size="13" font-weight="900" fill="#c2410c">F'</text>
+  <line x1="180" y1="172" x2="180" y2="90" stroke="#ef4444" stroke-width="5"/>
+  <polygon points="180,78 164,106 196,106" fill="#ef4444"/>
+  <text x="180" y="66" text-anchor="middle" font-size="14" font-weight="900" fill="#b91c1c">B</text>
+  <text x="166" y="190" text-anchor="middle" font-size="14" font-weight="900" fill="#b91c1c">A</text>
+  <line x1="180" y1="90" x2="380" y2="90" stroke="#2563eb" stroke-width="3" marker-end="url(#ray-blue-arrow)"/>
+  <line x1="380" y1="90" x2="615" y2="245" stroke="#2563eb" stroke-width="3"/>
+  <line x1="180" y1="90" x2="615" y2="245" stroke="#38bdf8" stroke-width="3"/>
+  <line x1="615" y1="172" x2="615" y2="245" stroke="#10b981" stroke-width="5"/>
+  <polygon points="615,257 599,229 631,229" fill="#10b981"/>
+  <text x="615" y="282" text-anchor="middle" font-size="14" font-weight="900" fill="#047857">image renversée</text>
+</svg>
+<figcaption>Le point image est le point de croisement des rayons émergents issus du même point objet.</figcaption>
+</figure>
+
+### Exemple
+
+Pour construire l'image de l'extrémité \(B\) d'un objet \(AB\), on trace un rayon passant par \(O\) et un rayon parallèle à l'axe optique. Leur intersection donne \(B'\). Le point \(A'\) est sur l'axe optique.
+
+## 5. Grandissement
+
+### Définition
+
+Le grandissement compare la taille de l'image à celle de l'objet.
+
+- Si la valeur absolue du grandissement est supérieure à 1, l'image est agrandie.
+- Si elle est inférieure à 1, l'image est réduite.
+- Le signe peut indiquer si l'image est droite ou renversée selon la convention utilisée.
+
+### Formule ou méthode
+
+On utilise :
+
+$$
+G=\frac{A'B'}{AB}
+$$
+
+avec :
+
+- \(AB\) : taille de l'objet ;
+- \(A'B'\) : taille de l'image ;
+- \(G\) : grandissement, sans unité.
+
+### Exemple
+
+Un objet mesure 2,0 cm. Son image mesure 6,0 cm.
+
+$$
+G=\frac{6{,}0}{2{,}0}=3{,}0
+$$
+
+L'image est trois fois plus grande que l'objet.
+
+## 6. L'œil réel et le modèle de l'œil réduit
+
+### Définition
+
+L'œil réel est un récepteur de lumière. Pour l'étudier simplement, on utilise le modèle de l'œil réduit :
+
+| Œil réel | Modèle de l'œil réduit |
+| --- | --- |
+| Iris et pupille | Diaphragme |
+| Cornée et cristallin | Lentille convergente |
+| Rétine | Écran |
+
+L'image d'un objet observé se forme sur la rétine.
+
+### Formule ou méthode
+
+Pour utiliser le modèle :
+
+1. représenter la lentille convergente ;
+2. placer l'écran à la place de la rétine ;
+3. construire les rayons issus de l'objet ;
+4. vérifier que l'image se forme sur l'écran.
+
+### Exemple
+
+Dans un appareil photo comme dans l'œil, une lentille convergente forme une image réelle sur un récepteur : capteur pour l'appareil photo, rétine pour l'œil.
+
+<div class="methode-box">
+
+### Méthode - Construire une image avec une lentille convergente
+
+1. Tracer l'axe optique, la lentille et les foyers \(F\) et \(F'\).
+2. Placer l'objet perpendiculairement à l'axe.
+3. Depuis le sommet de l'objet, tracer un rayon passant par \(O\).
+4. Tracer un rayon parallèle à l'axe, qui ressort en passant par \(F'\).
+5. Le point de croisement des rayons donne le sommet de l'image.
+6. Conclure : image droite ou renversée, agrandie ou réduite.
+
+</div>
+
+<div class="info-box">
+
+### À manipuler
+
+**Simulation :** [Réfraction de la lumière](/laboratoire/refraction-lumiere)
+
+**Simulation :** [Lentilles et images](/laboratoire/lentilles-images)
+
+</div>
+
+<div class="retenir-box">
+
+## À retenir
+
+### Définitions essentielles
+
+- Dans un milieu homogène, la lumière se propage en ligne droite.
+- L'indice de réfraction traduit le ralentissement de la lumière dans un milieu.
+- La réfraction est le changement de direction d'un rayon quand il change de milieu.
+- La lumière blanche est polychromatique.
+- Une lentille convergente peut former une image réelle sur un écran.
+- L'œil réduit se modélise par une lentille, un diaphragme et un écran.
+
+### Formules
+
+$$
+c=3{,}00\times10^8\ \mathrm{m\cdot s^{-1}}
+$$
+
+$$
+n=\frac{c}{v}
+$$
+
+$$
+n_1\sin i_1=n_2\sin i_2
+$$
+
+$$
+G=\frac{A'B'}{AB}
+$$
+
+### Pièges classiques
+
+- Mesurer les angles par rapport à la surface au lieu de la normale.
+- Confondre réflexion et réfraction.
+- Dire qu'une lumière monochromatique contient plusieurs couleurs.
+- Oublier qu'une image réelle peut être projetée sur un écran.
+- Confondre rétine et cristallin dans le modèle de l'œil.
+
+</div>

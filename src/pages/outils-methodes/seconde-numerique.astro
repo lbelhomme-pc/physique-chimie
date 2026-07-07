@@ -1,0 +1,756 @@
+---
+// src/pages/outils-methodes/seconde-numerique.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Outils et méthodes numériques - Physique-Chimie"
+  description="Fiches de méthodes numériques pour la seconde : tableur, histogramme, nuage de points, Python, vecteurs vitesse, caractéristique et étalonnage."
+  canonical="/outils-methodes/seconde-numerique"
+  schemaType="EducationalContent"
+>
+  <article class="tools-page" id="top">
+    <header class="tools-hero">
+      <p class="eyebrow">Seconde - Capacités numériques</p>
+      <h1>Outils et méthodes numériques</h1>
+      <p class="hero-text">
+        Des fiches courtes pour exploiter des mesures, représenter des données et utiliser un modèle simple en physique-chimie.
+      </p>
+      <div class="chapter-links" aria-label="Chapitres reliés">
+        <a href="/lycee/2nde/physique/mesure-incertitudes">Mesure et incertitudes</a>
+        <a href="/lycee/2nde/physique/decrire-mouvement">Décrire un mouvement</a>
+        <a href="/lycee/2nde/physique/signaux-capteurs">Signaux et capteurs</a>
+        <a href="/outils-methodes/python">Python</a>
+        <a href="/outils-methodes/cours-python">Cours Python</a>
+        <a href="/outils-methodes/python-lab">Labo Python</a>
+      </div>
+    </header>
+
+    <section class="method-summary" aria-labelledby="summary-title">
+      <h2 id="summary-title">Choisir la bonne méthode</h2>
+      <div class="summary-grid">
+        <a href="#serie-tableur">Série de mesures</a>
+        <a href="#histogramme">Histogramme</a>
+        <a href="#nuage-points">Nuage de points</a>
+        <a href="#proportionnalite">Modèle proportionnel</a>
+        <a href="#python-positions">Positions avec Python</a>
+        <a href="#vecteurs-vitesse">Vecteurs vitesse</a>
+        <a href="#caracteristique-dipole">Caractéristique d'un dipôle</a>
+        <a href="#etalonnage-capteur">Étalonnage de capteur</a>
+      </div>
+    </section>
+
+    <section class="method-card" id="serie-tableur" aria-labelledby="serie-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 1</p>
+        <h2 id="serie-title">Exploiter une série de mesures avec un tableur</h2>
+      </div>
+
+      <p>
+        Objectif : organiser une série de mesures, calculer une moyenne, un écart-type et une incertitude-type sur la moyenne.
+      </p>
+
+      <div class="table-wrap" role="region" aria-label="Mesures d'une période" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th>Mesure</th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+              <th>6</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Période T (s)</td>
+              <td>0,82</td>
+              <td>0,85</td>
+              <td>0,83</td>
+              <td>0,84</td>
+              <td>0,82</td>
+              <td>0,86</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Méthode</h3>
+      <ol>
+        <li>Saisir les valeurs dans une colonne, par exemple de A2 à A7.</li>
+        <li>Calculer la moyenne avec <code>=MOYENNE(A2:A7)</code>.</li>
+        <li>Calculer l'écart-type avec <code>=ECARTYPE.STANDARD(A2:A7)</code>, ou la fonction équivalente du tableur.</li>
+        <li>Calculer l'incertitude-type de la moyenne avec <code>=écart_type/RACINE(NB(A2:A7))</code>.</li>
+        <li>Arrondir l'incertitude, puis arrondir la moyenne au même rang.</li>
+      </ol>
+
+      <div class="result-box">
+        <strong>Exemple corrigé.</strong>
+        La moyenne vaut environ 0,837 s. L'écart-type expérimental vaut environ 0,016 s.
+        Pour six mesures, l'incertitude-type sur la moyenne vaut environ 0,006 s.
+        On peut écrire, avec un arrondi raisonnable : T = (0,837 +/- 0,006) s.
+      </div>
+
+      <p class="pitfall">
+        Erreur fréquente : le tableur ne conclut pas à la place de l'élève. Il aide à calculer et représenter, mais il faut encore interpréter les résultats.
+      </p>
+    </section>
+
+    <section class="method-card" id="histogramme" aria-labelledby="hist-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 2</p>
+        <h2 id="hist-title">Construire et lire un histogramme</h2>
+      </div>
+
+      <p>
+        Objectif : représenter la répartition d'une série de mesures pour visualiser la dispersion.
+      </p>
+
+      <figure class="method-figure">
+        <svg viewBox="0 0 760 410" role="img" aria-labelledby="histogram-title histogram-desc">
+          <title id="histogram-title">Histogramme de périodes mesurées</title>
+          <desc id="histogram-desc">Histogramme avec des classes de périodes en seconde et des effectifs. La classe 0,83 à 0,84 seconde est la plus fréquente.</desc>
+          <rect x="40" y="30" width="680" height="330" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+          <line x1="100" y1="300" x2="660" y2="300" stroke="#1f2937" stroke-width="2"/>
+          <line x1="100" y1="300" x2="100" y2="85" stroke="#1f2937" stroke-width="2"/>
+          <text x="380" y="385" text-anchor="middle" font-size="18" fill="#334155">Période T (s)</text>
+          <text x="58" y="198" text-anchor="middle" transform="rotate(-90 58 198)" font-size="18" fill="#334155">Effectif</text>
+          <text x="380" y="62" text-anchor="middle" font-size="22" font-weight="800" fill="#1e293b">Répartition des mesures</text>
+          <line x1="100" y1="235" x2="660" y2="235" stroke="#e2e8f0"/>
+          <line x1="100" y1="170" x2="660" y2="170" stroke="#e2e8f0"/>
+          <line x1="100" y1="105" x2="660" y2="105" stroke="#e2e8f0"/>
+          <rect x="145" y="235" width="80" height="65" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+          <rect x="245" y="170" width="80" height="130" fill="#60a5fa" stroke="#2563eb" stroke-width="2"/>
+          <rect x="345" y="105" width="80" height="195" fill="#2563eb" stroke="#1d4ed8" stroke-width="2"/>
+          <rect x="445" y="170" width="80" height="130" fill="#60a5fa" stroke="#2563eb" stroke-width="2"/>
+          <rect x="545" y="235" width="80" height="65" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+          <text x="185" y="326" text-anchor="middle" font-size="14" fill="#334155">0,81-0,82</text>
+          <text x="285" y="326" text-anchor="middle" font-size="14" fill="#334155">0,82-0,83</text>
+          <text x="385" y="326" text-anchor="middle" font-size="14" fill="#334155">0,83-0,84</text>
+          <text x="485" y="326" text-anchor="middle" font-size="14" fill="#334155">0,84-0,85</text>
+          <text x="585" y="326" text-anchor="middle" font-size="14" fill="#334155">0,85-0,86</text>
+          <text x="84" y="304" text-anchor="end" font-size="14" fill="#475569">0</text>
+          <text x="84" y="239" text-anchor="end" font-size="14" fill="#475569">1</text>
+          <text x="84" y="174" text-anchor="end" font-size="14" fill="#475569">2</text>
+          <text x="84" y="109" text-anchor="end" font-size="14" fill="#475569">3</text>
+        </svg>
+        <figcaption>Un histogramme indique combien de valeurs appartiennent à chaque classe.</figcaption>
+      </figure>
+
+      <h3>Méthode</h3>
+      <ol>
+        <li>Choisir des classes de valeurs adaptées, ni trop larges ni trop fines.</li>
+        <li>Compter l'effectif de chaque classe.</li>
+        <li>Indiquer la grandeur et l'unité sur l'axe horizontal.</li>
+        <li>Indiquer l'effectif sur l'axe vertical.</li>
+        <li>Lire la zone la plus fréquente et discuter la dispersion.</li>
+      </ol>
+
+      <p class="pitfall">
+        Erreurs fréquentes : oublier les unités, confondre histogramme et courbe, ou croire que la classe la plus fréquente donne forcément la valeur exacte.
+      </p>
+    </section>
+
+    <section class="method-card" id="nuage-points" aria-labelledby="nuage-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 3</p>
+        <h2 id="nuage-title">Tracer un nuage de points</h2>
+      </div>
+
+      <p>
+        Objectif : représenter des couples de valeurs expérimentales, sans imposer un modèle avant d'avoir regardé les données.
+      </p>
+
+      <div class="table-wrap" role="region" aria-label="Caractéristique tension-courant" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th>I (mA)</th>
+              <th>0</th>
+              <th>20</th>
+              <th>40</th>
+              <th>60</th>
+              <th>80</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>U (V)</td>
+              <td>0,0</td>
+              <td>1,9</td>
+              <td>4,1</td>
+              <td>6,0</td>
+              <td>8,2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="method-figure">
+        <svg viewBox="0 0 760 360" role="img" aria-labelledby="scatter-title scatter-desc">
+          <title id="scatter-title">Nuage de points tension-courant</title>
+          <desc id="scatter-desc">Graphique représentant la tension en volt en fonction de l'intensité en milliampère. Les points sont presque alignés.</desc>
+          <rect x="42" y="28" width="676" height="285" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+          <line x1="100" y1="270" x2="660" y2="270" stroke="#1f2937" stroke-width="2"/>
+          <line x1="100" y1="270" x2="100" y2="65" stroke="#1f2937" stroke-width="2"/>
+          <text x="382" y="340" text-anchor="middle" font-size="17" fill="#334155">I (mA)</text>
+          <text x="58" y="165" text-anchor="middle" transform="rotate(-90 58 165)" font-size="17" fill="#334155">U (V)</text>
+          <text x="380" y="58" text-anchor="middle" font-size="21" font-weight="800" fill="#1e293b">Points expérimentaux</text>
+          <circle cx="100" cy="270" r="7" fill="#dc2626"/>
+          <circle cx="230" cy="223" r="7" fill="#dc2626"/>
+          <circle cx="360" cy="168" r="7" fill="#dc2626"/>
+          <circle cx="490" cy="120" r="7" fill="#dc2626"/>
+          <circle cx="620" cy="65" r="7" fill="#dc2626"/>
+          <text x="100" y="292" text-anchor="middle" font-size="13" fill="#334155">0</text>
+          <text x="230" y="292" text-anchor="middle" font-size="13" fill="#334155">20</text>
+          <text x="360" y="292" text-anchor="middle" font-size="13" fill="#334155">40</text>
+          <text x="490" y="292" text-anchor="middle" font-size="13" fill="#334155">60</text>
+          <text x="620" y="292" text-anchor="middle" font-size="13" fill="#334155">80</text>
+        </svg>
+        <figcaption>On observe d'abord les points. On ne trace une droite que si un modèle le justifie.</figcaption>
+      </figure>
+
+      <p class="pitfall">
+        Erreurs fréquentes : inverser les axes, oublier les unités ou relier automatiquement les points comme si toutes les situations étaient des courbes continues.
+      </p>
+    </section>
+
+    <section class="method-card" id="proportionnalite" aria-labelledby="prop-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 4</p>
+        <h2 id="prop-title">Modéliser une relation simple</h2>
+      </div>
+
+      <p>
+        Objectif : reconnaître une relation de proportionnalité et relier le coefficient directeur à une grandeur physique.
+      </p>
+
+      <figure class="method-figure">
+        <svg viewBox="0 0 760 330" role="img" aria-labelledby="line-title line-desc">
+          <title id="line-title">Modèle linéaire pour la loi d'Ohm</title>
+          <desc id="line-desc">Les points expérimentaux sont proches d'une droite passant par l'origine. La pente permet d'estimer la résistance.</desc>
+          <rect x="42" y="28" width="676" height="255" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+          <line x1="105" y1="240" x2="650" y2="240" stroke="#1f2937" stroke-width="2"/>
+          <line x1="105" y1="240" x2="105" y2="60" stroke="#1f2937" stroke-width="2"/>
+          <path d="M105 240 L625 70" stroke="#2563eb" stroke-width="4"/>
+          <circle cx="105" cy="240" r="6" fill="#dc2626"/>
+          <circle cx="235" cy="198" r="6" fill="#dc2626"/>
+          <circle cx="365" cy="153" r="6" fill="#dc2626"/>
+          <circle cx="495" cy="112" r="6" fill="#dc2626"/>
+          <circle cx="625" cy="70" r="6" fill="#dc2626"/>
+          <line x1="365" y1="153" x2="625" y2="153" stroke="#64748b" stroke-dasharray="6 6"/>
+          <line x1="625" y1="153" x2="625" y2="70" stroke="#64748b" stroke-dasharray="6 6"/>
+          <text x="508" y="174" text-anchor="middle" font-size="14" fill="#334155">ΔI</text>
+          <text x="640" y="115" font-size="14" fill="#334155">ΔU</text>
+          <text x="380" y="54" text-anchor="middle" font-size="21" font-weight="800" fill="#1e293b">Droite de modélisation</text>
+          <text x="382" y="308" text-anchor="middle" font-size="16" fill="#334155">I (A)</text>
+          <text x="70" y="150" text-anchor="middle" transform="rotate(-90 70 150)" font-size="16" fill="#334155">U (V)</text>
+        </svg>
+        <figcaption>Pour la loi d'Ohm, le coefficient directeur de la droite vaut la résistance R.</figcaption>
+      </figure>
+
+      <h3>Méthode</h3>
+      <ol>
+        <li>Vérifier que les points sont à peu près alignés.</li>
+        <li>Vérifier que la droite passe près de l'origine.</li>
+        <li>Choisir deux points bien espacés sur la droite.</li>
+        <li>Calculer le coefficient directeur : variation verticale divisée par variation horizontale.</li>
+        <li>Associer ce coefficient à la grandeur du modèle.</li>
+      </ol>
+
+      <div class="result-box">
+        <strong>Exemple corrigé.</strong>
+        Avec le point I = 80 mA = 0,080 A et U = 8,2 V, on estime R = U / I = 8,2 / 0,080 = 102,5 ohms.
+        On peut conclure que la résistance vaut environ 1,0 x 10<sup>2</sup> ohms.
+      </div>
+
+      <p class="pitfall">
+        Un modèle est une approximation utile : les points expérimentaux ne sont pas toujours exactement sur la droite.
+      </p>
+    </section>
+
+    <section class="method-card" id="python-positions" aria-labelledby="positions-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 5</p>
+        <h2 id="positions-title">Utiliser Python pour représenter des positions</h2>
+      </div>
+
+      <p>
+        Objectif : tracer les positions successives d'un système modélisé par un point.
+      </p>
+
+      <pre class="code-block" aria-label="Script Python pour tracer des positions"><code>import matplotlib.pyplot as plt
+
+t = [0, 1, 2, 3, 4]
+x = [0, 1.2, 2.4, 3.6, 4.8]
+y = [0, 0, 0, 0, 0]
+
+plt.plot(x, y, "o")
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.title("Positions successives du point")
+plt.axis("equal")
+plt.grid()
+plt.show()</code></pre>
+
+      <h3>Ce que fait le script</h3>
+      <ul>
+        <li>Les listes <code>x</code> et <code>y</code> contiennent les coordonnées des positions.</li>
+        <li><code>plt.plot(x, y, "o")</code> place un point pour chaque position.</li>
+        <li>Les axes sont nommés avec leur unité.</li>
+        <li><code>plt.axis("equal")</code> évite de déformer la trajectoire.</li>
+      </ul>
+
+      <p class="pitfall">
+        Erreur fréquente : tracer les points sans unité ou sans vérifier que les valeurs de x et y ont le même nombre d'éléments.
+      </p>
+    </section>
+
+    <section class="method-card" id="vecteurs-vitesse" aria-labelledby="vectors-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 6</p>
+        <h2 id="vectors-title">Représenter des vecteurs vitesse</h2>
+      </div>
+
+      <p>
+        Objectif : utiliser des positions successives séparées par la même durée pour représenter des vecteurs vitesse.
+      </p>
+
+      <pre class="code-block" aria-label="Script Python pour tracer des vecteurs vitesse"><code>import matplotlib.pyplot as plt
+
+t = [0, 1, 2, 3, 4]
+x = [0, 1.2, 2.4, 3.6, 4.8]
+y = [0, 0, 0, 0, 0]
+
+dt = t[1] - t[0]
+vx = [(x[i+1] - x[i]) / dt for i in range(len(x) - 1)]
+vy = [(y[i+1] - y[i]) / dt for i in range(len(y) - 1)]
+
+plt.plot(x, y, "o")
+plt.quiver(x[:-1], y[:-1], vx, vy, angles="xy", scale_units="xy", scale=1)
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.title("Vecteurs vitesse")
+plt.axis("equal")
+plt.grid()
+plt.show()</code></pre>
+
+      <figure class="method-figure">
+        <svg viewBox="0 0 760 250" role="img" aria-labelledby="velocity-title velocity-desc">
+          <title id="velocity-title">Vecteurs vitesse à partir de positions successives</title>
+          <desc id="velocity-desc">Cinq positions alignées sont représentées. Des flèches partent des premiers points et indiquent le sens du mouvement.</desc>
+          <defs>
+            <marker id="speed-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+            </marker>
+          </defs>
+          <rect x="42" y="30" width="676" height="170" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+          <line x1="110" y1="145" x2="645" y2="145" stroke="#cbd5e1" stroke-width="4"/>
+          <circle cx="120" cy="145" r="8" fill="#dc2626"/>
+          <circle cx="250" cy="145" r="8" fill="#dc2626"/>
+          <circle cx="380" cy="145" r="8" fill="#dc2626"/>
+          <circle cx="510" cy="145" r="8" fill="#dc2626"/>
+          <circle cx="640" cy="145" r="8" fill="#dc2626"/>
+          <line x1="120" y1="118" x2="218" y2="118" stroke="#2563eb" stroke-width="4" marker-end="url(#speed-arrow)"/>
+          <line x1="250" y1="105" x2="348" y2="105" stroke="#2563eb" stroke-width="4" marker-end="url(#speed-arrow)"/>
+          <line x1="380" y1="92" x2="478" y2="92" stroke="#2563eb" stroke-width="4" marker-end="url(#speed-arrow)"/>
+          <text x="380" y="62" text-anchor="middle" font-size="20" font-weight="800" fill="#1e293b">Même déplacement pendant la même durée</text>
+          <text x="380" y="225" text-anchor="middle" font-size="15" fill="#334155">Les vecteurs vitesse sont orientés dans le sens du mouvement.</text>
+        </svg>
+        <figcaption>Si les positions sont régulièrement espacées pour des durées égales, les vecteurs vitesse ont la même valeur.</figcaption>
+      </figure>
+
+      <p class="pitfall">
+        Erreur fréquente : oublier que le vecteur vitesse dépend de la durée entre deux positions successives.
+      </p>
+    </section>
+
+    <section class="method-card" id="caracteristique-dipole" aria-labelledby="dipole-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 7</p>
+        <h2 id="dipole-title">Exploiter la caractéristique d'un dipôle</h2>
+      </div>
+
+      <p>
+        Objectif : lire une caractéristique tension-courant et identifier un comportement de type ohmique.
+      </p>
+
+      <h3>Méthode</h3>
+      <ol>
+        <li>Lire la grandeur en abscisse et son unité.</li>
+        <li>Lire la grandeur en ordonnée et son unité.</li>
+        <li>Repérer si les points sont proches d'une droite passant par l'origine.</li>
+        <li>Pour un conducteur ohmique, utiliser U = R x I.</li>
+        <li>Si I est en milliampères, convertir en ampères avant de calculer R.</li>
+      </ol>
+
+      <div class="result-box">
+        Pour le point I = 40 mA et U = 4,1 V : I = 0,040 A, donc R = 4,1 / 0,040 = 102,5 ohms.
+        La valeur est cohérente avec l'estimation de la fiche précédente.
+      </div>
+
+      <p>
+        Ressource liée : <a href="/lycee/2nde/physique/signaux-capteurs">Signaux électriques et capteurs</a>.
+      </p>
+    </section>
+
+    <section class="method-card" id="etalonnage-capteur" aria-labelledby="calib-title">
+      <div class="method-heading">
+        <p class="method-number">Fiche 8</p>
+        <h2 id="calib-title">Utiliser une courbe d'étalonnage de capteur</h2>
+      </div>
+
+      <p>
+        Objectif : convertir un signal électrique mesuré en une grandeur physique grâce à une courbe d'étalonnage.
+      </p>
+
+      <div class="table-wrap" role="region" aria-label="Données d'étalonnage d'un capteur" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th>Température (°C)</th>
+              <th>10</th>
+              <th>20</th>
+              <th>30</th>
+              <th>40</th>
+              <th>50</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tension U (V)</td>
+              <td>0,50</td>
+              <td>1,00</td>
+              <td>1,48</td>
+              <td>2,02</td>
+              <td>2,51</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="method-figure">
+        <svg viewBox="0 0 760 350" role="img" aria-labelledby="calibration-title calibration-desc">
+          <title id="calibration-title">Courbe d'étalonnage d'un capteur de température</title>
+          <desc id="calibration-desc">La tension mesurée augmente quand la température augmente. Une tension de 1,75 volt correspond environ à 35 degrés Celsius.</desc>
+          <rect x="42" y="28" width="676" height="270" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+          <line x1="105" y1="255" x2="650" y2="255" stroke="#1f2937" stroke-width="2"/>
+          <line x1="105" y1="255" x2="105" y2="65" stroke="#1f2937" stroke-width="2"/>
+          <path d="M155 220 L275 178 L395 138 L515 92 L635 52" fill="none" stroke="#2563eb" stroke-width="4"/>
+          <circle cx="155" cy="220" r="6" fill="#dc2626"/>
+          <circle cx="275" cy="178" r="6" fill="#dc2626"/>
+          <circle cx="395" cy="138" r="6" fill="#dc2626"/>
+          <circle cx="515" cy="92" r="6" fill="#dc2626"/>
+          <circle cx="635" cy="52" r="6" fill="#dc2626"/>
+          <line x1="455" y1="255" x2="455" y2="113" stroke="#16a34a" stroke-width="3" stroke-dasharray="7 6"/>
+          <line x1="105" y1="113" x2="455" y2="113" stroke="#16a34a" stroke-width="3" stroke-dasharray="7 6"/>
+          <text x="462" y="108" font-size="14" font-weight="700" fill="#166534">lecture</text>
+          <text x="382" y="330" text-anchor="middle" font-size="16" fill="#334155">Température (°C)</text>
+          <text x="68" y="165" text-anchor="middle" transform="rotate(-90 68 165)" font-size="16" fill="#334155">Tension U (V)</text>
+          <text x="380" y="56" text-anchor="middle" font-size="20" font-weight="800" fill="#1e293b">Étalonnage : U = f(température)</text>
+        </svg>
+        <figcaption>La courbe d'étalonnage permet de convertir une tension mesurée en température.</figcaption>
+      </figure>
+
+      <h3>Méthode</h3>
+      <ol>
+        <li>Mesurer le signal fourni par le capteur.</li>
+        <li>Repérer cette valeur sur l'axe du signal.</li>
+        <li>Lire la grandeur physique correspondante sur l'autre axe.</li>
+        <li>Vérifier que la mesure reste dans le domaine d'étalonnage.</li>
+        <li>Conclure avec l'unité.</li>
+      </ol>
+
+      <div class="result-box">
+        Si le capteur fournit U = 1,75 V, la lecture graphique donne environ 35 °C.
+        On ne doit pas extrapoler loin au-delà des valeurs utilisées pour construire l'étalonnage.
+      </div>
+    </section>
+
+    <section class="coverage-card" aria-labelledby="coverage-title">
+      <h2 id="coverage-title">Ce que ces fiches couvrent</h2>
+      <div class="table-wrap" role="region" aria-label="Couverture des capacités numériques" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th>Capacité numérique</th>
+              <th>Fiche</th>
+              <th>Chapitre relié</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Représenter un histogramme avec un tableur</td>
+              <td>1 et 2</td>
+              <td>Mesure et incertitudes</td>
+            </tr>
+            <tr>
+              <td>Représenter des positions avec un langage de programmation</td>
+              <td>5</td>
+              <td>Décrire un mouvement</td>
+            </tr>
+            <tr>
+              <td>Représenter des vecteurs vitesse avec un langage de programmation</td>
+              <td>6</td>
+              <td>Décrire un mouvement</td>
+            </tr>
+            <tr>
+              <td>Représenter et modéliser la caractéristique d'un dipôle</td>
+              <td>3, 4 et 7</td>
+              <td>Signaux électriques et capteurs</td>
+            </tr>
+            <tr>
+              <td>Exploiter une courbe d'étalonnage de capteur</td>
+              <td>8</td>
+              <td>Signaux électriques et capteurs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .tools-page {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .tools-hero {
+    text-align: center;
+    margin: 1rem auto 1.5rem;
+    padding: 2rem 1rem;
+  }
+
+  .eyebrow {
+    color: var(--accent-primary);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .tools-hero h1 {
+    color: var(--accent-primary);
+    font-size: clamp(1.55rem, 3vw, 2.25rem);
+    font-weight: 850;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .hero-text {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0.75rem auto 1.25rem;
+    max-width: 720px;
+  }
+
+  .chapter-links,
+  .summary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .chapter-links a,
+  .summary-grid a {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-xs);
+    color: var(--text-secondary);
+    font-size: 0.86rem;
+    font-weight: 700;
+    padding: 0.45rem 0.8rem;
+    text-decoration: none;
+  }
+
+  .chapter-links a:hover,
+  .summary-grid a:hover,
+  .chapter-links a:focus-visible,
+  .summary-grid a:focus-visible {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    outline: none;
+  }
+
+  .method-summary,
+  .coverage-card,
+  .method-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    margin: 1rem 0 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .method-summary h2,
+  .coverage-card h2 {
+    color: var(--accent-primary);
+    font-size: 1.1rem;
+    margin: 0 0 0.8rem;
+  }
+
+  .method-heading {
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 1rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .method-number {
+    color: var(--accent-primary);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.2rem;
+    text-transform: uppercase;
+  }
+
+  .method-card h2 {
+    color: var(--text-primary);
+    font-size: 1.22rem;
+    margin: 0;
+  }
+
+  .method-card h3 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin: 1.1rem 0 0.45rem;
+  }
+
+  .method-card p,
+  .method-card li,
+  .coverage-card td {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .method-card ol,
+  .method-card ul {
+    margin: 0.65rem 0;
+    padding-left: 1.35rem;
+  }
+
+  .table-wrap {
+    margin: 1rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    border-collapse: collapse;
+    min-width: 520px;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--border-color);
+    padding: 0.55rem 0.65rem;
+    text-align: center;
+  }
+
+  th {
+    background: var(--accent-primary);
+    color: #fff;
+    font-weight: 800;
+  }
+
+  td:first-child,
+  th:first-child {
+    text-align: left;
+  }
+
+  code {
+    background: var(--bg-tertiary);
+    border-radius: 5px;
+    color: var(--text-primary);
+    font-size: 0.92em;
+    padding: 0.08rem 0.3rem;
+  }
+
+  .code-block {
+    background: #0f172a;
+    border-radius: var(--radius-sm);
+    color: #e5e7eb;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin: 1rem 0;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+
+  .code-block code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+  }
+
+  .method-figure {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    margin: 1rem 0;
+    overflow-x: auto;
+    padding: 0.8rem;
+  }
+
+  .method-figure svg {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .method-figure figcaption {
+    color: var(--text-muted);
+    font-size: 0.86rem;
+    line-height: 1.5;
+    margin-top: 0.65rem;
+    text-align: center;
+  }
+
+  .result-box,
+  .pitfall {
+    border-radius: var(--radius-sm);
+    margin: 1rem 0;
+    padding: 0.85rem 1rem;
+  }
+
+  .result-box {
+    background: var(--accent-success-light);
+    border-left: 5px solid var(--accent-success);
+    color: var(--text-secondary);
+  }
+
+  .pitfall {
+    background: var(--accent-warning-light);
+    border-left: 5px solid var(--accent-warning);
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 720px) {
+    .tools-hero {
+      padding: 1.25rem 0.25rem;
+    }
+
+    .method-summary,
+    .coverage-card,
+    .method-card {
+      padding: 1rem;
+    }
+
+    .method-figure svg {
+      min-width: 0;
+    }
+  }
+</style>
