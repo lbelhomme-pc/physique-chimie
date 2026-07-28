@@ -1,0 +1,90 @@
+---
+export interface Props {
+  kind?: "empty" | "loading" | "error" | "offline" | "success";
+  title: string;
+  message?: string;
+  actionHref?: string;
+  actionLabel?: string;
+}
+
+const { kind = "empty", title, message, actionHref, actionLabel } = Astro.props;
+const symbol = {
+  empty: "i",
+  loading: "...",
+  error: "!",
+  offline: "x",
+  success: "ok",
+}[kind];
+---
+
+<section class:list={["v3-state", `v3-state--${kind}`]} aria-live={kind === "loading" ? "polite" : undefined}>
+  <span class="v3-state__symbol" aria-hidden="true">{symbol}</span>
+  <h3>{title}</h3>
+  {message && <p>{message}</p>}
+  {actionHref && actionLabel && <a href={actionHref}>{actionLabel}</a>}
+</section>
+
+<style>
+  .v3-state {
+    align-items: center;
+    background: var(--v3-color-surface-raised);
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    box-shadow: var(--v3-shadow-sm);
+    color: var(--v3-color-text-main);
+    display: grid;
+    gap: var(--v3-space-3);
+    justify-items: center;
+    padding: var(--v3-space-8);
+    text-align: center;
+  }
+
+  .v3-state__symbol {
+    align-items: center;
+    background: var(--v3-color-action-subtle);
+    border-radius: var(--v3-radius-pill);
+    color: var(--v3-color-action);
+    display: inline-flex;
+    font-size: var(--v3-font-size-sm);
+    font-weight: 850;
+    height: 40px;
+    justify-content: center;
+    width: 40px;
+  }
+
+  .v3-state--error .v3-state__symbol {
+    background: var(--v3-color-danger-subtle);
+    color: var(--v3-color-danger);
+  }
+
+  .v3-state--success .v3-state__symbol {
+    background: var(--v3-color-success-subtle);
+    color: var(--v3-color-success);
+  }
+
+  .v3-state--offline .v3-state__symbol,
+  .v3-state--loading .v3-state__symbol {
+    background: var(--v3-color-warning-subtle);
+    color: var(--v3-color-warning);
+  }
+
+  .v3-state h3,
+  .v3-state p {
+    margin: 0;
+  }
+
+  .v3-state p {
+    color: var(--v3-color-text-subtle);
+    max-width: 52ch;
+  }
+
+  .v3-state a {
+    color: var(--v3-color-action);
+    font-weight: 750;
+  }
+
+  .v3-state a:focus-visible {
+    box-shadow: var(--v3-shadow-focus);
+    outline: none;
+  }
+</style>

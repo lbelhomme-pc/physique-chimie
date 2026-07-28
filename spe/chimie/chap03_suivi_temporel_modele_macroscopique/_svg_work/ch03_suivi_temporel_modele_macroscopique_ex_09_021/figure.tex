@@ -1,0 +1,70 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+ width=10cm, height=6.5cm,
+ xlabel={$t$ (min)},
+ ylabel={$\rho(\ce{O3})$ ($\si{mg.L^{-1}}$)},
+ xmin=0, xmax=20, ymin=0, ymax=550,
+ grid=major,
+ grid style={gray!30},
+ xtick={0,2,4,6,8,10,12,14,16,18,20},
+ ytick={0,100,200,300,400,500},
+ axis lines=left,
+ thick,
+ legend pos=north east,
+]
+\addplot[primary, very thick, smooth, domain=0:20, samples=80] {500*exp(-0.25*x)};
+\addlegendentry{$\rho_0 = \SI{500}{mg.L^{-1}}$}
+\addplot[examplepink, very thick, smooth, domain=0:20, samples=80] {300*exp(-0.25*x)};
+\addlegendentry{$\rho_0 = \SI{300}{mg.L^{-1}}$}
+\addplot[accent, very thick, smooth, domain=0:20, samples=80] {100*exp(-0.25*x)};
+\addlegendentry{$\rho_0 = \SI{100}{mg.L^{-1}}$}
+\end{axis}
+\end{tikzpicture}
+\end{document}

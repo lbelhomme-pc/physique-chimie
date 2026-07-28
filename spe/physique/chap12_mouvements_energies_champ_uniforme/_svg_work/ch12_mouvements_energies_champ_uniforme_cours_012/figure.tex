@@ -1,0 +1,65 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>=Stealth, scale=0.85]
+ % Plaques
+ \draw[very thick, red!70!black] (-0.3,-0.5) -- (-0.3,5);
+ \node[red!70!black, font=\bfseries] at (-0.6,4.5) {$+$};
+ 
+ \draw[very thick, blue!70!black] (9.3,-0.5) -- (9.3,5);
+ \node[blue!70!black, font=\bfseries] at (9.6,4.5) {$-$};
+
+ % Champ E
+ \draw[->,thick,primary!50] (1,4.5) -- (3,4.5) node[above,midway,font=\small]{$\vec{E}$};
+
+ % Cas q > 0 : parabole vers la droite (vers plaque -)
+ \draw[very thick, red!80!black, domain=0:7, samples=60, smooth]
+ plot (\x, {3.5 - 0.06*\x*\x});
+ \node[red!80!black, font=\small, right] at (7.2,1.6) {$q > 0$};
+ \draw[->,thick,synthorange] (0,3.5) -- (1.5,3.5) node[above,font=\small]{$\vec{v}_0$};
+ \filldraw[red!80!black] (0,3.5) circle(3pt);
+
+ % Cas q < 0 : parabole vers la gauche (vers plaque +)
+ \draw[very thick, blue!80!black, domain=0:7, samples=60, smooth]
+ plot (\x, {1.0 + 0.06*\x*\x});
+ \node[blue!80!black, font=\small, right] at (7.2,4.0) {$q < 0$};
+ \draw[->,thick,synthorange] (0,1.0) -- (1.5,1.0) node[below,font=\small]{$\vec{v}_0$};
+ \filldraw[blue!80!black] (0,1.0) circle(3pt);
+
+ % Titre
+ \node[below, font=\small\itshape] at (4.5,-1.0) {D\'{e}viation de particules charg\'{e}es dans un champ \'{e}lectrique uniforme};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/ui/Breadcrumb.astro";
+import MathResourceCard from "../../components/mathematiques/MathResourceCard.astro";
+import { disciplineIdentities, getDisciplineStyle } from "../../data/disciplineIdentity";
+import { mathematicsMainNavigation } from "../../data/mathematiques/navigation";
+import "../../styles/mathematiques/mathematics.css";
+
+const mathIdentity = disciplineIdentities.mathematiques;
+---
+
+<BaseLayout
+  title="Mathématiques - Espace pédagogique"
+  description="Espace mathématiques du site : une arborescence dédiée pour le collège et le lycée."
+  canonical="/mathematiques"
+  subject="mathematiques"
+>
+  <Breadcrumb
+    items={[
+      { label: "Accueil", href: "/" },
+      { label: "Mathématiques" },
+    ]}
+  />
+
+  <div class="math-shell">
+    <section class="math-hero" data-discipline={mathIdentity.id} style={getDisciplineStyle(mathIdentity)}>
+      <span class="discipline-badge" aria-label={mathIdentity.iconLabel}>
+        <span aria-hidden="true">{mathIdentity.mark}</span>
+        <strong>{mathIdentity.label}</strong>
+      </span>
+      <p class="math-hero-kicker">Espace pédagogique</p>
+      <h1>Mathématiques</h1>
+      <p>
+        Cet espace suit une arborescence séparée de la physique-chimie :
+        Mathématiques Collège, Mathématiques Lycée, puis les niveaux et les chapitres.
+      </p>
+      <p class="discipline-microcopy">{mathIdentity.microcopy}</p>
+      <div class="math-actions">
+        <a href="/mathematiques/college" class="math-action primary">Collège</a>
+        <a href="/mathematiques/lycee" class="math-action">Lycée</a>
+      </div>
+    </section>
+
+    <section class="math-section" aria-labelledby="math-main-access">
+      <div class="math-section-header">
+        <h2 id="math-main-access">Accès rapides</h2>
+      </div>
+      <div class="math-grid">
+        {mathematicsMainNavigation.map((resource) => <MathResourceCard resource={resource} />)}
+      </div>
+    </section>
+
+    <section class="math-panel" aria-labelledby="math-progress-title">
+      <div class="math-progress-placeholder">
+        <strong id="math-progress-title">Progression locale</strong>
+        <span>
+          La progression des futurs chapitres de mathématiques utilisera des identifiants
+          distincts de ceux de physique-chimie.
+        </span>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

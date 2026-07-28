@@ -1,0 +1,87 @@
+/* On s'appuie sur le système global. On ne définit ici QUE les couleurs spécifiques à l'app. */
+:root {
+    --color-acid: #ef4444; /* Rouge Acide */
+    --color-neutral: #10b981; /* Vert Neutre */
+    --color-base: #3b82f6; /* Bleu Basique */
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+}
+
+/* BOUTONS */
+.btn-group { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+.btn {
+    display: flex; align-items: center; gap: 10px;
+    width: 100%; padding: 15px; border-radius: 12px;
+    font-size: 1.05rem; font-weight: 700; cursor: pointer;
+    border: none; color: white; transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn-acid { background: var(--color-acid); box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3); }
+.btn-base { background: var(--color-base); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
+.btn-water { background: #0ea5e9; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3); }
+.btn-group .btn-reset { background: var(--text-muted); box-shadow: 0 4px 15px rgba(71, 85, 105, 0.3); }
+
+/* PH METER */
+.ph-meter { 
+    background: var(--bg-page); padding: 20px; border-radius: 16px; 
+    border: 1px solid var(--card-border); margin-bottom: 20px; 
+}
+.ph-header { display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 1.2rem; margin-bottom: 15px; }
+.ph-number { font-size: 1.8rem; color: var(--color-neutral); transition: color 0.3s ease; }
+
+.ph-scale-bg {
+    width: 100%; height: 20px; border-radius: 50px; position: relative;
+    background: linear-gradient(to right, #ef4444, #f97316, #eab308, #10b981, #06b6d4, #3b82f6, #8b5cf6, #2e1065);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+}
+.ph-cursor {
+    position: absolute; top: -5px; width: 6px; height: 30px; background: white;
+    border: 2px solid #000; border-radius: 5px; left: 50%;
+    transform: translateX(-50%); transition: left 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.scale-labels { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-top: 10px; }
+
+/* BOÎTE STATUT (Compatible Mode Sombre & Clair grâce au RGBA) */
+.status-box { padding: 15px; border-radius: 12px; border-left: 5px solid; transition: all 0.3s ease; }
+.status-box h3 { margin: 0 0 5px 0; font-size: 1.1rem; border: none; padding: 0;}
+.status-box p { margin: 0; font-size: 0.95rem; line-height: 1.4; color: var(--text-main); }
+
+.status-box.acid { background: rgba(239, 68, 68, 0.1); border-color: var(--color-acid); }
+.status-box.acid h3 { color: var(--color-acid); }
+
+.status-box.neutral { background: rgba(16, 185, 129, 0.1); border-color: var(--color-neutral); }
+.status-box.neutral h3 { color: var(--color-neutral); }
+
+.status-box.base { background: rgba(59, 130, 246, 0.1); border-color: var(--color-base); }
+.status-box.base h3 { color: var(--color-base); }
+
+/* CANVAS (Compatible Mode Sombre & Clair) */
+.canvas-container {
+    width: 100%; aspect-ratio: 4/3; border-radius: 16px; overflow: hidden;
+    border: 2px solid var(--card-border); box-shadow: inset 0 5px 20px rgba(0,0,0,0.1);
+    position: relative; transition: background-color 0.5s ease;
+}
+.canvas-container.acid { background-color: rgba(239, 68, 68, 0.05); }
+.canvas-container.neutral { background-color: rgba(16, 185, 129, 0.05); }
+.canvas-container.base { background-color: rgba(59, 130, 246, 0.05); }
+
+canvas { display: block; width: 100%; height: 100%; }
+
+/* LEGENDE */
+.legend { display: flex; justify-content: center; gap: 20px; margin-top: 20px; font-weight: 600; font-size: 0.9rem; flex-wrap: wrap;}
+.legend-item { display: flex; align-items: center; gap: 8px; }
+.dot { width: 15px; height: 15px; border-radius: 50%; }
+.dot-acid { background: var(--color-acid); }
+.dot-base { background: var(--color-base); }
+
+.hint { 
+    font-size: 0.9rem; color: var(--text-muted); background: var(--bg-page); 
+    padding: 15px; border-radius: 10px; margin-top: 20px; border: 1px solid var(--card-border);
+}
+
+@media (max-width: 850px) { .dashboard { grid-template-columns: 1fr; } }

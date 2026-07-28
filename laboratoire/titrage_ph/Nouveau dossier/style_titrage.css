@@ -1,0 +1,145 @@
+/* =========================================
+   STYLES DU LABO : TITRAGE PH-MÉTRIQUE (GLASSMORPHISM)
+   ========================================= */
+
+.labo-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+
+/* --- PANNEAU GAUCHE : LE BANC DE LABORATOIRE --- */
+.bench-panel { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; position: relative;}
+.bench-header { font-size: 1.2rem; color: #1e293b; font-weight: 900; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;}
+
+/* Conditions initiales */
+.conditions-box { background: #f8fafc; border: 2px dashed #cbd5e1; padding: 15px; border-radius: 12px; margin-bottom: 20px; font-size: 0.95rem; color: #334155; text-align: left; }
+
+/* =========================================
+   LA VERRERIE 3D (GLASSMORPHISM)
+   ========================================= */
+.lab-setup { position: relative; height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; margin-bottom: 20px; background: #f8fafc; border-radius: 16px; border: 1px inset #e2e8f0; overflow: hidden; }
+
+/* 1. La Sonde pH-métrique */
+.ph-probe { position: absolute; width: 8px; height: 180px; background: linear-gradient(90deg, #64748b 0%, #1e293b 50%, #64748b 100%); border-radius: 50px; bottom: 35px; left: calc(50% - 40px); z-index: 15; box-shadow: 2px 5px 5px rgba(0,0,0,0.2); }
+.ph-probe::after { content: ''; position: absolute; bottom: -5px; left: 1px; width: 6px; height: 15px; background: #38bdf8; border-radius: 50px; } 
+
+/* 2. La Burette Graduée */
+.burette { width: 28px; height: 200px; border: 2px solid rgba(255, 255, 255, 0.9); border-top: none; border-radius: 2px 2px 15px 15px; position: absolute; top: 10px; left: calc(50% - 14px); background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0.1) 100%); box-shadow: inset -5px 0 10px rgba(0,0,0,0.05), 5px 5px 10px rgba(0,0,0,0.05); z-index: 10; backdrop-filter: blur(2px); overflow: hidden;}
+
+.burette-liquid { position: absolute; bottom: 0; width: 100%; height: 100%; background: rgba(56, 189, 248, 0.4); transition: height 0.3s linear; }
+.burette-liquid::before { content: ''; position: absolute; top: -4px; left: 0; width: 100%; height: 8px; background: rgba(56, 189, 248, 0.6); border: 2px solid rgba(255,255,255,0.9); border-radius: 50%; box-sizing: border-box; }
+.burette-grad { position: absolute; right: -25px; top: 10px; font-size: 0.7rem; color: #64748b; font-weight: bold; }
+.stopcock { position: absolute; top: 210px; left: calc(50% - 18px); width: 36px; height: 12px; background: linear-gradient(to bottom, #94a3b8, #cbd5e1); border-radius: 4px; z-index: 11; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+
+/* 3. La goutte */
+.drop { width: 8px; height: 12px; background: rgba(56, 189, 248, 0.6); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; position: absolute; top: 225px; opacity: 0; z-index: 5; box-shadow: inset -2px -2px 4px rgba(255,255,255,0.5); }
+.drop.falling { animation: fall 0.3s ease-in; }
+@keyframes fall { 0% { top: 225px; opacity: 1; transform: scale(1); } 80% { opacity: 1; } 100% { top: 310px; opacity: 0; transform: scale(0.5) scaleY(1.5); } }
+
+/* 4. Le Bécher */
+.beaker { width: 140px; height: 130px; border: 3px solid rgba(255, 255, 255, 0.9); border-top: 1px solid rgba(255,255,255,0.5); border-radius: 2px 2px 20px 20px; position: absolute; bottom: 20px; background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1)); box-shadow: inset -10px -10px 20px rgba(0,0,0,0.05), 10px 10px 20px rgba(0,0,0,0.1); z-index: 20; backdrop-filter: blur(4px); overflow: hidden; }
+.beaker::before { content: ''; position: absolute; top: -2px; left: -5px; width: 15px; height: 10px; border-left: 3px solid rgba(255, 255, 255, 0.9); border-radius: 50% 0 0 0; }
+
+.beaker-liquid { position: absolute; bottom: 0; width: 100%; height: 40%; background: rgba(186, 230, 253, 0.5); transition: height 0.3s ease; }
+
+/* Surface de l'eau au repos (Ménisque 3D) */
+.beaker-liquid::before { 
+    content: ''; 
+    position: absolute; 
+    top: -5px; 
+    left: 0; 
+    width: 100%; 
+    height: 10px; 
+    background: rgba(186, 230, 253, 0.7); 
+    border: 2px solid rgba(255,255,255,0.8); 
+    border-radius: 50%; 
+    transition: all 0.5s ease; 
+    box-sizing: border-box;
+}
+
+/* Effet Tourbillon (Vortex) creusé vers le BAS lors de l'animation */
+.beaker-liquid.vortex::before { 
+    top: -15px; 
+    height: 35px; 
+    background: rgba(186, 230, 253, 0.3); 
+}
+/* 5. Agitateur Magnétique (Barreau en 3D et Plaque) */
+.stir-bar { width: 30px; height: 8px; background: radial-gradient(circle, #ffffff 40%, #cbd5e1 100%); border-radius: 10px; position: absolute; bottom: 6px; left: 50%; margin-left: -15px; box-shadow: 0 4px 6px rgba(0,0,0,0.4); z-index: 25;}
+.stirring { animation: spin 0.2s linear infinite; }
+/* CORRECTION : Rotation en perspective 3D sur l'axe Y */
+@keyframes spin { 
+    0% { transform: perspective(150px) rotateY(0deg); } 
+    100% { transform: perspective(150px) rotateY(360deg); } 
+}
+
+.stirrer-plate { width: 180px; height: 20px; background: linear-gradient(to right, #94a3b8, #cbd5e1, #94a3b8); border-radius: 8px 8px 4px 4px; position: absolute; bottom: 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1), inset 0 2px 2px rgba(255,255,255,0.5); z-index: 5; }
+/* =========================================
+   APPAREILLAGE ET BOUTONS
+   ========================================= */
+.ph-meter { background: #1e293b; color: #34d399; font-family: 'Courier New', Courier, monospace; font-size: 2rem; font-weight: 900; padding: 15px; border-radius: 12px; box-shadow: inset 0 3px 10px rgba(0,0,0,0.8), 0 5px 15px rgba(0,0,0,0.2); margin-top: 15px; letter-spacing: 2px; text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);}
+.ph-meter.unstable { color: #f87171; text-shadow: 0 0 10px rgba(248, 113, 113, 0.8); }
+
+.controls-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+.btn-lab { background: #f1f5f9; border: 2px solid #cbd5e1; color: #334155; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.2s; }
+.btn-lab:hover { background: #e2e8f0; border-color: #94a3b8; }
+.btn-lab.active { background: #10b981; color: white; border-color: #059669; }
+.btn-lab.danger { background: #fef2f2; color: #dc2626; border-color: #fca5a5; }
+
+/* --- PANNEAU DROIT : DONNÉES & ANALYSE --- */
+.data-panel { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+.tab-btn { background: none; border: none; font-size: 1.1rem; font-weight: bold; color: #64748b; cursor: pointer; padding: 5px 10px; transition: color 0.2s; }
+.tab-btn.active { color: #3b82f6; border-bottom: 3px solid #3b82f6; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.3s; }
+
+.chart-container { width: 100%; height: 350px; }
+
+/* Tableau de valeurs */
+.data-panel .table-container { max-height: 350px; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 8px; }
+.data-panel table { width: 100%; border-collapse: collapse; text-align: center; }
+.data-panel th { background: #f8fafc; padding: 10px; position: sticky; top: 0; font-size: 0.9rem; color: #1e293b; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.data-panel td { padding: 8px; border-bottom: 1px solid #f1f5f9; font-family: monospace; font-size: 1.1rem; color: #475569; }
+.row-equiv { background: #d1fae5 !important; font-weight: bold; color: #065f46; }
+
+/* Infos erreurs */
+.alert-box { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 0 8px 8px 0; margin-top: 15px; font-size: 0.95rem; color: #b45309; font-weight: bold; }
+
+@media (max-width: 768px) { .labo-container { grid-template-columns: 1fr; } }
+
+/* --- NOUVEAU : Boîte de Paramètres (Professeur) --- */
+.settings-box { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; margin-bottom: 15px; text-align: left; overflow: hidden; }
+.settings-box summary { background: #e2e8f0; padding: 10px 15px; font-weight: bold; cursor: pointer; color: #1e293b; outline: none; }
+.settings-box summary:hover { background: #cbd5e1; }
+.settings-grid { padding: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.settings-grid label { font-size: 0.85rem; color: #475569; font-weight: bold; display: flex; flex-direction: column; gap: 5px; }
+.settings-grid input { padding: 5px; border: 1px solid #cbd5e1; border-radius: 5px; font-family: monospace; font-size: 1rem; }
+
+/* --- NOUVEAU : Boîte Succès de fin de titrage --- */
+.success-box { background: #ecfdf5; border: 2px solid #10b981; padding: 20px; border-radius: 12px; margin-bottom: 20px; font-size: 1.1rem; color: #065f46; line-height: 1.6; animation: fadeIn 0.5s ease;}
+.calc-details { background: rgba(255, 255, 255, 0.6); padding: 12px; border-radius: 8px; font-size: 0.95rem; color: #064e3b; margin-top: 10px; border-left: 4px solid #10b981; }
+
+
+/* =========================================
+   🌙 MODE SOMBRE (Adaptations Glassmorphism)
+   ========================================= */
+body.dark-mode .bench-panel, body.dark-mode .data-panel { background: #1e293b; border-color: #334155; }
+body.dark-mode .bench-header { color: #f8fafc; }
+body.dark-mode .conditions-box { background: #0f172a; border-color: #334155; color: #cbd5e1; } 
+body.dark-mode .lab-setup { background: #0f172a; border-color: #334155; }
+body.dark-mode .burette { border-color: rgba(255, 255, 255, 0.2); background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0.05) 100%); }
+body.dark-mode .beaker { border-color: rgba(255, 255, 255, 0.2); background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)); }
+body.dark-mode .stirrer-plate { background: linear-gradient(to right, #334155, #475569, #334155); border-top-color: #1e293b; }
+
+body.dark-mode .btn-lab { background: #0f172a; border-color: #334155; color: #cbd5e1; }
+body.dark-mode .btn-lab:hover { background: #334155; color: white; }
+body.dark-mode .tab-btn { color: #94a3b8; }
+body.dark-mode .tab-btn.active { color: #60a5fa; border-bottom-color: #60a5fa; }
+body.dark-mode th { background: #0f172a; color: #cbd5e1; }
+body.dark-mode td { border-bottom-color: #334155; color: #94a3b8; }
+body.dark-mode .row-equiv { background: #064e3b !important; color: #34d399; }
+
+body.dark-mode .settings-box { background: #0f172a; border-color: #334155; }
+body.dark-mode .settings-box summary { background: #1e293b; color: #cbd5e1; }
+body.dark-mode .settings-grid label { color: #94a3b8; }
+body.dark-mode .settings-grid input { background: #1e293b; color: #f8fafc; border-color: #475569; }
+body.dark-mode .success-box { background: #064e3b; border-color: #047857; color: #a7f3d0; }
+body.dark-mode .calc-details { background: rgba(0, 0, 0, 0.2); color: #6ee7b7; border-left-color: #059669; }
+

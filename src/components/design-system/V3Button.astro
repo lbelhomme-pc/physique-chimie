@@ -1,0 +1,129 @@
+---
+export interface Props {
+  href?: string;
+  type?: "button" | "submit" | "reset";
+  variant?: "primary" | "secondary" | "ghost" | "danger";
+  size?: "sm" | "md" | "lg";
+  disabled?: boolean;
+  ariaLabel?: string;
+}
+
+const {
+  href,
+  type = "button",
+  variant = "primary",
+  size = "md",
+  disabled = false,
+  ariaLabel,
+} = Astro.props;
+
+const className = ["v3-button", `v3-button--${variant}`, `v3-button--${size}`, disabled && "is-disabled"]
+  .filter(Boolean)
+  .join(" ");
+---
+
+{href ? (
+  <a
+    class={className}
+    href={disabled ? undefined : href}
+    aria-disabled={disabled ? "true" : undefined}
+    aria-label={ariaLabel}
+  >
+    <slot />
+  </a>
+) : (
+  <button class={className} type={type} disabled={disabled} aria-label={ariaLabel}>
+    <slot />
+  </button>
+)}
+
+<style>
+  .v3-button {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: var(--v3-radius-md);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: var(--v3-font-family-sans);
+    font-weight: 750;
+    gap: var(--v3-space-2);
+    justify-content: center;
+    letter-spacing: var(--v3-letter-spacing-body);
+    line-height: 1.2;
+    min-height: 44px;
+    text-decoration: none;
+    transition:
+      background var(--v3-motion-base),
+      border-color var(--v3-motion-base),
+      color var(--v3-motion-base),
+      box-shadow var(--v3-motion-base);
+    white-space: nowrap;
+  }
+
+  .v3-button--sm {
+    font-size: var(--v3-font-size-sm);
+    min-height: 36px;
+    padding: var(--v3-space-2) var(--v3-space-3);
+  }
+
+  .v3-button--md {
+    font-size: var(--v3-font-size-md);
+    padding: var(--v3-space-3) var(--v3-space-4);
+  }
+
+  .v3-button--lg {
+    font-size: var(--v3-font-size-lg);
+    min-height: 52px;
+    padding: var(--v3-space-3) var(--v3-space-6);
+  }
+
+  .v3-button--primary {
+    background: var(--v3-color-action);
+    color: #ffffff;
+  }
+
+  .v3-button--primary:hover {
+    background: var(--v3-color-action-hover);
+  }
+
+  .v3-button--secondary {
+    background: var(--v3-color-action-subtle);
+    border-color: var(--v3-color-border-default);
+    color: var(--v3-color-action);
+  }
+
+  .v3-button--secondary:hover {
+    border-color: var(--v3-color-action);
+  }
+
+  .v3-button--ghost {
+    background: transparent;
+    color: var(--v3-color-text-subtle);
+  }
+
+  .v3-button--ghost:hover {
+    background: var(--v3-color-surface-muted);
+    color: var(--v3-color-text-main);
+  }
+
+  .v3-button--danger {
+    background: var(--v3-color-danger);
+    color: #ffffff;
+  }
+
+  .v3-button--danger:hover {
+    background: #b91c1c;
+  }
+
+  .v3-button:focus-visible {
+    box-shadow: var(--v3-shadow-focus);
+    outline: none;
+  }
+
+  .v3-button:disabled,
+  .v3-button.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.58;
+    pointer-events: none;
+  }
+</style>

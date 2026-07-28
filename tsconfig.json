@@ -2,10 +2,20 @@
   "extends": "astro/tsconfigs/strict",
   "include": [
     ".astro/types.d.ts",
-    "**/*"
+    "astro.config.mjs",
+    "src/**/*",
+    "scripts/**/*",
+    "tests/**/*"
   ],
   "exclude": [
-    "dist"
+    ".astro",
+    ".claude",
+    ".git",
+    "dist",
+    "node_modules",
+    "output",
+    "scripts/e2e-visual-regression.mjs",
+    "tmp"
   ],
   "compilerOptions": {
     "jsx": "react-jsx",

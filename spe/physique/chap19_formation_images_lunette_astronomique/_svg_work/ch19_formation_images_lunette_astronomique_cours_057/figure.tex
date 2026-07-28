@@ -1,0 +1,119 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[
+ scale=0.85,
+ transform shape,
+ >=Stealth,
+ thick,
+ lens/.style={line width=1.2pt, primary},
+ ray/.style={line width=0.7pt, red!70!black, ->},
+ ray2/.style={line width=0.7pt, blue!70!black, ->},
+ label/.style={font=\small}
+]
+
+% Axe optique
+\draw[->] (-1,0) -- (14.5,0) node[right]{\small axe optique};
+
+% Objectif L1
+\draw[lens] (2,-2.5) -- (2,2.5);
+\draw[lens, fill=primary!10] (1.85,-2.5) -- (2.15,-2.5) -- (2.15,2.5) -- (1.85,2.5) -- cycle;
+\draw[primary, ->, line width=0.8pt] (2,2.2) -- (2.25,2.5);
+\draw[primary, ->, line width=0.8pt] (2,-2.2) -- (1.75,-2.5);
+\node[above, primary, font=\bfseries] at (2,2.7) {$L_1$ (Objectif)};
+\node[below, label] at (2,-2.8) {$O_1$};
+\fill (2,0) circle (2pt);
+
+% Foyers de L1
+\fill[red!70!black] (8,0) circle (2.5pt);
+\node[below, label, red!70!black] at (8,-0.3) {$F'_1 = F_2$};
+
+% Oculaire L2
+\draw[lens] (10,-1.8) -- (10,1.8);
+\draw[lens, fill=primary!10] (9.85,-1.8) -- (10.15,-1.8) -- (10.15,1.8) -- (9.85,1.8) -- cycle;
+\draw[primary, ->, line width=0.8pt] (10,1.5) -- (10.25,1.8);
+\draw[primary, ->, line width=0.8pt] (10,-1.5) -- (9.75,-1.8);
+\node[above, primary, font=\bfseries] at (10,2.0) {$L_2$ (Oculaire)};
+\node[below, label] at (10,-2.1) {$O_2$};
+\fill (10,0) circle (2pt);
+
+% Distances focales
+\draw[<->, synthorange, line width=0.8pt] (2,-3.4) -- (8,-3.4);
+\node[below, synthorange, font=\small\bfseries] at (5,-3.4) {$f'_1$};
+
+\draw[<->, synthviolet, line width=0.8pt] (8,-3.4) -- (10,-3.4);
+\node[below, synthviolet, font=\small\bfseries] at (9,-3.4) {$f'_2$};
+
+\draw[<->, dark, line width=0.9pt] (2,-4.3) -- (10,-4.3);
+\node[below, dark, font=\small\bfseries] at (6,-4.3) {$L = f'_1 + f'_2$};
+
+% Rayons venant de l'infini (parallèles inclinés)
+\draw[ray] (-0.5,1.8) -- (2,1.8);
+\draw[ray] (-0.5,0.6) -- (2,0.6);
+
+% Rayons après L1 convergent vers F'1 avec décalage B1
+\draw[ray] (2,1.8) -- (8,-0.9);
+\draw[ray] (2,0.6) -- (8,-0.9);
+
+% Image intermédiaire B1
+\fill[examplepink] (8,-0.9) circle (2.5pt);
+\node[right, examplepink, font=\small\bfseries] at (8.15,-1.2) {$B_1$};
+
+% Rayons de B1 vers L2
+\draw[ray2] (8,-0.9) -- (10,-0.9);
+\draw[ray2] (8,-0.9) -- (10,0.5);
+
+% Rayons parallèles après L2 (vers l'oeil)
+\draw[ray2] (10,-0.9) -- (13,-1.95);
+\draw[ray2] (10,0.5) -- (13,-0.55);
+\draw[ray2, dashed] (10,0) -- (13,-1.05);
+\node[blue!70!black, font=\scriptsize, align=center] at (12.15,0.75)
+{faisceau\\\'{e}mergent parall\`{e}le};
+
+% Angle theta
+\draw[dark, thick] (0.3,0) arc[start angle=0, end angle=12, radius=1.8];
+\node[right, dark, font=\small] at (1.0,0.4) {$\theta$};
+
+% Angle theta'
+\draw[dark, thick] (11.1,0) arc[start angle=0, end angle=-19.3, radius=1.35];
+\node[right, dark, font=\small] at (11.7,-0.35) {$\theta'$};
+
+% Oeil
+\node[font=\Large] at (13.5,-1.2) {$\odot$};
+\node[below, font=\small] at (13.5,-1.6) {\oe il};
+
+\end{tikzpicture}
+\end{document}

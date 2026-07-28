@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import CatalogueChapterList from "../../../../components/catalogue/CatalogueChapterList.astro";
+import type { CatalogueChapterItem } from "../../../../components/catalogue/types";
+import Breadcrumb from "../../../../components/ui/Breadcrumb.astro";
+import MathEmptyState from "../../../../components/mathematiques/MathEmptyState.astro";
+import type { MathematicsChapterListItem, MathematicsLevel } from "../../../../data/mathematiques/types";
+import { mathematicsDomainLabels } from "../../../../data/mathematiques/types";
+import { getMathematicsLevelsByCycle } from "../../../../data/mathematiques/levels";
+import { chapterEntryFromGlob, sortMathematicsChapters } from "../../../../data/mathematiques/content";
+import { getPublishedMathematicsLevels } from "../../../../data/contentRoutes";
+import "../../../../styles/mathematiques/mathematics.css";
+
+export function getStaticPaths() {
+  const allMeta = import.meta.glob("/src/data/mathematiques/chapters/**/meta.json", { eager: true });
+  const chapters = Object.entries(allMeta).map(([path, mod]) => chapterEntryFromGlob(path, mod));
+  return getPublishedMathematicsLevels(getMathematicsLevelsByCycle("lycee"), chapters)
+    .map((level) => ({
+      params: { niveau: level.slug },
+      props: { level },
+    }));
+}
+
+const { level } = Astro.props as { level: MathematicsLevel };
+const allMeta = import.meta.glob("/src/data/mathematiques/chapters/**/meta.json", { eager: true });
+const chapters = sortMathematicsChapters(
+  Object.entries(allMeta)
+    .map(([path, mod]) => chapterEntryFromGlob(path, mod))
+    .filter((chapter): chapter is MathematicsChapterListItem =>
+      Boolean(chapter && chapter.cycle === "lycee" && chapter.niveau === level.slug)
+    )
+);
+
+const catalogueChapters: CatalogueChapterItem[] = chapters.map((chapter) => ({
+  title: chapter.title,
+  href: chapter.path,
+  description: chapter.description,
+  order: chapter.order,
+  badges: [
+    chapter.domain ? mathematicsDomainLabels[chapter.domain] : chapter.theme,
+    chapter.duration,
+  ].filter((badge): badge is string => Boolean(badge)),
+}));
+---
+
+<BaseLayout
+  title={`Mathématiques ${level.label}`}
+  description={`Catalogue des chapitres de mathématiques pour ${level.label}.`}
+  canonical={level.path}
+  subject="mathematiques"
+>
+  <Breadcrumb
+    items={[
+      { label: "Accueil", href: "/" },
+      { label: "Mathématiques", href: "/mathematiques" },
+      { label: "Lycée", href: "/mathematiques/lycee" },
+      { label: level.label },
+    ]}
+  />
+
+  <div class="math-shell">
+    <section class="math-hero">
+      <p class="math-hero-kicker">Mathématiques lycée</p>
+      <h1>{level.label}</h1>
+      {level.description && <p>{level.description}</p>}
+      <dl class="math-catalog-summary" aria-label="Résumé du catalogue">
+        <div><dt>{chapters.length}</dt><dd>chapitres</dd></div>
+        <div><dt>{new Set(chapters.map((chapter) => chapter.domain ?? chapter.theme).filter(Boolean)).size}</dt><dd>domaines</dd></div>
+      </dl>
+    </section>
+
+    {chapters.length > 0 ? (
+      <CatalogueChapterList
+        id="math-level-chapters"
+        title="Chapitres"
+        chapters={catalogueChapters}
+        accent="maths"
+      />
+    ) : (
+      <MathEmptyState
+        title="Aucun chapitre n'est encore disponible pour ce niveau."
+        message="Les contenus seront ajoutés progressivement."
+        actions={[
+          { label: "Retour au lycée", href: "/mathematiques/lycee", primary: true },
+        ]}
+      />
+    )}
+  </div>
+</BaseLayout>

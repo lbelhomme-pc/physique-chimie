@@ -1,0 +1,24 @@
+---
+import type { MathematicsChapterListItem } from "../../data/mathematiques/types";
+import { mathematicsDomainLabels } from "../../data/mathematiques/types";
+import { getMathematicsChapterPath } from "../../data/mathematiques/paths";
+
+interface Props {
+  chapter: MathematicsChapterListItem;
+}
+
+const { chapter } = Astro.props;
+const domainLabel = chapter.domain ? mathematicsDomainLabels[chapter.domain] : chapter.theme;
+---
+
+<a class="math-card" href={getMathematicsChapterPath(chapter.cycle, chapter.niveau, chapter.slug)}>
+  <p class="math-card-title">
+    <span>{chapter.title}</span>
+    <span aria-hidden="true">→</span>
+  </p>
+  <p class="math-card-description">{chapter.description}</p>
+  <div class="math-card-meta">
+    {domainLabel && <span class="math-badge">{domainLabel}</span>}
+    {chapter.duration && <span class="math-badge muted">{chapter.duration}</span>}
+  </div>
+</a>

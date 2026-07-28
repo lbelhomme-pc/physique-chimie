@@ -1,5 +1,5 @@
 ---
-import katex from "katex";
+import { renderMathInTrustedHtml } from "../../utils/trustedContent";
 
 interface Props {
   html: string;
@@ -7,30 +7,10 @@ interface Props {
 
 const { html } = Astro.props;
 
-function renderLatex(latex: string, displayMode: boolean) {
-  try {
-    return katex.renderToString(latex.trim(), {
-      throwOnError: false,
-      displayMode,
-      output: "html",
-    });
-  } catch {
-    return latex;
-  }
-}
-
-function renderMath(source: string) {
-  return String(source ?? "")
-    .replace(/\$\$([\s\S]*?)\$\$/g, (_, formula) => `<div class="katex-block">${renderLatex(formula, true)}</div>`)
-    .replace(/\\\[([\s\S]*?)\\\]/g, (_, formula) => `<div class="katex-block">${renderLatex(formula, true)}</div>`)
-    .replace(/\\\(([\s\S]*?)\\\)/g, (_, formula) => `<span class="katex-inline">${renderLatex(formula, false)}</span>`)
-    .replace(/(?<!\$)\$(?!\$)(.*?)(?<!\$)\$(?!\$)/g, (_, formula) => `<span class="katex-inline">${renderLatex(formula, false)}</span>`);
-}
-
 function normalizeImportedContent(source: string) {
   const normalized = String(source ?? "")
     .replace(
-      /<section[^>]*>\s*<h2[^>]*>\s*(?:Prérequis|PrÃ©requis|Problematique|Problématique|ProblÃ©matique|Activite[\s\S]*?|Activité[\s\S]*?|ActivitÃ©[\s\S]*?|Situation[\s\S]*?)\s*<\/h2>[\s\S]*?<\/section>/gi,
+      /<section[^>]*>\s*<h2[^>]*>\s*(?:Pr�requis|Prérequis|Problematique|Probl�matique|Problématique|Activite[\s\S]*?|Activit�[\s\S]*?|Activité[\s\S]*?|Situation[\s\S]*?)\s*<\/h2>[\s\S]*?<\/section>/gi,
       "",
     )
     .replace(/<div[^>]*class="[^"]*(?:activite-box|activity-box|discovery-box|prerequis-box|problem-box)[^"]*"[^>]*>[\s\S]*?<\/div>/gi, "")
@@ -51,28 +31,28 @@ function normalizeImportedContent(source: string) {
       `<h2 class="objectives-title">Objectifs</h2>`,
     )
     .replace(
-      /<h2[^>]*>\s*(?:\d+\s*[./-]\s*)?(?:Points clés|À retenir)\s*<\/h2>\s*<div class="card chapter-card">\s*([\s\S]*?)\s*<\/div>/gi,
+      /<h2[^>]*>\s*(?:\d+\s*[./-]\s*)?(?:Points cl�s|� retenir)\s*<\/h2>\s*<div class="card chapter-card">\s*([\s\S]*?)\s*<\/div>/gi,
       `<div class="summary-box">
-  <strong class="summary-label">À retenir</strong>
+  <strong class="summary-label">� retenir</strong>
   $1
 </div>`,
     )
     .replace(
-      /<h2[^>]*>\s*(?:\d+\s*[./-]\s*)?(?:Points clés|À retenir)\s*<\/h2>\s*(<ul[\s\S]*?<\/ul>)/gi,
+      /<h2[^>]*>\s*(?:\d+\s*[./-]\s*)?(?:Points cl�s|� retenir)\s*<\/h2>\s*(<ul[\s\S]*?<\/ul>)/gi,
       `<div class="summary-box">
-  <strong class="summary-label">À retenir</strong>
+  <strong class="summary-label">� retenir</strong>
   $1
 </div>`,
     )
     .replace(
-      /<h2[^>]*>\s*(?:\d+\s*[./-]\s*)?Points clés\s*<\/h2>/gi,
-      `<h2 class="final-summary-title">À retenir</h2>`,
+      /<h2[^>]*>\s*(?:\d+\s*[./-]\s*)?Points cl�s\s*<\/h2>/gi,
+      `<h2 class="final-summary-title">� retenir</h2>`,
     )
     .replace(
-      /<h2[^>]*>\s*(?:\d+\s*[./-]\s*)?À retenir\s*<\/h2>/gi,
-      `<h2 class="final-summary-title">À retenir</h2>`,
+      /<h2[^>]*>\s*(?:\d+\s*[./-]\s*)?� retenir\s*<\/h2>/gi,
+      `<h2 class="final-summary-title">� retenir</h2>`,
     )
-    .replace(/<strong>\s*Résumé\.?\s*<\/strong>/gi, `<strong class="summary-label">À retenir</strong>`);
+    .replace(/<strong>\s*R�sum�\.?\s*<\/strong>/gi, `<strong class="summary-label">� retenir</strong>`);
   if (normalized.includes("course-main-heading")) return normalized;
 
   return normalized.replace(
@@ -82,7 +62,7 @@ function normalizeImportedContent(source: string) {
   );
 }
 
-const renderedHtml = renderMath(normalizeImportedContent(html));
+const renderedHtml = renderMathInTrustedHtml(normalizeImportedContent(html));
 ---
 
 <div class="spe-imported-content" set:html={renderedHtml} />

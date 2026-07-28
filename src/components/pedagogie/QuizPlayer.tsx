@@ -3,6 +3,7 @@
 
 import { useState, useMemo, useRef, useEffect } from "react";
 import { getGamificationEngine } from "../../data/gamification/engine";
+import { getCanonicalProgressStorageKey } from "../../utils/contentIds";
 import XPToast, { type ToastItem } from "./XPToast";
 import MathText from "./MathText";
 import TextToSpeech from "./TextToSpeech";
@@ -10,6 +11,19 @@ import TextToSpeech from "./TextToSpeech";
 interface QuizQuestion { id: string; type?: string; question: string; choices: string[]; answer: number; explanation?: string; }
 interface ShuffledQuestion { original: QuizQuestion; shuffledChoices: string[]; correctIndex: number; }
 interface QuizPlayerProps { data: QuizQuestion[] | { questions: QuizQuestion[] }; title?: string; chapterId?: string; xpConfig?: { quiz_base?: number; quiz_per_correct?: number; quiz_perfect?: number }; }
+export interface QuizProgressRecord {
+  date?: string;
+  score?: number;
+  total?: number;
+  bestScore?: number;
+  bestTotal?: number;
+  bestPct?: number;
+  attempts?: number;
+  lastScore?: number;
+  lastTotal?: number;
+  updatedAt?: string;
+}
+export interface QuizAttempt { date: string; score: number; total: number; updatedAt?: string; }
 
 function shuffleArray<T>(arr: T[]): T[] { const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
 function prepareQuestions(q: QuizQuestion[], shuffle = true): ShuffledQuestion[] {
@@ -21,9 +35,40 @@ function prepareQuestions(q: QuizQuestion[], shuffle = true): ShuffledQuestion[]
   });
 }
 
-function getQuizRewardKey(c:string){return `quiz_reward_${c}`}
+function getQuizRewardKey(c:string){return getCanonicalProgressStorageKey("quiz_reward_", c)}
 function canRewardQuizToday(c:string):boolean{if(typeof window==="undefined")return true;try{const d=localStorage.getItem(getQuizRewardKey(c));if(!d)return true;return JSON.parse(d).date!==new Date().toISOString().slice(0,10)}catch{return true}}
-function markQuizRewardedToday(c:string,s:number,t:number){if(typeof window==="undefined")return;try{localStorage.setItem(getQuizRewardKey(c),JSON.stringify({date:new Date().toISOString().slice(0,10),score:s,total:t}))}catch{}}
+function validNumber(value: unknown, fallback = 0): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : fallback;
+}
+export function mergeQuizProgress(previous: QuizProgressRecord | null | undefined, attempt: QuizAttempt): QuizProgressRecord {
+  const prevScore = validNumber(previous?.score);
+  const prevTotal = Math.max(1, validNumber(previous?.total, attempt.total || 1));
+  const legacyBestPct = prevScore / prevTotal;
+  const prevBestScore = validNumber(previous?.bestScore, prevScore);
+  const prevBestTotal = Math.max(1, validNumber(previous?.bestTotal, prevTotal));
+  const prevBestPct = validNumber(previous?.bestPct, prevBestScore / prevBestTotal);
+  const attemptTotal = Math.max(1, attempt.total);
+  const attemptPct = attempt.score / attemptTotal;
+  const bestPct = Math.max(prevBestPct, legacyBestPct);
+  const keepPreviousBest = bestPct >= attemptPct;
+  const dailyScore = previous?.date === attempt.date ? Math.max(prevScore, attempt.score) : attempt.score;
+
+  return {
+    ...previous,
+    date: attempt.date,
+    score: dailyScore,
+    total: attemptTotal,
+    bestScore: keepPreviousBest ? prevBestScore : attempt.score,
+    bestTotal: keepPreviousBest ? prevBestTotal : attemptTotal,
+    bestPct: keepPreviousBest ? bestPct : attemptPct,
+    attempts: validNumber(previous?.attempts) + 1,
+    lastScore: attempt.score,
+    lastTotal: attemptTotal,
+    updatedAt: attempt.updatedAt ?? new Date().toISOString(),
+  };
+}
+function getStoredQuizProgress(c:string): QuizProgressRecord | null {if(typeof window==="undefined")return null;try{const d=localStorage.getItem(getQuizRewardKey(c));return d?JSON.parse(d):null}catch{return null}}
+function markQuizRewardedToday(c:string,s:number,t:number){if(typeof window==="undefined")return;try{const date=new Date().toISOString().slice(0,10);const progress=mergeQuizProgress(getStoredQuizProgress(c),{date,score:s,total:t});localStorage.setItem(getQuizRewardKey(c),JSON.stringify(progress))}catch{}}
 
 const V = {
   bg: "var(--bg-card)", bgSec: "var(--bg-secondary)", bgTer: "var(--bg-tertiary)",
@@ -46,6 +91,7 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
   const [xpE, setXpE] = useState(0);
   const [ready, setReady] = useState(false);
   const [alreadyToday, setAlreadyToday] = useState(false);
+  const [retryMode, setRetryMode] = useState(false);
   const st = useRef(Date.now());
 
   useEffect(() => {
@@ -58,6 +104,7 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
     setFin(false);
     setAnswers([]);
     setXpE(0);
+    setRetryMode(false);
     setAlreadyToday(chapterId ? !canRewardQuizToday(chapterId) : false);
 
     const timer = setTimeout(() => {
@@ -81,16 +128,21 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
   function addT(t:Omit<ToastItem,"id">){setToasts(p=>[...p,{...t,id:`t-${Date.now()}-${Math.random()}`}])}
   function disT(id:string){setToasts(p=>p.filter(t=>t.id!==id))}
 
-  function handleValidate(){if(!ready||sel===null||answered)return;setAnswered(true);if(sel===cur.correctIndex)setScore(s=>s+1);setAnswers(p=>[...p,sel])}
-  function handleNext(){if(ci+1>=total){setFin(true);finishQuiz()}else{setCi(i=>i+1);setSel(null);setAnswered(false)}}
+  function handleValidate(){if(!ready||sel===null||answered)return;setAnswered(true);if(sel===cur.correctIndex)setScore(s=>s+1);setAnswers(p=>{const n=[...p];n[ci]=sel;return n})}
+  function scoreFromAnswers(nextAnswers:(number|null)[]=answers){return questions.reduce((sum,q,i)=>sum+(nextAnswers[i]===q.correctIndex?1:0),0)}
+  function handleNext(){if(ci+1>=total){const finalScore=scoreFromAnswers();setScore(finalScore);setFin(true);finishQuizV3(finalScore)}else{setCi(i=>i+1);setSel(null);setAnswered(false)}}
   function finishQuiz(){if(chapterId){try{const e=getGamificationEngine();const d=Date.now()-st.current;if(canRewardQuizToday(chapterId)){const r=e.completeQuiz(chapterId,score,total,d,xpConfig);markQuizRewardedToday(chapterId,score,total);setAlreadyToday(true);setXpE(r.xp);if(r.xp>0)addT({type:"xp",message:`+${r.xp} XP 🎉`,icon:"⚡"});if(r.rankUp)addT({type:"rank_up",message:`Nouveau rang : ${r.rankUp.icon} ${r.rankUp.name} !`,icon:r.rankUp.icon});r.newBadges.forEach(b=>addT({type:"badge",message:`Badge : ${b.icon} ${b.name}`,icon:b.icon}))}else{setAlreadyToday(true);setXpE(0);addT({type:"xp",message:"Quiz déjà fait aujourd'hui — reviens demain !",icon:"ℹ️"})}}catch(e){console.warn(e)}}}
-  function restart(){setQuestions(prepareQuestions(rawQ));setCi(0);setSel(null);setAnswered(false);setScore(0);setFin(false);setAnswers([]);setXpE(0);st.current=Date.now();setReady(true)}
+  function finishQuizV3(finalScore:number){if(chapterId){try{const e=getGamificationEngine();const d=Date.now()-st.current;if(canRewardQuizToday(chapterId)){const r=e.completeQuiz(chapterId,finalScore,total,d,xpConfig);markQuizRewardedToday(chapterId,finalScore,total);setAlreadyToday(true);setXpE(r.xp);if(r.xp>0)addT({type:"xp",message:`+${r.xp} XP gagne`,icon:"XP"});if(r.rankUp)addT({type:"rank_up",message:`Nouveau rang : ${r.rankUp.name} !`,icon:r.rankUp.icon});r.newBadges.forEach(b=>addT({type:"badge",message:`Badge : ${b.name}`,icon:b.icon}))}else{markQuizRewardedToday(chapterId,finalScore,total);setAlreadyToday(true);setXpE(0);addT({type:"xp",message:"Quiz deja recompense aujourd'hui - reviens demain !",icon:"i"})}}catch(e){console.warn(e)}}}
+  function restart(){setQuestions(prepareQuestions(rawQ));setCi(0);setSel(null);setAnswered(false);setScore(0);setFin(false);setAnswers([]);setXpE(0);setRetryMode(false);st.current=Date.now();setReady(true)}
+  function retryIncorrectQuestions(){const missed=questions.filter((q,i)=>answers[i]!==q.correctIndex);if(!missed.length)return;setQuestions(missed);setCi(0);setSel(null);setAnswered(false);setScore(0);setFin(false);setAnswers([]);setXpE(0);setRetryMode(true);st.current=Date.now();setReady(true)}
+  void finishQuiz;
 
   // ─── Écran de fin ─────────────────────────────────────
   if(fin){
     const pct=Math.round((score/total)*100);
+    const missedCount=questions.filter((q,i)=>answers[i]!==q.correctIndex).length;
     let emoji="🎉",msg="Excellent !";if(pct<40){emoji="💪";msg="Continue tes efforts !"}else if(pct<70){emoji="👍";msg="Pas mal, tu progresses !"}else if(pct<100){emoji="🌟";msg="Très bien !"}
-    return(<div style={{maxWidth:600,margin:"0 auto",textAlign:"center"}}>
+    return(<div data-quiz-result-v3="true" style={{maxWidth:600,margin:"0 auto",textAlign:"center"}}>
       <div style={{fontSize:"3rem",marginBottom:"0.5rem"}}>{emoji}</div>
       <h3 style={{fontSize:"1.4rem",fontWeight:700,color:V.text,marginBottom:"1rem"}}>{msg}</h3>
       <div style={{display:"flex",alignItems:"baseline",justifyContent:"center",gap:"0.25rem",marginBottom:"0.5rem"}}>
@@ -107,12 +159,13 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
           </div>)})}
       </div>
       <button onClick={restart} style={{padding:"0.6rem 1.5rem",background:V.primary,color:"#fff",border:"none",borderRadius:8,fontSize:"0.95rem",fontWeight:600,cursor:"pointer"}}>🔄 Recommencer</button>
+      {missedCount>0&&<div style={{marginTop:"0.75rem"}}><button onClick={retryIncorrectQuestions} style={{padding:"0.6rem 1.5rem",background:"transparent",color:V.primary,border:`2px solid ${V.primary}`,borderRadius:8,fontSize:"0.95rem",fontWeight:600,cursor:"pointer"}}>Reprendre les erreurs</button></div>}
       <XPToast toasts={toasts} onDismiss={disT}/>
     </div>)
   }
 
   // ─── Écran de question ────────────────────────────────
-  return(<div style={{maxWidth:700,margin:"0 auto"}}>
+  return(<div data-quiz-player-v3="true" data-retry-mode={retryMode ? "true" : "false"} style={{maxWidth:700,margin:"0 auto"}}>
     {title&&<h3 style={{fontSize:"1.1rem",fontWeight:600,marginBottom:"0.75rem",color:V.text}}>{title}</h3>}
     {alreadyToday&&<p style={{fontSize:"0.85rem",color:V.textSec,background:V.bgSec,border:`1px solid ${V.border}`,borderRadius:8,padding:"0.5rem 0.75rem",marginBottom:"0.75rem",textAlign:"center"}}>ℹ️ Tu as déjà gagné des XP sur ce quiz aujourd'hui. Les XP seront disponibles demain.</p>}
     <div style={{display:"flex",alignItems:"center",gap:"0.75rem",marginBottom:"1.25rem"}}>

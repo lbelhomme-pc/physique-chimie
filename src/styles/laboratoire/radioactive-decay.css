@@ -1,0 +1,596 @@
+.decay-lab {
+  --decay-grid: color-mix(in srgb, var(--border-color) 72%, transparent);
+  --decay-theory: var(--accent-primary);
+  --decay-observed: var(--accent-warning);
+}
+
+.decay-lab__layout {
+  align-items: start;
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    "controls graph"
+    "nuclei graph";
+  grid-template-columns: minmax(280px, 340px) minmax(520px, 1fr);
+}
+
+.decay-lab .lab-panel + .lab-panel {
+  margin-top: 0;
+}
+
+.decay-controls {
+  grid-area: controls;
+}
+
+.decay-graph-panel {
+  grid-area: graph;
+  min-width: 0;
+}
+
+.decay-nuclei-panel {
+  grid-area: nuclei;
+  min-width: 0;
+}
+
+.decay-heading {
+  align-items: flex-start;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
+
+.decay-heading > div {
+  min-width: 0;
+}
+
+.decay-status,
+.decay-population {
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 0.76rem;
+  font-weight: 800;
+  min-height: 2rem;
+  padding: 0.3rem 0.65rem;
+}
+
+.decay-status::before {
+  background: var(--text-muted);
+  border-radius: 50%;
+  content: "";
+  height: 0.5rem;
+  margin-right: 0.4rem;
+  width: 0.5rem;
+}
+
+.decay-status[data-state="running"]::before {
+  background: var(--accent-success);
+}
+
+.decay-status[data-state="paused"]::before {
+  background: var(--accent-warning);
+}
+
+.decay-status[data-state="complete"]::before {
+  background: var(--accent-primary);
+}
+
+.decay-field,
+.decay-range-field {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.decay-field-grid {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+}
+
+.decay-field label,
+.decay-range-label label {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.decay-field input,
+.decay-field select {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font: inherit;
+  min-height: 2.75rem;
+  min-width: 0;
+  padding: 0.55rem 0.7rem;
+  width: 100%;
+}
+
+.decay-range-label {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+}
+
+.decay-range-label output {
+  color: var(--accent-primary);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.decay-range-field input {
+  accent-color: var(--accent-primary);
+  cursor: pointer;
+  min-height: 2rem;
+  width: 100%;
+}
+
+.decay-field input:focus-visible,
+.decay-field select:focus-visible,
+.decay-range-field input:focus-visible,
+.decay-lab .lab-button:focus-visible,
+.decay-reference summary:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent-primary) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.decay-actions {
+  border-top: 1px solid var(--border-light);
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-top: 0.9rem;
+}
+
+.decay-actions .lab-button {
+  min-height: 2.8rem;
+  width: 100%;
+}
+
+.decay-play[aria-pressed="true"] {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #fff;
+}
+
+.decay-live-status {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0.9rem 0 0;
+  min-height: 2.5rem;
+}
+
+.decay-note {
+  display: grid;
+  font-size: 0.82rem;
+  gap: 0.25rem;
+}
+
+.decay-graph-heading {
+  align-items: center;
+}
+
+.decay-legend {
+  color: var(--text-secondary);
+  display: grid;
+  flex: 0 0 auto;
+  font-size: 0.76rem;
+  font-weight: 700;
+  gap: 0.35rem;
+}
+
+.decay-legend span,
+.decay-nuclei-key span {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.decay-legend i {
+  display: inline-block;
+  height: 0;
+  width: 1.3rem;
+}
+
+.decay-legend .is-theory {
+  border-top: 3px solid var(--decay-theory);
+}
+
+.decay-legend .is-observed {
+  border-top: 3px solid var(--decay-observed);
+}
+
+.decay-readings {
+  border-bottom: 1px solid var(--border-light);
+  border-top: 1px solid var(--border-light);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 0 0.75rem;
+}
+
+.decay-readings div {
+  min-width: 0;
+  padding: 0.72rem;
+}
+
+.decay-readings div + div {
+  border-left: 1px solid var(--border-light);
+}
+
+.decay-readings dt {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+}
+
+.decay-readings dd {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.decay-chart {
+  display: block;
+  height: auto;
+  overflow: visible;
+  width: 100%;
+}
+
+.decay-chart text {
+  fill: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 12px;
+}
+
+.decay-chart__grid line {
+  stroke: var(--decay-grid);
+  stroke-width: 1;
+}
+
+.decay-chart__axes path,
+.decay-chart__axes line {
+  fill: none;
+  stroke: var(--text-secondary);
+  stroke-width: 1.5;
+}
+
+.decay-chart__axes text {
+  fill: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.decay-chart__axis-title {
+  fill: var(--text-primary) !important;
+  font-size: 12px !important;
+  font-weight: 800;
+}
+
+.decay-chart__half-guides circle {
+  fill: var(--bg-card);
+  stroke: var(--decay-theory);
+  stroke-width: 2;
+}
+
+.decay-chart__half-guides text {
+  fill: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.decay-chart__expected,
+.decay-chart__observed {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.decay-chart__expected {
+  stroke: var(--decay-theory);
+  stroke-width: 3;
+}
+
+.decay-chart__observed {
+  stroke: var(--decay-observed);
+  stroke-width: 2.5;
+}
+
+.decay-chart__current line {
+  stroke: color-mix(in srgb, var(--text-secondary) 55%, transparent);
+  stroke-dasharray: 5 5;
+  stroke-width: 1.4;
+}
+
+.decay-chart__current .is-expected {
+  fill: var(--bg-card);
+  stroke: var(--decay-theory);
+  stroke-width: 3;
+}
+
+.decay-chart__current .is-observed {
+  fill: var(--decay-observed);
+  stroke: var(--bg-card);
+  stroke-width: 2;
+}
+
+.decay-formula {
+  align-items: start;
+  border-top: 1px solid var(--border-light);
+  display: grid;
+  gap: 0.75rem 1rem;
+  grid-template-columns: minmax(0, 1fr) minmax(270px, 0.8fr);
+  margin-top: 0.6rem;
+  padding-top: 1rem;
+}
+
+.decay-formula h3 {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.decay-formula p {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0.25rem 0 0;
+}
+
+.decay-formula__math {
+  border-left: 3px solid var(--accent-primary);
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.3rem 0 0.3rem 0.75rem;
+}
+
+.decay-formula__math strong {
+  color: var(--text-primary);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+}
+
+.decay-formula__math span {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+}
+
+.decay-formula__lambda {
+  border-top: 1px solid var(--border-light);
+  grid-column: 1 / -1;
+  margin-top: 0 !important;
+  padding-top: 0.65rem;
+}
+
+.decay-formula__lambda strong {
+  color: var(--text-primary);
+}
+
+.decay-nuclei-grid {
+  display: grid;
+  gap: 0.45rem;
+  grid-template-columns: repeat(10, 16px);
+  justify-content: center;
+  min-height: 16px;
+  padding: 0.5rem 0;
+}
+
+.decay-nucleus {
+  box-sizing: border-box;
+  display: block;
+  height: 16px;
+  position: relative;
+  transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  width: 16px;
+}
+
+.decay-nucleus.is-alive {
+  background: color-mix(in srgb, var(--accent-primary) 72%, var(--bg-card));
+  border: 2px solid var(--accent-primary);
+  border-radius: 50%;
+}
+
+.decay-nucleus.is-decayed {
+  border: 1px solid var(--text-muted);
+  border-radius: 3px;
+  opacity: 0.64;
+  transform: scale(0.78);
+}
+
+.decay-nucleus.is-decayed::before,
+.decay-nucleus.is-decayed::after {
+  background: var(--text-muted);
+  content: "";
+  height: 1px;
+  left: 2px;
+  position: absolute;
+  top: 7px;
+  width: 10px;
+}
+
+.decay-nucleus.is-decayed::before {
+  transform: rotate(45deg);
+}
+
+.decay-nucleus.is-decayed::after {
+  transform: rotate(-45deg);
+}
+
+.decay-nuclei-key {
+  color: var(--text-secondary);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.76rem;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 0.65rem;
+}
+
+.decay-nuclei-key i {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+}
+
+.decay-nuclei-key i.is-alive {
+  background: var(--accent-primary);
+  border-radius: 50%;
+}
+
+.decay-nuclei-key i.is-decayed {
+  border: 1px solid var(--text-muted);
+  border-radius: 2px;
+  position: relative;
+}
+
+.decay-interpretation {
+  border-left: 3px solid var(--accent-warning);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0.9rem 0 0;
+  padding: 0.3rem 0 0.3rem 0.7rem;
+}
+
+.decay-reference {
+  border-top: 1px solid var(--border-light);
+  margin-top: 0.9rem;
+  padding-top: 0.45rem;
+}
+
+.decay-reference summary {
+  color: var(--accent-primary);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 800;
+  min-height: 2.5rem;
+  padding: 0.55rem 0;
+}
+
+.decay-table-wrap {
+  overflow-x: auto;
+}
+
+.decay-reference table {
+  border-collapse: collapse;
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+  width: 100%;
+}
+
+.decay-reference caption {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  padding: 0.2rem 0 0.45rem;
+  text-align: left;
+}
+
+.decay-reference th,
+.decay-reference td {
+  border-bottom: 1px solid var(--border-light);
+  padding: 0.45rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.decay-reference th {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+@media (max-width: 1040px) {
+  .decay-lab__layout {
+    grid-template-areas:
+      "controls nuclei"
+      "graph graph";
+    grid-template-columns: minmax(280px, 0.8fr) minmax(360px, 1.2fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .decay-lab__layout {
+    grid-template-areas:
+      "controls"
+      "graph"
+      "nuclei";
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .decay-readings {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .decay-readings div:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .decay-readings div:nth-child(4) {
+    border-top: 1px solid var(--border-light);
+  }
+}
+
+@media (max-width: 520px) {
+  .decay-heading,
+  .decay-graph-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .decay-status,
+  .decay-population {
+    align-self: flex-start;
+  }
+
+  .decay-field-grid,
+  .decay-actions,
+  .decay-formula {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .decay-formula__lambda {
+    grid-column: 1;
+  }
+
+  .decay-chart text,
+  .decay-chart__axes text {
+    font-size: 20px;
+  }
+
+  .decay-chart__axis-title {
+    font-size: 20px !important;
+  }
+
+  .decay-chart__half-guides text {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decay-lab *,
+  .decay-lab *::before,
+  .decay-lab *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+.a11y-reduced-motion .decay-lab *,
+.a11y-reduced-motion .decay-lab *::before,
+.a11y-reduced-motion .decay-lab *::after {
+  animation: none !important;
+  transition: none !important;
+}

@@ -1,0 +1,95 @@
+---
+import V3Badge from "./V3Badge.astro";
+import V3Button from "./V3Button.astro";
+import V3Card from "./V3Card.astro";
+import V3Field from "./V3Field.astro";
+import V3PedagogyBlock from "./V3PedagogyBlock.astro";
+import V3State from "./V3State.astro";
+import V3Tabs from "./V3Tabs.astro";
+import V3TabPanel from "./V3TabPanel.astro";
+
+const tabItems = [
+  { id: "cours", label: "Cours" },
+  { id: "exercices", label: "Exercices", badge: 8 },
+  { id: "quiz", label: "Quiz", badge: 12 },
+];
+---
+
+<section class="v3-showcase" aria-label="Apercu des composants V3">
+  <div class="v3-showcase__row">
+    <V3Button>Continuer</V3Button>
+    <V3Button variant="secondary">Revoir</V3Button>
+    <V3Button variant="ghost">Annuler</V3Button>
+    <V3Button variant="danger">Supprimer</V3Button>
+  </div>
+
+  <div class="v3-showcase__row">
+    <V3Badge tone="maths">Mathematiques</V3Badge>
+    <V3Badge tone="physics">Physique</V3Badge>
+    <V3Badge tone="chemistry">Chimie</V3Badge>
+    <V3Badge tone="premium">Premium</V3Badge>
+  </div>
+
+  <div class="v3-showcase__grid">
+    <V3Card title="Loi d'Ohm" eyebrow="Chapitre" accent="physics">
+      Comprendre la relation entre tension, intensite et resistance.
+    </V3Card>
+    <V3Card title="Melanges" eyebrow="Ressource" accent="chemistry" href="/college/5eme/chimie/melanges-dissolution/">
+      Distinguer dissolution, miscibilite et melange heterogene.
+    </V3Card>
+  </div>
+
+  <V3Tabs items={tabItems} activeId="cours" label="Exemple de sections">
+    <V3TabPanel id="cours" active>
+      <V3PedagogyBlock kind="definition" title="Definition">
+        Une grandeur physique se mesure avec un instrument et une unite.
+      </V3PedagogyBlock>
+    </V3TabPanel>
+    <V3TabPanel id="exercices">
+      <V3PedagogyBlock kind="method" title="Methode">
+        Lire l'enonce, relever les donnees, choisir la relation, puis calculer.
+      </V3PedagogyBlock>
+    </V3TabPanel>
+    <V3TabPanel id="quiz">
+      <V3PedagogyBlock kind="warning" title="Vigilance">
+        Une valeur numerique sans unite ne suffit pas en physique-chimie.
+      </V3PedagogyBlock>
+    </V3TabPanel>
+  </V3Tabs>
+
+  <div class="v3-showcase__grid">
+    <V3Field id="search-demo" type="search" label="Recherche" placeholder="Cours, exercice, quiz..." help="Label visible et focus clavier renforce." />
+    <V3Field
+      id="level-demo"
+      label="Niveau"
+      value="5eme"
+      options={[
+        { label: "6e", value: "6eme" },
+        { label: "5e", value: "5eme" },
+        { label: "4e", value: "4eme" },
+      ]}
+    />
+  </div>
+
+  <V3State kind="empty" title="Aucune activite pour le moment" message="Ce composant couvre les etats vide, chargement, erreur, hors ligne et succes." />
+</section>
+
+<style>
+  .v3-showcase {
+    display: grid;
+    gap: var(--v3-space-6);
+  }
+
+  .v3-showcase__row {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--v3-space-3);
+  }
+
+  .v3-showcase__grid {
+    display: grid;
+    gap: var(--v3-space-4);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+</style>

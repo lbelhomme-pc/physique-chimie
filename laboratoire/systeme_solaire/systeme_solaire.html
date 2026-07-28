@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : Le Système Solaire Interactif</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_systeme_solaire.css">
+</head>
+<body>
+
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+    
+    <div class="container container-lecture" style="max-width: 1400px;">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">🪐</span> 
+                <h1 class="hero-title" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; background-clip: text; color: transparent;">Planétarium Interactif</h1>
+            </div>
+            <p class="hero-subtitle">Explore le système solaire, observe les orbites et clique sur les planètes pour obtenir leurs données.</p>
+        </header>
+
+        <div class="dashboard-vertical">
+            
+            <div class="view-modes">
+                <button class="btn-mode active" id="btnModeEasy" onclick="setMode('easy')">👁️ Visuel Plan</button>
+                <button class="btn-mode" id="btnMode3D" onclick="setMode('3d')">🌌 Vue 3D Libre</button>
+            </div>
+
+            <div class="card controls-panel">
+                <div class="controls-top-row">
+                    <div class="slider-group">
+                        <label for="speed">Vitesse du temps écoulé</label>
+                        <input id="speed" type="range" min="0" max="400" value="80" />
+                        <div class="chip-val" id="speedVal">Vitesse : 80%</div>
+                    </div>
+
+                    <div class="slider-group">
+                        <label for="scale">Zoom (Axe Z - Molette de la souris)</label>
+                        <input id="scale" type="range" min="10" max="3000" value="120" />
+                        <div class="chip-val" id="scaleVal">Échelle : 120%</div>
+                    </div>
+
+                    <div class="time-display-container">
+                        <div class="time-label">⏳ Temps écoulé sur Terre :</div>
+                        <div class="digital-time" id="timeDisplay">0 An, 0 Jour</div>
+                    </div>
+                </div>
+
+                <div class="controls-bottom-row">
+                    <div class="btn-grid">
+                        <button class="btn-action btn-secondary btn-small" id="toggleOrbits">🧭 Orbites</button>
+                        <button class="btn-action btn-primary btn-small" id="pause">⏸️ Pause</button>
+                        <button class="btn-action btn-secondary btn-small" id="recentre">🎯 Recentrer</button>
+                    </div>
+                    
+                    <div class="instructions-inline">
+                        🖱️ <b>Navigation :</b> <b>Clic Gauche</b> = Tourner | <b>Clic Droit</b> = Se déplacer | <b>Molette</b> = Zoomer (Z). <br>
+                        👉 <b>Astuce : Clique sur une planète pour voir sa fiche d'informations !</b>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card canvas-panel" style="padding: 0; overflow: hidden; position: relative;">
+                <div class="solar-scene" id="scene" oncontextmenu="return false;">
+                    <div class="solar-stars"></div>
+                    <canvas id="c"></canvas>
+
+                    <div class="legend">
+                        <div class="box">
+                            <span>🟡 <b>Soleil</b></span>
+                            <span>🌍 <b>8 Planètes</b></span>
+                            <span>⚪ <b>Lunes Majeures</b></span>
+                        </div>
+                    </div>
+
+                    <div id="infoPanel" class="info-overlay hidden">
+                        <button class="close-btn" onclick="closeInfoPanel()">✖</button>
+                        <div class="info-header">
+                            <span class="info-icon" id="infoIcon">🌍</span>
+                            <div>
+                                <h3 id="infoName" style="margin: 0; color: var(--primary);">La Terre</h3>
+                                <span id="infoType" class="badge-type">Planète rocheuse</span>
+                            </div>
+                        </div>
+                        <div class="info-metrics">
+                            <div class="metric-row">
+                                <span class="metric-icon">📏</span>
+                                <div class="metric-text">
+                                    <span class="metric-label">Diamètre</span>
+                                    <span class="metric-value" id="infoDia">12 742 km</span>
+                                </div>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-icon">⚖️</span>
+                                <div class="metric-text">
+                                    <span class="metric-label">Masse</span>
+                                    <span class="metric-value" id="infoMass">5,97 × 10²⁴ kg</span>
+                                </div>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-icon">🌡️</span>
+                                <div class="metric-text">
+                                    <span class="metric-label">Température</span>
+                                    <span class="metric-value" id="infoTemp">Moy. 15°C</span>
+                                </div>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-icon">⏱️</span>
+                                <div class="metric-text">
+                                    <span class="metric-label">Révolution (1 an)</span>
+                                    <span class="metric-value" id="infoRev">365 jours</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_systeme_solaire.js"></script>
+</body>
+</html>

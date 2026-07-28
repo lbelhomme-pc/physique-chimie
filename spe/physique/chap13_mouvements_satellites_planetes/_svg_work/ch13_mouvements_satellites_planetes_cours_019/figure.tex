@@ -1,0 +1,67 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[scale=1.2, >=Stealth]
+ % Ellipse
+ \draw[thick, primary] (0,0) ellipse (3 and 2);
+ 
+ % Axes
+ \draw[dashed, gray, thin] (-3.5,0) -- (3.5,0);
+ \draw[dashed, gray, thin] (0,-2.5) -- (0,2.5);
+ 
+ % Demi-grand axe
+ \draw[<->, thick, accent] (0,0.15) -- (3,0.15);
+ \node[above, accent] at (1.5,0.15) {$a$};
+ 
+ % Foyers (c = sqrt(9-4) = sqrt(5) ~ 2.24)
+ \pgfmathsetmacro{\foc}{sqrt(5)}
+ \fill[examplepink] (\foc,0) circle (3pt) node[below right, examplepink]{$F_1$ (Soleil)};
+ \fill[dark] (-\foc,0) circle (2.5pt) node[below left]{$F_2$};
+ 
+ % Point M sur l'ellipse
+ \pgfmathsetmacro{\angle}{55}
+ \pgfmathsetmacro{\xM}{3*cos(\angle)}
+ \pgfmathsetmacro{\yM}{2*sin(\angle)}
+ \fill[primary] (\xM,\yM) circle (2.5pt) node[above right, primary]{Plan\`{e}te};
+ 
+ % Distances MF1 et MF2
+ \draw[thin, examplepink] (\xM,\yM) -- (\foc,0) node[midway, right, examplepink, font=\small]{$MF_1$};
+ \draw[thin, dark] (\xM,\yM) -- (-\foc,0) node[midway, above left, dark, font=\small]{$MF_2$};
+ 
+ % Annotation
+ \node[below, gray, font=\small] at (0,-2.8) {$MF_1 + MF_2 = 2a = \text{cste}$};
+\end{tikzpicture}
+\end{document}

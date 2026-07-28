@@ -1,0 +1,71 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>=Stealth, scale=0.8]
+ % Tremplin
+ \draw[thick, brown!60!black] (-4,3) -- (-1.5,1.2) -- (0,0.85);
+ \filldraw[primary] (0,0.85) circle(3pt) node[above right]{\small G$_0$};
+ % Vecteur vitesse
+ \draw[->, thick, color=examplepink] (0,0.85) -- (2.2,1.65) node[right]{\small $\vec{v}_0$};
+ \draw[dashed] (0,0.85) -- (2.2,0.85);
+ \draw (1.2,0.85) arc[start angle=0, end angle=20, radius=1.2];
+ \node at (1.6,1.05) {\small $\theta$};
+ % Trajectoire
+ \draw[thick, dashed, primary] (0,0.85) .. controls (2.5,1.8) and (4.5,0.5) .. (6.5,0);
+ % Surface de l'eau
+ \fill[blue!15] (-2,0) rectangle (8,-0.5);
+ \draw[thick, blue!50] (-2,0) -- (8,0);
+ \node[blue!70] at (7.5,-0.3) {\small Eau};
+ % Hauteur h
+ \draw[<->, thick, color=synthorange] (-0.5,0) -- (-0.5,0.85) node[midway, left]{\small $h$};
+ % Axes
+ \draw[->] (0,0) -- (7.5,0) node[right]{\small $x$};
+ \draw[->] (0,0) -- (0,3) node[above]{\small $z$};
+ \node[below left] at (0,0) {\small Surface};
+ \node[above left] at (0,0.85) {\small $O$};
+\end{tikzpicture}
+\end{document}

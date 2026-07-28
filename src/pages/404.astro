@@ -1,8 +1,9 @@
 ---
 // src/pages/404.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../config/site";
 ---
-<BaseLayout title="Page introuvable — Physique-Chimie" noindex={true}>
+<BaseLayout title={`Page introuvable - ${siteConfig.shortName}`} noindex={true}>
   <div style="text-align:center; padding: 4rem 1rem;">
     <span style="font-size:4rem;">🔬</span>
     <h1 style="font-size:2rem; font-weight:800; color:var(--accent-primary); margin:0.5rem 0;">404 — Page introuvable</h1>

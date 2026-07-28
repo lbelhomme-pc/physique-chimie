@@ -1,0 +1,364 @@
+---
+import '../../styles/laboratoire/ideal-gas.css';
+
+const svgHidden = { hidden: true } as any;
+---
+
+<section class="ig-simulator" data-ideal-gas-root aria-labelledby="ig-title">
+  <header class="ig-hero">
+    <div>
+      <p class="ig-eyebrow">Laboratoire interactif · Terminale spécialité</p>
+      <h1 id="ig-title">Modèle des gaz parfaits</h1>
+      <p class="ig-question">
+        Comment relier <strong>P</strong>, <strong>V</strong>, <strong>n</strong> et <strong>T</strong> avec <strong>PV = nRT</strong>, tout en distinguant calcul macroscopique et animation microscopique illustrative&nbsp;?
+      </p>
+    </div>
+    <p class="ig-state" data-sim-state role="status" aria-live="polite">
+      <span class="ig-state-dot" aria-hidden="true"></span>
+      <span data-sim-state-text>Prêt à construire un protocole</span>
+    </p>
+  </header>
+
+  <ol class="ig-steps" aria-label="Progression de l’activité">
+    <li><strong>1. Prédire</strong><span>Choisir l’évolution attendue</span></li>
+    <li><strong>2. Manipuler</strong><span>Faire varier une seule grandeur</span></li>
+    <li><strong>3. Relever</strong><span>Construire le graphique</span></li>
+    <li><strong>4. Conclure</strong><span>Comparer au modèle</span></li>
+  </ol>
+
+  <div class="ig-main-grid">
+    <aside class="ig-card ig-controls" aria-labelledby="ig-controls-title">
+      <div class="ig-card-heading">
+        <p class="ig-kicker">Manipuler</p>
+        <h2 id="ig-controls-title">Préparer l’expérience</h2>
+      </div>
+
+      <fieldset class="ig-fieldset">
+        <legend>Protocole</legend>
+        <label class="ig-select-field" for="ig-protocol">
+          <span>Relation étudiée</span>
+          <select id="ig-protocol" data-protocol>
+            <option value="isochoric">P = f(T), avec V et n constants</option>
+            <option value="isothermal">P = f(1/V), avec T et n constants</option>
+            <option value="isomolar">P = f(n), avec T et V constants</option>
+          </select>
+        </label>
+        <p class="ig-help" data-protocol-help>
+          Le volume et la quantité de matière sont verrouillés : seule la température varie.
+        </p>
+      </fieldset>
+
+      <fieldset class="ig-fieldset">
+        <legend>Paramètres</legend>
+
+        <div class="ig-range-field" data-control-wrap="temperatureC">
+          <div class="ig-range-heading">
+            <label for="ig-temperature">Température θ</label>
+            <output for="ig-temperature" data-param-output="temperatureC">20,0 °C</output>
+          </div>
+          <input id="ig-temperature" type="range" min="-100" max="400" step="5" value="20" data-param="temperatureC" />
+          <p class="ig-control-state" data-lock-label="temperatureC">Grandeur manipulée</p>
+        </div>
+
+        <div class="ig-range-field" data-control-wrap="volumeL">
+          <div class="ig-range-heading">
+            <label for="ig-volume">Volume V</label>
+            <output for="ig-volume" data-param-output="volumeL">20,0 L</output>
+          </div>
+          <input id="ig-volume" type="range" min="5" max="60" step="1" value="20" data-param="volumeL" />
+          <p class="ig-control-state" data-lock-label="volumeL">Verrouillé par le protocole</p>
+        </div>
+
+        <div class="ig-range-field" data-control-wrap="amountMol">
+          <div class="ig-range-heading">
+            <label for="ig-amount">Quantité de matière n</label>
+            <output for="ig-amount" data-param-output="amountMol">2,00 mol</output>
+          </div>
+          <input id="ig-amount" type="range" min="0.2" max="5" step="0.1" value="2" data-param="amountMol" />
+          <p class="ig-control-state" data-lock-label="amountMol">Verrouillé par le protocole</p>
+        </div>
+      </fieldset>
+
+      <fieldset class="ig-fieldset">
+        <legend>Affichage et animation</legend>
+        <label class="ig-select-field" for="ig-pressure-unit">
+          <span>Unité de pression</span>
+          <select id="ig-pressure-unit" data-pressure-unit>
+            <option value="Pa">Pa</option>
+            <option value="kPa" selected>kPa</option>
+            <option value="bar">bar</option>
+          </select>
+        </label>
+
+        <label class="ig-select-field" for="ig-speed">
+          <span>Vitesse de l’animation microscopique</span>
+          <select id="ig-speed" data-speed>
+            <option value="0.5">× 0,5</option>
+            <option value="1" selected>× 1</option>
+            <option value="2">× 2</option>
+            <option value="4">× 4</option>
+          </select>
+        </label>
+
+        <div class="ig-action-grid">
+          <button type="button" class="ig-button ig-button-primary" data-action="toggle">
+            <span data-play-label>Lancer l’animation</span>
+          </button>
+          <button type="button" class="ig-button" data-action="reset">Réinitialiser</button>
+        </div>
+      </fieldset>
+
+      <p class="ig-model-warning">
+        <strong>Attention :</strong> la pression affichée est calculée uniquement avec <span aria-label="P V égale n R T">PV = nRT</span>. Le nombre de points visibles ne sert jamais au calcul.
+      </p>
+    </aside>
+
+    <div class="ig-workspace">
+      <section class="ig-card ig-observation" aria-labelledby="ig-observation-title">
+        <div class="ig-card-heading ig-heading-inline">
+          <div>
+            <p class="ig-kicker">Observer</p>
+            <h2 id="ig-observation-title">État macroscopique et représentation microscopique</h2>
+          </div>
+          <p class="ig-zone-badge" data-output="validityBadge">Domaine scolaire usuel</p>
+        </div>
+
+        <figure class="ig-vessel-figure">
+          <svg viewBox="0 0 760 430" role="img" aria-labelledby="ig-vessel-title ig-vessel-desc" data-vessel-svg>
+            <title id="ig-vessel-title">Gaz parfait dans une enceinte à piston mobile</title>
+            <desc id="ig-vessel-desc" data-vessel-desc>
+              L’enceinte contient des points représentatifs. Leur vitesse illustrative augmente avec la racine carrée de la température.
+            </desc>
+            <defs>
+              <clipPath id="ig-gas-clip">
+                <rect data-gas-clip x="80" y="70" width="420" height="250" rx="16" />
+              </clipPath>
+              <linearGradient id="ig-vessel-gradient" x1="0" x2="1">
+                <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.55" />
+                <stop offset="100%" stop-color="#ccfbf1" stop-opacity="0.32" />
+              </linearGradient>
+            </defs>
+
+            <g class="ig-vessel" aria-hidden="true">
+              <rect x="80" y="70" width="560" height="250" rx="18" class="ig-vessel-shell" />
+              <rect data-gas-fill x="80" y="70" width="420" height="250" rx="16" fill="url(#ig-vessel-gradient)" />
+              <g data-particles clip-path="url(#ig-gas-clip)"></g>
+              <g data-piston class="ig-piston" transform="translate(500 0)">
+                <rect x="-10" y="60" width="20" height="270" rx="6" />
+                <line x1="0" y1="45" x2="0" y2="10" />
+                <path d="M-18 22 L0 2 L18 22" />
+              </g>
+              <text x="92" y="54" class="ig-vessel-label">Gaz étudié</text>
+              <text data-volume-marker x="500" y="350" text-anchor="middle">V = 20,0 L</text>
+            </g>
+
+            <g class="ig-gauge" transform="translate(650 125)">
+              <path d="M-58 40 A72 72 0 0 1 58 40" class="ig-gauge-arc" />
+              <line x1="0" y1="40" x2="0" y2="-22" data-gauge-needle />
+              <circle cx="0" cy="40" r="7" />
+              <text x="0" y="72" text-anchor="middle">Pression</text>
+              <text x="0" y="96" text-anchor="middle" data-output="gaugePressure">243,7 kPa</text>
+            </g>
+
+            <g class="ig-legend" transform="translate(85 390)">
+              <circle cx="8" cy="0" r="6" class="ig-legend-particle" />
+              <text x="22" y="5">Point représentatif, pas une molécule comptée</text>
+              <line x1="360" y1="0" x2="390" y2="0" class="ig-legend-piston" />
+              <text x="402" y="5">Position du piston : volume</text>
+            </g>
+          </svg>
+          <figcaption>
+            L’animation est qualitative. Sa vitesse moyenne suit √T ; les collisions dessinées ne constituent pas une mesure de pression.
+          </figcaption>
+        </figure>
+
+        <dl class="ig-meter-grid">
+          <div><dt>Température θ</dt><dd data-output="temperatureC">20,0 °C</dd></div>
+          <div><dt>Température T</dt><dd data-output="temperatureK">293,15 K</dd></div>
+          <div><dt>Volume V</dt><dd data-output="volumeL">20,0 L</dd></div>
+          <div><dt>Quantité n</dt><dd data-output="amountMol">2,00 mol</dd></div>
+          <div><dt>Pression P</dt><dd data-output="pressurePrimary">243,7 kPa</dd></div>
+          <div><dt>Agitation relative</dt><dd data-output="speedFactor">× 1,00</dd></div>
+        </dl>
+
+        <div class="ig-equation-strip">
+          <p><strong>État scientifique unique</strong></p>
+          <p data-output="equationSubstitution">P = (2,00 × 8,314 × 293,15) / 0,0200</p>
+          <p data-output="pressureConversions">243 725 Pa = 243,7 kPa = 2,437 bar</p>
+        </div>
+
+        <p class="ig-validity-note" data-output="validityNote">
+          Modèle utilisé dans son domaine scolaire usuel. À forte pression ou basse température, un gaz réel peut s’en écarter.
+        </p>
+      </section>
+
+      <section class="ig-card ig-prediction-card" aria-labelledby="ig-prediction-title">
+        <div class="ig-card-heading">
+          <p class="ig-kicker">Prédire avant de modifier</p>
+          <h2 id="ig-prediction-title">Quelle évolution attends-tu&nbsp;?</h2>
+        </div>
+
+        <div class="ig-prediction-grid">
+          <p data-prediction-prompt>Lorsque la température T augmente, la pression P…</p>
+          <label class="ig-select-field" for="ig-prediction">
+            <span>Ma prédiction</span>
+            <select id="ig-prediction" data-prediction>
+              <option value="">Choisir une réponse</option>
+              <option value="increase">augmente</option>
+              <option value="decrease">diminue</option>
+              <option value="same">reste constante</option>
+            </select>
+          </label>
+          <button type="button" class="ig-button ig-button-accent" data-action="save-prediction">Enregistrer ma prédiction</button>
+        </div>
+        <p class="ig-feedback" data-prediction-feedback>
+          La réponse n’est pas donnée tout de suite : réalise d’abord plusieurs relevés.
+        </p>
+      </section>
+
+      <section class="ig-card ig-graph-card" aria-labelledby="ig-graph-title">
+        <div class="ig-card-heading ig-heading-inline">
+          <div>
+            <p class="ig-kicker">Relever et exploiter</p>
+            <h2 id="ig-graph-title">Construire le graphique</h2>
+          </div>
+          <p class="ig-zone-badge" data-output="recordCount">0 relevé</p>
+        </div>
+
+        <div class="ig-graph-actions">
+          <button type="button" class="ig-button ig-button-primary" data-action="record">Ajouter le relevé actuel</button>
+          <button type="button" class="ig-button" data-action="clear-records">Effacer les relevés</button>
+          <button type="button" class="ig-button ig-button-accent" data-action="reveal-model" disabled>
+            Comparer au modèle
+          </button>
+        </div>
+
+        <figure class="ig-graph-figure">
+          <svg viewBox="0 0 760 470" role="img" aria-labelledby="ig-graph-svg-title ig-graph-svg-desc" data-graph-svg>
+            <title id="ig-graph-svg-title">Graphique de la pression pour le protocole choisi</title>
+            <desc id="ig-graph-svg-desc" data-graph-desc>
+              Aucun relevé n’a encore été ajouté. La courbe du modèle reste masquée jusqu’à trois relevés.
+            </desc>
+
+            <g class="ig-chart-grid" data-chart-grid aria-hidden="true"></g>
+            <line class="ig-axis" x1="82" y1="390" x2="710" y2="390" />
+            <line class="ig-axis" x1="82" y1="390" x2="82" y2="45" />
+            <g data-x-ticks></g>
+            <g data-y-ticks></g>
+            <text class="ig-axis-label" x="396" y="446" text-anchor="middle" data-x-axis-label>Température thermodynamique T (K)</text>
+            <text class="ig-axis-label" transform="translate(24 218) rotate(-90)" text-anchor="middle" data-y-axis-label>Pression P (kPa)</text>
+
+            <path class="ig-model-path" data-model-path d="" {...svgHidden} />
+            <g data-recorded-points></g>
+            <path class="ig-current-point" data-current-point d="" />
+
+            <g class="ig-chart-legend" transform="translate(100 22)">
+              <circle cx="0" cy="0" r="6" class="ig-legend-measure" />
+              <text x="15" y="5">Relevés</text>
+              <path d="M128 0 h24" class="ig-legend-model" />
+              <text x="162" y="5">Modèle PV = nRT</text>
+              <path d="M336 -7 l7 7 l-7 7 l-7 -7 z" class="ig-legend-current" />
+              <text x="352" y="5">État actuel</text>
+            </g>
+          </svg>
+          <figcaption data-graph-caption>
+            Ajoute au moins trois relevés distincts, puis affiche le modèle pour comparer.
+          </figcaption>
+        </figure>
+
+        <div class="ig-table-wrap" tabindex="0" aria-label="Tableau des relevés enregistrés">
+          <table>
+            <caption>Relevés du protocole courant</caption>
+            <thead>
+              <tr>
+                <th scope="col" data-table-x-heading>T (K)</th>
+                <th scope="col">P</th>
+                <th scope="col">θ (°C)</th>
+                <th scope="col">V (L)</th>
+                <th scope="col">n (mol)</th>
+              </tr>
+            </thead>
+            <tbody data-measurement-body>
+              <tr><td colspan="5">Aucun relevé pour le moment.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ig-analysis" aria-live="polite">
+          <p><strong>Analyse :</strong> <span data-output="analysisText">Effectue au moins trois relevés pour comparer les données au modèle.</span></p>
+          <p data-output="regressionText">La régression sera calculée après plusieurs points distincts.</p>
+        </div>
+      </section>
+
+      <section class="ig-card ig-mission" aria-labelledby="ig-mission-title">
+        <div class="ig-card-heading">
+          <p class="ig-kicker">Mission élève</p>
+          <h2 id="ig-mission-title">Isoler une relation</h2>
+        </div>
+
+        <ol class="ig-mission-list">
+          <li>Choisis un protocole et formule une prédiction avant toute modification.</li>
+          <li>Fais varier uniquement la grandeur déverrouillée et relève au moins trois états.</li>
+          <li>Affiche le modèle, puis compare la forme du graphique et la valeur de la régression.</li>
+          <li>Recommence avec un autre protocole et rédige une conclusion qui précise les grandeurs maintenues constantes.</li>
+        </ol>
+
+        <label class="ig-conclusion" for="ig-conclusion">
+          <span>Ma conclusion</span>
+          <textarea id="ig-conclusion" rows="4" placeholder="À ... constants, lorsque ... augmente, la pression ... car ..."></textarea>
+        </label>
+
+        <details class="ig-help-details">
+          <summary>Indice 1</summary>
+          <p>Ne compare que des états obtenus avec les deux mêmes grandeurs verrouillées.</p>
+        </details>
+        <details class="ig-help-details">
+          <summary>Indice 2</summary>
+          <p>Pour le protocole isotherme, observe l’axe 1/V : une droite en fonction de 1/V correspond à une relation inverse entre P et V.</p>
+        </details>
+        <details class="ig-help-details">
+          <summary>Modèle, conventions et limites</summary>
+          <p>
+            Le calcul suppose un gaz parfait homogène à l’équilibre. La température utilisée dans PV = nRT est toujours exprimée en kelvins et le volume en mètres cubes.
+          </p>
+          <p>
+            Les points animés sont une métaphore microscopique qualitative. Leur nombre est représentatif et leur vitesse moyenne varie comme √T ; ils ne valent pas nN<sub>A</sub> et ne calculent pas la pression.
+          </p>
+          <p>
+            Les alertes sous 200 K et au-dessus de 10 bar sont des seuils didactiques de prudence, pas des frontières universelles entre gaz parfait et gaz réel.
+          </p>
+        </details>
+      </section>
+
+      <section class="ig-card ig-sources" aria-labelledby="ig-sources-title">
+        <div class="ig-card-heading">
+          <p class="ig-kicker">Références</p>
+          <h2 id="ig-sources-title">Sources scientifiques et scolaires</h2>
+        </div>
+        <ul>
+          <li><a href="https://www.education.gouv.fr/sites/default/files/document/Physique-chimie-236046.pdf" target="_blank" rel="noreferrer">Programme officiel de Terminale générale, spécialité physique-chimie</a></li>
+          <li><a href="https://goldbook.iupac.org/terms/view/I02935" target="_blank" rel="noreferrer">IUPAC Gold Book — définition du gaz parfait</a></li>
+          <li><a href="https://www.bipm.org/en/publications/si-brochure" target="_blank" rel="noreferrer">BIPM — Brochure sur le Système international d’unités</a></li>
+          <li><a href="https://physics.nist.gov/cgi-bin/cuu/Value?eqr=" target="_blank" rel="noreferrer">NIST/CODATA — constante molaire des gaz</a></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <p class="ig-sr-only" data-accessible-summary aria-live="off"></p>
+</section>
+
+<script>
+  import { initIdealGasSimulator } from '../../scripts/laboratoire/ideal-gas-simulator.js';
+
+  const mountIdealGasSimulators = () => {
+    document.querySelectorAll('[data-ideal-gas-root]').forEach((root) => {
+      if (!(root instanceof HTMLElement) || root.dataset.igInitialized === 'true') return;
+      root.dataset.igInitialized = 'true';
+      initIdealGasSimulator(root);
+    });
+  };
+
+  mountIdealGasSimulators();
+  document.addEventListener('astro:page-load', mountIdealGasSimulators, { once: true });
+</script>

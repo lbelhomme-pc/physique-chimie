@@ -17,6 +17,8 @@ import {
   type SubLevel,
   type BadgeDef,
 } from "./config";
+import { getCanonicalProgressStorageKey, resolveChapterContentId } from "../../utils/contentIds";
+import { migrateBrowserContentProgressStorage } from "../../utils/contentProgressMigration";
 
 // ─── Types ────────────────────────────────────────────────
 
@@ -138,6 +140,7 @@ export class GamificationEngine {
   private load(): UserState {
     if (typeof window === "undefined") return defaultState();
     try {
+      migrateBrowserContentProgressStorage();
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return defaultState();
       return { ...defaultState(), ...JSON.parse(raw) };
@@ -228,7 +231,8 @@ export class GamificationEngine {
     bestQuizScore: number;
     bestQuizTotal: number;
   } {
-    const p = this.state.progress[chapterId] ?? {
+    const canonicalChapterId = this.canonicalChapterId(chapterId);
+    const p = this.state.progress[canonicalChapterId] ?? {
       cours: false, quiz: false, flashcards: false, exercices: false,
       bestQuizScore: 0, bestQuizTotal: 0, flashKnownRatio: 0,
     };
@@ -292,18 +296,19 @@ export class GamificationEngine {
     chapterId: string,
     xpConfig?: { cours?: number }
   ): { xp: number; rankUp: Rank | null; newBadges: BadgeDef[] } {
+    const canonicalChapterId = this.canonicalChapterId(chapterId);
     const xpAmount = xpConfig?.cours ?? DEFAULT_XP.cours;
-    const alreadyDone = this.state.progress[chapterId]?.cours;
+    const alreadyDone = this.state.progress[canonicalChapterId]?.cours;
 
     if (!alreadyDone) {
-      this.ensureProgress(chapterId);
-      this.state.progress[chapterId].cours = true;
+      this.ensureProgress(canonicalChapterId);
+      this.state.progress[canonicalChapterId].cours = true;
       this.state.stats.totalCoursRead += 1;
       this.bumpCombo();
       this.trackActivity("cours");
       this.updateStreak();
       const result = this.addXP(xpAmount);
-      this.checkChapterComplete(chapterId);
+      this.checkChapterComplete(canonicalChapterId);
       const newBadges = this.checkBadges();
       this.save();
       return { ...result, newBadges };
@@ -322,6 +327,7 @@ export class GamificationEngine {
     durationMs?: number,
     xpConfig?: { quiz_base?: number; quiz_per_correct?: number; quiz_perfect?: number }
   ): { xp: number; rankUp: Rank | null; newBadges: BadgeDef[] } {
+    const canonicalChapterId = this.canonicalChapterId(chapterId);
     const base = xpConfig?.quiz_base ?? DEFAULT_XP.quiz_base;
     const perCorrect = xpConfig?.quiz_per_correct ?? DEFAULT_XP.quiz_per_correct;
     const perfectBonus = xpConfig?.quiz_perfect ?? DEFAULT_XP.quiz_perfect;
@@ -330,13 +336,13 @@ export class GamificationEngine {
     const isPerfect = score === total && total > 0;
     if (isPerfect) xpAmount += perfectBonus;
 
-    this.ensureProgress(chapterId);
-    this.state.progress[chapterId].quiz = true;
+    this.ensureProgress(canonicalChapterId);
+    this.state.progress[canonicalChapterId].quiz = true;
 
     // Meilleur score
-    if (score > (this.state.progress[chapterId].bestQuizScore ?? 0)) {
-      this.state.progress[chapterId].bestQuizScore = score;
-      this.state.progress[chapterId].bestQuizTotal = total;
+    if (score > (this.state.progress[canonicalChapterId].bestQuizScore ?? 0)) {
+      this.state.progress[canonicalChapterId].bestQuizScore = score;
+      this.state.progress[canonicalChapterId].bestQuizTotal = total;
     }
 
     this.state.stats.totalQuizCompleted += 1;
@@ -356,7 +362,7 @@ export class GamificationEngine {
     this.trackActivity("quiz");
     this.updateStreak();
     const result = this.addXP(xpAmount);
-    this.checkChapterComplete(chapterId);
+    this.checkChapterComplete(canonicalChapterId);
     const newBadges = this.checkBadges();
     this.save();
     return { ...result, newBadges };
@@ -371,6 +377,7 @@ export class GamificationEngine {
     totalCount: number,
     xpConfig?: { flashcards_base?: number; flashcard_known?: number }
   ): { xp: number; rankUp: Rank | null; newBadges: BadgeDef[] } {
+    const canonicalChapterId = this.canonicalChapterId(chapterId);
     const base = xpConfig?.flashcards_base ?? DEFAULT_XP.flashcards_base;
     const perKnown = xpConfig?.flashcard_known ?? DEFAULT_XP.flashcard_known;
 
@@ -378,9 +385,9 @@ export class GamificationEngine {
     const isPerfect = knownCount === totalCount && totalCount > 0;
     if (isPerfect) xpAmount += 10;
 
-    this.ensureProgress(chapterId);
-    this.state.progress[chapterId].flashcards = true;
-    this.state.progress[chapterId].flashKnownRatio =
+    this.ensureProgress(canonicalChapterId);
+    this.state.progress[canonicalChapterId].flashcards = true;
+    this.state.progress[canonicalChapterId].flashKnownRatio =
       totalCount > 0 ? knownCount / totalCount : 0;
 
     this.state.stats.totalFlashcardsReviewed += totalCount;
@@ -390,7 +397,7 @@ export class GamificationEngine {
     this.trackActivity("flashcards");
     this.updateStreak();
     const result = this.addXP(xpAmount);
-    this.checkChapterComplete(chapterId);
+    this.checkChapterComplete(canonicalChapterId);
     const newBadges = this.checkBadges();
     this.save();
     return { ...result, newBadges };
@@ -423,13 +430,14 @@ export class GamificationEngine {
     chapterId: string,
     xpConfig?: { exercice_all?: number }
   ): { xp: number; rankUp: Rank | null; newBadges: BadgeDef[] } {
+    const canonicalChapterId = this.canonicalChapterId(chapterId);
     const xpAmount = xpConfig?.exercice_all ?? DEFAULT_XP.exercice_all;
 
-    this.ensureProgress(chapterId);
-    this.state.progress[chapterId].exercices = true;
+    this.ensureProgress(canonicalChapterId);
+    this.state.progress[canonicalChapterId].exercices = true;
 
     const result = this.addXP(xpAmount);
-    this.checkChapterComplete(chapterId);
+    this.checkChapterComplete(canonicalChapterId);
     const newBadges = this.checkBadges();
     this.save();
     return { ...result, newBadges };
@@ -549,11 +557,15 @@ export class GamificationEngine {
     }
   }
 
+  private canonicalChapterId(chapterId: string): string {
+    return resolveChapterContentId(chapterId);
+  }
+
   private checkChapterComplete(chapterId: string): void {
     const p = this.state.progress[chapterId];
     if (p && p.cours && p.quiz && p.flashcards && p.exercices) {
       // Vérifier que le bonus n'a pas déjà été donné
-      const key = `chapter_complete_${chapterId}`;
+      const key = getCanonicalProgressStorageKey("chapter_complete_", chapterId);
       if (typeof window !== "undefined" && !localStorage.getItem(key)) {
         this.state.xp += DEFAULT_XP.chapter_complete;
         this.state.stats.chaptersComplete += 1;

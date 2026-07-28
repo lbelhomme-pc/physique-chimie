@@ -409,6 +409,119 @@
   margin: -0.3rem 0 0.9rem;
 }
 
+.lab-access-guide {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  margin: 0 0 1.2rem;
+  padding: 1.15rem;
+}
+
+.lab-access-guide__head {
+  max-width: 920px;
+}
+
+.lab-access-guide__eyebrow {
+  color: var(--accent-primary);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+}
+
+.lab-access-guide h2,
+.lab-access-guide h3 {
+  color: var(--text-primary);
+  margin-top: 0;
+}
+
+.lab-access-guide h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.lab-access-guide h3 {
+  font-size: 0.98rem;
+  margin-bottom: 0.45rem;
+}
+
+.lab-access-guide p,
+.lab-access-guide li {
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.lab-access-guide ul,
+.lab-access-guide ol {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.lab-access-guide__grid,
+.lab-access-question-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 0.9rem;
+}
+
+.lab-access-guide__grid article,
+.lab-access-question-grid article {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+}
+
+.lab-access-guide__questions {
+  border-top: 1px solid var(--border-light);
+  margin-top: 0.9rem;
+  padding-top: 0.8rem;
+}
+
+.lab-access-guide__questions summary {
+  color: var(--accent-primary);
+  cursor: pointer;
+  font-weight: 850;
+}
+
+.generic-lab__accessible-record {
+  grid-column: 1 / -1;
+}
+
+.lab-access-table-wrap {
+  overflow-x: auto;
+}
+
+.lab-access-table {
+  border-collapse: collapse;
+  min-width: 720px;
+  width: 100%;
+}
+
+.lab-access-table caption {
+  color: var(--text-primary);
+  font-weight: 850;
+  margin-bottom: 0.45rem;
+  text-align: left;
+}
+
+.lab-access-table th,
+.lab-access-table td {
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.lab-access-table th {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
 .lab-control {
   display: grid;
   gap: 0.45rem;
@@ -1564,6 +1677,11 @@
   .generic-lab,
   .lab-grid,
   .lab-grid--balanced {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-access-guide__grid,
+  .lab-access-question-grid {
     grid-template-columns: 1fr;
   }
 

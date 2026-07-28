@@ -1,0 +1,69 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[scale=1.1, >=Stealth]
+ % Ellipse
+ \draw[thick, primary] (0,0) ellipse (3.5 and 2);
+ 
+ % Foyer (Soleil)
+ \pgfmathsetmacro{\foc}{sqrt(3.5*3.5 - 2*2)}
+ \shade[ball color=yellow!70!orange] (\foc,0) circle (0.2);
+ \node[below=4pt] at (\foc,0) {\small $S$};
+ 
+ % Aire 1 (pres du Soleil - arc court en angle mais grand en longueur)
+ \fill[accent!25] (\foc,0) -- ({3.5*cos(-20)},{2*sin(-20)}) arc[x radius=3.5, y radius=2, start angle=-20, end angle=20] -- cycle;
+ \draw[thick, accent] ({3.5*cos(-20)},{2*sin(-20)}) arc[x radius=3.5, y radius=2, start angle=-20, end angle=20];
+ \draw[accent, thin] (\foc,0) -- ({3.5*cos(-20)},{2*sin(-20)});
+ \draw[accent, thin] (\foc,0) -- ({3.5*cos(20)},{2*sin(20)});
+ \node[accent, right, font=\small] at (3.6,0) {$\mathcal{A}_1$};
+ 
+ % Aire 2 (loin du Soleil - arc long en angle mais court en longueur)
+ \fill[examplepink!20] (\foc,0) -- ({3.5*cos(155)},{2*sin(155)}) arc[x radius=3.5, y radius=2, start angle=155, end angle=205] -- cycle;
+ \draw[thick, examplepink] ({3.5*cos(155)},{2*sin(155)}) arc[x radius=3.5, y radius=2, start angle=155, end angle=205];
+ \draw[examplepink, thin] (\foc,0) -- ({3.5*cos(155)},{2*sin(155)});
+ \draw[examplepink, thin] (\foc,0) -- ({3.5*cos(205)},{2*sin(205)});
+ \node[examplepink, left, font=\small] at (-3.6,0) {$\mathcal{A}_2$};
+ 
+ % Indication dt
+ \node[accent, font=\small] at (3.2,1.2) {pendant $\Delta t$};
+ \node[examplepink, font=\small] at (-3.2,1.2) {pendant $\Delta t$};
+ \node[accent, font=\small\bfseries] at (3.35,-0.85) {$v$ plus grande};
+ \node[examplepink, font=\small\bfseries] at (-3.35,-0.85) {$v$ plus faible};
+ 
+ % Egalite des aires
+ \node[below, font=\small, dark] at (0,-2.5) {$\mathcal{A}_1 = \mathcal{A}_2$ pour la m\^{e}me dur\'{e}e $\Delta t$};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,65 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>=Stealth, scale=1]
+ % Source
+ \draw[fill=yellow!30, draw=synthorange, thick, rounded corners=3pt] (-0.8,-0.8) rectangle (0.8,0.8);
+ \node[text=dark, font=\small\bfseries, align=center] at (0,0) {Source\\lumineuse};
+
+ % Photons (fl\`eches ondul\'{e}es)
+ \foreach \y/\col in {0.5/red, 0.15/red, -0.15/red, -0.5/red}{
+ \draw[->, thick, color=\col, decorate, decoration={snake, amplitude=1.2mm, segment length=4mm}]
+ (1.0,\y) -- (5.5,\y);
+ \fill[color=\col] (2.4,\y) circle (1.3pt);
+ \fill[color=\col] (3.8,\y) circle (1.3pt);
+ }
+
+ % \'{E}tiquettes
+ \node[font=\small, text=dark, align=center] at (3.2, 1.3) {Flux de photons};
+ \node[font=\footnotesize, text=red!70!black, align=center] at (5.2, 0.95) {$N$ photons\\pendant $\Delta t$};
+ \node[font=\small, text=dark, align=center] at (3.2, -1.3) {Chaque photon transporte $|\Delta E| = h\nu$};
+
+ % Cible
+ \draw[fill=gray!15, draw=dark, thick] (6.0,-1.0) rectangle (6.4,1.0);
+ \node[font=\small, text=dark, rotate=90] at (6.7, 0) {Surface};
+
+ % L\'{e}gende puissance
+ \draw[<->, thick, primary] (1.0, -1.8) -- (5.5, -1.8);
+ \node[font=\small, text=primary, below] at (3.25, -1.8) {Puissance $P$ = \'{e}nergie par seconde};
+\node[font=\footnotesize, text=dark, align=center] at (3.25,-2.35)
+{$E_{\text{totale}} = P\,\Delta t$};
+\end{tikzpicture}
+\end{document}

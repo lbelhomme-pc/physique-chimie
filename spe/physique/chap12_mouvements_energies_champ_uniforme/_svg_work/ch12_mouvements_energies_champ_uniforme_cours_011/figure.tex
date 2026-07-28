@@ -1,0 +1,70 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>=Stealth, scale=1.0]
+ % Plaques
+ \draw[very thick, red!70!black] (0,0) -- (0,4);
+ \node[red!70!black, left, font=\bfseries] at (-0.3,2) {$+$};
+ \node[red!70!black, left, font=\small] at (-0.3,3.5) {plaque $+$};
+ 
+ \draw[very thick, blue!70!black] (5,0) -- (5,4);
+ \node[blue!70!black, right, font=\bfseries] at (5.3,2) {$-$};
+ \node[blue!70!black, right, font=\small] at (5.3,3.5) {plaque $-$};
+
+ % Signes sur les plaques
+ \foreach \y in {0.5,1.2,1.9,2.6,3.3} {
+ \node[red!70!black, font=\small] at (0.2,\y) {$+$};
+ \node[blue!70!black, font=\small] at (4.8,\y) {$-$};
+ }
+
+ % Lignes de champ
+ \foreach \y in {0.8,1.6,2.4,3.2} {
+ \draw[->,thick,primary] (0.5,\y) -- (4.5,\y);
+ }
+ \node[primary, above, font=\small] at (2.5,3.3) {$\vec{E}$};
+
+ % Distance d
+ \draw[<->,thick] (0,-0.5) -- (5,-0.5);
+ \node[below, font=\small] at (2.5,-0.5) {$d$};
+
+ % Tension U
+ \draw[<->,thick,synthorange] (-0.7,0.3) -- (-0.7,3.7);
+ \node[left, synthorange, font=\small] at (-0.8,2) {$U$};
+
+ % Titre
+ \node[below, font=\small\itshape] at (2.5,-1.5) {Champ \'{e}lectrique uniforme entre les plaques d'un condensateur plan};
+\end{tikzpicture}
+\end{document}

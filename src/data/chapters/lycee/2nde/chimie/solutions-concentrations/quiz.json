@@ -1,22 +1,950 @@
 [
-  {"id":"solutions-concentrations-q01","type":"mcq","question":"Dans une solution aqueuse, le solvant est...","choices":["le sucre","l'eau","le soluté solide","toujours un gaz"],"answer":1,"explanation":"Une solution aqueuse a l'eau pour solvant."},
-  {"id":"solutions-concentrations-q02","type":"mcq","question":"Le soluté est...","choices":["l'espèce dissoute","toujours l'eau","la verrerie utilisée","le volume final"],"answer":0,"explanation":"Le soluté est l'espèce dissoute dans le solvant."},
-  {"id":"solutions-concentrations-q03","type":"mcq","question":"La concentration en masse s'exprime souvent en...","choices":["mol","g·L\\(^{-1}\\)","mL","g·mL"],"answer":1,"explanation":"Elle compare une masse de soluté à un volume de solution."},
-  {"id":"solutions-concentrations-q04","type":"mcq","question":"La relation correcte est...","choices":["\\(C_m=m/V\\)","\\(C_m=V/m\\)","\\(C_m=mV\\)","\\(C_m=m+V\\)"],"answer":0,"explanation":"La concentration en masse est une grandeur quotient."},
-  {"id":"solutions-concentrations-q05","type":"mcq","question":"Pour calculer une concentration en g·L\\(^{-1}\\), un volume de 250 mL doit être écrit...","choices":["250 L","2,50 L","0,250 L","0,0250 L"],"answer":2,"explanation":"250 mL = 0,250 L."},
-  {"id":"solutions-concentrations-q06","type":"mcq","question":"Une dissolution consiste à...","choices":["ajouter de l'eau à une solution mère","dissoudre un soluté dans un solvant","séparer deux liquides","mesurer une masse volumique"],"answer":1,"explanation":"La dissolution met un soluté en solution."},
-  {"id":"solutions-concentrations-q07","type":"mcq","question":"Une dilution consiste à...","choices":["obtenir une solution plus concentrée","ajouter du soluté solide","préparer une solution moins concentrée","évaporer le solvant"],"answer":2,"explanation":"Une dilution diminue la concentration par ajout de solvant."},
-  {"id":"solutions-concentrations-q08","type":"mcq","question":"Lors d'une dilution, la masse de soluté contenue dans le prélèvement...","choices":["se conserve","double toujours","devient nulle","dépend de la couleur"],"answer":0,"explanation":"On ajoute du solvant mais le soluté prélevé reste présent."},
-  {"id":"solutions-concentrations-q09","type":"mcq","question":"La verrerie la plus adaptée pour ajuster un volume final précis est...","choices":["un bécher","une fiole jaugée","un verre à pied","une éprouvette de cuisine"],"answer":1,"explanation":"La fiole jaugée permet d'obtenir un volume final précis."},
-  {"id":"solutions-concentrations-q10","type":"mcq","question":"Pour prélever précisément un volume donné, on utilise plutôt...","choices":["une pipette jaugée","un bécher","une coupelle","un thermomètre"],"answer":0,"explanation":"La pipette jaugée est adaptée aux prélèvements précis."},
-  {"id":"solutions-concentrations-q11","type":"mcq","question":"La masse volumique d'une solution décrit...","choices":["la masse du soluté seulement","la masse de l'échantillon par volume","le volume de solvant seulement","la température de dissolution"],"answer":1,"explanation":"La masse volumique concerne l'échantillon entier."},
-  {"id":"solutions-concentrations-q12","type":"mcq","question":"La concentration en masse décrit...","choices":["la masse du soluté par volume de solution","la masse de la fiole","la masse du solvant par mole","la couleur d'une solution"],"answer":0,"explanation":"Elle compare la masse du soluté au volume de solution."},
-  {"id":"solutions-concentrations-q13","type":"mcq","question":"On dissout 2,0 g dans 0,500 L. La concentration vaut...","choices":["1,0 g·L\\(^{-1}\\)","4,0 g·L\\(^{-1}\\)","2,5 g·L\\(^{-1}\\)","0,25 g·L\\(^{-1}\\)"],"answer":1,"explanation":"\\(C_m=2{,}0/0{,}500=4{,}0\\ g·L^{-1}\\)."},
-  {"id":"solutions-concentrations-q14","type":"mcq","question":"Une solution mère est...","choices":["la solution obtenue après dilution","la solution plus concentrée utilisée pour préparer une solution fille","toujours de l'eau pure","une solution sans soluté"],"answer":1,"explanation":"La solution mère sert au prélèvement avant dilution."},
-  {"id":"solutions-concentrations-q15","type":"mcq","question":"Une gamme d'étalonnage sert à...","choices":["rincer la verrerie","comparer une solution inconnue à des solutions connues","augmenter la masse du soluté","calculer une vitesse"],"answer":1,"explanation":"L'étalonnage permet de déterminer une concentration inconnue par comparaison."},
-  {"id":"solutions-concentrations-q16","type":"mcq","question":"Si on dilue par 10, la concentration finale est...","choices":["10 fois plus grande","10 fois plus petite","inchangée","nulle"],"answer":1,"explanation":"Diluer par 10 divise la concentration par 10."},
-  {"id":"solutions-concentrations-q17","type":"mcq","question":"Le volume utilisé dans \\(C_m=m/V\\) est...","choices":["le volume de soluté solide","le volume final de solution","le volume du bécher vide","le volume de la balance"],"answer":1,"explanation":"La concentration se rapporte au volume de solution."},
-  {"id":"solutions-concentrations-q18","type":"mcq","question":"Une concentration maximale correspond...","choices":["à la quantité maximale de soluté pouvant être dissoute dans des conditions données","à la masse de la fiole","à la masse volumique de l'eau","au volume de l'étiquette"],"answer":0,"explanation":"Au-delà, tout le soluté ne se dissout plus : la solution est saturée."},
-  {"id":"solutions-concentrations-q19","type":"mcq","question":"Le principal piège avec les mL est...","choices":["ne pas les convertir en L quand l'unité est g·L\\(^{-1}\\)","les transformer en grammes","les additionner à une masse","les confondre avec des degrés Celsius"],"answer":0,"explanation":"Les volumes doivent être cohérents avec l'unité de concentration."},
-  {"id":"solutions-concentrations-q20","type":"mcq","question":"Une solution limpide peut-elle être concentrée ?","choices":["Non, limpide veut dire pure","Oui, la limpidité ne donne pas seule la concentration","Non, elle ne contient aucun soluté","Oui, mais seulement si elle est gazeuse"],"answer":1,"explanation":"L'aspect visuel ne suffit pas toujours à évaluer une concentration."}
+  {
+    "id": "solutions-concentrations-q01",
+    "type": "mcq",
+    "question": "Dans une solution aqueuse, le solvant est...",
+    "choices": [
+      "le sucre",
+      "l'eau",
+      "le soluté solide",
+      "toujours un gaz"
+    ],
+    "answer": 1,
+    "explanation": "Une solution aqueuse a l'eau pour solvant.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q02",
+    "type": "mcq",
+    "question": "Le soluté est...",
+    "choices": [
+      "l'espèce dissoute",
+      "toujours l'eau",
+      "la verrerie utilisée",
+      "le volume final"
+    ],
+    "answer": 0,
+    "explanation": "Le soluté est l'espèce dissoute dans le solvant.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q03",
+    "type": "mcq",
+    "question": "La concentration en masse s'exprime souvent en...",
+    "choices": [
+      "mol",
+      "g·L\\(^{-1}\\)",
+      "mL",
+      "g·mL"
+    ],
+    "answer": 1,
+    "explanation": "Elle compare une masse de soluté à un volume de solution.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q04",
+    "type": "mcq",
+    "question": "La relation correcte est...",
+    "choices": [
+      "\\(C_m=m/V\\)",
+      "\\(C_m=V/m\\)",
+      "\\(C_m=mV\\)",
+      "\\(C_m=m+V\\)"
+    ],
+    "answer": 0,
+    "explanation": "La concentration en masse est une grandeur quotient.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q05",
+    "type": "mcq",
+    "question": "Pour calculer une concentration en g·L\\(^{-1}\\), un volume de 250 mL doit être écrit...",
+    "choices": [
+      "250 L",
+      "2,50 L",
+      "0,250 L",
+      "0,0250 L"
+    ],
+    "answer": 2,
+    "explanation": "250 mL = 0,250 L.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "solutions-concentrations-q06",
+    "type": "mcq",
+    "question": "Une dissolution consiste à...",
+    "choices": [
+      "ajouter de l'eau à une solution mère",
+      "dissoudre un soluté dans un solvant",
+      "séparer deux liquides",
+      "mesurer une masse volumique"
+    ],
+    "answer": 1,
+    "explanation": "La dissolution met un soluté en solution.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q07",
+    "type": "mcq",
+    "question": "Une dilution consiste à...",
+    "choices": [
+      "obtenir une solution plus concentrée",
+      "ajouter du soluté solide",
+      "préparer une solution moins concentrée",
+      "évaporer le solvant"
+    ],
+    "answer": 2,
+    "explanation": "Une dilution diminue la concentration par ajout de solvant.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q08",
+    "type": "mcq",
+    "question": "Lors d'une dilution, la masse de soluté contenue dans le prélèvement...",
+    "choices": [
+      "se conserve",
+      "double toujours",
+      "devient nulle",
+      "dépend de la couleur"
+    ],
+    "answer": 0,
+    "explanation": "On ajoute du solvant mais le soluté prélevé reste présent.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q09",
+    "type": "mcq",
+    "question": "La verrerie la plus adaptée pour ajuster un volume final précis est...",
+    "choices": [
+      "un bécher",
+      "une fiole jaugée",
+      "un verre à pied",
+      "une éprouvette de cuisine"
+    ],
+    "answer": 1,
+    "explanation": "La fiole jaugée permet d'obtenir un volume final précis.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q10",
+    "type": "mcq",
+    "question": "Pour prélever précisément un volume donné, on utilise plutôt...",
+    "choices": [
+      "une pipette jaugée",
+      "un bécher",
+      "une coupelle",
+      "un thermomètre"
+    ],
+    "answer": 0,
+    "explanation": "La pipette jaugée est adaptée aux prélèvements précis.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q11",
+    "type": "mcq",
+    "question": "La masse volumique d'une solution décrit...",
+    "choices": [
+      "la masse du soluté seulement",
+      "la masse de l'échantillon par volume",
+      "le volume de solvant seulement",
+      "la température de dissolution"
+    ],
+    "answer": 1,
+    "explanation": "La masse volumique concerne l'échantillon entier.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q12",
+    "type": "mcq",
+    "question": "La concentration en masse décrit...",
+    "choices": [
+      "la masse du soluté par volume de solution",
+      "la masse de la fiole",
+      "la masse du solvant par mole",
+      "la couleur d'une solution"
+    ],
+    "answer": 0,
+    "explanation": "Elle compare la masse du soluté au volume de solution.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q13",
+    "type": "mcq",
+    "question": "On dissout 2,0 g dans 0,500 L. La concentration vaut...",
+    "choices": [
+      "1,0 g·L\\(^{-1}\\)",
+      "4,0 g·L\\(^{-1}\\)",
+      "2,5 g·L\\(^{-1}\\)",
+      "0,25 g·L\\(^{-1}\\)"
+    ],
+    "answer": 1,
+    "explanation": "\\(C_m=2{,}0/0{,}500=4{,}0\\ g·L^{-1}\\).",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "solutions-concentrations-q14",
+    "type": "mcq",
+    "question": "Une solution mère est...",
+    "choices": [
+      "la solution obtenue après dilution",
+      "la solution plus concentrée utilisée pour préparer une solution fille",
+      "toujours de l'eau pure",
+      "une solution sans soluté"
+    ],
+    "answer": 1,
+    "explanation": "La solution mère sert au prélèvement avant dilution.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q15",
+    "type": "mcq",
+    "question": "Une gamme d'étalonnage sert à...",
+    "choices": [
+      "rincer la verrerie",
+      "comparer une solution inconnue à des solutions connues",
+      "augmenter la masse du soluté",
+      "calculer une vitesse"
+    ],
+    "answer": 1,
+    "explanation": "L'étalonnage permet de déterminer une concentration inconnue par comparaison.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q16",
+    "type": "mcq",
+    "question": "Si on dilue par 10, la concentration finale est...",
+    "choices": [
+      "10 fois plus grande",
+      "10 fois plus petite",
+      "inchangée",
+      "nulle"
+    ],
+    "answer": 1,
+    "explanation": "Diluer par 10 divise la concentration par 10.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q17",
+    "type": "mcq",
+    "question": "Le volume utilisé dans \\(C_m=m/V\\) est...",
+    "choices": [
+      "le volume de soluté solide",
+      "le volume final de solution",
+      "le volume du bécher vide",
+      "le volume de la balance"
+    ],
+    "answer": 1,
+    "explanation": "La concentration se rapporte au volume de solution.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "solutions-concentrations-q18",
+    "type": "mcq",
+    "question": "Une concentration maximale correspond...",
+    "choices": [
+      "à la quantité maximale de soluté pouvant être dissoute dans des conditions données",
+      "à la masse de la fiole",
+      "à la masse volumique de l'eau",
+      "au volume de l'étiquette"
+    ],
+    "answer": 0,
+    "explanation": "Au-delà, tout le soluté ne se dissout plus : la solution est saturée.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "solutions-concentrations-q19",
+    "type": "mcq",
+    "question": "Le principal piège avec les mL est...",
+    "choices": [
+      "ne pas les convertir en L quand l'unité est g·L\\(^{-1}\\)",
+      "les transformer en grammes",
+      "les additionner à une masse",
+      "les confondre avec des degrés Celsius"
+    ],
+    "answer": 0,
+    "explanation": "Les volumes doivent être cohérents avec l'unité de concentration.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "solutions-concentrations-q20",
+    "type": "mcq",
+    "question": "Une solution limpide peut-elle être concentrée ?",
+    "choices": [
+      "Non, limpide veut dire pure",
+      "Oui, la limpidité ne donne pas seule la concentration",
+      "Non, elle ne contient aucun soluté",
+      "Oui, mais seulement si elle est gazeuse"
+    ],
+    "answer": 1,
+    "explanation": "L'aspect visuel ne suffit pas toujours à évaluer une concentration.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Solutions aqueuses et concentration en masse",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  }
 ]

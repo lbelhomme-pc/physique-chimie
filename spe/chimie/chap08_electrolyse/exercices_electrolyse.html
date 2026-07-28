@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Électrolyse | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+
+    <style>
+        .graph-container { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; max-width: 600px; margin: 25px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .svg-grid { stroke: #cbd5e1; stroke-width: 1; }
+        .svg-grid-minor { stroke: #f1f5f9; stroke-width: 1; }
+        .svg-axis { stroke: #1e293b; stroke-width: 2; }
+        .svg-text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #475569; }
+        .svg-text-bold { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #1e293b; }
+        .svg-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; fill: #0f172a; text-anchor: middle; }
+        .svg-line { stroke: #3b82f6; stroke-width: 3; stroke-linecap: round; }
+        .svg-point { stroke: #ef4444; stroke-width: 2; fill: none; }
+        body.dark-mode .graph-container { background: #0f172a; border-color: #334155; }
+        body.dark-mode .svg-grid { stroke: #334155; }
+        body.dark-mode .svg-grid-minor { stroke: #1e293b; }
+        body.dark-mode .svg-axis { stroke: #cbd5e1; }
+        body.dark-mode .svg-text { fill: #94a3b8; }
+        body.dark-mode .svg-text-bold { fill: #f8fafc; }
+        body.dark-mode .svg-title { fill: #f8fafc; }
+        body.dark-mode .svg-line { stroke: #60a5fa; }
+    </style>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">📝</span>
+                <h1 class="hero-title">Exercices : Électrolyse</h1>
+            </div>
+        </header>
+
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 1 : Vocabulaire de l'électrolyse</h2>
+            <ol><li>Définir les termes suivants : électrolyse, électrolyseur, anode, cathode, électrolyte.</li><li>Pour chaque électrode, préciser quelle réaction (oxydation ou réduction) s'y produit.</li><li>Un électrolyseur est-il un générateur ou un récepteur d'énergie électrique ? Justifier.</li><li>À quelle borne du générateur est reliée l'anode dans un électrolyseur ? Et la cathode ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <ol><li>Définitions :
+<ul><li><strong>Électrolyse :</strong> transformation chimique forcée (non spontanée) provoquée par le passage d'un courant électrique continu dans une solution ionique ou un électrolyte fondu.</li><li><strong>Électrolyseur :</strong> dispositif dans lequel se produit l'électrolyse. Il est composé de deux électrodes plongées dans un électrolyte, reliées à un générateur de courant continu.</li><li><strong>Anode :</strong> électrode où se produit l'oxydation. Dans un électrolyseur, elle est reliée à la borne $+$ du générateur.</li><li><strong>Cathode :</strong> électrode où se produit la réduction. Dans un électrolyseur, elle est reliée à la borne $-$ du générateur.</li><li><strong>Électrolyte :</strong> substance (solution ionique ou sel fondu) qui contient des ions mobiles et assure la conduction du courant entre les électrodes.
+</li></ul></li><li>À l'anode se produit l'<strong>oxydation</strong> (perte d'électrons). À la cathode se produit la <strong>réduction</strong> (gain d'électrons).</li><li>Un électrolyseur est un <strong>récepteur</strong> d'énergie électrique. Il reçoit de l'énergie du générateur et la convertit en énergie chimique. C'est l'inverse d'une pile qui est un générateur.</li><li>L'anode est reliée à la borne $$ du générateur. La cathode est reliée à la borne $$ du générateur.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 2 : Identifier les réactions aux électrodes</h2>
+            <p>On réalise l'électrolyse d'une solution aqueuse de bromure de zinc $${}_2$$.</p>
+<p>Les couples oxydant/réducteur mis en jeu sont : $$^{2 + }/$$ et $${}_2/^{-}$$.</p>
+<ol><li>Écrire la demi-équation de réduction du couple $$^{2 + }/$$.</li><li>Écrire la demi-équation d'oxydation du couple $${}_2/^{-}$$.</li><li>Indiquer à quelle électrode se produit chacune de ces réactions.</li><li>Écrire l'équation bilan de cette électrolyse.</li><li>On observe un dépôt gris sur l'une des électrodes et un dégagement de vapeurs orangées à l'autre. Identifier chaque observation et l'électrode correspondante.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <ol><li>Demi-équation de réduction du couple $$^{2 + }/$$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{2 + }(aq) + 2 e^{-}  (s)$$</div></div>$</div></div></li><li>Demi-équation d'oxydation du couple $${}_2/^{-}$$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2 ^{-}(aq)  {}_2(l) + 2 e^{-}$$</div></div>$</div></div></li><li>La <strong>réduction</strong> se produit à la <strong>cathode</strong> (borne $-$) : dépôt de zinc métallique.
+<p>L'<strong>oxydation</strong> se produit à l'<strong>anode</strong> (borne $+$) : formation de dibrome.</li><li>Équation bilan : on additionne les deux demi-équations (les électrons s'éliminent car il y en a 2 de chaque côté) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{2 + }(aq) + 2 ^{-}(aq)  (s) + {}_2(l)$$</div></div>$</div></div></li><li>Le <strong>dépôt gris</strong> est le zinc métallique qui se dépose à la <strong>cathode</strong>. Les <strong>vapeurs orangées</strong> sont du dibrome $${}_2$$, qui se forme à l'<strong>anode</strong>. Le dibrome est un liquide rouge-brun dont les vapeurs sont orangées.<br></li></ol></p>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 3 : Charge électrique et constante de Faraday</h2>
+            <em>Données :</em> $e = $1{,}60  10^{-19}   $$ ; $N_A = {mol^{-1}}$ ; $F = {C.mol^{-1}}$.
+<ol><li>Vérifier par le calcul que $F = N_A  e$.</li><li>Un courant d'intensité $I = $3{,}0   $$ traverse un électrolyseur pendant $$45   $$. Calculer la charge $Q$ transférée.</li><li>En déduire la quantité de matière d'électrons échangés.</li><li>Combien d'électrons individuels cela représente-t-il ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <ol><li>Vérification :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$F = N_A  e = $6{,}02  10^{23}$  $1{,}60  10^{-19}$ = {C.mol^{-1}}$$</div></div></div></div>
+Ce qui est bien cohérent avec la valeur arrondie $F  {C.mol^{-1}}$.</li><li>Charge transférée :
+<p>Convertissons d'abord la durée : $ t = 45  60 = $2700   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = I   t = 3{,}0  2700 = $8100   $$</div></div>$</div></div></li><li>Quantité de matière d'électrons :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(e^-) = {F} = {96500} = $0{,}0839   $$</div></div>$</div></div></li><li>Nombre d'électrons individuels :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$N_{e^-} = n(e^-)  N_A = 0{,}0839  $6{,}02  10^{23}$ = $5{,}05  10^{22}$ $$</div></div></div></div><br></li></ol></p>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 4 : Électrolyse d'une solution de nitrate d'argent</h2>
+            <p>On réalise l'électrolyse d'une solution de nitrate d'argent $$Ag{}_3$$ avec un courant d'intensité $I = $1{,}5   $$ pendant $ t = $20   $$.</p>
+<p>À la cathode se produit la réaction : $$^ + (aq) + e^{-}  (s)$$.</p>
+<em>Données :</em> $M($$) = {g.mol^{-1}}$ ; $F = {C.mol^{-1}}$.
+<ol><li>Calculer la charge $Q$ transférée pendant l'électrolyse.</li><li>Calculer la quantité de matière d'électrons échangés.</li><li>En déduire la quantité de matière d'argent déposée.</li><li>Calculer la masse d'argent déposée sur la cathode.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <ol><li>Charge transférée :
+<p>$ t = 20  60 = $1200   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = I   t = 1{,}5  1200 = $1800   $$</div></div>$</div></div></li><li>Quantité de matière d'électrons :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(e^-) = {F} = {96500} = $1{,}87  10^{-2}   $$</div></div>$</div></div></li><li>D'après la demi-équation $$^ +  + e^{-}  $$, il faut <strong>1 mole</strong> d'électrons pour déposer <strong>1 mole</strong> d'argent. Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n($$) = n(e^-) = $1{,}87  10^{-2}   $$</div></div>$</div></div></li><li>Masse d'argent déposée :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m($$) = n($$)  M($$) = $1{,}87  10^{-2}$  107{,}9 = $2{,}02   $$</div></div>$</div></div></p>
+<p>On dépose environ $$2{,}0   $$ d'argent sur la cathode.<br></li></ol></p>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 5 : Électrolyse de l'eau</h2>
+            <p>On réalise l'électrolyse de l'eau acidifiée avec un courant d'intensité $I = $2{,}0   $$ pendant $ t = $1{,}0   $$.</p>
+<p>Les demi-équations sont :<br><ul><li>Cathode : $$4 ^ + (aq) + 4 e^{-}  2 {}_2(g)$$</li><li>Anode : $$2 {}_2(l)  {}_2(g) + 4 ^ + (aq) + 4 e^{-}$$<br></li></ul></p>
+<em>Données :</em> $F = {C.mol^{-1}}$ ; volume molaire des gaz : $V_m = {L.mol^{-1}}$ (conditions de l'expérience).
+<ol><li>Écrire l'équation bilan de l'électrolyse de l'eau.</li><li>Calculer la charge $Q$ transférée.</li><li>Calculer la quantité de matière d'électrons échangés.</li><li>En déduire la quantité de matière de dihydrogène produit à la cathode.</li><li>Calculer le volume de dihydrogène produit.</li><li>Calculer la quantité de matière et le volume de dioxygène produit à l'anode.</li><li>Vérifier que $V(${}_2$) = 2  V(${}_2$)$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <ol><li>Équation bilan :
+<p>On additionne les demi-équations. Les $$4 ^ + $$ et les $$4 e^{-}$$ s'éliminent :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2 {}_2(l)  2 {}_2(g) + {}_2(g)$$</div></div>$</div></div></li><li>Charge transférée :</p>
+<p>$ t = 1{,}0  3600 = $3600   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = I   t = 2{,}0  3600 = $7200   $$</div></div>$</div></div></li><li>Quantité de matière d'électrons :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(e^-) = {F} = {96500} = $0{,}0746   $$</div></div>$</div></div></li><li>D'après la demi-équation cathodique, $$4 e^{-}$$ produisent $$2 {}_2$$, soit un rapport $n(${}_2$)/n(e^-) = 2/4 = 1/2$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(${}_2$) = {2} = {0{,}0746}{2} = $0{,}0373   $$</div></div>$</div></div></li><li>Volume de dihydrogène :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V(${}_2$) = n(${}_2$)  V_m = 0{,}0373  24{,}0 = $0{,}895   $  $0{,}90   $$</div></div>$</div></div></li><li>D'après la demi-équation anodique, $$4 e^{-}$$ produisent $$1 {}_2$$, soit $n(${}_2$) = n(e^-)/4$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(${}_2$) = {0{,}0746}{4} = $0{,}01865   $$</div></div>$</div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V(${}_2$) = 0{,}01865  24{,}0 = $0{,}448   $  $0{,}45   $$</div></div>$</div></div></li><li>Vérification :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${V(${}_2$)}{V(${}_2$)} = {0{,}895}{0{,}448} = 2{,}00$$</div></div></div></div><br>On a bien $V(${}_2$) = 2  V(${}_2$)$ , ce qui est cohérent avec l'équation bilan ($$2 {}_2$$ pour $$1 {}_2$$).<br></li></ol></p>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 6 : Durée d'une électrolyse</h2>
+            <p>On souhaite déposer une masse $m = $5{,}0   $$ de cuivre par électrolyse d'une solution de sulfate de cuivre (II).</p>
+<p>La demi-équation à la cathode est : $$^{2 + }(aq) + 2 e^{-}  (s)$$.</p>
+<p>Le courant a une intensité $I = $0{,}80   $$.</p>
+<em>Données :</em> $M($$) = {g.mol^{-1}}$ ; $F = {C.mol^{-1}}$.
+<ol><li>Calculer la quantité de matière de cuivre à déposer.</li><li>En déduire la quantité de matière d'électrons nécessaire.</li><li>Calculer la charge $Q$ correspondante.</li><li>Calculer la durée $ t$ nécessaire, en secondes puis en heures et minutes.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <ol><li>Quantité de matière de cuivre à déposer :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n($$) = {M($$)} = {5{,}0}{63{,}5} = $0{,}0787   $$</div></div>$</div></div></li><li>D'après $$^{2 + } + 2 e^{-}  $$, il faut 2 moles d'électrons par mole de cuivre :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(e^-) = 2  n($$) = 2  0{,}0787 = $0{,}157   $$</div></div>$</div></div></li><li>Charge correspondante :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = n(e^-)  F = 0{,}157  96500 = $15200   $$</div></div>$</div></div></li><li>Durée nécessaire :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ t = {I} = {0{,}80} = $19000   $$</div></div>$</div></div>
+<p>Conversion :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$19000   $ = {3600} = $5{,}28   $  5 17$$</div></div></div></div></p>
+<p>Il faut environ <strong>5 heures et 17 minutes</strong> pour déposer $$5{,}0   $$ de cuivre.<br></li></ol></p>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 7 : Galvanoplastie : argenture d'une cuillère</h2>
+            <p>Un bijoutier souhaite recouvrir une cuillère en acier d'une fine couche d'argent par galvanoplastie. La cuillère est placée à la cathode dans une solution de nitrate d'argent.</p>
+<p>La demi-équation à la cathode est : $$^ + (aq) + e^{-}  (s)$$.</p>
+<p>Le bijoutier utilise un courant d'intensité $I = $0{,}50   $$ pendant $ t = $2{,}0   $$.</p>
+<em>Données :</em> $M($$) = {g.mol^{-1}}$ ; $($$) = {kg.m^{-3}}$ ; $F = {C.mol^{-1}}$.
+<p>La surface de la cuillère à recouvrir est $S = $50   cm^2$$.</p>
+<ol><li>Calculer la masse d'argent déposée.</li><li>Calculer le volume d'argent déposé.</li><li>En déduire l'épaisseur de la couche d'argent déposée sur la cuillère.</li><li>Si le bijoutier veut une épaisseur de $$20   $$, combien de temps doit durer l'électrolyse ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <ol><li>Masse d'argent déposée :
+<p>$ t = 2{,}0  3600 = $7200   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = I   t = 0{,}50  7200 = $3600   $$</div></div>$</div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(e^-) = {F} = {96500} = $0{,}0373   $$</div></div>$</div></div></p>
+<p>D'après $$^ +  + e^{-}  $$ : $n($$) = n(e^-) = $0{,}0373   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m($$) = n($$)  M($$) = 0{,}0373  107{,}9 = $4{,}02   $$</div></div>$</div></div></li><li>Volume d'argent déposé :</p>
+<p>$ = {kg.m^{-3}} = {g.cm^{-3}}$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V = {} = {4{,}02}{10{,}5} = $0{,}383   cm^3$$</div></div>$</div></div></li><li>Épaisseur de la couche :</p>
+<p>$S = $50   cm^2$$ et $V = S  e$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$e = {S} = {0{,}383}{50} = $7{,}66  10^{-3}   $ = $76{,}6   $$</div></div>$</div></div></p>
+<p>L'épaisseur est d'environ $$77   $$.</li><li>Pour une épaisseur de $$20   $$ :</p>
+<p>Le volume souhaité : $V' = S  e' = 50  $20  10^{-4}$ = $0{,}100   cm^3$$.</p>
+<p>La masse correspondante : $m' =   V' = 10{,}5  0{,}100 = $1{,}05   $$.</p>
+<p>La quantité de matière : $n'($$) = 1{,}05 / 107{,}9 = $9{,}73  10^{-3}   $$.</p>
+<p>La quantité d'électrons : $n'(e^-) = n'($$) = $9{,}73  10^{-3}   $$.</p>
+<p>La charge : $Q' = n'(e^-)  F = $9{,}73  10^{-3}$  96500 = $939   $$.</p>
+<p>La durée : $ t' = Q'/I = 939/0{,}50 = $1878   $  $31   $$.</p>
+<p>Il faut environ <strong>31 minutes</strong>.<br></li></ol></p>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 8 : Aspects énergétiques</h2>
+            <p>On réalise l'électrolyse de l'eau avec un électrolyseur fonctionnant sous une tension $U = $2{,}0   $$ et un courant d'intensité $I = $5{,}0   $$ pendant $ t = $3{,}0   $$.</p>
+<em>Données :</em> $F = {C.mol^{-1}}$ ; $V_m = {L.mol^{-1}}$.
+<ol><li>Calculer l'énergie électrique consommée par l'électrolyseur, en joules puis en kilowattheures.</li><li>Calculer la quantité de matière de dihydrogène produit.</li><li>Le pouvoir calorifique du dihydrogène est ${kJ.mol^{-1}}$. Calculer l'énergie chimique stockée dans le dihydrogène produit.</li><li>En déduire le rendement de la conversion d'énergie électrique en énergie chimique.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <ol><li>Énergie électrique consommée :
+<p>$ t = 3{,}0  3600 = $10800   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$E = U  I   t = 2{,}0  5{,}0  10800 = $108000   $ = $108   $$</div></div>$</div></div></p>
+<p>Conversion en kWh : la puissance est $P = U  I = 2{,}0  5{,}0 = $10   $ = $0{,}010   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$E = P   t = 0{,}010  3{,}0 = $0{,}030   $$</div></div>$</div></div></li><li>Quantité de matière de dihydrogène :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = I   t = 5{,}0  10800 = $54000   $$</div></div>$</div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(e^-) = {96500} = $0{,}5596   $$</div></div>$</div></div></p>
+<p>D'après la demi-équation cathodique $$2 ^ +  + 2 e^{-}  {}_2$$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(${}_2$) = {2} = {0{,}5596}{2} = $0{,}280   $$</div></div>$</div></div></li><li>Énergie chimique stockée dans le dihydrogène :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$E_{} = n(${}_2$)  {kJ.mol^{-1}} = 0{,}280  286 = $80{,}1   $$</div></div>$</div></div></li><li>Rendement :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {E_{}}{E_{}} = {80{,}1}{108} = 0{,}741 = 74{,}1</p>
+<p>Le rendement de conversion est d'environ ${74 <br></li></ol></p>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 9 : Purification du cuivre</h2>
+            <p>Dans l'industrie, le cuivre brut (impur) est purifié par électrolyse. Le cuivre brut constitue l'anode et une fine lame de cuivre pur constitue la cathode, plongées dans une solution de sulfate de cuivre (II).</p>
+<ul><li>À l'anode : $$(s)  ^{2 + }(aq) + 2 e^{-}$$ (dissolution du cuivre brut)</li><li>À la cathode : $$^{2 + }(aq) + 2 e^{-}  (s)$$ (dépôt de cuivre pur)
+</li></ul>
+<p>L'intensité du courant est $I = $250   $$ et l'électrolyse dure $ t = $24   $$.</p>
+<em>Données :</em> $M($$) = {g.mol^{-1}}$ ; $F = {C.mol^{-1}}$.
+<ol><li>Expliquer pourquoi la concentration en ions $$^{2 + }$$ dans la solution reste quasiment constante au cours de l'électrolyse.</li><li>Calculer la charge totale $Q$ transférée.</li><li>Calculer la masse de cuivre pur déposée sur la cathode.</li><li>Dans la réalité, on mesure une masse déposée de $$6{,}80   $$. Calculer le rendement de cette électrolyse.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <ol><li>La concentration en $$^{2 + }$$ reste constante car les ions cuivre (II) sont simultanément <strong>produits</strong> à l'anode (dissolution du cuivre brut : $$  ^{2 + } + 2 e^{-}$$) et <strong>consommés</strong> à la cathode (dépôt de cuivre pur : $$^{2 + } + 2 e^{-}  $$). La même quantité d'ions est créée et détruite par seconde, donc le bilan net sur la concentration est nul.</li><li>Charge totale :
+<p>$ t = 24  3600 = $86400   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = I   t = 250  86400 = $2{,}16  10^{7}   $$</div></div>$</div></div></li><li>Masse de cuivre pur déposée :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(e^-) = {F} = {$2{,}16  10^{7}$}{96500} = $223{,}8   $$</div></div>$</div></div></p>
+<p>D'après $$^{2 + } + 2 e^{-}  $$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n($$) = {2} = {223{,}8}{2} = $111{,}9   $$</div></div>$</div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m($$) = n($$)  M($$) = 111{,}9  63{,}5 = $7106   $ = $7{,}11   $$</div></div>$</div></div></li><li>Rendement :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {m_{}}{m_{}} = {6{,}80}{7{,}11} = 0{,}956 = 95{,}6</p>
+<p>Le rendement est de ${95{,}6 <br></li></ol></p>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 10 : Électrolyse du chlorure de sodium fondu</h2>
+            <p>Le sodium métallique est produit industriellement par électrolyse du chlorure de sodium fondu $$Na$$ (procédé Downs).</p>
+<p>Les demi-équations sont :<br><ul><li>Cathode : $$^ + (l) + e^{-}  (l)$$</li><li>Anode : $$2 ^{-}(l)  {}_2(g) + 2 e^{-}$$<br></li></ul></p>
+<em>Données :</em> $M($$) = {g.mol^{-1}}$ ; $M(${}_2$) = {g.mol^{-1}}$ ; $F = {C.mol^{-1}}$.
+<ol><li>Écrire l'équation bilan de cette électrolyse.</li><li>On fait passer un courant de $I = $40000   $$ (valeur industrielle typique) pendant $$1{,}0   $$. Calculer la charge $Q$ transférée.</li><li>Calculer la masse de sodium produite.</li><li>Calculer la masse de dichlore dégagée.</li><li>Expliquer pourquoi cette électrolyse se fait avec du $$Na$$ fondu et non en solution aqueuse.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <ol><li>Équation bilan :
+<p>Pour équilibrer les électrons, on multiplie la réaction cathodique par 2 :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br> 2 &  $2 ^ + (l) + 2 e^{-}  2 (l)$ \\<br> &  $2 ^{-}(l)  {}_2(g) + 2 e^{-}$<br>$$</div></div></div></div></p>
+<p>Bilan (les $$2 e^{-}$$ s'éliminent) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2 ^ + (l) + 2 ^{-}(l)  2 (l) + {}_2(g)$$</div></div>$</div></div></p>
+<p>Soit, en écriture ionique simplifiée :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2 Na(l)  2 (l) + {}_2(g)$$</div></div>$</div></div></li><li>Charge transférée :</p>
+<p>$ t = 1{,}0  3600 = $3600   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = I   t = 40000  3600 = $1{,}44  10^{8}   $$</div></div>$</div></div></li><li>Masse de sodium produite :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(e^-) = {F} = {$1{,}44  10^{8}$}{96500} = $1492   $$</div></div>$</div></div></p>
+<p>D'après $$^ +  + e^{-}  $$ : $n($$) = n(e^-) = $1492   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m($$) = 1492  23{,}0 = $34320   $ = $34{,}3   $$</div></div>$</div></div></li><li>Masse de dichlore :</p>
+<p>D'après $$2 ^{-}  {}_2 + 2 e^{-}$$ : $n(${}_2$) = n(e^-)/2 = 1492/2 = $746   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m(${}_2$) = 746  71{,}0 = $52970   $ = $53{,}0   $$</div></div>$</div></div></li><li>En solution aqueuse, l'eau serait réduite avant les ions $$^ + $$ car le couple $${}_2/{}_2$$ est plus facilement réductible que le couple $$^ + /$$. On obtiendrait du dihydrogène à la cathode au lieu du sodium. C'est pourquoi il faut travailler avec du $$Na$$ <strong>fondu</strong> (à haute température, environ $$800   {^}$$) : l'eau n'est plus présente et les ions $$^ + $$ peuvent être réduits.<br></li></ol></p>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 11 : Production industrielle de dihydrogène</h2>
+            <p>Une entreprise exploite un électrolyseur PEM (à membrane échangeuse de protons) pour produire du dihydrogène à partir d'eau. L'électrolyseur fonctionne sous une tension $U = $1{,}8   $$ avec un courant d'intensité $I = $150   $$.</p>
+<p>L'entreprise souhaite produire un volume $V(${}_2$) = $500   $$ de dihydrogène par jour (mesuré dans les conditions normales de température et de pression : $V_m = {L.mol^{-1}}$).</p>
+<p>Les demi-équations sont :<br><ul><li>Cathode : $$2 ^ + (aq) + 2 e^{-}  {}_2(g)$$</li><li>Anode : $${}_2(l)  1/2 {}_2(g) + 2 ^ + (aq) + 2 e^{-}$$<br></li></ul></p>
+<em>Données :</em> $F = {C.mol^{-1}}$ ; $M(${}_2$) = {g.mol^{-1}}$.
+<ol><li>Calculer la quantité de matière de dihydrogène à produire par jour.</li><li>En déduire la quantité de matière d'électrons nécessaire.</li><li>Calculer la charge $Q$ correspondante.</li><li>Calculer la durée minimale de fonctionnement de l'électrolyseur par jour.</li><li>Calculer l'énergie électrique consommée par jour, en kilowattheures.</li><li>L'entreprise paie l'électricité $$0{,}12   $$ par kWh. Calculer le coût de production d'un kilogramme de dihydrogène.</li><li>Comparer ce coût au prix du dihydrogène produit par vaporeformage du méthane (environ ${EUR.kg^{-1}}$). Commenter dans le contexte de la transition énergétique.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <ol><li>Quantité de matière de $${}_2$$ à produire :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(${}_2$) = {V(${}_2$)}{V_m} = {24{,}0} = $20{,}8   $$</div></div>$</div></div></li><li>Quantité de matière d'électrons nécessaire :
+<p>D'après $$2 ^ +  + 2 e^{-}  {}_2$$ : il faut 2 moles d'électrons par mole de $${}_2$$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(e^-) = 2  n(${}_2$) = 2  20{,}8 = $41{,}7   $$</div></div>$</div></div></li><li>Charge correspondante :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = n(e^-)  F = 41{,}7  96500 = $4{,}02  10^{6}   $$</div></div>$</div></div></li><li>Durée minimale :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ t = {I} = {$4{,}02  10^{6}$}{150} = $26800   $$</div></div>$</div></div></p>
+<p>Conversion : $$26800   $ = $7{,}44   $  7 27$.</li><li>Énergie électrique consommée :</p>
+<p>$P = U  I = 1{,}8  150 = $270   $ = $0{,}270   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$E = P   t = 0{,}270  7{,}44 = $2{,}01   $$</div></div>$</div></div></li><li>Coût de production d'un kilogramme de $${}_2$$ :</p>
+<p>Masse de $${}_2$$ produite par jour :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m(${}_2$) = n(${}_2$)  M(${}_2$) = 20{,}8  2{,}0 = $41{,}7   $ = $0{,}0417   $$</div></div>$</div></div></p>
+<p>Coût de l'électricité par jour :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C_{} = 2{,}01  0{,}12 = $0{,}241   $$</div></div>$</div></div></p>
+<p>Coût par kilogramme :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C_{} = {C_{}}{m(${}_2$)} = {0{,}241}{0{,}0417} = {EUR.kg^{-1}}$$</div></div></div></div></li><li>Le coût de production du dihydrogène par électrolyse ($ {EUR.kg^{-1}}$) est environ <strong>3 fois plus élevé</strong> que celui du vaporeformage du méthane ($ {EUR.kg^{-1}}$). Cependant, le vaporeformage émet du ${}_2$ (gaz à effet de serre), tandis que l'électrolyse alimentée par des énergies renouvelables produit du dihydrogène « vert » sans émission de carbone. Dans le contexte de la transition énergétique, le surcoût peut être justifié par l'objectif de décarbonation, et les coûts de l'électrolyse tendent à diminuer avec les progrès technologiques.<br></li></ol></p>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 12 : Étude complète d'un procédé de galvanoplastie au chrome</h2>
+            <p>Une usine de traitement de surface réalise le chromage de pièces métalliques par électrolyse. Les pièces à chromer sont placées à la cathode dans un bain contenant des ions chrome (III) $$^{3 + }$$.</p>
+<p>La demi-équation à la cathode est : $$^{3 + }(aq) + 3 e^{-}  (s)$$.</p>
+<p>À l'anode (en graphite), il se produit l'oxydation de l'eau :<br>$$2 {}_2(l)  {}_2(g) + 4 ^ + (aq) + 4 e^{-}$$.</p>
+<em>Données :</em>
+<ul><li>$M($$) = {g.mol^{-1}}$ ; $($$) = {kg.m^{-3}}$</li><li>$F = {C.mol^{-1}}$ ; $V_m = {L.mol^{-1}}$</li><li>Surface totale des pièces à chromer : $S = $0{,}50   m^2$$</li><li>Épaisseur de chrome souhaitée : $e = $25   $$</li><li>Tension de l'électrolyseur : $U = $6{,}0   $$</li><li>Intensité maximale du courant : $I = $50   $$
+</li></ul>
+<ol><li>Calculer le volume de chrome à déposer sur l'ensemble des pièces.</li><li>En déduire la masse de chrome à déposer.</li><li>Calculer la quantité de matière de chrome correspondante.</li><li>Déterminer la quantité de matière d'électrons nécessaire.</li><li>Calculer la charge $Q$ totale nécessaire.</li><li>Calculer la durée minimale de l'électrolyse, en heures.</li><li>Calculer l'énergie électrique consommée, en kWh.</li><li>Calculer le volume de dioxygène dégagé à l'anode.</li><li>L'usine fonctionne 8 heures par jour. Combien de « bains de chromage » peut-elle réaliser par jour avec cette installation ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <ol><li>Volume de chrome à déposer :
+<p>$S = $0{,}50   m^2$ = $5000   cm^2$$ et $e = $25   $ = $25  10^{-4}   $$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V = S  e = 5000  $25  10^{-4}$ = $12{,}5   cm^3$$</div></div>$</div></div></li><li>Masse de chrome :</p>
+<p>$($$) = {kg.m^{-3}} = {g.cm^{-3}}$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m($$) =   V = 7{,}19  12{,}5 = $89{,}9   $$</div></div>$</div></div></li><li>Quantité de matière de chrome :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n($$) = {m($$)}{M($$)} = {89{,}9}{52{,}0} = $1{,}729   $$</div></div>$</div></div></li><li>Quantité de matière d'électrons nécessaire :</p>
+<p>D'après $$^{3 + } + 3 e^{-}  $$ : il faut 3 moles d'électrons par mole de chrome.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(e^-) = 3  n($$) = 3  1{,}729 = $5{,}19   $$</div></div>$</div></div></li><li>Charge totale nécessaire :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = n(e^-)  F = 5{,}19  96500 = $5{,}01  10^{5}   $$</div></div>$</div></div></li><li>Durée minimale :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ t = {I} = {$5{,}01  10^{5}$}{50} = $10020   $$</div></div>$</div></div></p>
+<p>Conversion : $$10020   $ = $2{,}78   $  2 47$.</li><li>Énergie électrique consommée :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$E = U  I   t = 6{,}0  50  10020 = $3{,}006  10^{6}   $$</div></div>$</div></div></p>
+<p>Conversion en kWh :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$E = {$3{,}006  10^{6}$}{3600} = $835   $ = $0{,}835   $$</div></div>$</div></div></li><li>Volume de dioxygène à l'anode :</p>
+<p>D'après $$2 {}_2  {}_2 + 4 ^ +  + 4 e^{-}$$ : $n(${}_2$) = n(e^-)/4$.<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(${}_2$) = {5{,}19}{4} = $1{,}30   $$</div></div>$</div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V(${}_2$) = n(${}_2$)  V_m = 1{,}30  24{,}0 = $31{,}1   $$</div></div>$</div></div></li><li>Nombre de bains par jour :</p>
+<p>Chaque bain dure environ $$2{,}78   $  $2   $ $47   $$. En 8 heures :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${8{,}0}{2{,}78} = 2{,}88$$</div></div></div></div></p>
+<p>L'usine peut réaliser <strong>2 bains de chromage complets</strong> par jour (on ne peut pas faire un tiers de bain, il faut des bains entiers). Avec un peu d'organisation (temps de préparation entre les bains), 2 bains par jour est réaliste.<br></li></ol></p>
+                </div>
+            </details>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="cours_electrolyse.html" class="btn-action">📖 Revoir le cours</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=electrolyse" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=electrolyse" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

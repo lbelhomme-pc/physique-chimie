@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Analyse d'un système | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+
+    <style>
+        .graph-container { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; max-width: 600px; margin: 25px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .svg-grid { stroke: #cbd5e1; stroke-width: 1; }
+        .svg-grid-minor { stroke: #f1f5f9; stroke-width: 1; }
+        .svg-axis { stroke: #1e293b; stroke-width: 2; }
+        .svg-text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #475569; }
+        .svg-text-bold { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #1e293b; }
+        .svg-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; fill: #0f172a; text-anchor: middle; }
+        .svg-line { stroke: #3b82f6; stroke-width: 3; stroke-linecap: round; }
+        .svg-point { stroke: #ef4444; stroke-width: 2; fill: none; }
+        body.dark-mode .graph-container { background: #0f172a; border-color: #334155; }
+        body.dark-mode .svg-grid { stroke: #334155; }
+        body.dark-mode .svg-grid-minor { stroke: #1e293b; }
+        body.dark-mode .svg-axis { stroke: #cbd5e1; }
+        body.dark-mode .svg-text { fill: #94a3b8; }
+        body.dark-mode .svg-text-bold { fill: #f8fafc; }
+        body.dark-mode .svg-title { fill: #f8fafc; }
+        body.dark-mode .svg-line { stroke: #60a5fa; }
+    </style>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">📝</span>
+                <h1 class="hero-title">Exercices : Analyse d'un système</h1>
+            </div>
+        </header>
+
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 1 : Calculs de quantités de matière</h2>
+            <div class="info-box">
+<strong>Données :</strong> $M($Na$) = $58{,}5   $$ ; $M(${}_6{}_12{}_6$) = $180   $$ ; $N_A = $6{,}022  10^{23}   $$.
+</div>
+<ol><li>Calculer la quantité de matière contenue dans $$11{,}7   $$ de chlorure de sodium $Na$.</li><li>On dispose de $V = $250   $$ d'une solution aqueuse de glucose ${}_6{}_12{}_6$ de concentration $C = $0{,}050   $$. Calculer la quantité de matière de glucose en solution, puis la masse correspondante.</li><li>Un comprimé de vitamine C contient $N = $3{,}01  10^{21}$$ molécules d'acide ascorbique. Calculer la quantité de matière correspondante.</li><li>Exprimer la concentration molaire d'une solution obtenue en dissolvant $$5{,}85   $$ de $Na$ dans $$500   $$ d'eau.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Formules utilisées</strong>
+<ul><li>À partir de la masse : $n = {M}$  avec $m$ en $$ et $M$ en $$</li><li>À partir de la concentration : $n = C  V$  avec $C$ en $$ et $V$ en $$
+</li></ul>
+</div>
+<ol><li>Calculer la quantité de matière de $5{,}85   $ de chlorure de sodium $Na$.
+<p>On rappelle la masse molaire du chlorure de sodium :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$M($Na$) = M($$) + M($$) = 23{,}0 + 35{,}5 = $58{,}5   $$</div></div>$</div></div></p>
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n = {M} = {5{,}85}{58{,}5} = {$0{,}100   $}$$</div></div></div></div>
+</div></li><li>Calculer la quantité de matière de $9{,}0   $ d'eau ${}_2$.
+<p>Masse molaire de l'eau :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$M(${}_2$) = 2  M($$) + M($$) = 2  1{,}0 + 16{,}0 = $18{,}0   $$</div></div>$</div></div></p>
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n = {M} = {9{,}0}{18{,}0} = {$0{,}50   $}$$</div></div></div></div>
+</div></li><li>Calculer la quantité de matière contenue dans $V = $250   $$ d'une solution de sulfate de cuivre de concentration $C = $0{,}20   $$.
+<p>On convertit d'abord le volume en litres : $V = $250   $ = $0{,}250   $$.</p>
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n = C  V = 0{,}20  0{,}250 = {$5{,}0  10^{-2}   $}$$</div></div></div></div>
+</div></li><li>Calculer la quantité de matière contenue dans $V = $100   $$ d'une solution d'acide chlorhydrique de concentration $C = $0{,}50   $$.
+<p>On convertit : $V = $100   $ = $0{,}100   $$.</p>
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n = C  V = 0{,}50  0{,}100 = {$5{,}0  10^{-2}   $}$$</div></div></div></div>
+</div></li><li>Quelle masse de glucose ${}_6{}_12{}_6$ faut-il peser pour préparer $0{,}25   $ ?
+<p>Masse molaire du glucose :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$M(${}_6{}_12{}_6$) = 6  12{,}0 + 12  1{,}0 + 6  16{,}0 = 72{,}0 + 12{,}0 + 96{,}0 = $180{,}0   $$</div></div>$</div></div></p>
+<p>On utilise $m = n  M$ :</p>
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m = n  M = 0{,}25  180{,}0 = {$45{,}0   $}$$</div></div></div></div>
+</div></li><li>Quel volume d'une solution de soude de concentration $C = $0{,}10   $$ faut-il prélever pour obtenir $n = $2{,}0  10^{-3}   $$ ?
+<p>On utilise $V = {C}$ :</p>
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V = {C} = {2{,}0  10^{-3}}{0{,}10} = $0{,}020   $ = {$20   $}$$</div></div></div></div>
+</div>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 2 : Identifier réactifs, produits et espèces spectatrices</h2>
+            <p>On verse de l'acide nitrique (${}_3 + (aq) + {}_3^{-}(aq)$) dans une solution d'hydroxyde de potassium ($ + (aq) + H^{-}(aq)$). La transformation observée est une réaction acido-basique.</p>
+<ol><li>Écrire l'équation de la réaction qui a lieu entre les espèces réactives.</li><li>Identifier les espèces spectatrices. Justifier.</li><li>On introduit $0{,}030   $ d'ions ${}_3 + $ et $0{,}050   $ d'ions $H^{-}$. Quelle est la quantité de matière d'ions $ + $ et ${}_3^{-}$ à l'état final ?</li><li>Pourquoi dit-on que les ions spectateurs ne figurent pas dans l'équation de réaction ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode</strong>
+<p>Pour équilibrer une équation de réaction, on ajuste les coefficients st chiométriques afin de respecter la <strong>conservation des éléments</strong> (même nombre de chaque type d'atome de part et d'autre) et la <strong>conservation des charges électriques</strong>.<br></div></p>
+<ol><li>Combustion complète du méthane ${}_4$ dans le dioxygène ${}_2$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${${}_4(g) + 2{}_2(g)  {}_2(g) + 2{}_2(g)$}$$</div></div></div></div>
+<strong>Vérification :</strong> C : $1 = 1$   H : $4 = 2  2 = 4$   O : $2  2 = 4$ et $2 + 2  1 = 4$ </li><li>Combustion complète du propane ${}_3{}_8$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${${}_3{}_8(g) + 5{}_2(g)  3{}_2(g) + 4{}_2(g)$}$$</div></div></div></div>
+<strong>Vérification :</strong> C : $3 = 3$   H : $8 = 4  2 = 8$   O : $5  2 = 10$ et $3  2 + 4 = 10$ </li><li>Réaction entre le fer $$ et l'acide chlorhydrique (${}_3 + $) :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${$(s) + 2{}_3 + (aq)  ^{2 + }(aq) + {}_2(g) + 2{}_2(l)$}$$</div></div></div></div>
+<strong>Vérification :</strong> Fe : $1 = 1$   H : $2  3 = 6$ et $2 + 2  2 = 6$   O : $2 = 2$   Charges : $2  (+1) = +2$ et $+2$ </li><li>Réaction de précipitation du chlorure d'argent :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${$ + (aq) + ^{-}(aq)  Ag(s)$}$$</div></div></div></div>
+<strong>Vérification :</strong> Ag : $1 = 1$   Cl : $1 = 1$   Charges : $+1 + (-1) = 0$ et $0$ </li><li>Réaction d'oxydoréduction entre les ions permanganate et les ions fer(II) en milieu acide :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${${}_4^{-}(aq) + 5^{2 + }(aq) + 8{}_3 + (aq)  ^{2 + }(aq) + 5^{3 + }(aq) + 12{}_2(l)$}$$</div></div></div></div>
+<strong>Vérification :</strong> Mn : $1 = 1$   Fe : $5 = 5$   O : $4 + 8 = 12$   H : $8  3 = 24$ et $12  2 = 24$   Charges : $-1 + 10 + 8 = +17$ et $+2 + 15 = +17$
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 3 : Tableau d'avancement simple</h2>
+            <p>On fait réagir du zinc métallique $(s)$ avec une solution d'acide chlorhydrique (${}_3 + (aq)$). L'équation de la réaction est :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$(s) + 2{}_3 + (aq)  ^{2 + }(aq) + {}_2(g) + 2{}_2(l)$$</div></div>$</div></div>
+<p>On introduit $n_0($$) = $0{,}10   $$ et $n_0(${}_3 + $) = $0{,}30   $$.</p>
+<ol><li>Construire le tableau d'avancement de cette réaction.</li><li>Déterminer le réactif limitant en calculant $x_{}$ pour chaque réactif.</li><li>Compléter la ligne de l'état final du tableau d'avancement.</li><li>Le mélange initial est-il st chiométrique ? Justifier.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel</strong>
+<p>Une <strong>espèce spectatrice</strong> est une espèce chimique présente dans le milieu réactionnel mais qui ne participe pas à la transformation : elle est présente en quantité identique dans l'état initial et l'état final. Elle n'apparaît pas dans l'équation de la réaction.<br></div></p>
+<ol><li>Réaction entre l'acide chlorhydrique (${}_3 + (aq) + ^{-}(aq)$) et l'hydroxyde de sodium ($ + (aq) + H^{-}(aq)$) :
+<p>L'équation de la réaction est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_3 + (aq) + H^{-}(aq)  2{}_2(l)$$</div></div>$</div></div></p>
+<p>Les ions $ + $ et $^{-}$ n'apparaissent pas dans l'équation : ils sont présents en solution mais ne participent pas à la réaction.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ $ + $$^{-}$}$$</div></div></div></div></li><li>Réaction entre le zinc $$ et une solution de sulfate de cuivre ($^{2 + }(aq) + {}_4^{2-}(aq)$) :
+<p>L'équation de la réaction est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$(s) + ^{2 + }(aq)  ^{2 + }(aq) + (s)$$</div></div>$</div></div></p>
+<p>L'ion sulfate ${}_4^{2-}$ est présent en solution mais ne participe pas à la réaction.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ ${}_4^{2-}$}$$</div></div></div></div></li><li>Réaction entre une solution de nitrate d'argent ($ + (aq) + {}_3^{-}(aq)$) et une solution de chlorure de sodium ($ + (aq) + ^{-}(aq)$) :
+<p>L'équation de la réaction est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$ + (aq) + ^{-}(aq)  Ag(s)$$</div></div>$</div></div></p>
+<p>Les ions $ + $ et ${}_3^{-}$ ne participent pas à la réaction de précipitation.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ $ + $${}_3^{-}$}$$</div></div></div></div>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 4 : Bilan de matière et taux d'avancement</h2>
+            <p>L'acide éthanoïque ${}_3COO$ réagit avec l'éthanol ${}_2{}_5O$ selon la réaction d'estérification :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_3COO(l) + {}_2{}_5O(l)  {}_3CO{}_2{}_5(l) + {}_2(l)$$</div></div>$</div></div>
+<p>On mélange $n_0(${}_3COO$) = $0{,}50   $$ et $n_0(${}_2{}_5O$) = $0{,}50   $$. À l'équilibre, on mesure que $n_f(${}_3CO{}_2{}_5$) = $0{,}33   $$.</p>
+<ol><li>Construire le tableau d'avancement de cette réaction.</li><li>Déterminer l'avancement maximal $x_{}$.</li><li>En déduire l'avancement final $x_f$ à partir de la quantité d'ester formée.</li><li>Calculer le taux d'avancement $$. La transformation est-elle totale ?</li><li>Calculer les quantités de matière de toutes les espèces à l'état final.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <p>On considère la réaction de combustion complète de l'éthanol :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_2{}_6(l) + 3{}_2(g)  2{}_2(g) + 3{}_2(g)$$</div></div>$</div></div><br>On part de $n_0(${}_2{}_6$) = $0{,}40   $$ et $n_0(${}_2$) = $1{,}50   $$.</p>
+<ol><li>Construction du tableau d'avancement :
+<div class="text-center">
+{1.6}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Équation</strong></th><th><div class="formula-wrapper-centered"><div class="formula-content">$${}_2{}_6$$</div></div></th><th>$+  3 ${}_2<div class="formula-wrapper-centered"><div class="formula-content">$$</th><th>$  2 ${}_2$$</div></div></th><th>$+  3 ${}_2<div class="formula-wrapper-centered"><div class="formula-content">$$</th></tr><tr><td><strong>État initial</strong> ($x=0$)</td><td>$0{,}40$</td><td>$1{,}50$</td><td>$0$</td><td>$0$</td></tr><tr><td><strong>En cours</strong> ($x$)</td><td>$$</div></div>0{,}40$ - x$</td><td><div class="formula-wrapper-centered"><div class="formula-content">$$1{,}50$ - 3x$</td><td>$2x$</td><td>$3x$</td></tr><tr><td><strong>État final</strong> ($x = x_{}$)</td><td>$$</div></div>0{,}40$ - x_{}$</td><td><div class="formula-wrapper-centered"><div class="formula-content">$$1{,}50$ - 3x_{}$</td><td>$2x_{}$</td><td>$3x_{}$</td></tr></tbody></table></div>
+</div></li><li>Détermination de $x_{}$ :
+<p>On annule la quantité de matière de chaque réactif :<br><ul><li>Pour ${}_2{}_6$ : $$0{,}40$ - x_{} = 0  x_{} = $0{,}40   $$</li><li>Pour ${}_2$ : $$1{,}50$ - 3x_{} = 0  x_{} = {1{,}50}{3} = $0{,}50   $$<br></li></ul></p>
+<p>On retient la plus petite valeur :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>{x_{} = $0{,}40   $}<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<p>Le <strong>réactif limitant</strong> est l'éthanol ${}_2{}_6$.</li><li>Tableau d'avancement complété à l'état final :</p>
+<div class="text-center">
+{1.6}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Équation</strong></th><th>$$</div></div>{}_2{}_6<div class="formula-wrapper-centered"><div class="formula-content">$$</th><th>$+  3 ${}_2$$</div></div></th><th>$  2 ${}_2<div class="formula-wrapper-centered"><div class="formula-content">$$</th><th>$+  3 ${}_2$$</div></div></th></tr><tr><td><strong>État final</strong></td><td>$0$</td><td><div class="formula-wrapper-centered"><div class="formula-content">$$1{,}50$ - 3  $0{,}40$ = $0{,}30$$</div></div></td><td>$2  $0{,}40$ = $0{,}80<div class="formula-wrapper-centered"><div class="formula-content">$$</td><td>$3  $0{,}40$ = $1{,}20$$</div></div></td></tr></tbody></table></div>
+</div>
+<div class="example-box">
+<strong>Bilan de matière à l'état final</strong>
+<ul><li>$n_f(${}_2{}_6$) = $0   $$ (entièrement consommé : réactif limitant)</li><li>$n_f(${}_2$) = $0{,}30   $$ (en excès)</li><li>$n_f(${}_2$) = $0{,}80   $$</li><li>$n_f(${}_2$) = $1{,}20   $$
+</li></ul>
+</div>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 5 : Dosage par spectrophotométrie</h2>
+            <p>On souhaite déterminer la concentration en ions permanganate ${}_4^{-}$ d'une solution $S$ inconnue. Pour cela, on réalise une courbe d'étalonnage en mesurant l'absorbance de solutions étalons à $_{} = $525   $$, avec une cuve d'épaisseur $ = $1{,}0   $$.</p>
+<div class="info-box">
+<strong>Données :</strong> coefficient d'extinction molaire du permanganate à $525   $ : $ = $2{,}40  10^{3}   $$.
+</div>
+<p>Les résultats des mesures sont rassemblés dans le tableau suivant :</p>
+<div class="text-center">
+{1.3}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>$C$ ($e-4   $)</th><th>$0{,}50$</th><th>$1{,}00$</th><th>$1{,}50$</th><th>$2{,}00$</th><th>$2{,}50$</th></tr><tr><td>$A$</td><td>$0{,}12$</td><td>$0{,}24$</td><td>$0{,}36$</td><td>$0{,}48$</td><td>$0{,}60$</td></tr></tbody></table></div>
+</div>
+<p>L'absorbance mesurée pour la solution $S$ est $A_S = $0{,}42$$.</p>
+<ol><li>Rappeler la loi de Beer-Lambert. Préciser les conditions de validité.</li><li>Vérifier que les mesures sont cohérentes avec la loi de Beer-Lambert en calculant le rapport $A/C$ pour chaque solution étalon.</li><li>Déterminer graphiquement ou par le calcul la concentration $C_S$ de la solution $S$.</li><li>On dilue la solution $S$ par un facteur 2. Quelle sera l'absorbance de la solution diluée ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <p>On considère la réaction entre le carbonate de calcium $Ca{}_3$ et l'acide chlorhydrique :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$Ca{}_3(s) + 2{}_3 + (aq)  ^{2 + }(aq) + {}_2(g) + 3{}_2(l)$$</div></div>$</div></div><br>On introduit $m = $2{,}0   $$ de $Ca{}_3$ ($M = $100{,}0   $$) dans $V = $50{,}0   $$ d'une solution d'acide chlorhydrique de concentration $C = $0{,}50   $$.</p>
+<ol><li>Calcul des quantités de matière initiales :
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n_0($Ca{}_3$) = {M} = {2{,}0}{100{,}0} = $2{,}0  10^{-2}   $$</div></div>$</div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n_0(${}_3 + $) = C  V = 0{,}50  0{,}0500 = $2{,}5  10^{-2}   $$</div></div>$</div></div>
+</div></li><li>Détermination de $x_{}$ :
+<p>On annule la quantité de matière de chaque réactif :<br><ul><li>Pour $Ca{}_3$ : $$2{,}0  10^{-2}$ - x_{} = 0  x_{} = $2{,}0  10^{-2}   $$</li><li>Pour ${}_3 + $ : $$2{,}5  10^{-2}$ - 2 x_{} = 0  x_{} = {$2{,}5  10^{-2}$}{2} = $1{,}25  10^{-2}   $$<br></li></ul></p>
+<p>On retient la plus petite valeur :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${x_{} = $1{,}25  10^{-2}   $}$$</div></div></div></div></p>
+<p>Le <strong>réactif limitant</strong> est l'ion oxonium ${}_3 + $ (l'acide chlorhydrique).</li><li>Bilan de matière à l'état final :</p>
+<div class="example-box">
+<strong>Quantités de matière finales</strong>
+<ul><li>$n_f($Ca{}_3$) = $2{,}0  10^{-2}$ - $1{,}25  10^{-2}$ = $7{,}5  10^{-3}   $$  (en excès)</li><li>$n_f(${}_3 + $) = $2{,}5  10^{-2}$ - 2  $1{,}25  10^{-2}$ = $0   $$  (entièrement consommé)</li><li>$n_f($^{2 + }$) = $1{,}25  10^{-2}$\;$$$</li><li>$n_f(${}_2$) = $1{,}25  10^{-2}$\;$$$</li><li>$n_f(${}_2$) = 3  $1{,}25  10^{-2}$ = $3{,}75  10^{-2}   $$
+</li></ul>
+</div></li><li>Masse de $Ca{}_3$ restant :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m_f($Ca{}_3$) = n_f  M = $7{,}5  10^{-3}$  100{,}0 = {$0{,}75   $}$$</div></div></div></div></li><li>Volume de ${}_2$ dégagé dans les conditions où le volume molaire vaut $V_m = $24{,}0   $$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V(${}_2$) = n_f(${}_2$)  V_m = $1{,}25  10^{-2}$  24{,}0 = {$0{,}30   $ = $300   $}$$</div></div></div></div>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 6 : Conductimétrie et concentration</h2>
+            <p>Une solution aqueuse de chlorure de potassium $K$ contient les ions $ + $ et $^{-}$.</p>
+<div class="info-box">
+<strong>Données :</strong> conductivités molaires ioniques à $25   {^}$ :
+<p>$($ + $) = $7{,}35  10^{-3}   $$  ;  $($^{-}$) = $7{,}63  10^{-3}   $$.<br></div></p>
+<ol><li>Rappeler l'expression de la conductivité $$ d'une solution ionique.</li><li>Exprimer $$ en fonction de la concentration $C$ en $K$ apporté et des conductivités molaires ioniques.</li><li>La conductivité mesurée de la solution est $ = $0{,}150   $$. Calculer la concentration $C$ de la solution (en $$ puis en $$).</li><li>On dilue cette solution par un facteur 10. Calculer la nouvelle conductivité attendue.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <p>On considère la réaction :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2(s) + 3^{2 + }(aq)  2^{3 + }(aq) + 3(s)$$</div></div>$</div></div></p>
+<ol><li>On dispose de $n_0($$) = $0{,}060   $$ et $n_0($^{2 + }$) = $0{,}080   $$. Le mélange est-il st chiométrique ?
+<div class="example-box">
+<strong>Condition de st chiométrie</strong>
+<p>Un mélange est st chiométrique si : ${n_0($$)}{2} = {n_0($^{2 + }$)}{3}$<br></div></p>
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${n_0($$)}{2} = {0{,}060}{2} = $0{,}030   $$</div></div>$</div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${n_0($^{2 + }$)}{3} = {0{,}080}{3} = $0{,}0267   $$</div></div>$</div></div>
+</div>
+<p>On constate que ${n_0($$)}{2}  {n_0($^{2 + }$)}{3}$, donc :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${}$$</div></div></div></div>
+<p>Comme ${n_0($$)}{2} > {n_0($^{2 + }$)}{3}$, l'aluminium est en excès et $^{2 + }$ est le réactif limitant.</p>
+<p>On a $x_{} = {n_0($^{2 + }$)}{3} = $0{,}0267   $$.</li><li>Pour obtenir un mélange st chiométrique avec $n_0($^{2 + }$) = $0{,}080   $$, on doit avoir :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${n_0($$)}{2} = {n_0($^{2 + }$)}{3}  n_0($$) = {3}  n_0($^{2 + }$) = {3}  0{,}080$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${n_0($$) = $0{,}053   $}$$</div></div></div></div></li><li>Pour obtenir un mélange st chiométrique avec $n_0($$) = $0{,}060   $$, on doit avoir :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n_0($^{2 + }$) = {2}  n_0($$) = {2}  0{,}060$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${n_0($^{2 + }$) = $0{,}090   $}$$</div></div></div></div>
+<p>Si la solution de $^{2 + }$ a une concentration $C = $0{,}20   $$, le volume nécessaire est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V = {n_0($^{2 + }$)}{C} = {0{,}090}{0{,}20} = {$0{,}45   $ = $450   $}$$</div></div></div></div></p>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 7 : Réactif limitant dans une réaction de précipitation</h2>
+            <p>On mélange $V_1 = $50{,}0   $$ d'une solution de nitrate de plomb $({}_3)2$ de concentration $C_1 = $0{,}020   $$ avec $V_2 = $30{,}0   $$ d'une solution d'iodure de potassium $K$ de concentration $C_2 = $0{,}060   $$.</p>
+<p>La réaction de précipitation s'écrit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{2 + }(aq) + 2^{-}(aq)  {}_2(s)$$</div></div>$</div></div></p>
+<ol><li>Calculer les quantités de matière initiales de $^{2 + }$ et de $^{-}$.</li><li>Construire le tableau d'avancement et déterminer le réactif limitant.</li><li>Calculer la masse de précipité ${}_2$ formé à l'état final.</li><li>Déterminer les concentrations des ions restant en solution à l'état final (on négligera le volume du précipité).</li><li>Quel volume $V_2'$ de solution de $K$ aurait-il fallu utiliser pour réaliser un mélange st chiométrique ?
+</li></ol>
+<div class="info-box">
+<strong>Donnée :</strong> $M(${}_2$) = $461   $$.
+</div>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <p>On étudie la réaction d'estérification entre l'acide éthanoïque et l'éthanol :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_3COO(l) + {}_2{}_5O(l)  {}_3CO{}_2{}_5(l) + {}_2(l)$$</div></div>$</div></div><br>On mélange $n_0(${}_3COO$) = $1{,}00   $$ et $n_0(${}_2{}_5O$) = $1{,}00   $$. À l'équilibre, on mesure $n_f(${}_3CO{}_2{}_5$) = $0{,}67   $$.</p>
+<ol><li>Calcul de $x_{}$ :
+<p>Les coefficients st chiométriques sont tous égaux à 1.<br><ul><li>Pour ${}_3COO$ : $x_{} = {n_0(${}_3COO$)}{1} = $1{,}00   $$</li><li>Pour ${}_2{}_5O$ : $x_{} = {n_0(${}_2{}_5O$)}{1} = $1{,}00   $$<br></li></ul></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${x_{} = $1{,}00   $}$$</div></div></div></div>
+<p>Le mélange est st chiométrique.</li><li>Détermination de l'avancement final $x_f$ :</p>
+<p>L'ester n'étant pas présent initialement, on a $n_f(${}_3CO{}_2{}_5$) = x_f$.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${x_f = $0{,}67   $}$$</div></div></div></div></li><li>Calcul du taux d'avancement :
+<div class="example-box">
+<strong>Formule</strong>
+<p>$ = {x_{}}$<br></div></p>
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {x_{}} = {0{,}67}{1{,}00} = {0{,}67 = 67 
+</div></li><li>Interprétation :
+<p>Comme $ = 0{,}67 < 1$, la transformation est <strong>non totale</strong> (limitée). Seulement $67</p>
+<div class="example-box">
+<strong>Quantités de matière à l'équilibre</strong>
+<ul><li>$n_f(${}_3COO$) = 1{,}00 - 0{,}67 = $0{,}33   $$</li><li>$n_f(${}_2{}_5O$) = 1{,}00 - 0{,}67 = $0{,}33   $$</li><li>$n_f(${}_3CO{}_2{}_5$) = $0{,}67   $$</li><li>$n_f(${}_2$) = $0{,}67   $$
+</li></ul>
+</div>
+<strong>Conclusion :</strong> L'estérification est une réaction <strong>non totale</strong>. Le taux d'avancement de $67
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 8 : Taux d'avancement et transformation non totale</h2>
+            <p>On introduit $n_0 = $0{,}20   $$ d'acide benzoïque ${}_6{}_5COO$ dans $V = $1{,}0   $$ d'eau pure. L'acide benzoïque réagit avec l'eau selon :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_6{}_5COO(aq) + {}_2(l)  {}_6{}_5CO^{-}(aq) + {}_3 + (aq)$$</div></div>$</div></div>
+<p>Après établissement de l'équilibre, la concentration en ions ${}_3 + $ est mesurée à $[${}_3 + $] = $3{,}5  10^{-3}   $$.</p>
+<ol><li>Construire le tableau d'avancement en utilisant les concentrations.</li><li>Calculer l'avancement final $x_f$ et l'avancement maximal $x_{}$.</li><li>En déduire le taux d'avancement $$.</li><li>La réaction est-elle totale ou non totale ? Justifier.</li><li>Calculer les concentrations de toutes les espèces à l'équilibre.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Formule -- Loi de Beer-Lambert</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$A =     C$$</div></div></div></div>
+avec $A$ sans unité, $$ en $$, $$ en $$ et $C$ en $$.
+</div>
+<p>On utilise des solutions de permanganate de potassium $K{}_4$ à $_{} = $525   $$, avec $ = $1{,}0   $$.</p>
+<p>Données d'étalonnage :</p>
+<div class="text-center">
+{1.3}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>$C$ ($e-4   $)</th><th>$0{,}50$</th><th>$1{,}00$</th><th>$1{,}50$</th><th>$2{,}00$</th><th>$2{,}50$</th></tr><tr><td>$A$</td><td>$0{,}10$</td><td>$0{,}20$</td><td>$0{,}30$</td><td>$0{,}40$</td><td>$0{,}50$</td></tr></tbody></table></div>
+</div>
+<ol><li>Vérification de la proportionnalité $A = f(C)$ :
+<p>Le rapport ${C}$ est constant pour toutes les solutions :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${C} = {0{,}10}{$0{,}50  10^{-4}$} = {0{,}20}{$1{,}00  10^{-4}$} =  = $2000   $$</div></div>$</div></div></p>
+<p>L'absorbance est bien proportionnelle à la concentration : la loi de Beer-Lambert est vérifiée.</li><li>Calcul du coefficient d'extinction molaire $$ :</p>
+<p>On a $A =     C$, soit $ = {  C}$.</p>
+<p>Le coefficient directeur de la droite d'étalonnage est $k =   $ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$k = {C} = $2000   $ =   1{,}0$$</div></div></div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ = $2000   $}$$</div></div></div></div></li><li>Détermination de la concentration d'une solution inconnue d'absorbance $A_{} = $0{,}36$$ :</p>
+<div class="example-box">
+<strong>Application numérique</strong>
+<p>Par la loi de Beer-Lambert :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C_{} = {A_{}}{  } = {0{,}36}{2000  1{,}0} = $1{,}8  10^{-4}   $$</div></div>$</div></div><br></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${C_{} = $1{,}8  10^{-4}   $}$$</div></div></div></div>
+<p>On peut aussi vérifier par lecture graphique sur la courbe d'étalonnage : pour $A = 0{,}36$, on lit bien $C  $1{,}8  10^{-4}   $$.</li><li>Calcul de la concentration massique correspondante :</p>
+<p>Avec $M($K{}_4$) = 39{,}1 + 54{,}9 + 4  16{,}0 = $158{,}0   $$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C_m = C  M = $1{,}8  10^{-4}$  158{,}0 = {$2{,}8  10^{-2}   $}$$</div></div></div></div></p>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 9 : Titrage acide-base avec suivi pH-métrique</h2>
+            <p>On titre un volume $V_A = $20{,}0   $$ d'une solution d'acide éthanoïque ${}_3COO$ de concentration $C_A$ inconnue par une solution d'hydroxyde de sodium $NaO$ de concentration $C_B = $0{,}10   $$.</p>
+<p>L'équation de la réaction de titrage est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_3COO(aq) + H^{-}(aq)  {}_3CO^{-}(aq) + {}_2(l)$$</div></div>$</div></div></p>
+<p>La courbe de suivi pH-métrique est représentée ci-dessous.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-60.513194 -66.689476 294.664978 198.039776'>
+<defs>
+<clipPath id='clip1'>
+<path d='M-37.070271 105.366787H229.9101V-48.227H-37.070271Z'/>
+</clipPath>
+<path id='g1-66' d='M1.255293-.496139C1.201494-.280946 1.189539-.239103 .74122-.239103C.609714-.239103 .597758-.239103 .573848-.221171C.54396-.19726 .52005-.119552 .52005-.083686C.537983 0 .591781 0 .711333 0H3.144209C4.178331 0 4.991283-.675467 4.991283-1.273225C4.991283-1.643836 4.668493-2.038356 3.921295-2.139975C4.608717-2.247572 5.290162-2.683935 5.290162-3.227895C5.290162-3.658281 4.817933-4.08269 3.975093-4.08269H1.685679C1.572105-4.08269 1.482441-4.08269 1.482441-3.93325C1.482441-3.843587 1.572105-3.843587 1.679701-3.843587S1.936737-3.843587 2.062267-3.801743C2.062267-3.741968 2.062267-3.706102 2.038356-3.610461L1.255293-.496139ZM2.235616-2.223661L2.588294-3.640349C2.636115-3.831631 2.642092-3.843587 2.893151-3.843587H3.879452C4.501121-3.843587 4.680448-3.466999 4.680448-3.21594C4.680448-2.725778 4.05878-2.223661 3.323537-2.223661H2.235616ZM1.948692-.239103C1.835118-.239103 1.823163-.239103 1.751432-.257036L2.181818-2.026401H3.484932C4.238107-2.026401 4.363636-1.542217 4.363636-1.303113C4.363636-.729265 3.730012-.239103 2.988792-.239103H1.948692Z'/>
+<path id='g2-86' d='M5.792279-5.066002C6.1599-5.639851 6.473724-5.810212 6.886177-5.846077C6.993773-5.855044 7.074471-5.86401 7.074471-6.007472C7.074471-6.079203 7.020672-6.124035 6.957908-6.124035C6.922042-6.124035 6.697883-6.097136 6.222665-6.097136C5.935741-6.097136 5.630884-6.124035 5.352927-6.124035C5.290162-6.124035 5.191532-6.106102 5.191532-5.96264C5.191532-5.855044 5.290162-5.846077 5.317061-5.846077C5.406725-5.837111 5.729514-5.819178 5.729514-5.559153C5.729514-5.487422 5.702615-5.424658 5.66675-5.352927S5.612951-5.24533 5.577086-5.182565L2.77061-.833873L2.089166-5.577086C2.089166-5.657783 2.15193-5.846077 2.707846-5.846077C2.815442-5.846077 2.923039-5.846077 2.923039-6.007472C2.923039-6.106102 2.833375-6.124035 2.779577-6.124035C2.618182-6.124035 2.429888-6.106102 2.259527-6.106102C2.080199-6.106102 1.882939-6.097136 1.694645-6.097136C1.53325-6.097136 1.282192-6.097136 1.201494-6.106102C1.129763-6.106102 .762142-6.124035 .690411-6.124035C.654545-6.124035 .529016-6.124035 .529016-5.96264C.529016-5.846077 .627646-5.846077 .735243-5.846077C1.23736-5.846077 1.246326-5.76538 1.282192-5.54122L2.071233-.035866C2.098132 .134496 2.107098 .19726 2.259527 .19726C2.402989 .19726 2.456787 .125529 2.519552 .017933L5.792279-5.066002Z'/>
+<path id='g2-102' d='M3.353425-3.58655H4.160399C4.339726-3.58655 4.42939-3.58655 4.42939-3.747945C4.42939-3.864508 4.339726-3.864508 4.169365-3.864508H3.407223C3.505853-4.402491 3.631382-5.137733 3.747945-5.621918C3.828643-5.971606 4.043836-6.097136 4.223163-6.097136C4.276961-6.097136 4.483188-6.079203 4.635616-5.971606C4.456289-5.935741 4.196264-5.774346 4.196264-5.478456C4.196264-5.254296 4.366625-5.155666 4.536986-5.155666C4.779078-5.155666 5.030137-5.352927 5.030137-5.693649C5.030137-6.097136 4.635616-6.321295 4.214197-6.321295C3.81071-6.321295 3.407223-6.034371 3.218929-5.66675C3.021669-5.281196 2.958904-4.931507 2.77061-3.864508H2.125031C1.95467-3.864508 1.847073-3.864508 1.847073-3.703113C1.847073-3.58655 1.945704-3.58655 2.107098-3.58655H2.716812C2.465753-2.286426 2.15193-.493151 1.95467 .439352C1.847073 .932503 1.703611 1.613948 1.273225 1.613948C1.13873 1.613948 .959402 1.560149 .869738 1.488418C1.093898 1.452553 1.318057 1.264259 1.318057 .995268C1.318057 .771108 1.147696 .672478 .977335 .672478C.735243 .672478 .484184 .869738 .484184 1.210461C.484184 1.622914 .896638 1.838107 1.273225 1.838107C2.187796 1.838107 2.609215 .349689 2.752677-.42142L3.353425-3.58655Z'/>
+<path id='g3-40' d='M3.057534 2.133998C3.057534 2.089166 3.030635 2.062267 2.976837 1.999502C1.820174 .941469 1.470486-.672478 1.470486-2.241594C1.470486-3.631382 1.739477-5.317061 3.003736-6.518555C3.039601-6.554421 3.057534-6.58132 3.057534-6.626152C3.057534-6.688917 3.012702-6.724782 2.949938-6.724782C2.842341-6.724782 2.035367-6.079203 1.551183-5.101868C1.120797-4.241096 .905604-3.317559 .905604-2.25056C.905604-1.604981 .986301-.582814 1.479452 .475218C2.008468 1.578082 2.842341 2.232628 2.949938 2.232628C3.012702 2.232628 3.057534 2.196762 3.057534 2.133998Z'/>
+<path id='g3-41' d='M2.67198-2.25056C2.67198-2.985803 2.564384-3.972105 2.098132-4.967372C1.569116-6.070237 .735243-6.724782 .627646-6.724782C.537983-6.724782 .52005-6.653051 .52005-6.626152C.52005-6.58132 .537983-6.554421 .600747-6.491656C1.120797-6.025405 2.107098-4.805978 2.107098-2.25056C2.107098-.968369 1.873973 .81594 .573848 2.026401C.555915 2.0533 .52005 2.089166 .52005 2.133998C.52005 2.160897 .537983 2.232628 .627646 2.232628C.735243 2.232628 1.542217 1.587049 2.026401 .609714C2.456787-.251059 2.67198-1.174595 2.67198-2.25056Z'/>
+<path id='g3-48' d='M4.241096-2.86924C4.241096-3.469988 4.214197-4.241096 3.900374-4.913574C3.505853-5.756413 2.824408-5.971606 2.304359-5.971606C1.766376-5.971606 1.084932-5.756413 .690411-4.895641C.403487-4.276961 .358655-3.550685 .358655-2.86924C.358655-2.286426 .376588-1.416687 .762142-.708344C1.183562 .053798 1.882939 .19726 2.295392 .19726C2.878207 .19726 3.541719-.053798 3.918306-.878705C4.187298-1.479452 4.241096-2.15193 4.241096-2.86924ZM2.304359-.026899C2.035367-.026899 1.389788-.152428 1.219427-1.165629C1.129763-1.694645 1.129763-2.465753 1.129763-2.976837C1.129763-3.58655 1.129763-4.294894 1.23736-4.788045C1.416687-5.586052 1.990535-5.747447 2.295392-5.747447C2.636115-5.747447 3.200996-5.56812 3.371357-4.734247C3.469988-4.241096 3.469988-3.541719 3.469988-2.976837C3.469988-2.420922 3.469988-1.667746 3.380324-1.13873C3.19203-.116563 2.528518-.026899 2.304359-.026899Z'/>
+<path id='g3-49' d='M2.725778-5.729514C2.725778-5.953674 2.716812-5.971606 2.492653-5.971606C1.936737-5.397758 1.111831-5.397758 .833873-5.397758V-5.119801C1.004234-5.119801 1.551183-5.119801 2.035367-5.352927V-.71731C2.035367-.385554 2.008468-.277958 1.174595-.277958H.887671V0C1.210461-.026899 2.008468-.026899 2.37609-.026899S3.550685-.026899 3.873474 0V-.277958H3.58655C2.752677-.277958 2.725778-.385554 2.725778-.71731V-5.729514Z'/>
+<path id='g3-50' d='M4.142466-1.587049H3.891407C3.873474-1.470486 3.801743-.941469 3.685181-.798007C3.631382-.71731 3.012702-.71731 2.833375-.71731H1.23736L2.125031-1.560149C3.595517-2.833375 4.142466-3.308593 4.142466-4.223163C4.142466-5.254296 3.29066-5.971606 2.187796-5.971606C1.156663-5.971606 .457285-5.155666 .457285-4.339726C.457285-3.891407 .842839-3.846575 .923537-3.846575C1.120797-3.846575 1.389788-3.990037 1.389788-4.312827C1.389788-4.581818 1.201494-4.779078 .923537-4.779078C.878705-4.779078 .851806-4.779078 .81594-4.770112C1.031133-5.406725 1.604981-5.693649 2.089166-5.693649C3.003736-5.693649 3.317559-4.841843 3.317559-4.223163C3.317559-3.308593 2.627148-2.564384 2.196762-2.098132L.555915-.32279C.457285-.224159 .457285-.206227 .457285 0H3.891407L4.142466-1.587049Z'/>
+<path id='g3-51' d='M2.734745-3.156164C3.568618-3.469988 3.963138-4.124533 3.963138-4.743213C3.963138-5.433624 3.200996-5.971606 2.268493-5.971606S.636613-5.44259 .636613-4.761146C.636613-4.465255 .833873-4.294894 1.093898-4.294894S1.542217-4.483188 1.542217-4.743213C1.542217-5.057036 1.327024-5.191532 1.022167-5.191532C1.255293-5.56812 1.802242-5.747447 2.241594-5.747447C2.985803-5.747447 3.129265-5.155666 3.129265-4.734247C3.129265-4.465255 3.075467-4.034869 2.851308-3.694147C2.57335-3.29066 2.259527-3.272727 1.999502-3.254795C1.775342-3.236862 1.75741-3.236862 1.685679-3.236862C1.604981-3.227895 1.53325-3.218929 1.53325-3.120299C1.53325-3.003736 1.604981-3.003736 1.75741-3.003736H2.178829C2.958904-3.003736 3.299626-2.37609 3.299626-1.524284C3.299626-.376588 2.689913-.053798 2.232628-.053798C2.062267-.053798 1.192528-.09863 .789041-.762142C1.111831-.71731 1.362889-.941469 1.362889-1.246326C1.362889-1.542217 1.13873-1.730511 .878705-1.730511C.654545-1.730511 .385554-1.596015 .385554-1.219427C.385554-.42142 1.219427 .19726 2.259527 .19726C3.380324 .19726 4.214197-.609714 4.214197-1.524284C4.214197-2.304359 3.595517-2.96787 2.734745-3.156164Z'/>
+<path id='g3-52' d='M.260025-1.75741V-1.479452H2.707846V-.708344C2.707846-.376588 2.680946-.277958 2.008468-.277958H1.811208V0C2.37609-.026899 3.003736-.026899 3.066501-.026899C3.111333-.026899 3.756912-.026899 4.321793 0V-.277958H4.124533C3.452055-.277958 3.425156-.376588 3.425156-.708344V-1.479452H4.339726V-1.75741H3.425156V-5.828144C3.425156-6.007472 3.425156-6.070237 3.254795-6.070237C3.147198-6.070237 3.138232-6.06127 3.057534-5.935741L.260025-1.75741ZM.546949-1.75741L2.761644-5.074969V-1.75741H.546949Z'/>
+<path id='g3-53' d='M.932503-3.0934C.932503-2.932005 .932503-2.833375 1.058032-2.833375C1.129763-2.833375 1.156663-2.86924 1.210461-2.949938C1.479452-3.326526 1.909838-3.541719 2.37609-3.541719C3.335492-3.541719 3.335492-2.160897 3.335492-1.838107C3.335492-1.560149 3.335492-1.004234 3.084433-.600747C2.842341-.224159 2.465753-.053798 2.116065-.053798C1.587049-.053798 .986301-.385554 .771108-1.049066C.780075-1.049066 .833873-1.031133 .896638-1.031133C1.075965-1.031133 1.33599-1.147696 1.33599-1.470486C1.33599-1.748443 1.13873-1.909838 .896638-1.909838C.708344-1.909838 .457285-1.802242 .457285-1.443587C.457285-.627646 1.13873 .19726 2.133998 .19726C3.218929 .19726 4.142466-.681445 4.142466-1.793275C4.142466-2.878207 3.371357-3.765878 2.394022-3.765878C1.963636-3.765878 1.524284-3.622416 1.210461-3.299626V-5.066002C1.479452-4.985305 1.75741-4.940473 2.035367-4.940473C3.138232-4.940473 3.783811-5.738481 3.783811-5.855044C3.783811-5.935741 3.730012-5.971606 3.685181-5.971606C3.667248-5.971606 3.649315-5.971606 3.568618-5.926775C3.147198-5.756413 2.734745-5.684682 2.358157-5.684682C1.972603-5.684682 1.569116-5.756413 1.156663-5.926775C1.066999-5.971606 1.049066-5.971606 1.0401-5.971606C.932503-5.971606 .932503-5.881943 .932503-5.729514V-3.0934Z'/>
+<path id='g3-54' d='M1.201494-2.96787C1.201494-3.882441 1.300125-4.393524 1.542217-4.859776C1.721544-5.227397 2.160897-5.747447 2.824408-5.747447C3.003736-5.747447 3.416189-5.711582 3.622416-5.388792C3.29066-5.388792 3.147198-5.218431 3.147198-4.976339C3.147198-4.743213 3.308593-4.563885 3.559651-4.563885S3.981071-4.72528 3.981071-4.994271C3.981071-5.496389 3.622416-5.971606 2.806476-5.971606C1.649813-5.971606 .385554-4.832877 .385554-2.833375C.385554-.403487 1.479452 .19726 2.322291 .19726C3.317559 .19726 4.214197-.636613 4.214197-1.820174C4.214197-2.958904 3.38929-3.819676 2.37609-3.819676C1.838107-3.819676 1.452553-3.505853 1.201494-2.96787ZM2.313325-.053798C1.802242-.053798 1.506351-.475218 1.398755-.735243C1.228394-1.13873 1.219427-1.882939 1.219427-2.026401C1.219427-2.627148 1.497385-3.595517 2.358157-3.595517C2.501619-3.595517 2.940971-3.595517 3.227895-3.039601C3.398257-2.698879 3.398257-2.259527 3.398257-1.829141S3.398257-.959402 3.227895-.627646C2.949938-.116563 2.555417-.053798 2.313325-.053798Z'/>
+<path id='g3-56' d='M1.542217-4.070735C1.273225-4.241096 1.066999-4.483188 1.066999-4.814944C1.066999-5.397758 1.694645-5.747447 2.286426-5.747447C2.976837-5.747447 3.532752-5.263263 3.532752-4.635616S2.99477-3.595517 2.636115-3.38929L1.542217-4.070735ZM2.860274-3.245828C3.308593-3.461021 3.963138-3.90934 3.963138-4.635616C3.963138-5.478456 3.120299-5.971606 2.313325-5.971606C1.371856-5.971606 .636613-5.299128 .636613-4.474222C.636613-4.133499 .762142-3.81071 .977335-3.550685C1.129763-3.380324 1.183562-3.344458 1.703611-3.012702C.91457-2.636115 .385554-2.089166 .385554-1.353923C.385554-.403487 1.327024 .19726 2.295392 .19726C3.335492 .19726 4.214197-.537983 4.214197-1.506351C4.214197-2.37609 3.550685-2.806476 3.326526-2.949938C3.227895-3.021669 2.96787-3.183064 2.860274-3.245828ZM1.945704-2.860274L3.075467-2.160897C3.281694-2.026401 3.730012-1.739477 3.730012-1.192528C3.730012-.484184 3.012702-.053798 2.304359-.053798C1.524284-.053798 .869738-.609714 .869738-1.353923C.869738-1.999502 1.318057-2.537484 1.945704-2.860274Z'/>
+<path id='g3-61' d='M6.348194-2.96787C6.473724-2.96787 6.644085-2.96787 6.644085-3.156164C6.644085-3.353425 6.446824-3.353425 6.312329-3.353425H.842839C.708344-3.353425 .511083-3.353425 .511083-3.156164C.511083-2.96787 .690411-2.96787 .806974-2.96787H6.348194ZM6.312329-1.13873C6.446824-1.13873 6.644085-1.13873 6.644085-1.33599C6.644085-1.524284 6.473724-1.524284 6.348194-1.524284H.806974C.690411-1.524284 .511083-1.524284 .511083-1.33599C.511083-1.13873 .708344-1.13873 .842839-1.13873H6.312329Z'/>
+<path id='g3-76' d='M5.361893-2.313325H5.110834C5.012204-1.407721 4.886675-.277958 3.281694-.277958H2.501619C2.080199-.277958 2.062267-.340722 2.062267-.645579V-5.406725C2.062267-5.738481 2.098132-5.846077 2.914072-5.846077H3.200996V-6.124035C2.887173-6.097136 2.071233-6.097136 1.712578-6.097136C1.300125-6.097136 .744209-6.097136 .340722-6.124035V-5.846077H.546949C1.23736-5.846077 1.255293-5.747447 1.255293-5.415691V-.708344C1.255293-.376588 1.23736-.277958 .546949-.277958H.340722V0H5.110834L5.361893-2.313325Z'/>
+<path id='g3-109' d='M1.667746-2.322291C1.667746-3.29066 2.367123-3.738979 2.905106-3.738979C3.398257-3.738979 3.559651-3.38929 3.559651-2.761644V-.690411C3.559651-.277958 3.461021-.277958 2.86924-.277958V0C3.29066-.017933 3.461021-.026899 3.891407-.026899S4.438356-.017933 4.913574 0V-.277958C4.321793-.277958 4.223163-.277958 4.223163-.690411V-2.322291C4.223163-3.29066 4.92254-3.738979 5.460523-3.738979C5.953674-3.738979 6.115068-3.38929 6.115068-2.761644V-.690411C6.115068-.277958 6.016438-.277958 5.424658-.277958V0C5.846077-.017933 6.016438-.026899 6.446824-.026899S6.993773-.017933 7.468991 0V-.277958C7.011706-.277958 6.787547-.277958 6.77858-.555915V-2.27746C6.77858-3.057534 6.77858-3.308593 6.48269-3.640349C6.294396-3.855542 5.935741-3.963138 5.523288-3.963138C4.877709-3.963138 4.438356-3.58655 4.187298-3.111333C4.079701-3.640349 3.721046-3.963138 2.96787-3.963138C2.25056-3.963138 1.811208-3.496887 1.622914-3.084433H1.613948V-3.963138L.313823-3.864508V-3.58655C.923537-3.58655 1.004234-3.523786 1.004234-3.084433V-.690411C1.004234-.277958 .905604-.277958 .313823-.277958V0C.735243-.017933 .905604-.026899 1.33599-.026899S1.882939-.017933 2.358157 0V-.277958C1.766376-.277958 1.667746-.277958 1.667746-.690411V-2.322291Z'/>
+</defs>
+<g id='page1'>
+<path d='M-37.070331 105.367087V-48.2267M7.42574 105.367087V-48.2267M51.92184 105.367087V-48.2267M96.41804 105.367087V-48.2267M140.91804 105.367087V-48.2267M185.41404 105.367087V-48.2267M229.91004 105.367087V-48.2267' stroke='#e6e6e6' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-37.070271 105.366787H229.9101M-37.070271 77.441H229.9101M-37.070271 49.5152H229.9101M-37.070271 21.5894H229.9101M-37.070271-6.336H229.9101M-37.070271-34.262H229.9101' stroke='#e6e6e6' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-37.070271 107.49569V103.24179M7.4258 107.49569V103.24179M51.9219 107.49569V103.24179M96.4181 107.49569V103.24179M140.9181 107.49569V103.24179M185.4141 107.49569V103.24179M229.9101 107.49569V103.24179' stroke='#808080' fill='none' stroke-width='.19925' stroke-miterlimit='10'/>
+<path d='M-39.19527 105.366787H-34.94527M-39.19527 77.441H-34.94527M-39.19527 49.5152H-34.94527M-39.19527 21.5894H-34.94527M-39.19527-6.336H-34.94527M-39.19527-34.262H-34.94527' stroke='#808080' fill='none' stroke-width='.19925' stroke-miterlimit='10'/>
+<path d='M-37.070271 105.366787H227.9181' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M229.90993 105.366787L226.72243 103.77304L227.917741 105.366787L226.72243 106.96054'/>
+<path d='M-37.070271 105.366787V-46.235' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-37.070271-48.22654L-38.66402-45.03904L-37.070271-46.23435L-35.47652-45.03904'/>
+<g transform='matrix(1 0 0 1 -35.24124 41.9697)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-48'/>
+</g>
+<g transform='matrix(1 0 0 1 9.25569 41.9697)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-53'/>
+</g>
+<g transform='matrix(1 0 0 1 51.44876 41.9697)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-49'/>
+<use x='.474128' y='74.822306' xlink:href='#g3-48'/>
+</g>
+<g transform='matrix(1 0 0 1 95.94576 41.9697)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-49'/>
+<use x='.474128' y='74.822306' xlink:href='#g3-53'/>
+</g>
+<g transform='matrix(1 0 0 1 140.44256 41.9697)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-50'/>
+<use x='.474128' y='74.822306' xlink:href='#g3-48'/>
+</g>
+<g transform='matrix(1 0 0 1 184.93956 41.9697)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-50'/>
+<use x='.474128' y='74.822306' xlink:href='#g3-53'/>
+</g>
+<g transform='matrix(1 0 0 1 229.43656 41.9697)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-51'/>
+<use x='.474128' y='74.822306' xlink:href='#g3-48'/>
+</g>
+<g transform='matrix(1 0 0 1 -43.18994 33.4357)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-50'/>
+</g>
+<g transform='matrix(1 0 0 1 -43.18994 5.509)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-52'/>
+</g>
+<g transform='matrix(1 0 0 1 -43.18994 -22.4174)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-54'/>
+</g>
+<g transform='matrix(1 0 0 1 -43.18994 -50.3437)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-56'/>
+</g>
+<g transform='matrix(1 0 0 1 -47.79764 -78.27005)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-49'/>
+<use x='.474128' y='74.822306' xlink:href='#g3-48'/>
+</g>
+<g transform='matrix(1 0 0 1 -47.79764 -106.1964)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g3-49'/>
+<use x='.474128' y='74.822306' xlink:href='#g3-50'/>
+</g>
+<path d='M-37.070271 92.8004C-37.070271 92.8004-24.2109 82.7535-19.2734 80.234C-14.332 77.7144-6.414 75.8121-1.4726 74.648C3.4649 73.4879 11.3868 72.6324 16.3243 71.8551C21.2657 71.0816 29.1836 69.7418 34.125 69.0621C39.0625 68.3863 48.2188 67.4527 51.9219 66.9683C55.6289 66.484 58.3516 66.0582 60.8243 65.5738C63.2931 65.0894 67.2541 64.1558 69.7231 63.4801C72.1911 62.8004 76.7691 61.6558 78.6211 60.6871C80.4731 59.7183 81.8361 58.0465 83.0701 56.4957C84.3051 54.9488 86.2851 52.4215 87.5191 49.5152C88.7541 46.609 90.7341 40.3941 91.9691 35.5504C93.2031 30.7105 95.1841 20.4176 96.4181 14.609C97.6561 8.7965 99.6371-1.883 100.8711-6.336C102.1051-10.793 103.4691-14.989 105.3201-17.508C107.1721-20.028 111.7501-23.133 114.2191-24.489C116.6871-25.844 119.4141-26.313 123.1171-27.282C126.8241-28.25 135.9771-30.504 140.9181-31.469C145.8551-32.438 152.5431-33.489 158.7151-34.262C164.8911-35.039 178.0041-36.477 185.4141-37.055C192.8241-37.637 212.1131-38.454 212.1131-38.454' stroke='#0e7490' fill='none' stroke-width='1.19553' stroke-miterlimit='10' clip-path='url(#clip1)'/>
+<path d='M96.4181 105.366787V14.609' stroke='#f97316' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883' clip-path='url(#clip1)'/>
+<g fill='#f97316' transform='matrix(1 0 0 1 108.52256 -57.1268)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g4-69'/>
+</g>
+<path d='M98.9101 14.609C98.9101 13.2301 97.7971 12.1168 96.4181 12.1168C95.0431 12.1168 93.9301 13.2301 93.9301 14.609C93.9301 15.984 95.0431 17.0973 96.4181 17.0973C97.7971 17.0973 98.9101 15.984 98.9101 14.609Z' fill='#f97316'/>
+<path d='M98.9101 14.609C98.9101 13.2301 97.7971 12.1168 96.4181 12.1168C95.0431 12.1168 93.9301 13.2301 93.9301 14.609C93.9301 15.984 95.0431 17.0973 96.4181 17.0973C97.7971 17.0973 98.9101 15.984 98.9101 14.609Z' stroke='#f97316' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 82.86716 55.5317)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g2-86'/>
+<use x='1.240709' y='75.818601' xlink:href='#g1-66'/>
+<use x='10.634544' y='74.822306' xlink:href='#g4-40'/>
+<use x='14.217448' y='74.822306' xlink:href='#g3-109'/>
+<use x='21.896932' y='74.822306' xlink:href='#g3-76'/>
+<use x='27.655839' y='74.822306' xlink:href='#g4-41'/>
+</g>
+<g transform='matrix(0 -1 1 0 -135.3355 30.45094)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g4-112'/>
+<use x='.98488' y='74.822306' xlink:href='#g4-72'/>
+</g>
+<g transform='matrix(1 0 0 1 31.88446 -134.787)'>
+<use x='-4.133562' y='74.822306' xlink:href='#g0-67'/>
+<use x='3.527495' y='74.822306' xlink:href='#g0-111'/>
+<use x='8.831305' y='74.822306' xlink:href='#g0-117'/>
+<use x='14.724426' y='74.822306' xlink:href='#g0-114'/>
+<use x='19.099999' y='74.822306' xlink:href='#g0-98'/>
+<use x='25.287775' y='74.822306' xlink:href='#g0-101'/>
+<use x='33.691017' y='74.822306' xlink:href='#g0-100'/>
+<use x='39.584137' y='74.822306' xlink:href='#g0-101'/>
+<use x='47.987378' y='74.822306' xlink:href='#g0-116'/>
+<use x='52.112561' y='74.822306' xlink:href='#g0-105'/>
+<use x='55.059126' y='74.822306' xlink:href='#g0-116'/>
+<use x='59.184309' y='74.822306' xlink:href='#g0-114'/>
+<use x='63.559883' y='74.822306' xlink:href='#g0-97'/>
+<use x='68.716359' y='74.822306' xlink:href='#g0-103'/>
+<use x='74.02017' y='74.822306' xlink:href='#g0-101'/>
+<use x='82.423411' y='74.822306' xlink:href='#g0-112'/>
+<use x='88.316531' y='74.822306' xlink:href='#g0-72'/>
+<use x='99.162687' y='74.822306' xlink:href='#g3-61'/>
+<use x='108.890034' y='74.822306' xlink:href='#g2-102'/>
+<use x='114.338337' y='74.822306' xlink:href='#g3-40'/>
+<use x='117.922097' y='74.822306' xlink:href='#g2-86'/>
+<use x='123.296368' y='75.818601' xlink:href='#g1-66'/>
+<use x='129.619139' y='74.822306' xlink:href='#g3-41'/>
+</g>
+</g>
+</svg></div>
+</div>
+<ol><li>Faire un schéma légendé du montage de titrage.</li><li>Déterminer graphiquement le volume équivalent $V_{B,}$.</li><li>En déduire la concentration $C_A$ de la solution d'acide éthanoïque titrée.</li><li>Calculer la quantité de matière d'acide éthanoïque initialement présente.</li><li>Le pH à l'équivalence est-il égal à 7 ? Pourquoi ?</li><li>À partir du pH initial, estimer la concentration en ions ${}_3 + $ dans la solution d'acide pur et en déduire le taux d'avancement de la réaction de l'acide avec l'eau.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Formule -- Conductivité d'une solution ionique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = _i _i  [$$_i]$$</div></div></div></div>
+avec $$ en $$, $_i$ (conductivité molaire ionique) en $$ et $[$$_i]$ en $$.
+</div>
+<p>On considère une solution de chlorure de sodium $Na$ de concentration $C$.</p>
+<p>Données : $($ + $) = $5{,}01  10^{-3}   $$ et $($^{-}$) = $7{,}63  10^{-3}   $$.</p>
+<ol><li>Expression de la conductivité en fonction de $C$ :
+<p>La dissolution de $Na$ donne : $$Na   + (aq) + ^{-}(aq)$$.</p>
+<p>Donc $[$ + $] = [$^{-}$] = C$ (en $$, il faut multiplier $C$ en $$ par 1000).</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = ($ + $)  [$ + $] + ($^{-}$)  [$^{-}$]$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ = (($ + $) + ($^{-}$))  C  1000}$$</div></div></div></div></li><li>Calcul de $$ pour $C = $1{,}0  10^{-2}   $$ :
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = (5{,}01  10^{-3} + 7{,}63  10^{-3})  1{,}0  10^{-2}  1000$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = 12{,}64  10^{-3}  10 = {$0{,}126   $}$$</div></div></div></div>
+</div></li><li>Exploitation d'une courbe d'étalonnage conductimétrique :
+<p>On a préparé des solutions étalons de $Na$ et mesuré leur conductivité :</p>
+<div class="text-center">
+{1.3}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>$C$ ($e-2   $)</th><th>$0{,}50$</th><th>$1{,}00$</th><th>$1{,}50$</th><th>$2{,}00$</th><th>$2{,}50$</th><th>$3{,}00$</th></tr><tr><td>$$ ($$)</td><td>$0{,}063$</td><td>$0{,}126$</td><td>$0{,}190$</td><td>$0{,}253$</td><td>$0{,}316$</td><td>$0{,}379$</td></tr></tbody></table></div>
+</div>
+<p>La droite d'étalonnage est bien linéaire. Pour une solution inconnue de conductivité $_{} = $0{,}220   $$ :</p>
+<div class="example-box">
+<strong>Application numérique</strong>
+<p>Le coefficient directeur de la droite vaut :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$k = {C} = {0{,}126}{$1{,}00  10^{-2}$} = $12{,}6   $$</div></div>$</div></div></p>
+<p>D'où :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C_{} = {_{}}{k} = {0{,}220}{12{,}6} = $1{,}75  10^{-2}   $$</div></div>$</div></div><br></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${C_{}  $1{,}7  10^{-2}   $}$$</div></div></div></div>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 10 : Titrage conductimétrique d'un détartrant</h2>
+            <p>Un détartrant ménager contient de l'acide lactique ${}_3CHOHCOO$ (noté $H$). On titre un volume $V_A = $10{,}0   $$ de ce détartrant, dilué 10 fois au préalable, par une solution d'hydroxyde de sodium de concentration $C_B = $0{,}050   $$.</p>
+<p>La réaction de titrage est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$H(aq) + H^{-}(aq)  ^{-}(aq) + {}_2(l)$$</div></div>$</div></div></p>
+<p>On mesure la conductivité $$ de la solution au fur et à mesure de l'ajout de soude.</p>
+<div class="info-box">
+<strong>Données :</strong> conductivités molaires ioniques ($$) :
+<p>$($ + $) = $5{,}01  10^{-3}$$  ;  $($H^{-}$) = $19{,}9  10^{-3}$$  ;  $($^{-}$) = $3{,}58  10^{-3}$$  ;  $(${}_3 + $) = $35{,}0  10^{-3}$$.<br></div></p>
+<ol><li>Expliquer pourquoi la conductivité diminue avant l'équivalence puis augmente après l'équivalence.</li><li>Le volume équivalent relevé est $V_{B,} = $12{,}0   $$. Calculer la concentration $C_A$ de la solution diluée d'acide lactique.</li><li>En déduire la concentration de l'acide lactique dans le détartrant non dilué.</li><li>Calculer la masse d'acide lactique contenue dans $$1{,}0   $$ de détartrant.</li><li>Comparer avec la valeur indiquée sur l'étiquette : $$45   $$.
+</li></ol>
+<div class="info-box">
+<strong>Donnée :</strong> $M(${}_3CHOHCOO$) = $90{,}0   $$.
+</div>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <p>On titre un volume $V_A = $20{,}0   $$ d'une solution d'acide chlorhydrique (${}_3 + (aq) + ^{-}(aq)$) de concentration $C_A$ inconnue par une solution d'hydroxyde de sodium ($ + (aq) + H^{-}(aq)$) de concentration $C_B = $0{,}10   $$. Le volume versé à l'équivalence est $V_{B,} = $15{,}0   $$.</p>
+<ol><li>Équation de la réaction de titrage :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${${}_3 + (aq) + H^{-}(aq)  2{}_2(l)$}$$</div></div></div></div></li><li>Relation à l'équivalence :
+<div class="example-box">
+<strong>Formule -- Relation à l'équivalence</strong>
+<p>À l'équivalence, les réactifs ont été introduits dans les proportions st chiométriques. Les coefficients st chiométriques de ${}_3 + $ et $H^{-}$ sont tous deux égaux à 1, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${1} = {C_B  V_{B,}}{1}    C_A  V_A = C_B  V_{B,}$$</div></div></div></div><br></div></li><li>Calcul de $C_A$ :</p>
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C_A = {C_B  V_{B,}}{V_A} = {0{,}10  15{,}0}{20{,}0} = {$7{,}5  10^{-2}   $}$$</div></div></div></div>
+</div></li><li>Identification de l'équivalence sur la courbe pH-métrique :
+<p>Le suivi pH-métrique donne la courbe $ = f(V_B)$. L'équivalence correspond au <strong>point d'inflexion</strong> de la courbe (variation la plus rapide du pH). On le repère par la <strong>méthode des tangentes</strong> :<br><ul><li>On trace deux tangentes parallèles, l'une avant l'équivalence, l'autre après.</li><li>On trace la droite parallèle équidistante des deux tangentes.</li><li>L'intersection de cette droite avec la courbe donne le point d'équivalence.<br></li></ul></p>
+<p>À l'équivalence, le pH vaut $_{} = 7{,}0$ (titrage acide fort -- base forte).</li><li>Avant l'équivalence ($V_B < V_{B,}$), le réactif limitant est $H^{-}$ et il reste un excès de ${}_3 + $ en solution : le pH est acide.</p>
+<p>Après l'équivalence ($V_B > V_{B,}$), le réactif limitant est ${}_3 + $ et il y a un excès de $H^{-}$ : le pH est basique.</p>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 11 : Contrôle qualité d'un sérum physiologique (type BAC)</h2>
+            <p>Un sérum physiologique est une solution aqueuse de chlorure de sodium $Na$ dont la concentration massique annoncée est $C_m = $9{,}0   $$. On souhaite vérifier cette indication par deux méthodes.</p>
+<div class="info-box">
+<strong>Données :</strong>
+<ul><li>$M($Na$) = $58{,}5   $$ ; $M($Ag{}_3$) = $170   $$ ; $M($Ag$) = $143{,}5   $$.</li><li>$($ + $) = $5{,}01  10^{-3}   $$ ; $($^{-}$) = $7{,}63  10^{-3}   $$.</li><li>$($ + $) = $6{,}19  10^{-3}   $$ ; $(${}_3^{-}$) = $7{,}14  10^{-3}   $$.
+</li></ul>
+</div>
+<strong>Partie A -- Dosage par conductimétrie</strong>
+<p>On prépare des solutions étalons de $Na$ et on mesure leur conductivité. Les résultats sont :</p>
+<div class="text-center">
+{1.3}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>$C$ ($e-2   $)</th><th>$2{,}0$</th><th>$4{,}0$</th><th>$6{,}0$</th><th>$8{,}0$</th><th>$10{,}0$</th></tr><tr><td>$$ ($$)</td><td>$0{,}25$</td><td>$0{,}51$</td><td>$0{,}76$</td><td>$1{,}01$</td><td>$1{,}26$</td></tr></tbody></table></div>
+</div>
+<ol><li>Calculer la concentration molaire théorique $C_{}$ du sérum physiologique.</li><li>Tracer la droite d'étalonnage $ = f(C)$ et vérifier sa linéarité.</li><li>On mesure $_S = $1{,}18   $$ pour le sérum (dilué par 2 au préalable). Déterminer la concentration molaire du sérum dilué puis celle du sérum non dilué.</li><li>En déduire la concentration massique du sérum et conclure sur la conformité du produit.
+</li></ol>
+<strong>Partie B -- Titrage par précipitation</strong>
+<p>On titre $V_S = $10{,}0   $$ de sérum physiologique (dilué 10 fois) par une solution de nitrate d'argent $Ag{}_3$ de concentration $C_T = $0{,}020   $$.</p>
+<p>La réaction de titrage est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$ + (aq) + ^{-}(aq)  Ag(s)$$</div></div>$</div></div></p>
+<p>Le volume équivalent mesuré est $V_{T,} = $7{,}7   $$.</p>
+<ol>
+{4}</li><li>Écrire la relation à l'équivalence.</li><li>Calculer la concentration en ions $^{-}$ dans le sérum dilué, puis dans le sérum non dilué.</li><li>En déduire la concentration massique en $Na$ du sérum et comparer avec la valeur annoncée.</li><li>Comparer les résultats des deux méthodes et discuter de leur précision.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="info-box">
+<strong>Contexte</strong>
+<p>Un vinaigre commercial contient de l'acide éthanoïque (acide acétique) ${}_3COO$. On souhaite déterminer sa concentration et vérifier l'indication du fabricant « vinaigre à $8 ^{}$ » (soit $80   $ d'acide éthanoïque par litre de vinaigre).<br></div></p>
+<strong>Protocole :</strong> On dilue 10 fois le vinaigre commercial. On titre un volume $V_A = $10{,}0   $$ de la solution diluée par une solution d'hydroxyde de sodium de concentration $C_B = $0{,}10   $$, avec suivi pH-métrique.
+<ol><li><strong>Pourquoi diluer le vinaigre ?</strong>
+<p>Le vinaigre commercial est trop concentré pour être titré directement : le saut de pH serait mal défini et le volume de soude nécessaire serait trop important. La dilution permet d'obtenir un saut de pH net à l'équivalence.</li><li><strong>Équation de la réaction de titrage :</strong></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${${}_3COO(aq) + H^{-}(aq)  {}_3CO^{-}(aq) + {}_2(l)$}$$</div></div></div></div>
+<strong>Vérification des critères de titrage :</strong> cette réaction est totale (réaction entre un acide faible et une base forte en excès), rapide et unique. Elle convient pour un titrage.</li><li><strong>Tableau d'avancement à l'équivalence :</strong>
+<div class="text-center">
+{1.6}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Équation</strong></th><th><div class="formula-wrapper-centered"><div class="formula-content">$${}_3COO$$</div></div></th><th>$+  $H^{-}<div class="formula-wrapper-centered"><div class="formula-content">$$</th><th>$  ${}_3CO^{-}$$</div></div></th><th>$+  ${}_2<div class="formula-wrapper-centered"><div class="formula-content">$$</th></tr><tr><td><strong>État initial</strong></td><td>$C_A' V_A$</td><td>$C_B V_B$</td><td>$0$</td><td>excès</td></tr><tr><td><strong>État final (éq.)</strong></td><td>$0$</td><td>$0$</td><td>$C_A' V_A$</td><td>excès</td></tr></tbody></table></div>
+</div>
+<p>À l'équivalence, les deux réactifs sont entièrement consommés.</li><li><strong>Relation à l'équivalence :</strong></p>
+<p>Les coefficients st chiométriques sont tous égaux à 1, donc :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>{C_A'  V_A = C_B  V_{B,}}<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div><br>où $C_A'$ est la concentration de la solution diluée.</li><li><strong>Détermination du volume équivalent par la méthode des tangentes :</strong></p>
+<p>D'après la courbe pH-métrique, on identifie le point d'inflexion (saut de pH le plus important). On lit :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>{V_{B,} = $13{,}3   $}<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<strong>Remarque :</strong> à l'équivalence, le pH vaut environ $8{,}2$ car on titre un acide faible par une base forte (le pH à l'équivalence est basique).</li><li><strong>Calcul de $C_A'$ (concentration de la solution diluée) :</strong>
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>C_A' = {C_B  V_{B,}}{V_A} = {0{,}10  13{,}3}{10{,}0} = $0{,}133   <div class="formula-wrapper-centered"><div class="formula-content">$$$</div></div>
+</div></li><li><strong>Calcul de $C_A$ (concentration du vinaigre commercial) :</strong>
+<p>Le vinaigre a été dilué 10 fois, donc :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>C_A = 10  C_A' = 10  0{,}133 = {$1{,}33   $}<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></li><li><strong>Conversion en concentration massique et vérification de l'indication commerciale :</strong></p>
+<p>La masse molaire de l'acide éthanoïque est :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>M(${}_3COO$) = 2  12{,}0 + 4  1{,}0 + 2  16{,}0 = $60{,}0   <div class="formula-wrapper-centered"><div class="formula-content">$$$</div></div></p>
+<p>La concentration massique est :<br><div class="example-box"><br><strong>Application numérique</strong></p>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>C_m = C_A  M = 1{,}33  60{,}0 = $79{,}8   <div class="formula-wrapper-centered"><div class="formula-content">$$$</div></div>
+</div>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>{C_m  $80   $}<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<p>Le degré d'acidité d'un vinaigre correspond à la masse (en grammes) d'acide éthanoïque contenue dans $100   $ de vinaigre. Ici :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>m_{$100   $} = C_m  0{,}100 = 80  0{,}100 = $8{,}0   $$$</div></div></p>
+<p>Le vinaigre est donc bien un {vinaigre à $8 ^{}$}, ce qui est conforme à l'indication commerciale.</li><li><strong>Sources d'incertitudes :</strong></p>
+<p>Les principales sources d'incertitudes sont :<br><ul><li>L'incertitude sur la lecture du volume équivalent (précision de la burette).</li><li>L'incertitude sur la concentration de la solution titrante.</li><li>L'incertitude sur le facteur de dilution (verrerie utilisée).</li><li>La précision de la lecture du pH-mètre.<br></li></ul></p>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 12 : Entretien d'un aquarium : analyse chimique complète (type BAC)</h2>
+            <p>Un aquariophile souhaite contrôler la qualité de l'eau de son aquarium de $$200   $$. Il effectue plusieurs analyses chimiques.</p>
+<div class="info-box">
+<strong>Données :</strong>
+<ul><li>Masse molaire du dioxygène : $M(${}_2$) = $32{,}0   $$.</li><li>Le bleu de méthylène a un maximum d'absorption à $_{} = $665   $$ et un coefficient d'extinction molaire $ = $7{,}40  10^{4}   $$.</li><li>Masse molaire de l'hypochlorite de sodium : $M($NaCl$) = $74{,}5   $$.</li><li>$($ + $) = $5{,}01  10^{-3}   $$ ; $($^{-}$) = $7{,}63  10^{-3}   $$.
+</li></ul>
+</div>
+<strong>Partie A -- Dosage du dioxygène dissous par spectrophotométrie</strong>
+<p>Pour doser le dioxygène dissous, l'aquariophile utilise un réactif colorimétrique. Après réaction, la concentration en dioxygène est proportionnelle à l'absorbance $A$ de la solution obtenue. Il réalise une courbe d'étalonnage avec les résultats suivants :</p>
+<div class="text-center">
+{1.3}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>$C(${}_2$)$ ($$)</th><th>$2{,}0$</th><th>$4{,}0$</th><th>$6{,}0$</th><th>$8{,}0$</th><th>$10{,}0$</th></tr><tr><td>$A$</td><td>$0{,}08$</td><td>$0{,}16$</td><td>$0{,}24$</td><td>$0{,}32$</td><td>$0{,}40$</td></tr></tbody></table></div>
+</div>
+<p>L'absorbance mesurée pour l'eau de l'aquarium est $A_{} = $0{,}27$$.</p>
+<ol><li>Montrer que l'absorbance est bien proportionnelle à la concentration en ${}_2$. Calculer le coefficient de proportionnalité.</li><li>Déterminer la concentration en dioxygène dissous dans l'aquarium (en $$).</li><li>Convertir cette concentration en $$.</li><li>Calculer la quantité totale de dioxygène dissous (en mol) dans les $$200   $$ de l'aquarium.</li><li>La concentration minimale recommandée est $$5{,}0   $$. L'aquarium est-il suffisamment oxygéné ?
+</li></ol>
+<strong>Partie B -- Traitement au bleu de méthylène</strong>
+<p>L'aquariophile traite l'eau avec du bleu de méthylène (antiseptique). Il souhaite atteindre une concentration de $C = $3{,}0  10^{-6}   $$ dans l'aquarium.</p>
+<ol>
+{5}</li><li>Calculer la quantité de matière de bleu de méthylène nécessaire pour traiter les $$200   $$.</li><li>Quelle serait l'absorbance de cette solution à $_{}$, dans une cuve de $$1{,}0   $$ ?</li><li>Après une semaine, l'absorbance mesurée n'est plus que de $A' = $0{,}11$$. Calculer la concentration restante en bleu de méthylène.</li><li>En déduire le taux d'avancement de la dégradation du bleu de méthylène, en considérant que la quantité initiale correspond à celle introduite et que la quantité finale correspond à celle restante.
+</li></ol>
+<strong>Partie C -- Contrôle de la salinité par conductimétrie</strong>
+<p>L'eau de l'aquarium (eau douce) doit avoir une conductivité comprise entre $$0{,}020   $$ et $$0{,}050   $$. La conductivité mesurée est $ = $0{,}038   $$.</p>
+<ol>
+{9}</li><li>L'eau de l'aquarium est-elle dans la plage de conductivité recommandée ?</li><li>En supposant que la conductivité est principalement due aux ions $ + $ et $^{-}$, estimer la concentration en $Na$ de l'eau.</li><li>Conclure sur la qualité globale de l'eau de l'aquarium en synthétisant les résultats des trois parties.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="info-box">
+<strong>Contexte</strong>
+<p>Un aquariophile utilise un produit commercial contenant du chlorure de calcium ${}_2$ pour ajuster la dureté de l'eau de son aquarium. Il souhaite vérifier la concentration en ions calcium $^{2 + }$ du produit à l'aide de trois techniques : spectrophotométrie, conductimétrie et titrage.<br></div></p>
+<p>La dissolution du chlorure de calcium s'écrit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_2  ^{2 + }(aq) + 2^{-}(aq)$$</div></div>$</div></div></p>
+<p>Ainsi, pour une concentration $C$ en ${}_2$ : $[$^{2 + }$] = C$ et $[$^{-}$] = 2C$.</p>
+<ol>
+<p>On forme un complexe coloré avec les ions $^{2 + }$ en ajoutant un réactif colorimétrique. La solution obtenue absorbe à $_{} = $570   $$. On réalise une gamme d'étalonnage.</p>
+<div class="text-center">
+{1.3}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>$[$^{2 + }$]$ ($e-3   $)</th><th>$2{,}0$</th><th>$4{,}0$</th><th>$6{,}0$</th><th>$8{,}0$</th><th>$10{,}0$</th></tr><tr><td>$A$</td><td>$0{,}12$</td><td>$0{,}24$</td><td>$0{,}36$</td><td>$0{,}48$</td><td>$0{,}60$</td></tr></tbody></table></div>
+</div>
+<strong>a)</strong> L'absorbance est proportionnelle à la concentration (loi de Beer-Lambert vérifiée). Le coefficient directeur de la droite vaut :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$k = {[$^{2 + }$]} = {0{,}12}{$2{,}0  10^{-3}$} = $60   $$</div></div>$</div></div>
+<strong>b)</strong> Pour la solution commerciale diluée 50 fois, on mesure $A_{} = $0{,}42$$.
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[$^{2 + }$]_{} = {A_{}}{k} = {0{,}42}{60} = $7{,}0  10^{-3}   $$</div></div>$</div></div>
+<p>En tenant compte de la dilution par 50 :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[$^{2 + }$]_{} = 50  $7{,}0  10^{-3}$ = $0{,}35   $$</div></div>$</div></div><br></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${[$^{2 + }$]_{} = $0{,}35   $}$$</div></div></div></div>
+<p>Données : $($^{2 + }$) = $11{,}90  10^{-3}   $$ et $($^{-}$) = $7{,}63  10^{-3}   $$.</p>
+<strong>a)</strong> Expression théorique de la conductivité :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = ($^{2 + }$)  [$^{2 + }$] + ($^{-}$)  [$^{-}$]$$</div></div></div></div>
+<p>Comme $[$^{2 + }$] = C  1000$ et $[$^{-}$] = 2C  1000$ (en $$) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = (($^{2 + }$) + 2 ($^{-}$))  C  1000$$</div></div></div></div></p>
+<strong>b)</strong> Calcul du coefficient directeur théorique :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$k_{} = (($^{2 + }$) + 2 ($^{-}$))  1000 = (11{,}90  10^{-3} + 2  7{,}63  10^{-3})  1000$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$k_{} = 27{,}16  10^{-3}  1000 = $27{,}16   $$</div></div>$</div></div>
+<strong>c)</strong> Pour la solution commerciale diluée 100 fois, on mesure $_{} = $0{,}098   $$.
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C_{} = {_{}}{k_{}} = {0{,}098}{27{,}16} = $3{,}61  10^{-3}   $$</div></div>$</div></div>
+<p>La concentration en ions calcium dans la solution diluée est $[$^{2 + }$]_{} = C_{} = $3{,}61  10^{-3}   $$.</p>
+<p>En tenant compte de la dilution par 100 :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[$^{2 + }$]_{} = 100  $3{,}61  10^{-3}$ = $0{,}361   $$</div></div>$</div></div><br></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${[$^{2 + }$]_{}  $0{,}36   $}$$</div></div></div></div>
+<p>On titre $V_0 = $10{,}0   $$ de la solution commerciale diluée 10 fois par une solution d'EDTA (noté $$^{4-}$$) de concentration $C_T = $5{,}0  10^{-2}   $$. La réaction de titrage est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{2 + }(aq) + ^{4-}(aq)  Ca^{2-}(aq)$$</div></div>$</div></div></p>
+<p>Les coefficients st chiométriques sont tous égaux à 1.</p>
+<strong>a)</strong> Relation à l'équivalence :
+<div class="example-box">
+<strong>Formule</strong>
+<p>À l'équivalence : ${[$^{2 + }$]_{}  V_0}{1} = {C_T  V_{T,}}{1}$</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[$^{2 + }$]_{}  V_0 = C_T  V_{T,}$$</div></div></div></div>
+</div>
+<strong>b)</strong> D'après le suivi conductimétrique du titrage, on identifie le changement de pente à $V_{T,} = $7{,}2   $$.
+<div class="example-box">
+<strong>Application numérique</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[$^{2 + }$]_{} = {C_T  V_{T,}}{V_0} = {0{,}050  7{,}2}{10{,}0} = $3{,}6  10^{-2}   $$</div></div>$</div></div>
+<p>En tenant compte de la dilution par 10 :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[$^{2 + }$]_{} = 10  $3{,}6  10^{-2}$ = $0{,}36   $$</div></div>$</div></div><br></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${[$^{2 + }$]_{} = $0{,}36   $}$$</div></div></div></div>
+<div class="text-center">
+{1.3}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Méthode</strong></th><th>Spectrophotométrie</th><th>Conductimétrie</th><th>Titrage</th></tr><tr><td>$[$^{2 + }$]$ ($$)</td><td>$0{,}35$</td><td>$0{,}36$</td><td>$0{,}36$</td></tr></tbody></table></div>
+</div>
+<p>Les trois méthodes donnent des résultats cohérents. La valeur moyenne est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[$^{2 + }$]_{} = {0{,}35 + 0{,}36 + 0{,}36}{3} = {$0{,}357   $  $0{,}36   $}$$</div></div></div></div></p>
+<p>La concentration en chlorure de calcium du produit commercial est donc $C(${}_2$)  $0{,}36   $$.</p>
+<p>La concentration massique correspondante est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C_m = C  M(${}_2$) = 0{,}36  (40{,}1 + 2  35{,}5) = 0{,}36  111{,}1 = {$40   $}$$</div></div></div></div></p>
+<strong>Conclusion :</strong> Les trois techniques analytiques (spectrophotométrie, conductimétrie, titrage) permettent de déterminer de manière convergente la concentration en ions calcium de la solution pour aquarium. L'accord entre les résultats confirme la fiabilité de la mesure. Le titrage et la conductimétrie donnent des résultats très proches, tandis que la spectrophotométrie est légèrement inférieure, ce qui peut s'expliquer par la sensibilité de la méthode à la formation du complexe coloré.
+</li></ol>
+                </div>
+            </details>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="cours_analyse_systeme.html" class="btn-action">📖 Revoir le cours</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=analyse_systeme" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=analyse_systeme" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

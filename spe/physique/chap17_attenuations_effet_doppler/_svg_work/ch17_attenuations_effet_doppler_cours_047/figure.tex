@@ -1,0 +1,62 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[
+ node distance=1.2cm and 2.2cm,
+ every node/.style={font=\small},
+ appbox/.style={draw=primary, fill=primary!8, rounded corners=3pt, 
+ text width=3.8cm, align=center, minimum height=1.2cm, font=\small},
+ >=Stealth
+]
+ % Noeud central
+ \node[draw=primary, fill=primary!20, rounded corners=5pt, 
+ text width=3.5cm, align=center, minimum height=1.0cm, font=\normalsize\bfseries]
+ (centre) {Effet Doppler};
+ 
+ % Applications
+ \node[appbox, above right=1.0cm and 2.0cm of centre] (med) 
+ {\textbf{M\'{e}decine}\\ Doppler sanguin\\ (ultrasons)};
+ \node[appbox, right=2.5cm of centre] (radar) 
+ {\textbf{Radars routiers}\\ Mesure de vitesse\\ (ondes EM)};
+ \node[appbox, below right=1.0cm and 2.0cm of centre] (astro) 
+ {\textbf{Astrophysique}\\ Vitesse des \'{e}toiles\\ Expansion de l'Univers};
+ 
+ % Fleches
+ \draw[->, thick, primary] (centre) -- (med);
+ \draw[->, thick, primary] (centre) -- (radar);
+ \draw[->, thick, primary] (centre) -- (astro);
+\end{tikzpicture}
+\end{document}

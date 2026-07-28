@@ -1,0 +1,706 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../ui/Breadcrumb.astro";
+import ChapterTabs from "./ChapterTabs.astro";
+import CourseReader from "./CourseReader.astro";
+import CoursTracker from "./CoursTracker.tsx";
+import ExercicesPlayer from "./ExercicesPlayer.tsx";
+import QuizPlayer from "./QuizPlayer.tsx";
+import FlashcardsPlayer from "./FlashcardsPlayer.tsx";
+import MathEmptyState from "../mathematiques/MathEmptyState.astro";
+
+type BreadcrumbItem = { label: string; href?: string };
+type ChapterLink = { title: string; href: string } | null;
+type ChapterBadge = { label: string; muted?: boolean };
+type ActivitySection = {
+  id: "cours" | "activite" | "exercices" | "quiz" | "flashcards";
+  label: string;
+  available: boolean;
+  count?: number;
+  detail: string;
+};
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string;
+  schemaType?: string;
+  noindex?: boolean;
+  breadcrumbItems: BreadcrumbItem[];
+  displayTitle: string;
+  chapterDescription?: string;
+  eyebrow?: string;
+  theme?: string;
+  badges?: ChapterBadge[];
+  levelLabel?: string;
+  subjectLabel?: string;
+  objectives?: string[];
+  prerequisites?: string[];
+  competencies?: string[];
+  tools?: string[];
+  estimatedDuration?: string | number;
+  headerVariant?: "default" | "math";
+  pageClass?: string;
+  chapterId: string;
+  xpConfig?: any;
+  CoursContent?: any;
+  ActivityContent?: any;
+  exercices?: any[];
+  quizData?: any[];
+  flashData?: any[];
+  backUrl: string;
+  backLabel?: string;
+  previousChapter?: ChapterLink;
+  nextChapter?: ChapterLink;
+  indexHref: string;
+  indexLabel?: string;
+  emptyStateTitle?: string;
+  emptyStateMessage?: string;
+  exercicesTitle?: string;
+  quizTitle?: string;
+  flashcardsTitle?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  schemaType = "Course",
+  noindex = false,
+  breadcrumbItems,
+  displayTitle,
+  chapterDescription,
+  eyebrow,
+  theme,
+  badges = [],
+  levelLabel,
+  subjectLabel,
+  objectives = [],
+  prerequisites = [],
+  competencies = [],
+  tools = [],
+  estimatedDuration,
+  headerVariant = "default",
+  pageClass = "",
+  chapterId,
+  xpConfig,
+  CoursContent,
+  ActivityContent,
+  exercices = [],
+  quizData = [],
+  flashData = [],
+  backUrl,
+  backLabel = "Retour",
+  previousChapter = null,
+  nextChapter = null,
+  indexHref,
+  indexLabel = "Liste des chapitres",
+  emptyStateTitle = "Aucun contenu n'est encore disponible pour ce chapitre.",
+  emptyStateMessage = "Le chapitre est déclaré, mais aucun cours, exercice, quiz ou flashcard n'a encore été ajouté.",
+  exercicesTitle = `Exercices - ${displayTitle}`,
+  quizTitle = `Quiz - ${displayTitle}`,
+  flashcardsTitle = `Flashcards - ${displayTitle}`,
+} = Astro.props;
+
+const hasCours = Boolean(CoursContent);
+const hasActivite = Boolean(ActivityContent);
+const hasExercices = exercices.length > 0;
+const hasQuiz = quizData.length > 0;
+const hasFlashcards = flashData.length > 0;
+const hasAnyContent = hasCours || hasActivite || hasExercices || hasQuiz || hasFlashcards;
+const rootClass = ["chapter-shell", pageClass].filter(Boolean).join(" ");
+
+function cleanItems(items: unknown[]): string[] {
+  return items
+    .filter((item): item is string => typeof item === "string")
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function formatDuration(value: string | number | undefined): string | null {
+  if (typeof value === "number" && Number.isFinite(value)) return `${value} min`;
+  if (typeof value === "string" && value.trim()) return value.trim();
+  return null;
+}
+
+function formatXp(value: any): string | null {
+  if (typeof value === "number" && Number.isFinite(value)) return `${value} XP`;
+  if (value && typeof value === "object") {
+    const total = Number(value.chapter_complete ?? value.course ?? value.cours);
+    if (Number.isFinite(total) && total > 0) return `${total} XP`;
+  }
+  return null;
+}
+
+const objectiveItems = cleanItems(objectives);
+const prerequisiteItems = cleanItems(prerequisites);
+const competencyItems = cleanItems(competencies);
+const toolItems = cleanItems(tools);
+const durationLabel = formatDuration(estimatedDuration);
+const xpLabel = formatXp(xpConfig);
+const activitySections: ActivitySection[] = [
+  { id: "cours", label: "Cours", available: hasCours, detail: "Comprendre les notions et les exemples." },
+  { id: "activite", label: "Activite", available: hasActivite, detail: "Manipuler, observer, conjecturer puis valider." },
+  { id: "exercices", label: "Exercices", available: hasExercices, count: exercices.length, detail: "S'entrainer avec des questions progressives." },
+  { id: "quiz", label: "Quiz", available: hasQuiz, count: quizData.length, detail: "Verifier rapidement les acquis." },
+  { id: "flashcards", label: "Flashcards", available: hasFlashcards, count: flashData.length, detail: "Reviser les mots et idees a retenir." },
+];
+const availableSections = activitySections.filter((section) => section.available);
+const activeActivityId = availableSections[0]?.id;
+const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  schemaType={schemaType}
+  noindex={noindex}
+>
+  <Breadcrumb items={breadcrumbItems} />
+
+  <article class={rootClass}>
+    {headerVariant === "math" ? (
+      <header class="math-chapter-header chapter-hero-v3">
+        {eyebrow && <p class="math-eyebrow chapter-eyebrow">{eyebrow}</p>}
+        <h1>{displayTitle}</h1>
+        {chapterDescription && <p class="math-chapter-description">{chapterDescription}</p>}
+        {badges.length > 0 && (
+          <div class="math-chapter-meta">
+            {badges.map((badge) => (
+              <span class:list={["math-badge", { muted: badge.muted }]}>{badge.label}</span>
+            ))}
+          </div>
+        )}
+      </header>
+    ) : (
+      <header class="chapter-header chapter-hero-v3">
+        {eyebrow && <p class="chapter-eyebrow">{eyebrow}</p>}
+        <h1>{displayTitle}</h1>
+        {chapterDescription && <p class="chapter-description">{chapterDescription}</p>}
+        {theme && <p class="chapter-theme">{theme}</p>}
+        {badges.length > 0 && (
+          <div class="chapter-meta-badges">
+            {badges.map((badge) => (
+              <span class:list={["chapter-badge", { muted: badge.muted }]}>{badge.label}</span>
+            ))}
+          </div>
+        )}
+      </header>
+    )}
+
+    {hasAnyContent && (
+      <section class="chapter-overview" aria-labelledby="chapter-overview-title">
+        <div class="chapter-overview-main">
+          <p class="chapter-overview-kicker">Vue d'ensemble</p>
+          <h2 id="chapter-overview-title">Avant de commencer</h2>
+          <p>{overviewObjective}</p>
+
+          <div class="chapter-overview-grid">
+            <div class="chapter-info-card">
+              <h3>Objectif</h3>
+              <ul>
+                {(objectiveItems.length ? objectiveItems : [overviewObjective]).slice(0, 3).map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div class="chapter-info-card">
+              <h3>Prérequis</h3>
+              <ul>
+                {(prerequisiteItems.length ? prerequisiteItems : ["Aucun prérequis spécifique indiqué."]).slice(0, 4).map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div class="chapter-info-card">
+              <h3>Compétences</h3>
+              <ul>
+                {(competencyItems.length ? competencyItems : ["Comprendre", "S'entrainer", "Vérifier ses acquis"]).slice(0, 4).map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <aside class="chapter-overview-side" aria-labelledby="chapter-summary-title">
+          <div class="chapter-quick-facts" aria-label="Repères du chapitre">
+            {subjectLabel && <span>{subjectLabel}</span>}
+            {levelLabel && <span>{levelLabel}</span>}
+            {durationLabel && <span>{durationLabel}</span>}
+            {xpLabel && <span>{xpLabel}</span>}
+            {toolItems.slice(0, 3).map((tool) => <span>{tool}</span>)}
+          </div>
+
+          <nav class="chapter-summary" aria-labelledby="chapter-summary-title">
+            <h2 id="chapter-summary-title">Sommaire</h2>
+            <ol>
+              {availableSections.map((section) => (
+                <li>
+                  <a
+                    href={`#chapter-panel-${section.id}`}
+                    data-chapter-summary-link={section.id}
+                    aria-current={section.id === activeActivityId ? "step" : undefined}
+                  >
+                    <span>{section.label}</span>
+                    {section.count !== undefined && section.count > 0 && <small>{section.count}</small>}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
+          <div class="chapter-recommended" aria-labelledby="chapter-recommended-title">
+            <h2 id="chapter-recommended-title">Parcours recommandé</h2>
+            <ol>
+              {availableSections.map((section) => (
+                <li>
+                  <a href={`#chapter-panel-${section.id}`} data-chapter-summary-link={section.id}>
+                    <strong>{section.label}</strong>
+                    <span>{section.detail}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </aside>
+      </section>
+    )}
+
+    {hasAnyContent ? (
+      <ChapterTabs
+        hasCours={hasCours}
+        hasActivite={hasActivite}
+        hasExercices={hasExercices}
+        hasQuiz={hasQuiz}
+        hasFlashcards={hasFlashcards}
+        exercicesCount={exercices.length}
+        quizCount={quizData.length}
+        flashcardsCount={flashData.length}
+        backUrl={backUrl}
+        backLabel={backLabel}
+      >
+        {hasCours && CoursContent && (
+          <div slot="cours" class="cours-content">
+            <CourseReader chapterId={chapterId} title={`Cours - ${displayTitle}`}>
+              <CoursTracker client:load chapterId={chapterId} xpConfig={xpConfig}>
+                <CoursContent />
+              </CoursTracker>
+            </CourseReader>
+          </div>
+        )}
+
+        {hasActivite && ActivityContent && (
+          <div slot="activite">
+            <ActivityContent />
+          </div>
+        )}
+
+        {hasExercices && (
+          <div slot="exercices">
+            <ExercicesPlayer client:load data={exercices} title={exercicesTitle} chapterId={chapterId} xpConfig={xpConfig} />
+          </div>
+        )}
+
+        {hasQuiz && (
+          <div slot="quiz">
+            <QuizPlayer client:load data={quizData} title={quizTitle} chapterId={chapterId} xpConfig={xpConfig} />
+          </div>
+        )}
+
+        {hasFlashcards && (
+          <div slot="flashcards">
+            <FlashcardsPlayer client:load data={flashData} title={flashcardsTitle} chapterId={chapterId} xpConfig={xpConfig} />
+          </div>
+        )}
+      </ChapterTabs>
+    ) : (
+      <MathEmptyState
+        title={emptyStateTitle}
+        message={emptyStateMessage}
+        actions={[{ label: backLabel, href: backUrl, primary: true }]}
+      />
+    )}
+
+    <nav class="chapter-pagination" aria-label="Navigation entre les chapitres">
+      {previousChapter ? (
+        <a href={previousChapter.href} class="chapter-pagination-link previous">
+          <span aria-hidden="true">←</span>
+          <span><small>Chapitre précédent</small>{previousChapter.title}</span>
+        </a>
+      ) : <span />}
+      <a href={indexHref} class="chapter-pagination-index">{indexLabel}</a>
+      {nextChapter ? (
+        <a href={nextChapter.href} class="chapter-pagination-link next">
+          <span><small>Chapitre suivant</small>{nextChapter.title}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      ) : <span />}
+    </nav>
+  </article>
+</BaseLayout>
+
+<style>
+  .chapter-shell {
+    --chapter-shell-max: 1120px;
+  }
+
+  .chapter-hero-v3,
+  .chapter-overview {
+    max-width: var(--chapter-shell-max);
+    margin-inline: auto;
+  }
+
+  .chapter-header {
+    margin-bottom: 1rem;
+    padding: clamp(1.2rem, 3vw, 2rem);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .chapter-header h1 {
+    font-size: clamp(1.6rem, 3vw, 2.35rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.12;
+  }
+
+  .chapter-eyebrow,
+  .chapter-overview-kicker {
+    margin: 0 0 0.45rem;
+    color: var(--accent-primary);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .chapter-description {
+    max-width: 760px;
+    margin: 0.75rem 0 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .chapter-theme {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0.75rem 0 0;
+  }
+
+  .chapter-meta-badges,
+  .math-chapter-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.9rem;
+  }
+
+  .chapter-badge,
+  .math-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 0.25rem 0.7rem;
+    border-radius: 99px;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    font-weight: 750;
+  }
+
+  .chapter-badge.muted,
+  .math-badge.muted {
+    color: var(--text-muted);
+  }
+
+  .math-chapter-header {
+    padding: clamp(1.2rem, 3vw, 2rem);
+    border: 1px solid var(--v3-color-border, var(--border-color));
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+    margin-bottom: 1rem;
+  }
+
+  .math-chapter-header h1 {
+    margin: 0;
+    font-size: clamp(1.6rem, 3vw, 2.35rem);
+    line-height: 1.12;
+  }
+
+  .math-chapter-description {
+    max-width: 760px;
+    margin: 0.75rem 0 0;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .chapter-overview {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.85fr);
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .chapter-overview-main,
+  .chapter-overview-side {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .chapter-overview-main {
+    padding: clamp(1rem, 2vw, 1.35rem);
+  }
+
+  .chapter-overview-main h2,
+  .chapter-summary h2,
+  .chapter-recommended h2 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  .chapter-overview-main > p {
+    margin: 0.55rem 0 0;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .chapter-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .chapter-info-card {
+    min-width: 0;
+    padding: 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+  }
+
+  .chapter-info-card h3 {
+    margin: 0 0 0.55rem;
+    color: var(--text-primary);
+    font-size: 0.86rem;
+  }
+
+  .chapter-info-card ul {
+    display: grid;
+    gap: 0.45rem;
+    padding-left: 1rem;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+
+  .chapter-overview-side {
+    display: grid;
+    gap: 0.9rem;
+    align-content: start;
+    padding: 1rem;
+  }
+
+  .chapter-quick-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .chapter-quick-facts span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 0.25rem 0.65rem;
+    border-radius: 99px;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    font-weight: 750;
+  }
+
+  .chapter-summary,
+  .chapter-recommended {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .chapter-summary ol,
+  .chapter-recommended ol {
+    display: grid;
+    gap: 0.45rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .chapter-summary a,
+  .chapter-recommended a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    min-height: 42px;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    text-decoration: none;
+    background: var(--bg-primary);
+  }
+
+  .chapter-summary a:hover,
+  .chapter-recommended a:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    text-decoration: none;
+  }
+
+  .chapter-summary a:focus-visible,
+  .chapter-recommended a:focus-visible {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 3px;
+  }
+
+  .chapter-summary a[aria-current="step"] {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    background: var(--accent-primary-light);
+    font-weight: 800;
+  }
+
+  .chapter-summary small {
+    flex: 0 0 auto;
+    min-width: 24px;
+    padding: 0.1rem 0.35rem;
+    border-radius: 99px;
+    background: var(--bg-tertiary);
+    color: var(--text-muted);
+    text-align: center;
+    font-weight: 800;
+  }
+
+  .chapter-recommended a {
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .chapter-recommended strong {
+    color: var(--text-primary);
+    font-size: 0.86rem;
+  }
+
+  .chapter-recommended span {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .chapter-pagination {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 900px;
+    margin: 1.5rem auto 0;
+  }
+
+  .chapter-pagination-link,
+  .chapter-pagination-index {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  .chapter-pagination-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  .chapter-pagination-link span:not([aria-hidden]) {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .chapter-pagination-link small {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  .chapter-pagination-link.previous {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .chapter-pagination-link.next {
+    justify-self: end;
+    text-align: right;
+  }
+
+  .chapter-pagination-index {
+    justify-self: center;
+    font-weight: 600;
+  }
+
+  .chapter-pagination a:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+  }
+
+  .chapter-pagination a:focus-visible {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 900px) {
+    .chapter-overview,
+    .chapter-overview-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .chapter-header,
+    .math-chapter-header,
+    .chapter-overview-main,
+    .chapter-overview-side {
+      border-radius: var(--radius-md);
+    }
+
+    .chapter-pagination {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .chapter-pagination-link.previous,
+    .chapter-pagination-link.next {
+      justify-self: center;
+      text-align: center;
+    }
+
+    .chapter-pagination-link span:not([aria-hidden]) {
+      align-items: center;
+    }
+
+    .chapter-pagination > span:empty {
+      display: none;
+    }
+  }
+</style>

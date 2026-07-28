@@ -1,0 +1,61 @@
+.labo-container { max-width: 1000px; margin: 0 auto; padding: 20px; font-family: 'Inter', sans-serif; }
+
+/* Zone Visuelle : Grille + Graphique */
+.visual-area { display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; align-items: stretch; margin: 20px 0 30px 0; }
+@media (max-width: 800px) { .visual-area { grid-template-columns: 1fr; } }
+
+/* Grille d'atomes */
+.grid-wrapper { background: #0f172a; padding: 20px; border-radius: 20px; border: 2px solid var(--card-border); box-shadow: inset 0 10px 30px rgba(0,0,0,0.5), 0 10px 30px var(--shadow-color); display: flex; flex-direction: column; justify-content: center; }
+.grid-title { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 15px; font-weight: 800; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+.grid-container { display: grid; grid-template-columns: repeat(20, 1fr); gap: 4px; width: 100%; max-width: 400px; margin: 0 auto; }
+
+.atom { width: 100%; aspect-ratio: 1; border-radius: 50%; background: #ef4444; box-shadow: 0 0 8px rgba(239, 68, 68, 0.8); transition: background 0.3s, box-shadow 0.3s; }
+.atom.decayed { background: #334155; box-shadow: none; }
+
+/* Graphique */
+.visual-area .graph-container { background: var(--bg-card); border-radius: 20px; padding: 15px; border: 1px solid var(--card-border); box-shadow: 0 8px 25px var(--shadow-color); position: relative; }
+canvas { width: 100%; height: auto; display: block; }
+
+/* Panneaux */
+.main-dashboard { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+@media (max-width: 800px) { .main-dashboard { grid-template-columns: 1fr; } }
+
+.panel { background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1px solid var(--card-border); box-shadow: 0 8px 25px var(--shadow-color); text-align: left; transition: transform 0.3s; }
+.panel:hover { transform: translateY(-3px); box-shadow: 0 12px 30px var(--shadow-color); }
+.panel-title { font-size: 1.1rem; color: var(--text-muted); text-transform: uppercase; font-weight: 900; margin-bottom: 20px; border-bottom: 2px dashed var(--card-border); padding-bottom: 10px; }
+
+/* Sliders & Legend */
+.slider-group { margin-bottom: 20px; }
+.slider-group label { display: flex; justify-content: space-between; font-weight: bold; color: var(--text-main); margin-bottom: 8px; }
+input[type=range] { width: 100%; accent-color: #22c55e; cursor: pointer; }
+input[type=range]:disabled { opacity: 0.5; cursor: not-allowed; }
+.val-highlight { font-weight: 900; color: #22c55e; }
+
+.legend-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 0.95rem; color: var(--text-muted); background: var(--bg-page); padding: 12px 15px; border-radius: 12px; border: 1px solid var(--card-border); }
+.legend-exp { color: #eab308; font-weight: 900; }
+.legend-theo { color: #22c55e; font-weight: 900; }
+
+/* Données en direct */
+.formula-line { display: flex; justify-content: space-between; align-items: center; background: var(--bg-page); padding: 15px 20px; border-radius: 12px; margin-bottom: 12px; border: 1px solid var(--card-border); font-size: 1.05rem; color: var(--text-main); font-weight: bold; }
+.formula-math { font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: bold; color: #22c55e; }
+.formula-value { font-family: 'Courier New', Courier, monospace; font-weight: 900; display: flex; align-items: center; gap: 10px; justify-content: flex-end; }
+
+.arrow-up { color: #ef4444; font-weight: 900; } 
+.arrow-down { color: #3b82f6; font-weight: 900; } 
+.arrow-flat { color: var(--text-muted); font-weight: 900; }
+
+/* NOUVEAUX CONTRÔLES */
+.control-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.btn-control { padding: 12px; border: none; border-radius: 12px; font-weight: 800; font-size: 1rem; color: white; cursor: pointer; transition: all 0.2s; text-align: center; }
+.btn-control:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+.btn-control:disabled { opacity: 0.4; cursor: not-allowed; filter: grayscale(50%); }
+
+.btn-play { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.btn-pause { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.btn-speed { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+.btn-speed.slow-active { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.control-panel .btn-reset { background: linear-gradient(135deg, #64748b, #475569); }
+
+/* Adaptations Dark Mode Spécifiques */
+body.dark-mode .grid-wrapper { border-color: #334155; }
+body.dark-mode .atom.decayed { background: #1e293b; }   

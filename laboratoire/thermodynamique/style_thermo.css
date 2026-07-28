@@ -1,0 +1,117 @@
+/* =========================================
+   STYLES DU LABO : THERMODYNAMIQUE
+   ========================================= */
+
+.labo-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px; align-items: start; }
+
+.bench-panel { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+.bench-header { font-size: 1.2rem; color: #1e293b; font-weight: 900; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;}
+
+/* Conteneur du Canvas */
+.canvas-container { display: flex; justify-content: center; align-items: center; background: #0f172a; border-radius: 16px; border: 4px solid #334155; margin-bottom: 20px; overflow: hidden; box-shadow: inset 0 10px 30px rgba(0,0,0,0.5);}
+canvas { display: block; max-width: 100%; height: auto; }
+
+/* Tableau de bord - Matériaux */
+.dashboard { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: left;}
+.control-group label { font-size: 0.95rem; font-weight: bold; color: #64748b; margin-bottom: 8px; display: block; }
+.material-buttons { display: flex; gap: 8px; }
+
+.btn-material { flex: 1; padding: 10px 5px; background: white; border: 2px solid #cbd5e1; border-radius: 8px; color: #475569; font-size: 0.9rem; font-weight: bold; cursor: pointer; transition: all 0.2s;}
+.btn-material small { display: block; font-weight: normal; font-size: 0.75rem; margin-top: 3px; color: #94a3b8;}
+.btn-material:hover { border-color: #f59e0b; color: #d97706;}
+.btn-material.active { background: #fffbeb; border-color: #f59e0b; color: #b45309; box-shadow: 0 4px 10px rgba(245, 158, 11, 0.2);}
+.btn-material.active small { color: #d97706;}
+
+/* Sliders et Boutons standards */
+input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #3b82f6; cursor: pointer; margin-top: -8px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);}
+input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #cbd5e1; border-radius: 50px; }
+
+.controls-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 15px; }
+.btn-lab { background: #f8fafc; border: 2px solid #cbd5e1; color: #334155; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 0.95rem;}
+.btn-lab:hover { background: #e2e8f0; border-color: #94a3b8; transform: translateY(-2px);}
+.btn-lab.danger { background: #fef2f2; color: #dc2626; border-color: #fca5a5; }
+
+/* Panneau Droit & Data en direct */
+.data-panel { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+.live-data-box { display: flex; justify-content: space-between; background: #f1f5f9; padding: 15px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+.data-column { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.data-label { font-size: 0.8rem; color: #64748b; font-weight: bold; text-transform: uppercase; margin-bottom: 5px;}
+.data-value { font-family: 'Courier New', Courier, monospace; font-size: 1.4rem; font-weight: 900; }
+
+.alert-box { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 0 8px 8px 0; margin-bottom: 15px; font-size: 0.95rem; color: #b45309; font-weight: bold; text-align: left; }
+
+.tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+.tab-btn { background: none; border: none; font-size: 1.1rem; font-weight: bold; color: #64748b; cursor: pointer; padding: 5px 10px; transition: color 0.2s; }
+.tab-btn.active { color: #ef4444; border-bottom: 3px solid #ef4444; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.3s; }
+
+.chart-container { width: 100%; height: 320px; }
+
+@media (max-width: 950px) { .labo-container { grid-template-columns: 1fr; } }
+
+/* --- MODE SOMBRE --- */
+body.dark-mode .bench-panel, body.dark-mode .data-panel { background: #1e293b; border-color: #334155; }
+body.dark-mode .bench-header { color: #f8fafc; }
+body.dark-mode .dashboard, body.dark-mode .live-data-box { background: #0f172a; border-color: #334155; }
+body.dark-mode .control-group label { color: #cbd5e1; }
+body.dark-mode #val-thickness { color: #f8fafc !important; }
+
+body.dark-mode .btn-material { background: #1e293b; border-color: #475569; color: #94a3b8; }
+body.dark-mode .btn-material:hover { border-color: #fbbf24; color: #fde68a; }
+body.dark-mode .btn-material.active { background: #451a03; border-color: #f59e0b; color: #fde68a; }
+
+body.dark-mode .btn-lab { background: #0f172a; border-color: #334155; color: #cbd5e1; }
+body.dark-mode .btn-lab:hover { background: #334155; color: white; }
+body.dark-mode .alert-box { background: #0f172a; color: #fbbf24; border-left-color: #f59e0b;}
+
+body.dark-mode .tab-btn { color: #94a3b8; }
+body.dark-mode .tab-btn.active { color: #f87171; border-bottom-color: #f87171; }
+body.dark-mode .data-label { color: #cbd5e1; }
+body.dark-mode .chart-info { background: #0f172a !important; color: #94a3b8 !important; border-left-color: #475569 !important; }
+
+
+/* --- NOUVEAU : Couleurs des Sliders T1 et T2 --- */
+#slider-t1::-webkit-slider-thumb { background: #ef4444; }
+#slider-t2::-webkit-slider-thumb { background: #3b82f6; }
+
+/* --- NOUVEAU : Classes propres pour les Formules --- */
+.formula-box {
+    padding: 15px; 
+    margin: 15px 0; 
+    border-radius: 8px;
+    text-align: center;
+}
+
+.formula-red {
+    background: #f8fafc;
+    border-left: 4px solid #ef4444;
+    color: #1e3a8a;
+}
+
+.formula-yellow {
+    background: #fffbeb;
+    border: 2px dashed #fcd34d;
+    border-left: 4px solid #f59e0b;
+    color: #b45309;
+    font-weight: 900;
+}
+
+/* --- NOUVEAU : Mode Sombre Parfait pour les formules --- */
+body.dark-mode .formula-red {
+    background: #0f172a;
+    border-left-color: #ef4444;
+    color: #93c5fd; /* Bleu clair lisible */
+}
+
+body.dark-mode .formula-yellow {
+    background: #451a03;
+    border-color: #78350f;
+    border-left-color: #f59e0b;
+    color: #fde68a; /* Jaune clair lisible */
+}
+
+body.dark-mode #val-init-t1 { color: #fca5a5 !important; }
+body.dark-mode #val-init-t2 { color: #93c5fd !important; }

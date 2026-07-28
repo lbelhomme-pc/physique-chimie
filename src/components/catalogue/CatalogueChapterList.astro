@@ -1,0 +1,270 @@
+---
+import type { CatalogueAction, CatalogueChapterItem } from "./types";
+
+interface Props {
+  id: string;
+  title: string;
+  chapters: CatalogueChapterItem[];
+  accent?: "physics" | "chemistry" | "maths" | "science";
+  emptyTitle?: string;
+  emptyMessage?: string;
+  emptyActions?: CatalogueAction[];
+}
+
+const {
+  id,
+  title,
+  chapters,
+  accent = "physics",
+  emptyTitle = "Aucun chapitre publié pour le moment",
+  emptyMessage = "Les contenus seront ajoutés progressivement.",
+  emptyActions = [],
+} = Astro.props;
+
+const sortedChapters = [...chapters].sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || a.title.localeCompare(b.title));
+---
+
+<section id={id} class:list={["catalogue-section", `catalogue-section--${accent}`]} aria-labelledby={`${id}-title`}>
+  <div class="catalogue-section__head">
+    <div>
+      <h2 id={`${id}-title`}>{title}</h2>
+      <p>{sortedChapters.length} chapitre{sortedChapters.length > 1 ? "s" : ""} dans l'ordre du programme</p>
+    </div>
+    <span class="catalogue-count" aria-label={`${sortedChapters.length} chapitre${sortedChapters.length > 1 ? "s" : ""}`}>
+      {sortedChapters.length}
+    </span>
+  </div>
+
+  {sortedChapters.length > 0 ? (
+    <ol class="catalogue-list">
+      {sortedChapters.map((chapter, index) => (
+        <li>
+          <a class="catalogue-card" href={chapter.href}>
+            <span class="catalogue-card__index" aria-label={`Chapitre ${index + 1}`}>{String(index + 1).padStart(2, "0")}</span>
+            <span class="catalogue-card__body">
+              <strong>{chapter.title}</strong>
+              {chapter.description && <span>{chapter.description}</span>}
+              {chapter.badges && chapter.badges.length > 0 && (
+                <span class="catalogue-card__badges" aria-label="Repères du chapitre">
+                  {chapter.badges.map((badge) => <em>{badge}</em>)}
+                </span>
+              )}
+            </span>
+            <span class="catalogue-card__action">Ouvrir</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <div class="catalogue-empty" aria-live="polite">
+      <h3>{emptyTitle}</h3>
+      <p>{emptyMessage}</p>
+      {emptyActions.length > 0 && (
+        <div class="catalogue-empty__actions">
+          {emptyActions.map((action) => (
+            <a class:list={["catalogue-empty__action", { primary: action.primary }]} href={action.href}>
+              {action.label}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  )}
+</section>
+
+<style>
+  .catalogue-section {
+    --catalogue-accent: var(--v3-color-discipline-pc);
+    --catalogue-surface: var(--v3-color-discipline-pc-bg);
+    --catalogue-border: var(--v3-color-discipline-pc-border);
+    display: grid;
+    gap: var(--v3-space-3);
+  }
+
+  .catalogue-section--chemistry {
+    --catalogue-accent: var(--v3-color-discipline-chemistry);
+    --catalogue-surface: var(--v3-color-success-subtle);
+    --catalogue-border: color-mix(in srgb, var(--v3-color-discipline-chemistry) 35%, var(--v3-color-border-default));
+  }
+
+  .catalogue-section--maths {
+    --catalogue-accent: var(--v3-color-discipline-maths);
+    --catalogue-surface: var(--v3-color-discipline-maths-bg);
+    --catalogue-border: var(--v3-color-discipline-maths-border);
+  }
+
+  .catalogue-section--science {
+    --catalogue-accent: var(--v3-color-discipline-science);
+    --catalogue-surface: var(--v3-color-discipline-science-bg);
+    --catalogue-border: var(--v3-color-discipline-science-border);
+  }
+
+  .catalogue-section__head {
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--catalogue-accent);
+    border-radius: var(--radius-md);
+    display: flex;
+    gap: var(--v3-space-3);
+    justify-content: space-between;
+    padding: var(--v3-space-4);
+  }
+
+  .catalogue-section__head h2,
+  .catalogue-empty h3 {
+    color: var(--text-primary);
+    font-size: 1.18rem;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .catalogue-section__head p,
+  .catalogue-card__body > span,
+  .catalogue-empty p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .catalogue-count {
+    align-items: center;
+    background: var(--catalogue-surface);
+    border: 1px solid var(--catalogue-border);
+    border-radius: var(--radius-pill);
+    color: var(--catalogue-accent);
+    display: inline-flex;
+    font-weight: 950;
+    justify-content: center;
+    min-height: 38px;
+    min-width: 44px;
+    padding: 0 var(--v3-space-2);
+  }
+
+  .catalogue-list {
+    display: grid;
+    gap: var(--v3-space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .catalogue-card {
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: inherit;
+    display: grid;
+    gap: var(--v3-space-3);
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    min-height: 86px;
+    padding: var(--v3-space-3);
+    text-decoration: none;
+  }
+
+  .catalogue-card__index {
+    align-items: center;
+    background: var(--catalogue-surface);
+    border: 1px solid var(--catalogue-border);
+    border-radius: var(--v3-radius-md);
+    color: var(--catalogue-accent);
+    display: inline-flex;
+    font-weight: 950;
+    height: 42px;
+    justify-content: center;
+    width: 42px;
+  }
+
+  .catalogue-card__body {
+    display: grid;
+    gap: 0.28rem;
+    min-width: 0;
+  }
+
+  .catalogue-card__body strong {
+    color: var(--text-primary);
+    line-height: 1.25;
+  }
+
+  .catalogue-card__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--v3-space-2);
+  }
+
+  .catalogue-card__badges em {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    font-style: normal;
+    font-weight: 800;
+    padding: 0.18rem 0.5rem;
+  }
+
+  .catalogue-card__action,
+  .catalogue-empty__action {
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    color: var(--catalogue-accent);
+    display: inline-flex;
+    font-weight: 900;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0.45rem 0.75rem;
+  }
+
+  .catalogue-card:hover,
+  .catalogue-card:focus-visible {
+    border-color: var(--catalogue-accent);
+    box-shadow: var(--v3-shadow-focus);
+    outline: none;
+  }
+
+  .catalogue-empty {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent-warning);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    display: grid;
+    gap: var(--v3-space-2);
+    padding: var(--v3-space-4);
+  }
+
+  .catalogue-empty__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--v3-space-2);
+    margin-top: var(--v3-space-2);
+  }
+
+  .catalogue-empty__action {
+    text-decoration: none;
+  }
+
+  .catalogue-empty__action.primary {
+    background: var(--catalogue-accent);
+    border-color: var(--catalogue-accent);
+    color: #fff;
+  }
+
+  @media (max-width: 640px) {
+    .catalogue-section__head,
+    .catalogue-card {
+      align-items: start;
+      grid-template-columns: 1fr;
+    }
+
+    .catalogue-section__head {
+      display: grid;
+    }
+
+    .catalogue-card__action {
+      justify-self: start;
+    }
+  }
+</style>

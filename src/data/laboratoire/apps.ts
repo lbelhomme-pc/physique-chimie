@@ -10,6 +10,7 @@ export type LabApp = {
   topics: Array<"mouvement" | "ondes" | "electricite" | "matiere" | "transformations" | "acidebase">;
   tags: string[];
   simKind?: string;
+  renderer?: "generic" | "dedicated-component" | "explicit-page";
   objective: string;
   legacyPath: string;
   status: "migrated" | "pending";
@@ -28,6 +29,7 @@ export const labApps: LabApp[] = [
     topics: ["electricite"],
     tags: ["Physique", "Électricité", "Lycée (Term)"],
     simKind: "circuit-rc",
+    renderer: "explicit-page",
     objective:
       "Observer la charge et la décharge d'un condensateur, relier la courbe à la constante de temps τ = R × C.",
     legacyPath: "laboratoire/circuit_rc/circuit_rc_v3.html",
@@ -45,6 +47,7 @@ export const labApps: LabApp[] = [
     topics: ["mouvement"],
     tags: ["Physique", "Mouvement", "Lycée (Term)"],
     simKind: "kepler",
+    renderer: "explicit-page",
     objective:
       "Faire varier une orbite elliptique, mesurer des aires balayées et vérifier que T²/a³ reste constant.",
     legacyPath: "laboratoire/loi_kepler/kepler.html",
@@ -62,6 +65,7 @@ export const labApps: LabApp[] = [
     topics: ["matiere"],
     tags: ["Chimie", "Matière / thermo", "Lycée (Term)"],
     simKind: "gaz-parfaits",
+    renderer: "explicit-page",
     objective:
       "Comprendre l'effet de T, V et n sur la pression d'un gaz à partir de la relation P × V = n × R × T.",
     legacyPath: "laboratoire/gaz_parfaits/gaz_parfaits.html",
@@ -79,6 +83,7 @@ export const labApps: LabApp[] = [
     topics: ["matiere"],
       tags: ["Chimie", "Matière", "Collège / Lycée"],
       simKind: "diffusion",
+      renderer: "explicit-page",
       objective:
         "Comparer la diffusion d'un colorant selon la température et distinguer diffusion seule et brassage mécanique.",
     legacyPath: "laboratoire/diffusion/diffusion.html",
@@ -160,7 +165,8 @@ export const labApps: LabApp[] = [
     topics: ["matiere"],
     tags: ["Physique", "Radioactivité", "Lycée"],
     simKind: "decay",
-    objective: "Observer la décroissance exponentielle et vérifier qu'à chaque demi-vie le nombre de noyaux restants est divisé par deux.",
+    renderer: "dedicated-component",
+    objective: "Comparer une réalisation aléatoire à la loi de décroissance moyenne et vérifier la propriété de la demi-vie.",
     legacyPath: "laboratoire/decroissance_radioactive/decroissance.html",
     status: "migrated",
   },
@@ -328,15 +334,16 @@ export const labApps: LabApp[] = [
     slug: "titrage-ph-metrique",
     title: "Titrage pH-métrique",
     route: "/laboratoire/titrage-ph-metrique",
-    icon: "🧴",
+    icon: "pH",
     theme: "chimie",
-    level: "Lycée",
+    level: "Terminale spécialité",
     levels: ["lycee"],
     concept: "Titrage",
     topics: ["acidebase"],
     tags: ["Chimie", "Titrage", "Lycée"],
     simKind: "titration-ph",
-    objective: "Relier le montage de titrage à la courbe pH = f(V) et repérer l'équivalence au milieu du saut de pH.",
+    renderer: "dedicated-component",
+    objective: "Construire la courbe pH = f(V), suivre le changement de réactif limitant et repérer l'équivalence dans le saut de pH.",
     legacyPath: "laboratoire/titrage_ph/titrage_ph.html",
     status: "migrated",
   },

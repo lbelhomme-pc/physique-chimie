@@ -1,22 +1,960 @@
 [
-  {"id":"decrire-mouvement-q01","type":"mcq","question":"Le système est...","choices":["l'objet dont on étudie le mouvement","l'objet de référence uniquement","la trajectoire","la durée du parcours"],"answer":0,"explanation":"Le système est l'objet étudié."},
-  {"id":"decrire-mouvement-q02","type":"mcq","question":"Le référentiel est...","choices":["l'objet de référence par rapport auquel on décrit le mouvement","la valeur de la vitesse","la distance parcourue","le nom du système"],"answer":0,"explanation":"Un mouvement se décrit toujours par rapport à un référentiel."},
-  {"id":"decrire-mouvement-q03","type":"mcq","question":"Un passager assis dans un train est immobile...","choices":["dans le référentiel du train","dans tous les référentiels","dans le référentiel du quai si le train roule","uniquement dans le référentiel héliocentrique"],"answer":0,"explanation":"Sa position ne change pas par rapport au train."},
-  {"id":"decrire-mouvement-q04","type":"mcq","question":"La trajectoire est...","choices":["l'ensemble des positions successives du système","la vitesse maximale","la durée du mouvement","le référentiel choisi"],"answer":0,"explanation":"La trajectoire décrit le chemin suivi par le système."},
-  {"id":"decrire-mouvement-q05","type":"mcq","question":"Une trajectoire en ligne droite est dite...","choices":["rectiligne","circulaire","curviligne","uniforme"],"answer":0,"explanation":"Rectiligne signifie en forme de droite."},
-  {"id":"decrire-mouvement-q06","type":"mcq","question":"Une trajectoire qui suit un cercle est dite...","choices":["circulaire","rectiligne","décélérée","uniforme uniquement"],"answer":0,"explanation":"La forme de la trajectoire est un cercle."},
-  {"id":"decrire-mouvement-q07","type":"mcq","question":"La vitesse moyenne se calcule avec...","choices":["\\(v=d/\\Delta t\\)","\\(v=d\\times\\Delta t\\)","\\(v=\\Delta t/d\\)","\\(v=d+\\Delta t\\)"],"answer":0,"explanation":"La vitesse moyenne est la distance parcourue divisée par la durée."},
-  {"id":"decrire-mouvement-q08","type":"mcq","question":"Si \\(d\\) est en m et \\(\\Delta t\\) en s, \\(v\\) est en...","choices":["\\(m\\cdot s^{-1}\\)","km","s","m\\cdot s"],"answer":0,"explanation":"Une vitesse est une distance divisée par une durée."},
-  {"id":"decrire-mouvement-q09","type":"mcq","question":"Pour convertir des \\(m\\cdot s^{-1}\\) en \\(km\\cdot h^{-1}\\), on...","choices":["multiplie par 3,6","divise par 3,6","multiplie par 1000","divise par 60"],"answer":0,"explanation":"\\(1\\ m\\cdot s^{-1}=3{,}6\\ km\\cdot h^{-1}\\)."},
-  {"id":"decrire-mouvement-q10","type":"mcq","question":"Un vecteur possède...","choices":["une direction, un sens et une valeur","seulement une valeur","seulement une couleur","seulement une unité"],"answer":0,"explanation":"Ces trois caractéristiques sont indispensables pour un vecteur."},
-  {"id":"decrire-mouvement-q11","type":"mcq","question":"Le vecteur vitesse en un point d'une trajectoire est...","choices":["tangent à la trajectoire et orienté dans le sens du mouvement","toujours vertical","toujours dirigé vers le centre de la Terre","opposé au mouvement"],"answer":0,"explanation":"Le vecteur vitesse indique la direction instantanée du mouvement."},
-  {"id":"decrire-mouvement-q12","type":"mcq","question":"Un mouvement uniforme signifie que...","choices":["la valeur de la vitesse est constante","la trajectoire est forcément droite","le système est immobile","la vitesse augmente"],"answer":0,"explanation":"Uniforme concerne l'évolution de la valeur de la vitesse."},
-  {"id":"decrire-mouvement-q13","type":"mcq","question":"Un mouvement accéléré signifie que...","choices":["la valeur de la vitesse augmente","la trajectoire est un cercle","la vitesse est nulle","la valeur de la vitesse diminue"],"answer":0,"explanation":"Accéléré signifie que la valeur de la vitesse augmente."},
-  {"id":"decrire-mouvement-q14","type":"mcq","question":"Un mouvement décéléré signifie que...","choices":["la valeur de la vitesse diminue","la valeur de la vitesse augmente","la trajectoire est droite","le référentiel change"],"answer":0,"explanation":"Décéléré signifie que le mobile ralentit."},
-  {"id":"decrire-mouvement-q15","type":"mcq","question":"Sur une chronophotographie avec durées égales, des points de plus en plus espacés indiquent...","choices":["un mouvement accéléré","un mouvement décéléré","un objet immobile","une trajectoire forcément circulaire"],"answer":0,"explanation":"Le mobile parcourt de plus grandes distances pendant la même durée."},
-  {"id":"decrire-mouvement-q16","type":"mcq","question":"Sur une chronophotographie avec durées égales, des points également espacés indiquent...","choices":["une vitesse de valeur constante","une vitesse qui augmente","une vitesse qui diminue","une transformation chimique"],"answer":0,"explanation":"Distances égales pendant durées égales : vitesse constante."},
-  {"id":"decrire-mouvement-q17","type":"mcq","question":"Une voiture à vitesse constante dans un rond-point a un vecteur vitesse qui...","choices":["change de direction","est toujours constant","est nul","est vertical"],"answer":0,"explanation":"La valeur peut être constante mais la direction change."},
-  {"id":"decrire-mouvement-q18","type":"mcq","question":"Le référentiel terrestre est adapté pour étudier...","choices":["le mouvement d'une voiture sur une route","le mouvement des planètes autour du Soleil uniquement","la composition d'un noyau","une réaction chimique"],"answer":0,"explanation":"Pour les mouvements proches de la surface terrestre, le référentiel terrestre est souvent adapté."},
-  {"id":"decrire-mouvement-q19","type":"mcq","question":"Le principal piège dans une description de mouvement est...","choices":["oublier le référentiel","écrire une unité","nommer le système","décrire la trajectoire"],"answer":0,"explanation":"Sans référentiel, la description est incomplète."},
-  {"id":"decrire-mouvement-q20","type":"mcq","question":"Pour décrire complètement un mouvement, on précise au minimum...","choices":["système, référentiel, trajectoire et évolution de la vitesse","seulement la couleur du système","seulement la distance totale","seulement la masse"],"answer":0,"explanation":"Ces informations structurent une description physique du mouvement."}
+  {
+    "id": "decrire-mouvement-q01",
+    "type": "mcq",
+    "question": "Le système est...",
+    "choices": [
+      "l'objet dont on étudie le mouvement",
+      "l'objet de référence uniquement",
+      "la trajectoire",
+      "la durée du parcours"
+    ],
+    "answer": 0,
+    "explanation": "Le système est l'objet étudié.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "decrire-mouvement-q02",
+    "type": "mcq",
+    "question": "Le référentiel est...",
+    "choices": [
+      "l'objet de référence par rapport auquel on décrit le mouvement",
+      "la valeur de la vitesse",
+      "la distance parcourue",
+      "le nom du système"
+    ],
+    "answer": 0,
+    "explanation": "Un mouvement se décrit toujours par rapport à un référentiel.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "decrire-mouvement-q03",
+    "type": "mcq",
+    "question": "Un passager assis dans un train est immobile...",
+    "choices": [
+      "dans le référentiel du train",
+      "dans tous les référentiels",
+      "dans le référentiel du quai si le train roule",
+      "uniquement dans le référentiel héliocentrique"
+    ],
+    "answer": 0,
+    "explanation": "Sa position ne change pas par rapport au train.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "decrire-mouvement-q04",
+    "type": "mcq",
+    "question": "La trajectoire est...",
+    "choices": [
+      "l'ensemble des positions successives du système",
+      "la vitesse maximale",
+      "la durée du mouvement",
+      "le référentiel choisi"
+    ],
+    "answer": 0,
+    "explanation": "La trajectoire décrit le chemin suivi par le système.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "decrire-mouvement-q05",
+    "type": "mcq",
+    "question": "Une trajectoire en ligne droite est dite...",
+    "choices": [
+      "rectiligne",
+      "circulaire",
+      "curviligne",
+      "uniforme"
+    ],
+    "answer": 0,
+    "explanation": "Rectiligne signifie en forme de droite.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "decrire-mouvement-q06",
+    "type": "mcq",
+    "question": "Une trajectoire qui suit un cercle est dite...",
+    "choices": [
+      "circulaire",
+      "rectiligne",
+      "décélérée",
+      "uniforme uniquement"
+    ],
+    "answer": 0,
+    "explanation": "La forme de la trajectoire est un cercle.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "decrire-mouvement-q07",
+    "type": "mcq",
+    "question": "La vitesse moyenne se calcule avec...",
+    "choices": [
+      "\\(v=d/\\Delta t\\)",
+      "\\(v=d\\times\\Delta t\\)",
+      "\\(v=\\Delta t/d\\)",
+      "\\(v=d+\\Delta t\\)"
+    ],
+    "answer": 0,
+    "explanation": "La vitesse moyenne est la distance parcourue divisée par la durée.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "decrire-mouvement-q08",
+    "type": "mcq",
+    "question": "Si \\(d\\) est en m et \\(\\Delta t\\) en s, \\(v\\) est en...",
+    "choices": [
+      "\\(m\\cdot s^{-1}\\)",
+      "km",
+      "s",
+      "m\\cdot s"
+    ],
+    "answer": 0,
+    "explanation": "Une vitesse est une distance divisée par une durée.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "decrire-mouvement-q09",
+    "type": "mcq",
+    "question": "Pour convertir des \\(m\\cdot s^{-1}\\) en \\(km\\cdot h^{-1}\\), on...",
+    "choices": [
+      "multiplie par 3,6",
+      "divise par 3,6",
+      "multiplie par 1000",
+      "divise par 60"
+    ],
+    "answer": 0,
+    "explanation": "\\(1\\ m\\cdot s^{-1}=3{,}6\\ km\\cdot h^{-1}\\).",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "decrire-mouvement-q10",
+    "type": "mcq",
+    "question": "Un vecteur possède...",
+    "choices": [
+      "une direction, un sens et une valeur",
+      "seulement une valeur",
+      "seulement une couleur",
+      "seulement une unité"
+    ],
+    "answer": 0,
+    "explanation": "Ces trois caractéristiques sont indispensables pour un vecteur.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "decrire-mouvement-q11",
+    "type": "mcq",
+    "question": "Le vecteur vitesse en un point d'une trajectoire est...",
+    "choices": [
+      "tangent à la trajectoire et orienté dans le sens du mouvement",
+      "toujours vertical",
+      "toujours dirigé vers le centre de la Terre",
+      "opposé au mouvement"
+    ],
+    "answer": 0,
+    "explanation": "Le vecteur vitesse indique la direction instantanée du mouvement.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "decrire-mouvement-q12",
+    "type": "mcq",
+    "question": "Un mouvement uniforme signifie que...",
+    "choices": [
+      "la valeur de la vitesse est constante",
+      "la trajectoire est forcément droite",
+      "le système est immobile",
+      "la vitesse augmente"
+    ],
+    "answer": 0,
+    "explanation": "Uniforme concerne l'évolution de la valeur de la vitesse.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "decrire-mouvement-q13",
+    "type": "mcq",
+    "question": "Un mouvement accéléré signifie que...",
+    "choices": [
+      "la valeur de la vitesse augmente",
+      "la trajectoire est un cercle",
+      "la vitesse est nulle",
+      "la valeur de la vitesse diminue"
+    ],
+    "answer": 0,
+    "explanation": "Accéléré signifie que la valeur de la vitesse augmente.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "decrire-mouvement-q14",
+    "type": "mcq",
+    "question": "Un mouvement décéléré signifie que...",
+    "choices": [
+      "la valeur de la vitesse diminue",
+      "la valeur de la vitesse augmente",
+      "la trajectoire est droite",
+      "le référentiel change"
+    ],
+    "answer": 0,
+    "explanation": "Décéléré signifie que le mobile ralentit.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "decrire-mouvement-q15",
+    "type": "mcq",
+    "question": "Sur une chronophotographie avec durées égales, des points de plus en plus espacés indiquent...",
+    "choices": [
+      "un mouvement accéléré",
+      "un mouvement décéléré",
+      "un objet immobile",
+      "une trajectoire forcément circulaire"
+    ],
+    "answer": 0,
+    "explanation": "Le mobile parcourt de plus grandes distances pendant la même durée.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "decrire-mouvement-q16",
+    "type": "mcq",
+    "question": "Sur une chronophotographie avec durées égales, des points également espacés indiquent...",
+    "choices": [
+      "une vitesse de valeur constante",
+      "une vitesse qui augmente",
+      "une vitesse qui diminue",
+      "une transformation chimique"
+    ],
+    "answer": 0,
+    "explanation": "Distances égales pendant durées égales : vitesse constante.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "decrire-mouvement-q17",
+    "type": "mcq",
+    "question": "Une voiture à vitesse constante dans un rond-point a un vecteur vitesse qui...",
+    "choices": [
+      "change de direction",
+      "est toujours constant",
+      "est nul",
+      "est vertical"
+    ],
+    "answer": 0,
+    "explanation": "La valeur peut être constante mais la direction change.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "decrire-mouvement-q18",
+    "type": "mcq",
+    "question": "Le référentiel terrestre est adapté pour étudier...",
+    "choices": [
+      "le mouvement d'une voiture sur une route",
+      "le mouvement des planètes autour du Soleil uniquement",
+      "la composition d'un noyau",
+      "une réaction chimique"
+    ],
+    "answer": 0,
+    "explanation": "Pour les mouvements proches de la surface terrestre, le référentiel terrestre est souvent adapté.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "decrire-mouvement-q19",
+    "type": "mcq",
+    "question": "Le principal piège dans une description de mouvement est...",
+    "choices": [
+      "oublier le référentiel",
+      "écrire une unité",
+      "nommer le système",
+      "décrire la trajectoire"
+    ],
+    "answer": 0,
+    "explanation": "Sans référentiel, la description est incomplète.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "decrire-mouvement-q20",
+    "type": "mcq",
+    "question": "Pour décrire complètement un mouvement, on précise au minimum...",
+    "choices": [
+      "système, référentiel, trajectoire et évolution de la vitesse",
+      "seulement la couleur du système",
+      "seulement la distance totale",
+      "seulement la masse"
+    ],
+    "answer": 0,
+    "explanation": "Ces informations structurent une description physique du mouvement.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Décrire un mouvement",
+        "href": "/laboratoire/chronophotographie",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  }
 ]

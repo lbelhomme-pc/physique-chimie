@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : Dipôle RC (Charge et Décharge)</title>
+
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_rc_v3.css">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture" style="max-width: 1440px;">
+        <header class="hero-header rc-hero">
+            <div class="title-wrapper">
+                <span class="title-icon">⚡</span>
+                <h1 class="hero-title rc-title">Le dipôle RC série</h1>
+            </div>
+            <p class="hero-subtitle rc-subtitle">Charge, décharge, constante de temps et lecture graphique dans un seul labo virtuel.</p>
+        </header>
+
+        <div class="dashboard-columns">
+
+            <aside class="card controls-panel rc-card">
+                <div class="section-head">
+                    <h2>🎛️ Paramètres</h2>
+                    <p>Réglage direct des grandeurs physiques.</p>
+                </div>
+
+                <div class="slider-group">
+                    <label for="slider-e">Tension du générateur $E$ : <span id="val-e" class="val-highlight">5</span> V</label>
+                    <input id="slider-e" type="range" min="1" max="12" step="1" value="5" />
+                </div>
+
+                <div class="slider-group">
+                    <label for="slider-r">Résistance $R$ : <span id="val-r" class="val-highlight">10</span> kΩ</label>
+                    <input id="slider-r" type="range" min="1" max="100" step="1" value="10" />
+                </div>
+
+                <div class="slider-group">
+                    <label for="slider-c">Capacité $C$ : <span id="val-c" class="val-highlight">100</span> μF</label>
+                    <input id="slider-c" type="range" min="10" max="1000" step="10" value="100" />
+                </div>
+
+                <div class="tau-box">
+                    <div class="tau-title">Constante de temps</div>
+                    <div class="tau-formula">$\tau = R \times C$</div>
+                    <div class="tau-value" id="val-tau">1.00 s</div>
+                </div>
+
+                <div class="section-head switch-head">
+                    <h2>🔄 Commutateur K</h2>
+                    <p>Choisir la phase étudiée.</p>
+                </div>
+                <div class="switch-controls">
+                    <button class="btn-action btn-primary active" id="btn-charge">1️⃣ Charge</button>
+                    <button class="btn-action btn-secondary" id="btn-discharge">2️⃣ Décharge</button>
+                </div>
+
+                <div class="theory-box mt-2">
+                    <h3>📝 Modèle mathématique</h3>
+
+                    <div id="math-charge">
+                        <p class="small-text phase-charge">Phase de charge</p>
+                        <div class="formula">$$ \frac{du_C}{dt} + \frac{1}{\tau}u_C = \frac{E}{\tau} $$</div>
+                        <div class="formula">$$ u_C(t) = E\bigl(1 - e^{-t/\tau}\bigr) $$</div>
+                    </div>
+
+                    <div id="math-discharge" style="display: none;">
+                        <p class="small-text phase-discharge">Phase de décharge</p>
+                        <div class="formula">$$ \frac{du_C}{dt} + \frac{1}{\tau}u_C = 0 $$</div>
+                        <div class="formula">$$ u_C(t) = U_{C,0} \, e^{-t/\tau} $$</div>
+                    </div>
+
+                    <div class="theory-footer">
+                        <div class="formula formula-mini">$$ q = C\,u_C \qquad i = \frac{dq}{dt} $$</div>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="visual-panel">
+                <div class="card circuit-card rc-card">
+                    <div class="schematic-header">
+                        <div>
+                            <div class="schematic-title">Schéma électrique</div>
+                            <div class="schematic-subtitle">Montage RC série — lecture claire du trajet du courant et des tensions.</div>
+                        </div>
+                        <div class="schematic-pill" id="mode-pill">Mode : charge</div>
+                    </div>
+
+                    <div class="circuit-layout">
+                        <div class="circuit-container">
+                            <svg class="circuit-svg" viewBox="0 0 620 300" preserveAspectRatio="xMidYMid meet" aria-label="Schéma du circuit RC">
+                                <defs>
+                                    <marker id="arrow-current" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b" />
+                                    </marker>
+                                    <marker id="arrow-ur" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#22c55e" />
+                                    </marker>
+                                    <marker id="arrow-uc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8" />
+                                    </marker>
+                                </defs>
+
+                                <!-- fils -->
+                                <g class="wire-group">
+                                    <polyline points="90,80 150,80" class="wire" />
+                                    <polyline points="470,120 520,120 520,220 90,220" class="wire" />
+                                    <polyline points="150,160 150,220" class="wire subtle" />
+                                    <polyline points="210,120 230,120" class="wire" />
+                                    <polyline points="370,120 410,120" class="wire" />
+                                    <polyline points="90,220 90,80" class="wire subtle" />
+                                </g>
+
+                                <!-- générateur -->
+                                <g>
+                                    <line x1="72" y1="110" x2="72" y2="190" class="source-short"/>
+                                    <line x1="92" y1="100" x2="92" y2="200" class="source-long"/>
+                                    <line x1="90" y1="80" x2="90" y2="100" class="wire"/>
+                                    <line x1="90" y1="200" x2="90" y2="220" class="wire"/>
+                                    <text x="34" y="156" class="label-source">E</text>
+                                    <text x="55" y="102" class="polarity">+</text>
+                                    <text x="55" y="203" class="polarity">−</text>
+                                </g>
+
+                                <!-- commutateur -->
+                                <g>
+                                    <circle cx="150" cy="80" r="5" class="node"/>
+                                    <circle cx="150" cy="160" r="5" class="node"/>
+                                    <circle cx="210" cy="120" r="6" class="node node-pivot"/>
+                                    <line id="switch-blade" x1="210" y1="120" x2="150" y2="80" class="switch-blade"/>
+                                    <text x="172" y="64" class="label-switch">K</text>
+                                    <text x="133" y="66" class="switch-index">1</text>
+                                    <text x="133" y="180" class="switch-index">2</text>
+                                </g>
+
+                                <!-- résistance -->
+                                <g>
+                                    <polyline points="230,120 242,108 254,132 266,108 278,132 290,108 302,132 314,108 326,132 338,108 350,132 362,120" class="resistor"/>
+                                    <text x="286" y="90" class="label-component">R</text>
+                                    <line x1="238" y1="74" x2="360" y2="74" class="arrow-ur" marker-end="url(#arrow-ur)"/>
+                                    <text x="274" y="64" class="label-ur">u<tspan baseline-shift="sub">R</tspan></text>
+                                </g>
+
+                                <!-- condensateur -->
+                                <g>
+                                    <line x1="410" y1="92" x2="410" y2="148" class="capacitor-plate"/>
+                                    <line x1="438" y1="92" x2="438" y2="148" class="capacitor-plate"/>
+                                    <line x1="438" y1="120" x2="470" y2="120" class="wire"/>
+                                    <text x="450" y="86" class="label-component">C</text>
+                                    <line x1="466" y1="86" x2="466" y2="150" class="arrow-uc" marker-end="url(#arrow-uc)"/>
+                                    <text x="474" y="122" class="label-uc">u<tspan baseline-shift="sub">C</tspan></text>
+                                </g>
+
+                                <!-- courant -->
+                                <g>
+                                    <line x1="255" y1="40" x2="350" y2="40" class="arrow-current" marker-end="url(#arrow-current)"/>
+                                    <text x="296" y="30" class="label-current">i</text>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="capacitor-model-card">
+                            <div class="model-title">Modèle microscopique du condensateur</div>
+                            <div class="capacitor-model">
+                                <div class="plate top-plate" id="plate-top"></div>
+                                <div class="isolant-text">isolant</div>
+                                <div class="plate bottom-plate" id="plate-bottom"></div>
+                            </div>
+                            <p class="model-caption">Accumulation progressive de charges opposées sur les armatures.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card graph-card rc-card">
+                    <div class="graph-header">
+                        <div>
+                            <div class="graph-title">Évolution de $u_C(t)$</div>
+                            <div class="graph-subtitle">Repérage du régime transitoire puis du régime stationnaire.</div>
+                        </div>
+                        <div class="time-readout">Temps : <span id="time-display" class="time-value">0.00</span> s</div>
+                    </div>
+
+                    <div class="regime-bg" id="regime-bg">
+                        <div class="regime-transitoire">
+                            <span>Régime transitoire</span>
+                        </div>
+                        <div class="regime-stationnaire">
+                            <span>Régime stationnaire</span>
+                        </div>
+                    </div>
+
+                    <canvas id="graphCanvas" class="graph-canvas"></canvas>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_rc_v3.js"></script>
+</body>
+</html>

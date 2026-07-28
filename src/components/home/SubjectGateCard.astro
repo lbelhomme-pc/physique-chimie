@@ -1,0 +1,166 @@
+---
+import { getDisciplineIdentity, getDisciplineStyle, type DisciplineId } from "../../data/disciplineIdentity";
+
+interface ActionLink {
+  label: string;
+  href: string;
+  primary?: boolean;
+}
+
+interface Props {
+  subject: Exclude<DisciplineId, "transversal">;
+  eyebrow: string;
+  title: string;
+  description: string;
+  levels: string[];
+  resourceShortcuts: string[];
+  actions: ActionLink[];
+}
+
+const { subject, eyebrow, title, description, levels, resourceShortcuts, actions } = Astro.props;
+const identity = getDisciplineIdentity(subject);
+---
+
+<article
+  class:list={["subject-gate-card", `subject-gate-card--${subject}`]}
+  data-subject-card={subject}
+  data-discipline={subject}
+  style={getDisciplineStyle(identity)}
+>
+  <div class="subject-gate-card__header">
+    <span class="subject-gate-card__mark" aria-hidden="true">{identity.mark}</span>
+    <div>
+      <p>{eyebrow}</p>
+      <h2>{title}</h2>
+      <small>{identity.microcopy}</small>
+    </div>
+  </div>
+  <p class="subject-gate-card__description">{description}</p>
+  <div class="subject-gate-card__group" aria-label={`Niveaux disponibles en ${identity.label}`}>
+    {levels.map((level) => <span>{level}</span>)}
+  </div>
+  <div class="subject-gate-card__group" aria-label={`Ressources disponibles en ${identity.label}`}>
+    {resourceShortcuts.map((shortcut) => <span>{shortcut}</span>)}
+  </div>
+  <div class="subject-gate-card__actions">
+    {actions.map((action) => (
+      <a class:list={["subject-gate-card__action", { primary: action.primary }]} href={action.href}>
+        {action.label}
+      </a>
+    ))}
+  </div>
+</article>
+
+<style>
+  .subject-gate-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: 6px solid var(--discipline-accent);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 100%;
+    padding: 1.25rem;
+  }
+
+  .subject-gate-card__header {
+    align-items: start;
+    display: flex;
+    gap: 0.85rem;
+  }
+
+  .subject-gate-card__mark {
+    align-items: center;
+    background: var(--discipline-surface);
+    border: 1px solid var(--discipline-border);
+    border-radius: var(--v3-radius-md);
+    color: var(--discipline-accent);
+    display: inline-flex;
+    font-size: 1rem;
+    font-weight: 950;
+    justify-content: center;
+    min-height: 42px;
+    min-width: 42px;
+    padding: 0 var(--v3-space-2);
+  }
+
+  .subject-gate-card__header p {
+    color: var(--discipline-accent);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.35rem;
+    text-transform: uppercase;
+  }
+
+  .subject-gate-card__header h2 {
+    color: var(--text-primary);
+    font-size: clamp(1.35rem, 3vw, 1.72rem);
+    letter-spacing: 0;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  .subject-gate-card__header small {
+    color: color-mix(in srgb, var(--discipline-accent) 72%, var(--text-secondary));
+    display: inline-block;
+    font-weight: 850;
+    line-height: 1.45;
+    margin-top: 0.35rem;
+  }
+
+  .subject-gate-card__description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .subject-gate-card__group,
+  .subject-gate-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .subject-gate-card__group span {
+    background: var(--discipline-surface);
+    border: 1px solid var(--discipline-border);
+    border-radius: var(--radius-pill);
+    color: var(--text-secondary);
+    font-size: 0.84rem;
+    font-weight: 800;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .subject-gate-card__actions {
+    margin-top: auto;
+  }
+
+  .subject-gate-card__action {
+    align-items: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    color: var(--text-secondary);
+    display: inline-flex;
+    font-weight: 900;
+    min-height: 44px;
+    padding: 0.55rem 0.85rem;
+    text-decoration: none;
+  }
+
+  .subject-gate-card__action.primary {
+    background: var(--discipline-accent);
+    border-color: var(--discipline-accent);
+    color: #fff;
+  }
+
+  .subject-gate-card__action:hover,
+  .subject-gate-card__action:focus-visible {
+    border-color: var(--discipline-accent);
+    box-shadow: var(--shadow-xs);
+    outline: none;
+  }
+</style>

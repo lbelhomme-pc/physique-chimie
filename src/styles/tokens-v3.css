@@ -1,0 +1,228 @@
+/* src/styles/tokens-v3.css */
+/* Design tokens V3. This file is additive and keeps legacy variables aliased. */
+
+:root,
+.a11y-theme-light {
+  /* Color primitives */
+  --v3-color-blue-50: #eff6ff;
+  --v3-color-blue-100: #dbeafe;
+  --v3-color-blue-600: #2563eb;
+  --v3-color-blue-700: #1d4ed8;
+  --v3-color-indigo-50: #eef2ff;
+  --v3-color-indigo-600: #4f46e5;
+  --v3-color-cyan-50: #ecfeff;
+  --v3-color-cyan-700: #0e7490;
+  --v3-color-emerald-50: #ecfdf5;
+  --v3-color-emerald-600: #059669;
+  --v3-color-amber-50: #fffbeb;
+  --v3-color-amber-600: #d97706;
+  --v3-color-red-50: #fef2f2;
+  --v3-color-red-600: #dc2626;
+  --v3-color-violet-50: #f5f3ff;
+  --v3-color-violet-600: #7c3aed;
+  --v3-color-slate-50: #f8fafc;
+  --v3-color-slate-100: #f1f5f9;
+  --v3-color-slate-200: #e2e8f0;
+  --v3-color-slate-300: #cbd5e1;
+  --v3-color-slate-500: #64748b;
+  --v3-color-slate-700: #334155;
+  --v3-color-slate-900: #0f172a;
+
+  /* Surfaces and text */
+  --v3-color-surface-canvas: #eef2f7;
+  --v3-color-surface-page: #ffffff;
+  --v3-color-surface-muted: #f5f7fa;
+  --v3-color-surface-raised: #ffffff;
+  --v3-color-surface-input: #ffffff;
+  --v3-color-surface-nav: #ffffff;
+  --v3-color-text-main: #1a2332;
+  --v3-color-text-subtle: #4a5568;
+  --v3-color-text-muted: #8896a6;
+  --v3-color-text-disabled: #c1cad6;
+  --v3-color-border-default: #e2e8f0;
+  --v3-color-border-strong: #cbd5e1;
+  --v3-color-border-soft: #f0f3f7;
+
+  /* Semantic states */
+  --v3-color-action: var(--v3-color-indigo-600);
+  --v3-color-action-hover: #4338ca;
+  --v3-color-action-subtle: var(--v3-color-indigo-50);
+  --v3-color-success: var(--v3-color-emerald-600);
+  --v3-color-success-subtle: var(--v3-color-emerald-50);
+  --v3-color-warning: var(--v3-color-amber-600);
+  --v3-color-warning-subtle: var(--v3-color-amber-50);
+  --v3-color-danger: var(--v3-color-red-600);
+  --v3-color-danger-subtle: var(--v3-color-red-50);
+  --v3-color-focus-ring: #2563eb;
+
+  /* Discipline and pedagogy accents */
+  --v3-color-discipline-maths: #4f46e5;
+  --v3-color-discipline-maths-bg: #eef2ff;
+  --v3-color-discipline-maths-border: #c7d2fe;
+  --v3-color-discipline-pc: #0e7490;
+  --v3-color-discipline-pc-bg: #ecfeff;
+  --v3-color-discipline-pc-border: #a5f3fc;
+  --v3-color-discipline-physics: #0e7490;
+  --v3-color-discipline-chemistry: #059669;
+  --v3-color-discipline-science: #d97706;
+  --v3-color-discipline-science-bg: #fffbeb;
+  --v3-color-discipline-science-border: #fde68a;
+  --v3-color-pedagogy-definition: #0e7490;
+  --v3-color-pedagogy-definition-bg: #ecfeff;
+  --v3-color-pedagogy-method: #7c3aed;
+  --v3-color-pedagogy-method-bg: #f5f3ff;
+  --v3-color-pedagogy-law: #2563eb;
+  --v3-color-pedagogy-law-bg: #eff6ff;
+  --v3-color-pedagogy-example: #059669;
+  --v3-color-pedagogy-example-bg: #ecfdf5;
+  --v3-color-pedagogy-warning: #d97706;
+  --v3-color-pedagogy-warning-bg: #fffbeb;
+
+  /* Typography */
+  --v3-font-family-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --v3-font-family-readable: Arial, Verdana, "Segoe UI", sans-serif;
+  --v3-font-family-dys: "Atkinson Hyperlegible", Verdana, Arial, sans-serif;
+  --v3-font-size-xs: 0.75rem;
+  --v3-font-size-sm: 0.875rem;
+  --v3-font-size-md: 1rem;
+  --v3-font-size-lg: 1.125rem;
+  --v3-font-size-xl: 1.25rem;
+  --v3-font-size-2xl: 1.5rem;
+  --v3-font-size-3xl: 2rem;
+  --v3-line-height-tight: 1.25;
+  --v3-line-height-body: 1.6;
+  --v3-line-height-dys: 1.8;
+  --v3-letter-spacing-body: 0;
+  --v3-letter-spacing-dys: 0.05em;
+  --v3-word-spacing-body: 0;
+  --v3-word-spacing-dys: 0.12em;
+  --v3-measure-readable: 75ch;
+
+  /* Spacing */
+  --v3-space-0: 0;
+  --v3-space-1: 0.25rem;
+  --v3-space-2: 0.5rem;
+  --v3-space-3: 0.75rem;
+  --v3-space-4: 1rem;
+  --v3-space-5: 1.25rem;
+  --v3-space-6: 1.5rem;
+  --v3-space-8: 2rem;
+  --v3-space-10: 2.5rem;
+  --v3-space-12: 3rem;
+  --v3-space-16: 4rem;
+
+  /* Radius, shadows and motion */
+  --v3-radius-xs: 4px;
+  --v3-radius-sm: 6px;
+  --v3-radius-md: 8px;
+  --v3-radius-lg: 12px;
+  --v3-radius-xl: 16px;
+  --v3-radius-pill: 999px;
+  --v3-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --v3-shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.05);
+  --v3-shadow-md: 0 8px 18px rgba(15, 23, 42, 0.08);
+  --v3-shadow-focus: 0 0 0 3px rgba(37, 99, 235, 0.28);
+  --v3-motion-fast: 120ms ease;
+  --v3-motion-base: 180ms ease;
+
+  /* Legacy compatibility aliases */
+  --bg-body: var(--v3-color-surface-canvas);
+  --bg-primary: var(--v3-color-surface-page);
+  --bg-secondary: var(--v3-color-surface-muted);
+  --bg-tertiary: var(--v3-color-slate-100);
+  --bg-card: var(--v3-color-surface-raised);
+  --bg-input: var(--v3-color-surface-input);
+  --bg-nav: var(--v3-color-surface-nav);
+  --text-primary: var(--v3-color-text-main);
+  --text-secondary: var(--v3-color-text-subtle);
+  --text-muted: var(--v3-color-text-muted);
+  --text-disabled: var(--v3-color-text-disabled);
+  --border-color: var(--v3-color-border-default);
+  --border-hover: var(--v3-color-border-strong);
+  --border-light: var(--v3-color-border-soft);
+  --accent-primary: var(--v3-color-action);
+  --accent-primary-hover: var(--v3-color-action-hover);
+  --accent-primary-light: var(--v3-color-action-subtle);
+  --accent-success: var(--v3-color-success);
+  --accent-success-light: var(--v3-color-success-subtle);
+  --accent-warning: var(--v3-color-warning);
+  --accent-warning-light: var(--v3-color-warning-subtle);
+  --accent-danger: var(--v3-color-danger);
+  --accent-danger-light: var(--v3-color-danger-subtle);
+  --accent-purple: var(--v3-color-pedagogy-method);
+  --accent-purple-light: var(--v3-color-pedagogy-method-bg);
+  --shadow-xs: var(--v3-shadow-xs);
+  --shadow-sm: var(--v3-shadow-sm);
+  --shadow-md: var(--v3-shadow-md);
+  --shadow-card: var(--v3-shadow-sm);
+  --radius-sm: var(--v3-radius-md);
+  --radius-md: var(--v3-radius-lg);
+  --radius-lg: var(--v3-radius-xl);
+  --radius-pill: var(--v3-radius-pill);
+  --font-family: var(--v3-font-family-sans);
+  --font-size-base: var(--v3-font-size-md);
+  --line-height-base: var(--v3-line-height-body);
+  --letter-spacing-base: var(--v3-letter-spacing-body);
+  --word-spacing-base: var(--v3-word-spacing-body);
+  --max-line-width: var(--v3-measure-readable);
+}
+
+.a11y-theme-dark {
+  --v3-color-surface-canvas: #0f172a;
+  --v3-color-surface-page: #111827;
+  --v3-color-surface-muted: #1f2937;
+  --v3-color-surface-raised: #1f2937;
+  --v3-color-surface-input: #111827;
+  --v3-color-surface-nav: #111827;
+  --v3-color-text-main: #f8fafc;
+  --v3-color-text-subtle: #cbd5e1;
+  --v3-color-text-muted: #94a3b8;
+  --v3-color-text-disabled: #64748b;
+  --v3-color-border-default: #334155;
+  --v3-color-border-strong: #475569;
+  --v3-color-border-soft: #1e293b;
+  --v3-color-action-subtle: #1e1b4b;
+  --v3-color-success-subtle: #052e2b;
+  --v3-color-warning-subtle: #422006;
+  --v3-color-danger-subtle: #450a0a;
+}
+
+.a11y-theme-sepia {
+  --v3-color-surface-canvas: #f4ecd8;
+  --v3-color-surface-page: #fff8e8;
+  --v3-color-surface-muted: #f7efd9;
+  --v3-color-surface-raised: #fffaf0;
+  --v3-color-surface-input: #fffaf0;
+  --v3-color-surface-nav: #fff8e8;
+  --v3-color-text-main: #2f2418;
+  --v3-color-text-subtle: #594533;
+  --v3-color-text-muted: #7c6751;
+  --v3-color-border-default: #decda7;
+  --v3-color-border-strong: #cdb88b;
+  --v3-color-border-soft: #eadfc6;
+}
+
+.a11y-font-dys,
+.a11y-font-opendyslexic {
+  --v3-font-family-sans: var(--v3-font-family-dys);
+  --v3-line-height-body: var(--v3-line-height-dys);
+}
+
+.a11y-letterspacing-normal {
+  --v3-letter-spacing-body: 0;
+}
+
+.a11y-letterspacing-large {
+  --v3-letter-spacing-body: var(--v3-letter-spacing-dys);
+}
+
+.a11y-wordspacing-large {
+  --v3-word-spacing-body: var(--v3-word-spacing-dys);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --v3-motion-fast: 1ms linear;
+    --v3-motion-base: 1ms linear;
+  }
+}

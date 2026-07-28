@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : La Chronophotographie | Physique-Chimie</title>
+    <meta name="theme-color" content="#6366f1">
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_chrono.css">
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="labo-container">
+        
+        <header class="hero-header">
+            <h1 class="header-flex">
+                <span>📸</span> 
+                <span class="gradient-text gradient-labo">La Chronophotographie</span>
+            </h1>
+            <p class="subtitle">L'appareil prend une photo à <strong>intervalles de temps égaux</strong> (toutes les 0.5s).<br>Utilise la grille en fond pour comparer la distance parcourue !</p>
+        </header>
+
+        <div class="chrono-controls">
+            <button class="btn-drive btn-uniforme" onclick="startMotion('uniform')">
+                <span>➡️</span> Vitesse constante
+            </button>
+            <button class="btn-drive btn-accelere" onclick="startMotion('accelerated')">
+                <span>🚀</span> Accélérer
+            </button>
+            <button class="btn-drive btn-ralenti" onclick="startMotion('decelerated')">
+                <span>🛑</span> Freiner
+            </button>
+        </div>
+
+        <div class="road-container">
+            <div class="road-lines"></div>
+            
+            <div class="camera-indicator" id="cam-ind">
+                <div class="dot"></div> Clic !
+            </div>
+
+            <div class="car" id="main-car">🏎️</div>
+            <div id="traces-container"></div>
+        </div>
+
+        <div class="analysis-box">
+            <div class="analysis-title">📊 Analyse du Mouvement</div>
+            <div class="analysis-text" id="analysis-text">
+                Sélectionne un mode de conduite pour lancer l'expérience.
+            </div>
+        </div>
+        
+        <div class="nav-footer">
+            <a href="../laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Laboratoire</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_chrono.js"></script>
+</body>
+</html>

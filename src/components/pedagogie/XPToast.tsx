@@ -15,8 +15,61 @@ interface XPToastProps { toasts: ToastItem[]; onDismiss: (id: string) => void; }
 export default function XPToast({ toasts, onDismiss }: XPToastProps) {
   if (toasts.length === 0) return null;
   return (
-    <div style={{ position: "fixed", bottom: 20, right: 20, display: "flex", flexDirection: "column", gap: 8, zIndex: 9999, pointerEvents: "none" }}>
+    <div className="xp-toast-stack">
       {toasts.map((t) => <ToastBubble key={t.id} toast={t} onDismiss={onDismiss} />)}
+      <style>{`
+        .xp-toast-stack {
+          bottom: 1.25rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          max-width: min(22rem, calc(100vw - 2rem));
+          pointer-events: none;
+          position: fixed;
+          right: 1.25rem;
+          z-index: 9996;
+        }
+
+        .xp-toast-bubble {
+          align-items: center;
+          border-radius: 10px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          color: #fff;
+          display: flex;
+          font-size: 0.9rem;
+          font-weight: 700;
+          gap: 0.5rem;
+          line-height: 1.35;
+          padding: 0.65rem 1rem;
+          pointer-events: auto;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          width: max-content;
+          max-width: 100%;
+        }
+
+        .xp-toast-bubble span:last-child {
+          overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 420px) {
+          .xp-toast-stack {
+            bottom: auto;
+            left: 0.75rem;
+            right: 0.75rem;
+            top: 0.75rem;
+            max-width: none;
+          }
+
+          .xp-toast-bubble {
+            justify-content: center;
+            width: 100%;
+          }
+
+          body:has(.analytics-consent:not([hidden])) .xp-toast-stack {
+            display: none;
+          }
+        }
+      `}</style>
     </div>
   );
 }
@@ -32,9 +85,9 @@ function ToastBubble({ toast, onDismiss }: { toast: ToastItem; onDismiss: (id: s
   const bg = { xp: "var(--accent-primary)", rank_up: "#d4af37", badge: "var(--accent-purple)", streak_bonus: "var(--accent-warning)", chapter_complete: "var(--accent-success)" }[toast.type] ?? "var(--accent-primary)";
 
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 16px", borderRadius: 10, color: "#fff", fontWeight: 700, fontSize: "0.9rem", boxShadow: "0 4px 12px rgba(0,0,0,0.2)", transition: "all 0.3s ease", pointerEvents: "auto", background: bg, opacity: vis ? 1 : 0, transform: vis ? "translateX(0)" : "translateX(100px)" }}>
+    <div className="xp-toast-bubble" style={{ background: bg, opacity: vis ? 1 : 0, transform: vis ? "translateX(0)" : "translateX(100px)" }}>
       {toast.icon && <span style={{ fontSize: "1.2rem" }}>{toast.icon}</span>}
-      <span style={{ whiteSpace: "nowrap" }}>{toast.message}</span>
+      <span>{toast.message}</span>
     </div>
   );
 }

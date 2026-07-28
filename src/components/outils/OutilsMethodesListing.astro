@@ -1,0 +1,288 @@
+---
+import {
+  getResourcesByLevel,
+  getResourcesByType,
+  typeDefinitions,
+  typeLabels,
+  type OutilMethodeLevel,
+  type OutilMethodeType,
+} from "../../data/outilsMethodes";
+
+interface Props {
+  level: OutilMethodeLevel;
+  eyebrow: string;
+  title: string;
+  description: string;
+}
+
+const { level, eyebrow, title, description } = Astro.props;
+const resources = getResourcesByLevel(level);
+const orderedTypes: OutilMethodeType[] = ["methode", "outil"];
+const sections = orderedTypes.map((type) => ({
+  type,
+  label: typeLabels[type],
+  definition: typeDefinitions[type],
+  resources: getResourcesByType(resources, type),
+}));
+---
+
+<main class="om-list-page" aria-labelledby="om-list-title">
+  <nav class="om-breadcrumb" aria-label="Navigation outils et méthodes">
+    <a href="/outils-methodes">Outils & méthodes</a>
+    <a href="/outils-methodes/college">Collège</a>
+    <a href="/outils-methodes/lycee">Lycée</a>
+    <a href="/outils-methodes/transverses">Transverses</a>
+  </nav>
+
+  <header class="om-list-hero">
+    <p>{eyebrow}</p>
+    <h1 id="om-list-title">{title}</h1>
+    <span>{description}</span>
+  </header>
+
+  <section class="om-kind-reminder" aria-label="Rappel outil ou méthode">
+    <article>
+      <span class="om-type-badge methode">Méthode</span>
+      <p>{typeDefinitions.methode}</p>
+    </article>
+    <article>
+      <span class="om-type-badge outil">Outil</span>
+      <p>{typeDefinitions.outil}</p>
+    </article>
+  </section>
+
+  {sections.map((section) => (
+    <section class="om-resource-section" aria-labelledby={`${section.type}-title`}>
+      <div class="om-section-heading">
+        <span class:list={["om-type-badge", section.type]}>{section.label}</span>
+        <h2 id={`${section.type}-title`}>{section.label}</h2>
+        <p>{section.definition}</p>
+      </div>
+
+      {section.resources.length > 0 ? (
+        <div class="om-resource-grid">
+          {section.resources.map((resource) => (
+            <a class="om-resource-card" href={resource.href}>
+              <span class="om-resource-symbol" aria-hidden="true">{resource.symbol}</span>
+              <span class="om-card-theme">{resource.theme}</span>
+              <strong>{resource.title}</strong>
+              <span>{resource.description}</span>
+              <em>{resource.details}</em>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="om-empty">Aucune ressource dédiée pour le moment.</p>
+      )}
+    </section>
+  ))}
+</main>
+
+<style>
+  .om-list-page {
+    margin: 0 auto;
+    max-width: 1080px;
+    padding: 1.25rem 1rem 3rem;
+  }
+
+  .om-breadcrumb {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+
+  .om-breadcrumb a {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    font-weight: 750;
+    padding: 0.45rem 0.75rem;
+    text-decoration: none;
+  }
+
+  .om-breadcrumb a:hover,
+  .om-breadcrumb a:focus-visible {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+  }
+
+  .om-list-hero {
+    margin: 0 auto 1.4rem;
+    max-width: 780px;
+    text-align: center;
+  }
+
+  .om-list-hero p,
+  .om-card-theme {
+    color: var(--accent-primary);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .om-list-hero h1 {
+    color: var(--accent-primary);
+    font-size: clamp(1.65rem, 5vw, 2.35rem);
+    margin: 0.35rem 0;
+  }
+
+  .om-list-hero > span {
+    color: var(--text-secondary);
+    display: block;
+    line-height: 1.7;
+  }
+
+  .om-kind-reminder {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 1.5rem 0 2rem;
+  }
+
+  .om-kind-reminder article {
+    align-items: flex-start;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    gap: 0.85rem;
+    padding: 1rem;
+  }
+
+  .om-kind-reminder p {
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .om-resource-section {
+    margin-top: 2rem;
+  }
+
+  .om-section-heading {
+    margin-bottom: 0.85rem;
+  }
+
+  .om-section-heading h2 {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    margin: 0.45rem 0 0.2rem;
+  }
+
+  .om-section-heading p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .om-type-badge {
+    align-items: center;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    flex: 0 0 auto;
+    font-size: 0.74rem;
+    font-weight: 850;
+    justify-content: center;
+    padding: 0.28rem 0.62rem;
+  }
+
+  .om-type-badge.methode {
+    background: rgba(79, 70, 229, 0.12);
+    color: var(--accent-primary);
+  }
+
+  .om-type-badge.outil {
+    background: rgba(5, 150, 105, 0.12);
+    color: #047857;
+  }
+
+  .om-resource-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+
+  .om-resource-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent-primary);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    min-height: 205px;
+    padding: 1rem;
+    text-decoration: none;
+  }
+
+  .om-resource-card:hover,
+  .om-resource-card:focus-visible {
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-lg);
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  .om-resource-symbol {
+    align-items: center;
+    background: var(--accent-primary-light);
+    border-radius: 999px;
+    color: var(--accent-primary);
+    display: inline-flex;
+    font-weight: 900;
+    height: 2.35rem;
+    justify-content: center;
+    width: 2.35rem;
+  }
+
+  .om-resource-card strong {
+    font-size: 1.03rem;
+  }
+
+  .om-resource-card span:not(.om-resource-symbol):not(.om-card-theme) {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .om-resource-card em {
+    color: var(--text-muted);
+    font-size: 0.84rem;
+    font-style: normal;
+    line-height: 1.45;
+    margin-top: auto;
+  }
+
+  .om-empty {
+    background: var(--bg-card);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    margin: 0;
+    padding: 1rem;
+  }
+
+  @media (max-width: 720px) {
+    .om-kind-reminder {
+      grid-template-columns: 1fr;
+    }
+
+    .om-kind-reminder article {
+      display: block;
+    }
+
+    .om-kind-reminder .om-type-badge {
+      margin-bottom: 0.55rem;
+    }
+  }
+</style>

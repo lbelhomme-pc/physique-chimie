@@ -1,0 +1,77 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{alphacolor}{RGB}{220,38,38}
+\definecolor{betaminuscolor}{RGB}{37,99,235}
+\definecolor{betapluscolor}{RGB}{22,163,74}
+\definecolor{gammacolor}{RGB}{168,85,247}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[scale=0.9]
+ % Axes
+ \draw[-{Stealth[length=3mm]}, thick] (0,0) -- (10.5,0) node[below right]{\textbf{Nombre de neutrons $N$}};
+ \draw[-{Stealth[length=3mm]}, thick] (0,0) -- (0,7.5) node[above left, align=center]{\textbf{Nombre de}\\\textbf{protons $Z$}};
+
+ % Droite N = Z
+ \draw[dashed, gray, thick] (0,0) -- (7,7) node[above left, gray, font=\small]{$N = Z$};
+
+ % Vallée de stabilité (zone courbée)
+ \fill[primary!25, rounded corners=2pt]
+ (0,0) -- (0.3,0.5) -- (0.8,1.2) -- (1.5,2.0) -- (2.3,2.8)
+ -- (3.2,3.5) -- (4.2,4.1) -- (5.2,4.7) -- (6.3,5.2) -- (7.5,5.7) -- (8.8,6.2)
+ -- (9.3,6.2) -- (8.0,5.5) -- (6.8,5.0) -- (5.7,4.4) -- (4.7,3.8) -- (3.7,3.2)
+ -- (2.8,2.5) -- (2.0,1.8) -- (1.2,1.0) -- (0.6,0.4) -- cycle;
+
+ \node[primary, font=\small\bfseries, align=center] at (5.5,3.2) {Vall\'{e}e de\\stabilit\'{e}};
+
+ % Zone émetteurs bêta-
+ \node[betaminuscolor, font=\small, align=center] at (8.5,3.8) {Noyaux\\riches en $N$\\($\beta^{-}$)};
+ \draw[-{Stealth}, betaminuscolor, thick] (7.8,4.2) -- (7.0,4.8);
+
+ % Zone émetteurs bêta+
+ \node[betapluscolor, font=\small, align=center] at (2.8,6.2) {Noyaux\\riches en $Z$\\($\beta^{+}$)};
+ \draw[-{Stealth}, betapluscolor, thick] (3.5,5.8) -- (4.3,5.3);
+
+ % Zone émetteurs alpha
+ \node[alphacolor, font=\small, align=center] at (9.0,7.0) {Noyaux\\lourds ($\alpha$)};
+
+ % Graduations
+ \foreach \x in {2,4,6,8,10} {
+ \draw (\x,0) -- (\x,-0.1) node[below, font=\footnotesize]{\pgfmathparse{int(\x*14)}\pgfmathresult};
+ }
+ \foreach \y in {1,2,3,4,5,6,7} {
+ \draw (0,\y) -- (-0.1,\y) node[left, font=\footnotesize]{\pgfmathparse{int(\y*12)}\pgfmathresult};
+ }
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,72 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{alphacolor}{RGB}{220,38,38}
+\definecolor{betaminuscolor}{RGB}{37,99,235}
+\definecolor{betapluscolor}{RGB}{22,163,74}
+\definecolor{gammacolor}{RGB}{168,85,247}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[
+ barrier/.style={fill=gray!25, draw=gray!60, minimum height=4.5cm},
+ rayon/.style={-{Stealth[length=2.5mm]}, ultra thick},
+ label node/.style={font=\small\bfseries, anchor=south}
+]
+ % Source
+ \node[draw, circle, fill=synthorange!30, minimum size=1.2cm, font=\small\bfseries] (source) at (0,0) {Source};
+
+ % Barrières
+ \node[barrier, minimum width=0.6cm] (paper) at (3.5,0) {};
+ \node[below, font=\footnotesize] at (paper.south) {Feuille de papier};
+
+ \node[barrier, minimum width=1cm, fill=gray!40] (alu) at (6.5,0) {};
+ \node[below, font=\footnotesize] at (alu.south) {Plaque d'aluminium};
+
+ \node[barrier, minimum width=1.8cm, fill=gray!60] (plomb) at (10.5,0) {};
+ \node[below, font=\footnotesize, align=center] at (plomb.south) {Bloc de plomb\\ou de b\'{e}ton};
+
+ % Rayonnement alpha
+ \draw[rayon, alphacolor] (source.east) ++(0,1.2) -- ++(2.6,0) node[pos=0.5, above, font=\small\bfseries, alphacolor]{$\alpha$};
+ \node[alphacolor, font=\scriptsize, anchor=west] at (3.85,1.2) {Arr\^{e}t\'{e}};
+
+ % Rayonnement bêta
+ \draw[rayon, betaminuscolor] (source.east) ++(0,0) -- ++(5.5,0) node[pos=0.35, above, font=\small\bfseries, betaminuscolor]{$\beta$};
+ \node[betaminuscolor, font=\scriptsize, anchor=west] at (7.05,0) {Arr\^{e}t\'{e}};
+
+ % Rayonnement gamma
+ \draw[rayon, gammacolor] (source.east) ++(0,-1.2) -- ++(9.8,0) node[pos=0.3, above, font=\small\bfseries, gammacolor]{$\gamma$};
+ \node[gammacolor, font=\scriptsize, anchor=west] at (11.45,-1.2) {Att\'{e}nu\'{e}};
+
+\end{tikzpicture}
+\end{document}

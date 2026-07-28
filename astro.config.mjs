@@ -5,10 +5,11 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import { siteConfig } from './src/config/site.ts';
 import rehypeCourseSections from './src/utils/rehypeCourseSections.mjs';
 
 export default defineConfig({
-  site: 'https://physique-chimie-belhomme.vercel.app/', // ← CHANGE PAR TON DOMAINE
+  site: siteConfig.productionUrl,
   integrations: [
     react(),
     mdx(),
@@ -21,6 +22,9 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex, rehypeCourseSections],
+  },
+  vite: {
+    cacheDir: 'tmp/vite-cache',
   },
   output: 'static',
 });

@@ -1,0 +1,54 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[x=0.9cm]
+  % Axe
+  \draw[thick] (0,0) -- (14,0);
+  \foreach \x in {0,1,...,14} {
+    \draw (\x,0.15) -- (\x,-0.15) node[below, font=\footnotesize] {\x};
+  }
+  % Zones
+  \fill[red!20] (0,0.5) rectangle (7,1.1);
+  \fill[green!20] (7,0.5) rectangle (7.15,1.1);
+  \fill[blue!20] (7.15,0.5) rectangle (14,1.1);
+  \node[font=\footnotesize\bfseries, text=red!60!black] at (3.5,0.8) {Solution acide};
+  \node[font=\footnotesize\bfseries, text=green!40!black] at (7.07,1.4) {Neutre};
+  \node[font=\footnotesize\bfseries, text=blue!60!black] at (10.5,0.8) {Solution basique};
+  % Fleches
+  \draw[{Stealth}-,thick,red!60!black] (0,1.6) -- (7,1.6) node[midway,above,font=\scriptsize] {$[\ce{H3O+}]$ augmente};
+  \draw[-{Stealth},thick,blue!60!black] (7,1.6) -- (14,1.6) node[midway,above,font=\scriptsize] {$[\ce{H3O+}]$ diminue};
+\end{tikzpicture}
+\end{document}

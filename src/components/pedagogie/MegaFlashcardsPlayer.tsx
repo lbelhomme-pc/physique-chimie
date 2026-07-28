@@ -1,49 +1,79 @@
 // src/components/pedagogie/MegaFlashcardsPlayer.tsx
 // v2 : KaTeX + filtres niveau/matière/chapitre
 
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { getLevelDisplayLabel } from "../../utils/levels";
+import MathText from "./MathText";
 
 interface Card {
   id: string; front: string; back: string; difficulty: number;
   chapterTitle: string; matiere: string; niveau: string;
 }
 
-function KTex({ text }: { text: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  useEffect(() => {
-    if (!ref.current || !(window as any).katex) return;
-    const html = text.replace(/\$([^$]+)\$/g, (_, f) => {
-      try { return (window as any).katex.renderToString(f, { throwOnError: false }); }
-      catch { return f; }
-    });
-    ref.current.innerHTML = html;
-  }, [text]);
-  return <span ref={ref}>{text}</span>;
+interface MegaFlashcardsPlayerProps {
+  allCards?: Card[];
+  dataUrl?: string;
+  totalCards?: number;
 }
 
-export default function MegaFlashcardsPlayer({ allCards }: { allCards: Card[] }) {
+export default function MegaFlashcardsPlayer({ allCards, dataUrl, totalCards }: MegaFlashcardsPlayerProps) {
+  const [remoteCards, setRemoteCards] = useState<Card[]>(allCards ?? []);
+  const [loading, setLoading] = useState(Boolean(dataUrl && !allCards));
+  const [loadError, setLoadError] = useState<string | null>(null);
   const [fNiveau, setFNiveau] = useState("all");
   const [fMatiere, setFMatiere] = useState("all");
   const [fChapter, setFChapter] = useState("all");
   const [nb, setNb] = useState(15);
   const [started, setStarted] = useState(false);
+  const [sessionSeed, setSessionSeed] = useState(0);
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [results, setResults] = useState<("k"|"u")[]>([]);
 
-  const niveaux = [...new Set(allCards.map(c => c.niveau))].sort();
-  const matieres = [...new Set(allCards.map(c => c.matiere))];
+  const cards = allCards ?? remoteCards;
+
+  useEffect(() => {
+    if (!dataUrl || allCards) return;
+    let cancelled = false;
+    setLoading(true);
+    fetch(dataUrl)
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json() as Promise<{ cards?: Card[] }>;
+      })
+      .then((payload) => {
+        if (cancelled) return;
+        setRemoteCards(Array.isArray(payload.cards) ? payload.cards : []);
+        setLoadError(null);
+      })
+      .catch(() => {
+        if (!cancelled) setLoadError("Impossible de charger les cartes pour le moment.");
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [allCards, dataUrl]);
+
+  const niveaux = [...new Set(cards.map(c => c.niveau))].sort();
+  const matieres = [...new Set(cards.map(c => c.matiere))];
 
   const filtered = useMemo(() => {
-    let f = allCards;
+    let f = cards;
     if (fNiveau !== "all") f = f.filter(c => c.niveau === fNiveau);
     if (fMatiere !== "all") f = f.filter(c => c.matiere === fMatiere);
     if (fChapter !== "all") f = f.filter(c => c.chapterTitle === fChapter);
     return f;
-  }, [allCards, fNiveau, fMatiere, fChapter]);
+  }, [cards, fNiveau, fMatiere, fChapter]);
 
   const chapters = [...new Set(filtered.map(c => c.chapterTitle))].sort();
-  const pool = useMemo(() => [...filtered].sort(() => Math.random() - 0.5).slice(0, nb), [filtered, nb, started]);
+  const pool = useMemo(() => [...filtered]
+    .map((card) => ({ card, order: Math.random() + Number.EPSILON * sessionSeed }))
+    .sort((a, b) => a.order - b.order)
+    .map((entry) => entry.card)
+    .slice(0, nb), [filtered, nb, sessionSeed]);
   const cur = pool[idx];
   const done = idx >= pool.length && started;
 
@@ -63,15 +93,31 @@ export default function MegaFlashcardsPlayer({ allCards }: { allCards: Card[] })
 
   const restart = () => { setStarted(false); setIdx(0); setFlipped(false); setResults([]); };
 
+  if (loading) {
+    return (
+      <div data-mega-flashcards-player-v3="true" role="status" aria-live="polite" style={{background:V.bg,borderRadius:V.r,boxShadow:V.sh,padding:"1.5rem",border:`1px solid ${V.bd}`,textAlign:"center",color:V.tm}}>
+        Chargement de {totalCards ?? "la banque de"} cartes...
+      </div>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <div data-mega-flashcards-player-v3="true" role="alert" style={{background:V.bg,borderRadius:V.r,boxShadow:V.sh,padding:"1.5rem",border:`1px solid ${V.bd}`,textAlign:"center",color:V.d}}>
+        {loadError}
+      </div>
+    );
+  }
+
   if (!started) {
     return (
-      <div style={{background:V.bg,borderRadius:V.r,boxShadow:V.sh,padding:"1.5rem",border:`1px solid ${V.bd}`}}>
+      <div data-mega-flashcards-player-v3="true" style={{background:V.bg,borderRadius:V.r,boxShadow:V.sh,padding:"1.5rem",border:`1px solid ${V.bd}`}}>
         <h2 style={{fontSize:"1.1rem",fontWeight:700,color:V.t,textAlign:"center",marginBottom:"1rem"}}>⚙️ Mega Flashcards</h2>
         <div style={{marginBottom:"0.75rem"}}>
           <p style={{fontSize:"0.8rem",fontWeight:600,color:V.tm,marginBottom:"0.4rem"}}>📚 Niveau :</p>
           <div style={{display:"flex",gap:"0.3rem",flexWrap:"wrap"}}>
             <P a={fNiveau==="all"} onClick={()=>{setFNiveau("all");setFChapter("all");}}>Tous</P>
-            {niveaux.map(n=><P key={n} a={fNiveau===n} onClick={()=>{setFNiveau(n);setFChapter("all");}}>{n}</P>)}
+            {niveaux.map(n=><P key={n} a={fNiveau===n} onClick={()=>{setFNiveau(n);setFChapter("all");}}>{getLevelDisplayLabel(n)}</P>)}
           </div>
         </div>
         <div style={{marginBottom:"0.75rem"}}>
@@ -95,7 +141,7 @@ export default function MegaFlashcardsPlayer({ allCards }: { allCards: Card[] })
           </div>
         </div>
         <p style={{fontSize:"0.8rem",color:V.tm,textAlign:"center",marginBottom:"0.75rem"}}>{filtered.length} cartes disponibles</p>
-        <button onClick={()=>{if(filtered.length>0)setStarted(true);}} style={{display:"block",width:"100%",padding:"0.8rem",border:"none",borderRadius:V.rm,background:filtered.length>0?V.p:V.bgS,color:filtered.length>0?"#fff":V.tm,fontWeight:700,fontSize:"1rem",cursor:filtered.length>0?"pointer":"not-allowed",fontFamily:"inherit"}}>🚀 Lancer !</button>
+        <button onClick={()=>{if(filtered.length>0){setSessionSeed(seed=>seed+1);setStarted(true);}}} style={{display:"block",width:"100%",padding:"0.8rem",border:"none",borderRadius:V.rm,background:filtered.length>0?V.p:V.bgS,color:filtered.length>0?"#fff":V.tm,fontWeight:700,fontSize:"1rem",cursor:filtered.length>0?"pointer":"not-allowed",fontFamily:"inherit"}}>🚀 Lancer !</button>
       </div>
     );
   }
@@ -106,7 +152,7 @@ export default function MegaFlashcardsPlayer({ allCards }: { allCards: Card[] })
     const pct = Math.round((known/pool.length)*100);
     const emoji = pct===100?"🏆":pct>=80?"🌟":pct>=60?"👍":"📚";
     return (
-      <div style={{background:V.bg,borderRadius:V.r,boxShadow:V.sh,padding:"1.5rem",border:`1px solid ${V.bd}`,textAlign:"center"}}>
+      <div data-mega-flashcards-result-v3="true" style={{background:V.bg,borderRadius:V.r,boxShadow:V.sh,padding:"1.5rem",border:`1px solid ${V.bd}`,textAlign:"center"}}>
         <span style={{fontSize:"3rem"}}>{emoji}</span>
         <h2 style={{fontSize:"1.3rem",fontWeight:800,color:V.t,margin:"0.5rem 0"}}>Session terminée !</h2>
         <div style={{display:"flex",justifyContent:"center",gap:"1.5rem",margin:"1rem 0"}}>
@@ -123,25 +169,25 @@ export default function MegaFlashcardsPlayer({ allCards }: { allCards: Card[] })
   }
 
   return (
-    <div>
+    <div data-mega-flashcards-player-v3="true">
       <div style={{display:"flex",alignItems:"center",gap:"0.75rem",marginBottom:"1rem"}}>
         <span style={{fontSize:"0.8rem",fontWeight:700,color:V.tm}}>{idx+1}/{pool.length}</span>
         <div style={{flex:1,height:6,background:V.bgS,borderRadius:99,overflow:"hidden"}}><div style={{height:"100%",background:V.p,borderRadius:99,width:`${((idx+1)/pool.length)*100}%`,transition:"width 0.3s"}}/></div>
         <span style={{fontSize:"0.75rem",color:V.s}}>✅ {results.filter(r=>r==="k").length}</span>
         <span style={{fontSize:"0.75rem",color:V.d}}>❌ {results.filter(r=>r==="u").length}</span>
       </div>
-      <div onClick={()=>!flipped&&setFlipped(true)} style={{background:V.bg,borderRadius:V.r,boxShadow:V.shM,padding:"2rem 1.5rem",minHeight:200,border:`1px solid ${V.bd}`,cursor:flipped?"default":"pointer",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",textAlign:"center",transition:"all 0.2s"}}>
+      <div role="button" tabIndex={0} aria-pressed={flipped} onKeyDown={e=>{if((e.key==="Enter"||e.key===" ")&&!flipped){e.preventDefault();setFlipped(true)}}} onClick={()=>!flipped&&setFlipped(true)} style={{background:V.bg,borderRadius:V.r,boxShadow:V.shM,padding:"2rem 1.5rem",minHeight:200,border:`1px solid ${V.bd}`,cursor:flipped?"default":"pointer",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",textAlign:"center",transition:"all 0.2s"}}>
         <span style={{fontSize:"0.7rem",fontWeight:600,padding:"0.15rem 0.5rem",borderRadius:V.rp,marginBottom:"0.75rem",background:cur.matiere==="chimie"?V.puL:V.pL,color:cur.matiere==="chimie"?V.pu:V.p}}>{cur.matiere==="chimie"?"🧪":"⚡"} {cur.chapterTitle}</span>
         {!flipped ? (
           <>
-            <p style={{fontSize:"1.1rem",fontWeight:700,color:V.t,lineHeight:1.5}}><KTex text={cur.front}/></p>
+            <p style={{fontSize:"1.1rem",fontWeight:700,color:V.t,lineHeight:1.5}}><MathText text={cur.front}/></p>
             <p style={{fontSize:"0.8rem",color:V.tm,marginTop:"1rem"}}>👆 Clique pour voir la réponse</p>
           </>
         ) : (
           <>
-            <p style={{fontSize:"0.8rem",color:V.tm,marginBottom:"0.5rem"}}><KTex text={cur.front}/></p>
+            <p style={{fontSize:"0.8rem",color:V.tm,marginBottom:"0.5rem"}}><MathText text={cur.front}/></p>
             <div style={{width:"60%",height:1,background:V.bd,margin:"0.5rem 0"}}/>
-            <p style={{fontSize:"1.05rem",fontWeight:600,color:V.s,lineHeight:1.5,marginTop:"0.5rem"}}><KTex text={cur.back}/></p>
+            <p style={{fontSize:"1.05rem",fontWeight:600,color:V.s,lineHeight:1.5,marginTop:"0.5rem"}}><MathText text={cur.back}/></p>
           </>
         )}
       </div>

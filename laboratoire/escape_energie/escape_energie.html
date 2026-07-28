@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Game : Le Labo des Énergies</title>
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <style>
+        /* --- Styles Spécifiques à l'Escape Game --- */
+        body {
+            background-color: #0f172a; /* Nuit profonde */
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #game-container {
+            width: 100%;
+            max-width: 800px;
+            background: #1e293b;
+            border: 4px solid #334155;
+            border-radius: 12px;
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: background-color 1s ease;
+        }
+
+        /* Mode nuit initial */
+        .dark-mode { background: #020617 !important; }
+        .dark-mode .hide-in-dark { opacity: 0; pointer-events: none; }
+
+        /* --- Interface : Dialogue et Inventaire --- */
+        #dialogue-box {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            background: rgba(15, 23, 42, 0.9);
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            z-index: 100;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        #inventory {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        .inv-slot {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border: 2px dashed #64748b;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        /* --- Éléments du jeu --- */
+        .interactable {
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.2s;
+            user-select: none;
+        }
+        .interactable:hover { transform: scale(1.1); filter: drop-shadow(0 0 8px rgba(255,255,255,0.5)); }
+
+        /* 1. Manivelle (Mécanique -> Électrique) */
+        #crank { bottom: 100px; right: 50px; font-size: 60px; z-index: 10; }
+        #crank-bar { position: absolute; bottom: 80px; right: 50px; width: 60px; height: 10px; background: #333; border-radius: 5px; }
+        #crank-fill { height: 100%; width: 0%; background: #f59e0b; border-radius: 5px; transition: width 0.2s; }
+
+        /* 2. Fenêtre (Lumineuse -> Électrique) */
+        #window { top: 50px; right: 50px; font-size: 80px; }
+        #sunbeam {
+            position: absolute; top: 120px; right: 80px; width: 250px; height: 350px;
+            background: linear-gradient(135deg, rgba(253, 224, 71, 0.4) 0%, transparent 100%);
+            clip-path: polygon(100% 0, 0 100%, 100% 100%);
+            opacity: 0; transition: opacity 2s ease; pointer-events: none;
+        }
+
+        /* 3. Porte et Digicode */
+        #door { top: 100px; left: 300px; font-size: 150px; }
+        #solar-panel { top: 150px; left: 420px; font-size: 40px; }
+        #keypad { top: 220px; left: 430px; font-size: 20px; filter: grayscale(100%); transition: filter 1s; }
+
+        /* 4. Pile et Lampe UV (Chimique -> Lumineuse) */
+        #drawer { bottom: 120px; left: 50px; font-size: 50px; }
+        #uv-light { bottom: 120px; left: 150px; font-size: 50px; opacity: 0.5; }
+        
+        #hidden-code {
+            position: absolute; top: 150px; left: 80px; font-size: 40px; font-weight: bold;
+            font-family: monospace; color: #a855f7; text-shadow: 0 0 10px #a855f7;
+            opacity: 0; transition: opacity 0.5s; pointer-events: none;
+        }
+
+        .highlight-text { color: #f59e0b; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Escape Game : Panne au Labo ⚡</h1>
+    <p style="color: #94a3b8; margin-bottom: 20px;">Utilise tes connaissances sur les conversions d'énergie pour t'échapper.</p>
+
+    <div id="game-container" class="dark-mode">
+        
+        <div id="inventory">
+            <div class="inv-slot" id="inv-battery"></div>
+        </div>
+
+        <div id="dialogue-box">
+            Le courant est coupé ! Il fait presque noir complet. Je dois trouver un moyen de produire de l'énergie.
+        </div>
+
+        <div id="crank" class="interactable" onclick="turnCrank()">⚙️</div>
+        <div id="crank-bar"><div id="crank-fill"></div></div>
+
+        <div id="window" class="interactable hide-in-dark" onclick="openWindow()">🪟</div>
+        <div id="sunbeam"></div>
+
+        <div id="door" class="hide-in-dark">🚪</div>
+        <div id="solar-panel" class="hide-in-dark">🟦</div>
+        <div id="keypad" class="interactable hide-in-dark" onclick="useKeypad()">🔢</div>
+
+        <div id="drawer" class="interactable hide-in-dark" onclick="openDrawer()">📦</div>
+        <div id="uv-light" class="interactable hide-in-dark" onclick="useUVLight()">🔦</div>
+        
+        <div id="hidden-code">734</div>
+
+    </div>
+
+    <script>
+        // État du jeu
+        let energyLevel = 0;
+        let powerOn = false;
+        let windowOpened = false;
+        let keypadPowered = false;
+        let hasBattery = false;
+        let uvLightOn = false;
+        const correctCode = "734";
+
+        const dialogueBox = document.getElementById('dialogue-box');
+        const gameContainer = document.getElementById('game-container');
+        const crankFill = document.getElementById('crank-fill');
+        const sunbeam = document.getElementById('sunbeam');
+        const keypad = document.getElementById('keypad');
+        const hiddenCode = document.getElementById('hidden-code');
+        const invBattery = document.getElementById('inv-battery');
+
+        function setDialogue(text) {
+            dialogueBox.innerHTML = text;
+        }
+
+        // Énigme 1 : Énergie Mécanique -> Électrique
+        function turnCrank() {
+            if (powerOn) return;
+            energyLevel += 10;
+            crankFill.style.width = energyLevel + "%";
+            
+            const gear = document.getElementById('crank');
+            gear.style.transform = `rotate(${energyLevel * 5}deg)`;
+
+            if (energyLevel >= 100) {
+                powerOn = true;
+                gameContainer.classList.remove('dark-mode');
+                setDialogue("Bravo ! En tournant la manivelle (l'alternateur), tu as converti ton <span class='highlight-text'>énergie mécanique</span> en <span class='highlight-text'>énergie électrique</span>. La lumière principale est revenue !");
+            } else {
+                setDialogue("Je tourne la manivelle... Je convertis mon énergie mécanique !");
+            }
+        }
+
+        // Énigme 2 : Énergie Lumineuse -> Électrique
+        function openWindow() {
+            if (!windowOpened) {
+                windowOpened = true;
+                document.getElementById('window').innerText = "🖼️"; // Fenêtre ouverte
+                sunbeam.style.opacity = "1";
+                keypadPowered = true;
+                keypad.style.filter = "grayscale(0%)";
+                keypad.style.textShadow = "0 0 10px #10b981";
+                
+                setDialogue("Tu as fait entrer l'<span class='highlight-text'>énergie lumineuse</span> du Soleil. Le panneau solaire l'a convertie en <span class='highlight-text'>énergie électrique</span>. Le digicode de la porte est alimenté !");
+            }
+        }
+
+        // Énigme 3 : Énergie Chimique -> Électrique -> Lumineuse
+        function openDrawer() {
+            if (!hasBattery) {
+                hasBattery = true;
+                invBattery.innerText = "🔋";
+                document.getElementById('drawer').innerText = "🗃️"; // Tiroir ouvert
+                setDialogue("Tu as trouvé une pile ! Elle stocke de l'<span class='highlight-text'>énergie chimique</span>.");
+            }
+        }
+
+        function useUVLight() {
+            if (!hasBattery) {
+                setDialogue("C'est une lampe à rayons UV. Mais elle n'a plus d'énergie. Il me faut une pile.");
+                return;
+            }
+            if (!uvLightOn) {
+                uvLightOn = true;
+                invBattery.innerText = ""; // Retire la pile de l'inventaire
+                document.getElementById('uv-light').style.opacity = "1";
+                document.getElementById('uv-light').style.filter = "drop-shadow(0 0 15px #a855f7)";
+                hiddenCode.style.opacity = "1";
+                
+                setDialogue("Super ! La pile a transformé son <span class='highlight-text'>énergie chimique</span> en électricité. La lampe la convertit en <span class='highlight-text'>énergie lumineuse</span> UV. Un code secret apparaît au mur !");
+            }
+        }
+
+        // Fin du jeu
+        function useKeypad() {
+            if (!keypadPowered) {
+                setDialogue("Le digicode est éteint. Il a besoin d'énergie pour fonctionner.");
+                return;
+            }
+            
+            const userCode = prompt("Le digicode est allumé. Entrez le code à 3 chiffres :");
+            if (userCode === correctCode) {
+                document.getElementById('door').innerText = "🔓";
+                setDialogue("🎉 <strong>Félicitations !</strong> La porte est ouverte. Tu maîtrises parfaitement les chaînes d'énergie !");
+                // Optionnel : rediriger vers la page du cours après 3 secondes
+                // setTimeout(() => window.location.href = '../cours_sources_formes_energie.html', 3000);
+            } else if (userCode !== null) {
+                setDialogue("Code incorrect... Le code doit être caché quelque part dans la pièce.");
+            }
+        }
+    </script>
+</body>
+</html>

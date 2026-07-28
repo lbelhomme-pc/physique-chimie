@@ -1,60 +1,768 @@
 ---
-// src/pages/index.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SubjectGateCard from "../components/home/SubjectGateCard.astro";
+import GlobalSearch from "../components/search/GlobalSearch";
+import type { GlobalSearchResource } from "../components/search/GlobalSearch";
+import ResumeLearning from "../components/pedagogie/ResumeLearning.tsx";
 import Dashboard from "../components/pedagogie/Dashboard.tsx";
+import { getLevelDisplayLabel } from "../utils/levels";
+import { getMatiereLabel } from "../data/levels";
+import { disciplineIdentities } from "../data/disciplineIdentity";
+import { getPublishedMathematicsLevels } from "../data/contentRoutes";
+import { chapterEntryFromGlob } from "../data/mathematiques/content";
+import { getMathematicsChapterId } from "../data/mathematiques/paths";
+import { getMathematicsLevelsByCycle } from "../data/mathematiques/levels";
 
-// ─── Scanner tous les chapitres pour le dashboard ─────────
 const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
 const allFlash = import.meta.glob("/src/data/chapters/**/flashcards.json", { eager: true });
+const allMathMeta = import.meta.glob("/src/data/mathematiques/chapters/**/meta.json", { eager: true });
 
-interface ChapterInfo {
-  id: string;
-  title: string;
-  niveau: string;
-  matiere: string;
-  cycle: string;
-  slug: string;
-  flashcardIds: string[];
-}
-
-const chapters: ChapterInfo[] = [];
+const resources: GlobalSearchResource[] = [];
 
 for (const [path, mod] of Object.entries(allMeta)) {
-  const segments = path.replace("/src/data/chapters/", "").replace("/meta.json", "").split("/");
-  const [cycle, niveau, matiere, slug] = segments;
+  const [cycle, niveau, matiere, slug] = path
+    .replace("/src/data/chapters/", "")
+    .replace("/meta.json", "")
+    .split("/");
+  if ((cycle !== "college" && cycle !== "lycee") || !niveau || !matiere || !slug) continue;
 
   const data = (mod as any).default ?? mod;
-  const chapterId = `${cycle}/${niveau}/${matiere}/${slug}`;
-
-  // Récupérer les IDs de flashcards pour le SRS
-  const flashPath = path.replace("meta.json", "flashcards.json");
-  const flashMod = allFlash[flashPath] as any;
-  const flashData = flashMod?.default ?? flashMod;
-  const flashcardIds: string[] = [];
-  if (Array.isArray(flashData)) {
-    flashData.forEach((f: any) => { if (f.id) flashcardIds.push(f.id); });
-  } else if (flashData?.cards) {
-    flashData.cards.forEach((f: any) => { if (f.id) flashcardIds.push(f.id); });
-  }
-
-  chapters.push({
-    id: chapterId,
+  const matiereLabel = getMatiereLabel(matiere);
+  resources.push({
+    id: `${cycle}/${niveau}/${matiere}/${slug}`,
     title: data.title ?? slug,
-    niveau,
-    matiere,
+    description: data.description,
+    path: `/${cycle}/${niveau}/${matiere}/${slug}`,
+    subject: "physique-chimie",
+    subjectLabel: "Physique-Chimie",
     cycle,
+    levelLabel: getLevelDisplayLabel(niveau),
+    matiereLabel,
+    resourceType: "chapter",
+    accessTier: data.access?.tier ?? "free",
     slug,
-    flashcardIds,
+    keywords: Array.isArray(data.keywords) ? data.keywords : [],
   });
 }
 
-// Trier par cycle puis niveau puis matière
-chapters.sort((a, b) => {
-  if (a.cycle !== b.cycle) return a.cycle.localeCompare(b.cycle);
-  if (a.niveau !== b.niveau) return a.niveau.localeCompare(b.niveau);
-  return a.matiere.localeCompare(b.matiere);
-});
+const mathChapters = Object.entries(allMathMeta)
+  .map(([path, mod]) => chapterEntryFromGlob(path, mod))
+  .filter((chapter): chapter is NonNullable<typeof chapter> => Boolean(chapter));
+
+const publishedMathLevels = [
+  ...getPublishedMathematicsLevels(getMathematicsLevelsByCycle("college"), mathChapters),
+  ...getPublishedMathematicsLevels(getMathematicsLevelsByCycle("lycee"), mathChapters),
+];
+const publishedMathLevelKeys = new Set(publishedMathLevels.map((level) => `${level.cycle}:${level.slug}`));
+
+for (const chapter of mathChapters) {
+  if (!publishedMathLevelKeys.has(`${chapter.cycle}:${chapter.niveau}`)) continue;
+  resources.push({
+    id: getMathematicsChapterId(chapter.cycle, chapter.niveau, chapter.slug),
+    title: chapter.title,
+    description: chapter.description,
+    path: chapter.path,
+    subject: "mathematiques",
+    subjectLabel: "Mathématiques",
+    cycle: chapter.cycle,
+    levelLabel: getLevelDisplayLabel(chapter.niveau),
+    resourceType: "chapter",
+    accessTier: "free",
+    slug: chapter.slug,
+    keywords: chapter.tags ?? [],
+  });
+}
+
+resources.sort((a, b) =>
+  a.subject.localeCompare(b.subject) ||
+  a.cycle.localeCompare(b.cycle) ||
+  a.levelLabel.localeCompare(b.levelLabel) ||
+  a.title.localeCompare(b.title),
+);
+
+function publishedLevelLabels(subject: GlobalSearchResource["subject"], cycle?: "college" | "lycee") {
+  const seen = new Set<string>();
+  return resources
+    .filter((resource) => resource.subject === subject && (!cycle || resource.cycle === cycle))
+    .map((resource) => resource.levelLabel)
+    .filter((label) => {
+      if (seen.has(label)) return false;
+      seen.add(label);
+      return true;
+    });
+}
+
+const pcCollegeCount = resources.filter((resource) => resource.subject === "physique-chimie" && resource.cycle === "college").length;
+const pcLyceeCount = resources.filter((resource) => resource.subject === "physique-chimie" && resource.cycle === "lycee").length;
+const mathCount = resources.filter((resource) => resource.subject === "mathematiques").length;
+const publishedLevelCount = new Set(resources.map((resource) => `${resource.subject}:${resource.cycle}:${resource.levelLabel}`)).size;
+const hasPhysicalScienceFlashcards = Object.keys(allFlash).length > 0;
+const mathPublishedLevels = publishedLevelLabels("mathematiques");
+const featuredMath = resources.find((resource) => resource.subject === "mathematiques");
+const featuredPcCollege = resources.find((resource) => resource.subject === "physique-chimie" && resource.cycle === "college");
+const featuredPcLycee = resources.find((resource) => resource.subject === "physique-chimie" && resource.cycle === "lycee");
+const esResources = resources.filter((resource) =>
+  resource.id.includes("lycee/1ere-ens-scientifique/") ||
+  resource.id.includes("lycee/terminale-ens-scientifique/")
+);
+const esCount = esResources.length;
+const featuredEs = esResources[0];
+const esIdentity = disciplineIdentities["enseignement-scientifique"];
+
+const learningSteps = [
+  {
+    title: "Comprendre",
+    text: "Des cours courts, des définitions et des exemples pour poser les bases.",
+  },
+  {
+    title: "S'entraîner",
+    text: "Des exercices progressifs pour vérifier chaque méthode sans brûler les étapes.",
+  },
+  {
+    title: "Réviser",
+    text: "Quiz, flashcards et reprise de progression pour revenir au bon endroit.",
+  },
+  {
+    title: "Expérimenter",
+    text: "Des laboratoires et outils scientifiques pour manipuler les notions.",
+  },
+];
+
+const resourceLinks = [
+  { label: "Cours", href: "/college", text: "Entrer par niveau et chapitre." },
+  { label: "Exercices", href: "/college/5eme", text: "S'entraîner avec des parcours courts." },
+  { label: "Quiz et flashcards", href: "/memorisation", text: "Revoir régulièrement les notions clés." },
+  { label: "Laboratoire", href: "/laboratoire", text: "Observer, mesurer et simuler." },
+  { label: "Méthodes", href: "/outils-methodes", text: "Retrouver formules, conversions et outils." },
+  { label: "Recherche", href: "#recherche", text: "Chercher un chapitre ou une notion." },
+];
 ---
-<BaseLayout title="Accueil — Physique-Chimie">
-  <Dashboard client:load chapters={chapters} />
+
+<BaseLayout
+  title="Révisions PC Maths - cours, exercices, quiz et laboratoires"
+  description="Plateforme pédagogique gratuite pour comprendre, s'entraîner, réviser et expérimenter en mathématiques, physique-chimie et enseignement scientifique."
+  subject="transversal"
+>
+  <div class="home-v3">
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="home-hero__content">
+        <p class="home-kicker">Plateforme pédagogique</p>
+        <h1 id="home-title">Comprendre, s'entraîner, réviser et expérimenter</h1>
+        <p class="home-hero__lead">
+          Un espace clair pour avancer en mathématiques, physique-chimie et enseignement scientifique,
+          avec les cours, exercices, quiz, flashcards et laboratoires déjà publiés sur le site.
+        </p>
+        <div class="home-hero__actions" aria-label="Accès rapides principaux">
+          <a class="home-button home-button--primary" href="/college">Physique-Chimie</a>
+          <a class="home-button home-button--maths" href="/mathematiques">Mathématiques</a>
+          <a class="home-button home-button--science" href={esIdentity.href}>Enseignement scientifique</a>
+          <a class="home-button" href="#recherche">Rechercher</a>
+        </div>
+        <dl class="home-facts" aria-label="Contenus publiés">
+          <div>
+            <dt>{resources.length}</dt>
+            <dd>chapitres publiés</dd>
+          </div>
+          <div>
+            <dt>{publishedLevelCount}</dt>
+            <dd>niveaux avec contenus</dd>
+          </div>
+          <div>
+            <dt>Libre</dt>
+            <dd>pour commencer</dd>
+          </div>
+        </dl>
+      </div>
+      <figure class="home-hero__media">
+        <picture>
+          <source srcset="/images/accueil-v3-hero-sciences-2026-07-27.webp" type="image/webp" />
+          <img
+            src="/images/accueil-v3-hero-sciences-2026-07-27.png"
+            alt="Bureau d'étude avec ordinateur, verrerie de chimie, schémas mathématiques et montage électrique scolaire."
+            width="1600"
+            height="762"
+            loading="eager"
+            decoding="async"
+          />
+        </picture>
+      </figure>
+    </section>
+
+    <section class="learning-strip" aria-label="Méthode de travail">
+      {learningSteps.map((step) => (
+        <article>
+          <h2>{step.title}</h2>
+          <p>{step.text}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="section-block" aria-labelledby="subjects-title">
+      <div class="section-heading">
+        <p class="home-kicker">Choix de matière</p>
+        <h2 id="subjects-title">Entrer par ce que tu travailles aujourd'hui</h2>
+      </div>
+      <div class="subject-grid" aria-label="Choix de la matière">
+        <SubjectGateCard
+          subject="mathematiques"
+          eyebrow="Mathématiques"
+          title="Calculer, raisonner, modéliser"
+          description="Chapitres publiés, exercices, quiz et flashcards de mathématiques avec une recherche filtrée par niveau."
+          levels={mathPublishedLevels.length > 0 ? mathPublishedLevels : ["Aucun niveau publié"]}
+          resourceShortcuts={["Chapitres", "Quiz", "Flashcards", "Méthodes"]}
+          actions={[
+            { label: "Entrer en maths", href: "/mathematiques", primary: true },
+            { label: "Seconde", href: "/mathematiques/lycee/2nde" },
+            { label: "Méthodes maths", href: "/outils-methodes/methodes-maths-lycee" },
+            featuredMath ? { label: "Chapitre conseillé", href: featuredMath.path } : { label: "Voir les niveaux", href: "/mathematiques" },
+          ]}
+        />
+
+        <SubjectGateCard
+          subject="physique-chimie"
+          eyebrow="Physique-Chimie"
+          title="Observer, mesurer, expliquer"
+          description="Cours, exercices, quiz, flashcards, méthodes et laboratoires pour les chapitres de physique et de chimie."
+          levels={[...publishedLevelLabels("physique-chimie", "college"), ...publishedLevelLabels("physique-chimie", "lycee")]}
+          resourceShortcuts={hasPhysicalScienceFlashcards ? ["Cours", "Exercices", "Quiz", "Flashcards", "Laboratoire"] : ["Cours", "Exercices", "Quiz", "Laboratoire"]}
+          actions={[
+            { label: "Entrer au collège", href: "/college", primary: true },
+            { label: "Entrer au lycée", href: "/lycee" },
+            { label: "Laboratoire", href: "/laboratoire" },
+            { label: "Outils et méthodes", href: "/outils-methodes" },
+          ]}
+        />
+
+        <SubjectGateCard
+          subject="enseignement-scientifique"
+          eyebrow="Enseignement scientifique"
+          title="Relier les sciences et les enjeux"
+          description="Un accès séparé pour l'enseignement scientifique du lycée, sans le traiter comme une sous-rubrique de physique-chimie."
+          levels={["1re Enseignement scientifique", "Terminale Enseignement scientifique"]}
+          resourceShortcuts={["Cours", "Documents", "Quiz", "Méthodes"]}
+          actions={[
+            { label: "Entrer en 1re ES", href: "/lycee/1ere-ens-scientifique", primary: true },
+            { label: "Terminale ES", href: "/lycee/terminale-ens-scientifique" },
+            featuredEs ? { label: "Chapitre conseillé", href: featuredEs.path } : { label: "Voir l'espace ES", href: esIdentity.href },
+          ]}
+        />
+      </div>
+    </section>
+
+    <section class="level-band" aria-labelledby="levels-title">
+      <div>
+        <p class="home-kicker">Niveaux</p>
+        <h2 id="levels-title">Rejoindre directement son espace</h2>
+      </div>
+      <div class="level-links">
+        <a href="/college">
+          <strong>Collège</strong>
+          <span>{pcCollegeCount} chapitres de physique-chimie publiés</span>
+        </a>
+        <a href="/lycee">
+          <strong>Lycée</strong>
+          <span>{pcLyceeCount} chapitres de physique-chimie publiés</span>
+        </a>
+        <a href={esIdentity.href}>
+          <strong>Enseignement scientifique</strong>
+          <span>{esCount} chapitres publiés dans un espace identifié à part</span>
+        </a>
+        <a href="/mathematiques/lycee/2nde">
+          <strong>Mathématiques seconde</strong>
+          <span>{mathCount} chapitres de mathématiques publiés</span>
+        </a>
+      </div>
+    </section>
+
+    <ResumeLearning client:load resources={resources} />
+
+    <section class="section-block section-block--resources" aria-labelledby="resources-title">
+      <div class="section-heading">
+        <p class="home-kicker">Ressources</p>
+        <h2 id="resources-title">Tout retrouver sans changer de méthode</h2>
+      </div>
+      <div class="resource-grid">
+        {resourceLinks.map((resource) => (
+          <a href={resource.href}>
+            <strong>{resource.label}</strong>
+            <span>{resource.text}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <GlobalSearch client:load resources={resources} />
+
+    <section class="access-section" aria-labelledby="access-title">
+      <div>
+        <p class="home-kicker">Accès</p>
+        <h2 id="access-title">Commencer gratuitement, préparer les options avancées</h2>
+        <p>
+          L'accueil ne promet pas de prix ni de statistiques non vérifiées. Les contenus accessibles
+          aujourd'hui restent gratuits ; les fonctions de compte et d'accompagnement avancé seront cadrées
+          dans les prompts dédiés.
+        </p>
+      </div>
+      <div class="access-grid">
+        <article>
+          <span>Disponible</span>
+          <h3>Gratuit</h3>
+          <ul>
+            <li>Cours et exercices publiés</li>
+            <li>Quiz, flashcards et recherche</li>
+            <li>Laboratoire et outils de méthode</li>
+          </ul>
+          <a href="/college">Commencer</a>
+        </article>
+        <article>
+          <span>À définir</span>
+          <h3>Compte et options avancées</h3>
+          <ul>
+            <li>Suivi de progression plus complet</li>
+            <li>Parcours personnalisés</li>
+            <li>Fonctions premium à valider plus tard</li>
+          </ul>
+          <a href="/profil">Voir le profil</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="recommendations" aria-labelledby="recommendations-title">
+      <div class="section-heading">
+        <p class="home-kicker">Reprendre</p>
+        <h2 id="recommendations-title">Quelques portes d'entrée publiées</h2>
+      </div>
+      <div class="recommendation-grid">
+        {featuredMath && (
+          <a href={featuredMath.path}>
+            <span>Mathématiques · {featuredMath.levelLabel}</span>
+            <strong>{featuredMath.title}</strong>
+          </a>
+        )}
+        {featuredPcCollege && (
+          <a href={featuredPcCollege.path}>
+            <span>Physique-Chimie · {featuredPcCollege.levelLabel}</span>
+            <strong>{featuredPcCollege.title}</strong>
+          </a>
+        )}
+        {featuredPcLycee && (
+          <a href={featuredPcLycee.path}>
+            <span>Physique-Chimie · {featuredPcLycee.levelLabel}</span>
+            <strong>{featuredPcLycee.title}</strong>
+          </a>
+        )}
+        {featuredEs && (
+          <a href={featuredEs.path}>
+            <span>Enseignement scientifique · {featuredEs.levelLabel}</span>
+            <strong>{featuredEs.title}</strong>
+          </a>
+        )}
+      </div>
+    </section>
+
+    <Dashboard client:load resources={resources} />
+  </div>
 </BaseLayout>
+
+<style>
+  .home-v3 {
+    display: grid;
+    gap: var(--v3-space-8);
+    margin: 0 auto;
+    max-width: 1180px;
+    min-width: 0;
+    padding: var(--v3-space-6) var(--v3-space-4) var(--v3-space-12);
+  }
+
+  .home-hero {
+    align-items: center;
+    display: grid;
+    gap: var(--v3-space-6);
+    grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+    min-height: 560px;
+  }
+
+  .home-hero__content {
+    display: grid;
+    gap: var(--v3-space-5);
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .home-kicker {
+    color: var(--v3-color-action);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .home-hero h1,
+  .section-heading h2,
+  .level-band h2,
+  .access-section h2 {
+    color: var(--v3-color-text-main);
+    letter-spacing: 0;
+    line-height: 1.08;
+    margin: 0;
+  }
+
+  .home-hero h1 {
+    font-size: clamp(2.45rem, 6vw, 4.8rem);
+    max-width: 11ch;
+    overflow-wrap: anywhere;
+  }
+
+  .home-hero__lead {
+    color: var(--v3-color-text-subtle);
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin: 0;
+    max-width: 64ch;
+  }
+
+  .home-hero__actions,
+  .level-links,
+  .resource-grid,
+  .recommendation-grid {
+    display: grid;
+    gap: var(--v3-space-3);
+  }
+
+  .home-hero__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .home-button {
+    align-items: center;
+    background: var(--v3-color-surface-raised);
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    color: var(--v3-color-text-main);
+    display: inline-flex;
+    font-weight: 900;
+    min-height: 48px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .home-button--primary {
+    background: var(--v3-color-action);
+    border-color: var(--v3-color-action);
+    color: #fff;
+  }
+
+  .home-button--maths {
+    border-color: color-mix(in srgb, var(--v3-color-discipline-maths) 45%, var(--v3-color-border-default));
+    color: var(--v3-color-discipline-maths);
+  }
+
+  .home-button--science {
+    border-color: color-mix(in srgb, var(--v3-color-discipline-science) 45%, var(--v3-color-border-default));
+    color: var(--v3-color-discipline-science);
+  }
+
+  .home-button:hover,
+  .home-button:focus-visible,
+  .level-links a:hover,
+  .level-links a:focus-visible,
+  .resource-grid a:hover,
+  .resource-grid a:focus-visible,
+  .recommendation-grid a:hover,
+  .recommendation-grid a:focus-visible,
+  .access-grid a:hover,
+  .access-grid a:focus-visible {
+    box-shadow: var(--v3-shadow-focus);
+    outline: none;
+  }
+
+  .home-facts {
+    display: grid;
+    gap: var(--v3-space-3);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0;
+  }
+
+  .home-facts div {
+    background: var(--v3-color-surface-raised);
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    padding: var(--v3-space-4);
+  }
+
+  .home-facts dt {
+    color: var(--v3-color-action);
+    font-size: 1.55rem;
+    font-weight: 950;
+    line-height: 1;
+  }
+
+  .home-facts dd {
+    color: var(--v3-color-text-subtle);
+    font-size: 0.9rem;
+    font-weight: 750;
+    margin: 0.35rem 0 0;
+  }
+
+  .home-hero__media {
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    box-shadow: var(--v3-shadow-md);
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .home-hero__media img {
+    aspect-ratio: 16 / 9;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .learning-strip,
+  .subject-grid,
+  .access-grid {
+    display: grid;
+    gap: var(--v3-space-4);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .learning-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .subject-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .learning-strip article,
+  .level-band,
+  .access-section,
+  .section-block {
+    background: var(--v3-color-surface-page);
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    box-shadow: var(--v3-shadow-sm);
+  }
+
+  .learning-strip article {
+    min-height: 136px;
+    padding: var(--v3-space-4);
+  }
+
+  .learning-strip h2,
+  .access-grid h3 {
+    color: var(--v3-color-text-main);
+    font-size: 1.08rem;
+    letter-spacing: 0;
+    margin: 0 0 0.45rem;
+  }
+
+  .learning-strip p,
+  .access-section p,
+  .access-grid li,
+  .resource-grid span,
+  .recommendation-grid span,
+  .level-links span {
+    color: var(--v3-color-text-subtle);
+    line-height: 1.6;
+  }
+
+  .learning-strip p,
+  .access-section p {
+    margin: 0;
+  }
+
+  .section-block,
+  .level-band,
+  .access-section {
+    display: grid;
+    gap: var(--v3-space-5);
+    padding: var(--v3-space-5);
+  }
+
+  .section-heading {
+    display: grid;
+    gap: var(--v3-space-2);
+  }
+
+  .section-heading h2,
+  .level-band h2,
+  .access-section h2 {
+    font-size: clamp(1.55rem, 3vw, 2.25rem);
+  }
+
+  .level-band {
+    align-items: start;
+    grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1fr);
+  }
+
+  .level-links,
+  .resource-grid,
+  .recommendation-grid {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  }
+
+  .level-links a,
+  .resource-grid a,
+  .recommendation-grid a {
+    background: var(--v3-color-surface-raised);
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    color: inherit;
+    display: grid;
+    gap: var(--v3-space-2);
+    min-height: 96px;
+    padding: var(--v3-space-4);
+    text-decoration: none;
+  }
+
+  .level-links strong,
+  .resource-grid strong,
+  .recommendation-grid strong {
+    color: var(--v3-color-text-main);
+    font-size: 1rem;
+  }
+
+  .section-block--resources {
+    background: color-mix(in srgb, var(--v3-color-surface-muted) 68%, #fff);
+  }
+
+  .access-section {
+    grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1fr);
+  }
+
+  .access-grid article {
+    background: var(--v3-color-surface-raised);
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    display: grid;
+    gap: var(--v3-space-3);
+    padding: var(--v3-space-5);
+  }
+
+  .access-grid span {
+    color: var(--v3-color-success);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .access-grid article:nth-child(2) span {
+    color: var(--v3-color-warning);
+  }
+
+  .access-grid ul {
+    display: grid;
+    gap: var(--v3-space-2);
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .access-grid a {
+    align-items: center;
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    color: var(--v3-color-action);
+    display: inline-flex;
+    font-weight: 900;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.65rem 0.85rem;
+    text-decoration: none;
+  }
+
+  .recommendations {
+    display: grid;
+    gap: var(--v3-space-4);
+  }
+
+  @media (max-width: 960px) {
+    .home-hero,
+    .level-band,
+    .access-section {
+      grid-template-columns: 1fr;
+    }
+
+    .home-hero {
+      min-height: 0;
+    }
+
+    .home-hero h1 {
+      max-width: 14ch;
+    }
+
+    .learning-strip,
+    .subject-grid,
+    .level-links,
+    .resource-grid,
+    .recommendation-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .home-v3 {
+      gap: var(--v3-space-5);
+      padding: var(--v3-space-4) var(--v3-space-3) var(--v3-space-8);
+    }
+
+    .home-hero {
+      background:
+        linear-gradient(90deg, rgba(248, 250, 252, 0.98), rgba(248, 250, 252, 0.88)),
+        url("/images/accueil-v3-hero-sciences-2026-07-27.webp");
+      background-position: center;
+      background-size: cover;
+      border: 1px solid var(--v3-color-border-default);
+      border-radius: var(--v3-radius-md);
+      padding: var(--v3-space-4);
+    }
+
+    .home-hero h1 {
+      font-size: clamp(1.78rem, 9vw, 2.05rem);
+      max-width: 100%;
+    }
+
+    .home-hero__lead {
+      font-size: 1rem;
+    }
+
+    .home-hero__media {
+      display: none;
+    }
+
+    .home-hero__actions,
+    .home-button {
+      width: 100%;
+    }
+
+    .home-button {
+      justify-content: center;
+    }
+
+    .home-facts,
+    .learning-strip,
+    .subject-grid,
+    .level-links,
+    .resource-grid,
+    .access-grid,
+    .recommendation-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-block,
+    .level-band,
+    .access-section {
+      padding: var(--v3-space-4);
+    }
+  }
+</style>

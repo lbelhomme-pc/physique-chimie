@@ -1,0 +1,76 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[
+ >={Stealth[length=3mm,width=2mm]},
+ every node/.style={font=\small}
+]
+ % Demi-pile gauche
+ \draw[thick, rounded corners] (0,0) rectangle (4.5,4);
+ \node[font=\bfseries, primary] at (2.25,4.4) {Demi-pile 1};
+ % Solution
+ \fill[remarkblue!15] (0.15,0.15) rectangle (4.35,2.8);
+ \node[align=center] at (2.25,1.5) {Solution contenant\\les ions du couple 1\\(ex. : \ce{Cu^{2+}}, \ce{SO4^{2-}})};
+ % Electrode
+ \draw[fill=gray!60, thick] (1.5,1.8) rectangle (2.0,3.8);
+ \node[above, font=\footnotesize] at (1.75,3.85) {\'{E}lectrode Cu};
+
+ % Demi-pile droite
+ \draw[thick, rounded corners] (7.5,0) rectangle (12,4);
+ \node[font=\bfseries, primary] at (9.75,4.4) {Demi-pile 2};
+ % Solution
+ \fill[remarkblue!15] (7.65,0.15) rectangle (11.85,2.8);
+ \node[align=center] at (9.75,1.5) {Solution contenant\\les ions du couple 2\\(ex. : \ce{Zn^{2+}}, \ce{SO4^{2-}})};
+ % Electrode
+ \draw[fill=gray!40, thick] (10,1.8) rectangle (10.5,3.8);
+ \node[above, font=\footnotesize] at (10.25,3.85) {\'{E}lectrode Zn};
+
+ % Pont salin
+ \draw[thick, synthorange, line width=2pt, rounded corners=5pt] (4.5,2.2) -- (5.2,3.2) -- (6.8,3.2) -- (7.5,2.2);
+ \node[above, synthorange, font=\bfseries\footnotesize] at (6,3.35) {Pont salin};
+ \node[below, synthorange, font=\footnotesize, align=center] at (6,2.8) {(assure la circulation\\des ions)};
+
+ % Fil extérieur
+ \draw[thick, dark, line width=1.2pt] (2.0,3.5) -- (2.0,5.2) -- (10.25,5.2) -- (10.25,3.5);
+
+ % Flèche courant électrons
+ \draw[->, thick, examplepink, line width=1.5pt] (8,5.2) -- (4.5,5.2);
+ \node[above, examplepink, font=\footnotesize] at (6.25,5.3) {Sens des \'{e}lectrons $e^{-}$};
+
+ % Voltmètre optionnel
+ \node[draw, circle, minimum size=0.7cm, thick, dark] at (6.1,5.2) {\footnotesize V};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours : Diffraction des ondes et interférences (Terminale Spé) | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">🌊</span> 
+                <h1 class="hero-title">Diffraction des ondes et interférences</h1>
+            </div>
+        </header>
+
+<div class="box-pedagogie box-objectif">
+<strong> Objectifs du chapitre</strong>
+<p>\`{A} l'issue de ce chapitre, vous devez être capables de :<br><ul><li>décrire le phénomène de <strong>diffraction</strong> d'une onde par une ouverture ou un obstacle ;</li><li>connaître et utiliser l'expression de l'<strong>angle caractéristique de diffraction</strong> $ = {a}$ ;</li><li>connaître et utiliser l'expression de la <strong>largeur de la tache centrale</strong> de diffraction ;</li><li>décrire le phénomène d'<strong>interférences</strong> de deux ondes ;</li><li>établir les <strong>conditions d'interférences constructives et destructives</strong> ;</li><li>connaître le dispositif des <strong>trous d'Young</strong> et utiliser l'expression de l'<strong>interfrange</strong>.<br></li></ul><br></div></p>
+<h2 class="section-title">1. Diffraction par une ouverture</h2>
+<div class="card chapter-card">
+<h3>1.1 Présentation du phénomène</h3>
+<div class="definition-box">
+<strong>Définition :</strong> Le phénomène de <strong>diffraction</strong> est une propriété de toutes les ondes. Il se caractérise par un <strong>étalement des directions de propagation</strong> de l'onde lorsque celle-ci traverse une ouverture ou rencontre un obstacle.
+</div>
+<strong>Que se passe-t-il concrètement ?</strong>
+<p>Imaginons une onde qui se propage en ligne droite (par exemple une vague à la surface de l'eau, ou un faisceau laser). Si cette onde passe à travers une ouverture (une fente, un trou), elle ne continue pas simplement tout droit : elle <strong>s'étale</strong> dans des directions qu'elle n'aurait pas atteintes sans l'ouverture.</p>
+<div class="info-box">
+<strong>Remarque importante :</strong> Lors de la diffraction, l'onde <strong>conserve sa fréquence</strong> $f$ (et donc sa période $T$), sa <strong>célérité</strong> $v$ et par conséquent sa <strong>longueur d'onde</strong> $ = {f}$. Seules les directions de propagation changent.
+</div>
+<strong>Exemples du quotidien :</strong>
+<ul><li>On peut entendre une conversation qui a lieu derrière une porte entrouverte, alors qu'on ne voit pas les personnes : les ondes sonores sont diffractées par l'ouverture de la porte.</li><li>La houle océanique contourne les obstacles (digues, îlots) : les vagues s'étalent au-delà de l'obstacle.
+</li></ul>
+<div class="info-box">
+<strong>Cas d'un obstacle :</strong> Lorsqu'une onde rencontre un obstacle (par exemple un fil vertical), l'onde est également diffractée. L'étalement des directions de propagation est identique à celui obtenu avec une ouverture de même taille et de même forme.
+</div>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.689894 -70.007905 304.163842 214.839916'>
+<defs>
+<path id='g1-18' d='M4.178331-4.438356C4.178331-5.361893 3.873474-6.321295 3.048568-6.321295C1.739477-6.321295 .367621-3.765878 .367621-1.775342C.367621-1.129763 .564882 .09863 1.497385 .09863C2.806476 .09863 4.178331-2.429888 4.178331-4.438356ZM1.344956-3.254795C1.524284-3.963138 1.712578-4.617684 2.080199-5.236364C2.295392-5.595019 2.627148-6.097136 3.039601-6.097136C3.523786-6.097136 3.559651-5.326027 3.559651-4.985305C3.559651-4.447323 3.416189-3.819676 3.281694-3.254795H1.344956ZM3.200996-2.96787C3.057534-2.402989 2.887173-1.730511 2.528518-1.093898C2.295392-.672478 1.936737-.125529 1.506351-.125529C1.120797-.125529 .995268-.591781 .995268-1.246326C.995268-1.820174 1.13873-2.402989 1.273225-2.96787H3.200996Z'/>
+<path id='g1-97' d='M3.425156-3.407223C3.254795-3.730012 2.976837-3.963138 2.57335-3.963138C1.53325-3.963138 .376588-2.725778 .376588-1.353923C.376588-.367621 1.004234 .09863 1.604981 .09863C2.187796 .09863 2.663014-.385554 2.806476-.555915C2.905106-.062765 3.353425 .09863 3.640349 .09863C3.900374 .09863 4.124533-.017933 4.321793-.394521C4.483188-.690411 4.608717-1.246326 4.608717-1.282192C4.608717-1.327024 4.581818-1.389788 4.492154-1.389788C4.384558-1.389788 4.375592-1.344956 4.339726-1.174595C4.142466-.394521 3.945205-.125529 3.667248-.125529C3.443088-.125529 3.38929-.340722 3.38929-.537983C3.38929-.708344 3.434122-.887671 3.514819-1.201494L3.738979-2.125031C3.801743-2.349191 3.963138-3.021669 3.999004-3.156164C4.034869-3.281694 4.088667-3.496887 4.088667-3.523786C4.088667-3.667248 3.972105-3.783811 3.81071-3.783811C3.694147-3.783811 3.469988-3.71208 3.425156-3.407223ZM2.842341-1.093898C2.797509-.923537 2.797509-.91457 2.654047-.744209C2.331258-.358655 1.963636-.125529 1.63188-.125529C1.192528-.125529 1.0401-.582814 1.0401-.968369C1.0401-1.407721 1.300125-2.438854 1.515318-2.86924C1.802242-3.407223 2.214695-3.738979 2.57335-3.738979C3.174097-3.738979 3.308593-3.021669 3.308593-2.958904C3.308593-2.914072 3.29066-2.860274 3.281694-2.824408L2.842341-1.093898Z'/>
+</defs>
+<g id='page1'>
+<path d='M4.7617 31.5313V21.8906H91.50391V31.5313Z' fill='#b3b3b3'/>
+<path d='M110.78125 31.5313V21.8906H197.5234V31.5313Z' fill='#b3b3b3'/>
+<path d='M92.30078 14.6641H109.98438' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M94.45315 17.77342C93.9883 15.90623 92.94924 15.027328 91.902364 14.664047C92.94924 14.300766 93.9883 13.41795 94.45315 11.55077' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M107.83171 11.55077C108.29656 13.41795 109.33562 14.300766 110.382495 14.664047C109.33562 15.027328 108.29656 15.90623 107.83171 17.77342' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 -2.441 -63.7564)'>
+<use x='101.141806' y='74.900611' xlink:href='#g1-97'/>
+</g>
+<path d='M4.7617 111.043H89.0938' stroke='#66f' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 98.9961H89.0938' stroke='#66f' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 86.9492H89.0938' stroke='#66f' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 74.902347H89.0938' stroke='#66f' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 62.8516H89.0938' stroke='#66f' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 50.8047H89.0938' stroke='#66f' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 38.7578H89.0938' stroke='#66f' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 111.043H90.3008' stroke='#8080ff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 98.9961H90.3008' stroke='#8080ff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 86.9492H90.3008' stroke='#8080ff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 74.902347H90.3008' stroke='#8080ff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 62.8516H90.3008' stroke='#8080ff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 50.8047H90.3008' stroke='#8080ff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M4.7617 38.7578H90.3008' stroke='#8080ff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M16.8086 135.1367H66.9805' stroke='#0f172a' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M70.52735 135.136749L65.65625 133.293L67.27735 135.136749L65.65625 136.98441Z' fill='#0f172a'/>
+<path d='M70.52735 135.136749L65.65625 133.293L67.27735 135.136749L65.65625 136.98441Z' stroke='#0f172a' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#0f172a' transform='matrix(1 0 0 1 -94.83531 69.9314)'>
+<use x='101.141806' y='74.900611' xlink:href='#g2-68'/>
+<use x='108.178973' y='74.900611' xlink:href='#g2-105'/>
+<use x='110.738194' y='74.900611' xlink:href='#g2-114'/>
+<use x='114.341852' y='74.900611' xlink:href='#g2-101'/>
+<use x='118.440074' y='74.900611' xlink:href='#g2-99'/>
+<use x='122.534824' y='74.900611' xlink:href='#g2-116'/>
+<use x='126.117728' y='74.900611' xlink:href='#g2-105'/>
+<use x='128.676949' y='74.900611' xlink:href='#g2-111'/>
+<use x='133.283545' y='74.900611' xlink:href='#g2-110'/>
+<use x='141.473051' y='74.900611' xlink:href='#g2-105'/>
+<use x='144.032272' y='74.900611' xlink:href='#g2-110'/>
+<use x='149.150714' y='74.900611' xlink:href='#g2-99'/>
+<use x='153.245465' y='74.900611' xlink:href='#g2-105'/>
+<use x='155.804686' y='74.900611' xlink:href='#g2-100'/>
+<use x='160.923128' y='74.900611' xlink:href='#g2-101'/>
+<use x='165.02135' y='74.900611' xlink:href='#g2-110'/>
+<use x='169.883854' y='74.900611' xlink:href='#g2-116'/>
+<use x='173.466759' y='74.900611' xlink:href='#g2-101'/>
+</g>
+<path d='M122.0078 14.6641C115.3555 3.1406 100.617189-.8086 89.0938 5.8438C85.4336 7.957 82.3906 11 80.2734 14.6641' stroke='#f66' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M132.4414 8.6406C122.4609-8.6484 100.35547-14.5703 83.0703-4.5898C77.5781-1.418 73.0117 3.1484 69.8398 8.6406' stroke='#f66' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M142.875 2.6172C129.5703-20.4336 100.09375-28.3324 77.0469-15.0234C69.7227-10.7969 63.6367-4.707 59.4063 2.6172' stroke='#f66' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M153.3086-3.4062C136.6758-32.2184 99.83594-42.0894 71.0234-25.4574C61.8672-20.1719 54.2617-12.5625 48.9766-3.4062' stroke='#f66' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M163.7422-9.4336C143.7813-44.0044 99.57422-55.8514 65-35.8904C54.0156-29.5464 44.8828-20.418 38.543-9.4336' stroke='#f66' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M174.1758-15.457C150.8906-55.7894 99.3125-69.6094 58.9766-46.3244C46.1602-38.9254 35.5078-28.2734 28.1094-15.457' stroke='#f66' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M101.140627 26.7109L142.4102-46.6524' stroke='#b30000' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M143.67986-48.910151L140.840013-46.542959L142.554858-46.914054L143.132985-45.253892Z' fill='#b30000'/>
+<path d='M143.67986-48.910151L140.840013-46.542959L142.554858-46.914054L143.132985-45.253892Z' stroke='#b30000' fill='none' stroke-width='1.195475' stroke-miterlimit='10'/>
+<path d='M101.140627 26.7109V-53.3324' stroke='#b30000' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M101.140627-55.91799L99.82813-52.46486L101.140627-53.62893L102.45703-52.46486Z' fill='#b30000'/>
+<path d='M101.140627-55.91799L99.82813-52.46486L101.140627-53.62893L102.45703-52.46486Z' stroke='#b30000' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M101.140627 26.7109L59.875-46.6524' stroke='#b30000' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M58.605511-48.910155L59.152379-45.253904L59.726603-46.914062L61.445356-46.542963Z' fill='#b30000'/>
+<path d='M58.605511-48.910155L59.152379-45.253904L59.726603-46.914062L61.445356-46.542963Z' stroke='#b30000' fill='none' stroke-width='1.195475' stroke-miterlimit='10'/>
+<path d='M101.140627 26.7109V-45.5744' stroke='#0f172a' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M101.140627 2.6172C105.3711 2.6172 109.52735 3.7305 113.1914 5.8438' stroke='#b30000' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#b30000' transform='matrix(1 0 0 1 8.558 -77.60489)'>
+<use x='101.141806' y='74.900611' xlink:href='#g1-18'/>
+</g>
+<g fill='#b30000' transform='matrix(1 0 0 1 56.528 -111.1783)'>
+<use x='101.141806' y='74.900611' xlink:href='#g2-201'/>
+<use x='107.411204' y='74.900611' xlink:href='#g2-116'/>
+<use x='110.994109' y='74.900611' xlink:href='#g2-97'/>
+<use x='115.600705' y='74.900611' xlink:href='#g2-108'/>
+<use x='118.159926' y='74.900611' xlink:href='#g2-101'/>
+<use x='122.258148' y='74.900611' xlink:href='#g2-109'/>
+<use x='129.935811' y='74.900611' xlink:href='#g2-101'/>
+<use x='134.034033' y='74.900611' xlink:href='#g2-110'/>
+<use x='138.896537' y='74.900611' xlink:href='#g2-116'/>
+<use x='145.550171' y='74.900611' xlink:href='#g2-100'/>
+<use x='150.668613' y='74.900611' xlink:href='#g2-101'/>
+<use x='154.766835' y='74.900611' xlink:href='#g2-115'/>
+<use x='161.471655' y='74.900611' xlink:href='#g2-100'/>
+<use x='166.590098' y='74.900611' xlink:href='#g2-105'/>
+<use x='169.149319' y='74.900611' xlink:href='#g2-114'/>
+<use x='172.752976' y='74.900611' xlink:href='#g2-101'/>
+<use x='176.851198' y='74.900611' xlink:href='#g2-99'/>
+<use x='180.945948' y='74.900611' xlink:href='#g2-45'/>
+<use x='101.141806' y='85.859515' xlink:href='#g2-116'/>
+<use x='104.72471' y='85.859515' xlink:href='#g2-105'/>
+<use x='107.283931' y='85.859515' xlink:href='#g2-111'/>
+<use x='111.890527' y='85.859515' xlink:href='#g2-110'/>
+<use x='117.008969' y='85.859515' xlink:href='#g2-115'/>
+<use x='123.71379' y='85.859515' xlink:href='#g2-40'/>
+<use x='127.296694' y='85.859515' xlink:href='#g2-100'/>
+<use x='132.415136' y='85.859515' xlink:href='#g2-105'/>
+<use x='134.974357' y='85.859515' xlink:href='#g2-27'/>
+<use x='140.348722' y='85.859515' xlink:href='#g2-114'/>
+<use x='143.952379' y='85.859515' xlink:href='#g2-97'/>
+<use x='148.558976' y='85.859515' xlink:href='#g2-99'/>
+<use x='152.653726' y='85.859515' xlink:href='#g2-116'/>
+<use x='156.23663' y='85.859515' xlink:href='#g2-105'/>
+<use x='158.795851' y='85.859515' xlink:href='#g2-111'/>
+<use x='163.402447' y='85.859515' xlink:href='#g2-110'/>
+<use x='168.520889' y='85.859515' xlink:href='#g2-41'/>
+</g>
+<g fill='#666' transform='matrix(1 0 0 1 -36.7225 -28.8577)'>
+<use x='101.141806' y='74.900611' xlink:href='#g0-70'/>
+<use x='106.442834' y='74.900611' xlink:href='#g0-101'/>
+<use x='110.675922' y='74.900611' xlink:href='#g0-110'/>
+<use x='115.849698' y='74.900611' xlink:href='#g0-116'/>
+<use x='118.906929' y='74.900611' xlink:href='#g0-101'/>
+<use x='126.432404' y='74.900611' xlink:href='#g0-100'/>
+<use x='131.135832' y='74.900611' xlink:href='#g0-101'/>
+<use x='138.661307' y='74.900611' xlink:href='#g0-108'/>
+<use x='141.013021' y='74.900611' xlink:href='#g0-97'/>
+<use x='145.716448' y='74.900611' xlink:href='#g0-114'/>
+<use x='149.126439' y='74.900611' xlink:href='#g0-103'/>
+<use x='153.359527' y='74.900611' xlink:href='#g0-101'/>
+<use x='157.592616' y='74.900611' xlink:href='#g0-117'/>
+<use x='162.531222' y='74.900611' xlink:href='#g0-114'/>
+<use x='169.703942' y='74.900611' xlink:href='#g1-97'/>
+</g>
+<g fill='currentColor0b3' transform='matrix(1 0 0 1 -167.8317 3.0877)'>
+<use x='101.141806' y='74.900611' xlink:href='#g2-79'/>
+<use x='108.307623' y='74.900611' xlink:href='#g2-110'/>
+<use x='113.426065' y='74.900611' xlink:href='#g2-100'/>
+<use x='118.544507' y='74.900611' xlink:href='#g2-101'/>
+<use x='122.642729' y='74.900611' xlink:href='#g2-115'/>
+<use x='129.347884' y='74.900611' xlink:href='#g2-105'/>
+<use x='131.907105' y='74.900611' xlink:href='#g2-110'/>
+<use x='137.025547' y='74.900611' xlink:href='#g2-99'/>
+<use x='141.120297' y='74.900611' xlink:href='#g2-105'/>
+<use x='143.679518' y='74.900611' xlink:href='#g2-100'/>
+<use x='148.79796' y='74.900611' xlink:href='#g2-101'/>
+<use x='152.896182' y='74.900611' xlink:href='#g2-110'/>
+<use x='157.758687' y='74.900611' xlink:href='#g2-116'/>
+<use x='161.341591' y='74.900611' xlink:href='#g2-101'/>
+<use x='165.439813' y='74.900611' xlink:href='#g2-115'/>
+</g>
+</g>
+</svg></div>
+</div>
+<h3>1.2 Conditions d'observation</h3>
+<p>L'importance du phénomène de diffraction dépend du rapport entre la <strong>longueur d'onde</strong> $$ de l'onde et la <strong>taille</strong> $a$ de l'ouverture (ou de l'obstacle).</p>
+<div class="definition-box">
+<strong>Conditions d'observation :</strong>
+<ul><li>Pour toutes les <strong>ondes progressives sinusoïdales</strong>, la diffraction est nettement observée lorsque <strong>la taille de l'ouverture $a$ est du même ordre de grandeur ou inférieure à la longueur d'onde</strong> $$.</li><li>Dans le cas des <strong>ondes lumineuses monochromatiques</strong>, le critère est moins restrictif : le phénomène est encore bien apparent avec des ouvertures de tailles <strong>jusqu'à 100 fois plus grandes</strong> que la longueur d'onde en ordre de grandeur.
+</li></ul>
+</div>
+<div class="info-box">
+<strong>Pourquoi ne voit-on pas la diffraction tous les jours avec la lumière ?</strong>
+<p>La longueur d'onde de la lumière visible est très petite : entre $400   $ et $800   $, soit entre $4  10^{-7}$ m et $8  10^{-7}$ m. Les ouvertures du quotidien (portes, fenêtres) sont énormes par rapport à $$ : la diffraction est alors totalement négligeable. Pour observer la diffraction de la lumière, il faut utiliser des fentes très fines (de l'ordre du dixième de millimètre).<br></div></p>
+<h3>1.3 Angle caractéristique de diffraction</h3>
+<p>Quand une onde est diffractée par une fente, elle s'étale. On quantifie cet étalement par un angle, appelé <strong>angle caractéristique de diffraction</strong>, noté $$.</p>
+<div class="definition-box">
+<strong>Définition :</strong> L'<strong>angle caractéristique de diffraction</strong> $$ est l'angle entre la direction de propagation de l'onde en l'absence de diffraction (direction rectiligne) et la direction définie par le milieu de la première  extinction  (premier minimum d'intensité).
+<p>Pour une <strong>onde lumineuse monochromatique</strong> de longueur d'onde $$ passant par une <strong>fente rectangulaire de largeur $a$</strong>, l'angle caractéristique de diffraction a pour expression :</p>
+<div class="text-center">
+{
+  = {a}
+}
+</div>
+<p>avec :<br><ul><li>$$ : longueur d'onde, en mètre (m) ;</li><li>$a$ : largeur de la fente, en mètre (m) ;</li><li>$$ : angle caractéristique de diffraction, en <strong>radian</strong> (rad).<br></li></ul><br></div></p>
+<div class="example-box">
+<strong>Ce qu'il faut retenir qualitativement :</strong>
+<ul><li>Si $$ <strong>augmente</strong> (longueur d'onde plus grande) $$ $$ <strong>augmente</strong> $$ l'onde s'étale davantage.</li><li>Si $a$ <strong>diminue</strong> (fente plus étroite) $$ $$ <strong>augmente</strong> $$ l'onde s'étale davantage.
+</li></ul>
+<strong>En résumé :</strong> plus la fente est fine et plus la longueur d'onde est grande, plus la diffraction est marquée.
+</div>
+<h3>1.4 Figure de diffraction d'une lumière monochromatique</h3>
+<p>Lorsqu'un faisceau laser (lumière monochromatique) traverse une fente fine et atteint un écran situé à une distance $D$, on observe une <strong>figure de diffraction</strong> :</p>
+<ul><li>Au centre : une <strong>tache centrale</strong> très lumineuse et large ;</li><li>De part et d'autre : des <strong>taches secondaires</strong> moins lumineuses et plus étroites ;</li><li>Entre les taches : des zones <strong>sombres</strong> appelées <strong>extinctions</strong>.
+</li></ul>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.007505 -70.007865 357.308951 163.115761'>
+<defs>
+<path id='g0-18' d='M4.178331-4.438356C4.178331-5.361893 3.873474-6.321295 3.048568-6.321295C1.739477-6.321295 .367621-3.765878 .367621-1.775342C.367621-1.129763 .564882 .09863 1.497385 .09863C2.806476 .09863 4.178331-2.429888 4.178331-4.438356ZM1.344956-3.254795C1.524284-3.963138 1.712578-4.617684 2.080199-5.236364C2.295392-5.595019 2.627148-6.097136 3.039601-6.097136C3.523786-6.097136 3.559651-5.326027 3.559651-4.985305C3.559651-4.447323 3.416189-3.819676 3.281694-3.254795H1.344956ZM3.200996-2.96787C3.057534-2.402989 2.887173-1.730511 2.528518-1.093898C2.295392-.672478 1.936737-.125529 1.506351-.125529C1.120797-.125529 .995268-.591781 .995268-1.246326C.995268-1.820174 1.13873-2.402989 1.273225-2.96787H3.200996Z'/>
+<path id='g0-68' d='M1.443587-.681445C1.362889-.358655 1.344956-.277958 .672478-.277958C.502117-.277958 .403487-.277958 .403487-.116563C.403487 0 .493151 0 .654545 0H3.676214C5.595019 0 7.379328-1.900872 7.379328-3.837609C7.379328-5.066002 6.608219-6.124035 5.209465-6.124035H2.133998C1.972603-6.124035 1.865006-6.124035 1.865006-5.96264C1.865006-5.846077 1.945704-5.846077 2.133998-5.846077C2.169863-5.846077 2.331258-5.846077 2.47472-5.828144C2.627148-5.810212 2.689913-5.792279 2.689913-5.693649C2.689913-5.648817 2.680946-5.612951 2.654047-5.514321L1.443587-.681445ZM3.416189-5.496389C3.496887-5.819178 3.514819-5.846077 3.891407-5.846077H4.904608C5.837111-5.846077 6.58132-5.326027 6.58132-4.169365C6.58132-3.649315 6.357161-2.214695 5.657783-1.327024C5.24533-.81594 4.501121-.277958 3.514819-.277958H2.438854C2.313325-.277958 2.295392-.277958 2.259527-.286924C2.169863-.29589 2.142964-.304857 2.142964-.367621C2.142964-.394521 2.142964-.412453 2.187796-.573848L3.416189-5.496389Z'/>
+<path id='g0-76' d='M3.416189-5.415691C3.496887-5.756413 3.523786-5.846077 4.357659-5.846077C4.608717-5.846077 4.689415-5.846077 4.689415-6.007472C4.689415-6.124035 4.572852-6.124035 4.545953-6.124035C4.339726-6.124035 4.1066-6.106102 3.891407-6.106102S3.461021-6.097136 3.245828-6.097136C3.039601-6.097136 2.824408-6.097136 2.627148-6.106102C2.465753-6.115068 2.187796-6.124035 2.035367-6.124035C1.981569-6.124035 1.85604-6.124035 1.85604-5.96264C1.85604-5.846077 1.936737-5.846077 2.125031-5.846077C2.160897-5.846077 2.322291-5.846077 2.465753-5.828144C2.618182-5.810212 2.680946-5.792279 2.680946-5.693649C2.680946-5.648817 2.67198-5.612951 2.645081-5.514321L1.43462-.681445C1.353923-.358655 1.33599-.277958 .663512-.277958C.493151-.277958 .394521-.277958 .394521-.116563C.394521 0 .484184 0 .645579 0H4.877709C5.092902 0 5.101868-.008966 5.173599-.19726C5.263263-.42142 5.908842-2.125031 5.908842-2.196762S5.846077-2.313325 5.783313-2.313325C5.693649-2.313325 5.684682-2.27746 5.612951-2.098132C5.308095-1.300125 4.913574-.277958 3.344458-.277958H2.456787C2.331258-.277958 2.313325-.277958 2.27746-.286924C2.187796-.29589 2.160897-.304857 2.160897-.367621C2.160897-.394521 2.160897-.412453 2.205729-.573848L3.416189-5.415691Z'/>
+<path id='g2-39' d='M6.105106-3.56264C6.105106-3.809714 6.017435-3.841594 5.977584-3.841594C5.866002-3.841594 5.858032-3.666252 5.850062-3.53076C5.810212-3.020672 5.339975-2.502615 4.694396-2.502615C4.176339-2.502615 3.761893-2.82939 3.379328-3.124284C2.86924-3.52279 2.446824-3.849564 1.880946-3.849564C1.012204-3.849564 .470237-3.052553 .470237-2.287422C.470237-2.032379 .565878-2.000498 .597758-2.000498C.68543-2.000498 .71731-2.12005 .72528-2.255542C.757161-2.885181 1.291158-3.339477 1.880946-3.339477C2.399004-3.339477 2.81345-3.012702 3.196015-2.717808C3.706102-2.319303 4.128518-1.992528 4.694396-1.992528C5.547198-1.992528 6.105106-2.773599 6.105106-3.56264ZM.781071-.494147C.645579-.494147 .470237-.494147 .470237-.310834S.645579-.127522 .773101-.127522H5.802242C5.929763-.127522 6.105106-.127522 6.105106-.310834S5.929763-.494147 5.794271-.494147H.781071Z'/>
+<path id='g3-18' d='M3.817684-3.913325C3.817684-4.909589 3.435118-5.610959 2.773599-5.610959C1.586052-5.610959 .350685-3.395268 .350685-1.617933C.350685-.852802 .613699 .079701 1.40274 .079701C2.566376 .079701 3.817684-2.080199 3.817684-3.913325ZM1.243337-2.901121C1.617933-4.511083 2.271482-5.387796 2.765629-5.387796C3.243836-5.387796 3.243836-4.534994 3.243836-4.383562C3.243836-3.937235 3.100374-3.291656 3.004732-2.901121H1.243337ZM2.933001-2.630137C2.558406-1.028144 1.904857-.143462 1.41071-.143462C.980324-.143462 .932503-.781071 .932503-1.147696C.932503-1.649813 1.083935-2.295392 1.171606-2.630137H2.933001Z'/>
+<path id='g3-68' d='M1.331009-.629639C1.259278-.326775 1.243337-.263014 .653549-.263014C.502117-.263014 .406476-.263014 .406476-.111582C.406476 0 .510087 0 .645579 0H3.387298C5.068991 0 6.742715-1.609963 6.742715-3.387298C6.742715-4.606725 5.929763-5.443587 4.742217-5.443587H1.952677C1.809215-5.443587 1.705604-5.443587 1.705604-5.292154C1.705604-5.180573 1.801245-5.180573 1.936737-5.180573C2.199751-5.180573 2.430884-5.180573 2.430884-5.053051C2.430884-5.021171 2.422914-5.0132 2.399004-4.909589L1.331009-.629639ZM3.092403-4.885679C3.164134-5.156663 3.172105-5.180573 3.498879-5.180573H4.463263C5.395766-5.180573 6.025405-4.646575 6.025405-3.674222C6.025405-3.411208 5.913823-2.11208 5.220423-1.219427C4.869738-.773101 4.184309-.263014 3.243836-.263014H2.056289C1.984558-.278954 1.960648-.278954 1.960648-.334745C1.960648-.398506 1.976588-.462267 1.992528-.510087L3.092403-4.885679Z'/>
+<path id='g3-76' d='M3.092403-4.821918C3.164134-5.092902 3.180075-5.180573 3.913325-5.180573C4.136488-5.180573 4.216189-5.180573 4.216189-5.332005C4.216189-5.347945 4.200249-5.443587 4.080697-5.443587C3.913325-5.443587 3.674222-5.427646 3.506849-5.419676H2.933001C2.10411-5.419676 1.912827-5.443587 1.857036-5.443587C1.825156-5.443587 1.697634-5.443587 1.697634-5.292154C1.697634-5.180573 1.801245-5.180573 1.928767-5.180573C2.191781-5.180573 2.422914-5.180573 2.422914-5.053051C2.422914-5.021171 2.414944-5.0132 2.391034-4.909589L1.323039-.629639C1.251308-.326775 1.235367-.263014 .645579-.263014C.494147-.263014 .398506-.263014 .398506-.111582C.398506 0 .502117 0 .637609 0H4.487173C4.686426 0 4.694396-.00797 4.758157-.159402C4.837858-.382565 5.419676-1.880946 5.419676-1.960648C5.419676-2.032379 5.355915-2.072229 5.300125-2.072229C5.212453-2.072229 5.196513-2.016438 5.140722-1.896887C4.853798-1.155666 4.511083-.263014 3.084433-.263014H2.072229C2.000498-.278954 1.976588-.278954 1.976588-.334745C1.976588-.398506 1.992528-.462267 2.008468-.510087L3.092403-4.821918Z'/>
+<path id='g3-97' d='M3.124284-3.036613C3.052553-3.172105 2.82142-3.514819 2.335243-3.514819C1.3868-3.514819 .342715-2.406974 .342715-1.227397C.342715-.398506 .876712 .079701 1.490411 .079701C2.000498 .079701 2.438854-.326775 2.582316-.486177C2.725778 .063761 3.267746 .079701 3.363387 .079701C3.730012 .079701 3.913325-.223163 3.977086-.358655C4.136488-.645579 4.24807-1.107846 4.24807-1.139726C4.24807-1.187547 4.216189-1.243337 4.120548-1.243337S4.008966-1.195517 3.961146-.996264C3.849564-.557908 3.698132-.143462 3.387298-.143462C3.203985-.143462 3.132254-.294894 3.132254-.518057C3.132254-.653549 3.203985-.924533 3.251806-1.123786S3.419178-1.801245 3.451059-1.944707L3.610461-2.550436C3.650311-2.741719 3.737983-3.076463 3.737983-3.116314C3.737983-3.299626 3.58655-3.363387 3.482939-3.363387C3.363387-3.363387 3.164134-3.283686 3.124284-3.036613ZM2.582316-.860772C2.183811-.310834 1.769365-.143462 1.514321-.143462C1.147696-.143462 .964384-.478207 .964384-.892653C.964384-1.267248 1.179577-2.12005 1.354919-2.470735C1.586052-2.956912 1.976588-3.291656 2.343213-3.291656C2.86127-3.291656 3.012702-2.709838 3.012702-2.614197C3.012702-2.582316 2.81345-1.801245 2.765629-1.594022C2.662017-1.219427 2.662017-1.203487 2.582316-.860772Z'/>
+<path id='g4-50' d='M2.247572-1.625903C2.375093-1.745455 2.709838-2.008468 2.83736-2.12005C3.331507-2.574346 3.801743-3.012702 3.801743-3.737983C3.801743-4.686426 3.004732-5.300125 2.008468-5.300125C1.052055-5.300125 .422416-4.574844 .422416-3.865504C.422416-3.474969 .73325-3.419178 .844832-3.419178C1.012204-3.419178 1.259278-3.53873 1.259278-3.841594C1.259278-4.25604 .860772-4.25604 .765131-4.25604C.996264-4.837858 1.530262-5.037111 1.920797-5.037111C2.662017-5.037111 3.044583-4.407472 3.044583-3.737983C3.044583-2.909091 2.462765-2.303362 1.522291-1.338979L.518057-.302864C.422416-.215193 .422416-.199253 .422416 0H3.57061L3.801743-1.42665H3.55467C3.53076-1.267248 3.466999-.868742 3.371357-.71731C3.323537-.653549 2.717808-.653549 2.590286-.653549H1.171606L2.247572-1.625903Z'/>
+</defs>
+<g id='page1'>
+<path d='M-69.609-3.27734V6.92578H-31.344V-3.27734Z' fill='#fcc'/>
+<path d='M-69.609-3.27734V6.92578H-31.344V-3.27734Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -133.6596 3.09392)'>
+<use x='70.704964' y='1.823636' xlink:href='#g6-76'/>
+<use x='77.076727' y='1.823636' xlink:href='#g6-97'/>
+<use x='82.233204' y='1.823636' xlink:href='#g6-115'/>
+<use x='86.417329' y='1.823636' xlink:href='#g6-101'/>
+<use x='91.284697' y='1.823636' xlink:href='#g6-114'/>
+</g>
+<path d='M-31.344 1.824219H40.0898' stroke='#f00' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M40.0898-61.95706V-2.00391H45.1914V-61.95706Z' fill='#a6a6a6'/>
+<path d='M40.0898 5.64844V65.60154H45.1914V5.64844Z' fill='#a6a6a6'/>
+<path d='M42.6406 2.105469V1.539063' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M42.640601-.86719L41.07029 3.28516L42.640601 1.90625L44.21091 3.28516Z' fill='#0e7490'/>
+<path d='M42.640601-.86719L41.07029 3.28516L42.640601 1.90625L44.21091 3.28516Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M42.640601 4.51562L44.21091 .36328L42.640601 1.73828L41.07029 .36328Z' fill='#0e7490'/>
+<path d='M42.640601 4.51562L44.21091 .36328L42.640601 1.73828L41.07029 .36328Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 -41.1826 1.71579)'>
+<use x='70.704964' y='1.823636' xlink:href='#g3-97'/>
+</g>
+<g transform='matrix(1 0 0 1 -39.0625 78.57656)'>
+<use x='70.704964' y='1.823636' xlink:href='#g1-70'/>
+<use x='76.005992' y='1.823636' xlink:href='#g1-101'/>
+<use x='80.239081' y='1.823636' xlink:href='#g1-110'/>
+<use x='85.412856' y='1.823636' xlink:href='#g1-116'/>
+<use x='88.470087' y='1.823636' xlink:href='#g1-101'/>
+</g>
+<path d='M211.02-69.60936V73.25784H218.676V-69.60936Z' fill='#ececec'/>
+<path d='M211.02-69.60936V73.25784' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 152.764 3.82816)'>
+<use x='70.704964' y='1.823636' xlink:href='#g1-201'/>
+<use x='76.946692' y='1.823636' xlink:href='#g1-99'/>
+<use x='81.17978' y='1.823636' xlink:href='#g1-114'/>
+<use x='84.589771' y='1.823636' xlink:href='#g1-97'/>
+<use x='89.293198' y='1.823636' xlink:href='#g1-110'/>
+</g>
+<path d='M49.3047 83.46094H206.91' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M46.32813 83.460946L50.48048 85.03126L49.10548 83.460946L50.48048 81.89063Z'/>
+<path d='M46.32813 83.460946L50.48048 85.03126L49.10548 83.460946L50.48048 81.89063Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M209.88641 83.460946L205.73016 81.89063L207.10906 83.460946L205.73016 85.03126Z'/>
+<path d='M209.88641 83.460946L205.73016 81.89063L207.10906 83.460946L205.73016 85.03126Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 53.474 91.28426)'>
+<use x='70.704964' y='1.823636' xlink:href='#g0-68'/>
+</g>
+<path d='M45.1914-2.00391L211.02-54.30076' stroke='#f99' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M45.1914 5.64844L211.02 57.94924' stroke='#f99' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M45.1914-2.00391L211.02-54.30076V57.94924L45.1914 5.64844Z' fill='#ffe6e6' fill-opacity='.4'/>
+<path d='M211.02 27.33594V-23.68746H214.848V27.33594Z' fill='#ff4d4d' fill-opacity='.4'/>
+<path d='M211.02-23.68746V-33.89456H214.848V-23.68746Z' fill='#f99' fill-opacity='.4'/>
+<path d='M211.02 27.33594V37.53904H214.848V27.33594Z' fill='#f99' fill-opacity='.4'/>
+<path d='M211.02-33.89456V-38.99606H214.848V-33.89456Z' fill='#fcc' fill-opacity='.4'/>
+<path d='M211.02 37.53904V42.64454H214.848V37.53904Z' fill='#fcc' fill-opacity='.4'/>
+<path d='M205.918 53.83984V-50.19136' stroke='currentColor0b3' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-opacity='.4'/>
+<path d='M205.917542 56.81639L207.48785 52.66014L205.917542 54.03904L204.34723 52.66014Z' fill='currentColor0b3' fill-opacity='.4'/>
+<path d='M205.917542 56.81639L207.48785 52.66014L205.917542 54.03904L204.34723 52.66014Z' stroke='currentColor0b3' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-opacity='.4'/>
+<path d='M205.917542-53.16793L204.34723-49.01558L205.917542-50.39058L207.48785-49.01558Z' fill='currentColor0b3' fill-opacity='.4'/>
+<path d='M205.917542-53.16793L204.34723-49.01558L205.917542-50.39058L207.48785-49.01558Z' stroke='currentColor0b3' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-opacity='.4'/>
+<g fill='currentColor0b3' transform='matrix(1 0 0 1 124.148 3.06352)'>
+<use x='70.704964' y='1.823636' xlink:href='#g0-76'/>
+</g>
+<g fill='#b30000' transform='matrix(1 0 0 1 152.764 -20.08534)'>
+<use x='70.704964' y='-7.640872' xlink:href='#g5-116'/>
+<use x='73.997366' y='-7.640872' xlink:href='#g5-97'/>
+<use x='78.230455' y='-7.640872' xlink:href='#g5-99'/>
+<use x='81.758028' y='-7.640872' xlink:href='#g5-104'/>
+<use x='86.46146' y='-7.640872' xlink:href='#g5-101'/>
+<use x='93.046264' y='-7.640872' xlink:href='#g5-99'/>
+<use x='96.809009' y='-7.640872' xlink:href='#g5-101'/>
+<use x='100.571754' y='-7.640872' xlink:href='#g5-110'/>
+<use x='105.040014' y='-7.640872' xlink:href='#g5-116'/>
+<use x='108.332416' y='-7.640872' xlink:href='#g5-114'/>
+<use x='111.631735' y='-7.640872' xlink:href='#g5-97'/>
+<use x='115.864823' y='-7.640872' xlink:href='#g5-108'/>
+<use x='118.216539' y='-7.640872' xlink:href='#g5-101'/>
+<use x='70.704964' y='1.823636' xlink:href='#g5-112'/>
+<use x='75.408396' y='1.823636' xlink:href='#g5-108'/>
+<use x='77.760112' y='1.823636' xlink:href='#g5-117'/>
+<use x='82.463543' y='1.823636' xlink:href='#g5-115'/>
+<use x='88.625038' y='1.823636' xlink:href='#g5-108'/>
+<use x='90.976754' y='1.823636' xlink:href='#g5-117'/>
+<use x='95.680186' y='1.823636' xlink:href='#g5-109'/>
+<use x='102.735333' y='1.823636' xlink:href='#g5-105'/>
+<use x='105.087048' y='1.823636' xlink:href='#g5-110'/>
+<use x='109.79048' y='1.823636' xlink:href='#g5-101'/>
+<use x='113.553225' y='1.823636' xlink:href='#g5-117'/>
+<use x='118.256657' y='1.823636' xlink:href='#g5-115'/>
+<use x='121.596093' y='1.823636' xlink:href='#g5-101'/>
+</g>
+<g fill='#800000' transform='matrix(1 0 0 1 152.764 39.73686)'>
+<use x='70.704964' y='1.823636' xlink:href='#g5-116'/>
+<use x='73.997366' y='1.823636' xlink:href='#g5-97'/>
+<use x='78.230455' y='1.823636' xlink:href='#g5-99'/>
+<use x='81.758028' y='1.823636' xlink:href='#g5-104'/>
+<use x='86.46146' y='1.823636' xlink:href='#g5-101'/>
+<use x='90.224205' y='1.823636' xlink:href='#g5-115'/>
+<use x='96.3857' y='1.823636' xlink:href='#g5-115'/>
+<use x='99.725137' y='1.823636' xlink:href='#g5-101'/>
+<use x='103.487882' y='1.823636' xlink:href='#g5-99'/>
+<use x='107.250627' y='1.823636' xlink:href='#g5-111'/>
+<use x='111.483715' y='1.823636' xlink:href='#g5-110'/>
+<use x='116.187147' y='1.823636' xlink:href='#g5-100'/>
+<use x='120.890578' y='1.823636' xlink:href='#g5-97'/>
+<use x='125.123666' y='1.823636' xlink:href='#g5-105'/>
+<use x='127.475382' y='1.823636' xlink:href='#g5-114'/>
+<use x='130.774701' y='1.823636' xlink:href='#g5-101'/>
+<use x='134.537446' y='1.823636' xlink:href='#g5-115'/>
+</g>
+<path d='M144.4844 60.79294H109.1758C108.0781 60.79294 107.1836 61.68364 107.1836 62.78514V70.97264C107.1836 72.07424 108.0781 72.96484 109.1758 72.96484H144.4844C145.5859 72.96484 146.4766 72.07424 146.4766 70.97264V62.78514C146.4766 61.68364 145.5859 60.79294 144.4844 60.79294Z' fill='#fff'/>
+<path d='M144.4844 60.79294H109.1758C108.0781 60.79294 107.1836 61.68364 107.1836 62.78514V70.97264C107.1836 72.07424 108.0781 72.96484 109.1758 72.96484H144.4844C145.5859 72.96484 146.4766 72.07424 146.4766 70.97264V62.78514C146.4766 61.68364 145.5859 60.79294 144.4844 60.79294Z' stroke='#cbd5e1' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-opacity='.4'/>
+<g transform='matrix(1 0 0 1 39.8 67.82296)'>
+<use x='70.704964' y='1.823636' xlink:href='#g3-76'/>
+<use x='78.816331' y='1.823636' xlink:href='#g2-39'/>
+<use x='87.755162' y='1.823636' xlink:href='#g4-50'/>
+<use x='91.989345' y='1.823636' xlink:href='#g3-68'/>
+<use x='99.171944' y='1.823636' xlink:href='#g3-18'/>
+</g>
+<path d='M45.1914 1.824219H108.9727' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-opacity='.4'/>
+<path d='M45.1914 1.824219L101.3203-26.23826' stroke='#c60' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-opacity='.4'/>
+<path d='M80.9102 1.824219C80.9102-1.31641 79.9414-4.38281 78.14062-6.95703' stroke='#c60' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-opacity='.4'/>
+<g fill='#c60' transform='matrix(1 0 0 1 21.3773 -5.81596)'>
+<use x='70.704964' y='1.823636' xlink:href='#g0-18'/>
+</g>
+</g>
+</svg></div>
+</div>
+<h3>1.5 Largeur de la tache centrale de diffraction</h3>
+<p>On note $L$ la largeur de la tache centrale de diffraction (distance entre les deux premières extinctions de part et d'autre du centre) et $D$ la distance entre la fente et l'écran.</p>
+<div class="example-box">
+<strong>Comment relier $L$, $$ et $D$ ?</strong>
+<p>La demi-tache centrale correspond à l'angle $$. Sur l'écran, la demi-largeur est ${2}$.</p>
+<p>Par définition de la tangente dans un triangle rectangle :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$() = {}{} = {D}$$</div></div></div></div></p>
+<strong>Or</strong>, dans les conditions usuelles, l'angle $$ est <strong>très petit</strong> (quelques milliradians). Quand $$ est petit et exprimé en radians :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$()  $$</div></div></div></div>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$  {D} = {2D}$$</div></div></div></div></p>
+<p>On sait que $ = {a}$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${a} = {2D}$$</div></div></div></div></p>
+<p>En isolant $L$ (on multiplie les deux côtés par $2D$) :<br></div></p>
+<div class="text-center">
+{
+ L = {a}
+}
+</div>
+<p>avec :<br><ul><li>$L$ : largeur de la tache centrale de diffraction, en mètre (m) ;</li><li>$$ : longueur d'onde, en mètre (m) ;</li><li>$D$ : distance entre la fente et l'écran, en mètre (m) ;</li><li>$a$ : largeur de la fente, en mètre (m).<br></li></ul></p>
+<div class="example-box">
+<strong>Exemple d'application :</strong>
+<p>Un laser émet une lumière de longueur d'onde $ = $633   $$. Le faisceau traverse une fente de largeur $a = $0{,}10   $$ et l'écran est placé à $D = {2{,}0}{}$.</p>
+<strong>Données :</strong>
+<ul><li>$ = $633   $ = 633  10^{-9}$ m $= 6{,}33  10^{-7}$ m</li><li>$a = $0{,}10   $ = 0{,}10  10^{-3}$ m $= 1{,}0  10^{-4}$ m</li><li>$D = {2{,}0}{}$
+</li></ul>
+<strong>Calcul de $L$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ L &= {a} \\[6pt]
+ L &= {2  6{,}33  10^{-7}  2{,}0}{1{,}0  10^{-4}} \\[6pt]
+ L &= {2{,}532  10^{-6}}{1{,}0  10^{-4}} \\[6pt]
+ L &= 2{,}5  10^{-2} 
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La tache centrale mesure environ $L  $2{,}5   $$, soit $2{,}5$ cm.
+</div>
+<div class="info-box">
+{{\`{A} noter :}} Un <strong>fil vertical</strong> et une <strong>fente verticale</strong> de même largeur $a$ donnent la <strong>même figure de diffraction</strong>. Ce résultat, appelé <strong>théorème de Babinet</strong>, est utilisé en pratique : on peut mesurer l'épaisseur d'un cheveu ou d'un fil en étudiant sa figure de diffraction.
+</div>
+<h3>1{,}6 Conséquences concrètes de la diffraction</h3>
+<ul><li><strong>Acoustique :</strong> L'onde diffractée atteint des régions de l'espace initialement inatteignables : une discussion dans une pièce peut être entendue depuis l'extérieur, même si l'auditeur ne se trouve pas directement devant l'ouverture.</li><li><strong>Océanographie :</strong> La houle contourne les obstacles côtiers (bateaux, digues).</li><li><strong>Granulométrie :</strong> L'étude de la figure de diffraction produite par des particules (ciment, poudre, toner) permet de mesurer leur taille, de l'ordre de $0{,}01   $ à $1   $.</li><li><strong>Astronomie :</strong> La diffraction limite la résolution des instruments d'observation car l'ouverture du télescope diffracte la lumière.
+</li></ul>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.007879 -60.501597 471.028358 128.46655'>
+<defs>
+<clipPath id='clip1'>
+<path d='M-69.609374 67.566448H225.723V-43.5073H-69.609374Z'/>
+</clipPath>
+</defs>
+<g id='page1'>
+<path d='M-69.609374 60.33989H223.133' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M225.72306 60.339816L221.57853 58.2695L223.133214 60.339816L221.57853 62.41403'/>
+<path d='M78.059 67.566448V-40.9183' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M78.058571-43.50785L75.98435-39.36332L78.058571-40.918011L80.12888-39.36332'/>
+<path d='M-60.37891 60.17973C-60.37891 60.17973-59.87891 60.17973-59.6875 60.17973C-59.4922 60.17973-59.1836 60.18364-58.9922 60.18364C-58.8008 60.18754-58.4922 60.19145-58.2969 60.19535C-58.1055 60.19535-57.7969 60.20317-57.6055 60.20707C-57.4102 60.21098-57.1016 60.21879-56.9102 60.2227C-56.7187 60.2266-56.4102 60.23832-56.2148 60.24223C-56.0234 60.24614-55.7148 60.25395-55.5234 60.26176C-55.3281 60.26567-55.0195 60.27739-54.8281 60.28129C-54.6367 60.2852-54.3281 60.29301-54.1328 60.30082C-53.9414 60.30473-53.6328 60.31254-53.4414 60.31645C-53.2461 60.32035-52.9375 60.32426-52.7461 60.32817C-52.5547 60.33207-52.2461 60.33598-52.0508 60.33598C-51.8594 60.33989-51.5508 60.33989-51.3594 60.33989S-50.8555 60.33989-50.6641 60.33989S-50.1641 60.33598-49.9727 60.33207C-49.7773 60.33207-49.4687 60.32817-49.2773 60.32426S-48.7773 60.31254-48.582 60.30473C-48.3906 60.30082-48.082 60.29301-47.8906 60.2852C-47.6953 60.28129-47.3867 60.26957-47.1953 60.26567C-47.0039 60.25785-46.6953 60.24614-46.5 60.23832C-46.3086 60.23442-46 60.2227-45.8086 60.21489C-45.6133 60.20707-45.3047 60.19535-45.1133 60.19145C-44.9219 60.18364-44.6133 60.17582-44.418 60.16801C-44.2266 60.1641-43.918 60.15629-43.7266 60.14848C-43.5312 60.14457-43.2227 60.14067-43.0312 60.13676C-42.8398 60.13285-42.5312 60.12895-42.3359 60.12895C-42.1445 60.12504-41.8359 60.12504-41.6445 60.12504C-41.4492 60.12504-41.1406 60.12504-40.9492 60.12895C-40.7578 60.12895-40.4492 60.13285-40.2539 60.13676C-40.0625 60.14067-39.7539 60.14457-39.5625 60.15239C-39.3711 60.15629-39.0586 60.1641-38.8672 60.16801C-38.6758 60.17582-38.3672 60.18754-38.1758 60.19145C-37.9805 60.19926-37.6719 60.21098-37.4805 60.21879S-36.9805 60.23832-36.7852 60.24223C-36.5937 60.25004-36.2852 60.26176-36.0937 60.26957C-35.8984 60.27739-35.5898 60.2891-35.3984 60.29301C-35.207 60.30082-34.8984 60.30864-34.7031 60.31254C-34.5117 60.32035-34.2031 60.32426-34.0117 60.32817C-33.8164 60.33207-33.5078 60.33598-33.3164 60.33989C-33.125 60.33989-32.8164 60.33989-32.6211 60.33989C-32.4297 60.33989-32.1211 60.33989-31.9297 60.33598C-31.7344 60.33598-31.4258 60.32817-31.2344 60.32426S-30.7344 60.31254-30.5391 60.30864C-30.3477 60.30082-30.0391 60.2891-29.8477 60.2852C-29.6523 60.27739-29.3437 60.26176-29.1523 60.25395S-28.6523 60.23051-28.457 60.2227C-28.2656 60.21098-27.957 60.19535-27.7656 60.18754S-27.2617 60.1641-27.0703 60.15239C-26.8789 60.14457-26.5703 60.12895-26.3789 60.12114C-26.1836 60.11332-25.875 60.0977-25.6836 60.08989C-25.4922 60.08207-25.1836 60.07426-24.9883 60.06645C-24.7969 60.06254-24.4883 60.05473-24.2969 60.05082C-24.1016 60.04692-23.793 60.04301-23.6016 60.0391C-23.4102 60.0391-23.1016 60.0391-22.9062 60.0391C-22.7148 60.0391-22.4062 60.04301-22.2148 60.04692C-22.0195 60.04692-21.7109 60.05473-21.5195 60.05864C-21.3281 60.06645-21.0195 60.07426-20.8242 60.08207C-20.6328 60.08989-20.3242 60.1016-20.1328 60.10942C-19.9375 60.12114-19.6289 60.13676-19.4375 60.14457C-19.2461 60.15629-18.9375 60.17192-18.7422 60.17973C-18.5508 60.19145-18.2422 60.20707-18.0508 60.21879C-17.8555 60.2266-17.5469 60.24223-17.3555 60.25395C-17.1641 60.26176-16.8555 60.27739-16.6602 60.2852C-16.4687 60.29301-16.1602 60.30473-15.9687 60.31254C-15.7773 60.31645-15.4648 60.32817-15.2734 60.33207C-15.082 60.33598-14.7734 60.33989-14.582 60.33989C-14.3867 60.33989-14.0781 60.33989-13.8867 60.33989S-13.3867 60.33598-13.1914 60.32817C-13 60.32426-12.6914 60.31645-12.5 60.30864C-12.3047 60.30082-11.9961 60.2891-11.8047 60.27739C-11.6133 60.26957-11.3047 60.25395-11.1094 60.24223C-10.918 60.23051-10.6094 60.20707-10.418 60.19535C-10.2227 60.18364-9.9141 60.1602-9.7227 60.14457C-9.5312 60.13285-9.2227 60.10942-9.0273 60.09379C-8.8359 60.08207-8.5273 60.05864-8.3359 60.04301C-8.1406 60.03129-7.832 60.00785-7.6406 59.99614C-7.4492 59.98442-7.1406 59.96489-6.9453 59.95707C-6.7539 59.94535-6.4453 59.92973-6.2539 59.92192C-6.0586 59.9141-5.75 59.90239-5.5586 59.89848S-5.0586 59.89067-4.8633 59.88676C-4.6719 59.88676-4.3633 59.88676-4.1719 59.89067C-3.9805 59.89067-3.668 59.89848-3.4766 59.90239C-3.2852 59.9102-2.9766 59.92192-2.7852 59.92973C-2.5898 59.93754-2.2812 59.95317-2.0898 59.96489C-1.8984 59.9766-1.5898 60.00004-1.3945 60.01176C-1.2031 60.02348-.8945 60.04692-.7031 60.06254C-.5078 60.07817-.1992 60.1016-.0078 60.11723C.1836 60.13285 .4922 60.1602 .6875 60.17582C.8789 60.18754 1.1875 60.21489 1.3789 60.2266C1.5742 60.23832 1.8828 60.26176 2.0742 60.27348S2.5742 60.30082 2.7695 60.30864C2.9609 60.31645 3.2695 60.32817 3.4609 60.33207C3.6563 60.33598 3.9648 60.33989 4.1563 60.33989C4.3477 60.33989 4.6563 60.33989 4.8516 60.33598C5.043 60.33207 5.3516 60.32035 5.543 60.31254C5.7383 60.30473 6.0469 60.2852 6.2383 60.27348S6.7383 60.23442 6.9336 60.21879C7.125 60.20317 7.4336 60.17192 7.625 60.15239C7.8203 60.13285 8.1289 60.0977 8.3203 60.07817C8.5117 60.05473 8.8203 60.01957 9.0156 59.99614C9.207 59.9727 9.5156 59.93364 9.707 59.9102S10.207 59.8516 10.4023 59.82817C10.5938 59.80473 10.9023 59.77348 11.0938 59.75395C11.2891 59.73442 11.5977 59.70317 11.7891 59.68754C11.9805 59.67192 12.2891 59.64848 12.4844 59.63676C12.6758 59.62504 12.9844 59.60942 13.1758 59.6016C13.3711 59.5977 13.6797 59.58989 13.8711 59.58989C14.0625 59.58598 14.3711 59.58989 14.5664 59.59379C14.7578 59.6016 15.0664 59.61332 15.2578 59.62504C15.4531 59.63285 15.7617 59.65629 15.9531 59.67192C16.1445 59.68754 16.4531 59.71489 16.6484 59.73442C16.8398 59.75785 17.1484 59.79301 17.3398 59.81645C17.5352 59.83989 17.8438 59.87895 18.0352 59.90239C18.2266 59.92973 18.5352 59.9727 18.7305 59.99614C18.9219 60.02348 19.2305 60.06645 19.4219 60.08989C19.6172 60.11332 19.9258 60.15239 20.1172 60.17582C20.3086 60.19535 20.6172 60.23051 20.8125 60.24614C21.0039 60.26567 21.3125 60.2891 21.5039 60.30082C21.6953 60.31645 22.0039 60.32817 22.1992 60.33598C22.3906 60.33989 22.6992 60.34379 22.8906 60.33989C23.0859 60.33598 23.3945 60.32817 23.5859 60.31645S24.0859 60.28129 24.2813 60.26176C24.4727 60.24614 24.7813 60.20707 24.9727 60.17973C25.168 60.15629 25.4766 60.10551 25.668 60.07426C25.8594 60.0391 26.168 59.98051 26.3633 59.94145C26.5547 59.90239 26.8633 59.83598 27.0547 59.79301C27.25 59.75004 27.5586 59.67582 27.75 59.63285C27.9414 59.58598 28.25 59.51176 28.4453 59.46879C28.6367 59.42192 28.9453 59.3516 29.1367 59.30864C29.332 59.26567 29.6406 59.19926 29.832 59.1602C30.0234 59.12504 30.332 59.06645 30.527 59.0352C30.719 59.00785 31.027 58.96098 31.219 58.94145C31.414 58.91801 31.723 58.89067 31.914 58.87895S32.414 58.85551 32.609 58.8516C32.801 58.8516 33.109 58.85942 33.301 58.87114C33.492 58.88285 33.805 58.90629 33.996 58.92973C34.188 58.95317 34.496 58.99614 34.688 59.02739C34.883 59.05864 35.191 59.12114 35.383 59.1602C35.574 59.20317 35.883 59.27348 36.078 59.32426C36.27 59.37114 36.578 59.45317 36.77 59.50395C36.965 59.55473 37.273 59.64067 37.465 59.69145C37.656 59.74614 37.965 59.82817 38.16 59.87895C38.352 59.92973 38.66 60.00785 38.852 60.05082C39.047 60.09379 39.355 60.15629 39.547 60.19145C39.738 60.2227 40.047 60.26957 40.242 60.2891C40.434 60.31254 40.742 60.33207 40.934 60.33989C41.129 60.34379 41.438 60.33989 41.629 60.32426C41.82 60.31254 42.129 60.27739 42.324 60.24223C42.516 60.21098 42.824 60.14457 43.016 60.08989C43.211 60.0391 43.52 59.93754 43.711 59.86723S44.211 59.6641 44.406 59.57426C44.598 59.48832 44.906 59.32817 45.098 59.2266C45.289 59.12114 45.602 58.94145 45.793 58.82426C45.984 58.71098 46.293 58.51567 46.484 58.39067C46.68 58.26957 46.988 58.06645 47.18 57.94535C47.371 57.82035 47.68 57.62114 47.875 57.5C48.066 57.3829 48.375 57.1914 48.566 57.0821C48.762 56.9727 49.07 56.8086 49.262 56.7149C49.453 56.6211 49.762 56.4844 49.957 56.4141C50.148 56.3438 50.457 56.2461 50.648 56.1993C50.844 56.1563 51.152 56.1055 51.344 56.0938C51.535 56.0782 51.844 56.0782 52.039 56.0977C52.23 56.1172 52.539 56.1719 52.73 56.2266C52.926 56.2774 53.234 56.3868 53.426 56.4727C53.617 56.5586 53.926 56.7188 54.121 56.8321C54.313 56.9454 54.621 57.1524 54.813 57.2891C55.008 57.4258 55.316 57.66801 55.508 57.82035C55.699 57.9727 56.008 58.23442 56.203 58.39067C56.395 58.55082 56.703 58.81645 56.895 58.96879C57.086 59.12504 57.398 59.36723 57.59 59.50395C57.781 59.64067 58.09 59.84379 58.281 59.94926C58.477 60.05082 58.785 60.19145 58.977 60.24614C59.168 60.30082 59.477 60.3516 59.672 60.33989C59.863 60.32817 60.172 60.26176 60.363 60.17192C60.559 60.08207 60.867 59.87504 61.059 59.68754C61.25 59.50395 61.559 59.12895 61.754 58.83598C61.945 58.5391 62.254 57.98051 62.445 57.5625C62.641 57.1485 62.949 56.3829 63.141 55.836C63.332 55.293 63.641 54.3086 63.836 53.625C64.027 52.9454 64.336 51.7383 64.527 50.9141C64.723 50.0899 65.031 48.6563 65.223 47.6914C65.414 46.7305 65.723 45.0743 65.918 43.9766C66.109 42.8789 66.418 41.0079 66.609 39.7813C66.805 38.5586 67.113 36.4922 67.305 35.1524C67.496 33.8164 67.805 31.5782 68 30.1407C68.191 28.7071 68.5 26.3282 68.691 24.8164C68.883 23.3047 69.195 20.8204 69.387 19.2579C69.578 17.6914 69.887 15.1368 70.078 13.5469C70.273 11.9532 70.582 9.375 70.773 7.7852C70.965 6.1993 71.273 3.6485 71.469 2.0938C71.66 .5352 71.969-1.9414 72.16-3.4414C72.355-4.9375 72.664-7.289 72.855-8.6953C73.047-10.1015 73.355-12.2929 73.551-13.5781C73.742-14.8632 74.051-16.832 74.242-17.9687C74.438-19.1093 74.746-20.8164 74.938-21.7812C75.129-22.75 75.438-24.1601 75.633-24.9375C75.824-25.7109 76.133-26.8046 76.324-27.3671C76.52-27.9296 76.828-28.6445 77.02-28.9921C77.211-29.3398 77.52-29.7539 77.715-29.8671C77.906-29.9804 78.215-29.9218 78.406-29.8007C78.602-29.6757 78.91-29.3203 79.102-28.9804C79.293-28.6406 79.602-27.9101 79.797-27.3476C79.988-26.7812 80.297-25.6875 80.488-24.9101C80.68-24.1328 80.992-22.7109 81.184-21.7461C81.375-20.7773 81.684-19.0703 81.875-17.9296C82.07-16.7929 82.379-14.8164 82.57-13.5312C82.762-12.2421 83.07-10.0586 83.266-8.6523C83.457-7.2421 83.766-4.8867 83.957-3.3867C84.152-1.8906 84.461 .586 84.652 2.1446C84.844 3.7032 85.152 6.2539 85.348 7.8438C85.539 9.4336 85.848 12.0118 86.039 13.6016C86.234 15.1914 86.543 17.7461 86.734 19.3125C86.926 20.875 87.234 23.3594 87.43 24.8711C87.621 26.3789 87.93 28.7579 88.121 30.1914C88.316 31.625 88.625 33.8633 88.816 35.1993C89.008 36.5352 89.316 38.6016 89.512 39.8243C89.703 41.0469 90.012 42.918 90.203 44.0118C90.398 45.1094 90.707 46.7657 90.898 47.7266C91.09 48.6875 91.398 50.1211 91.594 50.9414C91.785 51.7618 92.094 52.9688 92.285 53.6524C92.477 54.3321 92.789 55.3125 92.98 55.8555C93.172 56.4024 93.48 57.1641 93.672 57.57817C93.867 57.99223 94.176 58.55082 94.367 58.84379C94.559 59.13676 94.867 59.51176 95.063 59.69535C95.254 59.87895 95.563 60.08598 95.754 60.17582C95.949 60.26567 96.258 60.33207 96.449 60.33989C96.641 60.3516 96.949 60.29692 97.145 60.24223C97.336 60.18754 97.645 60.04692 97.836 59.94535C98.031 59.83989 98.34 59.63676 98.531 59.50004C98.723 59.36332 99.031 59.11723 99.227 58.96489C99.418 58.80864 99.727 58.54692 99.918 58.38676C100.113 58.2266 100.422 57.96489 100.613 57.81254C100.805 57.6602 101.113 57.4219 101.309 57.2852C101.5 57.1485 101.809 56.9414 102 56.8282C102.195 56.7149 102.504 56.5547 102.695 56.4688C102.887 56.3868 103.195 56.2735 103.391 56.2227C103.582 56.1719 103.891 56.1172 104.082 56.0977S104.586 56.0782 104.777 56.0938C104.969 56.1055 105.277 56.1563 105.469 56.2032C105.664 56.2461 105.973 56.3438 106.164 56.4141C106.355 56.4883 106.668 56.625 106.859 56.7188C107.051 56.8086 107.359 56.9766 107.551 57.086C107.746 57.1954 108.055 57.3868 108.246 57.5039C108.438 57.62504 108.746 57.82426 108.941 57.94926C109.133 58.07035 109.441 58.27348 109.633 58.39848C109.828 58.51957 110.137 58.71489 110.328 58.82817C110.52 58.94535 110.828 59.12504 111.023 59.2266C111.215 59.33207 111.523 59.48832 111.715 59.57817C111.91 59.66801 112.219 59.79692 112.41 59.87114C112.602 59.94145 112.91 60.0391 113.105 60.09379C113.297 60.14457 113.605 60.21098 113.797 60.24614C113.992 60.27739 114.301 60.31254 114.492 60.32426C114.684 60.33989 114.992 60.34379 115.188 60.33989C115.379 60.33207 115.688 60.31254 115.879 60.2891C116.074 60.26957 116.383 60.2227 116.574 60.18754C116.766 60.15629 117.074 60.08989 117.27 60.04692C117.461 60.00395 117.77 59.92582 117.961 59.87895C118.152 59.82817 118.465 59.74223 118.656 59.69145C118.848 59.64067 119.156 59.55473 119.348 59.50004C119.543 59.44926 119.852 59.36723 120.043 59.32035C120.234 59.27348 120.543 59.19926 120.738 59.1602C120.93 59.11723 121.238 59.05864 121.43 59.02739C121.625 58.99614 121.934 58.94926 122.125 58.92973C122.316 58.90629 122.625 58.87895 122.82 58.87114C123.012 58.85942 123.32 58.8516 123.512 58.8516C123.707 58.85551 124.016 58.86723 124.207 58.87895S124.707 58.91801 124.902 58.94145C125.094 58.96489 125.402 59.00785 125.594 59.0391C125.789 59.07035 126.098 59.12504 126.289 59.1641C126.48 59.19926 126.789 59.26567 126.984 59.30864C127.176 59.3516 127.484 59.42582 127.676 59.46879C127.871 59.51176 128.18 59.58598 128.371 59.63285C128.563 59.67582 128.871 59.75004 129.066 59.79301C129.258 59.83598 129.566 59.90239 129.758 59.94145C129.949 59.98051 130.262 60.0391 130.453 60.07426C130.645 60.10551 130.953 60.15629 131.145 60.18364C131.34 60.20707 131.648 60.24614 131.84 60.26567C132.031 60.28129 132.34 60.30473 132.535 60.31645C132.727 60.32817 133.035 60.33598 133.227 60.33989C133.422 60.34379 133.73 60.33989 133.922 60.33598C134.113 60.32817 134.422 60.31254 134.617 60.30082C134.809 60.2891 135.117 60.26567 135.309 60.24614C135.504 60.23051 135.813 60.19535 136.004 60.17582C136.195 60.15239 136.504 60.11332 136.699 60.08989C136.891 60.06254 137.199 60.02348 137.391 59.99614C137.586 59.96879 137.895 59.92973 138.086 59.90239C138.277 59.87895 138.586 59.83598 138.781 59.81254C138.973 59.7891 139.281 59.75395 139.473 59.73442C139.668 59.71489 139.977 59.68754 140.168 59.67192C140.359 59.65629 140.668 59.63285 140.863 59.62114C141.055 59.61332 141.363 59.6016 141.555 59.59379C141.746 59.58989 142.059 59.58598 142.25 59.58989C142.441 59.58989 142.75 59.5977 142.941 59.6016C143.137 59.60942 143.445 59.62504 143.637 59.63676C143.828 59.64848 144.137 59.67192 144.332 59.68754C144.523 59.70317 144.832 59.73442 145.023 59.75395C145.219 59.77348 145.527 59.80864 145.719 59.82817C145.91 59.8516 146.219 59.88676 146.414 59.9102C146.605 59.93364 146.914 59.9727 147.105 59.99614C147.301 60.01957 147.609 60.05473 147.801 60.07817C147.992 60.1016 148.301 60.13285 148.496 60.15239C148.688 60.17192 148.996 60.20317 149.188 60.21879C149.383 60.23832 149.691 60.26176 149.883 60.27348C150.074 60.2852 150.383 60.30473 150.578 60.31254C150.77 60.32035 151.078 60.33207 151.27 60.33598C151.465 60.33989 151.773 60.33989 151.965 60.33989C152.156 60.33989 152.465 60.33598 152.66 60.33207C152.852 60.32817 153.16 60.31645 153.352 60.30864C153.543 60.30082 153.855 60.28129 154.047 60.27348C154.238 60.26176 154.547 60.23832 154.738 60.2266C154.934 60.21098 155.242 60.18754 155.434 60.17192C155.625 60.1602 155.934 60.13285 156.129 60.11723C156.32 60.1016 156.629 60.07817 156.82 60.06254C157.016 60.04692 157.324 60.02348 157.516 60.01176C157.707 59.99614 158.016 59.9766 158.211 59.96489C158.402 59.95317 158.711 59.93754 158.902 59.92973C159.098 59.92192 159.406 59.9102 159.598 59.90239C159.789 59.89848 160.098 59.89067 160.293 59.89067C160.484 59.88676 160.793 59.88676 160.984 59.88676C161.18 59.89067 161.488 59.89457 161.68 59.89848C161.871 59.90629 162.18 59.9141 162.375 59.92192C162.566 59.92973 162.875 59.94535 163.066 59.95707C163.262 59.96489 163.57 59.98442 163.762 59.99614C163.953 60.00785 164.262 60.03129 164.457 60.04301C164.648 60.05864 164.957 60.08207 165.148 60.09379C165.34 60.10942 165.652 60.13285 165.844 60.14848C166.035 60.1602 166.344 60.18364 166.535 60.19535C166.73 60.21098 167.039 60.23051 167.23 60.24223C167.422 60.25395 167.73 60.26957 167.926 60.28129C168.117 60.2891 168.426 60.30082 168.617 60.30864C168.813 60.31645 169.121 60.32426 169.313 60.32817C169.504 60.33598 169.813 60.33989 170.008 60.33989C170.199 60.33989 170.508 60.33989 170.699 60.33989C170.895 60.33989 171.203 60.33598 171.395 60.33207C171.586 60.32426 171.895 60.31645 172.09 60.31254C172.281 60.30473 172.59 60.29301 172.781 60.2852C172.977 60.27739 173.285 60.26176 173.477 60.25395C173.668 60.24223 173.977 60.2266 174.172 60.21879C174.363 60.20707 174.672 60.19145 174.863 60.17973C175.059 60.17192 175.367 60.15239 175.559 60.14457C175.75 60.13285 176.059 60.12114 176.254 60.10942C176.445 60.1016 176.754 60.08989 176.945 60.08207C177.137 60.07426 177.449 60.06645 177.641 60.05864C177.832 60.05473 178.141 60.04692 178.332 60.04692C178.527 60.04301 178.836 60.0391 179.027 60.0391C179.219 60.0391 179.531 60.0391 179.723 60.0391C179.914 60.04301 180.223 60.04692 180.414 60.05082C180.609 60.05473 180.918 60.06254 181.109 60.06645C181.301 60.07426 181.609 60.08598 181.805 60.08989C181.996 60.0977 182.305 60.11332 182.496 60.12114C182.691 60.12895 183 60.14457 183.191 60.15239C183.383 60.1641 183.691 60.17973 183.887 60.18754C184.078 60.19535 184.387 60.21098 184.578 60.2227C184.773 60.23051 185.082 60.24614 185.273 60.25395C185.465 60.26176 185.773 60.27739 185.969 60.2852C186.16 60.2891 186.469 60.30082 186.66 60.30864C186.855 60.31254 187.164 60.32035 187.355 60.32426C187.547 60.32817 187.855 60.33598 188.051 60.33598C188.242 60.33989 188.551 60.33989 188.742 60.33989C188.934 60.33989 189.246 60.33989 189.438 60.33989C189.629 60.33598 189.938 60.33207 190.133 60.32817C190.324 60.32426 190.633 60.32035 190.824 60.31254C191.016 60.30864 191.328 60.30082 191.52 60.29301C191.711 60.2891 192.02 60.27739 192.211 60.26957C192.406 60.26176 192.715 60.25004 192.906 60.24223C193.098 60.23832 193.406 60.2227 193.602 60.21879C193.793 60.21098 194.102 60.19926 194.293 60.19145C194.488 60.18364 194.797 60.17582 194.988 60.16801C195.18 60.1641 195.488 60.15629 195.684 60.14848C195.875 60.14457 196.184 60.14067 196.375 60.13676C196.57 60.13285 196.879 60.12895 197.07 60.12895C197.262 60.12504 197.57 60.12504 197.766 60.12504C197.957 60.12504 198.266 60.12504 198.457 60.12895C198.652 60.12895 198.961 60.13285 199.152 60.13676C199.344 60.14067 199.652 60.14457 199.848 60.15239C200.039 60.15629 200.348 60.1641 200.539 60.16801C200.734 60.17582 201.043 60.18364 201.234 60.19145C201.426 60.19926 201.734 60.20707 201.93 60.21489C202.121 60.2227 202.43 60.23442 202.621 60.23832C202.813 60.24614 203.125 60.25785 203.316 60.26567C203.508 60.26957 203.816 60.28129 204.008 60.2852C204.203 60.29301 204.512 60.30082 204.703 60.30864C204.895 60.31254 205.203 60.32035 205.398 60.32426C205.59 60.32817 205.898 60.33207 206.09 60.33207C206.285 60.33598 206.594 60.33989 206.785 60.33989C206.977 60.33989 207.285 60.33989 207.48 60.33989C207.672 60.33989 207.98 60.33989 208.172 60.33598C208.367 60.33598 208.676 60.33207 208.867 60.32817C209.059 60.32426 209.367 60.32035 209.563 60.31645C209.754 60.31254 210.063 60.30473 210.254 60.30082C210.449 60.29301 210.758 60.2852 210.949 60.28129C211.141 60.27348 211.449 60.26567 211.645 60.26176C211.836 60.25395 212.145 60.24614 212.336 60.24223C212.531 60.23442 212.84 60.2266 213.031 60.2227C213.223 60.21879 213.531 60.21098 213.727 60.20707C213.918 60.20317 214.227 60.19535 214.418 60.19535C214.609 60.19145 214.922 60.18754 215.113 60.18364C215.305 60.18364 215.613 60.17973 215.805 60.17973C216 60.17973 216.5 60.17973 216.5 60.17973' stroke='#c00' fill='none' stroke-width='1.19553' stroke-miterlimit='10' clip-path='url(#clip1)'/>
+<path d='M60.395 55.8243H95.719' stroke='currentColor0b3' fill='none' stroke-width='.79701' stroke-miterlimit='10' clip-path='url(#clip1)'/>
+<path d='M62.54689 58.93749C62.08205 57.0703 61.04298 56.187489 59.996109 55.824208C61.04298 55.464833 62.08205 54.58202 62.54689 52.71483' stroke='currentColor0b3' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round' clip-path='url(#clip1)'/>
+<path d='M93.56645 52.71483C94.03129 54.58202 95.07035 55.464833 96.117226 55.824208C95.07035 56.187489 94.03129 57.0703 93.56645 58.93749' stroke='currentColor0b3' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round' clip-path='url(#clip1)'/>
+<g fill='currentColor0b3' transform='matrix(1 0 0 1 116.4402 1.2637)'>
+<use x='-69.210477' y='66.490103' xlink:href='#g2-84'/>
+<use x='-63.234353' y='66.490103' xlink:href='#g2-97'/>
+<use x='-58.48942' y='66.490103' xlink:href='#g2-99'/>
+<use x='-54.422335' y='66.490103' xlink:href='#g2-104'/>
+<use x='-48.999555' y='66.490103' xlink:href='#g2-101'/>
+<use x='-41.274861' y='66.490103' xlink:href='#g2-99'/>
+<use x='-36.936637' y='66.490103' xlink:href='#g2-101'/>
+<use x='-32.465611' y='66.490103' xlink:href='#g2-110'/>
+<use x='-27.31397' y='66.490103' xlink:href='#g2-116'/>
+<use x='-23.518024' y='66.490103' xlink:href='#g2-114'/>
+<use x='-19.48414' y='66.490103' xlink:href='#g2-97'/>
+<use x='-14.739207' y='66.490103' xlink:href='#g2-108'/>
+<use x='-12.027817' y='66.490103' xlink:href='#g2-101'/>
+</g>
+<g fill='#b30000' transform='matrix(1 0 0 1 114.5789 -101.9774)'>
+<use x='-69.210477' y='66.490103' xlink:href='#g3-77'/>
+<use x='-61.458115' y='66.490103' xlink:href='#g3-97'/>
+<use x='-57.225027' y='66.490103' xlink:href='#g3-120'/>
+<use x='-52.756767' y='66.490103' xlink:href='#g3-105'/>
+<use x='-50.405051' y='66.490103' xlink:href='#g3-109'/>
+<use x='-43.585076' y='66.490103' xlink:href='#g3-117'/>
+<use x='-38.881644' y='66.490103' xlink:href='#g3-109'/>
+<use x='-29.004438' y='66.490103' xlink:href='#g3-99'/>
+<use x='-25.241693' y='66.490103' xlink:href='#g3-101'/>
+<use x='-21.478948' y='66.490103' xlink:href='#g3-110'/>
+<use x='-17.010688' y='66.490103' xlink:href='#g3-116'/>
+<use x='-13.718286' y='66.490103' xlink:href='#g3-114'/>
+<use x='-10.418967' y='66.490103' xlink:href='#g3-97'/>
+<use x='-6.185879' y='66.490103' xlink:href='#g3-108'/>
+</g>
+<g fill='#808080' transform='matrix(1 0 0 1 166.3087 -15.2853)'>
+<use x='-69.210477' y='66.490103' xlink:href='#g1-84'/>
+<use x='-64.956638' y='66.490103' xlink:href='#g1-97'/>
+<use x='-61.567401' y='66.490103' xlink:href='#g1-99'/>
+<use x='-58.696924' y='66.490103' xlink:href='#g1-104'/>
+<use x='-54.961847' y='66.490103' xlink:href='#g1-101'/>
+</g>
+<g fill='#808080' transform='matrix(1 0 0 1 159.5474 -2.6119)'>
+<use x='-69.210477' y='66.490103' xlink:href='#g1-115'/>
+<use x='-66.478337' y='66.490103' xlink:href='#g1-101'/>
+<use x='-63.434926' y='66.490103' xlink:href='#g1-99'/>
+<use x='-60.391529' y='66.490103' xlink:href='#g1-111'/>
+<use x='-57.002292' y='66.490103' xlink:href='#g1-110'/>
+<use x='-53.267214' y='66.490103' xlink:href='#g1-100'/>
+<use x='-49.532136' y='66.490103' xlink:href='#g1-97'/>
+<use x='-46.142898' y='66.490103' xlink:href='#g1-105'/>
+<use x='-44.137023' y='66.490103' xlink:href='#g1-114'/>
+<use x='-41.439467' y='66.490103' xlink:href='#g1-101'/>
+</g>
+<g fill='#808080' transform='matrix(1 0 0 1 110.9339 -15.2853)'>
+<use x='-69.210477' y='66.490103' xlink:href='#g1-84'/>
+<use x='-64.956638' y='66.490103' xlink:href='#g1-97'/>
+<use x='-61.567401' y='66.490103' xlink:href='#g1-99'/>
+<use x='-58.696924' y='66.490103' xlink:href='#g1-104'/>
+<use x='-54.961847' y='66.490103' xlink:href='#g1-101'/>
+</g>
+<g fill='#808080' transform='matrix(1 0 0 1 104.1727 -2.6119)'>
+<use x='-69.210477' y='66.490103' xlink:href='#g1-115'/>
+<use x='-66.478337' y='66.490103' xlink:href='#g1-101'/>
+<use x='-63.434926' y='66.490103' xlink:href='#g1-99'/>
+<use x='-60.391529' y='66.490103' xlink:href='#g1-111'/>
+<use x='-57.002292' y='66.490103' xlink:href='#g1-110'/>
+<use x='-53.267214' y='66.490103' xlink:href='#g1-100'/>
+<use x='-49.532136' y='66.490103' xlink:href='#g1-97'/>
+<use x='-46.142898' y='66.490103' xlink:href='#g1-105'/>
+<use x='-44.137023' y='66.490103' xlink:href='#g1-114'/>
+<use x='-41.439467' y='66.490103' xlink:href='#g1-101'/>
+</g>
+<g transform='matrix(1 0 0 1 304.5595 -3.6587)'>
+<use x='-69.210477' y='66.490103' xlink:href='#g4-80'/>
+<use x='-62.708675' y='66.490103' xlink:href='#g4-111'/>
+<use x='-57.728571' y='66.490103' xlink:href='#g4-115'/>
+<use x='-53.799822' y='66.490103' xlink:href='#g4-105'/>
+<use x='-51.033098' y='66.490103' xlink:href='#g4-116'/>
+<use x='-47.159684' y='66.490103' xlink:href='#g4-105'/>
+<use x='-44.392959' y='66.490103' xlink:href='#g4-111'/>
+<use x='-39.412855' y='66.490103' xlink:href='#g4-110'/>
+<use x='-30.559337' y='66.490103' xlink:href='#g4-115'/>
+<use x='-26.630589' y='66.490103' xlink:href='#g4-117'/>
+<use x='-21.09714' y='66.490103' xlink:href='#g4-114'/>
+<use x='-13.875989' y='66.490103' xlink:href='#g4-108'/>
+<use x='-11.109265' y='66.490103' xlink:href='#g4-39'/>
+<use x='-8.342541' y='66.490103' xlink:href='#g4-233'/>
+<use x='-3.915782' y='66.490103' xlink:href='#g4-99'/>
+<use x='.510978' y='66.490103' xlink:href='#g4-114'/>
+<use x='4.412059' y='66.490103' xlink:href='#g4-97'/>
+<use x='9.392163' y='66.490103' xlink:href='#g4-110'/>
+<use x='18.245681' y='66.490103' xlink:href='#g4-40'/>
+<use x='22.119095' y='66.490103' xlink:href='#g4-117'/>
+<use x='27.652544' y='66.490103' xlink:href='#g4-110'/>
+<use x='33.185993' y='66.490103' xlink:href='#g4-105'/>
+<use x='35.952717' y='66.490103' xlink:href='#g4-116'/>
+<use x='39.826131' y='66.490103' xlink:href='#g4-233'/>
+<use x='44.25289' y='66.490103' xlink:href='#g4-115'/>
+<use x='51.501708' y='66.490103' xlink:href='#g4-97'/>
+<use x='56.481812' y='66.490103' xlink:href='#g4-114'/>
+<use x='60.382893' y='66.490103' xlink:href='#g4-98'/>
+<use x='65.916342' y='66.490103' xlink:href='#g4-105'/>
+<use x='68.683067' y='66.490103' xlink:href='#g4-116'/>
+<use x='72.556481' y='66.490103' xlink:href='#g4-114'/>
+<use x='76.457562' y='66.490103' xlink:href='#g4-97'/>
+<use x='81.437666' y='66.490103' xlink:href='#g4-105'/>
+<use x='84.20439' y='66.490103' xlink:href='#g4-114'/>
+<use x='88.105472' y='66.490103' xlink:href='#g4-101'/>
+<use x='92.532231' y='66.490103' xlink:href='#g4-115'/>
+<use x='96.460979' y='66.490103' xlink:href='#g4-41'/>
+</g>
+<g transform='matrix(1 0 0 1 105.1573 -115.9389)'>
+<use x='-69.210477' y='66.490103' xlink:href='#g4-73'/>
+<use x='-65.613735' y='66.490103' xlink:href='#g4-110'/>
+<use x='-60.356959' y='66.490103' xlink:href='#g4-116'/>
+<use x='-56.483545' y='66.490103' xlink:href='#g4-101'/>
+<use x='-52.056786' y='66.490103' xlink:href='#g4-110'/>
+<use x='-46.523337' y='66.490103' xlink:href='#g4-115'/>
+<use x='-42.594589' y='66.490103' xlink:href='#g4-105'/>
+<use x='-39.827864' y='66.490103' xlink:href='#g4-116'/>
+<use x='-35.95445' y='66.490103' xlink:href='#g4-233'/>
+<use x='-28.207622' y='66.490103' xlink:href='#g4-108'/>
+<use x='-25.440897' y='66.490103' xlink:href='#g4-117'/>
+<use x='-19.907449' y='66.490103' xlink:href='#g4-109'/>
+<use x='-11.607275' y='66.490103' xlink:href='#g4-105'/>
+<use x='-8.840551' y='66.490103' xlink:href='#g4-110'/>
+<use x='-3.307102' y='66.490103' xlink:href='#g4-101'/>
+<use x='1.119657' y='66.490103' xlink:href='#g4-117'/>
+<use x='6.653106' y='66.490103' xlink:href='#g4-115'/>
+<use x='10.581854' y='66.490103' xlink:href='#g4-101'/>
+</g>
+<g transform='matrix(1 0 0 1 8.7458 -126.9917)'>
+<use x='-69.210477' y='66.490103' xlink:href='#g0-73'/>
+<use x='-65.209797' y='66.490103' xlink:href='#g0-110'/>
+<use x='-59.611348' y='66.490103' xlink:href='#g0-116'/>
+<use x='-55.486165' y='66.490103' xlink:href='#g0-101'/>
+<use x='-50.618797' y='66.490103' xlink:href='#g0-110'/>
+<use x='-44.725677' y='66.490103' xlink:href='#g0-115'/>
+<use x='-40.541552' y='66.490103' xlink:href='#g0-105'/>
+<use x='-37.594987' y='66.490103' xlink:href='#g0-116'/>
+<use x='-33.469804' y='66.490103' xlink:href='#g0-233'/>
+<use x='-25.066563' y='66.490103' xlink:href='#g0-108'/>
+<use x='-22.119999' y='66.490103' xlink:href='#g0-117'/>
+<use x='-16.226878' y='66.490103' xlink:href='#g0-109'/>
+<use x='-7.387194' y='66.490103' xlink:href='#g0-105'/>
+<use x='-4.44063' y='66.490103' xlink:href='#g0-110'/>
+<use x='1.45249' y='66.490103' xlink:href='#g0-101'/>
+<use x='6.319858' y='66.490103' xlink:href='#g0-117'/>
+<use x='12.212978' y='66.490103' xlink:href='#g0-115'/>
+<use x='16.397103' y='66.490103' xlink:href='#g0-101'/>
+<use x='24.800345' y='66.490103' xlink:href='#g0-100'/>
+<use x='30.693465' y='66.490103' xlink:href='#g0-101'/>
+<use x='39.096706' y='66.490103' xlink:href='#g0-108'/>
+<use x='42.04327' y='66.490103' xlink:href='#g0-97'/>
+<use x='50.735621' y='66.490103' xlink:href='#g0-28'/>
+<use x='56.628741' y='66.490103' xlink:href='#g0-103'/>
+<use x='61.932552' y='66.490103' xlink:href='#g0-117'/>
+<use x='67.825672' y='66.490103' xlink:href='#g0-114'/>
+<use x='72.201245' y='66.490103' xlink:href='#g0-101'/>
+<use x='80.604487' y='66.490103' xlink:href='#g0-100'/>
+<use x='86.497607' y='66.490103' xlink:href='#g0-101'/>
+<use x='94.900848' y='66.490103' xlink:href='#g0-100'/>
+<use x='100.793968' y='66.490103' xlink:href='#g0-105'/>
+<use x='103.740533' y='66.490103' xlink:href='#g0-27'/>
+<use x='109.928312' y='66.490103' xlink:href='#g0-114'/>
+<use x='114.303885' y='66.490103' xlink:href='#g0-97'/>
+<use x='119.460362' y='66.490103' xlink:href='#g0-99'/>
+<use x='124.174863' y='66.490103' xlink:href='#g0-116'/>
+<use x='128.300047' y='66.490103' xlink:href='#g0-105'/>
+<use x='131.246611' y='66.490103' xlink:href='#g0-111'/>
+<use x='136.550422' y='66.490103' xlink:href='#g0-110'/>
+<use x='145.979415' y='66.490103' xlink:href='#g0-112'/>
+<use x='151.872536' y='66.490103' xlink:href='#g0-97'/>
+<use x='157.029012' y='66.490103' xlink:href='#g0-114'/>
+<use x='164.94046' y='66.490103' xlink:href='#g0-117'/>
+<use x='170.83358' y='66.490103' xlink:href='#g0-110'/>
+<use x='176.7267' y='66.490103' xlink:href='#g0-101'/>
+<use x='185.129941' y='66.490103' xlink:href='#g0-102'/>
+<use x='188.371156' y='66.490103' xlink:href='#g0-101'/>
+<use x='193.238524' y='66.490103' xlink:href='#g0-110'/>
+<use x='198.836972' y='66.490103' xlink:href='#g0-116'/>
+<use x='202.962156' y='66.490103' xlink:href='#g0-101'/>
+</g>
+</g>
+</svg></div>
+</div>
+</div>
+<h2 class="section-title">2. Interférences à deux ondes</h2>
+<div class="card chapter-card">
+<h3>2{,}1 Présentation du phénomène</h3>
+<div class="definition-box">
+<strong>Définition :</strong> Le phénomène d'<strong>interférences à deux ondes</strong> est une propriété des ondes qui se caractérise en tout point d'un milieu par la <strong>superposition de deux ondes de même nature et de même fréquence</strong>.
+</div>
+<strong>Que se passe-t-il ?</strong>
+<p>Quand deux ondes se croisent en un point de l'espace, la perturbation résultante en ce point correspond à la <strong>somme</strong> des deux perturbations. Après le croisement, les deux ondes continuent de se propager sans être modifiées.</p>
+<p>Cette superposition peut conduire :<br><ul><li>soit à un <strong>renforcement</strong> du signal (amplitude plus grande) : on parle d'<strong>interférences constructives</strong> ;</li><li>soit à une <strong>atténuation</strong> voire une <strong>annulation</strong> du signal : on parle d'<strong>interférences destructives</strong>.<br></li></ul></p>
+<p>Des capteurs peuvent détecter les modifications des propriétés du milieu. En un point où deux ondes interfèrent, le signal résultant est la somme des signaux correspondant à chacune des ondes.</p>
+<h3>2{,}2 Conditions d'observation des interférences</h3>
+<div class="definition-box">
+<strong>Conditions :</strong> Pour observer le phénomène d'interférences à deux ondes, il faut que les ondes soient :
+<ol><li><strong>de même nature</strong> (toutes les deux mécaniques, ou toutes les deux lumineuses, etc.) ;</li><li><strong>synchrones</strong> : elles ont la même fréquence ;</li><li><strong>cohérentes</strong> : le retard entre les signaux correspondant aux ondes qu'elles émettent est constant dans le temps.
+</li></ol>
+</div>
+<strong>Vocabulaire :</strong>
+<ul><li>Deux sources sont dites <strong>synchrones</strong> si elles émettent des ondes de même fréquence.</li><li>Deux sources sont dites <strong>cohérentes</strong> si le retard entre les signaux correspondant aux ondes qu'elles émettent est constant.</li><li>Si les signaux coïncident (les extrema arrivent au même instant), les signaux sont dits <strong>en phase</strong>.</li><li>Si le maximum de l'un coïncide avec le minimum de l'autre, les signaux sont dits <strong>en opposition de phase</strong>.
+</li></ul>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-68.242235 -66.771647 404.537993 118.290219'>
+<defs>
+<path id='g1-115' d='M3.211955-2.996762C3.028643-2.964882 2.86127-2.82142 2.86127-2.622167C2.86127-2.478705 2.956912-2.375093 3.132254-2.375093C3.251806-2.375093 3.498879-2.462765 3.498879-2.82142C3.498879-3.315567 2.980822-3.514819 2.486675-3.514819C1.41868-3.514819 1.083935-2.757659 1.083935-2.351183C1.083935-2.271482 1.083935-1.984558 1.378829-1.761395C1.562142-1.617933 1.697634-1.594022 2.11208-1.514321C2.391034-1.458531 2.84533-1.378829 2.84533-.964384C2.84533-.757161 2.693898-.494147 2.470735-.342715C2.175841-.151432 1.785305-.143462 1.657783-.143462C1.466501-.143462 .924533-.175342 .72528-.494147C1.131756-.510087 1.187547-.836862 1.187547-.932503C1.187547-1.171606 .972354-1.227397 .876712-1.227397C.749191-1.227397 .422416-1.131756 .422416-.6934C.422416-.223163 .916563 .079701 1.657783 .079701C3.044583 .079701 3.339477-.900623 3.339477-1.235367C3.339477-1.952677 2.558406-2.10411 2.263512-2.1599C1.880946-2.231631 1.570112-2.287422 1.570112-2.622167C1.570112-2.765629 1.705604-3.291656 2.478705-3.291656C2.781569-3.291656 3.092403-3.203985 3.211955-2.996762Z'/>
+<path id='g1-116' d='M1.761395-3.172105H2.542466C2.693898-3.172105 2.789539-3.172105 2.789539-3.323537C2.789539-3.435118 2.685928-3.435118 2.550436-3.435118H1.825156L2.11208-4.566874C2.14396-4.686426 2.14396-4.726276 2.14396-4.734247C2.14396-4.901619 2.016438-4.98132 1.880946-4.98132C1.609963-4.98132 1.554172-4.766127 1.466501-4.407472L1.219427-3.435118H.454296C.302864-3.435118 .199253-3.435118 .199253-3.283686C.199253-3.172105 .302864-3.172105 .438356-3.172105H1.155666L.67746-1.259278C.629639-1.060025 .557908-.781071 .557908-.669489C.557908-.191283 .948443 .079701 1.370859 .079701C2.223661 .079701 2.709838-1.044085 2.709838-1.139726C2.709838-1.227397 2.638107-1.243337 2.590286-1.243337C2.502615-1.243337 2.494645-1.211457 2.438854-1.091905C2.279452-.70934 1.880946-.143462 1.39477-.143462C1.227397-.143462 1.131756-.255044 1.131756-.518057C1.131756-.669489 1.155666-.757161 1.179577-.860772L1.761395-3.172105Z'/>
+</defs>
+<g id='page1'>
+<path d='M-64.7307-18.718749H81.874998' stroke='currentColor' fill='none' stroke-width='.79701'/>
+<path d='M79.72261-21.82812C80.18746-19.96484 81.22652-19.082031 82.273395-18.718749C81.22652-18.355468 80.18746-17.47266 79.72261-15.60937' stroke='currentColor' fill='none' stroke-width='.79701' stroke-linecap='round' stroke-linejoin='round'/>
+<g transform='matrix(1 0 0 1 3.7182 2.4511)'>
+<use x='82.672309' y='-18.718928' xlink:href='#g1-116'/>
+</g>
+<path d='M-64.7307 22.1016V-58.7422' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-67.84373-56.58984C-65.97654-57.05469-65.09373-58.09375-64.730449-59.140626C-64.367168-58.09375-63.48826-57.05469-61.62107-56.58984' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<g transform='matrix(1 0 0 1 -149.362 -44.5379)'>
+<use x='82.672309' y='-18.718928' xlink:href='#g1-115'/>
+</g>
+<path d='M-64.7307-18.718749L-63.3597-22.16406L-61.9847-25.55078L-60.6097-28.8281L-59.2347-31.9453L-57.8597-34.8477L-56.4887-37.4922L-55.1137-39.8359L-53.7387-41.8398L-52.3637-43.4687L-50.9917-44.6992L-49.6167-45.5156L-48.2417-45.8984L-46.8667-45.8437L-45.4957-45.3555L-44.1207-44.4375L-42.7457-43.1055L-41.3707-41.3828L-39.9997-39.293L-38.6247-36.875L-37.2497-34.1602L-35.8747-31.2031L-34.4997-28.04297L-33.1287-24.73047L-31.7537-21.32422L-30.3787-17.874999L-29.0037-14.44141L-27.6327-11.07422L-26.2577-7.8281L-24.8827-4.7578L-23.5077-1.9141L-22.1367 .6563L-20.7617 2.9219L-19.3867 4.8359L-18.0117 6.3711L-16.6367 7.5L-15.2656 8.2109L-13.8906 8.4883L-12.5156 8.3281L-11.1406 7.7305L-9.7695 6.7109L-8.3945 5.2813L-7.0195 3.4648L-5.6445 1.293L-4.2734-1.2031L-2.8984-3.9805L-1.5234-6.9922L-.1484-10.19531L1.2266-13.53516L2.5977-16.95703L3.9727-20.40625L5.3477-23.82812L6.7227-27.17187L8.0937-30.3789L9.4687-33.3945L10.8437-36.1797L12.2187-38.6797L13.5898-40.8594L14.9648-42.6836L16.3398-44.1211L17.7148-45.1523L19.0859-45.7578L20.4609-45.9297L21.8359-45.6602L23.2109-44.9609L24.5859-43.8359L25.957-42.3086L27.332-40.4023L28.707-38.1484L30.082-35.582L31.4531-32.7422L32.8281-29.6797L34.2031-26.4375L35.5781-23.07422L36.9492-19.636718L38.3242-16.19141L39.6992-12.78125L41.0742-9.46875L42.4492-6.3047L43.8203-3.3398L45.1953-.6211L46.5703 1.8047L47.9453 3.9023L49.3164 5.6328L50.6914 6.9766L52.0664 7.9023L53.4414 8.4023L54.8125 8.4648L56.1875 8.0898L57.5625 7.2852L58.9375 6.0625L60.3125 4.4414L61.6836 2.4453L63.0586 .1094L64.4336-2.5273L65.8086-5.4258L67.1797-8.5391L68.5547-11.8125L69.9297-15.19922L71.3047-18.644531' stroke='currentColor0b3' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M-64.7307-18.718749L-63.3597-22.16406L-61.9847-25.55078L-60.6097-28.8281L-59.2347-31.9453L-57.8597-34.8477L-56.4887-37.4922L-55.1137-39.8359L-53.7387-41.8398L-52.3637-43.4687L-50.9917-44.6992L-49.6167-45.5156L-48.2417-45.8984L-46.8667-45.8437L-45.4957-45.3555L-44.1207-44.4375L-42.7457-43.1055L-41.3707-41.3828L-39.9997-39.293L-38.6247-36.875L-37.2497-34.1602L-35.8747-31.2031L-34.4997-28.04297L-33.1287-24.73047L-31.7537-21.32422L-30.3787-17.874999L-29.0037-14.44141L-27.6327-11.07422L-26.2577-7.8281L-24.8827-4.7578L-23.5077-1.9141L-22.1367 .6563L-20.7617 2.9219L-19.3867 4.8359L-18.0117 6.3711L-16.6367 7.5L-15.2656 8.2109L-13.8906 8.4883L-12.5156 8.3281L-11.1406 7.7305L-9.7695 6.7109L-8.3945 5.2813L-7.0195 3.4648L-5.6445 1.293L-4.2734-1.2031L-2.8984-3.9805L-1.5234-6.9922L-.1484-10.19531L1.2266-13.53516L2.5977-16.95703L3.9727-20.40625L5.3477-23.82812L6.7227-27.17187L8.0937-30.3789L9.4687-33.3945L10.8437-36.1797L12.2187-38.6797L13.5898-40.8594L14.9648-42.6836L16.3398-44.1211L17.7148-45.1523L19.0859-45.7578L20.4609-45.9297L21.8359-45.6602L23.2109-44.9609L24.5859-43.8359L25.957-42.3086L27.332-40.4023L28.707-38.1484L30.082-35.582L31.4531-32.7422L32.8281-29.6797L34.2031-26.4375L35.5781-23.07422L36.9492-19.636718L38.3242-16.19141L39.6992-12.78125L41.0742-9.46875L42.4492-6.3047L43.8203-3.3398L45.1953-.6211L46.5703 1.8047L47.9453 3.9023L49.3164 5.6328L50.6914 6.9766L52.0664 7.9023L53.4414 8.4023L54.8125 8.4648L56.1875 8.0898L57.5625 7.2852L58.9375 6.0625L60.3125 4.4414L61.6836 2.4453L63.0586 .1094L64.4336-2.5273L65.8086-5.4258L67.1797-8.5391L68.5547-11.8125L69.9297-15.19922L71.3047-18.644531' stroke='#b30000' fill='none' stroke-width='1.19553' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<g transform='matrix(1 0 0 1 -115.092 59.5973)'>
+<use x='82.672309' y='-18.718928' xlink:href='#g0-83'/>
+<use x='88.565429' y='-18.718928' xlink:href='#g0-105'/>
+<use x='91.511994' y='-18.718928' xlink:href='#g0-103'/>
+<use x='96.815804' y='-18.718928' xlink:href='#g0-110'/>
+<use x='102.708924' y='-18.718928' xlink:href='#g0-97'/>
+<use x='107.865401' y='-18.718928' xlink:href='#g0-117'/>
+<use x='113.758521' y='-18.718928' xlink:href='#g0-120'/>
+<use x='122.892865' y='-18.718928' xlink:href='#g0-101'/>
+<use x='127.760232' y='-18.718928' xlink:href='#g0-110'/>
+<use x='137.189226' y='-18.718928' xlink:href='#g0-112'/>
+<use x='143.082346' y='-18.718928' xlink:href='#g0-104'/>
+<use x='148.975466' y='-18.718928' xlink:href='#g0-97'/>
+<use x='154.131943' y='-18.718928' xlink:href='#g0-115'/>
+<use x='158.316069' y='-18.718928' xlink:href='#g0-101'/>
+</g>
+<g fill='#808080' transform='matrix(1 0 0 1 -138.8906 70.2375)'>
+<use x='82.672309' y='-18.718928' xlink:href='#g2-76'/>
+<use x='87.959519' y='-18.718928' xlink:href='#g2-101'/>
+<use x='91.722265' y='-18.718928' xlink:href='#g2-115'/>
+<use x='97.88376' y='-18.718928' xlink:href='#g2-100'/>
+<use x='102.587191' y='-18.718928' xlink:href='#g2-101'/>
+<use x='106.349937' y='-18.718928' xlink:href='#g2-117'/>
+<use x='111.053368' y='-18.718928' xlink:href='#g2-120'/>
+<use x='118.343687' y='-18.718928' xlink:href='#g2-99'/>
+<use x='122.106432' y='-18.718928' xlink:href='#g2-111'/>
+<use x='126.33952' y='-18.718928' xlink:href='#g2-117'/>
+<use x='131.042952' y='-18.718928' xlink:href='#g2-114'/>
+<use x='134.342271' y='-18.718928' xlink:href='#g2-98'/>
+<use x='139.280874' y='-18.718928' xlink:href='#g2-101'/>
+<use x='143.043619' y='-18.718928' xlink:href='#g2-115'/>
+<use x='149.205114' y='-18.718928' xlink:href='#g2-115'/>
+<use x='152.54455' y='-18.718928' xlink:href='#g2-111'/>
+<use x='156.777639' y='-18.718928' xlink:href='#g2-110'/>
+<use x='161.245899' y='-18.718928' xlink:href='#g2-116'/>
+<use x='167.360359' y='-18.718928' xlink:href='#g2-115'/>
+<use x='170.699796' y='-18.718928' xlink:href='#g2-117'/>
+<use x='175.403227' y='-18.718928' xlink:href='#g2-112'/>
+<use x='180.34183' y='-18.718928' xlink:href='#g2-101'/>
+<use x='184.104575' y='-18.718928' xlink:href='#g2-114'/>
+<use x='187.403894' y='-18.718928' xlink:href='#g2-112'/>
+<use x='192.342497' y='-18.718928' xlink:href='#g2-111'/>
+<use x='196.575586' y='-18.718928' xlink:href='#g2-115'/>
+<use x='199.915022' y='-18.718928' xlink:href='#g2-233'/>
+<use x='203.677767' y='-18.718928' xlink:href='#g2-101'/>
+<use x='207.440512' y='-18.718928' xlink:href='#g2-115'/>
+</g>
+<path d='M173.3828-18.718749H319.9883' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M317.83603-21.82812C318.30478-19.96484 319.33993-19.082031 320.38681-18.718749C319.33993-18.355468 318.30478-17.47266 317.83603-15.60937' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<g transform='matrix(1 0 0 1 241.8327 2.4511)'>
+<use x='82.672309' y='-18.718928' xlink:href='#g1-116'/>
+</g>
+<path d='M173.3828 22.1016V-58.7422' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M170.27298-56.58984C172.13626-57.05469 173.01907-58.09375 173.382351-59.140626C173.745632-58.09375 174.62454-57.05469 176.49173-56.58984' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<g transform='matrix(1 0 0 1 88.7517 -44.5379)'>
+<use x='82.672309' y='-18.718928' xlink:href='#g1-115'/>
+</g>
+<path d='M173.3828-18.718749L174.7578-22.16406L176.1289-25.55078L177.5039-28.8281L178.8789-31.9453L180.2539-34.8477L181.6289-37.4922L183.0003-39.8359L184.3753-41.8398L185.7503-43.4687L187.1253-44.6992L188.4963-45.5156L189.8713-45.8984L191.2463-45.8437L192.6213-45.3555L193.9923-44.4375L195.3673-43.1055L196.7423-41.3828L198.1173-39.293L199.4883-36.875L200.8633-34.1602L202.2383-31.2031L203.6133-28.04297L204.9883-24.73047L206.3593-21.32422L207.7343-17.874999L209.1093-14.44141L210.4843-11.07422L211.8553-7.8281L213.2303-4.7578L214.6053-1.9141L215.9803 .6563L217.3513 2.9219L218.7263 4.8359L220.1013 6.3711L221.4763 7.5L222.8513 8.2109L224.2223 8.4883L225.5973 8.3281L226.9723 7.7305L228.3473 6.7109L229.7183 5.2813L231.0933 3.4648L232.4683 1.293L233.8433-1.2031L235.2153-3.9805L236.5903-6.9922L237.9653-10.19531L239.3403-13.53516L240.7153-16.95703L242.0863-20.40625L243.4613-23.82812L244.8363-27.17187L246.2113-30.3789L247.5823-33.3945L248.9573-36.1797L250.3323-38.6797L251.7073-40.8594L253.0783-42.6836L254.4533-44.1211L255.8283-45.1523L257.2033-45.7578L258.5743-45.9297L259.9493-45.6602L261.3243-44.9609L262.6993-43.8359L264.0743-42.3086L265.4453-40.4023L266.8203-38.1484L268.1953-35.582L269.5703-32.7422L270.9413-29.6797L272.3163-26.4375L273.6913-23.07422L275.0663-19.636718L276.4373-16.19141L277.8123-12.78125L279.1873-9.46875L280.5623-6.3047L281.9373-3.3398L283.3083-.6211L284.6833 1.8047L286.0583 3.9023L287.4333 5.6328L288.8043 6.9766L290.1793 7.9023L291.5543 8.4023L292.9293 8.4648L294.3003 8.0898L295.6753 7.2852L297.0503 6.0625L298.4253 4.4414L299.8003 2.4453L301.1723 .1094L302.5473-2.5273L303.9223-5.4258L305.2973-8.5391L306.6683-11.8125L308.0433-15.19922L309.4183-18.644531' stroke='currentColor0b3' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M173.3828-18.718749L174.7578-15.27734L176.1289-11.88672L177.5039-8.6094L178.8789-5.4922L180.2539-2.5898L181.6289 .0547L183.0003 2.3984L184.3753 4.4023L185.7503 6.0313L187.1253 7.2617L188.4963 8.0781L189.8713 8.4609L191.2463 8.4063L192.6213 7.918L193.9923 7L195.3673 5.668L196.7423 3.9453L198.1173 1.8555L199.4883-.5625L200.8633-3.2773L202.2383-6.2344L203.6133-9.39453L204.9883-12.70703L206.3593-16.11328L207.7343-19.562499L209.1093-23L210.4843-26.36328L211.8553-29.6094L213.2303-32.6797L214.6053-35.5234L215.9803-38.0937L217.3513-40.3594L218.7263-42.2734L220.1013-43.8086L221.4763-44.9375L222.8513-45.6484L224.2223-45.9258L225.5973-45.7656L226.9723-45.1719L228.3473-44.1484L229.7183-42.7187L231.0933-40.9023L232.4683-38.7305L233.8433-36.2383L235.2153-33.4609L236.5903-30.4453L237.9653-27.24219L239.3403-23.90625L240.7153-20.48047L242.0863-17.03125L243.4613-13.60937L244.8363-10.26562L246.2113-7.0586L247.5823-4.043L248.9573-1.2578L250.3323 1.2422L251.7073 3.4219L253.0783 5.2461L254.4533 6.6836L255.8283 7.7148L257.2033 8.3203L258.5743 8.4922L259.9493 8.2227L261.3243 7.5234L262.6993 6.3984L264.0743 4.8711L265.4453 2.9648L266.8203 .7109L268.1953-1.8555L269.5703-4.6953L270.9413-7.7578L272.3163-11L273.6913-14.36328L275.0663-17.800781L276.4373-21.24609L277.8123-24.65625L279.1873-27.96875L280.5623-31.1367L281.9373-34.1016L283.3083-36.8164L284.6833-39.2422L286.0583-41.3398L287.4333-43.0703L288.8043-44.4141L290.1793-45.3398L291.5543-45.8398L292.9293-45.9023L294.3003-45.5273L295.6753-44.7227L297.0503-43.5L298.4253-41.8789L299.8003-39.8828L301.1723-37.5469L302.5473-34.9102L303.9223-32.0117L305.2973-28.8984L306.6683-25.625L308.0433-22.23828L309.4183-18.792968' stroke='#b30000' fill='none' stroke-width='1.19553' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<g transform='matrix(1 0 0 1 90.0617 59.5973)'>
+<use x='82.672309' y='-18.718928' xlink:href='#g0-83'/>
+<use x='88.565429' y='-18.718928' xlink:href='#g0-105'/>
+<use x='91.511994' y='-18.718928' xlink:href='#g0-103'/>
+<use x='96.815804' y='-18.718928' xlink:href='#g0-110'/>
+<use x='102.708924' y='-18.718928' xlink:href='#g0-97'/>
+<use x='107.865401' y='-18.718928' xlink:href='#g0-117'/>
+<use x='113.758521' y='-18.718928' xlink:href='#g0-120'/>
+<use x='122.892865' y='-18.718928' xlink:href='#g0-101'/>
+<use x='127.760232' y='-18.718928' xlink:href='#g0-110'/>
+<use x='137.189226' y='-18.718928' xlink:href='#g0-111'/>
+<use x='142.493037' y='-18.718928' xlink:href='#g0-112'/>
+<use x='148.386157' y='-18.718928' xlink:href='#g0-112'/>
+<use x='154.573933' y='-18.718928' xlink:href='#g0-111'/>
+<use x='159.877744' y='-18.718928' xlink:href='#g0-115'/>
+<use x='164.061869' y='-18.718928' xlink:href='#g0-105'/>
+<use x='167.008433' y='-18.718928' xlink:href='#g0-116'/>
+<use x='171.133617' y='-18.718928' xlink:href='#g0-105'/>
+<use x='174.080181' y='-18.718928' xlink:href='#g0-111'/>
+<use x='179.383992' y='-18.718928' xlink:href='#g0-110'/>
+<use x='188.812986' y='-18.718928' xlink:href='#g0-100'/>
+<use x='194.706106' y='-18.718928' xlink:href='#g0-101'/>
+<use x='203.109347' y='-18.718928' xlink:href='#g0-112'/>
+<use x='209.002467' y='-18.718928' xlink:href='#g0-104'/>
+<use x='214.895587' y='-18.718928' xlink:href='#g0-97'/>
+<use x='220.052064' y='-18.718928' xlink:href='#g0-115'/>
+<use x='224.236189' y='-18.718928' xlink:href='#g0-101'/>
+</g>
+<g fill='#808080' transform='matrix(1 0 0 1 69.1687 70.2375)'>
+<use x='82.672309' y='-18.718928' xlink:href='#g2-76'/>
+<use x='87.959519' y='-18.718928' xlink:href='#g2-101'/>
+<use x='91.722265' y='-18.718928' xlink:href='#g2-115'/>
+<use x='97.88376' y='-18.718928' xlink:href='#g2-100'/>
+<use x='102.587191' y='-18.718928' xlink:href='#g2-101'/>
+<use x='106.349937' y='-18.718928' xlink:href='#g2-117'/>
+<use x='111.053368' y='-18.718928' xlink:href='#g2-120'/>
+<use x='118.343687' y='-18.718928' xlink:href='#g2-99'/>
+<use x='122.106432' y='-18.718928' xlink:href='#g2-111'/>
+<use x='126.33952' y='-18.718928' xlink:href='#g2-117'/>
+<use x='131.042952' y='-18.718928' xlink:href='#g2-114'/>
+<use x='134.342271' y='-18.718928' xlink:href='#g2-98'/>
+<use x='139.280874' y='-18.718928' xlink:href='#g2-101'/>
+<use x='143.043619' y='-18.718928' xlink:href='#g2-115'/>
+<use x='149.205114' y='-18.718928' xlink:href='#g2-115'/>
+<use x='152.54455' y='-18.718928' xlink:href='#g2-111'/>
+<use x='156.777639' y='-18.718928' xlink:href='#g2-110'/>
+<use x='161.245899' y='-18.718928' xlink:href='#g2-116'/>
+<use x='167.360359' y='-18.718928' xlink:href='#g2-100'/>
+<use x='172.063791' y='-18.718928' xlink:href='#g2-233'/>
+<use x='175.826536' y='-18.718928' xlink:href='#g2-99'/>
+<use x='179.589281' y='-18.718928' xlink:href='#g2-97'/>
+<use x='183.82237' y='-18.718928' xlink:href='#g2-108'/>
+<use x='186.174085' y='-18.718928' xlink:href='#g2-233'/>
+<use x='189.936831' y='-18.718928' xlink:href='#g2-101'/>
+<use x='193.699576' y='-18.718928' xlink:href='#g2-115'/>
+<use x='199.861071' y='-18.718928' xlink:href='#g2-100'/>
+<use x='204.564502' y='-18.718928' xlink:href='#g2-39'/>
+<use x='206.916218' y='-18.718928' xlink:href='#g2-117'/>
+<use x='211.61965' y='-18.718928' xlink:href='#g2-110'/>
+<use x='216.323081' y='-18.718928' xlink:href='#g2-101'/>
+<use x='222.907885' y='-18.718928' xlink:href='#g2-100'/>
+<use x='227.611317' y='-18.718928' xlink:href='#g2-101'/>
+<use x='231.374062' y='-18.718928' xlink:href='#g2-109'/>
+<use x='238.429209' y='-18.718928' xlink:href='#g2-105'/>
+<use x='240.780925' y='-18.718928' xlink:href='#g2-45'/>
+<use x='243.602984' y='-18.718928' xlink:href='#g2-112'/>
+<use x='248.541587' y='-18.718928' xlink:href='#g2-233'/>
+<use x='252.304332' y='-18.718928' xlink:href='#g2-114'/>
+<use x='255.603651' y='-18.718928' xlink:href='#g2-105'/>
+<use x='257.955366' y='-18.718928' xlink:href='#g2-111'/>
+<use x='262.423626' y='-18.718928' xlink:href='#g2-100'/>
+<use x='267.127058' y='-18.718928' xlink:href='#g2-101'/>
+</g>
+</g>
+</svg></div>
+</div>
+<h3>2{,}3 Conditions d'interférences constructives et destructives</h3>
+<p>Considérons deux sources ponctuelles $S_1$ et $S_2$, synchrones et cohérentes, émettant en phase des ondes sinusoïdales de même période $T$ se propageant dans un milieu homogène.</p>
+<strong>Au point M atteint par les deux ondes :</strong>
+<p>L'onde issue de $S_1$ arrive au point M avec une certaine expression du signal. L'onde issue de $S_2$ arrive au point M avec un <strong>retard $$</strong> dû au fait que les distances parcourues $S_1M$ et $S_2M$ sont en général différentes.</p>
+<div class="definition-box">
+<strong>Différence de marche :</strong> On appelle <strong>différence de marche</strong> au point M, notée $$, la différence des distances parcourues par les deux ondes pour atteindre ce point :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = S_2M - S_1M$$</div></div></div></div>
+La différence de marche s'exprime en mètre (m).
+</div>
+<p>Le retard $$ de l'onde issue de $S_2$ par rapport à l'onde issue de $S_1$ est lié à la différence de marche par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {v}$$</div></div></div></div><br>où $v$ est la célérité de l'onde dans le milieu.</p>
+<h4>Condition d'interférences constructives</h4>
+<div class="definition-box">
+<strong>Interférences constructives :</strong> Il y a interférences constructives au point M si l'amplitude du signal résultant y est <strong>maximale</strong>. Cela se produit lorsque les signaux sont <strong>en phase</strong> : leurs maxima coïncident.
+<strong>Condition mathématique :</strong>
+<p>Les signaux sont en phase si le retard $$ est un multiple entier de la période $T$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = k T   k  $$</div></div></div></div></p>
+<p>Comme $ = {v}$ et que la longueur d'onde est $ = v  T$ (d'où $T = {v}$), on obtient :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${v} = k  {v}$$</div></div></div></div></p>
+<p>En simplifiant par $v$ :<br></div></p>
+<div class="text-center">
+{
+  = k   k  
+}
+</div>
+<strong>Lecture de la formule :</strong> les interférences sont constructives quand la différence de marche est un <strong>nombre entier de longueurs d'onde</strong> : $0$, $$, $ 2$, $ 3$, etc.
+<h4>Condition d'interférences destructives</h4>
+<div class="definition-box">
+<strong>Interférences destructives :</strong> Il y a interférences destructives au point M si l'amplitude du signal résultant y est <strong>minimale</strong> (voire nulle). Cela se produit lorsque les signaux sont <strong>en opposition de phase</strong>.
+<strong>Condition mathématique :</strong>
+<p>Les signaux sont en opposition de phase si le retard vaut un nombre demi-entier de périodes :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = (k + {2}) T   k  $$</div></div></div></div></p>
+<p>Par le même raisonnement que précédemment :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${v} = (k + {2})  {v}$$</div></div></div></div></p>
+<p>En simplifiant par $v$ :<br></div></p>
+<div class="text-center">
+{
+  = (k + {2})   k  
+}
+</div>
+<strong>Lecture de la formule :</strong> les interférences sont destructives quand la différence de marche est un <strong>nombre demi-entier de longueurs d'onde</strong> : ${2}$, ${2}$, ${2}$, etc.
+<div class="text-center">
+{1.6}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Type d'interférences</strong></th><th><strong>Condition sur $$</strong></th><th><strong>Résultat</strong></th></tr><tr><td><strong>Constructives</strong></td><td>$ = k$  ($k  $)</td><td>Amplitude <strong>maximale</strong></td></tr><tr><td><strong>Destructives</strong></td><td>$ = (k + {2})$  ($k  $)</td><td>Amplitude <strong>minimale</strong></td></tr></tbody></table></div>
+</div>
+</div>
+<h2 class="section-title">3. Interférences de deux ondes lumineuses : les trous d'Young</h2>
+<div class="card chapter-card">
+<h3>3.1 Dispositif expérimental</h3>
+<p>En 1801, le physicien britannique <strong>Thomas Young</strong> (1773--1829) réalise une expérience célèbre : il fait passer un faisceau de lumière monochromatique à travers deux petites fentes (ou deux petits trous) très rapprochés, et observe le résultat sur un écran. La superposition des deux faisceaux lumineux produit des <strong>franges d'interférences</strong> : des zones alternativement sombres et brillantes.</p>
+<div class="info-box">
+<strong>Pourquoi deux fentes et une seule source ?</strong>
+<p>Pour que les interférences soient observables, il faut que les deux ondes soient <strong>cohérentes</strong>. En éclairant deux fentes avec une seule source monochromatique, on obtient naturellement deux sources lumineuses synchrones et cohérentes (car la lumière provient de la même source).<br></div></p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.689772 -70.007905 312.167077 185.936893'>
+<defs>
+<path id='g0-68' d='M1.443587-.681445C1.362889-.358655 1.344956-.277958 .672478-.277958C.502117-.277958 .403487-.277958 .403487-.116563C.403487 0 .493151 0 .654545 0H3.676214C5.595019 0 7.379328-1.900872 7.379328-3.837609C7.379328-5.066002 6.608219-6.124035 5.209465-6.124035H2.133998C1.972603-6.124035 1.865006-6.124035 1.865006-5.96264C1.865006-5.846077 1.945704-5.846077 2.133998-5.846077C2.169863-5.846077 2.331258-5.846077 2.47472-5.828144C2.627148-5.810212 2.689913-5.792279 2.689913-5.693649C2.689913-5.648817 2.680946-5.612951 2.654047-5.514321L1.443587-.681445ZM3.416189-5.496389C3.496887-5.819178 3.514819-5.846077 3.891407-5.846077H4.904608C5.837111-5.846077 6.58132-5.326027 6.58132-4.169365C6.58132-3.649315 6.357161-2.214695 5.657783-1.327024C5.24533-.81594 4.501121-.277958 3.514819-.277958H2.438854C2.313325-.277958 2.295392-.277958 2.259527-.286924C2.169863-.29589 2.142964-.304857 2.142964-.367621C2.142964-.394521 2.142964-.412453 2.187796-.573848L3.416189-5.496389Z'/>
+<path id='g3-83' d='M5.347945-5.395766C5.355915-5.427646 5.371856-5.475467 5.371856-5.515318C5.371856-5.571108 5.324035-5.610959 5.268244-5.610959S5.196513-5.595019 5.108842-5.499377C5.021171-5.395766 4.813948-5.140722 4.726276-5.045081C4.415442-5.499377 3.913325-5.610959 3.506849-5.610959C2.399004-5.610959 1.45056-4.678456 1.45056-3.769863C1.45056-3.307597 1.697634-3.036613 1.737484-2.980822C2.000498-2.701868 2.231631-2.638107 2.805479-2.502615C3.084433-2.430884 3.100374-2.430884 3.331507-2.375093S4.072727-2.191781 4.072727-1.530262C4.072727-.836862 3.387298-.095641 2.550436-.095641C2.032379-.095641 1.083935-.255044 1.083935-1.243337C1.083935-1.267248 1.083935-1.43462 1.131756-1.625903L1.139726-1.705604C1.139726-1.801245 1.052055-1.809215 1.020174-1.809215C.916563-1.809215 .908593-1.777335 .868742-1.594022L.541968-.294894C.510087-.175342 .454296 .039851 .454296 .063761C.454296 .127522 .502117 .167372 .557908 .167372S.621669 .159402 .70934 .055791L1.091905-.390535C1.275218-.151432 1.729514 .167372 2.534496 .167372C3.690162 .167372 4.638605-.876712 4.638605-1.833126C4.638605-2.199751 4.519054-2.486675 4.303861-2.709838C4.064757-2.972852 3.801743-3.036613 3.427148-3.132254C3.196015-3.188045 2.885181-3.259776 2.701868-3.307597C2.462765-3.363387 2.016438-3.52279 2.016438-4.080697C2.016438-4.702366 2.685928-5.371856 3.498879-5.371856C4.216189-5.371856 4.710336-4.99726 4.710336-4.136488C4.710336-3.945205 4.678456-3.777833 4.678456-3.745953C4.678456-3.650311 4.750187-3.634371 4.805978-3.634371C4.901619-3.634371 4.909589-3.666252 4.941469-3.793773L5.347945-5.395766Z'/>
+<path id='g3-97' d='M3.124284-3.036613C3.052553-3.172105 2.82142-3.514819 2.335243-3.514819C1.3868-3.514819 .342715-2.406974 .342715-1.227397C.342715-.398506 .876712 .079701 1.490411 .079701C2.000498 .079701 2.438854-.326775 2.582316-.486177C2.725778 .063761 3.267746 .079701 3.363387 .079701C3.730012 .079701 3.913325-.223163 3.977086-.358655C4.136488-.645579 4.24807-1.107846 4.24807-1.139726C4.24807-1.187547 4.216189-1.243337 4.120548-1.243337S4.008966-1.195517 3.961146-.996264C3.849564-.557908 3.698132-.143462 3.387298-.143462C3.203985-.143462 3.132254-.294894 3.132254-.518057C3.132254-.653549 3.203985-.924533 3.251806-1.123786S3.419178-1.801245 3.451059-1.944707L3.610461-2.550436C3.650311-2.741719 3.737983-3.076463 3.737983-3.116314C3.737983-3.299626 3.58655-3.363387 3.482939-3.363387C3.363387-3.363387 3.164134-3.283686 3.124284-3.036613ZM2.582316-.860772C2.183811-.310834 1.769365-.143462 1.514321-.143462C1.147696-.143462 .964384-.478207 .964384-.892653C.964384-1.267248 1.179577-2.12005 1.354919-2.470735C1.586052-2.956912 1.976588-3.291656 2.343213-3.291656C2.86127-3.291656 3.012702-2.709838 3.012702-2.614197C3.012702-2.582316 2.81345-1.801245 2.765629-1.594022C2.662017-1.219427 2.662017-1.203487 2.582316-.860772Z'/>
+<path id='g3-120' d='M3.993026-3.180075C3.642341-3.092403 3.626401-2.781569 3.626401-2.749689C3.626401-2.574346 3.761893-2.454795 3.937235-2.454795S4.383562-2.590286 4.383562-2.933001C4.383562-3.387298 3.881445-3.514819 3.58655-3.514819C3.211955-3.514819 2.909091-3.251806 2.725778-2.940971C2.550436-3.363387 2.13599-3.514819 1.809215-3.514819C.940473-3.514819 .454296-2.518555 .454296-2.295392C.454296-2.223661 .510087-2.191781 .573848-2.191781C.669489-2.191781 .68543-2.231631 .70934-2.327273C.892653-2.909091 1.370859-3.291656 1.785305-3.291656C2.096139-3.291656 2.247572-3.068493 2.247572-2.781569C2.247572-2.622167 2.15193-2.255542 2.088169-2.000498C2.032379-1.769365 1.857036-1.060025 1.817186-.908593C1.705604-.478207 1.41868-.143462 1.060025-.143462C1.028144-.143462 .820922-.143462 .653549-.255044C1.020174-.342715 1.020174-.67746 1.020174-.68543C1.020174-.868742 .876712-.980324 .70137-.980324C.486177-.980324 .255044-.797011 .255044-.494147C.255044-.127522 .645579 .079701 1.052055 .079701C1.474471 .079701 1.769365-.239103 1.912827-.494147C2.088169-.103611 2.454795 .079701 2.83736 .079701C3.706102 .079701 4.184309-.916563 4.184309-1.139726C4.184309-1.219427 4.120548-1.243337 4.064757-1.243337C3.969116-1.243337 3.953176-1.187547 3.929265-1.107846C3.769863-.573848 3.315567-.143462 2.8533-.143462C2.590286-.143462 2.399004-.318804 2.399004-.653549C2.399004-.812951 2.446824-.996264 2.558406-1.44259C2.614197-1.681694 2.789539-2.383064 2.82939-2.534496C2.940971-2.948941 3.219925-3.291656 3.57858-3.291656C3.618431-3.291656 3.825654-3.291656 3.993026-3.180075Z'/>
+<path id='g4-49' d='M2.145953-3.795766C2.145953-3.975093 2.122042-3.975093 1.942715-3.975093C1.548194-3.592528 .938481-3.592528 .723288-3.592528V-3.359402C.878705-3.359402 1.273225-3.359402 1.63188-3.526775V-.508095C1.63188-.310834 1.63188-.233126 1.016189-.233126H.759153V0C1.08792-.02391 1.554172-.02391 1.888917-.02391S2.689913-.02391 3.01868 0V-.233126H2.761644C2.145953-.233126 2.145953-.310834 2.145953-.508095V-3.795766Z'/>
+<path id='g4-50' d='M3.21594-1.117808H2.99477C2.982814-1.034122 2.923039-.639601 2.833375-.573848C2.791532-.537983 2.307347-.537983 2.223661-.537983H1.105853L1.870984-1.159651C2.074222-1.321046 2.606227-1.703611 2.791532-1.882939C2.970859-2.062267 3.21594-2.367123 3.21594-2.791532C3.21594-3.53873 2.540473-3.975093 1.739477-3.975093C.968369-3.975093 .430386-3.466999 .430386-2.905106C.430386-2.600249 .687422-2.564384 .753176-2.564384C.902615-2.564384 1.075965-2.67198 1.075965-2.887173C1.075965-3.01868 .998257-3.209963 .735243-3.209963C.872727-3.514819 1.23736-3.741968 1.649813-3.741968C2.27746-3.741968 2.612204-3.275716 2.612204-2.791532C2.612204-2.367123 2.331258-1.93076 1.912827-1.548194L.496139-.251059C.436364-.191283 .430386-.185305 .430386 0H3.030635L3.21594-1.117808Z'/>
+</defs>
+<g id='page1'>
+<path d='M-64.4533 7.49219V21.94922H-40.3593V7.49219Z' fill='#fff9ad'/>
+<path d='M-64.4533 7.49219V21.94922H-40.3593V7.49219Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -158.8545 2.7502)'>
+<use x='92.164728' y='14.722288' xlink:href='#g5-83'/>
+<use x='97.587508' y='14.722288' xlink:href='#g5-111'/>
+<use x='102.468009' y='14.722288' xlink:href='#g5-117'/>
+<use x='107.890789' y='14.722288' xlink:href='#g5-114'/>
+<use x='111.924673' y='14.722288' xlink:href='#g5-99'/>
+<use x='116.262897' y='14.722288' xlink:href='#g5-101'/>
+</g>
+<path d='M-40.3593 14.722657L43.9766 2.6758' stroke='#f93' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-40.3593 14.722657L43.9766 26.7695' stroke='#f93' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M43.9766-57.5625V-2.1445H51.2031V-57.5625Z' fill='#b3b3b3'/>
+<path d='M43.9766 31.5898V87.0078H51.2031V31.5898Z' fill='#b3b3b3'/>
+<path d='M43.9766 6.28906V23.15625H51.2031V6.28906Z' fill='#b3b3b3'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 -65.8292 -11.08261)'>
+<use x='92.164728' y='14.722288' xlink:href='#g3-83'/>
+<use x='97.314924' y='15.829236' xlink:href='#g4-49'/>
+</g>
+<g fill='#0e7490' transform='matrix(1 0 0 1 -65.8292 15.4219)'>
+<use x='92.164728' y='14.722288' xlink:href='#g3-83'/>
+<use x='97.314924' y='15.829236' xlink:href='#g4-50'/>
+</g>
+<path d='M27.1094 6.78516V22.66016' stroke='#b30000' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M27.109361 3.80859L25.53905 7.96484L27.109361 6.58594L28.67967 7.96484Z' fill='#b30000'/>
+<path d='M27.109361 3.80859L25.53905 7.96484L27.109361 6.58594L28.67967 7.96484Z' stroke='#b30000' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M27.109361 25.6367L28.67967 21.48045L27.109361 22.85935L25.53905 21.48045Z' fill='#b30000'/>
+<path d='M27.109361 25.6367L28.67967 21.48045L27.109361 22.85935L25.53905 21.48045Z' stroke='#b30000' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#b30000' transform='matrix(1 0 0 1 -83.67736 1.1623)'>
+<use x='92.164728' y='14.722288' xlink:href='#g3-97'/>
+<use x='96.662738' y='15.829236' xlink:href='#g4-49'/>
+<use x='100.315663' y='15.829236' xlink:href='#g2-45'/>
+<use x='103.115573' y='15.829236' xlink:href='#g4-50'/>
+</g>
+<g transform='matrix(1 0 0 1 -73.2699 86.1117)'>
+<use x='92.164728' y='14.722288' xlink:href='#g1-70'/>
+<use x='97.08673' y='14.722288' xlink:href='#g1-101'/>
+<use x='101.021013' y='14.722288' xlink:href='#g1-110'/>
+<use x='105.82958' y='14.722288' xlink:href='#g1-116'/>
+<use x='108.671005' y='14.722288' xlink:href='#g1-101'/>
+<use x='112.605288' y='14.722288' xlink:href='#g1-115'/>
+<use x='119.162424' y='14.722288' xlink:href='#g1-100'/>
+<use x='123.533849' y='14.722288' xlink:href='#g1-39'/>
+<use x='126.156704' y='14.722288' xlink:href='#g1-89'/>
+<use x='131.847856' y='14.722288' xlink:href='#g1-111'/>
+<use x='136.21928' y='14.722288' xlink:href='#g1-117'/>
+<use x='140.809276' y='14.722288' xlink:href='#g1-110'/>
+<use x='145.617843' y='14.722288' xlink:href='#g1-103'/>
+</g>
+<path d='M212.6407-69.6094V99.0547H222.2777V-69.6094Z' fill='#ececec'/>
+<path d='M212.6407-69.6094V99.0547' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 136.0413 3.4107)'>
+<use x='92.164728' y='14.722288' xlink:href='#g1-201'/>
+<use x='97.961015' y='14.722288' xlink:href='#g1-99'/>
+<use x='101.895297' y='14.722288' xlink:href='#g1-114'/>
+<use x='105.06458' y='14.722288' xlink:href='#g1-97'/>
+<use x='109.436005' y='14.722288' xlink:href='#g1-110'/>
+</g>
+<path d='M55.3125 106.2813H208.5277' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M52.33985 106.281054L56.49219 107.85527L55.11329 106.281054L56.49219 104.71074Z'/>
+<path d='M52.33985 106.281054L56.49219 107.85527L55.11329 106.281054L56.49219 104.71074Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M211.50385 106.281054L207.35151 104.71074L208.72651 106.281054L207.35151 107.85527Z'/>
+<path d='M211.50385 106.281054L207.35151 104.71074L208.72651 106.281054L207.35151 107.85527Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 35.8293 101.2067)'>
+<use x='92.164728' y='14.722288' xlink:href='#g0-68'/>
+</g>
+<path d='M51.2031 2.6758L212.6407-45.5156' stroke='#8080ff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M51.2031 2.6758L212.6407 14.722657' stroke='#8080ff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M51.2031 2.6758L212.6407 62.9141' stroke='#8080ff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M51.2031 26.7695L212.6407-33.4687' stroke='#ff8080' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M51.2031 26.7695L212.6407 14.722657' stroke='#ff8080' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M51.2031 26.7695L212.6407 74.9609' stroke='#ff8080' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M212.6407 78.5742V71.3438H216.2537V78.5742Z' fill='#f66'/>
+<path d='M212.6407 54.4805V47.25H216.2537V54.4805Z' fill='#f66'/>
+<path d='M212.6407 30.3828V23.15625H216.2537V30.3828Z' fill='#f66'/>
+<path d='M212.6407 6.28906V-.9375H216.2537V6.28906Z' fill='#f66'/>
+<path d='M212.6407-17.8047V-25.0352H216.2537V-17.8047Z' fill='#f66'/>
+<path d='M212.6407-41.9023V-49.1289H216.2537V-41.9023Z' fill='#f66'/>
+<path d='M212.6407 66.5273V59.2969H216.2537V66.5273Z' fill='#fcc'/>
+<path d='M212.6407 42.4297V35.2031H216.2537V42.4297Z' fill='#fcc'/>
+<path d='M212.6407 18.33594V11.10938H216.2537V18.33594Z' fill='#fcc'/>
+<path d='M212.6407-5.7578V-12.9883H216.2537V-5.7578Z' fill='#fcc'/>
+<path d='M212.6407-29.8516V-37.082H216.2537V-29.8516Z' fill='#fcc'/>
+<path d='M214.3317-21.4219C214.3317-22.3555 213.5747-23.1133 212.6407-23.1133C211.7027-23.1133 210.9457-22.3555 210.9457-21.4219C210.9457-20.4844 211.7027-19.7266 212.6407-19.7266C213.5747-19.7266 214.3317-20.4844 214.3317-21.4219Z'/>
+<g transform='matrix(1 0 0 1 128.8123 -33.3923)'>
+<use x='92.164728' y='14.722288' xlink:href='#g5-77'/>
+</g>
+<path d='M205.4097 78.0781V-48.6328' stroke='#808080' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M205.410237 81.05469L206.98055 76.89844L205.410237 78.27734L203.83992 76.89844Z' fill='#808080'/>
+<path d='M205.410237 81.05469L206.98055 76.89844L205.410237 78.27734L203.83992 76.89844Z' stroke='#808080' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M205.410237-51.60938L203.83992-47.45703L205.410237-48.83203L206.98055-47.45703Z' fill='#808080'/>
+<path d='M205.410237-51.60938L203.83992-47.45703L205.410237-48.83203L206.98055-47.45703Z' stroke='#808080' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#808080' transform='matrix(1 0 0 1 104.9603 -65.7501)'>
+<use x='92.164728' y='14.722288' xlink:href='#g3-120'/>
+</g>
+</g>
+</svg></div>
+</div>
+<h3>3.2 Figure d'interférences observée</h3>
+<p>Sur l'écran placé à la distance $D$ des fentes, on observe une alternance régulière de :<br><ul><li><strong>franges brillantes</strong> (interférences constructives) ;</li><li><strong>franges sombres</strong> (interférences destructives).<br></li></ul></p>
+<p>Ces franges sont équidistantes les unes des autres (dans l'approximation où $D$ est très grand devant $a_{12}$).</p>
+<h3>3.3 Différence de chemin optique</h3>
+<div class="definition-box">
+<strong>Différence de chemin optique :</strong> On appelle <strong>différence de chemin optique</strong> au point M la grandeur :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_0 = n(S_2M - S_1M)$$</div></div></div></div>
+où $n$ est l'<strong>indice de réfraction</strong> du milieu traversé.
+</div>
+<strong>Rappel -- Indice de réfraction :</strong>
+<p>L'indice de réfraction (ou indice optique) d'un milieu est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n = {v}$$</div></div></div></div><br>avec $c$ la célérité de la lumière dans le vide et $v$ la célérité de la lumière dans le milieu.</p>
+<p>Pour l'air : $n_{}  1{,}0$. On assimile dans l'air la longueur d'onde $$ à $_0$, la longueur d'onde dans le vide.</p>
+<p>Dans un milieu d'indice $n$, la longueur d'onde dans le milieu est :<br>$ = {n}$</p>
+<p>Dans le cas où $D  a_{12}$ et $D  x$ (point M proche du centre de l'écran), l'expression de la différence de chemin optique se simplifie :</p>
+<div class="text-center">
+{
+ _0 = {n   a_{12}   x}{D}
+}
+</div>
+<p>avec :<br><ul><li>$n$ : indice de réfraction du milieu (sans unité) ;</li><li>$a_{12}$ : distance entre les centres des deux fentes d'Young, en m (m) ;</li><li>$x$ : abscisse du point M sur l'écran (par rapport au centre), en m (m) ;</li><li>$D$ : distance entre les fentes et l'écran, en m (m).<br></li></ul></p>
+<h3>3.4 Conditions d'interférences dans le cas des trous d'Young</h3>
+<p>En utilisant les résultats de la partie 2.3, et en remplaçant $$ par la longueur d'onde dans le milieu ${n}$ :</p>
+<div class="definition-box">
+<strong>Au milieu d'une frange brillante</strong> (interférences constructives) :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_0 = k   {n}  n = k_0   k  $$</div></div></div></div>
+<strong>Au milieu d'une frange sombre</strong> (interférences destructives) :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_0 = (k + {2})_0   k  $$</div></div></div></div>
+<strong>Attention :</strong> dans ces formules, $_0$ désigne la longueur d'onde <strong>dans le vide</strong> (ou dans l'air, car $n_{}  1$).
+</div>
+<h3>3.5 Expression de l'interfrange</h3>
+<div class="definition-box">
+<strong>Définition :</strong> L'<strong>interfrange</strong> $i$ est la distance entre les centres de deux franges brillantes consécutives (ou de deux franges sombres consécutives).
+</div>
+<div class="example-box">
+<strong>Démonstration pas à pas de l'expression de l'interfrange :</strong>
+<p>{\'{E}tape 1 :} L'abscisse $x_k$ d'une frange brillante d'ordre $k$ est obtenue en écrivant la condition d'interférences constructives :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_0 = k_0$$</div></div></div></div></p>
+<p>Or $_0 = {n   a_{12}   x_k}{D}$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${n   a_{12}   x_k}{D} = k_0$$</div></div></div></div></p>
+<p>On isole $x_k$ (on multiplie les deux côtés par ${n   a_{12}}$) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$x_k = {n   a_{12}}$$</div></div></div></div></p>
+<p>{\'{E}tape 2 :} L'abscisse de la frange brillante suivante (d'ordre $k+1$) est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$x_{k+1} = {n   a_{12}}$$</div></div></div></div></p>
+<p>{\'{E}tape 3 :} L'interfrange est la distance entre ces deux franges consécutives :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br> i &= x_{k+1} - x_k \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>6pt]<br> i &= {n   a_{12}} - {n   a_{12}} \\[6pt]<br> i &= {n   a_{12}}  \\[6pt]<br> i &= {n   a_{12}}<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div><br></div></p>
+<div class="text-center">
+{
+ i = {n   a_{12}}
+}
+</div>
+<p>avec :<br><ul><li>$i$ : interfrange, en mètre (m) ;</li><li>$_0$ : longueur d'onde dans le vide, en mètre (m) ;</li><li>$D$ : distance entre les fentes et l'écran, en mètre (m) ;</li><li>$n$ : indice de réfraction du milieu (sans unité) ;</li><li>$a_{12}$ : distance entre les centres des fentes d'Young, en mètre (m).<br></li></ul></p>
+<div class="info-box">
+<strong>Cas fréquent dans l'air :</strong> Si l'expérience est réalisée dans l'air ($n  1{,}0$), la formule se simplifie :
+\[
+ i = {a_{12}}$$</div></div></div></div>
+C'est cette formule simplifiée que l'on utilise le plus souvent en exercice.
+</div>
+<div class="example-box">
+<strong>Exemple d'application :</strong>
+<p>Un laser émet une lumière de longueur d'onde $_0 = {632{,}8}{}$. Deux fentes d'Young sont séparées de $a_{12} = $500   $$. L'écran est placé à $D = {2{,}0}{}$ dans l'air.</p>
+<strong>Données :</strong>
+<ul><li>$_0 = {632{,}8}{} = 6{,}328  10^{-7}$ m</li><li>$a_{12} = $500   $ = 5{,}00  10^{-4}$ m</li><li>$D = {2{,}0}{}$</li><li>$n  1{,}0$ (air)
+</li></ul>
+<strong>Calcul de l'interfrange :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ i &= {a_{12}} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>6pt]
+ i &= {6{,}328  10^{-7}  2{,}0}{5{,}00  10^{-4}} \\[6pt]
+ i &= {1{,}266  10^{-6}}{5{,}00  10^{-4}} \\[6pt]
+ i &= 2{,}5  10^{-3} 
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Conclusion :</strong> L'interfrange vaut $i  {2{,}5}{}$.
+</div>
+<h3>3{,}6 Conséquences concrètes des interférences</h3>
+<ul><li><strong>Casques à réduction active de bruit :</strong> Les interférences destructives sont utilisées pour compléter l'atténuation passive. Un microphone capte le bruit extérieur, un circuit électronique génère un signal en opposition de phase, et un haut-parleur émet ce signal : la superposition des deux ondes sonores réduit considérablement le bruit perçu.</li><li><strong>Contrôle d'épaisseurs et d'indices :</strong> Les interférences lumineuses permettent de contrôler des épaisseurs très fines ou de mesurer des indices de réfraction (applications en agroalimentaire, en chimie, en optique industrielle).</li><li><strong>Mesure de longueur d'onde :</strong> Le dispositif des trous d'Young permet de déterminer la longueur d'onde $_0$ d'une lumière en mesurant l'interfrange $i$, la distance $D$ et l'écartement $a_{12}$.
+</li></ul>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.689212 -62.863305 332.195438 38.33015'>
+<defs/>
+<g id='page1'>
+<path d='M-61.6408-48.007811C-59.5158-48.007811-58.4528-53.67969-56.3278-53.67969C-54.7888-53.67969-53.4608-50.91406-52.0742-48.007811C-50.6875-45.10547-49.3633-42.33984-47.8242-42.33984C-46.2852-42.33984-44.957-45.10547-43.5703-48.007811C-42.1836-50.91406-40.8594-53.67969-39.3203-53.67969C-37.7813-53.67969-36.4531-50.91406-35.0664-48.007811C-33.6797-45.10547-32.3555-42.33984-30.8164-42.33984S-27.9492-45.10547-26.5625-48.007811C-25.1758-50.91406-23.8516-53.67969-22.3125-53.67969S-19.4453-50.91406-18.0586-48.007811C-16.6719-45.10547-15.3477-42.33984-13.8086-42.33984C-11.6797-42.33984-10.6172-48.007811-8.4922-48.007811H-1.4062' stroke='#66f' fill='none' stroke-width='1.19553'/>
+<g fill='#66f' transform='matrix(1 0 0 1 -113.4744 -10.7475)'>
+<use x='46.785188' y='-48.009555' xlink:href='#g2-66'/>
+<use x='54.323128' y='-48.009555' xlink:href='#g2-114'/>
+<use x='58.698701' y='-48.009555' xlink:href='#g2-117'/>
+<use x='64.591821' y='-48.009555' xlink:href='#g2-105'/>
+<use x='67.538386' y='-48.009555' xlink:href='#g2-116'/>
+<use x='75.199443' y='-48.009555' xlink:href='#g2-101'/>
+<use x='80.06681' y='-48.009555' xlink:href='#g2-120'/>
+<use x='85.66528' y='-48.009555' xlink:href='#g2-116'/>
+<use x='89.790463' y='-48.009555' xlink:href='#g2-233'/>
+<use x='94.65783' y='-48.009555' xlink:href='#g2-114'/>
+<use x='99.033404' y='-48.009555' xlink:href='#g2-105'/>
+<use x='101.979968' y='-48.009555' xlink:href='#g2-101'/>
+<use x='106.847336' y='-48.009555' xlink:href='#g2-117'/>
+<use x='112.740456' y='-48.009555' xlink:href='#g2-114'/>
+</g>
+<path d='M3.4141-35.9609V-60.0586H17.8711V-35.9609Z' fill='#bfbfbf'/>
+<path d='M3.4141-35.9609V-60.0586H17.8711V-35.9609Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -48.74225 23.4764)'>
+<use x='46.785188' y='-48.009555' xlink:href='#g1-77'/>
+<use x='56.020514' y='-48.009555' xlink:href='#g1-105'/>
+<use x='58.731904' y='-48.009555' xlink:href='#g1-99'/>
+<use x='63.070128' y='-48.009555' xlink:href='#g1-114'/>
+<use x='67.104012' y='-48.009555' xlink:href='#g1-111'/>
+</g>
+<path d='M17.8711-48.007811H48.85547' stroke='#0f172a' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M52.31254-48.007811L47.57426-49.80469L49.15629-48.007811L47.57426-46.21484Z' fill='#0f172a'/>
+<path d='M52.31254-48.007811L47.57426-49.80469L49.15629-48.007811L47.57426-46.21484Z' stroke='#0f172a' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M54.01563-33.5508V-62.4648H99.793V-33.5508Z' fill='#fee3d0'/>
+<path d='M54.01563-33.5508V-62.4648H99.793V-33.5508Z' stroke='#f97316' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 7.4411 -7.4892)'>
+<use x='54.430833' y='-48.009555' xlink:href='#g1-67'/>
+<use x='61.480447' y='-48.009555' xlink:href='#g1-105'/>
+<use x='64.191837' y='-48.009555' xlink:href='#g1-114'/>
+<use x='68.225721' y='-48.009555' xlink:href='#g1-99'/>
+<use x='72.563945' y='-48.009555' xlink:href='#g1-117'/>
+<use x='77.986725' y='-48.009555' xlink:href='#g1-105'/>
+<use x='80.698114' y='-48.009555' xlink:href='#g1-116'/>
+<use x='53.484598' y='-38.545047' xlink:href='#g1-233'/>
+<use x='57.955625' y='-38.545047' xlink:href='#g1-108'/>
+<use x='60.667015' y='-38.545047' xlink:href='#g1-101'/>
+<use x='65.138041' y='-38.545047' xlink:href='#g1-99'/>
+<use x='69.476265' y='-38.545047' xlink:href='#g1-116'/>
+<use x='73.272211' y='-38.545047' xlink:href='#g1-114'/>
+<use x='77.306095' y='-38.545047' xlink:href='#g1-111'/>
+<use x='82.186597' y='-38.545047' xlink:href='#g1-45'/>
+<use x='57.872638' y='-29.080538' xlink:href='#g1-110'/>
+<use x='63.295418' y='-29.080538' xlink:href='#g1-105'/>
+<use x='66.006808' y='-29.080538' xlink:href='#g1-113'/>
+<use x='71.158449' y='-29.080538' xlink:href='#g1-117'/>
+<use x='76.581229' y='-29.080538' xlink:href='#g1-101'/>
+</g>
+<path d='M99.793-48.007811H125.9609' stroke='#0f172a' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M129.41422-48.007811L124.67985-49.80469L126.25797-48.007811L124.67985-46.21484Z' fill='#0f172a'/>
+<path d='M129.41422-48.007811L124.67985-49.80469L126.25797-48.007811L124.67985-46.21484Z' stroke='#0f172a' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M131.1172-35.9609V-60.0586H155.2112V-35.9609Z' fill='#cff1e6'/>
+<path d='M131.1172-35.9609V-60.0586H155.2112V-35.9609Z' stroke='#10b981' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 68.5458 23.4764)'>
+<use x='46.785188' y='-48.009555' xlink:href='#g1-72'/>
+<use x='54.39368' y='-48.009555' xlink:href='#g1-97'/>
+<use x='59.138612' y='-48.009555' xlink:href='#g1-117'/>
+<use x='64.561392' y='-48.009555' xlink:href='#g1-116'/>
+<use x='68.357338' y='-48.009555' xlink:href='#g1-45'/>
+<use x='71.611006' y='-48.009555' xlink:href='#g1-112'/>
+<use x='77.033786' y='-48.009555' xlink:href='#g1-97'/>
+<use x='81.778718' y='-48.009555' xlink:href='#g1-114'/>
+<use x='85.812602' y='-48.009555' xlink:href='#g1-108'/>
+<use x='88.523992' y='-48.009555' xlink:href='#g1-101'/>
+<use x='92.995019' y='-48.009555' xlink:href='#g1-117'/>
+<use x='98.417798' y='-48.009555' xlink:href='#g1-114'/>
+</g>
+<path d='M155.2112-48.007811C157.3402-48.007811 158.4022-53.67969 160.5272-53.67969C162.0662-53.67969 163.3942-50.91406 164.7812-48.007811C166.1642-45.10547 167.4922-42.33984 169.0312-42.33984S171.8982-45.10547 173.2852-48.007811C174.6682-50.91406 175.9962-53.67969 177.5352-53.67969S180.4022-50.91406 181.7892-48.007811C183.1722-45.10547 184.5002-42.33984 186.0392-42.33984S188.9062-45.10547 190.2932-48.007811C191.6792-50.91406 193.0042-53.67969 194.5432-53.67969C196.6682-53.67969 197.7342-48.007811 199.8592-48.007811H203.4022' stroke='#f66' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#f66' transform='matrix(1 0 0 1 111.3038 -12.4906)'>
+<use x='46.785188' y='-48.009555' xlink:href='#g2-83'/>
+<use x='52.678308' y='-48.009555' xlink:href='#g2-105'/>
+<use x='55.624872' y='-48.009555' xlink:href='#g2-103'/>
+<use x='60.928683' y='-48.009555' xlink:href='#g2-110'/>
+<use x='66.821803' y='-48.009555' xlink:href='#g2-97'/>
+<use x='71.97828' y='-48.009555' xlink:href='#g2-108'/>
+<use x='78.460718' y='-48.009555' xlink:href='#g2-101'/>
+<use x='83.328086' y='-48.009555' xlink:href='#g2-110'/>
+</g>
+<g fill='#f66' transform='matrix(1 0 0 1 86.5648 16.9354)'>
+<use x='46.785188' y='-48.009555' xlink:href='#g2-111'/>
+<use x='52.088999' y='-48.009555' xlink:href='#g2-112'/>
+<use x='57.982119' y='-48.009555' xlink:href='#g2-112'/>
+<use x='64.169895' y='-48.009555' xlink:href='#g2-111'/>
+<use x='69.473706' y='-48.009555' xlink:href='#g2-115'/>
+<use x='73.657831' y='-48.009555' xlink:href='#g2-105'/>
+<use x='76.604395' y='-48.009555' xlink:href='#g2-116'/>
+<use x='80.729578' y='-48.009555' xlink:href='#g2-105'/>
+<use x='83.676143' y='-48.009555' xlink:href='#g2-111'/>
+<use x='88.979953' y='-48.009555' xlink:href='#g2-110'/>
+<use x='98.408947' y='-48.009555' xlink:href='#g2-100'/>
+<use x='104.302067' y='-48.009555' xlink:href='#g2-101'/>
+<use x='112.705309' y='-48.009555' xlink:href='#g2-112'/>
+<use x='118.598429' y='-48.009555' xlink:href='#g2-104'/>
+<use x='124.491549' y='-48.009555' xlink:href='#g2-97'/>
+<use x='129.648026' y='-48.009555' xlink:href='#g2-115'/>
+<use x='133.832151' y='-48.009555' xlink:href='#g2-101'/>
+</g>
+<path d='M203.4022-48.007811H229.5702' stroke='#059669' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M233.0232-48.007811L228.28882-49.80469L229.86695-48.007811L228.28882-46.21484Z' fill='#059669'/>
+<path d='M233.0232-48.007811L228.28882-49.80469L229.86695-48.007811L228.28882-46.21484Z' stroke='#059669' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#059669' transform='matrix(1 0 0 1 191.4598 3.0939)'>
+<use x='46.785188' y='-48.009555' xlink:href='#g2-83'/>
+<use x='52.678308' y='-48.009555' xlink:href='#g2-105'/>
+<use x='55.624872' y='-48.009555' xlink:href='#g2-108'/>
+<use x='58.571437' y='-48.009555' xlink:href='#g2-101'/>
+<use x='63.438804' y='-48.009555' xlink:href='#g2-110'/>
+<use x='69.331924' y='-48.009555' xlink:href='#g2-99'/>
+<use x='74.046425' y='-48.009555' xlink:href='#g2-101'/>
+</g>
+<g fill='#808080' transform='matrix(1 0 0 1 157.1948 14.4827)'>
+<use x='46.785188' y='-48.009555' xlink:href='#g0-40'/>
+<use x='49.482744' y='-48.009555' xlink:href='#g0-105'/>
+<use x='51.488619' y='-48.009555' xlink:href='#g0-110'/>
+<use x='55.050777' y='-48.009555' xlink:href='#g0-116'/>
+<use x='57.748333' y='-48.009555' xlink:href='#g0-101'/>
+<use x='60.791744' y='-48.009555' xlink:href='#g0-114'/>
+<use x='63.489301' y='-48.009555' xlink:href='#g0-102'/>
+<use x='65.668096' y='-48.009555' xlink:href='#g0-46'/>
+<use x='70.025687' y='-48.009555' xlink:href='#g0-100'/>
+<use x='73.760765' y='-48.009555' xlink:href='#g0-101'/>
+<use x='76.804176' y='-48.009555' xlink:href='#g0-115'/>
+<use x='79.536316' y='-48.009555' xlink:href='#g0-116'/>
+<use x='82.233873' y='-48.009555' xlink:href='#g0-114'/>
+<use x='84.931429' y='-48.009555' xlink:href='#g0-117'/>
+<use x='88.666507' y='-48.009555' xlink:href='#g0-99'/>
+<use x='91.709904' y='-48.009555' xlink:href='#g0-116'/>
+<use x='94.40746' y='-48.009555' xlink:href='#g0-105'/>
+<use x='96.413335' y='-48.009555' xlink:href='#g0-118'/>
+<use x='99.802573' y='-48.009555' xlink:href='#g0-101'/>
+<use x='102.845984' y='-48.009555' xlink:href='#g0-115'/>
+<use x='105.578124' y='-48.009555' xlink:href='#g0-41'/>
+</g>
+</g>
+</svg></div>
+</div>
+<div class="definition-box retenir-box">
+{{ \`{A} retenir}}
+<strong>1. Diffraction</strong>
+<ul><li>La <strong>diffraction</strong> est l'étalement des directions de propagation d'une onde lorsqu'elle traverse une ouverture ou rencontre un obstacle.</li><li>L'onde conserve sa fréquence, sa célérité et sa longueur d'onde.</li><li>L'angle caractéristique de diffraction pour une fente de largeur $a$ :
+ \[
+  = {a}  ()$$</div></div></div></div></li><li>La largeur de la tache centrale de diffraction sur un écran à la distance $D$ :
+ <div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L = {a}$$</div></div></div></div>
+</li></ul>
+<strong>2. Interférences à deux ondes</strong>
+<ul><li>Les interférences se produisent quand deux ondes de même nature, synchrones et cohérentes se superposent.</li><li><strong>Interférences constructives</strong> : $ = k$  ($k  $)</li><li><strong>Interférences destructives</strong> : $ = (k + {2})$  ($k  $)
+</li></ul>
+<strong>3. Trous d'Young et interfrange</strong>
+<ul><li>L'interfrange est la distance entre deux franges brillantes (ou sombres) consécutives :
+ <div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$i = {n   a_{12}}$$</div></div></div></div></li><li>Dans l'air ($n  1$) : $i = {a_{12}}$
+</li></ul>
+</div>
+</div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="exercices_diffraction_ondes_interferences.html" class="btn-action">📝 Exercices</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=diffraction_ondes_interferences" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=diffraction_ondes_interferences" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

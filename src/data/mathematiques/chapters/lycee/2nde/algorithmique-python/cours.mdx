@@ -1,0 +1,91 @@
+## Objectifs
+
+- Choisir le type d'une variable.
+- Écrire une affectation, une condition et une boucle.
+- Écrire et appeler une fonction simple.
+- Lire, compléter ou modifier un programme mathématique.
+
+## Prérequis
+
+- calcul numérique
+- lecture d'instructions simples
+
+## Activité de découverte
+
+Un programme de calcul répété à la main devient vite pénible. On le traduit en Python pour tester beaucoup de valeurs et observer un phénomène.
+
+## Vocabulaire
+
+- **variable**
+- **affectation**
+- **booléen**
+- **condition**
+- **boucle bornée**
+- **boucle non bornée**
+- **fonction**
+- **argument**
+
+## Cours
+
+### Définitions
+
+- Une variable informatique porte un nom et contient une valeur.
+- Une instruction conditionnelle exécute un bloc seulement si une condition est vraie.
+- Une fonction Python reçoit des arguments et renvoie éventuellement un résultat.
+
+### Propriétés
+
+- Une boucle for répète un bloc un nombre prévu de fois.
+- Une boucle while répète un bloc tant qu'une condition reste vraie.
+- Tester un programme sur des cas simples aide à vérifier sa cohérence.
+
+### Méthodes
+
+1. Avant de coder, écrire les entrées, les sorties et les étapes en langage naturel.
+2. Nommer les variables clairement : total, effectif, seuil, image.
+3. Après le codage, vérifier le résultat sur un exemple calculable à la main.
+
+## Exemples corrigés
+
+- Une fonction f(x)=2x+3 en mathématiques se traduit par def f(x): return 2*x + 3.
+- Une simulation de probabilité utilise souvent random() pour produire une issue aléatoire.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 680 270" role="img" aria-labelledby="algo-title algo-desc"><title id="algo-title">Structure d'un algorithme</title><desc id="algo-desc">Schéma entrée, traitement, sortie.</desc><rect x="60" y="85" width="145" height="80" rx="8" fill="#dbeafe" stroke="#2563eb"/><rect x="268" y="85" width="145" height="80" rx="8" fill="#dcfce7" stroke="#16a34a"/><rect x="475" y="85" width="145" height="80" rx="8" fill="#fef3c7" stroke="#d97706"/><path d="M210 125 H260 M415 125 H468" stroke="#111827" strokeWidth="3"/><text x="132" y="118" textAnchor="middle" fontWeight="700">Entrées</text><text x="132" y="140" textAnchor="middle">données</text><text x="340" y="118" textAnchor="middle" fontWeight="700">Traitement</text><text x="340" y="140" textAnchor="middle">instructions</text><text x="548" y="118" textAnchor="middle" fontWeight="700">Sortie</text><text x="548" y="140" textAnchor="middle">résultat</text></svg>
+  <figcaption>Algorithmique et programmation Python : représentation schématique à commenter avant les exercices.</figcaption>
+</figure>
+
+## Algorithmique en Python
+
+### Fonction, condition et boucle
+
+```python
+def signe_affine(x):
+    y = 2*x - 6
+    if y > 0:
+        return "positif"
+    if y == 0:
+        return "nul"
+    return "négatif"
+
+for x in range(1, 6):
+    print(x, signe_affine(x))
+```
+
+Le programme calcule l'image par une fonction affine puis classe son signe.
+
+## Erreurs fréquentes
+
+- Confondre = en Python, qui affecte une valeur, et l'égalité mathématique.
+- Écrire une boucle while sans s'assurer qu'elle peut s'arrêter.
+- Oublier d'appeler une fonction après l'avoir définie.
+
+## Formules et idées à retenir
+
+- for : boucle bornée.
+- while : boucle tant qu'une condition est vraie.
+- def nom(arguments): définit une fonction.
+
+## Synthèse
+
+Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.

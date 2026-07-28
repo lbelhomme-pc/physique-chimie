@@ -1,11 +1,13 @@
 ---
 import LabAppLayout from "../../components/laboratoire/LabAppLayout.astro";
+import DiffusionTemperatureSimulator from "../../components/laboratoire/DiffusionTemperatureSimulator.astro";
 import { labApps } from "../../data/laboratoire/apps";
 
 const app = labApps.find((item) => item.slug === "diffusion-temperature")!;
 ---
 
 <LabAppLayout
+  slug={app.slug}
   title={app.title}
   description={app.objective}
   icon={app.icon}
@@ -14,80 +16,5 @@ const app = labApps.find((item) => item.slug === "diffusion-temperature")!;
   objective={app.objective}
   legacyPath={app.legacyPath}
 >
-  <section class="lab-grid" data-lab-app="diffusion-temperature">
-    <aside>
-      <section class="lab-panel" aria-labelledby="diffusion-parametres">
-        <h2 class="lab-panel__title" id="diffusion-parametres">Paramètres</h2>
-        <p class="lab-panel__subtitle">Dépose un colorant, change la température puis compare la vitesse de dispersion.</p>
-        <div class="lab-control">
-          <label for="temperature">Température de l'eau : <span class="lab-value" id="tempValText">20 °C</span></label>
-          <input id="temperature" type="range" min="0" max="100" value="20" />
-        </div>
-
-        <div class="lab-control">
-          <label for="colorantSelect">Colorant</label>
-          <select id="colorantSelect">
-            <option value="blue">Traceur bleu</option>
-            <option value="green">Traceur vert</option>
-            <option value="red">Traceur rouge</option>
-          </select>
-        </div>
-
-        <div class="lab-button-row">
-          <button class="lab-button" id="drop" type="button">Déposer une goutte</button>
-          <button class="lab-button" id="toggleStirrer" type="button" aria-pressed="false">Mélanger : OFF</button>
-          <button class="lab-button is-active" id="toggleMotion" type="button" aria-pressed="false">Lancer</button>
-          <button class="lab-button danger" id="reset" type="button">Réinitialiser</button>
-        </div>
-
-        <div class="diffusion-guide">
-          <strong>À observer</strong>
-          <span>Le diamètre du nuage coloré augmente plus vite quand l'eau est chaude.</span>
-        </div>
-
-        <div class="diffusion-metrics" aria-live="polite">
-          <div><span>Dispersion</span><strong id="dispersionValue">0 %</strong></div>
-          <div><span>Agitation thermique</span><strong id="thermalAgitation">1,0×</strong></div>
-          <div><span>Temps</span><strong id="elapsedTime">0 s</strong></div>
-        </div>
-
-        <div class="lab-readout" id="diffusionObservation" aria-live="polite">
-          Ajoute une goutte pour observer la diffusion du colorant.
-        </div>
-
-        <p class="lab-note">
-          Sans mélanger, la dispersion vient de l'agitation microscopique. Le bouton Mélanger montre un brassage mécanique : ce n'est plus la diffusion seule.
-        </p>
-      </section>
-    </aside>
-
-    <section class="lab-panel" aria-labelledby="diffusion-scene-title">
-      <h2 class="lab-panel__title" id="diffusion-scene-title">Bécher et diffusion</h2>
-      <p class="lab-panel__subtitle">Observe l'élargissement du nuage coloré dans l'eau.</p>
-      <div class="lab-canvas-wrap diffusion-scene" id="scene">
-        <div class="thermometer" aria-label="Thermomètre">
-          <div class="thermometer-body">
-            <div class="thermo-liquid" id="thermoLiquid"></div>
-          </div>
-          <div class="thermo-bulb" id="thermoBulb"></div>
-        </div>
-
-        <div class="beaker" id="beaker" aria-label="Bécher contenant de l'eau">
-          <div class="diffusion-beaker-hint" aria-hidden="true">
-            <strong>À observer</strong>
-            <span>nuage coloré</span>
-          </div>
-          <div class="water" id="waterLayer">
-            <div class="surface" id="surface"></div>
-          </div>
-          <canvas id="diffusionCanvas" aria-label="Diffusion de particules de colorant dans l'eau"></canvas>
-          <div class="stirrer-bar" id="stirrerBar" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
-  </section>
-
-  <script>
-    import "../../scripts/laboratoire/diffusion-temperature.js";
-  </script>
+  <DiffusionTemperatureSimulator />
 </LabAppLayout>

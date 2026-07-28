@@ -1,0 +1,74 @@
+---
+export interface Props {
+  kind?: "notion" | "definition" | "method" | "law" | "example" | "warning";
+  title?: string;
+}
+
+const { kind = "notion", title } = Astro.props;
+
+const defaultTitles = {
+  notion: "Notion",
+  definition: "Definition",
+  method: "Methode",
+  law: "Loi",
+  example: "Exemple",
+  warning: "Vigilance",
+};
+---
+
+<section class:list={["v3-pedagogy-block", `v3-pedagogy-block--${kind}`]}>
+  <h3>{title ?? defaultTitles[kind]}</h3>
+  <div class="v3-pedagogy-block__body">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .v3-pedagogy-block {
+    --v3-block-tone: var(--v3-color-action);
+    --v3-block-bg: var(--v3-color-action-subtle);
+    background: var(--v3-block-bg);
+    border: 1px solid color-mix(in srgb, var(--v3-block-tone) 28%, transparent);
+    border-left: 4px solid var(--v3-block-tone);
+    border-radius: var(--v3-radius-md);
+    color: var(--v3-color-text-main);
+    padding: var(--v3-space-4);
+  }
+
+  .v3-pedagogy-block--definition {
+    --v3-block-tone: var(--v3-color-pedagogy-definition);
+    --v3-block-bg: var(--v3-color-pedagogy-definition-bg);
+  }
+
+  .v3-pedagogy-block--method {
+    --v3-block-tone: var(--v3-color-pedagogy-method);
+    --v3-block-bg: var(--v3-color-pedagogy-method-bg);
+  }
+
+  .v3-pedagogy-block--law {
+    --v3-block-tone: var(--v3-color-pedagogy-law);
+    --v3-block-bg: var(--v3-color-pedagogy-law-bg);
+  }
+
+  .v3-pedagogy-block--example {
+    --v3-block-tone: var(--v3-color-pedagogy-example);
+    --v3-block-bg: var(--v3-color-pedagogy-example-bg);
+  }
+
+  .v3-pedagogy-block--warning {
+    --v3-block-tone: var(--v3-color-pedagogy-warning);
+    --v3-block-bg: var(--v3-color-pedagogy-warning-bg);
+  }
+
+  .v3-pedagogy-block h3 {
+    color: var(--v3-block-tone);
+    font-size: var(--v3-font-size-md);
+    line-height: var(--v3-line-height-tight);
+    margin: 0 0 var(--v3-space-2);
+  }
+
+  .v3-pedagogy-block__body {
+    font-size: var(--v3-font-size-sm);
+    line-height: var(--v3-line-height-body);
+  }
+</style>

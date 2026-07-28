@@ -1,0 +1,76 @@
+/* =========================================
+   STYLES DU LABO : LOI D'OHM (CANVAS)
+   ========================================= */
+
+.labo-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+
+.bench-panel { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+.bench-header { font-size: 1.2rem; color: #1e293b; font-weight: 900; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;}
+
+/* Conteneur du Canvas */
+.canvas-container { display: flex; justify-content: center; align-items: center; background: radial-gradient(circle, #f8fafc 0%, #e2e8f0 100%); border-radius: 16px; border: 1px inset #cbd5e1; margin-bottom: 20px; overflow: hidden; box-shadow: inset 0 10px 20px rgba(0,0,0,0.05);}
+canvas { display: block; max-width: 100%; height: auto; }
+
+/* Tableau de bord */
+.dashboard { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: left;}
+.control-group label { font-size: 0.95rem; font-weight: bold; color: #64748b; margin-bottom: 8px; display: block; }
+.resistor-buttons { display: flex; gap: 10px; }
+
+/* Boutons et Sliders */
+.btn-resistor { flex: 1; padding: 10px; background: white; border: 2px solid #cbd5e1; border-radius: 8px; color: #475569; font-weight: bold; cursor: pointer; transition: all 0.2s;}
+.btn-resistor:hover { border-color: #f59e0b; color: #d97706;}
+.btn-resistor.active { background: #fffbeb; border-color: #f59e0b; color: #b45309; box-shadow: 0 4px 10px rgba(245, 158, 11, 0.2);}
+
+input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #ef4444; cursor: pointer; margin-top: -8px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);}
+input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #cbd5e1; border-radius: 50px; border: 1px solid #94a3b8; }
+
+.controls-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 15px; }
+.btn-lab { background: #f8fafc; border: 2px solid #cbd5e1; color: #334155; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 0.95rem;}
+.btn-lab:hover { background: #e2e8f0; border-color: #94a3b8; transform: translateY(-2px);}
+.btn-lab:active { transform: translateY(0);}
+.btn-lab.active { background: #10b981; color: white; border-color: #059669; box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);}
+.btn-lab.active:hover { background: #059669; }
+.btn-lab.danger { background: #fef2f2; color: #dc2626; border-color: #fca5a5; }
+.btn-lab.danger:hover { background: #fee2e2; }
+
+/* Panneau Droit */
+.data-panel { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+.alert-box { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 0 8px 8px 0; margin-bottom: 15px; font-size: 0.95rem; color: #b45309; font-weight: bold; text-align: left; transition: all 0.3s;}
+
+.tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+.tab-btn { background: none; border: none; font-size: 1.1rem; font-weight: bold; color: #64748b; cursor: pointer; padding: 5px 10px; transition: color 0.2s; }
+.tab-btn.active { color: #f59e0b; border-bottom: 3px solid #f59e0b; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.3s; }
+
+.chart-container { width: 100%; height: 320px; }
+
+.data-panel .table-container { max-height: 350px; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 8px; }
+.data-panel table { width: 100%; border-collapse: collapse; text-align: center; }
+.data-panel th { background: #f8fafc; padding: 10px; position: sticky; top: 0; font-size: 0.9rem; color: #1e293b; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.data-panel td { padding: 8px; border-bottom: 1px solid #f1f5f9; font-family: monospace; font-size: 1.1rem; color: #475569; }
+
+@media (max-width: 768px) { .labo-container { grid-template-columns: 1fr; } }
+
+/* --- MODE SOMBRE --- */
+body.dark-mode .bench-panel, body.dark-mode .data-panel { background: #1e293b; border-color: #334155; }
+body.dark-mode .bench-header { color: #f8fafc; }
+body.dark-mode .canvas-container { background: radial-gradient(circle, #1e293b 0%, #0f172a 100%); border-color: #334155; }
+body.dark-mode .dashboard { background: #0f172a; border-color: #334155; }
+body.dark-mode .control-group label { color: #cbd5e1; }
+body.dark-mode #val-tension { color: #f8fafc !important; }
+
+body.dark-mode .btn-resistor { background: #1e293b; border-color: #475569; color: #94a3b8; }
+body.dark-mode .btn-resistor:hover { border-color: #fbbf24; color: #fde68a; }
+body.dark-mode .btn-resistor.active { background: #451a03; border-color: #f59e0b; color: #fde68a; }
+
+body.dark-mode .btn-lab { background: #0f172a; border-color: #334155; color: #cbd5e1; }
+body.dark-mode .btn-lab:hover { background: #334155; color: white; }
+body.dark-mode .alert-box { background: #0f172a; color: #fbbf24; border-left-color: #f59e0b;}
+
+body.dark-mode .tab-btn { color: #94a3b8; }
+body.dark-mode .tab-btn.active { color: #fbbf24; border-bottom-color: #fbbf24; }
+body.dark-mode th { background: #0f172a; color: #cbd5e1; }
+body.dark-mode td { border-bottom-color: #334155; color: #94a3b8; }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire du pH : Vision Microscopique</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_ph.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+    
+    <div class="container">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">🧪</span> 
+                <h1 class="hero-title" style="background: linear-gradient(135deg, #f43f5e, #fb7185); -webkit-background-clip: text; background-clip: text; color: transparent;">Le Laboratoire du pH</h1>
+            </div>
+            <p class="hero-subtitle">Vision microscopique et réaction de neutralisation des ions $H^+$ et $OH^-$.</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="card controls-panel">
+                <h2>Manipulations</h2>
+                <div class="btn-group">
+                    <button id="btn-acid" class="btn btn-acid">
+                        <span class="icon">🍋</span> + Acide (H⁺)
+                    </button>
+                    <button id="btn-base" class="btn btn-base">
+                        <span class="icon">🧼</span> + Base (OH⁻)
+                    </button>
+                    <button id="btn-water" class="btn btn-water">
+                        <span class="icon">💧</span> Diluer (Eau)
+                    </button>
+                    <button id="btn-reset" class="btn btn-reset">
+                        <span class="icon">🔄</span> Vider le bécher
+                    </button>
+                </div>
+
+                <div class="ph-meter">
+                    <div class="ph-header">
+                        <span>pH mesuré :</span>
+                        <span id="ph-value" class="ph-number">7.0</span>
+                    </div>
+                    <div class="ph-scale-bg">
+                        <div id="ph-cursor" class="ph-cursor"></div>
+                    </div>
+                    <div class="scale-labels">
+                        <span>0 (Acide)</span>
+                        <span>7 (Neutre)</span>
+                        <span>14 (Basique)</span>
+                    </div>
+                </div>
+
+                <div id="status-box" class="status-box neutral">
+                    <h3>Solution Neutre</h3>
+                    <p>Il y a autant d'ions H⁺ que d'ions OH⁻. C'est l'équilibre parfait, comme dans l'eau pure.</p>
+                </div>
+            </div>
+
+            <div class="card canvas-panel">
+                <h2>Vue Microscopique (Ions)</h2>
+                <div class="canvas-container neutral" id="canvas-container">
+                    <canvas id="phCanvas"></canvas>
+                </div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="dot dot-acid"></div> <span>Ion Hydrogène (H⁺) - <i>Rend acide</i></span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="dot dot-base"></div> <span>Ion Hydroxyde (OH⁻) - <i>Rend basique</i></span>
+                    </div>
+                </div>
+                <p class="hint">💡 <b>Astuce :</b> Observe bien ! Lorsqu'un H⁺ rencontre un OH⁻, ils réagissent ensemble pour former une molécule d'eau (H₂O) neutre !</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_ph.js"></script>
+</body>
+</html>

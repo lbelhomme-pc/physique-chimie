@@ -1,0 +1,81 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>=Stealth, scale=0.9]
+ % Conduit
+ % Paroi sup\'{e}rieure
+ \draw[very thick] (0,2.2) -- (3.5,2.2) -- (5,1.2) -- (8,1.2) -- (9.5,2.2) -- (13,2.2);
+ % Paroi inf\'{e}rieure
+ \draw[very thick] (0,-2.2) -- (3.5,-2.2) -- (5,-1.2) -- (8,-1.2) -- (9.5,-2.2) -- (13,-2.2);
+
+ % Remplissage
+ \fill[blue!8] (0,-2.2) -- (3.5,-2.2) -- (5,-1.2) -- (8,-1.2) -- (9.5,-2.2) -- (13,-2.2)
+ -- (13,2.2) -- (9.5,2.2) -- (8,1.2) -- (5,1.2) -- (3.5,2.2) -- (0,2.2) -- cycle;
+
+ % Points M1 et M2
+ \filldraw[red!70!black] (1.75, 0) circle (3pt);
+ \node[red!70!black, above] at (1.75, 0.3) {$M_1$};
+
+ \filldraw[red!70!black] (6.5, 0) circle (3pt);
+ \node[red!70!black, above] at (6.5, 0.3) {$M_2$};
+
+ % Fl\`eches vitesses
+ \draw[->, very thick, primary, line width=1.5pt] (2.3, 0) -- (3.3, 0);
+ \node[primary, below] at (2.8, -0.15) {$v_1$};
+
+ \draw[->, very thick, red!60!black, line width=2pt] (7.2, 0) -- (8.8, 0);
+ \node[red!60!black, below] at (8, -0.15) {$v_2 > v_1$};
+
+ % Sections
+ \draw[<->, thick, accent] (-0.3, -2.2) -- (-0.3, 2.2);
+ \node[accent, left] at (-0.5, 0) {$S_1$};
+
+ \draw[<->, thick, synthorange] (6.5, -1.2) -- (6.5, 1.2);
+ \node[synthorange, right] at (6.7, 0) {$S_2$};
+
+ % Annotations pressions
+ \node[primary, below] at (1.75, -2.7) {\textbf{Pression $P_1$}};
+ \node[primary, below] at (1.75, -3.3) {(plus \'{e}lev\'{e}e)};
+
+ \node[red!70!black, below] at (6.5, -1.7) {\textbf{Pression $P_2$}};
+ \node[red!70!black, below] at (6.5, -2.3) {(plus faible)};
+
+ % Titre
+ \node[dark, font=\bfseries] at (6.5, 3) {Effet Venturi : $v$ augmente $\Rightarrow$ $P$ diminue};
+ \node[draw=red!50!black, fill=white, rounded corners=2pt, font=\small\bfseries, red!70!black]
+ at (10.7,-0.1) {$P_1 > P_2$};
+\end{tikzpicture}
+\end{document}

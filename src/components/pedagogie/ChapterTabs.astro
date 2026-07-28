@@ -4,6 +4,7 @@
 
 interface Props {
   hasCours?: boolean;
+  hasActivite?: boolean;
   hasExercices?: boolean;
   hasQuiz?: boolean;
   hasFlashcards?: boolean;
@@ -16,6 +17,7 @@ interface Props {
 
 const {
   hasCours = true,
+  hasActivite = false,
   hasExercices = false,
   hasQuiz = false,
   hasFlashcards = false,
@@ -25,6 +27,18 @@ const {
   backUrl = "",
   backLabel = "Retour",
 } = Astro.props;
+
+const activeTab = hasCours
+  ? "cours"
+  : hasActivite
+    ? "activite"
+    : hasExercices
+      ? "exercices"
+      : hasQuiz
+        ? "quiz"
+        : hasFlashcards
+          ? "flashcards"
+          : "";
 ---
 
 <div class="chapter-tabs-wrapper" data-chapter-tabs>
@@ -40,25 +54,39 @@ const {
         <button
           type="button"
           id="chapter-tab-cours"
-          class="tab-pill active"
+          class:list={["tab-pill", { active: activeTab === "cours" }]}
           role="tab"
-          aria-selected="true"
+          aria-selected={activeTab === "cours" ? "true" : "false"}
           aria-controls="chapter-panel-cours"
-          tabindex="0"
+          tabindex={activeTab === "cours" ? "0" : "-1"}
           data-tab="cours"
         >
           Cours
+        </button>
+      )}
+      {hasActivite && (
+        <button
+          type="button"
+          id="chapter-tab-activite"
+          class:list={["tab-pill", { active: activeTab === "activite" }]}
+          role="tab"
+          aria-selected={activeTab === "activite" ? "true" : "false"}
+          aria-controls="chapter-panel-activite"
+          tabindex={activeTab === "activite" ? "0" : "-1"}
+          data-tab="activite"
+        >
+          Activite
         </button>
       )}
       {hasExercices && (
         <button
           type="button"
           id="chapter-tab-exercices"
-          class="tab-pill"
+          class:list={["tab-pill", { active: activeTab === "exercices" }]}
           role="tab"
-          aria-selected="false"
+          aria-selected={activeTab === "exercices" ? "true" : "false"}
           aria-controls="chapter-panel-exercices"
-          tabindex="-1"
+          tabindex={activeTab === "exercices" ? "0" : "-1"}
           data-tab="exercices"
         >
           Exercices
@@ -69,11 +97,11 @@ const {
         <button
           type="button"
           id="chapter-tab-quiz"
-          class="tab-pill"
+          class:list={["tab-pill", { active: activeTab === "quiz" }]}
           role="tab"
-          aria-selected="false"
+          aria-selected={activeTab === "quiz" ? "true" : "false"}
           aria-controls="chapter-panel-quiz"
-          tabindex="-1"
+          tabindex={activeTab === "quiz" ? "0" : "-1"}
           data-tab="quiz"
         >
           Quiz
@@ -84,11 +112,11 @@ const {
         <button
           type="button"
           id="chapter-tab-flashcards"
-          class="tab-pill"
+          class:list={["tab-pill", { active: activeTab === "flashcards" }]}
           role="tab"
-          aria-selected="false"
+          aria-selected={activeTab === "flashcards" ? "true" : "false"}
           aria-controls="chapter-panel-flashcards"
-          tabindex="-1"
+          tabindex={activeTab === "flashcards" ? "0" : "-1"}
           data-tab="flashcards"
         >
           Flashcards
@@ -102,22 +130,35 @@ const {
     {hasCours && (
       <div
         id="chapter-panel-cours"
-        class="tab-panel active"
+        class:list={["tab-panel", { active: activeTab === "cours" }]}
         data-panel="cours"
         role="tabpanel"
         aria-labelledby="chapter-tab-cours"
+        hidden={activeTab !== "cours"}
       >
         <slot name="cours" />
+      </div>
+    )}
+    {hasActivite && (
+      <div
+        id="chapter-panel-activite"
+        class:list={["tab-panel", { active: activeTab === "activite" }]}
+        data-panel="activite"
+        role="tabpanel"
+        aria-labelledby="chapter-tab-activite"
+        hidden={activeTab !== "activite"}
+      >
+        <slot name="activite" />
       </div>
     )}
     {hasExercices && (
       <div
         id="chapter-panel-exercices"
-        class="tab-panel"
+        class:list={["tab-panel", { active: activeTab === "exercices" }]}
         data-panel="exercices"
         role="tabpanel"
         aria-labelledby="chapter-tab-exercices"
-        hidden
+        hidden={activeTab !== "exercices"}
       >
         <slot name="exercices" />
       </div>
@@ -125,11 +166,11 @@ const {
     {hasQuiz && (
       <div
         id="chapter-panel-quiz"
-        class="tab-panel"
+        class:list={["tab-panel", { active: activeTab === "quiz" }]}
         data-panel="quiz"
         role="tabpanel"
         aria-labelledby="chapter-tab-quiz"
-        hidden
+        hidden={activeTab !== "quiz"}
       >
         <slot name="quiz" />
       </div>
@@ -137,11 +178,11 @@ const {
     {hasFlashcards && (
       <div
         id="chapter-panel-flashcards"
-        class="tab-panel"
+        class:list={["tab-panel", { active: activeTab === "flashcards" }]}
         data-panel="flashcards"
         role="tabpanel"
         aria-labelledby="chapter-tab-flashcards"
-        hidden
+        hidden={activeTab !== "flashcards"}
       >
         <slot name="flashcards" />
       </div>
@@ -287,11 +328,120 @@ const {
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    function normalizeHeading(text: string) {
+      return text
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, " ");
+    }
+
+    function enhanceCourseHeadings(root: ParentNode) {
+      const courseBlocks = root.querySelectorAll<HTMLElement>(
+        ".cours-content, .course-tab-content, .course-reader-v3"
+      );
+
+      courseBlocks.forEach((block) => {
+        const headings = block.querySelectorAll<HTMLHeadingElement>("h3, h4");
+
+        headings.forEach((heading) => {
+          const text = normalizeHeading(heading.textContent ?? "");
+          if (!text || heading.dataset.courseUx === "done") return;
+
+          if (/^\d+[\s.)-]/.test(text)) {
+            heading.classList.add("course-idea-heading");
+          }
+
+          if (/^definitions?$/.test(text) || text === "definition" || text === "definitions essentielles") {
+            heading.classList.add("course-label-heading", "course-definition-heading");
+          } else if (
+            text === "methode" ||
+            text === "methodes" ||
+            text === "formule ou methode" ||
+            text === "formules et methodes" ||
+            text === "methode importante" ||
+            text === "methodes importantes" ||
+            text.startsWith("methode -") ||
+            text.startsWith("methode :")
+          ) {
+            heading.classList.add("course-label-heading", "course-method-heading");
+          } else if (
+            text === "loi" ||
+            text === "lois" ||
+            text === "propriete" ||
+            text === "proprietes" ||
+            text === "principe" ||
+            text === "principes" ||
+            text === "theoreme" ||
+            text === "theoremes" ||
+            text === "formule" ||
+            text === "formules" ||
+            text === "formule importante" ||
+            text === "formules importantes" ||
+            text.includes("loi d'") ||
+            text.includes("loi de ") ||
+            text.includes("loi des ") ||
+            text.includes("relation a connaitre")
+          ) {
+            heading.classList.add("course-label-heading", "course-law-heading");
+          } else if (/^exemples?$/.test(text) || text === "exemple corrige" || text === "exemples corriges") {
+            heading.classList.add("course-label-heading", "course-example-heading");
+          } else if (
+            text === "erreur frequente" ||
+            text === "erreurs frequentes" ||
+            text === "pieges classiques" ||
+            text === "point de vigilance" ||
+            text === "attention" ||
+            text === "danger"
+          ) {
+            heading.classList.add("course-label-heading", "course-warning-heading");
+          } else if (
+            text === "synthese" ||
+            text === "resume" ||
+            text === "resume du chapitre" ||
+            text === "points cles" ||
+            text === "a retenir" ||
+            text === "bilan" ||
+            text === "l'essentiel" ||
+            text === "essentiel" ||
+            text === "formules et idees a retenir"
+          ) {
+            heading.classList.add("course-label-heading", "course-synthesis-heading");
+          } else if (
+            text === "vocabulaire" ||
+            text === "lexique" ||
+            text === "mots cles" ||
+            text === "mots-cles"
+          ) {
+            heading.classList.add("course-label-heading", "course-vocabulary-heading");
+          }
+
+          heading.dataset.courseUx = "done";
+        });
+      });
+    }
+
+    enhanceCourseHeadings(document);
+
     const wrappers = document.querySelectorAll<HTMLElement>("[data-chapter-tabs]");
 
     wrappers.forEach((wrapper) => {
+      enhanceCourseHeadings(wrapper);
+
       const tabs = wrapper.querySelectorAll<HTMLButtonElement>(".tab-pill[data-tab]");
       const panels = wrapper.querySelectorAll<HTMLDivElement>(".tab-panel[data-panel]");
+      const summaryLinks = document.querySelectorAll<HTMLAnchorElement>("[data-chapter-summary-link]");
+
+      function syncChapterSummary(target: string) {
+        summaryLinks.forEach((link) => {
+          if (link.dataset.chapterSummaryLink === target) {
+            link.setAttribute("aria-current", "step");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      }
 
       function activateTab(tab: HTMLButtonElement) {
         const target = tab.dataset.tab;
@@ -317,6 +467,8 @@ const {
           panel.hidden = false;
           panel.classList.add("active");
         }
+
+        syncChapterSummary(target);
       }
 
       tabs.forEach((tab) => {
@@ -342,6 +494,14 @@ const {
             activateTab(tabsArray[next]);
             tabsArray[next].focus();
           }
+        });
+      });
+
+      summaryLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          const target = link.dataset.chapterSummaryLink;
+          const tab = target ? wrapper.querySelector<HTMLButtonElement>(`.tab-pill[data-tab="${target}"]`) : null;
+          if (tab) activateTab(tab);
         });
       });
     });

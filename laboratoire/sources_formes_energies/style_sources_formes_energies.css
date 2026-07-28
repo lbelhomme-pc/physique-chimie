@@ -1,0 +1,83 @@
+.labo-container { max-width: 1200px; margin: 0 auto; padding: 20px; font-family: 'Inter', sans-serif; }
+
+.mission-selector { background: var(--bg-card); padding: 20px; border-radius: 20px; border: 1px solid var(--card-border); display: flex; align-items: center; gap: 15px; flex-wrap: wrap; margin-bottom: 25px; box-shadow: 0 8px 25px var(--shadow-color); }
+.mission-selector label { font-weight: 800; color: var(--text-main); font-size: 1.1rem; }
+.mission-selector select { flex-grow: 1; padding: 12px; border-radius: 12px; border: 2px solid var(--card-border); background: var(--bg-page); color: var(--text-main); font-weight: bold; font-size: 1rem; outline: none; transition: border-color 0.3s; cursor: pointer; }
+.mission-selector select:focus { border-color: #6366f1; }
+
+.mission-selector .btn-start { background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 12px 25px; border: none; border-radius: 12px; font-size: 1.05rem; font-weight: 800; cursor: pointer; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); transition: all 0.3s; }
+.mission-selector .btn-start:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
+
+/* --- LE NOUVEAU SVG STYLES --- */
+.svg-wrapper { position: relative; width: 100%; background: var(--bg-card); border-radius: 24px; overflow: hidden; box-shadow: 0 15px 40px var(--shadow-color); border: 1px solid var(--card-border); margin-bottom: 30px; }
+.interactive-svg { display: block; width: 100%; height: auto; user-select: none; }
+.bg-watermark { font-family: 'Inter', sans-serif; font-size: 80px; font-weight: 900; text-anchor: middle; fill: rgba(0, 0, 0, 0.03); }
+body.dark-mode .bg-watermark { fill: rgba(255, 255, 255, 0.03); }
+
+/* Flèches de base affinées */
+.arrow-path { fill: none; stroke: var(--text-muted); stroke-width: 4; stroke-dasharray: 10, 10; opacity: 0.5; transition: all 0.3s; marker-end: url(#arrow-empty); }
+.marker-empty-poly { fill: var(--text-muted); }
+
+/* --- MAGIE ANTI-SAUT --- */
+.slot-group { 
+    cursor: pointer; 
+    transform-origin: center; 
+    transform-box: fill-box; 
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+.slot-group:hover { transform: scale(1.05); }
+
+.slot-shape { fill: var(--bg-card); stroke: var(--text-muted); stroke-width: 3; stroke-dasharray: 8, 8; transition: all 0.3s; }
+.slot-title { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 14px; fill: var(--text-muted); text-anchor: middle; transition: fill 0.3s;}
+.slot-text { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 20px; fill: var(--text-muted); text-anchor: middle; transition: fill 0.3s;}
+
+/* Les zones d'énergie */
+.hitbox { fill: var(--bg-card); stroke: var(--text-muted); stroke-width: 2; stroke-dasharray: 5, 5; cursor: pointer; transition: all 0.3s; }
+.slot-group.type-energy:hover .hitbox { stroke: var(--primary); }
+
+/* ÉTATS REMPLIS (FILLED) */
+.slot-group.filled.type-source .slot-shape { stroke: #f59e0b; stroke-dasharray: none; filter: drop-shadow(0 4px 15px rgba(245, 158, 11, 0.2)); }
+.slot-group.filled.type-source .slot-text { fill: var(--text-main); }
+
+.slot-group.filled.type-converter .slot-shape { stroke: #6366f1; stroke-dasharray: none; filter: drop-shadow(0 4px 15px rgba(99, 102, 241, 0.2)); }
+.slot-group.filled.type-converter .slot-text { fill: var(--text-main); }
+
+.slot-group.filled.type-energy .hitbox { stroke-dasharray: none; }
+.slot-group.filled.type-energy[data-slot="enerIn"] .hitbox { stroke: #3b82f6; filter: drop-shadow(0 4px 10px rgba(59, 130, 246, 0.2)); }
+.slot-group.filled.type-energy[data-slot="enerIn"] .slot-text { fill: #3b82f6; }
+
+.slot-group.filled.type-energy[data-slot="enerUtile"] .hitbox { stroke: #10b981; filter: drop-shadow(0 4px 10px rgba(16, 185, 129, 0.2)); }
+.slot-group.filled.type-energy[data-slot="enerUtile"] .slot-text { fill: #10b981; }
+
+.slot-group.filled.type-energy[data-slot="enerPerte"] .hitbox { stroke: #ef4444; filter: drop-shadow(0 4px 10px rgba(239, 68, 68, 0.2)); }
+.slot-group.filled.type-energy[data-slot="enerPerte"] .slot-text { fill: #ef4444; }
+
+/* Flèches remplies et animées */
+.arrow-path.filled-in { stroke: #3b82f6; marker-end: url(#arrow-blue); stroke-dasharray: none; opacity: 1; }
+.arrow-path.filled-utile { stroke: #10b981; marker-end: url(#arrow-green); stroke-dasharray: none; opacity: 1; }
+.arrow-path.filled-perte { stroke: #ef4444; marker-end: url(#arrow-red); stroke-dasharray: none; opacity: 1; }
+
+.arrow-path.animated { stroke-dasharray: 15, 15 !important; animation: flow 1s linear infinite; }
+.arrow-path.animated-reverse { stroke-dasharray: 15, 15 !important; animation: flow-reverse 1s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -30; } }
+@keyframes flow-reverse { to { stroke-dashoffset: 30; } }
+
+/* Messages et Inventaire */
+.feedback-msg { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); padding: 12px 30px; border-radius: 50px; font-weight: 900; font-size: 1.1rem; color: white; opacity: 0; transition: opacity 0.3s, transform 0.3s; pointer-events: none; z-index: 10; text-align: center; width: max-content; }
+.feedback-success { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 20px rgba(16, 185, 129, 0.5); opacity: 1; transform: translateX(-50%) translateY(10px); }
+.feedback-error { background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 4px 20px rgba(239, 68, 68, 0.5); opacity: 1; transform: translateX(-50%) translateY(10px); }
+
+.inventory-panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 40px; }
+.inventory-col { background: var(--bg-card); padding: 20px; border-radius: 20px; border: 1px solid var(--card-border); box-shadow: 0 8px 25px var(--shadow-color); transition: all 0.3s; }
+.inventory-col:hover { transform: translateY(-3px); box-shadow: 0 12px 30px var(--shadow-color); }
+.inventory-col h3 { margin-top: 0; margin-bottom: 20px; font-size: 1.1rem; font-weight: 900; text-align: center; border-bottom: 2px dashed var(--card-border); padding-bottom: 10px; }
+
+.inventory-panel .tool-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.inventory-panel .tool-btn { padding: 10px 15px; border: 2px solid var(--card-border); background: var(--bg-page); color: var(--text-main); font-weight: 800; border-radius: 12px; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; }
+.inventory-panel .tool-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px var(--shadow-color); border-color: #94a3b8; }
+.inventory-panel .tool-btn.selected { border-color: #6366f1; background: #e0e7ff; color: #4f46e5; box-shadow: 0 0 15px rgba(99, 102, 241, 0.3); transform: scale(1.05); }
+
+body.dark-mode .inventory-panel .tool-btn { background: #1e293b; border-color: #334155; }
+body.dark-mode .inventory-panel .tool-btn:hover { border-color: #64748b; }
+body.dark-mode .inventory-panel .tool-btn.selected { background: #312e81; color: #a5b4fc; border-color: #6366f1; }
+body.dark-mode .inventory-col:hover { border-color: #475569; }

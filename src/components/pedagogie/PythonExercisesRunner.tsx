@@ -713,7 +713,7 @@ export default function PythonExercisesRunner() {
             <button type="button" onClick={loadPython} disabled={isBusy || state === "ready"}>
               {state === "ready" ? "Python chargé" : "Charger Python"}
             </button>
-            <button type="button" onClick={runCode} disabled={!canRun || state === "running"}>
+            <button type="button" onClick={runCode} disabled={!canRun}>
               Tester l'exercice
             </button>
             <button type="button" onClick={() => interrupt()} disabled={state !== "running"}>

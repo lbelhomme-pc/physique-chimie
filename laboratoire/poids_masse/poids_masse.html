@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : Poids vs Masse</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_poids_masse.css">
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">🪐</span> 
+                <h1 class="hero-title">Poids ou Masse ?</h1>
+            </div>
+            <p class="hero-subtitle">Observe les instruments et la hauteur du saut selon la gravité !</p>
+        </header>
+
+<div class="planet-selector">
+            <button class="btn-action btn-secondary planet-btn" id="btn-pluton" onclick="changePlanet('pluton')">❄️ Pluton</button>
+            <button class="btn-action btn-secondary planet-btn" id="btn-lune" onclick="changePlanet('lune')">🌕 Lune</button>
+            <button class="btn-action btn-secondary planet-btn" id="btn-mars" onclick="changePlanet('mars')">🔴 Mars</button>
+            <button class="btn-action btn-secondary planet-btn" id="btn-venus" onclick="changePlanet('venus')">🌫️ Vénus</button>
+            
+            <div class="break"></div>
+
+            <button class="btn-action btn-primary planet-btn" id="btn-terre" onclick="changePlanet('terre')">🌍 Terre</button>
+            <button class="btn-action btn-secondary planet-btn" id="btn-saturne" onclick="changePlanet('saturne')">🪐 Saturne</button>
+            <button class="btn-action btn-secondary planet-btn" id="btn-jupiter" onclick="changePlanet('jupiter')">🌪️ Jupiter</button>
+        </div>
+
+        <div class="scene-poids" id="scene">
+            <div class="ground-poids" id="ground"></div>
+            
+            <div class="instruments">
+                <div class="card instrument-card">
+                    <div class="inst-title">⚖️ Balance (Masse)</div>
+                    <div class="digital-screen"><span id="val-m">80</span> kg</div>
+                    <div class="inst-subtitle">Quantité de matière</div>
+                </div>
+
+                <div class="card instrument-card">
+                    <div class="inst-title">🪝 Dynamomètre (Poids)</div>
+                    <div class="digital-screen screen-weight"><span id="val-p">784</span> N</div>
+                    <div class="dyn-hook-container">
+                        <div class="dyn-spring" id="spring"></div>
+                    </div>
+                    <div class="inst-subtitle">Force de l'astre (P = m×g)</div>
+                </div>
+            </div>
+<div class="astronaut-wrapper">
+                <div class="astronaut" id="astronaut">👨‍🚀</div>
+            </div>
+            
+            <button class="btn-action btn-primary btn-jump" onclick="forceJump()">🚀 Faire un saut</button>
+</div>
+        <div class="card control-panel">
+            <label for="slider-m">Nourrir l'astronaute pour modifier sa masse (kg) :</label>
+            <input type="range" id="slider-m" min="10" max="200" step="5" value="80" oninput="updatePhysics()">
+        </div>
+
+        <div class="info-box mt-2 mb-2">
+            <h3>💡 Observation :</h3>
+            <p>La <strong>masse</strong> (en kg) ne change jamais ! C'est le <strong>poids</strong> (en Newtons) et la hauteur du saut qui varient en fonction de la force d'attraction de la planète.</p>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../laboratoire.html" class="btn-action">🧪 Retour au Labo</a>
+            <a href="../../index.html" class="btn-action btn-secondary">🏠 Accueil</a>
+        </div>
+    </div>
+
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_poids_masse.js"></script>
+</body>
+</html>

@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Mouvements des satellites et des planètes | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+
+    <style>
+        .graph-container { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; max-width: 600px; margin: 25px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .svg-grid { stroke: #cbd5e1; stroke-width: 1; }
+        .svg-grid-minor { stroke: #f1f5f9; stroke-width: 1; }
+        .svg-axis { stroke: #1e293b; stroke-width: 2; }
+        .svg-text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #475569; }
+        .svg-text-bold { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #1e293b; }
+        .svg-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; fill: #0f172a; text-anchor: middle; }
+        .svg-line { stroke: #3b82f6; stroke-width: 3; stroke-linecap: round; }
+        .svg-point { stroke: #ef4444; stroke-width: 2; fill: none; }
+        body.dark-mode .graph-container { background: #0f172a; border-color: #334155; }
+        body.dark-mode .svg-grid { stroke: #334155; }
+        body.dark-mode .svg-grid-minor { stroke: #1e293b; }
+        body.dark-mode .svg-axis { stroke: #cbd5e1; }
+        body.dark-mode .svg-text { fill: #94a3b8; }
+        body.dark-mode .svg-text-bold { fill: #f8fafc; }
+        body.dark-mode .svg-title { fill: #f8fafc; }
+        body.dark-mode .svg-line { stroke: #60a5fa; }
+    </style>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">📝</span>
+                <h1 class="hero-title">Exercices : Mouvements des satellites et des planètes</h1>
+            </div>
+        </header>
+
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 1</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Conna\^itre les lois de Kepler -- Questions de cours.
+</div>
+<ol><li>\'Enoncer la première loi de Kepler (loi des orbites). Préciser quel est le référentiel d'étude.</li><li>\'Enoncer la deuxième loi de Kepler (loi des aires). Quelle conséquence cette loi a-t-elle sur la vitesse d'une planète lorsqu'elle se rapproche du Soleil ?</li><li>\'Enoncer la troisième loi de Kepler (loi des périodes). \'Ecrire la relation mathématique correspondante en précisant chaque grandeur et son unité.</li><li>Un satellite géostatio\-nnaire :
+<ol><li>est-il immobile dans le référentiel terrestre ?</li><li>est-il immobile dans le référentiel géocentrique ?</li><li>peut-il être situé à la verticale de Paris ? Justifier.
+</li></ol>
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Cet exercice porte sur la connaissance des trois lois de Kepler et les propriétés d'un satellite géostationnaire. Il s'agit de restituer des définitions précises.
+</div>
+<strong>1. Première loi de Kepler (loi des orbites) :</strong>
+<p>Dans le référentiel héliocentrique (défini par le centre du Soleil et trois axes dirigés vers trois étoiles fixes), la trajectoire du centre de masse d'une planète est une ellipse dont le centre du Soleil occupe l'un des foyers.</p>
+<div class="info-box">
+<strong>Remarque :</strong> Le référentiel d'étude est le référentiel <strong>héliocentrique</strong>. Pour un satellite de la Terre, on utilise le référentiel géocentrique.
+</div>
+<strong>2. Deuxième loi de Kepler (loi des aires) :</strong>
+<p>Le segment reliant le centre du Soleil au centre de masse d'une planète balaie des aires égales pendant des durées égales.</p>
+<strong>Conséquence sur la vitesse :</strong> Lorsqu'une planète se rapproche du Soleil, le segment [Soleil--planète] est plus court. Pour que l'aire balayée reste la même pendant la même durée, la planète doit parcourir un arc plus grand, donc sa vitesse <strong>augmente</strong>. Inversement, lorsqu'elle s'éloigne du Soleil, sa vitesse diminue.
+<strong>3. Troisième loi de Kepler (loi des périodes) :</strong>
+<p>Le quotient du carré de la période de révolution $T$ d'une planète par le cube du demi grand axe $a$ de son orbite est une constante, identique pour toutes les planètes du Système solaire :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${a^3} = $$</div></div></div></div>
+<p>o\`u :<br><ul><li>$T$ est la période de révolution de la planète, en secondes ($$) ;</li><li>$a$ est le demi grand axe de l'orbite elliptique, en mètres ($$).<br></li></ul></p>
+<p>Pour une orbite circulaire, $a$ correspond au rayon $r$ de l'orbite.</p>
+<strong>4. Satellite géostationnaire :</strong>
+<strong>a)</strong> Dans le référentiel terrestre, un satellite géostationnaire appara\^it <strong>immobile</strong> : il reste constamment à la verticale du même point de la surface terrestre. C'est précisément la définition d'un satellite géostationnaire.
+<strong>b)</strong> Dans le référentiel géocentrique, le satellite géostationnaire n'est <strong>pas immobile</strong>. Il décrit une orbite circulaire autour de la Terre avec une période de révolution égale à la période de rotation de la Terre sur elle-même ($T = 24$ h).
+<strong>c)</strong> Un satellite géostationnaire <strong>ne peut pas</strong> être situé à la verticale de Paris.
+<strong>Justification :</strong> Pour rester à la verticale du même point de la surface terrestre, le satellite doit tourner à la même vitesse angulaire que la Terre. Son plan orbital doit donc contenir l'axe de rotation de la Terre, et la seule orbite circulaire qui satisfait cette condition tout en restant à la verticale d'un point fixe est une orbite située dans le <strong>plan de l'équateur</strong>. Paris étant situé à une latitude d'environ $49{^}$ N, un satellite géostationnaire ne peut pas être à sa verticale.
+<strong>Conclusion :</strong> L'orbite géostationnaire se situe nécessairement dans le plan de l'équateur, à une altitude d'environ $36000   $.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 2</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Repère de Frenet et accélération en mouvement circulaire uniforme.
+</div>
+<p>Un point M se déplace sur un cercle de rayon $R = $5{,}0   $$ à vitesse constante. Il effectue 10 tours par minute.</p>
+<ol><li>Rappeler les deux vecteurs unitaires du repère de Frenet $(_T, _N)$. Préciser leur direction et leur sens.</li><li>Donner les coordonnées du vecteur vitesse $$ et du vecteur accélération $$ dans le repère de Frenet pour un mouvement circulaire uniforme.</li><li>Calculer la distance $d$ parcourue par M en une minute, puis en déduire la valeur de sa vitesse $v$.</li><li>Calculer la valeur de l'accélération du point M. Préciser la direction et le sens de ce vecteur accélération.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise le repère de Frenet pour exprimer vitesse et accélération en mouvement circulaire. On calcule d'abord la distance parcourue, puis la vitesse, et enfin l'accélération centripète.
+</div>
+<strong>1. Vecteurs unitaires du repère de Frenet :</strong>
+<p>Le repère de Frenet $(_T, _N)$ est défini en chaque point M de la trajectoire :<br><ul><li>$_T$ : vecteur unitaire <strong>tangent</strong> à la trajectoire, orienté dans le <strong>sens du mouvement</strong> ;</li><li>$_N$ : vecteur unitaire <strong>normal</strong> à la trajectoire, dirigé vers le <strong>centre de courbure</strong> (ici, le centre du cercle).<br></li></ul></p>
+<p>{2. Coordonnées de $$ et $$ dans le repère de Frenet pour un mouvement circulaire uniforme :}</p>
+<ul><li>Le vecteur vitesse s'écrit : $ = v _T$, o\`u $v$ est la valeur (constante) de la vitesse.</li><li>Le vecteur accélération s'écrit : $ = {R} _N$.
+</li></ul>
+<p>En mouvement circulaire uniforme, la composante tangentielle de l'accélération est nulle (${v}{t} = 0$) et seule la composante normale (centripète) subsiste.</p>
+<strong>3. Calcul de la distance parcourue et de la vitesse :</strong>
+<strong>Données :</strong> $R = $5{,}0   $$, le point M effectue 10 tours par minute.
+<p>En un tour, M parcourt le périmètre du cercle : $_1 = 2 R$.</p>
+<p>En une minute (10 tours), la distance totale parcourue est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>d &= 10  2 R \\<br>d &= 10  2  5{,}0 \\<br>d &= 100  $314   $<br>$$</div></div></div></div></p>
+<p>La durée correspondante est $ t = 1  = $60   $$.</p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v &= { t} = {10  2  5{,}0}{60} = {60} \\
+v & $5{,}2   $
+$$</div></div></div></div>
+<strong>4. Calcul de l'accélération :</strong>
+<strong>Méthode :</strong> Pour un mouvement circulaire uniforme, l'accélération est centripète :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$a = {R}$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+a &= {(5{,}2)^2}{5{,}0} = {27{,}4}{5{,}0} \\
+a & $5{,}5   $
+$$</div></div></div></div>
+<strong>Direction et sens :</strong> Le vecteur accélération est dirigé selon $_N$, c'est-à-dire vers le <strong>centre du cercle</strong> (accélération centripète). Il est perpendiculaire au vecteur vitesse.
+<strong>Conclusion :</strong> $v  $5{,}2   $$ et $a  $5{,}5   $$, dirigée vers le centre du cercle.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 3</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Vitesse et accélération d'un satellite en orbite circulaire.
+</div>
+<p>La Station Spatiale Internationale (ISS) décrit une orbite circulaire autour de la Terre à une altitude $h = $408   $$.</p>
+<strong>Données :</strong>
+<ul><li>Masse de la Terre : $M_T = $5{,}97  10^{24}   $$</li><li>Rayon de la Terre : $R_T = $6370   $$</li><li>Constante de gravitation universelle : $G = $6{,}67  10^{-11}   $$
+</li></ul>
+<ol><li>Représenter sur un schéma la Terre, l'orbite de l'ISS, le repère de Frenet associé au centre de masse de l'ISS, et la force de gravitation exercée par la Terre sur l'ISS.</li><li>En appliquant la deuxième loi de Newton au centre de masse de l'ISS, montrer que le mouvement circulaire est uniforme.</li><li>\'Etablir l'expression de la vitesse orbitale : $v = {{R_T + h}}$.</li><li>Calculer la valeur de $v$ en $$ puis en $$.</li><li>En déduire la valeur de l'accélération de l'ISS sur son orbite.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On applique la deuxième loi de Newton au centre de masse de l'ISS dans le référentiel géocentrique. On projette dans le repère de Frenet pour montrer que le mouvement est uniforme et établir l'expression de la vitesse orbitale.
+</div>
+<strong>Données :</strong>
+<ul><li>$M_T = $5{,}97  10^{24}   $$, $R_T = $6370   $ = $6{,}370  10^{6}   $$, $h = $408   $ = $4{,}08  10^{5}   $$</li><li>$G = 6{,}67  10^{-11} $$$</li><li>Rayon de l'orbite : $r = R_T + h = {} + {} = $6{,}778  10^{6}   $$
+</li></ul>
+<strong>1. Schéma :</strong>
+<p>Le schéma doit représenter :<br><ul><li>la Terre (sphère au centre) ;</li><li>l'orbite circulaire de l'ISS de rayon $r = R_T + h$ ;</li><li>le point ISS sur l'orbite ;</li><li>le vecteur $_T$ tangent à l'orbite dans le sens du mouvement ;</li><li>le vecteur $_N$ dirigé vers le centre de la Terre ;</li><li>le vecteur force de gravitation $_{T/ISS}$ dirigé de l'ISS vers le centre de la Terre (même sens que $_N$).<br></li></ul></p>
+<strong>2. Montrer que le mouvement est uniforme :</strong>
+<strong>Système étudié :</strong> centre de masse de l'ISS, de masse $m$.
+<strong>Référentiel :</strong> géocentrique, supposé galiléen.
+<strong>Force appliquée :</strong> la seule force est la force de gravitation :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{T/ISS} = -{r^2} _N   +_N$$</div></div></div></div>
+<p>En fait, si $_N$ est orienté vers le centre de la Terre :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{T/ISS} = {r^2} _N$$</div></div></div></div></p>
+<p>La deuxième loi de Newton s'écrit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m  = _{T/ISS}$$</div></div></div></div></p>
+<p>soit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {r^2} _N$$</div></div></div></div></p>
+<p>Dans le repère de Frenet, l'accélération s'écrit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {v}{t} _T + {r} _N$$</div></div></div></div></p>
+<p>Par identification des composantes :<br><ul><li>Composante tangentielle : ${v}{t} = 0$, donc $v = $.</li><li>Composante normale : ${r} = {r^2}$.<br></li></ul></p>
+<p>Puisque ${v}{t} = 0$, la valeur de la vitesse est constante : <strong>le mouvement circulaire est uniforme</strong>.</p>
+<strong>3. Expression de la vitesse orbitale :</strong>
+<p>\`A partir de la composante normale :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>{r} &= {r^2}<br>$$</div></div></div></div></p>
+<p>On multiplie les deux membres par $r$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>v^2 &= {r}<br>$$</div></div></div></div></p>
+<p>En prenant la racine carrée :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${v = {{R_T + h}}}$$</div></div></div></div></p>
+<p>car $r = R_T + h$.</p>
+<strong>4. Calcul de $v$ :</strong>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v &= {{6{,}67  10^{-11}  5{,}97  10^{24}}{6{,}778  10^{6}}} \\
+v &= {{3{,}982  10^{14}}{6{,}778  10^{6}}} \\
+v &= {5{,}874  10^{7}} \\
+v & $7665   $  $7{,}67  10^{3}   $
+$$</div></div></div></div>
+<p>Conversion en $$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>v &= 7665  {1000} = 7665  3{,}6 \\<br>v & $27594   $  $2{,}76  10^{4}   $<br>$$</div></div></div></div></p>
+<strong>5. Accélération de l'ISS :</strong>
+<strong>Méthode :</strong> L'accélération centripète vaut $a = {r}$.
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+a &= {r} = {6{,}778  10^{6}} \\
+a &= {5{,}875  10^{7}}{6{,}778  10^{6}} \\
+a & $8{,}67   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La vitesse de l'ISS est d'environ $$7{,}67  10^{3}   $$ (soit environ $$27600   $$) et son accélération centripète est d'environ $$8{,}67   $$. Cette accélération est légèrement inférieure à $g = $9{,}81   $$ car l'ISS se trouve à $408   $ d'altitude.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 4</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Période de révolution et troisième loi de Kepler.
+</div>
+<p>La Terre et Vénus décrivent des orbites quasi circulaires autour du Soleil.</p>
+<strong>Données :</strong>
+<ul><li>Période de révolution de la Terre : $T_T = 365,25 $</li><li>Distance moyenne Soleil-Vénus : $d_{SV} = 0{,}723  d_{ST}$, o\`u $d_{ST}$ est la distance moyenne Soleil-Terre.
+</li></ul>
+<ol><li>Rappeler la troisième loi de Kepler. Préciser pourquoi le quotient ${a^3}$ est le même pour la Terre et Vénus.</li><li>\'Ecrire l'égalité des quotients ${a^3}$ pour la Terre et Vénus.</li><li>En déduire l'expression de la période de révolution de Vénus $T_V$ en fonction de $T_T$ et du rapport ${d_{SV}}{d_{ST}}$.</li><li>Calculer $T_V$ en années puis en jours.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On applique la troisième loi de Kepler en écrivant que le rapport $T^2/a^3$ est le même pour la Terre et pour Vénus. On exprime alors $T_V$ en fonction de $T_T$ et du rapport des distances.
+</div>
+<strong>Données :</strong>
+<ul><li>$T_T = 365{,}25 $</li><li>$d_{SV} = 0{,}723  d_{ST}$
+</li></ul>
+<strong>1. Rappel de la troisième loi de Kepler :</strong>
+<p>Le rapport ${a^3}$ est le même pour toutes les planètes du Système solaire, car cette constante ne dépend que de la masse de l'astre attracteur (le Soleil). La Terre et Vénus tournant toutes deux autour du Soleil, elles partagent la même valeur de cette constante :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${d_{ST}^3} = {d_{SV}^3}$$</div></div></div></div></p>
+<strong>2. \'Egalité des quotients :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${d_{ST}^3} = {d_{SV}^3}$$</div></div></div></div>
+<strong>3. Expression de $T_V$ :</strong>
+<p>On isole $T_V^2$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T_V^2 &= T_T^2  {d_{SV}^3}{d_{ST}^3} = T_T^2  ({d_{SV}}{d_{ST}})^3<br>$$</div></div></div></div></p>
+<p>En prenant la racine carrée :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${T_V = T_T  ({d_{SV}}{d_{ST}})^{3/2}}$$</div></div></div></div></p>
+<strong>4. Calcul numérique :</strong>
+<strong>Application numérique :</strong>
+<p>On a ${d_{SV}}{d_{ST}} = 0{,}723$.</p>
+<p>Calculons d'abord $(0{,}723)^{3/2}$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>(0{,}723)^{3/2} &= (0{,}723)^1  (0{,}723)^{1/2} \\<br>&= 0{,}723  {0{,}723} \\<br>&= 0{,}723  0{,}8503 \\<br>& 0{,}6148<br>$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T_V &= 365{,}25  0{,}6148 \\<br>T_V & 224{,}6 <br>$$</div></div></div></div></p>
+<p>En années terrestres :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T_V &= {224{,}6}{365{,}25}  0{,}615 <br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> La période de révolution de Vénus est $T_V  225 $, soit environ $0{,}615$ année terrestre. Vénus, plus proche du Soleil que la Terre, a bien une période de révolution plus courte, ce qui est cohérent avec la troisième loi de Kepler.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 5</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Satellite géostationnaire -- \'Etablir la période et l'altitude.
+</div>
+<p>Un satellite géostationnaire orbite dans le plan de l'équateur terrestre et appara\^it immobile pour un observateur au sol.</p>
+<strong>Données :</strong>
+<ul><li>$G = $6{,}67  10^{-11}   $$</li><li>$M_T = $5{,}97  10^{24}   $$</li><li>$R_T = $6370   $$
+</li></ul>
+<ol><li>Donner la définition d'un satellite géostationnaire. Préciser sa période de révolution $T_{}$.</li><li>Justifier que son orbite se situe nécessairement dans le plan de l'équateur.</li><li>En utilisant la troisième loi de Kepler, établir l'expression du rayon de l'orbite géostationnaire $r_{}$ en fonction de $G$, $M_T$ et $T_{}$.
+<p>{On rappelle que pour un satellite en orbite circulaire autour de la Terre : ${r^3} = {G M_T}$.}</li><li>Calculer $r_{}$ puis en déduire l'altitude $h_{}$ du satellite.</li><li>Calculer la vitesse du satellite géostationnaire sur son orbite.<br></li></ol></p>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise la définition d'un satellite géostationnaire pour en déduire sa période ($T = 24$ h). On applique ensuite la troisième loi de Kepler pour calculer le rayon de l'orbite, puis l'altitude et la vitesse.
+</div>
+<strong>Données :</strong>
+<ul><li>$G = 6{,}67  10^{-11} $$$, $M_T = $5{,}97  10^{24}   $$, $R_T = $6370   $ = $6{,}370  10^{6}   $$
+</li></ul>
+<strong>1. Définition d'un satellite géostationnaire :</strong>
+<p>Un satellite géostationnaire est un satellite qui appara\^it immobile pour un observateur situé à la surface de la Terre. Il se situe constamment à la verticale du même point de l'équateur. Sa période de révolution est donc égale à la période de rotation de la Terre sur elle-même :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$T_{} = 24  = 24  3600 = $86400   $$</div></div>$</div></div></p>
+<strong>2. Justification de l'orbite équatoriale :</strong>
+<p>Pour qu'un satellite reste constamment à la verticale du même point de la surface terrestre, son plan orbital doit être celui de l'équateur. En effet :<br><ul><li>Le satellite doit tourner autour du centre de la Terre (centre de force).</li><li>Pour rester à la verticale d'un point de l'équateur qui tourne avec la Terre, le satellite doit tourner dans le même plan que ce point, c'est-à-dire le plan de l'équateur.</li><li>Si le satellite était dans un autre plan orbital, il oscillerait en latitude et ne serait pas fixe par rapport à un observateur au sol.<br></li></ul></p>
+<strong>3. Expression du rayon de l'orbite géostationnaire :</strong>
+<p>On sait que pour un satellite en orbite circulaire autour de la Terre :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${r^3} = {G M_T}$$</div></div></div></div></p>
+<p>On isole $r^3$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>r^3 &= {4^2}<br>$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${r_{} = ({G M_T T_{}^2}{4^2})^{1/3}}$$</div></div></div></div></p>
+<p>{4. Calcul de $r_{}$ et de $h_{}$ :}</p>
+<strong>Application numérique :</strong>
+<p>Calculons d'abord le numérateur :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>G M_T T_{}^2 &= 6{,}67  10^{-11}  5{,}97  10^{24}  (86400)^2 \\<br>&= 3{,}982  10^{14}  7{,}465  10^{9} \\<br>&= 2{,}972  10^{24}<br>$$</div></div></div></div></p>
+<p>Puis :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>r_{}^3 &= {2{,}972  10^{24}}{4^2} = {2{,}972  10^{24}}{39{,}48} = 7{,}527  10^{22}<br>$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>r_{} &= (7{,}527  10^{22})^{1/3}  $4{,}22  10^{7}   $ = $42200   $<br>$$</div></div></div></div></p>
+<p>L'altitude est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>h_{} &= r_{} - R_T = 42200 - 6370 = $35830   $  $36000   $<br>$$</div></div></div></div></p>
+<strong>5. Vitesse du satellite géostationnaire :</strong>
+<strong>Méthode :</strong> La vitesse d'un objet en mouvement circulaire uniforme est $v = {T}$.
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v &= {2  4{,}22  10^{7}}{86400} \\
+v &= {2{,}652  10^{8}}{86400} \\
+v & $3070   $  $3{,}07   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Le satellite géostationnaire orbite à une altitude d'environ $36000   $ avec une vitesse d'environ $3{,}07   $ (soit environ $11050   $).
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 6</h2>
+            <div class="info-box">
+<strong>Thème :</strong> La face cachée de la Lune.
+</div>
+<p>La face cachée de la Lune, éclairée par le Soleil, a été photograph\-iée par le satellite Discover situé à environ un million et demi de kilomètres de la Terre dans la direction du Soleil.</p>
+<strong>Données :</strong>
+<ul><li>Distance Terre-Lune : $d_{TL} = $3{,}84  10^{5}   $$</li><li>$G = $6{,}67  10^{-11}   $$</li><li>$M_T = $5{,}97  10^{24}   $$
+</li></ul>
+<ol><li>En supposant l'orbite de la Lune circulaire, montrer que la valeur de la vitesse de la Lune sur son orbite autour de la Terre s'écrit : $v = {{d_{TL}}}$.</li><li>Calculer la valeur de $v$.</li><li>\'Etablir l'expression de la période de révolution $T_L$ de la Lune autour de la Terre, puis calculer sa valeur en secondes et en jours.</li><li>La période de rotation de la Lune sur elle-même est égale à $27{,}3$ jours. Comparer cette valeur à $T_L$ et expliquer l'expression  face cachée de la Lune .
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On applique la deuxième loi de Newton à la Lune en orbite circulaire autour de la Terre pour établir l'expression de la vitesse, puis on en déduit la période. On compare ensuite avec la période de rotation propre de la Lune.
+</div>
+<strong>Données :</strong>
+<ul><li>$d_{TL} = $3{,}84  10^{5}   $ = $3{,}84  10^{8}   $$</li><li>$G = 6{,}67  10^{-11} $$$, $M_T = $5{,}97  10^{24}   $$
+</li></ul>
+<strong>1. Expression de la vitesse de la Lune :</strong>
+<strong>Système :</strong> centre de masse de la Lune, de masse $m_L$.
+<strong>Référentiel :</strong> géocentrique, supposé galiléen.
+<strong>Force :</strong> force de gravitation exercée par la Terre sur la Lune.
+<p>La deuxième loi de Newton donne, pour un mouvement circulaire :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m_L  {d_{TL}} = {d_{TL}^2}$$</div></div></div></div></p>
+<p>On simplifie par $m_L$ (non nul) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${d_{TL}} = {d_{TL}^2}$$</div></div></div></div></p>
+<p>On multiplie les deux membres par $d_{TL}$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v^2 = {d_{TL}}$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${v = {{d_{TL}}}}$$</div></div></div></div></p>
+<strong>2. Calcul de $v$ :</strong>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v &= {{6{,}67  10^{-11}  5{,}97  10^{24}}{3{,}84  10^{8}}} \\
+v &= {{3{,}982  10^{14}}{3{,}84  10^{8}}} \\
+v &= {1{,}037  10^{6}} \\
+v & $1018   $  $1{,}02  10^{3}   $
+$$</div></div></div></div>
+<strong>3. Expression et calcul de la période $T_L$ :</strong>
+<strong>Méthode :</strong> En mouvement circulaire uniforme, la Lune parcourt la circonférence $2 d_{TL}$ pendant une période $T_L$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v = {2 d_{TL}}{T_L}    T_L = {2 d_{TL}}{v}$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+T_L &= {2  3{,}84  10^{8}}{1018} \\
+T_L &= {2{,}413  10^{9}}{1018} \\
+T_L & $2{,}37  10^{6}   $
+$$</div></div></div></div>
+<p>Conversion en jours :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T_L &= {2{,}37  10^{6}}{86400}  27{,}4 <br>$$</div></div></div></div></p>
+<strong>4. Comparaison et explication de la face cachée :</strong>
+<p>La période de rotation de la Lune sur elle-même est de $27{,}3$ jours, ce qui est pratiquement égal à sa période de révolution autour de la Terre ($T_L  27{,}4$ jours).</p>
+<p>Cette égalité signifie que la Lune effectue exactement un tour sur elle-même pendant qu'elle effectue un tour autour de la Terre. Par conséquent, elle présente toujours la <strong>même face</strong> vers la Terre. L'autre face, jamais visible depuis la Terre, est appelée la  face cachée de la Lune .</p>
+<div class="info-box">
+<strong>Remarque :</strong> Ce phénomène, appelé <strong>rotation synchrone</strong>, est d\^u aux effets de marée gravitationnelle exercés par la Terre sur la Lune au cours de milliards d'années.
+</div>
+<strong>Conclusion :</strong> $v  $1{,}02  10^{3}   $$ et $T_L  27{,}4$ jours, valeur égale à la période de rotation propre de la Lune, ce qui explique l'existence de la face cachée.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 7</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Déterminer la durée d'une année jovienne.
+</div>
+<p>La planète Jupiter parcourt son orbite autour du Soleil en une  année jovienne  de durée $T$.</p>
+<strong>Données :</strong>
+<ul><li>Distance moyenne Soleil-Jupiter : $d_{SJ} = $5{,}20   $$</li><li>$$1   $ = $1{,}496  10^{11}   $$</li><li>Masse du Soleil : $M_S = $1{,}99  10^{30}   $$</li><li>$G = $6{,}67  10^{-11}   $$
+</li></ul>
+<ol><li>Préciser le référentiel d'étude de l'orbite de Jupiter.</li><li>En assimilant l'orbite à un cercle de rayon $R = d_{SJ}$, montrer que le mouvement du centre de masse de Jupiter est uniforme et exprimer la valeur $v$ de sa vitesse en fonction de $G$, $M_S$ et $R$.</li><li>En déduire l'expression de la période de révolution $T$ de Jupiter autour du Soleil en fonction de $R$, $G$ et $M_S$.</li><li>Calculer $T$ en secondes, puis en années terrestres. Retrouver la valeur de l'année jovienne : $T  11{,}9$ années terrestres.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On applique la deuxième loi de Newton à Jupiter dans le référentiel héliocentrique pour montrer que le mouvement est uniforme, exprimer la vitesse, puis en déduire la période de révolution.
+</div>
+<strong>Données :</strong>
+<ul><li>$d_{SJ} = $5{,}20   $ = 5{,}20  1{,}496  10^{11} = $7{,}779  10^{11}   $$</li><li>$M_S = $1{,}99  10^{30}   $$, $G = 6{,}67  10^{-11} $$$
+</li></ul>
+<p>Posons $R = d_{SJ} = $7{,}779  10^{11}   $$.</p>
+<strong>1. Référentiel d'étude :</strong>
+<p>L'orbite de Jupiter est étudiée dans le <strong>référentiel héliocentrique</strong>, défini par le centre du Soleil et trois axes dirigés vers trois étoiles lointaines supposées fixes. Ce référentiel est supposé galiléen.</p>
+<strong>2. Mouvement uniforme et expression de $v$ :</strong>
+<strong>Système :</strong> centre de masse de Jupiter, de masse $m_J$.
+<strong>Force :</strong> la seule force est la force de gravitation exercée par le Soleil :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {R^2} _N$$</div></div></div></div>
+<p>La deuxième loi de Newton dans le repère de Frenet donne :</p>
+<p>Projection sur $_T$ : ${v}{t} = 0$, donc $v = $ : le mouvement est <strong>uniforme</strong>.</p>
+<p>Projection sur $_N$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>{R} &= {R^2}<br>$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${v = {{R}}}$$</div></div></div></div></p>
+<strong>3. Expression de la période $T$ :</strong>
+<p>Le mouvement étant circulaire uniforme :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v = {T}    T = {v}$$</div></div></div></div></p>
+<p>En remplaçant $v$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T &= {{{R}}} = 2 R  {{G M_S}} = 2  {{G M_S}}<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${T = 2 {{G M_S}}}$$</div></div></div></div>
+<strong>4. Calcul de $T$ :</strong>
+<strong>Application numérique :</strong>
+<p>Calculons d'abord $R^3$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>R^3 &= (7{,}779  10^{11})^3 = 4{,}706  10^{35} ^3<br>$$</div></div></div></div></p>
+<p>Puis :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>{G M_S} &= {4{,}706  10^{35}}{6{,}67  10^{-11}  1{,}99  10^{30}} = {4{,}706  10^{35}}{1{,}327  10^{20}} = 3{,}546  10^{15}<br>$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T &= 2  {3{,}546  10^{15}} \\<br>T &= 2  5{,}955  10^{7} \\<br>T & $3{,}742  10^{8}   $<br>$$</div></div></div></div></p>
+<p>Conversion en années terrestres :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T &= {3{,}742  10^{8}}{365{,}25  86400} = {3{,}742  10^{8}}{3{,}156  10^{7}}  11{,}9 <br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> On retrouve bien $T  11{,}9$ années terrestres, ce qui correspond à la durée de l'année jovienne.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 8</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Satellites de la constellation Galileo.
+</div>
+<p>La constellation Galileo de l'Agence Spatiale Européenne (ESA) est constituée de 30 satellites identiques de masse $m$ dont 24 évoluent sur des orbites circulaires à l'altitude $h = $23522   $$.</p>
+<strong>Données :</strong>
+<ul><li>$M_T = $5{,}97  10^{24}   $$</li><li>$R_T = $6370   $$</li><li>$G = $6{,}67  10^{-11}   $$
+</li></ul>
+<ol><li>Dans le repère de Frenet associé au centre de masse S d'un satellite, donner l'expression vectorielle de la force de gravitation $_{T/S}$ exercée par la Terre sur le satellite.</li><li>Sans souci d'échelle, représenter sur un schéma la Terre, le repère de Frenet et la force $_{T/S}$ pour un satellite de la constellation.</li><li>\`A l'aide de la deuxième loi de Newton, exprimer le vecteur accélération $$ du centre de masse S en fonction des données.</li><li>Montrer que le mouvement du satellite est uniforme et calculer la valeur $v$ de sa vitesse en $$ puis en $$.</li><li>Calculer la période de révolution d'un satellite Galileo en heures.</li><li>Comparer cette période à celle d'un satellite géostationnaire. Quel intérêt présente la constellation Galileo par rapport à un unique satellite géostationnaire pour un système de positionnement ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On écrit la force de gravitation dans le repère de Frenet, on applique la deuxième loi de Newton, on montre que le mouvement est uniforme, et on en déduit vitesse et période.
+</div>
+<strong>Données :</strong>
+<ul><li>$M_T = $5{,}97  10^{24}   $$, $R_T = $6370   $ = $6{,}370  10^{6}   $$, $h = $23522   $ = $2{,}3522  10^{7}   $$</li><li>$G = 6{,}67  10^{-11} $$$</li><li>Rayon de l'orbite : $r = R_T + h = 6{,}370  10^{6} + 2{,}3522  10^{7} = $2{,}9892  10^{7}   $$
+</li></ul>
+<strong>1. Expression vectorielle de la force de gravitation :</strong>
+<p>Dans le repère de Frenet, avec $_N$ orienté vers le centre de la Terre :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{T/S} = {r^2} _N$$</div></div></div></div></p>
+<p>o\`u $m$ est la masse du satellite et $r = R_T + h$ le rayon de l'orbite.</p>
+<strong>2. Schéma :</strong>
+<p>Le schéma doit représenter :<br><ul><li>la Terre au centre ;</li><li>l'orbite circulaire de rayon $r$ ;</li><li>le satellite S sur l'orbite ;</li><li>$_T$ tangent à l'orbite dans le sens du mouvement ;</li><li>$_N$ dirigé vers le centre de la Terre ;</li><li>$_{T/S}$ dans le même sens que $_N$ (vers le centre de la Terre).<br></li></ul></p>
+<strong>3. Vecteur accélération :</strong>
+<p>La deuxième loi de Newton : $m  = _{T/S}$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {r^2} _N$$</div></div></div></div></p>
+<p>L'accélération ne dépend pas de la masse $m$ du satellite.</p>
+<strong>4. Mouvement uniforme et calcul de $v$ :</strong>
+<p>Dans le repère de Frenet :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {v}{t} _T + {r} _N$$</div></div></div></div></p>
+<p>Par identification :<br><ul><li>${v}{t} = 0$ : le mouvement est <strong>uniforme</strong>.</li><li>${r} = {r^2}$ donc $v = {{r}}$.<br></li></ul></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v &= {{6{,}67  10^{-11}  5{,}97  10^{24}}{2{,}9892  10^{7}}} \\
+v &= {{3{,}982  10^{14}}{2{,}9892  10^{7}}} \\
+v &= {1{,}332  10^{7}} \\
+v & $3650   $
+$$</div></div></div></div>
+<p>En $$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>v &= 3650  3{,}6  $13140   $<br>$$</div></div></div></div></p>
+<strong>5. Période de révolution :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+T &= {v} = {2  2{,}9892  10^{7}}{3650} \\
+T &= {1{,}879  10^{8}}{3650} \\
+T & $51470   $
+$$</div></div></div></div>
+<p>En heures :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T &= {3600}  14{,}3 <br>$$</div></div></div></div></p>
+<strong>6. Comparaison avec un satellite géostationnaire :</strong>
+<p>La période d'un satellite géostationnaire est $T_{} = 24$ h. La période d'un satellite Galileo est d'environ $14{,}3$ h, soit nettement plus courte.</p>
+<strong>Intérêt pour le positionnement :</strong> Un satellite géostationnaire unique ne couvre qu'une zone géographique fixe (au-dessus de l'équateur). La constellation Galileo, avec ses 24 satellites actifs répartis sur plusieurs plans orbitaux à plus basse altitude, permet de couvrir la <strong>totalité du globe terrestre</strong>, y compris les régions polaires. De plus, la multiplicité des satellites permet une meilleure précision de positionnement par triangulation.
+<strong>Conclusion :</strong> $v  $3650   $$ ($ $13100   $$) et $T  14{,}3$ h.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 9</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Durée d'une année martienne.
+</div>
+<p>La planète Mars parcourt son orbite autour du Soleil en une  année martienne  de durée $T_M = 687$ jours.</p>
+<strong>Données :</strong>
+<ul><li>Distance moyenne Soleil-Mars : $d_{SM} = $1{,}52   $$</li><li>Période de révolution de la Terre : $T_T = 365,25 $</li><li>Distance moyenne Soleil-Terre : $d_{ST} = $1{,}00   $$
+</li></ul>
+<ol><li>Vérifier que la valeur de l'année martienne est cohérente avec la troisième loi de Kepler en calculant le quotient ${d^3}$ pour la Terre et pour Mars. Conclure.</li><li>En déduire la valeur de la constante de Kepler $k = {a^3}$ dans le Système solaire, en précisant l'unité utilisée.</li><li>Un astéro\"ide se situe à une distance moyenne de $$2{,}77   $$ du Soleil. Calculer sa période de révolution en jours et en années terrestres.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On vérifie la troisième loi de Kepler en calculant le rapport $T^2/d^3$ pour la Terre et pour Mars, puis on utilise cette constante pour un astéro\"ide.
+</div>
+<strong>Données :</strong>
+<ul><li>$T_T = 365{,}25 $, $d_{ST} = $1{,}00   $$</li><li>$T_M = 687 $, $d_{SM} = $1{,}52   $$
+</li></ul>
+<strong>1. Vérification de la troisième loi de Kepler :</strong>
+<p>Calculons le rapport ${d^3}$ pour chaque planète, en utilisant les unités jours et ua.</p>
+<strong>Pour la Terre :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{d_{ST}^3} &= {(365{,}25)^2}{(1{,}00)^3} = {1{,}00} = 1{,}334  10^{5} ^2^{-3}
+$$</div></div></div></div>
+<strong>Pour Mars :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{d_{SM}^3} &= {(1{,}52)^3} = {3{,}512}  1{,}344  10^{5} ^2^{-3}
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Les deux quotients sont très proches ($1{,}334  10^{5}$ et $1{,}344  10^{5}$), soit un écart relatif inférieur à 1
+<strong>2. Constante de Kepler :</strong>
+<p>En prenant la valeur moyenne :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$k = {a^3}  1{,}34  10^{5} ^2^{-3}$$</div></div></div></div></p>
+<div class="info-box">
+<strong>Remarque :</strong> Si on utilise les unités SI (secondes et mètres), la constante de Kepler a une valeur différente. La constante ne dépend que de la masse de l'astre attracteur (le Soleil) : $k = {G M_S}$.
+</div>
+<strong>3. Période de révolution de l'astéro\"ide :</strong>
+<strong>Données :</strong> $d_A = $2{,}77   $$.
+<strong>Méthode :</strong> On utilise la constante de Kepler :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${d_A^3} = k    T_A^2 = k  d_A^3$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+d_A^3 &= (2{,}77)^3 = 21{,}25 ^3
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+T_A^2 &= 1{,}334  10^{5}  21{,}25 = 2{,}835  10^{6} ^2
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+T_A &= {2{,}835  10^{6}}  1684 
+$$</div></div></div></div>
+<p>En années terrestres :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T_A &= {365{,}25}  4{,}61 <br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> La période de révolution de l'astéro\"ide est d'environ $1684$ jours, soit environ $4{,}6$ années terrestres. On peut noter que cette distance (2,77 ua) correspond à la ceinture principale d'astéro\"ides, située entre Mars et Jupiter.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 10</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Changement d'orbite d'un satellite terrestre.
+</div>
+<p>On souhaite transférer un satellite placé en orbite circulaire basse autour de la Terre, à l'altitude $h = $200   $$, vers l'orbite géostationnaire d'altitude $h_{} = $36000   $$. Le transfert s'effectue en faisant transiter le satellite sur une orbite elliptique dont la Terre est l'un des foyers, par modification instantanée de sa vitesse aux points P et A indiqués sur la figure.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.688596 -61.199497 124.735541 127.074562'>
+<defs/>
+<g id='page1'>
+<path d='M9.74214 6.515625C9.74214 .41016 4.79297-4.53904-1.3125-4.53904S-12.36716 .41016-12.36716 6.515625C-12.36716 12.62109-7.41797 17.57036-1.3125 17.57036S9.74214 12.62109 9.74214 6.515625Z' fill='#b3b3ff'/>
+<g transform='matrix(1 0 0 1 -9.76664 2.74461)'>
+<use x='-1.312856' y='6.514663' xlink:href='#g0-84'/>
+<use x='4.09609' y='6.514663' xlink:href='#g0-101'/>
+<use x='7.858835' y='6.514663' xlink:href='#g0-114'/>
+<use x='11.158154' y='6.514663' xlink:href='#g0-114'/>
+<use x='14.457473' y='6.514663' xlink:href='#g0-101'/>
+</g>
+<path d='M20.79684 6.515625C20.79684-5.69534 10.89844-15.59374-1.3125-15.59374C-13.52346-15.59374-23.42186-5.69534-23.42186 6.515625C-23.42186 18.72656-13.52346 28.62496-1.3125 28.62496C10.89844 28.62496 20.79684 18.72656 20.79684 6.515625Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 -65.37574 -19.18056)'>
+<use x='-1.312856' y='6.514663' xlink:href='#g0-79'/>
+<use x='5.271948' y='6.514663' xlink:href='#g0-114'/>
+<use x='8.571267' y='6.514663' xlink:href='#g0-98'/>
+<use x='13.274698' y='6.514663' xlink:href='#g0-105'/>
+<use x='15.626414' y='6.514663' xlink:href='#g0-116'/>
+<use x='18.918816' y='6.514663' xlink:href='#g0-101'/>
+<use x='25.50362' y='6.514663' xlink:href='#g0-98'/>
+<use x='30.207051' y='6.514663' xlink:href='#g0-97'/>
+<use x='34.44014' y='6.514663' xlink:href='#g0-115'/>
+<use x='37.779576' y='6.514663' xlink:href='#g0-115'/>
+<use x='41.119012' y='6.514663' xlink:href='#g0-101'/>
+</g>
+<path d='M57.64844 6.515625C57.64844-26.05074 31.25004-52.44534-1.3125-52.44534C-33.87496-52.44534-60.27346-26.05074-60.27346 6.515625C-60.27346 39.07816-33.87496 65.47656-1.3125 65.47656C31.25004 65.47656 57.64844 39.07816 57.64844 6.515625Z' stroke='#10b981' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<g fill='#10b981' transform='matrix(1 0 0 1 -41.42114 -67.71416)'>
+<use x='-1.312856' y='6.514663' xlink:href='#g0-79'/>
+<use x='5.271948' y='6.514663' xlink:href='#g0-114'/>
+<use x='8.571267' y='6.514663' xlink:href='#g0-98'/>
+<use x='13.274698' y='6.514663' xlink:href='#g0-105'/>
+<use x='15.626414' y='6.514663' xlink:href='#g0-116'/>
+<use x='18.918816' y='6.514663' xlink:href='#g0-101'/>
+<use x='25.50362' y='6.514663' xlink:href='#g0-103'/>
+<use x='29.736708' y='6.514663' xlink:href='#g0-233'/>
+<use x='33.499453' y='6.514663' xlink:href='#g0-111'/>
+<use x='37.732542' y='6.514663' xlink:href='#g0-115'/>
+<use x='41.071978' y='6.514663' xlink:href='#g0-116'/>
+<use x='44.36438' y='6.514663' xlink:href='#g0-97'/>
+<use x='48.597468' y='6.514663' xlink:href='#g0-116'/>
+<use x='51.88987' y='6.514663' xlink:href='#g0-105'/>
+<use x='54.241586' y='6.514663' xlink:href='#g0-111'/>
+<use x='58.474674' y='6.514663' xlink:href='#g0-110'/>
+<use x='63.178106' y='6.514663' xlink:href='#g0-110'/>
+<use x='67.881537' y='6.514663' xlink:href='#g0-97'/>
+<use x='72.114626' y='6.514663' xlink:href='#g0-105'/>
+<use x='74.466341' y='6.514663' xlink:href='#g0-114'/>
+<use x='77.76566' y='6.514663' xlink:href='#g0-101'/>
+</g>
+<path d='M39.22264 6.515625C39.22264-9.76564 21.07424-22.96484-1.3125-22.96484C-23.69926-22.96484-41.84766-9.76564-41.84766 6.515625C-41.84766 22.79686-23.69926 35.99606-1.3125 35.99606C21.07424 35.99606 39.22264 22.79686 39.22264 6.515625Z' stroke='#ec4899' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 -34.95734 42.17374)'>
+<use x='-1.312856' y='6.514663' xlink:href='#g0-79'/>
+<use x='5.271948' y='6.514663' xlink:href='#g0-114'/>
+<use x='8.571267' y='6.514663' xlink:href='#g0-98'/>
+<use x='13.274698' y='6.514663' xlink:href='#g0-105'/>
+<use x='15.626414' y='6.514663' xlink:href='#g0-116'/>
+<use x='18.918816' y='6.514663' xlink:href='#g0-101'/>
+<use x='25.50362' y='6.514663' xlink:href='#g0-100'/>
+<use x='30.207051' y='6.514663' xlink:href='#g0-101'/>
+<use x='36.791855' y='6.514663' xlink:href='#g0-116'/>
+<use x='40.084257' y='6.514663' xlink:href='#g0-114'/>
+<use x='43.383576' y='6.514663' xlink:href='#g0-97'/>
+<use x='47.616665' y='6.514663' xlink:href='#g0-110'/>
+<use x='52.320096' y='6.514663' xlink:href='#g0-115'/>
+<use x='55.659532' y='6.514663' xlink:href='#g0-102'/>
+<use x='58.24642' y='6.514663' xlink:href='#g0-101'/>
+<use x='62.009165' y='6.514663' xlink:href='#g0-114'/>
+<use x='65.308484' y='6.514663' xlink:href='#g0-116'/>
+</g>
+<path d='M-40.37496 6.515625C-40.37496 5.699219-41.03516 5.03906-41.84766 5.03906C-42.66406 5.03906-43.32426 5.699219-43.32426 6.515625C-43.32426 7.328125-42.66406 7.98828-41.84766 7.98828C-41.03516 7.98828-40.37496 7.328125-40.37496 6.515625Z' fill='#f00'/>
+<g fill='#f00' transform='matrix(1 0 0 1 -50.39594 2.74461)'>
+<use x='-1.312856' y='6.514663' xlink:href='#g0-65'/>
+</g>
+<path d='M22.26954 6.515625C22.26954 5.699219 21.61324 5.03906 20.79684 5.03906C19.98434 5.03906 19.32424 5.699219 19.32424 6.515625C19.32424 7.328125 19.98434 7.98828 20.79684 7.98828C21.61324 7.98828 22.26954 7.328125 22.26954 6.515625Z' fill='#f00'/>
+<g fill='#f00' transform='matrix(1 0 0 1 25.62926 2.74461)'>
+<use x='-1.312856' y='6.514663' xlink:href='#g0-80'/>
+</g>
+</g>
+</svg></div>
+</div>
+<strong>Données :</strong>
+<ul><li>Masse de la Terre : $M_T = $5{,}97  10^{24}   $$</li><li>Rayon de la Terre : $R_T = $6{,}38  10^{3}   $$</li><li>$G = $6{,}67  10^{-11}   $$
+</li></ul>
+<ol><li>Rappeler la définition d'un satellite géostationnaire et préciser sa période de révolution $T_{}$.</li><li>En déduire la période de révolution $T_{}$ du satellite sur l'orbite géostationnaire et vérifier que $h_{}  $36000   $$.</li><li>Exprimer la longueur $a$ du demi grand axe de l'orbite de transfert en fonction de $R_T$, $h$ et $h_{}$.</li><li>Calculer la valeur de $a$.</li><li>En utilisant la troisième loi de Kepler, en déduire la durée $ t$ du voyage du satellite sur l'orbite de transfert (c'est-à-dire la durée pour parcourir la demi-ellipse de P à A).
+<em>Indication : $ t$ correspond à la moitié de la période de révolution sur l'orbite de transfert.</em>
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise la géométrie de l'orbite de transfert (orbite de Hohmann) pour déterminer le demi grand axe de l'ellipse, puis la troisième loi de Kepler pour calculer la durée du transfert (demi-période de l'orbite elliptique).
+</div>
+<strong>Données :</strong>
+<ul><li>$h = $200   $$, $h_{} = $36000   $$</li><li>$R_T = $6{,}38  10^{3}   $ = $6{,}38  10^{6}   $$</li><li>$M_T = $5{,}97  10^{24}   $$, $G = 6{,}67  10^{-11} $$$
+</li></ul>
+<strong>1. Définition d'un satellite géostationnaire :</strong>
+<p>Un satellite géostationnaire est un satellite qui orbite dans le plan de l'équateur terrestre et qui appara\^it immobile pour un observateur à la surface de la Terre. Sa période de révolution est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$T_{} = 24  = $86400   $$</div></div>$</div></div></p>
+<p>{2. Vérification de $h_{}$ :}</p>
+<p>D'après la troisième loi de Kepler pour un satellite terrestre :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${r^3} = {G M_T}$$</div></div></div></div></p>
+<p>Le rayon de l'orbite géostationnaire est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>r_{} &= ({G M_T T_{}^2}{4^2})^{1/3}<br>$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+r_{}^3 &= {6{,}67  10^{-11}  5{,}97  10^{24}  (86400)^2}{4^2} \\
+&= {3{,}982  10^{14}  7{,}465  10^{9}}{39{,}48} \\
+&= {2{,}972  10^{24}}{39{,}48} = 7{,}527  10^{22}
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+r_{} &= (7{,}527  10^{22})^{1/3}  $4{,}22  10^{7}   $ = $42200   $
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+h_{} &= r_{} - R_T = 42200 - 6380 = $35820   $  $36000   $  
+$$</div></div></div></div>
+<strong>3. Expression du demi grand axe $a$ de l'orbite de transfert :</strong>
+<p>L'orbite de transfert est une ellipse dont :<br><ul><li>le périgée P est sur l'orbite basse, à la distance $r_P = R_T + h$ du centre de la Terre ;</li><li>l'apogée A est sur l'orbite géostationnaire, à la distance $r_A = R_T + h_{}$ du centre de la Terre.<br></li></ul></p>
+<p>Le demi grand axe d'une ellipse est la demi-somme des distances au périgée et à l'apogée :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${a = {2} = {(R_T + h) + (R_T + h_{})}{2} = {2R_T + h + h_{}}{2}}$$</div></div></div></div></p>
+<strong>4. Calcul de $a$ :</strong>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+a &= {(R_T + h) + (R_T + h_{})}{2} \\
+a &= {2} \\
+a &= {2} \\
+a &= {2} \\
+a &= $24480   $ = $2{,}448  10^{7}   $
+$$</div></div></div></div>
+<strong>5. Durée du voyage $ t$ :</strong>
+<strong>Méthode :</strong> La troisième loi de Kepler s'applique à l'orbite de transfert avec la même constante que pour toute orbite autour de la Terre :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${T_{}^2}{a^3} = {G M_T}$$</div></div></div></div>
+<p>La période de l'orbite de transfert est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$T_{} = 2 {{G M_T}}$$</div></div></div></div></p>
+<p>Le voyage de P à A correspond à un <strong>demi-tour</strong> de l'ellipse, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ t = {T_{}}{2} =  {{G M_T}}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<p>Calculons $a^3$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>a^3 &= (2{,}448  10^{7})^3 = 1{,}468  10^{22} ^3<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{G M_T} &= {1{,}468  10^{22}}{6{,}67  10^{-11}  5{,}97  10^{24}} = {1{,}468  10^{22}}{3{,}982  10^{14}} = 3{,}687  10^{7}
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+T_{} &= 2  {3{,}687  10^{7}} = 2  6072 = $38150   $
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ t &= {T_{}}{2} = {2}  $19080   $
+$$</div></div></div></div>
+<p>Conversion en heures :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br> t &= {3600}  5{,}3 <br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> Le demi grand axe de l'orbite de transfert est $a  $24480   $$. La durée du voyage de l'orbite basse à l'orbite géostationnaire est d'environ $ t  5{,}3$ h.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 11</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Du télescope Hubble au télescope James Webb.
+</div>
+<p>Le télescope spatial Hubble, de masse $m = 11$ tonnes, a été lancé en 1990. Il occupe une orbite basse quasi circulaire à une altitude $h = $600   $$ de la surface de la Terre et fournit des images dans le domaine du spectre ultraviolet, visible et proche infrarouge.</p>
+<p>Le télescope spatial James Webb, lancé en 2021, est placé à une distance proche de ${}$ million de kilomètres de la Terre en un point dénommé  point de Lagrange $L_2$ .</p>
+<strong>Données :</strong>
+<ul><li>Masse de la Terre : $M_T = $5{,}97  10^{24}   $$</li><li>Rayon de la Terre : $R_T = $6370   $$</li><li>$G = $6{,}67  10^{-11}   $$</li><li>Distance moyenne Soleil-Terre : $d = $1{,}496  10^{8}   $$
+</li></ul>
+<p>Le système constitué du télescope spatial Hubble est étudié dans le référentiel géocentrique en négligeant l'interaction gravitationnelle du Soleil avec le télescope.</p>
+<ol><li>Préciser la trajectoire du centre de masse M du télescope Hubble dans ce référentiel.</li><li>\`A partir de la deuxième loi de Newton, montrer que, dans l'approximation d'une orbite circulaire, le mouvement du centre de masse M du télescope Hubble est uniforme.</li><li>Montrer que l'expression de la valeur $v$ de la vitesse du centre de masse M du télescope Hubble dans le référentiel géocentrique est :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v = {{R_T + h}}$$</div></div></div></div></li><li>\'Etablir l'expression de la période de révolution $T$ du télescope Hubble en fonction de $R_T$, $h$ et $v$.</li><li>Rappeler la troisième loi de Kepler et montrer qu'elle est vérifiée dans le cas du télescope Hubble.</li><li>Calculer la période de révolution $T$ du centre de masse M du télescope Hubble, exprimée en minutes.</li><li>On envisage le cas o\`u le télescope James Webb serait positionné au point de Lagrange $L_2$. Le point $L_2$ est situé sur l'axe Soleil-Terre, du c\^oté opposé au Soleil par rapport à la Terre. Expliquer pourquoi le point $L_2$ a été choisi pour l'orbite du télescope James Webb plut\^ot que le point $L_1$ (situé entre le Soleil et la Terre).
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On applique la deuxième loi de Newton au télescope Hubble en orbite circulaire autour de la Terre dans le référentiel géocentrique. On établit les expressions de la vitesse et de la période, puis on vérifie la troisième loi de Kepler.
+</div>
+<strong>Données :</strong>
+<ul><li>$m = 11  = $1{,}1  10^{4}   $$, $h = $600   $ = $6{,}00  10^{5}   $$</li><li>$M_T = $5{,}97  10^{24}   $$, $R_T = $6370   $ = $6{,}370  10^{6}   $$</li><li>$G = 6{,}67  10^{-11} $$$</li><li>Rayon de l'orbite : $r = R_T + h = 6{,}370  10^{6} + 6{,}00  10^{5} = $6{,}970  10^{6}   $$
+</li></ul>
+<strong>1. Trajectoire du centre de masse M :</strong>
+<p>Dans le référentiel géocentrique, le centre de masse M du télescope Hubble décrit une <strong>trajectoire circulaire</strong> (orbite quasi circulaire) de rayon $r = R_T + h$ autour du centre de la Terre.</p>
+<strong>2. Démonstration du mouvement uniforme :</strong>
+<strong>Système :</strong> centre de masse du télescope Hubble, de masse $m$.
+<strong>Référentiel :</strong> géocentrique, supposé galiléen.
+<strong>Force :</strong> la seule force est la force de gravitation terrestre (on néglige l'interaction avec le Soleil) :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {r^2} _N$$</div></div></div></div>
+<p>Deuxième loi de Newton : $m  = $, soit $ = {r^2} _N$.</p>
+<p>Dans le repère de Frenet : $ = {v}{t} _T + {r} _N$.</p>
+<p>Par identification :<br><ul><li>${v}{t} = 0$ : la vitesse est constante, le mouvement est <strong>uniforme</strong>.</li><li>${r} = {r^2}$.<br></li></ul></p>
+<strong>3. Expression de la vitesse :</strong>
+<p>De la composante normale :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>v^2 &= {r} = {R_T + h}<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${v = {{R_T + h}}}$$</div></div></div></div>
+<strong>4. Expression de la période $T$ :</strong>
+<p>En mouvement circulaire uniforme :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v = {T} = {T}$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${T = {v}}$$</div></div></div></div></p>
+<strong>5. Vérification de la troisième loi de Kepler :</strong>
+<p>La troisième loi de Kepler stipule que ${r^3}$ est une constante pour tout satellite en orbite autour du même astre attracteur.</p>
+<p>Montrons-le : on a $v = {{r}}$ et $T = {v}$.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+T &= {{{r}}} = 2 {{G M_T}}
+$$</div></div></div></div>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T^2 &= 4^2 {G M_T}<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{r^3} &= {G M_T}
+$$</div></div></div></div>
+<p>Ce rapport ne dépend que de $G$ et $M_T$ : il est bien <strong>constant</strong> pour tous les satellites de la Terre. La troisième loi de Kepler est vérifiée.</p>
+<strong>6. Calcul de $T$ :</strong>
+<strong>Application numérique :</strong>
+<p>Calculons d'abord $v$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>v &= {{6{,}67  10^{-11}  5{,}97  10^{24}}{6{,}970  10^{6}}} \\<br>v &= {{3{,}982  10^{14}}{6{,}970  10^{6}}} = {5{,}714  10^{7}} \\<br>v & $7559   $<br>$$</div></div></div></div></p>
+<p>Puis :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T &= {2  6{,}970  10^{6}}{7559} \\<br>T &= {4{,}379  10^{7}}{7559} \\<br>T & $5793   $<br>$$</div></div></div></div></p>
+<p>Conversion en minutes :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T &= {60}  96{,}6 <br>$$</div></div></div></div></p>
+<strong>7. Choix du point $L_2$ pour James Webb :</strong>
+<p>Le point de Lagrange $L_1$ est situé entre le Soleil et la Terre. Un télescope placé en $L_1$ serait constamment éclairé par le Soleil (devant lui) <strong>et</strong> verrait la face éclairée de la Terre. L'observation de l'Univers profond serait gênée par la lumière solaire directe.</p>
+<p>Le point $L_2$ est situé du c\^oté opposé au Soleil par rapport à la Terre. Un télescope placé en $L_2$ :<br><ul><li>a le Soleil, la Terre et la Lune derrière lui (du même c\^oté) ;</li><li>se trouve en permanence dans l' ombre  de la Terre (au sens de la direction) ;</li><li>peut observer l'Univers profond en infrarouge sans être perturbé par la lumière solaire directe ;</li><li>peut être équipé d'un bouclier thermique qui le protège simultanément du Soleil et de la Terre.<br></li></ul></p>
+<p>Le point $L_2$ est donc idéal pour un télescope destiné à l'observation dans l'infrarouge, comme James Webb.</p>
+<strong>Conclusion :</strong> $T  96{,}6$ min $ 1$ h 37 min. Le point $L_2$ a été choisi pour James Webb car il permet de protéger le télescope de la lumière et de la chaleur du Soleil et de la Terre simultanément.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 12</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Communication entre la Lune et la capsule Apollo.
+</div>
+<p>\`A son arrivée au voisinage de la Lune, la capsule Apollo est mise en orbite à une altitude $h = $110   $$. Son mouvement est circulaire et uniforme autour du centre de la Lune. Le module lunaire (LEM) est alors envoyé vers la Lune, avec deux astronautes à son bord. Le troisième astronaute reste à bord de la capsule Apollo.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-68.582105 -70.007905 138.511826 80.16811'>
+<defs>
+<path id='g0-76' d='M2.594271-3.592528C2.642092-3.789788 2.654047-3.843587 3.263761-3.843587C3.407223-3.843587 3.478954-3.843587 3.478954-3.993026C3.478954-4.010959 3.466999-4.08269 3.377335-4.08269C3.233873-4.08269 3.078456-4.064757 2.934994-4.064757C2.773599-4.064757 2.600249-4.05878 2.438854-4.05878C2.30137-4.05878 2.163885-4.064757 2.026401-4.064757S1.733499-4.08269 1.596015-4.08269C1.560149-4.08269 1.464508-4.08269 1.464508-3.93325C1.464508-3.843587 1.542217-3.843587 1.655791-3.843587C1.763387-3.843587 1.912827-3.843587 2.038356-3.801743C2.038356-3.741968 2.038356-3.706102 2.014446-3.610461L1.231382-.496139C1.177584-.280946 1.165629-.239103 .71731-.239103C.579826-.239103 .502117-.239103 .502117-.089664C.502117 0 .579826 0 .687422 0H3.855542C4.010959 0 4.016936-.005978 4.05878-.119552C4.118555-.268991 4.584807-1.464508 4.584807-1.500374C4.584807-1.560149 4.536986-1.596015 4.471233-1.596015C4.393524-1.596015 4.375592-1.554172 4.345704-1.482441C4.076712-.806974 3.777833-.239103 2.701868-.239103H1.966625C1.853051-.239103 1.841096-.239103 1.769365-.257036L2.594271-3.592528Z'/>
+<path id='g1-82' d='M3.092403-4.885679C3.164134-5.156663 3.172105-5.180573 3.498879-5.180573H4.144458C4.798007-5.180573 5.411706-5.0132 5.411706-4.367621C5.411706-4.016936 5.228394-3.459029 4.861768-3.196015C4.479203-2.925031 4.024907-2.83736 3.56264-2.83736H2.582316L3.092403-4.885679ZM4.447323-2.709838C5.427646-2.956912 6.192777-3.55467 6.192777-4.23213C6.192777-4.925529 5.411706-5.443587 4.303861-5.443587H1.952677C1.809215-5.443587 1.705604-5.443587 1.705604-5.292154C1.705604-5.180573 1.809215-5.180573 1.936737-5.180573C2.199751-5.180573 2.430884-5.180573 2.430884-5.053051C2.430884-5.021171 2.422914-5.0132 2.399004-4.909589L1.331009-.629639C1.259278-.326775 1.243337-.263014 .653549-.263014C.502117-.263014 .406476-.263014 .406476-.111582C.406476-.079701 .430386 0 .533998 0C.68543 0 .868742-.01594 1.028144-.02391H1.522291C2.263512-.02391 2.494645 0 2.542466 0S2.701868 0 2.701868-.151432C2.701868-.263014 2.598257-.263014 2.462765-.263014C2.438854-.263014 2.295392-.263014 2.1599-.278954C1.992528-.294894 1.976588-.318804 1.976588-.390535C1.976588-.430386 1.992528-.478207 2.000498-.518057L2.518555-2.614197H3.55467C4.27198-2.614197 4.495143-2.231631 4.495143-1.904857C4.495143-1.793275 4.439352-1.570112 4.399502-1.40274C4.335741-1.171606 4.25604-.852802 4.25604-.70934C4.25604-.095641 4.782067 .167372 5.371856 .167372C6.065255 .167372 6.39203-.613699 6.39203-.765131C6.39203-.797011 6.36812-.876712 6.264508-.876712C6.176837-.876712 6.152927-.804981 6.144956-.773101C5.969614-.223163 5.626899-.055791 5.395766-.055791C5.100872-.055791 5.068991-.278954 5.068991-.541968S5.116812-1.155666 5.148692-1.41868C5.180573-1.657783 5.180573-1.705604 5.180573-1.785305C5.180573-2.263512 4.869738-2.542466 4.447323-2.709838Z'/>
+<path id='g1-104' d='M2.327273-5.292154C2.335243-5.308095 2.359153-5.411706 2.359153-5.419676C2.359153-5.459527 2.327273-5.531258 2.231631-5.531258C2.199751-5.531258 1.952677-5.507347 1.769365-5.491407L1.323039-5.459527C1.147696-5.443587 1.067995-5.435616 1.067995-5.292154C1.067995-5.180573 1.179577-5.180573 1.275218-5.180573C1.657783-5.180573 1.657783-5.132752 1.657783-5.061021C1.657783-5.037111 1.657783-5.021171 1.617933-4.877709L.486177-.342715C.454296-.223163 .454296-.175342 .454296-.167372C.454296-.03188 .565878 .079701 .71731 .079701C.844832 .079701 .956413 0 1.020174-.103611C1.044085-.151432 1.107846-.406476 1.147696-.565878L1.331009-1.275218C1.354919-1.39477 1.43462-1.697634 1.458531-1.817186C1.578082-2.279452 1.578082-2.295392 1.753425-2.550436C2.024408-2.940971 2.399004-3.291656 2.933001-3.291656C3.219925-3.291656 3.387298-3.124284 3.387298-2.749689C3.387298-2.311333 3.052553-1.40274 2.901121-1.012204C2.797509-.749191 2.797509-.70137 2.797509-.597758C2.797509-.143462 3.172105 .079701 3.514819 .079701C4.29589 .079701 4.622665-1.036115 4.622665-1.139726C4.622665-1.219427 4.558904-1.243337 4.503113-1.243337C4.407472-1.243337 4.391532-1.187547 4.367621-1.107846C4.176339-.454296 3.841594-.143462 3.53873-.143462C3.411208-.143462 3.347447-.223163 3.347447-.406476S3.411208-.765131 3.490909-.964384C3.610461-1.267248 3.961146-2.183811 3.961146-2.630137C3.961146-3.227895 3.5467-3.514819 2.972852-3.514819C2.526526-3.514819 2.10411-3.323537 1.737484-2.901121L2.327273-5.292154Z'/>
+</defs>
+<g id='page1'>
+<path d='M-8.6563-29.92578C-8.6563-40.8828-17.5391-49.7656-28.496094-49.7656C-39.457-49.7656-48.3398-40.8828-48.3398-29.92578C-48.3398-18.9648-39.457-10.082-28.496094-10.082C-17.5391-10.082-8.6563-18.9648-8.6563-29.92578Z' fill='#d9d9d9'/>
+<g transform='matrix(1 0 0 1 -9.2285 2.7446)'>
+<use x='-28.497702' y='-29.924131' xlink:href='#g2-76'/>
+<use x='-23.210492' y='-29.924131' xlink:href='#g2-117'/>
+<use x='-18.50706' y='-29.924131' xlink:href='#g2-110'/>
+<use x='-13.803629' y='-29.924131' xlink:href='#g2-101'/>
+</g>
+<path d='M11.1875-29.92578C11.1875-51.8437-6.5781-69.6094-28.496094-69.6094C-50.4141-69.6094-68.1836-51.8437-68.1836-29.92578C-68.1836-8.0078-50.4141 9.7617-28.496094 9.7617C-6.5781 9.7617 11.1875-8.0078 11.1875-29.92578Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M13.1719-29.92578C13.1719-31.01953 12.2852-31.91016 11.1875-31.91016S9.2031-31.01953 9.2031-29.92578C9.2031-28.82812 10.0898-27.94141 11.1875-27.94141S13.1719-28.82812 13.1719-29.92578Z' fill='#0e7490'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 46.1806 1.9699)'>
+<use x='-28.497702' y='-29.924131' xlink:href='#g2-67'/>
+<use x='-22.383241' y='-29.924131' xlink:href='#g2-97'/>
+<use x='-18.150153' y='-29.924131' xlink:href='#g2-112'/>
+<use x='-13.446721' y='-29.924131' xlink:href='#g2-115'/>
+<use x='-10.107285' y='-29.924131' xlink:href='#g2-117'/>
+<use x='-5.403854' y='-29.924131' xlink:href='#g2-108'/>
+<use x='-3.052138' y='-29.924131' xlink:href='#g2-101'/>
+<use x='3.532666' y='-29.924131' xlink:href='#g2-65'/>
+<use x='9.873999' y='-29.924131' xlink:href='#g2-112'/>
+<use x='14.812602' y='-29.924131' xlink:href='#g2-111'/>
+<use x='19.04569' y='-29.924131' xlink:href='#g2-108'/>
+<use x='21.397406' y='-29.924131' xlink:href='#g2-108'/>
+<use x='23.749121' y='-29.924131' xlink:href='#g2-111'/>
+</g>
+<path d='M-40.4023-16.0352C-40.4023-17.1289-41.293-18.0195-42.3867-18.0195C-43.4844-18.0195-44.3711-17.1289-44.3711-16.0352C-44.3711-14.9375-43.4844-14.0508-42.3867-14.0508C-41.293-14.0508-40.4023-14.9375-40.4023-16.0352Z' fill='#ec4899'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 -38.1905 24.88243)'>
+<use x='-28.497702' y='-29.924131' xlink:href='#g2-76'/>
+<use x='-23.210492' y='-29.924131' xlink:href='#g2-69'/>
+<use x='-17.452938' y='-29.924131' xlink:href='#g2-77'/>
+</g>
+<path d='M-27.699219-29.92578H-9.4531' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-25.54688-26.8125C-26.01563-28.67969-27.05469-29.562499-28.097657-29.92578C-27.05469-30.285155-26.01563-31.16797-25.54688-33.03516' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M-11.60547-33.03516C-11.13672-31.16797-10.10156-30.285155-9.054689-29.92578C-10.10156-29.562499-11.13672-28.67969-11.60547-26.8125' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<g transform='matrix(1 0 0 1 3.9538 -5.0577)'>
+<use x='-28.497702' y='-29.924131' xlink:href='#g1-82'/>
+<use x='-22.11981' y='-28.584702' xlink:href='#g0-76'/>
+</g>
+<path d='M-7.8594-29.92578H10.3906' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M-5.70703-26.8125C-6.17188-28.67969-7.21094-29.562499-8.257814-29.92578C-7.21094-30.285155-6.17188-31.16797-5.70703-33.03516' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M8.23833-33.03516C8.70317-31.16797 9.74224-30.285155 10.789112-29.92578C9.74224-29.562499 8.70317-28.67969 8.23833-26.8125' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<g transform='matrix(1 0 0 1 27.32404 -3.7182)'>
+<use x='-28.497702' y='-29.924131' xlink:href='#g1-104'/>
+</g>
+</g>
+</svg></div>
+</div>
+<p>L'étude du mouvement de la capsule se fait dans le référentiel lunocentrique supposé galiléen, défini par le centre de la Lune supposée sphérique et trois axes dirigés vers trois étoiles fixes.</p>
+<strong>Données :</strong>
+<ul><li>Rayon de la Lune : $R_L = $1{,}74  10^{3}   $$</li><li>Masse de la Lune : $M_L = $7{,}33  10^{22}   $$</li><li>$G = $6{,}67  10^{-11}   $$</li><li>Vitesse de la lumière (et des ondes radio) : $c = $3{,}00  10^{8}   $$
+</li></ul>
+<ol><li>Représenter sur un schéma la Lune, l'orbite de la capsule Apollo, le repère de Frenet au centre de masse de la capsule, et la force de gravitation exercée par la Lune.</li><li>En appliquant la deuxième loi de Newton, montrer que le mouvement de la capsule est circulaire uniforme.</li><li>\'Etablir l'expression de la vitesse $v$ de la capsule en fonction de $G$, $M_L$, $R_L$ et $h$, puis calculer sa valeur numérique.</li><li>\'Etablir l'expression de la période de révolution $T$ de la capsule, puis la calculer en minutes.</li><li>Expliquer pourquoi la communication entre les astronautes posés sur la Lune et leur collègue resté dans la capsule ne peut se faire que si cette dernière ne passe pas derrière la Lune par rapport au LEM.</li><li>Déterminer la durée maximale de la communication entre le LEM et la capsule à chaque révolution de la capsule. On pourra admettre que, vu la faible altitude de l'orbite, la capsule est visible depuis le LEM pendant la moitié de sa révolution.</li><li>Calculer le temps mis par un signal radio pour parcourir la distance entre le LEM posé sur la Lune et la capsule Apollo en orbite. Ce délai est-il perceptible par les astronautes ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On applique la deuxième loi de Newton à la capsule Apollo en orbite circulaire autour de la Lune dans le référentiel lunocentrique. On établit vitesse et période, puis on analyse les conditions de communication et le délai de transmission.
+</div>
+<strong>Données :</strong>
+<ul><li>$R_L = $1{,}74  10^{3}   $ = $1{,}74  10^{6}   $$, $h = $110   $ = $1{,}10  10^{5}   $$</li><li>$M_L = $7{,}33  10^{22}   $$, $G = 6{,}67  10^{-11} $$$</li><li>$c = $3{,}00  10^{8}   $$</li><li>Rayon de l'orbite : $r = R_L + h = 1{,}74  10^{6} + 1{,}10  10^{5} = $1{,}85  10^{6}   $$
+</li></ul>
+<strong>1. Schéma :</strong>
+<p>Le schéma doit représenter :<br><ul><li>la Lune (sphère au centre) de rayon $R_L$ ;</li><li>l'orbite circulaire de la capsule Apollo de rayon $r = R_L + h$ ;</li><li>la capsule Apollo sur l'orbite ;</li><li>le vecteur $_T$ tangent à l'orbite, dans le sens du mouvement ;</li><li>le vecteur $_N$ dirigé vers le centre de la Lune ;</li><li>la force de gravitation $_{L/A}$ dirigée vers le centre de la Lune (même sens que $_N$).<br></li></ul></p>
+<strong>2. Démonstration du mouvement circulaire uniforme :</strong>
+<strong>Système :</strong> centre de masse de la capsule Apollo, de masse $m$.
+<strong>Référentiel :</strong> lunocentrique, supposé galiléen.
+<strong>Force appliquée :</strong> la force de gravitation exercée par la Lune :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{L/A} = {r^2} _N$$</div></div></div></div>
+<p>Deuxième loi de Newton : $m  = _{L/A}$</p>
+<p>Donc : $ = {r^2} _N$</p>
+<p>Dans le repère de Frenet : $ = {v}{t} _T + {r} _N$</p>
+<p>Par identification des composantes :<br><ul><li>Composante tangentielle : ${v}{t} = 0$, donc $v = $.</li><li>Composante normale : ${r} = {r^2}$.<br></li></ul></p>
+<p>La dérivée de la vitesse est nulle : le mouvement est <strong>circulaire uniforme</strong>.</p>
+<strong>3. Expression et calcul de la vitesse $v$ :</strong>
+<p>De la composante normale :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>v^2 &= {r} = {R_L + h}<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${v = {{R_L + h}}}$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v &= {{6{,}67  10^{-11}  7{,}33  10^{22}}{1{,}85  10^{6}}} \\
+v &= {{4{,}889  10^{12}}{1{,}85  10^{6}}} \\
+v &= {2{,}643  10^{6}} \\
+v & $1626   $  $1{,}63  10^{3}   $
+$$</div></div></div></div>
+<strong>4. Expression et calcul de la période $T$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$T = {v} = {v}$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+T &= {2  1{,}85  10^{6}}{1626} \\
+T &= {1{,}162  10^{7}}{1626} \\
+T & $7148   $
+$$</div></div></div></div>
+<p>Conversion en minutes :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T &= {60}  119   2  00 <br>$$</div></div></div></div></p>
+<strong>5. Condition de communication :</strong>
+<p>Les ondes radio se propagent en ligne droite. Pour que la communication soit possible entre le LEM (posé à la surface de la Lune) et la capsule Apollo (en orbite), il faut que la capsule soit  visible  depuis le LEM, c'est-à-dire qu'il n'y ait pas d'obstacle entre les deux.</p>
+<p>Lorsque la capsule passe <strong>derrière la Lune</strong> par rapport au LEM, la masse de la Lune bloque les ondes radio : la communication est alors <strong>impossible</strong>. La communication n'est possible que lorsque la capsule survole l'hémisphère de la Lune o\`u se trouve le LEM.</p>
+<strong>6. Durée maximale de communication :</strong>
+<p>On admet que, vu la faible altitude de l'orbite ($h = $110   $$ à comparer à $R_L = $1740   $$), la capsule est visible depuis le LEM pendant environ la <strong>moitié</strong> de sa révolution.</p>
+<p>Durée de communication maximale par révolution :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br> t_{} &= {2} = {2}  $3574   $  59{,}6   1 <br>$$</div></div></div></div></p>
+<div class="info-box">
+<strong>Remarque :</strong> Pendant l'autre moitié de la révolution (environ 1 h également), la capsule se trouve derrière la Lune et aucune communication n'est possible. L'astronaute resté dans la capsule est alors complètement isolé.
+</div>
+<strong>7. Temps de propagation du signal radio :</strong>
+<strong>Méthode :</strong> Le signal radio se propage à la vitesse de la lumière $c$. La distance maximale entre le LEM et la capsule est approximativement égale à l'altitude $h$ de l'orbite (lorsque la capsule est à la verticale du LEM) ou un peu plus dans d'autres configurations. Prenons la distance typique $d  h = $110   $ = $1{,}10  10^{5}   $$ (ordre de grandeur).
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ t_{} &= {c} = {1{,}10  10^{5}}{3{,}00  10^{8}} \\
+ t_{} & 3{,}7  10^{-4} $$  $0{,}37   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Le délai de propagation est d'environ $$0{,}37   $$, soit moins d'un millième de seconde. Ce délai est absolument <strong>imperceptible</strong> par les astronautes (le seuil de perception humaine est de l'ordre de quelques dizaines de millisecondes). La communication se fait donc en temps réel pour les astronautes, tant que la capsule est visible depuis le LEM.
+<div class="info-box">
+<strong>Récapitulatif de l'exercice :</strong>
+<ul><li>Vitesse de la capsule : $v  $1630   $$</li><li>Période : $T  119$ min $$ 2 h</li><li>Durée de communication par révolution : environ 1 h</li><li>Délai de transmission radio : $ $0{,}4   $$ (imperceptible)
+</li></ul>
+</div>
+                </div>
+            </details>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="cours_mouvements_satellites_planetes.html" class="btn-action">📖 Revoir le cours</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=mouvements_satellites_planetes" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=mouvements_satellites_planetes" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Mouvements d'un fluide | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+
+    <style>
+        .graph-container { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; max-width: 600px; margin: 25px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .svg-grid { stroke: #cbd5e1; stroke-width: 1; }
+        .svg-grid-minor { stroke: #f1f5f9; stroke-width: 1; }
+        .svg-axis { stroke: #1e293b; stroke-width: 2; }
+        .svg-text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #475569; }
+        .svg-text-bold { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #1e293b; }
+        .svg-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; fill: #0f172a; text-anchor: middle; }
+        .svg-line { stroke: #3b82f6; stroke-width: 3; stroke-linecap: round; }
+        .svg-point { stroke: #ef4444; stroke-width: 2; fill: none; }
+        body.dark-mode .graph-container { background: #0f172a; border-color: #334155; }
+        body.dark-mode .svg-grid { stroke: #334155; }
+        body.dark-mode .svg-grid-minor { stroke: #1e293b; }
+        body.dark-mode .svg-axis { stroke: #cbd5e1; }
+        body.dark-mode .svg-text { fill: #94a3b8; }
+        body.dark-mode .svg-text-bold { fill: #f8fafc; }
+        body.dark-mode .svg-title { fill: #f8fafc; }
+        body.dark-mode .svg-line { stroke: #60a5fa; }
+    </style>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">📝</span>
+                <h1 class="hero-title">Exercices : Mouvements d'un fluide</h1>
+            </div>
+        </header>
+
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 1</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Fluide incompressible -- Définitions de base.
+</div>
+<p>Pour chacune des affirmations suivantes, indiquer si elle est <strong>vraie</strong> ou <strong>fausse</strong>. Justifier chaque réponse en une phrase.</p>
+<ol><li>Un fluide incompressible est un fluide dont la masse volumique $$ reste constante au cours de l'écoulement.</li><li>Le débit volumique $D_v$ d'un fluide s'exprime en $$$$.</li><li>Un fluide peut être considéré comme incompressible si la vitesse d'écoulement est très supérieure à la célérité des ondes acoustiques dans ce fluide.</li><li>La poussée d'Archimède s'exerce sur un corps immergé dans un fluide, verticalement vers le bas.</li><li>La norme de la poussée d'Archimède est égale au poids du fluide déplacé par le corps.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Pour chaque affirmation, on rappelle la définition ou la propriété concernée, puis on vérifie si l'affirmation est conforme.
+</div>
+<ol><li><strong>VRAI.</strong>
+<p>Un fluide incompressible est, par définition, un fluide dont la masse volumique $$ ne varie pas au cours de l'écoulement : $ = $.</p>
+<strong>Conclusion :</strong> L'affirmation est correcte.</li><li><strong>VRAI.</strong>
+<p>Le débit volumique $D_v$ représente le volume de fluide qui traverse une section par unité de temps. Son expression est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$D_v = v  S$$</div></div></div></div><br>où $v$ est en $$$$ et $S$ en $$$$, donc $D_v$ s'exprime bien en $$$$.</p>
+<strong>Conclusion :</strong> L'affirmation est correcte.</li><li><strong>FAUX.</strong>
+<p>Un fluide peut être considéré comme incompressible si la vitesse d'écoulement est très <strong>inférieure</strong> (et non supérieure) à la célérité des ondes acoustiques dans ce fluide. Si la vitesse est trop grande (proche ou supérieure à celle du son), des effets de compressibilité apparaissent.</p>
+<strong>Conclusion :</strong> L'affirmation est fausse. La condition correcte est $v  c_{}$.</li><li><strong>FAUX.</strong>
+<p>La poussée d'Archimède $_A$ s'exerce bien sur un corps immergé dans un fluide, mais elle est dirigée verticalement <strong>vers le haut</strong> (et non vers le bas). Elle s'oppose au poids du fluide déplacé.</p>
+<strong>Conclusion :</strong> L'affirmation est fausse. La poussée d'Archimède est verticale, dirigée vers le haut.</li><li><strong>VRAI.</strong>
+<p>La norme de la poussée d'Archimède vaut :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_A = _{}  V_{}  g$$</div></div></div></div><br>Or, $_{}  V_{} = m_{}$ est la masse de fluide déplacé. Donc $_A = m_{}  g = P_{}$, c'est-à-dire le poids du fluide déplacé.</p>
+<strong>Conclusion :</strong> L'affirmation est correcte.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 2</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Débit volumique et conservation du débit.
+</div>
+<p>De l'eau s'écoule dans un tuyau cylindrique de section $S_1 = $20   $$ à la vitesse $v_1 = $0{,}50   $$.</p>
+<ol><li>Rappeler l'expression du débit volumique $D_v$ en fonction de la vitesse $v$ et de la section $S$ de la conduite.</li><li>Calculer le débit volumique $D_v$ de l'eau dans ce tuyau. Exprimer le résultat en $$$$ puis en $$$$.</li><li>Le tuyau se rétrécit et la section devient $S_2 = $5{,}0   $$. En admettant que le fluide est incompressible, déterminer la vitesse $v_2$ de l'eau dans la partie rétrécie.</li><li>La vitesse augmente-t-elle ou diminue-t-elle lorsque la section diminue ? Justifier à l'aide de la conservation du débit volumique.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise la relation $D_v = v  S$ et la conservation du débit volumique pour un fluide incompressible : $D_v = v_1  S_1 = v_2  S_2$.
+</div>
+<strong>Données :</strong>
+<ul><li>$S_1 = $20   $$</li><li>$v_1 = $0{,}50   $$</li><li>$S_2 = $5{,}0   $$
+</li></ul>
+<ol><li><strong>Expression du débit volumique :</strong>
+<p>Le débit volumique $D_v$ est le volume de fluide qui traverse une section $S$ par unité de temps. Il s'exprime par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div><br>où $v$ est la vitesse d'écoulement (en $$$$) et $S$ est l'aire de la section droite de la conduite (en $$$$).</li><li><strong>Calcul du débit volumique :</strong></p>
+<p>On commence par convertir la section en $$$$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$S_1 = $20   $ = 20  10^{-4} $$ = 20  10^{-4} $$$</div></div>$</div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+D_v &= v_1  S_1 \\
+D_v &= 0{,}50  20  10^{-4} \\
+D_v &= 1{,}0  10^{-3} $$
+$$</div></div></div></div>
+<p>Conversion en $$$$ :<br><ul><li>$$1   $ = $1000   $$, donc $D_v = 1{,}0  10^{-3}  1000 = $1{,}0   $$.</li><li>En une minute : $D_v = 1{,}0  60 = $60   $$.<br></li></ul></p>
+<strong>Conclusion :</strong> ${D_v = 1{,}0  10^{-3} $$ = $60   $}$</li><li><strong>Vitesse dans la partie rétrécie :</strong>
+<p>Pour un fluide incompressible en écoulement permanent, le débit volumique se conserve :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$D_v = v_1  S_1 = v_2  S_2$$</div></div></div></div></p>
+<p>On isole $v_2$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_2 = {S_2} = {S_2}$$</div></div></div></div></p>
+<p>Conversion de $S_2$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$S_2 = $5{,}0   $ = 5{,}0  10^{-4} $$$</div></div>$</div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_2 &= {1{,}0  10^{-3}}{5{,}0  10^{-4}} \\
+v_2 &= $2{,}0   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> ${v_2 = $2{,}0   $}$</li><li><strong>Évolution de la vitesse :</strong>
+<p>On constate que $v_2 = $2{,}0   $ > v_1 = $0{,}50   $$ : la vitesse <strong>augmente</strong> lorsque la section diminue.</p>
+<strong>Justification :</strong> Comme le débit volumique $D_v = v  S$ est constant pour un fluide incompressible, si $S$ diminue, alors $v$ doit augmenter pour que le produit $v  S$ reste le même. C'est une conséquence directe de la conservation du débit.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 3</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Poussée d'Archimède -- Calcul simple.
+</div>
+<p>Un objet de masse $m = $3{,}0   $$ et de volume propre $V = $1{,}5   $$ est totalement immergé dans l'eau.</p>
+<strong>Données :</strong>
+<ul><li>Masse volumique de l'eau : $_{} = $1{,}0  10^{3}   $$</li><li>Intensité de la pesanteur : $g = $9{,}81   $$
+</li></ul>
+<ol><li>Rappeler l'expression vectorielle de la poussée d'Archimède $_A$ s'exerçant sur un corps immergé dans un fluide.</li><li>Préciser la direction et le sens de cette force.</li><li>Exprimer puis calculer la norme $_A$ de la poussée d'Archimède exercée sur l'objet.</li><li>Calculer le poids $P$ de l'objet. L'objet coule-t-il ou flotte-t-il ? Justifier.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise l'expression de la poussée d'Archimède $_A = _{}  V  g$ et on compare avec le poids $P = m  g$ pour déterminer si l'objet coule ou flotte.
+</div>
+<strong>Données :</strong>
+<ul><li>$m = $3{,}0   $$, $V = $1{,}5   $ = 1{,}5  10^{-3} $$$</li><li>$_{} = $1{,}0  10^{3}   $$, $g = $9{,}81   $$
+</li></ul>
+<ol><li><strong>Expression vectorielle de la poussée d'Archimède :</strong>
+<p>La poussée d'Archimède exercée par un fluide sur un corps totalement immergé de volume $V$ s'écrit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${_A = -_{}  V  g  }$$</div></div></div></div><br>où $$ est le vecteur unitaire dirigé vers le bas (dans le sens du poids). On peut aussi écrire :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_A = -_{}  V  $$</div></div></div></div></li><li><strong>Direction et sens :</strong></p>
+<p>La poussée d'Archimède est :<br><ul><li><strong>Direction :</strong> verticale ;</li><li><strong>Sens :</strong> vers le haut (elle s'oppose au poids du fluide déplacé).<br></li></ul></li><li><strong>Calcul de la norme de la poussée d'Archimède :</strong></p>
+<p>L'expression de la norme est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_A = _{}  V  g$$</div></div></div></div></p>
+<p>Conversion du volume : $V = $1{,}5   $ = 1{,}5  10^{-3} $$$.</p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_A &= 1{,}0  10^{3}  1{,}5  10^{-3}  9{,}81 \\
+_A &= 1{,}0  1{,}5  9{,}81 \\
+_A &= $14{,}7   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> ${_A  $15   $}$</li><li><strong>Calcul du poids et conclusion :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P = m  g$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+P &= 3{,}0  9{,}81 \\
+P &= $29{,}4   $
+$$</div></div></div></div>
+<strong>Comparaison :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P = $29{,}4   $ > _A = $14{,}7   $$</div></div>$</div></div>
+<p>Le poids est supérieur à la poussée d'Archimède. La résultante des forces est donc dirigée vers le bas.</p>
+<strong>Conclusion :</strong> ${}$ En effet, $P > _A$, ce qui signifie que le poids l'emporte sur la poussée d'Archimède et l'objet s'enfonce dans le fluide.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 4</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Poussée d'Archimède dans l'air.
+</div>
+<p>On souhaite calculer la poussée d'Archimède exercée par l'air sur un objet de volume $V = $3{,}0   $$ et de masse $m = $2{,}0   $$.</p>
+<strong>Données :</strong>
+<ul><li>Masse volumique de l'air : $_{} = $1{,}2   $$</li><li>Intensité de la pesanteur : $g = $9{,}81   $$
+</li></ul>
+<ol><li>Exprimer puis calculer la norme de la poussée d'Archimède $_A$ exercée par l'air sur l'objet.</li><li>Calculer le poids $P$ de l'objet.</li><li>Comparer $_A$ et $P$. La poussée d'Archimède de l'air est-elle négligeable dans cette situation ? Justifier.</li><li>Dans quel cas la poussée d'Archimède de l'air n'est-elle <strong>pas</strong> négligeable ? Donner un exemple concret.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On calcule la poussée d'Archimède exercée par l'air, on la compare au poids de l'objet, et on discute de la pertinence de la négliger.
+</div>
+<strong>Données :</strong>
+<ul><li>$V = $3{,}0   $ = 3{,}0  10^{-3} $$$, $m = $2{,}0   $$</li><li>$_{} = $1{,}2   $$, $g = $9{,}81   $$
+</li></ul>
+<ol><li><strong>Calcul de la poussée d'Archimède :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_A = _{}  V  g$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_A &= 1{,}2  3{,}0  10^{-3}  9{,}81 \\
+_A &= 1{,}2  2{,}943  10^{-2} \\
+_A &= 3{,}5  10^{-2} $$
+$$</div></div></div></div>
+<strong>Conclusion :</strong> ${_A  $0{,}035   $}$</li><li><strong>Calcul du poids :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P = m  g$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+P &= 2{,}0  9{,}81 \\
+P &= $19{,}6   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> ${P  $20   $}$</li><li><strong>Comparaison :</strong>
+<p>Calculons le rapport :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${P} = {0{,}035}{19{,}6}  1{,}8  10^{-3}  0{,}18</p>
+<p>La poussée d'Archimède représente moins de $0{,}2</p>
+<strong>Conclusion :</strong> ${}$</li><li><strong>Cas où la poussée d'Archimède de l'air n'est pas négligeable :</strong>
+<p>La poussée d'Archimède de l'air n'est pas négligeable lorsque l'objet a un <strong>grand volume</strong> et une <strong>faible masse</strong> (donc une masse volumique très proche de celle de l'air).</p>
+<strong>Exemple concret :</strong> un <strong>ballon gonflé à l'hélium</strong>. L'hélium a une masse volumique ($_{}  $0{,}16   $$) bien inférieure à celle de l'air ($$1{,}2   $$). La poussée d'Archimède est alors supérieure au poids total du ballon, ce qui lui permet de s'élever.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 5</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Relation fondamentale de la statique des fluides.
+</div>
+<p>On considère deux points $A$ et $B$ situés dans un même fluide au repos (eau), avec $A$ en surface et $B$ à une profondeur $h = $15   $$ sous la surface.</p>
+<strong>Données :</strong>
+<ul><li>Pression atmosphérique : $P_A = P_{} = $1{,}013  10^{5}   $$</li><li>Masse volumique de l'eau : $ = $1000   $$</li><li>$g = $9{,}81   $$
+</li></ul>
+<ol><li>Rappeler la relation fondamentale de la statique des fluides reliant les pressions $P_A$ et $P_B$ aux altitudes $z_A$ et $z_B$.</li><li>En choisissant un axe vertical orienté vers le haut avec $z_B < z_A$, exprimer $P_B$ en fonction de $P_A$, $$, $g$ et $h$.</li><li>Calculer la pression $P_B$ au point $B$. Exprimer le résultat en pascal puis en bar.</li><li>Quelle est la surpression subie par un plongeur à cette profondeur par rapport à la surface ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On applique la relation fondamentale de la statique des fluides : $P_B - P_A =   g  (z_A - z_B)$ pour un fluide au repos, avec un axe vertical orienté vers le haut.
+</div>
+<strong>Données :</strong>
+<ul><li>$P_A = P_{} = $1{,}013  10^{5}   $$</li><li>$ = $1000   $$, $g = $9{,}81   $$</li><li>$h = $15   $$
+</li></ul>
+<ol><li><strong>Relation fondamentale de la statique des fluides :</strong>
+<p>Pour deux points $A$ et $B$ situés dans un même fluide au repos, de masse volumique $$ constante :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div></p>
+<p>On peut aussi écrire :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_B - P_A =    g   (z_A - z_B)$$</div></div></div></div></p>
+<p>Cette relation traduit le fait que la pression augmente quand on descend dans un fluide au repos.</li><li><strong>Expression de $P_B$ :</strong></p>
+<p>On choisit un axe vertical orienté vers le haut. Le point $A$ est en surface et le point $B$ est à la profondeur $h$ sous $A$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$z_A - z_B = h$$</div></div></div></div></p>
+<p>En remplaçant dans la relation précédente :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_B = P_A +    g   (z_A - z_B)$$</div></div></div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div></li><li><strong>Calcul de $P_B$ :</strong></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+P_B &= P_A +   g  h \\
+P_B &= 1{,}013  10^{5} + 1000  9{,}81  15 \\
+P_B &= 1{,}013  10^{5} + 1{,}4715  10^{5} \\
+P_B &= 2{,}485  10^{5} $$
+$$</div></div></div></div>
+<p>Conversion en bar : $$1   $ = $1  10^{5}   $$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_B = {2{,}485  10^{5}}{1{,}0  10^{5}} = $2{,}5   $$</div></div>$</div></div></p>
+<strong>Conclusion :</strong> ${P_B  $2{,}5  10^{5}   $  $2{,}5   $}$</li><li><strong>Surpression :</strong>
+<p>La surpression est la différence de pression entre le point $B$ (en profondeur) et le point $A$ (en surface) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br> P &= P_B - P_A =    g   h \\<br> P &= 1000  9{,}81  15 \\<br> P &= $1{,}47  10^{5}   $  $1{,}5   $<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> ${ $1{,}5   $.}$ Cela signifie que la pression à $$15   $$ de profondeur est environ $2{,}5$ fois la pression atmosphérique.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 6</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Conservation du débit volumique et effet Venturi qualitatif.
+</div>
+<p>De l'eau s'écoule de manière permanente dans une conduite horizontale dont la section varie. La conduite présente trois zones :</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.289525 -70.007905 333.49303 75.58303'>
+<defs>
+<path id='g1-83' d='M6.425903-6.924035C6.425903-6.953923 6.405978-7.023661 6.316314-7.023661C6.266501-7.023661 6.256538-7.013699 6.136986-6.874222L5.65878-6.306351C5.399751-6.774595 4.881694-7.023661 4.234122-7.023661C2.968867-7.023661 1.77335-5.877958 1.77335-4.672478C1.77335-3.865504 2.30137-3.407223 2.809465-3.257783L3.875467-2.978829C4.244085-2.889166 4.79203-2.739726 4.79203-1.92279C4.79203-1.026152 3.975093-.089664 2.998755-.089664C2.361146-.089664 1.255293-.308842 1.255293-1.544209C1.255293-1.783313 1.305106-2.022416 1.315068-2.082192C1.325031-2.122042 1.334994-2.132005 1.334994-2.15193C1.334994-2.251557 1.265255-2.261519 1.215442-2.261519S1.145704-2.251557 1.115816-2.221669C1.075965-2.181818 .518057 .089664 .518057 .119552C.518057 .179328 .56787 .219178 .627646 .219178C.67746 .219178 .687422 .209215 .806974 .069738L1.295143-.498132C1.723537 .079701 2.400996 .219178 2.978829 .219178C4.333748 .219178 5.50934-1.105853 5.50934-2.34122C5.50934-3.028643 5.17061-3.367372 5.021171-3.506849C4.79203-3.73599 4.64259-3.775841 3.755915-4.004981C3.536737-4.064757 3.178082-4.164384 3.088418-4.184309C2.819427-4.273973 2.480697-4.562889 2.480697-5.090909C2.480697-5.897883 3.277709-6.744707 4.224159-6.744707C5.051059-6.744707 5.65878-6.316314 5.65878-5.200498C5.65878-4.881694 5.618929-4.702366 5.618929-4.64259C5.618929-4.632628 5.618929-4.542964 5.738481-4.542964C5.838107-4.542964 5.84807-4.572852 5.88792-4.742217L6.425903-6.924035Z'/>
+<path id='g1-100' d='M5.140722-6.804483C5.140722-6.814446 5.140722-6.914072 5.011208-6.914072C4.861768-6.914072 3.915318-6.824408 3.745953-6.804483C3.666252-6.794521 3.606476-6.744707 3.606476-6.615193C3.606476-6.495641 3.696139-6.495641 3.845579-6.495641C4.323786-6.495641 4.343711-6.425903 4.343711-6.326276L4.313823-6.127024L3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.806974 3.666252-.876712 3.706102-1.046077L5.140722-6.804483ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z'/>
+<path id='g1-118' d='M4.662516-3.706102C4.662516-4.244085 4.403487-4.403487 4.224159-4.403487C3.975093-4.403487 3.73599-4.144458 3.73599-3.92528C3.73599-3.795766 3.785803-3.73599 3.895392-3.626401C4.104608-3.427148 4.234122-3.16812 4.234122-2.809465C4.234122-2.391034 3.626401-.109589 2.460772-.109589C1.952677-.109589 1.723537-.458281 1.723537-.976339C1.723537-1.534247 1.992528-2.261519 2.30137-3.088418C2.371108-3.257783 2.420922-3.39726 2.420922-3.58655C2.420922-4.034869 2.102117-4.403487 1.603985-4.403487C.667497-4.403487 .288917-2.958904 .288917-2.86924C.288917-2.769614 .388543-2.769614 .408468-2.769614C.508095-2.769614 .518057-2.789539 .56787-2.948941C.856787-3.955168 1.285181-4.184309 1.574097-4.184309C1.653798-4.184309 1.823163-4.184309 1.823163-3.865504C1.823163-3.616438 1.723537-3.347447 1.653798-3.16812C1.215442-2.012453 1.085928-1.554172 1.085928-1.125778C1.085928-.049813 1.96264 .109589 2.420922 .109589C4.094645 .109589 4.662516-3.188045 4.662516-3.706102Z'/>
+<path id='g2-49' d='M2.336239-4.435367C2.336239-4.623661 2.322291-4.630635 2.127024-4.630635C1.680697-4.191283 1.046077-4.184309 .760149-4.184309V-3.93325C.927522-3.93325 1.387796-3.93325 1.771357-4.128518V-.571856C1.771357-.341719 1.771357-.251059 1.073973-.251059H.808966V0C.934496-.006974 1.792279-.027895 2.050311-.027895C2.266501-.027895 3.145205-.006974 3.29863 0V-.251059H3.033624C2.336239-.251059 2.336239-.341719 2.336239-.571856V-4.435367Z'/>
+<path id='g2-50' d='M3.521793-1.26924H3.284682C3.263761-1.115816 3.194022-.704359 3.103362-.63462C3.047572-.592777 2.510585-.592777 2.412951-.592777H1.129763C1.862017-1.241345 2.106102-1.436613 2.524533-1.764384C3.040598-2.175841 3.521793-2.608219 3.521793-3.270735C3.521793-4.11457 2.782565-4.630635 1.889913-4.630635C1.025156-4.630635 .439352-4.02391 .439352-3.382316C.439352-3.02665 .739228-2.991781 .808966-2.991781C.976339-2.991781 1.17858-3.110336 1.17858-3.361395C1.17858-3.486924 1.129763-3.731009 .767123-3.731009C.983313-4.226152 1.457534-4.379577 1.785305-4.379577C2.48269-4.379577 2.84533-3.835616 2.84533-3.270735C2.84533-2.66401 2.412951-2.182814 2.189788-1.931756L.509091-.27198C.439352-.209215 .439352-.195268 .439352 0H3.312578L3.521793-1.26924Z'/>
+<path id='g2-51' d='M1.903861-2.329265C2.447821-2.329265 2.838356-1.952677 2.838356-1.206476C2.838356-.341719 2.336239-.083686 1.931756-.083686C1.652802-.083686 1.039103-.160399 .746202-.571856C1.073973-.585803 1.150685-.81594 1.150685-.962391C1.150685-1.185554 .983313-1.345953 .767123-1.345953C.571856-1.345953 .376588-1.227397 .376588-.941469C.376588-.285928 1.101868 .139477 1.945704 .139477C2.915068 .139477 3.584558-.509091 3.584558-1.206476C3.584558-1.750436 3.138232-2.294396 2.371108-2.454795C3.103362-2.719801 3.368369-3.242839 3.368369-3.668244C3.368369-4.219178 2.733748-4.630635 1.959651-4.630635S.592777-4.254047 .592777-3.696139C.592777-3.459029 .746202-3.326526 .955417-3.326526C1.171606-3.326526 1.311083-3.486924 1.311083-3.682192C1.311083-3.884433 1.171606-4.030884 .955417-4.044832C1.199502-4.351681 1.680697-4.428394 1.93873-4.428394C2.252553-4.428394 2.691905-4.274969 2.691905-3.668244C2.691905-3.375342 2.594271-3.054545 2.412951-2.838356C2.182814-2.57335 1.987547-2.559402 1.638854-2.538481C1.464508-2.524533 1.45056-2.524533 1.415691-2.517559C1.401743-2.517559 1.345953-2.503611 1.345953-2.426899C1.345953-2.329265 1.408717-2.329265 1.527273-2.329265H1.903861Z'/>
+</defs>
+<g id='page1'>
+<path d='M-45.01172-69.6094H40.0312' stroke='currentColor' fill='none' stroke-width='.79701'/>
+<path d='M-45.01172-12.9141H40.0312' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M40.0312-69.6094L68.379-55.4375' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M40.0312-12.9141L68.379-27.0898' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M68.379-55.4375H153.418' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M68.379-27.0898H153.418' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M153.418-55.4375L181.766-69.6094' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M153.418-27.0898L181.766-12.9141' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M181.766-69.6094H266.805' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M181.766-12.9141H266.805' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-10.9922-41.261718H20.6992' stroke='#00f' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M24.15625-41.261718L19.41797-43.05859L21-41.261718L19.41797-39.46875Z' fill='#00f'/>
+<path d='M24.15625-41.261718L19.41797-43.05859L21-41.261718L19.41797-39.46875Z' stroke='#00f' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#00f' transform='matrix(1 0 0 1 47.79225 -5.4119)'>
+<use x='-45.01003' y='-41.262532' xlink:href='#g1-118'/>
+<use x='-40.180899' y='-39.768152' xlink:href='#g2-49'/>
+</g>
+<path d='M96.723-41.261718H128.418' stroke='#00f' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M131.87081-41.261718L127.13644-43.05859L128.71847-41.261718L127.13644-39.46875Z' fill='#00f'/>
+<path d='M131.87081-41.261718L127.13644-43.05859L128.71847-41.261718L127.13644-39.46875Z' stroke='#00f' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#00f' transform='matrix(1 0 0 1 155.51 -5.4119)'>
+<use x='-45.01003' y='-41.262532' xlink:href='#g1-118'/>
+<use x='-40.180899' y='-39.768152' xlink:href='#g2-50'/>
+</g>
+<path d='M210.109-41.261718H241.805' stroke='#00f' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M245.2622-41.261718L240.52392-43.05859L242.10595-41.261718L240.52392-39.46875Z' fill='#00f'/>
+<path d='M245.2622-41.261718L240.52392-43.05859L242.10595-41.261718L240.52392-39.46875Z' stroke='#00f' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#00f' transform='matrix(1 0 0 1 268.897 -5.4119)'>
+<use x='-45.01003' y='-41.262532' xlink:href='#g1-118'/>
+<use x='-40.180899' y='-39.768152' xlink:href='#g2-51'/>
+</g>
+<g transform='matrix(1 0 0 1 19.8003 45.2038)'>
+<use x='-45.01003' y='-41.262532' xlink:href='#g0-83'/>
+<use x='-39.476581' y='-41.262532' xlink:href='#g0-101'/>
+<use x='-35.049822' y='-41.262532' xlink:href='#g0-99'/>
+<use x='-30.623063' y='-41.262532' xlink:href='#g0-116'/>
+<use x='-26.749649' y='-41.262532' xlink:href='#g0-105'/>
+<use x='-23.982925' y='-41.262532' xlink:href='#g0-111'/>
+<use x='-19.002821' y='-41.262532' xlink:href='#g0-110'/>
+<use x='-10.149303' y='-41.262532' xlink:href='#g1-83'/>
+<use x='-4.040258' y='-39.768152' xlink:href='#g2-49'/>
+</g>
+<g transform='matrix(1 0 0 1 133.1876 31.0304)'>
+<use x='-45.01003' y='-41.262532' xlink:href='#g0-83'/>
+<use x='-39.476581' y='-41.262532' xlink:href='#g0-101'/>
+<use x='-35.049822' y='-41.262532' xlink:href='#g0-99'/>
+<use x='-30.623063' y='-41.262532' xlink:href='#g0-116'/>
+<use x='-26.749649' y='-41.262532' xlink:href='#g0-105'/>
+<use x='-23.982925' y='-41.262532' xlink:href='#g0-111'/>
+<use x='-19.002821' y='-41.262532' xlink:href='#g0-110'/>
+<use x='-10.149303' y='-41.262532' xlink:href='#g1-83'/>
+<use x='-4.040258' y='-39.768152' xlink:href='#g2-50'/>
+</g>
+<g transform='matrix(1 0 0 1 246.575 45.2038)'>
+<use x='-45.01003' y='-41.262532' xlink:href='#g0-83'/>
+<use x='-39.476581' y='-41.262532' xlink:href='#g0-101'/>
+<use x='-35.049822' y='-41.262532' xlink:href='#g0-99'/>
+<use x='-30.623063' y='-41.262532' xlink:href='#g0-116'/>
+<use x='-26.749649' y='-41.262532' xlink:href='#g0-105'/>
+<use x='-23.982925' y='-41.262532' xlink:href='#g0-111'/>
+<use x='-19.002821' y='-41.262532' xlink:href='#g0-110'/>
+<use x='-10.149303' y='-41.262532' xlink:href='#g1-83'/>
+<use x='-4.040258' y='-39.768152' xlink:href='#g2-51'/>
+</g>
+<path d='M-53.51563-15.9805V-66.5469' stroke='#f00' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-53.515607-13.48437L-52.16795-17.054686L-53.515607-15.8789L-54.85936-17.054686Z' fill='#f00'/>
+<path d='M-53.515607-13.48437L-52.16795-17.054686L-53.515607-15.8789L-54.85936-17.054686Z' stroke='#f00' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-53.515607-69.04297L-54.85936-65.468748L-53.515607-66.64453L-52.16795-65.468748Z' fill='#f00'/>
+<path d='M-53.515607-69.04297L-54.85936-65.468748L-53.515607-66.64453L-52.16795-65.468748Z' stroke='#f00' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g fill='#f00' transform='matrix(1 0 0 1 -21.678 2.7121)'>
+<use x='-45.01003' y='-41.262532' xlink:href='#g1-100'/>
+<use x='-39.824598' y='-39.768152' xlink:href='#g2-49'/>
+</g>
+<path d='M59.875-30.1523V-52.3711' stroke='#f00' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M59.875011-27.65623L61.21876-31.226543L59.875011-30.05467L58.52735-31.226543Z' fill='#f00'/>
+<path d='M59.875011-27.65623L61.21876-31.226543L59.875011-30.05467L58.52735-31.226543Z' stroke='#f00' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M59.875011-54.86721L58.52735-51.296893L59.875011-52.47267L61.21876-51.296893Z' fill='#f00'/>
+<path d='M59.875011-54.86721L58.52735-51.296893L59.875011-52.47267L61.21876-51.296893Z' stroke='#f00' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g fill='#f00' transform='matrix(1 0 0 1 91.7092 2.7121)'>
+<use x='-45.01003' y='-41.262532' xlink:href='#g1-100'/>
+<use x='-39.824598' y='-39.768152' xlink:href='#g2-50'/>
+</g>
+</g>
+</svg></div>
+</div>
+<p>On donne : $S_1 = S_3 = $30   $$ et $S_2 = $10   $$.</p>
+<p>Le débit volumique est $D_v = $6{,}0   $$.</p>
+<ol><li>Convertir le débit volumique en $$$$.</li><li>Calculer les vitesses $v_1$, $v_2$ et $v_3$ de l'eau dans chacune des trois zones.</li><li>Comparer les vitesses $v_1$ et $v_2$. Comment évolue la vitesse quand la section diminue ?</li><li>En utilisant la relation de Bernoulli (écoulement horizontal, fluide incompressible), indiquer qualitativement comment évolue la pression entre la zone 1 et la zone 2. Justifier.</li><li>Ce phénomène s'appelle l'<strong>effet Venturi</strong>. Expliquer en quelques phrases en quoi il consiste.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise la conservation du débit volumique $D_v = v  S$ pour calculer les vitesses, puis la relation de Bernoulli pour analyser qualitativement les pressions.
+</div>
+<strong>Données :</strong>
+<ul><li>$S_1 = S_3 = $30   $$, $S_2 = $10   $$</li><li>$D_v = $6{,}0   $$
+</li></ul>
+<ol><li><strong>Conversion du débit volumique :</strong>
+<p>On convertit étape par étape :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>D_v &= $6{,}0   $ \\<br>&= {6{,}0}{1000} $$   $1   $ = 10^{-3} $$ \\<br>&= {6{,}0  10^{-3}}{60} $$   $1   $ = $60   $ \\<br>D_v &= 1{,}0  10^{-4} $$<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> ${D_v = 1{,}0  10^{-4} $$}$</li><li><strong>Calcul des vitesses :</strong>
+<p>On convertit les sections en $$$$ :<br><ul><li>$S_1 = S_3 = 30  10^{-4} = 30  10^{-4} $$$</li><li>$S_2 = 10  10^{-4} = 10  10^{-4} $$$<br></li></ul></p>
+<p>On utilise $v = {S}$ :</p>
+<strong>Zone 1 :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_1 &= {S_1} = {1{,}0  10^{-4}}{30  10^{-4}} = {1{,}0}{30} = $0{,}033   $
+$$</div></div></div></div>
+<strong>Zone 2 :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_2 &= {S_2} = {1{,}0  10^{-4}}{10  10^{-4}} = {1{,}0}{10} = $0{,}10   $
+$$</div></div></div></div>
+<strong>Zone 3 :</strong>
+<p>Comme $S_3 = S_1$, on a directement :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_3 = v_1 = $0{,}033   $$</div></div>$</div></div></p>
+<strong>Conclusion :</strong> ${v_1 = v_3  $0{,}033   $    v_2 = $0{,}10   $}$</li><li><strong>Comparaison $v_1$ et $v_2$ :</strong>
+<p>$v_2 = $0{,}10   $ > v_1 = $0{,}033   $$ : la vitesse est <strong>environ 3 fois plus grande</strong> dans la zone 2.</p>
+<p>Quand la section diminue, la vitesse augmente. C'est une conséquence directe de la conservation du débit : $D_v = v  S = $, donc si $S$ diminue, $v$ augmente.</li><li><strong>Évolution qualitative de la pression :</strong></p>
+<p>Pour un fluide incompressible en écoulement permanent et horizontal ($z_1 = z_2$), la relation de Bernoulli s'écrit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_1 + {2}  v_1^2 = P_2 + {2}  v_2^2$$</div></div></div></div></p>
+<p>On en déduit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_1 - P_2 = {2}  (v_2^2 - v_1^2)$$</div></div></div></div></p>
+<p>Comme $v_2 > v_1$, on a $v_2^2 > v_1^2$, donc $P_1 - P_2 > 0$, c'est-à-dire :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div></p>
+<strong>La pression diminue dans la zone rétrécie</strong>, là où la vitesse est plus grande.</li><li><strong>L'effet Venturi :</strong>
+<p>L'effet Venturi est le phénomène physique par lequel un fluide incompressible en écoulement permanent voit sa <strong>pression diminuer</strong> lorsqu'il traverse une zone où la <strong>section de la conduite se rétrécit</strong> (et donc où la vitesse augmente).</p>
+<p>C'est une conséquence directe de la relation de Bernoulli : dans une conduite horizontale, l'énergie cinétique et la pression sont liées. Quand la vitesse augmente, l'énergie cinétique du fluide augmente, et cette énergie est  prise  à la pression, qui diminue.</p>
+<p>Ce phénomène est à la base du fonctionnement de nombreux dispositifs : trompe à eau, carburateur, pulvérisateur, etc.</p>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 7</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Relation de Bernoulli -- Application numérique.
+</div>
+<p>De l'eau s'écoule de manière permanente dans une conduite horizontale. En un point $A$, la vitesse d'écoulement est $v_A = $2{,}0   $$. La conduite se rétrécit et, en un point $B$, la vitesse atteint $v_B = $8{,}0   $$.</p>
+<p>On suppose l'écoulement incompressible et permanent. Les points $A$ et $B$ sont à la même altitude ($z_A = z_B$).</p>
+<strong>Donnée :</strong> $_{} = $1{,}0  10^{3}   $$
+<ol><li>Écrire la relation de Bernoulli entre les points $A$ et $B$ en précisant les hypothèses utilisées.</li><li>Simplifier cette relation en tenant compte du fait que $z_A = z_B$.</li><li>Exprimer la différence de pression $P_A - P_B$ en fonction de $$, $v_A$ et $v_B$.</li><li>Calculer numériquement $P_A - P_B$. Exprimer le résultat en pascal puis en bar.</li><li>La pression est-elle plus grande en $A$ ou en $B$ ? Commenter ce résultat.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On écrit la relation de Bernoulli entre deux points d'un écoulement horizontal incompressible permanent, on simplifie, puis on calcule la différence de pression.
+</div>
+<strong>Données :</strong>
+<ul><li>$v_A = $2{,}0   $$, $v_B = $8{,}0   $$</li><li>$z_A = z_B$ (écoulement horizontal)</li><li>$_{} = $1{,}0  10^{3}   $$
+</li></ul>
+<ol><li><strong>Relation de Bernoulli :</strong>
+<strong>Hypothèses :</strong>
+<ul><li>Le fluide (eau) est <strong>incompressible</strong> : $ = $.</li><li>L'écoulement est <strong>permanent</strong> (stationnaire).</li><li>On applique la relation le long d'une ligne de courant.
+</li></ul>
+<p>La relation de Bernoulli s'écrit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${P_A + {2}  v_A^2 +  g z_A = P_B + {2}  v_B^2 +  g z_B}$$</div></div></div></div></li><li><strong>Simplification :</strong></p>
+<p>Comme $z_A = z_B$, les termes $ g z_A$ et $ g z_B$ sont égaux et se simplifient :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${P_A + {2}  v_A^2 = P_B + {2}  v_B^2}$$</div></div></div></div></li><li><strong>Expression de $P_A - P_B$ :</strong></p>
+<p>On isole la différence de pression :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>P_A - P_B &= {2}  v_B^2 - {2}  v_A^2 \\<br>$$</div></div></div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${P_A - P_B = {2}  (v_B^2 - v_A^2)}$$</div></div></div></div></li><li><strong>Application numérique :</strong></p>
+<p>Calculons d'abord les carrés des vitesses :<br><ul><li>$v_A^2 = (2{,}0)^2 = $4{,}0   $$</li><li>$v_B^2 = (8{,}0)^2 = $64   $$<br></li></ul></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+P_A - P_B &= {2}  1{,}0  10^{3}  (64 - 4{,}0) \\
+P_A - P_B &= {2}  1{,}0  10^{3}  60 \\
+P_A - P_B &= 500  60 \\
+P_A - P_B &= $3{,}0  10^{4}   $
+$$</div></div></div></div>
+<p>Conversion en bar : $$1   $ = $1  10^{5}   $$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_A - P_B = {3{,}0  10^{4}}{1{,}0  10^{5}} = $0{,}30   $$</div></div>$</div></div></p>
+<strong>Conclusion :</strong> ${P_A - P_B = $3{,}0  10^{4}   $ = $0{,}30   $}$</li><li><strong>Interprétation :</strong>
+<p>$P_A - P_B > 0$, donc $P_A > P_B$ : la pression est <strong>plus grande en $A$</strong> qu'en $B$.</p>
+<strong>Commentaire :</strong> Ce résultat est conforme à l'effet Venturi. Dans la partie rétrécie (point $B$), la vitesse est plus grande et la pression est plus faible. C'est une manifestation de la conservation de l'énergie le long d'une ligne de courant : l'augmentation de l'énergie cinétique se fait au détriment de l'énergie de pression.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 8</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Trompe à eau -- Effet Venturi appliqué.
+</div>
+<p>En travaux pratiques, on utilise une trompe à eau pour réaliser une filtration sous vide (filtration sur Büchner). Le dispositif fonctionne grâce à l'écoulement rapide d'eau dans un tube qui se rétrécit, ce qui crée une dépression permettant d'aspirer l'air à travers l'ouverture latérale.</p>
+<p>Le diamètre de la conduite principale vaut $d_1 = $12   $$ en entrée et $d_2 = $5{,}0   $$ au niveau du rétrécissement. Le débit volumique de l'eau est $D_v = $6{,}0   $$.</p>
+<strong>Données :</strong>
+<ul><li>Masse volumique de l'eau : $ = $1{,}0  10^{3}   $$</li><li>On néglige les effets de la gravité (conduite horizontale).
+</li></ul>
+<ol><li>Rappeler la relation entre le débit volumique $D_v$, la vitesse $v$ et la section $S$ d'une conduite circulaire, en exprimant $S$ en fonction du diamètre $d$.</li><li>Calculer les vitesses d'écoulement $v_1$ et $v_2$ de l'eau en entrée et au niveau du rétrécissement.</li><li>En appliquant la relation de Bernoulli, exprimer puis calculer la dépression $P_1 - P_2$ entre l'entrée et le rétrécissement.</li><li>Expliquer, à l'aide du résultat précédent, pourquoi l'air est aspiré par l'ouverture latérale de la trompe à eau.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise la relation $D_v = v  S$ avec $S =  ({2})^2$ pour les conduites circulaires, puis la relation de Bernoulli pour calculer la dépression.
+</div>
+<strong>Données :</strong>
+<ul><li>$d_1 = $12   $ = 12  10^{-3} $$$, $d_2 = $5{,}0   $ = 5{,}0  10^{-3} $$$</li><li>$D_v = $6{,}0   $$</li><li>$ = $1{,}0  10^{3}   $$</li><li>Conduite horizontale : $z_1 = z_2$
+</li></ul>
+<ol><li><strong>Relation entre $D_v$, $v$ et $S$ :</strong>
+<p>Le débit volumique est donné par $D_v = v  S$.</p>
+<p>Pour une conduite circulaire de diamètre $d$, la section est un disque :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$S =  ({2})^2 = {4}$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${D_v = v  {4}}$$</div></div></div></div></li><li><strong>Calcul des vitesses :</strong></p>
+<p>On isole $v$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v = {S} = {   d^2}$$</div></div></div></div></p>
+<p>Conversion du débit (identique à l'exercice 6) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$D_v = $6{,}0   $ = 1{,}0  10^{-4} $$$</div></div>$</div></div></p>
+<strong>Vitesse $v_1$ en entrée :</strong>
+<p>Calcul de la section :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$S_1 = {  (12  10^{-3})^2}{4} = {  144  10^{-6}}{4} = {4}  10^{-6} = 36  10^{-6}  1{,}131  10^{-4} $$$</div></div>$</div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_1 &= {S_1} = {1{,}0  10^{-4}}{1{,}131  10^{-4}} \\
+v_1 & $0{,}88   $
+$$</div></div></div></div>
+<strong>Vitesse $v_2$ au rétrécissement :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$S_2 = {  (5{,}0  10^{-3})^2}{4} = {  25  10^{-6}}{4} = 6{,}25  10^{-6}  1{,}963  10^{-5} $$$</div></div>$</div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_2 &= {S_2} = {1{,}0  10^{-4}}{1{,}963  10^{-5}} \\
+v_2 & $5{,}1   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> ${v_1  $0{,}88   $    v_2  $5{,}1   $}$</li><li><strong>Calcul de la dépression $P_1 - P_2$ :</strong>
+<p>En appliquant la relation de Bernoulli pour un écoulement horizontal ($z_1 = z_2$) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_1 + {2}  v_1^2 = P_2 + {2}  v_2^2$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_1 - P_2 = {2}  (v_2^2 - v_1^2)$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_1^2 & (0{,}88)^2 = $0{,}77   $ \\
+v_2^2 & (5{,}1)^2 = $26{,}0   $
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+P_1 - P_2 &= {2}  1{,}0  10^{3}  (26{,}0 - 0{,}77) \\
+P_1 - P_2 &= 500  25{,}2 \\
+P_1 - P_2 & $1{,}3  10^{4}   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> ${P_1 - P_2  $1{,}3  10^{4}   $  $0{,}13   $}$</li><li><strong>Explication du fonctionnement de la trompe à eau :</strong>
+<p>Comme $P_1 > P_2$, il existe une <strong>dépression</strong> (pression plus basse) au niveau du rétrécissement par rapport à l'entrée.</p>
+<p>L'ouverture latérale de la trompe se situe au niveau de ce rétrécissement, là où la pression est la plus faible. La pression dans le récipient à filtrer (relié par un tube à cette ouverture) est initialement voisine de la pression atmosphérique, donc <strong>supérieure</strong> à la pression au rétrécissement.</p>
+<p>Cette différence de pression crée un écoulement d'air depuis le récipient vers la trompe : l'air est <strong>aspiré</strong> par l'ouverture latérale. C'est ce qui crée le vide partiel (dépression) nécessaire à la filtration sous vide sur Büchner.</p>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 9</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Glaçon flottant -- Poussée d'Archimède et condition de flottaison.
+</div>
+<p>Un glaçon, assimilé à un cube de glace (eau solide) d'arête $a = $2{,}0   $$, est placé dans un récipient rempli d'eau liquide au repos. On observe que le glaçon flotte partiellement immergé.</p>
+<strong>Données :</strong>
+<ul><li>Pression atmosphérique : $P_0 = $1013   $$</li><li>Masse volumique de la glace : $_{} = $920   $$</li><li>Masse volumique de l'eau liquide : $_{} = $1000   $$</li><li>$g = $9{,}81   $$
+</li></ul>
+<ol><li>Calculer la masse $m$ et le poids $P$ du glaçon.</li><li>Exprimer la résultante des forces pressantes s'exerçant sur toutes les faces du cube : c'est la poussée d'Archimède $_A$. Rappeler son expression en fonction du volume immergé $V_{}$.</li><li>À l'équilibre, le glaçon flotte. Écrire la condition d'équilibre du glaçon en projetant sur l'axe vertical.</li><li>En déduire le volume immergé $V_{}$ du glaçon, puis montrer que la fraction immergée du glaçon vaut :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${V_{}}{V_{}} = {_{}}{_{}}$$</div></div></div></div></li><li>Calculer cette fraction immergée. Quel pourcentage du glaçon dépasse de la surface ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On calcule le poids du glaçon, puis on écrit la condition d'équilibre (poids = poussée d'Archimède) pour déterminer le volume immergé et la fraction immergée.
+</div>
+<strong>Données :</strong>
+<ul><li>Arête : $a = $2{,}0   $ = 2{,}0  10^{-2} $$$</li><li>$_{} = $920   $$, $_{} = $1000   $$</li><li>$g = $9{,}81   $$
+</li></ul>
+<ol><li><strong>Calcul de la masse et du poids du glaçon :</strong>
+<p>Le volume total du glaçon (cube d'arête $a$) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V_{} = a^3 = (2{,}0  10^{-2})^3 = 8{,}0  10^{-6} $$$</div></div>$</div></div></p>
+<p>La masse du glaçon :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>m &= _{}  V_{} \\<br>m &= 920  8{,}0  10^{-6} \\<br>m &= 7{,}36  10^{-3} $$  $7{,}4   $<br>$$</div></div></div></div></p>
+<p>Le poids du glaçon :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>P &= m  g \\<br>P &= 7{,}36  10^{-3}  9{,}81 \\<br>P &= 7{,}22  10^{-2} $$  $0{,}072   $<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> ${m  $7{,}4   $    P  $0{,}072   $}$</li><li><strong>Expression de la poussée d'Archimède :</strong>
+<p>La résultante des forces pressantes exercées par l'eau sur toutes les faces du glaçon constitue la poussée d'Archimède. Pour un corps partiellement immergé de volume immergé $V_{}$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${_A = -_{}  V_{}  }$$</div></div></div></div></p>
+<p>Sa norme vaut :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_A = _{}  V_{}  g$$</div></div></div></div></p>
+<p>La poussée est dirigée verticalement vers le haut.</li><li><strong>Condition d'équilibre :</strong></p>
+<p>Le glaçon flotte : il est en équilibre. Les deux forces qui s'exercent sur lui sont :<br><ul><li>Le poids $$, dirigé vers le bas, de norme $P = m  g$.</li><li>La poussée d'Archimède $_A$, dirigée vers le haut, de norme $_A = _{}  V_{}  g$.<br></li></ul></p>
+<p>En projetant sur un axe vertical orienté vers le haut, la condition d'équilibre donne :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_A - P = 0$$</div></div></div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${_{}  V_{}  g = m  g = _{}  V_{}  g}$$</div></div></div></div></li><li><strong>Volume immergé et fraction immergée :</strong></p>
+<p>On simplifie par $g$ (non nul) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{}  V_{} = _{}  V_{}$$</div></div></div></div></p>
+<p>On isole $V_{}$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V_{} = {_{}}{_{}}  V_{}$$</div></div></div></div></p>
+<p>Donc la fraction immergée est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${{V_{}}{V_{}} = {_{}}{_{}}}$$</div></div></div></div></p>
+<p>Cette formule est <strong>remarquable</strong> : la fraction immergée ne dépend que du rapport des masses volumiques du solide et du fluide, et pas de la taille ou de la forme du glaçon.</li><li><strong>Calcul numérique :</strong></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{V_{}}{V_{}} &= {_{}}{_{}} = {1000} = 0{,}92 = 92 
+$$</div></div></div></div>
+<p>Le pourcentage du glaçon qui dépasse de la surface :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$100</p>
+<strong>Conclusion :</strong> ${92
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 10</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Sonde Pitot -- Mesure de la vitesse d'un avion.
+</div>
+<p>Pour déterminer leur vitesse, les avions sont équipés de sondes Pitot. Ces dispositifs mesurent une différence de pression entre deux points $A$ et $B$ du fluide (l'air).</p>
+<ul><li>Le point $A$ est un <strong>point d'arrêt</strong> : l'air y est immobile ($v_A = 0$).</li><li>Le point $B$ est situé sur la surface de la sonde, là où l'air s'écoule librement à la vitesse $v_B = v$ (vitesse de l'air par rapport à la sonde).</li><li>Les points $A$ et $B$ sont situés à la même altitude ($z_A = z_B$).</li><li>La sonde mesure une différence de pression $P_A - P_B = $0{,}21   $$.
+</li></ul>
+<strong>Données :</strong>
+<ul><li>Masse volumique de l'air au niveau de vol : $_{} = $1{,}29   $$</li><li>L'air est considéré au repos dans le référentiel terrestre.
+</li></ul>
+<ol><li>Préciser le référentiel d'étude. Dans ce référentiel, l'air est-il en mouvement ou immobile ? Et la sonde ?</li><li>Écrire la relation de Bernoulli entre les points $A$ et $B$ en précisant les hypothèses.</li><li>Simplifier cette relation sachant que $v_A = 0$ et $z_A = z_B$.</li><li>En déduire l'expression de la vitesse $v$ de l'air par rapport à la sonde en fonction de $P_A - P_B$ et $_{}$.</li><li>Calculer la valeur de $v$. Exprimer le résultat en $$$$ puis en $$$$.</li><li>Comparer cette vitesse à la célérité du son dans l'air ($c_{}  $340   $$). L'hypothèse de fluide incompressible est-elle raisonnable ? Justifier.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise la relation de Bernoulli entre un point d'arrêt ($v_A = 0$) et un point d'écoulement libre, à même altitude, pour déterminer la vitesse de l'air par rapport à la sonde.
+</div>
+<strong>Données :</strong>
+<ul><li>$v_A = 0$ (point d'arrêt), $v_B = v$ (vitesse de l'air par rapport à la sonde)</li><li>$z_A = z_B$</li><li>$P_A - P_B = $0{,}21   $ = $2{,}1  10^{5}   $$</li><li>$_{} = $1{,}29   $$
+</li></ul>
+<ol><li><strong>Référentiel d'étude :</strong>
+<p>On se place dans le <strong>référentiel de la sonde</strong> (ou de l'avion).</p>
+<p>Dans ce référentiel :<br><ul><li>La <strong>sonde est immobile</strong>.</li><li>L'<strong>air est en mouvement</strong> : il s'écoule vers la sonde à la vitesse $v$ (qui est la vitesse de l'avion dans le référentiel terrestre).<br></li></ul></p>
+<div class="info-box">
+<strong>Remarque :</strong> Dans le référentiel terrestre, c'est l'air qui est au repos et l'avion qui se déplace. Mais pour appliquer la relation de Bernoulli (qui décrit un écoulement), on se place dans le référentiel où le fluide est en écoulement permanent autour de la sonde.
+</div></li><li><strong>Relation de Bernoulli entre $A$ et $B$ :</strong>
+<p>Hypothèses :<br><ul><li>Fluide (air) supposé incompressible.</li><li>Écoulement permanent.</li><li>On suit une ligne de courant entre $A$ et $B$.<br></li></ul></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_A + {2}  v_A^2 +  g z_A = P_B + {2}  v_B^2 +  g z_B$$</div></div></div></div></li><li><strong>Simplification :</strong>
+<p>Comme $v_A = 0$ et $z_A = z_B$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_A + 0 = P_B + {2}  v^2$$</div></div></div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${P_A - P_B = {2}  v^2}$$</div></div></div></div></li><li><strong>Expression de la vitesse $v$ :</strong></p>
+<p>On isole $v$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>{2}  v^2 &= P_A - P_B \\<br>v^2 &= {}<br>$$</div></div></div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${v = {{_{}}}}$$</div></div></div></div></li><li><strong>Calcul numérique :</strong></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v &= {{2  2{,}1  10^{5}}{1{,}29}} \\
+v &= {{4{,}2  10^{5}}{1{,}29}} \\
+v &= {3{,}256  10^{5}} \\
+v &=  \\
+v & $571   $
+$$</div></div></div></div>
+<p>Conversion en $$$$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v = 571  3{,}6  $2056   $$</div></div>$</div></div></p>
+<strong>Conclusion :</strong> ${v  $571   $  $2060   $}$</li><li><strong>Comparaison avec la célérité du son et validité de l'hypothèse :</strong>
+<p>On compare $v$ à $c_{}  $340   $$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${c_{}} = {340}  1{,}68$$</div></div></div></div></p>
+<p>La vitesse de l'air par rapport à la sonde est environ $1{,}7$ fois la vitesse du son : l'avion est <strong>supersonique</strong>.</p>
+<strong>L'hypothèse de fluide incompressible n'est pas raisonnable.</strong> En effet, un fluide ne peut être considéré comme incompressible que si la vitesse d'écoulement est très inférieure à la célérité du son ($v  c_{}$). Ici, $v > c_{}$, donc des effets de compressibilité importants apparaissent (ondes de choc), et le résultat obtenu n'est qu'une estimation approchée.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 11</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Tube de Venturi avec manomètre à mercure.
+</div>
+<p>Un tube de Venturi est un dispositif permettant de mesurer le débit d'un fluide en exploitant la variation de pression liée au changement de section. Un tube en U contenant du mercure est branché entre deux positions <strong>1</strong> et <strong>2</strong> de la conduite horizontale, comme représenté sur le schéma ci-dessous.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.007879 -59.813301 265.844384 124.391506'>
+<defs>
+<path id='g2-68' d='M1.58406-.777086C1.484433-.388543 1.464508-.308842 .67746-.308842C.508095-.308842 .398506-.308842 .398506-.119552C.398506 0 .488169 0 .67746 0H3.975093C6.047323 0 8.009963-2.102117 8.009963-4.283935C8.009963-5.688667 7.163138-6.804483 5.668742-6.804483H2.321295C2.132005-6.804483 2.022416-6.804483 2.022416-6.615193C2.022416-6.495641 2.11208-6.495641 2.311333-6.495641C2.440847-6.495641 2.620174-6.485679 2.739726-6.475716C2.899128-6.455791 2.958904-6.425903 2.958904-6.316314C2.958904-6.276463 2.948941-6.246575 2.919054-6.127024L1.58406-.777086ZM3.73599-6.117061C3.825654-6.465753 3.845579-6.495641 4.273973-6.495641H5.339975C6.316314-6.495641 7.143213-5.967621 7.143213-4.652553C7.143213-4.164384 6.94396-2.530511 6.097136-1.43462C5.808219-1.066002 5.021171-.308842 3.795766-.308842H2.669988C2.530511-.308842 2.510585-.308842 2.450809-.318804C2.351183-.328767 2.321295-.33873 2.321295-.418431C2.321295-.448319 2.321295-.468244 2.371108-.647572L3.73599-6.117061Z'/>
+<path id='g2-100' d='M5.140722-6.804483C5.140722-6.814446 5.140722-6.914072 5.011208-6.914072C4.861768-6.914072 3.915318-6.824408 3.745953-6.804483C3.666252-6.794521 3.606476-6.744707 3.606476-6.615193C3.606476-6.495641 3.696139-6.495641 3.845579-6.495641C4.323786-6.495641 4.343711-6.425903 4.343711-6.326276L4.313823-6.127024L3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.806974 3.666252-.876712 3.706102-1.046077L5.140722-6.804483ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z'/>
+<path id='g2-104' d='M2.859278-6.804483C2.859278-6.814446 2.859278-6.914072 2.729763-6.914072C2.500623-6.914072 1.77335-6.834371 1.514321-6.814446C1.43462-6.804483 1.325031-6.794521 1.325031-6.615193C1.325031-6.495641 1.414695-6.495641 1.564134-6.495641C2.042341-6.495641 2.062267-6.425903 2.062267-6.326276L2.032379-6.127024L.587796-.388543C.547945-.249066 .547945-.229141 .547945-.169365C.547945 .059776 .747198 .109589 .836862 .109589C.996264 .109589 1.155666-.009963 1.205479-.14944L1.39477-.9066L1.613948-1.803238C1.673724-2.022416 1.733499-2.241594 1.783313-2.470735C1.803238-2.530511 1.882939-2.859278 1.892902-2.919054C1.92279-3.008717 2.231631-3.566625 2.570361-3.835616C2.789539-3.995019 3.098381-4.184309 3.526775-4.184309S4.064757-3.845579 4.064757-3.486924C4.064757-2.948941 3.686177-1.863014 3.447073-1.255293C3.367372-1.026152 3.317559-.9066 3.317559-.707347C3.317559-.239103 3.666252 .109589 4.134496 .109589C5.070984 .109589 5.439601-1.344956 5.439601-1.424658C5.439601-1.524284 5.349938-1.524284 5.32005-1.524284C5.220423-1.524284 5.220423-1.494396 5.17061-1.344956C5.021171-.816936 4.702366-.109589 4.154421-.109589C3.985056-.109589 3.915318-.209215 3.915318-.438356C3.915318-.687422 4.004981-.926526 4.094645-1.145704C4.254047-1.574097 4.702366-2.759651 4.702366-3.337484C4.702366-3.985056 4.303861-4.403487 3.556663-4.403487C2.929016-4.403487 2.450809-4.094645 2.082192-3.636364L2.859278-6.804483Z'/>
+<path id='g3-118' d='M3.724035-2.531507C3.724035-3.075467 3.396264-3.082441 3.375342-3.082441C3.194022-3.082441 2.998755-2.894147 2.998755-2.712827C2.998755-2.594271 3.068493-2.538481 3.11731-2.496638C3.235866-2.399004 3.375342-2.217684 3.375342-1.93873C3.375342-1.624907 2.915068-.125529 2.085181-.125529C1.520299-.125529 1.520299-.627646 1.520299-.746202C1.520299-1.066999 1.645828-1.457534 1.903861-2.106102C1.959651-2.252553 2.001494-2.357161 2.001494-2.475716C2.001494-2.838356 1.694645-3.075467 1.338979-3.075467C.641594-3.075467 .327771-2.12005 .327771-2.008468C.327771-1.917808 .425405-1.917808 .446326-1.917808C.54396-1.917808 .550934-1.952677 .571856-2.02939C.739228-2.601245 1.039103-2.880199 1.318057-2.880199C1.436613-2.880199 1.492403-2.803487 1.492403-2.636115C1.492403-2.475716 1.436613-2.329265 1.366874-2.168867C1.066999-1.39477 .990286-1.094894 .990286-.843836C.990286-.153425 1.534247 .069738 2.064259 .069738C3.235866 .069738 3.724035-1.959651 3.724035-2.531507Z'/>
+<path id='g4-1' d='M4.403487-6.953923C4.333748-7.083437 4.313823-7.13325 4.144458-7.13325S3.955168-7.083437 3.88543-6.953923L.518057-.199253C.468244-.109589 .468244-.089664 .468244-.079701C.468244 0 .52802 0 .687422 0H7.601494C7.760897 0 7.820672 0 7.820672-.079701C7.820672-.089664 7.820672-.109589 7.770859-.199253L4.403487-6.953923ZM3.825654-6.136986L6.505604-.757161H1.135741L3.825654-6.136986Z'/>
+<path id='g5-49' d='M2.336239-4.435367C2.336239-4.623661 2.322291-4.630635 2.127024-4.630635C1.680697-4.191283 1.046077-4.184309 .760149-4.184309V-3.93325C.927522-3.93325 1.387796-3.93325 1.771357-4.128518V-.571856C1.771357-.341719 1.771357-.251059 1.073973-.251059H.808966V0C.934496-.006974 1.792279-.027895 2.050311-.027895C2.266501-.027895 3.145205-.006974 3.29863 0V-.251059H3.033624C2.336239-.251059 2.336239-.341719 2.336239-.571856V-4.435367Z'/>
+<path id='g5-50' d='M3.521793-1.26924H3.284682C3.263761-1.115816 3.194022-.704359 3.103362-.63462C3.047572-.592777 2.510585-.592777 2.412951-.592777H1.129763C1.862017-1.241345 2.106102-1.436613 2.524533-1.764384C3.040598-2.175841 3.521793-2.608219 3.521793-3.270735C3.521793-4.11457 2.782565-4.630635 1.889913-4.630635C1.025156-4.630635 .439352-4.02391 .439352-3.382316C.439352-3.02665 .739228-2.991781 .808966-2.991781C.976339-2.991781 1.17858-3.110336 1.17858-3.361395C1.17858-3.486924 1.129763-3.731009 .767123-3.731009C.983313-4.226152 1.457534-4.379577 1.785305-4.379577C2.48269-4.379577 2.84533-3.835616 2.84533-3.270735C2.84533-2.66401 2.412951-2.182814 2.189788-1.931756L.509091-.27198C.439352-.209215 .439352-.195268 .439352 0H3.312578L3.521793-1.26924Z'/>
+</defs>
+<g id='page1'>
+<path d='M-69.609374-56.293H2.6758L26.7695-44.2461H99.055L123.152-56.293H195.438' stroke='currentColor' fill='none' stroke-width='.79701'/>
+<path d='M-69.609374-20.1523H2.6758L26.7695-32.1992H99.055L123.152-20.1523H195.438' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-57.5625-38.2227H-14.5273' stroke='#00f' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M-11.07419-38.222688L-15.80856-40.01956L-14.23044-38.222688L-15.80856-36.42581Z' fill='#00f'/>
+<path d='M-11.07419-38.222688L-15.80856-40.01956L-14.23044-38.222688L-15.80856-36.42581Z' stroke='#00f' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#00f' transform='matrix(1 0 0 1 29.6515 -47.578)'>
+<use x='-69.608977' y='3.943099' xlink:href='#g2-68'/>
+<use x='-61.360737' y='5.43748' xlink:href='#g3-118'/>
+</g>
+<g transform='matrix(1 0 0 1 11.0368 -63.7564)'>
+<use x='-69.608977' y='3.943099' xlink:href='#g0-80'/>
+<use x='-62.09732' y='3.943099' xlink:href='#g0-111'/>
+<use x='-56.3702' y='3.943099' xlink:href='#g0-115'/>
+<use x='-51.852136' y='3.943099' xlink:href='#g0-105'/>
+<use x='-48.670403' y='3.943099' xlink:href='#g0-116'/>
+<use x='-44.215976' y='3.943099' xlink:href='#g0-105'/>
+<use x='-41.034243' y='3.943099' xlink:href='#g0-111'/>
+<use x='-35.307124' y='3.943099' xlink:href='#g0-110'/>
+<use x='-25.125578' y='3.943099' xlink:href='#g0-49'/>
+</g>
+<g transform='matrix(1 0 0 1 107.4167 -51.7089)'>
+<use x='-69.608977' y='3.943099' xlink:href='#g0-80'/>
+<use x='-62.09732' y='3.943099' xlink:href='#g0-111'/>
+<use x='-56.3702' y='3.943099' xlink:href='#g0-115'/>
+<use x='-51.852136' y='3.943099' xlink:href='#g0-105'/>
+<use x='-48.670403' y='3.943099' xlink:href='#g0-116'/>
+<use x='-44.215976' y='3.943099' xlink:href='#g0-105'/>
+<use x='-41.034243' y='3.943099' xlink:href='#g0-111'/>
+<use x='-35.307124' y='3.943099' xlink:href='#g0-110'/>
+<use x='-25.125578' y='3.943099' xlink:href='#g0-50'/>
+</g>
+<g transform='matrix(1 0 0 1 31.315 -4.51645)'>
+<use x='-69.608977' y='3.943099' xlink:href='#g2-100'/>
+<use x='-64.423544' y='5.43748' xlink:href='#g5-49'/>
+</g>
+<g transform='matrix(1 0 0 1 127.6948 -18.9732)'>
+<use x='-69.608977' y='3.943099' xlink:href='#g2-100'/>
+<use x='-64.423544' y='5.43748' xlink:href='#g5-50'/>
+</g>
+<path d='M-21.418 64.1797V-20.1523' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M62.914 64.1797V-32.1992' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-21.418 64.1797H62.914' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-21.418 64.1797V52.1328H62.914V64.1797Z' fill='#bfbfbf'/>
+<path d='M-21.418 52.1328V32.8555H-11.7812V52.1328Z' fill='#bfbfbf'/>
+<path d='M53.277 52.1328V18.3984H62.914V52.1328Z' fill='#bfbfbf'/>
+<g transform='matrix(1 0 0 1 138.4509 34.7543)'>
+<use x='-69.608977' y='3.943099' xlink:href='#g1-77'/>
+<use x='-60.478786' y='3.943099' xlink:href='#g1-101'/>
+<use x='-56.052027' y='3.943099' xlink:href='#g1-114'/>
+<use x='-52.150946' y='3.943099' xlink:href='#g1-99'/>
+<use x='-47.724187' y='3.943099' xlink:href='#g1-117'/>
+<use x='-42.190738' y='3.943099' xlink:href='#g1-114'/>
+<use x='-38.289657' y='3.943099' xlink:href='#g1-101'/>
+</g>
+<path d='M7.4961 28.7461V22.5117' stroke='#f00' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M7.496095 31.72262L9.06641 27.57027L7.496095 28.94527L5.92578 27.57027Z' fill='#f00'/>
+<path d='M7.496095 31.72262L9.06641 27.57027L7.496095 28.94527L5.92578 27.57027Z' stroke='#f00' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M7.496095 19.53513L5.92578 23.68747L7.496095 22.31247L9.06641 23.68747Z' fill='#f00'/>
+<path d='M7.496095 19.53513L5.92578 23.68747L7.496095 22.31247L9.06641 23.68747Z' stroke='#f00' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#f00' transform='matrix(1 0 0 1 80.822 25.1448)'>
+<use x='-69.608977' y='3.943099' xlink:href='#g4-1'/>
+<use x='-61.306751' y='3.943099' xlink:href='#g2-104'/>
+</g>
+<path d='M-21.418 32.8555H62.914' stroke='#808080' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M-21.418 18.3984H62.914' stroke='#808080' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+</g>
+</svg></div>
+</div>
+<p>De l'eau circule dans la conduite. Le mercure dans le tube en U est en équilibre.</p>
+<strong>Données :</strong>
+<ul><li>Masse volumique de l'eau : $_{} = $1000   $$</li><li>Masse volumique du mercure : $_{} = $13550   $$</li><li>Diamètre en position 1 : $d_1 = $30   $$</li><li>Diamètre en position 2 : $d_2 = $5{,}0   $$</li><li>Dénivellation du mercure dans le tube en U : $ h = $0{,}30   $$</li><li>$g = $9{,}81   $$
+</li></ul>
+<ol><li>Rappeler les hypothèses nécessaires pour appliquer la relation de Bernoulli à l'écoulement de l'eau dans la conduite.</li><li>Écrire la relation de Bernoulli entre les positions 1 et 2 pour l'eau. Simplifier cette relation pour un écoulement horizontal ($z_1 = z_2$).</li><li>Exprimer la différence de pression $P_1 - P_2$ en fonction de la dénivellation $ h$ du mercure.
+<em>Indication :</em> utiliser la relation fondamentale de la statique des fluides appliquée au mercure et à l'eau dans le tube en U pour montrer que :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_1 - P_2 = (_{} - _{})  g   h$$</div></div></div></div></li><li>Calculer numériquement la différence de pression $P_1 - P_2$.</li><li>En utilisant la conservation du débit volumique, exprimer $v_1$ en fonction de $v_2$, $d_1$ et $d_2$.</li><li>En combinant les résultats précédents, exprimer $v_2$ en fonction de $P_1 - P_2$, $_{}$, $d_1$ et $d_2$.</li><li>Calculer $v_2$, puis en déduire le débit volumique $D_v$ de l'eau dans la conduite. Exprimer $D_v$ en $$$$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On combine la relation de Bernoulli (pour l'eau dans la conduite), la statique des fluides (pour le mercure et l'eau dans le tube en U), et la conservation du débit volumique pour déterminer le débit.
+</div>
+<strong>Données :</strong>
+<ul><li>$_{} = $1000   $$, $_{} = $13550   $$</li><li>$d_1 = $30   $ = 30  10^{-3} $$$, $d_2 = $5{,}0   $ = 5{,}0  10^{-3} $$$</li><li>$ h = $0{,}30   $$, $g = $9{,}81   $$
+</li></ul>
+<ol><li><strong>Hypothèses pour appliquer Bernoulli :</strong>
+<p>Pour appliquer la relation de Bernoulli à l'écoulement de l'eau dans la conduite, les hypothèses nécessaires sont :<br><ul><li>Le fluide (eau) est <strong>incompressible</strong> : $_{} = $.</li><li>L'écoulement est <strong>permanent</strong> (stationnaire) : les grandeurs ne dépendent pas du temps.</li><li>On suit une <strong>ligne de courant</strong> entre les positions 1 et 2.<br></li></ul></li><li><strong>Relation de Bernoulli simplifiée :</strong></p>
+<p>La relation de Bernoulli entre les positions 1 et 2 s'écrit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_1 + {2} _{} v_1^2 + _{} g z_1 = P_2 + {2} _{} v_2^2 + _{} g z_2$$</div></div></div></div></p>
+<p>Pour un écoulement horizontal ($z_1 = z_2$), les termes de pesanteur se simplifient :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${P_1 + {2} _{} v_1^2 = P_2 + {2} _{} v_2^2}$$</div></div></div></div></p>
+<p>Soit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_1 - P_2 = {2} _{} (v_2^2 - v_1^2)$$</div></div></div></div></li><li><strong>Différence de pression en fonction de $ h$ :</strong></p>
+<p>On considère le tube en U rempli de mercure. Appelons $C$ et $D$ les deux points situés à la surface du mercure de chaque côté du tube en U (avec $C$ du côté de la position 1, et $D$ du côté de la position 2).</p>
+<p>Le niveau du mercure est plus bas du côté où la pression est la plus forte (côté 1, car la vitesse y est plus faible), et plus haut du côté où la pression est plus faible (côté 2).</p>
+<p>En appliquant la relation fondamentale de la statique des fluides dans chaque branche du tube en U, et en tenant compte des colonnes d'eau et de mercure entre les points de raccordement et la surface du mercure, on montre que :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${P_1 - P_2 = (_{} - _{})  g   h}$$</div></div></div></div>
+<div class="info-box">
+<strong>Justification détaillée :</strong> En prenant deux points au même niveau horizontal dans le mercure (un dans chaque branche), la pression est la même. En remontant dans chaque branche, on traverse une colonne de mercure puis une colonne d'eau. La différence de hauteur $ h$ du mercure entre les deux branches traduit la différence de pression entre les positions 1 et 2, corrigée de la contribution de l'eau (d'où le terme $_{} - _{}$).
+</div></li><li><strong>Calcul numérique de $P_1 - P_2$ :</strong>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+P_1 - P_2 &= (_{} - _{})  g   h \\
+P_1 - P_2 &= (13 550 - 1000)  9{,}81  0{,}30 \\
+P_1 - P_2 &= 12 550  9{,}81  0{,}30 \\
+P_1 - P_2 &= 12 550  2{,}943 \\
+P_1 - P_2 & $36\{,}935   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> ${P_1 - P_2  $3{,}7  10^{4}   $  $0{,}37   $}$</li><li><strong>Expression de $v_1$ en fonction de $v_2$ :</strong>
+<p>La conservation du débit volumique pour un fluide incompressible donne :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$D_v = v_1  S_1 = v_2  S_2$$</div></div></div></div></p>
+<p>Les sections sont des disques : $S = {4}$.</p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_1  {4} = v_2  {4}$$</div></div></div></div></p>
+<p>On simplifie par ${4}$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_1  d_1^2 = v_2  d_2^2$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${v_1 = v_2  {d_1^2} = v_2  ({d_1})^2}$$</div></div></div></div></li><li><strong>Expression de $v_2$ :</strong>
+<p>On remplace $v_1$ dans l'expression de $P_1 - P_2$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_1 - P_2 = {2} _{} (v_2^2 - v_1^2) = {2} _{} v_2^2(1 - ({d_1})^4)$$</div></div></div></div></p>
+<p>En effet :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_1^2 = v_2^2  ({d_1})^4$$</div></div></div></div></p>
+<p>On isole $v_2^2$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_2^2 = {_{} (1 - ({d_1})^4)}$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${v_2 = {{_{} (1 - ({d_1})^4)}}}$$</div></div></div></div></li><li><strong>Calcul de $v_2$ et du débit $D_v$ :</strong>
+<p>Calculons d'abord $({d_1})^4$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${d_1} = {5{,}0}{30} = {6}  0{,}1667$$</div></div></div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$({d_1})^2 = ({6})^2 = {36}  0{,}02778$$</div></div></div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$({d_1})^4 = ({36})^2 = {1296}  7{,}72  10^{-4}$$</div></div></div></div></p>
+<p>Ce terme est très petit devant 1, donc $1 - ({d_1})^4  1{,}000$.</p>
+<strong>Calcul de $v_2$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_2 &= {{2  3{,}69  10^{4}}{1000  1{,}000}} \\
+v_2 &= {{7{,}39  10^{4}}{1000}} \\
+v_2 &= {73{,}9} \\
+v_2 & $8{,}6   $
+$$</div></div></div></div>
+<strong>Calcul du débit volumique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$D_v = v_2  S_2 = v_2  {4}$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+S_2 &= {  (5{,}0  10^{-3})^2}{4} = {  25  10^{-6}}{4}  1{,}963  10^{-5} $$
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+D_v &= 8{,}6  1{,}963  10^{-5} \\
+D_v & 1{,}69  10^{-4} $$
+$$</div></div></div></div>
+<p>Conversion en $$$$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>D_v &= 1{,}69  10^{-4}  1000 $$ = $0{,}169   $ \\<br>D_v &= 0{,}169  60  $10   $<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> ${v_2  $8{,}6   $    D_v  $10   $}$
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 12</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Écoulement d'eau dans un conduit avec convergent -- Résolution de problème.
+</div>
+<p>On souhaite accélérer un écoulement d'eau horizontal de vitesse initiale $v_1$ afin qu'il sorte à l'air libre avec une vitesse d'écoulement $v_2 = 2{,}0  v_1$. Pour cela, on place un  convergent , c'est-à-dire une pièce conique qui réduit progressivement la section de la conduite. Le convergent fait un angle $$ avec l'horizontale.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.289538 -70.007905 270.31472 98.22336'>
+<defs>
+<path id='g1-11' d='M4.752179-2.351183C4.752179-3.915318 3.825654-4.403487 3.088418-4.403487C1.723537-4.403487 .408468-2.978829 .408468-1.574097C.408468-.647572 1.006227 .109589 2.022416 .109589C2.650062 .109589 3.367372-.119552 4.124533-.727273C4.254047-.199253 4.582814 .109589 5.031133 .109589C5.559153 .109589 5.867995-.438356 5.867995-.597758C5.867995-.667497 5.808219-.697385 5.748443-.697385C5.678705-.697385 5.648817-.667497 5.618929-.597758C5.439601-.109589 5.080946-.109589 5.061021-.109589C4.752179-.109589 4.752179-.886675 4.752179-1.125778C4.752179-1.334994 4.752179-1.354919 4.851806-1.474471C5.788294-2.650062 5.997509-3.805729 5.997509-3.815691C5.997509-3.835616 5.987547-3.915318 5.877958-3.915318C5.778331-3.915318 5.778331-3.88543 5.728518-3.706102C5.549191-3.078456 5.220423-2.321295 4.752179-1.733499V-2.351183ZM4.084682-.986301C3.20797-.219178 2.440847-.109589 2.042341-.109589C1.444583-.109589 1.145704-.557908 1.145704-1.195517C1.145704-1.683686 1.404732-2.759651 1.723537-3.267746C2.191781-3.995019 2.729763-4.184309 3.078456-4.184309C4.064757-4.184309 4.064757-2.879203 4.064757-2.102117C4.064757-1.733499 4.064757-1.155666 4.084682-.986301Z'/>
+<path id='g1-100' d='M5.140722-6.804483C5.140722-6.814446 5.140722-6.914072 5.011208-6.914072C4.861768-6.914072 3.915318-6.824408 3.745953-6.804483C3.666252-6.794521 3.606476-6.744707 3.606476-6.615193C3.606476-6.495641 3.696139-6.495641 3.845579-6.495641C4.323786-6.495641 4.343711-6.425903 4.343711-6.326276L4.313823-6.127024L3.716065-3.765878C3.536737-4.134496 3.247821-4.403487 2.799502-4.403487C1.633873-4.403487 .398506-2.938979 .398506-1.484433C.398506-.547945 .946451 .109589 1.723537 .109589C1.92279 .109589 2.420922 .069738 3.01868-.637609C3.098381-.219178 3.447073 .109589 3.92528 .109589C4.273973 .109589 4.503113-.119552 4.662516-.438356C4.83188-.797011 4.961395-1.404732 4.961395-1.424658C4.961395-1.524284 4.871731-1.524284 4.841843-1.524284C4.742217-1.524284 4.732254-1.484433 4.702366-1.344956C4.533001-.697385 4.353674-.109589 3.945205-.109589C3.676214-.109589 3.646326-.368618 3.646326-.56787C3.646326-.806974 3.666252-.876712 3.706102-1.046077L5.140722-6.804483ZM3.068493-1.185554C3.01868-1.006227 3.01868-.986301 2.86924-.816936C2.430884-.268991 2.022416-.109589 1.743462-.109589C1.24533-.109589 1.105853-.657534 1.105853-1.046077C1.105853-1.544209 1.424658-2.769614 1.653798-3.227895C1.96264-3.815691 2.410959-4.184309 2.809465-4.184309C3.457036-4.184309 3.596513-3.367372 3.596513-3.307597S3.576588-3.188045 3.566625-3.138232L3.068493-1.185554Z'/>
+<path id='g1-118' d='M4.662516-3.706102C4.662516-4.244085 4.403487-4.403487 4.224159-4.403487C3.975093-4.403487 3.73599-4.144458 3.73599-3.92528C3.73599-3.795766 3.785803-3.73599 3.895392-3.626401C4.104608-3.427148 4.234122-3.16812 4.234122-2.809465C4.234122-2.391034 3.626401-.109589 2.460772-.109589C1.952677-.109589 1.723537-.458281 1.723537-.976339C1.723537-1.534247 1.992528-2.261519 2.30137-3.088418C2.371108-3.257783 2.420922-3.39726 2.420922-3.58655C2.420922-4.034869 2.102117-4.403487 1.603985-4.403487C.667497-4.403487 .288917-2.958904 .288917-2.86924C.288917-2.769614 .388543-2.769614 .408468-2.769614C.508095-2.769614 .518057-2.789539 .56787-2.948941C.856787-3.955168 1.285181-4.184309 1.574097-4.184309C1.653798-4.184309 1.823163-4.184309 1.823163-3.865504C1.823163-3.616438 1.723537-3.347447 1.653798-3.16812C1.215442-2.012453 1.085928-1.554172 1.085928-1.125778C1.085928-.049813 1.96264 .109589 2.420922 .109589C4.094645 .109589 4.662516-3.188045 4.662516-3.706102Z'/>
+<path id='g2-49' d='M2.336239-4.435367C2.336239-4.623661 2.322291-4.630635 2.127024-4.630635C1.680697-4.191283 1.046077-4.184309 .760149-4.184309V-3.93325C.927522-3.93325 1.387796-3.93325 1.771357-4.128518V-.571856C1.771357-.341719 1.771357-.251059 1.073973-.251059H.808966V0C.934496-.006974 1.792279-.027895 2.050311-.027895C2.266501-.027895 3.145205-.006974 3.29863 0V-.251059H3.033624C2.336239-.251059 2.336239-.341719 2.336239-.571856V-4.435367Z'/>
+<path id='g2-50' d='M3.521793-1.26924H3.284682C3.263761-1.115816 3.194022-.704359 3.103362-.63462C3.047572-.592777 2.510585-.592777 2.412951-.592777H1.129763C1.862017-1.241345 2.106102-1.436613 2.524533-1.764384C3.040598-2.175841 3.521793-2.608219 3.521793-3.270735C3.521793-4.11457 2.782565-4.630635 1.889913-4.630635C1.025156-4.630635 .439352-4.02391 .439352-3.382316C.439352-3.02665 .739228-2.991781 .808966-2.991781C.976339-2.991781 1.17858-3.110336 1.17858-3.361395C1.17858-3.486924 1.129763-3.731009 .767123-3.731009C.983313-4.226152 1.457534-4.379577 1.785305-4.379577C2.48269-4.379577 2.84533-3.835616 2.84533-3.270735C2.84533-2.66401 2.412951-2.182814 2.189788-1.931756L.509091-.27198C.439352-.209215 .439352-.195268 .439352 0H3.312578L3.521793-1.26924Z'/>
+</defs>
+<g id='page1'>
+<path d='M-45.660155-69.6094H30.875' stroke='currentColor' fill='none' stroke-width='.79701'/>
+<path d='M-45.660155 6.9258H30.875' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M30.875-69.6094L132.9218-50.4766' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M30.875 6.9258L132.9218-12.207' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M132.9218-50.4766H183.9458' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M132.9218-12.207H183.9458' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-20.1484-31.339844H12.9609' stroke='#00f' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M16.41797-31.339844L11.67969-33.13672L13.26172-31.339844L11.67969-29.54688Z' fill='#00f'/>
+<path d='M16.41797-31.339844L11.67969-33.13672L13.26172-31.339844L11.67969-29.54688Z' stroke='#00f' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#00f' transform='matrix(1 0 0 1 39.99661 -5.4119)'>
+<use x='-45.661244' y='-31.341545' xlink:href='#g1-118'/>
+<use x='-40.832113' y='-29.847164' xlink:href='#g2-49'/>
+</g>
+<path d='M145.6798-31.339844H173.6878' stroke='#00f' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M177.14028-31.339844L172.40591-33.13672L173.98403-31.339844L172.40591-29.54688Z' fill='#00f'/>
+<path d='M177.14028-31.339844L172.40591-33.13672L173.98403-31.339844L172.40591-29.54688Z' stroke='#00f' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#00f' transform='matrix(1 0 0 1 203.2732 -5.4119)'>
+<use x='-45.661244' y='-31.341545' xlink:href='#g1-118'/>
+<use x='-40.832113' y='-29.847164' xlink:href='#g2-50'/>
+</g>
+<path d='M30.875 6.9258H132.9218' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M81.8988 6.9258C81.8988 3.7812 81.6058 .6328 81.0278-2.457' stroke='#f00' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#f00' transform='matrix(1 0 0 1 131.0577 41.563)'>
+<use x='-45.661244' y='-31.341545' xlink:href='#g1-11'/>
+</g>
+<path d='M-53.3164 2.8164V-65.5' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-53.316364 5.79297L-51.74605 1.63672L-53.316364 3.01562L-54.88668 1.63672Z'/>
+<path d='M-53.316364 5.79297L-51.74605 1.63672L-53.316364 3.01562L-54.88668 1.63672Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-53.316364-68.47267L-54.88668-64.32032L-53.316364-65.69923L-51.74605-64.32032Z'/>
+<path d='M-53.316364-68.47267L-54.88668-64.32032L-53.316364-65.69923L-51.74605-64.32032Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -21.0268 2.7121)'>
+<use x='-45.661244' y='-31.341545' xlink:href='#g1-100'/>
+<use x='-40.475812' y='-29.847164' xlink:href='#g2-49'/>
+</g>
+<path d='M191.6018-16.3164V-46.3633' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M191.601526-13.34377L193.17184-17.49612L191.601526-16.11721L190.03121-17.49612Z'/>
+<path d='M191.601526-13.34377L193.17184-17.49612L191.601526-16.11721L190.03121-17.49612Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M191.601526-49.33982L190.03121-45.18748L191.601526-46.56248L193.17184-45.18748Z'/>
+<path d='M191.601526-49.33982L190.03121-45.18748L191.601526-46.56248L193.17184-45.18748Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 240.9792 2.7121)'>
+<use x='-45.661244' y='-31.341545' xlink:href='#g1-100'/>
+<use x='-40.475812' y='-29.847164' xlink:href='#g2-50'/>
+</g>
+<g transform='matrix(1 0 0 1 3.5312 59.557)'>
+<use x='-45.661244' y='-31.341545' xlink:href='#g0-83'/>
+<use x='-40.127795' y='-31.341545' xlink:href='#g0-101'/>
+<use x='-35.701036' y='-31.341545' xlink:href='#g0-99'/>
+<use x='-31.274277' y='-31.341545' xlink:href='#g0-116'/>
+<use x='-27.400863' y='-31.341545' xlink:href='#g0-105'/>
+<use x='-24.634139' y='-31.341545' xlink:href='#g0-111'/>
+<use x='-19.654035' y='-31.341545' xlink:href='#g0-110'/>
+<use x='-10.800517' y='-31.341545' xlink:href='#g0-100'/>
+<use x='-5.267068' y='-31.341545' xlink:href='#g0-39'/>
+<use x='-2.500344' y='-31.341545' xlink:href='#g0-101'/>
+<use x='1.926415' y='-31.341545' xlink:href='#g0-110'/>
+<use x='7.183192' y='-31.341545' xlink:href='#g0-116'/>
+<use x='11.056606' y='-31.341545' xlink:href='#g0-114'/>
+<use x='14.957687' y='-31.341545' xlink:href='#g0-233'/>
+<use x='19.384446' y='-31.341545' xlink:href='#g0-101'/>
+</g>
+<g transform='matrix(1 0 0 1 168.0862 41.6987)'>
+<use x='-45.661244' y='-31.341545' xlink:href='#g0-83'/>
+<use x='-40.127795' y='-31.341545' xlink:href='#g0-101'/>
+<use x='-35.701036' y='-31.341545' xlink:href='#g0-99'/>
+<use x='-31.274277' y='-31.341545' xlink:href='#g0-116'/>
+<use x='-27.400863' y='-31.341545' xlink:href='#g0-105'/>
+<use x='-24.634139' y='-31.341545' xlink:href='#g0-111'/>
+<use x='-19.654035' y='-31.341545' xlink:href='#g0-110'/>
+<use x='-10.800517' y='-31.341545' xlink:href='#g0-100'/>
+<use x='-5.267068' y='-31.341545' xlink:href='#g0-101'/>
+<use x='2.47976' y='-31.341545' xlink:href='#g0-115'/>
+<use x='6.408509' y='-31.341545' xlink:href='#g0-111'/>
+<use x='11.388613' y='-31.341545' xlink:href='#g0-114'/>
+<use x='15.289694' y='-31.341545' xlink:href='#g0-116'/>
+<use x='19.163108' y='-31.341545' xlink:href='#g0-105'/>
+<use x='21.929833' y='-31.341545' xlink:href='#g0-101'/>
+</g>
+</g>
+</svg></div>
+</div>
+<strong>Données :</strong>
+<ul><li>Débit volumique de l'eau : $D_v = $100   $$</li><li>Diamètre de la section droite à l'entrée du conduit : $d_1 = $200   $$</li><li>Pression de l'eau à la sortie du conduit : $P_2 = P_{} = $1{,}013  10^{5}   $$</li><li>Masse volumique de l'eau : $ = $1000   $$</li><li>$g = $9{,}81   $$</li><li>Angle du convergent : $ = 20{^}$
+</li></ul>
+<em>L'écoulement est supposé permanent et le fluide incompressible. On néglige les effets de la gravité (conduite horizontale).</em>
+<ol><li><strong>Analyse préliminaire.</strong>
+<ol><li>Rappeler les conditions nécessaires pour que la relation de Bernoulli soit applicable.</li><li>Vérifier que ces conditions sont réunies dans cette situation.
+</li></ol></li><li><strong>Étude cinématique de l'écoulement.</strong>
+<ol><li>Calculer la vitesse $v_1$ de l'eau à l'entrée du conduit.</li><li>En déduire la vitesse $v_2$ à la sortie.</li><li>Déterminer le diamètre $d_2$ de la section de sortie.
+</li></ol></li><li><strong>Étude de la pression.</strong>
+<ol><li>Écrire la relation de Bernoulli entre l'entrée (point 1) et la sortie (point 2) du convergent. Simplifier pour un écoulement horizontal.</li><li>Exprimer la pression $P_1$ à l'entrée du conduit en fonction de $P_2$, $$, $v_1$ et $v_2$.</li><li>Calculer $P_1$. Exprimer le résultat en pascal puis en bar.
+</li></ol></li><li><strong>Exploitation et esprit critique.</strong>
+<ol><li>Expliquer pourquoi la pression diminue lorsque la vitesse augmente dans une conduite horizontale.</li><li>Calculer la longueur $L$ du convergent en fonction de $d_1$, $d_2$ et $$. On pourra utiliser la relation :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L = {2   ()}$$</div></div></div></div>
+<em>Donnée :</em> $(20{^})  0{,}364$.</li><li>Si le débit volumique était doublé, indiquer qualitativement comment seraient modifiés $v_1$, $v_2$ et la différence de pression $P_1 - P_2$. Justifier sans calcul détaillé.
+</li></ol>
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise la conservation du débit volumique pour la partie cinématique, puis la relation de Bernoulli pour déterminer la pression, et enfin de la trigonométrie pour la longueur du convergent.
+</div>
+<strong>Données :</strong>
+<ul><li>$D_v = $100   $ = $0{,}100   $$</li><li>$d_1 = $200   $ = $0{,}200   $$</li><li>$P_2 = P_{} = $1{,}013  10^{5}   $$</li><li>$ = $1000   $$, $g = $9{,}81   $$</li><li>$ = 20{^}$, $(20{^})  0{,}364$
+</li></ul>
+<h3>1. Analyse préliminaire</h3>
+<ol><li><strong>Conditions nécessaires pour appliquer la relation de Bernoulli :</strong>
+<ul><li>Le fluide doit être <strong>incompressible</strong> : sa masse volumique $$ reste constante.</li><li>L'écoulement doit être <strong>permanent</strong> (stationnaire) : les grandeurs (vitesse, pression) ne dépendent pas du temps en chaque point.</li><li>On applique la relation le long d'une <strong>ligne de courant</strong>.
+</li></ul></li><li><strong>Vérification des conditions :</strong>
+<ul><li>L'eau est un liquide : sa masse volumique est pratiquement constante. L'eau est bien un fluide <strong>incompressible</strong>.</li><li>L'énoncé indique que l'écoulement est <strong>permanent</strong>.</li><li>On peut suivre une ligne de courant allant de l'entrée (point 1) à la sortie (point 2) de la conduite.
+</li></ul>
+<strong>Conclusion :</strong> Toutes les conditions sont réunies pour appliquer la relation de Bernoulli.
+</li></ol>
+<h3>2. Étude cinématique de l'écoulement</h3>
+<ol><li><strong>Calcul de $v_1$ :</strong>
+<p>On utilise $D_v = v_1  S_1$ avec $S_1 = {4}$.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_1 = {S_1} = {   d_1^2}$$</div></div></div></div>
+<p>Conversion du débit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$D_v = $100   $ = $0{,}100   $$</div></div>$</div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+S_1 &= {  (0{,}200)^2}{4} = {  0{,}0400}{4} = {0{,}04}{4} = 0{,}01  3{,}14  10^{-2} $$
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_1 &= {0{,}100}{3{,}14  10^{-2}} \\
+v_1 & $3{,}18   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> ${v_1  $3{,}2   $}$</li><li><strong>Calcul de $v_2$ :</strong>
+<p>L'énoncé indique $v_2 = 2{,}0  v_1$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_2 = 2{,}0  3{,}18 = $6{,}4   $$</div></div>$</div></div></p>
+<strong>Conclusion :</strong> ${v_2  $6{,}4   $}$</li><li><strong>Détermination du diamètre $d_2$ :</strong>
+<p>Par conservation du débit : $v_1  S_1 = v_2  S_2$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$S_2 = {v_2}  S_1 = {2{,}0} = {2}$$</div></div></div></div></p>
+<p>Or $S = {4}$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${4} = {2}  {4}$$</div></div></div></div></p>
+<p>On simplifie par ${4}$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$d_2^2 = {2}$$</div></div></div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$d_2 = {}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+d_2 &= {} = {1{,}414}  $141   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> ${d_2  $141   $  $14   $}$
+</li></ol>
+<h3>3. Étude de la pression</h3>
+<ol><li><strong>Relation de Bernoulli entre 1 et 2 :</strong>
+<p>Pour un écoulement horizontal ($z_1 = z_2$), la relation de Bernoulli se simplifie :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_1 + {2}  v_1^2 = P_2 + {2}  v_2^2$$</div></div></div></div></li><li><strong>Expression de $P_1$ :</strong></p>
+<p>On isole $P_1$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>P_1 &= P_2 + {2}  v_2^2 - {2}  v_1^2<br>$$</div></div></div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${P_1 = P_2 + {2}  (v_2^2 - v_1^2)}$$</div></div></div></div></li><li><strong>Calcul numérique de $P_1$ :</strong></p>
+<p>Calculons les carrés des vitesses :<br><ul><li>$v_1^2 = (3{,}18)^2  $10{,}1   $$</li><li>$v_2^2 = (6{,}36)^2  {40{,}4}{}$<br></li></ul></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+P_1 &= 1{,}013  10^{5} + {2}  1000  (40{,}4 - 10{,}1) \\
+P_1 &= 1{,}013  10^{5} + 500  30{,}3 \\
+P_1 &= 1{,}013  10^{5} + 1{,}515  10^{4} \\
+P_1 &= 1{,}013  10^{5} + 0{,}1515  10^{5} \\
+P_1 & $1{,}16  10^{5}   $
+$$</div></div></div></div>
+<p>Conversion en bar :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_1 = {1{,}16  10^{5}}{1{,}0  10^{5}}  $1{,}16   $$</div></div>$</div></div></p>
+<strong>Conclusion :</strong> ${P_1  $1{,}16  10^{5}   $  $1{,}16   $}$
+<p>La pression à l'entrée ($P_1  $1{,}16   $$) est légèrement supérieure à la pression atmosphérique ($P_2  $1{,}01   $$), ce qui est cohérent : la vitesse augmente, la pression diminue.</p>
+</li></ol>
+<h3>4. Exploitation et esprit critique</h3>
+<ol><li><strong>Pourquoi la pression diminue quand la vitesse augmente :</strong>
+<p>La relation de Bernoulli traduit la <strong>conservation de l'énergie</strong> le long d'une ligne de courant. Pour un écoulement horizontal, l'énergie par unité de volume se répartit entre :<br><ul><li>l'énergie de <strong>pression</strong> : $P$ ;</li><li>l'énergie <strong>cinétique</strong> : ${2}  v^2$.<br></li></ul></p>
+<p>La somme $P + {2}  v^2$ est constante. Donc si la vitesse augmente (l'énergie cinétique augmente), il faut que la pression diminue pour que la somme reste constante.</li><li><strong>Calcul de la longueur $L$ du convergent :</strong></p>
+<p>La formule donnée est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L = {2   ()}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+d_1 - d_2 &= 200 - 141 = $59   $ = $0{,}059   $
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+L &= {0{,}059}{2  0{,}364} \\
+L &= {0{,}059}{0{,}728} \\
+L & $0{,}081   $  $81   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> ${L  $81   $  $8{,}1   $}$</li><li><strong>Effet d'un doublement du débit :</strong>
+<p>Si le débit volumique est doublé ($D_v' = 2   D_v$), alors :</p>
+<ul><li>La vitesse $v_1$ est <strong>doublée</strong> (car $v_1 = {S_1}$ et $S_1$ ne change pas) : $v_1' = 2 v_1$.</li><li>La vitesse $v_2$ est également <strong>doublée</strong> : $v_2' = 2 v_2$.</li><li>La différence de pression $P_1 - P_2 = {2}  (v_2^2 - v_1^2)$ dépend des <strong>carrés</strong> des vitesses. Si les vitesses sont doublées, les carrés sont multipliés par 4. Donc la différence de pression est <strong>multipliée par 4</strong> (quadruplée).
+</li></ul>
+<strong>Conclusion :</strong> En doublant le débit, les vitesses doublent et la différence de pression entre l'entrée et la sortie est multipliée par 4. L'écoulement nécessite alors une surpression d'entrée beaucoup plus importante.
+</li></ol>
+                </div>
+            </details>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="cours_mouvements_fluide.html" class="btn-action">📖 Revoir le cours</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=mouvements_fluide" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=mouvements_fluide" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

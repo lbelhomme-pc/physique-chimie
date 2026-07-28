@@ -1,0 +1,143 @@
+---
+import {
+  disciplineIdentities,
+  getDisciplineStyle,
+  publicDisciplineIds,
+} from "../../data/disciplineIdentity";
+import type { SubjectId } from "./SubjectContext";
+
+interface Props {
+  subject?: SubjectId;
+  label?: string;
+}
+
+const { subject = "transversal", label = "Choisir une matière" } = Astro.props;
+const subjects = publicDisciplineIds.map((id) => disciplineIdentities[id]);
+---
+
+<nav class="subject-switcher" aria-label={label} data-subject-switcher>
+  {subjects.map((item) => {
+    const active = subject === item.id;
+    return (
+      <a
+        href={item.href}
+        class:list={["subject-switcher__link", { active }]}
+        aria-current={active ? "page" : undefined}
+        data-subject-option={item.id}
+        data-discipline={item.id}
+        style={getDisciplineStyle(item)}
+      >
+        <span class="subject-switcher__mark" aria-hidden="true">{item.mark}</span>
+        <span class="subject-switcher__text">
+          <span>{item.label}</span>
+          <small>{item.microcopy}</small>
+        </span>
+      </a>
+    );
+  })}
+</nav>
+
+<style>
+  .subject-switcher {
+    align-items: stretch;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    display: inline-flex;
+    gap: 0.25rem;
+    padding: 0.25rem;
+  }
+
+  .subject-switcher__link {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    display: inline-flex;
+    font-size: 0.82rem;
+    font-weight: 850;
+    gap: 0.48rem;
+    min-height: 48px;
+    min-width: 0;
+    padding: 0.42rem 0.6rem;
+    text-decoration: none;
+  }
+
+  .subject-switcher__mark {
+    align-items: center;
+    background: var(--discipline-surface);
+    border: 1px solid var(--discipline-border);
+    border-radius: var(--v3-radius-sm);
+    color: var(--discipline-accent);
+    display: inline-flex;
+    font-size: 0.78rem;
+    font-weight: 950;
+    height: 30px;
+    justify-content: center;
+    min-width: 30px;
+    padding: 0 0.25rem;
+  }
+
+  .subject-switcher__text {
+    display: grid;
+    gap: 0.04rem;
+    line-height: 1.15;
+    min-width: 0;
+  }
+
+  .subject-switcher__text span {
+    overflow-wrap: anywhere;
+  }
+
+  .subject-switcher__text small {
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    font-weight: 750;
+    max-width: 18ch;
+    overflow-wrap: anywhere;
+  }
+
+  .subject-switcher__link.active {
+    background: var(--discipline-surface);
+    border-color: var(--discipline-border);
+    color: var(--discipline-accent);
+  }
+
+  .subject-switcher__link.active .subject-switcher__text small {
+    color: color-mix(in srgb, var(--discipline-accent) 70%, var(--text-secondary));
+  }
+
+  .subject-switcher__link:hover,
+  .subject-switcher__link:focus-visible {
+    box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--discipline-accent) 45%, transparent);
+    outline: none;
+  }
+
+  @media (max-width: 980px) {
+    .subject-switcher {
+      width: 100%;
+    }
+
+    .subject-switcher__link {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .subject-switcher {
+      display: grid;
+      grid-template-columns: 1fr;
+      order: 2;
+    }
+
+    .subject-switcher__link {
+      justify-content: flex-start;
+      width: 100%;
+    }
+
+    .subject-switcher__text small {
+      max-width: none;
+    }
+  }
+</style>

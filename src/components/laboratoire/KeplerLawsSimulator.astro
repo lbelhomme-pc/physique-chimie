@@ -1,0 +1,346 @@
+---
+import '../../styles/laboratoire/kepler-laws.css';
+---
+
+<section class="kpl-simulator" data-kepler-root aria-labelledby="kpl-title">
+  <header class="kpl-hero">
+    <div>
+      <p class="kpl-eyebrow">Laboratoire interactif · Terminale spécialité</p>
+      <h1 id="kpl-title">Lois de Kepler</h1>
+      <p class="kpl-question">
+        Comment une planète parcourt-elle une orbite elliptique, balaie-t-elle des aires égales en des durées égales et vérifie-t-elle <strong>T²/a³ = constante</strong>&nbsp;?
+      </p>
+    </div>
+    <p class="kpl-state" data-sim-state role="status" aria-live="polite">
+      <span class="kpl-state-dot" aria-hidden="true"></span>
+      <span data-sim-state-text>Prêt à explorer l’orbite</span>
+    </p>
+  </header>
+
+  <ol class="kpl-steps" aria-label="Progression de l’activité">
+    <li><strong>1. Manipuler</strong><span>Régler a, e et la durée Δt</span></li>
+    <li><strong>2. Observer</strong><span>Comparer distance et vitesse</span></li>
+    <li><strong>3. Vérifier</strong><span>Mesurer deux secteurs de même durée</span></li>
+    <li><strong>4. Exploiter</strong><span>Calculer T²/a³</span></li>
+  </ol>
+
+  <div class="kpl-main-grid">
+    <aside class="kpl-card kpl-controls" aria-labelledby="kpl-controls-title">
+      <div class="kpl-card-heading">
+        <p class="kpl-kicker">Manipuler</p>
+        <h2 id="kpl-controls-title">Préparer l’orbite</h2>
+      </div>
+
+      <fieldset class="kpl-fieldset">
+        <legend>Paramètres orbitaux</legend>
+
+        <div class="kpl-range-field">
+          <div class="kpl-range-heading">
+            <label for="kpl-a">Demi-grand axe a</label>
+            <output for="kpl-a" data-param-output="semiMajorAxisAu">1,00 UA</output>
+          </div>
+          <input id="kpl-a" type="range" min="0.4" max="5" step="0.05" value="1" data-param="semiMajorAxisAu" />
+          <p class="kpl-help">La taille de l’orbite détermine sa période.</p>
+        </div>
+
+        <div class="kpl-range-field">
+          <div class="kpl-range-heading">
+            <label for="kpl-e">Excentricité e</label>
+            <output for="kpl-e" data-param-output="eccentricity">0,60</output>
+          </div>
+          <input id="kpl-e" type="range" min="0" max="0.85" step="0.01" value="0.6" data-param="eccentricity" />
+          <p class="kpl-help">e = 0 donne un cercle ; plus e augmente, plus l’ellipse est allongée.</p>
+        </div>
+
+        <div class="kpl-range-field">
+          <div class="kpl-range-heading">
+            <label for="kpl-delta">Durée comparée Δt</label>
+            <output for="kpl-delta" data-param-output="deltaTYears">0,10 an</output>
+          </div>
+          <input id="kpl-delta" type="range" min="0.03" max="0.25" step="0.01" value="0.1" data-param="deltaTFraction" />
+          <p class="kpl-help" data-delta-help>10 % de la période orbitale.</p>
+        </div>
+      </fieldset>
+
+      <fieldset class="kpl-fieldset">
+        <legend>Animation</legend>
+        <label class="kpl-select-field" for="kpl-speed">
+          <span>Vitesse de lecture</span>
+          <select id="kpl-speed" data-speed>
+            <option value="0.25">× 0,25</option>
+            <option value="0.5">× 0,5</option>
+            <option value="1" selected>× 1</option>
+            <option value="2">× 2</option>
+            <option value="4">× 4</option>
+          </select>
+        </label>
+
+        <div class="kpl-action-grid">
+          <button type="button" class="kpl-button kpl-button-primary" data-action="toggle">
+            <span data-play-label>Lancer</span>
+          </button>
+          <button type="button" class="kpl-button" data-action="reset">Réinitialiser</button>
+          <button type="button" class="kpl-button" data-action="perihelion">Aller au périhélie</button>
+          <button type="button" class="kpl-button" data-action="aphelion">Aller à l’aphélie</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="kpl-fieldset">
+        <legend>Lecture temporelle</legend>
+        <div class="kpl-time-field">
+          <label for="kpl-time">Position dans la période</label>
+          <output for="kpl-time" data-output="orbitPercent">0,0 %</output>
+        </div>
+        <input id="kpl-time" type="range" min="0" max="1000" step="1" value="0" data-time-slider />
+      </fieldset>
+
+      <button type="button" class="kpl-button kpl-button-accent" data-action="compare-sectors" aria-pressed="true">
+        Masquer les secteurs égaux
+      </button>
+
+      <p class="kpl-scale-note">
+        <strong>Échelles :</strong> les distances orbitales sont comparées entre elles, mais les tailles du Soleil et de la planète sont fortement agrandies.
+      </p>
+    </aside>
+
+    <div class="kpl-workspace">
+      <section class="kpl-card kpl-observation" aria-labelledby="kpl-observation-title">
+        <div class="kpl-card-heading kpl-heading-inline">
+          <div>
+            <p class="kpl-kicker">Observer</p>
+            <h2 id="kpl-observation-title">Orbite et mouvement</h2>
+          </div>
+          <p class="kpl-zone-badge" data-output="orbitalZone">Périhélie</p>
+        </div>
+
+        <figure class="kpl-orbit-figure">
+          <svg viewBox="0 0 720 520" role="img" aria-labelledby="kpl-orbit-title kpl-orbit-desc" data-orbit-svg>
+            <title id="kpl-orbit-title">Orbite elliptique d’une planète autour du Soleil</title>
+            <desc id="kpl-orbit-desc" data-orbit-desc>
+              Le Soleil est placé en un foyer. La planète se déplace plus vite au périhélie et plus lentement à l’aphélie.
+            </desc>
+
+            <defs>
+              <marker id="kpl-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" />
+              </marker>
+              <radialGradient id="kpl-sun-gradient">
+                <stop offset="0%" stop-color="#fff7c2" />
+                <stop offset="55%" stop-color="#fbbf24" />
+                <stop offset="100%" stop-color="#f97316" />
+              </radialGradient>
+            </defs>
+
+            <g class="kpl-grid" aria-hidden="true">
+              <line x1="60" y1="260" x2="660" y2="260" />
+              <line x1="360" y1="45" x2="360" y2="450" />
+            </g>
+
+            <path class="kpl-orbit-path" data-orbit-path d="" />
+            <path class="kpl-sector kpl-sector-a" data-sector-a d="" />
+            <path class="kpl-sector kpl-sector-b" data-sector-b d="" />
+
+            <g class="kpl-landmarks">
+              <circle class="kpl-focus kpl-focus-secondary" data-second-focus cx="0" cy="0" r="6" />
+              <text data-second-focus-label x="0" y="0">F₂</text>
+              <circle class="kpl-center" data-center cx="0" cy="0" r="4" />
+              <text data-center-label x="0" y="0">Centre</text>
+              <circle class="kpl-peri-point" data-peri-point cx="0" cy="0" r="5" />
+              <text data-peri-label x="0" y="0">Périhélie</text>
+              <circle class="kpl-aphe-point" data-aphe-point cx="0" cy="0" r="5" />
+              <text data-aphe-label x="0" y="0">Aphélie</text>
+            </g>
+
+            <g class="kpl-sun" data-sun>
+              <circle cx="0" cy="0" r="24" fill="url(#kpl-sun-gradient)" />
+              <text x="0" y="42">Soleil · foyer F₁</text>
+            </g>
+
+            <line class="kpl-position-vector" data-position-vector x1="0" y1="0" x2="0" y2="0" marker-end="url(#kpl-arrow)" />
+            <g class="kpl-planet" data-planet>
+              <circle cx="0" cy="0" r="10" />
+              <circle cx="-3" cy="-3" r="2" />
+            </g>
+
+            <g class="kpl-legend" transform="translate(70 472)">
+              <rect x="0" y="-20" width="580" height="36" rx="10" />
+              <circle cx="18" cy="-2" r="6" class="kpl-legend-a" />
+              <text x="32" y="3">Secteur près du périhélie</text>
+              <rect x="228" y="-8" width="12" height="12" class="kpl-legend-b" />
+              <text x="250" y="3">Secteur près de l’aphélie</text>
+              <line x1="448" y1="-2" x2="478" y2="-2" class="kpl-legend-vector" />
+              <text x="486" y="3">Vecteur position</text>
+            </g>
+          </svg>
+          <figcaption>
+            Le temps avance uniformément. L’angle ne progresse donc pas à vitesse constante lorsque l’orbite est elliptique.
+          </figcaption>
+        </figure>
+
+        <dl class="kpl-meter-grid">
+          <div><dt>Temps t</dt><dd data-output="timeYears">0,000 an</dd></div>
+          <div><dt>Période T</dt><dd data-output="periodYears">1,000 an</dd></div>
+          <div><dt>Distance r</dt><dd data-output="radiusAu">0,400 UA</dd></div>
+          <div><dt>Vitesse v</dt><dd data-output="speedKmPerSecond">59,25 km·s⁻¹</dd></div>
+          <div><dt>Demi-petit axe b</dt><dd data-output="semiMinorAxisAu">0,800 UA</dd></div>
+          <div><dt>Distance focale c</dt><dd data-output="focusDistanceAu">0,600 UA</dd></div>
+        </dl>
+
+        <div class="kpl-law-strip">
+          <p><strong>Équation de Kepler</strong></p>
+          <p>M = E − e sin(E), avec M = 2πt/T</p>
+          <p data-output="solverStatus">Résolution numérique convergée.</p>
+        </div>
+      </section>
+
+      <section class="kpl-card kpl-sectors-card" aria-labelledby="kpl-sectors-title">
+        <div class="kpl-card-heading">
+          <p class="kpl-kicker">Vérifier la deuxième loi</p>
+          <h2 id="kpl-sectors-title">Aires balayées pendant deux durées égales</h2>
+        </div>
+
+        <div class="kpl-sector-results">
+          <article>
+            <p class="kpl-sector-label"><span class="kpl-symbol-circle" aria-hidden="true"></span>Secteur A · près du périhélie</p>
+            <p class="kpl-sector-value" data-output="sectorAreaA">0,251 UA²</p>
+            <p data-output="sectorSpeedA">Vitesse initiale : 59,25 km·s⁻¹</p>
+          </article>
+          <article>
+            <p class="kpl-sector-label"><span class="kpl-symbol-square" aria-hidden="true"></span>Secteur B · près de l’aphélie</p>
+            <p class="kpl-sector-value" data-output="sectorAreaB">0,251 UA²</p>
+            <p data-output="sectorSpeedB">Vitesse initiale : 14,81 km·s⁻¹</p>
+          </article>
+          <article class="kpl-sector-conclusion">
+            <p>Écart relatif entre les aires</p>
+            <p class="kpl-sector-value" data-output="sectorDifference">0,000 %</p>
+            <p data-output="sectorTolerance">Tolérance numérique annoncée : 0,3 %.</p>
+          </article>
+        </div>
+
+        <p class="kpl-observation-prompt">
+          <strong>À observer :</strong> près du périhélie, l’arc parcouru est plus long pendant la même durée, car la planète y est plus rapide.
+        </p>
+      </section>
+
+      <section class="kpl-card kpl-chart-card" aria-labelledby="kpl-chart-title">
+        <div class="kpl-card-heading">
+          <p class="kpl-kicker">Visualiser</p>
+          <h2 id="kpl-chart-title">Vitesse au cours d’une période</h2>
+        </div>
+        <figure class="kpl-chart-figure">
+          <svg viewBox="0 0 720 310" role="img" aria-labelledby="kpl-speed-title kpl-speed-desc" data-speed-chart>
+            <title id="kpl-speed-title">Vitesse orbitale en fonction du temps</title>
+            <desc id="kpl-speed-desc" data-speed-desc>La vitesse est maximale au périhélie et minimale à l’aphélie.</desc>
+            <g class="kpl-chart-grid" aria-hidden="true">
+              <line x1="70" y1="30" x2="70" y2="250" />
+              <line x1="70" y1="250" x2="670" y2="250" />
+              <line x1="70" y1="140" x2="670" y2="140" />
+            </g>
+            <path class="kpl-speed-path" data-speed-path d="" />
+            <line class="kpl-chart-cursor" data-speed-cursor x1="70" y1="30" x2="70" y2="250" />
+            <circle class="kpl-chart-point" data-speed-point cx="70" cy="250" r="6" />
+            <g class="kpl-axis-labels">
+              <text x="370" y="294" text-anchor="middle">Temps t / T</text>
+              <text x="20" y="140" text-anchor="middle" transform="rotate(-90 20 140)">Vitesse v (km·s⁻¹)</text>
+              <text x="70" y="273" text-anchor="middle">0</text>
+              <text x="370" y="273" text-anchor="middle">0,5</text>
+              <text x="670" y="273" text-anchor="middle">1</text>
+              <text x="62" y="34" text-anchor="end" data-speed-max-label>60</text>
+              <text x="62" y="246" text-anchor="end" data-speed-min-label>15</text>
+            </g>
+          </svg>
+          <figcaption data-speed-summary>
+            La courbe traduit la variation de vitesse sans supposer une vitesse angulaire uniforme.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="kpl-card kpl-third-law" aria-labelledby="kpl-third-law-title">
+        <div class="kpl-card-heading">
+          <p class="kpl-kicker">Exploiter la troisième loi</p>
+          <h2 id="kpl-third-law-title">Comparer T² et a³</h2>
+        </div>
+
+        <div class="kpl-table-wrap">
+          <table>
+            <caption>Orbites autour du Soleil, avec a en UA et T en années</caption>
+            <thead>
+              <tr><th scope="col">a (UA)</th><th scope="col">T (an)</th><th scope="col">T²/a³ (an²·UA⁻³)</th></tr>
+            </thead>
+            <tbody data-third-law-body></tbody>
+          </table>
+        </div>
+
+        <p class="kpl-equation-result">
+          Pour l’orbite choisie : <strong data-output="thirdLawCurrent">T²/a³ = 1,000 an²·UA⁻³</strong>
+        </p>
+      </section>
+
+      <section class="kpl-card kpl-mission" aria-labelledby="kpl-mission-title">
+        <div class="kpl-card-heading">
+          <p class="kpl-kicker">Mission élève</p>
+          <h2 id="kpl-mission-title">Construire une conclusion</h2>
+        </div>
+
+        <ol class="kpl-mission-list">
+          <li>Fixe <strong>a = 1,00 UA</strong>, puis compare une orbite circulaire et une orbite très elliptique.</li>
+          <li>Affiche les deux secteurs et vérifie qu’ils correspondent à la même durée Δt.</li>
+          <li>Passe à <strong>a = 2,00 UA</strong> et relève la nouvelle période.</li>
+          <li>Explique pourquoi la planète ne peut pas avancer avec une vitesse angulaire constante sur une ellipse.</li>
+        </ol>
+
+        <label class="kpl-conclusion" for="kpl-conclusion">
+          <span>Ma conclusion</span>
+          <textarea id="kpl-conclusion" rows="4" placeholder="Lorsque la planète se rapproche du Soleil… ; pour deux durées égales… ; lorsque a augmente…"></textarea>
+        </label>
+
+        <details class="kpl-help-details">
+          <summary>Indice 1</summary>
+          <p>Compare la longueur des deux arcs parcourus pendant la même durée Δt.</p>
+        </details>
+        <details class="kpl-help-details">
+          <summary>Indice 2</summary>
+          <p>Calcule T² puis a³ pour plusieurs lignes du tableau, sans arrondir trop tôt.</p>
+        </details>
+        <details class="kpl-help-details">
+          <summary>Modèle, conventions et limites</summary>
+          <p>
+            La simulation applique le problème newtonien à deux corps avec une planète de masse négligeable devant celle du Soleil. Les perturbations, la précession et les effets relativistes sont négligés.
+          </p>
+          <p>
+            Le Soleil est réellement placé en un foyer. Les tailles dessinées des astres sont symboliques et ne partagent pas l’échelle des distances orbitales.
+          </p>
+        </details>
+      </section>
+
+      <section class="kpl-card kpl-sources" aria-labelledby="kpl-sources-title">
+        <div class="kpl-card-heading">
+          <p class="kpl-kicker">Références</p>
+          <h2 id="kpl-sources-title">Sources scientifiques et scolaires</h2>
+        </div>
+        <ul>
+          <li><a href="https://www.education.gouv.fr/sites/default/files/document/Physique-chimie-236046.pdf" target="_blank" rel="noreferrer">Programme officiel de Terminale générale, spécialité physique-chimie</a></li>
+          <li><a href="https://ssd.jpl.nasa.gov/planets/phys_par.html" target="_blank" rel="noreferrer">NASA/JPL — paramètres physiques et orbitaux planétaires</a></li>
+          <li><a href="https://www.bipm.org/en/publications/si-brochure" target="_blank" rel="noreferrer">BIPM — Brochure sur le Système international d’unités</a></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <p class="kpl-sr-only" data-accessible-summary aria-live="off"></p>
+</section>
+
+<script>
+  import { initKeplerLawsSimulator } from '../../scripts/laboratoire/kepler-laws-simulator.js';
+
+  const mountKeplerLawsSimulators = () => {
+    document.querySelectorAll('[data-kepler-root]').forEach((root) => {
+      if (!(root instanceof HTMLElement) || root.dataset.kplInitialized === 'true') return;
+      root.dataset.kplInitialized = 'true';
+      initKeplerLawsSimulator(root);
+    });
+  };
+
+  mountKeplerLawsSimulators();
+  document.addEventListener('astro:page-load', mountKeplerLawsSimulators, { once: true });
+</script>

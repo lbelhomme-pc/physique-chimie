@@ -1,0 +1,145 @@
+---
+export type V3TabItem = {
+  id: string;
+  label: string;
+  badge?: string | number;
+  disabled?: boolean;
+};
+
+export interface Props {
+  items: V3TabItem[];
+  activeId?: string;
+  label?: string;
+}
+
+const { items, activeId = items.find((item) => !item.disabled)?.id ?? items[0]?.id, label = "Sections" } = Astro.props;
+---
+
+<div class="v3-tabs" data-v3-tabs>
+  <div class="v3-tabs__list" role="tablist" aria-label={label}>
+    {items.map((item) => {
+      const selected = item.id === activeId;
+      return (
+        <button
+          type="button"
+          role="tab"
+          id={`v3-tab-${item.id}`}
+          aria-controls={`v3-panel-${item.id}`}
+          aria-selected={selected ? "true" : "false"}
+          tabindex={selected ? "0" : "-1"}
+          disabled={item.disabled}
+          data-v3-tab={item.id}
+        >
+          <span>{item.label}</span>
+          {item.badge !== undefined && <span class="v3-tabs__badge">{item.badge}</span>}
+        </button>
+      );
+    })}
+  </div>
+  <div class="v3-tabs__panels">
+    <slot />
+  </div>
+</div>
+
+<script is:inline>
+  document.querySelectorAll("[data-v3-tabs]").forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll("[data-v3-tab]"));
+    const panels = Array.from(root.querySelectorAll("[data-v3-panel]"));
+
+    const activate = (tab) => {
+      tabs.forEach((item) => {
+        const selected = item === tab;
+        item.setAttribute("aria-selected", selected ? "true" : "false");
+        item.tabIndex = selected ? 0 : -1;
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.getAttribute("data-v3-panel") !== tab.getAttribute("data-v3-tab");
+      });
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => activate(tab));
+      tab.addEventListener("keydown", (event) => {
+        const keys = ["ArrowRight", "ArrowLeft", "Home", "End"];
+        if (!keys.includes(event.key)) return;
+        event.preventDefault();
+        const enabledTabs = tabs.filter((item) => !item.disabled);
+        const current = enabledTabs.indexOf(tab);
+        const nextIndex = event.key === "Home"
+          ? 0
+          : event.key === "End"
+            ? enabledTabs.length - 1
+            : event.key === "ArrowRight"
+              ? (current + 1) % enabledTabs.length
+              : (current - 1 + enabledTabs.length) % enabledTabs.length;
+        const nextTab = enabledTabs[nextIndex];
+        if (nextTab) {
+          nextTab.focus();
+          activate(nextTab);
+        }
+      });
+      if (index === 0 && !panels.some((panel) => !panel.hidden)) activate(tab);
+    });
+  });
+</script>
+
+<style>
+  .v3-tabs {
+    display: grid;
+    gap: var(--v3-space-4);
+  }
+
+  .v3-tabs__list {
+    align-items: center;
+    background: var(--v3-color-surface-raised);
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    box-shadow: var(--v3-shadow-sm);
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--v3-space-2);
+    padding: var(--v3-space-2);
+  }
+
+  .v3-tabs__list button {
+    align-items: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--v3-radius-md);
+    color: var(--v3-color-text-subtle);
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-weight: 750;
+    gap: var(--v3-space-2);
+    min-height: 44px;
+    padding: var(--v3-space-2) var(--v3-space-4);
+  }
+
+  .v3-tabs__list button:hover {
+    background: var(--v3-color-surface-muted);
+    color: var(--v3-color-text-main);
+  }
+
+  .v3-tabs__list button[aria-selected="true"] {
+    background: var(--v3-color-action);
+    color: #ffffff;
+  }
+
+  .v3-tabs__list button:focus-visible {
+    box-shadow: var(--v3-shadow-focus);
+    outline: none;
+  }
+
+  .v3-tabs__list button:disabled {
+    color: var(--v3-color-text-disabled);
+    cursor: not-allowed;
+  }
+
+  .v3-tabs__badge {
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: var(--v3-radius-pill);
+    font-size: var(--v3-font-size-xs);
+    padding: 0.08rem var(--v3-space-2);
+  }
+</style>

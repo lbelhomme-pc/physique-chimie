@@ -1,0 +1,152 @@
+/* style_diffusion.css */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 30px;
+}
+
+h2 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+/* --- CONTRÔLES --- */
+.slider-group label {
+    display: block; font-weight: bold; margin-bottom: 10px; color: var(--text-main);
+}
+input[type="range"] { width: 100%; cursor: pointer; }
+.temp-scale { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); margin-top: 5px; font-weight: bold;}
+
+/* Nouveau menu déroulant pour les colorants */
+.colorant-selector { margin-bottom: 10px; }
+.custom-select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid var(--card-border);
+    background: var(--bg-page);
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s;
+}
+.custom-select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+
+.btn-grid { display: flex; gap: 10px; }
+.btn-grid button { flex: 1; margin: 0; padding: 12px; font-size: 0.95rem; }
+
+/* --- SCÈNE VISUELLE --- */
+.scene-diffusion {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 16px;
+    border: 2px solid var(--card-border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-page);
+    box-shadow: inset 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.lab-table {
+    position: absolute; bottom: -20px; left: -40px; right: -40px; height: 100px;
+    background: rgba(148, 163, 184, 0.2); transform: skewX(-8deg); border-top: 2px solid rgba(148, 163, 184, 0.3);
+}
+
+/* --- NOUVEAU THERMOMÈTRE DESIGN --- */
+.thermometer-container {
+    position: absolute; left: 30px; bottom: 60px;
+    display: flex; align-items: flex-start; gap: 8px; z-index: 15;
+}
+.thermometer-marks {
+    display: flex; flex-direction: column; justify-content: space-between;
+    height: 220px; padding-bottom: 15px; color: var(--text-muted); font-size: 0.75rem; font-weight: bold;
+}
+.thermometer-body {
+    position: relative; width: 14px; height: 220px;
+    background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(148, 163, 184, 0.5);
+    border-radius: 10px 10px 0 0; border-bottom: none;
+    box-shadow: inset 2px 0 4px rgba(0,0,0,0.1), inset -2px 0 4px rgba(255,255,255,0.4);
+    overflow: hidden;
+}
+.thermo-liquid {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 20%;
+    background: #3b82f6; transition: height 0.3s ease, background 0.3s ease;
+}
+.thermometer-bulb {
+    position: absolute; bottom: -12px; left: 24px; /* Aligné sous le tube */
+    width: 26px; height: 26px; background: #3b82f6;
+    border-radius: 50%; border: 2px solid rgba(148, 163, 184, 0.5);
+    box-shadow: inset -3px -3px 6px rgba(0,0,0,0.2), inset 2px 2px 4px rgba(255,255,255,0.5);
+    transition: background 0.3s ease; z-index: 16;
+}
+
+/* --- LE BÉCHER ET L'EAU --- */
+.beakerWrap { position: relative; width: 280px; height: 380px; transform: translateY(-20px); z-index: 5; }
+.beaker {
+    position: absolute; inset: 0; border-radius: 20px 20px 40px 40px;
+    border: 3px solid rgba(148, 163, 184, 0.5);
+    background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1), 0 18px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+.beaker:before {
+    content: ""; position: absolute; top: -12px; left: -3px; right: -3px; height: 24px;
+    border-radius: 50%; border: 3px solid rgba(148, 163, 184, 0.5); background: transparent;
+}
+
+/* L'Eau subit l'effet Vortex via CSS */
+.water {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 75%;
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.05));
+    border-top: 1px solid rgba(147, 197, 253, 0.4);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.surface {
+    position: absolute; left: -10%; right: -10%; top: -10px; height: 20px;
+    border-radius: 50%; background: rgba(147, 197, 253, 0.2); filter: blur(1px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* VORTEX CSS ACTIF */
+.water.vortex-active {
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+}
+.water.vortex-active .surface {
+    top: -30px; height: 80px;
+    border-radius: 50% 50% 50% 50% / 15% 15% 100% 100%;
+    background: radial-gradient(ellipse at center, rgba(147,197,253,0.1) 0%, rgba(147,197,253,0.4) 100%);
+}
+
+/* --- CANVAS --- */
+canvas { position: absolute; left: 0; top: 0; right: 0; bottom: 0; width: 100%; height: 100%; z-index: 10; }
+
+/* --- AGITATEUR MAGNÉTIQUE --- */
+.magnetic-stirrer {
+    position: absolute; bottom: 5px; left: 50%; width: 30px; height: 8px;
+    background: #cbd5e1; border-radius: 10px; transform: translateX(-50%);
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.3); z-index: 15; opacity: 0.8;
+}
+
+.stirring-anim { animation: spinStirrer 0.15s linear infinite; }
+
+@keyframes spinStirrer {
+    0% { transform: translateX(-50%) scaleX(1); }
+    50% { transform: translateX(-50%) scaleX(0.2); background: #94a3b8; }
+    100% { transform: translateX(-50%) scaleX(1); }
+}
+
+@media (max-width: 850px) {
+    .dashboard { grid-template-columns: 1fr; }
+    .scene-diffusion { height: 400px; }
+    .thermometer-container { display: none; } /* Caché sur petit mobile */
+}

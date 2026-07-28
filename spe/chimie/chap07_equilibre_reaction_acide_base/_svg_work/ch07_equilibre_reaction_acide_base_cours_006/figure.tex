@@ -1,0 +1,72 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+ width=12cm, height=6.5cm,
+ xlabel={pH},
+ ylabel={Proportion (\%)},
+ xmin=0, xmax=14,
+ ymin=0, ymax=105,
+ xtick={0,2,...,14},
+ ytick={0,25,50,75,100},
+ grid=major,
+ grid style={gray!30},
+ axis lines=left,
+ legend style={at={(0.5,-0.22)}, anchor=north, legend columns=2, font=\small},
+ every axis label/.style={font=\small},
+ tick label style={font=\small}
+]
+% Courbe acide (NH4+)
+\addplot[domain=0:14, samples=200, thick, examplepink]
+ {100/(1+10^(x-9.2))};
+\addlegendentry{$r_{\text{Acide}}$ (\ce{NH4+})}
+
+% Courbe base (NH3)
+\addplot[domain=0:14, samples=200, thick, remarkblue]
+ {100*(1-1/(1+10^(x-9.2)))};
+\addlegendentry{$r_{\text{Base}}$ (\ce{NH3})}
+
+% Ligne 50%
+\addplot[dashed, gray, thin] coordinates {(0,50) (14,50)};
+
+% Ligne pKa
+\addplot[dashed, primary, thin] coordinates {(9.2,0) (9.2,50)};
+\node[above, primary, font=\small] at (axis cs:9.2,52) {$\text{p}K_a = 9{,}2$};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

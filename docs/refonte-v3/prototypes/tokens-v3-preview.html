@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prototype tokens V3</title>
+    <link rel="stylesheet" href="../../../src/styles/tokens-v3.css">
+    <style>
+      body {
+        margin: 0;
+        background: var(--v3-color-surface-canvas);
+        color: var(--v3-color-text-main);
+        font-family: var(--v3-font-family-sans);
+        letter-spacing: var(--v3-letter-spacing-body);
+        line-height: var(--v3-line-height-body);
+      }
+
+      main {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: var(--v3-space-8);
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        line-height: var(--v3-line-height-tight);
+      }
+
+      h1 {
+        font-size: var(--v3-font-size-3xl);
+      }
+
+      h2 {
+        font-size: var(--v3-font-size-xl);
+      }
+
+      .surface {
+        background: var(--v3-color-surface-page);
+        border: 1px solid var(--v3-color-border-default);
+        border-radius: var(--v3-radius-lg);
+        box-shadow: var(--v3-shadow-sm);
+        padding: var(--v3-space-6);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--v3-space-4);
+        margin-top: var(--v3-space-6);
+      }
+
+      .swatch {
+        border: 1px solid var(--v3-color-border-default);
+        border-radius: var(--v3-radius-md);
+        overflow: hidden;
+        background: var(--v3-color-surface-page);
+      }
+
+      .swatch-color {
+        min-height: 72px;
+      }
+
+      .swatch-label {
+        padding: var(--v3-space-3);
+        font-size: var(--v3-font-size-sm);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--v3-space-3);
+        margin-top: var(--v3-space-4);
+      }
+
+      button {
+        border: 1px solid transparent;
+        border-radius: var(--v3-radius-md);
+        font: inherit;
+        font-weight: 700;
+        padding: var(--v3-space-3) var(--v3-space-4);
+        transition: background var(--v3-motion-base), border-color var(--v3-motion-base);
+      }
+
+      button:focus-visible,
+      a:focus-visible {
+        outline: none;
+        box-shadow: var(--v3-shadow-focus);
+      }
+
+      .primary {
+        background: var(--v3-color-action);
+        color: white;
+      }
+
+      .primary:hover {
+        background: var(--v3-color-action-hover);
+      }
+
+      .secondary {
+        background: var(--v3-color-action-subtle);
+        color: var(--v3-color-action);
+        border-color: var(--v3-color-border-default);
+      }
+
+      .pedagogy {
+        border-left: 4px solid var(--tone);
+        background: var(--tone-bg);
+        padding: var(--v3-space-4);
+        border-radius: var(--v3-radius-md);
+      }
+
+      .pedagogy strong {
+        color: var(--tone);
+      }
+
+      .dys {
+        font-family: var(--v3-font-family-dys);
+        line-height: var(--v3-line-height-dys);
+        letter-spacing: var(--v3-letter-spacing-dys);
+        word-spacing: var(--v3-word-spacing-dys);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="surface">
+        <h1>Tokens V3</h1>
+        <p>Prototype statique pour verifier les surfaces, les couleurs semantiques, les blocs pedagogiques et les reglages DYS.</p>
+        <div class="actions">
+          <button class="primary">Continuer</button>
+          <button class="secondary">Revoir le chapitre</button>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="Disciplines">
+        <article class="swatch">
+          <div class="swatch-color" style="background: var(--v3-color-discipline-maths);"></div>
+          <div class="swatch-label">Mathematiques</div>
+        </article>
+        <article class="swatch">
+          <div class="swatch-color" style="background: var(--v3-color-discipline-physics);"></div>
+          <div class="swatch-label">Physique</div>
+        </article>
+        <article class="swatch">
+          <div class="swatch-color" style="background: var(--v3-color-discipline-chemistry);"></div>
+          <div class="swatch-label">Chimie</div>
+        </article>
+        <article class="swatch">
+          <div class="swatch-color" style="background: var(--v3-color-discipline-science);"></div>
+          <div class="swatch-label">Enseignement scientifique</div>
+        </article>
+      </section>
+
+      <section class="grid" aria-label="Blocs pedagogiques">
+        <article class="pedagogy" style="--tone: var(--v3-color-pedagogy-definition); --tone-bg: var(--v3-color-pedagogy-definition-bg);">
+          <strong>Definition</strong>
+          <p>Une tension electrique se mesure en volt avec un voltmetre.</p>
+        </article>
+        <article class="pedagogy" style="--tone: var(--v3-color-pedagogy-law); --tone-bg: var(--v3-color-pedagogy-law-bg);">
+          <strong>Loi</strong>
+          <p>Pour un conducteur ohmique : U = R x I.</p>
+        </article>
+        <article class="pedagogy" style="--tone: var(--v3-color-pedagogy-method); --tone-bg: var(--v3-color-pedagogy-method-bg);">
+          <strong>Methode</strong>
+          <p>Identifier les grandeurs, choisir la formule, puis remplacer les valeurs.</p>
+        </article>
+        <article class="pedagogy dys" style="--tone: var(--v3-color-pedagogy-example); --tone-bg: var(--v3-color-pedagogy-example-bg);">
+          <strong>Variante DYS</strong>
+          <p>Texte avec interlignage plus large, espacement lisible et police locale de secours.</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

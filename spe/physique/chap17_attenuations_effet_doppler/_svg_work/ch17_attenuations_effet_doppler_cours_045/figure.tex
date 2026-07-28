@@ -1,0 +1,70 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[scale=1, >=Stealth]
+ % Axe vertical
+ \draw[thick, dark] (0,0) -- (0,8.4);
+ 
+ % Graduations et labels
+ \foreach \y/\val/\desc in {
+ 0/0/Seuil d'audibilit\'{e},
+ 1.4/20/Chuchotement,
+ 2.8/40/Conversation calme,
+ 4.2/60/Conversation normale,
+ 5.6/80/Rue bruyante,
+ 7.0/100/Concert,
+ 8.4/120/Seuil de douleur%
+ }{
+ \draw[thick] (-0.15,\y) -- (0.15,\y);
+ \node[left, font=\small\bfseries] at (-0.2,\y) {\val~dB};
+ \node[right, font=\small] at (0.3,\y) {\desc};
+ }
+ 
+ % Zones de couleur
+ \fill[green!20, opacity=0.5] (0.15,0) rectangle (0.25,4.2);
+ \fill[yellow!30, opacity=0.5] (0.15,4.2) rectangle (0.25,5.6);
+ \fill[orange!30, opacity=0.5] (0.15,5.6) rectangle (0.25,7.0);
+ \fill[red!25, opacity=0.5] (0.15,7.0) rectangle (0.25,8.4);
+ 
+ % Labels de zones
+ \node[right, font=\footnotesize\itshape, green!50!black] at (5.5,2.1) {Sans danger};
+ \node[right, font=\footnotesize\itshape, orange!70!black] at (5.5,4.9) {Risque \`{a} long terme};
+ \node[right, font=\footnotesize\itshape, red!70!black] at (5.5,7.7) {Danger};
+ 
+ % Titre
+ \node[above, font=\normalsize\bfseries, primary] at (3,9.0) {\'{E}chelle de niveau d'intensit\'{e} sonore};
+\end{tikzpicture}
+\end{document}

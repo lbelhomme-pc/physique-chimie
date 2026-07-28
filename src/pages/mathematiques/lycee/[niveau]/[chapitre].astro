@@ -1,0 +1,118 @@
+---
+import ChapterPageShell from "../../../../components/pedagogie/ChapterPageShell.astro";
+import AffineFunctionExplorer from "../../../../components/mathematiques/AffineFunctionExplorer.astro";
+import type { MathematicsChapterListItem } from "../../../../data/mathematiques/types";
+import { mathematicsDomainLabels } from "../../../../data/mathematiques/types";
+import { getMathematicsLevelLabel } from "../../../../data/mathematiques/levels";
+import { getMathematicsChapterId, getMathematicsLevelPath } from "../../../../data/mathematiques/paths";
+import {
+  chapterEntryFromGlob,
+  getPedagogieXpConfig,
+  normalizeMathematicsExercises,
+  normalizeMathematicsFlashcards,
+  normalizePlayableMathematicsQuiz,
+  sortMathematicsChapters,
+} from "../../../../data/mathematiques/content";
+import { getChapterNavigation, getMathematicsRouteContext } from "../../../../data/contentRoutes";
+import { getMathematicsPilotActivity } from "../../../../data/mathematiques/activities";
+import "../../../../styles/mathematiques/mathematics.css";
+
+const cycle = "lycee" as const;
+
+export function getStaticPaths() {
+  const allMeta = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/meta.json", { eager: true });
+  return Object.entries(allMeta)
+    .map(([path, mod]) => chapterEntryFromGlob(path, mod))
+    .filter((chapter): chapter is MathematicsChapterListItem => Boolean(chapter))
+    .map((chapter) => ({
+      params: { niveau: chapter.niveau, chapitre: chapter.slug },
+      props: { chapter },
+    }));
+}
+
+const { niveau, chapitre } = Astro.params;
+const { chapter } = Astro.props as { chapter: MathematicsChapterListItem };
+const context = getMathematicsRouteContext(cycle, niveau!, chapitre!);
+const levelLabel = getMathematicsLevelLabel(cycle, niveau!);
+const basePath = `/src/data/mathematiques/chapters/${cycle}/${niveau}/${chapitre}`;
+const chapterId = getMathematicsChapterId(cycle, niveau!, chapitre!);
+const backUrl = getMathematicsLevelPath(cycle, niveau!);
+const domainLabel = chapter.domain ? mathematicsDomainLabels[chapter.domain] : chapter.theme;
+
+const allCours = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/cours.mdx", { eager: true });
+const allExo = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/exercices.json", { eager: true });
+const allQuiz = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/quiz.json", { eager: true });
+const allFlash = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/flashcards.json", { eager: true });
+const allMeta = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/meta.json", { eager: true });
+
+const coursMod = allCours[`${basePath}/cours.mdx`] as any;
+const CoursContent = coursMod?.Content ?? null;
+const exercices = normalizeMathematicsExercises((allExo[`${basePath}/exercices.json`] as any)?.default ?? null);
+const quizData = normalizePlayableMathematicsQuiz((allQuiz[`${basePath}/quiz.json`] as any)?.default ?? null);
+const flashData = normalizeMathematicsFlashcards((allFlash[`${basePath}/flashcards.json`] as any)?.default ?? null);
+const pilotActivity = getMathematicsPilotActivity(chapitre!);
+const xpConfig = getPedagogieXpConfig(chapter);
+
+const chapterNavigation = sortMathematicsChapters(
+  Object.entries(allMeta)
+    .map(([path, mod]) => chapterEntryFromGlob(path, mod))
+    .filter((item): item is MathematicsChapterListItem =>
+      Boolean(item && item.cycle === cycle && item.niveau === niveau)
+    )
+);
+const { previousChapter, nextChapter } = getChapterNavigation(
+  chapterNavigation,
+  chapitre!,
+  (slug) => `/mathematiques/${cycle}/${niveau}/${slug}`,
+);
+
+const seoTitle = chapter.seo?.title ?? `${chapter.title} - Mathématiques ${levelLabel}`;
+const seoDescription = chapter.seo?.description ?? chapter.description;
+const canonical = chapter.seo?.canonical ?? context.canonical;
+---
+
+<ChapterPageShell
+  title={seoTitle}
+  description={seoDescription}
+  canonical={canonical}
+  noindex={chapter.seo?.noindex}
+  schemaType="Course"
+  breadcrumbItems={[
+    { label: "Accueil", href: "/" },
+    { label: "Mathématiques", href: "/mathematiques" },
+    { label: "Lycée", href: "/mathematiques/lycee" },
+    { label: levelLabel, href: backUrl },
+    { label: chapter.title },
+  ]}
+  displayTitle={chapter.title}
+  chapterDescription={chapter.description}
+  eyebrow="Mathématiques lycée"
+  badges={[
+    ...(domainLabel ? [{ label: domainLabel }] : []),
+    ...(chapter.duration ? [{ label: chapter.duration, muted: true }] : []),
+  ]}
+  levelLabel={levelLabel}
+  subjectLabel="Mathématiques"
+  objectives={chapter.objectives?.length ? chapter.objectives : [chapter.description]}
+  prerequisites={chapter.prerequisites ?? []}
+  competencies={chapter.competencies ?? []}
+  tools={chapter.tools ?? []}
+  estimatedDuration={chapter.duration}
+  headerVariant="math"
+  pageClass="math-shell"
+  chapterId={chapterId}
+  xpConfig={xpConfig}
+  CoursContent={CoursContent}
+  ActivityContent={pilotActivity ? AffineFunctionExplorer : undefined}
+  exercices={exercices}
+  quizData={quizData}
+  flashData={flashData}
+  backUrl={backUrl}
+  backLabel="Retour au niveau"
+  previousChapter={previousChapter}
+  nextChapter={nextChapter}
+  indexHref={backUrl}
+  indexLabel="Liste des chapitres"
+  emptyStateTitle="Aucun contenu n'est encore disponible pour ce chapitre."
+  emptyStateMessage="Le chapitre est déclaré, mais aucun cours, exercice, quiz ou flashcard n'a encore été ajouté."
+/>

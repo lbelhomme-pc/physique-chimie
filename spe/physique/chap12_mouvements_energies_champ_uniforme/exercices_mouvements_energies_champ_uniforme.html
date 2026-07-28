@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Mouvements et énergies dans un champ uniforme | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+
+    <style>
+        .graph-container { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; max-width: 600px; margin: 25px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .svg-grid { stroke: #cbd5e1; stroke-width: 1; }
+        .svg-grid-minor { stroke: #f1f5f9; stroke-width: 1; }
+        .svg-axis { stroke: #1e293b; stroke-width: 2; }
+        .svg-text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #475569; }
+        .svg-text-bold { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #1e293b; }
+        .svg-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; fill: #0f172a; text-anchor: middle; }
+        .svg-line { stroke: #3b82f6; stroke-width: 3; stroke-linecap: round; }
+        .svg-point { stroke: #ef4444; stroke-width: 2; fill: none; }
+        body.dark-mode .graph-container { background: #0f172a; border-color: #334155; }
+        body.dark-mode .svg-grid { stroke: #334155; }
+        body.dark-mode .svg-grid-minor { stroke: #1e293b; }
+        body.dark-mode .svg-axis { stroke: #cbd5e1; }
+        body.dark-mode .svg-text { fill: #94a3b8; }
+        body.dark-mode .svg-text-bold { fill: #f8fafc; }
+        body.dark-mode .svg-title { fill: #f8fafc; }
+        body.dark-mode .svg-line { stroke: #60a5fa; }
+    </style>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">📝</span>
+                <h1 class="hero-title">Exercices : Mouvements et énergies dans un champ uniforme</h1>
+            </div>
+        </header>
+
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 1</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Questions de cours -- Mouvement dans un champ de pesanteur uniforme.
+</div>
+<p>Répondre aux questions suivantes par une phrase complète et justifiée.</p>
+<ol><li>Dans le référentiel terrestre supposé galiléen, quelle est l'expression du vecteur accélération du centre de masse d'un système en chute libre ?</li><li>Le mouvement d'un point matériel lancé verticalement dans le champ de pesanteur uniforme est-il : parabolique, rectiligne uniforme ou rectiligne uniformément accéléré ? Justifier.</li><li>Dans le référentiel terrestre supposé galiléen, au cours du temps, l'énergie mécanique d'un système en chute libre : diminue, reste constante ou augmente ? Justifier.</li><li>Un condensateur plan est constitué de deux plaques parallèles séparées d'une distance $d$ et soumises à une tension $U$. Comment varie la norme du champ électrique $E$ si la tension $U$ augmente ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel :</strong> Cet exercice porte sur des connaissances fondamentales du cours. Il faut répondre de manière précise et justifiée à chaque question.
+</div>
+<strong>1.</strong> Dans le référentiel terrestre supposé galiléen, un système en chute libre n'est soumis qu'à son poids $ = m$.
+<p>D'après la deuxième loi de Newton : $m =  = m$.</p>
+<p>En simplifiant par $m$ :</p>
+<div class="definition-box">
+Le vecteur accélération du centre de masse d'un système en chute libre est : $ = $.
+<p>Il est vertical, dirigé vers le bas et de norme $g  {m.s^{-2}}$.<br></div></p>
+<strong>2.</strong> Le mouvement d'un point matériel lancé <strong>verticalement</strong> (vers le haut ou vers le bas) dans le champ de pesanteur uniforme est un mouvement <strong>rectiligne uniformément accéléré</strong> (ou décéléré selon le sens).
+<strong>Justification :</strong>
+<ul><li>La seule force est le poids $ = m$, vertical et constant.</li><li>Le vecteur vitesse initial est vertical.</li><li>L'accélération $ = $ est colinéaire au vecteur vitesse initial.</li><li>La trajectoire reste donc sur une droite verticale et l'accélération est constante : le mouvement est rectiligne uniformément accéléré (ou varié).
+</li></ul>
+<strong>Conclusion :</strong> Le mouvement est <strong>rectiligne uniformément accéléré</strong>. Il n'est pas parabolique car le vecteur vitesse initiale est colinéaire à l'accélération. Il n'est pas uniforme car l'accélération n'est pas nulle.
+<strong>3.</strong> Dans le référentiel terrestre supposé galiléen, l'énergie mécanique d'un système en chute libre <strong>reste constante</strong> au cours du temps.
+<strong>Justification :</strong> En chute libre, la seule force exercée est le poids, qui est une force <strong>conservative</strong>. Le théorème de l'énergie mécanique indique que :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ E_m =  W()$$</div></div></div></div>
+Il n'y a aucune force non conservative (pas de frottements), donc $ E_m = 0$ : l'énergie mécanique se conserve.
+<strong>4.</strong> La norme du champ électrique dans un condensateur plan est donnée par :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$E = {d}$$</div></div></div></div>
+<p>Si la tension $U$ augmente et que la distance $d$ reste constante, alors $E$ augmente proportionnellement.</p>
+<strong>Conclusion :</strong> Si l'on double $U$, la norme $E$ double également. La norme du champ électrique <strong>augmente si $U$ augmente</strong>.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 2</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Chute libre verticale -- Conservation de l'énergie mécanique.
+</div>
+<p>Une bille de masse $m = $50   $$ est l\^achée sans vitesse initiale depuis une hauteur $h = $3{,}0   $$ au-dessus du sol.</p>
+<p>On prend $g = {m.s^{-2}}$.</p>
+<ol><li>Rappeler l'expression de l'énergie cinétique $E_c$ et de l'énergie potentielle de pesanteur $E_{pp}$ en fonction de $m$, $v$, $g$ et $z$ (altitude).</li><li>En choisissant le sol comme référence des énergies potentielles ($z = 0$), calculer l'énergie mécanique $E_m$ de la bille à l'instant initial.</li><li>En utilisant la conservation de l'énergie mécanique, déterminer la vitesse $v_s$ de la bille juste avant son arrivée au sol.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise la conservation de l'énergie mécanique pour un système en chute libre (seule force : le poids, force conservative). On écrit $E_m() = E_m()$ et on en déduit la vitesse.
+</div>
+<strong>Données :</strong>
+<ul><li>Masse : $m = $50   $ = $0{,}050   $$</li><li>Hauteur de l\^acher : $h = $3{,}0   $$</li><li>Vitesse initiale : $v_0 = {m.s^{-1}}$ (l\^achée sans vitesse initiale)</li><li>$g = {m.s^{-2}}$</li><li>Référence des énergies potentielles : le sol, soit $z = 0$
+</li></ul>
+<strong>1. Expressions de l'énergie cinétique et de l'énergie potentielle de pesanteur :</strong>
+<div class="definition-box">
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$E_c = {2} m v^2    E_{pp} = m g z$$</div></div></div></div>
+o\`u $v$ est la vitesse du système et $z$ son altitude par rapport à la référence choisie.
+</div>
+<strong>2. Calcul de l'énergie mécanique initiale :</strong>
+<p>\`A l'instant initial, la bille est à l'altitude $z_0 = h = $3{,}0   $$ et sa vitesse est nulle ($v_0 = 0$).</p>
+<p>L'énergie mécanique est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>E_m &= E_c + E_{pp} \\<br>E_m &= {2} m v_0^2 + m g z_0 \\<br>E_m &= {2}  0{,}050  0^2 + 0{,}050  9{,}81  3{,}0 \\<br>E_m &= 0 + 1{,}4715<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> $E_m = $1{,}5   $$ (arrondi à 2 chiffres significatifs).
+<strong>3. Vitesse de la bille juste avant son arrivée au sol :</strong>
+<p>Au sol : $z_s = 0$ et la vitesse est $v_s$ (inconnue).</p>
+<p>Par conservation de l'énergie mécanique ($E_m$ initiale $= E_m$ finale) :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{2} m v_0^2 + m g z_0 &= {2} m v_s^2 + m g z_s \\
+0 + m g h &= {2} m v_s^2 + 0
+$$</div></div></div></div>
+<p>On simplifie par $m$ (car $m  0$) :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+g h &= {2} v_s^2 \\
+v_s^2 &= 2 g h \\
+v_s &= 
+$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_s &= {2  9{,}81  3{,}0} \\
+v_s &= {58{,}86} \\
+v_s &= {m.s^{-1}}
+$$</div></div></div></div>
+<div class="info-box">
+<strong>Conclusion :</strong> La vitesse de la bille juste avant son arrivée au sol est $v_s  {m.s^{-1}}$.
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 3</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Champ électrique uniforme dans un condensateur plan.
+</div>
+<p>Un condensateur plan est constitué de deux plaques parallèles A et B, séparées d'une distance $d = $2{,}0   $$ et soumises à une tension $U_{AB} = $200   $$.</p>
+<ol><li>Rappeler la relation entre la norme du champ électrique $E$, la tension $U_{AB}$ et la distance $d$.</li><li>Calculer la norme du champ électrique $E$ régnant entre les plaques.</li><li>Préciser la direction et le sens du vecteur champ électrique $$ entre les plaques. On rappelle que le champ électrique est dirigé de la plaque positive vers la plaque négative.</li><li>Si l'on double la tension $U_{AB}$ sans modifier $d$, que devient la valeur de $E$ ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise la relation fondamentale du condensateur plan : $E = {d}$. Cette relation lie la norme du champ électrique à la tension entre les plaques et à leur écartement.
+</div>
+<strong>Données :</strong>
+<ul><li>Distance entre les plaques : $d = $2{,}0   $ = $0{,}020   $$</li><li>Tension : $U_{AB} = $200   $$
+</li></ul>
+<p>{1. Relation entre $E$, $U_{AB}$ et $d$ :}</p>
+<div class="definition-box">
+Dans un condensateur plan, la norme du champ électrique uniforme est :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$E = {U_{AB}}{d}$$</div></div></div></div>
+o\`u $U_{AB}$ est la tension entre les plaques (en V) et $d$ est la distance entre les plaques (en m).
+</div>
+<strong>2. Calcul de la norme du champ électrique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+E &= {U_{AB}}{d} \\
+E &= {0{,}020} \\
+E &= {V.m^{-1}}
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $E = {V.m^{-1}} = {kV.m^{-1}}$.
+<strong>3. Direction et sens du vecteur champ électrique :</strong>
+<p>Le vecteur champ électrique $$ entre les plaques :<br><ul><li>a pour <strong>direction</strong> : la droite perpendiculaire aux plaques (c'est-à-dire la direction reliant les deux plaques) ;</li><li>a pour <strong>sens</strong> : de la plaque <strong>positive</strong> (A, par exemple, si $U_{AB} > 0$) vers la plaque <strong>négative</strong> (B).<br></li></ul></p>
+<strong>Conclusion :</strong> $$ est perpendiculaire aux plaques, orienté de la plaque positive vers la plaque négative.
+<strong>4. Effet du doublement de la tension :</strong>
+<p>Si l'on double la tension : $U'_{AB} = 2  U_{AB} = $400   $$, et que $d$ reste inchangé :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+E' &= {U'_{AB}}{d} = {2 U_{AB}}{d} = 2  {U_{AB}}{d} = 2 E
+$$</div></div></div></div>
+<strong>Application numérique :</strong> $E' = 2  {} = {V.m^{-1}}$.
+<div class="info-box">
+<strong>Conclusion :</strong> Si l'on double la tension $U_{AB}$ sans modifier $d$, la norme du champ électrique $E$ est également doublée : $E' = {V.m^{-1}}$.
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 4</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Vecteur accélération d'une particule chargée dans un champ électrique uniforme.
+</div>
+<p>Un électron, de masse $m_e = $9{,}11  10^{-31}   $$ et de charge $q = -e = $-1{,}60  10^{-19}   $$, est placé dans un champ électrique uniforme $$ de norme $E = {V.m^{-1}}$.</p>
+<p>On néglige le poids de l'électron devant la force électrique.</p>
+<ol><li>\'Ecrire l'expression vectorielle de la force électrique $_{el}$ s'exerçant sur l'électron.</li><li>Justifier que l'on peut négliger le poids de l'électron devant la force électrique en comparant les normes de ces deux forces. On donne $g = {m.s^{-2}}$.</li><li>En appliquant la deuxième loi de Newton dans le référentiel terrestre supposé galiléen, déterminer l'expression du vecteur accélération $$ de l'électron.</li><li>Calculer la norme de l'accélération $a$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On exprime la force électrique, on la compare au poids, puis on applique la deuxième loi de Newton pour déterminer l'accélération de l'électron.
+</div>
+<strong>Données :</strong>
+<ul><li>Masse de l'électron : $m_e = 9{,}11  10^{-31} $$$</li><li>Charge de l'électron : $q = -e = -1{,}60  10^{-19} $$$</li><li>Norme du champ électrique : $E = {V.m^{-1}}$</li><li>$g = {m.s^{-2}}$
+</li></ul>
+<strong>1. Expression vectorielle de la force électrique :</strong>
+<p>La force électrique s'exerçant sur une particule chargée est :</p>
+<div class="definition-box">
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{el} = q $$</div></div></div></div>
+</div>
+<p>Pour l'électron, $q = -e$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{el} = -e $$</div></div></div></div></p>
+<strong>Conclusion :</strong> La force électrique sur l'électron est $_{el} = -e $. Son sens est <strong>opposé</strong> à celui du champ électrique $$ (car la charge est négative).
+<strong>2. Comparaison du poids et de la force électrique :</strong>
+<p>Calculons la norme du poids :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>P &= m_e  g \\<br>P &= 9{,}11  10^{-31}  9{,}81 \\<br>P &= 8{,}94  10^{-30} $$<br>$$</div></div></div></div></p>
+<p>Calculons la norme de la force électrique :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>F_{el} &= |q|  E = e  E \\<br>F_{el} &= 1{,}60  10^{-19}  5{,}0  10^{3} \\<br>F_{el} &= 8{,}0  10^{-16} $$<br>$$</div></div></div></div></p>
+<p>Comparons les deux normes en calculant leur rapport :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>{F_{el}}{P} &= {8{,}0  10^{-16}}{8{,}94  10^{-30}}  8{,}9  10^{13}<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> La force électrique est environ $10^{14}$ fois plus grande que le poids. Le poids est donc totalement <strong>négligeable</strong> devant la force électrique.
+<strong>3. Vecteur accélération de l'électron :</strong>
+<p>En négligeant le poids, la seule force appliquée est la force électrique. D'après la deuxième loi de Newton :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+m_e  &= _{el} = -e 
+$$</div></div></div></div>
+<p>On isole $$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ = {-e }{m_e} = -{m_e} }$$</div></div></div></div>
+<strong>Conclusion :</strong> Le vecteur accélération est dirigé dans le sens opposé à $$ (car la charge de l'électron est négative).
+<strong>4. Norme de l'accélération :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+a &= {m_e} \\
+a &= {1{,}60  10^{-19}  5{,}0  10^{3}}{9{,}11  10^{-31}} \\
+a &= {8{,}0  10^{-16}}{9{,}11  10^{-31}} \\
+a &= {m.s^{-2}}
+$$</div></div></div></div>
+<div class="info-box">
+<strong>Conclusion :</strong> La norme de l'accélération de l'électron est $a  {m.s^{-2}}$. C'est une valeur considérable, ce qui s'explique par la très faible masse de l'électron.
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 5</h2>
+            <div class="info-box">
+<strong>Thème :</strong> \'Equations horaires du mouvement dans le champ de pesanteur uniforme.
+</div>
+<p>Un ballon de football est frappé depuis le sol (point O, origine du repère) avec un vecteur vitesse initiale $_0$ de norme $v_0 = {m.s^{-1}}$, faisant un angle $ = 30{^}$ avec l'horizontale.</p>
+<p>On néglige les frottements de l'air et on prend $g = {m.s^{-2}}$.</p>
+<p>Le mouvement est étudié dans le repère $(O, , )$ o\`u $$ est horizontal et $$ est vertical ascendant.</p>
+<ol><li>Déterminer les composantes du vecteur vitesse initiale $v_{0x}$ et $v_{0z}$.</li><li>En appliquant la deuxième loi de Newton, établir les expressions des composantes $a_x(t)$ et $a_z(t)$ du vecteur accélération.</li><li>En déduire les équations horaires $v_x(t)$ et $v_z(t)$ des composantes de la vitesse.</li><li>\'Etablir les équations horaires $x(t)$ et $z(t)$ des coordonnées du ballon.</li><li>Déterminer la date $t_s$ à laquelle le ballon atteint son altitude maximale. En déduire la valeur de cette altitude maximale $z_{}$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On projette la deuxième loi de Newton sur les axes horizontal et vertical. On intègre pour obtenir les composantes de la vitesse, puis les équations horaires de position. L'altitude maximale correspond à $v_z = 0$.
+</div>
+<strong>Données :</strong>
+<ul><li>$v_0 = {m.s^{-1}}$, $ = 30{^}$</li><li>$g = {m.s^{-2}}$</li><li>Repère : $(O, , )$ avec O au sol au point de frappe, $$ horizontal, $$ vertical ascendant</li><li>Conditions initiales : $x(0) = 0$, $z(0) = 0$, $(0) = _0$
+</li></ul>
+<strong>1. Composantes du vecteur vitesse initiale :</strong>
+<p>Le vecteur vitesse initiale fait un angle $$ avec l'horizontale :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_{0x} &= v_0 () = 20  (30{^}) = 20  {}{2} = 20  0{,}866 \\
+v_{0x} & {m.s^{-1}}
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_{0z} &= v_0 () = 20  (30{^}) = 20  0{,}500 \\
+v_{0z} &= {m.s^{-1}}
+$$</div></div></div></div>
+<strong>2. Composantes du vecteur accélération :</strong>
+<p>Le système est en chute libre (on néglige les frottements). La seule force est le poids $ = m$.</p>
+<p>D'après la deuxième loi de Newton : $m = m$, soit $ = $.</p>
+<p>En projetant sur les axes :<br><ul><li>Sur l'axe $$ (horizontal) : $a_x(t) = 0$  (pas de force horizontale)</li><li>Sur l'axe $$ (vertical ascendant) : $a_z(t) = -g$  (le poids est dirigé vers le bas, sens opposé à $$)<br></li></ul></p>
+<strong>3. \'Equations horaires de la vitesse :</strong>
+<p>La vitesse est la primitive de l'accélération. On intègre chaque composante :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_x(t) &=  a_x(t) t = 0  t + _1
+$$</div></div></div></div>
+<p>La condition initiale $v_x(0) = v_{0x}$ donne $_1 = v_{0x}$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_z(t) &=  a_z(t) t = -g t + _2
+$$</div></div></div></div>
+<p>La condition initiale $v_z(0) = v_{0z}$ donne $_2 = v_{0z}$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div></p>
+<strong>4. \'Equations horaires de position :</strong>
+<p>La position est la primitive de la vitesse :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+x(t) &=  v_x(t) t = v_0() t + _3
+$$</div></div></div></div>
+<p>Avec $x(0) = 0$ : $_3 = 0$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+z(t) &=  v_z(t) t = -{2} g t^2 + v_0() t + _4
+$$</div></div></div></div>
+<p>Avec $z(0) = 0$ : $_4 = 0$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${z(t) = -{2} g t^2 + v_0() t}$$</div></div></div></div></p>
+<strong>5. Date du sommet et altitude maximale :</strong>
+<p>Au sommet de la trajectoire, la composante verticale de la vitesse s'annule : $v_z(t_s) = 0$.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+-g t_s + v_0() &= 0 \\
+t_s &= {g}
+$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+t_s &= {20  (30{^})}{9{,}81} = {20  0{,}500}{9{,}81} = {10{,}0}{9{,}81} \\
+t_s & $1{,}02   $
+$$</div></div></div></div>
+<p>L'altitude maximale est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>z_{} &= z(t_s) = -{2} g t_s^2 + v_0() t_s<br>$$</div></div></div></div></p>
+<p>On peut aussi utiliser la formule simplifiée. En remplaçant $t_s$ par son expression :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>z_{} &= -{2} g ({g})^2 + v_0  {g} \\<br>z_{} &= -{2g} + {g} \\<br>z_{} &= {2g}<br>$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+z_{} &= {20^2  ^2(30{^})}{2  9{,}81} = {400  0{,}250}{19{,}62} = {19{,}62} \\
+z_{} & $5{,}1   $
+$$</div></div></div></div>
+<div class="info-box">
+<strong>Conclusion :</strong> Le ballon atteint son altitude maximale à la date $t_s  $1{,}0   $$ et cette altitude maximale vaut $z_{}  $5{,}1   $$.
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 6</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Mouvement d'un électron dans un accélérateur linéaire -- Théorème de l'énergie cinétique.
+</div>
+<p>Dans un accélérateur linéaire, des ions hydrogène $$^ + $$ de masse $m = $1{,}67  10^{-27}   $$ et de charge $q = +e = $1{,}60  10^{-19}   $$ sont accélérés dans une zone de champ électrique uniforme de norme $E = {MV.m^{-1}}$ et de longueur $d = $13   $$.</p>
+<p>On néglige le poids des ions devant la force électrique.</p>
+<ol><li>Justifier que le poids d'un ion $$^ + $$ est négligeable devant la force électrique exercée sur cet ion dans la zone accélératrice.</li><li>Exprimer le travail de la force électrique $W(_{el})$ lors de la traversée d'une zone accélératrice de longueur $d$.</li><li>En appliquant le théorème de l'énergie cinétique, calculer la variation d'énergie cinétique $ E_c$ de l'ion $$^ + $$ lors de la traversée de cette zone. Donner le résultat en joules puis en électronvolts ($1   $ = $1{,}60  10^{-19}   $).</li><li>Si l'ion part du repos, calculer sa vitesse à la sortie de la zone accélératrice.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On compare le poids à la force électrique, puis on utilise le théorème de l'énergie cinétique : $ E_c = W(_{el})$. On convertit ensuite en électronvolts.
+</div>
+<strong>Données :</strong>
+<ul><li>Masse d'un ion $$^ + $$ : $m = 1{,}67  10^{-27} $$$</li><li>Charge : $q = +e = 1{,}60  10^{-19} $$$</li><li>Norme du champ électrique : $E = {MV.m^{-1}} = {V.m^{-1}}$</li><li>Longueur de la zone accélératrice : $d = $13   $ = $0{,}13   $$</li><li>$g = {m.s^{-2}}$</li><li>$$1   $ = 1{,}60  10^{-19} $$$
+</li></ul>
+<strong>1. Justification que le poids est négligeable :</strong>
+<p>Calculons la norme du poids :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>P &= m  g = 1{,}67  10^{-27}  9{,}81 = 1{,}64  10^{-26} $$<br>$$</div></div></div></div></p>
+<p>Calculons la norme de la force électrique :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>F_{el} &= q  E = 1{,}60  10^{-19}  3{,}2  10^{6} = 5{,}12  10^{-13} $$<br>$$</div></div></div></div></p>
+<p>Comparons :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>{F_{el}}{P} &= {5{,}12  10^{-13}}{1{,}64  10^{-26}}  3{,}1  10^{13}<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> La force électrique est environ $3  10^{13}$ fois plus grande que le poids. Le poids est donc totalement négligeable.
+<strong>2. Travail de la force électrique :</strong>
+<p>La force électrique est constante et colinéaire au déplacement de l'ion (mouvement rectiligne dans le sens du champ pour une charge positive accélérée).</p>
+<p>Le travail de la force électrique sur la distance $d$ est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$W(_{el}) = F_{el}  d = q E d$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+W(_{el}) &= 1{,}60  10^{-19}  3{,}2  10^{6}  0{,}13 \\
+W(_{el}) &= 1{,}60  10^{-19}  4{,}16  10^{5} \\
+W(_{el}) &= 6{,}66  10^{-14} $$
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $W(_{el})  6{,}7  10^{-14} $$$.
+<strong>3. Variation d'énergie cinétique :</strong>
+<p>D'après le théorème de l'énergie cinétique :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ E_c = W(_{el})$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ E_c = 6{,}66  10^{-14} $$$</div></div>$</div></div></p>
+<p>Conversion en électronvolts :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br> E_c &= {6{,}66  10^{-14}}{1{,}60  10^{-19}} \\<br> E_c &= $4{,}2  10^{5}   $ = $420   $<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> $ E_c  6{,}7  10^{-14} $$  $420   $$.
+<strong>4. Vitesse de l'ion à la sortie de la zone accélératrice :</strong>
+<p>L'ion part du repos : $v_0 = 0$, donc $E_{c,0} = 0$.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ E_c &= E_{c,f} - E_{c,0} = {2} m v_f^2 - 0 \\
+{2} m v_f^2 &= q E d \\
+v_f^2 &= {m} \\
+v_f &= {{m}}
+$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_f &= {{2  1{,}60  10^{-19}  3{,}2  10^{6}  0{,}13}{1{,}67  10^{-27}}} \\
+v_f &= {{2  6{,}66  10^{-14}}{1{,}67  10^{-27}}} \\
+v_f &= {{1{,}331  10^{-13}}{1{,}67  10^{-27}}} \\
+v_f &= {7{,}97  10^{13}} \\
+v_f & {m.s^{-1}}
+$$</div></div></div></div>
+<div class="info-box">
+<strong>Conclusion :</strong> La vitesse de l'ion $$^ + $$ à la sortie de la zone accélératrice est $v_f  {m.s^{-1}}$, soit environ 3 
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 7</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Plongeur en chute libre -- \'Energie mécanique et équations horaires.
+</div>
+<p>Un plongeur de masse $m = $75   $$ effectue un saut en chute libre depuis un plongeoir situé à une hauteur $h = $10   $$ au-dessus de la surface de l'eau. Sa vitesse initiale est nulle.</p>
+<p>On prend $g = {m.s^{-2}}$ et on choisit l'axe vertical $(Oz)$ orienté vers le haut, avec l'origine au niveau de l'eau.</p>
+<ol><li>\'Etablir l'équation horaire $z(t)$ du mouvement du plongeur.</li><li>Déterminer la durée de la chute avant que le plongeur n'atteigne la surface de l'eau.</li><li>En utilisant la conservation de l'énergie mécanique, calculer la vitesse $v_e$ du plongeur juste avant son entrée dans l'eau.</li><li>Vérifier ce résultat en utilisant l'équation horaire de la vitesse $v_z(t)$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On établit l'équation horaire de position pour une chute libre verticale, on détermine la durée de chute, puis on utilise la conservation de l'énergie mécanique pour trouver la vitesse d'impact. On vérifie avec l'équation de la vitesse.
+</div>
+<strong>Données :</strong>
+<ul><li>$m = $75   $$, $h = $10   $$, $v_0 = 0$</li><li>$g = {m.s^{-2}}$</li><li>Axe $(Oz)$ vertical ascendant, origine au niveau de l'eau</li><li>Position initiale : $z_0 = h = $10   $$
+</li></ul>
+<strong>1. \'Equation horaire $z(t)$ :</strong>
+<p>Le plongeur est en chute libre verticale, l\^aché sans vitesse initiale.</p>
+<p>L'accélération est : $a_z = -g$ (axe orienté vers le haut).</p>
+<p>Par intégration :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>v_z(t) &= -g t + v_0 = -g t   v_0 = 0 <br>$$</div></div></div></div></p>
+<p>Par intégration :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>z(t) &= -{2} g t^2 + z_0 = -{2} g t^2 + h<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${z(t) = h - {2} g t^2}$$</div></div></div></div>
+<strong>2. Durée de la chute :</strong>
+<p>Le plongeur atteint la surface de l'eau quand $z(t_c) = 0$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+h - {2} g t_c^2 &= 0 \\
+t_c^2 &= {g} \\
+t_c &= {{g}}
+$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+t_c &= {{9{,}81}} = {{9{,}81}} = {2{,}039} \\
+t_c & $1{,}43   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La durée de la chute est $t_c  $1{,}4   $$.
+<strong>3. Vitesse par conservation de l'énergie mécanique :</strong>
+<p>La référence des énergies potentielles est le niveau de l'eau ($z = 0$).</p>
+<p>\`A l'instant initial : $E_{c,i} = 0$ et $E_{pp,i} = mgh$.</p>
+<p>Juste avant l'entrée dans l'eau : $E_{c,f} = {2}mv_e^2$ et $E_{pp,f} = 0$.</p>
+<p>Conservation de l'énergie mécanique :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>E_{c,i} + E_{pp,i} &= E_{c,f} + E_{pp,f} \\<br>0 + mgh &= {2}mv_e^2 + 0 \\<br>v_e^2 &= 2gh \\<br>v_e &= <br>$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_e &= {2  9{,}81  10} = {196{,}2} \\
+v_e & {m.s^{-1}}
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $v_e  {m.s^{-1}}$.
+<strong>4. Vérification avec l'équation horaire de la vitesse :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_z(t_c) &= -g  t_c = -9{,}81  1{,}428 = -{m.s^{-1}}
+$$</div></div></div></div>
+<p>La norme de la vitesse est : $|v_z(t_c)| = {m.s^{-1}}$.</p>
+<div class="info-box">
+<strong>Conclusion :</strong> Les deux méthodes donnent le même résultat : $v_e  {m.s^{-1}}$, ce qui confirme la cohérence du calcul. Le signe négatif de $v_z$ indique bien que le mouvement est vers le bas.
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 8</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Tir au golf -- Trajectoire parabolique et portée.
+</div>
+<p>Un golfeur souhaite faire passer sa balle au-dessus d'une haie de hauteur $H = $3{,}0   $$ située à une distance horizontale $d = $8{,}0   $$ du point de frappe.</p>
+<p>Le vecteur vitesse initial de la balle est incliné d'un angle $ = 38{^}$ avec l'horizontale. Sa norme est $v_0 = {m.s^{-1}}$.</p>
+<p>On néglige les frottements et on prend $g = {m.s^{-2}}$. Le repère est $(O, , )$ avec O au sol au point de frappe.</p>
+<ol><li>\'Etablir les équations horaires $x(t)$ et $z(t)$ du mouvement de la balle.</li><li>En éliminant $t$, montrer que l'équation de la trajectoire s'écrit :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$z(x) = -{2 v_0^2 ^2()} x^2 + () x$$</div></div></div></div></li><li>Vérifier que la balle franchit bien la haie en calculant $z(d)$ et en comparant avec $H$.</li><li>Déterminer la portée du tir, c'est-à-dire la distance horizontale à laquelle la balle retombe au sol ($z = 0$).
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On établit les équations horaires, on élimine le temps pour obtenir l'équation de la trajectoire $z(x)$, puis on vérifie le franchissement de la haie et on calcule la portée.
+</div>
+<strong>Données :</strong>
+<ul><li>$H = $3{,}0   $$, $d = $8{,}0   $$</li><li>$ = 38{^}$, $v_0 = {m.s^{-1}}$</li><li>$g = {m.s^{-2}}$</li><li>Origine O au sol, au point de frappe : $x(0) = 0$, $z(0) = 0$
+</li></ul>
+<p>Valeurs trigonométriques utiles : $(38{^})  0{,}788$, $(38{^})  0{,}616$, $(38{^})  0{,}781$.</p>
+<strong>1. \'Equations horaires :</strong>
+<p>Le ballon est en chute libre (frottements négligés). Par la deuxième loi de Newton : $ = $, soit $a_x = 0$ et $a_z = -g$.</p>
+<p>Par intégrations successives et avec les conditions initiales :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>v_x(t) &= v_0 & v_z(t) &= -gt + v_0<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$  {z(t) = -{2} g t^2 + v_0() t}$$</div></div></div></div>
+<strong>2. \'Equation de la trajectoire :</strong>
+<p>De l'équation $x(t) = v_0() t$, on tire :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$t = {v_0}$$</div></div></div></div></p>
+<p>On substitue dans $z(t)$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>z &= -{2} g ({v_0})^2 + v_0  {v_0} \\<br>z &= -{2 v_0^2^2} x^2 + {} x<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${z(x) = -{2 v_0^2^2()} x^2 + () x}$$</div></div></div></div>
+<strong>3. Vérification du franchissement de la haie :</strong>
+<p>Calculons $z(d)$ pour $d = $8{,}0   $$ :</p>
+<p>Calculons d'abord le coefficient devant $x^2$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>{2 v_0^2^2} &= {9{,}81}{2  35^2  0{,}788^2} = {9{,}81}{2  1225  0{,}621} = {9{,}81}{1521{,}5}  {m^{-1}}<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+z(8{,}0) &= -6{,}45  10^{-3}  (8{,}0)^2 + 0{,}781  8{,}0 \\
+z(8{,}0) &= -6{,}45  10^{-3}  64 + 6{,}25 \\
+z(8{,}0) &= -0{,}413 + 6{,}25 \\
+z(8{,}0) & $5{,}8   $
+$$</div></div></div></div>
+<p>On compare : $z(8{,}0)  $5{,}8   $ > H = $3{,}0   $$.</p>
+<strong>Conclusion :</strong> La balle est à $$5{,}8   $$ d'altitude quand elle passe à l'horizontale de la haie, bien au-dessus de la haie de $$3{,}0   $$. La balle franchit la haie sans problème.
+<strong>4. Portée du tir :</strong>
+<p>La balle retombe au sol quand $z = 0$ (avec $x  0$) :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+-{2 v_0^2^2} x^2 + () x &= 0 \\
+x(-{2 v_0^2^2} x + ) &= 0
+$$</div></div></div></div>
+<p>La solution $x = 0$ correspond au point de départ. La portée $x_P$ correspond à l'autre solution :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>x_P &= {{2 v_0^2^2}} = {g} = {g} = {g}<br>$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+x_P &= {35^2  (76{^})}{9{,}81} = {1225  0{,}970}{9{,}81} = {9{,}81} \\
+x_P & $121   $
+$$</div></div></div></div>
+<div class="info-box">
+<strong>Conclusion :</strong> La portée du tir est $x_P  $121   $$. La balle parcourt une distance horizontale considérable, ce qui est cohérent avec la grande vitesse initiale.
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 9</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Déviation d'une particule chargée dans un condensateur plan -- Imprimante à jet d'encre.
+</div>
+<p>Une gouttelette d'encre, de masse $m = $6{,}5  10^{-10}   $$ et de charge $q = $9{,}0  10^{-13}   $$, pénètre entre deux plaques de déflexion d'un condensateur plan de longueur $ = $2{,}0   $$ avec un vecteur vitesse horizontal de norme $v_0 = {m.s^{-1}}$.</p>
+<p>Le champ électrique uniforme entre les plaques est vertical, de norme $E = {V.m^{-1}}$.</p>
+<p>On néglige le poids de la gouttelette devant la force électrique.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.688794 -66.79114 216.95671 127.888235'>
+<defs>
+<path id='g0-69' d='M2.815442-3.030635H3.730012C4.366625-3.030635 4.501121-2.923039 4.501121-2.627148C4.501121-2.555417 4.474222-2.367123 4.438356-2.223661C4.420423-2.169863 4.411457-2.125031 4.411457-2.098132C4.411457-2.089166 4.411457-1.981569 4.52802-1.981569C4.635616-1.981569 4.644583-2.044334 4.680448-2.178829L5.155666-4.061768C5.191532-4.187298 5.191532-4.20523 5.191532-4.241096C5.191532-4.312827 5.137733-4.357659 5.066002-4.357659C4.967372-4.357659 4.958406-4.303861 4.913574-4.133499C4.734247-3.425156 4.456289-3.308593 3.738979-3.308593H2.887173C3.021669-3.864508 3.443088-5.56812 3.48792-5.675716C3.541719-5.801245 3.604483-5.819178 3.900374-5.819178H5.218431C6.339228-5.819178 6.590286-5.550187 6.590286-4.82391C6.590286-4.545953 6.545455-4.276961 6.545455-4.214197C6.545455-4.142466 6.590286-4.079701 6.670984-4.079701C6.77858-4.079701 6.787547-4.142466 6.805479-4.303861L6.993773-5.971606C6.993773-6.097136 6.90411-6.097136 6.733748-6.097136H2.116065C1.945704-6.097136 1.847073-6.097136 1.847073-5.935741C1.847073-5.819178 1.936737-5.819178 2.125031-5.819178C2.160897-5.819178 2.322291-5.819178 2.465753-5.801245C2.663014-5.774346 2.67198-5.738481 2.67198-5.657783C2.67198-5.630884 2.67198-5.612951 2.627148-5.451557L1.43462-.681445C1.353923-.358655 1.33599-.277958 .663512-.277958C.493151-.277958 .394521-.277958 .394521-.116563C.394521 0 .484184 0 .645579 0H5.379826C5.54122 0 5.559153 0 5.586052-.026899C5.612951-.044832 5.621918-.053798 5.675716-.170361C5.783313-.412453 6.545455-2.116065 6.545455-2.196762C6.545455-2.268493 6.491656-2.313325 6.419925-2.313325S6.339228-2.304359 6.240598-2.098132C5.684682-.842839 5.317061-.277958 3.828643-.277958H2.456787C2.331258-.277958 2.313325-.277958 2.27746-.286924C2.187796-.29589 2.160897-.304857 2.160897-.367621C2.160897-.394521 2.160897-.412453 2.205729-.573848L2.815442-3.030635Z'/>
+<path id='g0-79' d='M6.796513-3.882441C6.796513-5.299128 5.846077-6.321295 4.438356-6.321295C2.429888-6.321295 .448319-4.259029 .448319-2.214695C.448319-.744209 1.461519 .19726 2.815442 .19726C4.814944 .19726 6.796513-1.802242 6.796513-3.882441ZM2.878207-.071731C2.017435-.071731 1.309091-.726276 1.309091-1.990535C1.309091-2.456787 1.461519-3.783811 2.205729-4.805978C2.851308-5.684682 3.71208-6.070237 4.375592-6.070237C5.254296-6.070237 5.980573-5.433624 5.980573-4.223163C5.980573-3.640349 5.747447-2.331258 4.994271-1.318057C4.321793-.42142 3.496887-.071731 2.878207-.071731Z'/>
+<path id='g0-96' d='M.878705-1.246326C.986301-.42142 1.318057 .107597 1.918804 .107597C2.47472 .107597 3.012702-.376588 3.335492-.672478C3.353425-.681445 3.380324-.708344 3.380324-.762142S3.317559-.887671 3.254795-.887671C3.218929-.887671 3.200996-.887671 3.120299-.806974C2.546451-.268991 2.232628-.116563 1.936737-.116563C1.811208-.116563 1.613948-.116563 1.479452-.511083C1.43462-.654545 1.380822-.968369 1.380822-1.291158C1.380822-1.43462 1.380822-1.613948 1.416687-1.75741C1.416687-1.766376 1.416687-1.784309 1.596015-1.95467C1.990535-2.358157 2.501619-2.940971 2.860274-3.48792C3.568618-4.554919 3.631382-5.352927 3.631382-5.612951C3.631382-5.917808 3.541719-6.321295 3.084433-6.321295C2.67198-6.321295 2.367123-5.953674 2.25056-5.801245C1.416687-4.761146 .842839-2.86924 .842839-1.721544C.842839-1.676712 .842839-1.613948 .851806-1.560149C.645579-1.371856 .439352-1.183562 .242092-.986301C.215193-.968369 .152428-.905604 .125529-.887671C.107597-.860772 .089664-.833873 .089664-.798007S.125529-.663512 .206227-.663512S.627646-1.004234 .726276-1.111831L.878705-1.246326ZM1.470486-2.187796C1.53325-2.546451 1.847073-3.918306 2.142964-4.716314C2.25056-5.003238 2.663014-6.097136 3.0934-6.097136C3.344458-6.097136 3.38929-5.86401 3.38929-5.639851C3.38929-5.505355 3.353425-4.931507 2.99477-4.196264C2.47472-3.156164 1.479452-2.187796 1.470486-2.187796Z'/>
+<path id='g0-118' d='M4.312827-3.308593C4.312827-3.936239 3.981071-3.972105 3.900374-3.972105C3.676214-3.972105 3.443088-3.730012 3.443088-3.523786C3.443088-3.38929 3.523786-3.317559 3.58655-3.263761C3.828643-3.039601 3.90934-2.752677 3.90934-2.519552C3.90934-2.125031 3.344458-.125529 2.304359-.125529C1.63188-.125529 1.63188-.753176 1.63188-.91457C1.63188-1.300125 1.75741-1.75741 2.071233-2.57335C2.214695-2.949938 2.25056-3.039601 2.25056-3.209963C2.25056-3.649315 1.918804-3.963138 1.479452-3.963138C.61868-3.963138 .260025-2.689913 .260025-2.582316C.260025-2.501619 .32279-2.47472 .385554-2.47472C.484184-2.47472 .493151-2.528518 .529016-2.645081C.71731-3.299626 1.075965-3.738979 1.452553-3.738979C1.63188-3.738979 1.667746-3.622416 1.667746-3.443088C1.667746-3.29066 1.63188-3.129265 1.551183-2.914072C1.228394-2.0533 1.0132-1.479452 1.0132-1.031133C1.0132-.188294 1.649813 .09863 2.268493 .09863C3.774844 .09863 4.312827-2.734745 4.312827-3.308593Z'/>
+<path id='g0-120' d='M4.411457-3.622416C4.079701-3.559651 3.981071-3.272727 3.981071-3.138232C3.981071-2.96787 4.1066-2.815442 4.33076-2.815442C4.581818-2.815442 4.82391-3.030635 4.82391-3.344458C4.82391-3.756912 4.375592-3.963138 3.954172-3.963138C3.416189-3.963138 3.102366-3.48792 2.99477-3.299626C2.824408-3.738979 2.429888-3.963138 1.999502-3.963138C1.0401-3.963138 .52005-2.815442 .52005-2.582316C.52005-2.501619 .582814-2.47472 .645579-2.47472C.726276-2.47472 .753176-2.519552 .771108-2.57335C1.049066-3.461021 1.640847-3.738979 1.981569-3.738979C2.241594-3.738979 2.47472-3.568618 2.47472-3.147198C2.47472-2.824408 2.089166-1.389788 1.972603-.959402C1.900872-.681445 1.63188-.125529 1.13873-.125529C.959402-.125529 .771108-.188294 .681445-.242092C.923537-.286924 1.102864-.493151 1.102864-.726276C1.102864-.950436 .932503-1.049066 .762142-1.049066C.502117-1.049066 .268991-.824907 .268991-.52005C.268991-.080697 .753176 .09863 1.129763 .09863C1.649813 .09863 1.95467-.331756 2.089166-.573848C2.313325 .017933 2.842341 .09863 3.084433 .09863C4.052802 .09863 4.563885-1.066999 4.563885-1.282192C4.563885-1.327024 4.536986-1.389788 4.447323-1.389788C4.348692-1.389788 4.339726-1.353923 4.294894-1.219427C4.097634-.573848 3.577584-.125529 3.111333-.125529C2.851308-.125529 2.609215-.286924 2.609215-.71731C2.609215-.91457 2.734745-1.407721 2.815442-1.748443C2.851308-1.909838 3.0934-2.878207 3.111333-2.940971C3.218929-3.263761 3.48792-3.738979 3.945205-3.738979C4.1066-3.738979 4.276961-3.71208 4.411457-3.622416Z'/>
+<path id='g0-122' d='M1.246326-.762142C1.43462-.986301 1.927771-1.43462 2.313325-1.75741C2.976837-2.322291 3.183064-2.519552 3.299626-2.645081C4.034869-3.353425 4.276961-3.81071 4.276961-3.864508C4.276961-3.873474 4.276961-3.963138 4.160399-3.963138C4.079701-3.963138 4.061768-3.936239 4.016936-3.864508C3.900374-3.685181 3.658281-3.299626 3.353425-3.299626C3.174097-3.299626 3.057534-3.398257 2.851308-3.631382C2.636115-3.864508 2.465753-3.963138 2.232628-3.963138C1.542217-3.963138 1.120797-3.138232 1.120797-2.914072C1.120797-2.887173 1.13873-2.815442 1.23736-2.815442C1.327024-2.815442 1.353923-2.86924 1.362889-2.896139C1.53325-3.326526 2.062267-3.326526 2.133998-3.326526C2.340224-3.326526 2.555417-3.263761 2.752677-3.19203C3.111333-3.075467 3.263761-3.075467 3.398257-3.075467C3.120299-2.761644 2.618182-2.331258 2.0533-1.847073C1.604981-1.461519 1.327024-1.192528 1.129763-.995268C.798007-.645579 .394521-.09863 .394521 0C.394521 .062765 .439352 .09863 .511083 .09863C.591781 .09863 .609714 .062765 .654545 .008966C1.004234-.529016 1.33599-.564882 1.43462-.564882C1.65878-.564882 1.784309-.430386 1.981569-.19726C2.187796 .026899 2.385056 .09863 2.564384 .09863C3.48792 .09863 4.025903-1.049066 4.025903-1.291158C4.025903-1.371856 3.963138-1.398755 3.900374-1.398755C3.81071-1.398755 3.792777-1.33599 3.774844-1.300125C3.532752-.636613 2.896139-.537983 2.663014-.537983C2.492653-.537983 2.313325-.582814 2.044334-.672478C1.865006-.726276 1.649813-.789041 1.461519-.789041C1.371856-.789041 1.282192-.771108 1.246326-.762142Z'/>
+<path id='g0-126' d='M4.859776-5.326027C4.841843-5.308095 4.447323-4.958406 4.447323-4.814944C4.447323-4.707347 4.536986-4.617684 4.644583-4.617684C4.734247-4.617684 4.779078-4.680448 4.814944-4.72528C4.913574-4.850809 5.119801-5.101868 5.523288-5.308095C5.630884-5.352927 5.720548-5.397758 5.720548-5.523288C5.720548-5.621918 5.630884-5.675716 5.586052-5.711582C5.451557-5.792279 5.299128-5.926775 5.200498-6.204732C5.164633-6.312329 5.128767-6.419925 4.994271-6.419925C4.913574-6.419925 4.805978-6.357161 4.805978-6.222665C4.805978-6.06127 4.985305-5.76538 5.021171-5.711582H1.972603C1.820174-5.711582 1.640847-5.711582 1.640847-5.523288C1.640847-5.326027 1.811208-5.326027 1.972603-5.326027H4.859776Z'/>
+<path id='g1-48' d='M3.287671-1.906849C3.287671-2.343213 3.287671-3.975093 1.823163-3.975093S.358655-2.343213 .358655-1.906849C.358655-1.476463 .358655 .125529 1.823163 .125529S3.287671-1.476463 3.287671-1.906849ZM1.823163-.065753C1.572105-.065753 1.165629-.185305 1.022167-.681445C.926526-1.028144 .926526-1.613948 .926526-1.984558C.926526-2.385056 .926526-2.84533 1.010212-3.16812C1.159651-3.706102 1.613948-3.783811 1.823163-3.783811C2.098132-3.783811 2.492653-3.652304 2.624159-3.198007C2.713823-2.881196 2.719801-2.444832 2.719801-1.984558C2.719801-1.601993 2.719801-.998257 2.618182-.663512C2.450809-.143462 2.020423-.065753 1.823163-.065753Z'/>
+</defs>
+<g id='page1'>
+<path d='M14.363281-42.30075V-50.80465H127.7499V-42.30075Z' fill='#e6e6e6'/>
+<path d='M14.363281 25.73045V34.23435H127.7499V25.73045Z' fill='#e6e6e6'/>
+<path d='M14.363281-42.30075H127.7499' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M14.363281 25.73045H127.7499' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 18.3041 -47.97595)'>
+<use x='14.363906' y='-8.284652' xlink:href='#g3-80'/>
+<use x='22.193736' y='-8.284652' xlink:href='#g3-108'/>
+<use x='25.375469' y='-8.284652' xlink:href='#g3-97'/>
+<use x='30.943502' y='-8.284652' xlink:href='#g3-113'/>
+<use x='36.988794' y='-8.284652' xlink:href='#g3-117'/>
+<use x='43.352261' y='-8.284652' xlink:href='#g3-101'/>
+<use x='52.4202' y='-8.284652' xlink:href='#g3-112'/>
+<use x='59.101839' y='-8.284652' xlink:href='#g3-111'/>
+<use x='64.828959' y='-8.284652' xlink:href='#g3-115'/>
+<use x='69.347023' y='-8.284652' xlink:href='#g3-105'/>
+<use x='72.528756' y='-8.284652' xlink:href='#g3-116'/>
+<use x='76.983183' y='-8.284652' xlink:href='#g3-105'/>
+<use x='80.164916' y='-8.284652' xlink:href='#g3-118'/>
+<use x='85.892035' y='-8.284652' xlink:href='#g3-101'/>
+</g>
+<g transform='matrix(1 0 0 1 16.9041 52.91465)'>
+<use x='14.363906' y='-8.284652' xlink:href='#g3-80'/>
+<use x='22.193736' y='-8.284652' xlink:href='#g3-108'/>
+<use x='25.375469' y='-8.284652' xlink:href='#g3-97'/>
+<use x='30.943502' y='-8.284652' xlink:href='#g3-113'/>
+<use x='36.988794' y='-8.284652' xlink:href='#g3-117'/>
+<use x='43.352261' y='-8.284652' xlink:href='#g3-101'/>
+<use x='52.4202' y='-8.284652' xlink:href='#g3-110'/>
+<use x='58.783666' y='-8.284652' xlink:href='#g3-233'/>
+<use x='64.033525' y='-8.284652' xlink:href='#g3-103'/>
+<use x='69.760645' y='-8.284652' xlink:href='#g3-97'/>
+<use x='75.328678' y='-8.284652' xlink:href='#g3-116'/>
+<use x='79.783104' y='-8.284652' xlink:href='#g3-105'/>
+<use x='82.964837' y='-8.284652' xlink:href='#g3-118'/>
+<use x='88.691957' y='-8.284652' xlink:href='#g3-101'/>
+</g>
+<path d='M34.207-30.96095V10.28125' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M34.207062 13.25781L35.77737 9.10547L34.207062 10.48047L32.63675 9.10547Z' fill='#0e7490'/>
+<path d='M34.207062 13.25781L35.77737 9.10547L34.207062 10.48047L32.63675 9.10547Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 23.5609 4.34126)'>
+<use x='15.784436' y='-10.551147' xlink:href='#g0-126'/>
+<use x='14.363906' y='-8.284652' xlink:href='#g0-69'/>
+</g>
+<path d='M-19.6523-8.285156H7.41797' stroke='#ec4899' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M10.39453-8.285156L6.24219-9.85547L7.61719-8.285156L6.24219-6.71484Z' fill='#ec4899'/>
+<path d='M10.39453-8.285156L6.24219-9.85547L7.61719-8.285156L6.24219-6.71484Z' stroke='#ec4899' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 -22.73915 -4.71445)'>
+<use x='14.025423' y='-8.284652' xlink:href='#g0-126'/>
+<use x='14.363906' y='-8.284652' xlink:href='#g0-118'/>
+<use x='18.84015' y='-7.288403' xlink:href='#g1-48'/>
+</g>
+<path d='M-17.6602-8.285156C-17.6602-9.38672-18.5508-10.27734-19.6523-10.27734C-20.7539-10.27734-21.6445-9.38672-21.6445-8.285156C-21.6445-7.18359-20.7539-6.29297-19.6523-6.29297C-18.5508-6.29297-17.6602-7.18359-17.6602-8.285156Z' fill='#ec4899'/>
+<path d='M-17.6602-8.285156C-17.6602-9.38672-18.5508-10.27734-19.6523-10.27734C-20.7539-10.27734-21.6445-9.38672-21.6445-8.285156C-21.6445-7.18359-20.7539-6.29297-19.6523-6.29297C-18.5508-6.29297-17.6602-7.18359-17.6602-8.285156Z' stroke='#ec4899' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 -81.0527 2.21617)'>
+<use x='14.363906' y='-8.284652' xlink:href='#g2-103'/>
+<use x='18.970502' y='-8.284652' xlink:href='#g2-111'/>
+<use x='23.577098' y='-8.284652' xlink:href='#g2-117'/>
+<use x='28.69554' y='-8.284652' xlink:href='#g2-116'/>
+<use x='32.278444' y='-8.284652' xlink:href='#g2-116'/>
+<use x='35.861349' y='-8.284652' xlink:href='#g2-101'/>
+<use x='39.95957' y='-8.284652' xlink:href='#g2-108'/>
+<use x='42.518791' y='-8.284652' xlink:href='#g2-101'/>
+<use x='46.617013' y='-8.284652' xlink:href='#g2-116'/>
+<use x='50.199918' y='-8.284652' xlink:href='#g2-116'/>
+<use x='53.782822' y='-8.284652' xlink:href='#g2-101'/>
+</g>
+<path d='M-28.1562 42.73825H138.8589' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M141.35504 42.738311L137.784731 41.39456L138.96051 42.738311L137.784731 44.08597Z'/>
+<path d='M141.35504 42.738311L137.784731 41.39456L138.96051 42.738311L137.784731 44.08597Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 131.0801 52.95455)'>
+<use x='14.363906' y='-8.284652' xlink:href='#g0-120'/>
+</g>
+<path d='M-28.1562 42.73825V-56.24605' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-28.15625-58.74222L-29.50391-55.171904L-28.15625-56.34378L-26.8125-55.171904Z'/>
+<path d='M-28.15625-58.74222L-29.50391-55.171904L-28.15625-56.34378L-26.8125-55.171904Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -44.8569 -54.54335)'>
+<use x='14.363906' y='-8.284652' xlink:href='#g0-122'/>
+</g>
+<g transform='matrix(1 0 0 1 -53.3075 60.67035)'>
+<use x='14.363906' y='-8.284652' xlink:href='#g0-79'/>
+</g>
+<path d='M17.42969 51.24215H124.6879' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M14.9297 51.242175L18.503916 52.58983L17.32813 51.242175L18.503916 49.89842Z'/>
+<path d='M14.9297 51.242175L18.503916 52.58983L17.32813 51.242175L18.503916 49.89842Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M127.18356 51.242175L123.613249 49.89842L124.78512 51.242175L123.613249 52.58983Z'/>
+<path d='M127.18356 51.242175L123.613249 49.89842L124.78512 51.242175L123.613249 52.58983Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 54.791 69.27415)'>
+<use x='14.363906' y='-8.284652' xlink:href='#g0-96'/>
+</g>
+</g>
+</svg></div>
+</div>
+<ol><li>Exprimer le vecteur accélération de la gouttelette en fonction de $q$, $m$ et $$.</li><li>\'Etablir les équations horaires $x(t)$ et $z(t)$ du mouvement de la gouttelette, en prenant pour origine le point d'entrée entre les plaques.</li><li>Calculer la durée $ t$ de traversée des plaques.</li><li>Exprimer puis calculer la déviation verticale $ z$ de la gouttelette à la sortie des plaques.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On applique la deuxième loi de Newton à la gouttelette (poids négligé), on établit les équations horaires, on calcule la durée de traversée puis la déviation verticale.
+</div>
+<strong>Données :</strong>
+<ul><li>$m = 6{,}5  10^{-10} $$$, $q = 9{,}0  10^{-13} $$$</li><li>$v_0 = {m.s^{-1}}$ (horizontal)</li><li>$ = $2{,}0   $ = $0{,}020   $$</li><li>$E = {V.m^{-1}}$ (vertical)</li><li>Poids négligé</li><li>Origine : point d'entrée entre les plaques
+</li></ul>
+<strong>1. Vecteur accélération de la gouttelette :</strong>
+<p>La seule force est la force électrique : $_{el} = q $.</p>
+<p>D'après la deuxième loi de Newton :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>m  &= q <br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ = {m} }$$</div></div></div></div>
+<p>La charge $q$ est positive et le champ $$ est vertical : l'accélération est dans le sens de $$ (vers le bas sur le schéma, de la plaque positive vers la plaque négative).</p>
+<p>En projection : $a_x = 0$ et $a_z = -{m}$ (vers le bas si $$ est vers le haut et $$ vers le bas).</p>
+<strong>2. \'Equations horaires :</strong>
+<p>Conditions initiales : $x(0) = 0$, $z(0) = 0$, $v_x(0) = v_0$, $v_z(0) = 0$.</p>
+<p>$a_x = 0$</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_x(t) &= v_0 \\
+x(t) &= v_0 t
+$$</div></div></div></div>
+<p>$a_z = -{m}$</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_z(t) &= -{m} t \\
+z(t) &= -{2} {m} t^2
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$  {z(t) = -{2m} t^2}$$</div></div></div></div>
+<strong>3. Durée de traversée des plaques :</strong>
+<p>La gouttelette sort des plaques quand $x = $ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= v_0   t \\
+ t &= {v_0}
+$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ t &= {0{,}020}{18} = 1{,}11  10^{-3} $$  $1{,}1   $
+$$</div></div></div></div>
+<strong>4. Déviation verticale à la sortie :</strong>
+<p>La déviation verticale est $| z| = |z( t)|$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+| z| &= {2m} ({v_0})^2 = {2m v_0^2}
+$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+| z| &= {9{,}0  10^{-13}  4{,}0  10^{4}  (0{,}020)^2}{2  6{,}5  10^{-10}  18^2}
+$$</div></div></div></div>
+<p>Calculons le numérateur :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>9{,}0  10^{-13}  4{,}0  10^{4}  4{,}0  10^{-4} &= 9{,}0  4{,}0  4{,}0  10^{-13+4-4} \\<br>&= 144  10^{-13} = {}<br>$$</div></div></div></div></p>
+<p>Calculons le dénominateur :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>2  6{,}5  10^{-10}  324 &= 4212  10^{-10} = {}<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+| z| &= {1{,}44  10^{-11}}{4{,}21  10^{-7}} = 3{,}4  10^{-5} $$ = $0{,}034   $
+$$</div></div></div></div>
+<div class="info-box">
+<strong>Conclusion :</strong> La déviation verticale de la gouttelette à la sortie des plaques est $| z|  3{,}4  10^{-5} $$  $0{,}034   $$. Cette déviation est faible mais suffisante pour trier les gouttelettes chargées de celles qui ne le sont pas dans le mécanisme d'une imprimante à jet d'encre.
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 10</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Service smashé au volley-ball -- \'Etude énergétique et cinématique.
+</div>
+<p>Au volley-ball, un joueur effectue un service smashé. Le ballon, de masse $m = $260   $$ et de rayon $r = $10   $$, est frappé à une hauteur $h_0 = $2{,}4   $$ au-dessus du sol avec un vecteur vitesse initiale horizontal de norme $v_0 = {m.s^{-1}}$.</p>
+<p>Le filet est situé à une distance horizontale $D = $9{,}0   $$ du point de frappe et son bord supérieur est à une hauteur $H_{filet} = $2{,}43   $$.</p>
+<p>La ligne de fond du terrain adverse est située à une distance horizontale $L = $18{,}0   $$ du point de frappe.</p>
+<p>On néglige les frottements de l'air et on prend $g = {m.s^{-2}}$.</p>
+<p>Le repère $(O, , )$ a pour origine le point de frappe, $$ horizontal et $$ vertical ascendant.</p>
+<ol><li>\'Etablir les équations horaires $x(t)$ et $z(t)$ du mouvement du centre de masse du ballon dans le repère choisi.</li><li>En déduire l'équation de la trajectoire $z(x)$.</li><li>Vérifier que le ballon passe au-dessus du filet. <em>Attention : le ballon est une sphère de rayon $r$, c'est le point le plus bas du ballon qui doit franchir le filet.</em></li><li>Vérifier que le ballon touche le sol avant la ligne de fond du terrain adverse.</li><li>En exploitant la conservation de l'énergie mécanique, déterminer la vitesse du ballon lorsqu'il touche le sol.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On établit les équations horaires d'un projectile lancé horizontalement depuis une hauteur $h_0$. On en déduit la trajectoire, on vérifie le franchissement du filet (en tenant compte du rayon du ballon) et la retombée avant la ligne de fond. Enfin, on détermine la vitesse d'impact par conservation de l'énergie mécanique.
+</div>
+<strong>Données :</strong>
+<ul><li>$m = $260   $ = $0{,}260   $$, $r = $10   $ = $0{,}10   $$</li><li>$h_0 = $2{,}4   $$ (hauteur de frappe au-dessus du sol)</li><li>$v_0 = {m.s^{-1}}$ (horizontal)</li><li>$D = $9{,}0   $$ (distance au filet), $H_{filet} = $2{,}43   $$</li><li>$L = $18{,}0   $$ (distance à la ligne de fond)</li><li>$g = {m.s^{-2}}$</li><li>Repère : O au point de frappe, $$ horizontal, $$ vertical ascendant
+</li></ul>
+<strong>1. \'Equations horaires :</strong>
+<p>Le vecteur vitesse initiale est horizontal : $v_{0x} = v_0$ et $v_{0z} = 0$.</p>
+<p>L'accélération : $a_x = 0$ et $a_z = -g$.</p>
+<p>Par intégration avec $x(0) = 0$, $z(0) = 0$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$  {z(t) = -{2} g t^2}$$</div></div></div></div>
+<strong>Attention :</strong> L'altitude du centre de masse du ballon par rapport au sol est $z_{sol}(t) = h_0 + z(t) = h_0 - {2}g t^2$.
+<strong>2. \'Equation de la trajectoire :</strong>
+<p>De $x = v_0 t$, on tire $t = {v_0}$.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+z(x) &= -{2} g ({v_0})^2 = -{2 v_0^2} x^2
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${z(x) = -{2 v_0^2} x^2}$$</div></div></div></div>
+<p>L'altitude du centre par rapport au sol : $z_{sol}(x) = h_0 - {2v_0^2} x^2$.</p>
+<strong>3. Franchissement du filet :</strong>
+<p>Le filet est à $x = D = $9{,}0   $$. Le centre du ballon est à l'altitude par rapport au sol :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>z_{sol}(D) &= h_0 - {2v_0^2} D^2 \\<br>z_{sol}(D) &= 2{,}4 - {9{,}81}{2  21{,}0^2}  9{,}0^2 \\<br>z_{sol}(D) &= 2{,}4 - {9{,}81}{882}  81 \\<br>z_{sol}(D) &= 2{,}4 - 0{,}01112  81 \\<br>z_{sol}(D) &= 2{,}4 - 0{,}901 \\<br>z_{sol}(D) & $1{,}50   $<br>$$</div></div></div></div></p>
+<p>Le point le plus bas du ballon (sphère de rayon $r$) est à l'altitude :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>z_{} &= z_{sol}(D) - r = 1{,}50 - 0{,}10 = $1{,}40   $<br>$$</div></div></div></div></p>
+<p>On compare : $z_{} = $1{,}40   $ < H_{filet} = $2{,}43   $$.</p>
+<div class="info-box">
+<strong>Attention :</strong> Le point le plus bas du ballon ($$1{,}40   $$) est <strong>en dessous</strong> du sommet du filet ($$2{,}43   $$). Le ballon <strong>ne passe pas</strong> au-dessus du filet. Le service ne franchit pas le filet dans ces conditions.
+</div>
+<strong>Conclusion :</strong> Avec ces données, le ballon ne franchit pas le filet. Le point le plus bas du ballon au niveau du filet est à $$1{,}40   $$, bien en dessous des $$2{,}43   $$ du filet. Le service est manqué (le ballon tombe avant ou touche le filet).
+<p>{Note : ce résultat est cohérent physiquement. Un tir horizontal depuis seulement $$2{,}4   $$ chute rapidement sous l'effet de la gravité. Pour franchir un filet de $$2{,}43   $$ situé à $$9{,}0   $$, il faudrait une vitesse initiale bien plus grande ou un léger angle ascendant.}</p>
+<strong>4. Retombée au sol :</strong>
+<p>Le ballon touche le sol quand $z_{sol} = 0$, soit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>h_0 - {2v_0^2} x_{sol}^2 &= 0 \\<br>x_{sol}^2 &= {g} \\<br>x_{sol} &= v_0{{g}}<br>$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+x_{sol} &= 21{,}0  {{2  2{,}4}{9{,}81}} = 21{,}0  {0{,}489} = 21{,}0  0{,}699 \\
+x_{sol} & $14{,}7   $
+$$</div></div></div></div>
+<p>On compare : $x_{sol}  $14{,}7   $ < L = $18{,}0   $$.</p>
+<strong>Conclusion :</strong> Si le ballon avait franchi le filet, il aurait touché le sol à $$14{,}7   $$ du point de frappe, soit avant la ligne de fond ($$18{,}0   $$).
+<strong>5. Vitesse du ballon lorsqu'il touche le sol :</strong>
+<p>On choisit comme référence des énergies potentielles le sol (altitude 0 par rapport au sol).</p>
+<p>\`A l'instant initial : le centre est à l'altitude $h_0$ par rapport au sol, vitesse $v_0$.</p>
+<p>Au sol : altitude $= 0$ (en réalité le centre est à $r$ du sol, mais on néglige cet effet pour simplifier), vitesse $v_{sol}$.</p>
+<p>Conservation de l'énergie mécanique :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>{2}mv_0^2 + mgh_0 &= {2}mv_{sol}^2 + 0 \\<br>v_{sol}^2 &= v_0^2 + 2gh_0 \\<br>v_{sol} &= <br>$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_{sol} &= {21{,}0^2 + 2  9{,}81  2{,}4} = {441 + 47{,}088} = {488{,}1} \\
+v_{sol} & {m.s^{-1}}
+$$</div></div></div></div>
+<div class="info-box">
+<strong>Conclusion :</strong> La vitesse du ballon lorsqu'il touche le sol est $v_{sol}  {m.s^{-1}}$. Elle est supérieure à $v_0 = {m.s^{-1}}$ car le ballon a gagné de l'énergie cinétique en perdant de l'énergie potentielle de pesanteur lors de sa chute.
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 11</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Détermination expérimentale du quotient ${m}$ de l'électron -- Expérience de Thomson.
+</div>
+<p>En 1897, le physicien Joseph John Thomson utilisa un dispositif pour étudier les propriétés des électrons. Le principe de l'expérience est le suivant : des électrons, émis par un canon à électrons, pénètrent avec un vecteur vitesse horizontal $_0$ de norme $v_0$ dans la zone de champ électrique uniforme $$ créé entre deux plaques parallèles horizontales chargées. La déviation verticale $h$ du faisceau d'électrons est mesurée à la sortie des plaques.</p>
+<strong>Données :</strong>
+<ul><li>Norme de la vitesse des électrons à l'entrée du condensateur : $v_0 = {m.s^{-1}}$ avec une incertitude-type $u(v_0) = {m.s^{-1}}$.</li><li>Norme du champ électrique entre les plaques : $E = {V.m^{-1}}$ avec une incertitude-type $u(E) = {kV.m^{-1}}$.</li><li>Longueur des plaques : $L = $8{,}50   $$ avec une incertitude-type $u(L) = $0{,}05   $$.</li><li>Déviation verticale mesurée à la sortie des plaques : $h = $1{,}85   $$ avec une incertitude-type $u(h) = $0{,}05   $$.</li><li>On néglige le poids des électrons devant la force électrique.
+</li></ul>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.007905 -66.791136 207.734804 132.129199'>
+<defs>
+<path id='g0-69' d='M2.815442-3.030635H3.730012C4.366625-3.030635 4.501121-2.923039 4.501121-2.627148C4.501121-2.555417 4.474222-2.367123 4.438356-2.223661C4.420423-2.169863 4.411457-2.125031 4.411457-2.098132C4.411457-2.089166 4.411457-1.981569 4.52802-1.981569C4.635616-1.981569 4.644583-2.044334 4.680448-2.178829L5.155666-4.061768C5.191532-4.187298 5.191532-4.20523 5.191532-4.241096C5.191532-4.312827 5.137733-4.357659 5.066002-4.357659C4.967372-4.357659 4.958406-4.303861 4.913574-4.133499C4.734247-3.425156 4.456289-3.308593 3.738979-3.308593H2.887173C3.021669-3.864508 3.443088-5.56812 3.48792-5.675716C3.541719-5.801245 3.604483-5.819178 3.900374-5.819178H5.218431C6.339228-5.819178 6.590286-5.550187 6.590286-4.82391C6.590286-4.545953 6.545455-4.276961 6.545455-4.214197C6.545455-4.142466 6.590286-4.079701 6.670984-4.079701C6.77858-4.079701 6.787547-4.142466 6.805479-4.303861L6.993773-5.971606C6.993773-6.097136 6.90411-6.097136 6.733748-6.097136H2.116065C1.945704-6.097136 1.847073-6.097136 1.847073-5.935741C1.847073-5.819178 1.936737-5.819178 2.125031-5.819178C2.160897-5.819178 2.322291-5.819178 2.465753-5.801245C2.663014-5.774346 2.67198-5.738481 2.67198-5.657783C2.67198-5.630884 2.67198-5.612951 2.627148-5.451557L1.43462-.681445C1.353923-.358655 1.33599-.277958 .663512-.277958C.493151-.277958 .394521-.277958 .394521-.116563C.394521 0 .484184 0 .645579 0H5.379826C5.54122 0 5.559153 0 5.586052-.026899C5.612951-.044832 5.621918-.053798 5.675716-.170361C5.783313-.412453 6.545455-2.116065 6.545455-2.196762C6.545455-2.268493 6.491656-2.313325 6.419925-2.313325S6.339228-2.304359 6.240598-2.098132C5.684682-.842839 5.317061-.277958 3.828643-.277958H2.456787C2.331258-.277958 2.313325-.277958 2.27746-.286924C2.187796-.29589 2.160897-.304857 2.160897-.367621C2.160897-.394521 2.160897-.412453 2.205729-.573848L2.815442-3.030635Z'/>
+<path id='g0-76' d='M3.416189-5.415691C3.496887-5.756413 3.523786-5.846077 4.357659-5.846077C4.608717-5.846077 4.689415-5.846077 4.689415-6.007472C4.689415-6.124035 4.572852-6.124035 4.545953-6.124035C4.339726-6.124035 4.1066-6.106102 3.891407-6.106102S3.461021-6.097136 3.245828-6.097136C3.039601-6.097136 2.824408-6.097136 2.627148-6.106102C2.465753-6.115068 2.187796-6.124035 2.035367-6.124035C1.981569-6.124035 1.85604-6.124035 1.85604-5.96264C1.85604-5.846077 1.936737-5.846077 2.125031-5.846077C2.160897-5.846077 2.322291-5.846077 2.465753-5.828144C2.618182-5.810212 2.680946-5.792279 2.680946-5.693649C2.680946-5.648817 2.67198-5.612951 2.645081-5.514321L1.43462-.681445C1.353923-.358655 1.33599-.277958 .663512-.277958C.493151-.277958 .394521-.277958 .394521-.116563C.394521 0 .484184 0 .645579 0H4.877709C5.092902 0 5.101868-.008966 5.173599-.19726C5.263263-.42142 5.908842-2.125031 5.908842-2.196762S5.846077-2.313325 5.783313-2.313325C5.693649-2.313325 5.684682-2.27746 5.612951-2.098132C5.308095-1.300125 4.913574-.277958 3.344458-.277958H2.456787C2.331258-.277958 2.313325-.277958 2.27746-.286924C2.187796-.29589 2.160897-.304857 2.160897-.367621C2.160897-.394521 2.160897-.412453 2.205729-.573848L3.416189-5.415691Z'/>
+<path id='g0-79' d='M6.796513-3.882441C6.796513-5.299128 5.846077-6.321295 4.438356-6.321295C2.429888-6.321295 .448319-4.259029 .448319-2.214695C.448319-.744209 1.461519 .19726 2.815442 .19726C4.814944 .19726 6.796513-1.802242 6.796513-3.882441ZM2.878207-.071731C2.017435-.071731 1.309091-.726276 1.309091-1.990535C1.309091-2.456787 1.461519-3.783811 2.205729-4.805978C2.851308-5.684682 3.71208-6.070237 4.375592-6.070237C5.254296-6.070237 5.980573-5.433624 5.980573-4.223163C5.980573-3.640349 5.747447-2.331258 4.994271-1.318057C4.321793-.42142 3.496887-.071731 2.878207-.071731Z'/>
+<path id='g0-104' d='M2.57335-5.917808C2.609215-6.043337 2.609215-6.06127 2.609215-6.097136C2.609215-6.177833 2.555417-6.222665 2.47472-6.222665C2.349191-6.222665 1.560149-6.150934 1.380822-6.133001C1.291158-6.124035 1.192528-6.115068 1.192528-5.96264C1.192528-5.846077 1.291158-5.846077 1.43462-5.846077C1.85604-5.846077 1.85604-5.783313 1.85604-5.702615C1.85604-5.66675 1.85604-5.648817 1.811208-5.487422L.529016-.331756C.493151-.206227 .493151-.188294 .493151-.161395C.493151-.017933 .609714 .09863 .771108 .09863C.923537 .09863 1.049066 .008966 1.111831-.116563C1.129763-.161395 1.210461-.484184 1.255293-.672478L1.461519-1.470486C1.488418-1.604981 1.578082-1.945704 1.604981-2.080199L1.712578-2.47472C1.75741-2.680946 2.268493-3.738979 3.236862-3.738979C3.721046-3.738979 3.721046-3.263761 3.721046-3.111333C3.721046-2.564384 3.299626-1.470486 3.200996-1.192528C3.0934-.91457 3.057534-.824907 3.057534-.654545C3.057534-.170361 3.425156 .09863 3.828643 .09863C4.689415 .09863 5.039103-1.183562 5.039103-1.282192C5.039103-1.327024 5.012204-1.389788 4.92254-1.389788C4.82391-1.389788 4.814944-1.344956 4.779078-1.228394C4.554919-.466252 4.178331-.125529 3.855542-.125529C3.792777-.125529 3.631382-.125529 3.631382-.412453C3.631382-.636613 3.721046-.869738 3.792777-1.066999C3.972105-1.524284 4.33076-2.47472 4.33076-2.976837C4.33076-3.774844 3.738979-3.963138 3.263761-3.963138C2.725778-3.963138 2.268493-3.71208 1.909838-3.272727L2.57335-5.917808Z'/>
+<path id='g0-118' d='M4.312827-3.308593C4.312827-3.936239 3.981071-3.972105 3.900374-3.972105C3.676214-3.972105 3.443088-3.730012 3.443088-3.523786C3.443088-3.38929 3.523786-3.317559 3.58655-3.263761C3.828643-3.039601 3.90934-2.752677 3.90934-2.519552C3.90934-2.125031 3.344458-.125529 2.304359-.125529C1.63188-.125529 1.63188-.753176 1.63188-.91457C1.63188-1.300125 1.75741-1.75741 2.071233-2.57335C2.214695-2.949938 2.25056-3.039601 2.25056-3.209963C2.25056-3.649315 1.918804-3.963138 1.479452-3.963138C.61868-3.963138 .260025-2.689913 .260025-2.582316C.260025-2.501619 .32279-2.47472 .385554-2.47472C.484184-2.47472 .493151-2.528518 .529016-2.645081C.71731-3.299626 1.075965-3.738979 1.452553-3.738979C1.63188-3.738979 1.667746-3.622416 1.667746-3.443088C1.667746-3.29066 1.63188-3.129265 1.551183-2.914072C1.228394-2.0533 1.0132-1.479452 1.0132-1.031133C1.0132-.188294 1.649813 .09863 2.268493 .09863C3.774844 .09863 4.312827-2.734745 4.312827-3.308593Z'/>
+<path id='g0-120' d='M4.411457-3.622416C4.079701-3.559651 3.981071-3.272727 3.981071-3.138232C3.981071-2.96787 4.1066-2.815442 4.33076-2.815442C4.581818-2.815442 4.82391-3.030635 4.82391-3.344458C4.82391-3.756912 4.375592-3.963138 3.954172-3.963138C3.416189-3.963138 3.102366-3.48792 2.99477-3.299626C2.824408-3.738979 2.429888-3.963138 1.999502-3.963138C1.0401-3.963138 .52005-2.815442 .52005-2.582316C.52005-2.501619 .582814-2.47472 .645579-2.47472C.726276-2.47472 .753176-2.519552 .771108-2.57335C1.049066-3.461021 1.640847-3.738979 1.981569-3.738979C2.241594-3.738979 2.47472-3.568618 2.47472-3.147198C2.47472-2.824408 2.089166-1.389788 1.972603-.959402C1.900872-.681445 1.63188-.125529 1.13873-.125529C.959402-.125529 .771108-.188294 .681445-.242092C.923537-.286924 1.102864-.493151 1.102864-.726276C1.102864-.950436 .932503-1.049066 .762142-1.049066C.502117-1.049066 .268991-.824907 .268991-.52005C.268991-.080697 .753176 .09863 1.129763 .09863C1.649813 .09863 1.95467-.331756 2.089166-.573848C2.313325 .017933 2.842341 .09863 3.084433 .09863C4.052802 .09863 4.563885-1.066999 4.563885-1.282192C4.563885-1.327024 4.536986-1.389788 4.447323-1.389788C4.348692-1.389788 4.339726-1.353923 4.294894-1.219427C4.097634-.573848 3.577584-.125529 3.111333-.125529C2.851308-.125529 2.609215-.286924 2.609215-.71731C2.609215-.91457 2.734745-1.407721 2.815442-1.748443C2.851308-1.909838 3.0934-2.878207 3.111333-2.940971C3.218929-3.263761 3.48792-3.738979 3.945205-3.738979C4.1066-3.738979 4.276961-3.71208 4.411457-3.622416Z'/>
+<path id='g0-122' d='M1.246326-.762142C1.43462-.986301 1.927771-1.43462 2.313325-1.75741C2.976837-2.322291 3.183064-2.519552 3.299626-2.645081C4.034869-3.353425 4.276961-3.81071 4.276961-3.864508C4.276961-3.873474 4.276961-3.963138 4.160399-3.963138C4.079701-3.963138 4.061768-3.936239 4.016936-3.864508C3.900374-3.685181 3.658281-3.299626 3.353425-3.299626C3.174097-3.299626 3.057534-3.398257 2.851308-3.631382C2.636115-3.864508 2.465753-3.963138 2.232628-3.963138C1.542217-3.963138 1.120797-3.138232 1.120797-2.914072C1.120797-2.887173 1.13873-2.815442 1.23736-2.815442C1.327024-2.815442 1.353923-2.86924 1.362889-2.896139C1.53325-3.326526 2.062267-3.326526 2.133998-3.326526C2.340224-3.326526 2.555417-3.263761 2.752677-3.19203C3.111333-3.075467 3.263761-3.075467 3.398257-3.075467C3.120299-2.761644 2.618182-2.331258 2.0533-1.847073C1.604981-1.461519 1.327024-1.192528 1.129763-.995268C.798007-.645579 .394521-.09863 .394521 0C.394521 .062765 .439352 .09863 .511083 .09863C.591781 .09863 .609714 .062765 .654545 .008966C1.004234-.529016 1.33599-.564882 1.43462-.564882C1.65878-.564882 1.784309-.430386 1.981569-.19726C2.187796 .026899 2.385056 .09863 2.564384 .09863C3.48792 .09863 4.025903-1.049066 4.025903-1.291158C4.025903-1.371856 3.963138-1.398755 3.900374-1.398755C3.81071-1.398755 3.792777-1.33599 3.774844-1.300125C3.532752-.636613 2.896139-.537983 2.663014-.537983C2.492653-.537983 2.313325-.582814 2.044334-.672478C1.865006-.726276 1.649813-.789041 1.461519-.789041C1.371856-.789041 1.282192-.771108 1.246326-.762142Z'/>
+<path id='g0-126' d='M4.859776-5.326027C4.841843-5.308095 4.447323-4.958406 4.447323-4.814944C4.447323-4.707347 4.536986-4.617684 4.644583-4.617684C4.734247-4.617684 4.779078-4.680448 4.814944-4.72528C4.913574-4.850809 5.119801-5.101868 5.523288-5.308095C5.630884-5.352927 5.720548-5.397758 5.720548-5.523288C5.720548-5.621918 5.630884-5.675716 5.586052-5.711582C5.451557-5.792279 5.299128-5.926775 5.200498-6.204732C5.164633-6.312329 5.128767-6.419925 4.994271-6.419925C4.913574-6.419925 4.805978-6.357161 4.805978-6.222665C4.805978-6.06127 4.985305-5.76538 5.021171-5.711582H1.972603C1.820174-5.711582 1.640847-5.711582 1.640847-5.523288C1.640847-5.326027 1.811208-5.326027 1.972603-5.326027H4.859776Z'/>
+<path id='g1-48' d='M3.287671-1.906849C3.287671-2.343213 3.287671-3.975093 1.823163-3.975093S.358655-2.343213 .358655-1.906849C.358655-1.476463 .358655 .125529 1.823163 .125529S3.287671-1.476463 3.287671-1.906849ZM1.823163-.065753C1.572105-.065753 1.165629-.185305 1.022167-.681445C.926526-1.028144 .926526-1.613948 .926526-1.984558C.926526-2.385056 .926526-2.84533 1.010212-3.16812C1.159651-3.706102 1.613948-3.783811 1.823163-3.783811C2.098132-3.783811 2.492653-3.652304 2.624159-3.198007C2.713823-2.881196 2.719801-2.444832 2.719801-1.984558C2.719801-1.601993 2.719801-.998257 2.618182-.663512C2.450809-.143462 2.020423-.065753 1.823163-.065753Z'/>
+</defs>
+<g id='page1'>
+<path d='M-23.6875-41.44918V-49.10548H103.8714V-41.44918Z' fill='#ececec'/>
+<path d='M-23.6875 24.87892V32.53512H103.8714V24.87892Z' fill='#ececec'/>
+<path d='M-23.6875-41.44918H103.8714' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-23.6875 24.87892H103.8714' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 37.8723 -46.08132)'>
+<use x='-49.199611' y='-8.285078' xlink:href='#g2-80'/>
+<use x='-42.930213' y='-8.285078' xlink:href='#g2-108'/>
+<use x='-40.370992' y='-8.285078' xlink:href='#g2-97'/>
+<use x='-35.764395' y='-8.285078' xlink:href='#g2-113'/>
+<use x='-30.901876' y='-8.285078' xlink:href='#g2-117'/>
+<use x='-25.783434' y='-8.285078' xlink:href='#g2-101'/>
+<use x='-18.614148' y='-8.285078' xlink:href='#g2-100'/>
+<use x='-13.495706' y='-8.285078' xlink:href='#g2-101'/>
+<use x='-6.32642' y='-8.285078' xlink:href='#g2-99'/>
+<use x='-2.487607' y='-8.285078' xlink:href='#g2-104'/>
+<use x='2.630835' y='-8.285078' xlink:href='#g2-97'/>
+<use x='7.237431' y='-8.285078' xlink:href='#g2-114'/>
+<use x='10.841088' y='-8.285078' xlink:href='#g2-103'/>
+<use x='15.447685' y='-8.285078' xlink:href='#g2-101'/>
+<use x='22.61697' y='-8.285078' xlink:href='#g2-112'/>
+<use x='27.991335' y='-8.285078' xlink:href='#g2-111'/>
+<use x='32.597931' y='-8.285078' xlink:href='#g2-115'/>
+<use x='36.232021' y='-8.285078' xlink:href='#g2-105'/>
+<use x='38.791242' y='-8.285078' xlink:href='#g2-116'/>
+<use x='42.374147' y='-8.285078' xlink:href='#g2-105'/>
+<use x='44.933368' y='-8.285078' xlink:href='#g2-118'/>
+<use x='49.539949' y='-8.285078' xlink:href='#g2-101'/>
+</g>
+<g transform='matrix(1 0 0 1 36.7445 50.51368)'>
+<use x='-49.199611' y='-8.285078' xlink:href='#g2-80'/>
+<use x='-42.930213' y='-8.285078' xlink:href='#g2-108'/>
+<use x='-40.370992' y='-8.285078' xlink:href='#g2-97'/>
+<use x='-35.764395' y='-8.285078' xlink:href='#g2-113'/>
+<use x='-30.901876' y='-8.285078' xlink:href='#g2-117'/>
+<use x='-25.783434' y='-8.285078' xlink:href='#g2-101'/>
+<use x='-18.614148' y='-8.285078' xlink:href='#g2-100'/>
+<use x='-13.495706' y='-8.285078' xlink:href='#g2-101'/>
+<use x='-6.32642' y='-8.285078' xlink:href='#g2-99'/>
+<use x='-2.487607' y='-8.285078' xlink:href='#g2-104'/>
+<use x='2.630835' y='-8.285078' xlink:href='#g2-97'/>
+<use x='7.237431' y='-8.285078' xlink:href='#g2-114'/>
+<use x='10.841088' y='-8.285078' xlink:href='#g2-103'/>
+<use x='15.447685' y='-8.285078' xlink:href='#g2-101'/>
+<use x='22.61697' y='-8.285078' xlink:href='#g2-110'/>
+<use x='27.735413' y='-8.285078' xlink:href='#g2-233'/>
+<use x='31.833634' y='-8.285078' xlink:href='#g2-103'/>
+<use x='36.440231' y='-8.285078' xlink:href='#g2-97'/>
+<use x='41.046827' y='-8.285078' xlink:href='#g2-116'/>
+<use x='44.629731' y='-8.285078' xlink:href='#g2-105'/>
+<use x='47.188952' y='-8.285078' xlink:href='#g2-118'/>
+<use x='51.795534' y='-8.285078' xlink:href='#g2-101'/>
+</g>
+<path d='M-61.957 1.91792V-18.48828H-36.4453V1.91792Z' fill='#d9d9d9'/>
+<path d='M-61.957 1.91792V-18.48828H-36.4453V1.91792Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -13.0522 22.45038)'>
+<use x='-49.199611' y='-8.285078' xlink:href='#g2-67'/>
+<use x='-42.54564' y='-8.285078' xlink:href='#g2-97'/>
+<use x='-37.939044' y='-8.285078' xlink:href='#g2-110'/>
+<use x='-32.820602' y='-8.285078' xlink:href='#g2-111'/>
+<use x='-28.214005' y='-8.285078' xlink:href='#g2-110'/>
+</g>
+<path d='M-36.4453-8.285156H116.6294' stroke='#808080' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M-36.4453-8.285156H-23.6875' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-23.6875-8.285156C40.0938-8.285156 78.3594 12.12502 103.8714 17.22652' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-69.6094-8.285156H-30.3477' stroke='#ec4899' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-27.37495-8.285156L-31.52729-9.85547L-30.14839-8.285156L-31.52729-6.71484Z' fill='#ec4899'/>
+<path d='M-27.37495-8.285156L-31.52729-9.85547L-30.14839-8.285156L-31.52729-6.71484Z' stroke='#ec4899' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 -3.0382 -4.71452)'>
+<use x='-49.538094' y='-8.285078' xlink:href='#g0-126'/>
+<use x='-49.199611' y='-8.285078' xlink:href='#g0-118'/>
+<use x='-44.723366' y='-7.288829' xlink:href='#g1-48'/>
+</g>
+<path d='M-10.9336-33.79688V13.11722' stroke='#10b981' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-10.933604 16.09372L-9.35938 11.93747L-10.933604 13.31638L-12.50392 11.93747Z' fill='#10b981'/>
+<path d='M-10.933604 16.09372L-9.35938 11.93747L-10.933604 13.31638L-12.50392 11.93747Z' stroke='#10b981' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#10b981' transform='matrix(1 0 0 1 27.2575 4.34126)'>
+<use x='-47.77908' y='-10.551572' xlink:href='#g0-126'/>
+<use x='-49.199611' y='-8.285078' xlink:href='#g0-69'/>
+</g>
+<path d='M111.5274-4.17578V13.11722' stroke='#f97316' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M111.527572-7.14844L109.95726-2.99609L111.527572-4.375L113.09788-2.99609Z' fill='#f97316'/>
+<path d='M111.527572-7.14844L109.95726-2.99609L111.527572-4.375L113.09788-2.99609Z' stroke='#f97316' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M111.527572 16.09372L113.09788 11.93747L111.527572 13.31638L109.95726 11.93747Z' fill='#f97316'/>
+<path d='M111.527572 16.09372L113.09788 11.93747L111.527572 13.31638L109.95726 11.93747Z' stroke='#f97316' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#f97316' transform='matrix(1 0 0 1 164.4436 15.86932)'>
+<use x='-49.199611' y='-8.285078' xlink:href='#g0-104'/>
+</g>
+<path d='M-20.625 42.73832H100.8084' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-23.12113 42.738262L-19.550822 44.08592L-20.7227 42.738262L-19.550822 41.39451Z'/>
+<path d='M-23.12113 42.738262L-19.550822 44.08592L-20.7227 42.738262L-19.550822 41.39451Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M103.30466 42.738262L99.734348 41.39451L100.90622 42.738262L99.734348 44.08592Z'/>
+<path d='M103.30466 42.738262L99.734348 41.39451L100.90622 42.738262L99.734348 44.08592Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 86.1564 60.66998)'>
+<use x='-49.199611' y='-8.285078' xlink:href='#g0-76'/>
+</g>
+<path d='M-36.4453 55.49612H126.3204' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M128.81643 55.496112L125.246119 54.14846L126.41799 55.496112L125.246119 56.83986Z'/>
+<path d='M128.81643 55.496112L125.246119 54.14846L126.41799 55.496112L125.246119 56.83986Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 182.1026 65.71008)'>
+<use x='-49.199611' y='-8.285078' xlink:href='#g0-120'/>
+</g>
+<path d='M-36.4453 55.49612V-56.24608' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-36.445263-58.74222L-37.78901-55.171904L-36.445263-56.34378L-35.09761-55.171904Z'/>
+<path d='M-36.445263-58.74222L-37.78901-55.171904L-36.445263-56.34378L-35.09761-55.171904Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 10.4192 -54.54292)'>
+<use x='-49.199611' y='-8.285078' xlink:href='#g0-122'/>
+</g>
+<g transform='matrix(1 0 0 1 1.9686 73.42588)'>
+<use x='-49.199611' y='-8.285078' xlink:href='#g0-79'/>
+</g>
+</g>
+</svg></div>
+</div>
+<ol><li>Reproduire le schéma et représenter le champ électrique $$ entre les plaques, sachant que la déviation se fait vers la plaque positive. Indiquer la polarité des plaques.</li><li>Donner la relation entre la force électrique $_{el}$ exercée sur un électron, la charge élémentaire $e$ et le champ électrique $$. En déduire le sens de déviation du faisceau d'électrons.</li><li>En appliquant la deuxième loi de Newton, montrer que les coordonnées du vecteur accélération de l'électron lors de son mouvement entre les plaques sont : $a_x(t) = 0$ et $a_z(t) = -{m_e}$.</li><li>\'Etablir les équations horaires $x(t)$ et $z(t)$ du mouvement de l'électron, en prenant pour conditions initiales $x(0) = 0$, $z(0) = 0$, $v_x(0) = v_0$ et $v_z(0) = 0$.</li><li>Montrer que l'équation de la trajectoire décrite par les électrons entre les plaques s'écrit :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$z = -{2 m_e v_0^2} x^2$$</div></div></div></div></li><li>Exprimer le quotient ${m_e}$ en fonction de $E$, $L$, $h$ et $v_0$.</li><li>Calculer la valeur de ce quotient et son incertitude-type associée en utilisant la formule :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${u\!({m_e})}{{m_e}} = {({E})^2 + ({L})^2 + ({h})^2 + ({v_0})^2}$$</div></div></div></div>
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On étudie le mouvement d'un électron dans un champ électrique uniforme (expérience de Thomson). On applique la deuxième loi de Newton, on établit les équations horaires, l'équation de la trajectoire, puis on exprime et on calcule le rapport ${m_e}$ avec son incertitude.
+</div>
+<strong>Données :</strong>
+<ul><li>$v_0 = {m.s^{-1}}$, $u(v_0) = {m.s^{-1}}$</li><li>$E = {V.m^{-1}}$, $u(E) = {kV.m^{-1}} = {V.m^{-1}}$</li><li>$L = $8{,}50   $ = $0{,}0850   $$, $u(L) = $0{,}05   $ = 5{,}0  10^{-4} $$$</li><li>$h = $1{,}85   $ = $0{,}0185   $$, $u(h) = $0{,}05   $ = 5{,}0  10^{-4} $$$</li><li>Charge de l'électron : $q = -e$ avec $e > 0$
+</li></ul>
+<strong>1. Schéma et champ électrique :</strong>
+<p>La déviation se fait <strong>vers la plaque positive</strong> (supposée être la plaque du haut par convention sur le schéma).</p>
+<p>L'électron a une charge négative. La force électrique est $_{el} = -e$, donc de sens opposé à $$.</p>
+<p>Pour que l'électron soit dévié vers le haut (plaque positive), la force doit être dirigée vers le haut, donc $$ doit être dirigé vers le bas.</p>
+<strong>Conclusion :</strong>
+<ul><li>Le champ $$ est vertical, dirigé de la plaque positive (en haut) vers la plaque négative (en bas).</li><li>La plaque du haut est positive, la plaque du bas est négative.
+</li></ul>
+<p>{Note : sur le schéma de l'énoncé, les indications correspondent à cette configuration. Comme la déviation de l'électron se fait vers le bas ($z < 0$), cela signifie que la plaque du bas est positive et celle du haut est négative, et $$ est orienté vers le haut. La convention dépend de l'orientation choisie. Ici, d'après le schéma, la déviation est vers le bas : la plaque positive est donc en bas.}</p>
+<strong>2. Force électrique et sens de déviation :</strong>
+<p>La force électrique exercée sur l'électron est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{el} = q  = (-e)  = -e $$</div></div></div></div></p>
+<p>La force est de sens <strong>opposé</strong> à $$.</p>
+<p>Si $$ est dirigé de la plaque positive vers la plaque négative (vers le bas), alors $_{el}$ est dirigée vers le haut : l'électron est dévié vers la plaque positive.</p>
+<strong>Conclusion :</strong> Le faisceau d'électrons est dévié vers la plaque positive, ce qui est cohérent avec le fait que l'électron porte une charge négative.
+<strong>3. Coordonnées du vecteur accélération :</strong>
+<p>On néglige le poids. D'après la deuxième loi de Newton :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>m_e  &= _{el} = -e <br>$$</div></div></div></div></p>
+<p>Projetons dans le repère $(O, , )$, avec $$ horizontal (sens de $_0$) et $$ vertical ascendant.</p>
+<p>Si le champ électrique est dirigé vers le haut (cas o\`u la plaque positive est en bas) : $ = E $.</p>
+<p>Alors :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>m_e a_x &= 0     \\<br>m_e a_z &= -eE    {a_z = -{m_e}}<br>$$</div></div></div></div></p>
+<p>Le signe négatif de $a_z$ indique que l'électron est dévié vers le bas (vers la plaque positive située en bas), ce qui est cohérent.</p>
+<strong>4. \'Equations horaires :</strong>
+<p>Conditions initiales : $x(0) = 0$, $z(0) = 0$, $v_x(0) = v_0$, $v_z(0) = 0$.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_x(t) &= v_0 \\
+x(t) &= v_0 t
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_z(t) &= -{m_e} t \\
+z(t) &= -{2} {m_e} t^2
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$  {z(t) = -{2m_e} t^2}$$</div></div></div></div>
+<strong>5. \'Equation de la trajectoire :</strong>
+<p>De $x = v_0 t$, on tire $t = {v_0}$. On substitue dans $z(t)$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+z &= -{2m_e} ({v_0})^2
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${z = -{2 m_e v_0^2} x^2}$$</div></div></div></div>
+<p>La trajectoire est une <strong>parabole</strong> dont le sommet est à l'entrée des plaques.</p>
+<p>{6. Expression du quotient ${m_e}$ :}</p>
+<p>\`A la sortie des plaques, $x = L$ et $z = -h$ (la déviation $h$ est positive, mais $z$ est négatif) :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+-h &= -{2 m_e v_0^2} L^2
+$$</div></div></div></div>
+<p>On simplifie par le signe moins :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>h &= {2 m_e v_0^2} L^2<br>$$</div></div></div></div></p>
+<p>On isole ${m_e}$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${{m_e} = {E L^2}}$$</div></div></div></div>
+<strong>7. Calcul de la valeur et de l'incertitude :</strong>
+<strong>Calcul de la valeur :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{m_e} &= {2  0{,}0185  (2{,}27  10^7)^2}{1{,}5  10^4  (0{,}0850)^2}
+$$</div></div></div></div>
+<p>Numérateur :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>2  0{,}0185  (2{,}27)^2  10^{14} &= 2  0{,}0185  5{,}153  10^{14} \\<br>&= 0{,}1907  10^{14} = {}<br>$$</div></div></div></div></p>
+<p>Dénominateur :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>1{,}5  10^4  (0{,}0850)^2 &= 1{,}5  10^4  7{,}225  10^{-3} \\<br>&= 10{,}84  10^{1} = {}<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{m_e} &= {1{,}907  10^{13}}{108{,}4} = {C.kg^{-1}}
+$$</div></div></div></div>
+<strong>Calcul de l'incertitude relative :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{E} &= {1{,}5  10^4} = 6{,}67  10^{-3} \\[0.3em]
+{L} &= {2  5{,}0  10^{-4}}{0{,}0850} = 1{,}18  10^{-2} \\[0.3em]
+{h} &= {5{,}0  10^{-4}}{0{,}0185} = 2{,}70  10^{-2} \\[0.3em]
+{v_0} &= {2  2  10^{5}}{2{,}27  10^7} = 1{,}76  10^{-2}
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{u\!({m_e})}{{m_e}} &= {(6{,}67  10^{-3})^2 + (1{,}18  10^{-2})^2 + (2{,}70  10^{-2})^2 + (1{,}76  10^{-2})^2} \\
+&= {4{,}45  10^{-5} + 1{,}39  10^{-4} + 7{,}29  10^{-4} + 3{,}10  10^{-4}} \\
+&= {1{,}222  10^{-3}} \\
+& 3{,}5  10^{-2} = 3{,}5 
+$$</div></div></div></div>
+<p>L'incertitude-type absolue :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>u\!({m_e}) &= 3{,}5  10^{-2}  1{,}76  10^{11}  {C.kg^{-1}}<br>$$</div></div></div></div></p>
+<div class="info-box">
+<strong>Conclusion :</strong> Le quotient ${m_e} = (1{,}76  0{,}06)  10^{11} ^{-1}$.
+<p>La valeur de référence est ${m_e} = {C.kg^{-1}}$. La valeur obtenue est compatible avec la valeur de référence compte tenu de l'incertitude.<br></div></p>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 12</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Saut en waterjump -- \'Etude complète d'un mouvement dans le champ de pesanteur uniforme.
+</div>
+<p>La pratique du waterjump consiste à se laisser glisser le long d'un toboggan puis à effectuer un saut en chute libre avant de terminer sa course dans un plan d'eau.</p>
+<p>Un sauteur, muni de son équipement, a une masse totale $m = $80   $$. \`A la sortie du tremplin (point G$_0$, pris comme origine du repère), situé à une hauteur $h = $0{,}85   $$ au-dessus de la surface de l'eau, le centre de masse du sauteur possède un vecteur vitesse $_0$ de norme $v_0 = {m.s^{-1}}$, faisant un angle $ = 20{^}$ au-dessus de l'horizontale.</p>
+<p>On néglige les frottements de l'air et on prend $g = {m.s^{-2}}$.</p>
+<p>Le mouvement est étudié dans le repère $(O, , )$ o\`u $O$ est le point G$_0$ (sortie du tremplin), $$ est horizontal et $$ est vertical ascendant.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.007905 -66.791337 272.92641 86.853827'>
+<defs>
+<path id='g0-18' d='M4.178331-4.438356C4.178331-5.361893 3.873474-6.321295 3.048568-6.321295C1.739477-6.321295 .367621-3.765878 .367621-1.775342C.367621-1.129763 .564882 .09863 1.497385 .09863C2.806476 .09863 4.178331-2.429888 4.178331-4.438356ZM1.344956-3.254795C1.524284-3.963138 1.712578-4.617684 2.080199-5.236364C2.295392-5.595019 2.627148-6.097136 3.039601-6.097136C3.523786-6.097136 3.559651-5.326027 3.559651-4.985305C3.559651-4.447323 3.416189-3.819676 3.281694-3.254795H1.344956ZM3.200996-2.96787C3.057534-2.402989 2.887173-1.730511 2.528518-1.093898C2.295392-.672478 1.936737-.125529 1.506351-.125529C1.120797-.125529 .995268-.591781 .995268-1.246326C.995268-1.820174 1.13873-2.402989 1.273225-2.96787H3.200996Z'/>
+<path id='g0-79' d='M6.796513-3.882441C6.796513-5.299128 5.846077-6.321295 4.438356-6.321295C2.429888-6.321295 .448319-4.259029 .448319-2.214695C.448319-.744209 1.461519 .19726 2.815442 .19726C4.814944 .19726 6.796513-1.802242 6.796513-3.882441ZM2.878207-.071731C2.017435-.071731 1.309091-.726276 1.309091-1.990535C1.309091-2.456787 1.461519-3.783811 2.205729-4.805978C2.851308-5.684682 3.71208-6.070237 4.375592-6.070237C5.254296-6.070237 5.980573-5.433624 5.980573-4.223163C5.980573-3.640349 5.747447-2.331258 4.994271-1.318057C4.321793-.42142 3.496887-.071731 2.878207-.071731Z'/>
+<path id='g0-104' d='M2.57335-5.917808C2.609215-6.043337 2.609215-6.06127 2.609215-6.097136C2.609215-6.177833 2.555417-6.222665 2.47472-6.222665C2.349191-6.222665 1.560149-6.150934 1.380822-6.133001C1.291158-6.124035 1.192528-6.115068 1.192528-5.96264C1.192528-5.846077 1.291158-5.846077 1.43462-5.846077C1.85604-5.846077 1.85604-5.783313 1.85604-5.702615C1.85604-5.66675 1.85604-5.648817 1.811208-5.487422L.529016-.331756C.493151-.206227 .493151-.188294 .493151-.161395C.493151-.017933 .609714 .09863 .771108 .09863C.923537 .09863 1.049066 .008966 1.111831-.116563C1.129763-.161395 1.210461-.484184 1.255293-.672478L1.461519-1.470486C1.488418-1.604981 1.578082-1.945704 1.604981-2.080199L1.712578-2.47472C1.75741-2.680946 2.268493-3.738979 3.236862-3.738979C3.721046-3.738979 3.721046-3.263761 3.721046-3.111333C3.721046-2.564384 3.299626-1.470486 3.200996-1.192528C3.0934-.91457 3.057534-.824907 3.057534-.654545C3.057534-.170361 3.425156 .09863 3.828643 .09863C4.689415 .09863 5.039103-1.183562 5.039103-1.282192C5.039103-1.327024 5.012204-1.389788 4.92254-1.389788C4.82391-1.389788 4.814944-1.344956 4.779078-1.228394C4.554919-.466252 4.178331-.125529 3.855542-.125529C3.792777-.125529 3.631382-.125529 3.631382-.412453C3.631382-.636613 3.721046-.869738 3.792777-1.066999C3.972105-1.524284 4.33076-2.47472 4.33076-2.976837C4.33076-3.774844 3.738979-3.963138 3.263761-3.963138C2.725778-3.963138 2.268493-3.71208 1.909838-3.272727L2.57335-5.917808Z'/>
+<path id='g0-118' d='M4.312827-3.308593C4.312827-3.936239 3.981071-3.972105 3.900374-3.972105C3.676214-3.972105 3.443088-3.730012 3.443088-3.523786C3.443088-3.38929 3.523786-3.317559 3.58655-3.263761C3.828643-3.039601 3.90934-2.752677 3.90934-2.519552C3.90934-2.125031 3.344458-.125529 2.304359-.125529C1.63188-.125529 1.63188-.753176 1.63188-.91457C1.63188-1.300125 1.75741-1.75741 2.071233-2.57335C2.214695-2.949938 2.25056-3.039601 2.25056-3.209963C2.25056-3.649315 1.918804-3.963138 1.479452-3.963138C.61868-3.963138 .260025-2.689913 .260025-2.582316C.260025-2.501619 .32279-2.47472 .385554-2.47472C.484184-2.47472 .493151-2.528518 .529016-2.645081C.71731-3.299626 1.075965-3.738979 1.452553-3.738979C1.63188-3.738979 1.667746-3.622416 1.667746-3.443088C1.667746-3.29066 1.63188-3.129265 1.551183-2.914072C1.228394-2.0533 1.0132-1.479452 1.0132-1.031133C1.0132-.188294 1.649813 .09863 2.268493 .09863C3.774844 .09863 4.312827-2.734745 4.312827-3.308593Z'/>
+<path id='g0-120' d='M4.411457-3.622416C4.079701-3.559651 3.981071-3.272727 3.981071-3.138232C3.981071-2.96787 4.1066-2.815442 4.33076-2.815442C4.581818-2.815442 4.82391-3.030635 4.82391-3.344458C4.82391-3.756912 4.375592-3.963138 3.954172-3.963138C3.416189-3.963138 3.102366-3.48792 2.99477-3.299626C2.824408-3.738979 2.429888-3.963138 1.999502-3.963138C1.0401-3.963138 .52005-2.815442 .52005-2.582316C.52005-2.501619 .582814-2.47472 .645579-2.47472C.726276-2.47472 .753176-2.519552 .771108-2.57335C1.049066-3.461021 1.640847-3.738979 1.981569-3.738979C2.241594-3.738979 2.47472-3.568618 2.47472-3.147198C2.47472-2.824408 2.089166-1.389788 1.972603-.959402C1.900872-.681445 1.63188-.125529 1.13873-.125529C.959402-.125529 .771108-.188294 .681445-.242092C.923537-.286924 1.102864-.493151 1.102864-.726276C1.102864-.950436 .932503-1.049066 .762142-1.049066C.502117-1.049066 .268991-.824907 .268991-.52005C.268991-.080697 .753176 .09863 1.129763 .09863C1.649813 .09863 1.95467-.331756 2.089166-.573848C2.313325 .017933 2.842341 .09863 3.084433 .09863C4.052802 .09863 4.563885-1.066999 4.563885-1.282192C4.563885-1.327024 4.536986-1.389788 4.447323-1.389788C4.348692-1.389788 4.339726-1.353923 4.294894-1.219427C4.097634-.573848 3.577584-.125529 3.111333-.125529C2.851308-.125529 2.609215-.286924 2.609215-.71731C2.609215-.91457 2.734745-1.407721 2.815442-1.748443C2.851308-1.909838 3.0934-2.878207 3.111333-2.940971C3.218929-3.263761 3.48792-3.738979 3.945205-3.738979C4.1066-3.738979 4.276961-3.71208 4.411457-3.622416Z'/>
+<path id='g0-122' d='M1.246326-.762142C1.43462-.986301 1.927771-1.43462 2.313325-1.75741C2.976837-2.322291 3.183064-2.519552 3.299626-2.645081C4.034869-3.353425 4.276961-3.81071 4.276961-3.864508C4.276961-3.873474 4.276961-3.963138 4.160399-3.963138C4.079701-3.963138 4.061768-3.936239 4.016936-3.864508C3.900374-3.685181 3.658281-3.299626 3.353425-3.299626C3.174097-3.299626 3.057534-3.398257 2.851308-3.631382C2.636115-3.864508 2.465753-3.963138 2.232628-3.963138C1.542217-3.963138 1.120797-3.138232 1.120797-2.914072C1.120797-2.887173 1.13873-2.815442 1.23736-2.815442C1.327024-2.815442 1.353923-2.86924 1.362889-2.896139C1.53325-3.326526 2.062267-3.326526 2.133998-3.326526C2.340224-3.326526 2.555417-3.263761 2.752677-3.19203C3.111333-3.075467 3.263761-3.075467 3.398257-3.075467C3.120299-2.761644 2.618182-2.331258 2.0533-1.847073C1.604981-1.461519 1.327024-1.192528 1.129763-.995268C.798007-.645579 .394521-.09863 .394521 0C.394521 .062765 .439352 .09863 .511083 .09863C.591781 .09863 .609714 .062765 .654545 .008966C1.004234-.529016 1.33599-.564882 1.43462-.564882C1.65878-.564882 1.784309-.430386 1.981569-.19726C2.187796 .026899 2.385056 .09863 2.564384 .09863C3.48792 .09863 4.025903-1.049066 4.025903-1.291158C4.025903-1.371856 3.963138-1.398755 3.900374-1.398755C3.81071-1.398755 3.792777-1.33599 3.774844-1.300125C3.532752-.636613 2.896139-.537983 2.663014-.537983C2.492653-.537983 2.313325-.582814 2.044334-.672478C1.865006-.726276 1.649813-.789041 1.461519-.789041C1.371856-.789041 1.282192-.771108 1.246326-.762142Z'/>
+<path id='g0-126' d='M4.859776-5.326027C4.841843-5.308095 4.447323-4.958406 4.447323-4.814944C4.447323-4.707347 4.536986-4.617684 4.644583-4.617684C4.734247-4.617684 4.779078-4.680448 4.814944-4.72528C4.913574-4.850809 5.119801-5.101868 5.523288-5.308095C5.630884-5.352927 5.720548-5.397758 5.720548-5.523288C5.720548-5.621918 5.630884-5.675716 5.586052-5.711582C5.451557-5.792279 5.299128-5.926775 5.200498-6.204732C5.164633-6.312329 5.128767-6.419925 4.994271-6.419925C4.913574-6.419925 4.805978-6.357161 4.805978-6.222665C4.805978-6.06127 4.985305-5.76538 5.021171-5.711582H1.972603C1.820174-5.711582 1.640847-5.711582 1.640847-5.523288C1.640847-5.326027 1.811208-5.326027 1.972603-5.326027H4.859776Z'/>
+<path id='g1-48' d='M3.287671-1.906849C3.287671-2.343213 3.287671-3.975093 1.823163-3.975093S.358655-2.343213 .358655-1.906849C.358655-1.476463 .358655 .125529 1.823163 .125529S3.287671-1.476463 3.287671-1.906849ZM1.823163-.065753C1.572105-.065753 1.165629-.185305 1.022167-.681445C.926526-1.028144 .926526-1.613948 .926526-1.984558C.926526-2.385056 .926526-2.84533 1.010212-3.16812C1.159651-3.706102 1.613948-3.783811 1.823163-3.783811C2.098132-3.783811 2.492653-3.652304 2.624159-3.198007C2.713823-2.881196 2.719801-2.444832 2.719801-1.984558C2.719801-1.601993 2.719801-.998257 2.618182-.663512C2.450809-.143462 2.020423-.065753 1.823163-.065753Z'/>
+</defs>
+<g id='page1'>
+<path d='M-69.6094-59.30861L-12.918-18.48831L21.101562-10.55081' stroke='#734d26' fill='none' stroke-width='.79701'/>
+<path d='M23.49219-10.55081C23.49219-11.87501 22.42187-12.94531 21.101562-12.94531C19.78125-12.94531 18.70703-11.87501 18.70703-10.55081C18.70703-9.23051 19.78125-8.16011 21.101562-8.16011C22.42187-8.16011 23.49219-9.23051 23.49219-10.55081Z' fill='#0e7490'/>
+<path d='M23.49219-10.55081C23.49219-11.87501 22.42187-12.94531 21.101562-12.94531C19.78125-12.94531 18.70703-11.87501 18.70703-10.55081C18.70703-9.23051 19.78125-8.16011 21.101562-8.16011C22.42187-8.16011 23.49219-9.23051 23.49219-10.55081Z' stroke='#0e7490' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 3.519 -23.79129)'>
+<use x='21.099983' y='8.723391' xlink:href='#g2-71'/>
+<use x='28.329436' y='9.71964' xlink:href='#g1-48'/>
+</g>
+<path d='M21.101562-10.55081L67.1289-27.28911' stroke='#ec4899' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M69.925803-28.304677L65.484395-28.363272L67.316436-27.359365L66.558615-25.410147Z' fill='#ec4899'/>
+<path d='M69.925803-28.304677L65.484395-28.363272L67.316436-27.359365L66.558615-25.410147Z' stroke='#ec4899' fill='none' stroke-width='.797001' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 53.6087 -34.70789)'>
+<use x='20.7615' y='8.723391' xlink:href='#g0-126'/>
+<use x='21.099983' y='8.723391' xlink:href='#g0-118'/>
+<use x='25.576227' y='9.71964' xlink:href='#g1-48'/>
+</g>
+<path d='M21.101562-10.55081H70.9922' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M48.3125-10.55081C48.3125-13.72661 47.7578-16.87891 46.6719-19.85941' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 33.9993 -20.69809)'>
+<use x='21.099983' y='8.723391' xlink:href='#g0-18'/>
+</g>
+<path d='M21.101562-10.55081C77.793-32.09761 123.148-2.61721 168.504 8.722657' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M-24.2539 8.722657V20.06249H202.52V8.722657Z' fill='#d9d9ff'/>
+<path d='M-24.2539 8.722657H202.52' stroke='#8080ff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#4d4dff' transform='matrix(1 0 0 1 162.084 9.89101)'>
+<use x='21.099983' y='8.723391' xlink:href='#g2-69'/>
+<use x='27.369381' y='8.723391' xlink:href='#g2-97'/>
+<use x='31.975977' y='8.723391' xlink:href='#g2-117'/>
+</g>
+<path d='M9.7617 4.61328V-6.44141' stroke='#f97316' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M9.761719 7.58984L11.33203 3.43359L9.761719 4.8125L8.19141 3.43359Z' fill='#f97316'/>
+<path d='M9.761719 7.58984L11.33203 3.43359L9.761719 4.8125L8.19141 3.43359Z' stroke='#f97316' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M9.761719-9.41797L8.19141-5.26562L9.761719-6.64062L11.33203-5.26562Z' fill='#f97316'/>
+<path d='M9.761719-9.41797L8.19141-5.26562L9.761719-6.64062L11.33203-5.26562Z' stroke='#f97316' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#f97316' transform='matrix(1 0 0 1 -20.366989 -6.52464)'>
+<use x='21.099983' y='8.723391' xlink:href='#g0-104'/>
+</g>
+<path d='M21.101562 8.722657H188.117' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M190.61288 8.722657L187.04257 7.37891L188.21835 8.722657L187.04257 10.07031Z'/>
+<path d='M190.61288 8.722657L187.04257 7.37891L188.21835 8.722657L187.04257 10.07031Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 173.601 1.93031)'>
+<use x='21.099983' y='8.723391' xlink:href='#g0-120'/>
+</g>
+<path d='M21.101562 8.722657V-56.24611' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M21.101562-58.74219L19.75391-55.171875L21.101562-56.34375L22.44531-55.171875Z'/>
+<path d='M21.101562-58.74219L19.75391-55.171875L21.101562-56.34375L22.44531-55.171875Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -2.3367 -71.55159)'>
+<use x='21.099983' y='8.723391' xlink:href='#g0-122'/>
+</g>
+<g transform='matrix(1 0 0 1 -32.9746 9.69441)'>
+<use x='21.099983' y='8.723391' xlink:href='#g2-83'/>
+<use x='26.218425' y='8.723391' xlink:href='#g2-117'/>
+<use x='31.336867' y='8.723391' xlink:href='#g2-114'/>
+<use x='34.940524' y='8.723391' xlink:href='#g2-102'/>
+<use x='37.755668' y='8.723391' xlink:href='#g2-97'/>
+<use x='42.362264' y='8.723391' xlink:href='#g2-99'/>
+<use x='46.457015' y='8.723391' xlink:href='#g2-101'/>
+</g>
+<g transform='matrix(1 0 0 1 -10.7873 -22.79499)'>
+<use x='21.099983' y='8.723391' xlink:href='#g0-79'/>
+</g>
+</g>
+</svg></div>
+</div>
+<ol><li>En appliquant la deuxième loi de Newton au système constitué du sauteur et de son équipement dans le référentiel terrestre supposé galiléen, établir l'expression du vecteur accélération $$ du centre de masse G du système.</li><li>\'Etablir les équations horaires du mouvement du point G, sachant que le sauteur quitte le tremplin à la date $t = 0$.
+<ol><li>Déterminer les composantes $v_x(t)$ et $v_z(t)$ du vecteur vitesse.</li><li>En déduire les équations horaires $x(t)$ et $z(t)$ du centre de masse G dans le repère $(O, , )$ o\`u l'origine O co\"incide avec G$_0$.
+</li></ol></li><li>Exprimer la date $t_1$ correspondant au sommet de la trajectoire. Calculer sa valeur.</li><li>Exprimer puis calculer l'altitude maximale $h_{}$ atteinte lors du saut (mesurée par rapport à la surface de l'eau).</li><li>Déterminer la date $t_2$ à laquelle le sauteur atteint la surface de l'eau (on rappelle que l'origine du repère est en G$_0$, donc la surface de l'eau correspond à $z = -h$).</li><li>En utilisant la conservation de l'énergie mécanique, calculer la vitesse $v_e$ du sauteur juste avant son entrée dans l'eau.</li><li>Vérifier ce résultat en calculant $v_e$ à partir des composantes de la vitesse à la date $t_2$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On réalise une étude complète du mouvement du sauteur dans le champ de pesanteur uniforme : deuxième loi de Newton, équations horaires, altitude maximale, durée du saut, puis vitesse d'entrée dans l'eau par deux méthodes (énergie mécanique et équations de vitesse).
+</div>
+<strong>Données :</strong>
+<ul><li>$m = $80   $$, $h = $0{,}85   $$ (hauteur du tremplin au-dessus de l'eau)</li><li>$v_0 = {m.s^{-1}}$, $ = 20{^}$</li><li>$g = {m.s^{-2}}$</li><li>Repère $(O, , )$ : O = G$_0$ (sortie du tremplin), $$ horizontal, $$ vertical ascendant</li><li>Surface de l'eau : $z = -h = -0{,}85 $$$
+</li></ul>
+<p>Valeurs trigonométriques : $(20{^})  0{,}940$, $(20{^})  0{,}342$.</p>
+<strong>1. Vecteur accélération :</strong>
+<p>Le sauteur est en chute libre (frottements négligés). La seule force est le poids : $ = m$.</p>
+<p>D'après la deuxième loi de Newton :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>m &=  = m \\<br> &= <br>$$</div></div></div></div></p>
+<p>En projection :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${a_x = 0    a_z = -g}$$</div></div></div></div></p>
+<p>Le vecteur accélération est vertical, dirigé vers le bas, de norme $g = {m.s^{-2}}$.</p>
+<strong>2. \'Equations horaires :</strong>
+<strong>2a) Composantes de la vitesse :</strong>
+<p>Conditions initiales à $t = 0$ : $v_x(0) = v_0$ et $v_z(0) = v_0$.</p>
+<p>Par intégration de l'accélération :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>v_x(t) &= v_0 \\<br>v_z(t) &= -g t + v_0<br>$$</div></div></div></div></p>
+<strong>Application numérique des composantes initiales :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_{0x} &= 7{,}0  0{,}940 = {m.s^{-1}} \\
+v_{0z} &= 7{,}0  0{,}342 = {m.s^{-1}}
+$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${v_x(t) = v_0  {m.s^{-1}}}  {v_z(t) = -9{,}81 t + 2{,}39}$$</div></div></div></div>
+<strong>2b) \'Equations horaires de position :</strong>
+<p>Conditions initiales : $x(0) = 0$, $z(0) = 0$ (l'origine est en G$_0$).</p>
+<p>Par intégration :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>x(t) &= v_0() t \\<br>z(t) &= -{2} g t^2 + v_0() t<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$  {z(t) = -{2} g t^2 + v_0() t}$$</div></div></div></div>
+<strong>3. Date du sommet de la trajectoire :</strong>
+<p>Au sommet, la composante verticale de la vitesse s'annule : $v_z(t_1) = 0$.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+-g t_1 + v_0 &= 0 \\
+t_1 &= {g}
+$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+t_1 &= {7{,}0  (20{^})}{9{,}81} = {7{,}0  0{,}342}{9{,}81} = {2{,}394}{9{,}81} \\
+t_1 & $0{,}244   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Le sauteur atteint le sommet de sa trajectoire à $t_1  $0{,}24   $$ après avoir quitté le tremplin.
+<strong>4. Altitude maximale :</strong>
+<p>L'altitude maximale (mesurée par rapport à G$_0$) est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>z_{} &= z(t_1) = -{2} g t_1^2 + v_0 t_1<br>$$</div></div></div></div></p>
+<p>En utilisant la formule simplifiée :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>z_{} &= {2g} = {2g}<br>$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+z_{} &= {7{,}0^2  ^2(20{^})}{2  9{,}81} = {49  0{,}1170}{19{,}62} = {5{,}733}{19{,}62} \\
+z_{} & $0{,}292   $
+$$</div></div></div></div>
+<p>L'altitude maximale par rapport à la surface de l'eau est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>h_{} &= h + z_{} = 0{,}85 + 0{,}292 = $1{,}14   $<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> Le sauteur s'élève de $$0{,}29   $$ au-dessus du tremplin. Son altitude maximale par rapport à la surface de l'eau est $h_{}  $1{,}1   $$.
+<strong>5. Date d'arrivée dans l'eau :</strong>
+<p>Le sauteur atteint la surface de l'eau quand $z(t_2) = -h$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+-{2} g t_2^2 + v_0 t_2 &= -h \\
+{2} g t_2^2 - v_0 t_2 - h &= 0
+$$</div></div></div></div>
+<p>C'est une équation du second degré en $t_2$ : ${2} t_2^2 - v_0 t_2 - h = 0$.</p>
+<p>On pose $a' = {2} = 4{,}905$, $b' = -v_0 = -2{,}394$, $c' = -h = -0{,}85$.</p>
+<p>Le discriminant est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br> &= b'^2 - 4a'c' = (-2{,}394)^2 - 4  4{,}905  (-0{,}85) \\<br> &= 5{,}731 + 16{,}677 = 22{,}408<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= {22{,}408}  4{,}734
+$$</div></div></div></div>
+<p>Les solutions sont :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>t_2 &= {-b'  }{2a'} = {2{,}394  4{,}734}{9{,}81}<br>$$</div></div></div></div></p>
+<p>On garde la solution positive :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>t_2 &= {2{,}394 + 4{,}734}{9{,}81} = {7{,}128}{9{,}81}  $0{,}727   $<br>$$</div></div></div></div></p>
+<p>(La solution négative $t = {2{,}394 - 4{,}734}{9{,}81}  -0{,}24 $ n'a pas de sens physique.)</p>
+<strong>Conclusion :</strong> Le sauteur atteint la surface de l'eau à $t_2  $0{,}73   $$.
+<strong>6. Vitesse par conservation de l'énergie mécanique :</strong>
+<p>On choisit la surface de l'eau comme référence des énergies potentielles.</p>
+<p>L'altitude initiale du sauteur par rapport à l'eau est $h$.</p>
+<p>\`A l'instant initial ($t = 0$, sortie du tremplin) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>E_m &= {2}mv_0^2 + mgh<br>$$</div></div></div></div></p>
+<p>Juste avant l'entrée dans l'eau ($z_{eau} = 0$ par rapport à l'eau) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>E_m &= {2}mv_e^2 + 0<br>$$</div></div></div></div></p>
+<p>Par conservation :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>{2}mv_0^2 + mgh &= {2}mv_e^2 \\<br>v_e^2 &= v_0^2 + 2gh \\<br>v_e &= <br>$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_e &= {7{,}0^2 + 2  9{,}81  0{,}85} = {49 + 16{,}677} = {65{,}677} \\
+v_e & {m.s^{-1}}
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $v_e  {m.s^{-1}}$.
+<strong>7. Vérification par les composantes de la vitesse :</strong>
+<p>\`A la date $t_2  $0{,}727   $$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_x(t_2) &= v_0 = 7{,}0  0{,}940 = {m.s^{-1}} \\
+v_z(t_2) &= -g t_2 + v_0 = -9{,}81  0{,}727 + 2{,}394 \\
+v_z(t_2) &= -7{,}132 + 2{,}394 = {m.s^{-1}}
+$$</div></div></div></div>
+<p>La norme de la vitesse est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>v_e &=  = {6{,}58^2 + (-4{,}738)^2} \\<br>v_e &= {43{,}30 + 22{,}45} = {65{,}75} \\<br>v_e & {m.s^{-1}}<br>$$</div></div></div></div></p>
+<div class="info-box">
+<strong>Conclusion :</strong> Les deux méthodes donnent le même résultat : $v_e  {m.s^{-1}}$, ce qui confirme la cohérence de l'ensemble des calculs. Le sauteur entre dans l'eau à environ ${m.s^{-1}}$, soit environ ${km.h^{-1}}$.
+</div>
+                </div>
+            </details>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="cours_mouvements_energies_champ_uniforme.html" class="btn-action">📖 Revoir le cours</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=mouvements_energies_champ_uniforme" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=mouvements_energies_champ_uniforme" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

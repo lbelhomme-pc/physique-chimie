@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : Les Mélanges</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_melanges.css">
+</head>
+<body>
+
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+    
+    <div class="container">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">🧪</span> 
+                <h1 class="hero-title" style="background: linear-gradient(135deg, #0ea5e9, #3b82f6); -webkit-background-clip: text; background-clip: text; color: transparent;">Le Labo des Mélanges</h1>
+            </div>
+            <p class="hero-subtitle">Teste la miscibilité et la solubilité. Que se passe-t-il si on met du sel dans l'huile ?</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="card controls-panel">
+                
+                <h2>🎒 Inventaire du bécher</h2>
+                <div class="inventory-chips">
+                    <span class="chip" id="chipWater">💧 Eau: 0</span>
+                    <span class="chip" id="chipEthanol">🧪 Éthanol: 0</span>
+                    <span class="chip" id="chipSyrup">🍷 Sirop: 0</span>
+                    <span class="chip" id="chipOil">🟡 Huile: 0</span>
+                    <span class="chip" id="chipDissolved">🧂 Dissous: rien</span>
+                    <span class="chip" id="chipSolid">🪨 Solides: 0</span>
+                </div>
+
+                <h2>➕ Ajouter des liquides</h2>
+                <div class="btn-grid" style="margin-bottom: 15px;">
+                    <button class="btn-action btn-primary btn-small" id="addWater">💧 Eau</button>
+                    <button class="btn-action btn-primary btn-small" style="background: #cbd5e1; color: #0f172a;" id="addEthanol">🧪 Éthanol</button>
+                    <button class="btn-action btn-primary btn-small" style="background: #ef4444;" id="addSyrup">🍷 Sirop</button>
+                    <button class="btn-action btn-primary btn-small" style="background: #f59e0b;" id="addOil">🟡 Huile</button>
+                </div>
+
+                <h2>➕ Ajouter des solides</h2>
+                <div class="btn-grid" style="margin-bottom: 20px;">
+                    <button class="btn-action btn-secondary btn-small" id="addSalt">🧂 Sel</button>
+                    <button class="btn-action btn-secondary btn-small" id="addSugar">🍬 Sucre</button>
+                    <button class="btn-action btn-secondary btn-small" id="addSand" style="grid-column: span 2;">🏖️ Sable</button>
+                </div>
+
+                <h2>⚙️ Actions du Chimiste</h2>
+                <div class="btn-grid">
+                    <button class="btn-action btn-secondary btn-small" id="stir">🌀 Agiter</button>
+                    <button class="btn-action btn-secondary btn-small" id="settle">🕒 Reposer</button>
+                    <button class="btn-action btn-secondary btn-small" id="decant">🫗 Décanter</button>
+                    <button class="btn-action btn-secondary btn-small" id="filter">🧻 Filtrer</button>
+                </div>
+
+                <button class="btn-action btn-full" id="reset" style="margin-top: 20px; background: var(--text-muted);">🧽 Vider et Nettoyer le bécher</button>
+            </div>
+
+            <div class="card canvas-panel" style="display: flex; flex-direction: column; gap: 20px;">
+                
+                <div class="scene-melanges" id="scene">
+                    <div class="lab-table"></div>
+
+                    <div class="beakerWrap" aria-label="Bécher">
+                        <div class="beaker" id="beaker">
+                            <div class="measure">
+                                <div class="tick big"></div><div class="tick"></div>
+                                <div class="tick big"></div><div class="tick"></div>
+                                <div class="tick big"></div><div class="tick"></div>
+                                <div class="tick big"></div>
+                            </div>
+                            <div class="content" id="content">
+                                <div class="liquid-layer aqueousLayer" id="aqueousLayer">
+                                    <div class="surface" id="aqueousSurface"></div>
+                                </div>
+                                <div class="liquid-layer oilLayer" id="oilLayer">
+                                    <div class="surface" id="oilSurface"></div>
+                                </div>
+                                <div class="sediment" id="sediment"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="status-box" class="status-box neutral">
+                    <h3 id="mixType">Type de mélange : —</h3>
+                    <p id="obs">Ajoute une première substance pour commencer.</p>
+                </div>
+
+                <div class="log-box">
+                    <h4 style="margin-top: 0; margin-bottom: 10px; font-size: 0.9rem; color: var(--text-muted);">📝 Journal d'expérience</h4>
+                    <div id="log" class="log-content"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_melanges.js"></script>
+</body>
+</html>

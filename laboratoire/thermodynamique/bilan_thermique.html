@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire Virtuel : Transferts Thermiques</title>
+    
+    <link rel="stylesheet" href="style_thermo.css">
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container">
+        
+        <header class="hero-header" style="text-align: center; margin-bottom: 30px;">
+            <h1 class="header-flex" style="justify-content: center; align-items: center; gap: 15px; margin-bottom: 10px;">
+                <span>🔥</span> 
+                <span style="background: linear-gradient(135deg, #ef4444, #3b82f6); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0;">Labo : Bilans Thermiques</span>
+                <span>❄️</span>
+            </h1>
+            <p class="subtitle" style="text-align: center; margin: 0 auto;">Étude du flux thermique et de l'énergie interne d'un système (Programme Terminale Spé).</p>
+        </header>
+
+        <div class="labo-container">
+            
+            <div class="bench-panel">
+                <div class="bench-header">
+                    <span>🔬 Simulateur de Conduction</span>
+                    <button class="btn-lab danger" id="btn-reset">🔄 Réinitialiser à $t=0$</button>
+                </div>
+
+                <div class="alert-box" id="status-msg">Modifie les paramètres et observe l'évolution des températures !</div>
+
+                <div class="canvas-container">
+                    <canvas id="thermoCanvas" width="450" height="250"></canvas>
+                </div>
+
+                <div class="dashboard">
+                    
+                    <div class="control-group">
+                        <label>🌡️ Température initiale Chaude ($T_1$ en °C)</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="range" id="slider-t1" min="50" max="100" step="1" value="80" style="flex-grow: 1;">
+                            <span id="val-init-t1" style="font-weight: 900; color: #ef4444; width: 50px;">80 °C</span>
+                        </div>
+                    </div>
+                    <div class="control-group" style="margin-top: 15px;">
+                        <label>❄️ Température initiale Froide ($T_2$ en °C)</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="range" id="slider-t2" min="0" max="40" step="1" value="20" style="flex-grow: 1;">
+                            <span id="val-init-t2" style="font-weight: 900; color: #3b82f6; width: 50px;">20 °C</span>
+                        </div>
+                    </div>
+
+                    <div class="control-group" style="margin-top: 20px;">
+                        <label>🧱 Matériau de la paroi (Conductivité $\lambda$)</label>
+                        <div class="material-buttons">
+                            <button class="btn-material active" data-lambda="0.200" data-name="Verre">Verre<br><small>$\lambda = 0,20$</small></button>
+                            <button class="btn-material" data-lambda="0.150" data-name="Bois">Bois<br><small>$\lambda = 0,15$</small></button>
+                            <button class="btn-material" data-lambda="0.036" data-name="Polystyrène">Polystyrène<br><small>$\lambda = 0,036$</small></button>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group" style="margin-top: 15px;">
+                        <label>📏 Épaisseur de la paroi ($e$ en cm)</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="range" id="slider-thickness" min="1" max="20" step="1" value="5" style="flex-grow: 1;">
+                            <span id="val-thickness" style="font-weight: 900; color: #1e293b; width: 50px;">5 cm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-grid" style="margin-top: 20px;">
+                    <button class="btn-lab" id="btn-play" style="grid-column: span 2; background: #10b981; color: white; border-color: #059669; font-size: 1.1rem; padding: 15px;">
+                        ▶ Lancer la simulation du temps
+                    </button>
+                </div>
+                
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 15px; text-align: left;">
+                    <strong>Vue Microscopique :</strong> La température correspond à l'agitation des particules. L'énergie interne est transférée de proche en proche à travers la paroi (conduction).
+                </p>
+            </div>
+
+            <div class="data-panel">
+                
+                <div class="live-data-box">
+                    <div class="data-column">
+                        <span class="data-label">Température Chaude ($T_1$)</span>
+                        <span class="data-value" id="val-t1" style="color: #ef4444;">80.0 °C</span>
+                    </div>
+                    <div class="data-column">
+                        <span class="data-label">Flux Thermique ($\Phi$)</span>
+                        <span class="data-value" id="val-flux" style="color: #f59e0b;">0 W</span>
+                    </div>
+                    <div class="data-column">
+                        <span class="data-label">Température Froide ($T_2$)</span>
+                        <span class="data-value" id="val-t2" style="color: #3b82f6;">20.0 °C</span>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('tab-graph')">📈 Courbes de refroidissement</button>
+                    <button class="tab-btn" onclick="switchTab('tab-analysis')">📐 Le Cours</button>
+                </div>
+
+                <div id="tab-graph" class="tab-content active">
+                    <div class="chart-container">
+                        <canvas id="thermoChart"></canvas>
+                    </div>
+                    <div class="chart-info" id="chart-info" style="display: block; background: #f8fafc; border-left: 4px solid #64748b; padding: 10px; margin-top: 15px; border-radius: 8px; color: #334155; font-size: 0.9rem;">
+                        <strong>Analyse :</strong> La quantité de chaleur cédée par l'enceinte 1 est reçue par l'enceinte 2. À l'équilibre, le système atteint une température intermédiaire stable !
+                    </div>
+                </div>
+
+                <div id="tab-analysis" class="tab-content" style="text-align: left;">
+                    <h3 style="color: #1e293b; margin-top: 0;">1. L'Énergie interne ($U$)</h3>
+                    <p style="color: #475569; line-height: 1.6;">L'énergie interne d'un système est l'ensemble des énergies qui se manifestent au niveau microscopique (agitation thermique). La variation s'écrit :</p>
+                    
+                    <div class="formula-box formula-red">
+                        <strong style="font-size: 1.2rem;">$\Delta U = m \times c \times (T_f - T_i)$</strong>
+                        <br><br><em>Avec $c$ la capacité thermique massique (en $J.kg^{-1}.K^{-1}$).</em>
+                    </div>
+
+                    <h3 style="color: #1e293b;">2. Le Flux Thermique ($\Phi$)</h3>
+                    <p style="color: #475569;">C'est la puissance thermique qui traverse la paroi (en Watts). Il s'obtient par la relation $\Phi = \frac{Q}{t}$. Plus l'isolant est bon, plus $\Phi$ est faible.</p>
+                    
+                    <h3 style="color: #1e293b;">3. La Résistance Thermique ($R_{th}$)</h3>
+                    <p style="color: #475569;">Analogie frappante avec la Loi d'Ohm en électricité ! La résistance thermique s'oppose au passage de la chaleur :</p>
+                    
+                    <div class="formula-box formula-yellow">
+                        <span style="font-size: 1.4rem;">$R_{th} = \frac{T_1 - T_2}{\Phi} \quad \text{et} \quad R_{th} = \frac{e}{\lambda \times S}$</span>
+                    </div>
+                    
+                    <ul style="color: #475569; margin-top: 15px;">
+                        <li><strong>$e$</strong> : Épaisseur de la paroi (en mètres).</li>
+                        <li><strong>$\lambda$</strong> : Conductivité thermique du matériau (Polystyrène = isolant car $\lambda < 0,065$).</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="nav-footer" style="margin-top: 40px; border-top: none;">
+            <a href="../../laboratoire/laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Labo</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_thermo.js"></script>
+</body>
+</html>

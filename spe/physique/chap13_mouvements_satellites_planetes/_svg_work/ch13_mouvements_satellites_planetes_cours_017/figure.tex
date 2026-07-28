@@ -1,0 +1,66 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[scale=1.3, >=Stealth]
+ % Cercle
+ \draw[thick, borderlight] (0,0) circle (2.5);
+ % Centre
+ \fill (0,0) circle (1.5pt) node[below]{$O$};
+ 
+ % Position 1
+ \fill[primary] (30:2.5) circle (2pt) node[right=3pt, primary]{$M_1$};
+ \draw[->, thick, accent, line width=1.2pt] (30:2.5) -- ++(120:1.3) node[above, accent]{$\vec{v}_1$};
+ \draw[->, thick, red!70!black, line width=1.2pt] (30:2.5) -- ++(210:1.1) node[below left, red!70!black]{$\vec{a}_1$};
+ 
+ % Position 2
+ \fill[primary] (120:2.5) circle (2pt) node[above left=2pt, primary]{$M_2$};
+ \draw[->, thick, accent, line width=1.2pt] (120:2.5) -- ++(210:1.3) node[left, accent]{$\vec{v}_2$};
+ \draw[->, thick, red!70!black, line width=1.2pt] (120:2.5) -- ++(300:1.1) node[below right, red!70!black]{$\vec{a}_2$};
+ 
+ % Position 3
+ \fill[primary] (240:2.5) circle (2pt) node[below left=2pt, primary]{$M_3$};
+ \draw[->, thick, accent, line width=1.2pt] (240:2.5) -- ++(330:1.3) node[right, accent]{$\vec{v}_3$};
+ \draw[->, thick, red!70!black, line width=1.2pt] (240:2.5) -- ++(60:1.1) node[above right, red!70!black]{$\vec{a}_3$};
+ 
+ % Legende
+ \node[anchor=west] at (3.5,1.5) {\textcolor{accent}{\rule{0.8cm}{2pt}} $\vec{v}$ : tangent au cercle};
+ \node[anchor=west] at (3.5,0.8) {\textcolor{red!70!black}{\rule{0.8cm}{2pt}} $\vec{a}$ : vers le centre $O$};
+ 
+ % Fleche sens
+ \draw[->, gray, thick, decoration={markings, mark=at position 0.6 with {\arrow{>}}}, postaction={decorate}]
+ (70:2.5) arc (70:85:2.5);
+\end{tikzpicture}
+\end{document}

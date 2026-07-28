@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours : Suivi temporel et modélisation microscopique (Terminale Spé) | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">⏱️</span> 
+                <h1 class="hero-title">Suivi temporel et modélisation microscopique</h1>
+            </div>
+        </header>
+
+<p>[<br>  enhanced,<br>  sharp corners,<br>  colback=bglight,<br>  colframe=borderlight,<br>  boxrule=0.5pt,<br>  top=2mm,<br>  bottom=2mm,<br>  left=3mm,<br>  right=3mm<br>]<br><strong>Objectifs du chapitre</strong><br><ul><li>Savoir qu'une transformation chimique peut être modélisée par une succession d'actes élémentaires.</li><li>Définir un mécanisme réactionnel et identifier les intermédiaires réactionnels.</li><li>Déterminer la molécularité d'un acte élémentaire et en déduire sa loi de vitesse.</li><li>Interpréter l'influence des facteurs cinétiques à l'échelle microscopique.</li><li>Connaître le rôle d'un catalyseur et distinguer catalyse homogène, hétérogène et enzymatique.</li><li>Exploiter un profil réactionnel : énergie d'activation et effet d'un catalyseur.<br></li></ul></p>
+<h2 class="section-title">1. Mécanisme réactionnel et actes élémentaires</h2>
+<div class="card chapter-card">
+<h3>1.1 Acte élémentaire</h3>
+<div class="definition-box">
+<strong>Définition -- Acte élémentaire</strong>
+<p>Un <strong>acte élémentaire</strong> est une réaction chimique qui se déroule en <strong>une seule étape</strong> au niveau microscopique : les liaisons se rompent et se forment <strong>simultanément</strong>, au cours d'un unique choc efficace entre les entités réactives.</p>
+<p>Un acte élémentaire ne peut pas être décomposé en étapes plus simples.<br></div></p>
+<div class="info-box">
+<strong>Remarque</strong>
+<p>La plupart des transformations chimiques observées macroscopiquement ne sont <strong>pas</strong> des actes élémentaires. L'équation de la réaction globale est souvent le bilan d'une succession d'actes élémentaires.<br></div></p>
+<h3>1.2 Mécanisme réactionnel</h3>
+<div class="definition-box">
+<strong>Définition -- Mécanisme réactionnel</strong>
+<p>Le <strong>mécanisme réactionnel</strong> d'une transformation chimique est l'ensemble ordonné des <strong>actes élémentaires</strong> dont la somme redonne l'équation de la réaction globale. Il décrit le chemin suivi par les espèces chimiques au niveau moléculaire.<br></div></p>
+<div class="definition-box">
+<strong>Définition -- Intermédiaire réactionnel</strong>
+<p>Un <strong>intermédiaire réactionnel</strong> est une espèce chimique <strong>produite</strong> lors d'un acte élémentaire puis <strong>consommée</strong> lors d'un acte élémentaire suivant. Il n'apparaît donc <strong>ni dans les réactifs ni dans les produits</strong> de l'équation globale.</p>
+<p>Sa durée de vie est très courte ; il est généralement indétectable.<br></div></p>
+<div class="example-box">
+<strong>Exemple -- Décomposition de l'ozone</strong>
+<p>La réaction globale de décomposition de l'ozone est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2{}_3  3{}_2$$</div></div>$</div></div></p>
+<p>Son mécanisme réactionnel comporte deux actes élémentaires :<br><ol><li><strong>Acte 1 (lent)</strong> : $${}_3  {}_2 + $$</li><li><strong>Acte 2 (rapide)</strong> : $${}_3 +   2{}_2$$<br></li></ol></p>
+<p>L'espèce $$ est un <strong>intermédiaire réactionnel</strong> : elle est formée dans l'acte 1 puis consommée dans l'acte 2.</p>
+<em>Vérification</em> : en additionnant les deux actes, on retrouve bien l'équation globale.
+</div>
+<div class="example-box">
+<strong>Méthode -- Vérifier un mécanisme réactionnel</strong>
+<p>Pour vérifier qu'un mécanisme réactionnel est compatible avec l'équation globale :<br><ol><li>Écrire l'ensemble des actes élémentaires.</li><li>Additionner membre à membre les équations de ces actes.</li><li>Simplifier les espèces apparaissant des deux côtés (intermédiaires réactionnels).</li><li>Vérifier que le bilan obtenu correspond à l'équation globale.<br></li></ol><br></div></p>
+<h3>1.3 Flèches courbes et acte élémentaire</h3>
+<p>Lors d'un acte élémentaire, les mouvements de paires d'électrons (formation et rupture de liaisons) sont représentés par des <strong>flèches courbes</strong>. Chaque flèche courbe part d'un <strong>doublet d'électrons</strong> (liant ou non liant) et pointe vers l'atome ou la liaison où se déplace ce doublet.</p>
+<div class="definition-box">
+<strong>Conventions des flèches courbes</strong>
+<ul><li>La flèche part <strong>du site riche en électrons</strong> (doublet non liant, liaison $$, liaison $$).</li><li>La flèche arrive sur <strong>le site pauvre en électrons</strong> (atome portant une charge partielle $^+$, lacune électronique) ou pointe vers le <strong>milieu d'une liaison</strong> pour indiquer la formation d'une nouvelle liaison.</li><li>Chaque flèche courbe représente le déplacement d'un <strong>doublet d'électrons</strong>.
+</li></ul>
+</div>
+<div class="example-box">
+<strong>Exemple -- Substitution nucléophile</strong>
+<p>Pour la réaction entre l'ion hydroxyde $H^{-}$ et le chlorométhane ${}_3$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$H^{-} + {}_3  {}_3O + ^{-}$$</div></div>$</div></div></p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.688057 -61.884914 172.214181 43.09886'>
+<defs>
+<path id='g3-33' d='M6.41594-1.57609C5.537235-.934496 5.41868-.020922 5.41868-.013948C5.41868 .09066 5.488418 .09066 5.586052 .09066C5.711582 .09066 5.732503 .09066 5.767372-.027895C5.809215-.202242 5.920797-.648568 6.283437-1.03213C6.68792-1.457534 7.036613-1.562142 7.329514-1.652802C7.371357-1.66675 7.399253-1.708593 7.399253-1.743462C7.399253-1.8132 7.35741-1.827148 7.26675-1.855044C6.262516-2.175841 5.906849-2.887173 5.760399-3.500872C5.732503-3.584558 5.683686-3.584558 5.586052-3.584558S5.41868-3.584558 5.41868-3.47995C5.41868-3.466002 5.488418-2.998755 5.830137-2.517559C5.990535-2.280448 6.185803-2.085181 6.41594-1.917808H.81594C.704359-1.917808 .536986-1.917808 .536986-1.750436C.536986-1.57609 .697385-1.57609 .81594-1.57609H6.41594Z'/>
+</defs>
+<g id='page1'>
+<g transform='matrix(1 0 0 1 -10.7434 3.7002)'>
+<use x='-41.680657' y='-46.454914' xlink:href='#g2-72'/>
+<use x='-34.210502' y='-46.454914' xlink:href='#g2-79'/>
+<use x='-25.563104' y='-50.853428' xlink:href='#g1-21'/>
+</g>
+<g transform='matrix(1 0 0 1 52.7972 2.6836)'>
+<use x='-41.680657' y='-46.454914' xlink:href='#g2-67'/>
+<use x='-34.487174' y='-46.454914' xlink:href='#g2-72'/>
+<use x='-27.017018' y='-44.960533' xlink:href='#g1-51'/>
+</g>
+<g transform='matrix(1 0 0 1 113.5102 3.4308)'>
+<use x='-41.680657' y='-46.454914' xlink:href='#g2-67'/>
+<use x='-34.487174' y='-46.454914' xlink:href='#g2-108'/>
+</g>
+<path d='M33.9766-46.453126H68.1253' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-29.207-51.13281C-18.0313-60.5117-2.9688-60.5117 5.0625-53.77344' stroke='#f00' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M7.339839-51.863325L5.167969-55.734415L5.214848-53.64457L3.148434-53.328164Z' fill='#f00'/>
+<path d='M7.339839-51.863325L5.167969-55.734415L5.214848-53.64457L3.148434-53.328164Z' stroke='#f00' fill='none' stroke-width='.796984' stroke-miterlimit='10'/>
+<g fill='#f00' transform='matrix(1 0 0 1 14.2802 -15.43)'>
+<use x='-41.680657' y='-46.454914' xlink:href='#g1-102'/>
+<use x='-39.211356' y='-46.454914' xlink:href='#g1-111'/>
+<use x='-35.241106' y='-46.454914' xlink:href='#g1-114'/>
+<use x='-32.128541' y='-46.454914' xlink:href='#g1-109'/>
+<use x='-25.585238' y='-46.454914' xlink:href='#g1-97'/>
+<use x='-21.614989' y='-46.454914' xlink:href='#g1-116'/>
+<use x='-18.502424' y='-46.454914' xlink:href='#g1-105'/>
+<use x='-16.247543' y='-46.454914' xlink:href='#g1-111'/>
+<use x='-12.277294' y='-46.454914' xlink:href='#g1-110'/>
+</g>
+<path d='M44.0703-51.13281C51.5195-57.3867 61.5623-57.3867 65.8673-53.77344' stroke='#00f' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M68.144551-51.863319L65.972677-55.734419L66.01955-53.644575L63.953147-53.328166Z' fill='#00f'/>
+<path d='M68.144551-51.863319L65.972677-55.734419L66.01955-53.644575L63.953147-53.328166Z' stroke='#00f' fill='none' stroke-width='.796991' stroke-miterlimit='10'/>
+<g fill='#00f' transform='matrix(1 0 0 1 85.1839 -14.4408)'>
+<use x='-41.680657' y='-46.454914' xlink:href='#g1-114'/>
+<use x='-38.568092' y='-46.454914' xlink:href='#g1-117'/>
+<use x='-34.169001' y='-46.454914' xlink:href='#g1-112'/>
+<use x='-29.769909' y='-46.454914' xlink:href='#g1-116'/>
+<use x='-26.657344' y='-46.454914' xlink:href='#g1-117'/>
+<use x='-22.258252' y='-46.454914' xlink:href='#g1-114'/>
+<use x='-19.145687' y='-46.454914' xlink:href='#g1-101'/>
+</g>
+<g fill='#f00' transform='matrix(1 0 0 1 -25.0074 27.5782)'>
+<use x='-41.680657' y='-46.454914' xlink:href='#g1-100'/>
+<use x='-37.281566' y='-46.454914' xlink:href='#g1-111'/>
+<use x='-33.311316' y='-46.454914' xlink:href='#g1-117'/>
+<use x='-28.912224' y='-46.454914' xlink:href='#g1-98'/>
+<use x='-24.513133' y='-46.454914' xlink:href='#g1-108'/>
+<use x='-22.258252' y='-46.454914' xlink:href='#g1-101'/>
+<use x='-18.716832' y='-46.454914' xlink:href='#g1-116'/>
+<use x='-12.920544' y='-46.454914' xlink:href='#g1-100'/>
+<use x='-8.521452' y='-46.454914' xlink:href='#g1-101'/>
+<use x='-2.296309' y='-46.454914' xlink:href='#g1-72'/>
+<use x='3.58298' y='-46.454914' xlink:href='#g1-79'/>
+<use x='10.340705' y='-49.461431' xlink:href='#g0-21'/>
+<use x='17.55506' y='-46.454914' xlink:href='#g3-33'/>
+<use x='28.181257' y='-46.454914' xlink:href='#g1-108'/>
+<use x='30.436137' y='-46.454914' xlink:href='#g1-105'/>
+<use x='32.691018' y='-46.454914' xlink:href='#g1-97'/>
+<use x='36.661267' y='-46.454914' xlink:href='#g1-105'/>
+<use x='38.916148' y='-46.454914' xlink:href='#g1-115'/>
+<use x='42.071597' y='-46.454914' xlink:href='#g1-111'/>
+<use x='46.041846' y='-46.454914' xlink:href='#g1-110'/>
+<use x='53.124661' y='-46.454914' xlink:href='#g1-67'/>
+<use x='59.710848' y='-46.454914' xlink:href='#g1-21'/>
+<use x='64.581667' y='-46.454914' xlink:href='#g1-79'/>
+</g>
+<g fill='#00f' transform='matrix(1 0 0 1 41.587843 27.5782)'>
+<use x='-41.680657' y='-46.454914' xlink:href='#g1-108'/>
+<use x='-39.425777' y='-46.454914' xlink:href='#g1-105'/>
+<use x='-37.170897' y='-46.454914' xlink:href='#g1-97'/>
+<use x='-33.200647' y='-46.454914' xlink:href='#g1-105'/>
+<use x='-30.945767' y='-46.454914' xlink:href='#g1-115'/>
+<use x='-27.790318' y='-46.454914' xlink:href='#g1-111'/>
+<use x='-23.820068' y='-46.454914' xlink:href='#g1-110'/>
+<use x='-16.737254' y='-46.454914' xlink:href='#g1-67'/>
+<use x='-10.151066' y='-46.454914' xlink:href='#g1-21'/>
+<use x='-5.280248' y='-46.454914' xlink:href='#g1-67'/>
+<use x='.405371' y='-46.454914' xlink:href='#g1-108'/>
+<use x='5.343974' y='-46.454914' xlink:href='#g3-33'/>
+<use x='15.970171' y='-46.454914' xlink:href='#g1-100'/>
+<use x='20.369263' y='-46.454914' xlink:href='#g1-111'/>
+<use x='24.339512' y='-46.454914' xlink:href='#g1-117'/>
+<use x='28.738604' y='-46.454914' xlink:href='#g1-98'/>
+<use x='33.137696' y='-46.454914' xlink:href='#g1-108'/>
+<use x='35.392576' y='-46.454914' xlink:href='#g1-101'/>
+<use x='38.933996' y='-46.454914' xlink:href='#g1-116'/>
+<use x='44.730284' y='-46.454914' xlink:href='#g1-100'/>
+<use x='49.129376' y='-46.454914' xlink:href='#g1-101'/>
+<use x='55.354519' y='-46.454914' xlink:href='#g1-67'/>
+<use x='61.040138' y='-46.454914' xlink:href='#g1-108'/>
+<use x='63.938281' y='-49.461431' xlink:href='#g0-21'/>
+</g>
+</g>
+</svg></div>
+</div>
+</div>
+</div>
+<h2 class="section-title">2. Loi de vitesse d'un acte élémentaire</h2>
+<div class="card chapter-card">
+<h3>2.1 Molécularité</h3>
+<div class="definition-box">
+<strong>Définition -- Molécularité</strong>
+<p>La <strong>molécularité</strong> d'un acte élémentaire est le <strong>nombre d'entités</strong> (molécules, ions) qui participent en tant que réactifs à cet acte élémentaire.</p>
+<ul><li><strong>Unimoléculaire</strong> : une seule entité intervient (dissociation, isomérisation).</li><li><strong>Bimoléculaire</strong> : deux entités entrent en collision.</li><li><strong>Trimoléculaire</strong> : trois entités entrent en collision simultanément (très rare).
+</li></ul>
+</div>
+<div class="info-box">
+<strong>Attention</strong> -- La molécularité ne peut être définie que pour un <strong>acte élémentaire</strong>, jamais pour une réaction globale. Il ne faut pas la confondre avec l'ordre global d'une réaction.
+</div>
+<h3>2.2 Loi de vitesse d'un acte élémentaire</h3>
+<div class="definition-box">
+<strong>Propriété fondamentale</strong>
+<p>Pour un acte élémentaire, les <strong>ordres partiels</strong> de la loi de vitesse sont <strong>égaux aux coefficients stoechiométriques</strong> des réactifs dans l'équation de cet acte élémentaire.<br></div></p>
+<div class="example-box">
+<strong>Exemples</strong>
+<ul><li>Acte unimoléculaire : $$  produits$$ $$ $v = k [$$]$</li><li>Acte bimoléculaire : $$ +   produits$$ $$ $v = k [$$] [$$]$</li><li>Acte bimoléculaire : $$2  produits$$ $$ $v = k [$$]^2$</li><li>Acte trimoléculaire : $$ +  +   produits$$ $$ $v = k [$$] [$$] [$$]$
+</li></ul>
+</div>
+<div class="info-box">
+<strong>Remarque -- Étape cinétiquement déterminante</strong>
+<p>Dans un mécanisme réactionnel comportant plusieurs actes élémentaires, l'<strong>acte le plus lent</strong> est appelé <strong>étape cinétiquement déterminante</strong>. C'est lui qui impose la vitesse de la réaction globale.</p>
+<p>Si l'on connaît l'étape cinétiquement déterminante, la loi de vitesse de la réaction globale peut être approchée par celle de cet acte élémentaire.<br></div></p>
+</div>
+<h2 class="section-title">3. Catalyse</h2>
+<div class="card chapter-card">
+<h3>3.1 Rôle d'un catalyseur</h3>
+<div class="definition-box">
+<strong>Définition -- Catalyseur</strong>
+<p>Un <strong>catalyseur</strong> est une espèce chimique qui <strong>augmente la vitesse</strong> d'une transformation chimique sans être consommée par celle-ci. Il est <strong>régénéré</strong> en fin de réaction : il apparaît dans les réactifs d'un acte élémentaire et dans les produits d'un autre.</p>
+<p>Le catalyseur :<br><ul><li><strong>ne modifie pas</strong> l'état d'équilibre du système (ni le quotient de réaction à l'équilibre $K$) ;</li><li><strong>diminue l'énergie d'activation</strong> en proposant un <strong>nouveau chemin réactionnel</strong> ;</li><li>est efficace en <strong>faible quantité</strong>.<br></li></ul><br></div></p>
+<div class="example-box">
+<strong>Identifier un catalyseur dans un mécanisme</strong>
+<p>Dans un mécanisme réactionnel, le catalyseur :<br><ul><li>est un <strong>réactif</strong> du premier acte élémentaire ;</li><li>est <strong>régénéré</strong> comme produit dans un acte élémentaire ultérieur ;</li><li><strong>n'apparaît pas</strong> dans l'équation bilan de la transformation.<br></li></ul><br></div></p>
+<h3>3.2 Les trois types de catalyse</h3>
+<div class="definition-box">
+<strong>Catalyse homogène</strong>
+<p>Le catalyseur et les réactifs sont dans la <strong>même phase</strong> (généralement en solution).</p>
+<em>Exemple</em> : les ions $^{2 + }$ catalysent la décomposition de l'eau oxygénée ${}_2{}_2$ en solution aqueuse.
+</div>
+<div class="definition-box">
+<strong>Catalyse hétérogène</strong>
+<p>Le catalyseur et les réactifs sont dans des <strong>phases différentes</strong>. Le catalyseur est souvent un solide en contact avec des réactifs liquides ou gazeux. La réaction a lieu à la <strong>surface</strong> du catalyseur.</p>
+<em>Exemple</em> : le platine solide dans un pot catalytique accélère la transformation des gaz d'échappement ($C$, $NO_x$).
+</div>
+<div class="definition-box">
+<strong>Catalyse enzymatique</strong>
+<p>Le catalyseur est une <strong>enzyme</strong>, protéine biologique qui catalyse une réaction biochimique de manière très <strong>sélective</strong>. L'enzyme possède un <strong>site actif</strong> complémentaire du substrat (modèle clé-serrure).</p>
+<em>Exemple</em> : la catalase catalyse la décomposition de ${}_2{}_2$ dans les cellules vivantes.
+</div>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th></th><th><strong>Catalyse homogène</strong></th><th><strong>Catalyse hétérogène</strong></th><th><strong>Catalyse enzymatique</strong></th></tr><tr><td>Phase du catalyseur</td><td>Même phase que les réactifs</td><td>Phase différente (souvent solide)</td><td>En solution (milieu biologique)</td></tr><tr><td>Sélectivité</td><td>Modérée</td><td>Dépend de la surface</td><td>Très élevée (spécifique)</td></tr><tr><td>Exemple</td><td>$^{2 + }$ en solution</td><td>Platine (pot catalytique)</td><td>Catalase</td></tr></tbody></table></div>
+</div>
+</div>
+<h2 class="section-title">4. Interprétation microscopique des facteurs cinétiques</h2>
+<div class="card chapter-card">
+<h3>4.1 Énergie d'activation</h3>
+<div class="definition-box">
+<strong>Définition -- Énergie d'activation</strong>
+<p>L'<strong>énergie d'activation</strong> $E_a$ (en $$) est l'énergie minimale que doivent posséder les entités réactives lors de leur collision pour que la réaction ait lieu. Elle correspond à la <strong>barrière énergétique</strong> à franchir pour passer de l'état initial à l'état final en passant par un <strong>état de transition</strong>.<br></div></p>
+<div class="info-box">
+<strong>Influence de la température</strong>
+<p>Augmenter la température du milieu réactionnel :<br><ul><li>augmente l'<strong>énergie cinétique moyenne</strong> des entités (agitation thermique plus intense) ;</li><li>augmente la <strong>fréquence des chocs</strong> entre les entités ;</li><li>augmente la <strong>proportion de chocs efficaces</strong>, c'est-à-dire de chocs dont l'énergie dépasse $E_a$.<br></li></ul><br>La vitesse de réaction augmente donc avec la température.<br></div></p>
+<div class="info-box">
+<strong>Influence de la concentration</strong>
+<p>Augmenter la concentration des réactifs :<br><ul><li>augmente le <strong>nombre d'entités</strong> par unité de volume ;</li><li>augmente la <strong>fréquence des chocs</strong> entre entités réactives ;</li><li>augmente donc la vitesse de la réaction.<br></li></ul><br></div></p>
+<h3>4.2 Profil réactionnel</h3>
+<div class="definition-box">
+<strong>Définition -- Profil réactionnel</strong>
+<p>Un <strong>profil réactionnel</strong> (ou profil énergétique) est un diagramme qui représente l'<strong>énergie potentielle</strong> du système en fonction de la <strong>coordonnée de réaction</strong> (avancement microscopique). Il permet de visualiser :<br><ul><li>le niveau d'énergie des réactifs et des produits ;</li><li>l'<strong>énergie d'activation</strong> $E_a$ (hauteur de la barrière) ;</li><li>l'<strong>état de transition</strong> (sommet de la barrière) ;</li><li>le caractère <strong>exothermique</strong> ($_r H < 0$) ou <strong>endothermique</strong> ($_r H > 0$) de la réaction.<br></li></ul><br></div></p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-65.333604 -69.820328 387.912721 171.776303'>
+<defs>
+<path id='g0-69' d='M2.815442-3.030635H3.730012C4.366625-3.030635 4.501121-2.923039 4.501121-2.627148C4.501121-2.555417 4.474222-2.367123 4.438356-2.223661C4.420423-2.169863 4.411457-2.125031 4.411457-2.098132C4.411457-2.089166 4.411457-1.981569 4.52802-1.981569C4.635616-1.981569 4.644583-2.044334 4.680448-2.178829L5.155666-4.061768C5.191532-4.187298 5.191532-4.20523 5.191532-4.241096C5.191532-4.312827 5.137733-4.357659 5.066002-4.357659C4.967372-4.357659 4.958406-4.303861 4.913574-4.133499C4.734247-3.425156 4.456289-3.308593 3.738979-3.308593H2.887173C3.021669-3.864508 3.443088-5.56812 3.48792-5.675716C3.541719-5.801245 3.604483-5.819178 3.900374-5.819178H5.218431C6.339228-5.819178 6.590286-5.550187 6.590286-4.82391C6.590286-4.545953 6.545455-4.276961 6.545455-4.214197C6.545455-4.142466 6.590286-4.079701 6.670984-4.079701C6.77858-4.079701 6.787547-4.142466 6.805479-4.303861L6.993773-5.971606C6.993773-6.097136 6.90411-6.097136 6.733748-6.097136H2.116065C1.945704-6.097136 1.847073-6.097136 1.847073-5.935741C1.847073-5.819178 1.936737-5.819178 2.125031-5.819178C2.160897-5.819178 2.322291-5.819178 2.465753-5.801245C2.663014-5.774346 2.67198-5.738481 2.67198-5.657783C2.67198-5.630884 2.67198-5.612951 2.627148-5.451557L1.43462-.681445C1.353923-.358655 1.33599-.277958 .663512-.277958C.493151-.277958 .394521-.277958 .394521-.116563C.394521 0 .484184 0 .645579 0H5.379826C5.54122 0 5.559153 0 5.586052-.026899C5.612951-.044832 5.621918-.053798 5.675716-.170361C5.783313-.412453 6.545455-2.116065 6.545455-2.196762C6.545455-2.268493 6.491656-2.313325 6.419925-2.313325S6.339228-2.304359 6.240598-2.098132C5.684682-.842839 5.317061-.277958 3.828643-.277958H2.456787C2.331258-.277958 2.313325-.277958 2.27746-.286924C2.187796-.29589 2.160897-.304857 2.160897-.367621C2.160897-.394521 2.160897-.412453 2.205729-.573848L2.815442-3.030635Z'/>
+<path id='g1-48' d='M1.876961-2.809465C1.918804-2.899128 1.93076-2.964882 1.93076-3.000747C1.93076-3.186052 1.763387-3.341469 1.566127-3.341469C1.327024-3.341469 1.255293-3.132254 1.231382-3.048568L.394521-.490162C.382565-.454296 .364633-.406476 .364633-.382565C.364633-.280946 .603736-.233126 .609714-.233126C.663512-.233126 .687422-.286924 .711333-.334745L1.876961-2.809465Z'/>
+<path id='g2-97' d='M3.102366-1.918804C3.132254-2.056289 3.19203-2.283437 3.19203-2.32528C3.19203-2.456787 3.090411-2.52254 2.982814-2.52254C2.815442-2.52254 2.713823-2.367123 2.69589-2.27746C2.612204-2.414944 2.408966-2.636115 2.038356-2.636115C1.273225-2.636115 .448319-1.835118 .448319-.956413C.448319-.310834 .902615 .059776 1.41071 .059776C1.811208 .059776 2.15193-.215193 2.30137-.364633C2.414944 .011955 2.815442 .059776 2.946949 .059776C3.162142 .059776 3.317559-.059776 3.431133-.245081C3.580573-.484184 3.664259-.830884 3.664259-.860772C3.664259-.872727 3.658281-.944458 3.550685-.944458C3.461021-.944458 3.449066-.902615 3.425156-.806974C3.329514-.442341 3.203985-.137484 2.970859-.137484C2.767621-.137484 2.749689-.352677 2.749689-.442341C2.749689-.52005 2.809465-.759153 2.851308-.91457L3.102366-1.918804ZM2.32528-.783064C2.295392-.675467 2.295392-.663512 2.211706-.573848C1.882939-.203238 1.578082-.137484 1.428643-.137484C1.189539-.137484 .956413-.298879 .956413-.723288C.956413-.968369 1.081943-1.554172 1.273225-1.894894C1.452553-2.217684 1.75741-2.438854 2.044334-2.438854C2.492653-2.438854 2.606227-1.966625 2.606227-1.924782L2.588294-1.841096L2.32528-.783064Z'/>
+<path id='g2-112' d='M.579826 .723288C.537983 .878705 .532005 .920548 .274969 .920548C.19726 .920548 .161395 .920548 .137484 .956413C.125529 .980324 .101619 1.058032 .101619 1.075965C.107597 1.093898 .113574 1.159651 .19726 1.159651C.364633 1.159651 .561893 1.135741 .735243 1.135741C.842839 1.135741 .956413 1.141719 1.06401 1.141719C1.165629 1.141719 1.285181 1.159651 1.3868 1.159651C1.422665 1.159651 1.464508 1.159651 1.488418 1.117808C1.500374 1.099875 1.524284 1.028144 1.524284 1.004234C1.506351 .920548 1.446575 .920548 1.344956 .920548C1.201494 .920548 1.046077 .920548 1.046077 .848817C1.046077 .818929 1.08792 .663512 1.111831 .573848L1.327024-.298879C1.470486-.083686 1.691656 .059776 1.984558 .059776C2.773599 .059776 3.580573-.765131 3.580573-1.619925C3.580573-2.241594 3.144209-2.636115 2.618182-2.636115C2.133998-2.636115 1.75741-2.247572 1.727522-2.211706C1.619925-2.564384 1.249315-2.636115 1.075965-2.636115C.800996-2.636115 .657534-2.438854 .579826-2.307347C.436364-2.056289 .364633-1.745455 .364633-1.721544C.364633-1.655791 .418431-1.63188 .472229-1.63188C.56787-1.63188 .573848-1.673724 .603736-1.769365C.729265-2.265504 .872727-2.438854 1.058032-2.438854C1.273225-2.438854 1.273225-2.193773 1.273225-2.133998C1.273225-2.032379 1.267248-2.014446 1.255293-1.960648L.579826 .723288ZM1.703611-1.799253C1.733499-1.900872 1.733499-1.912827 1.841096-2.032379C2.032379-2.247572 2.319303-2.438854 2.600249-2.438854C2.887173-2.438854 3.072478-2.217684 3.072478-1.853051C3.072478-1.649813 2.952927-.986301 2.719801-.621669C2.516563-.310834 2.235616-.137484 1.984558-.137484C1.536239-.137484 1.416687-.603736 1.416687-.651557C1.416687-.681445 1.428643-.71731 1.43462-.74122L1.703611-1.799253Z'/>
+<path id='g2-114' d='M1.697634-1.787298C1.715567-1.817186 1.853051-2.086177 2.086177-2.271482C2.157908-2.319303 2.331258-2.438854 2.606227-2.438854C2.660025-2.438854 2.851308-2.438854 3.006725-2.349191C2.851308-2.295392 2.761644-2.157908 2.761644-2.026401C2.761644-1.835118 2.917061-1.793275 3.000747-1.793275C3.174097-1.793275 3.347447-1.936737 3.347447-2.169863C3.347447-2.486675 3.000747-2.636115 2.618182-2.636115C2.462765-2.636115 2.098132-2.624159 1.733499-2.199751C1.643836-2.516563 1.321046-2.636115 1.075965-2.636115C.818929-2.636115 .675467-2.462765 .585803-2.319303C.454296-2.098132 .364633-1.75741 .364633-1.721544C.364633-1.655791 .418431-1.63188 .472229-1.63188C.56787-1.63188 .573848-1.673724 .603736-1.769365C.71731-2.229639 .860772-2.438854 1.058032-2.438854C1.243337-2.438854 1.273225-2.265504 1.273225-2.139975C1.273225-2.038356 1.21345-1.799253 1.171606-1.63188C1.129763-1.470486 1.069988-1.225405 1.0401-1.093898C.998257-.944458 .962391-.789041 .920548-.639601C.878705-.472229 .806974-.17335 .806974-.137484C.806974-.005978 .908593 .059776 1.016189 .059776C1.135741 .059776 1.249315-.02391 1.285181-.143462C1.303113-.191283 1.524284-1.093898 1.560149-1.231382L1.697634-1.787298Z'/>
+<path id='g3-60' d='M5.7066-4.112578C5.802242-4.160399 5.873973-4.208219 5.873973-4.311831S5.794271-4.495143 5.69066-4.495143C5.66675-4.495143 5.650809-4.495143 5.547198-4.439352L.868742-2.191781C.773101-2.14396 .70137-2.096139 .70137-1.992528S.773101-1.841096 .868742-1.793275L5.547198 .454296C5.650809 .510087 5.66675 .510087 5.69066 .510087C5.794271 .510087 5.873973 .430386 5.873973 .326775S5.802242 .175342 5.7066 .127522L1.307098-1.992528L5.7066-4.112578Z'/>
+<path id='g3-69' d='M5.969614-1.849066C5.985554-1.880946 6.001494-1.928767 6.001494-1.960648C6.001494-1.976588 5.993524-2.072229 5.881943-2.072229C5.794271-2.072229 5.786301-2.048319 5.7066-1.872976C5.196513-.70934 4.821918-.263014 3.52279-.263014H2.072229C2.000498-.278954 1.976588-.278954 1.976588-.334745C1.976588-.398506 1.992528-.462267 2.008468-.510087L2.558406-2.685928H3.411208C3.993026-2.685928 4.112578-2.590286 4.112578-2.335243C4.112578-2.327273 4.112578-2.199751 4.056787-1.976588C4.040847-1.936737 4.032877-1.888917 4.032877-1.865006C4.032877-1.857036 4.040847-1.753425 4.152428-1.753425C4.24807-1.753425 4.26401-1.801245 4.29589-1.936737L4.718306-3.602491C4.726276-3.626401 4.750187-3.745953 4.750187-3.761893C4.750187-3.841594 4.686426-3.881445 4.630635-3.881445C4.527024-3.881445 4.519054-3.825654 4.479203-3.690162C4.319801-3.068493 4.104608-2.948941 3.419178-2.948941H2.622167L3.100374-4.853798C3.172105-5.140722 3.180075-5.156663 3.506849-5.156663H4.750187C5.7066-5.156663 6.009465-4.96538 6.009465-4.26401C6.009465-4.096638 5.969614-3.897385 5.969614-3.745953C5.969614-3.650311 6.025405-3.610461 6.089166-3.610461C6.200747-3.610461 6.208717-3.682192 6.224658-3.817684L6.36812-5.172603C6.37609-5.212453 6.37609-5.268244 6.37609-5.308095C6.37609-5.419676 6.280448-5.419676 6.136986-5.419676H1.936737C1.785305-5.419676 1.689664-5.419676 1.689664-5.268244C1.689664-5.156663 1.793275-5.156663 1.928767-5.156663C1.952677-5.156663 2.096139-5.156663 2.231631-5.140722C2.399004-5.124782 2.414944-5.100872 2.414944-5.029141C2.414944-4.98929 2.399004-4.941469 2.391034-4.901619L1.323039-.629639C1.251308-.326775 1.235367-.263014 .645579-.263014C.494147-.263014 .398506-.263014 .398506-.111582C.398506 0 .502117 0 .637609 0H4.94944C5.148692 0 5.156663 0 5.220423-.143462L5.969614-1.849066Z'/>
+<path id='g3-72' d='M6.36812-4.798007C6.447821-5.108842 6.463761-5.180573 7.021669-5.180573C7.204981-5.180573 7.300623-5.180573 7.300623-5.332005C7.300623-5.339975 7.292653-5.443587 7.165131-5.443587C7.013699-5.443587 6.822416-5.427646 6.670984-5.419676H6.168867C5.403736-5.419676 5.196513-5.443587 5.140722-5.443587C5.108842-5.443587 4.98132-5.443587 4.98132-5.292154C4.98132-5.180573 5.084932-5.180573 5.212453-5.180573C5.475467-5.180573 5.7066-5.180573 5.7066-5.053051C5.7066-5.021171 5.69863-5.0132 5.67472-4.909589L5.196513-2.964882H2.630137L3.092403-4.821918C3.164134-5.108842 3.180075-5.180573 3.761893-5.180573C3.921295-5.180573 4.016936-5.180573 4.016936-5.332005C4.016936-5.339975 4.008966-5.443587 3.881445-5.443587C3.730012-5.443587 3.53873-5.427646 3.387298-5.419676H2.885181C2.12005-5.419676 1.912827-5.443587 1.857036-5.443587C1.825156-5.443587 1.697634-5.443587 1.697634-5.292154C1.697634-5.180573 1.801245-5.180573 1.928767-5.180573C2.191781-5.180573 2.422914-5.180573 2.422914-5.053051C2.422914-5.021171 2.414944-5.0132 2.391034-4.909589L1.323039-.629639C1.251308-.326775 1.235367-.263014 .645579-.263014C.494147-.263014 .398506-.263014 .398506-.111582C.398506-.079701 .422416 0 .526027 0C.67746 0 .868742-.01594 1.020174-.02391H1.530262C2.295392-.02391 2.502615 0 2.558406 0C2.606227 0 2.717808 0 2.717808-.151432C2.717808-.263014 2.614197-.263014 2.478705-.263014C2.454795-.263014 2.311333-.263014 2.175841-.278954C2.008468-.294894 1.992528-.318804 1.992528-.390535C1.992528-.430386 2.008468-.478207 2.016438-.518057L2.558406-2.701868H5.124782C4.893649-1.761395 4.582814-.518057 4.574844-.518057C4.503113-.270984 4.359651-.270984 3.881445-.263014C3.785803-.263014 3.682192-.263014 3.682192-.111582C3.682192-.079701 3.706102 0 3.809714 0C3.961146 0 4.152428-.01594 4.303861-.02391H4.813948C5.579078-.02391 5.786301 0 5.842092 0C5.889913 0 6.001494 0 6.001494-.151432C6.001494-.263014 5.897883-.263014 5.762391-.263014C5.738481-.263014 5.595019-.263014 5.459527-.278954C5.292154-.294894 5.276214-.318804 5.276214-.390535C5.276214-.430386 5.292154-.478207 5.300125-.518057L6.36812-4.798007Z'/>
+<path id='g4-1' d='M3.761893-5.531258C3.674222-5.69066 3.57858-5.69066 3.52279-5.69066S3.371357-5.69066 3.283686-5.531258L.462267-.199253C.406476-.111582 .406476-.095641 .406476-.079701C.406476 0 .470237 0 .597758 0H6.447821C6.583313 0 6.639103 0 6.639103-.079701C6.639103-.095641 6.639103-.111582 6.583313-.199253L3.761893-5.531258ZM3.259776-4.909589L5.531258-.629639H.988294L3.259776-4.909589Z'/>
+<path id='g4-48' d='M3.897385-2.542466C3.897385-3.395268 3.809714-3.913325 3.5467-4.423412C3.196015-5.124782 2.550436-5.300125 2.11208-5.300125C1.107846-5.300125 .74122-4.550934 .629639-4.327771C.342715-3.745953 .326775-2.956912 .326775-2.542466C.326775-2.016438 .350685-1.211457 .73325-.573848C1.099875 .01594 1.689664 .167372 2.11208 .167372C2.494645 .167372 3.180075 .047821 3.57858-.74122C3.873474-1.315068 3.897385-2.024408 3.897385-2.542466ZM2.11208-.055791C1.841096-.055791 1.291158-.183313 1.123786-1.020174C1.036115-1.474471 1.036115-2.223661 1.036115-2.638107C1.036115-3.188045 1.036115-3.745953 1.123786-4.184309C1.291158-4.99726 1.912827-5.076961 2.11208-5.076961C2.383064-5.076961 2.933001-4.941469 3.092403-4.216189C3.188045-3.777833 3.188045-3.180075 3.188045-2.638107C3.188045-2.16787 3.188045-1.45056 3.092403-1.004234C2.925031-.167372 2.375093-.055791 2.11208-.055791Z'/>
+</defs>
+<g id='page1'>
+<path d='M-40.773465 89.558546H291.7574' stroke='currentColor' fill='none' stroke-width='.378575' stroke-miterlimit='10'/>
+<path d='M293.64839 89.558546L290.621054 88.042918L291.75777 89.558546L290.621054 91.074168'/>
+<path d='M-40.773465 89.558546V-67.92585' stroke='currentColor' fill='none' stroke-width='.378575' stroke-miterlimit='10'/>
+<path d='M-40.773465-69.820328L-42.289086-66.792991L-40.773465-67.9258L-39.257845-66.792991'/>
+<path d='M-24.050815 41.746045C-24.050815 41.746045-15.683595 42.011665-7.33205 41.746045S14.976515 42.80463 26.11327 40.152325C37.246035 37.49603 48.41794 37.48045 59.5546 25.80856C70.68765 14.132775 81.85965-18.03565 92.9965-29.9762C104.1324-41.9177 115.3006-45.91435 126.43745-45.91435S148.7463-41.9177 159.87935-29.9762C171.01525-18.03565 182.18725 10.683515 193.3241 25.80856C204.45715 40.93351 215.62915 54.23826 226.766 60.871065C237.8981 67.50387 251.8555 64.85546 260.20695 65.65232S276.9298 65.65232 276.9298 65.65232' stroke='#0e7490' fill='none' stroke-width='1.514338' stroke-miterlimit='10'/>
+<path d='M-24.050815 41.746045C-24.050815 41.746045-15.683595 42.011665-7.33205 41.746045S14.976515 42.27339 26.11327 40.152325C37.246035 38.02727 48.41794 35.36328 59.5546 28.996C70.68765 22.62492 81.85965 7.73823 92.9965 1.89839C104.1324-3.937555 115.3006-7.3947 126.43745-6.0704C137.5743-4.742205 148.7463 3.23428 159.87935 9.86718C171.01525 16.50388 182.18725 25.28511 193.3241 33.777255C204.45715 42.2656 215.62915 55.562465 226.766 60.871065C237.8981 66.17577 251.8555 64.85546 260.20695 65.65232S276.9298 65.65232 276.9298 65.65232' stroke='#f97316' fill='none' stroke-width='1.514338' stroke-miterlimit='10' stroke-dasharray='2.839389 2.839389'/>
+<path d='M-24.050815 41.746045H276.9298' stroke='#0f172a' fill='none' stroke-width='.378575' stroke-miterlimit='10' stroke-dasharray='2.839389 2.839389'/>
+<path d='M-24.050815 65.65232H276.9298' stroke='#0f172a' fill='none' stroke-width='.378575' stroke-miterlimit='10' stroke-dasharray='2.839389 2.839389'/>
+<g fill='#0f172a' transform='matrix(.95 0 0 .95 -22.18266 -32.81388)'>
+<use x='-9.9992' y='73.188373' xlink:href='#g5-82'/>
+<use x='-2.050402' y='73.188373' xlink:href='#g5-233'/>
+<use x='2.816965' y='73.188373' xlink:href='#g5-97'/>
+<use x='7.973442' y='73.188373' xlink:href='#g5-99'/>
+<use x='12.687943' y='73.188373' xlink:href='#g5-116'/>
+<use x='16.813127' y='73.188373' xlink:href='#g5-105'/>
+<use x='19.759691' y='73.188373' xlink:href='#g5-102'/>
+<use x='23.000906' y='73.188373' xlink:href='#g5-115'/>
+</g>
+<g fill='#0f172a' transform='matrix(.95 0 0 .95 257.27124 -8.90708)'>
+<use x='-9.9992' y='73.188373' xlink:href='#g5-80'/>
+<use x='-2.75592' y='73.188373' xlink:href='#g5-114'/>
+<use x='1.619654' y='73.188373' xlink:href='#g5-111'/>
+<use x='7.218121' y='73.188373' xlink:href='#g5-100'/>
+<use x='13.111241' y='73.188373' xlink:href='#g5-117'/>
+<use x='19.004361' y='73.188373' xlink:href='#g5-105'/>
+<use x='21.950925' y='73.188373' xlink:href='#g5-116'/>
+<use x='26.076109' y='73.188373' xlink:href='#g5-115'/>
+</g>
+<path d='M9.39061 37.839835V-42.00795' stroke='#0e7490' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<path d='M9.390629 40.667924L10.882817 36.722612L9.390629 38.027304L7.898439 36.722612Z' fill='#0e7490'/>
+<path d='M9.390629 40.667924L10.882817 36.722612L9.390629 38.027304L7.898439 36.722612Z' stroke='#0e7490' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<path d='M9.390629-44.835893L7.898439-40.890572L9.390629-42.199168L10.882817-40.890572Z' fill='#0e7490'/>
+<path d='M9.390629-44.835893L7.898439-40.890572L9.390629-42.199168L10.882817-40.890572Z' stroke='#0e7490' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<g fill='#0e7490' transform='matrix(.95 0 0 .95 5.34502 -68.702781)'>
+<use x='-9.9992' y='73.188373' xlink:href='#g3-69'/>
+<use x='-3.793225' y='74.184637' xlink:href='#g2-97'/>
+</g>
+<path d='M243.4841 37.839835V-2.164095' stroke='#f97316' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<path d='M243.484703 40.667924L244.976892 36.722612L243.484703 38.027304L241.992514 36.722612Z' fill='#f97316'/>
+<path d='M243.484703 40.667924L244.976892 36.722612L243.484703 38.027304L241.992514 36.722612Z' stroke='#f97316' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<path d='M243.484703-4.992184L241.992514-1.042968L243.484703-2.351564L244.976892-1.042968Z' fill='#f97316'/>
+<path d='M243.484703-4.992184L241.992514-1.042968L243.484703-2.351564L244.976892-1.042968Z' stroke='#f97316' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<g fill='#f97316' transform='matrix(.95 0 0 .95 256.32824 -49.72398)'>
+<use x='-9.9992' y='73.188373' xlink:href='#g3-69'/>
+<use x='-3.346292' y='70.375587' xlink:href='#g1-48'/>
+<use x='-3.793225' y='75.180901' xlink:href='#g2-97'/>
+</g>
+<path d='M286.96085 61.746015V45.64836' stroke='#059669' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<path d='M286.961427 64.574197L288.453612 60.628885L286.961427 61.937472L285.469244 60.628885Z' fill='#059669'/>
+<path d='M286.961427 64.574197L288.453612 60.628885L286.961427 61.937472L285.469244 60.628885Z' stroke='#059669' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<path d='M286.961427 42.824232L285.469244 46.769544L286.961427 45.460947L288.453612 46.769544Z' fill='#059669'/>
+<path d='M286.961427 42.824232L285.469244 46.769544L286.961427 45.460947L288.453612 46.769544Z' stroke='#059669' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<g fill='#059669' transform='matrix(.95 0 0 .95 299.80324 -13.71698)'>
+<use x='-9.9992' y='73.188373' xlink:href='#g4-1'/>
+<use x='-2.942229' y='74.184637' xlink:href='#g2-114'/>
+<use x='1.215763' y='73.188373' xlink:href='#g3-72'/>
+<use x='11.138392' y='73.188373' xlink:href='#g3-60'/>
+<use x='20.077222' y='73.188373' xlink:href='#g4-48'/>
+</g>
+<g fill='#0e7490' transform='matrix(.95 0 0 .95 104.35604 -121.97328)'>
+<use x='-9.9992' y='73.188373' xlink:href='#g7-201'/>
+<use x='-4.241647' y='73.188373' xlink:href='#g7-116'/>
+<use x='-.949245' y='73.188373' xlink:href='#g7-97'/>
+<use x='3.283843' y='73.188373' xlink:href='#g7-116'/>
+<use x='9.398304' y='73.188373' xlink:href='#g7-100'/>
+<use x='14.101736' y='73.188373' xlink:href='#g7-101'/>
+<use x='20.68654' y='73.188373' xlink:href='#g7-116'/>
+<use x='23.978942' y='73.188373' xlink:href='#g7-114'/>
+<use x='27.278261' y='73.188373' xlink:href='#g7-97'/>
+<use x='31.511349' y='73.188373' xlink:href='#g7-110'/>
+<use x='36.214781' y='73.188373' xlink:href='#g7-115'/>
+<use x='39.554217' y='73.188373' xlink:href='#g7-105'/>
+<use x='41.905933' y='73.188373' xlink:href='#g7-116'/>
+<use x='45.198335' y='73.188373' xlink:href='#g7-105'/>
+<use x='47.55005' y='73.188373' xlink:href='#g7-111'/>
+<use x='51.783139' y='73.188373' xlink:href='#g7-110'/>
+</g>
+<g fill='#f97316' transform='matrix(.95 0 0 .95 109.32514 -83.60048)'>
+<use x='-9.9992' y='73.188373' xlink:href='#g7-97'/>
+<use x='-6.001284' y='73.188373' xlink:href='#g7-118'/>
+<use x='-1.768195' y='73.188373' xlink:href='#g7-101'/>
+<use x='1.99455' y='73.188373' xlink:href='#g7-99'/>
+<use x='8.579354' y='73.188373' xlink:href='#g7-99'/>
+<use x='12.342099' y='73.188373' xlink:href='#g7-97'/>
+<use x='16.575187' y='73.188373' xlink:href='#g7-116'/>
+<use x='19.867589' y='73.188373' xlink:href='#g7-97'/>
+<use x='24.100678' y='73.188373' xlink:href='#g7-108'/>
+<use x='26.452393' y='73.188373' xlink:href='#g7-121'/>
+<use x='30.920653' y='73.188373' xlink:href='#g7-115'/>
+<use x='34.26009' y='73.188373' xlink:href='#g7-101'/>
+<use x='38.022835' y='73.188373' xlink:href='#g7-117'/>
+<use x='42.726266' y='73.188373' xlink:href='#g7-114'/>
+</g>
+<g fill='#0e7490' transform='matrix(.95 0 0 .95 187.63524 -121.54018)'>
+<use x='-9.9992' y='73.188373' xlink:href='#g7-22'/>
+<use x='1.289035' y='73.188373' xlink:href='#g7-115'/>
+<use x='4.628471' y='73.188373' xlink:href='#g7-97'/>
+<use x='8.86156' y='73.188373' xlink:href='#g7-110'/>
+<use x='13.564991' y='73.188373' xlink:href='#g7-115'/>
+<use x='19.726486' y='73.188373' xlink:href='#g7-99'/>
+<use x='23.489232' y='73.188373' xlink:href='#g7-97'/>
+<use x='27.72232' y='73.188373' xlink:href='#g7-116'/>
+<use x='31.014722' y='73.188373' xlink:href='#g7-97'/>
+<use x='35.24781' y='73.188373' xlink:href='#g7-108'/>
+<use x='37.599526' y='73.188373' xlink:href='#g7-121'/>
+<use x='42.067786' y='73.188373' xlink:href='#g7-115'/>
+<use x='45.407222' y='73.188373' xlink:href='#g7-101'/>
+<use x='49.169967' y='73.188373' xlink:href='#g7-117'/>
+<use x='53.873399' y='73.188373' xlink:href='#g7-114'/>
+</g>
+<g fill='#f97316' transform='matrix(.95 0 0 .95 187.56824 -110.38368)'>
+<use x='-9.9992' y='73.188373' xlink:href='#g7-45'/>
+<use x='-4.355083' y='73.188373' xlink:href='#g7-45'/>
+<use x='1.289035' y='73.188373' xlink:href='#g7-97'/>
+<use x='5.286952' y='73.188373' xlink:href='#g7-118'/>
+<use x='9.52004' y='73.188373' xlink:href='#g7-101'/>
+<use x='13.282785' y='73.188373' xlink:href='#g7-99'/>
+<use x='19.867589' y='73.188373' xlink:href='#g7-99'/>
+<use x='23.630335' y='73.188373' xlink:href='#g7-97'/>
+<use x='27.863423' y='73.188373' xlink:href='#g7-116'/>
+<use x='31.155825' y='73.188373' xlink:href='#g7-97'/>
+<use x='35.388913' y='73.188373' xlink:href='#g7-108'/>
+<use x='37.740629' y='73.188373' xlink:href='#g7-121'/>
+<use x='42.208889' y='73.188373' xlink:href='#g7-115'/>
+<use x='45.548325' y='73.188373' xlink:href='#g7-101'/>
+<use x='49.31107' y='73.188373' xlink:href='#g7-117'/>
+<use x='54.014502' y='73.188373' xlink:href='#g7-114'/>
+</g>
+<g transform='matrix(.95 0 0 .95 90.56744 32.42702)'>
+<use x='-9.9992' y='73.188373' xlink:href='#g6-67'/>
+<use x='-3.345229' y='73.188373' xlink:href='#g6-111'/>
+<use x='1.517289' y='73.188373' xlink:href='#g6-111'/>
+<use x='6.123885' y='73.188373' xlink:href='#g6-114'/>
+<use x='9.727543' y='73.188373' xlink:href='#g6-100'/>
+<use x='14.845985' y='73.188373' xlink:href='#g6-111'/>
+<use x='19.452581' y='73.188373' xlink:href='#g6-110'/>
+<use x='24.571023' y='73.188373' xlink:href='#g6-110'/>
+<use x='29.689465' y='73.188373' xlink:href='#g6-233'/>
+<use x='33.787687' y='73.188373' xlink:href='#g6-101'/>
+<use x='40.956973' y='73.188373' xlink:href='#g6-100'/>
+<use x='46.075415' y='73.188373' xlink:href='#g6-101'/>
+<use x='53.244701' y='73.188373' xlink:href='#g6-114'/>
+<use x='56.848358' y='73.188373' xlink:href='#g6-233'/>
+<use x='60.94658' y='73.188373' xlink:href='#g6-97'/>
+<use x='65.553176' y='73.188373' xlink:href='#g6-99'/>
+<use x='69.647927' y='73.188373' xlink:href='#g6-116'/>
+<use x='73.230831' y='73.188373' xlink:href='#g6-105'/>
+<use x='75.790052' y='73.188373' xlink:href='#g6-111'/>
+<use x='80.396648' y='73.188373' xlink:href='#g6-110'/>
+</g>
+<g transform='matrix(0 -.95 .95 0 -129.07028 42.92906)'>
+<use x='-9.9992' y='73.188373' xlink:href='#g6-201'/>
+<use x='-3.729802' y='73.188373' xlink:href='#g6-110'/>
+<use x='1.38864' y='73.188373' xlink:href='#g6-101'/>
+<use x='5.486862' y='73.188373' xlink:href='#g6-114'/>
+<use x='9.09052' y='73.188373' xlink:href='#g6-103'/>
+<use x='13.697116' y='73.188373' xlink:href='#g6-105'/>
+<use x='16.256337' y='73.188373' xlink:href='#g6-101'/>
+<use x='23.425623' y='73.188373' xlink:href='#g6-112'/>
+<use x='28.799987' y='73.188373' xlink:href='#g6-111'/>
+<use x='33.406583' y='73.188373' xlink:href='#g6-116'/>
+<use x='36.989487' y='73.188373' xlink:href='#g6-101'/>
+<use x='41.087709' y='73.188373' xlink:href='#g6-110'/>
+<use x='45.950214' y='73.188373' xlink:href='#g6-116'/>
+<use x='49.533118' y='73.188373' xlink:href='#g6-105'/>
+<use x='52.092339' y='73.188373' xlink:href='#g6-101'/>
+<use x='56.190561' y='73.188373' xlink:href='#g6-108'/>
+<use x='58.749782' y='73.188373' xlink:href='#g6-108'/>
+<use x='61.309003' y='73.188373' xlink:href='#g6-101'/>
+<use x='68.478289' y='73.188373' xlink:href='#g0-69'/>
+<use x='75.259773' y='74.184622' xlink:href='#g2-112'/>
+</g>
+</g>
+</svg></div>
+</div>
+<div class="info-box">
+<strong>Lecture du profil réactionnel</strong>
+<ul><li>$E_a$ est la différence d'énergie entre le sommet de la courbe (état de transition) et le niveau des réactifs : $E_a = E_p^{} - E_p^{}$.</li><li>Le catalyseur abaisse $E_a$ ($E_a' < E_a$) mais <strong>ne modifie pas</strong> les niveaux d'énergie des réactifs et des produits.</li><li>Si $E_p^{} < E_p^{}$ : réaction <strong>exothermique</strong> ($_r H < 0$).</li><li>Si $E_p^{} > E_p^{}$ : réaction <strong>endothermique</strong> ($_r H > 0$).
+</li></ul>
+</div>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-65.33354 -69.82028 358.98193 158.043419'>
+<defs>
+<path id='g0-69' d='M2.815442-3.030635H3.730012C4.366625-3.030635 4.501121-2.923039 4.501121-2.627148C4.501121-2.555417 4.474222-2.367123 4.438356-2.223661C4.420423-2.169863 4.411457-2.125031 4.411457-2.098132C4.411457-2.089166 4.411457-1.981569 4.52802-1.981569C4.635616-1.981569 4.644583-2.044334 4.680448-2.178829L5.155666-4.061768C5.191532-4.187298 5.191532-4.20523 5.191532-4.241096C5.191532-4.312827 5.137733-4.357659 5.066002-4.357659C4.967372-4.357659 4.958406-4.303861 4.913574-4.133499C4.734247-3.425156 4.456289-3.308593 3.738979-3.308593H2.887173C3.021669-3.864508 3.443088-5.56812 3.48792-5.675716C3.541719-5.801245 3.604483-5.819178 3.900374-5.819178H5.218431C6.339228-5.819178 6.590286-5.550187 6.590286-4.82391C6.590286-4.545953 6.545455-4.276961 6.545455-4.214197C6.545455-4.142466 6.590286-4.079701 6.670984-4.079701C6.77858-4.079701 6.787547-4.142466 6.805479-4.303861L6.993773-5.971606C6.993773-6.097136 6.90411-6.097136 6.733748-6.097136H2.116065C1.945704-6.097136 1.847073-6.097136 1.847073-5.935741C1.847073-5.819178 1.936737-5.819178 2.125031-5.819178C2.160897-5.819178 2.322291-5.819178 2.465753-5.801245C2.663014-5.774346 2.67198-5.738481 2.67198-5.657783C2.67198-5.630884 2.67198-5.612951 2.627148-5.451557L1.43462-.681445C1.353923-.358655 1.33599-.277958 .663512-.277958C.493151-.277958 .394521-.277958 .394521-.116563C.394521 0 .484184 0 .645579 0H5.379826C5.54122 0 5.559153 0 5.586052-.026899C5.612951-.044832 5.621918-.053798 5.675716-.170361C5.783313-.412453 6.545455-2.116065 6.545455-2.196762C6.545455-2.268493 6.491656-2.313325 6.419925-2.313325S6.339228-2.304359 6.240598-2.098132C5.684682-.842839 5.317061-.277958 3.828643-.277958H2.456787C2.331258-.277958 2.313325-.277958 2.27746-.286924C2.187796-.29589 2.160897-.304857 2.160897-.367621C2.160897-.394521 2.160897-.412453 2.205729-.573848L2.815442-3.030635Z'/>
+<path id='g1-59' d='M1.374844-.083686C1.374844 .484184 1.075965 .812951 .926526 .944458C.86675 1.004234 .848817 1.016189 .848817 1.052055C.848817 1.105853 .902615 1.159651 .950436 1.159651C1.034122 1.159651 1.572105 .681445 1.572105-.053798C1.572105-.430386 1.416687-.723288 1.129763-.723288C.896638-.723288 .771108-.537983 .771108-.364633C.771108-.185305 .896638 0 1.135741 0C1.225405 0 1.309091-.02391 1.374844-.083686Z'/>
+<path id='g1-97' d='M3.102366-1.918804C3.132254-2.056289 3.19203-2.283437 3.19203-2.32528C3.19203-2.456787 3.090411-2.52254 2.982814-2.52254C2.815442-2.52254 2.713823-2.367123 2.69589-2.27746C2.612204-2.414944 2.408966-2.636115 2.038356-2.636115C1.273225-2.636115 .448319-1.835118 .448319-.956413C.448319-.310834 .902615 .059776 1.41071 .059776C1.811208 .059776 2.15193-.215193 2.30137-.364633C2.414944 .011955 2.815442 .059776 2.946949 .059776C3.162142 .059776 3.317559-.059776 3.431133-.245081C3.580573-.484184 3.664259-.830884 3.664259-.860772C3.664259-.872727 3.658281-.944458 3.550685-.944458C3.461021-.944458 3.449066-.902615 3.425156-.806974C3.329514-.442341 3.203985-.137484 2.970859-.137484C2.767621-.137484 2.749689-.352677 2.749689-.442341C2.749689-.52005 2.809465-.759153 2.851308-.91457L3.102366-1.918804ZM2.32528-.783064C2.295392-.675467 2.295392-.663512 2.211706-.573848C1.882939-.203238 1.578082-.137484 1.428643-.137484C1.189539-.137484 .956413-.298879 .956413-.723288C.956413-.968369 1.081943-1.554172 1.273225-1.894894C1.452553-2.217684 1.75741-2.438854 2.044334-2.438854C2.492653-2.438854 2.606227-1.966625 2.606227-1.924782L2.588294-1.841096L2.32528-.783064Z'/>
+<path id='g1-112' d='M.579826 .723288C.537983 .878705 .532005 .920548 .274969 .920548C.19726 .920548 .161395 .920548 .137484 .956413C.125529 .980324 .101619 1.058032 .101619 1.075965C.107597 1.093898 .113574 1.159651 .19726 1.159651C.364633 1.159651 .561893 1.135741 .735243 1.135741C.842839 1.135741 .956413 1.141719 1.06401 1.141719C1.165629 1.141719 1.285181 1.159651 1.3868 1.159651C1.422665 1.159651 1.464508 1.159651 1.488418 1.117808C1.500374 1.099875 1.524284 1.028144 1.524284 1.004234C1.506351 .920548 1.446575 .920548 1.344956 .920548C1.201494 .920548 1.046077 .920548 1.046077 .848817C1.046077 .818929 1.08792 .663512 1.111831 .573848L1.327024-.298879C1.470486-.083686 1.691656 .059776 1.984558 .059776C2.773599 .059776 3.580573-.765131 3.580573-1.619925C3.580573-2.241594 3.144209-2.636115 2.618182-2.636115C2.133998-2.636115 1.75741-2.247572 1.727522-2.211706C1.619925-2.564384 1.249315-2.636115 1.075965-2.636115C.800996-2.636115 .657534-2.438854 .579826-2.307347C.436364-2.056289 .364633-1.745455 .364633-1.721544C.364633-1.655791 .418431-1.63188 .472229-1.63188C.56787-1.63188 .573848-1.673724 .603736-1.769365C.729265-2.265504 .872727-2.438854 1.058032-2.438854C1.273225-2.438854 1.273225-2.193773 1.273225-2.133998C1.273225-2.032379 1.267248-2.014446 1.255293-1.960648L.579826 .723288ZM1.703611-1.799253C1.733499-1.900872 1.733499-1.912827 1.841096-2.032379C2.032379-2.247572 2.319303-2.438854 2.600249-2.438854C2.887173-2.438854 3.072478-2.217684 3.072478-1.853051C3.072478-1.649813 2.952927-.986301 2.719801-.621669C2.516563-.310834 2.235616-.137484 1.984558-.137484C1.536239-.137484 1.416687-.603736 1.416687-.651557C1.416687-.681445 1.428643-.71731 1.43462-.74122L1.703611-1.799253Z'/>
+<path id='g2-69' d='M5.969614-1.849066C5.985554-1.880946 6.001494-1.928767 6.001494-1.960648C6.001494-1.976588 5.993524-2.072229 5.881943-2.072229C5.794271-2.072229 5.786301-2.048319 5.7066-1.872976C5.196513-.70934 4.821918-.263014 3.52279-.263014H2.072229C2.000498-.278954 1.976588-.278954 1.976588-.334745C1.976588-.398506 1.992528-.462267 2.008468-.510087L2.558406-2.685928H3.411208C3.993026-2.685928 4.112578-2.590286 4.112578-2.335243C4.112578-2.327273 4.112578-2.199751 4.056787-1.976588C4.040847-1.936737 4.032877-1.888917 4.032877-1.865006C4.032877-1.857036 4.040847-1.753425 4.152428-1.753425C4.24807-1.753425 4.26401-1.801245 4.29589-1.936737L4.718306-3.602491C4.726276-3.626401 4.750187-3.745953 4.750187-3.761893C4.750187-3.841594 4.686426-3.881445 4.630635-3.881445C4.527024-3.881445 4.519054-3.825654 4.479203-3.690162C4.319801-3.068493 4.104608-2.948941 3.419178-2.948941H2.622167L3.100374-4.853798C3.172105-5.140722 3.180075-5.156663 3.506849-5.156663H4.750187C5.7066-5.156663 6.009465-4.96538 6.009465-4.26401C6.009465-4.096638 5.969614-3.897385 5.969614-3.745953C5.969614-3.650311 6.025405-3.610461 6.089166-3.610461C6.200747-3.610461 6.208717-3.682192 6.224658-3.817684L6.36812-5.172603C6.37609-5.212453 6.37609-5.268244 6.37609-5.308095C6.37609-5.419676 6.280448-5.419676 6.136986-5.419676H1.936737C1.785305-5.419676 1.689664-5.419676 1.689664-5.268244C1.689664-5.156663 1.793275-5.156663 1.928767-5.156663C1.952677-5.156663 2.096139-5.156663 2.231631-5.140722C2.399004-5.124782 2.414944-5.100872 2.414944-5.029141C2.414944-4.98929 2.399004-4.941469 2.391034-4.901619L1.323039-.629639C1.251308-.326775 1.235367-.263014 .645579-.263014C.494147-.263014 .398506-.263014 .398506-.111582C.398506 0 .502117 0 .637609 0H4.94944C5.148692 0 5.156663 0 5.220423-.143462L5.969614-1.849066Z'/>
+<path id='g3-49' d='M2.145953-3.795766C2.145953-3.975093 2.122042-3.975093 1.942715-3.975093C1.548194-3.592528 .938481-3.592528 .723288-3.592528V-3.359402C.878705-3.359402 1.273225-3.359402 1.63188-3.526775V-.508095C1.63188-.310834 1.63188-.233126 1.016189-.233126H.759153V0C1.08792-.02391 1.554172-.02391 1.888917-.02391S2.689913-.02391 3.01868 0V-.233126H2.761644C2.145953-.233126 2.145953-.310834 2.145953-.508095V-3.795766Z'/>
+<path id='g3-50' d='M3.21594-1.117808H2.99477C2.982814-1.034122 2.923039-.639601 2.833375-.573848C2.791532-.537983 2.307347-.537983 2.223661-.537983H1.105853L1.870984-1.159651C2.074222-1.321046 2.606227-1.703611 2.791532-1.882939C2.970859-2.062267 3.21594-2.367123 3.21594-2.791532C3.21594-3.53873 2.540473-3.975093 1.739477-3.975093C.968369-3.975093 .430386-3.466999 .430386-2.905106C.430386-2.600249 .687422-2.564384 .753176-2.564384C.902615-2.564384 1.075965-2.67198 1.075965-2.887173C1.075965-3.01868 .998257-3.209963 .735243-3.209963C.872727-3.514819 1.23736-3.741968 1.649813-3.741968C2.27746-3.741968 2.612204-3.275716 2.612204-2.791532C2.612204-2.367123 2.331258-1.93076 1.912827-1.548194L.496139-.251059C.436364-.191283 .430386-.185305 .430386 0H3.030635L3.21594-1.117808Z'/>
+</defs>
+<g id='page1'>
+<path d='M-40.773465 76.093722H291.7574' stroke='currentColor' fill='none' stroke-width='.378575' stroke-miterlimit='10'/>
+<path d='M293.64839 76.093722L290.621054 74.582005L291.75777 76.093722L290.621054 77.609351'/>
+<path d='M-40.773465 76.093722V-67.9255' stroke='currentColor' fill='none' stroke-width='.378575' stroke-miterlimit='10'/>
+<path d='M-40.773465-69.82028L-42.289086-66.792934L-40.773465-67.925745L-39.257845-66.792934'/>
+<path d='M-26.839825 39.61716C-26.839825 39.61716-19.28514 40.730465-12.90627 39.61716C-6.523505 38.503855 6.45701 42.33986 14.96483 32.320305C23.468755 22.30075 34.324215-22.7074 42.832035-26.04665C51.339855-29.38685 62.1956 4.86711 70.69905 10.43354C79.20725 15.99997 90.0629 12.66015 98.57015 10.43354C107.07455 8.207025 117.92925 4.08203 126.43745-4.16017C134.94565-12.398475 145.80035-43.55515 154.30475-43.55515C162.81295-43.55515 173.66765-17.964905 182.17585-4.16017C190.6793 9.648365 201.53495 36.890565 210.04315 46.91012C218.5504 56.93357 229.40605 59.277315 237.91045 61.50383C246.4177 63.73044 259.4023 61.50383 265.78155 61.50383C272.15985 61.50383 279.7152 61.50383 279.7152 61.50383' stroke='#4f46e5' fill='none' stroke-width='1.514338' stroke-miterlimit='10'/>
+<g fill='#0f172a' transform='matrix(.95 0 0 .95 -26.64166 -21.748205)'>
+<use x='-9.9992' y='60.007941' xlink:href='#g5-82'/>
+<use x='-2.050402' y='60.007941' xlink:href='#g5-233'/>
+<use x='2.816965' y='60.007941' xlink:href='#g5-97'/>
+<use x='7.973442' y='60.007941' xlink:href='#g5-99'/>
+<use x='12.687943' y='60.007941' xlink:href='#g5-116'/>
+<use x='16.813127' y='60.007941' xlink:href='#g5-105'/>
+<use x='19.759691' y='60.007941' xlink:href='#g5-102'/>
+<use x='23.000906' y='60.007941' xlink:href='#g5-115'/>
+</g>
+<g fill='#0f172a' transform='matrix(.95 0 0 .95 64.27564 -50.931235)'>
+<use x='-9.9992' y='60.007941' xlink:href='#g5-73'/>
+<use x='-5.99852' y='60.007941' xlink:href='#g5-110'/>
+<use x='-.400071' y='60.007941' xlink:href='#g5-116'/>
+<use x='3.725112' y='60.007941' xlink:href='#g5-101'/>
+<use x='8.59248' y='60.007941' xlink:href='#g5-114'/>
+<use x='12.968053' y='60.007941' xlink:href='#g5-109'/>
+<use x='21.807738' y='60.007941' xlink:href='#g5-233'/>
+<use x='26.675105' y='60.007941' xlink:href='#g5-100'/>
+<use x='32.568225' y='60.007941' xlink:href='#g5-105'/>
+<use x='35.51479' y='60.007941' xlink:href='#g5-97'/>
+<use x='40.671267' y='60.007941' xlink:href='#g5-105'/>
+<use x='43.617831' y='60.007941' xlink:href='#g5-114'/>
+<use x='47.993405' y='60.007941' xlink:href='#g5-101'/>
+</g>
+<g fill='#0f172a' transform='matrix(.95 0 0 .95 256.15624 .138995)'>
+<use x='-9.9992' y='60.007941' xlink:href='#g5-80'/>
+<use x='-2.75592' y='60.007941' xlink:href='#g5-114'/>
+<use x='1.619654' y='60.007941' xlink:href='#g5-111'/>
+<use x='7.218121' y='60.007941' xlink:href='#g5-100'/>
+<use x='13.111241' y='60.007941' xlink:href='#g5-117'/>
+<use x='19.004361' y='60.007941' xlink:href='#g5-105'/>
+<use x='21.950925' y='60.007941' xlink:href='#g5-116'/>
+<use x='26.076109' y='60.007941' xlink:href='#g5-115'/>
+</g>
+<path d='M1.03118 35.71095V-22.14025' stroke='#ec4899' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<path d='M1.031247 38.539029L2.523435 34.589803L1.031247 35.898399L-.460942 34.589803Z' fill='#ec4899'/>
+<path d='M1.031247 38.539029L2.523435 34.589803L1.031247 35.898399L-.460942 34.589803Z' stroke='#ec4899' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<path d='M1.031247-24.968763L-.460942-21.023451L1.031247-22.332047L2.523435-21.023451Z' fill='#ec4899'/>
+<path d='M1.031247-24.968763L-.460942-21.023451L1.031247-22.332047L2.523435-21.023451Z' stroke='#ec4899' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(.95 0 0 .95 -8.64166 -47.983925)'>
+<use x='-9.9992' y='60.007941' xlink:href='#g2-69'/>
+<use x='-3.793225' y='61.11489' xlink:href='#g1-97'/>
+<use x='.24095' y='61.11489' xlink:href='#g1-59'/>
+<use x='2.51021' y='61.11489' xlink:href='#g3-49'/>
+</g>
+<path d='M223.9768 6.52733V-39.65255' stroke='#0ea5e9' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<path d='M223.976856 9.35547L225.469044 5.410158L223.976856 6.718745L222.484667 5.410158Z' fill='#0ea5e9'/>
+<path d='M223.976856 9.35547L225.469044 5.410158L223.976856 6.718745L222.484667 5.410158Z' stroke='#0ea5e9' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<path d='M223.976856-42.476577L222.484667-38.531266L223.976856-39.839862L225.469044-38.531266Z' fill='#0ea5e9'/>
+<path d='M223.976856-42.476577L222.484667-38.531266L223.976856-39.839862L225.469044-38.531266Z' stroke='#0ea5e9' fill='none' stroke-width='.757159' stroke-miterlimit='10'/>
+<g fill='#0ea5e9' transform='matrix(.95 0 0 .95 236.82024 -71.330305)'>
+<use x='-9.9992' y='60.007941' xlink:href='#g2-69'/>
+<use x='-3.793225' y='61.11489' xlink:href='#g1-97'/>
+<use x='.24095' y='61.11489' xlink:href='#g1-59'/>
+<use x='2.51021' y='61.11489' xlink:href='#g3-50'/>
+</g>
+<g fill='#ec4899' transform='matrix(.95 0 0 .95 38.53774 -87.816405)'>
+<use x='-9.9992' y='60.007941' xlink:href='#g4-201'/>
+<use x='-4.241647' y='60.007941' xlink:href='#g4-116'/>
+<use x='-.949245' y='60.007941' xlink:href='#g4-97'/>
+<use x='3.283843' y='60.007941' xlink:href='#g4-112'/>
+<use x='8.222446' y='60.007941' xlink:href='#g4-101'/>
+<use x='14.807251' y='60.007941' xlink:href='#g4-49'/>
+</g>
+<g fill='#0ea5e9' transform='matrix(.95 0 0 .95 137.16524 -106.995705)'>
+<use x='-9.9992' y='60.007941' xlink:href='#g4-201'/>
+<use x='-4.241647' y='60.007941' xlink:href='#g4-116'/>
+<use x='-.949245' y='60.007941' xlink:href='#g4-97'/>
+<use x='3.283843' y='60.007941' xlink:href='#g4-112'/>
+<use x='8.222446' y='60.007941' xlink:href='#g4-101'/>
+<use x='14.807251' y='60.007941' xlink:href='#g4-50'/>
+<use x='21.862398' y='60.007941' xlink:href='#g4-40'/>
+<use x='25.1548' y='60.007941' xlink:href='#g4-108'/>
+<use x='27.506515' y='60.007941' xlink:href='#g4-101'/>
+<use x='31.269261' y='60.007941' xlink:href='#g4-110'/>
+<use x='35.737521' y='60.007941' xlink:href='#g4-116'/>
+<use x='39.029923' y='60.007941' xlink:href='#g4-101'/>
+<use x='42.792668' y='60.007941' xlink:href='#g4-41'/>
+</g>
+<g transform='matrix(.95 0 0 .95 90.56744 31.215595)'>
+<use x='-9.9992' y='60.007941' xlink:href='#g6-67'/>
+<use x='-3.345229' y='60.007941' xlink:href='#g6-111'/>
+<use x='1.517289' y='60.007941' xlink:href='#g6-111'/>
+<use x='6.123885' y='60.007941' xlink:href='#g6-114'/>
+<use x='9.727543' y='60.007941' xlink:href='#g6-100'/>
+<use x='14.845985' y='60.007941' xlink:href='#g6-111'/>
+<use x='19.452581' y='60.007941' xlink:href='#g6-110'/>
+<use x='24.571023' y='60.007941' xlink:href='#g6-110'/>
+<use x='29.689465' y='60.007941' xlink:href='#g6-233'/>
+<use x='33.787687' y='60.007941' xlink:href='#g6-101'/>
+<use x='40.956973' y='60.007941' xlink:href='#g6-100'/>
+<use x='46.075415' y='60.007941' xlink:href='#g6-101'/>
+<use x='53.244701' y='60.007941' xlink:href='#g6-114'/>
+<use x='56.848358' y='60.007941' xlink:href='#g6-233'/>
+<use x='60.94658' y='60.007941' xlink:href='#g6-97'/>
+<use x='65.553176' y='60.007941' xlink:href='#g6-99'/>
+<use x='69.647927' y='60.007941' xlink:href='#g6-116'/>
+<use x='73.230831' y='60.007941' xlink:href='#g6-105'/>
+<use x='75.790052' y='60.007941' xlink:href='#g6-111'/>
+<use x='80.396648' y='60.007941' xlink:href='#g6-110'/>
+</g>
+<g transform='matrix(0 -.95 .95 0 -116.548805 36.19716)'>
+<use x='-9.9992' y='60.007941' xlink:href='#g6-201'/>
+<use x='-3.729802' y='60.007941' xlink:href='#g6-110'/>
+<use x='1.38864' y='60.007941' xlink:href='#g6-101'/>
+<use x='5.486862' y='60.007941' xlink:href='#g6-114'/>
+<use x='9.09052' y='60.007941' xlink:href='#g6-103'/>
+<use x='13.697116' y='60.007941' xlink:href='#g6-105'/>
+<use x='16.256337' y='60.007941' xlink:href='#g6-101'/>
+<use x='23.425623' y='60.007941' xlink:href='#g6-112'/>
+<use x='28.799987' y='60.007941' xlink:href='#g6-111'/>
+<use x='33.406583' y='60.007941' xlink:href='#g6-116'/>
+<use x='36.989487' y='60.007941' xlink:href='#g6-101'/>
+<use x='41.087709' y='60.007941' xlink:href='#g6-110'/>
+<use x='45.950214' y='60.007941' xlink:href='#g6-116'/>
+<use x='49.533118' y='60.007941' xlink:href='#g6-105'/>
+<use x='52.092339' y='60.007941' xlink:href='#g6-101'/>
+<use x='56.190561' y='60.007941' xlink:href='#g6-108'/>
+<use x='58.749782' y='60.007941' xlink:href='#g6-108'/>
+<use x='61.309003' y='60.007941' xlink:href='#g6-101'/>
+<use x='68.478289' y='60.007941' xlink:href='#g0-69'/>
+<use x='75.259773' y='61.00419' xlink:href='#g1-112'/>
+</g>
+</g>
+</svg></div>
+</div>
+<div class="info-box">
+<strong>Profil à plusieurs étapes</strong>
+<p>Lorsque le mécanisme comporte plusieurs actes élémentaires, le profil réactionnel présente <strong>autant de maxima</strong> que d'actes élémentaires, séparés par des <strong>minima intermédiaires</strong> correspondant aux intermédiaires réactionnels.</p>
+<p>L'étape dont l'énergie d'activation est la <strong>plus élevée</strong> est l'<strong>étape cinétiquement déterminante</strong>.<br></div></p>
+</div>
+<h2 class="section-title">À retenir</h2>
+<div class="card chapter-card">
+<p>[<br>  enhanced,<br>  sharp corners,<br>  boxrule=0pt,<br>  frame hidden,<br>  borderline west={4pt}{0pt}{synthgreen},<br>  borderline east={4pt}{0pt}{synthgreen},<br>  colback=synthgreen!5,<br>  top=3mm,<br>  bottom=3mm,<br>  left=4mm,<br>  right=4mm<br>]<br><strong> Synthèse -- À retenir</strong></p>
+<strong>1. Mécanisme réactionnel</strong>
+<ul><li>Une transformation chimique peut être modélisée par une succession d'<strong>actes élémentaires</strong>.</li><li>Un <strong>intermédiaire réactionnel</strong> est produit puis consommé ; il n'apparaît pas dans le bilan.</li><li>La somme des actes élémentaires redonne l'équation de la réaction globale.
+</li></ul>
+<strong>2. Molécularité et loi de vitesse</strong>
+<ul><li>La <strong>molécularité</strong> est le nombre d'entités réactives participant à un acte élémentaire (1, 2 ou 3).</li><li>Pour un acte élémentaire, l'ordre partiel par rapport à chaque réactif est égal à son <strong>coefficient stoechiométrique</strong>.</li><li>L'<strong>étape cinétiquement déterminante</strong> (la plus lente) impose la vitesse globale.
+</li></ul>
+<strong>3. Catalyse</strong>
+<ul><li>Un <strong>catalyseur</strong> accélère la réaction sans être consommé ; il <strong>abaisse $E_a$</strong>.</li><li><strong>Catalyse homogène</strong> : catalyseur et réactifs dans la même phase.</li><li><strong>Catalyse hétérogène</strong> : catalyseur dans une phase différente (souvent solide).</li><li><strong>Catalyse enzymatique</strong> : catalyseur = enzyme (très spécifique).
+</li></ul>
+<strong>4. Facteurs cinétiques -- interprétation microscopique</strong>
+<ul><li>La température augmente l'énergie cinétique des entités et la proportion de chocs efficaces.</li><li>La concentration augmente la fréquence des chocs entre entités réactives.</li><li>Le profil réactionnel visualise $E_a$, l'état de transition et $_r H$.
+</li></ul>
+</div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="exercices_suivi_temporel_modele_microscopique.html" class="btn-action">📝 Exercices</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=suivi_temporel_modele_microscopique" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=suivi_temporel_modele_microscopique" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

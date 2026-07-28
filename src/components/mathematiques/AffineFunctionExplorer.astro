@@ -1,0 +1,424 @@
+---
+import { affineFunctionPilotActivity as activity } from "../../data/mathematiques/activities";
+import { buildAffineTable, evaluateAffine, formatMathNumber } from "../../utils/mathematicsAffineActivity";
+
+const initialTable = buildAffineTable(activity.coefficientA.value, activity.coefficientB.value, activity.sampleXs);
+const initialY = evaluateAffine(activity.coefficientA.value, activity.coefficientB.value, activity.cursorX.value);
+---
+
+<section class="affine-explorer" data-affine-explorer aria-labelledby="affine-explorer-title">
+  <div class="affine-explorer__head">
+    <p class="affine-explorer__kicker">Activite interactive pilote</p>
+    <h2 id="affine-explorer-title">{activity.title}</h2>
+    <p>{activity.objective}</p>
+  </div>
+
+  <div class="affine-explorer__layout">
+    <aside class="affine-card affine-controls" aria-labelledby="affine-controls-title">
+      <h3 id="affine-controls-title">Parametres</h3>
+
+      <label class="affine-field" for="affine-a">
+        <span>Coefficient directeur a</span>
+        <output for="affine-a" data-affine-output="a">{formatMathNumber(activity.coefficientA.value)}</output>
+        <input id="affine-a" data-affine-param="a" type="range" min={activity.coefficientA.min} max={activity.coefficientA.max} step={activity.coefficientA.step} value={activity.coefficientA.value} />
+      </label>
+
+      <label class="affine-field" for="affine-b">
+        <span>Ordonnee a l'origine b</span>
+        <output for="affine-b" data-affine-output="b">{formatMathNumber(activity.coefficientB.value)}</output>
+        <input id="affine-b" data-affine-param="b" type="range" min={activity.coefficientB.min} max={activity.coefficientB.max} step={activity.coefficientB.step} value={activity.coefficientB.value} />
+      </label>
+
+      <label class="affine-field" for="affine-x">
+        <span>Valeur de x a tester</span>
+        <output for="affine-x" data-affine-output="x">{formatMathNumber(activity.cursorX.value)}</output>
+        <input id="affine-x" data-affine-param="x" type="range" min={activity.cursorX.min} max={activity.cursorX.max} step={activity.cursorX.step} value={activity.cursorX.value} />
+      </label>
+
+      <p class="affine-formula" aria-live="polite" data-affine-formula>
+        f(x) = {formatMathNumber(activity.coefficientA.value)}x + {formatMathNumber(activity.coefficientB.value)}
+      </p>
+    </aside>
+
+    <div class="affine-card affine-observation" aria-labelledby="affine-observation-title">
+      <h3 id="affine-observation-title">Observation</h3>
+      <svg viewBox="0 0 620 420" role="img" aria-labelledby="affine-graph-title affine-graph-desc" data-affine-graph>
+        <title id="affine-graph-title">Representation graphique de la fonction affine</title>
+        <desc id="affine-graph-desc" data-affine-graph-desc>
+          Droite initiale de la fonction f(x) = x. Le tableau donne les valeurs exactes.
+        </desc>
+        <g data-affine-grid aria-hidden="true"></g>
+        <g data-affine-axis aria-hidden="true"></g>
+        <path data-affine-line class="affine-line" />
+        <circle data-affine-point class="affine-point" r="6" />
+      </svg>
+      <p class="affine-live" aria-live="polite" data-affine-observation>
+        Pour x = {formatMathNumber(activity.cursorX.value)}, f(x) = {formatMathNumber(initialY)}.
+      </p>
+    </div>
+  </div>
+
+  <div class="affine-explorer__bottom">
+    <section class="affine-card" aria-labelledby="affine-table-title">
+      <h3 id="affine-table-title">Tableau de valeurs</h3>
+      <div class="affine-table-wrap" tabindex="0" aria-label="Tableau de valeurs de la fonction affine">
+        <table class="affine-table">
+          <caption>Valeurs calculees pour comparer les images</caption>
+          <thead>
+            <tr>
+              <th scope="col">x</th>
+              {initialTable.map((point) => <th scope="col" data-affine-table-x={point.x}>{formatMathNumber(point.x)}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">f(x)</th>
+              {initialTable.map((point) => <td data-affine-table-y={point.x}>{formatMathNumber(point.y)}</td>)}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="affine-card" aria-labelledby="affine-conjecture-title">
+      <h3 id="affine-conjecture-title">Conjecture et validation</h3>
+      <p class="affine-help">Observe la droite et le tableau, puis choisis le sens de variation.</p>
+      <div class="affine-choice-list" role="group" aria-label="Choisir une conjecture">
+        {activity.conjectures.map((conjecture) => (
+          <button type="button" data-affine-conjecture={conjecture.id}>{conjecture.label}</button>
+        ))}
+      </div>
+      <p class="affine-feedback" data-affine-feedback aria-live="polite">
+        Choisis une conjecture pour la valider par le signe de a.
+      </p>
+      <details>
+        <summary>Methode</summary>
+        <p>Pour une fonction affine f(x) = ax + b, le signe de a donne le sens de variation : a positif, croissante ; a negatif, decroissante ; a nul, constante.</p>
+      </details>
+    </section>
+  </div>
+</section>
+
+<style>
+  .affine-explorer {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .affine-explorer__head,
+  .affine-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: 1rem;
+  }
+
+  .affine-explorer__head h2,
+  .affine-card h3 {
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .affine-explorer__head p,
+  .affine-card p,
+  .affine-card li {
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  .affine-explorer__kicker {
+    color: var(--accent-primary) !important;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    margin: 0 0 0.35rem;
+    text-transform: uppercase;
+  }
+
+  .affine-explorer__layout,
+  .affine-explorer__bottom {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(250px, 0.7fr) minmax(0, 1.3fr);
+  }
+
+  .affine-explorer__bottom {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.85fr);
+  }
+
+  .affine-controls {
+    align-content: start;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .affine-field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .affine-field span {
+    color: var(--text-primary);
+    font-weight: 800;
+  }
+
+  .affine-field output {
+    color: var(--accent-primary);
+    font-weight: 900;
+  }
+
+  .affine-field input {
+    accent-color: var(--accent-primary);
+    width: 100%;
+  }
+
+  .affine-formula,
+  .affine-live,
+  .affine-feedback {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-weight: 850;
+    margin: 0;
+    padding: 0.75rem;
+  }
+
+  .affine-observation svg {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    display: block;
+    height: auto;
+    margin-top: 0.8rem;
+    max-width: 100%;
+  }
+
+  .affine-line {
+    fill: none;
+    stroke: var(--accent-primary);
+    stroke-linecap: round;
+    stroke-width: 4;
+  }
+
+  .affine-point {
+    fill: var(--accent-success, #16a34a);
+    stroke: #fff;
+    stroke-width: 3;
+  }
+
+  .affine-table-wrap {
+    overflow-x: auto;
+  }
+
+  .affine-table {
+    border-collapse: collapse;
+    min-width: 520px;
+    width: 100%;
+  }
+
+  .affine-table caption {
+    color: var(--text-primary);
+    font-weight: 850;
+    margin: 0.6rem 0 0.45rem;
+    text-align: left;
+  }
+
+  .affine-table th,
+  .affine-table td {
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.65rem;
+    text-align: center;
+  }
+
+  .affine-table th {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
+  .affine-choice-list {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+  }
+
+  .affine-choice-list button {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 800;
+    min-height: 42px;
+    padding: 0.55rem 0.75rem;
+    text-align: left;
+  }
+
+  .affine-choice-list button.is-correct {
+    background: var(--accent-success-light, #dcfce7);
+    border-color: var(--accent-success, #16a34a);
+    color: var(--accent-success, #16a34a);
+  }
+
+  .affine-choice-list button.is-wrong {
+    background: var(--accent-danger-light, #fee2e2);
+    border-color: var(--accent-danger, #dc2626);
+    color: var(--accent-danger, #dc2626);
+  }
+
+  .affine-card details {
+    border-top: 1px solid var(--border-color);
+    margin-top: 0.8rem;
+    padding-top: 0.7rem;
+  }
+
+  .affine-card summary {
+    color: var(--accent-primary);
+    cursor: pointer;
+    font-weight: 850;
+  }
+
+  @media (max-width: 820px) {
+    .affine-explorer__layout,
+    .affine-explorer__bottom {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  import { affineFunctionPilotActivity as activity } from "../../data/mathematiques/activities";
+  import { affineVariationKind, buildAffineTable, evaluateAffine, formatMathNumber, validateAffineConjecture } from "../../utils/mathematicsAffineActivity";
+
+  type AffineRoot = HTMLElement & { dataset: DOMStringMap };
+  type Variation = "increasing" | "decreasing" | "constant";
+
+  const SVG_NS = "http://www.w3.org/2000/svg";
+
+  function toNumber(value: unknown): number {
+    return Number(String(value).replace(",", "."));
+  }
+
+  function svgEl(name: string, attrs: Record<string, string | number> = {}, text?: string): SVGElement {
+    const element = document.createElementNS(SVG_NS, name);
+    for (const [key, value] of Object.entries(attrs)) element.setAttribute(key, String(value));
+    if (text !== undefined) element.textContent = text;
+    return element as SVGElement;
+  }
+
+  function screenX(x: number): number {
+    return 310 + x * 48;
+  }
+
+  function screenY(y: number): number {
+    return 210 - y * 24;
+  }
+
+  function drawStaticGraph(root: AffineRoot) {
+    const grid = root.querySelector<SVGGElement>("[data-affine-grid]");
+    const axis = root.querySelector<SVGGElement>("[data-affine-axis]");
+    if (!grid || !axis || grid.childElementCount > 0) return;
+
+    for (let x = -5; x <= 5; x += 1) {
+      grid.append(svgEl("line", { x1: screenX(x), y1: 30, x2: screenX(x), y2: 390, stroke: "#e2e8f0", "stroke-width": 1 }));
+      axis.append(svgEl("text", { x: screenX(x), y: 228, "text-anchor": "middle", fill: "#64748b", "font-size": 12 }, String(x)));
+    }
+    for (let y = -7; y <= 7; y += 1) {
+      grid.append(svgEl("line", { x1: 40, y1: screenY(y), x2: 580, y2: screenY(y), stroke: "#e2e8f0", "stroke-width": 1 }));
+      if (y !== 0) axis.append(svgEl("text", { x: 292, y: screenY(y) + 4, "text-anchor": "end", fill: "#64748b", "font-size": 12 }, String(y)));
+    }
+    axis.append(
+      svgEl("line", { x1: 40, y1: screenY(0), x2: 580, y2: screenY(0), stroke: "#0f172a", "stroke-width": 2 }),
+      svgEl("line", { x1: screenX(0), y1: 30, x2: screenX(0), y2: 390, stroke: "#0f172a", "stroke-width": 2 }),
+      svgEl("text", { x: 570, y: 198, fill: "#0f172a", "font-weight": 800 }, "x"),
+      svgEl("text", { x: 318, y: 42, fill: "#0f172a", "font-weight": 800 }, "y"),
+    );
+  }
+
+  function updateExplorer(root: AffineRoot) {
+    const aInput = root.querySelector<HTMLInputElement>('[data-affine-param="a"]');
+    const bInput = root.querySelector<HTMLInputElement>('[data-affine-param="b"]');
+    const xInput = root.querySelector<HTMLInputElement>('[data-affine-param="x"]');
+    if (!aInput || !bInput || !xInput) return;
+
+    const a = toNumber(aInput.value);
+    const b = toNumber(bInput.value);
+    const x = toNumber(xInput.value);
+    const y = evaluateAffine(a, b, x);
+    const table = buildAffineTable(a, b, activity.sampleXs);
+
+    root.querySelector<HTMLOutputElement>('[data-affine-output="a"]')!.textContent = formatMathNumber(a);
+    root.querySelector<HTMLOutputElement>('[data-affine-output="b"]')!.textContent = formatMathNumber(b);
+    root.querySelector<HTMLOutputElement>('[data-affine-output="x"]')!.textContent = formatMathNumber(x);
+    root.querySelector<HTMLElement>("[data-affine-formula]")!.textContent = `f(x) = ${formatMathNumber(a)}x + ${formatMathNumber(b)}`;
+    root.querySelector<HTMLElement>("[data-affine-observation]")!.textContent = `Pour x = ${formatMathNumber(x)}, f(x) = ${formatMathNumber(y)}. Le signe de a indique une fonction ${affineVariationKind(a) === "increasing" ? "croissante" : affineVariationKind(a) === "decreasing" ? "decroissante" : "constante"}.`;
+
+    for (const point of table) {
+      const cell = root.querySelector<HTMLElement>(`[data-affine-table-y="${point.x}"]`);
+      if (cell) cell.textContent = formatMathNumber(point.y);
+    }
+
+    const line = root.querySelector<SVGPathElement>("[data-affine-line]");
+    const marker = root.querySelector<SVGCircleElement>("[data-affine-point]");
+    const desc = root.querySelector<SVGDescElement>("[data-affine-graph-desc]");
+    const yLeft = evaluateAffine(a, b, -5);
+    const yRight = evaluateAffine(a, b, 5);
+    if (line) line.setAttribute("d", `M ${screenX(-5)} ${screenY(yLeft)} L ${screenX(5)} ${screenY(yRight)}`);
+    if (marker) {
+      marker.setAttribute("cx", String(screenX(x)));
+      marker.setAttribute("cy", String(screenY(y)));
+    }
+    if (desc) desc.textContent = `Droite de la fonction f(x) = ${formatMathNumber(a)}x + ${formatMathNumber(b)} ; au point teste, x = ${formatMathNumber(x)} et f(x) = ${formatMathNumber(y)}.`;
+
+    root.querySelectorAll<HTMLButtonElement>("[data-affine-conjecture]").forEach((button) => {
+      button.classList.remove("is-correct", "is-wrong");
+      button.setAttribute("aria-pressed", "false");
+    });
+  }
+
+  function mountAffineExplorer(root: AffineRoot) {
+    if (root.dataset.affineMounted === "true") return;
+    root.dataset.affineMounted = "true";
+    drawStaticGraph(root);
+    updateExplorer(root);
+
+    root.querySelectorAll<HTMLInputElement>("[data-affine-param]").forEach((input) => {
+      input.addEventListener("input", () => updateExplorer(root));
+    });
+
+    root.querySelectorAll<HTMLButtonElement>("[data-affine-conjecture]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const conjecture = button.dataset.affineConjecture as Variation;
+        const aInput = root.querySelector<HTMLInputElement>('[data-affine-param="a"]');
+        const a = aInput ? toNumber(aInput.value) : 0;
+        const ok = validateAffineConjecture(a, conjecture);
+        const expected = affineVariationKind(a);
+
+        root.querySelectorAll<HTMLButtonElement>("[data-affine-conjecture]").forEach((item) => {
+          item.classList.remove("is-correct", "is-wrong");
+          item.setAttribute("aria-pressed", "false");
+          if (item.dataset.affineConjecture === expected) item.classList.add("is-correct");
+        });
+
+        button.setAttribute("aria-pressed", "true");
+        if (!ok) button.classList.add("is-wrong");
+
+        const feedback = root.querySelector<HTMLElement>("[data-affine-feedback]");
+        if (feedback) {
+          feedback.textContent = ok
+            ? `Conjecture validee : le signe de a (${formatMathNumber(a)}) suffit a justifier le sens de variation.`
+            : `Conjecture a corriger : avec a = ${formatMathNumber(a)}, la fonction est ${expected === "increasing" ? "croissante" : expected === "decreasing" ? "decroissante" : "constante"}.`;
+        }
+      });
+    });
+  }
+
+  function mountAll() {
+    document.querySelectorAll<AffineRoot>("[data-affine-explorer]").forEach(mountAffineExplorer);
+  }
+
+  mountAll();
+  document.addEventListener("astro:page-load", mountAll);
+</script>

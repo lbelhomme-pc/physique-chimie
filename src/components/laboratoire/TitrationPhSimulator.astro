@@ -1,0 +1,489 @@
+---
+import '../../styles/laboratoire/titration-ph.css';
+
+const svgHidden = { hidden: true } as any;
+---
+
+<section class="tph-simulator" data-titration-ph-root aria-labelledby="tph-title">
+  <header class="tph-hero">
+    <div>
+      <p class="tph-eyebrow">Laboratoire interactif · Terminale spécialité</p>
+      <h1 id="tph-title">Titrage pH-métrique</h1>
+      <p class="tph-question">
+        Comment repérer le volume équivalent sur la courbe
+        <span class="tph-nowrap">pH = f(V<sub>B</sub>)</span>, puis retrouver la concentration de la solution titrée&nbsp;?
+      </p>
+    </div>
+    <p class="tph-state" data-sim-state role="status">
+      <span class="tph-state-dot" aria-hidden="true"></span>
+      <span data-sim-state-text>Prêt à manipuler</span>
+    </p>
+  </header>
+
+  <ol class="tph-steps" aria-label="Progression de l’activité">
+    <li><strong>1. Manipuler</strong><span>Ajouter la base titrante</span></li>
+    <li><strong>2. Observer</strong><span>Suivre le pH et le réactif limitant</span></li>
+    <li><strong>3. Exploiter</strong><span>Lire le volume équivalent</span></li>
+    <li><strong>4. Conclure</strong><span>Calculer la concentration</span></li>
+  </ol>
+
+  <div class="tph-main-grid">
+    <aside class="tph-card tph-controls" aria-labelledby="tph-controls-title">
+      <div class="tph-card-heading">
+        <p class="tph-kicker">Manipuler</p>
+        <h2 id="tph-controls-title">Préparer le titrage</h2>
+      </div>
+
+      <fieldset class="tph-fieldset">
+        <legend>Réaction étudiée</legend>
+        <label class="tph-field">
+          <span>Couple de solutions</span>
+          <select data-param="presetId">
+            <option value="strong-acid">Acide fort / base forte</option>
+            <option value="weak-acid">Acide faible / base forte</option>
+          </select>
+        </label>
+        <p class="tph-reaction" data-reaction-equation>
+          H₃O⁺(aq) + HO⁻(aq) → 2 H₂O(l)
+        </p>
+      </fieldset>
+
+      <fieldset class="tph-fieldset">
+        <legend>Solution titrée A</legend>
+        <div class="tph-range-field">
+          <label for="tph-ca-range">Concentration simulée C<sub>A</sub></label>
+          <output for="tph-ca-range" data-output="analyteConcentration">0,100 mol·L⁻¹</output>
+          <input
+            id="tph-ca-range"
+            type="range"
+            min="0.05"
+            max="0.20"
+            step="0.005"
+            value="0.10"
+            data-param="analyteConcentration"
+            aria-describedby="tph-ca-help"
+          />
+          <p id="tph-ca-help" class="tph-help">Régle-la avant l’activité, puis masque-la pour transformer le titrage en problème expérimental.</p>
+        </div>
+        <button class="tph-button tph-button-quiet" type="button" data-action="toggle-challenge" aria-pressed="false">
+          Masquer C<sub>A</sub> pour le mode défi
+        </button>
+
+        <div class="tph-range-field">
+          <label for="tph-va-range">Volume prélevé V<sub>A</sub></label>
+          <output for="tph-va-range" data-output="analyteVolumeMl">20,0 mL</output>
+          <input
+            id="tph-va-range"
+            type="range"
+            min="10"
+            max="25"
+            step="0.5"
+            value="20"
+            data-param="analyteVolumeMl"
+          />
+        </div>
+      </fieldset>
+
+      <fieldset class="tph-fieldset">
+        <legend>Solution titrante B</legend>
+        <div class="tph-range-field">
+          <label for="tph-cb-range">Concentration C<sub>B</sub></label>
+          <output for="tph-cb-range" data-output="titrantConcentration">0,100 mol·L⁻¹</output>
+          <input
+            id="tph-cb-range"
+            type="range"
+            min="0.05"
+            max="0.20"
+            step="0.005"
+            value="0.10"
+            data-param="titrantConcentration"
+          />
+        </div>
+      </fieldset>
+
+      <fieldset class="tph-fieldset">
+        <legend>Ajout de solution titrante</legend>
+        <label class="tph-field" for="tph-step-select">
+          <span>Petit volume</span>
+          <select id="tph-step-select" data-control="step-volume">
+            <option value="0.20">0,20 mL</option>
+            <option value="0.50" selected>0,50 mL</option>
+            <option value="1.00">1,00 mL</option>
+          </select>
+        </label>
+
+        <div class="tph-range-field">
+          <label for="tph-speed-range">Vitesse d’ajout continu</label>
+          <output for="tph-speed-range" data-output="speed">× 1</output>
+          <input
+            id="tph-speed-range"
+            type="range"
+            min="0.25"
+            max="4"
+            step="0.25"
+            value="1"
+            data-control="speed"
+          />
+        </div>
+      </fieldset>
+
+      <div class="tph-action-stack">
+        <button class="tph-button tph-button-primary" type="button" data-action="toggle-run">
+          <span data-run-label>Démarrer l’ajout continu</span>
+        </button>
+        <div class="tph-button-row">
+          <button class="tph-button" type="button" data-action="add-drop">Ajouter une goutte</button>
+          <button class="tph-button" type="button" data-action="add-step">Ajouter le petit volume</button>
+        </div>
+        <button class="tph-button tph-button-quiet" type="button" data-action="reset">
+          Réinitialiser l’expérience
+        </button>
+      </div>
+    </aside>
+
+    <div class="tph-workspace">
+      <section class="tph-card tph-observation" aria-labelledby="tph-observation-title">
+        <div class="tph-card-heading tph-card-heading-inline">
+          <div>
+            <p class="tph-kicker">Observer</p>
+            <h2 id="tph-observation-title">Montage et mesures</h2>
+          </div>
+          <span class="tph-badge">25 °C</span>
+        </div>
+
+        <div class="tph-apparatus-grid">
+          <figure class="tph-apparatus">
+            <svg
+              viewBox="0 0 520 430"
+              role="img"
+              aria-labelledby="tph-apparatus-title tph-apparatus-desc"
+            >
+              <title id="tph-apparatus-title">Montage de titrage pH-métrique</title>
+              <desc id="tph-apparatus-desc">
+                Une burette contenant la solution titrante verse dans un bécher agité. Une électrode de pH est plongée dans le mélange.
+              </desc>
+
+              <defs>
+                <linearGradient id="tph-glass" x1="0" x2="1">
+                  <stop offset="0" stop-color="currentColor" stop-opacity="0.08"></stop>
+                  <stop offset="0.55" stop-color="currentColor" stop-opacity="0.02"></stop>
+                  <stop offset="1" stop-color="currentColor" stop-opacity="0.12"></stop>
+                </linearGradient>
+                <clipPath id="tph-beaker-clip">
+                  <path d="M235 245 L400 245 L385 390 Q382 410 362 410 L273 410 Q253 410 250 390 Z"></path>
+                </clipPath>
+                <clipPath id="tph-burette-clip">
+                  <rect x="105" y="36" width="54" height="244" rx="7"></rect>
+                </clipPath>
+              </defs>
+
+              <g class="tph-stand" aria-hidden="true">
+                <path d="M52 392 H210" class="tph-stand-line"></path>
+                <path d="M85 392 V34" class="tph-stand-line"></path>
+                <path d="M85 100 H116" class="tph-clamp-line"></path>
+                <path d="M85 250 H116" class="tph-clamp-line"></path>
+              </g>
+
+              <g class="tph-burette" aria-hidden="true">
+                <rect x="105" y="36" width="54" height="244" rx="7" class="tph-glass"></rect>
+                <rect
+                  x="109"
+                  y="40"
+                  width="46"
+                  height="236"
+                  class="tph-burette-liquid"
+                  data-burette-liquid
+                  clip-path="url(#tph-burette-clip)"
+                ></rect>
+                <g class="tph-burette-marks">
+                  <path d="M106 58 H125 M106 80 H118 M106 102 H125 M106 124 H118 M106 146 H125 M106 168 H118 M106 190 H125 M106 212 H118 M106 234 H125 M106 256 H118"></path>
+                </g>
+                <path d="M121 280 H143 V302 H121 Z" class="tph-stopcock"></path>
+                <path d="M132 302 V336" class="tph-glass-line"></path>
+                <path d="M126 336 H138 L132 350 Z" class="tph-glass-line"></path>
+                <circle cx="132" cy="361" r="5" class="tph-drop" data-drop></circle>
+              </g>
+
+              <g class="tph-beaker" aria-hidden="true">
+                <path d="M235 245 H400 L385 390 Q382 410 362 410 H273 Q253 410 250 390 Z" class="tph-glass"></path>
+                <rect
+                  x="242"
+                  y="307"
+                  width="153"
+                  height="103"
+                  class="tph-beaker-liquid"
+                  data-beaker-liquid
+                  clip-path="url(#tph-beaker-clip)"
+                ></rect>
+                <path d="M240 307 H395" class="tph-liquid-surface"></path>
+                <path d="M285 386 H350" class="tph-stir-bar" data-stir-bar></path>
+              </g>
+
+              <g class="tph-probe" aria-hidden="true">
+                <path d="M365 42 V287" class="tph-probe-body"></path>
+                <rect x="354" y="30" width="22" height="54" rx="6" class="tph-probe-head"></rect>
+                <path d="M365 287 V345" class="tph-probe-tip"></path>
+              </g>
+
+              <g class="tph-apparatus-labels" aria-hidden="true">
+                <text x="174" y="76">Burette : NaOH(aq)</text>
+                <text x="279" y="228">Électrode de pH</text>
+                <text x="275" y="425">Bécher agité</text>
+              </g>
+            </svg>
+            <figcaption>
+              Le mouvement de la goutte et du barreau est une représentation du protocole. Le pH affiché vient du modèle d’équilibre.
+            </figcaption>
+          </figure>
+
+          <div class="tph-measure-panel">
+            <div class="tph-meter" aria-label="Mesure du pH">
+              <span class="tph-meter-label">pH-mètre</span>
+              <strong data-measure="pH">1,00</strong>
+              <span>pH</span>
+            </div>
+
+            <dl class="tph-measures">
+              <div>
+                <dt>Volume versé V<sub>B</sub></dt>
+                <dd data-measure="addedVolume">0,00 mL</dd>
+              </div>
+              <div>
+                <dt>Volume total</dt>
+                <dd data-measure="totalVolume">20,00 mL</dd>
+              </div>
+              <div>
+                <dt>Avancement</dt>
+                <dd data-measure="extent">0,000 mmol</dd>
+              </div>
+              <div>
+                <dt>Réactif limitant</dt>
+                <dd data-measure="limiting">Solution titrante</dd>
+              </div>
+            </dl>
+
+            <p class="tph-observation-message" data-limiting-description>
+              Avant l’équivalence, les ions hydroxyde ajoutés sont consommés.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tph-card tph-graph-card" aria-labelledby="tph-graph-title">
+        <div class="tph-card-heading tph-card-heading-inline">
+          <div>
+            <p class="tph-kicker">Exploiter</p>
+            <h2 id="tph-graph-title">Construire pH = f(V<sub>B</sub>)</h2>
+          </div>
+          <div class="tph-legend" aria-label="Légende du graphique">
+            <span><i class="tph-legend-line tph-legend-line-curve" aria-hidden="true"></i>Points simulés</span>
+            <span><i class="tph-legend-line tph-legend-line-guide" aria-hidden="true"></i>Construction graphique</span>
+          </div>
+        </div>
+
+        <div class="tph-graph-wrap">
+          <svg
+            class="tph-graph"
+            viewBox="0 0 760 430"
+            role="img"
+            aria-labelledby="tph-graph-svg-title tph-graph-svg-desc"
+            data-graph
+          >
+            <title id="tph-graph-svg-title">Courbe du pH en fonction du volume de solution titrante ajouté</title>
+            <desc id="tph-graph-svg-desc" data-graph-description>
+              Aucun volume n’a encore été ajouté. Le premier point correspond au pH initial.
+            </desc>
+            <defs>
+              <clipPath id="tph-graph-clip">
+                <rect x="82" y="28" width="642" height="334" rx="4"></rect>
+              </clipPath>
+            </defs>
+            <g data-graph-grid aria-hidden="true"></g>
+            <g data-graph-axes aria-hidden="true"></g>
+            <g clip-path="url(#tph-graph-clip)">
+              <path class="tph-curve" data-graph-curve d=""></path>
+              <g data-graph-tangents {...svgHidden}>
+                <path class="tph-tangent tph-tangent-left" data-tangent-left d=""></path>
+                <path class="tph-tangent tph-tangent-right" data-tangent-right d=""></path>
+                <path class="tph-tangent tph-tangent-middle" data-tangent-middle d=""></path>
+              </g>
+              <line class="tph-cursor-line" data-cursor-line x1="82" x2="82" y1="28" y2="362"></line>
+              <circle class="tph-current-point" data-current-point cx="82" cy="338" r="6"></circle>
+              <circle class="tph-read-point" data-read-point cx="82" cy="338" r="6"></circle>
+            </g>
+            <text class="tph-axis-label" x="405" y="413" text-anchor="middle">Volume versé V<tspan baseline-shift="sub">B</tspan> (mL)</text>
+            <text class="tph-axis-label" transform="translate(24 195) rotate(-90)" text-anchor="middle">pH</text>
+          </svg>
+        </div>
+
+        <p class="tph-graph-summary" data-graph-summary>
+          Point initial : V<sub>B</sub> = 0,00 mL et pH = 1,00.
+        </p>
+
+        <div class="tph-cursor-control">
+          <label for="tph-cursor-range">
+            Déplacer le curseur de lecture
+            <output for="tph-cursor-range" data-output="cursorVolume">0,00 mL</output>
+          </label>
+          <input
+            id="tph-cursor-range"
+            type="range"
+            min="0"
+            max="40"
+            step="0.05"
+            value="0"
+            data-control="cursor-volume"
+          />
+        </div>
+
+        <div class="tph-analysis-actions">
+          <button class="tph-button" type="button" data-action="use-cursor">
+            Retenir cette lecture comme V<sub>E, lu</sub>
+          </button>
+          <button class="tph-button" type="button" data-action="build-tangents">
+            Construire les tangentes parallèles
+          </button>
+          <button class="tph-button tph-button-quiet" type="button" data-action="toggle-reference">
+            Afficher la valeur théorique
+          </button>
+        </div>
+
+        <div class="tph-analysis-result" data-tangent-result hidden>
+          <strong>Lecture graphique approchée :</strong>
+          <span data-tangent-text>—</span>
+        </div>
+
+        <div class="tph-theoretical-reference" data-theoretical-reference hidden>
+          <strong>Référence du modèle :</strong>
+          <span data-theoretical-text>—</span>
+          <span class="tph-help">Elle sert à contrôler la lecture, pas à la remplacer.</span>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section class="tph-card tph-records" aria-labelledby="tph-records-title">
+    <div class="tph-card-heading tph-card-heading-inline">
+      <div>
+        <p class="tph-kicker">Garder une trace</p>
+        <h2 id="tph-records-title">Tableau de mesures</h2>
+      </div>
+      <div class="tph-button-row">
+        <button class="tph-button" type="button" data-action="record-point">Relever le point actuel</button>
+        <button class="tph-button tph-button-quiet" type="button" data-action="clear-records">Effacer le tableau</button>
+      </div>
+    </div>
+
+    <div class="tph-table-wrap" tabindex="0" aria-label="Tableau des mesures relevées">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">N°</th>
+            <th scope="col">V<sub>B</sub> (mL)</th>
+            <th scope="col">pH</th>
+            <th scope="col">Situation stœchiométrique</th>
+          </tr>
+        </thead>
+        <tbody data-records-body>
+          <tr data-empty-row>
+            <td colspan="4">Aucun relevé enregistré.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="tph-card tph-conclusion" aria-labelledby="tph-conclusion-title">
+    <div class="tph-card-heading">
+      <p class="tph-kicker">Conclure</p>
+      <h2 id="tph-conclusion-title">Retrouver la concentration C<sub>A</sub></h2>
+    </div>
+
+    <div class="tph-conclusion-grid">
+      <div>
+        <p class="tph-formula" data-concentration-formula>
+          C<sub>A</sub> = C<sub>B</sub> × V<sub>E, lu</sub> / V<sub>A</sub>
+        </p>
+        <p class="tph-help">
+          Les volumes peuvent rester en mL dans ce quotient, à condition d’utiliser la même unité au numérateur et au dénominateur.
+        </p>
+      </div>
+
+      <div class="tph-calculation-panel">
+        <label class="tph-field" for="tph-read-ve">
+          <span>Volume équivalent lu V<sub>E, lu</sub></span>
+          <span class="tph-input-with-unit">
+            <input id="tph-read-ve" type="number" min="0" max="120" step="0.05" value="0" data-control="read-ve" />
+            <span>mL</span>
+          </span>
+        </label>
+        <button class="tph-button tph-button-primary" type="button" data-action="calculate-concentration">
+          Calculer C<sub>A</sub>
+        </button>
+        <output class="tph-calculation-result" data-concentration-result aria-live="polite">
+          Renseigne d’abord une lecture graphique de V<sub>E</sub>.
+        </output>
+      </div>
+    </div>
+  </section>
+
+  <section class="tph-card tph-mission" aria-labelledby="tph-mission-title">
+    <div class="tph-card-heading">
+      <p class="tph-kicker">Mission élève</p>
+      <h2 id="tph-mission-title">Comparer deux situations</h2>
+    </div>
+    <ol>
+      <li>Réalise un premier titrage et relève une valeur approchée de V<sub>E</sub>.</li>
+      <li>Réinitialise, puis double C<sub>B</sub> sans modifier C<sub>A</sub> ni V<sub>A</sub>.</li>
+      <li>Prédis le nouveau V<sub>E</sub>, vérifie ta prévision et explique la relation observée.</li>
+      <li>Passe ensuite au titrage d’un acide faible et compare le pH à l’équivalence avec celui du premier scénario.</li>
+    </ol>
+  </section>
+
+  <div class="tph-details-grid">
+    <details class="tph-card tph-details">
+      <summary>Aides progressives</summary>
+      <div class="tph-details-content">
+        <details>
+          <summary>Indice 1 — Où chercher l’équivalence&nbsp;?</summary>
+          <p>Repère la zone où le pH varie le plus rapidement. Il faut disposer de points avant et après cette zone.</p>
+        </details>
+        <details>
+          <summary>Indice 2 — Que traduit l’équivalence&nbsp;?</summary>
+          <p>À l’équivalence, les réactifs ont été introduits dans les proportions stœchiométriques de l’équation support.</p>
+        </details>
+        <details>
+          <summary>Méthode — Calculer C<sub>A</sub></summary>
+          <p>Écris l’égalité des quantités de matière à l’équivalence, puis isole C<sub>A</sub>. Vérifie les coefficients de l’équation.</p>
+        </details>
+      </div>
+    </details>
+
+    <details class="tph-card tph-details">
+      <summary>Modèle, hypothèses et sources</summary>
+      <div class="tph-details-content">
+        <p><strong>Système :</strong> contenu du bécher à 25 °C, après chaque ajout et après homogénéisation.</p>
+        <p><strong>Grandeurs calculées :</strong> avancement, espèces en excès, concentrations après dilution et pH d’équilibre.</p>
+        <p><strong>Hypothèses :</strong> solutions idéales diluées, volumes additifs, activité assimilée à la concentration, température constante et réaction acide-base rapide.</p>
+        <p><strong>Acide fort :</strong> l’électroneutralité et K<sub>e</sub> = 10<sup>−14</sup> sont résolus, y compris près de l’équivalence.</p>
+        <p><strong>Acide faible :</strong> la conservation de la matière, K<sub>a</sub>, K<sub>e</sub> et l’électroneutralité sont résolus numériquement. La valeur pédagogique utilisée est pK<sub>a</sub> = 4,76 à 25 °C.</p>
+        <p><strong>Représentation :</strong> la goutte et l’agitation sont illustratives ; le pH-mètre, la courbe, le volume et le réactif limitant proviennent d’un état scientifique unique.</p>
+        <ul class="tph-source-list">
+          <li><a href="https://goldbook.iupac.org/terms/view/P04524" target="_blank" rel="noreferrer">IUPAC Gold Book — définition du pH</a></li>
+          <li><a href="https://iupac.org/what-we-do/books/greenbook/" target="_blank" rel="noreferrer">IUPAC Green Book — grandeurs, unités et symboles</a></li>
+          <li><a href="https://www.education.gouv.fr/sites/default/files/document/Physique-chimie-236046.pdf" target="_blank" rel="noreferrer">Programme de physique-chimie de Terminale</a></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <noscript>
+    <p class="tph-noscript">Cette simulation nécessite JavaScript pour calculer et synchroniser le titrage.</p>
+  </noscript>
+
+  <p class="tph-sr-only" aria-live="polite" aria-atomic="true" data-live-region></p>
+</section>
+
+<script>
+  import '../../scripts/laboratoire/titration-ph-simulator.js';
+</script>

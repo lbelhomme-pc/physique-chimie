@@ -1,0 +1,421 @@
+============================================================
+  RÉSUMÉ COMPLET DU PROJET — Plateforme Physique-Chimie
+  Développeur : Ludovic Belhomme
+  Dernière mise à jour : 24 mars 2026
+  Sessions : 1 à 10
+============================================================
+
+
+============================
+  DESCRIPTION DU PROJET
+============================
+
+Plateforme éducative française de révision en physique-chimie,
+ciblant les élèves du collège (6ème→3ème) et du lycée.
+Modèle freemium. Accessible, gamifiée, avec accessibilité DYS.
+
+Stack technique :
+  - Framework : Astro.js (v5.18+) avec React et MDX
+  - Math : KaTeX via remark-math + rehype-katex
+  - Styles : CSS variables (design-system.css)
+  - Déploiement : Vercel (site statique)
+  - Données : localStorage (pas de backend pour l'instant)
+
+Le site est EN LIGNE sur Vercel (URL .vercel.app).
+Pas de domaine personnalisé pour l'instant.
+
+
+============================
+  TRANSCRIPTS PRÉCÉDENTS
+============================
+
+  /mnt/transcripts/2026-03-09-21-15-05-physchim-platform-dev.txt
+    → Sessions 1-2 : Architecture, routing, composants de base
+
+  /mnt/transcripts/2026-03-17-12-29-16-physchim-platform-dev.txt
+    → Session 2 : Gamification engine, quiz/flashcards/exercices
+
+  /mnt/transcripts/2026-03-18-13-37-54-physchim-platform-sessions3-6.txt
+    → Sessions 3-6 : Design, accessibilité DYS, KaTeX, TTS
+
+  /mnt/transcripts/2026-03-18-18-37-18-physchim-platform-sessions3-8.txt
+    → Sessions 3-8 : Contenu 3ème, SEO, tableau périodique, bugs MDX
+
+  Session 9-10 (cette conversation) :
+    → Contenu complet 3ème (12 chapitres), SEO/déploiement,
+      fix MDX/LaTeX, Mega Quiz, Mega Flashcards, polish
+
+
+============================
+  ARBORESCENCE DU PROJET
+============================
+
+src/
+├── components/
+│   ├── pedagogie/
+│   │   ├── QuizPlayer.tsx (v7 — KaTeX + TTS + hydration guard)
+│   │   ├── FlashcardsPlayer.tsx (v7 — KaTeX + TTS + SRS Anki)
+│   │   ├── ExercicesPlayer.tsx (v7 — KaTeX + TTS + auto-éval)
+│   │   ├── CoursTracker.tsx (v2 — TTS + badge "déjà lu")
+│   │   ├── Dashboard.tsx (v3 — compact, pills stats, mega links)
+│   │   ├── ProfilePage.tsx (v1 — stats + badges + rangs unifié)
+│   │   ├── ChapterTabs.tsx (v2 — pills arrondies)
+│   │   ├── XPToast.tsx (v2 — notifications XP animées)
+│   │   ├── MathText.tsx (v1 — rendu KaTeX inline)
+│   │   ├── TextToSpeech.tsx (v1 — Web Speech API)
+│   │   ├── DailyLoginTracker.tsx (v1 — +5 XP/jour)
+│   │   ├── TableauPeriodique.tsx (v3 — 118 éléments, modale, données complètes)
+│   │   ├── MegaQuizPlayer.tsx (v2 — KaTeX + filtres niveau/matière/chapitre)
+│   │   └── MegaFlashcardsPlayer.tsx (v2 — KaTeX + filtres)
+│   ├── accessibility/
+│   │   ├── AccessibilityPanel.tsx (v1 — panneau ⚙️)
+│   │   └── ReadingGuide.tsx (v1 — règle de lecture)
+│   └── ui/
+│       ├── ScrollToTop.tsx (v1)
+│       └── SearchBar.tsx (v1 — recherche temps réel avec dropdown)
+│
+├── data/
+│   ├── levels.ts (tous niveaux 6e→Terminale, unifié)
+│   ├── gamification/
+│   │   ├── config.ts (14 rangs, 23 badges, XP config, daily login 5 XP)
+│   │   ├── engine.ts (gamification engine — XP, streaks, combos, badges)
+│   │   ├── useGamification.ts (React hook)
+│   │   └── srs.ts (répétition espacée SM-2, 4 boutons Anki)
+│   ├── accessibility/
+│   │   └── a11y-engine.ts (7 thèmes + mode auto jour/nuit)
+│   └── chapters/college/3eme/
+│       ├── chimie/
+│       │   ├── atome/ (meta.json, cours.mdx, exercices.json, quiz.json, flashcards.json)
+│       │   ├── ions/
+│       │   ├── molecules/
+│       │   ├── ph/
+│       │   ├── masse-volumique/
+│       │   └── transformations-chimiques/
+│       └── physique/
+│           ├── loi-ohm/
+│           ├── puissance-energie/
+│           ├── energie-mecanique/
+│           ├── signaux/
+│           ├── sources-energies/
+│           └── mouvements/
+│
+├── layouts/
+│   └── BaseLayout.astro (SEO complet — meta, OG, Schema.org, sitemap)
+│
+├── pages/
+│   ├── index.astro (Dashboard)
+│   ├── profil.astro (ProfilePage unifié)
+│   ├── mega-quiz.astro (Mega Quiz — toutes questions agrégées)
+│   ├── mega-flashcards.astro (Mega Flashcards — toutes cartes agrégées)
+│   ├── college/
+│   │   ├── index.astro (pills de niveaux)
+│   │   └── [niveau]/
+│   │       ├── index.astro (cartes Chimie/Physique)
+│   │       └── [matiere]/
+│   │           └── [slug].astro (page chapitre v8 avec onglets)
+│   ├── lycee/ (même structure que collège)
+│   ├── outils-methodes.astro (placeholder "À venir")
+│   ├── laboratoire.astro (placeholder "À venir")
+│   └── 404.astro (page d'erreur personnalisée)
+│
+└── styles/
+    └── design-system.css (complet — 7 thèmes, DYS, responsive)
+
+public/
+├── robots.txt
+├── favicon.svg (⚛ indigo)
+├── manifest.json (PWA)
+└── og-image.png (À CRÉER — 1200×630px)
+
+astro.config.mjs
+├── integrations: react, mdx, sitemap
+├── markdown.remarkPlugins: [remarkMath]
+├── markdown.rehypePlugins: [rehypeKatex]
+└── output: 'static'
+
+
+============================
+  CONTENU — PROGRAMME 3ÈME COMPLET
+============================
+
+CHIMIE (6 chapitres, order 1→6) :
+  1. L'atome — 5 exos, 10 quiz, 15 flashcards
+  2. Les ions — 7 exos, 10 quiz, 12 flashcards
+  3. Les molécules — 6 exos, 10 quiz, 10 flashcards
+  4. pH, Acides et Bases — 7 exos, 10 quiz, 10 flashcards
+  5. La masse volumique — 8 exos, 10 quiz, 10 flashcards
+  6. Les transformations chimiques — 6 exos, 10 quiz, 12 flashcards
+
+PHYSIQUE (6 chapitres, order 1→6) :
+  1. La loi d'Ohm — 5 exos, 10 quiz, 10 flashcards
+  2. Puissance et énergie — 7 exos, 10 quiz, 8 flashcards
+  3. L'énergie mécanique — 6 exos, 10 quiz, 8 flashcards
+  4. Signaux : Sons et Lumière — 6 exos, 10 quiz, 10 flashcards
+  5. Sources et formes d'énergie — 5 exos, 10 quiz, 8 flashcards
+  6. Mouvements et interactions — 6 exos, 10 quiz, 10 flashcards
+
+TOTAL : 69 exercices | 120 quiz | 113 flashcards
+
+Chaque chapitre = 5 fichiers :
+  meta.json — métadonnées (title, slug, niveau, matiere, order, xp, seo)
+  cours.mdx — cours avec encadrés, formules KaTeX, tableaux
+  exercices.json — exercices progressifs (⭐ à 🏆 Brevet)
+  quiz.json — 10 QCM avec explications
+  flashcards.json — cartes recto/verso avec difficulté
+
+
+============================
+  FONCTIONNALITÉS IMPLÉMENTÉES
+============================
+
+GAMIFICATION :
+  ✅ Système XP (gain par cours lu, quiz, flashcards, exercices)
+  ✅ 14 rangs (Quark → Multivers) avec barres de progression
+  ✅ 23 badges (3 niveaux : bronze/argent/or)
+  ✅ Streaks (jours consécutifs de connexion)
+  ✅ Daily login tracker (+5 XP/jour, 1x/jour)
+  ✅ Anti-triche (XP 1x/jour par quiz, shuffle questions)
+  ✅ Combos (bonus si enchaînement)
+
+COMPOSANTS PÉDAGOGIQUES :
+  ✅ QuizPlayer — shuffle, correction immédiate, KaTeX, TTS, hydration guard
+  ✅ FlashcardsPlayer — SRS Anki (4 boutons), intervalles, KaTeX, TTS
+  ✅ ExercicesPlayer — input obligatoire, auto-évaluation (😰+1/😕+2/😎+3 XP)
+  ✅ CoursTracker — détection scroll ≥90%, badge "déjà lu", TTS cours
+  ✅ Dashboard — compact, stats pills, Mega Quiz/Flashcards links
+  ✅ TableauPeriodique — 118 éléments, modale détaillée, recherche
+  ✅ MegaQuizPlayer — toutes questions mélangées, filtres niveau/matière/chapitre
+  ✅ MegaFlashcardsPlayer — toutes cartes mélangées, même filtres
+  ✅ SearchBar — recherche temps réel dans tous chapitres avec dropdown
+
+ACCESSIBILITÉ :
+  ✅ 7 thèmes visuels (clair, gris clair, gris, sombre, sépia, nuit, auto)
+  ✅ 5 profils DYS en 1 clic (défaut, dyslexie, dyspraxie, TDAH, confort)
+  ✅ 5 polices (Jakarta Sans, OpenDyslexic, Comic Sans, Verdana, Arial)
+  ✅ Réglages granulaires (taille, interlignage, espacement, largeur)
+  ✅ Règle de lecture (suit le curseur)
+  ✅ Surlignage liens, curseur agrandi, mode concentration
+  ✅ Désactivation animations
+  ✅ Mode auto jour/nuit
+
+DESIGN :
+  ✅ Design system complet (CSS variables, thèmes, responsive)
+  ✅ Police Plus Jakarta Sans + OpenDyslexic
+  ✅ Navigation en pills avec emojis
+  ✅ Cartes gradient Chimie (violet) / Physique (bleu)
+  ✅ Encadrés MDX colorés (définition/exemple/info/règle d'or)
+  ✅ Animations fadeInUp, scaleIn, stagger
+  ✅ Responsive mobile (375px → 1200px+)
+  ✅ Fond bleu pâle #eef2f7, accent indigo #4f46e5
+
+SEO :
+  ✅ Meta tags (title, description) sur chaque page
+  ✅ Open Graph (og:title, og:description, og:image)
+  ✅ Twitter Cards
+  ✅ Schema.org JSON-LD (WebSite + Course)
+  ✅ Canonical URLs
+  ✅ Sitemap XML automatique (@astrojs/sitemap)
+  ✅ robots.txt
+  ✅ Favicon SVG
+
+TECHNIQUE :
+  ✅ remark-math + rehype-katex (formules $$ dans MDX)
+  ✅ PWA manifest.json (installable sur mobile)
+  ✅ Site statique (output: 'static')
+  ✅ import.meta.glob pour charger tous les chapitres automatiquement
+  ✅ KaTeX côté client dans les composants React (MathText, MegaQuiz, etc.)
+
+
+============================
+  BUGS CONNUS / RÉSOLUS
+============================
+
+RÉSOLUS :
+  ✅ MDX + LaTeX : les $$ et ${} causaient "Could not parse with acorn"
+    → Fix : installer remark-math + rehype-katex dans astro.config.mjs
+  ✅ JSX style={{}} dans MDX : "Unexpected token"
+    → Fix : utiliser style="..." (HTML standard) dans le MDX
+  ✅ SVG inline dans MDX : les {} SVG sont interprétés comme du JS
+    → Fix : supprimer le SVG inline, utiliser le composant React
+  ✅ Quiz 1ère question sautée → hydration guard ajouté
+  ✅ Daily login +5 XP à chaque page → corrigé (1x/jour)
+  ✅ getStaticPaths manquant pour routes dynamiques
+    → Fix : supprimer les anciens dossiers de routes dynamiques
+
+CONNUS (non bloquants) :
+  ⚠️ "Invalid hook call" dans la console React
+    → Probablement versions React conflictuelles, non bloquant
+  ⚠️ npm run preview montre l'ancien build si on n'a pas fait npm run build avant
+    → Normal : toujours faire build avant preview
+  ⚠️ Image OG (og-image.png) non encore créée
+    → À faire sur Canva (1200×630px)
+
+
+============================
+  DÉCISIONS ARCHITECTURALES VERROUILLÉES
+============================
+
+  [VERROUILLÉ] Format meta.json — ne pas modifier la structure
+  [VERROUILLÉ] Routes dynamiques — college/[niveau]/[matiere]/[slug]
+  [VERROUILLÉ] levels.ts — source unique pour tous les niveaux
+  [VERROUILLÉ] remark-math + rehype-katex pour les formules dans MDX
+  [VERROUILLÉ] CSS variables pour le theming (pas de Tailwind)
+  [VERROUILLÉ] localStorage pour le stockage (jusqu'à l'ajout de Supabase)
+  [VERROUILLÉ] Style HTML standard dans MDX (pas de JSX style={{}})
+  [VERROUILLÉ] Pas de SVG inline dans les MDX (utiliser des composants)
+  [DÉCISION] Déployer d'abord en gratuit sur Vercel, domaine .fr plus tard
+  [DÉCISION] Le fil d'Ariane a été supprimé (la nav = le fil d'Ariane)
+  [DÉCISION] Les noms lycée sont raccourcis (1ère Spé, Term. ES, etc.)
+
+
+============================
+  CE QUI RESTE À FAIRE
+============================
+
+
+PHASE 6 — POST-LANCEMENT (priorité haute)
+──────────────────────────────────────────
+  ❌ Soumettre sitemap à Google Search Console (URGENT — chaque jour compte)
+  ❌ Créer image OG (1200×630px sur Canva) → public/og-image.png
+  ❌ Nom de domaine .fr (OVH, ~7€/an) → quand prêt
+  ❌ Google Analytics (optionnel)
+  ❌ Mettre à jour les liens Mega dans le Dashboard
+     (/memorisation → /mega-quiz et /mega-flashcards)
+
+
+PHASE 7 — POLISH (en cours)
+────────────────────────────
+  ✅ Barre de recherche fonctionnelle
+  ✅ Mega Quiz (filtres niveau/matière/chapitre + KaTeX)
+  ✅ Mega Flashcards (idem)
+  ✅ PWA manifest
+  ✅ Animations (fadeInUp, stagger)
+  ✅ Tableau périodique v3 (données complètes)
+  ❌ Fusion pages stats + badges → page /profil unique
+  ❌ Tests mobiles approfondis (375px, 390px, 768px)
+  ❌ Icônes PNG pour PWA (icon-192.png, icon-512.png)
+
+
+PHASE 8 — CONTENU SUPPLÉMENTAIRE
+─────────────────────────────────
+  ❌ Programme 4ème (chimie + physique)
+  ❌ Programme 5ème
+  ❌ Programme 6ème
+  ❌ Programme 2nde
+  ❌ Programme 1ère Spécialité
+  ❌ Programme 1ère Enseignement Scientifique
+  ❌ Programme Terminale Spécialité
+  ❌ Programme Terminale Enseignement Scientifique
+  
+  Pour chaque niveau :
+  - Ludovic fournit les HTML de cours et exercices
+  - Claude convertit en packs (meta.json + cours.mdx + exercices.json + quiz.json + flashcards.json)
+  - Les routes dynamiques détectent automatiquement les nouveaux chapitres
+
+
+PHASE 9 — OUTILS & MÉTHODES (contenu réel)
+───────────────────────────────────────────
+  ❌ Convertisseur d'unités interactif
+  ❌ Formulaires par niveau (résumé de toutes les formules)
+  ❌ Méthode pour isoler une inconnue
+  ❌ Tableau de conversions
+  ❌ Méthode de rédaction scientifique
+
+
+PHASE 10 — LABORATOIRE (simulations)
+─────────────────────────────────────
+  ❌ Circuit électrique virtuel
+  ❌ Équilibreur d'équations chimiques
+  ❌ Simulation chute libre / trajectoires
+  ❌ Dosage acido-basique virtuel
+  ❌ Optique (lentilles, miroirs)
+  ❌ Escape game
+
+
+PHASE 11 — AUTH + MONÉTISATION
+──────────────────────────────
+  ❌ Auth Supabase (inscription, connexion, profil)
+  ❌ Migration localStorage → base de données
+  ❌ Stripe (abonnement premium)
+  ❌ Verrouillage contenu payant (champ premium dans meta.json)
+  ❌ PWA / app mobile (Capacitor + AdMob)
+
+
+============================
+  COMMENT AJOUTER UN NOUVEAU CHAPITRE
+============================
+
+  1. Crée le dossier :
+     src/data/chapters/college/[niveau]/[matiere]/[slug]/
+
+  2. Crée les 5 fichiers :
+     - meta.json (copie un existant et modifie)
+     - cours.mdx (contenu avec encadrés, formules $$...$$ )
+     - exercices.json (tableau d'exercices progressifs)
+     - quiz.json (10 QCM avec explications)
+     - flashcards.json (cartes recto/verso)
+
+  3. C'est tout ! Les routes dynamiques, le Dashboard, le Mega Quiz
+     et le Mega Flashcards détectent automatiquement le nouveau chapitre.
+
+  IMPORTANT pour les cours.mdx :
+  - Les formules $...$ et $$...$$ fonctionnent grâce aux plugins
+  - NE PAS utiliser style={{}} (JSX) → utiliser style="..." (HTML)
+  - NE PAS mettre de SVG inline avec des {} → utiliser un composant React
+  - Les encadrés utilisent des <div class="definition-box">, <div class="example-box">, etc.
+
+
+============================
+  PACKAGES NPM INSTALLÉS
+============================
+
+  Principaux :
+  - astro (v5.18+)
+  - @astrojs/react
+  - @astrojs/mdx
+  - @astrojs/sitemap
+  - react + react-dom
+  - remark-math
+  - rehype-katex
+
+  CDN (chargés via <link> et <script>) :
+  - KaTeX CSS + JS (v0.16.9)
+  - Google Fonts (Plus Jakarta Sans)
+  - OpenDyslexic (CDN)
+
+
+============================
+  VERSIONS DES COMPOSANTS
+============================
+
+  QuizPlayer           v7
+  FlashcardsPlayer     v7
+  ExercicesPlayer      v7
+  CoursTracker         v2
+  Dashboard            v3
+  ChapterTabs          v2
+  ProfilePage          v1
+  XPToast              v2
+  MathText             v1
+  TextToSpeech         v1
+  DailyLoginTracker    v1
+  TableauPeriodique    v3
+  MegaQuizPlayer       v2
+  MegaFlashcardsPlayer v2
+  SearchBar            v1
+  AccessibilityPanel   v1
+  ReadingGuide         v1
+  ScrollToTop          v1
+
+  Moteurs :
+  engine.ts            v1 (bugfix dailyLogin)
+  config.ts            v1 (daily login 5 XP)
+  srs.ts               v1 (SM-2 + "en apprentissage")
+  a11y-engine.ts       v1 (7 thèmes + auto)
+
+  Pages chapitre : v8 (CoursTracker + tous composants branchés)
+
+
+============================================================
+  FIN DU RÉSUMÉ — 24 mars 2026
+============================================================

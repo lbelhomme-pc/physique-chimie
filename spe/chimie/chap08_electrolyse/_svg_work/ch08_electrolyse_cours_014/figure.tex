@@ -1,0 +1,51 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[
+    node distance=2cm,
+    box/.style={draw, rounded corners, thick, minimum width=3cm, minimum height=1cm, font=\small\bfseries, align=center},
+    arr/.style={->, very thick, >=Stealth}
+]
+\node[box, fill=synthorange!15, draw=synthorange] (elec) {Énergie\\électrique};
+\node[box, fill=primary!15, draw=primary, right=2.5cm of elec] (chim) {Énergie\\chimique};
+\node[box, fill=synthgreen!15, draw=synthgreen, right=2.5cm of chim] (util) {Utilisation\\(pile, combustion)};
+
+\draw[arr, synthorange] (elec) -- node[above, font=\small] {Électrolyse} node[below, font=\small\itshape] {forcée} (chim);
+\draw[arr, synthgreen] (chim) -- node[above, font=\small] {Pile ou} node[below, font=\small] {combustion} (util);
+
+\draw[arr, gray, dashed, bend left=30] (util.north) to node[above, font=\small\itshape, gray] {Stockage / restitution} (elec.north);
+\end{tikzpicture}
+\end{document}

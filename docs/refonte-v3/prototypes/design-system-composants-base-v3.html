@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prototype composants V3</title>
+    <link rel="stylesheet" href="../../../src/styles/tokens-v3.css">
+    <style>
+      body {
+        margin: 0;
+        background: var(--v3-color-surface-canvas);
+        color: var(--v3-color-text-main);
+        font-family: var(--v3-font-family-sans);
+        letter-spacing: var(--v3-letter-spacing-body);
+        line-height: var(--v3-line-height-body);
+      }
+
+      main {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: var(--v3-space-8);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: var(--v3-font-size-3xl);
+        line-height: var(--v3-line-height-tight);
+      }
+
+      section {
+        margin-top: var(--v3-space-8);
+      }
+
+      .surface {
+        background: var(--v3-color-surface-page);
+        border: 1px solid var(--v3-color-border-default);
+        border-radius: var(--v3-radius-md);
+        box-shadow: var(--v3-shadow-sm);
+        padding: var(--v3-space-6);
+      }
+
+      .row {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--v3-space-3);
+      }
+
+      .grid {
+        display: grid;
+        gap: var(--v3-space-4);
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .button,
+      .tab,
+      .field input,
+      .field select {
+        min-height: 44px;
+      }
+
+      .button {
+        align-items: center;
+        border: 1px solid transparent;
+        border-radius: var(--v3-radius-md);
+        cursor: pointer;
+        display: inline-flex;
+        font: inherit;
+        font-weight: 750;
+        justify-content: center;
+        padding: var(--v3-space-3) var(--v3-space-4);
+      }
+
+      .button.primary {
+        background: var(--v3-color-action);
+        color: #ffffff;
+      }
+
+      .button.secondary {
+        background: var(--v3-color-action-subtle);
+        border-color: var(--v3-color-border-default);
+        color: var(--v3-color-action);
+      }
+
+      .button.ghost {
+        background: transparent;
+        color: var(--v3-color-text-subtle);
+      }
+
+      .button.danger {
+        background: var(--v3-color-danger);
+        color: #ffffff;
+      }
+
+      .button:focus-visible,
+      .tab:focus-visible,
+      .card:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      a:focus-visible {
+        box-shadow: var(--v3-shadow-focus);
+        outline: none;
+      }
+
+      .badge {
+        border-radius: var(--v3-radius-pill);
+        display: inline-flex;
+        font-size: var(--v3-font-size-sm);
+        font-weight: 750;
+        padding: 0.32rem var(--v3-space-3);
+      }
+
+      .badge.maths {
+        background: var(--v3-color-action-subtle);
+        color: var(--v3-color-discipline-maths);
+      }
+
+      .badge.physics {
+        background: var(--v3-color-pedagogy-definition-bg);
+        color: var(--v3-color-discipline-physics);
+      }
+
+      .badge.chemistry {
+        background: var(--v3-color-success-subtle);
+        color: var(--v3-color-discipline-chemistry);
+      }
+
+      .badge.premium {
+        background: var(--v3-color-warning-subtle);
+        color: var(--v3-color-warning);
+      }
+
+      .card {
+        background: var(--v3-color-surface-raised);
+        border: 1px solid var(--v3-color-border-default);
+        border-radius: var(--v3-radius-md);
+        box-shadow: var(--v3-shadow-sm);
+        color: var(--v3-color-text-main);
+        display: grid;
+        gap: var(--v3-space-3);
+        padding: var(--v3-space-5);
+        text-decoration: none;
+      }
+
+      .card::before {
+        background: var(--accent);
+        border-radius: var(--v3-radius-pill);
+        content: "";
+        height: 4px;
+        width: 48px;
+      }
+
+      .card p {
+        color: var(--v3-color-text-subtle);
+        margin: 0;
+      }
+
+      .tabs {
+        background: var(--v3-color-surface-raised);
+        border: 1px solid var(--v3-color-border-default);
+        border-radius: var(--v3-radius-md);
+        box-shadow: var(--v3-shadow-sm);
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: var(--v3-space-2);
+        padding: var(--v3-space-2);
+      }
+
+      .tab {
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: var(--v3-radius-md);
+        color: var(--v3-color-text-subtle);
+        font: inherit;
+        font-weight: 750;
+        padding: var(--v3-space-2) var(--v3-space-4);
+      }
+
+      .tab[aria-selected="true"] {
+        background: var(--v3-color-action);
+        color: #ffffff;
+      }
+
+      .field {
+        display: grid;
+        gap: var(--v3-space-2);
+      }
+
+      .field label {
+        font-size: var(--v3-font-size-sm);
+        font-weight: 750;
+      }
+
+      .field input,
+      .field select {
+        background: var(--v3-color-surface-input);
+        border: 1px solid var(--v3-color-border-default);
+        border-radius: var(--v3-radius-md);
+        color: var(--v3-color-text-main);
+        font: inherit;
+        padding: var(--v3-space-3);
+      }
+
+      .block {
+        background: var(--tone-bg);
+        border: 1px solid color-mix(in srgb, var(--tone) 28%, transparent);
+        border-left: 4px solid var(--tone);
+        border-radius: var(--v3-radius-md);
+        padding: var(--v3-space-4);
+      }
+
+      .block h3 {
+        color: var(--tone);
+        margin-bottom: var(--v3-space-2);
+      }
+
+      .state {
+        justify-items: center;
+        text-align: center;
+      }
+
+      @media (max-width: 560px) {
+        main {
+          padding: var(--v3-space-4);
+        }
+
+        .button,
+        .tab {
+          width: 100%;
+        }
+
+        .tabs {
+          display: grid;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="surface">
+        <h1>Composants de base V3</h1>
+        <p>Prototype isole : boutons, cartes, tabs, badges, formulaires, etats et blocs pedagogiques.</p>
+      </header>
+
+      <section class="surface">
+        <h2>Boutons et badges</h2>
+        <div class="row">
+          <button class="button primary">Continuer</button>
+          <button class="button secondary">Revoir</button>
+          <button class="button ghost">Annuler</button>
+          <button class="button danger">Supprimer</button>
+        </div>
+        <div class="row" style="margin-top: var(--v3-space-4);">
+          <span class="badge maths">Mathematiques</span>
+          <span class="badge physics">Physique</span>
+          <span class="badge chemistry">Chimie</span>
+          <span class="badge premium">Premium</span>
+        </div>
+      </section>
+
+      <section class="grid">
+        <a class="card" href="#" style="--accent: var(--v3-color-discipline-physics);">
+          <h3>Loi d'Ohm</h3>
+          <p>Comprendre la relation entre tension, intensite et resistance.</p>
+        </a>
+        <article class="card" style="--accent: var(--v3-color-discipline-chemistry);">
+          <h3>Melanges</h3>
+          <p>Distinguer dissolution, miscibilite et melange heterogene.</p>
+        </article>
+      </section>
+
+      <section class="surface">
+        <h2>Tabs et formulaire</h2>
+        <div class="tabs" role="tablist" aria-label="Sections">
+          <button class="tab" role="tab" aria-selected="true">Cours</button>
+          <button class="tab" role="tab" aria-selected="false">Exercices</button>
+          <button class="tab" role="tab" aria-selected="false">Quiz</button>
+        </div>
+        <div class="grid" style="margin-top: var(--v3-space-4);">
+          <div class="field">
+            <label for="search">Recherche</label>
+            <input id="search" type="search" placeholder="Cours, exercice, quiz...">
+          </div>
+          <div class="field">
+            <label for="niveau">Niveau</label>
+            <select id="niveau">
+              <option>6e</option>
+              <option selected>5e</option>
+              <option>4e</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="block" style="--tone: var(--v3-color-pedagogy-definition); --tone-bg: var(--v3-color-pedagogy-definition-bg);">
+          <h3>Definition</h3>
+          <p>Une grandeur physique se mesure avec un instrument et une unite.</p>
+        </article>
+        <article class="block" style="--tone: var(--v3-color-pedagogy-method); --tone-bg: var(--v3-color-pedagogy-method-bg);">
+          <h3>Methode</h3>
+          <p>Lire l'enonce, relever les donnees, choisir la relation, puis calculer.</p>
+        </article>
+        <article class="block" style="--tone: var(--v3-color-pedagogy-warning); --tone-bg: var(--v3-color-pedagogy-warning-bg);">
+          <h3>Vigilance</h3>
+          <p>Une valeur numerique sans unite ne suffit pas en physique-chimie.</p>
+        </article>
+      </section>
+
+      <section class="surface state">
+        <h2>Etat vide</h2>
+        <p>Aucune activite n'est encore disponible pour cette section.</p>
+        <a href="#">Retour au chapitre</a>
+      </section>
+    </main>
+  </body>
+</html>

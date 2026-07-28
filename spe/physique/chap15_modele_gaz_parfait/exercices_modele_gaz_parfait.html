@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Modèle du gaz parfait | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+
+    <style>
+        .graph-container { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; max-width: 600px; margin: 25px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .svg-grid { stroke: #cbd5e1; stroke-width: 1; }
+        .svg-grid-minor { stroke: #f1f5f9; stroke-width: 1; }
+        .svg-axis { stroke: #1e293b; stroke-width: 2; }
+        .svg-text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #475569; }
+        .svg-text-bold { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #1e293b; }
+        .svg-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; fill: #0f172a; text-anchor: middle; }
+        .svg-line { stroke: #3b82f6; stroke-width: 3; stroke-linecap: round; }
+        .svg-point { stroke: #ef4444; stroke-width: 2; fill: none; }
+        body.dark-mode .graph-container { background: #0f172a; border-color: #334155; }
+        body.dark-mode .svg-grid { stroke: #334155; }
+        body.dark-mode .svg-grid-minor { stroke: #1e293b; }
+        body.dark-mode .svg-axis { stroke: #cbd5e1; }
+        body.dark-mode .svg-text { fill: #94a3b8; }
+        body.dark-mode .svg-text-bold { fill: #f8fafc; }
+        body.dark-mode .svg-title { fill: #f8fafc; }
+        body.dark-mode .svg-line { stroke: #60a5fa; }
+    </style>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">📝</span>
+                <h1 class="hero-title">Exercices : Modèle du gaz parfait</h1>
+            </div>
+        </header>
+
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 1</h2>
+            <div class="definition-box">
+<strong>QCM -- Le modèle du gaz parfait</strong>
+</div>
+<p>Pour chaque question, indiquer la (ou les) bonne(s) réponse(s).</p>
+<ol><li>La pression d'un gaz augmente si la fréquence des collisions des entités du gaz sur les parois du récipient qui le contient :
+<ol><li>diminue.</li><li>reste constante.</li><li>augmente.
+</li></ol></li><li>La température d'un gaz dépend de :
+<ol><li>la masse des entités.</li><li>la nature du gaz.</li><li>l'énergie cinétique moyenne des entités.
+</li></ol></li><li>Dans le modèle du gaz parfait, on ne tient pas compte :
+<ol><li>des collisions entre les entités.</li><li>du volume des entités.</li><li>des collisions des entités avec les parois.
+</li></ol></li><li>L'équation d'état du gaz parfait peut se mettre sous la forme :
+<ol><li>$PV = RT$</li><li>$PV = nRT$</li><li>$PT = nRV$
+</li></ol></li><li>La constante du gaz parfait $R$ :
+<ol><li>tend vers 0 à basse pression.</li><li>dépend de la nature du gaz.</li><li>vaut $$8{,}314    $$.
+</li></ol>
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel :</strong> Le modèle du gaz parfait décrit un gaz idéal o\`u les entités sont ponctuelles (volume propre négligé), sans interactions mutuelles, et dont les seules collisions prises en compte sont celles avec les parois. L'équation d'état est $PV = nRT$ avec $R = $8{,}314    $$.
+</div>
+<ol><li><strong>Réponse : c) augmente.</strong>
+<strong>Explication :</strong> La pression d'un gaz sur les parois d'un récipient est due aux chocs des entités (molécules ou atomes) sur ces parois. Si la fréquence des collisions augmente, cela signifie que les parois reçoivent davantage de chocs par unité de temps, ce qui se traduit par une augmentation de la pression.</li><li><strong>Réponse : c) l'énergie cinétique moyenne des entités.</strong>
+<strong>Explication :</strong> La température d'un gaz est directement liée à l'énergie cinétique moyenne de translation des entités qui le composent. Plus les entités se déplacent rapidement en moyenne, plus la température est élevée. La température ne dépend ni de la masse des entités seule, ni de la nature chimique du gaz : c'est bien l'énergie cinétique <em>moyenne</em> qui est la grandeur pertinente.</li><li><strong>Réponses : a) des collisions entre les entités et b) du volume des entités.</strong>
+<strong>Explication :</strong> Dans le modèle du gaz parfait :
+<ul><li>les entités sont modélisées comme des points matériels (leur volume propre est négligé) ;</li><li>on ne tient pas compte des interactions (collisions) entre les entités elles-mêmes ;</li><li>en revanche, les collisions avec les parois <strong>sont</strong> prises en compte car ce sont elles qui expliquent la pression.
+</li></ul></li><li><strong>Réponse : b) $PV = nRT$.</strong>
+<strong>Explication :</strong>
+<ul><li>La proposition a) $PV = RT$ est incorrecte car il manque la quantité de matière $n$.</li><li>La proposition c) $PT = nRV$ n'est pas homogène : le produit $PT$ n'a pas la dimension d'une énergie.</li><li>Seule l'écriture $PV = nRT$ est correcte.
+</li></ul></li><li>{Réponse : c) vaut $$8{,}314    $$.}
+<strong>Explication :</strong>
+<ul><li>$R$ est une constante universelle : elle ne dépend pas de la nature du gaz (réponse b incorrecte).</li><li>$R$ ne tend pas vers 0 à basse pression : $R$ est une constante fixe quelle que soit la pression (réponse a incorrecte).</li><li>La valeur de $R$ est $$8{,}314    $$, ce qui peut aussi s'écrire $$8{,}314   $$.
+</li></ul>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 2</h2>
+            <div class="definition-box">
+<strong>Conversions et grandeurs de base</strong>
+</div>
+<p>L'équation d'état du gaz parfait est $PV = nRT$, avec $R = $8{,}314    $$.</p>
+<ol><li>Convertir les températures suivantes en kelvin :
+<ol><li>$_1 = {{}^{}C}$</li><li>$_2 = {{}^{}C}$</li><li>$_3 = {{}^{}C}$
+</li></ol></li><li>Convertir les pressions suivantes en pascal :
+<ol><li>$P_1 = $1013   $$</li><li>$P_2 = $350   $$</li><li>$P_3 = $2{,}5   $$  (on rappelle que $$1   $ = $1{,}000  10^{5}   $$)
+</li></ol></li><li>Convertir les volumes suivants en mètres cubes :
+<ol><li>$V_1 = $2{,}5   $$</li><li>$V_2 = $500   $$</li><li>$V_3 = $25   $$
+</li></ol>
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappels de conversion :</strong>
+<ul><li>Température : $T($$) = ({^}) + 273{,}15   + 273$</li><li>Pression : $$1   $ = $100   $$ ; $$1   $ = $1000   $$ ; $$1   $ = $1{,}000  10^{5}   $$</li><li>Volume : $$1   $ = 1{,}0  10^{-3} $$$ ; $$1   $ = 1{,}0  10^{-6} $$$ ; $$1   $ = 1{,}0  10^{-6} $$$
+</li></ul>
+</div>
+<ol><li><strong>Conversions de températures en kelvin :</strong>
+<ol><li>$T_1 = _1 + 273{,}15 = 25 + 273{,}15 = $298   $$ (on retiendra $$298   $$)</li><li>$T_2 = _2 + 273{,}15 = -10 + 273{,}15 = $263   $$</li><li>$T_3 = _3 + 273{,}15 = 200 + 273{,}15 = $473   $$
+</li></ol></li><li><strong>Conversions de pressions en pascal :</strong>
+<ol><li>$P_1 = 1013  100 = $1{,}013  10^{5}   $$</li><li>$P_2 = 350  1000 = $3{,}50  10^{5}   $$</li><li>$P_3 = 2{,}5  1{,}000  10^{5} = $2{,}5  10^{5}   $$
+</li></ol></li><li><strong>Conversions de volumes en mètres cubes :</strong>
+<ol><li>$V_1 = 2{,}5  10^{-3} = 2{,}5  10^{-3} $$$</li><li>$V_2 = 500  10^{-6} = 5{,}00  10^{-4} $$$</li><li>$V_3 = 25  10^{-6} = 2{,}5  10^{-5} $$$
+</li></ol>
+</li></ol>
+<div class="info-box">
+<strong>Attention :</strong> les conversions d'unités sont <strong>indispensables</strong> avant toute application numérique de l'équation $PV = nRT$. Il faut systématiquement exprimer $P$ en pascal, $V$ en mètres cubes et $T$ en kelvin pour que $R = $8{,}314    $$ soit cohérent.
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 3</h2>
+            <div class="definition-box">
+<strong>Calculer le volume occupé par un gaz</strong>
+</div>
+<p>Un ballon gonflé à l'hélium contient une quantité de matière $n = 4{,}0  10^{-1} $$$ d'hélium. Il se trouve à une altitude o\`u règne une pression $P = $701   $$ et une température $T = $253   $$.</p>
+<strong>Donnée :</strong> Constante du gaz parfait : $R = $8{,}314    $$.
+<ol><li>\'Ecrire l'équation d'état du gaz parfait.</li><li>Isoler la grandeur $V$ dans cette équation.</li><li>Convertir la pression $P$ en pascal.</li><li>Calculer le volume $V$ du ballon en mètres cubes, puis l'exprimer en litres.</li><li>Commenter l'ordre de grandeur obtenu : est-il réaliste pour un ballon gonflé à l'hélium ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Pour calculer le volume d'un gaz, on utilise l'équation d'état du gaz parfait $PV = nRT$ que l'on isole en $V$. Il faut au préalable s'assurer que toutes les grandeurs sont dans les bonnes unités SI.
+</div>
+<strong>Données :</strong>
+<ul><li>$n = 4{,}0  10^{-1} $$ = $0{,}40   $$</li><li>$P = $701   $$</li><li>$T = $253   $$</li><li>$R = $8{,}314    $$
+</li></ul>
+<ol><li><strong>\'Equation d'état du gaz parfait :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$PV = nRT$$</div></div></div></div>
+o\`u $P$ est la pression (en $$), $V$ le volume (en $$), $n$ la quantité de matière (en $$), $R$ la constante du gaz parfait et $T$ la température (en $$).</li><li><strong>Isoler $V$ :</strong>
+<p>On divise les deux membres par $P$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V = {P}$$</div></div></div></div></li><li><strong>Conversion de la pression en pascal :</strong><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P = 701 $$ = 701  100 = $7{,}01  10^{4}   $$</div></div>$</div></div></li><li><strong>Application numérique :</strong></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+V &= {P} \\[6pt]
+V &= {0{,}40  8{,}314  253}{7{,}01  10^{4}} \\[6pt]
+V &= {0{,}40  2103{,}4}{7{,}01  10^{4}} \\[6pt]
+V &= {841{,}4}{7{,}01  10^{4}} \\[6pt]
+V &= 1{,}2  10^{-2} $$
+$$</div></div></div></div>
+<p>Conversion en litres : $V = 1{,}2  10^{-2}  10^{3} = $12   $$.</p>
+<strong>Conclusion :</strong> $V  $12   $$.</li><li><strong>Commentaire :</strong> Un volume de $$12   $$ est tout à fait réaliste pour un ballon gonflé à l'hélium. Un ballon de baudruche classique a un volume compris entre $$10   $$ et $$15   $$, ce qui est cohérent avec notre résultat. De plus, la pression étant inférieure à la pression atmosphérique au niveau de la mer (le ballon est en altitude), le volume est légèrement plus grand que ce qu'il serait au sol, ce qui est physiquement logique.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 4</h2>
+            <div class="definition-box">
+<strong>Calculer une quantité de matière</strong>
+</div>
+<p>Un pneu de vélo a un volume $V = $2{,}5   $$ et contient un gaz à la pression $P = $350   $$ et à la température $ = {{}^{}C}$.</p>
+<strong>Donnée :</strong> $R = $8{,}314    $$.
+<ol><li>Convertir la température $$ en kelvin.</li><li>Convertir la pression $P$ en pascal et le volume $V$ en mètres cubes.</li><li>\'Ecrire l'équation d'état du gaz parfait et isoler la quantité de matière $n$.</li><li>Calculer la quantité de matière $n$ de gaz contenue dans le pneu.</li><li>Le pneu se dégonfle. La température est toujours $ = {{}^{}C}$ mais la pression atteint la pression atmosphérique $P' = $1013   $$ et le volume reste $V = $2{,}5   $$. Calculer la nouvelle quantité de matière $n'$ restant dans le pneu.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Pour calculer une quantité de matière $n$, on part de $PV = nRT$ et on isole $n = {RT}$. Toutes les grandeurs doivent être en unités SI.
+</div>
+<strong>Données :</strong>
+<ul><li>$V = $2{,}5   $$ ; $P = $350   $$ ; $ = {{}^{}C}$</li><li>$R = $8{,}314    $$
+</li></ul>
+<ol><li><strong>Conversion de la température :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$T =  + 273 = 20 + 273 = $293   $$</div></div>$</div></div></li><li><strong>Conversions de la pression et du volume :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+P &= 350 $$ = 350  10^{3} = $3{,}50  10^{5}   $ \\
+V &= 2{,}5 $$ = 2{,}5  10^{-3} = 2{,}5  10^{-3} $$
+$$</div></div></div></div></li><li><strong>\'Equation d'état et isolement de $n$ :</strong>
+<p>On part de :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$PV = nRT$$</div></div></div></div><br>On isole $n$ en divisant par $RT$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n = {RT}$$</div></div></div></div></li><li><strong>Application numérique :</strong><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>n &= {RT} \\[6pt]<br>n &= {3{,}50  10^{5}  2{,}5  10^{-3}}{8{,}314  293} \\[6pt]<br>n &= {2436{,}0} \\[6pt]<br>n &= $0{,}359   $<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> $n  $0{,}36   $$ (soit $3{,}6  10^{-1} $$$).</li><li><strong>Quantité de matière après dégonflage :</strong>
+<strong>Données :</strong> $P' = $1013   $ = $1{,}013  10^{5}   $$ ; $V = 2{,}5  10^{-3} $$$ ; $T = $293   $$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+n' &= {RT} \\[6pt]
+n' &= {1{,}013  10^{5}  2{,}5  10^{-3}}{8{,}314  293} \\[6pt]
+n' &= {253{,}3}{2436{,}0} \\[6pt]
+n' &= $0{,}104   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $n'  $0{,}10   $$. Le pneu dégonflé ne contient plus que $$0{,}10   $$ de gaz, soit environ 3,5 fois moins que le pneu correctement gonflé. La différence $n - n'  $0{,}26   $$ correspond à la quantité de matière de gaz qui s'est échappée.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 5</h2>
+            <div class="definition-box">
+<strong>Influence de la température sur la pression</strong>
+</div>
+<p>Une mole de gaz est maintenue dans une enceinte fermée de volume constant. La pression initiale est $P_1 = $2{,}0  10^{5}   $$ à la température $T_1 = $300   $$.</p>
+<ol><li>Rappeler l'équation d'état du gaz parfait.</li><li>Expliquer, à l'aide d'arguments microscopiques, pourquoi la pression augmente lorsqu'on chauffe le gaz à volume constant.</li><li>On double la température : $T_2 = $600   $$. Montrer que la pression vaut alors $P_2 = $4{,}0  10^{5}   $$.
+<p>{Indication : utiliser le rapport ${T_1} = {T_2}$ valable à quantité de matière et volume constants.}</li><li>On triple la température initiale. Déterminer la nouvelle pression $P_3$.<br></li></ol></p>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Quand le volume $V$ et la quantité de matière $n$ sont constants, l'équation $PV = nRT$ donne ${T} = {V} = $. On peut alors écrire ${T_1} = {T_2}$.
+</div>
+<strong>Données :</strong> $P_1 = $2{,}0  10^{5}   $$ ; $T_1 = $300   $$ ; $n = $1   $$.
+<ol><li><strong>\'Equation d'état du gaz parfait :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$PV = nRT$$</div></div></div></div></li><li><strong>Explication microscopique :</strong>
+<p>Lorsqu'on chauffe un gaz à volume constant :<br><ul><li>La température augmente, ce qui signifie que l'énergie cinétique moyenne des molécules augmente.</li><li>Les molécules se déplacent donc plus vite en moyenne.</li><li>Par conséquent, elles frappent les parois du récipient plus souvent (fréquence des collisions accrue) et avec une plus grande force (quantité de mouvement transférée plus grande à chaque choc).</li><li>Le cumul de ces deux effets entra\^ine une augmentation de la pression exercée par le gaz sur les parois.<br></li></ul></li><li>{Démonstration pour $T_2 = $600   $$ :}</p>
+<p>\`A $n$ et $V$ constants, on a :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${T_1} = {T_2}$$</div></div></div></div></p>
+<p>On isole $P_2$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_2 = P_1  {T_1}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+P_2 &= 2{,}0  10^{5}  {300} \\[6pt]
+P_2 &= 2{,}0  10^{5}  2{,}0 \\[6pt]
+P_2 &= $4{,}0  10^{5}   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Quand on double la température (en kelvin), la pression double également. On obtient bien $P_2 = $4{,}0  10^{5}   $$.</li><li><strong>Cas o\`u on triple la température initiale :</strong>
+<p>$T_3 = 3  T_1 = 3  300 = $900   $$.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+P_3 &= P_1  {T_1} \\[6pt]
+P_3 &= 2{,}0  10^{5}  {300} \\[6pt]
+P_3 &= 2{,}0  10^{5}  3{,}0 \\[6pt]
+P_3 &= $6{,}0  10^{5}   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $P_3 = $6{,}0  10^{5}   $$. \`A volume et quantité de matière constants, la pression est proportionnelle à la température absolue : si $T$ est multipliée par 3, $P$ est également multipliée par 3.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 6</h2>
+            <div class="definition-box">
+<strong>Variation du volume à pression constante</strong>
+</div>
+<p>On triple le volume d'une mole de gaz initialement à la température $_1 = {{}^{}C}$ en maintenant la pression constante.</p>
+<strong>Donnée :</strong> $R = $8{,}314    $$.
+<ol><li>Convertir $_1$ en kelvin.</li><li>\'Ecrire l'équation d'état du gaz parfait pour l'état initial ($P$, $V_1$, $n$, $T_1$) et pour l'état final ($P$, $V_2 = 3V_1$, $n$, $T_2$).</li><li>En divisant les deux équations membre à membre, montrer que $T_2 = 3 T_1$.</li><li>Calculer $T_2$ en kelvin, puis en degrés Celsius.</li><li>Commenter ce résultat : est-il facilement réalisable en pratique ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> \`A pression $P$ et quantité de matière $n$ constantes, l'équation $PV = nRT$ donne ${T} = {P} = $. On peut écrire ${T_1} = {T_2}$.
+</div>
+<strong>Données :</strong> $_1 = {{}^{}C}$ ; $V_2 = 3V_1$ ; $P$ constante ; $n$ constante.
+<ol><li><strong>Conversion de $_1$ en kelvin :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$T_1 = 27 + 273 = $300   $$</div></div>$</div></div></li><li><strong>\'Equations d'état pour les deux états :</strong>
+<p>\'Etat initial :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$PV_1 = nRT_1  $$</div></div></div></div></p>
+<p>\'Etat final :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$PV_2 = nRT_2    P  3V_1 = nRT_2  $$</div></div></div></div></li><li><strong>Division membre à membre :</strong></p>
+<p>On divise l'équation (2) par l'équation (1) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${P  V_1} = {nRT_1}$$</div></div></div></div></p>
+<p>Les termes $P$, $n$ et $R$ se simplifient :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$3 = {T_1}$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div></li><li><strong>Calcul de $T_2$ :</strong><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>T_2 &= 3  T_1 = 3  300 = $900   $<br>$$</div></div></div></div></p>
+<p>Conversion en degrés Celsius :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_2 = T_2 - 273 = 900 - 273 = {{}^{}C}$$</div></div></div></div></p>
+<strong>Conclusion :</strong> $T_2 = $900   $$, soit $_2 = {{}^{}C}$.</li><li><strong>Commentaire :</strong> Une température de ${{}^{}C}$ est très élevée. C'est difficilement réalisable en pratique avec un simple ballon en caoutchouc ou en verre ordinaire, qui ne résisteraient pas à une telle température. En revanche, cette température est accessible dans des enceintes métalliques spécifiques utilisées dans l'industrie. Ce résultat illustre le fait que tripler le volume d'un gaz à pression constante nécessite de tripler la température <em>absolue</em>, ce qui peut correspondre à des températures très élevées en degrés Celsius.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 7</h2>
+            <div class="definition-box">
+<strong>Masse volumique de l'air</strong>
+</div>
+<p>L'air est un mélange gazeux composé, en quantité de matière, d'environ 80</p>
+<strong>Données :</strong>
+<ul><li>Masses molaires : $M($$) = $14{,}0   $$ ; $M($$) = $16{,}0   $$.</li><li>$R = $8{,}314    $$.</li><li>Conditions : $ = {{}^{}C}$ et $P = $1013   $$.
+</li></ul>
+<ol><li>Calculer les masses molaires de ${}_2$ et ${}_2$.</li><li>En déduire la masse molaire moyenne de l'air : $M_{} = 0{,}80  M(${}_2$) + 0{,}20  M(${}_2$)$.</li><li>En utilisant l'équation d'état du gaz parfait, calculer le volume molaire $V_m$ d'un gaz parfait dans les conditions données.</li><li>En déduire la masse volumique de l'air $ = {M_{}}{V_m}$.</li><li>Comparer le résultat obtenu à la valeur usuelle $_{}  $1{,}29   $$. Conclure.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On calcule d'abord la masse molaire moyenne de l'air, puis le volume molaire $V_m$ à l'aide de $PV_m = RT$ (pour une mole), et enfin $ = M_{}/V_m$.
+</div>
+<strong>Données :</strong>
+<ul><li>$M($$) = $14{,}0   $$ ; $M($$) = $16{,}0   $$</li><li>$R = $8{,}314    $$</li><li>$ = {{}^{}C}$ donc $T = $273   $$ ; $P = $1013   $ = $1{,}013  10^{5}   $$
+</li></ul>
+<ol><li>{Masses molaires de ${}_2$ et ${}_2$ :}
+<p>La molécule de diazote ${}_2$ contient 2 atomes d'azote :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$M(${}_2$) = 2  M($$) = 2  14{,}0 = $28{,}0   $$</div></div>$</div></div></p>
+<p>La molécule de dioxygène ${}_2$ contient 2 atomes d'oxygène :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$M(${}_2$) = 2  M($$) = 2  16{,}0 = $32{,}0   $$</div></div>$</div></div></li><li><strong>Masse molaire moyenne de l'air :</strong><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>M_{} &= 0{,}80  M(${}_2$) + 0{,}20  M(${}_2$) \\<br>M_{} &= 0{,}80  28{,}0 + 0{,}20  32{,}0 \\<br>M_{} &= 22{,}4 + 6{,}4 \\<br>M_{} &= $28{,}8   $<br>$$</div></div></div></div></li><li><strong>Calcul du volume molaire $V_m$ :</strong></p>
+<p>Pour une mole de gaz parfait ($n = $1   $$), l'équation d'état donne :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$PV_m = nRT = 1  R  T = RT$$</div></div></div></div></p>
+<p>On isole $V_m$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V_m = {P}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+V_m &= {8{,}314  273}{1{,}013  10^{5}} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>6pt]
+V_m &= {2269{,}7}{1{,}013  10^{5}} \\[6pt]
+V_m &= 2{,}24  10^{-2} $$
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<p>Soit $V_m = $22{,}4   $$</div></div>. On retrouve la valeur classique du volume molaire dans les conditions normales.</li><li><strong>Masse volumique de l'air :</strong></p>
+<p>La masse volumique est le rapport de la masse d'une mole sur le volume d'une mole :<br>\[<br> = {M_{}}{V_m}<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<strong>Attention aux unités :</strong> $M_{}$ doit être exprimée en $$ :
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>M_{} = 28{,}8 $$ = 28{,}8  10^{-3} $<div class="formula-wrapper-centered"><div class="formula-content">$$$</div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+ &= {28{,}8  10^{-3}}{2{,}24  10^{-2}} \\[6pt]
+ &= $1{,}29   $
+$$</div></div></li><li><strong>Comparaison et conclusion :</strong>
+<p>La valeur obtenue $ = $1{,}29   $$ est en excellent accord avec la valeur usuelle $_{}  $1{,}29   $$. Cela confirme que le modèle du gaz parfait décrit très bien le comportement de l'air dans les conditions normales de température et de pression (basse pression, température modérée).</p>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 8</h2>
+            <div class="definition-box">
+<strong>Gonflage de pneu au diazote</strong>
+</div>
+<p>Le diazote ${}_2$ est utilisé pour gonfler les pneus d'avion ou de voitures de course afin de réduire d'un facteur 3 à 4 les pertes par rapport aux pneus gonflés à l'air. On peut lire dans certains magazines que les molécules de diazote étant plus grosses que celles de dioxygène, les pertes sont plus rares.</p>
+<strong>Donnée :</strong> Diamètre moléculaire (diamètre minimal de la sphère dans laquelle peut évoluer une molécule) : $$0{,}315   $$ pour ${}_2$ et $$0{,}292   $$ pour ${}_2$.
+<ol><li>Calculer le rapport des diamètres moléculaires ${d(${}_2$)}{d(${}_2$)}$.</li><li>Ce rapport justifie-t-il à lui seul la réduction importante des pertes ?</li><li>En utilisant des arguments microscopiques (fréquence de collisions, vitesse moyenne, masse des molécules), proposer une explication plus complète de la réduction des pertes avec le diazote plut\^ot qu'avec l'air.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Cet exercice fait appel à une analyse microscopique et à l'interprétation de données. On compare les diamètres moléculaires et on discute des mécanismes de diffusion des molécules à travers les parois du pneu.
+</div>
+<strong>Données :</strong> $d(${}_2$) = $0{,}315   $$ ; $d(${}_2$) = $0{,}292   $$.
+<ol><li><strong>Calcul du rapport des diamètres :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{d(${}_2$)}{d(${}_2$)} &= {0{,}315}{0{,}292} \\[6pt]
+{d(${}_2$)}{d(${}_2$)} & 1{,}079
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La molécule de diazote est environ 7{,}9
+<p>Non. Un écart de seulement $ 8</p>
+<p>Plusieurs facteurs contribuent à la réduction des pertes avec le diazote :</p>
+<ul><li><strong>Composition de l'air :</strong> l'air contient environ 21 
+</li></ul>
+<strong>Conclusion :</strong> La réduction des pertes s'explique principalement par le remplacement du dioxygène et de la vapeur d'eau (espèces plus perméantes) par du diazote pur, et non simplement par la taille légèrement supérieure des molécules de ${}_2$.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 9</h2>
+            <div class="definition-box">
+<strong>Mélange de gaz -- Expérience de Berthollet</strong>
+</div>
+<p>On considère deux ballons de même volume $V_1 = V_2 = V$, reliés par un robinet. Le ballon 1 contient $n_1$ moles de dioxyde de carbone ${}_2$ à la pression $P_1 = $1   $$. Le ballon 2 contient $n_2$ moles de dihydrogène ${}_2$ à la pression $P_2 = $1   $$. La température $T$ est la même dans les deux ballons et reste constante.</p>
+<p>On ouvre le robinet et on attend que l'équilibre soit atteint. On constate que :<br><ul><li>la pression finale du mélange est $P_f = P_1 = P_2$ ;</li><li>chaque ballon contient la même quantité de matière des deux gaz.<br></li></ul></p>
+<ol><li>En utilisant des arguments microscopiques, expliquer pourquoi les deux gaz finissent par se mélanger de façon homogène dans les deux ballons.</li><li>\'Ecrire l'équation d'état du gaz parfait pour le dioxyde de carbone avant ouverture, puis pour le dihydrogène avant ouverture. En déduire que $n_1 = n_2$.</li><li>Après mélange, le volume total accessible est $V_{} = 2V$. La quantité de matière totale est $n_{} = n_1 + n_2 = 2n_1$. En utilisant l'équation d'état du gaz parfait pour le mélange, montrer que $P_f = P_1$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise l'équation d'état $PV = nRT$ pour chaque gaz séparément, puis pour le mélange. Les arguments microscopiques font appel à la diffusion aléatoire des entités.
+</div>
+<strong>Données :</strong> $V_1 = V_2 = V$ ; $P_1 = P_2 = $1   $$ ; température $T$ constante.
+<ol><li><strong>Explication microscopique du mélange :</strong>
+<p>Les molécules de gaz sont en mouvement aléatoire permanent (agitation thermique). Lorsqu'on ouvre le robinet :<br><ul><li>Les molécules de ${}_2$ du ballon 1, par le jeu des collisions et de leur mouvement désordonné, pénètrent progressivement dans le ballon 2.</li><li>De même, les molécules de ${}_2$ du ballon 2 diffusent dans le ballon 1.</li><li>Le mouvement étant aléatoire, chaque molécule a autant de chances de se trouver dans un ballon que dans l'autre.</li><li>\`A l'équilibre, les molécules des deux gaz sont réparties de façon homogène dans l'ensemble des deux ballons : il y a autant de molécules de chaque espèce dans chaque ballon.<br></li></ul></li><li><strong>Démonstration que $n_1 = n_2$ :</strong></p>
+<p>Avant ouverture, chaque gaz occupe un volume $V$ à la même température $T$ et à la même pression $P_1 = P_2 = P$.</p>
+<p>Pour le ${}_2$ dans le ballon 1 :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$PV = n_1 RT    n_1 = {RT}  $$</div></div></div></div></p>
+<p>Pour le ${}_2$ dans le ballon 2 :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$PV = n_2 RT    n_2 = {RT}  $$</div></div></div></div></p>
+<p>En comparant les équations (1) et (2), on constate que les seconds membres sont identiques :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div></p>
+<p>Ce résultat est conforme au modèle du gaz parfait : à même pression, même volume et même température, deux gaz parfaits contiennent la même quantité de matière, quelle que soit leur nature chimique.</li><li><strong>Démonstration que $P_f = P_1$ :</strong></p>
+<p>Après mélange :<br><ul><li>Volume total accessible : $V_{} = 2V$</li><li>Quantité de matière totale : $n_{} = n_1 + n_2 = 2n_1$</li><li>Température : $T$ (inchangée)<br></li></ul></p>
+<p>L'équation d'état pour le mélange :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_f  V_{} = n_{}  R  T$$</div></div></div></div></p>
+<p>Soit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_f  2V = 2n_1  R  T$$</div></div></div></div></p>
+<p>On simplifie par 2 :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_f  V = n_1  R  T$$</div></div></div></div></p>
+<p>Or, d'après l'équation (1) ci-dessus, $n_1 RT = PV$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_f  V = PV$$</div></div></div></div></p>
+<p>D'o\`u :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div></p>
+<strong>Conclusion :</strong> La pression finale du mélange est égale à la pression initiale de chaque ballon. Le volume a doublé, mais la quantité de matière a également doublé, ce qui compense exactement.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 10</h2>
+            <div class="definition-box">
+<strong>Stockage d'un gaz dans une bombe aérosol</strong>
+</div>
+<p>Une bombe aérosol neuve, de volume total $V = $200   $$, contient comme gaz propulseur du diazote ${}_2$, que l'on assimile à un gaz parfait.</p>
+<p>\`A la température $_1 = {{}^{}C}$, le volume $V_g$ du gaz propulseur correspond à 40</p>
+<strong>Donnée :</strong> $R = $8{,}314    $$ ; $$1   $ = $1{,}000  10^{5}   $$.
+<ol><li>Calculer le volume $V_g$ du gaz propulseur dans la bombe aérosol neuve.</li><li>Calculer la quantité de matière $n_0$ de gaz propulseur présent dans le dispositif.</li><li>Déterminer la température $_2$ pour laquelle la pression maximale $P_{} = $10{,}0   $$ serait atteinte, en supposant que le volume $V_g$ et la quantité de matière $n_0$ restent constants.</li><li>Indiquer si cette situation peut se produire dans la vie courante. Justifier.</li><li>Au cours de l'utilisation du produit, la pression du gaz propulseur diminue. \`A la température $_1 = {{}^{}C}$, quand la pression atteint $P_f = $3   $$, le gaz propulseur occupe un volume $V_f = $160   $$. Calculer la quantité de matière $n_f$ restant dans la bombe. Le dispositif fonctionne-t-il encore ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise l'équation d'état $PV = nRT$ pour calculer les quantités de matière, et la relation ${T_1} = {T_2}$ à $n$ et $V$ constants pour déterminer la température limite.
+</div>
+<strong>Données :</strong>
+<ul><li>$V = $200   $$ ; $V_g = 40 
+</li></ul>
+<ol><li><strong>Calcul du volume $V_g$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+V_g &= 0{,}40  V \\
+V_g &= 0{,}40  200 \\
+V_g &= $80   $ = 80  10^{-6} = 8{,}0  10^{-5} $$
+$$</div></div></div></div></li><li><strong>Calcul de la quantité de matière $n_0$ :</strong>
+<p>On utilise : $n_0 = {RT_1}$</p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+n_0 &= {6{,}00  10^{5}  8{,}0  10^{-5}}{8{,}314  298} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>6pt]
+n_0 &= {48{,}0}{2477{,}6} \\[6pt]
+n_0 &= 1{,}94  10^{-2} $$
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Conclusion :</strong> $n_0  1{,}9  10^{-2} $$$</div></div>.</li><li>{Température $_2$ pour $P_{} = $10{,}0   <div class="formula-wrapper-centered"><div class="formula-content">$$:}
+<p>\`A $n$ et $V_g$ constants, on utilise :<br>\[<br>{T_1} = {P_{}}{T_2}$$</div></div></div></div></p>
+<p>On isole $T_2$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$T_2 = T_1  {P_{}}{P_1}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+T_2 &= 298  {10{,}0}{6{,}00} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>6pt]
+T_2 &= 298  1{,}667 \\[6pt]
+T_2 &= $497   $
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<p>Conversion en degrés Celsius :<br>\[<br>_2 = 497 - 273 = {{}^{}C}$$</div></div></div></div></p>
+<strong>Conclusion :</strong> $_2  {{}^{}C}$.</li><li><strong>Cette situation peut-elle se produire ?</strong>
+<p>Non, une température de ${{}^{}C}$ n'est pas atteinte dans la vie courante (la température maximale dans un véhicule au soleil atteint au plus ${{}^{}C}$ à ${{}^{}C}$ environ). En revanche, une bombe aérosol exposée à une flamme directe ou jetée dans un feu pourrait atteindre cette température et exploser. C'est pourquoi les bombes aérosol portent la mention  ne pas exposer à une température supérieure à ${{}^{}C}$ .</li><li><strong>Quantité de matière restante après utilisation :</strong></p>
+<strong>Données :</strong> $P_f = $3   $ = $3{,}00  10^{5}   $$ ; $V_f = $160   $ = 1{,}60  10^{-4} $$$ ; $T_1 = $298   $$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+n_f &= {RT_1} \\[6pt]
+n_f &= {3{,}00  10^{5}  1{,}60  10^{-4}}{8{,}314  298} \\[6pt]
+n_f &= {48{,}0}{2477{,}6} \\[6pt]
+n_f &= 1{,}94  10^{-2} $$
+$$</div></div></div></div>
+<strong>Analyse :</strong> On trouve $n_f  n_0$. Cela signifie que la quantité de matière de gaz propulseur n'a pratiquement pas diminué : le gaz propulseur n'a pas fui, c'est le produit (liquide ou crème) qui a été expulsé. Le volume de gaz a augmenté (de $$80   $$ à $$160   $$) car le produit a libéré de la place, tandis que la pression a diminué (de $$6{,}00   $$ à $$3   $$). Le produit $P  V$ étant resté constant (même $T$ et même $n$), le dispositif fonctionne encore : il reste du gaz propulseur et celui-ci est encore sous pression ($P_f = $3   $ > P_{}  $1   $$), ce qui permet encore de pulvériser le produit.
+<strong>Conclusion :</strong> Le dispositif fonctionne encore car la pression interne ($$3   $$) est nettement supérieure à la pression atmosphérique.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 11</h2>
+            <div class="definition-box">
+<strong>Suivi cinétique d'une transformation chimique</strong>
+</div>
+<p>Les pluies acides contiennent de l'acide sulfurique résultant de la combustion des combustibles fossiles. Cet acide est susceptible de réagir avec le zinc présent dans les gouttières. On réalise l'expérience suivante pour étudier cette réaction.</p>
+<p>\`A la date $t = $0   $$, on verse rapidement $$0{,}50   $$ de poudre de zinc dans $$75{,}0   $$ de solution d'acide sulfurique de concentration en ions oxonium $${}_3 + $$ égale à $$0{,}40   $$. La pression mesurée à cet instant par le capteur est $P_0 = $1020   $$.</p>
+<p>La formation de dihydrogène crée une surpression qui s'additionne à la pression de l'air initialement présent.</p>
+<strong>Données :</strong>
+<ul><li>Masse molaire atomique du zinc : $M($$) = $65{,}4   $$.</li><li>L'équation de la réaction est : $$(s) + 2{}_3 + (aq)  ^{2 + }(aq) + {}_2(g) + 2{}_2(l)$$</li><li>$R = $8{,}314    $$ ; $T = $293   $$.</li><li>Volume d'air dans l'erlenmeyer au-dessus de la solution : $V_{} = $200   $$ (on néglige le volume de solution d'acide versé devant $V_{}$).
+</li></ul>
+<p>Les mesures de pression à différentes dates sont reportées dans le tableau suivant :</p>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>$t$ (min)</th><th>0</th><th>1,0</th><th>3,0</th><th>5,0</th><th>7,0</th><th>9,0</th><th>11,0</th><th>15,0</th></tr><tr><td>$P$ (hPa)</td><td>1020</td><td>1030</td><td>1060</td><td>1082</td><td>1101</td><td>1120</td><td>1138</td><td>1172</td></tr></tbody></table></div>
+</div>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>$t$ (min)</th><th>20,0</th><th>25,0</th><th>30,0</th><th>35,0</th><th>45,0</th><th>60,0</th><th>300,0</th></tr><tr><td>$P$ (hPa)</td><td>1200</td><td>1225</td><td>1259</td><td>1296</td><td>1335</td><td>1413</td><td>1452</td></tr></tbody></table></div>
+</div>
+<ol><li>\`A partir de l'équation de réaction, établir un tableau d'avancement et déterminer l'avancement maximal $x_{}$.</li><li>En considérant que le dihydrogène libéré est un gaz parfait et en négligeant le volume de solution d'acide versé devant le volume d'air présent dans l'erlenmeyer, montrer que l'avancement $x$ de la réaction a pour expression :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$x = x_{} ({P_{} - P_0}{P_{} - P_0})$$</div></div></div></div>
+o\`u $P_{}$ est la pression mesurée à l'état final.</li><li>Sur papier millimétré (ou sur un graphique soigné), tracer la courbe d'évolution de l'avancement $x$ en fonction du temps.</li><li>Vérifier que l'avancement maximal $x_{}$ obtenu est en accord avec l'avancement $x_f$ déterminé graphiquement, en justifiant les écarts éventuels.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On établit d'abord le tableau d'avancement pour identifier le réactif limitant et $x_{}$. Puis on relie l'avancement $x$ à la pression mesurée via l'équation du gaz parfait, en remarquant que la surpression est due au ${}_2$ formé.
+</div>
+<strong>Données :</strong>
+<ul><li>$m($$) = $0{,}50   $$ ; $M($$) = $65{,}4   $$</li><li>$V_{} = $75{,}0   $$ ; $[${}_3 + $]_0 = $0{,}40   $$</li><li>$P_0 = $1020   $$ ; $T = $293   $$ ; $V_{} = $200   $ = 2{,}00  10^{-4} $$$</li><li>$R = $8{,}314    $$</li><li>Réaction : $$(s) + 2{}_3 + (aq)  ^{2 + }(aq) + {}_2(g) + 2{}_2(l)$$
+</li></ul>
+<ol><li><strong>Tableau d'avancement et avancement maximal :</strong>
+<strong>Calcul des quantités de matière initiales :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+n_{$$} &= {m($$)}{M($$)} = {0{,}50}{65{,}4} = 7{,}65  10^{-3} $$ \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>4pt]
+n_{${}_3 + $} &= [${}_3 + $]_0  V_{} = 0{,}40  75{,}0  10^{-3} = 3{,}00  10^{-2} $$
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Tableau d'avancement :</strong>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>\'Equation</strong></th><th>$(s)$</th><th>$+$ $2{}_3 + (aq)$</th><th>$$ ${}_2(g)$</th><th>$+$ $^{2 + }(aq)$</th></tr><tr><td>\'Etat initial</td><td>$7{,}65  10^{-3}$</td><td>$3{,}00  10^{-2}$</td><td>0</td><td>0</td></tr><tr><td>En cours ($x$)</td><td>$7{,}65  10^{-3} - x$</td><td>$3{,}00  10^{-2} - 2x$</td><td>$x$</td><td>$x$</td></tr><tr><td>\'Etat final ($x_{}$)</td><td>$7{,}65  10^{-3} - x_{}$</td><td>$3{,}00  10^{-2} - 2x_{}$</td><td>$x_{}$</td><td>$x_{}$</td></tr></tbody></table></div>
+</div>
+<p>(Les quantités sont en mol ; l'eau n'est pas représentée pour alléger.)</p>
+<strong>Détermination du réactif limitant :</strong>
+<ul><li>Si $$ est limitant : $7{,}65  10^{-3} - x_{} = 0$ donc $x_{} = 7{,}65  10^{-3} $$$</div></div>.</li><li>Si ${}_3 + $ est limitant : $3{,}00  10^{-2} - 2x_{} = 0$ donc $x_{} = 1{,}50  10^{-2} $<div class="formula-wrapper-centered"><div class="formula-content">$$.
+</li></ul>
+<p>L'avancement maximal est le plus petit des deux :<br>\[<br>{x_{} = 7{,}65  10^{-3} $$}$$</div></div></div></div></p>
+<p>Le réactif limitant est le zinc $$.</li><li><strong>Expression de l'avancement en fonction de la pression :</strong></p>
+<p>\`A tout instant, la pression totale mesurée est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_{} = P_{} + P_{${}_2$}$$</div></div></div></div></p>
+<p>o\`u $P_{}$ est la pression de l'air initialement présent (constante) et $P_{${}_2$}$ est la pression partielle du dihydrogène formé.</p>
+<p>\`A $t = 0$, il n'y a pas de ${}_2$ : $P_{}(0) = P_0 = P_{}$.</p>
+<p>Donc : $P_{${}_2$} = P_{} - P_0$.</p>
+<p>En appliquant l'équation du gaz parfait au ${}_2$ seul (le volume $V_{}$ et la température $T$ étant constants) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_{${}_2$}  V_{} = n_{${}_2$}  R  T$$</div></div></div></div></p>
+<p>Or $n_{${}_2$} = x$ (d'après le tableau d'avancement), donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$(P_{} - P_0)  V_{} = x  R  T$$</div></div></div></div></p>
+<p>D'o\`u :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$x = {(P_{} - P_0)  V_{}}{RT}$$</div></div></div></div></p>
+<p>\`A l'état final ($x = x_{}$, $P_{} = P_{}$) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$x_{} = {(P_{} - P_0)  V_{}}{RT}$$</div></div></div></div></p>
+<p>En divisant l'expression de $x$ par celle de $x_{}$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${x_{}} = {P_{} - P_0}{P_{} - P_0}$$</div></div></div></div></p>
+<p>D'o\`u :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${x = x_{} ({P_{} - P_0}{P_{} - P_0})}$$</div></div></div></div></li><li><strong>Tracé de la courbe $x = f(t)$ :</strong></p>
+<p>{Identification de $P_{}$ :} Les mesures montrent que la pression se stabilise autour de $P_{}  $1452   $$ (valeur à $t = $300   $$, état final).</p>
+<p>{Calcul de $P_{} - P_0$ :}<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_{} - P_0 = 1452 - 1020 = $432   $$</div></div>$</div></div></p>
+<p>On calcule $x$ pour chaque valeur de $t$ à l'aide de :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$x = 7{,}65  10^{-3}  {P_{} - 1020}{432}$$</div></div></div></div></p>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>$t$ (min)</th><th>$P$ (hPa)</th><th>$P - P_0$ (hPa)</th><th>$x$ ($ 10^{-3}$ mol)</th></tr><tr><td>0</td><td>1020</td><td>0</td><td>0</td></tr><tr><td>1,0</td><td>1030</td><td>10</td><td>0,18</td></tr><tr><td>3,0</td><td>1060</td><td>40</td><td>0,71</td></tr><tr><td>5,0</td><td>1082</td><td>62</td><td>1,10</td></tr><tr><td>7,0</td><td>1101</td><td>81</td><td>1,43</td></tr><tr><td>9,0</td><td>1120</td><td>100</td><td>1,77</td></tr><tr><td>11,0</td><td>1138</td><td>118</td><td>2,09</td></tr><tr><td>15,0</td><td>1172</td><td>152</td><td>2,69</td></tr><tr><td>20,0</td><td>1200</td><td>180</td><td>3,19</td></tr><tr><td>25,0</td><td>1225</td><td>205</td><td>3,63</td></tr><tr><td>30,0</td><td>1259</td><td>239</td><td>4,23</td></tr><tr><td>35,0</td><td>1296</td><td>276</td><td>4,89</td></tr><tr><td>45,0</td><td>1335</td><td>315</td><td>5,58</td></tr><tr><td>60,0</td><td>1413</td><td>393</td><td>6,96</td></tr><tr><td>300,0</td><td>1452</td><td>432</td><td>7,65</td></tr></tbody></table></div>
+</div>
+<strong>Description de la courbe :</strong> La courbe $x = f(t)$ part de l'origine, cro\^it rapidement au début (la réaction est rapide quand les réactifs sont concentrés), puis ralentit progressivement et tend vers un palier horizontal à $x_{} = 7{,}65  10^{-3} $$$.
+<div class="info-box">
+Pour tracer la courbe sur papier millimétré, on peut choisir les échelles suivantes :
+<ul><li>axe horizontal : $$1   $$ pour $$10   $$ (jusqu'à $$70   $$ environ, puis indiquer le point à $$300   $$ en rupture d'échelle) ;</li><li>axe vertical : $$1   $$ pour $1{,}0  10^{-3} $$$ (jusqu'à $8{,}0  10^{-3} $$$).
+</li></ul>
+</div></li><li>{Vérification de $x_{}$ :}
+<strong>Valeur théorique :</strong> $x_{} = 7{,}65  10^{-3} $$$ (calculée au tableau d'avancement).
+<strong>Valeur graphique :</strong> sur le graphique, l'avancement à l'état final (palier) est $x_f = 7{,}65  10^{-3} $$$, car on a utilisé $P_{} = $1452   $$ qui correspond à la valeur mesurée à $t = $300   $$.
+<p>Les deux valeurs sont en excellent accord. Si un léger écart était observé, il pourrait s'expliquer par :<br><ul><li>des imprécisions de lecture du capteur de pression ;</li><li>le fait que la réaction n'est peut-être pas totalement terminée à $t = $300   $$ (la pression pourrait encore très légèrement augmenter) ;</li><li>les hypothèses du modèle (gaz parfait, volume de gaz négligé devant $V_{}$, température constante).<br></li></ul></p>
+<strong>Conclusion :</strong> Le modèle du gaz parfait permet de suivre l'avancement d'une réaction produisant un gaz par simple mesure de pression.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 12</h2>
+            <div class="definition-box">
+{Les bouchons sous pression -- ${}_2$ dans une bouteille de champagne}
+</div>
+<p>Le champagne doit son effervescence au dioxyde de carbone dissous ${}_2$ qui est libéré sous forme de gaz à l'ouverture du bouchon. Une bouteille de champagne en contient entre $$5   $$ et $$9   $$.</p>
+<p>{Partie A -- Dissolution du ${}_2$ dans l'eau}</p>
+<p>La concentration $C$ de gaz dissous dans une solution aqueuse est proportionnelle à la pression $P$ qu'exerce ce gaz sur le liquide d'après la loi de Henry :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C = k_H  P$$</div></div></div></div><br>o\`u $k_H$ est la constante de Henry, qui dépend de la température $T$ et du composé chimique étudié. \`A $T = $298   $$, la constante de Henry pour le ${}_2$ vaut : $k_H(${}_2$) = 3{,}35  10^{-4} $$$.</p>
+<ol><li>Calculer la concentration $C$ de ${}_2$ dissous dans le champagne à $T = $298   $$ si la pression de ${}_2$ dans la bouteille est $P = $6{,}0   $$.</li><li>En déduire la quantité de matière $n_{}$ de ${}_2$ dissous dans un volume $V_L = $75   $$ de champagne.
+</li></ol>
+<strong>Partie B -- Caractéristiques de la bouteille et éjection du bouchon</strong>
+<p>On modélise la situation comme suit :</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.007879 -58.992347 154.044077 198.418196'>
+<defs>
+<path id='g3-58' d='M1.912827-.52802C1.912827-.816936 1.673724-1.05604 1.384807-1.05604S.856787-.816936 .856787-.52802S1.09589 0 1.384807 0S1.912827-.239103 1.912827-.52802Z'/>
+<path id='g3-83' d='M6.425903-6.924035C6.425903-6.953923 6.405978-7.023661 6.316314-7.023661C6.266501-7.023661 6.256538-7.013699 6.136986-6.874222L5.65878-6.306351C5.399751-6.774595 4.881694-7.023661 4.234122-7.023661C2.968867-7.023661 1.77335-5.877958 1.77335-4.672478C1.77335-3.865504 2.30137-3.407223 2.809465-3.257783L3.875467-2.978829C4.244085-2.889166 4.79203-2.739726 4.79203-1.92279C4.79203-1.026152 3.975093-.089664 2.998755-.089664C2.361146-.089664 1.255293-.308842 1.255293-1.544209C1.255293-1.783313 1.305106-2.022416 1.315068-2.082192C1.325031-2.122042 1.334994-2.132005 1.334994-2.15193C1.334994-2.251557 1.265255-2.261519 1.215442-2.261519S1.145704-2.251557 1.115816-2.221669C1.075965-2.181818 .518057 .089664 .518057 .119552C.518057 .179328 .56787 .219178 .627646 .219178C.67746 .219178 .687422 .209215 .806974 .069738L1.295143-.498132C1.723537 .079701 2.400996 .219178 2.978829 .219178C4.333748 .219178 5.50934-1.105853 5.50934-2.34122C5.50934-3.028643 5.17061-3.367372 5.021171-3.506849C4.79203-3.73599 4.64259-3.775841 3.755915-4.004981C3.536737-4.064757 3.178082-4.164384 3.088418-4.184309C2.819427-4.273973 2.480697-4.562889 2.480697-5.090909C2.480697-5.897883 3.277709-6.744707 4.224159-6.744707C5.051059-6.744707 5.65878-6.316314 5.65878-5.200498C5.65878-4.881694 5.618929-4.702366 5.618929-4.64259C5.618929-4.632628 5.618929-4.542964 5.738481-4.542964C5.838107-4.542964 5.84807-4.572852 5.88792-4.742217L6.425903-6.924035Z'/>
+<path id='g3-86' d='M6.256538-5.668742C6.744707-6.445828 7.163138-6.475716 7.531756-6.495641C7.651308-6.505604 7.66127-6.674969 7.66127-6.684932C7.66127-6.764633 7.611457-6.804483 7.531756-6.804483C7.272727-6.804483 6.983811-6.774595 6.714819-6.774595C6.386052-6.774595 6.047323-6.804483 5.728518-6.804483C5.668742-6.804483 5.539228-6.804483 5.539228-6.615193C5.539228-6.505604 5.628892-6.495641 5.69863-6.495641C5.967621-6.475716 6.156912-6.37609 6.156912-6.166874C6.156912-6.017435 6.007472-5.798257 6.007472-5.788294L2.948941-.926526L2.271482-6.196762C2.271482-6.366127 2.500623-6.495641 2.958904-6.495641C3.098381-6.495641 3.20797-6.495641 3.20797-6.694894C3.20797-6.784558 3.128269-6.804483 3.068493-6.804483C2.669988-6.804483 2.241594-6.774595 1.833126-6.774595C1.653798-6.774595 1.464508-6.784558 1.285181-6.784558S.916563-6.804483 .747198-6.804483C.67746-6.804483 .557908-6.804483 .557908-6.615193C.557908-6.495641 .647572-6.495641 .806974-6.495641C1.364882-6.495641 1.374844-6.405978 1.404732-6.156912L2.191781-.009963C2.221669 .18929 2.261519 .219178 2.391034 .219178C2.550436 .219178 2.590286 .169365 2.669988 .039851L6.256538-5.668742Z'/>
+<path id='g3-109' d='M.876712-.587796C.846824-.438356 .787049-.209215 .787049-.159402C.787049 .019925 .926526 .109589 1.075965 .109589C1.195517 .109589 1.374844 .029888 1.444583-.169365C1.454545-.18929 1.574097-.657534 1.633873-.9066L1.853051-1.803238C1.912827-2.022416 1.972603-2.241594 2.022416-2.470735C2.062267-2.6401 2.141968-2.929016 2.15193-2.968867C2.30137-3.277709 2.82939-4.184309 3.775841-4.184309C4.224159-4.184309 4.313823-3.815691 4.313823-3.486924C4.313823-3.237858 4.244085-2.958904 4.164384-2.660025L3.88543-1.504359L3.686177-.747198C3.646326-.547945 3.556663-.209215 3.556663-.159402C3.556663 .019925 3.696139 .109589 3.845579 .109589C4.154421 .109589 4.214197-.139477 4.293898-.458281C4.433375-1.016189 4.801993-2.470735 4.891656-2.859278C4.921544-2.988792 5.449564-4.184309 6.535492-4.184309C6.963885-4.184309 7.073474-3.845579 7.073474-3.486924C7.073474-2.919054 6.655044-1.783313 6.455791-1.255293C6.366127-1.016189 6.326276-.9066 6.326276-.707347C6.326276-.239103 6.674969 .109589 7.143213 .109589C8.079701 .109589 8.448319-1.344956 8.448319-1.424658C8.448319-1.524284 8.358655-1.524284 8.328767-1.524284C8.229141-1.524284 8.229141-1.494396 8.179328-1.344956C8.029888-.816936 7.711083-.109589 7.163138-.109589C6.993773-.109589 6.924035-.209215 6.924035-.438356C6.924035-.687422 7.013699-.926526 7.103362-1.145704C7.292653-1.663761 7.711083-2.769614 7.711083-3.337484C7.711083-3.985056 7.312578-4.403487 6.56538-4.403487S5.310087-3.965131 4.941469-3.437111C4.931507-3.566625 4.901619-3.905355 4.622665-4.144458C4.373599-4.353674 4.054795-4.403487 3.805729-4.403487C2.909091-4.403487 2.420922-3.765878 2.251557-3.536737C2.201743-4.104608 1.783313-4.403487 1.334994-4.403487C.876712-4.403487 .687422-4.014944 .597758-3.835616C.418431-3.486924 .288917-2.899128 .288917-2.86924C.288917-2.769614 .388543-2.769614 .408468-2.769614C.508095-2.769614 .518057-2.779577 .577833-2.998755C.747198-3.706102 .946451-4.184309 1.305106-4.184309C1.464508-4.184309 1.613948-4.104608 1.613948-3.726027C1.613948-3.516812 1.58406-3.407223 1.454545-2.889166L.876712-.587796Z'/>
+<path id='g4-76' d='M2.873225-4.191283C2.93599-4.442341 2.956912-4.51208 3.598506-4.51208C3.814695-4.51208 3.884433-4.51208 3.884433-4.665504C3.884433-4.672478 3.87746-4.763138 3.765878-4.763138C3.605479-4.763138 3.417186-4.749191 3.249813-4.742217C3.075467-4.735243 2.866252-4.735243 2.691905-4.735243C2.545455-4.735243 2.357161-4.742217 2.21071-4.742217S1.896887-4.763138 1.75741-4.763138C1.715567-4.763138 1.610959-4.763138 1.610959-4.609714C1.610959-4.51208 1.694645-4.51208 1.834122-4.51208C1.841096-4.51208 1.973599-4.51208 2.099128-4.498132C2.245579-4.484184 2.259527-4.470237 2.259527-4.400498C2.259527-4.38655 2.259527-4.351681 2.231631-4.247073L1.30411-.54396C1.241345-.306849 1.227397-.251059 .690411-.251059C.571856-.251059 .481196-.251059 .481196-.104608C.481196 0 .564882 0 .690411 0H4.198257C4.372603 0 4.379577-.006974 4.435367-.139477C4.505106-.327771 5.028144-1.680697 5.028144-1.736488C5.028144-1.75741 5.014197-1.834122 4.909589-1.834122C4.825903-1.834122 4.811955-1.799253 4.770112-1.687671C4.505106-1.025156 4.198257-.251059 2.922042-.251059H2.133998C1.917808-.251059 1.910834-.258032 1.910834-.320797C1.910834-.327771 1.910834-.36264 1.93873-.467248L2.873225-4.191283Z'/>
+<path id='g4-103' d='M3.710087-2.57335C3.737983-2.677958 3.737983-2.712827 3.737983-2.719801C3.737983-2.873225 3.612453-2.942964 3.500872-2.942964C3.340473-2.942964 3.20797-2.810461 3.180075-2.677958C3.061519-2.866252 2.824408-3.075467 2.461768-3.075467C1.590037-3.075467 .676463-2.140971 .676463-1.143711C.676463-.425405 1.164633 0 1.736488 0C2.057285 0 2.364134-.160399 2.608219-.376588L2.454795 .251059C2.378082 .54396 2.329265 .732254 2.064259 .969365C1.75741 1.227397 1.457534 1.227397 1.283188 1.227397C.962391 1.227397 .871731 1.206476 .746202 1.17858C.920548 1.094894 .969365 .927522 .969365 .829888C.969365 .662516 .836862 .571856 .697385 .571856C.502117 .571856 .299875 .732254 .299875 .99726C.299875 1.415691 .899626 1.422665 1.290162 1.422665C2.385056 1.422665 2.852304 .864757 2.949938 .467248L3.710087-2.57335ZM2.747696-.927522C2.719801-.822914 2.719801-.808966 2.601245-.669489C2.357161-.376588 2.022416-.195268 1.75741-.195268C1.401743-.195268 1.234371-.495143 1.234371-.857783C1.234371-1.164633 1.422665-1.945704 1.603985-2.252553C1.896887-2.740722 2.224658-2.880199 2.461768-2.880199C2.949938-2.880199 3.082441-2.357161 3.082441-2.287422C3.082441-2.273474 3.082441-2.259527 3.061519-2.182814L2.747696-.927522Z'/>
+<path id='g5-48' d='M4.582814-3.188045C4.582814-3.985056 4.533001-4.782067 4.184309-5.519303C3.726027-6.475716 2.909091-6.635118 2.49066-6.635118C1.892902-6.635118 1.165629-6.37609 .757161-5.449564C.438356-4.762142 .388543-3.985056 .388543-3.188045C.388543-2.440847 .428394-1.544209 .836862-.787049C1.265255 .019925 1.992528 .219178 2.480697 .219178C3.01868 .219178 3.775841 .009963 4.214197-.936488C4.533001-1.62391 4.582814-2.400996 4.582814-3.188045ZM2.480697 0C2.092154 0 1.504359-.249066 1.325031-1.205479C1.215442-1.803238 1.215442-2.719801 1.215442-3.307597C1.215442-3.945205 1.215442-4.60274 1.295143-5.140722C1.484433-6.326276 2.231631-6.41594 2.480697-6.41594C2.809465-6.41594 3.466999-6.236613 3.656289-5.250311C3.755915-4.692403 3.755915-3.935243 3.755915-3.307597C3.755915-2.560399 3.755915-1.882939 3.646326-1.24533C3.496887-.298879 2.929016 0 2.480697 0Z'/>
+<path id='g5-50' d='M1.265255-.767123L2.321295-1.793275C3.875467-3.16812 4.473225-3.706102 4.473225-4.702366C4.473225-5.838107 3.576588-6.635118 2.361146-6.635118C1.235367-6.635118 .498132-5.718555 .498132-4.83188C.498132-4.273973 .996264-4.273973 1.026152-4.273973C1.195517-4.273973 1.544209-4.393524 1.544209-4.801993C1.544209-5.061021 1.364882-5.32005 1.016189-5.32005C.936488-5.32005 .916563-5.32005 .886675-5.310087C1.115816-5.957659 1.653798-6.326276 2.231631-6.326276C3.138232-6.326276 3.566625-5.519303 3.566625-4.702366C3.566625-3.905355 3.068493-3.118306 2.520548-2.500623L.607721-.368618C.498132-.259029 .498132-.239103 .498132 0H4.194271L4.473225-1.733499H4.224159C4.174346-1.43462 4.104608-.996264 4.004981-.846824C3.935243-.767123 3.277709-.767123 3.058531-.767123H1.265255Z'/>
+<path id='g5-53' d='M4.473225-2.002491C4.473225-3.188045 3.656289-4.184309 2.580324-4.184309C2.102117-4.184309 1.673724-4.024907 1.315068-3.676214V-5.618929C1.514321-5.559153 1.843088-5.489415 2.161893-5.489415C3.387298-5.489415 4.084682-6.396015 4.084682-6.525529C4.084682-6.585305 4.054795-6.635118 3.985056-6.635118C3.975093-6.635118 3.955168-6.635118 3.905355-6.60523C3.706102-6.515567 3.217933-6.316314 2.550436-6.316314C2.15193-6.316314 1.693649-6.386052 1.225405-6.595268C1.145704-6.625156 1.125778-6.625156 1.105853-6.625156C1.006227-6.625156 1.006227-6.545455 1.006227-6.386052V-3.437111C1.006227-3.257783 1.006227-3.178082 1.145704-3.178082C1.215442-3.178082 1.235367-3.20797 1.275218-3.267746C1.384807-3.427148 1.753425-3.965131 2.560399-3.965131C3.078456-3.965131 3.327522-3.506849 3.407223-3.327522C3.566625-2.958904 3.58655-2.570361 3.58655-2.072229C3.58655-1.723537 3.58655-1.125778 3.347447-.707347C3.108344-.318804 2.739726-.059776 2.281445-.059776C1.554172-.059776 .986301-.587796 .816936-1.175592C.846824-1.165629 .876712-1.155666 .986301-1.155666C1.315068-1.155666 1.484433-1.404732 1.484433-1.643836S1.315068-2.132005 .986301-2.132005C.846824-2.132005 .498132-2.062267 .498132-1.603985C.498132-.747198 1.185554 .219178 2.30137 .219178C3.457036 .219178 4.473225-.737235 4.473225-2.002491Z'/>
+<path id='g5-54' d='M1.315068-3.267746V-3.506849C1.315068-6.027397 2.550436-6.386052 3.058531-6.386052C3.297634-6.386052 3.716065-6.326276 3.935243-5.987547C3.785803-5.987547 3.387298-5.987547 3.387298-5.539228C3.387298-5.230386 3.626401-5.080946 3.845579-5.080946C4.004981-5.080946 4.303861-5.17061 4.303861-5.559153C4.303861-6.156912 3.865504-6.635118 3.038605-6.635118C1.763387-6.635118 .418431-5.349938 .418431-3.148194C.418431-.488169 1.574097 .219178 2.500623 .219178C3.606476 .219178 4.552927-.71731 4.552927-2.032379C4.552927-3.297634 3.666252-4.254047 2.560399-4.254047C1.882939-4.254047 1.514321-3.745953 1.315068-3.267746ZM2.500623-.059776C1.872976-.059776 1.574097-.657534 1.514321-.806974C1.334994-1.275218 1.334994-2.072229 1.334994-2.251557C1.334994-3.028643 1.653798-4.024907 2.550436-4.024907C2.709838-4.024907 3.16812-4.024907 3.476961-3.407223C3.656289-3.038605 3.656289-2.530511 3.656289-2.042341C3.656289-1.564134 3.656289-1.066002 3.486924-.707347C3.188045-.109589 2.729763-.059776 2.500623-.059776Z'/>
+<path id='g5-55' d='M4.742217-6.067248C4.83188-6.1868 4.83188-6.206725 4.83188-6.41594H2.410959C1.195517-6.41594 1.175592-6.545455 1.135741-6.734745H.886675L.557908-4.682441H.806974C.836862-4.841843 .926526-5.469489 1.05604-5.589041C1.125778-5.648817 1.902864-5.648817 2.032379-5.648817H4.094645C3.985056-5.489415 3.198007-4.403487 2.978829-4.07472C2.082192-2.729763 1.753425-1.344956 1.753425-.328767C1.753425-.229141 1.753425 .219178 2.211706 .219178S2.669988-.229141 2.669988-.328767V-.836862C2.669988-1.384807 2.699875-1.932752 2.779577-2.470735C2.819427-2.699875 2.958904-3.556663 3.39726-4.174346L4.742217-6.067248Z'/>
+<path id='g5-61' d='M6.844334-3.257783C6.993773-3.257783 7.183064-3.257783 7.183064-3.457036S6.993773-3.656289 6.854296-3.656289H.886675C.747198-3.656289 .557908-3.656289 .557908-3.457036S.747198-3.257783 .896638-3.257783H6.844334ZM6.854296-1.325031C6.993773-1.325031 7.183064-1.325031 7.183064-1.524284S6.993773-1.723537 6.844334-1.723537H.896638C.747198-1.723537 .557908-1.723537 .557908-1.524284S.747198-1.325031 .886675-1.325031H6.854296Z'/>
+<path id='g5-76' d='M5.798257-2.570361H5.549191C5.439601-1.554172 5.300125-.308842 3.5467-.308842H2.729763C2.261519-.308842 2.241594-.37858 2.241594-.707347V-6.017435C2.241594-6.356164 2.241594-6.495641 3.188045-6.495641H3.516812V-6.804483C3.158157-6.774595 2.251557-6.774595 1.843088-6.774595C1.454545-6.774595 .67746-6.774595 .328767-6.804483V-6.495641H.56787C1.334994-6.495641 1.354919-6.386052 1.354919-6.027397V-.777086C1.354919-.418431 1.334994-.308842 .56787-.308842H.328767V0H5.519303L5.798257-2.570361Z'/>
+<path id='g5-99' d='M1.165629-2.171856C1.165629-3.795766 1.982565-4.214197 2.510585-4.214197C2.600249-4.214197 3.227895-4.204234 3.576588-3.845579C3.16812-3.815691 3.108344-3.516812 3.108344-3.387298C3.108344-3.128269 3.287671-2.929016 3.566625-2.929016C3.825654-2.929016 4.024907-3.098381 4.024907-3.39726C4.024907-4.07472 3.267746-4.463263 2.500623-4.463263C1.255293-4.463263 .33873-3.387298 .33873-2.15193C.33873-.876712 1.325031 .109589 2.480697 .109589C3.815691 .109589 4.134496-1.085928 4.134496-1.185554S4.034869-1.285181 4.004981-1.285181C3.915318-1.285181 3.895392-1.24533 3.875467-1.185554C3.58655-.259029 2.938979-.139477 2.570361-.139477C2.042341-.139477 1.165629-.56787 1.165629-2.171856Z'/>
+<path id='g5-103' d='M2.211706-1.713574C1.344956-1.713574 1.344956-2.709838 1.344956-2.938979C1.344956-3.20797 1.354919-3.526775 1.504359-3.775841C1.58406-3.895392 1.8132-4.174346 2.211706-4.174346C3.078456-4.174346 3.078456-3.178082 3.078456-2.948941C3.078456-2.67995 3.068493-2.361146 2.919054-2.11208C2.839352-1.992528 2.610212-1.713574 2.211706-1.713574ZM1.05604-1.325031C1.05604-1.364882 1.05604-1.594022 1.225405-1.793275C1.613948-1.514321 2.022416-1.484433 2.211706-1.484433C3.138232-1.484433 3.825654-2.171856 3.825654-2.938979C3.825654-3.307597 3.666252-3.676214 3.417186-3.905355C3.775841-4.244085 4.134496-4.293898 4.313823-4.293898C4.333748-4.293898 4.383562-4.293898 4.41345-4.283935C4.303861-4.244085 4.254047-4.134496 4.254047-4.014944C4.254047-3.845579 4.383562-3.726027 4.542964-3.726027C4.64259-3.726027 4.83188-3.795766 4.83188-4.024907C4.83188-4.194271 4.712329-4.513076 4.323786-4.513076C4.124533-4.513076 3.686177-4.4533 3.267746-4.044832C2.849315-4.373599 2.430884-4.403487 2.211706-4.403487C1.285181-4.403487 .597758-3.716065 .597758-2.948941C.597758-2.510585 .816936-2.132005 1.066002-1.92279C.936488-1.77335 .757161-1.444583 .757161-1.09589C.757161-.787049 .886675-.408468 1.195517-.209215C.597758-.039851 .278954 .388543 .278954 .787049C.278954 1.504359 1.265255 2.052304 2.480697 2.052304C3.656289 2.052304 4.692403 1.544209 4.692403 .767123C4.692403 .418431 4.552927-.089664 4.044832-.368618C3.516812-.647572 2.938979-.647572 2.331258-.647572C2.082192-.647572 1.653798-.647572 1.58406-.657534C1.265255-.697385 1.05604-1.006227 1.05604-1.325031ZM2.49066 1.823163C1.484433 1.823163 .797011 1.315068 .797011 .787049C.797011 .328767 1.175592-.039851 1.613948-.069738H2.201743C3.058531-.069738 4.174346-.069738 4.174346 .787049C4.174346 1.325031 3.466999 1.823163 2.49066 1.823163Z'/>
+<path id='g5-109' d='M1.09589-3.427148V-.757161C1.09589-.308842 .986301-.308842 .318804-.308842V0C.667497-.009963 1.175592-.029888 1.444583-.029888C1.703611-.029888 2.221669-.009963 2.560399 0V-.308842C1.892902-.308842 1.783313-.308842 1.783313-.757161V-2.590286C1.783313-3.626401 2.49066-4.184309 3.128269-4.184309C3.755915-4.184309 3.865504-3.646326 3.865504-3.078456V-.757161C3.865504-.308842 3.755915-.308842 3.088418-.308842V0C3.437111-.009963 3.945205-.029888 4.214197-.029888C4.473225-.029888 4.991283-.009963 5.330012 0V-.308842C4.662516-.308842 4.552927-.308842 4.552927-.757161V-2.590286C4.552927-3.626401 5.260274-4.184309 5.897883-4.184309C6.525529-4.184309 6.635118-3.646326 6.635118-3.078456V-.757161C6.635118-.308842 6.525529-.308842 5.858032-.308842V0C6.206725-.009963 6.714819-.029888 6.983811-.029888C7.242839-.029888 7.760897-.009963 8.099626 0V-.308842C7.581569-.308842 7.332503-.308842 7.32254-.607721V-2.510585C7.32254-3.367372 7.32254-3.676214 7.013699-4.034869C6.874222-4.204234 6.545455-4.403487 5.967621-4.403487C5.13076-4.403487 4.692403-3.805729 4.523039-3.427148C4.383562-4.293898 3.646326-4.403487 3.198007-4.403487C2.470735-4.403487 2.002491-3.975093 1.723537-3.35741V-4.403487L.318804-4.293898V-3.985056C1.016189-3.985056 1.09589-3.915318 1.09589-3.427148Z'/>
+<path id='g6-50' d='M3.521793-1.26924H3.284682C3.263761-1.115816 3.194022-.704359 3.103362-.63462C3.047572-.592777 2.510585-.592777 2.412951-.592777H1.129763C1.862017-1.241345 2.106102-1.436613 2.524533-1.764384C3.040598-2.175841 3.521793-2.608219 3.521793-3.270735C3.521793-4.11457 2.782565-4.630635 1.889913-4.630635C1.025156-4.630635 .439352-4.02391 .439352-3.382316C.439352-3.02665 .739228-2.991781 .808966-2.991781C.976339-2.991781 1.17858-3.110336 1.17858-3.361395C1.17858-3.486924 1.129763-3.731009 .767123-3.731009C.983313-4.226152 1.457534-4.379577 1.785305-4.379577C2.48269-4.379577 2.84533-3.835616 2.84533-3.270735C2.84533-2.66401 2.412951-2.182814 2.189788-1.931756L.509091-.27198C.439352-.209215 .439352-.195268 .439352 0H3.312578L3.521793-1.26924Z'/>
+<path id='g6-51' d='M1.903861-2.329265C2.447821-2.329265 2.838356-1.952677 2.838356-1.206476C2.838356-.341719 2.336239-.083686 1.931756-.083686C1.652802-.083686 1.039103-.160399 .746202-.571856C1.073973-.585803 1.150685-.81594 1.150685-.962391C1.150685-1.185554 .983313-1.345953 .767123-1.345953C.571856-1.345953 .376588-1.227397 .376588-.941469C.376588-.285928 1.101868 .139477 1.945704 .139477C2.915068 .139477 3.584558-.509091 3.584558-1.206476C3.584558-1.750436 3.138232-2.294396 2.371108-2.454795C3.103362-2.719801 3.368369-3.242839 3.368369-3.668244C3.368369-4.219178 2.733748-4.630635 1.959651-4.630635S.592777-4.254047 .592777-3.696139C.592777-3.459029 .746202-3.326526 .955417-3.326526C1.171606-3.326526 1.311083-3.486924 1.311083-3.682192C1.311083-3.884433 1.171606-4.030884 .955417-4.044832C1.199502-4.351681 1.680697-4.428394 1.93873-4.428394C2.252553-4.428394 2.691905-4.274969 2.691905-3.668244C2.691905-3.375342 2.594271-3.054545 2.412951-2.838356C2.182814-2.57335 1.987547-2.559402 1.638854-2.538481C1.464508-2.524533 1.45056-2.524533 1.415691-2.517559C1.401743-2.517559 1.345953-2.503611 1.345953-2.426899C1.345953-2.329265 1.408717-2.329265 1.527273-2.329265H1.903861Z'/>
+</defs>
+<g id='page1'>
+<path d='M-69.609374 139.027344V-2.707H15.4297V139.027344Z' fill='#ebffeb'/>
+<path d='M-69.609374 139.027344V-2.707H15.4297V139.027344Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-69.609374 25.641V-2.707H15.4297V25.641Z' fill='#ffc'/>
+<path d='M-69.609374 25.641V-2.707H15.4297V25.641Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 13.0092 -54.2243)'>
+<use x='-69.608977' y='139.028053' xlink:href='#g2-67'/>
+<use x='-61.336471' y='139.028053' xlink:href='#g2-104'/>
+<use x='-54.973005' y='139.028053' xlink:href='#g2-97'/>
+<use x='-49.404972' y='139.028053' xlink:href='#g2-109'/>
+<use x='-39.859773' y='139.028053' xlink:href='#g2-112'/>
+<use x='-33.496307' y='139.028053' xlink:href='#g2-97'/>
+<use x='-27.928274' y='139.028053' xlink:href='#g2-103'/>
+<use x='-22.201154' y='139.028053' xlink:href='#g2-110'/>
+<use x='-15.837688' y='139.028053' xlink:href='#g2-101'/>
+</g>
+<g transform='matrix(1 0 0 1 18.8517 -40.6975)'>
+<use x='-69.608977' y='139.028053' xlink:href='#g3-86'/>
+<use x='-63.79743' y='140.522434' xlink:href='#g4-76'/>
+<use x='-55.066317' y='139.028053' xlink:href='#g5-61'/>
+<use x='-44.550237' y='139.028053' xlink:href='#g5-55'/>
+<use x='-39.568898' y='139.028053' xlink:href='#g5-53'/>
+<use x='-32.927159' y='139.028053' xlink:href='#g5-99'/>
+<use x='-28.499308' y='139.028053' xlink:href='#g5-76'/>
+</g>
+<g transform='matrix(1 0 0 1 24.034 -124.971)'>
+<use x='-69.608977' y='139.028053' xlink:href='#g1-71'/>
+<use x='-62.379523' y='139.028053' xlink:href='#g1-97'/>
+<use x='-57.772927' y='139.028053' xlink:href='#g1-122'/>
+<use x='-50.607113' y='139.028053' xlink:href='#g1-67'/>
+<use x='-43.953141' y='139.028053' xlink:href='#g1-79'/>
+<use x='-36.787339' y='140.024302' xlink:href='#g0-50'/>
+</g>
+<g transform='matrix(1 0 0 1 94.2287 -124.931)'>
+<use x='-69.608977' y='139.028053' xlink:href='#g3-86'/>
+<use x='-63.79743' y='140.522434' xlink:href='#g4-103'/>
+<use x='-56.395029' y='139.028053' xlink:href='#g5-61'/>
+<use x='-45.878949' y='139.028053' xlink:href='#g5-54'/>
+<use x='-40.89761' y='139.028053' xlink:href='#g3-58'/>
+<use x='-38.130201' y='139.028053' xlink:href='#g5-53'/>
+<use x='-33.148862' y='139.028053' xlink:href='#g5-48'/>
+<use x='-26.507124' y='139.028053' xlink:href='#g5-99'/>
+<use x='-22.079272' y='139.028053' xlink:href='#g5-109'/>
+<use x='-13.77706' y='135.412689' xlink:href='#g6-51'/>
+</g>
+<path d='M-46.9297-2.707V-25.383H-7.2461V-2.707Z' fill='#e6ccb3'/>
+<path d='M-46.9297-2.707V-25.383H-7.2461V-2.707Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 25.0537 -149.9849)'>
+<use x='-69.608977' y='139.028053' xlink:href='#g1-66'/>
+<use x='-63.083655' y='139.028053' xlink:href='#g1-111'/>
+<use x='-58.477059' y='139.028053' xlink:href='#g1-117'/>
+<use x='-53.358617' y='139.028053' xlink:href='#g1-99'/>
+<use x='-49.519804' y='139.028053' xlink:href='#g1-104'/>
+<use x='-44.401362' y='139.028053' xlink:href='#g1-111'/>
+<use x='-39.794766' y='139.028053' xlink:href='#g1-110'/>
+</g>
+<g transform='matrix(1 0 0 1 94.2287 -150.831)'>
+<use x='-69.608977' y='139.028053' xlink:href='#g3-109'/>
+<use x='-58.094311' y='139.028053' xlink:href='#g5-61'/>
+<use x='-47.578231' y='139.028053' xlink:href='#g5-55'/>
+<use x='-42.596892' y='139.028053' xlink:href='#g3-58'/>
+<use x='-39.829483' y='139.028053' xlink:href='#g5-48'/>
+<use x='-33.187745' y='139.028053' xlink:href='#g5-103'/>
+</g>
+<path d='M-27.0898-25.383V-50.668' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-27.089841-53.16409L-28.43359-49.589871L-27.089841-50.76565L-25.74219-49.589871Z'/>
+<path d='M-27.089841-53.16409L-28.43359-49.589871L-27.089841-50.76565L-25.74219-49.589871Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 25.9477 -198.0204)'>
+<use x='-69.608977' y='139.028053' xlink:href='#g1-201'/>
+<use x='-63.339578' y='139.028053' xlink:href='#g1-106'/>
+<use x='-60.524434' y='139.028053' xlink:href='#g1-101'/>
+<use x='-56.426212' y='139.028053' xlink:href='#g1-99'/>
+<use x='-52.331462' y='139.028053' xlink:href='#g1-116'/>
+<use x='-48.748558' y='139.028053' xlink:href='#g1-105'/>
+<use x='-46.189337' y='139.028053' xlink:href='#g1-111'/>
+<use x='-41.582741' y='139.028053' xlink:href='#g1-110'/>
+</g>
+<g transform='matrix(1 0 0 1 94.2287 -80.9856)'>
+<use x='-69.608977' y='139.028053' xlink:href='#g3-83'/>
+<use x='-60.158382' y='139.028053' xlink:href='#g5-61'/>
+<use x='-49.642302' y='139.028053' xlink:href='#g5-50'/>
+<use x='-44.660963' y='139.028053' xlink:href='#g3-58'/>
+<use x='-41.893555' y='139.028053' xlink:href='#g5-48'/>
+<use x='-35.251816' y='139.028053' xlink:href='#g5-99'/>
+<use x='-30.823964' y='139.028053' xlink:href='#g5-109'/>
+<use x='-22.521752' y='135.412689' xlink:href='#g6-50'/>
+</g>
+<path d='M29.6055-5.77V-22.32' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M29.605448-3.27343L30.9492-6.843746L29.605448-5.67187L28.25779-6.843746Z'/>
+<path d='M29.605448-3.27343L30.9492-6.843746L29.605448-5.67187L28.25779-6.843746Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M29.605448-24.81645L28.25779-21.246138L29.605448-22.41801L30.9492-21.246138Z'/>
+<path d='M29.605448-24.81645L28.25779-21.246138L29.605448-22.41801L30.9492-21.246138Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+</g>
+</svg></div>
+</div>
+<strong>Données :</strong>
+<ul><li>Température : $T = $298   $$.</li><li>Pression atmosphérique : $P_{} = $1013   $$.</li><li>Intensité de la pesanteur : $g = $9{,}81   $$.</li><li>Masse molaire du ${}_2$ : $M(${}_2$) = $44{,}0   $$.</li><li>$R = $8{,}314    $$.</li><li>Section intérieure du goulot : $S = $2{,}0   $$.</li><li>Volume de ${}_2$ gazeux dans le col : $V_g = $6{,}50   $$.</li><li>Masse du bouchon de liège : $m = $7{,}0   $$.
+</li></ul>
+<ol><li>En utilisant l'équation d'état du gaz parfait, calculer la quantité de matière $n_g$ de ${}_2$ gazeux présent dans le col de la bouteille fermée à la pression $P = $6{,}0   $$.</li><li>Calculer la quantité de matière totale de ${}_2$ (dissous + gazeux) dans la bouteille. En déduire la masse totale de ${}_2$. Vérifier la cohérence avec l'intervalle $[$5   $ ; $9   $]$.</li><li>La force pressante exercée par le gaz sur le bouchon vaut $F_{} = P  S$. Calculer $F_{}$.</li><li>La force pressante exercée par l'atmosphère sur l'autre face du bouchon vaut $F_{} = P_{}  S$. Calculer $F_{}$.</li><li>Calculer le poids du bouchon $W = m  g$.</li><li>En comparant $F_{}$ à $F_{} + W$, expliquer pourquoi le bouchon est éjecté à l'ouverture. Estimer la résultante des forces sur le bouchon au moment de la libération.</li><li>Porter un regard critique sur le modèle utilisé : quelles hypothèses simplificatrices ont été faites ? Quels phénomènes ont été négligés ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Cet exercice combine la loi de Henry (dissolution d'un gaz), l'équation d'état du gaz parfait (quantité de matière gazeuse), et un bilan de forces (éjection du bouchon). Chaque partie est traitée séparément.
+</div>
+<p>{Partie A -- Dissolution du ${}_2$ dans l'eau}</p>
+<strong>Données :</strong>
+<ul><li>$k_H(${}_2$) = 3{,}35  10^{-4} $$$</li><li>$P = $6{,}0   $ = 6{,}0  10^{5} $$$</li><li>$T = $298   $$</li><li>$V_L = $75   $ = $0{,}75   $$
+</li></ul>
+<ol><li>{Calcul de la concentration $C$ de ${}_2$ dissous :}
+<p>La loi de Henry s'écrit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C = k_H  P$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+C &= 3{,}35  10^{-4}  6{,}0  10^{5} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>4pt]
+C &= 3{,}35  6{,}0  10^{-4+5} \\[4pt]
+C &= 20{,}1  10^{1} \\[4pt]
+C &= $201   $
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<div class="info-box">
+<strong>Remarque :</strong> Cette valeur de concentration peut para\^itre élevée. Elle résulte directement de la valeur de $k_H$ donnée et de la pression de 6 bar. En réalité, la constante de Henry est souvent exprimée dans d'autres unités dans la littérature. Ici, on applique la formule telle que donnée dans l'énoncé. Si la valeur de $k_H$ était en$$</div></div><div class="formula-wrapper-centered"><div class="formula-content">$$au lieu de$$</div></div><div class="formula-wrapper-centered"><div class="formula-content">$$, on obtiendrait $C = 3{,}35  10^{-4}  6{,}0 = 2{,}01  10^{-3} $$$</div></div>, ce qui serait plus réaliste physiquement. Nous poursuivons avec la lecture la plus cohérente de l'énoncé. En interprétant $k_H = 3{,}35  10^{-4} $<div class="formula-wrapper-centered"><div class="formula-content">$$au sens strict, on obtient $C = $201   $$</div></div>, mais si les unités de $k_H$ sont en fait <div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div>, on obtiendrait :
+\[
+C = 3{,}35  10^{-4}  600 = $0{,}201   <div class="formula-wrapper-centered"><div class="formula-content">$$$</div></div>
+Cette dernière valeur est la plus physiquement réaliste. {Adoptons $C  $0{,}20   $$} en supposant $P$ exprimée en $$ dans la relation de Henry donnée.
+</div>
+<p>Avec $C = $0{,}20   $$ (interprétation physiquement cohérente) :</li><li>{Quantité de matière de ${}_2$ dissous :}</p>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>n_{} = C  V_L<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+n_{} &= 0{,}20  0{,}75 \<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$4pt]
+n_{} &= $0{,}15   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $n_{}  $0{,}15   <div class="formula-wrapper-centered"><div class="formula-content">$$.
+</li></ol>
+<strong>Partie B -- Caractéristiques de la bouteille et éjection du bouchon</strong>
+<strong>Données supplémentaires :</strong>
+<ul><li>$V_g = $6{,}50   $ = 6{,}50  10^{-6} $$$</div></div></li><li>$S = $2{,}0   $ = 2{,}0  10^{-4} $<div class="formula-wrapper-centered"><div class="formula-content">$$</li><li>$m = $7{,}0   $ = 7{,}0  10^{-3} $$$</div></div></li><li>$P = $6{,}0   $ = $6{,}0  10^{5}   <div class="formula-wrapper-centered"><div class="formula-content">$$</li><li>$P_{} = $1013   $ = $1{,}013  10^{5}   $$</div></div></li><li>$g = $9{,}81   <div class="formula-wrapper-centered"><div class="formula-content">$$</li><li>$M(${}_2$) = $44{,}0   $$</div></div></li><li>$R = $8{,}314    <div class="formula-wrapper-centered"><div class="formula-content">$$; $T = $298   $$</div></div>
+</li></ul>
+<ol><li>{Quantité de matière de ${}_2$ gazeux dans le col :}
+<p>On utilise $PV_g = n_g RT$ :<br>\[<br>n_g = {R  T}<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+n_g &= {6{,}0  10^{5}  6{,}50  10^{-6}}{8{,}314  298} \<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$6pt]
+n_g &= {3{,}90}{2477{,}6} \\[6pt]
+n_g &= 1{,}57  10^{-3} $$
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $n_g  1{,}6  10^{-3} $<div class="formula-wrapper-centered"><div class="formula-content">$$.</li><li>{Quantité de matière totale et masse de ${}_2$ :}
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+n_{} &= n_{} + n_g \\
+n_{} &= 0{,}15 + 1{,}57  10^{-3} \\
+n_{} & $0{,}152   $
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<p>Masse totale de ${}_2$ :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div><br>m_{${}_2$} &= n_{}  M(${}_2$) \\<br>m_{${}_2$} &= 0{,}152  44{,}0 \\<br>m_{${}_2$} &= $6{,}7   $<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<strong>Vérification :</strong>$$</div></div>6{,}7   <div class="formula-wrapper-centered"><div class="formula-content">$$est bien compris dans l'intervalle $[$5   $ ; $9   $]$ annoncé. Le résultat est cohérent.</li><li><strong>Force pressante du gaz sur le bouchon :</strong>
+<p>\[<br>F_{} = P  S$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+F_{} &= 6{,}0  10^{5}  2{,}0  10^{-4} \\
+F_{} &= $120   $
+$$</div></div></div></div></li><li><strong>Force pressante de l'atmosphère :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$F_{} = P_{}  S$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+F_{} &= 1{,}013  10^{5}  2{,}0  10^{-4} \\
+F_{} &= $20{,}3   $
+$$</div></div></div></div></li><li><strong>Poids du bouchon :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$W = m  g$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+W &= 7{,}0  10^{-3}  9{,}81 \\
+W &= 6{,}9  10^{-2} $$  $0{,}069   $
+$$</div></div></div></div></li><li><strong>Comparaison des forces et explication de l'éjection :</strong>
+<p>Récapitulatif des forces (en prenant la direction verticale vers le haut comme positive, la bouteille étant verticale) :<br><ul><li>$F_{} = $120   $$ (vers le haut, le gaz pousse le bouchon vers l'extérieur)</li><li>$F_{} = $20{,}3   $$ (vers le bas, l'atmosphère pousse le bouchon vers l'intérieur)</li><li>$W = $0{,}069   $$ (vers le bas, le poids du bouchon)<br></li></ul></p>
+<strong>Résultante des forces :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+F_{} &= F_{} - F_{} - W \\
+F_{} &= 120 - 20{,}3 - 0{,}069 \\
+F_{} & $100   $
+$$</div></div></div></div>
+<p>La résultante est dirigée vers le haut et vaut environ $$100   $$, ce qui est considérable pour un bouchon de $$7{,}0   $$. Le bouchon est donc éjecté violemment vers le haut.</p>
+<strong>Remarque :</strong> le poids du bouchon ($$0{,}069   $$) est totalement négligeable devant les forces pressantes (de l'ordre de la centaine de newtons).</li><li><strong>Regard critique sur le modèle :</strong>
+<p>Plusieurs hypothèses simplificatrices ont été faites :<br><ul><li><strong>Gaz parfait :</strong> le ${}_2$ à $$6   $$ n'est pas exactement un gaz parfait (le modèle est d'autant plus valable que la pression est basse). \`A $$6   $$, les écarts sont cependant encore modérés.</li><li><strong>Température constante :</strong> on a supposé $T = $298   $$ tout au long du processus, alors que l'ouverture de la bouteille s'accompagne d'une détente rapide du gaz, donc d'un refroidissement.</li><li><strong>Frottements négligés :</strong> les frottements entre le bouchon de liège et le goulot sont très importants en réalité (c'est ce qui maintient le bouchon en place). On n'a pas tenu compte de la force de frottement statique puis dynamique.</li><li><strong>Dégazage progressif :</strong> lorsque la pression diminue dans la bouteille, du ${}_2$ dissous repasse en phase gazeuse (loi de Henry), ce qui maintient la pression plus longtemps. Ce phénomène n'est pas pris en compte dans notre modèle simple.</li><li><strong>Volume de gaz constant :</strong> on a supposé $V_g$ fixé, alors que le gaz se détend lors de l'éjection.</li><li><strong>Pression statique :</strong> le calcul donne la force au moment initial, mais l'éjection est un processus dynamique ; la pression diminue au fur et à mesure que le bouchon se déplace.<br></li></ul></p>
+<strong>Conclusion :</strong> Malgré ces simplifications, le modèle permet de comprendre l'essentiel du phénomène : la surpression interne (environ 6 fois la pression atmosphérique) crée une force nettement supérieure aux forces de résistance, ce qui provoque l'éjection violente du bouchon.
+</li></ol>
+                </div>
+            </details>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="cours_modele_gaz_parfait.html" class="btn-action">📖 Revoir le cours</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=modele_gaz_parfait" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=modele_gaz_parfait" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

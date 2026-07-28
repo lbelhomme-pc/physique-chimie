@@ -1,12 +1,14 @@
 ---
-// src/pages/lycee/[niveau]/[matiere]/[chapitre].astro
-import BaseLayout from "../../../../layouts/BaseLayout.astro";
-import ChapterTabs from "../../../../components/pedagogie/ChapterTabs.astro";
-import QuizPlayer from "../../../../components/pedagogie/QuizPlayer.tsx";
-import FlashcardsPlayer from "../../../../components/pedagogie/FlashcardsPlayer.tsx";
-import ExercicesPlayer from "../../../../components/pedagogie/ExercicesPlayer.tsx";
-import CoursTracker from "../../../../components/pedagogie/CoursTracker.tsx";
+import ChapterPageShell from "../../../../components/pedagogie/ChapterPageShell.astro";
+import { getDisciplineFromLevelSlug, getDisciplineIdentity } from "../../../../data/disciplineIdentity";
 import { getLevelLabel, getMatiereLabel } from "../../../../data/levels";
+import {
+  getChapterNavigation,
+  getPhysicalScienceLevelPath,
+  getPhysicalScienceRouteContext,
+  getPhysicalScienceSubjectPath,
+  type PhysicalScienceSubject,
+} from "../../../../data/contentRoutes";
 
 export function getStaticPaths() {
   const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
@@ -19,18 +21,26 @@ export function getStaticPaths() {
   return paths;
 }
 
-const allMeta  = import.meta.glob("/src/data/chapters/**/meta.json",       { eager: true });
-const allCours = import.meta.glob("/src/data/chapters/**/cours.mdx",       { eager: true });
-const allExo   = import.meta.glob("/src/data/chapters/**/exercices.json",  { eager: true });
-const allQuiz  = import.meta.glob("/src/data/chapters/**/quiz.json",       { eager: true });
+const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
+const allCours = import.meta.glob("/src/data/chapters/**/cours.mdx", { eager: true });
+const allExo = import.meta.glob("/src/data/chapters/**/exercices.json", { eager: true });
+const allQuiz = import.meta.glob("/src/data/chapters/**/quiz.json", { eager: true });
 const allFlash = import.meta.glob("/src/data/chapters/**/flashcards.json", { eager: true });
 
 const { niveau, matiere, chapitre } = Astro.params;
-const niveauLabel  = getLevelLabel(niveau!);
+const subject = matiere as PhysicalScienceSubject;
+const context = getPhysicalScienceRouteContext("lycee", niveau!, subject, chapitre!);
+const niveauLabel = getLevelLabel(niveau!);
 const matiereLabel = getMatiereLabel(matiere!);
+const discipline = getDisciplineIdentity(getDisciplineFromLevelSlug(niveau));
+const isTeachingScience = discipline.id === "enseignement-scientifique";
+const subjectDisplayLabel = isTeachingScience
+  ? matiere === "chimie" ? "Repères chimie et vivant" : "Repères physique et Terre"
+  : matiereLabel;
 const basePath = `/src/data/chapters/lycee/${niveau}/${matiere}/${chapitre}`;
 const chapterId = `lycee/${niveau}/${matiere}/${chapitre}`;
-const backUrl = `/lycee/${niveau}`;
+const backUrl = getPhysicalScienceLevelPath("lycee", niveau!);
+const subjectUrl = getPhysicalScienceSubjectPath("lycee", niveau!, subject);
 
 const metaMod = allMeta[`${basePath}/meta.json`] as any;
 const meta = metaMod?.default ?? metaMod ?? {};
@@ -38,47 +48,14 @@ const xpConfig = meta.xp ?? undefined;
 const seo = meta.seo ?? {};
 const displayTitle = meta.title ?? chapitre;
 const pageTitle = `${displayTitle} — ${matiereLabel} ${niveauLabel}`;
-const routeCanonical = `/lycee/${niveau}/${matiere}/${chapitre}`;
 
 function textOrFallback(value: unknown, fallback: string): string {
   return typeof value === "string" && value.trim() ? value.trim() : fallback;
 }
 
-function canonicalOrFallback(value: unknown, fallback: string, expectedPrefix: string): string {
-  if (typeof value !== "string" || !value.trim()) return fallback;
-  const trimmed = value.trim();
-  const path = trimmed.startsWith("http")
-    ? (() => {
-        try {
-          return new URL(trimmed).pathname;
-        } catch {
-          return fallback;
-        }
-      })()
-    : trimmed;
-  if (!path.startsWith("/") || !path.startsWith(expectedPrefix)) return fallback;
-  return path;
-}
-
 function localImageOrFallback(value: unknown, fallback: string): string {
   return typeof value === "string" && value.trim().startsWith("/") ? value.trim() : fallback;
 }
-
-const seoTitle = textOrFallback(seo.meta_title, pageTitle);
-const seoDescription = textOrFallback(
-  seo.meta_description,
-  textOrFallback(meta.description, `Cours de ${matiereLabel.toLowerCase()} ${niveauLabel} : ${displayTitle}.`)
-);
-const canonical = canonicalOrFallback(seo.canonical, routeCanonical, `/lycee/${niveau}/${matiere}/`);
-const schemaType = textOrFallback(seo.schema_type, "EducationalContent");
-const ogImage = localImageOrFallback(seo.ogImage ?? seo.og_image ?? meta.ogImage ?? meta.og_image, "/og-image.png");
-
-const coursMod = allCours[`${basePath}/cours.mdx`] as any;
-const CoursContent = coursMod?.Content ?? null;
-
-const exercicesRaw  = (allExo[`${basePath}/exercices.json`]    as any)?.default ?? null;
-const quizRaw       = (allQuiz[`${basePath}/quiz.json`]        as any)?.default ?? null;
-const flashcardsRaw = (allFlash[`${basePath}/flashcards.json`] as any)?.default ?? null;
 
 function getArray(raw: any, key: string): any[] {
   if (Array.isArray(raw)) return raw;
@@ -86,19 +63,34 @@ function getArray(raw: any, key: string): any[] {
   return [];
 }
 
-const exercices  = exercicesRaw  ? getArray(exercicesRaw, "exercices") : [];
-const quizData   = quizRaw       ? getArray(quizRaw, "questions")     : [];
-const flashData  = flashcardsRaw ? getArray(flashcardsRaw, "cards")   : [];
-
-const hasExercices  = exercices.length > 0;
-const hasQuiz       = quizData.length > 0;
-const hasFlashcards = flashData.length > 0;
-
-interface ChapterNavItem {
-  slug: string;
-  title: string;
-  order: number;
+function getTextArray(raw: unknown): string[] {
+  if (Array.isArray(raw)) {
+    return raw.filter((item): item is string => typeof item === "string").map((item) => item.trim()).filter(Boolean);
+  }
+  if (typeof raw === "string" && raw.trim()) return [raw.trim()];
+  return [];
 }
+
+const seoTitle = textOrFallback(seo.meta_title, pageTitle);
+const seoDescription = textOrFallback(
+  seo.meta_description,
+  textOrFallback(meta.description, `Cours de ${matiereLabel.toLowerCase()} ${niveauLabel} : ${displayTitle}.`)
+);
+const schemaType = textOrFallback(seo.schema_type, "EducationalContent") === "EducationalContent"
+  ? "Course"
+  : textOrFallback(seo.schema_type, "Course");
+const ogImage = localImageOrFallback(seo.ogImage ?? seo.og_image ?? meta.ogImage ?? meta.og_image, "/og-image.png");
+const learningObjectives = getTextArray(meta.objectives ?? meta.objectifs ?? meta.objective ?? meta.description);
+const prerequisites = getTextArray(meta.prerequisites ?? meta.prerequis);
+const competencies = getTextArray(meta.competencies ?? meta.competences);
+const tools = getTextArray(meta.tools ?? meta.outils);
+const estimatedDuration = typeof meta.duration === "number" || typeof meta.duration === "string" ? meta.duration : undefined;
+
+const coursMod = allCours[`${basePath}/cours.mdx`] as any;
+const CoursContent = coursMod?.Content ?? null;
+const exercices = getArray((allExo[`${basePath}/exercices.json`] as any)?.default ?? null, "exercices");
+const quizData = getArray((allQuiz[`${basePath}/quiz.json`] as any)?.default ?? null, "questions");
+const flashData = getArray((allFlash[`${basePath}/flashcards.json`] as any)?.default ?? null, "cards");
 
 const chapterNavigation = Object.entries(allMeta)
   .map(([path, mod]) => {
@@ -107,118 +99,56 @@ const chapterNavigation = Object.entries(allMeta)
     const data = (mod as any).default ?? mod;
     return { cycle, chapterNiveau, chapterMatiere, slug, title: data.title ?? slug, order: data.order ?? 99 };
   })
-  .filter((item) => item.cycle === "lycee" && item.chapterNiveau === niveau && item.chapterMatiere === matiere)
-  .sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
+  .filter((item) => item.cycle === "lycee" && item.chapterNiveau === niveau && item.chapterMatiere === matiere);
 
-const currentChapterIndex = chapterNavigation.findIndex((item) => item.slug === chapitre);
-const previousChapter = currentChapterIndex > 0 ? chapterNavigation[currentChapterIndex - 1] : null;
-const nextChapter = currentChapterIndex >= 0 && currentChapterIndex < chapterNavigation.length - 1
-  ? chapterNavigation[currentChapterIndex + 1]
-  : null;
+const { previousChapter, nextChapter } = getChapterNavigation(
+  chapterNavigation,
+  chapitre!,
+  (slug) => `/lycee/${niveau}/${matiere}/${slug}`,
+);
 ---
-<BaseLayout
+
+<ChapterPageShell
   title={seoTitle}
   description={seoDescription}
-  canonical={canonical}
+  canonical={context.canonical}
   ogImage={ogImage}
   schemaType={schemaType}
->
-
-  <div class="chapter-header">
-    <h1>{displayTitle}</h1>
-    {meta.theme && <p class="chapter-theme">📂 {meta.theme}</p>}
-  </div>
-
-  <ChapterTabs
-    hasCours={true}
-    hasExercices={hasExercices}
-    hasQuiz={hasQuiz}
-    hasFlashcards={hasFlashcards}
-    exercicesCount={exercices.length}
-    quizCount={quizData.length}
-    flashcardsCount={flashData.length}
-    backUrl={backUrl}
-    backLabel="Retour"
-  >
-    <div slot="cours" class="cours-content">
-      {CoursContent ? (
-        <CoursTracker client:load chapterId={chapterId} xpConfig={xpConfig}>
-          <CoursContent />
-        </CoursTracker>
-      ) : <p style="color:var(--text-muted); font-style:italic;">Le contenu du cours est en cours de rédaction.</p>}
-    </div>
-
-    {hasExercices && (
-      <div slot="exercices">
-        <ExercicesPlayer client:load data={exercices} title={`Exercices par niveaux — ${displayTitle}`} chapterId={chapterId} xpConfig={xpConfig} />
-      </div>
-    )}
-
-    {hasQuiz && (
-      <div slot="quiz">
-        <QuizPlayer client:load data={quizData} title={`Quiz — ${displayTitle}`} chapterId={chapterId} xpConfig={xpConfig} />
-      </div>
-    )}
-
-    {hasFlashcards && (
-      <div slot="flashcards">
-        <FlashcardsPlayer client:load data={flashData} title={`Flashcards — ${displayTitle}`} chapterId={chapterId} xpConfig={xpConfig} />
-      </div>
-    )}
-  </ChapterTabs>
-
-  <nav class="chapter-pagination" aria-label="Navigation entre les chapitres">
-    {previousChapter ? (
-      <a href={`/lycee/${niveau}/${matiere}/${previousChapter.slug}`} class="chapter-pagination-link previous">
-        <span aria-hidden="true">←</span>
-        <span><small>Chapitre précédent</small>{previousChapter.title}</span>
-      </a>
-    ) : <span />}
-    <a href={`/lycee/${niveau}/${matiere}`} class="chapter-pagination-index">Liste des chapitres</a>
-    {nextChapter ? (
-      <a href={`/lycee/${niveau}/${matiere}/${nextChapter.slug}`} class="chapter-pagination-link next">
-        <span><small>Chapitre suivant</small>{nextChapter.title}</span>
-        <span aria-hidden="true">→</span>
-      </a>
-    ) : <span />}
-  </nav>
-
-</BaseLayout>
-
-<style>
-  .chapter-header { text-align: center; margin-bottom: 1rem; }
-  .chapter-header h1 { font-size: 1.4rem; font-weight: 800; color: var(--accent-primary); margin: 0; }
-  .chapter-theme { font-size: 0.85rem; color: var(--text-muted); margin: 0.25rem 0 0; }
-  .chapter-pagination {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    align-items: center;
-    gap: 0.75rem;
-    max-width: 900px;
-    margin: 1.5rem auto 0;
-  }
-  .chapter-pagination-link, .chapter-pagination-index {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.85rem;
-  }
-  .chapter-pagination-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    min-width: 0;
-  }
-  .chapter-pagination-link span:not([aria-hidden]) { display: flex; flex-direction: column; min-width: 0; }
-  .chapter-pagination-link small { color: var(--text-muted); font-size: 0.75rem; }
-  .chapter-pagination-link.previous { justify-self: start; text-align: left; }
-  .chapter-pagination-link.next { justify-self: end; text-align: right; }
-  .chapter-pagination-index { justify-self: center; font-weight: 600; }
-  .chapter-pagination a:hover { color: var(--accent-primary); text-decoration: underline; }
-  .chapter-pagination a:focus-visible { outline: 3px solid var(--accent-primary); outline-offset: 3px; border-radius: 4px; }
-  @media (max-width: 640px) {
-    .chapter-pagination { grid-template-columns: 1fr; justify-items: center; text-align: center; }
-    .chapter-pagination-link.previous, .chapter-pagination-link.next { justify-self: center; text-align: center; }
-    .chapter-pagination-link span:not([aria-hidden]) { align-items: center; }
-    .chapter-pagination > span:empty { display: none; }
-  }
-</style>
+  breadcrumbItems={[
+    { label: "Accueil", href: "/" },
+    { label: "Lycée", href: "/lycee" },
+    { label: niveauLabel, href: backUrl },
+    { label: subjectDisplayLabel, href: subjectUrl },
+    { label: displayTitle },
+  ]}
+  displayTitle={displayTitle}
+  chapterDescription={textOrFallback(meta.description, seoDescription)}
+  eyebrow={isTeachingScience ? `${discipline.label} ${niveauLabel}` : `${matiereLabel} ${niveauLabel}`}
+  theme={meta.theme ? `Thème : ${meta.theme}` : undefined}
+  badges={isTeachingScience ? [
+    { label: discipline.label },
+    { label: subjectDisplayLabel, muted: true },
+  ] : []}
+  levelLabel={niveauLabel}
+  subjectLabel={isTeachingScience ? discipline.shortLabel : matiereLabel}
+  objectives={learningObjectives}
+  prerequisites={prerequisites}
+  competencies={competencies}
+  tools={tools}
+  estimatedDuration={estimatedDuration}
+  chapterId={chapterId}
+  xpConfig={xpConfig}
+  CoursContent={CoursContent}
+  exercices={exercices}
+  quizData={quizData}
+  flashData={flashData}
+  backUrl={backUrl}
+  backLabel="Retour"
+  previousChapter={previousChapter}
+  nextChapter={nextChapter}
+  indexHref={subjectUrl}
+  indexLabel="Liste des chapitres"
+  exercicesTitle={`Exercices par niveaux — ${displayTitle}`}
+  quizTitle={`Quiz — ${displayTitle}`}
+  flashcardsTitle={`Flashcards — ${displayTitle}`}
+/>

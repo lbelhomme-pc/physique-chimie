@@ -1,0 +1,178 @@
+{
+  "routeSnapshotPath": "tests/fixtures/dist-routes.snapshot.json",
+  "sitemapExclusions": [
+    {
+      "route": "/404",
+      "reason": "Astro sitemap excludes the not-found page."
+    }
+  ],
+  "allowedH1Counts": {
+    "/": 1,
+    "/laboratoire/circuit-rc": 2,
+    "/laboratoire/diffusion-temperature": 2,
+    "/laboratoire/gaz-parfaits": 2,
+    "/laboratoire/lois-kepler": 2,
+    "/laboratoire/titrage-ph-metrique": 2,
+    "/lycee/1ere-ens-scientifique/chimie/cellule-vivante-echelles": 2,
+    "/lycee/1ere-ens-scientifique/chimie/cristaux-organisation-matiere": 2,
+    "/lycee/1ere-ens-scientifique/chimie/elements-chimiques-radioactivite": 2,
+    "/lycee/1ere-ens-scientifique/chimie/photosynthese-energie-vivant": 2,
+    "/lycee/1ere-ens-scientifique/physique/age-terre-histoire-sciences": 2,
+    "/lycee/1ere-ens-scientifique/physique/audition-protection": 2,
+    "/lycee/1ere-ens-scientifique/physique/bilan-radiatif-terrestre": 2,
+    "/lycee/1ere-ens-scientifique/physique/forme-terre": 2,
+    "/lycee/1ere-ens-scientifique/physique/projet-experimental-numerique": 2,
+    "/lycee/1ere-ens-scientifique/physique/rayonnement-solaire": 2,
+    "/lycee/1ere-ens-scientifique/physique/son-information-coder": 2,
+    "/lycee/1ere-ens-scientifique/physique/son-musique": 2,
+    "/lycee/1ere-ens-scientifique/physique/terre-univers-lune-eau": 2,
+    "/lycee/terminale-ens-scientifique/chimie/histoire-vivant": 2,
+    "/lycee/terminale-ens-scientifique/physique/futur-energies": 2,
+    "/lycee/terminale-ens-scientifique/physique/science-climat-societe": 2
+  },
+  "allowedCanonicalMismatches": [],
+  "allowedMissingInternalLinks": [],
+  "allowedMissingAssets": [],
+  "allowedMissingSearchTargets": [],
+  "redirectRoutes": [
+    {
+      "from": "/mega-quiz",
+      "to": "/memorisation/mega-quiz",
+      "reason": "Legacy memorisation shortcut kept as a permanent redirect."
+    },
+    {
+      "from": "/mega-flashcards",
+      "to": "/memorisation/mega-flashcards",
+      "reason": "Legacy memorisation shortcut kept as a permanent redirect."
+    }
+  ],
+  "allowedAxeViolations": {},
+  "a11ySampleRoutes": [
+    "/",
+    "/college/4eme/chimie",
+    "/college/4eme/chimie/atomes-molecules",
+    "/memorisation/mega-quiz",
+    "/laboratoire/circuit-rc",
+    "/outils-methodes/kit-scientifique"
+  ],
+  "smokeSamples": [
+    {
+      "label": "accueil",
+      "route": "/",
+      "requiredSelectors": [
+        "title",
+        "h1",
+        "main",
+        "[data-subject-switcher]",
+        "[data-subject-card=\"mathematiques\"]",
+        "[data-subject-card=\"physique-chimie\"]",
+        "#recherche",
+        "a[href=\"/mathematiques\"]",
+        "a[href=\"/college\"]"
+      ]
+    },
+    {
+      "label": "mathematiques-seconde",
+      "route": "/mathematiques/lycee/2nde",
+      "requiredSelectors": [
+        "title",
+        "h1",
+        "a[href*=\"fonctions\"]"
+      ]
+    },
+    {
+      "label": "matiere",
+      "route": "/college/4eme/chimie",
+      "requiredSelectors": [
+        "title",
+        "h1",
+        "a[href*=\"atomes-molecules\"]"
+      ]
+    },
+    {
+      "label": "chapitre",
+      "route": "/college/4eme/chimie/atomes-molecules",
+      "requiredSelectors": [
+        "title",
+        "h1",
+        "[data-tab=\"quiz\"]",
+        "[data-tab=\"flashcards\"]"
+      ]
+    },
+    {
+      "label": "chapitre-physique-chimie-explicite",
+      "route": "/physique-chimie/college/4eme/chimie/atomes-molecules",
+      "requiredSelectors": [
+        "title",
+        "h1",
+        "[data-tab=\"quiz\"]",
+        "[data-tab=\"flashcards\"]"
+      ]
+    },
+    {
+      "label": "quiz-global",
+      "route": "/memorisation/mega-quiz",
+      "requiredSelectors": [
+        "title",
+        "h1",
+        "astro-island[component-url*=\"MegaQuizPlayer\"]"
+      ]
+    },
+    {
+      "label": "laboratoire",
+      "route": "/laboratoire/circuit-rc",
+      "requiredSelectors": [
+        "title",
+        "h1",
+        "[data-circuit-rc-root]"
+      ]
+    },
+    {
+      "label": "outil-interactif",
+      "route": "/outils-methodes/kit-scientifique",
+      "requiredSelectors": [
+        "title",
+        "h1",
+        "form, input, button"
+      ]
+    }
+  ],
+  "budgets": {
+    "defaultRoute": {
+      "htmlBytes": 450000,
+      "jsBytes": 900000,
+      "cssBytes": 350000,
+      "totalBytes": 800000
+    },
+    "routeOverrides": {
+      "/mega-quiz": {
+        "htmlBytes": 60000,
+        "jsBytes": 650000,
+        "cssBytes": 120000,
+        "totalBytes": 160000
+      },
+      "/mega-flashcards": {
+        "htmlBytes": 60000,
+        "jsBytes": 650000,
+        "cssBytes": 120000,
+        "totalBytes": 160000
+      },
+      "/memorisation/mega-quiz": {
+        "htmlBytes": 60000,
+        "jsBytes": 650000,
+        "cssBytes": 120000,
+        "totalBytes": 160000
+      },
+      "/memorisation/mega-flashcards": {
+        "htmlBytes": 60000,
+        "jsBytes": 650000,
+        "cssBytes": 120000,
+        "totalBytes": 160000
+      }
+    },
+    "global": {
+      "jsBytes": 1000000,
+      "cssBytes": 350000
+    }
+  }
+}

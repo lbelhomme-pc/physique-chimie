@@ -1,0 +1,116 @@
+---
+type Option = { label: string; value: string };
+
+export interface Props {
+  id: string;
+  label: string;
+  name?: string;
+  type?: "text" | "email" | "search" | "number" | "password";
+  placeholder?: string;
+  value?: string;
+  help?: string;
+  error?: string;
+  required?: boolean;
+  disabled?: boolean;
+  options?: Option[];
+}
+
+const {
+  id,
+  label,
+  name = id,
+  type = "text",
+  placeholder,
+  value,
+  help,
+  error,
+  required = false,
+  disabled = false,
+  options,
+} = Astro.props;
+
+const helpId = help ? `${id}-help` : undefined;
+const errorId = error ? `${id}-error` : undefined;
+const describedBy = [helpId, errorId].filter(Boolean).join(" ") || undefined;
+---
+
+<label class:list={["v3-field", error && "has-error"]} for={id}>
+  <span class="v3-field__label">
+    {label}
+    {required && <span aria-hidden="true">*</span>}
+  </span>
+  {options ? (
+    <select id={id} name={name} required={required} disabled={disabled} aria-invalid={error ? "true" : undefined} aria-describedby={describedBy}>
+      {options.map((option) => <option value={option.value} selected={option.value === value}>{option.label}</option>)}
+    </select>
+  ) : (
+    <input
+      id={id}
+      name={name}
+      type={type}
+      value={value}
+      placeholder={placeholder}
+      required={required}
+      disabled={disabled}
+      aria-invalid={error ? "true" : undefined}
+      aria-describedby={describedBy}
+    />
+  )}
+  {help && <span id={helpId} class="v3-field__help">{help}</span>}
+  {error && <span id={errorId} class="v3-field__error">{error}</span>}
+</label>
+
+<style>
+  .v3-field {
+    color: var(--v3-color-text-main);
+    display: grid;
+    gap: var(--v3-space-2);
+    font-family: var(--v3-font-family-sans);
+  }
+
+  .v3-field__label {
+    font-size: var(--v3-font-size-sm);
+    font-weight: 750;
+  }
+
+  .v3-field input,
+  .v3-field select {
+    background: var(--v3-color-surface-input);
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    color: var(--v3-color-text-main);
+    font: inherit;
+    min-height: 44px;
+    padding: var(--v3-space-3);
+  }
+
+  .v3-field input:focus-visible,
+  .v3-field select:focus-visible {
+    border-color: var(--v3-color-focus-ring);
+    box-shadow: var(--v3-shadow-focus);
+    outline: none;
+  }
+
+  .v3-field input:disabled,
+  .v3-field select:disabled {
+    background: var(--v3-color-surface-muted);
+    color: var(--v3-color-text-disabled);
+    cursor: not-allowed;
+  }
+
+  .v3-field__help {
+    color: var(--v3-color-text-muted);
+    font-size: var(--v3-font-size-xs);
+  }
+
+  .v3-field__error {
+    color: var(--v3-color-danger);
+    font-size: var(--v3-font-size-xs);
+    font-weight: 700;
+  }
+
+  .v3-field.has-error input,
+  .v3-field.has-error select {
+    border-color: var(--v3-color-danger);
+  }
+</style>

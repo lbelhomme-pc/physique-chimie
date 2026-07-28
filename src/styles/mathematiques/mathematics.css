@@ -1,0 +1,440 @@
+.math-shell {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.math-hero,
+.math-panel,
+.math-empty-state,
+.math-chapter-header {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.math-hero {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.discipline-badge {
+  align-items: center;
+  background: var(--discipline-surface);
+  border: 1px solid var(--discipline-border);
+  border-radius: var(--radius-pill);
+  color: var(--discipline-accent);
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 900;
+  gap: 0.45rem;
+  justify-self: start;
+  min-height: 34px;
+  padding: 0.32rem 0.7rem;
+}
+
+.discipline-badge span {
+  align-items: center;
+  background: var(--bg-card);
+  border-radius: var(--v3-radius-sm);
+  display: inline-flex;
+  justify-content: center;
+  min-width: 26px;
+  padding: 0.08rem 0.22rem;
+}
+
+.discipline-microcopy {
+  color: color-mix(in srgb, var(--discipline-accent) 72%, var(--text-secondary)) !important;
+  font-weight: 850;
+}
+
+.math-hero-kicker,
+.math-eyebrow {
+  margin: 0;
+  color: var(--accent-primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.math-hero h1,
+.math-section h2,
+.math-chapter-header h1 {
+  margin: 0;
+  color: var(--text-primary);
+  line-height: 1.15;
+}
+
+.math-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.math-hero p,
+.math-section-lead,
+.math-chapter-description {
+  max-width: 72ch;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.math-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.math-grid.compact {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.math-section {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.math-section-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.math-section h2 {
+  font-size: 1.25rem;
+}
+
+.math-card,
+.math-resource-card,
+.math-tool-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-height: 100%;
+  padding: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  text-decoration: none;
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.math-card[href]:hover,
+.math-resource-card[href]:hover,
+.math-tool-card[href]:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.math-card.disabled,
+.math-resource-card.disabled {
+  background: color-mix(in srgb, var(--bg-card) 78%, var(--bg-secondary));
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.math-level-card.disabled {
+  cursor: default;
+}
+
+.math-card:focus-visible,
+.math-resource-card:focus-visible,
+.math-tool-card:focus-visible,
+.math-action:focus-visible {
+  outline: 3px solid var(--accent-primary);
+  outline-offset: 3px;
+}
+
+.math-card-title,
+.math-resource-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0;
+  font-weight: 800;
+}
+
+.math-card-title span,
+.math-resource-title span {
+  min-width: 0;
+}
+
+.math-card-description,
+.math-resource-description {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.math-card-meta,
+.math-badge-row {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.math-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0.18rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent-primary-light);
+  color: var(--accent-primary);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.math-badge.muted {
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+}
+
+.math-badge.success {
+  background: var(--accent-success-light);
+  color: var(--accent-success);
+}
+
+.math-catalog-summary {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin: 0;
+}
+
+.math-catalog-summary div {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+}
+
+.math-catalog-summary dt {
+  color: var(--v3-color-discipline-maths);
+  font-size: 1.35rem;
+  font-weight: 950;
+}
+
+.math-catalog-summary dd {
+  color: var(--text-secondary);
+  font-weight: 800;
+  margin: 0;
+}
+
+.math-empty-state {
+  display: grid;
+  gap: 0.8rem;
+  justify-items: center;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  text-align: center;
+}
+
+.math-empty-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: var(--accent-primary-light);
+  color: var(--accent-primary);
+  font-weight: 900;
+}
+
+.math-empty-state h2,
+.math-empty-state h3 {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.math-empty-state p {
+  max-width: 58ch;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.math-empty-actions,
+.math-actions {
+  display: flex;
+  gap: 0.65rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.math-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.math-action.primary {
+  border-color: var(--accent-primary);
+  background: var(--accent-primary);
+  color: #ffffff;
+}
+
+.math-panel {
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.math-progress-placeholder {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border: 1px dashed var(--border-hover);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+}
+
+.math-progress-placeholder strong {
+  color: var(--text-primary);
+}
+
+.math-chapter-header {
+  display: grid;
+  gap: 0.65rem;
+  max-width: 900px;
+  margin: 0 auto 1.25rem;
+  padding: clamp(1.15rem, 3vw, 1.75rem);
+}
+
+.math-chapter-header h1 {
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.math-chapter-meta {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.math-chapter-pagination {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 900px;
+  margin: 1.5rem auto 0;
+}
+
+.math-chapter-pagination a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.math-chapter-pagination a:hover {
+  color: var(--accent-primary);
+  text-decoration: underline;
+}
+
+.math-chapter-pagination a:focus-visible {
+  outline: 3px solid var(--accent-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.math-pagination-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.math-pagination-link span:not([aria-hidden]) {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.math-pagination-link small {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.math-pagination-link.previous {
+  justify-self: start;
+  text-align: left;
+}
+
+.math-pagination-link.next {
+  justify-self: end;
+  text-align: right;
+}
+
+.math-pagination-index {
+  justify-self: center;
+  font-weight: 700;
+}
+
+.math-figure {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.math-figure-title {
+  margin: 0 0 0.4rem;
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.math-figure-description,
+.math-figure-caption {
+  margin: 0.45rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.math-figure-body {
+  overflow-x: auto;
+}
+
+@media (max-width: 640px) {
+  .math-section-header {
+    align-items: start;
+  }
+
+  .math-card,
+  .math-resource-card,
+  .math-tool-card {
+    padding: 0.9rem;
+  }
+
+  .math-chapter-pagination {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .math-pagination-link.previous,
+  .math-pagination-link.next {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .math-pagination-link span:not([aria-hidden]) {
+    align-items: center;
+  }
+
+  .math-chapter-pagination > span:empty {
+    display: none;
+  }
+}

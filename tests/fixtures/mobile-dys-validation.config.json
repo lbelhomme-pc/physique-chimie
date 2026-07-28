@@ -1,0 +1,132 @@
+{
+  "outputDir": "docs/refonte-v3/reference/captures/mobile-dys-v3-2026-07-28",
+  "requirements": {
+    "mobile360": true,
+    "tablet": true,
+    "reducedMotion": true
+  },
+  "journeys": [
+    {
+      "label": "accueil-mobile-dys",
+      "route": "/",
+      "kind": "v3",
+      "requiredSelectors": [
+        "a.skip-link[href=\"#main-content\"]",
+        "[data-public-navigation]",
+        "[data-subject-switcher]",
+        "[data-subject-card=\"mathematiques\"]",
+        "[data-subject-card=\"physique-chimie\"]",
+        "#recherche",
+        "main h1"
+      ],
+      "requiredText": [
+        "Comprendre",
+        "Math",
+        "Physique"
+      ],
+      "keyboard": {
+        "focusableMin": 8,
+        "requiredSelectors": [
+          "a.skip-link",
+          "summary[aria-label]",
+          "a[href=\"/#recherche\"]"
+        ]
+      },
+      "captures": [
+        { "viewport": "mobile-360", "width": 360, "height": 800 },
+        { "viewport": "tablet", "width": 768, "height": 1024 },
+        { "viewport": "desktop", "width": 1440, "height": 1000 },
+        { "viewport": "mobile-360-dyslexia", "width": 360, "height": 800, "profile": "dyslexia" },
+        { "viewport": "mobile-360-reduced-motion", "width": 360, "height": 800, "profile": "reduced-motion" }
+      ]
+    },
+    {
+      "label": "chapitre-mobile-dys",
+      "route": "/college/4eme/chimie/atomes-molecules",
+      "kind": "v3",
+      "requiredSelectors": [
+        "main h1",
+        "[data-chapter-tabs]",
+        "[data-tab=\"cours\"]",
+        "[data-tab=\"exercices\"]",
+        "[data-tab=\"quiz\"]",
+        "[data-tab=\"flashcards\"]"
+      ],
+      "requiredText": [
+        "Quiz",
+        "Flashcards"
+      ],
+      "keyboard": {
+        "focusableMin": 8,
+        "requiredSelectors": [
+          "[data-tab=\"cours\"]",
+          "[data-tab=\"exercices\"]",
+          "[data-tab=\"quiz\"]",
+          "[data-tab=\"flashcards\"]"
+        ]
+      },
+      "captures": [
+        { "viewport": "mobile-360", "width": 360, "height": 900 },
+        { "viewport": "tablet", "width": 768, "height": 1024 },
+        { "viewport": "desktop", "width": 1440, "height": 1100 },
+        { "viewport": "mobile-360-dyslexia", "width": 360, "height": 900, "profile": "dyslexia" }
+      ]
+    },
+    {
+      "label": "laboratoire-mobile-dys",
+      "route": "/laboratoire/circuit-rc",
+      "kind": "v3",
+      "requiredSelectors": [
+        "main h1",
+        "[data-circuit-rc-root]",
+        "[data-lab-access-guide]",
+        "svg.crc-graph"
+      ],
+      "requiredText": [
+        "RC",
+        "Exploitation accessible"
+      ],
+      "captures": [
+        { "viewport": "mobile-360", "width": 360, "height": 900 },
+        { "viewport": "tablet", "width": 768, "height": 1024 },
+        { "viewport": "desktop", "width": 1440, "height": 1100 },
+        { "viewport": "mobile-360-dyslexia", "width": 360, "height": 900, "profile": "dyslexia" }
+      ]
+    },
+    {
+      "label": "kit-scientifique-mobile-dys",
+      "route": "/outils-methodes/kit-scientifique",
+      "kind": "v3",
+      "requiredSelectors": [
+        "main h1",
+        "form, input, button",
+        "table"
+      ],
+      "requiredText": [
+        "Kit scientifique"
+      ],
+      "captures": [
+        { "viewport": "mobile-360", "width": 360, "height": 900 },
+        { "viewport": "tablet", "width": 768, "height": 1024 },
+        { "viewport": "desktop", "width": 1440, "height": 1000 },
+        { "viewport": "mobile-360-dyslexia", "width": 360, "height": 900, "profile": "dyslexia" }
+      ]
+    },
+    {
+      "label": "legacy-mega-quiz-mobile",
+      "route": "/mega-quiz",
+      "kind": "legacy",
+      "expectedRedirect": "/memorisation/mega-quiz",
+      "requiredSelectors": [
+        "meta[http-equiv]",
+        "a[href=\"/memorisation/mega-quiz\"]"
+      ],
+      "requiredText": [
+        "Redirecting"
+      ],
+      "captures": [
+        { "viewport": "mobile-360", "width": 360, "height": 800 }
+      ]
+    }
+  ]
+}

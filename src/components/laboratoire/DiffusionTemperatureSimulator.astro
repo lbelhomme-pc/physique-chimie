@@ -1,0 +1,297 @@
+---
+import '../../styles/laboratoire/diffusion-temperature.css';
+
+const svgHidden = { hidden: true } as any;
+---
+
+<section class="dt-simulator" data-diffusion-temperature-root aria-labelledby="dt-title">
+  <header class="dt-hero">
+    <div>
+      <p class="dt-eyebrow">Laboratoire interactif · Collège et lycée</p>
+      <h1 id="dt-title">Diffusion et température</h1>
+      <p class="dt-question">
+        Comment la température modifie-t-elle la vitesse de dispersion d’un traceur, et pourquoi le <strong>brassage</strong> ne doit-il pas être confondu avec la <strong>diffusion</strong>&nbsp;?
+      </p>
+    </div>
+    <p class="dt-state" role="status" aria-live="polite" data-sim-state>
+      <span class="dt-state-dot" aria-hidden="true"></span>
+      <span data-sim-state-text>Prêt à déposer le traceur</span>
+    </p>
+  </header>
+
+  <ol class="dt-steps" aria-label="Progression de l’activité">
+    <li><strong>1. Déposer</strong><span>Même nuage initial</span></li>
+    <li><strong>2. Comparer</strong><span>Deux températures</span></li>
+    <li><strong>3. Mesurer</strong><span>Largeur et ⟨r²⟩</span></li>
+    <li><strong>4. Interpréter</strong><span>Diffusion ou brassage</span></li>
+  </ol>
+
+  <div class="dt-main-grid">
+    <aside class="dt-card dt-controls" aria-labelledby="dt-controls-title">
+      <div class="dt-card-heading">
+        <p class="dt-kicker">Manipuler</p>
+        <h2 id="dt-controls-title">Préparer le protocole</h2>
+      </div>
+
+      <fieldset class="dt-fieldset">
+        <legend>Deux milieux comparés</legend>
+
+        <div class="dt-range-field">
+          <div class="dt-range-heading">
+            <label for="dt-temperature-a">Milieu A — température</label>
+            <output for="dt-temperature-a" data-param-output="temperatureA_C">20 °C</output>
+          </div>
+          <input id="dt-temperature-a" type="range" min="5" max="90" step="1" value="20" data-param="temperatureA_C" />
+        </div>
+
+        <div class="dt-range-field">
+          <div class="dt-range-heading">
+            <label for="dt-temperature-b">Milieu B — température</label>
+            <output for="dt-temperature-b" data-param-output="temperatureB_C">60 °C</output>
+          </div>
+          <input id="dt-temperature-b" type="range" min="5" max="90" step="1" value="60" data-param="temperatureB_C" />
+        </div>
+
+        <p class="dt-help">Les deux enceintes utilisent le même nombre de traceurs, la même position initiale et la même suite aléatoire.</p>
+      </fieldset>
+
+      <fieldset class="dt-fieldset">
+        <legend>Protocole</legend>
+        <label class="dt-radio-card">
+          <input type="radio" name="dt-mode" value="diffusion" checked data-mode />
+          <span><strong>Diffusion seule</strong><small>Mouvement aléatoire sans dérive organisée</small></span>
+        </label>
+        <label class="dt-radio-card">
+          <input type="radio" name="dt-mode" value="stirring" data-mode />
+          <span><strong>Avec brassage</strong><small>Une advection circulaire est ajoutée au mouvement aléatoire</small></span>
+        </label>
+      </fieldset>
+
+      <fieldset class="dt-fieldset">
+        <legend>Commandes</legend>
+        <label class="dt-select-field" for="dt-speed">
+          <span>Vitesse de lecture</span>
+          <select id="dt-speed" data-speed>
+            <option value="0.5">× 0,5</option>
+            <option value="1" selected>× 1</option>
+            <option value="2">× 2</option>
+            <option value="4">× 4</option>
+          </select>
+        </label>
+
+        <div class="dt-action-grid">
+          <button type="button" class="dt-button dt-button-primary" data-action="drop">Déposer le traceur</button>
+          <button type="button" class="dt-button" data-action="toggle" disabled>
+            <span data-play-label>Lancer</span>
+          </button>
+          <button type="button" class="dt-button" data-action="new-seed">Nouvelle réalisation</button>
+          <button type="button" class="dt-button" data-action="reset">Réinitialiser</button>
+        </div>
+      </fieldset>
+
+      <div class="dt-model-note">
+        <strong>Modèle quantitatif :</strong>
+        <span>D = k<sub>B</sub>T/(6πηr)</span>, pour un traceur sphérique de rayon 100 nm dans l’eau. Le mouvement du solvant est implicite&nbsp;: les points dessinés sont les traceurs, pas les molécules d’eau.
+      </div>
+    </aside>
+
+    <div class="dt-workspace">
+      <section class="dt-card dt-observation" aria-labelledby="dt-observation-title">
+        <div class="dt-card-heading dt-heading-inline">
+          <div>
+            <p class="dt-kicker">Observer</p>
+            <h2 id="dt-observation-title">Deux expériences strictement comparables</h2>
+          </div>
+          <p class="dt-time"><span>Temps</span><strong data-output="time">0,0 s</strong></p>
+        </div>
+
+        <div class="dt-dishes">
+          <figure class="dt-dish-card" aria-labelledby="dt-dish-a-title">
+            <div class="dt-dish-title">
+              <h3 id="dt-dish-a-title">Milieu A</h3>
+              <span class="dt-series-symbol dt-series-a" aria-hidden="true">●</span>
+            </div>
+            <svg viewBox="0 0 360 340" role="img" aria-labelledby="dt-dish-a-svg-title dt-dish-a-svg-desc">
+              <title id="dt-dish-a-svg-title">Dispersion du traceur dans le milieu A</title>
+              <desc id="dt-dish-a-svg-desc" data-dish-desc="A">Aucun traceur n’a encore été déposé.</desc>
+              <circle cx="180" cy="165" r="120" class="dt-dish-shell" />
+              <circle cx="180" cy="165" r="116" class="dt-dish-liquid" />
+              <g class="dt-stirrer" data-stirrer="A" {...svgHidden} aria-hidden="true">
+                <path d="M136 165 A44 44 0 0 1 205 128" />
+                <path d="M205 128 l-5 15 l16 -4" />
+              </g>
+              <g data-particles="A"></g>
+              <circle cx="180" cy="165" r="4" class="dt-origin" />
+              <line x1="180" y1="32" x2="180" y2="298" class="dt-axis-guide" />
+              <line x1="47" y1="165" x2="313" y2="165" class="dt-axis-guide" />
+              <text x="180" y="326" text-anchor="middle">Diamètre représenté : 150 µm</text>
+            </svg>
+            <dl class="dt-meters">
+              <div><dt>Température</dt><dd data-output="temperatureA">20 °C</dd></div>
+              <div><dt>Viscosité η</dt><dd data-output="viscosityA">1,002 mPa·s</dd></div>
+              <div><dt>Coefficient D</dt><dd data-output="diffusionA">2,14 µm²·s⁻¹</dd></div>
+              <div><dt>Largeur RMS</dt><dd data-output="rmsA">0,0 µm</dd></div>
+              <div><dt>Centre du nuage</dt><dd data-output="driftA">0,0 µm</dd></div>
+            </dl>
+          </figure>
+
+          <figure class="dt-dish-card" aria-labelledby="dt-dish-b-title">
+            <div class="dt-dish-title">
+              <h3 id="dt-dish-b-title">Milieu B</h3>
+              <span class="dt-series-symbol dt-series-b" aria-hidden="true">■</span>
+            </div>
+            <svg viewBox="0 0 360 340" role="img" aria-labelledby="dt-dish-b-svg-title dt-dish-b-svg-desc">
+              <title id="dt-dish-b-svg-title">Dispersion du traceur dans le milieu B</title>
+              <desc id="dt-dish-b-svg-desc" data-dish-desc="B">Aucun traceur n’a encore été déposé.</desc>
+              <circle cx="180" cy="165" r="120" class="dt-dish-shell" />
+              <circle cx="180" cy="165" r="116" class="dt-dish-liquid" />
+              <g class="dt-stirrer" data-stirrer="B" {...svgHidden} aria-hidden="true">
+                <path d="M136 165 A44 44 0 0 1 205 128" />
+                <path d="M205 128 l-5 15 l16 -4" />
+              </g>
+              <g data-particles="B"></g>
+              <circle cx="180" cy="165" r="4" class="dt-origin" />
+              <line x1="180" y1="32" x2="180" y2="298" class="dt-axis-guide" />
+              <line x1="47" y1="165" x2="313" y2="165" class="dt-axis-guide" />
+              <text x="180" y="326" text-anchor="middle">Diamètre représenté : 150 µm</text>
+            </svg>
+            <dl class="dt-meters">
+              <div><dt>Température</dt><dd data-output="temperatureB">60 °C</dd></div>
+              <div><dt>Viscosité η</dt><dd data-output="viscosityB">0,463 mPa·s</dd></div>
+              <div><dt>Coefficient D</dt><dd data-output="diffusionB">5,27 µm²·s⁻¹</dd></div>
+              <div><dt>Largeur RMS</dt><dd data-output="rmsB">0,0 µm</dd></div>
+              <div><dt>Centre du nuage</dt><dd data-output="driftB">0,0 µm</dd></div>
+            </dl>
+          </figure>
+        </div>
+
+        <p class="dt-observation-summary" data-observation-summary>
+          Dépose le traceur puis observe quel nuage s’élargit le plus vite.
+        </p>
+      </section>
+
+      <section class="dt-card dt-chart-card" aria-labelledby="dt-chart-title">
+        <div class="dt-card-heading dt-heading-inline">
+          <div>
+            <p class="dt-kicker">Mesurer</p>
+            <h2 id="dt-chart-title">Évolution de ⟨r²⟩</h2>
+          </div>
+          <p class="dt-chart-formula">Diffusion 2D : <strong>⟨r²⟩ = 4Dt</strong></p>
+        </div>
+
+        <figure class="dt-chart-figure">
+          <svg viewBox="0 0 780 430" role="img" aria-labelledby="dt-chart-svg-title dt-chart-svg-desc" data-chart-svg>
+            <title id="dt-chart-svg-title">Distance quadratique moyenne en fonction du temps</title>
+            <desc id="dt-chart-svg-desc" data-chart-desc>Le graphique est vide tant que l’expérience n’a pas commencé.</desc>
+            <g data-chart-grid></g>
+            <g data-chart-axes></g>
+            <g data-chart-theory></g>
+            <g data-chart-measured></g>
+            <g data-chart-cursor></g>
+          </svg>
+          <figcaption>
+            Traits fins : modèle théorique de diffusion seule. Points et traits épais : valeurs calculées à partir du nuage simulé. En mode brassage, l’écart au modèle signale l’effet du protocole ajouté.
+          </figcaption>
+        </figure>
+
+        <div class="dt-legend" aria-label="Légende du graphique">
+          <span><i class="dt-legend-line dt-line-a"></i>Milieu A — mesure ●</span>
+          <span><i class="dt-legend-line dt-line-b"></i>Milieu B — mesure ■</span>
+          <span><i class="dt-legend-line dt-line-theory"></i>Modèles 4Dt — traits fins</span>
+        </div>
+
+        <div class="dt-chart-values" aria-live="polite">
+          <p><span>⟨r²⟩ A mesuré</span><strong data-output="msdA">0,0 µm²</strong></p>
+          <p><span>⟨r²⟩ B mesuré</span><strong data-output="msdB">0,0 µm²</strong></p>
+          <p><span>Rapport D élevé / D faible</span><strong data-output="diffusionRatio">2,46</strong></p>
+        </div>
+      </section>
+
+      <section class="dt-card dt-exploitation" aria-labelledby="dt-exploitation-title">
+        <div class="dt-card-heading">
+          <p class="dt-kicker">Exploiter et conclure</p>
+          <h2 id="dt-exploitation-title">Distinguer observation, modèle et protocole</h2>
+        </div>
+
+        <div class="dt-analysis-grid">
+          <article>
+            <h3>Observation macroscopique</h3>
+            <p>Compare la largeur des deux nuages au même instant, sans interpréter tout de suite.</p>
+          </article>
+          <article>
+            <h3>Interprétation microscopique</h3>
+            <p>Le solvant agité thermiquement exerce des actions désordonnées sur les traceurs. Les molécules d’eau ne sont pas immobiles&nbsp;: elles ne sont simplement pas dessinées.</p>
+          </article>
+          <article>
+            <h3>Effet du protocole</h3>
+            <p>Le brassage ajoute un mouvement organisé du fluide. Une dispersion plus rapide sous agitation ne prouve donc pas, à elle seule, une diffusion moléculaire plus rapide.</p>
+          </article>
+        </div>
+
+        <div class="dt-mission">
+          <h3>Mission élève</h3>
+          <ol>
+            <li>Utilise d’abord le mode <strong>Diffusion seule</strong> avec 20 °C et 60 °C.</li>
+            <li>Relève la largeur RMS à 20 s et vérifie que le milieu de plus grand D est le plus dispersé.</li>
+            <li>Multiplie mentalement le temps par quatre&nbsp;: que doit devenir la distance RMS selon √t&nbsp;?</li>
+            <li>Active ensuite le brassage et explique pourquoi ce second protocole ne mesure plus la diffusion seule.</li>
+          </ol>
+        </div>
+
+        <details class="dt-help-details">
+          <summary>Indice</summary>
+          <p>À temps égal, compare les coefficients D puis les valeurs de ⟨r²⟩. Pour comparer l’effet du temps, utilise la racine carrée.</p>
+        </details>
+        <details class="dt-help-details">
+          <summary>Méthode</summary>
+          <p>En diffusion 2D, ⟨r²⟩ = 4Dt. La distance RMS vaut √⟨r²⟩ = √(4Dt). Si le temps est multiplié par quatre, la distance RMS est multipliée par deux.</p>
+        </details>
+
+        <label class="dt-conclusion-field" for="dt-conclusion">
+          <span>Ma conclusion</span>
+          <textarea id="dt-conclusion" rows="4" placeholder="À température plus élevée… Le brassage, lui…"></textarea>
+        </label>
+      </section>
+
+      <section class="dt-card dt-model-limits" aria-labelledby="dt-limits-title">
+        <div class="dt-card-heading">
+          <p class="dt-kicker">Modèle et limites</p>
+          <h2 id="dt-limits-title">Ce que représente la simulation</h2>
+        </div>
+        <ul>
+          <li>Le traceur est supposé sphérique, très dilué et de rayon 100 nm.</li>
+          <li>La viscosité de l’eau dépend de la température selon une approximation empirique valable dans la plage proposée.</li>
+          <li>Les trajectoires sont des réalisations aléatoires&nbsp;: deux essais diffèrent, mais les tendances statistiques restent les mêmes.</li>
+          <li>La relation ⟨r²⟩ = 4Dt est la référence avant que les parois ne limitent fortement la dispersion.</li>
+          <li>La taille des points est agrandie et n’est pas à l’échelle du rayon réel du traceur.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <p class="dt-sr-status" aria-live="polite" aria-atomic="true" data-live-update></p>
+</section>
+
+<script>
+  import { initDiffusionTemperatureSimulator } from '../../scripts/laboratoire/diffusion-temperature-simulator.js';
+
+  const roots = new WeakMap();
+
+  function mount() {
+    document.querySelectorAll('[data-diffusion-temperature-root]').forEach((root) => {
+      if (roots.has(root)) return;
+      roots.set(root, initDiffusionTemperatureSimulator(root));
+    });
+  }
+
+  function unmount() {
+    document.querySelectorAll('[data-diffusion-temperature-root]').forEach((root) => {
+      roots.get(root)?.();
+      roots.delete(root);
+    });
+  }
+
+  mount();
+  document.addEventListener('astro:page-load', mount);
+  document.addEventListener('astro:before-swap', unmount);
+</script>

@@ -1,0 +1,62 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[
+ block/.style={draw, rounded corners, minimum width=2.8cm, minimum height=1.2cm, align=center, font=\small\bfseries},
+ arrow/.style={-{Stealth[length=3mm]}, thick},
+ label/.style={font=\small, midway}
+]
+\node[block, fill=primary!15] (sec) {Eau du circuit \\ secondaire};
+\node[block, fill=red!15] (prim) [left=2.5cm of sec] {Circuit \\ primaire};
+\node[block, fill=green!15] (alt) [above=1.5cm of sec] {Alternateur \\ (\'electricit\'e)};
+\node[block, fill=blue!15] (refroid) [right=2.5cm of sec] {Circuit de \\ refroidissement};
+
+\draw[arrow, color=red!70] (prim) -- (sec) node[label, above] {$Q_{\text{prim}} > 0$};
+\draw[arrow, color=green!60!black] (sec) -- (alt) node[label, right, xshift=2mm] {$W < 0$};
+\draw[arrow, color=blue!70] (sec) -- (refroid) node[label, above] {$Q_{\text{refroid}} < 0$};
+\end{tikzpicture}
+\end{document}

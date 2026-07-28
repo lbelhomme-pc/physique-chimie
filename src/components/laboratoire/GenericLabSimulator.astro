@@ -261,6 +261,62 @@ const hasPlayToggle = app.slug === "systeme-solaire"
     </div>
   </section>
 
+  <section class="lab-panel generic-lab__accessible-record" aria-labelledby={`${app.slug}-record-title`} data-generic-accessible-record>
+    <h2 class="lab-panel__title" id={`${app.slug}-record-title`}>Releve textuel et questions</h2>
+    <p class="lab-panel__subtitle">
+      Ce tableau donne les valeurs de depart et les grandeurs a comparer. Il complete le canvas pour les lecteurs d'ecran, le clavier et les situations DYS.
+    </p>
+
+    <div class="lab-access-table-wrap" tabindex="0" aria-label={`Tableau de mesures pour ${app.title}`}>
+      <table class="lab-access-table">
+        <caption>Parametres et observations exploitables sans lecture du canvas</caption>
+        <thead>
+          <tr>
+            <th scope="col">Role</th>
+            <th scope="col">Grandeur</th>
+            <th scope="col">Valeur initiale</th>
+            <th scope="col">A comparer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Parametre A</th>
+            <td>{config.controlA}</td>
+            <td>{config.valueA}{config.unitA ? ` ${config.unitA}` : ""}</td>
+            <td>Effet quand cette grandeur augmente ou diminue.</td>
+          </tr>
+          <tr>
+            <th scope="row">Parametre B</th>
+            <td>{config.controlB}</td>
+            <td>{config.valueB}{config.unitB ? ` ${config.unitB}` : ""}</td>
+            <td>Effet en gardant le parametre A constant.</td>
+          </tr>
+          <tr>
+            <th scope="row">Mode</th>
+            <td>{config.modeLabel}</td>
+            <td>{config.modes[0]}</td>
+            <td>Difference entre les modes proposes.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="lab-access-question-grid">
+      <article>
+        <h3>Hypothese rapide</h3>
+        <p>Je prevois l'effet d'un seul parametre avant de lancer ou modifier la simulation.</p>
+      </article>
+      <article>
+        <h3>Mesure</h3>
+        <p>Je lis les valeurs affichees dans le panneau et je les relie a l'observation.</p>
+      </article>
+      <article>
+        <h3>Conclusion</h3>
+        <p>Je conclus avec une phrase qui cite la grandeur modifiee, la grandeur observee et le modele.</p>
+      </article>
+    </div>
+  </section>
+
   <script>
     import "../../scripts/laboratoire/generic-lab-simulator.js";
   </script>

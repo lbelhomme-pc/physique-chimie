@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire Virtuel : Test de Reconnaissance des Ions</title>
+    
+     <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_ions.css">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container">
+        
+        <header class="hero-header" style="text-align: center; margin-bottom: 30px;">
+            <h1 class="header-flex" style="justify-content: center; align-items: center; gap: 15px; margin-bottom: 10px;">
+                <span>🕵️‍♂️</span> 
+                <span style="background: linear-gradient(135deg, #10b981, #3b82f6); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0;">Enquête : Identification des Ions</span>
+            </h1>
+            <p class="subtitle" style="text-align: center; margin: 0 auto;">Utilise les réactifs pour identifier l'ion mystère caché dans le tube à essai (Programme 3ème).</p>
+        </header>
+
+        <div class="labo-container">
+            
+            <div class="bench-panel">
+                <div class="bench-header">
+                    <span>🔬 Paillasse Interactive </span>
+                    <button class="btn-lab danger" id="btn-new">🔄 Nouveau Tube</button>
+                </div>
+
+                <div class="alert-box" id="status-msg">Tube prêt. Ajoute un réactif !</div>
+
+                <div class="canvas-container">
+                    <canvas id="labCanvas" width="300" height="400"></canvas>
+                </div>
+
+                <div class="controls-grid">
+                    <button class="btn-lab" id="btn-soude">🧪 Ajouter de la Soude ($HO^-$)</button>
+                    <button class="btn-lab" id="btn-argent">🧪 Ajouter Nitrate d'Argent ($Ag^+$)</button>
+                </div>
+                
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 15px; text-align: left;">
+                    <strong>Observation :</strong> Le Canvas calcule la trajectoire de centaines de particules pour simuler la formation du précipité en temps réel !
+                </p>
+            </div>
+
+            <div class="data-panel">
+                
+                <div class="investigation-box">
+                    <h3>📋 Ton Carnet de Détective</h3>
+                    <p>Observe la réaction dans le tube. S'il se forme un précipité coloré, déduis-en quel ion était présent dans la solution de départ.</p>
+                </div>
+
+                <div class="answers-grid" id="answers-grid">
+                    <button class="btn-answer" data-ion="cu2">
+                        <span class="ion-badge" style="background:#2563eb;">Cu<sup>2+</sup></span> Ion Cuivre (II)
+                    </button>
+                    <button class="btn-answer" data-ion="fe2">
+                        <span class="ion-badge" style="background:#16a34a;">Fe<sup>2+</sup></span> Ion Fer (II)
+                    </button>
+                    <button class="btn-answer" data-ion="fe3">
+                        <span class="ion-badge" style="background:#c2410c;">Fe<sup>3+</sup></span> Ion Fer (III)
+                    </button>
+                    <button class="btn-answer" data-ion="cl">
+                        <span class="ion-badge" style="background:#94a3b8;">Cl<sup>-</sup></span> Ion Chlorure
+                    </button>
+                </div>
+
+                <div class="revision-card">
+                    <h4 style="margin-top: 0; color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">💡 Fiche de Révision (Aide)</h4>
+                    <table class="revision-table">
+                        <tr>
+                            <th>Ion à tester</th>
+                            <th>Réactif à utiliser</th>
+                            <th>Couleur du précipité</th>
+                        </tr>
+                        <tr>
+                            <td>Cuivre ($Cu^{2+}$)</td><td>Soude</td><td style="color: #2563eb; font-weight: bold;">Bleu</td>
+                        </tr>
+                        <tr>
+                            <td>Fer II ($Fe^{2+}$)</td><td>Soude</td><td style="color: #16a34a; font-weight: bold;">Vert</td>
+                        </tr>
+                        <tr>
+                            <td>Fer III ($Fe^{3+}$)</td><td>Soude</td><td style="color: #c2410c; font-weight: bold;">Rouille (Orange)</td>
+                        </tr>
+                        <tr>
+                            <td>Chlorure ($Cl^-$)</td><td>Nitrate d'argent</td><td style="color: #64748b; font-weight: bold;">Blanc (noircit à la lumière)</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="nav-footer" style="margin-top: 40px; border-top: none;">
+            <a href="../../laboratoire/laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Labo</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_ions.js"></script>
+</body>
+</html>

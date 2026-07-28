@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire Virtuel : Titrage Conductimétrique</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_cond.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container">
+        
+        <header class="hero-header" style="text-align: center; margin-bottom: 30px;">
+            <h1 class="header-flex" style="justify-content: center; align-items: center; gap: 15px; margin-bottom: 10px;">
+                <span>⚡</span> 
+                <span style="background: linear-gradient(135deg, #0ea5e9, #3b82f6); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0;">Labo : Titrage Conductimétrique</span>
+            </h1>
+            <p class="subtitle" style="text-align: center; margin: 0 auto;">Titrage par précipitation : Chlorure de sodium par le nitrate d'argent.</p>
+        </header>
+
+        <div class="labo-container">
+            
+            <div class="bench-panel">
+                <div class="bench-header">
+                    <span>🔬 Paillasse de Chimie</span>
+                    <button class="btn-lab danger" id="btn-calib" onclick="calibrate()">🛠️ Étalonner la cellule</button>
+                </div>
+
+                <div class="settings-box">
+                    <details>
+                        <summary>⚙️ Paramètres de l'expérience (Professeur)</summary>
+                        <div class="settings-grid">
+                            <label>Concentration Chlorure CA (mol/L)<input type="number" id="input-ca" step="0.001" min="0.005" max="0.5" value="0.010"></label>
+                            <label>Volume Chlorure VA (mL)<input type="number" id="input-va" step="1" min="5" max="50" value="20.0"></label>
+                            <label>Concentration Argent CB (mol/L)<input type="number" id="input-cb" step="0.001" min="0.005" max="0.5" value="0.020"></label>
+                            <label>Volume d'eau ajouté (mL)<input type="number" id="input-veau" step="10" min="0" max="500" value="200.0"></label>
+                            <button class="btn-lab" style="grid-column: span 2;" onclick="applySettings()">✅ Appliquer ces données</button>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="conditions-box">
+                    <strong>📋 Conditions initiales :</strong>
+                    <ul style="margin-top: 5px; margin-bottom: 0; padding-left: 20px;">
+                        <li><strong>Bécher (Titrée) :</strong> Eau salée ($Na^+ + Cl^-$). $V_A =$ <span id="cond-va">20.0</span> mL. (+ <span id="cond-veau">200</span> mL d'eau).</li>
+                        <li><strong>Burette (Titrant) :</strong> Nitrate d'argent ($Ag^+ + NO_3^-$) à $C_B =$ <span id="cond-cb">0.020</span> mol·L⁻¹.</li>
+                    </ul>
+                </div>
+                
+                <div class="alert-box" id="alert-msg">Chargement du laboratoire...</div>
+
+                <div class="lab-setup-wrapper">
+                    <div class="lab-setup">
+                        <div class="cond-probe"></div> 
+                        <div class="burette">
+                            <div class="burette-liquid" id="burette-liquid"></div>
+                            <div class="burette-grad">0</div>
+                            <div class="burette-grad" style="bottom: 10px; top: auto;">25</div>
+                        </div>
+                        <div class="stopcock"></div>
+                        <div class="drop" id="drop"></div>
+                        <div class="beaker">
+                            <div class="beaker-liquid" id="beaker-liquid"></div>
+                            <div class="stir-bar" id="stir-bar"></div>
+                        </div>
+                        <div class="stirrer-plate"></div>
+                    </div>
+
+                    <div class="microscope-panel">
+                        <div class="microscope-header">🔍 Vue Microscopique</div>
+                        <div class="microscope-view" id="microscope-view">
+                            </div>
+                        <div class="ion-legend">
+                            <div><span class="dot" style="background:#10b981;"></span> $Cl^-$ (titré, disparaît)</div>
+                            <div><span class="dot" style="background:#94a3b8;"></span> $Ag^+$ (titrant, réagit)</div>
+                            <div><span class="dot" style="background:#f59e0b;"></span> $Na^+$ (spectateur)</div>
+                            <div><span class="dot" style="background:#a78bfa;"></span> $NO_3^-$ (spectateur)</div>
+                            <div><span class="dot" style="background:#ffffff; border: 1px solid #94a3b8; border-radius: 0;"></span> $AgCl_{(s)}$ (précipité solide)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ph-meter" id="cond-display" style="font-size: 1.8rem; color: #38bdf8;">$\sigma$ = --.-- mS/cm</div>
+                <div style="font-weight: bold; color: #64748b; margin-top: 10px;">Volume versé : <span id="vol-display" style="color: #1e293b;">0.00</span> mL</div>
+
+                <div class="controls-grid">
+                    <button class="btn-lab" id="btn-stir" onclick="toggleStirrer()">🌪️ Activer l'agitation</button>
+                    <button class="btn-lab" onclick="addVolume(0.5)">💧 Ajouter 0.5 mL</button>
+                    <button class="btn-lab" onclick="addVolume(1.0)">🧪 Ajouter 1.0 mL</button>
+                    <button class="btn-lab" id="btn-auto" onclick="toggleAutoTitrate()">🤖 Démarrer Auto-Titrage</button>
+                    <button class="btn-lab danger" style="grid-column: span 2;" onclick="resetLab()">🔄 Vider les béchers et recommencer à 0</button>
+                </div>
+            </div>
+
+            <div class="data-panel">
+                
+                <div id="final-results-box" class="success-box" style="display: none;">
+                    <div style="font-size: 1.2rem; margin-bottom: 10px;">🎉 <strong>Titrage terminé ! Voici le bilan :</strong></div>
+                    <p>📍 Point d'Équivalence : L'intersection des droites indique <strong style="color: #0ea5e9;">V<sub>E</sub> = <span id="res-ve"></span> mL</strong></p>
+                    
+                    <hr style="border-top: 1px dashed #7dd3fc; margin: 15px 0;">
+                    
+                    <p>🧪 <strong>Concentration en ions chlorure (C<sub>A</sub>) :</strong></p>
+                    <p style="font-family: monospace; font-size: 1.2rem; color: #0284c7; margin: 5px 0;">
+                        C<sub>A</sub> = <strong style="font-size: 1.4rem; color: #0369a1;"><span id="res-ca"></span></strong> mol/L
+                    </p>
+                    <div class="calc-details">
+                        <em>Détail du calcul :<br>
+                        C<sub>A</sub> = (C<sub>B</sub> × V<sub>E</sub>) / V<sub>A</sub><br>
+                        C<sub>A</sub> = (<span id="calc-cb"></span> × <span id="calc-ve"></span>) / <span id="calc-va"></span></em>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('tab-graph')">📈 Graphique</button>
+                    <button class="tab-btn" onclick="switchTab('tab-table')">📋 Tableau des valeurs</button>
+                    <button class="tab-btn" onclick="switchTab('tab-analysis')">📐 Exploitation</button>
+                </div>
+
+                <div id="tab-graph" class="tab-content active">
+                    <div class="chart-container">
+                        <canvas id="titrationChart"></canvas>
+                    </div>
+                </div>
+
+                <div id="tab-table" class="tab-content">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Volume V (mL)</th>
+                                    <th>Conductivité $\sigma$ (mS/cm)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="tab-analysis" class="tab-content" style="text-align: left;">
+                    <h3 style="color: #1e293b; margin-top: 0;">1. L'équation de la réaction</h3>
+                    <div style="background: #f8fafc; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0; font-size: 1.1rem; text-align: center;">
+                        <strong>$Ag^+_{(aq)} + Cl^-_{(aq)} \rightarrow AgCl_{(s)}$</strong>
+                    </div>
+                    <p style="color: #475569;">Il se forme un précipité blanc de chlorure d'argent ($AgCl$). Étant solide, <strong>il ne conduit pas le courant électrique !</strong></p>
+
+                    <h3 style="color: #1e293b;">2. L'allure de la courbe</h3>
+                    <div style="background: #f8fafc; border-left: 4px solid #0ea5e9; padding: 15px; margin: 15px 0;">
+                        <strong>Avant l'équivalence ($V < V_E$) :</strong> Les ions $Cl^-$ sont consommés pour former le solide. Ils sont remplacés dans le bécher par les ions $NO_3^-$ de la burette. Comme $\lambda(NO_3^-) < \lambda(Cl^-)$, la conductivité <strong>baisse légèrement</strong>.<br><br>
+                        <strong>Après l'équivalence ($V > V_E$) :</strong> Il n'y a plus de $Cl^-$. On ajoute des ions $Ag^+$ et $NO_3^-$ qui s'accumulent dans l'eau. La conductivité <strong>augmente fortement</strong>.
+                    </div>
+
+                    <h3 style="color: #1e293b;">3. Trouver l'équivalence</h3>
+                    <p style="color: #475569;">Le volume équivalent $V_E$ correspond à l'<strong>intersection des deux droites</strong>. C'est le moment exact où tous les ions chlorure ont précipité.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="nav-footer" style="margin-top: 40px; border-top: none;">
+            <a href="../../laboratoire/laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Labo</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_cond.js"></script>
+</body>
+</html>

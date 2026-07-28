@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire Virtuel : Lunette Afocale</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_lunette.css">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container">
+        
+        <header class="hero-header" style="text-align: center; margin-bottom: 30px;">
+            <h1 class="header-flex" style="justify-content: center; align-items: center; gap: 15px; margin-bottom: 10px;">
+                <span>🔭</span> 
+                <span style="background: linear-gradient(135deg, #8b5cf6, #d946ef); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0;">Labo : Modèle de la Lunette Afocale</span>
+            </h1>
+            <p class="subtitle" style="text-align: center; margin: 0 auto;">Étude du faisceau lumineux, de l'image intermédiaire et du grossissement (Terminale Spé).</p>
+        </header>
+
+        <div class="labo-container">
+            
+            <div class="bench-panel">
+                <div class="bench-header">
+                    <span>🔬 Banc d'Optique (Canvas 2D)</span>
+                    <button class="btn-lab danger" id="btn-reset">🔄 Réinitialiser</button>
+                </div>
+
+                <div class="alert-box" id="status-msg">Déplace les curseurs pour modifier les focales et l'angle d'incidence.</div>
+
+                <div class="canvas-container">
+                    <canvas id="opticsCanvas" width="750" height="350"></canvas>
+                </div>
+
+                <div class="dashboard">
+                    <div class="control-group">
+                        <label>🔵 Objectif ($L_1$) : Focale $f'_1$ (en mm)</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="range" id="slider-f1" min="200" max="500" step="10" value="400" style="flex-grow: 1;">
+                            <span id="val-f1" class="val-badge badge-blue">400 mm</span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group" style="margin-top: 15px;">
+                        <label>🟣 Oculaire ($L_2$) : Focale $f'_2$ (en mm)</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="range" id="slider-f2" min="50" max="150" step="5" value="100" style="flex-grow: 1;">
+                            <span id="val-f2" class="val-badge badge-purple">100 mm</span>
+                        </div>
+                    </div>
+
+                    <div class="control-group" style="margin-top: 15px;">
+                        <label>📐 Angle d'incidence $\theta$ (en degrés)</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="range" id="slider-theta" min="-5" max="5" step="0.5" value="2" style="flex-grow: 1;">
+                            <span id="val-theta" class="val-badge badge-gray">2.0 °</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 15px; text-align: left; line-height: 1.5;">
+                    <strong>Afocalisme :</strong> Le simulateur maintient automatiquement l'écartement entre les lentilles à $d = f'_1 + f'_2$ pour que $F'_1$ et $F_2$ soient parfaitement confondus.
+                </p>
+            </div>
+
+            <div class="data-panel">
+                
+                <div class="live-data-box">
+                    <div class="data-column">
+                        <span class="data-label">Grossissement ($G$)</span>
+                        <span class="data-value" id="res-g" style="color: #10b981;">4.00</span>
+                    </div>
+                    <div class="data-column" style="border-left: 1px solid #cbd5e1; border-right: 1px solid #cbd5e1; padding: 0 15px;">
+                        <span class="data-label">Taille $A_1B_1$</span>
+                        <span class="data-value" id="res-a1b1" style="color: #ef4444;">14.0 mm</span>
+                    </div>
+                    <div class="data-column">
+                        <span class="data-label">Angle émergent ($\theta'$)</span>
+                        <span class="data-value" id="res-theta-prime" style="color: #f59e0b;">8.0 °</span>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('tab-analysis')">📐 Le Cours : Lunette Afocale</button>
+                    <button class="tab-btn" onclick="switchTab('tab-math')">🧮 Démonstration du Grossissement</button>
+                </div>
+
+                <div id="tab-analysis" class="tab-content active" style="text-align: left;">
+                    <h3 style="color: #1e293b; margin-top: 0;">1. Définition et Constitution</h3>
+                    <p style="color: #475569; line-height: 1.6;">Une lunette astronomique est modélisée par <strong>deux lentilles minces convergentes</strong> :</p>
+                    <ul style="color: #475569;">
+                        <li><strong>L'objectif ($L_1$) :</strong> Distance focale longue ($f'_1$). Il collecte la lumière de l'astre et forme une image intermédiaire $A_1B_1$.</li>
+                        <li><strong>L'oculaire ($L_2$) :</strong> Distance focale courte ($f'_2$). Il sert de "loupe" pour observer l'image $A_1B_1$.</li>
+                    </ul>
+
+                    <h3 style="color: #1e293b;">2. La condition d'Afocalisme</h3>
+                    <div class="formula-box formula-purple">
+                        Un système est <strong>afocal</strong> s'il donne d'un objet situé à l'infini, une image située à l'infini.
+                    </div>
+                    <p style="color: #475569;">Pour cela, l'image intermédiaire $A_1B_1$ doit se former exactement dans le <strong>plan focal objet</strong> de l'oculaire.<br>
+                    Il faut donc confondre le foyer image de l'objectif ($F'_1$) avec le foyer objet de l'oculaire ($F_2$). La distance entre les lentilles est : <br>
+                    <strong style="color: #1e3a8a; display: block; text-align: center; margin-top: 10px; font-size: 1.2rem;">$\overline{O_1O_2} = f'_1 + f'_2$</strong></p>
+                    <p style="color: #475569; font-size: 0.9rem;"><em>Avantage : L'œil de l'observateur n'a pas besoin d'accommoder pour regarder l'image à l'infini, ce qui évite la fatigue visuelle.</em></p>
+                </div>
+
+                <div id="tab-math" class="tab-content" style="text-align: left;">
+                    <h3 style="color: #1e293b; margin-top: 0;">Calcul du Grossissement $G$</h3>
+                    <p style="color: #475569; line-height: 1.6;">Le grossissement compare l'angle sous lequel on voit l'image ($\theta'$) à l'angle sous lequel on voit l'objet à l'œil nu ($\theta$).</p>
+                    
+                    <div class="formula-box formula-green">
+                        <strong style="font-size: 1.4rem;">$G = \frac{\theta'}{\theta}$</strong>
+                    </div>
+
+                    <p style="color: #475569;"><strong>Démonstration (avec l'approximation des petits angles $\tan \alpha \approx \alpha$) :</strong></p>
+                    <ol style="color: #475569; line-height: 1.8;">
+                        <li>Dans le triangle $O_1A_1B_1$ rectangle en $A_1$ : <br> $\theta \approx \tan(\theta) = \frac{A_1B_1}{O_1A_1} = \frac{A_1B_1}{f'_1}$</li>
+                        <li>Dans le triangle $O_2A_1B_1$ rectangle en $A_1$ : <br> $\theta' \approx \tan(\theta') = \frac{A_1B_1}{O_2A_1} = \frac{A_1B_1}{f'_2}$</li>
+                        <li>On fait le rapport : $G = \frac{A_1B_1 / f'_2}{A_1B_1 / f'_1}$</li>
+                    </ol>
+
+                    <div class="formula-box formula-blue">
+                        On obtient la formule finale : <strong style="font-size: 1.3rem; margin-left: 10px;">$G = \frac{f'_1}{f'_2}$</strong>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="nav-footer" style="margin-top: 40px; border-top: none;">
+            <a href="../../laboratoire/laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Labo</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_lunette.js"></script>
+</body>
+</html>

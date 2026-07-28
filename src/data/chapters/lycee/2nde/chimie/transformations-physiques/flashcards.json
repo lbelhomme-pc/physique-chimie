@@ -1,22 +1,836 @@
 [
-  {"id":"transformations-physiques-fc01","front":"Transformation physique ?","back":"Transformation sans formation d'une nouvelle espèce chimique.","difficulty":1,"tags":["définition"]},
-  {"id":"transformations-physiques-fc02","front":"Fusion ?","back":"Passage solide vers liquide.","difficulty":1,"tags":["changement d'état"]},
-  {"id":"transformations-physiques-fc03","front":"Solidification ?","back":"Passage liquide vers solide.","difficulty":1,"tags":["changement d'état"]},
-  {"id":"transformations-physiques-fc04","front":"Vaporisation ?","back":"Passage liquide vers gaz.","difficulty":1,"tags":["changement d'état"]},
-  {"id":"transformations-physiques-fc05","front":"Liquéfaction ?","back":"Passage gaz vers liquide.","difficulty":1,"tags":["changement d'état"]},
-  {"id":"transformations-physiques-fc06","front":"Sublimation ?","back":"Passage solide vers gaz.","difficulty":2,"tags":["changement d'état"]},
-  {"id":"transformations-physiques-fc07","front":"Écriture de la fusion de l'eau ?","back":"\\(H_2O(s)\\rightarrow H_2O(l)\\).","difficulty":1,"tags":["écriture"]},
-  {"id":"transformations-physiques-fc08","front":"Dissolution ?","back":"Mise en solution d'un soluté dans un solvant.","difficulty":1,"tags":["vocabulaire"]},
-  {"id":"transformations-physiques-fc09","front":"Fusion ou dissolution du sel dans l'eau ?","back":"Dissolution.","difficulty":1,"tags":["piège"]},
-  {"id":"transformations-physiques-fc10","front":"Endothermique ?","back":"Le système reçoit de l'énergie.","difficulty":1,"tags":["énergie"]},
-  {"id":"transformations-physiques-fc11","front":"Exothermique ?","back":"Le système libère de l'énergie.","difficulty":1,"tags":["énergie"]},
-  {"id":"transformations-physiques-fc12","front":"Relation énergie-changement d'état ?","back":"\\(Q=mL\\).","difficulty":1,"tags":["formule"]},
-  {"id":"transformations-physiques-fc13","front":"Unité de \\(Q\\) ?","back":"Joule, symbole J.","difficulty":1,"tags":["unité"]},
-  {"id":"transformations-physiques-fc14","front":"Unité de \\(m\\) dans \\(Q=mL\\) ?","back":"Kilogramme si \\(L\\) est en J·kg\\(^{-1}\\).","difficulty":2,"tags":["unité"]},
-  {"id":"transformations-physiques-fc15","front":"Unité de \\(L\\) ?","back":"J·kg\\(^{-1}\\).","difficulty":1,"tags":["unité"]},
-  {"id":"transformations-physiques-fc16","front":"Pendant un changement d'état physique, les entités...","back":"restent les mêmes.","difficulty":1,"tags":["modèle"]},
-  {"id":"transformations-physiques-fc17","front":"Solide : organisation microscopique ?","back":"Entités proches et ordonnées.","difficulty":2,"tags":["modèle"]},
-  {"id":"transformations-physiques-fc18","front":"Liquide : organisation microscopique ?","back":"Entités proches mais mobiles.","difficulty":2,"tags":["modèle"]},
-  {"id":"transformations-physiques-fc19","front":"Gaz : organisation microscopique ?","back":"Entités très espacées et mobiles.","difficulty":2,"tags":["modèle"]},
-  {"id":"transformations-physiques-fc20","front":"Piège classique ?","back":"Confondre fusion et dissolution.","difficulty":1,"tags":["piège"]}
+  {
+    "id": "transformations-physiques-fc01",
+    "front": "Transformation physique ?",
+    "back": "Transformation sans formation d'une nouvelle espèce chimique.",
+    "difficulty": 1,
+    "tags": [
+      "définition",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-fc02",
+    "front": "Fusion ?",
+    "back": "Passage solide vers liquide.",
+    "difficulty": 1,
+    "tags": [
+      "changement d'état",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-fc03",
+    "front": "Solidification ?",
+    "back": "Passage liquide vers solide.",
+    "difficulty": 1,
+    "tags": [
+      "changement d'état",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-fc04",
+    "front": "Vaporisation ?",
+    "back": "Passage liquide vers gaz.",
+    "difficulty": 1,
+    "tags": [
+      "changement d'état",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-fc05",
+    "front": "Liquéfaction ?",
+    "back": "Passage gaz vers liquide.",
+    "difficulty": 1,
+    "tags": [
+      "changement d'état",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-fc06",
+    "front": "Sublimation ?",
+    "back": "Passage solide vers gaz.",
+    "difficulty": 2,
+    "tags": [
+      "changement d'état",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-fc07",
+    "front": "Écriture de la fusion de l'eau ?",
+    "back": "\\(H_2O(s)\\rightarrow H_2O(l)\\).",
+    "difficulty": 1,
+    "tags": [
+      "écriture",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-fc08",
+    "front": "Dissolution ?",
+    "back": "Mise en solution d'un soluté dans un solvant.",
+    "difficulty": 1,
+    "tags": [
+      "vocabulaire",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-fc09",
+    "front": "Fusion ou dissolution du sel dans l'eau ?",
+    "back": "Dissolution.",
+    "difficulty": 1,
+    "tags": [
+      "piège",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-fc10",
+    "front": "Endothermique ?",
+    "back": "Le système reçoit de l'énergie.",
+    "difficulty": 1,
+    "tags": [
+      "énergie",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-fc11",
+    "front": "Exothermique ?",
+    "back": "Le système libère de l'énergie.",
+    "difficulty": 1,
+    "tags": [
+      "énergie",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-fc12",
+    "front": "Relation énergie-changement d'état ?",
+    "back": "\\(Q=mL\\).",
+    "difficulty": 1,
+    "tags": [
+      "formule",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-fc13",
+    "front": "Unité de \\(Q\\) ?",
+    "back": "Joule, symbole J.",
+    "difficulty": 1,
+    "tags": [
+      "unité",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-fc14",
+    "front": "Unité de \\(m\\) dans \\(Q=mL\\) ?",
+    "back": "Kilogramme si \\(L\\) est en J·kg\\(^{-1}\\).",
+    "difficulty": 2,
+    "tags": [
+      "unité",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-fc15",
+    "front": "Unité de \\(L\\) ?",
+    "back": "J·kg\\(^{-1}\\).",
+    "difficulty": 1,
+    "tags": [
+      "unité",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-fc16",
+    "front": "Pendant un changement d'état physique, les entités...",
+    "back": "restent les mêmes.",
+    "difficulty": 1,
+    "tags": [
+      "modèle",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-fc17",
+    "front": "Solide : organisation microscopique ?",
+    "back": "Entités proches et ordonnées.",
+    "difficulty": 2,
+    "tags": [
+      "modèle",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-fc18",
+    "front": "Liquide : organisation microscopique ?",
+    "back": "Entités proches mais mobiles.",
+    "difficulty": 2,
+    "tags": [
+      "modèle",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-fc19",
+    "front": "Gaz : organisation microscopique ?",
+    "back": "Entités très espacées et mobiles.",
+    "difficulty": 2,
+    "tags": [
+      "modèle",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-fc20",
+    "front": "Piège classique ?",
+    "back": "Confondre fusion et dissolution.",
+    "difficulty": 1,
+    "tags": [
+      "piège",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  }
 ]

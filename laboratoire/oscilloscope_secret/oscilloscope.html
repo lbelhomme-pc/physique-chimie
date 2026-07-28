@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : L'Oscilloscope Secret</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_oscilloscope.css">
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="labo-wrapper">
+        <header>
+            <h1 class="header-title title-osci">🔊 L'Oscilloscope Secret</h1>
+            <p style="color: #64748b;"><strong>Règle du jeu :</strong> Modifie les boutons pour que ta courbe verte se superpose exactement sur la courbe grise mystère !</p>
+        </header>
+
+        <div class="oscilloscope-container">
+            <canvas id="osc-canvas" width="800" height="400"></canvas>
+            <div class="screen-glare"></div>
+        </div>
+
+        <div class="main-dashboard">
+            <div class="control-panel">
+                <div class="panel-title">🎛️ Réglages</div>
+                <div class="slider-group">
+                    <label><span>↕️ Amplitude (Tension)</span> <span id="lbl-amp">Moyen</span></label>
+                    <input type="range" id="slider-amp" min="10" max="180" step="2" value="95" oninput="trackSliders()">
+                </div>
+                <div class="slider-group">
+                    <label><span>↔️ Fréquence (Temps)</span> <span id="lbl-freq">Moyen</span></label>
+                    <input type="range" id="slider-freq" min="1" max="10" step="0.1" value="5.5" oninput="trackSliders()">
+                </div>
+            </div>
+
+            <div class="physics-panel">
+                <div class="panel-title">📐 Analyse Physique</div>
+                <div class="formula-line">
+                    <span>Tension max <span class="formula-math">U<sub>max</sub></span></span>
+                    <span class="formula-value"><span id="val-umax">9.5</span> V <span id="arr-umax" class="arrow-flat">➖</span></span>
+                </div>
+                <div class="formula-line">
+                    <span>Période <span class="formula-math">T</span></span>
+                    <span class="formula-value"><span id="val-t">2.0</span> ms <span id="arr-t" class="arrow-flat">➖</span></span>
+                </div>
+                <div class="formula-line">
+                    <span>Fréquence <span class="formula-math">f = 1/T</span></span>
+                    <span class="formula-value"><span id="val-f">500</span> Hz <span id="arr-f" class="arrow-flat">➖</span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-info" id="game-info-container">
+            <span class="level-badge" id="level-indicator">Niveau 1 / 4</span>
+            <span id="game-message" style="color: #0369a1;">🎯 Objectif : Trouve le son <strong id="level-desc">Grave et Fort</strong></span>
+            
+            <div style="display: flex; gap: 10px;">
+                <button class="btn-action btn-sound" id="btn-sound" onclick="toggleSound()">🔇 Activer le Son</button>
+                <button class="btn-action btn-next" id="btn-next" onclick="nextLevel()">Niveau Suivant ➡️</button>
+            </div>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../laboratoire.html" class="btn-action btn-back">
+                <span class="emoji">🧪</span> Retour au Labo
+            </a>
+            <a href="../../index.html" class="btn-action btn-home">
+                <span class="emoji">🏠</span> Accueil
+            </a>
+        </div>
+    </div>
+
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_oscilloscope.js"></script>
+</body>
+</html>

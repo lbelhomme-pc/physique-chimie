@@ -1,0 +1,73 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+ width=11cm, height=6.5cm,
+ xlabel={$t$ (ms)},
+ ylabel={$u_C$ (V)},
+ xmin=0, xmax=300,
+ ymin=0, ymax=5.5,
+ grid=major,
+ grid style={gray!30},
+ xtick={0,50,100,150,200,250,300},
+ ytick={0,1,2,3,4,5},
+ axis lines=left,
+ every axis x label/.style={at={(ticklabel* cs:1)}, anchor=west},
+ every axis y label/.style={at={(ticklabel* cs:1)}, anchor=south},
+ thick,
+ samples=200,
+ domain=0:300,
+]
+\addplot[primary, very thick] {5*(1 - exp(-x/40))};
+\draw[dashed, gray] (axis cs:0,5) -- (axis cs:300,5) node[right, font=\small] {$E = \SI{5,0}{V}$};
+\draw[dashed, synthorange, thick] (axis cs:40,0) -- (axis cs:40,3.15);
+\draw[dashed, synthorange, thick] (axis cs:0,3.15) -- (axis cs:40,3.15);
+\node[font=\small, synthorange] at (axis cs:55,0.5) {$\tau$};
+\end{axis}
+\end{tikzpicture}
+\end{document}

@@ -1,3 +1,6 @@
+import { resolveChapterContentId } from "../../utils/contentIds";
+import { migrateBrowserContentProgressStorage } from "../../utils/contentProgressMigration";
+
 // src/data/gamification/srs.ts
 // Spaced Repetition System — Algorithme SM-2 simplifié (style Anki)
 // Gère les intervalles de révision par carte, par utilisateur
@@ -59,12 +62,15 @@ export class SRSEngine {
   private load(): Map<string, CardState> {
     if (typeof window === "undefined") return new Map();
     try {
+      migrateBrowserContentProgressStorage();
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return new Map();
       const arr: CardState[] = JSON.parse(raw);
       const map = new Map<string, CardState>();
       for (const c of arr) {
-        map.set(this.key(c.chapterId, c.cardId), c);
+        const chapterId = this.canonicalChapterId(c.chapterId);
+        const state = { ...c, chapterId };
+        map.set(this.key(chapterId, c.cardId), state);
       }
       return map;
     } catch {
@@ -81,7 +87,11 @@ export class SRSEngine {
   }
 
   private key(chapterId: string, cardId: string): string {
-    return `${chapterId}::${cardId}`;
+    return `${this.canonicalChapterId(chapterId)}::${cardId}`;
+  }
+
+  private canonicalChapterId(chapterId: string): string {
+    return resolveChapterContentId(chapterId);
   }
 
   // ─── Obtenir l'état d'une carte ───────────────────────
@@ -95,7 +105,7 @@ export class SRSEngine {
   private createNewCard(chapterId: string, cardId: string): CardState {
     return {
       cardId,
-      chapterId,
+      chapterId: this.canonicalChapterId(chapterId),
       ease: DEFAULT_EASE,
       interval: 0,       // Jamais vue
       repetitions: 0,
@@ -108,8 +118,9 @@ export class SRSEngine {
   // ─── Algorithme SM-2 simplifié ────────────────────────
 
   review(chapterId: string, cardId: string, rating: SRSRating): ReviewResult {
-    const k = this.key(chapterId, cardId);
-    let state = this.cards.get(k) ?? this.createNewCard(chapterId, cardId);
+    const canonicalChapterId = this.canonicalChapterId(chapterId);
+    const k = this.key(canonicalChapterId, cardId);
+    let state = this.cards.get(k) ?? this.createNewCard(canonicalChapterId, cardId);
     const previousInterval = state.interval;
 
     const todayStr = today();
@@ -178,9 +189,10 @@ export class SRSEngine {
   getDueCards(chapterId?: string): CardState[] {
     const todayStr = today();
     const due: CardState[] = [];
+    const canonicalChapterId = chapterId ? this.canonicalChapterId(chapterId) : undefined;
 
     for (const state of this.cards.values()) {
-      if (chapterId && state.chapterId !== chapterId) continue;
+      if (canonicalChapterId && state.chapterId !== canonicalChapterId) continue;
       if (state.nextReview <= todayStr) {
         due.push(state);
       }
@@ -306,8 +318,9 @@ export class SRSEngine {
   // ─── Reset ────────────────────────────────────────────
 
   resetChapter(chapterId: string): void {
+    const canonicalChapterId = this.canonicalChapterId(chapterId);
     for (const [key, state] of this.cards.entries()) {
-      if (state.chapterId === chapterId) {
+      if (state.chapterId === canonicalChapterId) {
         this.cards.delete(key);
       }
     }
@@ -317,7 +330,7 @@ export class SRSEngine {
   resetAll(): void {
     this.cards.clear();
     if (typeof window !== "undefined") {
-      localStorage.removeItem(STORAGE_KEY);
+      localStorage.setItem(STORAGE_KEY, "[]");
     }
   }
 }

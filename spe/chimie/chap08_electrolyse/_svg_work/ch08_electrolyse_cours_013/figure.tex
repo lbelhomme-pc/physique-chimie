@@ -1,0 +1,80 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[scale=1, >=Stealth]
+% Cuve
+\draw[thick, primary] (-3,-2) rectangle (3,2);
+\fill[blue!5] (-3,-2) rectangle (3,0.5);
+\node[font=\small, primary] at (0,-2.4) {Solution électrolytique};
+
+% Électrodes
+\draw[very thick, gray!70!black] (-2,0.5) -- (-2,2.5);
+\draw[very thick, gray!70!black] (2,0.5) -- (2,2.5);
+\fill[gray!40] (-2.2,-1.8) rectangle (-1.8,0.5);
+\fill[gray!40] (1.8,-1.8) rectangle (2.2,0.5);
+
+% Labels électrodes
+\node[font=\bfseries, red!70!black] at (-2,3) {Anode (+)};
+\node[font=\small, red!70!black] at (-2,2.7) {Oxydation};
+\node[font=\bfseries, blue!70!black] at (2,3) {Cathode (-)};
+\node[font=\small, blue!70!black] at (2,2.7) {Réduction};
+
+% Générateur
+\draw[thick] (-2,2.5) -- (-2,3.5) -- (-0.6,3.5);
+\draw[thick] (2,2.5) -- (2,3.5) -- (0.6,3.5);
+\draw[thick] (-0.6,3.1) rectangle (0.6,3.9);
+\node[font=\small\bfseries] at (0,3.5) {G};
+\node[font=\tiny, red!70!black] at (-0.4,4.1) {$+$};
+\node[font=\tiny, blue!70!black] at (0.4,4.1) {$-$};
+
+% Sens du courant I
+\draw[->, very thick, synthorange] (-1,3.5) -- (0.8,3.5);
+\node[font=\small, synthorange] at (-0.1,3.95) {$I$};
+
+% Sens des électrons
+\draw[->, thick, accent] (1.5,2.8) -- (-1.5,2.8);
+\node[font=\small, accent] at (0,2.5) {$e^-$};
+
+% Ions dans la solution
+\draw[->, thick, red!60] (-0.5,-0.5) -- (-1.7,-0.5);
+\node[font=\small, red!60] at (0.1,-0.5) {\ce{M^{n+}}};
+\node[font=\small, red!60] at (-1.7,-1) {\footnotesize vers l'anode};
+
+\draw[->, thick, blue!60] (0.5,0) -- (1.7,0);
+\node[font=\small, blue!60] at (-0.1,0) {\ce{M^{n+}}};
+\node[font=\small, blue!60] at (1.7,-0.5) {\footnotesize vers la cathode};
+\end{tikzpicture}
+\end{document}

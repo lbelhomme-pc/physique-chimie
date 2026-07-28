@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours : Évolution spontanée d'un système chimique (Terminale Spé) | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">🧪</span> 
+                <h1 class="hero-title">Évolution spontanée d'un système chimique</h1>
+            </div>
+        </header>
+
+<div class="box-pedagogie box-objectif">
+<strong> Objectifs du chapitre</strong>
+<p>\`{A} l'issue de ce chapitre, vous serez capables de :<br><ul><li>distinguer transformation totale et transformation non totale ;</li><li>définir et calculer le quotient de réaction $Q_r$ pour un système chimique donné ;</li><li>définir la constante d'équilibre $K(T)$ et l'utiliser pour caractériser l'état final ;</li><li>déterminer le taux d'avancement final $$ et interpréter sa valeur ;</li><li>prévoir le sens d'évolution spontanée d'un système chimique en comparant $Q_{r,i}$ et $K(T)$ ;</li><li>connaître les oxydants et réducteurs usuels ;</li><li>décrire le fonctionnement d'une pile électrochimique ;</li><li>calculer la capacité électrique d'une pile.<br></li></ul><br></div></p>
+<h2 class="section-title">1. Transformation non totale</h2>
+<div class="card chapter-card">
+<h3>1.1. Système chimique à l'état final</h3>
+<div class="definition-box">
+<strong>Transformation totale :</strong> une transformation est dite <strong>totale</strong> lorsqu'au moins un des réactifs est entièrement consommé à l'état final. L'avancement final $x_f$ est alors égal à l'avancement maximal $x_{}$.
+<strong>Transformation non totale :</strong> une transformation est dite <strong>non totale</strong> lorsque, à l'état final, <strong>tous les réactifs et tous les produits</strong> de l'équation de la réaction sont présents en quantités non négligeables. L'état final correspond alors à un état d'<strong>équilibre chimique</strong>.
+</div>
+<strong>Comment savoir si une transformation est non totale ?</strong>
+<p>Pour mettre en évidence le caractère non total d'une transformation, on peut procéder à un <strong>nouvel ajout</strong> de n'importe lequel des réactifs dans le système à l'état final. Si le réactif nouvellement ajouté réagit avec les réactifs non consommés, cela signifie que les quantités de produits augmentent : la transformation n'était donc pas totale.</p>
+<div class="info-box">
+<strong>Remarque :</strong> à l'état final, lorsque les quantités des réactifs limitants sont très petites devant celles des autres réactifs, la transformation peut être qualifiée de <strong>quasi-totale</strong>.
+</div>
+<h3>1.2. \'{E}quation de réaction</h3>
+<p>Pour une transformation totale, on utilise une flèche simple $$ dans l'équation de réaction.</p>
+<p>Pour une transformation non totale, deux réactions ont lieu <strong>simultanément</strong> et en sens opposés :<br><ul><li>les réactifs réagissent pour former les produits : c'est la réaction en <strong>sens direct</strong> ;</li><li>les produits réagissent pour former les réactifs : c'est la réaction en <strong>sens indirect</strong>.<br></li></ul></p>
+<div class="definition-box">
+L'équation de réaction modélisant une transformation non totale tient compte de cette double évolution. Le symbole $$ est remplacé par le symbole $$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$a  + b   d  + e $$</div></div></div></div>
+</div>
+<div class="info-box">
+<strong>Convention :</strong> par convention, les espèces chimiques notées <strong>à gauche</strong> de la double flèche sont appelées <strong>réactifs</strong> et les espèces <strong>à droite</strong> de la double flèche sont appelées <strong>produits</strong>.
+</div>
+<div class="example-box">
+<strong>Exemple :</strong> l'ozone ${}_3$(g) et le monoxyde d'azote $N$(g) réagissent suivant une transformation non totale. L'équation de réaction modélisant cette transformation s'écrit :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_3(g) + N(g)  {}_2(g) + {}_2(g)$$</div></div>$</div></div>
+</div>
+<h3>1.3. Modèle de l'équilibre dynamique</h3>
+<p>\`{A} l'état final d'une transformation non totale :<br><ul><li>les <strong>quantités</strong> des espèces chimiques <strong>n'évoluent plus</strong> à l'échelle macroscopique ;</li><li>à l'échelle des entités, les <strong>chocs efficaces</strong> ont toujours lieu ; les chocs efficaces conduisant aux produits <strong>compensent exactement</strong> les chocs efficaces conduisant aux réactifs.<br></li></ul></p>
+<div class="definition-box">
+Pour une transformation non totale, l'état final correspond à un état d'<strong>équilibre chimique dynamique</strong>.
+<p>Le mot  équilibre  caractérise le système chimique d'un point de vue <strong>macroscopique</strong> (les quantités ne changent plus).</p>
+<p>L'adjectif  dynamique  traduit une propriété du système à l'échelle <strong>microscopique</strong> (les réactions continuent dans les deux sens, mais se compensent).<br></div></p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.00785 -65.28515 312.6132 85.460732'>
+<defs>
+<path id='g0-41' d='M6.635118-2.96787C7.092403-2.57335 7.531756-2.367123 7.827646-2.25056C7.442092-2.080199 7.038605-1.865006 6.635118-1.524284H.824907C.690411-1.524284 .511083-1.524284 .511083-1.33599C.511083-1.13873 .708344-1.13873 .869738-1.13873H6.204732C5.639851-.537983 5.326027 .080697 5.326027 .152428C5.326027 .268991 5.433624 .268991 5.514321 .268991C5.621918 .268991 5.66675 .268991 5.711582 .188294C6.437858-1.210461 7.442092-1.811208 8.598755-2.133998C8.670486-2.15193 8.697385-2.205729 8.697385-2.241594C8.697385-2.331258 8.616687-2.349191 8.598755-2.358157C8.159402-2.483686 7.531756-2.654047 6.760648-3.308593C6.428892-3.595517 6.052304-4.016936 5.756413-4.581818C5.66675-4.752179 5.657783-4.761146 5.514321-4.761146C5.433624-4.761146 5.326027-4.761146 5.326027-4.644583C5.326027-4.572852 5.630884-3.963138 6.204732-3.353425H.869738C.708344-3.353425 .511083-3.353425 .511083-3.156164C.511083-2.96787 .690411-2.96787 .824907-2.96787H6.635118Z'/>
+</defs>
+<g id='page1'>
+<path d='M25.418-65.0859H-65.8242C-68.0234-65.0859-69.8086-63.3008-69.8086-61.1016V-18.0469C-69.8086-15.8477-68.0234-14.0625-65.8242-14.0625H25.418C27.6211-14.0625 29.4063-15.8477 29.4063-18.0469V-61.1016C29.4063-63.3008 27.6211-65.0859 25.418-65.0859Z' fill='#e7f1f4'/>
+<path d='M25.418-65.0859H-65.8242C-68.0234-65.0859-69.8086-63.3008-69.8086-61.1016V-18.0469C-69.8086-15.8477-68.0234-14.0625-65.8242-14.0625H25.418C27.6211-14.0625 29.4063-15.8477 29.4063-18.0469V-61.1016C29.4063-63.3008 27.6211-65.0859 25.418-65.0859Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -18.5923 7.4529)'>
+<use x='-20.201937' y='-50.533613' xlink:href='#g1-82'/>
+<use x='-12.253139' y='-50.533613' xlink:href='#g1-233'/>
+<use x='-7.385772' y='-50.533613' xlink:href='#g1-97'/>
+<use x='-2.229295' y='-50.533613' xlink:href='#g1-99'/>
+<use x='2.485206' y='-50.533613' xlink:href='#g1-116'/>
+<use x='6.61039' y='-50.533613' xlink:href='#g1-105'/>
+<use x='9.556954' y='-50.533613' xlink:href='#g1-102'/>
+<use x='12.798169' y='-50.533613' xlink:href='#g1-115'/>
+<use x='-18.821266' y='-39.574709' xlink:href='#g2-40'/>
+<use x='-15.238362' y='-39.574709' xlink:href='#g2-65'/>
+<use x='-5.258789' y='-39.574709' xlink:href='#g2-101'/>
+<use x='-1.160567' y='-39.574709' xlink:href='#g2-116'/>
+<use x='5.493402' y='-39.574709' xlink:href='#g2-66'/>
+<use x='12.018723' y='-39.574709' xlink:href='#g2-41'/>
+</g>
+<path d='M238.4181-65.0859H147.1761C144.9761-65.0859 143.1911-63.3008 143.1911-61.1016V-18.0469C143.1911-15.8477 144.9761-14.0625 147.1761-14.0625H238.4181C240.6211-14.0625 242.4061-15.8477 242.4061-18.0469V-61.1016C242.4061-63.3008 240.6211-65.0859 238.4181-65.0859Z' fill='#fdedf5'/>
+<path d='M238.4181-65.0859H147.1761C144.9761-65.0859 143.1911-63.3008 143.1911-61.1016V-18.0469C143.1911-15.8477 144.9761-14.0625 147.1761-14.0625H238.4181C240.6211-14.0625 242.4061-15.8477 242.4061-18.0469V-61.1016C242.4061-63.3008 240.6211-65.0859 238.4181-65.0859Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 192.8699 7.4529)'>
+<use x='-20.201937' y='-50.533613' xlink:href='#g1-80'/>
+<use x='-12.958657' y='-50.533613' xlink:href='#g1-114'/>
+<use x='-8.583083' y='-50.533613' xlink:href='#g1-111'/>
+<use x='-2.984616' y='-50.533613' xlink:href='#g1-100'/>
+<use x='2.908504' y='-50.533613' xlink:href='#g1-117'/>
+<use x='8.801624' y='-50.533613' xlink:href='#g1-105'/>
+<use x='11.748188' y='-50.533613' xlink:href='#g1-116'/>
+<use x='15.873371' y='-50.533613' xlink:href='#g1-115'/>
+<use x='-17.220047' y='-39.574709' xlink:href='#g2-40'/>
+<use x='-13.637143' y='-39.574709' xlink:href='#g2-68'/>
+<use x='-3.528911' y='-39.574709' xlink:href='#g2-101'/>
+<use x='.569311' y='-39.574709' xlink:href='#g2-116'/>
+<use x='7.223279' y='-39.574709' xlink:href='#g2-69'/>
+<use x='13.492677' y='-39.574709' xlink:href='#g2-41'/>
+</g>
+<path d='M29.6055-50.9141H137.7891' stroke='#0e7490' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M141.10204-50.914052L136.5747-52.4414L138.08642-50.914052L136.5747-49.38671Z' fill='#0e7490'/>
+<path d='M141.10204-50.914052L136.5747-52.4414L138.08642-50.914052L136.5747-49.38671Z' stroke='#0e7490' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 80.8516 -20.9256)'>
+<use x='-20.201937' y='-39.574709' xlink:href='#g1-83'/>
+<use x='-14.308817' y='-39.574709' xlink:href='#g1-101'/>
+<use x='-9.44145' y='-39.574709' xlink:href='#g1-110'/>
+<use x='-3.54833' y='-39.574709' xlink:href='#g1-115'/>
+<use x='4.171669' y='-39.574709' xlink:href='#g1-100'/>
+<use x='10.064789' y='-39.574709' xlink:href='#g1-105'/>
+<use x='13.011354' y='-39.574709' xlink:href='#g1-114'/>
+<use x='17.386927' y='-39.574709' xlink:href='#g1-101'/>
+<use x='22.254295' y='-39.574709' xlink:href='#g1-99'/>
+<use x='26.968796' y='-39.574709' xlink:href='#g1-116'/>
+</g>
+<path d='M142.9921-28.2344H34.8086' stroke='#ec4899' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M31.49608-28.234386L36.02343-26.71095L34.5078-28.234386L36.02343-29.76173Z' fill='#ec4899'/>
+<path d='M31.49608-28.234386L36.02343-26.71095L34.5078-28.234386L36.02343-29.76173Z' stroke='#ec4899' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 76.4317 27.1134)'>
+<use x='-20.201937' y='-39.574709' xlink:href='#g1-83'/>
+<use x='-14.308817' y='-39.574709' xlink:href='#g1-101'/>
+<use x='-9.44145' y='-39.574709' xlink:href='#g1-110'/>
+<use x='-3.54833' y='-39.574709' xlink:href='#g1-115'/>
+<use x='4.171669' y='-39.574709' xlink:href='#g1-105'/>
+<use x='7.118234' y='-39.574709' xlink:href='#g1-110'/>
+<use x='13.011354' y='-39.574709' xlink:href='#g1-100'/>
+<use x='18.904474' y='-39.574709' xlink:href='#g1-105'/>
+<use x='21.851038' y='-39.574709' xlink:href='#g1-114'/>
+<use x='26.226612' y='-39.574709' xlink:href='#g1-101'/>
+<use x='31.093979' y='-39.574709' xlink:href='#g1-99'/>
+<use x='35.808481' y='-39.574709' xlink:href='#g1-116'/>
+</g>
+<g fill='#0f172a' transform='matrix(1 0 0 1 -12.5154 59.4813)'>
+<use x='-20.201937' y='-50.533613' xlink:href='#g2-192'/>
+<use x='-10.222364' y='-50.533613' xlink:href='#g2-108'/>
+<use x='-7.663143' y='-50.533613' xlink:href='#g2-39'/>
+<use x='-5.103922' y='-50.533613' xlink:href='#g2-233'/>
+<use x='-1.005701' y='-50.533613' xlink:href='#g2-113'/>
+<use x='3.856819' y='-50.533613' xlink:href='#g2-117'/>
+<use x='8.975261' y='-50.533613' xlink:href='#g2-105'/>
+<use x='11.534482' y='-50.533613' xlink:href='#g2-108'/>
+<use x='14.093703' y='-50.533613' xlink:href='#g2-105'/>
+<use x='16.652924' y='-50.533613' xlink:href='#g2-98'/>
+<use x='21.771366' y='-50.533613' xlink:href='#g2-114'/>
+<use x='25.375023' y='-50.533613' xlink:href='#g2-101'/>
+<use x='32.544309' y='-50.533613' xlink:href='#g2-100'/>
+<use x='37.662751' y='-50.533613' xlink:href='#g2-121'/>
+<use x='42.52527' y='-50.533613' xlink:href='#g2-110'/>
+<use x='47.643712' y='-50.533613' xlink:href='#g2-97'/>
+<use x='52.250308' y='-50.533613' xlink:href='#g2-109'/>
+<use x='59.927971' y='-50.533613' xlink:href='#g2-105'/>
+<use x='62.487192' y='-50.533613' xlink:href='#g2-113'/>
+<use x='67.349712' y='-50.533613' xlink:href='#g2-117'/>
+<use x='72.468154' y='-50.533613' xlink:href='#g2-101'/>
+<use x='79.63744' y='-50.533613' xlink:href='#g2-58'/>
+<use x='85.267725' y='-50.533613' xlink:href='#g2-108'/>
+<use x='87.826946' y='-50.533613' xlink:href='#g2-101'/>
+<use x='91.925168' y='-50.533613' xlink:href='#g2-115'/>
+<use x='98.630322' y='-50.533613' xlink:href='#g2-100'/>
+<use x='103.748764' y='-50.533613' xlink:href='#g2-101'/>
+<use x='107.846986' y='-50.533613' xlink:href='#g2-117'/>
+<use x='112.965428' y='-50.533613' xlink:href='#g2-120'/>
+<use x='120.899011' y='-50.533613' xlink:href='#g2-114'/>
+<use x='124.502669' y='-50.533613' xlink:href='#g2-233'/>
+<use x='128.600891' y='-50.533613' xlink:href='#g2-97'/>
+<use x='133.207487' y='-50.533613' xlink:href='#g2-99'/>
+<use x='137.302237' y='-50.533613' xlink:href='#g2-116'/>
+<use x='140.885141' y='-50.533613' xlink:href='#g2-105'/>
+<use x='143.444362' y='-50.533613' xlink:href='#g2-111'/>
+<use x='148.050959' y='-50.533613' xlink:href='#g2-110'/>
+<use x='153.169401' y='-50.533613' xlink:href='#g2-115'/>
+<use x='159.874555' y='-50.533613' xlink:href='#g2-115'/>
+<use x='163.508646' y='-50.533613' xlink:href='#g2-101'/>
+<use x='170.677932' y='-50.533613' xlink:href='#g2-99'/>
+<use x='174.772682' y='-50.533613' xlink:href='#g2-111'/>
+<use x='179.379278' y='-50.533613' xlink:href='#g2-109'/>
+<use x='187.056941' y='-50.533613' xlink:href='#g2-112'/>
+<use x='192.431305' y='-50.533613' xlink:href='#g2-101'/>
+<use x='196.529527' y='-50.533613' xlink:href='#g2-110'/>
+<use x='201.647969' y='-50.533613' xlink:href='#g2-115'/>
+<use x='205.28206' y='-50.533613' xlink:href='#g2-101'/>
+<use x='209.380282' y='-50.533613' xlink:href='#g2-110'/>
+<use x='214.242786' y='-50.533613' xlink:href='#g2-116'/>
+<use x='7.028164' y='-39.574709' xlink:href='#g0-41'/>
+<use x='19.314609' y='-39.574709' xlink:href='#g2-108'/>
+<use x='21.87383' y='-39.574709' xlink:href='#g2-101'/>
+<use x='25.972052' y='-39.574709' xlink:href='#g2-115'/>
+<use x='32.677207' y='-39.574709' xlink:href='#g2-113'/>
+<use x='37.539726' y='-39.574709' xlink:href='#g2-117'/>
+<use x='42.658168' y='-39.574709' xlink:href='#g2-97'/>
+<use x='47.264764' y='-39.574709' xlink:href='#g2-110'/>
+<use x='52.127269' y='-39.574709' xlink:href='#g2-116'/>
+<use x='55.710173' y='-39.574709' xlink:href='#g2-105'/>
+<use x='58.269394' y='-39.574709' xlink:href='#g2-116'/>
+<use x='61.852299' y='-39.574709' xlink:href='#g2-233'/>
+<use x='65.950521' y='-39.574709' xlink:href='#g2-115'/>
+<use x='72.655675' y='-39.574709' xlink:href='#g2-100'/>
+<use x='77.774117' y='-39.574709' xlink:href='#g2-101'/>
+<use x='84.943403' y='-39.574709' xlink:href='#g2-109'/>
+<use x='92.621066' y='-39.574709' xlink:href='#g2-97'/>
+<use x='97.227662' y='-39.574709' xlink:href='#g2-116'/>
+<use x='100.810567' y='-39.574709' xlink:href='#g2-105'/>
+<use x='103.369788' y='-39.574709' xlink:href='#g2-232'/>
+<use x='107.46801' y='-39.574709' xlink:href='#g2-114'/>
+<use x='111.071667' y='-39.574709' xlink:href='#g2-101'/>
+<use x='118.240953' y='-39.574709' xlink:href='#g2-114'/>
+<use x='121.844611' y='-39.574709' xlink:href='#g2-101'/>
+<use x='125.942833' y='-39.574709' xlink:href='#g2-115'/>
+<use x='129.576923' y='-39.574709' xlink:href='#g2-116'/>
+<use x='133.159827' y='-39.574709' xlink:href='#g2-101'/>
+<use x='137.258049' y='-39.574709' xlink:href='#g2-110'/>
+<use x='142.120554' y='-39.574709' xlink:href='#g2-116'/>
+<use x='148.774523' y='-39.574709' xlink:href='#g2-99'/>
+<use x='152.869273' y='-39.574709' xlink:href='#g2-111'/>
+<use x='157.475869' y='-39.574709' xlink:href='#g2-110'/>
+<use x='162.594311' y='-39.574709' xlink:href='#g2-115'/>
+<use x='166.228401' y='-39.574709' xlink:href='#g2-116'/>
+<use x='169.811306' y='-39.574709' xlink:href='#g2-97'/>
+<use x='174.417902' y='-39.574709' xlink:href='#g2-110'/>
+<use x='179.280407' y='-39.574709' xlink:href='#g2-116'/>
+<use x='182.863311' y='-39.574709' xlink:href='#g2-101'/>
+<use x='186.961533' y='-39.574709' xlink:href='#g2-115'/>
+</g>
+</g>
+</svg></div>
+</div>
+<h3>1.4. Taux d'avancement final</h3>
+<div class="definition-box">
+Le <strong>taux d'avancement final</strong> $$ d'une transformation est le quotient de l'avancement final $x_f$ par l'avancement maximal $x_{}$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ = {x_{}}}$$</div></div></div></div>
+<strong>Unités :</strong>
+<ul><li>$$ : sans unité ;</li><li>$x_f$ et $x_{}$ : dans la même unité (en général en mol).
+</li></ul>
+</div>
+<strong>Interprétation de la valeur de $$ :</strong>
+<ul><li>Pour une transformation <strong>non totale</strong> : $ < 1$.</li><li>Pour une transformation <strong>totale</strong> : $ = 1$.
+</li></ul>
+<div class="info-box">
+<strong>Remarque :</strong> le taux d'avancement final $$ dépend de l'état initial du système (quantités initiales de réactifs et de produits). Il s'exprime le plus souvent en <strong>pourcentage</strong>.
+<p>Pour une transformation non totale : $x_f < x_{}$.<br></div></p>
+</div>
+<h2 class="section-title">2. \'{E}volution spontanée</h2>
+<div class="card chapter-card">
+<h3>2.1. Quotient de réaction</h3>
+<strong>Notion d'activité chimique</strong>
+<p>Avant de définir le quotient de réaction, il faut introduire la notion d'<strong>activité</strong> d'une espèce chimique. L'activité $a$ d'une espèce X dépend de la nature de cette espèce :</p>
+<div class="text-center">
+{1.5}
+{>{}p{6cm} c}
+<strong>Nature de l'espèce X</strong> & <strong>Activité $a_X$</strong> \\
+<p>Espèce dissoute (concentration $[]$) & $a_X = {[]}{c^{0}}$ \<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$6pt]<br>{avec $c^{0} = {mol.L^{-1}}$ (concentration standard)} & {$a_X$ est sans unité} \\[4pt]<br>Solide pur & $a_X = 1$ \\[4pt]<br>Solvant (l'eau, en général) & $a_X = 1$ \\</p>
+</div>
+<div class="info-box">
+<strong>Remarque importante :</strong> puisque $c^{0} = {mol.L^{-1}}$, l'activité d'une espèce dissoute est <strong>numériquement égale</strong> à la valeur de sa concentration en {mol.L^{-1}}. Par exemple, si $[] = {0{,}10}{mol.L^{-1}}$, alors $a_X = 0{,}10$.
+<p>L'activité $a_X$ est <strong>adimensionnée</strong> (sans unité).<br></div></p>
+<strong>Définition du quotient de réaction</strong>
+<div class="definition-box">
+Pour une réaction modélisée par l'équation :
+\[
+a  + b   d  + e $$</div></div></div></div>
+<p>le <strong>quotient de réaction</strong> $Q_r$ a pour expression :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${Q_r = {a_{}^{ d}  a_{}^{ e}}{a_{}^{ a}  a_{}^{ b}}}$$</div></div></div></div></p>
+<strong>Unités :</strong>
+<ul><li>$Q_r$ est <strong>adimensionnel</strong> (sans unité) ;</li><li>$a_{}$, $a_{}$, $a_{}$, $a_{}$ sont sans unité ;</li><li>$a$, $b$, $d$, $e$ sont les coefficients stchiométriques.
+</li></ul>
+</div>
+<div class="info-box">
+<strong>Attention !</strong> La grandeur $a$ qui caractérise chaque espèce dépend de la <strong>phase</strong> (solide, liquide ou gazeuse) dans laquelle cette espèce se trouve. Il est donc important de <strong>toujours écrire la phase</strong> des espèces dans une équation de réaction.
+<strong>Conséquence :</strong> si un des réactifs dissous est totalement consommé (concentration nulle), alors $Q_r$ tend vers l'infini. Si un produit dissous est totalement consommé, alors $Q_r$ tend vers zéro.
+</div>
+<div class="example-box">
+<strong>Exemple :</strong> la précipitation de l'iodate de baryum est modélisée par l'équation de réaction :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{2 + }(aq) + 2{}_3^{-}(aq)  ({}_3)2(s)$$</div></div>$</div></div>
+<p>Le quotient de réaction pour un état quelconque du système a pour expression :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_r = {a_{$({}_3)2$}}{a_{$^{2 + }$}  a_{${}_3^{-}$}^{ 2}}$$</div></div></div></div></p>
+<p>Or $({}_3)2$ est un <strong>solide</strong>, donc $a_{$({}_3)2$} = 1$. On obtient :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_r = {{[$^{2 + }$]}{c^{0}}  ({[${}_3^{-}$]}{c^{0}})^{2}} = {(c^{0})^3}{[$^{2 + }$]  [${}_3^{-}$]^{2}}$$</div></div></div></div><br></div></p>
+<h3>2.2. Quotient de réaction à l'équilibre et constante d'équilibre</h3>
+<p>Lorsque le système est dans un état final d'équilibre, le quotient de réaction prend la valeur $Q_{r,}$, appelé <strong>quotient de réaction à l'équilibre</strong>.</p>
+<div class="definition-box">
+\`{A} toute réaction chimique est associée une constante caractéristique sans unité $K(T)$, appelée <strong>constante d'équilibre</strong>, qui ne dépend que de la <strong>température</strong> $T$.
+<p>Pour une transformation non totale, l'état final est un état d'équilibre chimique caractérisé par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${Q_{r,} = K(T)}$$</div></div></div></div></p>
+<p>Les valeurs de $K(T)$ sont répertoriées dans des <strong>tables de données</strong>.<br></div></p>
+<div class="info-box">
+<strong>Remarque :</strong> si une transformation fait intervenir une espèce solide et que celle-ci est totalement consommée <strong>avant</strong> que $Q_r$ n'atteigne $K(T)$, la transformation est alors <strong>totale</strong>.
+</div>
+<h3>2.3. Critère d'évolution spontanée</h3>
+<div class="definition-box">
+Un système chimique <strong>évolue spontanément</strong> dans le sens qui modifie la valeur du quotient de réaction pour la rapprocher de la constante d'équilibre $K(T)$.
+</div>
+<p>Concrètement, on calcule le quotient de réaction dans l'état initial, noté $Q_{r,i}$, et on le compare à $K(T)$ :</p>
+<ul><li>Si $Q_{r,i} < K(T)$ : le système évolue dans le <strong>sens direct</strong> ($$), c'est-à-dire que les réactifs sont consommés et les produits sont formés, ce qui fait <strong>augmenter</strong> $Q_r$ jusqu'à atteindre $K(T)$.</li><li>Si $Q_{r,i} > K(T)$ : le système évolue dans le <strong>sens indirect</strong> ($$), c'est-à-dire que les produits sont consommés et les réactifs sont reformés, ce qui fait <strong>diminuer</strong> $Q_r$ jusqu'à atteindre $K(T)$.</li><li>Si $Q_{r,i} = K(T)$ : le système est déjà à l'équilibre, il <strong>n'évolue pas</strong>.
+</li></ul>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.007923 -66.687995 411.986592 58.68937'>
+<defs>
+<path id='g2-59' d='M1.374844-.083686C1.374844 .484184 1.075965 .812951 .926526 .944458C.86675 1.004234 .848817 1.016189 .848817 1.052055C.848817 1.105853 .902615 1.159651 .950436 1.159651C1.034122 1.159651 1.572105 .681445 1.572105-.053798C1.572105-.430386 1.416687-.723288 1.129763-.723288C.896638-.723288 .771108-.537983 .771108-.364633C.771108-.185305 .896638 0 1.135741 0C1.225405 0 1.309091-.02391 1.374844-.083686Z'/>
+<path id='g2-105' d='M2.080199-3.730012C2.080199-3.873474 1.972603-3.969116 1.835118-3.969116C1.673724-3.969116 1.500374-3.813699 1.500374-3.640349C1.500374-3.490909 1.60797-3.401245 1.739477-3.401245C1.93076-3.401245 2.080199-3.580573 2.080199-3.730012ZM1.721544-1.643836C1.745455-1.703611 1.799253-1.847073 1.823163-1.900872C1.841096-1.95467 1.865006-2.014446 1.865006-2.116065C1.865006-2.450809 1.566127-2.636115 1.267248-2.636115C.657534-2.636115 .364633-1.847073 .364633-1.715567C.364633-1.685679 .388543-1.63188 .472229-1.63188S.573848-1.667746 .591781-1.721544C.759153-2.30137 1.075965-2.438854 1.243337-2.438854C1.362889-2.438854 1.404732-2.361146 1.404732-2.223661C1.404732-2.10411 1.368867-2.014446 1.356912-1.972603L1.046077-1.207472C.974346-1.034122 .974346-1.022167 .896638-.818929C.818929-.639601 .789041-.561893 .789041-.460274C.789041-.155417 1.06401 .059776 1.392777 .059776C1.996513 .059776 2.295392-.729265 2.295392-.860772C2.295392-.872727 2.289415-.944458 2.181818-.944458C2.098132-.944458 2.092154-.91457 2.056289-.800996C1.960648-.496139 1.715567-.137484 1.41071-.137484C1.303113-.137484 1.249315-.209215 1.249315-.352677C1.249315-.472229 1.285181-.561893 1.362889-.747198L1.721544-1.643836Z'/>
+<path id='g2-114' d='M1.697634-1.787298C1.715567-1.817186 1.853051-2.086177 2.086177-2.271482C2.157908-2.319303 2.331258-2.438854 2.606227-2.438854C2.660025-2.438854 2.851308-2.438854 3.006725-2.349191C2.851308-2.295392 2.761644-2.157908 2.761644-2.026401C2.761644-1.835118 2.917061-1.793275 3.000747-1.793275C3.174097-1.793275 3.347447-1.936737 3.347447-2.169863C3.347447-2.486675 3.000747-2.636115 2.618182-2.636115C2.462765-2.636115 2.098132-2.624159 1.733499-2.199751C1.643836-2.516563 1.321046-2.636115 1.075965-2.636115C.818929-2.636115 .675467-2.462765 .585803-2.319303C.454296-2.098132 .364633-1.75741 .364633-1.721544C.364633-1.655791 .418431-1.63188 .472229-1.63188C.56787-1.63188 .573848-1.673724 .603736-1.769365C.71731-2.229639 .860772-2.438854 1.058032-2.438854C1.243337-2.438854 1.273225-2.265504 1.273225-2.139975C1.273225-2.038356 1.21345-1.799253 1.171606-1.63188C1.129763-1.470486 1.069988-1.225405 1.0401-1.093898C.998257-.944458 .962391-.789041 .920548-.639601C.878705-.472229 .806974-.17335 .806974-.137484C.806974-.005978 .908593 .059776 1.016189 .059776C1.135741 .059776 1.249315-.02391 1.285181-.143462C1.303113-.191283 1.524284-1.093898 1.560149-1.231382L1.697634-1.787298Z'/>
+<path id='g3-60' d='M6.204732-4.545953C6.28543-4.581818 6.38406-4.635616 6.38406-4.752179C6.38406-4.850809 6.312329-4.94944 6.1868-4.94944C6.177833-4.94944 6.133001-4.94944 6.025405-4.895641L.950436-2.456787C.869738-2.420922 .771108-2.367123 .771108-2.25056C.771108-2.125031 .851806-2.080199 .950436-2.035367L6.007472 .394521C6.133001 .457285 6.168867 .457285 6.1868 .457285C6.330262 .457285 6.38406 .331756 6.38406 .268991C6.38406 .152428 6.321295 .116563 6.222665 .071731L1.407721-2.25056L6.204732-4.545953Z'/>
+<path id='g3-62' d='M6.204732-2.035367C6.303362-2.080199 6.38406-2.125031 6.38406-2.25056C6.38406-2.367123 6.28543-2.420922 6.204732-2.456787L1.147696-4.886675C1.022167-4.94944 .977335-4.94944 .959402-4.94944C.842839-4.94944 .771108-4.850809 .771108-4.761146C.771108-4.653549 .824907-4.608717 .950436-4.545953L5.747447-2.25056L.950436 .053798C.824907 .116563 .771108 .161395 .771108 .268991C.771108 .331756 .824907 .457285 .968369 .457285C.977335 .457285 1.022167 .457285 1.129763 .403487L6.204732-2.035367Z'/>
+<path id='g3-75' d='M4.62665-3.738979L6.446824-5.110834L6.554421-5.173599C7.110336-5.559153 7.451059-5.792279 7.980075-5.846077C8.042839-5.855044 8.141469-5.86401 8.141469-6.007472C8.141469-6.052304 8.11457-6.124035 8.033873-6.124035C7.962142-6.124035 7.908344-6.097136 7.370361-6.097136C7.047572-6.097136 6.715816-6.124035 6.401993-6.124035C6.348194-6.124035 6.231631-6.124035 6.231631-5.96264C6.231631-5.855044 6.330262-5.846077 6.357161-5.846077C6.428892-5.837111 6.608219-5.828144 6.608219-5.684682C6.608219-5.612951 6.554421-5.496389 6.428892-5.388792C6.393026-5.352927 6.38406-5.34396 6.357161-5.326027C6.330262-5.290162 6.312329-5.281196 6.267497-5.24533L2.698879-2.57335L3.416189-5.433624C3.496887-5.774346 3.523786-5.846077 4.223163-5.846077C4.366625-5.846077 4.465255-5.846077 4.465255-6.007472C4.465255-6.088169 4.402491-6.124035 4.33076-6.124035C4.160399-6.124035 3.945205-6.106102 3.765878-6.106102C3.577584-6.097136 3.371357-6.097136 3.19203-6.097136C2.905106-6.097136 2.887173-6.097136 2.618182-6.106102C2.438854-6.115068 2.205729-6.124035 2.035367-6.124035C1.981569-6.124035 1.85604-6.124035 1.85604-5.96264C1.85604-5.846077 1.936737-5.846077 2.125031-5.846077C2.160897-5.846077 2.322291-5.846077 2.465753-5.828144C2.618182-5.810212 2.680946-5.792279 2.680946-5.693649C2.680946-5.648817 2.67198-5.612951 2.645081-5.514321L1.43462-.681445C1.353923-.358655 1.33599-.277958 .663512-.277958C.493151-.277958 .394521-.277958 .394521-.116563C.394521-.017933 .466252 0 .529016 0C.699377 0 .923537-.008966 1.093898-.017933C1.362889-.026899 1.380822-.026899 1.667746-.026899S1.972603-.026899 2.241594-.017933C2.420922-.008966 2.654047 0 2.824408 0C2.887173 0 3.003736 0 3.003736-.161395C3.003736-.277958 2.914072-.277958 2.725778-.277958C2.689913-.277958 2.528518-.277958 2.385056-.29589C2.187796-.32279 2.178829-.358655 2.178829-.439352C2.178829-.511083 2.259527-.81594 2.618182-2.232628L3.990037-3.263761L5.137733-.753176C5.182565-.636613 5.200498-.609714 5.200498-.546949C5.200498-.286924 4.82391-.277958 4.752179-.277958C4.644583-.277958 4.536986-.277958 4.536986-.116563C4.536986-.026899 4.617684 0 4.680448 0C4.850809 0 5.030137-.017933 5.200498-.017933C5.379826-.017933 5.56812-.026899 5.747447-.026899C5.899875-.026899 6.141968-.026899 6.204732-.017933L6.644085 0C6.67995 0 6.805479 0 6.805479-.161395C6.805479-.277958 6.697883-.277958 6.644085-.277958C6.330262-.286924 6.177833-.32279 6.025405-.654545L4.62665-3.738979Z'/>
+<path id='g3-81' d='M3.694147 .367621C3.676214 .466252 3.676214 .591781 3.676214 .699377C3.676214 1.129763 3.747945 1.739477 4.456289 1.739477C5.523288 1.739477 5.980573 .134496 5.980573 0C5.980573-.053798 5.935741-.107597 5.86401-.107597S5.774346-.044832 5.747447 .017933C5.54122 .627646 5.021171 .851806 4.689415 .851806C4.276961 .851806 4.142466 .591781 4.052802-.044832C6.007472-.887671 6.796513-2.654047 6.796513-3.882441C6.796513-5.299128 5.846077-6.321295 4.438356-6.321295C2.429888-6.321295 .448319-4.259029 .448319-2.214695C.448319-.744209 1.461519 .19726 2.815442 .19726C3.183064 .19726 3.550685 .116563 3.703113 .071731L3.694147 .367621ZM2.27746-.161395C1.865006-.32279 1.264259-.789041 1.264259-1.945704C1.264259-2.420922 1.416687-3.864508 2.385056-5.021171C2.851308-5.56812 3.604483-6.070237 4.375592-6.070237C5.263263-6.070237 5.980573-5.415691 5.980573-4.160399C5.980573-3.263761 5.54122-1.23736 3.999004-.376588C3.918306-.860772 3.747945-1.33599 3.174097-1.33599C2.67198-1.33599 2.232628-.878705 2.232628-.42142C2.232628-.349689 2.25056-.224159 2.27746-.161395ZM3.721046-.233126C3.595517-.179328 3.245828-.053798 2.878207-.053798C2.761644-.053798 2.456787-.053798 2.456787-.42142C2.456787-.753176 2.788543-1.111831 3.183064-1.111831C3.71208-1.111831 3.721046-.627646 3.721046-.233126Z'/>
+<path id='g3-84' d='M3.936239-5.460523C3.990037-5.657783 4.00797-5.747447 4.160399-5.774346C4.23213-5.792279 4.519054-5.792279 4.707347-5.792279C5.738481-5.792279 6.043337-5.729514 6.043337-5.030137C6.043337-4.913574 6.043337-4.779078 5.96264-4.250062L5.953674-4.178331C5.953674-4.115567 5.989539-4.052802 6.079203-4.052802C6.1868-4.052802 6.204732-4.133499 6.222665-4.267995L6.455791-5.819178C6.464757-5.86401 6.473724-5.917808 6.473724-5.944707C6.473724-6.070237 6.38406-6.070237 6.213699-6.070237H1.111831C.896638-6.070237 .887671-6.06127 .824907-5.890909L.268991-4.312827C.233126-4.196264 .233126-4.178331 .233126-4.169365C.233126-4.124533 .260025-4.052802 .349689-4.052802C.448319-4.052802 .466252-4.1066 .52005-4.267995C1.0132-5.66675 1.291158-5.792279 2.591283-5.792279H2.940971C3.19203-5.792279 3.19203-5.76538 3.19203-5.693649C3.19203-5.639851 3.174097-5.577086 3.156164-5.505355L1.95467-.708344C1.873973-.385554 1.847073-.277958 .896638-.277958C.609714-.277958 .529016-.277958 .529016-.116563C.529016 0 .645579 0 .681445 0C.91457 0 1.174595-.017933 1.416687-.017933C1.667746-.017933 1.927771-.026899 2.178829-.026899C2.57335-.026899 2.591283-.026899 2.923039-.017933C3.039601-.017933 3.631382 0 3.703113 0C3.783811 0 3.891407 0 3.891407-.161395C3.891407-.277958 3.81071-.277958 3.58655-.277958S3.254795-.277958 3.012702-.29589C2.806476-.32279 2.698879-.331756 2.698879-.484184C2.698879-.529016 2.716812-.600747 2.734745-.663512L3.936239-5.460523Z'/>
+<path id='g4-40' d='M3.057534 2.133998C3.057534 2.089166 3.030635 2.062267 2.976837 1.999502C1.820174 .941469 1.470486-.672478 1.470486-2.241594C1.470486-3.631382 1.739477-5.317061 3.003736-6.518555C3.039601-6.554421 3.057534-6.58132 3.057534-6.626152C3.057534-6.688917 3.012702-6.724782 2.949938-6.724782C2.842341-6.724782 2.035367-6.079203 1.551183-5.101868C1.120797-4.241096 .905604-3.317559 .905604-2.25056C.905604-1.604981 .986301-.582814 1.479452 .475218C2.008468 1.578082 2.842341 2.232628 2.949938 2.232628C3.012702 2.232628 3.057534 2.196762 3.057534 2.133998Z'/>
+<path id='g4-41' d='M2.67198-2.25056C2.67198-2.985803 2.564384-3.972105 2.098132-4.967372C1.569116-6.070237 .735243-6.724782 .627646-6.724782C.537983-6.724782 .52005-6.653051 .52005-6.626152C.52005-6.58132 .537983-6.554421 .600747-6.491656C1.120797-6.025405 2.107098-4.805978 2.107098-2.25056C2.107098-.968369 1.873973 .81594 .573848 2.026401C.555915 2.0533 .52005 2.089166 .52005 2.133998C.52005 2.160897 .537983 2.232628 .627646 2.232628C.735243 2.232628 1.542217 1.587049 2.026401 .609714C2.456787-.251059 2.67198-1.174595 2.67198-2.25056Z'/>
+<path id='g5-75' d='M5.070984-4.024907C5.061021-4.054795 5.021171-4.134496 5.021171-4.164384C5.021171-4.174346 5.200498-4.313823 5.310087-4.393524L7.053549-5.738481C7.990037-6.425903 8.37858-6.465753 8.67746-6.495641C8.757161-6.505604 8.856787-6.515567 8.856787-6.694894C8.856787-6.734745 8.826899-6.804483 8.747198-6.804483C8.52802-6.804483 8.278954-6.774595 8.039851-6.774595C7.681196-6.774595 7.292653-6.804483 6.933998-6.804483C6.864259-6.804483 6.744707-6.804483 6.744707-6.60523C6.744707-6.535492 6.794521-6.505604 6.864259-6.495641C7.083437-6.475716 7.173101-6.425903 7.173101-6.286426C7.173101-6.107098 6.874222-5.877958 6.814446-5.828144L2.929016-2.839352L3.726027-6.03736C3.815691-6.396015 3.835616-6.495641 4.562889-6.495641C4.811955-6.495641 4.901619-6.495641 4.901619-6.694894C4.901619-6.784558 4.821918-6.804483 4.762142-6.804483C4.483188-6.804483 3.765878-6.774595 3.486924-6.774595C3.198007-6.774595 2.49066-6.804483 2.201743-6.804483C2.132005-6.804483 2.002491-6.804483 2.002491-6.615193C2.002491-6.495641 2.092154-6.495641 2.291407-6.495641C2.420922-6.495641 2.600249-6.485679 2.719801-6.475716C2.879203-6.455791 2.938979-6.425903 2.938979-6.316314C2.938979-6.276463 2.929016-6.246575 2.899128-6.127024L1.564134-.777086C1.464508-.388543 1.444583-.308842 .657534-.308842C.488169-.308842 .37858-.308842 .37858-.119552C.37858 0 .498132 0 .52802 0C.806974 0 1.514321-.029888 1.793275-.029888C2.002491-.029888 2.221669-.019925 2.430884-.019925C2.650062-.019925 2.86924 0 3.078456 0C3.148194 0 3.277709 0 3.277709-.199253C3.277709-.308842 3.188045-.308842 2.998755-.308842C2.630137-.308842 2.351183-.308842 2.351183-.488169C2.351183-.557908 2.410959-.777086 2.440847-.926526C2.580324-1.444583 2.709838-1.972603 2.839352-2.49066L4.323786-3.646326L5.479452-.966376C5.599004-.697385 5.599004-.67746 5.599004-.617684C5.599004-.318804 5.17061-.308842 5.080946-.308842C4.971357-.308842 4.861768-.308842 4.861768-.109589C4.861768 0 4.98132 0 5.001245 0C5.399751 0 5.818182-.029888 6.216687-.029888C6.435866-.029888 6.973848 0 7.193026 0C7.242839 0 7.372354 0 7.372354-.199253C7.372354-.308842 7.262765-.308842 7.173101-.308842C6.764633-.318804 6.635118-.408468 6.485679-.757161L5.070984-4.024907Z'/>
+<path id='g5-81' d='M4.363636-.059776C5.907846-.647572 7.372354-2.420922 7.372354-4.343711C7.372354-5.947696 6.316314-7.023661 4.83188-7.023661C2.67995-7.023661 .488169-4.762142 .488169-2.440847C.488169-.787049 1.603985 .219178 3.038605 .219178C3.287671 .219178 3.626401 .179328 4.014944 .069738C3.975093 .687422 3.975093 .707347 3.975093 .836862C3.975093 1.155666 3.975093 1.932752 4.801993 1.932752C5.987547 1.932752 6.465753 .109589 6.465753 0C6.465753-.069738 6.396015-.099626 6.356164-.099626C6.276463-.099626 6.256538-.049813 6.236613 .009963C5.997509 .71731 5.419676 .966376 5.070984 .966376C4.612702 .966376 4.463263 .697385 4.363636-.059776ZM2.480697-.139477C1.703611-.448319 1.364882-1.225405 1.364882-2.122042C1.364882-2.809465 1.62391-4.224159 2.381071-5.300125C3.108344-6.316314 4.044832-6.774595 4.772105-6.774595C5.768369-6.774595 6.495641-5.997509 6.495641-4.662516C6.495641-3.666252 5.987547-1.334994 4.313823-.398506C4.26401-.747198 4.164384-1.474471 3.437111-1.474471C2.909091-1.474471 2.420922-.976339 2.420922-.458281C2.420922-.259029 2.480697-.14944 2.480697-.139477ZM3.098381-.029888C2.958904-.029888 2.6401-.029888 2.6401-.458281C2.6401-.856787 3.01868-1.255293 3.437111-1.255293S4.044832-1.016189 4.044832-.408468C4.044832-.259029 4.034869-.249066 3.935243-.209215C3.676214-.099626 3.377335-.029888 3.098381-.029888Z'/>
+<path id='g5-84' d='M4.254047-6.047323C4.323786-6.326276 4.363636-6.386052 4.483188-6.41594C4.572852-6.435866 4.901619-6.435866 5.110834-6.435866C6.117061-6.435866 6.56538-6.396015 6.56538-5.618929C6.56538-5.469489 6.525529-5.080946 6.485679-4.821918C6.475716-4.782067 6.455791-4.662516 6.455791-4.632628C6.455791-4.572852 6.485679-4.503113 6.575342-4.503113C6.684932-4.503113 6.704857-4.582814 6.724782-4.732254L6.993773-6.465753C7.003736-6.505604 7.013699-6.60523 7.013699-6.635118C7.013699-6.744707 6.914072-6.744707 6.744707-6.744707H1.215442C.976339-6.744707 .966376-6.734745 .896638-6.545455L.298879-4.79203C.288917-4.772105 .239103-4.632628 .239103-4.612702C.239103-4.552927 .288917-4.503113 .358655-4.503113C.458281-4.503113 .468244-4.552927 .52802-4.712329C1.066002-6.256538 1.325031-6.435866 2.799502-6.435866H3.188045C3.466999-6.435866 3.466999-6.396015 3.466999-6.316314C3.466999-6.256538 3.437111-6.136986 3.427148-6.107098L2.092154-.787049C2.002491-.418431 1.972603-.308842 .9066-.308842C.547945-.308842 .488169-.308842 .488169-.119552C.488169 0 .597758 0 .657534 0C.926526 0 1.205479-.019925 1.474471-.019925C1.753425-.019925 2.042341-.029888 2.321295-.029888S2.879203-.019925 3.148194-.019925C3.437111-.019925 3.73599 0 4.014944 0C4.11457 0 4.234122 0 4.234122-.199253C4.234122-.308842 4.154421-.308842 3.895392-.308842C3.646326-.308842 3.516812-.308842 3.257783-.328767C2.968867-.358655 2.889166-.388543 2.889166-.547945C2.889166-.557908 2.889166-.607721 2.929016-.757161L4.254047-6.047323Z'/>
+<path id='g6-59' d='M1.471482-.111582C1.471482 .27198 1.401743 .718306 .927522 1.164633C.899626 1.192528 .878705 1.21345 .878705 1.248319C.878705 1.297136 .934496 1.345953 .976339 1.345953C1.073973 1.345953 1.66675 .788045 1.66675-.041843C1.66675-.474222 1.499377-.801993 1.17858-.801993C.948443-.801993 .781071-.620672 .781071-.404483C.781071-.18132 .941469 0 1.185554 0C1.352927 0 1.464508-.111582 1.471482-.111582Z'/>
+<path id='g6-114' d='M1.638854-1.408717C1.645828-1.45056 1.806227-2.078207 1.820174-2.113076C1.834122-2.168867 2.036364-2.517559 2.259527-2.684932C2.336239-2.740722 2.524533-2.880199 2.824408-2.880199C2.894147-2.880199 3.068493-2.873225 3.20797-2.782565C2.984807-2.719801 2.901121-2.524533 2.901121-2.399004C2.901121-2.245579 3.019676-2.140971 3.180075-2.140971S3.57061-2.273474 3.57061-2.566376C3.57061-2.929016 3.187049-3.075467 2.831382-3.075467C2.468742-3.075467 2.154919-2.929016 1.84807-2.580324C1.72254-3.005729 1.297136-3.075467 1.129763-3.075467C.871731-3.075467 .697385-2.915068 .585803-2.719801C.425405-2.447821 .327771-2.043337 .327771-2.008468C.327771-1.917808 .425405-1.917808 .446326-1.917808C.54396-1.917808 .550934-1.93873 .599751-2.127024C.704359-2.552428 .836862-2.880199 1.108842-2.880199C1.290162-2.880199 1.338979-2.726775 1.338979-2.538481C1.338979-2.405978 1.276214-2.147945 1.227397-1.959651S1.108842-1.48543 1.073973-1.332005L.850809-.439352C.822914-.348692 .781071-.174346 .781071-.153425C.781071 0 .9066 .069738 1.018182 .069738C1.12279 .069738 1.262267 .006974 1.318057-.132503C1.332005-.174346 1.408717-.481196 1.45056-.655542L1.638854-1.408717Z'/>
+<path id='g7-40' d='M3.297634 2.391034C3.297634 2.361146 3.297634 2.34122 3.128269 2.171856C1.882939 .916563 1.564134-.966376 1.564134-2.49066C1.564134-4.224159 1.942715-5.957659 3.16812-7.202989C3.297634-7.32254 3.297634-7.342466 3.297634-7.372354C3.297634-7.442092 3.257783-7.47198 3.198007-7.47198C3.098381-7.47198 2.201743-6.794521 1.613948-5.529265C1.105853-4.433375 .986301-3.327522 .986301-2.49066C.986301-1.713574 1.09589-.508095 1.643836 .617684C2.241594 1.843088 3.098381 2.49066 3.198007 2.49066C3.257783 2.49066 3.297634 2.460772 3.297634 2.391034Z'/>
+<path id='g7-41' d='M2.879203-2.49066C2.879203-3.267746 2.769614-4.473225 2.221669-5.599004C1.62391-6.824408 .767123-7.47198 .667497-7.47198C.607721-7.47198 .56787-7.43213 .56787-7.372354C.56787-7.342466 .56787-7.32254 .757161-7.143213C1.733499-6.156912 2.30137-4.572852 2.30137-2.49066C2.30137-.787049 1.932752 .966376 .697385 2.221669C.56787 2.34122 .56787 2.361146 .56787 2.391034C.56787 2.450809 .607721 2.49066 .667497 2.49066C.767123 2.49066 1.663761 1.8132 2.251557 .547945C2.759651-.547945 2.879203-1.653798 2.879203-2.49066Z'/>
+<path id='g7-61' d='M6.844334-3.257783C6.993773-3.257783 7.183064-3.257783 7.183064-3.457036S6.993773-3.656289 6.854296-3.656289H.886675C.747198-3.656289 .557908-3.656289 .557908-3.457036S.747198-3.257783 .896638-3.257783H6.844334ZM6.854296-1.325031C6.993773-1.325031 7.183064-1.325031 7.183064-1.524284S6.993773-1.723537 6.844334-1.723537H.896638C.747198-1.723537 .557908-1.723537 .557908-1.524284S.747198-1.325031 .886675-1.325031H6.854296Z'/>
+</defs>
+<g id='page1'>
+<path d='M-69.410158-42.925782H322.2423' stroke='currentColor' fill='none' stroke-width='1.19553'/>
+<path d='M325.5551-42.925782L321.02775-44.45313L322.53947-42.925782L321.02775-41.39844Z'/>
+<path d='M325.5551-42.925782L321.02775-44.45313L322.53947-42.925782L321.02775-41.39844Z' stroke='currentColor' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 400.7727 2.1918)'>
+<use x='-69.409727' y='-42.925014' xlink:href='#g3-81'/>
+<use x='-62.141477' y='-41.928766' xlink:href='#g2-114'/>
+</g>
+<path d='M129.0193-34.42188V-51.42969' stroke='#059669' fill='none' stroke-width='1.49442' stroke-miterlimit='10'/>
+<g fill='#059669' transform='matrix(1 0 0 1 168.1639 -16.291)'>
+<use x='-69.409727' y='-42.925014' xlink:href='#g5-81'/>
+<use x='-61.533712' y='-41.430634' xlink:href='#g6-114'/>
+<use x='-58.04907' y='-41.430634' xlink:href='#g6-59'/>
+<use x='-55.682929' y='-41.430634' xlink:href='#g0-101'/>
+<use x='-51.552894' y='-41.430634' xlink:href='#g0-113'/>
+<use x='-43.527322' y='-42.925014' xlink:href='#g7-61'/>
+<use x='-33.011242' y='-42.925014' xlink:href='#g5-75'/>
+<use x='-23.837303' y='-42.925014' xlink:href='#g7-40'/>
+<use x='-19.962929' y='-42.925014' xlink:href='#g5-84'/>
+<use x='-12.757286' y='-42.925014' xlink:href='#g7-41'/>
+</g>
+<path d='M1.457-42.925782H81.4023' stroke='#0e7490' fill='none' stroke-width='1.99255' stroke-miterlimit='10'/>
+<path d='M84.23046-42.925782L80.49999-44.19141L81.7578-42.925782L80.49999-41.66016Z' fill='#0e7490'/>
+<path d='M84.23046-42.925782L80.49999-44.19141L81.7578-42.925782L80.49999-41.66016Z' stroke='#0e7490' fill='none' stroke-width='1.43504' stroke-miterlimit='10'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 85.7016 14.6462)'>
+<use x='-69.409727' y='-42.925014' xlink:href='#g1-83'/>
+<use x='-63.046261' y='-42.925014' xlink:href='#g1-101'/>
+<use x='-57.796401' y='-42.925014' xlink:href='#g1-110'/>
+<use x='-51.432935' y='-42.925014' xlink:href='#g1-115'/>
+<use x='-43.096791' y='-42.925014' xlink:href='#g1-100'/>
+<use x='-36.733325' y='-42.925014' xlink:href='#g1-105'/>
+<use x='-33.551592' y='-42.925014' xlink:href='#g1-114'/>
+<use x='-28.834327' y='-42.925014' xlink:href='#g1-101'/>
+<use x='-23.584467' y='-42.925014' xlink:href='#g1-99'/>
+<use x='-18.493694' y='-42.925014' xlink:href='#g1-116'/>
+</g>
+<g fill='#0e7490' transform='matrix(1 0 0 1 45.6046 -8.5955)'>
+<use x='-69.409727' y='-42.925014' xlink:href='#g3-81'/>
+<use x='-62.141477' y='-41.928766' xlink:href='#g2-114'/>
+<use x='-58.869064' y='-41.928766' xlink:href='#g2-59'/>
+<use x='-56.599804' y='-41.928766' xlink:href='#g2-105'/>
+<use x='-50.878234' y='-42.925014' xlink:href='#g3-60'/>
+<use x='-41.150887' y='-42.925014' xlink:href='#g3-75'/>
+<use x='-32.70899' y='-42.925014' xlink:href='#g4-40'/>
+<use x='-29.125231' y='-42.925014' xlink:href='#g3-84'/>
+<use x='-22.469327' y='-42.925014' xlink:href='#g4-41'/>
+</g>
+<path d='M256.5783-42.925782H176.6363' stroke='#ec4899' fill='none' stroke-width='1.99255' stroke-miterlimit='10'/>
+<path d='M173.80839-42.925782L177.53886-41.66016L176.27714-42.925782L177.53886-44.19141Z' fill='#ec4899'/>
+<path d='M173.80839-42.925782L177.53886-41.66016L176.27714-42.925782L177.53886-44.19141Z' stroke='#ec4899' fill='none' stroke-width='1.43504' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 251.0097 14.6462)'>
+<use x='-69.409727' y='-42.925014' xlink:href='#g1-83'/>
+<use x='-63.046261' y='-42.925014' xlink:href='#g1-101'/>
+<use x='-57.796401' y='-42.925014' xlink:href='#g1-110'/>
+<use x='-51.432935' y='-42.925014' xlink:href='#g1-115'/>
+<use x='-43.096791' y='-42.925014' xlink:href='#g1-105'/>
+<use x='-39.915058' y='-42.925014' xlink:href='#g1-110'/>
+<use x='-33.551592' y='-42.925014' xlink:href='#g1-100'/>
+<use x='-27.188126' y='-42.925014' xlink:href='#g1-105'/>
+<use x='-24.006393' y='-42.925014' xlink:href='#g1-114'/>
+<use x='-19.289127' y='-42.925014' xlink:href='#g1-101'/>
+<use x='-14.039268' y='-42.925014' xlink:href='#g1-99'/>
+<use x='-8.948495' y='-42.925014' xlink:href='#g1-116'/>
+</g>
+<g fill='#ec4899' transform='matrix(1 0 0 1 300.7257 -8.5955)'>
+<use x='-69.409727' y='-42.925014' xlink:href='#g3-81'/>
+<use x='-62.141477' y='-41.928766' xlink:href='#g2-114'/>
+<use x='-58.869064' y='-41.928766' xlink:href='#g2-59'/>
+<use x='-56.599804' y='-41.928766' xlink:href='#g2-105'/>
+<use x='-50.878234' y='-42.925014' xlink:href='#g3-62'/>
+<use x='-41.150887' y='-42.925014' xlink:href='#g3-75'/>
+<use x='-32.70899' y='-42.925014' xlink:href='#g4-40'/>
+<use x='-29.125231' y='-42.925014' xlink:href='#g3-84'/>
+<use x='-22.469327' y='-42.925014' xlink:href='#g4-41'/>
+</g>
+<g fill='#059669' transform='matrix(1 0 0 1 175.5227 34.92639)'>
+<use x='-69.409727' y='-42.925014' xlink:href='#g1-201'/>
+<use x='-61.884237' y='-42.925014' xlink:href='#g1-113'/>
+<use x='-55.838944' y='-42.925014' xlink:href='#g1-117'/>
+<use x='-49.475478' y='-42.925014' xlink:href='#g1-105'/>
+<use x='-46.293745' y='-42.925014' xlink:href='#g1-108'/>
+<use x='-43.112012' y='-42.925014' xlink:href='#g1-105'/>
+<use x='-39.930279' y='-42.925014' xlink:href='#g1-98'/>
+<use x='-33.566812' y='-42.925014' xlink:href='#g1-114'/>
+<use x='-28.849547' y='-42.925014' xlink:href='#g1-101'/>
+</g>
+</g>
+</svg></div>
+</div>
+<div class="example-box">
+<strong>Exemple :</strong> une solution d'ion iodate ${}_3^{-}$(aq) est mélangée à une solution d'ion baryum $^{2 + }$(aq), de manière à ce que la concentration initiale de chaque ion soit $c_i = {mmol.L^{-1}}$, soit ${1{,}0e-2}{mol.L^{-1}}$.
+<p>L'équation de la réaction susceptible de se produire, de constante d'équilibre $K(T) = 6{,}3  10^{8}$ à {{^}C}, s'écrit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{2 + }(aq) + 2{}_3^{-}(aq)  ({}_3)2(s)$$</div></div>$</div></div></p>
+<p>Le quotient de réaction à l'état initial vaut :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_{r,i} = {(c^{0})^3}{[$^{2 + }$]_i  [${}_3^{-}$]_i^{2}} = {(1{,}0)^3}{(1{,}0  10^{-2})  (1{,}0  10^{-2})^2} = {1{,}0}{1{,}0  10^{-6}} = 1{,}0  10^{6}$$</div></div></div></div></p>
+<p>On compare : $Q_{r,i} = 1{,}0  10^{6} < K(T) = 6{,}3  10^{8}$.</p>
+<strong>Conclusion :</strong> $Q_{r,i} < K(T)$, donc le système évolue dans le <strong>sens direct</strong>, c'est-à-dire dans le sens de formation du solide $({}_3)2$(s).
+</div>
+</div>
+<h2 class="section-title">3. \'{E}volution et oxydoréduction</h2>
+<div class="card chapter-card">
+<h3>3.1. Transfert d'électrons et modélisation</h3>
+<p>Lors d'une oxydoréduction, quand les réactifs sont en contact, le transfert d'électrons a lieu <strong>directement</strong> du réactif réducteur vers le réactif oxydant.</p>
+<div class="example-box">
+<strong>Exemple :</strong> la transformation modélisée par l'équation suivante :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{2 + }(aq) + (s)  (s) + ^{2 + }(aq)$$</div></div>$</div></div>
+correspond à un transfert d'électrons du zinc métallique (réducteur) vers l'ion cuivre II (oxydant).
+</div>
+<strong>Deux situations possibles pour le transfert d'électrons :</strong>
+<div class="text-center">
+{1.4}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Réactifs en contact direct</strong></th><th><strong>Réactifs séparés (via un circuit)</strong></th></tr><tr><td>Le transfert d'électrons se fait <strong>directement</strong> entre les réactifs.</td><td></td></tr><tr><td>Les deux demi-équations électroniques traduisent la conservation des éléments et de la charge.</td><td></td></tr><tr><td>$(s)  ^{2 + }(aq) + 2e^{-}$</td><td></td></tr><tr><td>$^{2 + }(aq) + 2e^{-}  (s)$</td><td></td></tr></tbody></table></div>
+</div>
+<div class="info-box">
+<strong>Remarque :</strong> la combinaison des demi-équations électroniques ou des équations de réaction électrochimiques permet de retrouver l'équation de la réaction d'oxydoréduction globale.
+</div>
+<div class="info-box">
+<strong>Attention !</strong> L'équation d'oxydoréduction ne fait <strong>pas apparaître d'électrons</strong>, contrairement aux demi-équations électroniques ou aux équations de réaction électrochimiques.
+</div>
+<h3>3.2. Oxydants et réducteurs usuels</h3>
+<p>Voici quelques exemples d'oxydants et de réducteurs fréquemment rencontrés :</p>
+<div class="text-center">
+{1.4}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Espèce chimique</strong></th><th>{\`{A} fort caractère...}</th><th><strong>Exemples d'utilisation</strong></th></tr><tr><td>Ion hypochlorite $Cl^{-}$</td><td>Oxydant</td><td>Contenu dans l'eau de Javel</td></tr><tr><td>Dioxygène ${}_2$</td><td>Oxydant</td><td>Respiration, pile à combustible</td></tr><tr><td>Dichlore ${}_2$</td><td>Oxydant</td><td>Production d'acide chlorhydrique</td></tr><tr><td>Acide ascorbique (vitamine C)</td><td>Réducteur</td><td>Anti-oxydant dans l'alimentation</td></tr><tr><td>Dihydrogène ${}_2$</td><td>Réducteur</td><td>Pile à combustible</td></tr><tr><td>Lithium $$ (métal)</td><td>Réducteur</td><td>Pile au lithium</td></tr><tr><td>Magnésium $$ (métal)</td><td>Réducteur</td><td>Batterie magnésium-soufre</td></tr></tbody></table></div>
+</div>
+<div class="info-box">
+<strong>Remarque :</strong> les métaux présents dans le <strong>bloc s</strong> du tableau périodique (lithium, sodium, magnésium, etc.) ont un caractère fortement <strong>réducteur</strong> dû à la présence d'un ou deux électrons sur leur couche de valence qu'ils cèdent facilement.
+</div>
+</div>
+<h2 class="section-title">4. Fonctionnement d'une pile</h2>
+<div class="card chapter-card">
+<h3>4.1. Demi-pile, pile et tension à vide</h3>
+<div class="definition-box">
+<strong>Demi-pile :</strong> une demi-pile est constituée d'un solide conducteur de courant, appelé <strong>électrode</strong>, pouvant être relié à un circuit électrique, et plongeant dans un milieu contenant des ions.
+<p>Une demi-pile contient l'<strong>oxydant</strong> et le <strong>réducteur</strong> d'un même couple.<br></div></p>
+<div class="definition-box">
+<strong>Pile :</strong> une pile est constituée de <strong>deux demi-piles</strong> reliées par un <strong>séparateur</strong> (pont salin rempli d'un gel imbibé d'ions ou membrane perméable à des ions), conducteur de courant.
+<p>Le séparateur <strong>empêche le contact direct</strong> entre les réactifs de chaque demi-pile et <strong>oblige un transfert indirect d'électrons</strong>.<br></div></p>
+<p>Une pile permet ainsi la circulation d'entités chargées dans un circuit électrique extérieur fermé branché aux électrodes des deux demi-piles.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.007879 -64.520603 340.957384 158.618324'>
+<defs>
+<path id='g0-101' d='M1.601993-1.817186C1.777335-1.817186 2.375093-1.825156 2.797509-1.976588C3.490909-2.215691 3.514819-2.693898 3.514819-2.81345C3.514819-3.259776 3.092403-3.514819 2.574346-3.514819C1.673724-3.514819 .390535-2.805479 .390535-1.39477C.390535-.581818 .884682 .079701 1.761395 .079701C3.004732 .079701 3.674222-.71731 3.674222-.828892C3.674222-.900623 3.594521-.956413 3.5467-.956413S3.474969-.932503 3.435118-.884682C2.805479-.143462 1.912827-.143462 1.777335-.143462C1.195517-.143462 1.020174-.637609 1.020174-1.083935C1.020174-1.323039 1.091905-1.681694 1.123786-1.817186H1.601993ZM1.187547-2.040349C1.44259-3.012702 2.16787-3.291656 2.574346-3.291656C2.893151-3.291656 3.196015-3.132254 3.196015-2.81345C3.196015-2.040349 1.888917-2.040349 1.554172-2.040349H1.187547Z'/>
+<path id='g4-0' d='M4.758157-1.338979C4.853798-1.338979 5.003238-1.338979 5.003238-1.494396S4.853798-1.649813 4.758157-1.649813H.992279C.896638-1.649813 .747198-1.649813 .747198-1.494396S.896638-1.338979 .992279-1.338979H4.758157Z'/>
+</defs>
+<g id='page1'>
+<path d='M-69.609374 89.71484V-15.7028C-69.609374-17.9028-67.82422-19.6878-65.625-19.6878H53.965C56.168-19.6878 57.953-17.9028 57.953-15.7028V89.71484C57.953 91.91406 56.168 93.699215 53.965 93.699215H-65.625C-67.82422 93.699215-69.609374 91.91406-69.609374 89.71484Z' stroke='currentColor' fill='none' stroke-width='.79701'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 34.7293 -122.2564)'>
+<use x='-69.608977' y='93.699196' xlink:href='#g6-68'/>
+<use x='-60.824627' y='93.699196' xlink:href='#g6-101'/>
+<use x='-55.574767' y='93.699196' xlink:href='#g6-109'/>
+<use x='-46.029568' y='93.699196' xlink:href='#g6-105'/>
+<use x='-42.847835' y='93.699196' xlink:href='#g6-45'/>
+<use x='-39.029755' y='93.699196' xlink:href='#g6-112'/>
+<use x='-32.666289' y='93.699196' xlink:href='#g6-105'/>
+<use x='-29.484556' y='93.699196' xlink:href='#g6-108'/>
+<use x='-26.302823' y='93.699196' xlink:href='#g6-101'/>
+<use x='-17.234884' y='93.699196' xlink:href='#g6-49'/>
+</g>
+<path d='M-65.35547 89.44922V14.3281H53.699V89.44922Z' fill='#dbf2fc'/>
+<g transform='matrix(1 0 0 1 23.6251 -29.594)'>
+<use x='-67.332449' y='71.781387' xlink:href='#g5-83'/>
+<use x='-62.214007' y='71.781387' xlink:href='#g5-111'/>
+<use x='-57.607411' y='71.781387' xlink:href='#g5-108'/>
+<use x='-55.04819' y='71.781387' xlink:href='#g5-117'/>
+<use x='-49.929748' y='71.781387' xlink:href='#g5-116'/>
+<use x='-46.346844' y='71.781387' xlink:href='#g5-105'/>
+<use x='-43.787623' y='71.781387' xlink:href='#g5-111'/>
+<use x='-39.181026' y='71.781387' xlink:href='#g5-110'/>
+<use x='-30.99152' y='71.781387' xlink:href='#g5-99'/>
+<use x='-26.89677' y='71.781387' xlink:href='#g5-111'/>
+<use x='-22.290174' y='71.781387' xlink:href='#g5-110'/>
+<use x='-17.427669' y='71.781387' xlink:href='#g5-116'/>
+<use x='-13.844765' y='71.781387' xlink:href='#g5-101'/>
+<use x='-9.746543' y='71.781387' xlink:href='#g5-110'/>
+<use x='-4.628101' y='71.781387' xlink:href='#g5-97'/>
+<use x='-.021505' y='71.781387' xlink:href='#g5-110'/>
+<use x='4.841' y='71.781387' xlink:href='#g5-116'/>
+<use x='-68.920929' y='82.740292' xlink:href='#g5-108'/>
+<use x='-66.361708' y='82.740292' xlink:href='#g5-101'/>
+<use x='-62.263486' y='82.740292' xlink:href='#g5-115'/>
+<use x='-55.558331' y='82.740292' xlink:href='#g5-105'/>
+<use x='-52.99911' y='82.740292' xlink:href='#g5-111'/>
+<use x='-48.392514' y='82.740292' xlink:href='#g5-110'/>
+<use x='-43.274072' y='82.740292' xlink:href='#g5-115'/>
+<use x='-36.568917' y='82.740292' xlink:href='#g5-100'/>
+<use x='-31.450475' y='82.740292' xlink:href='#g5-117'/>
+<use x='-23.260969' y='82.740292' xlink:href='#g5-99'/>
+<use x='-19.166219' y='82.740292' xlink:href='#g5-111'/>
+<use x='-14.559623' y='82.740292' xlink:href='#g5-117'/>
+<use x='-9.441181' y='82.740292' xlink:href='#g5-112'/>
+<use x='-4.322739' y='82.740292' xlink:href='#g5-108'/>
+<use x='-1.763518' y='82.740292' xlink:href='#g5-101'/>
+<use x='5.405768' y='82.740292' xlink:href='#g5-49'/>
+<use x='-69.608977' y='93.699196' xlink:href='#g5-40'/>
+<use x='-66.026072' y='93.699196' xlink:href='#g5-101'/>
+<use x='-61.927851' y='93.699196' xlink:href='#g5-120'/>
+<use x='-57.065331' y='93.699196' xlink:href='#g5-46'/>
+<use x='-51.435046' y='93.699196' xlink:href='#g5-58'/>
+<use x='-45.804761' y='93.699196' xlink:href='#g5-67'/>
+<use x='-39.15079' y='93.699196' xlink:href='#g5-117'/>
+<use x='-34.032364' y='89.890191' xlink:href='#g3-50'/>
+<use x='-30.380288' y='89.890191' xlink:href='#g3-43'/>
+<use x='-24.293388' y='93.699196' xlink:href='#g5-44'/>
+<use x='-18.663103' y='93.699196' xlink:href='#g5-83'/>
+<use x='-13.544661' y='93.699196' xlink:href='#g5-79'/>
+<use x='-6.378847' y='94.695444' xlink:href='#g3-52'/>
+<use x='-2.228638' y='89.890191' xlink:href='#g3-50'/>
+<use x='2.195354' y='89.890191' xlink:href='#g3-21'/>
+<use x='7.117478' y='93.699196' xlink:href='#g5-41'/>
+</g>
+<path d='M-27.0898 42.6758V-14.0198H-12.9141V42.6758Z' fill='#b3b3b3'/>
+<path d='M-27.0898 42.6758V-14.0198H-12.9141V42.6758Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 25.2062 -112.6544)'>
+<use x='-69.608977' y='93.699196' xlink:href='#g2-201'/>
+<use x='-63.851423' y='93.699196' xlink:href='#g2-108'/>
+<use x='-61.499708' y='93.699196' xlink:href='#g2-101'/>
+<use x='-57.736962' y='93.699196' xlink:href='#g2-99'/>
+<use x='-53.974217' y='93.699196' xlink:href='#g2-116'/>
+<use x='-50.681815' y='93.699196' xlink:href='#g2-114'/>
+<use x='-47.382496' y='93.699196' xlink:href='#g2-111'/>
+<use x='-42.914236' y='93.699196' xlink:href='#g2-100'/>
+<use x='-38.210805' y='93.699196' xlink:href='#g2-101'/>
+<use x='-31.626001' y='93.699196' xlink:href='#g2-67'/>
+<use x='-25.51154' y='93.699196' xlink:href='#g2-117'/>
+</g>
+<path d='M142.992 89.71484V-15.7028C142.992-17.9028 144.777-19.6878 146.977-19.6878H266.566C268.77-19.6878 270.551-17.9028 270.551-15.7028V89.71484C270.551 91.91406 268.77 93.699215 266.566 93.699215H146.977C144.777 93.699215 142.992 91.91406 142.992 89.71484Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 247.33 -122.2564)'>
+<use x='-69.608977' y='93.699196' xlink:href='#g6-68'/>
+<use x='-60.824627' y='93.699196' xlink:href='#g6-101'/>
+<use x='-55.574767' y='93.699196' xlink:href='#g6-109'/>
+<use x='-46.029568' y='93.699196' xlink:href='#g6-105'/>
+<use x='-42.847835' y='93.699196' xlink:href='#g6-45'/>
+<use x='-39.029755' y='93.699196' xlink:href='#g6-112'/>
+<use x='-32.666289' y='93.699196' xlink:href='#g6-105'/>
+<use x='-29.484556' y='93.699196' xlink:href='#g6-108'/>
+<use x='-26.302823' y='93.699196' xlink:href='#g6-101'/>
+<use x='-17.234884' y='93.699196' xlink:href='#g6-50'/>
+</g>
+<path d='M147.242 89.44922V14.3281H266.301V89.44922Z' fill='#dbf2fc'/>
+<g transform='matrix(1 0 0 1 236.738 -29.594)'>
+<use x='-67.844278' y='71.781387' xlink:href='#g5-83'/>
+<use x='-62.725836' y='71.781387' xlink:href='#g5-111'/>
+<use x='-58.11924' y='71.781387' xlink:href='#g5-108'/>
+<use x='-55.560019' y='71.781387' xlink:href='#g5-117'/>
+<use x='-50.441577' y='71.781387' xlink:href='#g5-116'/>
+<use x='-46.858672' y='71.781387' xlink:href='#g5-105'/>
+<use x='-44.299451' y='71.781387' xlink:href='#g5-111'/>
+<use x='-39.692855' y='71.781387' xlink:href='#g5-110'/>
+<use x='-31.503349' y='71.781387' xlink:href='#g5-99'/>
+<use x='-27.408599' y='71.781387' xlink:href='#g5-111'/>
+<use x='-22.802003' y='71.781387' xlink:href='#g5-110'/>
+<use x='-17.939498' y='71.781387' xlink:href='#g5-116'/>
+<use x='-14.356594' y='71.781387' xlink:href='#g5-101'/>
+<use x='-10.258372' y='71.781387' xlink:href='#g5-110'/>
+<use x='-5.13993' y='71.781387' xlink:href='#g5-97'/>
+<use x='-.533334' y='71.781387' xlink:href='#g5-110'/>
+<use x='4.329171' y='71.781387' xlink:href='#g5-116'/>
+<use x='-69.432758' y='82.740292' xlink:href='#g5-108'/>
+<use x='-66.873537' y='82.740292' xlink:href='#g5-101'/>
+<use x='-62.775315' y='82.740292' xlink:href='#g5-115'/>
+<use x='-56.07016' y='82.740292' xlink:href='#g5-105'/>
+<use x='-53.510939' y='82.740292' xlink:href='#g5-111'/>
+<use x='-48.904343' y='82.740292' xlink:href='#g5-110'/>
+<use x='-43.785901' y='82.740292' xlink:href='#g5-115'/>
+<use x='-37.080746' y='82.740292' xlink:href='#g5-100'/>
+<use x='-31.962304' y='82.740292' xlink:href='#g5-117'/>
+<use x='-23.772798' y='82.740292' xlink:href='#g5-99'/>
+<use x='-19.678048' y='82.740292' xlink:href='#g5-111'/>
+<use x='-15.071452' y='82.740292' xlink:href='#g5-117'/>
+<use x='-9.95301' y='82.740292' xlink:href='#g5-112'/>
+<use x='-4.834568' y='82.740292' xlink:href='#g5-108'/>
+<use x='-2.275347' y='82.740292' xlink:href='#g5-101'/>
+<use x='4.893939' y='82.740292' xlink:href='#g5-50'/>
+<use x='-69.608977' y='93.699196' xlink:href='#g5-40'/>
+<use x='-66.026072' y='93.699196' xlink:href='#g5-101'/>
+<use x='-61.927851' y='93.699196' xlink:href='#g5-120'/>
+<use x='-57.065331' y='93.699196' xlink:href='#g5-46'/>
+<use x='-51.435046' y='93.699196' xlink:href='#g5-58'/>
+<use x='-45.804761' y='93.699196' xlink:href='#g5-90'/>
+<use x='-40.174473' y='93.699196' xlink:href='#g5-110'/>
+<use x='-35.056037' y='89.890191' xlink:href='#g3-50'/>
+<use x='-31.403961' y='89.890191' xlink:href='#g3-43'/>
+<use x='-25.317061' y='93.699196' xlink:href='#g5-44'/>
+<use x='-19.686776' y='93.699196' xlink:href='#g5-83'/>
+<use x='-14.568334' y='93.699196' xlink:href='#g5-79'/>
+<use x='-7.402519' y='94.695444' xlink:href='#g3-52'/>
+<use x='-3.252311' y='89.890191' xlink:href='#g3-50'/>
+<use x='1.171681' y='89.890191' xlink:href='#g3-21'/>
+<use x='6.093805' y='93.699196' xlink:href='#g5-41'/>
+</g>
+<path d='M213.859 42.6758V-14.0198H228.031V42.6758Z' fill='#ccc'/>
+<path d='M213.859 42.6758V-14.0198H228.031V42.6758Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 266.624 -112.6544)'>
+<use x='-69.608977' y='93.699196' xlink:href='#g2-201'/>
+<use x='-63.851423' y='93.699196' xlink:href='#g2-108'/>
+<use x='-61.499708' y='93.699196' xlink:href='#g2-101'/>
+<use x='-57.736962' y='93.699196' xlink:href='#g2-99'/>
+<use x='-53.974217' y='93.699196' xlink:href='#g2-116'/>
+<use x='-50.681815' y='93.699196' xlink:href='#g2-114'/>
+<use x='-47.382496' y='93.699196' xlink:href='#g2-111'/>
+<use x='-42.914236' y='93.699196' xlink:href='#g2-100'/>
+<use x='-38.210805' y='93.699196' xlink:href='#g2-101'/>
+<use x='-31.626001' y='93.699196' xlink:href='#g2-90'/>
+<use x='-26.452226' y='93.699196' xlink:href='#g2-110'/>
+</g>
+<path d='M57.953 31.3359L74.938 7.0703C76.516 4.8164 80.023 2.9883 82.777 2.9883H118.168C120.918 2.9883 124.43 4.8164 126.008 7.0703L142.992 31.3359' stroke='#f97316' fill='none' stroke-width='1.99255' stroke-miterlimit='10'/>
+<g fill='#f97316' transform='matrix(1 0 0 1 148.6266 -98.48097)'>
+<use x='-69.608977' y='93.699196' xlink:href='#g1-80'/>
+<use x='-63.223377' y='93.699196' xlink:href='#g1-111'/>
+<use x='-58.342875' y='93.699196' xlink:href='#g1-110'/>
+<use x='-53.191234' y='93.699196' xlink:href='#g1-116'/>
+<use x='-46.14162' y='93.699196' xlink:href='#g1-115'/>
+<use x='-42.29145' y='93.699196' xlink:href='#g1-97'/>
+<use x='-37.546517' y='93.699196' xlink:href='#g1-108'/>
+<use x='-34.835128' y='93.699196' xlink:href='#g1-105'/>
+<use x='-32.123738' y='93.699196' xlink:href='#g1-110'/>
+</g>
+<g fill='#f97316' transform='matrix(1 0 0 1 131.4583 -60.4113)'>
+<use x='-69.608977' y='84.234688' xlink:href='#g2-40'/>
+<use x='-66.316575' y='84.234688' xlink:href='#g2-97'/>
+<use x='-62.083486' y='84.234688' xlink:href='#g2-115'/>
+<use x='-58.74405' y='84.234688' xlink:href='#g2-115'/>
+<use x='-55.404614' y='84.234688' xlink:href='#g2-117'/>
+<use x='-50.701182' y='84.234688' xlink:href='#g2-114'/>
+<use x='-47.401863' y='84.234688' xlink:href='#g2-101'/>
+<use x='-40.817059' y='84.234688' xlink:href='#g2-108'/>
+<use x='-38.465344' y='84.234688' xlink:href='#g2-97'/>
+<use x='-31.410196' y='84.234688' xlink:href='#g2-99'/>
+<use x='-27.647451' y='84.234688' xlink:href='#g2-105'/>
+<use x='-25.295735' y='84.234688' xlink:href='#g2-114'/>
+<use x='-21.996417' y='84.234688' xlink:href='#g2-99'/>
+<use x='-18.233671' y='84.234688' xlink:href='#g2-117'/>
+<use x='-13.53024' y='84.234688' xlink:href='#g2-108'/>
+<use x='-11.178524' y='84.234688' xlink:href='#g2-97'/>
+<use x='-6.945436' y='84.234688' xlink:href='#g2-116'/>
+<use x='-3.653034' y='84.234688' xlink:href='#g2-105'/>
+<use x='-1.301318' y='84.234688' xlink:href='#g2-111'/>
+<use x='2.93177' y='84.234688' xlink:href='#g2-110'/>
+<use x='-47.26076' y='93.699196' xlink:href='#g2-100'/>
+<use x='-42.557329' y='93.699196' xlink:href='#g2-101'/>
+<use x='-38.794584' y='93.699196' xlink:href='#g2-115'/>
+<use x='-32.633089' y='93.699196' xlink:href='#g2-105'/>
+<use x='-30.281373' y='93.699196' xlink:href='#g2-111'/>
+<use x='-26.048285' y='93.699196' xlink:href='#g2-110'/>
+<use x='-21.344853' y='93.699196' xlink:href='#g2-115'/>
+<use x='-18.005417' y='93.699196' xlink:href='#g2-41'/>
+</g>
+<path d='M-12.9141-5.5156V-53.7028H220.945V-5.5156' stroke='#0f172a' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M157.164-53.7028H63.047' stroke='#ec4899' fill='none' stroke-width='1.49442' stroke-miterlimit='10'/>
+<path d='M60.21878-53.703108L63.94925-52.44139L62.69144-53.703108L63.94925-54.96873Z' fill='#ec4899'/>
+<path d='M60.21878-53.703108L63.94925-52.44139L62.69144-53.703108L63.94925-54.96873Z' stroke='#ec4899' fill='none' stroke-width='1.43504' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 137.4315 -153.7572)'>
+<use x='-69.608977' y='93.699196' xlink:href='#g2-83'/>
+<use x='-64.905545' y='93.699196' xlink:href='#g2-101'/>
+<use x='-61.1428' y='93.699196' xlink:href='#g2-110'/>
+<use x='-56.439369' y='93.699196' xlink:href='#g2-115'/>
+<use x='-50.277873' y='93.699196' xlink:href='#g2-100'/>
+<use x='-45.574442' y='93.699196' xlink:href='#g2-101'/>
+<use x='-41.811697' y='93.699196' xlink:href='#g2-115'/>
+<use x='-35.650202' y='93.699196' xlink:href='#g2-233'/>
+<use x='-31.887456' y='93.699196' xlink:href='#g2-108'/>
+<use x='-29.535741' y='93.699196' xlink:href='#g2-101'/>
+<use x='-25.772995' y='93.699196' xlink:href='#g2-99'/>
+<use x='-22.01025' y='93.699196' xlink:href='#g2-116'/>
+<use x='-18.717848' y='93.699196' xlink:href='#g2-114'/>
+<use x='-15.418529' y='93.699196' xlink:href='#g2-111'/>
+<use x='-11.185441' y='93.699196' xlink:href='#g2-110'/>
+<use x='-6.48201' y='93.699196' xlink:href='#g2-115'/>
+<use x='-.320514' y='93.699196' xlink:href='#g0-101'/>
+<use x='3.607869' y='90.88641' xlink:href='#g4-0'/>
+</g>
+<path d='M113.227-53.7028C113.227-59.1838 108.785-63.6248 103.309-63.6248C97.828-63.6248 93.387-59.1838 93.387-53.7028C93.387-48.2268 97.828-43.7808 103.309-43.7808C108.785-43.7808 113.227-48.2268 113.227-53.7028Z' stroke='#0f172a' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#0f172a' transform='matrix(1 0 0 1 169.745 -144.6587)'>
+<use x='-69.608977' y='93.699196' xlink:href='#g2-86'/>
+</g>
+</g>
+</svg></div>
+</div>
+<div class="definition-box">
+<strong>Tension à vide :</strong> la tension à vide d'une pile est la valeur absolue de la tension mesurée entre ses électrodes en <strong>circuit ouvert</strong>, c'est-à-dire quand aucun courant électrique ne la traverse.
+<p>Cette tension à vide est mesurée en branchant les électrodes aux bornes d'un <strong>voltmètre</strong>.<br></div></p>
+<h3>4.2. Sens d'évolution spontanée et polarité</h3>
+<p>Une pile en fonctionnement renferme un système chimique <strong>hors équilibre</strong> qui suit le <strong>critère d'évolution spontanée</strong>.</p>
+<strong>Détermination de la polarité :</strong>
+<p>On commence par écrire l'équation de la réaction et calculer $Q_{r,i}$.<br><ol><li>On compare $Q_{r,i}$ à $K(T)$ pour déterminer le sens d'évolution.</li><li>On identifie à quelle électrode a lieu la <strong>réduction</strong> (gain d'électrons) et à quelle électrode a lieu l'<strong>oxydation</strong> (perte d'électrons).</li><li>L'électrode où a lieu la <strong>réduction</strong> est la <strong>borne positive</strong> (+) de la pile.</li><li>L'électrode où a lieu l'<strong>oxydation</strong> est la <strong>borne négative</strong> (--) de la pile.<br></li></ol></p>
+<div class="example-box">
+<strong>Exemple -- Pile cuivre-aluminium :</strong>
+<p>La transformation est modélisée par l'équation :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$3^{2 + }(aq) + 2(s)  3(s) + 2^{3 + }(aq)$$</div></div>$</div></div><br>à {{^}C} : $K(T) = 2  10^{201}$.</p>
+<p>\`{A} l'état initial, $[$^{2 + }$]_i = {5{,}0e-1}{mol.L^{-1}}$ et $[$^{3 + }$]_i = {5{,}0e-1}{mol.L^{-1}}$.</p>
+<p>Le quotient de réaction à l'état initial est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_{r,i} = {[$^{3 + }$]_i^{2}}{[$^{2 + }$]_i^{3}} = {(5{,}0  10^{-1})^2}{(5{,}0  10^{-1})^3} = {0{,}25}{0{,}125} = 2{,}0$$</div></div></div></div></p>
+<p>On compare : $Q_{r,i} = 2{,}0  K(T) = 2  10^{201}$.</p>
+<strong>Conclusion :</strong> $Q_{r,i} < K(T)$, donc la réaction a lieu en <strong>sens direct</strong>.
+<p>Les deux réactions électrochimiques aux électrodes sont :<br><ul><li>\`{A} l'électrode de cuivre : $^{2 + }(aq) + 2e^{-}$ (électrode) $$ $(s)$  (réduction $$ pôle <strong>+</strong>)</li><li>\`{A} l'électrode d'aluminium : $(s)$ $$ $^{3 + }(aq) + 3e^{-}$ (électrode)  (oxydation $$ pôle <strong>--</strong>)<br></li></ul><br></div></p>
+<h3>4.3. \'{E}tude quantitative d'une pile</h3>
+<p>{\'{E}quation de fonctionnement de la pile}</p>
+<p>L'équation de fonctionnement de la pile est obtenue en combinant les deux réactions électrochimiques aux électrodes.</p>
+<div class="example-box">
+<strong>Méthode pour écrire l'équation de fonctionnement :</strong>
+<ol><li>\'{E}crire les deux réactions électrochimiques aux électrodes.</li><li>Multiplier si nécessaire chaque équation par un facteur pour que le <strong>nombre d'électrons cédés</strong> soit égal au <strong>nombre d'électrons captés</strong>.</li><li>Additionner les deux équations : les électrons <strong>disparaissent</strong> de l'équation bilan.
+</li></ol>
+</div>
+<div class="example-box">
+<strong>Exemple -- Pile cuivre-aluminium :</strong>
+<ul><li>Oxydation : $(s)$ $$ $^{3 + }(aq)$ + 3 $e^{-}$ (multipliée par 2)</li><li>Réduction : $^{2 + }(aq)$ + 2 $e^{-}$ $$ $(s)$ (multipliée par 3)
+</li></ul>
+<p>Ce qui donne :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>2 :  & 2 $(s)$  2 $^{3 + }(aq)$ + 6 $e^{-}$ \\<br>3 :  & 3 $^{2 + }(aq)$ + 6 $e^{-}$  3 $(s)$<br>$$</div></div></div></div></p>
+<p>{\'{E}quation bilan} (en additionnant et en simplifiant les $6 $e^{-}$$) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2(s) + 3^{2 + }(aq)  2^{3 + }(aq) + 3(s)$$</div></div>$</div></div></p>
+<p>\`{A} l'avancement maximal $x_{}$, la quantité maximale d'électrons échangés est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n_{e^{-},} = 6 x_{}$$</div></div></div></div><br>(car 6 électrons sont échangés pour chaque avancement de 1 mol).<br></div></p>
+<h3>4.4. Capacité électrique d'une pile</h3>
+<div class="definition-box">
+La <strong>capacité électrique</strong> $q_{}$ d'une pile est la <strong>charge électrique maximale</strong> que la pile est susceptible de faire circuler dans un circuit extérieur.
+<p>Il s'agit de la charge électrique totale, en valeur absolue, des électrons transférés entre l'état initial du système chimique de la pile neuve et l'état de ce même système où le réactif limitant est totalement consommé (pile usée).<br></div></p>
+<p>{Comment calculer $q_{}$ ?}</p>
+<p>La capacité électrique d'une pile peut être calculée par la relation :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${q_{} = n_{e^{-},}  N_A  e}$$</div></div></div></div>
+<strong>Signification de chaque grandeur :</strong>
+<div class="text-center">
+{1.5}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Symbole</strong></th><th><strong>Grandeur</strong></th><th><strong>Unité SI</strong></th></tr><tr><td>$q_{}$</td><td>Capacité électrique de la pile</td><td>coulomb (C)</td></tr><tr><td>$n_{e^{-},}$</td><td>Quantité maximale d'électrons échangés</td><td>mole (mol)</td></tr><tr><td>$N_A$</td><td>Constante d'Avogadro</td><td>${6{,}02e23}{mol^{-1}}$</td></tr><tr><td>$e$</td><td>Charge élémentaire</td><td>${1{,}60e-19}{C}$</td></tr></tbody></table></div>
+</div>
+<p>On peut aussi exprimer la capacité électrique en utilisant la <strong>constante de Faraday</strong> $$ :</p>
+<div class="definition-box">
+La <strong>constante de Faraday</strong> $$ représente la charge électrique d'une mole d'électrons :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = N_A  e = {6{,}02e23}{mol^{-1}}  {1{,}60e-19}{C}  {C.mol^{-1}}$$</div></div></div></div>
+<p>La capacité électrique s'écrit alors :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${q_{} = n_{e^{-},}  }$$</div></div></div></div></p>
+<p>avec $q_{}$ en C, $n_{e^{-},}$ en mol et $  {C.mol^{-1}}$.<br></div></p>
+<div class="info-box">
+<strong>Remarque :</strong> la capacité électrique d'une pile peut aussi s'exprimer en <strong>mA$$h</strong> (milliampère-heures). C'est l'unité que l'on retrouve le plus souvent sur les piles commerciales.
+<strong>Conversion :</strong> $$1   mA  h$ = 1  10^{-3} $$  $3600   $ = {3{,}6}{C}$.
+</div>
+<div class="example-box">
+<strong>Durée de vie d'une pile :</strong>
+<p>Une pile peut débiter un courant d'intensité $I$ constante pendant une durée $ t_{}$ telle que :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${q_{} = I   t_{}}$$</div></div></div></div></p>
+<p>D'où :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ t_{} = {q_{}}{I}$$</div></div></div></div></p>
+<p>avec $q_{}$ en C, $I$ en A et $ t_{}$ en s.<br></div></p>
+</div>
+<h2 class="section-title">5. Application : fonctionnement d'un stimulateur cardiaque</h2>
+<div class="card chapter-card">
+<p>Le cur est un muscle qui assure, par ses battements naturels et périodiques, la circulation du sang vers les tissus de l'organisme. Lorsque ces battements sont trop lents, un chirurgien peut implanter chez le patient un <strong>stimulateur cardiaque</strong>. Il s'agit d'un générateur d'impulsions électriques dont le boîtier renferme une pile à base de <strong>lithium</strong>, comme la pile lithium-iode.</p>
+<strong>Les demi-équations électroniques sont les suivantes :</strong>
+<ul><li>Au pôle positif : $${}_2$ + 2 $e^{-}$ = 2 $^{-}$$</li><li>Au pôle négatif : $$$ = $^{ + }$ + $e^{-}$$
+</li></ul>
+<p>Le fonctionnement de la pile est modélisé par des réactifs introduits en proportions stchiométriques, une transformation totale et un courant continu d'intensité $I = $70   $$.</p>
+<div class="info-box">
+<strong>Données :</strong>
+<div class="text-center">
+{1.3}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>{\'{E}lément}</th><th><strong>Configuration électronique</strong></th><th>{Masse molaire ({g.mol^{-1}})}</th></tr><tr><td>Lithium $$</td><td>$(1s)^2 (2s)^1$</td><td>$6{,}94$</td></tr><tr><td>Sodium $$</td><td>$(1s)^2 (2s)^2 (2p)^6 (3s)^1$</td><td>$22{,}99$</td></tr></tbody></table></div>
+</div>
+<p>Masse initiale de lithium dans la pile : $m_{$$} = {1{,}4}{g}$.<br></div></p>
+<p>Le lithium, présent dans le <strong>bloc s</strong> du tableau périodique, possède un seul électron sur sa couche de valence : c'est un <strong>réducteur</strong> puissant, ce qui en fait un excellent candidat pour constituer la borne négative d'une pile.</p>
+<p>[<br> enhanced, sharp corners,<br> colback=synthgreen!5, colframe=synthgreen, boxrule=1.5pt,<br> width=, top=4mm, bottom=4mm, left=4mm, right=4mm<br>]<br><div class="text-center"><br>{{{\`{A} retenir}}}<br></div></p>
+<ol><li>Une <strong>transformation non totale</strong> conduit à un état d'<strong>équilibre chimique dynamique</strong> où réactifs et produits coexistent. On l'écrit avec $$.</li><li>Le <strong>taux d'avancement final</strong> est $ = {x_{}}$. Pour une transformation non totale : $ < 1$.</li><li>Le <strong>quotient de réaction</strong> $Q_r$ s'exprime en fonction des activités des espèces : $Q_r = {}{}$.</li><li>\`{A} l'équilibre : $Q_{r,} = K(T)$ (constante d'équilibre, ne dépend que de $T$).</li><li><strong>Critère d'évolution spontanée :</strong>
+ <ul><li>$Q_{r,i} < K(T)$ $$ évolution en <strong>sens direct</strong> ;</li><li>$Q_{r,i} > K(T)$ $$ évolution en <strong>sens indirect</strong> ;</li><li>$Q_{r,i} = K(T)$ $$ le système est à l'équilibre.
+ </li></ul></li><li>Une <strong>pile</strong> est constituée de deux demi-piles reliées par un séparateur. Le transfert d'électrons se fait par le circuit extérieur.</li><li>La <strong>capacité électrique</strong> d'une pile est : $q_{} = n_{e^{-},}  $ avec $  {C.mol^{-1}}$.</li><li>La <strong>durée de vie</strong> d'une pile est : $ t_{} = {q_{}}{I}$.
+</li></ol>
+</div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="exercices_evolution_spontanee_systeme_chimique.html" class="btn-action">📝 Exercices</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=evolution_spontanee_systeme_chimique" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=evolution_spontanee_systeme_chimique" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

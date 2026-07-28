@@ -322,7 +322,7 @@ export default function PyodideLab() {
             <button type="button" onClick={loadPython} disabled={isBusy || state === "ready"}>
               {state === "ready" ? "Python chargé" : "Charger Python"}
             </button>
-            <button type="button" onClick={runCode} disabled={!canRun || state === "running"}>
+            <button type="button" onClick={runCode} disabled={!canRun}>
               Exécuter
             </button>
             <button type="button" onClick={() => interrupt()} disabled={state !== "running"}>

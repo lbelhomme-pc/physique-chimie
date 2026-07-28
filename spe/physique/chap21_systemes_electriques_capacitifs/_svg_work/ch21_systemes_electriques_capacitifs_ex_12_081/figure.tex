@@ -1,0 +1,74 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[scale=0.9, every node/.style={font=\small}]
+ \draw (0,0) -- (0,2.5);
+ \draw (0,2.5) -- (1,2.5);
+ \node[above] at (0.5,2.5) {K};
+ \draw[thick] (1,2.5) -- (1.3,2.5);
+ \draw (1.5,2.5) -- (4,2.5);
+ % Résistance
+ \draw (4,2.5) -- (4,2);
+ \draw[thick, fill=white] (3.6,2) rectangle (4.4,1);
+ \node[right] at (4.5,1.5) {$R$};
+ \draw (4,1) -- (4,0);
+ % Condensateur variable
+ \draw (4,0) -- (2.7,0);
+ \draw[thick] (2.7,-0.3) -- (2.7,0.3);
+ \draw[thick] (2.3,-0.3) -- (2.3,0.3);
+ \draw[-{Stealth}] (2.1,0.4) -- (2.9,-0.4);
+ \node[below] at (2.5,-0.5) {$C$};
+ \draw (2.3,0) -- (0,0);
+ % Générateur
+ \node[left] at (-0.2,1.25) {$E$};
+ \draw[thick] (-0.15,1.5) -- (0.15,1.5);
+ \draw[thick] (-0.07,1.05) -- (0.07,1.05);
+ % Flèches
+ \draw[-{Stealth}, primary, thick] (4.7,2) -- (4.7,1) node[midway, right] {$u_R$};
+ \draw[-{Stealth}, primary, thick] (3,-0.7) -- (2,-0.7) node[midway, below] {$u_C$};
+\end{tikzpicture}
+\end{document}

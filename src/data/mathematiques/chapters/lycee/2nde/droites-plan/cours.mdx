@@ -1,0 +1,89 @@
+## Objectifs
+
+- Déterminer une équation de droite à partir de données.
+- Lire une pente ou un vecteur directeur.
+- Tracer une droite à partir de son équation.
+- Déterminer le point d'intersection de deux droites sécantes.
+
+## Prérequis
+
+- fonctions affines
+- vecteurs
+- résolution d'équations
+
+## Activité de découverte
+
+Deux forfaits de téléphone sont représentés par deux droites. Leur intersection indique le volume de données pour lequel les prix sont égaux.
+
+## Vocabulaire
+
+- **droite**
+- **équation réduite**
+- **équation cartésienne**
+- **pente**
+- **coefficient directeur**
+- **vecteur directeur**
+- **sécantes**
+- **parallèles**
+
+## Cours
+
+### Définitions
+
+- Une équation réduite de droite non verticale s'écrit y = mx + p.
+- m est la pente ou coefficient directeur et p l'ordonnée à l'origine.
+- Une équation cartésienne de droite s'écrit ax + by + c = 0 avec a et b non tous deux nuls.
+
+### Propriétés
+
+- Deux droites non verticales de même pente sont parallèles.
+- Un vecteur directeur d'une droite ax + by + c = 0 est (-b ; a).
+- Le point d'intersection de deux droites sécantes vérifie les deux équations.
+
+### Méthodes
+
+1. Avec deux points A et B, calculer la pente m=(yB-yA)/(xB-xA) si xA≠xB.
+2. Pour tracer y=mx+p, placer l'ordonnée à l'origine puis utiliser la pente.
+3. Pour une intersection, résoudre le système formé par les deux équations.
+
+## Exemples corrigés
+
+- La droite passant par A(0 ; 1) et B(2 ; 5) a pour pente 2, donc y=2x+1.
+- Les droites y=3x-1 et y=3x+4 sont parallèles car elles ont la même pente.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 680 300" role="img" aria-labelledby="line-title line-desc"><title id="line-title">Droites sécantes</title><desc id="line-desc">Deux droites se coupent en un point d'intersection.</desc><line x1="70" y1="240" x2="620" y2="240" stroke="#111827"/><line x1="120" y1="270" x2="120" y2="40" stroke="#111827"/><line x1="100" y1="225" x2="590" y2="65" stroke="#2563eb" strokeWidth="4"/><line x1="110" y1="60" x2="570" y2="250" stroke="#16a34a" strokeWidth="4"/><circle cx="355" cy="142" r="8" fill="#dc2626"/><text x="365" y="135" fontWeight="700">Intersection</text><text x="480" y="78" fill="#2563eb">d₁</text><text x="515" y="238" fill="#16a34a">d₂</text></svg>
+  <figcaption>Droites du plan : représentation schématique à commenter avant les exercices.</figcaption>
+</figure>
+
+## Algorithmique en Python
+
+### Équation réduite avec deux points
+
+```python
+def equation_reduite(A, B):
+    m = (B[1] - A[1]) / (B[0] - A[0])
+    p = A[1] - m * A[0]
+    return m, p
+
+print(equation_reduite((0, 1), (2, 5)))
+```
+
+On calcule d'abord la pente, puis p à partir d'un point de la droite.
+
+## Erreurs fréquentes
+
+- Utiliser la formule de la pente pour une droite verticale.
+- Confondre pente et ordonnée à l'origine.
+- Dire que deux droites de pentes différentes sont parallèles.
+
+## Formules et idées à retenir
+
+- y = mx + p
+- m = (yB-yA)/(xB-xA)
+- ax + by + c = 0
+- vecteur directeur (-b ; a)
+
+## Synthèse
+
+Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.

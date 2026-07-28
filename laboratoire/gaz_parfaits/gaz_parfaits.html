@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : Modèle des Gaz Parfaits</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_gaz_parfaits.css">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+    
+    <div class="container container-lecture" style="max-width: 1300px;">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">💨</span> 
+                <h1 class="hero-title" style="background: linear-gradient(135deg, #14b8a6, #06b6d4); -webkit-background-clip: text; background-clip: text; color: transparent;">Le Modèle des Gaz Parfaits</h1>
+            </div>
+            <p class="hero-subtitle">Modifie les variables d'état pour comprendre la loi $P \cdot V = n \cdot R \cdot T$</p>
+        </header>
+
+        <div class="dashboard">
+            
+            <div class="card controls-panel">
+                
+                <h2>📐 Variables d'état</h2>
+
+                <div class="equation-box">
+                    <div class="formula">$$P = \frac{n \cdot R \cdot T}{V}$$</div>
+                    <p class="small-text"><i>R = 8.314 J·mol⁻¹·K⁻¹ (Constante des gaz parfaits)</i></p>
+                </div>
+
+                <div class="slider-group">
+                    <label for="slider-temp">🌡️ Température ($T$)</label>
+                    <input id="slider-temp" type="range" min="-50" max="150" value="20" />
+                    <div class="values-row">
+                        <span class="chip-val temp-chip" id="val-temp-c">20 °C</span>
+                        <span class="chip-val temp-chip" id="val-temp-k">293.15 K</span>
+                    </div>
+                </div>
+
+                <div class="slider-group">
+                    <label for="slider-vol">📦 Volume ($V$)</label>
+                    <input id="slider-vol" type="range" min="10" max="50" value="20" />
+                    <div class="values-row">
+                        <span class="chip-val">V = <span id="val-vol">20</span> L</span>
+                        <span class="chip-val" style="opacity: 0.6;">(0.02 m³)</span>
+                    </div>
+                </div>
+
+                <div class="slider-group">
+                    <label for="slider-mol">💨 Quantité de matière ($n$)</label>
+                    <input id="slider-mol" type="range" min="0.5" max="5" step="0.1" value="2.0" />
+                    <div class="values-row">
+                        <span class="chip-val">n = <span id="val-mol">2.0</span> mol</span>
+                    </div>
+                </div>
+
+                <div class="info-box mt-2 mb-0">
+                    <h3 style="margin-top: 0;">🚗 Le cas du pneu de voiture :</h3>
+                    <p style="margin: 0; font-size: 0.9rem;">
+                        Un pneu a un <strong>Volume (V)</strong> presque constant. En roulant l'été sur l'autoroute, les frottements et le soleil augmentent fortement la <strong>Température (T)</strong> du gaz. 
+                        D'après l'équation, si $T$ augmente et $V$ est bloqué, la <strong>Pression (P)</strong> explose ! C'est pourquoi on recommande de vérifier la pression à froid, ou de la diminuer légèrement avant un long trajet caniculaire pour éviter l'éclatement.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="card canvas-panel" style="padding: 20px; display: flex; flex-direction: column; align-items: center;">
+                
+                <div class="pressure-gauge-container">
+                    <div class="pressure-label">🗜️ Pression Interne ($P$)</div>
+                    <div class="digital-screen" id="val-pressure">2.44 bar</div>
+                    <div class="pressure-warning" id="pressure-warning">⚠️ Surpression ! Risque de rupture !</div>
+                </div>
+
+                <div class="cylinder-wrapper">
+                    <div class="cylinder-walls" id="cylinderWalls">
+                        <canvas id="gasCanvas"></canvas>
+                        <div class="piston" id="piston">
+                            <div class="piston-rod"></div>
+                            <div class="piston-handle"></div>
+                        </div>
+                    </div>
+                    <div class="volume-ruler">
+                        <span>0L</span>
+                        <span>10L</span>
+                        <span>20L</span>
+                        <span>30L</span>
+                        <span>40L</span>
+                        <span>50L</span>
+                    </div>
+                </div>
+                
+                <div class="legend" style="margin-top: 20px;">
+                    <div class="box" style="background: var(--bg-page); border: 1px solid var(--card-border); padding: 10px 15px; border-radius: 12px; font-size: 0.85rem; color: var(--text-muted);">
+                        <span>🔴 Plus c'est chaud, plus les particules sont rapides.</span>
+                        <span style="margin-left: 15px;">💥 La pression est le résultat des chocs sur les parois.</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_gaz_parfaits.js"></script>
+</body>
+</html>

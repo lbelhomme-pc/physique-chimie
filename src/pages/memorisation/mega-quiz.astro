@@ -1,7 +1,27 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import MegaQuizPlayer from "../../components/pedagogie/MegaQuizPlayer.tsx";
+import { MEMORIZATION_CANONICAL_ROUTES } from "../../data/contentRoutes";
+import { collectMegaQuestions } from "../../utils/megaMemorizationData";
+
+const quizFiles = import.meta.glob("../../data/chapters/**/quiz.json", { eager: true });
+const metaFiles = import.meta.glob("../../data/chapters/**/meta.json", { eager: true });
+
+const totalQuestions = collectMegaQuestions(quizFiles, metaFiles).length;
+const dataUrl = "/memorisation/mega-quiz-data.json";
 ---
 
-<BaseLayout title="Méga quiz">
-  <h1>Méga quiz</h1>
+<BaseLayout
+  title="Mega Quiz — Physique-Chimie"
+  description="Quiz géant avec toutes les questions de tous les chapitres."
+  canonical={MEMORIZATION_CANONICAL_ROUTES.megaQuiz}
+>
+  <div style="text-align:center;padding:1.5rem 0 0.5rem;">
+    <span style="font-size:2.5rem;">?</span>
+    <h1 style="font-size:1.6rem;font-weight:800;color:var(--accent-primary);margin:0.3rem 0;">Mega Quiz</h1>
+    <p style="color:var(--text-muted);font-size:0.95rem;">{totalQuestions} questions disponibles</p>
+  </div>
+  <div style="max-width:700px;margin:0 auto;padding:0 1rem 2rem;">
+    <MegaQuizPlayer client:idle dataUrl={dataUrl} totalQuestions={totalQuestions} />
+  </div>
 </BaseLayout>

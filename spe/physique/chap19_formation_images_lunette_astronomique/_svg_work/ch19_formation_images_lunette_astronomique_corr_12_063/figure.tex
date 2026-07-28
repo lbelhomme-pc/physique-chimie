@@ -1,0 +1,86 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[scale=0.6, >=Stealth]
+% Axe optique
+\draw[->] (-2,0) -- (15,0) node[right]{\small axe optique};
+% Objectif
+\draw[thick, blue] (0,-2.5) -- (0,2.5);
+\node[above, blue] at (0,2.7) {$L_1$ (objectif)};
+\node[below, blue] at (0,-2.7) {$O_1$};
+% Foyers
+\filldraw (5.5,0) circle (2pt);
+\node[below] at (5.5,-0.3) {\small $F'_1 = F_2$};
+% Oculaire
+\draw[thick, red] (11,-1.5) -- (11,1.5);
+\node[above, red] at (11,1.7) {$L_2$ (oculaire)};
+\node[below, red] at (11,-1.7) {$O_2$};
+% Foyer image oculaire
+\filldraw[red] (13.5,0) circle (2pt);
+\node[below, red] at (13.5,-0.3) {\small $F'_2$};
+% Rayons entrants (quasi-parallèles, faible inclinaison)
+\draw[->, thick, orange] (-2,1.0) -- (0,0.8);
+\draw[->, thick, orange] (-2,0.3) -- (0,0.1);
+% Convergence vers image intermédiaire
+\draw[thick, orange] (0,0.8) -- (5.5,-0.5);
+\draw[thick, orange] (0,0.1) -- (5.5,-0.5);
+% Image intermédiaire
+\draw[thick, green!60!black, ->] (5.5,0) -- (5.5,-0.5);
+\node[right, green!60!black] at (5.6,-0.5) {\small $B_1$};
+\node[above right, green!60!black] at (5.5,0.1) {\small $A_1$};
+% Rayons vers oculaire
+\draw[thick, purple] (5.5,-0.5) -- (11,-1.8);
+\draw[thick, purple] (5.5,-0.5) -- (11,0);
+% Rayons émergents
+\draw[->, thick, purple] (11,-1.8) -- (14,-3.0);
+\draw[->, thick, purple] (11,0) -- (14,-1.2);
+% Angle theta
+\node at (-1,0.7) {\small $\theta$};
+% Angle theta'
+\node at (13,-0.8) {\small $\theta'$};
+\end{tikzpicture}
+\end{document}

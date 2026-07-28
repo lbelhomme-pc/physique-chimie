@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours : Analyse d'un système (Terminale Spé) | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">🔬</span> 
+                <h1 class="hero-title">Analyse d'un système</h1>
+            </div>
+        </header>
+
+<p>[<br>  enhanced,<br>  sharp corners,<br>  colback=bglight,<br>  colframe=borderlight,<br>  boxrule=0.5pt,<br>  top=2mm,<br>  bottom=2mm,<br>  left=3mm,<br>  right=3mm<br>]<br><strong>Objectifs du chapitre</strong><br><ul><li>Décrire la composition d'un système chimique à l'aide de grandeurs physiques.</li><li>Identifier les espèces spectatrices dans une transformation chimique.</li><li>Construire et exploiter un tableau d'avancement.</li><li>Déterminer le réactif limitant d'une transformation chimique.</li><li>Réaliser un bilan de matière complet à l'état final.</li><li>Définir et calculer le taux d'avancement d'une réaction chimique.<br></li></ul></p>
+<h2 class="section-title">1. Description d'un système chimique</h2>
+<div class="card chapter-card">
+<h3>1.1 Système chimique et espèces chimiques</h3>
+<div class="definition-box">
+<strong>Définition -- Système chimique</strong>
+<p>Un <strong>système chimique</strong> est l'ensemble des espèces chimiques présentes dans le milieu réactionnel à un instant donné. On le décrit en précisant :<br><ul><li>la <strong>nature</strong> de chaque espèce chimique présente (réactifs, produits, solvant) ;</li><li>la <strong>quantité de matière</strong> $n$ (en $$) de chacune de ces espèces ;</li><li>l'<strong>état physique</strong> de chaque espèce : solide (s), liquide (l), gazeux (g) ou en solution aqueuse (aq).<br></li></ul><br></div></p>
+<div class="definition-box">
+<strong>Définition -- Quantité de matière</strong>
+<p>La <strong>quantité de matière</strong> $n$ d'une espèce chimique est le nombre de moles de cette espèce. Elle se mesure en <strong>mol</strong> et se calcule de plusieurs façons :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n = {M}  ; n = C  V  ; n = {N_A}$$</div></div></div></div><br>où :<br><ul><li>$m$ est la masse de l'espèce (en $$) ;</li><li>$M$ est la masse molaire de l'espèce (en $$) ;</li><li>$C$ est la concentration molaire de la solution (en $$) ;</li><li>$V$ est le volume de la solution (en $$) ;</li><li>$N$ est le nombre d'entités (atomes, molécules, ions) ;</li><li>$N_A = $6{,}022  10^{23}   $$ est la constante d'Avogadro.<br></li></ul><br></div></p>
+<div class="example-box">
+<strong>Exemple</strong>
+<p>On dispose de $V = $200   $ = $0{,}200   $$ d'une solution aqueuse d'acide chlorhydrique de concentration $C = $0{,}10   $$. La quantité de matière d'acide chlorhydrique est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n($H$) = C  V = $0{,}10$  $0{,}200$ = $0{,}020   $$</div></div>$</div></div><br></div></p>
+<h3>1.2 Transformation chimique et équation de réaction</h3>
+<div class="definition-box">
+<strong>Définition -- Transformation chimique</strong>
+<p>Une <strong>transformation chimique</strong> est un processus au cours duquel des espèces chimiques (les <strong>réactifs</strong>) sont consommées et de nouvelles espèces chimiques (les <strong>produits</strong>) sont formées. Elle est modélisée par une <strong>équation de réaction</strong> qui respecte les lois de conservation des éléments et des charges.<br></div></p>
+<p>On écrit l'équation de réaction sous la forme générale :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$a $$ + b $$  c $$ + d $$$</div></div>$</div></div><br>où $a$, $b$, $c$, $d$ sont les <strong>coefficients st chiométriques</strong> (nombres entiers positifs). Ces coefficients traduisent les <strong>proportions</strong> dans lesquelles les réactifs sont consommés et les produits sont formés.</p>
+<div class="info-box">
+<strong>Remarque</strong>
+<p>On utilise une flèche simple $$ pour une transformation totale et une double flèche $$ pour une transformation non totale (équilibre chimique).<br></div></p>
+<h3>1.3 Espèces spectatrices</h3>
+<div class="definition-box">
+<strong>Définition -- Espèce spectatrice</strong>
+<p>Une <strong>espèce spectatrice</strong> est une espèce chimique présente dans le milieu réactionnel mais qui <strong>ne participe pas</strong> à la transformation chimique : elle se retrouve en quantité identique dans l'état initial et dans l'état final.<br></div></p>
+<div class="example-box">
+<strong>Exemple</strong>
+<p>Lors de la réaction entre l'acide chlorhydrique (${}_3 + (aq) + ^{-}(aq)$) et l'hydroxyde de sodium ($ + (aq) + H^{-}(aq)$), l'équation de la réaction est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_3 + (aq) + H^{-}(aq)  2{}_2(l)$$</div></div>$</div></div><br>Les ions $ + $ et $^{-}$ sont des <strong>espèces spectatrices</strong> : ils n'apparaissent pas dans l'équation de la réaction car leurs quantités de matière ne varient pas.<br></div></p>
+<div class="info-box">
+<strong>Remarque</strong>
+<p>Le solvant (l'eau dans le cas des solutions aqueuses) est généralement en très large excès et n'apparaît pas dans le tableau d'avancement, sauf s'il intervient comme réactif ou produit.<br></div></p>
+</div>
+<h2 class="section-title">2. Le tableau d'avancement</h2>
+<div class="card chapter-card">
+<h3>2.1 Avancement d'une réaction</h3>
+<div class="definition-box">
+<strong>Définition -- Avancement</strong>
+<p>L'<strong>avancement</strong> $x$ d'une réaction chimique est une grandeur, exprimée en <strong>mol</strong>, qui permet de suivre l'évolution d'une transformation chimique. Il vaut :<br><ul><li>$x = 0$ à l'<strong>état initial</strong> (avant toute transformation) ;</li><li>$x$ augmente au cours de la transformation ;</li><li>$x = x_{}$ à l'<strong>état final</strong> (la transformation s'arrête).<br></li></ul><br></div></p>
+<p>Pour une réaction générale $a $$ + b $$  c $$ + d $$$, les quantités de matière à un avancement $x$ quelconque s'expriment :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>n($$) &= n_0($$) - a  x \\<br>n($$) &= n_0($$) - b  x \\<br>n($$) &= n_0($$) + c  x \\<br>n($$) &= n_0($$) + d  x<br>$$</div></div></div></div><br>où $n_0$ désigne la quantité de matière à l'état initial.</p>
+<h3>2.2 Construction du tableau d'avancement</h3>
+<div class="example-box">
+<strong>Méthode -- Construire un tableau d'avancement</strong>
+<p>Le tableau d'avancement est un outil qui permet de suivre l'évolution des quantités de matière de toutes les espèces au cours de la réaction.</p>
+<strong>Étapes de construction :</strong>
+<ol><li>Écrire l'équation de réaction <strong>équilibrée</strong>.</li><li>Identifier les quantités de matière <strong>initiales</strong> de chaque espèce.</li><li>Remplir la ligne « en cours » en utilisant l'avancement $x$.</li><li>Déterminer $x_{}$ pour compléter la ligne de l'état final.
+</li></ol>
+</div>
+<strong>Modèle de tableau d'avancement</strong> pour la réaction $a $$ + b $$  c $$ + d $$$ :
+<div class="text-center">
+{1.6}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Équation</strong></th><th>$a $<div class="formula-wrapper-centered"><div class="formula-content">$$</th><th>$+  b $$$</div></div></th><th>$  c $<div class="formula-wrapper-centered"><div class="formula-content">$$</th><th>$+  d $$$</div></div></th></tr><tr><td><strong>État initial</strong> ($x=0$)</td><td>$n_0($$)$</td><td>$n_0($$)$</td><td>$0$</td><td>$0$</td></tr><tr><td><strong>En cours</strong> ($x$)</td><td>$n_0($$) - a x$</td><td>$n_0($$) - b x$</td><td>$c x$</td><td>$d x$</td></tr><tr><td><strong>État final</strong> ($x = x_{}$)</td><td>$n_0($$) - a x_{}$</td><td>$n_0($$) - b x_{}$</td><td>$c x_{}$</td><td>$d x_{}$</td></tr></tbody></table></div>
+</div>
+<div class="info-box">
+<strong>Attention</strong>
+<p>Les quantités de matière dans le tableau sont <strong>toujours positives ou nulles</strong>. Un résultat négatif indiquerait une erreur dans la détermination de $x_{}$.<br></div></p>
+<div class="example-box">
+<strong>Exemple -- Combustion du méthane</strong>
+<p>La combustion complète du méthane dans le dioxygène s'écrit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_4(g) + 2{}_2(g)  {}_2(g) + 2{}_2(g)$$</div></div>$</div></div><br>On part de $n_0(${}_4$) = $0{,}50   $$ et $n_0(${}_2$) = $1{,}50   $$.</p>
+<div class="text-center">
+{1.5}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Équation</strong></th><th><div class="formula-wrapper-centered"><div class="formula-content">$${}_4$$</div></div></th><th>$+  2 ${}_2<div class="formula-wrapper-centered"><div class="formula-content">$$</th><th>$  ${}_2$$</div></div></th><th>$+  2 ${}_2<div class="formula-wrapper-centered"><div class="formula-content">$$</th></tr><tr><td>$x = 0$</td><td>$0{,}50$</td><td>$1{,}50$</td><td>$0$</td><td>$0$</td></tr><tr><td>$x$</td><td>$$</div></div>0{,}50$ - x$</td><td><div class="formula-wrapper-centered"><div class="formula-content">$$1{,}50$ - 2x$</td><td>$x$</td><td>$2x$</td></tr><tr><td>$x_{}$</td><td>$$</div></div>0{,}50$ - x_{}$</td><td>$$1{,}50$ - 2x_{}$</td><td>$x_{}$</td><td>$2x_{}$</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+<h2 class="section-title">3. Réactif limitant et bilan de matière</h2>
+<div class="card chapter-card">
+<h3>3.1 Détermination du réactif limitant</h3>
+<div class="definition-box">
+<strong>Définition -- Réactif limitant</strong>
+<p>Le <strong>réactif limitant</strong> est le réactif qui est <strong>entièrement consommé</strong> à la fin de la transformation chimique. C'est lui qui impose la valeur de l'avancement maximal $x_{}$. Les autres réactifs sont dits <strong>en excès</strong>.<br></div></p>
+<div class="example-box">
+<strong>Méthode -- Déterminer le réactif limitant</strong>
+<p>Pour trouver le réactif limitant, on cherche la valeur de $x_{}$ qui annule la quantité de matière de chaque réactif, puis on retient la <strong>plus petite valeur</strong> :</p>
+<p>Pour le réactif $$ :  $n_0($$) - a  x_{} = 0    x_{} = {n_0($$)}{a}$</p>
+<p>Pour le réactif $$ :  $n_0($$) - b  x_{} = 0    x_{} = {n_0($$)}{b}$</p>
+<p>{On retient la plus petite valeur de $x_{}$}. Le réactif correspondant est le réactif limitant.<br></div></p>
+<div class="example-box">
+<strong>Exemple -- Suite de la combustion du méthane</strong>
+<p>On détermine $x_{}$ pour chaque réactif :<br><ul><li>Pour ${}_4$ :  $$0{,}50$ - x_{} = 0  x_{} = $0{,}50   $$</li><li>Pour ${}_2$ :  $$1{,}50$ - 2 x_{} = 0  x_{} = {$1{,}50$}{2} = $0{,}75   $$<br></li></ul></p>
+<p>On retient $x_{} = $0{,}50   $$ (la plus petite valeur).</p>
+<p>Le <strong>réactif limitant</strong> est donc ${}_4$. Le dioxygène ${}_2$ est en excès.<br></div></p>
+<div class="definition-box">
+<strong>Définition -- Mélange st chiométrique</strong>
+<p>Un mélange est dit <strong>st chiométrique</strong> lorsque les réactifs sont introduits dans les proportions exactes de l'équation de réaction. Dans ce cas, tous les réactifs sont entièrement consommés à l'état final : <strong>il n'y a pas de réactif en excès</strong>.</p>
+<p>La condition du mélange st chiométrique est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${n_0($$)}{a} = {n_0($$)}{b}$$</div></div></div></div><br></div></p>
+<h3>3.2 Bilan de matière à l'état final</h3>
+<div class="example-box">
+<strong>Méthode -- Réaliser un bilan de matière</strong>
+<p>Une fois $x_{}$ déterminé, on remplace dans la ligne « état final » du tableau d'avancement pour obtenir les quantités de matière finales de toutes les espèces.<br></div></p>
+<div class="example-box">
+<strong>Exemple -- Bilan de matière de la combustion du méthane</strong>
+<p>Avec $x_{} = $0{,}50   $$ :<br><ul><li>$n_f(${}_4$) = $0{,}50$ - $0{,}50$ = $0   $$  (entièrement consommé)</li><li>$n_f(${}_2$) = $1{,}50$ - 2  $0{,}50$ = $0{,}50   $$  (en excès)</li><li>$n_f(${}_2$) = $0{,}50$\;$$$</li><li>$n_f(${}_2$) = 2  $0{,}50$ = $1{,}00   $$<br></li></ul><br></div></p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.00785 -70.00785 466.4801 28.7462'>
+<defs>
+<path id='g0-33' d='M7.630386-2.0533C6.563387-1.291158 6.348194-.116563 6.348194-.017933C6.348194 .107597 6.464757 .107597 6.536488 .107597C6.644085 .107597 6.706849 .107597 6.733748-.008966C6.975841-1.066999 7.594521-1.766376 8.571856-2.125031C8.625654-2.142964 8.697385-2.169863 8.697385-2.241594C8.697385-2.322291 8.63462-2.349191 8.580822-2.367123C7.451059-2.788543 6.939975-3.58655 6.733748-4.465255C6.706849-4.590785 6.670984-4.599751 6.536488-4.599751C6.455791-4.599751 6.348194-4.599751 6.348194-4.474222C6.348194-4.375592 6.563387-3.19203 7.630386-2.438854H.842839C.690411-2.438854 .511083-2.438854 .511083-2.25056C.511083-2.0533 .681445-2.0533 .842839-2.0533H7.630386Z'/>
+<path id='g1-120' d='M4.411457-3.622416C4.079701-3.559651 3.981071-3.272727 3.981071-3.138232C3.981071-2.96787 4.1066-2.815442 4.33076-2.815442C4.581818-2.815442 4.82391-3.030635 4.82391-3.344458C4.82391-3.756912 4.375592-3.963138 3.954172-3.963138C3.416189-3.963138 3.102366-3.48792 2.99477-3.299626C2.824408-3.738979 2.429888-3.963138 1.999502-3.963138C1.0401-3.963138 .52005-2.815442 .52005-2.582316C.52005-2.501619 .582814-2.47472 .645579-2.47472C.726276-2.47472 .753176-2.519552 .771108-2.57335C1.049066-3.461021 1.640847-3.738979 1.981569-3.738979C2.241594-3.738979 2.47472-3.568618 2.47472-3.147198C2.47472-2.824408 2.089166-1.389788 1.972603-.959402C1.900872-.681445 1.63188-.125529 1.13873-.125529C.959402-.125529 .771108-.188294 .681445-.242092C.923537-.286924 1.102864-.493151 1.102864-.726276C1.102864-.950436 .932503-1.049066 .762142-1.049066C.502117-1.049066 .268991-.824907 .268991-.52005C.268991-.080697 .753176 .09863 1.129763 .09863C1.649813 .09863 1.95467-.331756 2.089166-.573848C2.313325 .017933 2.842341 .09863 3.084433 .09863C4.052802 .09863 4.563885-1.066999 4.563885-1.282192C4.563885-1.327024 4.536986-1.389788 4.447323-1.389788C4.348692-1.389788 4.339726-1.353923 4.294894-1.219427C4.097634-.573848 3.577584-.125529 3.111333-.125529C2.851308-.125529 2.609215-.286924 2.609215-.71731C2.609215-.91457 2.734745-1.407721 2.815442-1.748443C2.851308-1.909838 3.0934-2.878207 3.111333-2.940971C3.218929-3.263761 3.48792-3.738979 3.945205-3.738979C4.1066-3.738979 4.276961-3.71208 4.411457-3.622416Z'/>
+<path id='g2-97' d='M2.839352-1.78132C2.839352-2.337235 2.271482-2.666002 1.601993-2.666002C1.315068-2.666002 .609714-2.636115 .609714-2.133998C.609714-1.972603 .71731-1.841096 .902615-1.841096C1.075965-1.841096 1.189539-1.972603 1.189539-2.12802C1.189539-2.235616 1.141719-2.337235 1.034122-2.385056C1.231382-2.47472 1.530262-2.47472 1.590037-2.47472C2.014446-2.47472 2.343213-2.223661 2.343213-1.769365V-1.613948C2.068244-1.601993 1.590037-1.590037 1.153674-1.43462C.759153-1.297136 .382565-1.028144 .382565-.627646C.382565-.095641 1.016189 .059776 1.482441 .059776C1.984558 .059776 2.283437-.191283 2.414944-.418431C2.456787-.107597 2.654047 .029888 2.863263 .029888C2.887173 .029888 3.526775 .029888 3.526775-.537983V-.86675H3.305604V-.549938C3.305604-.490162 3.305604-.221171 3.072478-.221171S2.839352-.490162 2.839352-.549938V-1.78132ZM2.343213-.848817C2.343213-.227148 1.727522-.131507 1.536239-.131507C1.21345-.131507 .908593-.328767 .908593-.627646C.908593-.962391 1.231382-1.398755 2.343213-1.43462V-.848817Z'/>
+<path id='g2-109' d='M5.206476-1.80523C5.206476-2.414944 4.847821-2.636115 4.262017-2.636115C3.706102-2.636115 3.377335-2.319303 3.245828-2.092154C3.108344-2.636115 2.49863-2.636115 2.331258-2.636115C1.787298-2.636115 1.452553-2.337235 1.309091-2.086177H1.303113V-2.636115L.376588-2.570361V-2.337235C.795019-2.337235 .848817-2.295392 .848817-2.002491V-.490162C.848817-.233126 .789041-.233126 .376588-.233126V0C.418431-.005978 .824907-.02391 1.093898-.02391S1.75741-.005978 1.817186 0V-.233126C1.404732-.233126 1.344956-.233126 1.344956-.490162V-1.542217C1.344956-2.199751 1.912827-2.444832 2.27746-2.444832C2.689913-2.444832 2.779577-2.187796 2.779577-1.817186V-.490162C2.779577-.233126 2.719801-.233126 2.307347-.233126V0C2.349191-.005978 2.755666-.02391 3.024658-.02391S3.688169-.005978 3.747945 0V-.233126C3.335492-.233126 3.275716-.233126 3.275716-.490162V-1.542217C3.275716-2.199751 3.843587-2.444832 4.208219-2.444832C4.620672-2.444832 4.710336-2.187796 4.710336-1.817186V-.490162C4.710336-.233126 4.65056-.233126 4.238107-.233126V0C4.27995-.005978 4.686426-.02391 4.955417-.02391S5.618929-.005978 5.678705 0V-.233126C5.266252-.233126 5.206476-.233126 5.206476-.490162V-1.80523Z'/>
+<path id='g2-120' d='M2.122042-1.398755L2.713823-2.020423C3.024658-2.319303 3.353425-2.343213 3.514819-2.343213V-2.576339C3.437111-2.570361 3.174097-2.552428 2.982814-2.552428C2.767621-2.552428 2.402989-2.570361 2.367123-2.576339V-2.343213C2.438854-2.331258 2.486675-2.283437 2.486675-2.211706C2.486675-2.110087 2.438854-2.062267 2.265504-1.865006L1.972603-1.560149L1.458531-2.116065C1.398755-2.175841 1.392777-2.187796 1.392777-2.223661C1.392777-2.313325 1.488418-2.343213 1.554172-2.343213V-2.576339C1.41071-2.564384 .998257-2.552428 .854795-2.552428C.74122-2.552428 .376588-2.564384 .245081-2.576339V-2.343213C.585803-2.343213 .699377-2.331258 .848817-2.169863L1.63188-1.321046C1.673724-1.279203 1.679701-1.273225 1.679701-1.26127C1.679701-1.243337 1.141719-.6934 1.075965-.627646C.920548-.466252 .699377-.239103 .209215-.233126V0C.286924-.005978 .549938-.02391 .74122-.02391C.824907-.02391 1.231382-.011955 1.362889 0V-.233126C1.285181-.239103 1.243337-.286924 1.243337-.364633C1.243337-.466252 1.315068-.54396 1.344956-.579826C1.500374-.759153 1.667746-.932503 1.835118-1.099875L2.367123-.526027C2.486675-.394521 2.486675-.382565 2.486675-.352677C2.486675-.292902 2.432877-.233126 2.32528-.233126V0C2.52254-.011955 2.976837-.02391 3.024658-.02391C3.245828-.02391 3.556663-.005978 3.634371 0V-.233126C3.335492-.233126 3.186052-.233126 3.024658-.412453L2.122042-1.398755Z'/>
+</defs>
+<g id='page1'>
+<path d='M17.9102-69.8086H-66.8203C-68.4727-69.8086-69.8086-68.4688-69.8086-66.8203V-44.4492C-69.8086-42.8008-68.4727-41.4609-66.8203-41.4609H17.9102C19.5625-41.4609 20.9023-42.8008 20.9023-44.4492V-66.8203C20.9023-68.4688 19.5625-69.8086 17.9102-69.8086Z' fill='#f1f5f9'/>
+<path d='M17.9102-69.8086H-66.8203C-68.4727-69.8086-69.8086-68.4688-69.8086-66.8203V-44.4492C-69.8086-42.8008-68.4727-41.4609-66.8203-41.4609H17.9102C19.5625-41.4609 20.9023-42.8008 20.9023-44.4492V-66.8203C20.9023-68.4688 19.5625-69.8086 17.9102-69.8086Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g fill='#0f172a' transform='matrix(1 0 0 1 -20.9392 8.5214)'>
+<use x='-24.453952' y='-66.593916' xlink:href='#g3-201'/>
+<use x='-17.492872' y='-66.593916' xlink:href='#g3-113'/>
+<use x='-11.894402' y='-66.593916' xlink:href='#g3-117'/>
+<use x='-6.001282' y='-66.593916' xlink:href='#g3-97'/>
+<use x='-.844805' y='-66.593916' xlink:href='#g3-116'/>
+<use x='3.280378' y='-66.593916' xlink:href='#g3-105'/>
+<use x='6.226943' y='-66.593916' xlink:href='#g3-111'/>
+<use x='11.530753' y='-66.593916' xlink:href='#g3-110'/>
+<use x='-22.852733' y='-55.635012' xlink:href='#g4-233'/>
+<use x='-18.754511' y='-55.635012' xlink:href='#g4-113'/>
+<use x='-13.891992' y='-55.635012' xlink:href='#g4-117'/>
+<use x='-8.77355' y='-55.635012' xlink:href='#g4-105'/>
+<use x='-6.214329' y='-55.635012' xlink:href='#g4-108'/>
+<use x='-3.655108' y='-55.635012' xlink:href='#g4-105'/>
+<use x='-1.095887' y='-55.635012' xlink:href='#g4-98'/>
+<use x='4.022555' y='-55.635012' xlink:href='#g4-114'/>
+<use x='7.626213' y='-55.635012' xlink:href='#g4-233'/>
+<use x='11.724435' y='-55.635012' xlink:href='#g4-101'/>
+</g>
+<path d='M143.035-69.8086H58.3047C56.6523-69.8086 55.3164-68.4688 55.3164-66.8203V-44.4492C55.3164-42.8008 56.6523-41.4609 58.3047-41.4609H143.035C144.687-41.4609 146.023-42.8008 146.023-44.4492V-66.8203C146.023-68.4688 144.687-69.8086 143.035-69.8086Z' fill='#f1f5f9'/>
+<path d='M143.035-69.8086H58.3047C56.6523-69.8086 55.3164-68.4688 55.3164-66.8203V-44.4492C55.3164-42.8008 56.6523-41.4609 58.3047-41.4609H143.035C144.687-41.4609 146.023-42.8008 146.023-44.4492V-66.8203C146.023-68.4688 144.687-69.8086 143.035-69.8086Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g fill='#0f172a' transform='matrix(1 0 0 1 97.8648 8.5734)'>
+<use x='-15.398813' y='-66.593916' xlink:href='#g3-84'/>
+<use x='-8.903924' y='-66.593916' xlink:href='#g3-97'/>
+<use x='-3.747447' y='-66.593916' xlink:href='#g3-98'/>
+<use x='2.145673' y='-66.593916' xlink:href='#g3-108'/>
+<use x='5.092237' y='-66.593916' xlink:href='#g3-101'/>
+<use x='9.959604' y='-66.593916' xlink:href='#g3-97'/>
+<use x='15.116081' y='-66.593916' xlink:href='#g3-117'/>
+<use x='-24.453952' y='-55.635012' xlink:href='#g4-100'/>
+<use x='-19.33551' y='-55.635012' xlink:href='#g4-39'/>
+<use x='-16.776289' y='-55.635012' xlink:href='#g4-97'/>
+<use x='-12.42563' y='-55.635012' xlink:href='#g4-118'/>
+<use x='-8.07497' y='-55.635012' xlink:href='#g4-97'/>
+<use x='-3.468374' y='-55.635012' xlink:href='#g4-110'/>
+<use x='1.650068' y='-55.635012' xlink:href='#g4-99'/>
+<use x='5.744818' y='-55.635012' xlink:href='#g4-101'/>
+<use x='9.84304' y='-55.635012' xlink:href='#g4-109'/>
+<use x='17.520703' y='-55.635012' xlink:href='#g4-101'/>
+<use x='21.618925' y='-55.635012' xlink:href='#g4-110'/>
+<use x='26.48143' y='-55.635012' xlink:href='#g4-116'/>
+</g>
+<path d='M268.16-69.8086H183.43C181.777-69.8086 180.441-68.4688 180.441-66.8203V-44.4492C180.441-42.8008 181.777-41.4609 183.43-41.4609H268.16C269.813-41.4609 271.148-42.8008 271.148-44.4492V-66.8203C271.148-68.4688 269.813-69.8086 268.16-69.8086Z' fill='#f1f5f9'/>
+<path d='M268.16-69.8086H183.43C181.777-69.8086 180.441-68.4688 180.441-66.8203V-44.4492C180.441-42.8008 181.777-41.4609 183.43-41.4609H268.16C269.813-41.4609 271.148-42.8008 271.148-44.4492V-66.8203C271.148-68.4688 269.813-69.8086 268.16-69.8086Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g fill='#0f172a' transform='matrix(1 0 0 1 217.231 8.0753)'>
+<use x='-8.443754' y='-66.593916' xlink:href='#g3-82'/>
+<use x='-.494956' y='-66.593916' xlink:href='#g3-233'/>
+<use x='4.372412' y='-66.593916' xlink:href='#g3-97'/>
+<use x='9.528889' y='-66.593916' xlink:href='#g3-99'/>
+<use x='14.24339' y='-66.593916' xlink:href='#g3-116'/>
+<use x='18.368573' y='-66.593916' xlink:href='#g3-105'/>
+<use x='21.315137' y='-66.593916' xlink:href='#g3-102'/>
+<use x='-24.453952' y='-55.635012' xlink:href='#g4-108'/>
+<use x='-21.894731' y='-55.635012' xlink:href='#g4-105'/>
+<use x='-19.33551' y='-55.635012' xlink:href='#g4-109'/>
+<use x='-11.657847' y='-55.635012' xlink:href='#g4-105'/>
+<use x='-9.098626' y='-55.635012' xlink:href='#g4-116'/>
+<use x='-5.515722' y='-55.635012' xlink:href='#g4-97'/>
+<use x='-.909125' y='-55.635012' xlink:href='#g4-110'/>
+<use x='3.953379' y='-55.635012' xlink:href='#g4-116'/>
+<use x='10.607348' y='-55.635012' xlink:href='#g0-33'/>
+<use x='22.382557' y='-55.635012' xlink:href='#g1-120'/>
+<use x='27.606014' y='-54.638763' xlink:href='#g2-109'/>
+<use x='33.583535' y='-54.638763' xlink:href='#g2-97'/>
+<use x='37.236461' y='-54.638763' xlink:href='#g2-120'/>
+</g>
+<path d='M393.285-69.8086H308.555C306.902-69.8086 305.563-68.4688 305.563-66.8203V-44.4492C305.563-42.8008 306.902-41.4609 308.555-41.4609H393.285C394.938-41.4609 396.273-42.8008 396.273-44.4492V-66.8203C396.273-68.4688 394.938-69.8086 393.285-69.8086Z' fill='#f1f5f9'/>
+<path d='M393.285-69.8086H308.555C306.902-69.8086 305.563-68.4688 305.563-66.8203V-44.4492C305.563-42.8008 306.902-41.4609 308.555-41.4609H393.285C394.938-41.4609 396.273-42.8008 396.273-44.4492V-66.8203C396.273-68.4688 394.938-69.8086 393.285-69.8086Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g fill='#0f172a' transform='matrix(1 0 0 1 350.023 8.5734)'>
+<use x='-18.49233' y='-66.593916' xlink:href='#g3-66'/>
+<use x='-10.95439' y='-66.593916' xlink:href='#g3-105'/>
+<use x='-8.007826' y='-66.593916' xlink:href='#g3-108'/>
+<use x='-5.061261' y='-66.593916' xlink:href='#g3-97'/>
+<use x='.095215' y='-66.593916' xlink:href='#g3-110'/>
+<use x='9.524209' y='-66.593916' xlink:href='#g3-100'/>
+<use x='15.417329' y='-66.593916' xlink:href='#g3-101'/>
+<use x='-24.453952' y='-55.635012' xlink:href='#g4-109'/>
+<use x='-16.776289' y='-55.635012' xlink:href='#g4-97'/>
+<use x='-12.169693' y='-55.635012' xlink:href='#g4-116'/>
+<use x='-8.586789' y='-55.635012' xlink:href='#g4-105'/>
+<use x='-6.027568' y='-55.635012' xlink:href='#g4-232'/>
+<use x='-1.929346' y='-55.635012' xlink:href='#g4-114'/>
+<use x='1.674312' y='-55.635012' xlink:href='#g4-101'/>
+<use x='8.843598' y='-55.635012' xlink:href='#g4-28'/>
+<use x='13.96204' y='-55.635012' xlink:href='#g4-110'/>
+<use x='19.080482' y='-55.635012' xlink:href='#g4-97'/>
+<use x='23.687078' y='-55.635012' xlink:href='#g4-108'/>
+</g>
+<path d='M21.1016-55.63672H49.7031' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M53.98049-55.63672L47.89846-57.92969L49.90237-55.63672L47.89846-53.33985Z' fill='#0e7490'/>
+<path d='M53.98049-55.63672L47.89846-57.92969L49.90237-55.63672L47.89846-53.33985Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M146.223-55.63672H174.828' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M179.10497-55.63672L173.02294-57.92969L175.02685-55.63672L173.02294-53.33985Z' fill='#0e7490'/>
+<path d='M179.10497-55.63672L173.02294-57.92969L175.02685-55.63672L173.02294-53.33985Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M271.348-55.63672H299.953' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M304.23066-55.63672L298.14863-57.92969L300.15253-55.63672L298.14863-53.33985Z' fill='#0e7490'/>
+<path d='M304.23066-55.63672L298.14863-57.92969L300.15253-55.63672L298.14863-53.33985Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+</g>
+</svg></div>
+</div>
+</div>
+<h2 class="section-title">4. Taux d'avancement</h2>
+<div class="card chapter-card">
+<h3>4.1 Définition du taux d'avancement</h3>
+<div class="definition-box">
+<strong>Définition -- Taux d'avancement</strong>
+<p>Le <strong>taux d'avancement</strong> $$ (lettre grecque « tau ») est une grandeur <strong>sans unité</strong> qui mesure la proportion de transformation effectivement réalisée par rapport à la transformation maximale théorique. Il est défini par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ = {x_{}}}$$</div></div></div></div><br>où :<br><ul><li>$x_f$ est l'<strong>avancement final</strong> réellement atteint (en $$) ;</li><li>$x_{}$ est l'<strong>avancement maximal</strong> théorique (en $$).<br></li></ul></p>
+<p>Le taux d'avancement est toujours compris entre 0 et 1 : $0    1$.<br></div></p>
+<h3>4.2 Interprétation du taux d'avancement</h3>
+<div class="info-box">
+<strong>Interprétation de la valeur de $$</strong>
+<ul><li>Si $ = 1$ : la transformation est <strong>totale</strong>. L'avancement final est égal à l'avancement maximal : $x_f = x_{}$. Le réactif limitant est entièrement consommé.</li><li>Si $ < 1$ : la transformation est <strong>non totale</strong> (ou <strong>limitée</strong>). L'avancement final est strictement inférieur à l'avancement maximal : $x_f < x_{}$. Il reste du réactif limitant dans le milieu.
+</li></ul>
+</div>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.299269 -66.801917 318.226642 72.186456'>
+<defs>
+<path id='g2-28' d='M2.929016-3.716065H4.60274C4.732254-3.716065 5.090909-3.716065 5.090909-4.054795C5.090909-4.293898 4.881694-4.293898 4.692403-4.293898H1.902864C1.703611-4.293898 1.315068-4.293898 .876712-3.825654C.547945-3.466999 .268991-2.988792 .268991-2.929016C.268991-2.919054 .268991-2.82939 .388543-2.82939C.468244-2.82939 .488169-2.86924 .547945-2.948941C1.036115-3.716065 1.603985-3.716065 1.8132-3.716065H2.6401L1.663761-.518057C1.62391-.398506 1.564134-.18929 1.564134-.14944C1.564134-.039851 1.633873 .119552 1.853051 .119552C2.181818 .119552 2.231631-.159402 2.261519-.308842L2.929016-3.716065Z'/>
+<path id='g2-60' d='M6.724782-4.961395C6.844334-5.021171 6.914072-5.070984 6.914072-5.180573S6.824408-5.379826 6.714819-5.379826C6.684932-5.379826 6.665006-5.379826 6.535492-5.310087L1.016189-2.709838C.9066-2.660025 .826899-2.610212 .826899-2.49066S.9066-2.321295 1.016189-2.271482L6.535492 .328767C6.665006 .398506 6.684932 .398506 6.714819 .398506C6.824408 .398506 6.914072 .308842 6.914072 .199253S6.844334 .039851 6.724782-.019925L1.494396-2.49066L6.724782-4.961395Z'/>
+<path id='g2-120' d='M3.327522-3.008717C3.387298-3.267746 3.616438-4.184309 4.313823-4.184309C4.363636-4.184309 4.60274-4.184309 4.811955-4.054795C4.533001-4.004981 4.333748-3.755915 4.333748-3.516812C4.333748-3.35741 4.443337-3.16812 4.712329-3.16812C4.931507-3.16812 5.250311-3.347447 5.250311-3.745953C5.250311-4.26401 4.662516-4.403487 4.323786-4.403487C3.745953-4.403487 3.39726-3.875467 3.277709-3.646326C3.028643-4.303861 2.49066-4.403487 2.201743-4.403487C1.165629-4.403487 .597758-3.118306 .597758-2.86924C.597758-2.769614 .697385-2.769614 .71731-2.769614C.797011-2.769614 .826899-2.789539 .846824-2.879203C1.185554-3.935243 1.843088-4.184309 2.181818-4.184309C2.371108-4.184309 2.719801-4.094645 2.719801-3.516812C2.719801-3.20797 2.550436-2.540473 2.181818-1.145704C2.022416-.52802 1.673724-.109589 1.235367-.109589C1.175592-.109589 .946451-.109589 .737235-.239103C.986301-.288917 1.205479-.498132 1.205479-.777086C1.205479-1.046077 .986301-1.125778 .836862-1.125778C.537983-1.125778 .288917-.86675 .288917-.547945C.288917-.089664 .787049 .109589 1.225405 .109589C1.882939 .109589 2.241594-.587796 2.271482-.647572C2.391034-.278954 2.749689 .109589 3.347447 .109589C4.373599 .109589 4.941469-1.175592 4.941469-1.424658C4.941469-1.524284 4.851806-1.524284 4.821918-1.524284C4.732254-1.524284 4.712329-1.484433 4.692403-1.414695C4.363636-.348692 3.686177-.109589 3.367372-.109589C2.978829-.109589 2.819427-.428394 2.819427-.767123C2.819427-.986301 2.879203-1.205479 2.988792-1.643836L3.327522-3.008717Z'/>
+<path id='g3-102' d='M2.838356-2.75467H3.521793C3.66127-2.75467 3.75193-2.75467 3.75193-2.908095C3.75193-3.005729 3.66127-3.005729 3.535741-3.005729H2.887173C3.047572-3.891407 3.103362-4.212204 3.159153-4.414446C3.194022-4.56787 3.347447-4.714321 3.514819-4.714321C3.521793-4.714321 3.710087-4.714321 3.84259-4.630635C3.556663-4.539975 3.535741-4.288917 3.535741-4.247073C3.535741-4.093649 3.654296-3.989041 3.814695-3.989041C4.002989-3.989041 4.212204-4.14944 4.212204-4.414446C4.212204-4.735243 3.870486-4.909589 3.514819-4.909589C3.20797-4.909589 2.866252-4.735243 2.677958-4.38655C2.538481-4.128518 2.48269-3.814695 2.336239-3.005729H1.785305C1.645828-3.005729 1.555168-3.005729 1.555168-2.852304C1.555168-2.75467 1.645828-2.75467 1.771357-2.75467H2.287422C2.280448-2.712827 1.841096-.202242 1.673724 .54396C1.638854 .697385 1.520299 1.227397 1.185554 1.227397C1.17858 1.227397 1.011208 1.227397 .878705 1.143711C1.164633 1.053051 1.185554 .801993 1.185554 .760149C1.185554 .606725 1.066999 .502117 .9066 .502117C.718306 .502117 .509091 .662516 .509091 .927522C.509091 1.241345 .836862 1.422665 1.185554 1.422665C1.63188 1.422665 1.93873 .962391 2.022416 .808966C2.273474 .341719 2.433873-.516065 2.447821-.599751L2.838356-2.75467Z'/>
+<path id='g4-48' d='M4.582814-3.188045C4.582814-3.985056 4.533001-4.782067 4.184309-5.519303C3.726027-6.475716 2.909091-6.635118 2.49066-6.635118C1.892902-6.635118 1.165629-6.37609 .757161-5.449564C.438356-4.762142 .388543-3.985056 .388543-3.188045C.388543-2.440847 .428394-1.544209 .836862-.787049C1.265255 .019925 1.992528 .219178 2.480697 .219178C3.01868 .219178 3.775841 .009963 4.214197-.936488C4.533001-1.62391 4.582814-2.400996 4.582814-3.188045ZM2.480697 0C2.092154 0 1.504359-.249066 1.325031-1.205479C1.215442-1.803238 1.215442-2.719801 1.215442-3.307597C1.215442-3.945205 1.215442-4.60274 1.295143-5.140722C1.484433-6.326276 2.231631-6.41594 2.480697-6.41594C2.809465-6.41594 3.466999-6.236613 3.656289-5.250311C3.755915-4.692403 3.755915-3.935243 3.755915-3.307597C3.755915-2.560399 3.755915-1.882939 3.646326-1.24533C3.496887-.298879 2.929016 0 2.480697 0Z'/>
+<path id='g4-49' d='M2.929016-6.37609C2.929016-6.615193 2.929016-6.635118 2.699875-6.635118C2.082192-5.997509 1.205479-5.997509 .886675-5.997509V-5.688667C1.085928-5.688667 1.673724-5.688667 2.191781-5.947696V-.787049C2.191781-.428394 2.161893-.308842 1.265255-.308842H.946451V0C1.295143-.029888 2.161893-.029888 2.560399-.029888S3.825654-.029888 4.174346 0V-.308842H3.855542C2.958904-.308842 2.929016-.418431 2.929016-.787049V-6.37609Z'/>
+<path id='g4-61' d='M6.844334-3.257783C6.993773-3.257783 7.183064-3.257783 7.183064-3.457036S6.993773-3.656289 6.854296-3.656289H.886675C.747198-3.656289 .557908-3.656289 .557908-3.457036S.747198-3.257783 .896638-3.257783H6.844334ZM6.854296-1.325031C6.993773-1.325031 7.183064-1.325031 7.183064-1.524284S6.993773-1.723537 6.844334-1.723537H.896638C.747198-1.723537 .557908-1.723537 .557908-1.524284S.747198-1.325031 .886675-1.325031H6.854296Z'/>
+<path id='g4-108' d='M1.763387-6.914072L.328767-6.804483V-6.495641C1.026152-6.495641 1.105853-6.425903 1.105853-5.937733V-.757161C1.105853-.308842 .996264-.308842 .328767-.308842V0C.657534-.009963 1.185554-.029888 1.43462-.029888S2.171856-.009963 2.540473 0V-.308842C1.872976-.308842 1.763387-.308842 1.763387-.757161V-6.914072Z'/>
+<path id='g4-109' d='M1.09589-3.427148V-.757161C1.09589-.308842 .986301-.308842 .318804-.308842V0C.667497-.009963 1.175592-.029888 1.444583-.029888C1.703611-.029888 2.221669-.009963 2.560399 0V-.308842C1.892902-.308842 1.783313-.308842 1.783313-.757161V-2.590286C1.783313-3.626401 2.49066-4.184309 3.128269-4.184309C3.755915-4.184309 3.865504-3.646326 3.865504-3.078456V-.757161C3.865504-.308842 3.755915-.308842 3.088418-.308842V0C3.437111-.009963 3.945205-.029888 4.214197-.029888C4.473225-.029888 4.991283-.009963 5.330012 0V-.308842C4.662516-.308842 4.552927-.308842 4.552927-.757161V-2.590286C4.552927-3.626401 5.260274-4.184309 5.897883-4.184309C6.525529-4.184309 6.635118-3.646326 6.635118-3.078456V-.757161C6.635118-.308842 6.525529-.308842 5.858032-.308842V0C6.206725-.009963 6.714819-.029888 6.983811-.029888C7.242839-.029888 7.760897-.009963 8.099626 0V-.308842C7.581569-.308842 7.332503-.308842 7.32254-.607721V-2.510585C7.32254-3.367372 7.32254-3.676214 7.013699-4.034869C6.874222-4.204234 6.545455-4.403487 5.967621-4.403487C5.13076-4.403487 4.692403-3.805729 4.523039-3.427148C4.383562-4.293898 3.646326-4.403487 3.198007-4.403487C2.470735-4.403487 2.002491-3.975093 1.723537-3.35741V-4.403487L.318804-4.293898V-3.985056C1.016189-3.985056 1.09589-3.915318 1.09589-3.427148Z'/>
+<path id='g4-111' d='M4.692403-2.132005C4.692403-3.407223 3.696139-4.463263 2.49066-4.463263C1.24533-4.463263 .278954-3.377335 .278954-2.132005C.278954-.846824 1.315068 .109589 2.480697 .109589C3.686177 .109589 4.692403-.86675 4.692403-2.132005ZM2.49066-.139477C2.062267-.139477 1.62391-.348692 1.354919-.806974C1.105853-1.24533 1.105853-1.853051 1.105853-2.211706C1.105853-2.600249 1.105853-3.138232 1.344956-3.576588C1.613948-4.034869 2.082192-4.244085 2.480697-4.244085C2.919054-4.244085 3.347447-4.024907 3.606476-3.596513S3.865504-2.590286 3.865504-2.211706C3.865504-1.853051 3.865504-1.315068 3.646326-.876712C3.427148-.428394 2.988792-.139477 2.49066-.139477Z'/>
+<path id='g5-97' d='M3.110336-1.868991C3.110336-2.238605 3.110336-2.503611 2.789539-2.761644C2.503611-2.998755 2.168867-3.110336 1.75741-3.110336C1.094894-3.110336 .627646-2.859278 .627646-2.433873C.627646-2.21071 .781071-2.092154 .962391-2.092154C1.150685-2.092154 1.290162-2.231631 1.290162-2.419925C1.290162-2.538481 1.234371-2.684932 1.046077-2.740722C1.297136-2.915068 1.701619-2.915068 1.743462-2.915068C2.133998-2.915068 2.559402-2.657036 2.559402-2.071233V-1.855044C2.175841-1.841096 1.715567-1.820174 1.206476-1.63188C.578829-1.401743 .383562-1.018182 .383562-.704359C.383562-.104608 1.108842 .069738 1.603985 .069738C2.161893 .069738 2.489664-.244085 2.636115-.516065C2.66401-.230137 2.852304 .034869 3.173101 .034869C3.187049 .034869 3.863512 .034869 3.863512-.627646V-1.011208H3.626401V-.63462C3.626401-.564882 3.626401-.230137 3.368369-.230137S3.110336-.557908 3.110336-.648568V-1.868991ZM2.559402-.983313C2.559402-.313823 1.973599-.125529 1.659776-.125529C1.30411-.125529 .969365-.36264 .969365-.704359C.969365-1.08792 1.30411-1.624907 2.559402-1.673724V-.983313Z'/>
+<path id='g5-109' d='M5.732503-2.113076C5.732503-2.719801 5.432628-3.075467 4.686426-3.075467C4.135492-3.075467 3.758904-2.775592 3.57061-2.426899C3.431133-2.922042 3.054545-3.075467 2.545455-3.075467C1.973599-3.075467 1.603985-2.761644 1.408717-2.399004H1.401743V-3.075467L.376588-2.998755V-2.747696C.843836-2.747696 .899626-2.698879 .899626-2.357161V-.550934C.899626-.251059 .829888-.251059 .376588-.251059V0C.390535 0 .878705-.027895 1.171606-.027895C1.429639-.027895 1.910834-.006974 1.973599 0V-.251059C1.520299-.251059 1.45056-.251059 1.45056-.550934V-1.806227C1.45056-2.538481 2.02939-2.880199 2.489664-2.880199C2.977833-2.880199 3.040598-2.496638 3.040598-2.140971V-.550934C3.040598-.251059 2.970859-.251059 2.517559-.251059V0C2.531507 0 3.019676-.027895 3.312578-.027895C3.57061-.027895 4.051806-.006974 4.11457 0V-.251059C3.66127-.251059 3.591532-.251059 3.591532-.550934V-1.806227C3.591532-2.538481 4.170361-2.880199 4.630635-2.880199C5.118804-2.880199 5.181569-2.496638 5.181569-2.140971V-.550934C5.181569-.251059 5.111831-.251059 4.658531-.251059V0C4.672478 0 5.160648-.027895 5.453549-.027895C5.711582-.027895 6.192777-.006974 6.255542 0V-.251059C5.802242-.251059 5.732503-.251059 5.732503-.550934V-2.113076Z'/>
+<path id='g5-120' d='M2.364134-1.562142C2.357161-1.569116 2.308344-1.624907 2.308344-1.63188C2.308344-1.652802 2.768618-2.147945 2.831382-2.21071C3.075467-2.48269 3.319552-2.747696 3.870486-2.75467V-3.005729C3.675218-2.991781 3.472976-2.977833 3.284682-2.977833C3.075467-2.977833 2.803487-2.984807 2.594271-3.005729V-2.75467C2.712827-2.733748 2.733748-2.657036 2.733748-2.594271C2.733748-2.580324 2.733748-2.475716 2.629141-2.357161L2.140971-1.806227L1.562142-2.468742C1.492403-2.545455 1.48543-2.580324 1.48543-2.608219C1.48543-2.712827 1.583064-2.75467 1.673724-2.75467V-3.005729C1.415691-2.984807 1.150685-2.977833 .892653-2.977833C.683437-2.977833 .418431-2.984807 .216189-3.005729V-2.75467C.536986-2.75467 .718306-2.75467 .899626-2.545455L1.771357-1.54122C1.778331-1.534247 1.827148-1.478456 1.827148-1.471482C1.827148-1.45056 1.30411-.878705 1.234371-.801993C.976339-.523039 .739228-.265006 .18132-.251059V0C.390535-.013948 .54396-.027895 .760149-.027895C.969365-.027895 1.248319-.020922 1.457534 0V-.251059C1.373848-.265006 1.318057-.313823 1.318057-.411457C1.318057-.54396 1.39477-.63462 1.506351-.753176L1.994521-1.290162L2.601245-.599751C2.733748-.4533 2.733748-.439352 2.733748-.397509C2.733748-.258032 2.57335-.251059 2.545455-.251059V0C2.608219-.006974 3.110336-.027895 3.333499-.027895S3.779826-.020922 4.002989 0V-.251059C3.535741-.251059 3.47995-.292902 3.319552-.474222L2.364134-1.562142Z'/>
+</defs>
+<g id='page1'>
+<path d='M-64.195315-51.578125H215.1599' stroke='currentColor' fill='none' stroke-width='.79701'/>
+<path d='M218.13718-51.578125L213.98483-53.14844L215.35983-51.578125L213.98483-50.00781Z'/>
+<path d='M218.13718-51.578125L213.98483-53.14844L215.35983-51.578125L213.98483-50.00781Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 287.1861 2.4901)'>
+<use x='-64.197112' y='-51.57793' xlink:href='#g2-120'/>
+<use x='-55.18311' y='-51.57793' xlink:href='#g1-40'/>
+<use x='-51.309696' y='-51.57793' xlink:href='#g4-109'/>
+<use x='-43.007471' y='-51.57793' xlink:href='#g4-111'/>
+<use x='-38.026132' y='-51.57793' xlink:href='#g4-108'/>
+<use x='-35.258727' y='-51.57793' xlink:href='#g1-41'/>
+</g>
+<path d='M-64.195315-47.32422V-55.82813' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -2.4907 -7.9701)'>
+<use x='-64.197112' y='-51.57793' xlink:href='#g4-48'/>
+</g>
+<path d='M105.8829-47.32422V-55.82813' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 164.6511 -10.8205)'>
+<use x='-64.197112' y='-51.57793' xlink:href='#g2-120'/>
+<use x='-58.50318' y='-50.083549' xlink:href='#g3-102'/>
+</g>
+<path d='M190.9259-47.32422V-55.82813' stroke='#ec4899' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 244.6741 -9.4645)'>
+<use x='-64.197112' y='-51.57793' xlink:href='#g2-120'/>
+<use x='-58.50318' y='-50.083549' xlink:href='#g5-109'/>
+<use x='-51.958247' y='-50.083549' xlink:href='#g5-97'/>
+<use x='-47.987007' y='-50.083549' xlink:href='#g5-120'/>
+</g>
+<path d='M-64.195315-37.4063C-63.449221-35.9102-61.70703-34.9141-59.21485-34.9141H15.8633C18.3516-34.9141 20.0977-33.918 20.8437-32.4219C21.5898-33.918 23.3359-34.9141 25.8242-34.9141H100.9019C103.3949-34.9141 105.1369-35.9102 105.8829-37.4063' stroke='#10b981' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#10b981' transform='matrix(1 0 0 1 35.2802 29.7346)'>
+<use x='-64.197112' y='-51.57793' xlink:href='#g1-116'/>
+<use x='-60.323698' y='-51.57793' xlink:href='#g1-114'/>
+<use x='-56.422616' y='-51.57793' xlink:href='#g1-97'/>
+<use x='-51.442512' y='-51.57793' xlink:href='#g1-110'/>
+<use x='-45.909064' y='-51.57793' xlink:href='#g1-115'/>
+<use x='-41.980315' y='-51.57793' xlink:href='#g1-102'/>
+<use x='-38.936918' y='-51.57793' xlink:href='#g1-111'/>
+<use x='-33.956814' y='-51.57793' xlink:href='#g1-114'/>
+<use x='-30.055733' y='-51.57793' xlink:href='#g1-109'/>
+<use x='-21.75556' y='-51.57793' xlink:href='#g1-97'/>
+<use x='-16.775456' y='-51.57793' xlink:href='#g1-116'/>
+<use x='-12.902042' y='-51.57793' xlink:href='#g1-105'/>
+<use x='-10.135317' y='-51.57793' xlink:href='#g1-111'/>
+<use x='-5.155213' y='-51.57793' xlink:href='#g1-110'/>
+<use x='3.698305' y='-51.57793' xlink:href='#g1-114'/>
+<use x='7.599386' y='-51.57793' xlink:href='#g1-233'/>
+<use x='12.026145' y='-51.57793' xlink:href='#g1-97'/>
+<use x='17.006249' y='-51.57793' xlink:href='#g1-108'/>
+<use x='19.772974' y='-51.57793' xlink:href='#g1-105'/>
+<use x='22.539698' y='-51.57793' xlink:href='#g1-115'/>
+<use x='26.468447' y='-51.57793' xlink:href='#g1-233'/>
+<use x='30.895206' y='-51.57793' xlink:href='#g1-101'/>
+</g>
+<path d='M105.8829-37.4063C106.6329-35.9102 108.3749-34.9141 110.8629-34.9141H143.4219C145.9139-34.9141 147.6559-33.918 148.4019-32.4219C149.1519-33.918 150.8949-34.9141 153.3869-34.9141H185.9419C188.4339-34.9141 190.1759-35.9102 190.9259-37.4063' stroke='#f97316' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#f97316' transform='matrix(1 0 0 1 187.1051 29.7346)'>
+<use x='-64.197112' y='-51.57793' xlink:href='#g1-110'/>
+<use x='-58.663663' y='-51.57793' xlink:href='#g1-111'/>
+<use x='-53.683559' y='-51.57793' xlink:href='#g1-110'/>
+<use x='-44.830041' y='-51.57793' xlink:href='#g1-114'/>
+<use x='-40.92896' y='-51.57793' xlink:href='#g1-233'/>
+<use x='-36.502201' y='-51.57793' xlink:href='#g1-97'/>
+<use x='-31.522097' y='-51.57793' xlink:href='#g1-108'/>
+<use x='-28.755372' y='-51.57793' xlink:href='#g1-105'/>
+<use x='-25.988648' y='-51.57793' xlink:href='#g1-115'/>
+<use x='-22.059899' y='-51.57793' xlink:href='#g1-233'/>
+<use x='-17.63314' y='-51.57793' xlink:href='#g1-101'/>
+</g>
+<g transform='matrix(1 0 0 1 33.2964 48.56448)'>
+<use x='-64.197112' y='-51.57793' xlink:href='#g2-28'/>
+<use x='-55.94685' y='-51.57793' xlink:href='#g4-61'/>
+<use x='-39.217604' y='-58.317731' xlink:href='#g2-120'/>
+<use x='-33.523672' y='-56.82335' xlink:href='#g3-102'/>
+</g>
+<rect x='-44.235256' y='-54.26784' transform='matrix(1 0 0 1 33.2964 48.56448)'/>
+<g transform='matrix(1 0 0 1 33.2964 48.56448)'>
+<use x='-44.235256' y='-44.74406' xlink:href='#g2-120'/>
+<use x='-38.541324' y='-43.249679' xlink:href='#g5-109'/>
+<use x='-31.996391' y='-43.249679' xlink:href='#g5-97'/>
+<use x='-28.025151' y='-43.249679' xlink:href='#g5-120'/>
+<use x='-19.378472' y='-51.57793' xlink:href='#g2-60'/>
+<use x='-8.862392' y='-51.57793' xlink:href='#g4-49'/>
+<use x='-.560984' y='-51.57793' xlink:href='#g1-58'/>
+<use x='5.52581' y='-51.57793' xlink:href='#g1-116'/>
+<use x='9.399224' y='-51.57793' xlink:href='#g1-114'/>
+<use x='13.300305' y='-51.57793' xlink:href='#g1-97'/>
+<use x='18.280409' y='-51.57793' xlink:href='#g1-110'/>
+<use x='23.813858' y='-51.57793' xlink:href='#g1-115'/>
+<use x='27.742607' y='-51.57793' xlink:href='#g1-102'/>
+<use x='30.786004' y='-51.57793' xlink:href='#g1-111'/>
+<use x='35.766108' y='-51.57793' xlink:href='#g1-114'/>
+<use x='39.667189' y='-51.57793' xlink:href='#g1-109'/>
+<use x='47.967362' y='-51.57793' xlink:href='#g1-97'/>
+<use x='52.947466' y='-51.57793' xlink:href='#g1-116'/>
+<use x='56.82088' y='-51.57793' xlink:href='#g1-105'/>
+<use x='59.587605' y='-51.57793' xlink:href='#g1-111'/>
+<use x='64.567708' y='-51.57793' xlink:href='#g1-110'/>
+<use x='73.421226' y='-51.57793' xlink:href='#g0-110'/>
+<use x='79.784693' y='-51.57793' xlink:href='#g0-111'/>
+<use x='85.511812' y='-51.57793' xlink:href='#g0-110'/>
+<use x='95.693358' y='-51.57793' xlink:href='#g0-116'/>
+<use x='100.147784' y='-51.57793' xlink:href='#g0-111'/>
+<use x='105.874904' y='-51.57793' xlink:href='#g0-116'/>
+<use x='110.32933' y='-51.57793' xlink:href='#g0-97'/>
+<use x='115.897363' y='-51.57793' xlink:href='#g0-108'/>
+<use x='119.079096' y='-51.57793' xlink:href='#g0-101'/>
+</g>
+</g>
+</svg></div>
+</div>
+<div class="example-box">
+<strong>Exemple</strong>
+<p>On considère la réaction d'estérification :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_3COO(l) + {}_2{}_5O(l)  {}_3CO{}_2{}_5(l) + {}_2(l)$$</div></div>$</div></div><br>On mélange $1{,}0   $ d'acide éthanoïque avec $1{,}0   $ d'éthanol. À l'équilibre, on constate que $x_f = $0{,}67   $$.</p>
+<p>Calculons $x_{}$ : les coefficients st chiométriques sont tous égaux à 1, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$x_{} = ({$1{,}0$}{1} ; {$1{,}0$}{1}) = $1{,}0   $$</div></div>$</div></div></p>
+<p>Le taux d'avancement vaut :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {x_{}} = {$0{,}67$}{$1{,}0$} = $0{,}67$ = 67</p>
+<p>La transformation est <strong>non totale</strong> : seulement $67 <br></div></p>
+<h3>4.3 Facteurs influençant le taux d'avancement</h3>
+<div class="info-box">
+<strong>Remarque</strong>
+<p>La valeur du taux d'avancement $$ dépend de la réaction chimique considérée. Certaines réactions sont naturellement totales ($ = 1$), comme les réactions acido-basiques entre un acide fort et une base forte, tandis que d'autres sont limitées ($ < 1$), comme l'estérification.</p>
+<p>Pour une réaction non totale, le taux d'avancement peut être modifié en changeant les conditions expérimentales : concentration, température, etc.<br></div></p>
+</div>
+<h2 class="section-title">5. Dosage et détermination de quantités de matière</h2>
+<div class="card chapter-card">
+<h3>5.1 Principe du dosage par étalonnage</h3>
+<div class="definition-box">
+<strong>Définition -- Dosage par étalonnage</strong>
+<p>Un <strong>dosage par étalonnage</strong> consiste à déterminer la concentration d'une espèce chimique en solution en comparant une grandeur physique mesurée (absorbance, conductivité) à une <strong>courbe d'étalonnage</strong> établie à partir de solutions de concentrations connues.<br></div></p>
+<h3>5.2 Dosage par spectrophotométrie -- Loi de Beer-Lambert</h3>
+<div class="definition-box">
+<strong>Loi de Beer-Lambert</strong>
+<p>L'<strong>absorbance</strong> $A$ d'une solution colorée, mesurée à une longueur d'onde $$ donnée, est <strong>proportionnelle</strong> à la concentration molaire $C$ de l'espèce absorbante et à l'épaisseur $$ de la solution traversée :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div><br>où :<br><ul><li>$A$ est l'absorbance (<strong>sans unité</strong>) ;</li><li>$$ est le <strong>coefficient d'extinction molaire</strong> (en $$) ;</li><li>$$ est l'<strong>épaisseur</strong> de la cuve (en $$) ;</li><li>$C$ est la <strong>concentration molaire</strong> de l'espèce (en $$).<br></li></ul></p>
+<p>Cette loi est valable pour des <strong>solutions diluées</strong> ($A < 2$) et à la longueur d'onde du <strong>maximum d'absorption</strong> $_{}$.<br></div></p>
+<div class="example-box">
+<strong>Exemple -- Utilisation d'une courbe d'étalonnage</strong>
+<p>On mesure l'absorbance de solutions de permanganate de potassium $K{}_4$ de concentrations connues à $_{} = $525   $$. On obtient la droite d'étalonnage ci-dessous et on mesure $A_{} = $0{,}45$$ pour une solution inconnue. Par lecture graphique, on déduit $C = $2{,}25  10^{-4}   $$.<br></div></p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.981439 -66.688896 242.806903 157.701676'>
+<defs>
+<clipPath id='clip1'>
+<path d='M-36.30078 62.847617H173.9885V-48.2262H-36.30078Z'/>
+</clipPath>
+<path id='g1-0' d='M4.758157-1.338979C4.853798-1.338979 5.003238-1.338979 5.003238-1.494396S4.853798-1.649813 4.758157-1.649813H.992279C.896638-1.649813 .747198-1.649813 .747198-1.494396S.896638-1.338979 .992279-1.338979H4.758157Z'/>
+<path id='g2-58' d='M1.75741-.484184C1.75741-.744209 1.551183-.968369 1.273225-.968369S.789041-.744209 .789041-.484184S.995268 0 1.273225 0S1.75741-.224159 1.75741-.484184Z'/>
+<path id='g2-61' d='M4.034869-6.366127C4.088667-6.491656 4.088667-6.509589 4.088667-6.527522C4.088667-6.644085 3.999004-6.724782 3.900374-6.724782C3.774844-6.724782 3.738979-6.653051 3.730012-6.635118L.564882 1.882939C.511083 2.008468 .511083 2.026401 .511083 2.044334C.511083 2.160897 .600747 2.241594 .699377 2.241594C.789041 2.241594 .860772 2.205729 .923537 2.026401L4.034869-6.366127Z'/>
+<path id='g2-65' d='M1.63188-1.049066C1.192528-.331756 .798007-.304857 .439352-.277958C.376588-.268991 .331756-.19726 .331756-.116563C.331756-.062765 .367621 0 .457285 0C.627646 0 1.049066-.026899 1.219427-.026899C1.416687-.026899 1.900872 0 2.098132 0C2.15193 0 2.268493 0 2.268493-.161395C2.268493-.268991 2.160897-.277958 2.133998-.277958C2.0533-.286924 1.712578-.304857 1.712578-.573848C1.712578-.699377 1.811208-.869738 1.838107-.91457L2.546451-2.071233H4.886675C4.913574-1.865006 4.940473-1.560149 4.967372-1.33599C5.003238-.986301 5.057036-.591781 5.057036-.564882C5.057036-.430386 4.931507-.277958 4.411457-.277958C4.321793-.277958 4.20523-.277958 4.20523-.116563C4.20523-.017933 4.276961 0 4.339726 0C4.510087 0 4.72528-.017933 4.904608-.017933S5.299128-.026899 5.44259-.026899C5.738481-.026899 5.756413-.026899 5.971606-.017933C6.115068-.008966 6.321295 0 6.464757 0C6.518555 0 6.635118 0 6.635118-.161395C6.635118-.277958 6.536488-.277958 6.428892-.277958C5.890909-.277958 5.881943-.340722 5.855044-.600747L5.227397-6.177833C5.209465-6.375093 5.200498-6.419925 5.04807-6.419925C4.92254-6.419925 4.868742-6.357161 4.797011-6.240598L1.63188-1.049066ZM2.716812-2.349191L4.52802-5.308095L4.859776-2.349191H2.716812Z'/>
+<path id='g2-67' d='M6.939975-6.079203C6.966874-6.1868 6.966874-6.204732 6.966874-6.222665C6.966874-6.231631 6.957908-6.321295 6.859278-6.321295C6.805479-6.321295 6.77858-6.294396 6.715816-6.222665L6.168867-5.621918C6.133001-5.577086 6.097136-5.54122 6.088169-5.54122S6.070237-5.550187 6.016438-5.612951C5.881943-5.792279 5.478456-6.321295 4.545953-6.321295C2.492653-6.321295 .457285-4.33076 .457285-2.286426C.457285-.824907 1.524284 .19726 2.96787 .19726C3.900374 .19726 4.635616-.286924 4.985305-.600747C5.801245-1.327024 5.953674-2.116065 5.953674-2.15193S5.935741-2.25056 5.828144-2.25056C5.729514-2.25056 5.711582-2.196762 5.702615-2.160897C5.263263-.71731 3.981071-.080697 3.084433-.080697C2.214695-.080697 1.291158-.609714 1.291158-1.963636C1.291158-2.367123 1.425654-3.783811 2.331258-4.886675C2.86924-5.532254 3.747945-6.043337 4.608717-6.043337C5.603985-6.043337 6.133001-5.281196 6.133001-4.294894C6.133001-3.990037 6.106102-3.927273 6.106102-3.855542C6.106102-3.756912 6.213699-3.756912 6.240598-3.756912C6.357161-3.756912 6.357161-3.774844 6.401993-3.945205L6.939975-6.079203Z'/>
+<path id='g2-102' d='M3.353425-3.58655H4.160399C4.339726-3.58655 4.42939-3.58655 4.42939-3.747945C4.42939-3.864508 4.339726-3.864508 4.169365-3.864508H3.407223C3.505853-4.402491 3.631382-5.137733 3.747945-5.621918C3.828643-5.971606 4.043836-6.097136 4.223163-6.097136C4.276961-6.097136 4.483188-6.079203 4.635616-5.971606C4.456289-5.935741 4.196264-5.774346 4.196264-5.478456C4.196264-5.254296 4.366625-5.155666 4.536986-5.155666C4.779078-5.155666 5.030137-5.352927 5.030137-5.693649C5.030137-6.097136 4.635616-6.321295 4.214197-6.321295C3.81071-6.321295 3.407223-6.034371 3.218929-5.66675C3.021669-5.281196 2.958904-4.931507 2.77061-3.864508H2.125031C1.95467-3.864508 1.847073-3.864508 1.847073-3.703113C1.847073-3.58655 1.945704-3.58655 2.107098-3.58655H2.716812C2.465753-2.286426 2.15193-.493151 1.95467 .439352C1.847073 .932503 1.703611 1.613948 1.273225 1.613948C1.13873 1.613948 .959402 1.560149 .869738 1.488418C1.093898 1.452553 1.318057 1.264259 1.318057 .995268C1.318057 .771108 1.147696 .672478 .977335 .672478C.735243 .672478 .484184 .869738 .484184 1.210461C.484184 1.622914 .896638 1.838107 1.273225 1.838107C2.187796 1.838107 2.609215 .349689 2.752677-.42142L3.353425-3.58655Z'/>
+<path id='g3-52' d='M3.371357-.980324V-1.21345H2.67198V-3.855542C2.67198-3.993026 2.67198-4.034869 2.52254-4.034869C2.414944-4.034869 2.402989-4.016936 2.349191-3.945205L.274969-1.21345V-.980324H2.133998V-.502117C2.133998-.304857 2.133998-.233126 1.63188-.233126H1.458531V0C1.578082-.005978 2.139975-.02391 2.402989-.02391S3.227895-.005978 3.347447 0V-.233126H3.174097C2.67198-.233126 2.67198-.304857 2.67198-.502117V-.980324H3.371357ZM2.175841-3.383313V-1.21345H.532005L2.175841-3.383313Z'/>
+<path id='g4-40' d='M3.057534 2.133998C3.057534 2.089166 3.030635 2.062267 2.976837 1.999502C1.820174 .941469 1.470486-.672478 1.470486-2.241594C1.470486-3.631382 1.739477-5.317061 3.003736-6.518555C3.039601-6.554421 3.057534-6.58132 3.057534-6.626152C3.057534-6.688917 3.012702-6.724782 2.949938-6.724782C2.842341-6.724782 2.035367-6.079203 1.551183-5.101868C1.120797-4.241096 .905604-3.317559 .905604-2.25056C.905604-1.604981 .986301-.582814 1.479452 .475218C2.008468 1.578082 2.842341 2.232628 2.949938 2.232628C3.012702 2.232628 3.057534 2.196762 3.057534 2.133998Z'/>
+<path id='g4-41' d='M2.67198-2.25056C2.67198-2.985803 2.564384-3.972105 2.098132-4.967372C1.569116-6.070237 .735243-6.724782 .627646-6.724782C.537983-6.724782 .52005-6.653051 .52005-6.626152C.52005-6.58132 .537983-6.554421 .600747-6.491656C1.120797-6.025405 2.107098-4.805978 2.107098-2.25056C2.107098-.968369 1.873973 .81594 .573848 2.026401C.555915 2.0533 .52005 2.089166 .52005 2.133998C.52005 2.160897 .537983 2.232628 .627646 2.232628C.735243 2.232628 1.542217 1.587049 2.026401 .609714C2.456787-.251059 2.67198-1.174595 2.67198-2.25056Z'/>
+<path id='g4-48' d='M4.241096-2.86924C4.241096-3.469988 4.214197-4.241096 3.900374-4.913574C3.505853-5.756413 2.824408-5.971606 2.304359-5.971606C1.766376-5.971606 1.084932-5.756413 .690411-4.895641C.403487-4.276961 .358655-3.550685 .358655-2.86924C.358655-2.286426 .376588-1.416687 .762142-.708344C1.183562 .053798 1.882939 .19726 2.295392 .19726C2.878207 .19726 3.541719-.053798 3.918306-.878705C4.187298-1.479452 4.241096-2.15193 4.241096-2.86924ZM2.304359-.026899C2.035367-.026899 1.389788-.152428 1.219427-1.165629C1.129763-1.694645 1.129763-2.465753 1.129763-2.976837C1.129763-3.58655 1.129763-4.294894 1.23736-4.788045C1.416687-5.586052 1.990535-5.747447 2.295392-5.747447C2.636115-5.747447 3.200996-5.56812 3.371357-4.734247C3.469988-4.241096 3.469988-3.541719 3.469988-2.976837C3.469988-2.420922 3.469988-1.667746 3.380324-1.13873C3.19203-.116563 2.528518-.026899 2.304359-.026899Z'/>
+<path id='g4-49' d='M2.725778-5.729514C2.725778-5.953674 2.716812-5.971606 2.492653-5.971606C1.936737-5.397758 1.111831-5.397758 .833873-5.397758V-5.119801C1.004234-5.119801 1.551183-5.119801 2.035367-5.352927V-.71731C2.035367-.385554 2.008468-.277958 1.174595-.277958H.887671V0C1.210461-.026899 2.008468-.026899 2.37609-.026899S3.550685-.026899 3.873474 0V-.277958H3.58655C2.752677-.277958 2.725778-.385554 2.725778-.71731V-5.729514Z'/>
+<path id='g4-50' d='M4.142466-1.587049H3.891407C3.873474-1.470486 3.801743-.941469 3.685181-.798007C3.631382-.71731 3.012702-.71731 2.833375-.71731H1.23736L2.125031-1.560149C3.595517-2.833375 4.142466-3.308593 4.142466-4.223163C4.142466-5.254296 3.29066-5.971606 2.187796-5.971606C1.156663-5.971606 .457285-5.155666 .457285-4.339726C.457285-3.891407 .842839-3.846575 .923537-3.846575C1.120797-3.846575 1.389788-3.990037 1.389788-4.312827C1.389788-4.581818 1.201494-4.779078 .923537-4.779078C.878705-4.779078 .851806-4.779078 .81594-4.770112C1.031133-5.406725 1.604981-5.693649 2.089166-5.693649C3.003736-5.693649 3.317559-4.841843 3.317559-4.223163C3.317559-3.308593 2.627148-2.564384 2.196762-2.098132L.555915-.32279C.457285-.224159 .457285-.206227 .457285 0H3.891407L4.142466-1.587049Z'/>
+<path id='g4-51' d='M2.734745-3.156164C3.568618-3.469988 3.963138-4.124533 3.963138-4.743213C3.963138-5.433624 3.200996-5.971606 2.268493-5.971606S.636613-5.44259 .636613-4.761146C.636613-4.465255 .833873-4.294894 1.093898-4.294894S1.542217-4.483188 1.542217-4.743213C1.542217-5.057036 1.327024-5.191532 1.022167-5.191532C1.255293-5.56812 1.802242-5.747447 2.241594-5.747447C2.985803-5.747447 3.129265-5.155666 3.129265-4.734247C3.129265-4.465255 3.075467-4.034869 2.851308-3.694147C2.57335-3.29066 2.259527-3.272727 1.999502-3.254795C1.775342-3.236862 1.75741-3.236862 1.685679-3.236862C1.604981-3.227895 1.53325-3.218929 1.53325-3.120299C1.53325-3.003736 1.604981-3.003736 1.75741-3.003736H2.178829C2.958904-3.003736 3.299626-2.37609 3.299626-1.524284C3.299626-.376588 2.689913-.053798 2.232628-.053798C2.062267-.053798 1.192528-.09863 .789041-.762142C1.111831-.71731 1.362889-.941469 1.362889-1.246326C1.362889-1.542217 1.13873-1.730511 .878705-1.730511C.654545-1.730511 .385554-1.596015 .385554-1.219427C.385554-.42142 1.219427 .19726 2.259527 .19726C3.380324 .19726 4.214197-.609714 4.214197-1.524284C4.214197-2.304359 3.595517-2.96787 2.734745-3.156164Z'/>
+<path id='g4-52' d='M.260025-1.75741V-1.479452H2.707846V-.708344C2.707846-.376588 2.680946-.277958 2.008468-.277958H1.811208V0C2.37609-.026899 3.003736-.026899 3.066501-.026899C3.111333-.026899 3.756912-.026899 4.321793 0V-.277958H4.124533C3.452055-.277958 3.425156-.376588 3.425156-.708344V-1.479452H4.339726V-1.75741H3.425156V-5.828144C3.425156-6.007472 3.425156-6.070237 3.254795-6.070237C3.147198-6.070237 3.138232-6.06127 3.057534-5.935741L.260025-1.75741ZM.546949-1.75741L2.761644-5.074969V-1.75741H.546949Z'/>
+<path id='g4-53' d='M.932503-3.0934C.932503-2.932005 .932503-2.833375 1.058032-2.833375C1.129763-2.833375 1.156663-2.86924 1.210461-2.949938C1.479452-3.326526 1.909838-3.541719 2.37609-3.541719C3.335492-3.541719 3.335492-2.160897 3.335492-1.838107C3.335492-1.560149 3.335492-1.004234 3.084433-.600747C2.842341-.224159 2.465753-.053798 2.116065-.053798C1.587049-.053798 .986301-.385554 .771108-1.049066C.780075-1.049066 .833873-1.031133 .896638-1.031133C1.075965-1.031133 1.33599-1.147696 1.33599-1.470486C1.33599-1.748443 1.13873-1.909838 .896638-1.909838C.708344-1.909838 .457285-1.802242 .457285-1.443587C.457285-.627646 1.13873 .19726 2.133998 .19726C3.218929 .19726 4.142466-.681445 4.142466-1.793275C4.142466-2.878207 3.371357-3.765878 2.394022-3.765878C1.963636-3.765878 1.524284-3.622416 1.210461-3.299626V-5.066002C1.479452-4.985305 1.75741-4.940473 2.035367-4.940473C3.138232-4.940473 3.783811-5.738481 3.783811-5.855044C3.783811-5.935741 3.730012-5.971606 3.685181-5.971606C3.667248-5.971606 3.649315-5.971606 3.568618-5.926775C3.147198-5.756413 2.734745-5.684682 2.358157-5.684682C1.972603-5.684682 1.569116-5.756413 1.156663-5.926775C1.066999-5.971606 1.049066-5.971606 1.0401-5.971606C.932503-5.971606 .932503-5.881943 .932503-5.729514V-3.0934Z'/>
+<path id='g4-61' d='M6.348194-2.96787C6.473724-2.96787 6.644085-2.96787 6.644085-3.156164C6.644085-3.353425 6.446824-3.353425 6.312329-3.353425H.842839C.708344-3.353425 .511083-3.353425 .511083-3.156164C.511083-2.96787 .690411-2.96787 .806974-2.96787H6.348194ZM6.312329-1.13873C6.446824-1.13873 6.644085-1.13873 6.644085-1.33599C6.644085-1.524284 6.473724-1.524284 6.348194-1.524284H.806974C.690411-1.524284 .511083-1.524284 .511083-1.33599C.511083-1.13873 .708344-1.13873 .842839-1.13873H6.312329Z'/>
+<path id='g4-76' d='M5.361893-2.313325H5.110834C5.012204-1.407721 4.886675-.277958 3.281694-.277958H2.501619C2.080199-.277958 2.062267-.340722 2.062267-.645579V-5.406725C2.062267-5.738481 2.098132-5.846077 2.914072-5.846077H3.200996V-6.124035C2.887173-6.097136 2.071233-6.097136 1.712578-6.097136C1.300125-6.097136 .744209-6.097136 .340722-6.124035V-5.846077H.546949C1.23736-5.846077 1.255293-5.747447 1.255293-5.415691V-.708344C1.255293-.376588 1.23736-.277958 .546949-.277958H.340722V0H5.110834L5.361893-2.313325Z'/>
+<path id='g4-108' d='M1.649813-6.222665L.32279-6.124035V-5.846077C.932503-5.846077 1.0132-5.783313 1.0132-5.34396V-.690411C1.0132-.277958 .91457-.277958 .32279-.277958V0C.744209-.017933 .91457-.026899 1.327024-.026899C1.748443-.026899 1.900872-.017933 2.340224 0V-.277958C1.748443-.277958 1.649813-.277958 1.649813-.690411V-6.222665Z'/>
+<path id='g4-109' d='M1.667746-2.322291C1.667746-3.29066 2.367123-3.738979 2.905106-3.738979C3.398257-3.738979 3.559651-3.38929 3.559651-2.761644V-.690411C3.559651-.277958 3.461021-.277958 2.86924-.277958V0C3.29066-.017933 3.461021-.026899 3.891407-.026899S4.438356-.017933 4.913574 0V-.277958C4.321793-.277958 4.223163-.277958 4.223163-.690411V-2.322291C4.223163-3.29066 4.92254-3.738979 5.460523-3.738979C5.953674-3.738979 6.115068-3.38929 6.115068-2.761644V-.690411C6.115068-.277958 6.016438-.277958 5.424658-.277958V0C5.846077-.017933 6.016438-.026899 6.446824-.026899S6.993773-.017933 7.468991 0V-.277958C7.011706-.277958 6.787547-.277958 6.77858-.555915V-2.27746C6.77858-3.057534 6.77858-3.308593 6.48269-3.640349C6.294396-3.855542 5.935741-3.963138 5.523288-3.963138C4.877709-3.963138 4.438356-3.58655 4.187298-3.111333C4.079701-3.640349 3.721046-3.963138 2.96787-3.963138C2.25056-3.963138 1.811208-3.496887 1.622914-3.084433H1.613948V-3.963138L.313823-3.864508V-3.58655C.923537-3.58655 1.004234-3.523786 1.004234-3.084433V-.690411C1.004234-.277958 .905604-.277958 .313823-.277958V0C.735243-.017933 .905604-.026899 1.33599-.026899S1.882939-.017933 2.358157 0V-.277958C1.766376-.277958 1.667746-.277958 1.667746-.690411V-2.322291Z'/>
+<path id='g4-111' d='M4.339726-1.909838C4.339726-3.084433 3.407223-4.016936 2.304359-4.016936C1.165629-4.016936 .260025-3.057534 .260025-1.909838C.260025-.789041 1.192528 .09863 2.295392 .09863C3.434122 .09863 4.339726-.806974 4.339726-1.909838ZM2.304359-.152428C1.85604-.152428 1.479452-.376588 1.273225-.726276C1.0401-1.102864 1.031133-1.578082 1.031133-1.990535C1.031133-2.322291 1.031133-2.833375 1.255293-3.200996C1.524284-3.658281 1.972603-3.792777 2.295392-3.792777C2.806476-3.792777 3.174097-3.505853 3.353425-3.200996C3.559651-2.824408 3.568618-2.367123 3.568618-1.990535C3.568618-1.65878 3.568618-1.13873 3.344458-.744209C3.0934-.331756 2.680946-.152428 2.304359-.152428Z'/>
+</defs>
+<g id='page1'>
+<path d='M-36.30074 62.847617V-48.2262M5.75394 62.847617V-48.2262M47.81254 62.847617V-48.2262M89.87154 62.847617V-48.2262M131.92954 62.847617V-48.2262M173.98854 62.847617V-48.2262' stroke='#cbd5e1' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-36.30078 62.847617H173.9885M-36.30078 12.3593H173.9885M-36.30078-38.1292H173.9885' stroke='#cbd5e1' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-36.30078 64.97262V60.72262M5.7539 64.97262V60.72262M47.8125 64.97262V60.72262M89.8715 64.97262V60.72262M131.9295 64.97262V60.72262M173.9885 64.97262V60.72262' stroke='#808080' fill='none' stroke-width='.19925' stroke-miterlimit='10'/>
+<path d='M-38.42969 62.847617H-34.17578M-38.42969 12.3593H-34.17578M-38.42969-38.1292H-34.17578' stroke='#808080' fill='none' stroke-width='.19925' stroke-miterlimit='10'/>
+<path d='M-36.30078 62.847617H171.9925' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M173.98835 62.847617L170.79695 61.25387L171.99226 62.847617L170.79695 64.44137'/>
+<path d='M-36.30078 62.847617V-46.2342' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-36.30078-48.22653L-37.89844-45.03903L-36.30078-46.234338L-34.70703-45.03903'/>
+<g transform='matrix(1 0 0 1 -36.00974 42.9084)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g4-48'/>
+</g>
+<g transform='matrix(1 0 0 1 6.04806 42.9084)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g4-49'/>
+</g>
+<g transform='matrix(1 0 0 1 48.10586 42.9084)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g4-50'/>
+</g>
+<g transform='matrix(1 0 0 1 90.16366 42.9084)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g4-51'/>
+</g>
+<g transform='matrix(1 0 0 1 132.22166 42.9084)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g4-52'/>
+</g>
+<g transform='matrix(1 0 0 1 174.27966 42.9084)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g4-53'/>
+</g>
+<g transform='matrix(1 0 0 1 -43.95854 34.3739)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g4-48'/>
+</g>
+<g transform='matrix(1 0 0 1 -51.12614 -16.1141)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g4-48'/>
+<use x='2.011029' y='31.363086' xlink:href='#g2-58'/>
+<use x='4.570857' y='31.363086' xlink:href='#g4-53'/>
+</g>
+<g transform='matrix(1 0 0 1 -43.95854 -66.6022)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g4-49'/>
+</g>
+<path d='M-36.30078 62.847617L173.9885-38.1292' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10' clip-path='url(#clip1)'/>
+<path d='M58.3281 62.847617V17.4101H-36.30078' stroke='#f97316' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883' clip-path='url(#clip1)'/>
+<g fill='#f97316' transform='matrix(1 0 0 1 83.08876 -.7934)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g2-65'/>
+<use x='6.873317' y='31.363086' xlink:href='#g4-61'/>
+<use x='16.600664' y='31.363086' xlink:href='#g4-48'/>
+<use x='21.208354' y='31.363086' xlink:href='#g2-58'/>
+<use x='23.768182' y='31.363086' xlink:href='#g4-52'/>
+<use x='28.375873' y='31.363086' xlink:href='#g4-53'/>
+</g>
+<path d='M-34.30859 62.847617C-34.30859 61.74605-35.20312 60.85543-36.30078 60.85543C-37.40234 60.85543-38.29687 61.74605-38.29687 62.847617C-38.29687 63.94918-37.40234 64.8398-36.30078 64.8398C-35.20312 64.8398-34.30859 63.94918-34.30859 62.847617Z' fill='#ec4899'/>
+<path d='M-34.30859 62.847617C-34.30859 61.74605-35.20312 60.85543-36.30078 60.85543C-37.40234 60.85543-38.29687 61.74605-38.29687 62.847617C-38.29687 63.94918-37.40234 64.8398-36.30078 64.8398C-35.20312 64.8398-34.30859 63.94918-34.30859 62.847617Z' stroke='#ec4899' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M7.7461 42.6523C7.7461 41.5507 6.8555 40.6601 5.7539 40.6601C4.6563 40.6601 3.7617 41.5507 3.7617 42.6523S4.6563 44.6445 5.7539 44.6445C6.8555 44.6445 7.7461 43.7539 7.7461 42.6523Z' fill='#ec4899'/>
+<path d='M7.7461 42.6523C7.7461 41.5507 6.8555 40.6601 5.7539 40.6601C4.6563 40.6601 3.7617 41.5507 3.7617 42.6523S4.6563 44.6445 5.7539 44.6445C6.8555 44.6445 7.7461 43.7539 7.7461 42.6523Z' stroke='#ec4899' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M49.8047 22.457C49.8047 21.3554 48.9141 20.4648 47.8125 20.4648S45.8203 21.3554 45.8203 22.457S46.7109 24.4492 47.8125 24.4492S49.8047 23.5586 49.8047 22.457Z' fill='#ec4899'/>
+<path d='M49.8047 22.457C49.8047 21.3554 48.9141 20.4648 47.8125 20.4648S45.8203 21.3554 45.8203 22.457S46.7109 24.4492 47.8125 24.4492S49.8047 23.5586 49.8047 22.457Z' stroke='#ec4899' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M91.8635 2.2617C91.8635 1.1601 90.9725 .2695 89.8715 .2695C88.7695 .2695 87.8785 1.1601 87.8785 2.2617C87.8785 3.3632 88.7695 4.2539 89.8715 4.2539C90.9725 4.2539 91.8635 3.3632 91.8635 2.2617Z' fill='#ec4899'/>
+<path d='M91.8635 2.2617C91.8635 1.1601 90.9725 .2695 89.8715 .2695C88.7695 .2695 87.8785 1.1601 87.8785 2.2617C87.8785 3.3632 88.7695 4.2539 89.8715 4.2539C90.9725 4.2539 91.8635 3.3632 91.8635 2.2617Z' stroke='#ec4899' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M133.9215-17.9336C133.9215-19.0352 133.0275-19.9258 131.9295-19.9258C130.8285-19.9258 129.9375-19.0352 129.9375-17.9336C129.9375-16.8321 130.8285-15.9414 131.9295-15.9414C133.0275-15.9414 133.9215-16.8321 133.9215-17.9336Z' fill='#ec4899'/>
+<path d='M133.9215-17.9336C133.9215-19.0352 133.0275-19.9258 131.9295-19.9258C130.8285-19.9258 129.9375-19.0352 129.9375-17.9336C129.9375-16.8321 130.8285-15.9414 131.9295-15.9414C133.0275-15.9414 133.9215-16.8321 133.9215-17.9336Z' stroke='#ec4899' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 39.77586 57.4081)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g2-67'/>
+<use x='7.690205' y='31.363086' xlink:href='#g5-40'/>
+<use x='11.273109' y='31.363086' xlink:href='#g4-49'/>
+<use x='15.880799' y='31.363086' xlink:href='#g4-48'/>
+<use x='20.48849' y='27.554082' xlink:href='#g1-0'/>
+<use x='26.244643' y='27.554082' xlink:href='#g3-52'/>
+<use x='31.931571' y='31.363086' xlink:href='#g4-109'/>
+<use x='39.611055' y='31.363086' xlink:href='#g4-111'/>
+<use x='44.218746' y='31.363086' xlink:href='#g4-108'/>
+<use x='46.778574' y='31.363086' xlink:href='#g2-61'/>
+<use x='51.386265' y='31.363086' xlink:href='#g4-76'/>
+<use x='57.145185' y='31.363086' xlink:href='#g5-41'/>
+</g>
+<g transform='matrix(0 -1 1 0 -91.9246 8.16944)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g2-65'/>
+</g>
+<g transform='matrix(1 0 0 1 2.066608 -91.3272)'>
+<use x='-2.596662' y='31.363086' xlink:href='#g0-67'/>
+<use x='5.064395' y='31.363086' xlink:href='#g0-111'/>
+<use x='10.368206' y='31.363086' xlink:href='#g0-117'/>
+<use x='16.261326' y='31.363086' xlink:href='#g0-114'/>
+<use x='20.636899' y='31.363086' xlink:href='#g0-98'/>
+<use x='26.824676' y='31.363086' xlink:href='#g0-101'/>
+<use x='35.227917' y='31.363086' xlink:href='#g0-100'/>
+<use x='41.121037' y='31.363086' xlink:href='#g0-39'/>
+<use x='44.067601' y='31.363086' xlink:href='#g0-233'/>
+<use x='48.934969' y='31.363086' xlink:href='#g0-116'/>
+<use x='53.060152' y='31.363086' xlink:href='#g0-97'/>
+<use x='58.216629' y='31.363086' xlink:href='#g0-108'/>
+<use x='61.163193' y='31.363086' xlink:href='#g0-111'/>
+<use x='66.467004' y='31.363086' xlink:href='#g0-110'/>
+<use x='72.360124' y='31.363086' xlink:href='#g0-110'/>
+<use x='78.253244' y='31.363086' xlink:href='#g0-97'/>
+<use x='83.409721' y='31.363086' xlink:href='#g0-103'/>
+<use x='88.713532' y='31.363086' xlink:href='#g0-101'/>
+<use x='97.116773' y='31.363086' xlink:href='#g2-65'/>
+<use x='106.586752' y='31.363086' xlink:href='#g4-61'/>
+<use x='116.314099' y='31.363086' xlink:href='#g2-102'/>
+<use x='121.762402' y='31.363086' xlink:href='#g4-40'/>
+<use x='125.346162' y='31.363086' xlink:href='#g2-67'/>
+<use x='132.561964' y='31.363086' xlink:href='#g4-41'/>
+</g>
+</g>
+</svg></div>
+</div>
+<h3>5.3 Dosage par conductimétrie</h3>
+<div class="definition-box">
+<strong>Définition -- Conductivité</strong>
+<p>La <strong>conductivité</strong> $$ d'une solution ionique (en $$) est liée à la nature et à la concentration des ions présents :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = _i _i  [$$_i]$$</div></div></div></div><br>où $_i$ est la <strong>conductivité molaire ionique</strong> de l'ion $$$_i$ (en $$), c'est-à-dire en $$, et $[$$_i]$ est la concentration en $$.<br></div></p>
+<div class="info-box">
+<strong>Remarque</strong>
+<p>La conductivité permet de réaliser des dosages par étalonnage (courbe $ = f(C)$) ou de suivre un titrage conductimétrique. Elle est particulièrement utile lorsque la solution est incolore.<br></div></p>
+<h3>5.4 Principe du dosage par titrage</h3>
+<div class="definition-box">
+<strong>Définition -- Dosage par titrage</strong>
+<p>Un <strong>dosage par titrage</strong> (ou titrage) consiste à déterminer la concentration d'une espèce chimique en solution (le <strong>titré</strong>) par réaction chimique avec une solution de concentration connue (le <strong>titrant</strong>). La réaction de titrage doit être <strong>totale</strong>, <strong>rapide</strong> et <strong>unique</strong>.<br></div></p>
+<div class="definition-box">
+<strong>Définition -- Équivalence</strong>
+<p>L'<strong>équivalence</strong> d'un titrage est l'instant où les réactifs (titré et titrant) ont été introduits dans les <strong>proportions st chiométriques</strong>. À l'équivalence, le changement de réactif limitant a lieu.</p>
+<p>Pour la réaction $a  + b   $, à l'équivalence :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${{n()}{a} = {n()}{b}}    {a} = {C_B  V_{B,}}{b}$$</div></div></div></div><br></div></p>
+<div class="example-box">
+<strong>Méthode -- Détermination du volume équivalent</strong>
+<p>Le repérage de l'équivalence se fait par différentes techniques :<br><ul><li><strong>Suivi pH-métrique</strong> : le volume équivalent correspond au point d'inflexion de la courbe $ = f(V)$, déterminé par la méthode des tangentes ou la méthode de la dérivée.</li><li><strong>Suivi conductimétrique</strong> : le volume équivalent correspond au changement de pente de la courbe $ = f(V)$.</li><li><strong>Indicateur coloré</strong> : le volume équivalent est repéré par le changement de couleur de l'indicateur.<br></li></ul><br></div></p>
+<p>[<br>  enhanced,<br>  sharp corners,<br>  colback=synthgreen,<br>  colframe=synthgreen,<br>  boxrule=0pt,<br>  top=3mm,<br>  bottom=3mm,<br>  left=3mm,<br>  right=3mm<br>]<br>{{<strong>À retenir</strong>}}</p>
+<p>[<br>  enhanced,<br>  sharp corners,<br>  colback=synthgreen!5,<br>  colframe=synthgreen,<br>  boxrule=0.8pt,<br>  top=3mm,<br>  bottom=3mm,<br>  left=4mm,<br>  right=4mm<br>]<br><ul><li>Un <strong>système chimique</strong> se décrit par la nature, la quantité de matière et l'état physique de chaque espèce.</li><li>Les <strong>espèces spectatrices</strong> ne participent pas à la réaction et ne figurent pas dans l'équation.</li><li>Le <strong>tableau d'avancement</strong> permet de suivre l'évolution des quantités de matière en fonction de $x$.</li><li>Le <strong>réactif limitant</strong> est celui qui est entièrement consommé en premier ; il fixe $x_{}$.</li><li>Un mélange est <strong>st chiométrique</strong> si ${n_0($$)}{a} = {n_0($$)}{b}$.</li><li>Le <strong>taux d'avancement</strong> $ = {x_{}}$ : si $ = 1$ la transformation est totale, si $ < 1$ elle est non totale.</li><li>La <strong>loi de Beer-Lambert</strong> : $A =     C$ permet les dosages par spectrophotométrie.</li><li>À l'<strong>équivalence</strong> d'un titrage : ${a} = {C_B  V_{B,}}{b}$.<br></li></ul></p>
+</div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="exercices_analyse_systeme.html" class="btn-action">📝 Exercices</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=analyse_systeme" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=analyse_systeme" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+.labo-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.labo-wrapper > header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header-title {
+    margin: 0 0 10px 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+}
+
+.title-osci {
+    background: linear-gradient(135deg, #10b981, #38bdf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.oscilloscope-container {
+    position: relative;
+    margin-bottom: 25px;
+    border: 2px solid var(--card-border);
+    border-radius: 22px;
+    overflow: hidden;
+    background: #020617;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.45), 0 12px 30px var(--shadow-color);
+}
+
+#osc-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.screen-glare {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.06) 35%, transparent 60%);
+}
+
+.main-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.control-panel,
+.physics-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.panel-title {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 18px;
+    border-bottom: 2px dashed var(--card-border);
+    padding-bottom: 10px;
+}
+
+.slider-group {
+    margin-bottom: 18px;
+}
+
+.slider-group label {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.slider-group input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+.formula-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    background: var(--bg-page);
+    padding: 15px 18px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    border: 1px solid var(--card-border);
+    font-size: 1rem;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.formula-math {
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    color: #10b981;
+}
+
+.formula-value {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.arrow-up {
+    color: #ef4444;
+    font-weight: 900;
+}
+
+.arrow-down {
+    color: #3b82f6;
+    font-weight: 900;
+}
+
+.arrow-flat {
+    color: var(--text-muted);
+    font-weight: 900;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: var(--bg-card);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    margin-bottom: 30px;
+}
+
+.game-info.success {
+    background: #f0fdf4;
+    border-color: #22c55e;
+}
+
+.level-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    border: 1px solid #93c5fd;
+    font-weight: 800;
+}
+
+.btn-sound {
+    background: #f59e0b !important;
+    border-color: #d97706 !important;
+    color: white !important;
+}
+
+.btn-next {
+    display: none;
+    background: #10b981 !important;
+    border-color: #059669 !important;
+    color: white !important;
+}
+
+body.dark-mode .oscilloscope-container {
+    border-color: #334155;
+    box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.65), 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .control-panel,
+body.dark-mode .physics-panel,
+body.dark-mode .game-info {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .formula-line {
+    background: #0f172a;
+    border-color: #334155;
+    color: #f8fafc;
+}
+
+body.dark-mode .panel-title,
+body.dark-mode .slider-group label {
+    color: #f8fafc;
+}
+
+body.dark-mode .level-badge {
+    background: #172554;
+    color: #93c5fd;
+    border-color: #1d4ed8;
+}
+
+body.dark-mode .game-info.success {
+    background: #052e16;
+    border-color: #15803d;
+}
+
+@media (max-width: 850px) {
+    .main-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .game-info {
+        justify-content: center;
+        text-align: center;
+    }
+}

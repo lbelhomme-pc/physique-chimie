@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : L'Ellipse et les Saisons | Physique-Chimie</title>
+    <meta name="theme-color" content="#6366f1">
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_saison.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="labo-container">
+        
+        <header class="hero-header">
+            <h1 class="header-flex">
+                <span>🌍</span> 
+                <span class="gradient-text gradient-labo">Le Mystère des Saisons</span>
+            </h1>
+            <p class="subtitle">La Terre se rapproche et s'éloigne du Soleil sur son <strong>orbite elliptique</strong>.<br>Mais est-ce vraiment la distance qui crée les saisons ? <em>(L'inclinaison a été exagérée pour mieux voir)</em></p>
+        </header>
+
+        <div class="controls-saison">
+            <div class="slider-container">
+                <label for="month-slider">Mois : <strong id="month-display" style="color: var(--primary);">Janvier</strong></label>
+                <input type="range" id="month-slider" min="0" max="11" value="0" step="0.1">
+            </div>
+            
+            <button id="tilt-toggle" class="btn-action btn-alert">
+                <span>📐</span> <span id="btn-text">Désactiver l'inclinaison (35°)</span>
+            </button>
+        </div>
+
+        <div id="canvas-container" class="simulation-area"></div>
+
+        <div class="analysis-box">
+            <div class="analysis-title">📊 Analyse des Données</div>
+            
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; margin-top: 15px; font-size: 1.1rem;">
+                <div>
+                    <span class="text-muted" style="font-size: 0.9rem;">Distance Terre-Soleil :</span><br>
+                    <strong id="data-distance">--</strong>
+                </div>
+                <div>
+                    <span class="text-muted" style="font-size: 0.9rem;">Hémisphère Nord :</span><br>
+                    <strong id="data-north" class="season-summer">--</strong>
+                </div>
+                <div>
+                    <span class="text-muted" style="font-size: 0.9rem;">Hémisphère Sud :</span><br>
+                    <strong id="data-south" class="season-winter">--</strong>
+                </div>
+            </div>
+
+            <div class="analysis-text" id="pedagogical-note" style="margin-top: 15px; text-align: center; border-top: 1px solid var(--card-border); padding-top: 15px;">
+                Bouge le curseur pour lancer l'observation.
+            </div>
+        </div>
+        
+        <div class="nav-footer">
+            <a href="../laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Laboratoire</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_saison.js"></script>
+</body>
+</html>

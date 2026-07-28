@@ -1,0 +1,73 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[scale=0.85, >=Stealth]
+ % Bruit exterieur
+ \draw[blue!60, very thick, decorate, decoration={snake, amplitude=2mm, segment length=6mm}] (-4.5,0) -- (-2,0);
+ \node[above, blue!60, font=\small\bfseries] at (-3.25,0.3) {Bruit ext\'{e}rieur};
+ 
+ % Micro
+ \fill[gray!50] (-1.8,-0.5) rectangle (-1.2,0.5);
+ \draw[thick] (-1.8,-0.5) rectangle (-1.2,0.5);
+ \node[below, font=\footnotesize\bfseries] at (-1.5,-0.6) {Micro};
+ 
+ % Fleche vers circuit
+ \draw[->, very thick, dark] (-1.2,0) -- (0.3,0);
+ 
+ % Circuit electronique
+ \fill[synthorange!20] (0.3,-0.6) rectangle (2.2,0.6);
+ \draw[thick, synthorange] (0.3,-0.6) rectangle (2.2,0.6);
+ \node[font=\footnotesize\bfseries, text width=1.6cm, align=center] at (1.25,0) {Circuit \'{e}lectronique};
+ 
+ % Fleche vers HP
+ \draw[->, very thick, dark] (2.2,0) -- (3.5,0);
+ 
+ % HP
+ \fill[accent!20] (3.5,-0.5) rectangle (4.5,0.5);
+ \draw[thick, accent] (3.5,-0.5) rectangle (4.5,0.5);
+ \node[below, font=\footnotesize\bfseries] at (4,-0.6) {Haut-parleur};
+ 
+ % Signal anti-bruit
+ \draw[red!60, very thick, decorate, decoration={snake, amplitude=2mm, segment length=6mm}] (4.5,0) -- (6.5,0);
+ \node[above, red!60, font=\small\bfseries] at (5.5,0.3) {Signal en};
+ \node[below, red!60, font=\small\bfseries] at (5.5,-0.3) {opposition de phase};
+ 
+ % Resultat
+ \draw[->, very thick, synthgreen] (6.5,0) -- (7.8,0);
+ \node[right, synthgreen, font=\small\bfseries] at (7.8,0) {Silence};
+ \node[below, font=\tiny, gray] at (7.8,-0.3) {(interf. destructives)};
+\end{tikzpicture}
+\end{document}

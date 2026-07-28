@@ -1,0 +1,549 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import {
+  methodesMathsCollege,
+  type CollegeMathMethod,
+} from "../../../data/methodesMathsCollege";
+
+export function getStaticPaths() {
+  return methodesMathsCollege.map((method) => ({
+    params: { fiche: method.slug },
+    props: { method },
+  }));
+}
+
+interface Props {
+  method: CollegeMathMethod;
+}
+
+const { method } = Astro.props;
+const currentIndex = methodesMathsCollege.findIndex((item) => item.slug === method.slug);
+const previous = currentIndex > 0 ? methodesMathsCollege[currentIndex - 1] : null;
+const next = currentIndex < methodesMathsCollege.length - 1 ? methodesMathsCollege[currentIndex + 1] : null;
+const canonical = `/outils-methodes/methodes-maths-college/${method.slug}`;
+---
+
+<BaseLayout
+  title={`${method.title} - Méthodes maths collège`}
+  description={method.description}
+  canonical={canonical}
+  schemaType="EducationalContent"
+>
+  <main class="method-page">
+    <nav aria-label="Fil d'Ariane" class="breadcrumb-bar">
+      <a href="/">Accueil</a>
+      <span aria-hidden="true">›</span>
+      <a href="/outils-methodes">Outils & Méthodes</a>
+      <span aria-hidden="true">›</span>
+      <a href="/outils-methodes/college">Collège</a>
+      <span aria-hidden="true">›</span>
+      <a href="/outils-methodes/methodes-maths-college">Méthodes maths collège</a>
+      <span aria-hidden="true">›</span>
+      <strong>{method.shortTitle}</strong>
+    </nav>
+
+    <header class="method-hero">
+      <p class="eyebrow">Fiche {method.number} - Méthode collège</p>
+      <h1>{method.title}</h1>
+      <p>{method.description}</p>
+      <div class="hero-actions">
+        <a href="/outils-methodes/methodes-maths-college">Toutes les fiches</a>
+        <a href="/outils-methodes/formulaires-college">Formulaires collège</a>
+      </div>
+    </header>
+
+    <section class="objective-card" aria-labelledby="objective-title">
+      <h2 id="objective-title">Objectif de la fiche</h2>
+      <p>{method.objective}</p>
+    </section>
+
+    <section class="method-card" aria-labelledby="name-title">
+      <p class="section-number">1</p>
+      <h2 id="name-title">Nom de la méthode</h2>
+      <p class="lead">{method.keyIdea}</p>
+    </section>
+
+    <section class="method-card" aria-labelledby="why-title">
+      <p class="section-number">2</p>
+      <h2 id="why-title">À quoi ça sert en physique-chimie ?</h2>
+      <div class="explanation-list">
+        {method.why.map((item) => <p>{item}</p>)}
+      </div>
+    </section>
+
+    <section class="method-card" aria-labelledby="uses-title">
+      <p class="section-number">3</p>
+      <h2 id="uses-title">Situations typiques où on l'utilise</h2>
+      <ul class="check-list">
+        {method.typicalUses.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    {method.formulas && (
+      <section class="method-card" aria-labelledby="relations-title">
+        <p class="section-number">Repères</p>
+        <h2 id="relations-title">Relations ou repères utiles</h2>
+        <div class="formula-grid">
+          {method.formulas.map((formula) => (
+            <article>
+              <strong>{formula.label}</strong>
+              <span>{formula.detail}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {method.visual === "conversions" && (
+      <figure class="method-figure">
+        <svg viewBox="0 0 760 260" role="img" aria-labelledby="conversion-title conversion-desc">
+          <title id="conversion-title">Repères de conversion</title>
+          <desc id="conversion-desc">Schéma montrant que le kilo agrandit l'unité de base et que milli et micro correspondent à des unités plus petites.</desc>
+          <rect x="40" y="35" width="680" height="170" rx="16" fill="#f8fafc" stroke="#cbd5e1"/>
+          <line x1="110" y1="120" x2="650" y2="120" stroke="#475569" stroke-width="4"/>
+          <circle cx="160" cy="120" r="16" fill="#e0e7ff" stroke="#4f46e5" stroke-width="3"/>
+          <circle cx="280" cy="120" r="16" fill="#e0e7ff" stroke="#4f46e5" stroke-width="3"/>
+          <circle cx="400" cy="120" r="18" fill="#4f46e5"/>
+          <circle cx="520" cy="120" r="16" fill="#e0e7ff" stroke="#4f46e5" stroke-width="3"/>
+          <circle cx="640" cy="120" r="16" fill="#e0e7ff" stroke="#4f46e5" stroke-width="3"/>
+          <text x="160" y="88" text-anchor="middle" font-size="18" font-weight="800" fill="#334155">kilo</text>
+          <text x="280" y="88" text-anchor="middle" font-size="18" font-weight="800" fill="#334155">centi</text>
+          <text x="400" y="88" text-anchor="middle" font-size="18" font-weight="800" fill="#334155">unité</text>
+          <text x="520" y="88" text-anchor="middle" font-size="18" font-weight="800" fill="#334155">milli</text>
+          <text x="640" y="88" text-anchor="middle" font-size="18" font-weight="800" fill="#334155">micro</text>
+          <text x="160" y="160" text-anchor="middle" font-size="15" fill="#475569">1000 unités</text>
+          <text x="280" y="160" text-anchor="middle" font-size="15" fill="#475569">0,01 unité</text>
+          <text x="400" y="160" text-anchor="middle" font-size="15" fill="#ffffff">1</text>
+          <text x="520" y="160" text-anchor="middle" font-size="15" fill="#475569">0,001 unité</text>
+          <text x="640" y="160" text-anchor="middle" font-size="15" fill="#475569">0,000001 unité</text>
+          <text x="380" y="230" text-anchor="middle" font-size="16" fill="#334155">On change l'unité, mais la grandeur reste la même.</text>
+        </svg>
+        <figcaption>Les préfixes indiquent combien de fois l'unité est agrandie ou réduite.</figcaption>
+      </figure>
+    )}
+
+    {method.visual === "graph" && (
+      <figure class="method-figure">
+        <svg viewBox="0 0 760 360" role="img" aria-labelledby="graph-title graph-desc">
+          <title id="graph-title">Graphique distance en fonction du temps</title>
+          <desc id="graph-desc">Graphique avec le temps en seconde sur l'axe horizontal et la distance en mètre sur l'axe vertical. Les points sont alignés.</desc>
+          <rect x="45" y="28" width="675" height="285" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+          <line x1="110" y1="270" x2="660" y2="270" stroke="#1f2937" stroke-width="2"/>
+          <line x1="110" y1="270" x2="110" y2="70" stroke="#1f2937" stroke-width="2"/>
+          <line x1="110" y1="220" x2="660" y2="220" stroke="#e2e8f0"/>
+          <line x1="110" y1="170" x2="660" y2="170" stroke="#e2e8f0"/>
+          <line x1="110" y1="120" x2="660" y2="120" stroke="#e2e8f0"/>
+          <path d="M110 270 L240 220 L370 170 L500 120 L630 70" fill="none" stroke="#2563eb" stroke-width="4"/>
+          <circle cx="110" cy="270" r="7" fill="#dc2626"/>
+          <circle cx="240" cy="220" r="7" fill="#dc2626"/>
+          <circle cx="370" cy="170" r="7" fill="#dc2626"/>
+          <circle cx="500" cy="120" r="7" fill="#dc2626"/>
+          <circle cx="630" cy="70" r="7" fill="#dc2626"/>
+          <text x="385" y="340" text-anchor="middle" font-size="17" fill="#334155">Temps t (s)</text>
+          <text x="68" y="170" text-anchor="middle" transform="rotate(-90 68 170)" font-size="17" fill="#334155">Distance d (m)</text>
+          <text x="385" y="58" text-anchor="middle" font-size="21" font-weight="800" fill="#1e293b">Distance parcourue au cours du temps</text>
+        </svg>
+        <figcaption>Un graphique scientifique doit permettre de lire des valeurs, pas seulement de regarder une forme.</figcaption>
+      </figure>
+    )}
+
+    <section class="method-card method-steps" aria-labelledby="steps-title">
+      <p class="section-number">4</p>
+      <h2 id="steps-title">Méthode étape par étape</h2>
+      <ol>
+        {method.steps.map((step) => <li>{step}</li>)}
+      </ol>
+    </section>
+
+    <section class="examples-section" aria-labelledby="examples-title">
+      <p class="section-number">5 et 6</p>
+      <h2 id="examples-title">Exemples corrigés</h2>
+      <div class="examples-grid">
+        {method.examples.map((example) => (
+          <article class="example-card">
+            <h3>{example.title}</h3>
+            <p class="statement">{example.statement}</p>
+            <ol>
+              {example.steps.map((step) => <li>{step}</li>)}
+            </ol>
+            <p class="answer">{example.answer}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="warning-box" aria-labelledby="mistakes-title">
+      <p class="section-number">7</p>
+      <h2 id="mistakes-title">Erreurs fréquentes</h2>
+      <ul>
+        {method.commonMistakes.map((mistake) => <li>{mistake}</li>)}
+      </ul>
+    </section>
+
+    <section class="tip-box" aria-labelledby="tip-title">
+      <p class="section-number">8</p>
+      <h2 id="tip-title">Astuce à retenir</h2>
+      <p>{method.tip}</p>
+    </section>
+
+    <section class="exercise-card" aria-labelledby="exercise-title">
+      <p class="section-number">9 et 10</p>
+      <h2 id="exercise-title">Mini-exercice d'application</h2>
+      <p>{method.miniExercise.statement}</p>
+      <details>
+        <summary>Afficher la correction</summary>
+        <div class="correction">
+          {method.miniExercise.correction.map((line) => <p>{line}</p>)}
+        </div>
+      </details>
+    </section>
+
+    <section class="remember-card" aria-labelledby="remember-title">
+      <h2 id="remember-title">À retenir</h2>
+      <ul>
+        {method.remember.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    {method.related && (
+      <section class="related-card" aria-labelledby="related-title">
+        <h2 id="related-title">Ressources liées</h2>
+        <div class="related-links">
+          {method.related.map((link) => <a href={link.href}>{link.title}</a>)}
+        </div>
+      </section>
+    )}
+
+    <nav class="method-nav" aria-label="Navigation entre les fiches">
+      {previous ? (
+        <a href={`/outils-methodes/methodes-maths-college/${previous.slug}`}>
+          <span>Fiche précédente</span>
+          <strong>{previous.shortTitle}</strong>
+        </a>
+      ) : (
+        <span></span>
+      )}
+      {next ? (
+        <a href={`/outils-methodes/methodes-maths-college/${next.slug}`}>
+          <span>Fiche suivante</span>
+          <strong>{next.shortTitle}</strong>
+        </a>
+      ) : (
+        <span></span>
+      )}
+    </nav>
+  </main>
+</BaseLayout>
+
+<style>
+  .method-page {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 1rem 1rem 3rem;
+  }
+
+  .method-hero {
+    margin: 1rem auto 1.5rem;
+    max-width: 820px;
+    text-align: center;
+  }
+
+  .eyebrow,
+  .section-number {
+    color: var(--accent-primary);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .method-hero h1 {
+    color: var(--accent-primary);
+    font-size: clamp(1.75rem, 4.5vw, 2.45rem);
+    letter-spacing: 0;
+    line-height: 1.12;
+    margin: 0.4rem 0 0.75rem;
+  }
+
+  .method-hero p {
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin: 0 auto;
+    max-width: 760px;
+  }
+
+  .hero-actions,
+  .related-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: 1.1rem;
+  }
+
+  .hero-actions a,
+  .related-links a {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-xs);
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    font-weight: 750;
+    padding: 0.5rem 0.85rem;
+    text-decoration: none;
+  }
+
+  .hero-actions a:hover,
+  .hero-actions a:focus-visible,
+  .related-links a:hover,
+  .related-links a:focus-visible {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    outline: none;
+    text-decoration: none;
+  }
+
+  .objective-card,
+  .method-card,
+  .examples-section,
+  .warning-box,
+  .tip-box,
+  .exercise-card,
+  .remember-card,
+  .related-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    margin: 1rem 0 1.25rem;
+    padding: 1.15rem;
+  }
+
+  .objective-card,
+  .remember-card {
+    background: linear-gradient(135deg, var(--accent-primary-light), var(--bg-card));
+    border-left: 5px solid var(--accent-primary);
+  }
+
+  .method-card {
+    border-left: 5px solid var(--accent-primary);
+  }
+
+  .warning-box {
+    background: var(--accent-danger-light);
+    border-left: 5px solid var(--accent-danger);
+  }
+
+  .tip-box {
+    background: var(--accent-success-light);
+    border-left: 5px solid var(--accent-success);
+  }
+
+  .exercise-card {
+    border-left: 5px solid var(--accent-purple);
+  }
+
+  h2 {
+    color: var(--accent-primary);
+    font-size: 1.22rem;
+    letter-spacing: 0;
+    margin: 0.2rem 0 0.75rem;
+  }
+
+  .warning-box h2 {
+    color: var(--accent-danger);
+  }
+
+  .tip-box h2 {
+    color: var(--accent-success);
+  }
+
+  .method-card h2,
+  .examples-section h2,
+  .exercise-card h2,
+  .related-card h2 {
+    color: var(--text-primary);
+  }
+
+  p,
+  li {
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+
+  .lead,
+  .statement {
+    color: var(--text-primary);
+    font-weight: 750;
+  }
+
+  ul,
+  ol {
+    margin: 0.5rem 0 0;
+    padding-left: 1.35rem;
+  }
+
+  .explanation-list {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .explanation-list p {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    margin: 0;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .check-list li::marker,
+  .remember-card li::marker {
+    color: var(--accent-primary);
+  }
+
+  .formula-grid,
+  .examples-grid {
+    display: grid;
+    gap: 0.85rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .formula-grid article,
+  .example-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem;
+  }
+
+  .formula-grid strong {
+    color: var(--text-primary);
+    display: block;
+    font-size: 1.05rem;
+  }
+
+  .formula-grid span {
+    color: var(--text-muted);
+    display: block;
+    line-height: 1.55;
+    margin-top: 0.25rem;
+  }
+
+  .method-figure {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    margin: 1rem 0 1.25rem;
+    overflow-x: auto;
+    padding: 0.85rem;
+  }
+
+  .method-figure svg {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .method-figure figcaption {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-top: 0.65rem;
+    text-align: center;
+  }
+
+  .answer {
+    background: var(--accent-primary-light);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-weight: 800;
+    margin-top: 0.85rem;
+    padding: 0.7rem 0.8rem;
+  }
+
+  details {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    margin-top: 0.9rem;
+    padding: 0.85rem 1rem;
+  }
+
+  summary {
+    color: var(--text-primary);
+    cursor: pointer;
+    font-weight: 850;
+  }
+
+  summary:focus-visible {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 3px;
+  }
+
+  .correction {
+    border-top: 1px solid var(--border-color);
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+  }
+
+  .method-nav {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 1.5rem;
+  }
+
+  .method-nav a {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    color: inherit;
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.9rem 1rem;
+    text-decoration: none;
+  }
+
+  .method-nav a:last-child {
+    text-align: right;
+  }
+
+  .method-nav span {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .method-nav strong {
+    color: var(--accent-primary);
+  }
+
+  .method-nav a:hover,
+  .method-nav a:focus-visible {
+    border-color: var(--accent-primary);
+    outline: none;
+    text-decoration: none;
+  }
+
+  @media (max-width: 760px) {
+    .method-page {
+      padding: 0.5rem 0.75rem 2rem;
+    }
+
+    .formula-grid,
+    .examples-grid,
+    .method-nav {
+      grid-template-columns: 1fr;
+    }
+
+    .method-nav a:last-child {
+      text-align: left;
+    }
+  }
+</style>

@@ -1,0 +1,86 @@
+## Objectifs
+
+- Utiliser les notions de multiple, diviseur, nombre pair et nombre impair.
+- Lire et écrire des appartenances, intersections et réunions d'ensembles.
+- Distinguer implication, réciproque, équivalence et contre-exemple.
+- Présenter une fraction sous forme irréductible.
+
+## Prérequis
+
+- calcul avec des entiers
+- fractions
+- vocabulaire de base des ensembles
+
+## Activité de découverte
+
+On observe les numéros de casiers ouverts après plusieurs passages d'élèves. La question est de savoir quels numéros peuvent être atteints par deux règles différentes : être multiple de 3 et être pair.
+
+## Vocabulaire
+
+- **multiple**
+- **diviseur**
+- **ensemble**
+- **appartenance**
+- **inclusion**
+- **intersection**
+- **réunion**
+- **contre-exemple**
+
+## Cours
+
+### Définitions
+
+- Un entier a est multiple d'un entier b non nul lorsqu'il existe un entier k tel que a = kb.
+- Un ensemble regroupe des objets appelés éléments. On écrit x ∈ E pour dire que x appartient à E.
+- Une proposition mathématique est une phrase dont on peut décider si elle est vraie ou fausse.
+
+### Propriétés
+
+- La somme de deux multiples d'un même entier a est encore un multiple de a.
+- Le carré d'un nombre impair est impair.
+- Pour prouver qu'une affirmation générale est fausse, un seul contre-exemple suffit.
+
+### Méthodes
+
+1. Pour tester si a est multiple de b, on vérifie si la division de a par b a un reste nul.
+2. Pour rendre une fraction irréductible, on divise le numérateur et le dénominateur par un diviseur commun jusqu'à ne plus pouvoir simplifier.
+3. Pour lire A ∩ B, on cherche les éléments qui sont à la fois dans A et dans B.
+
+## Exemples corrigés
+
+- 42 est multiple de 6 car 42 = 6 × 7. Il est aussi multiple de 3 car 42 = 3 × 14.
+- Si A = {2, 4, 6, 8} et B = {3, 6, 9}, alors A ∩ B = {6} et A ∪ B = {2, 3, 4, 6, 8, 9}.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 640 250" role="img" aria-labelledby="set-title set-desc"><title id="set-title">Intersection et réunion d'ensembles</title><desc id="set-desc">Deux ensembles A et B se recoupent, avec la zone commune mise en évidence.</desc><rect width="640" height="250" fill="none"/><circle cx="270" cy="125" r="82" fill="#dbeafe" stroke="#2563eb" strokeWidth="3"/><circle cx="370" cy="125" r="82" fill="#dcfce7" stroke="#16a34a" strokeWidth="3"/><path d="M320 60 A82 82 0 0 1 320 190 A82 82 0 0 1 320 60" fill="#fde68a" opacity="0.85"/><text x="230" y="125" textAnchor="middle" fontWeight="700">A</text><text x="410" y="125" textAnchor="middle" fontWeight="700">B</text><text x="320" y="128" textAnchor="middle" fontWeight="700">A ∩ B</text><text x="320" y="225" textAnchor="middle">La réunion A ∪ B contient les deux disques.</text></svg>
+  <figcaption>Arithmétique, ensembles et logique : représentation schématique à commenter avant les exercices.</figcaption>
+</figure>
+
+## Algorithmique en Python
+
+### Tester un multiple
+
+```python
+def est_multiple(a, b):
+    return b != 0 and a % b == 0
+
+print(est_multiple(42, 6))
+```
+
+L'opérateur % donne le reste de la division euclidienne. Un reste nul signifie que la division tombe juste.
+
+## Erreurs fréquentes
+
+- Confondre A ∈ B et A ⊂ B.
+- Penser qu'une implication vraie impose automatiquement sa réciproque.
+- Oublier de justifier qu'un quotient est entier pour parler de multiple.
+
+## Formules et idées à retenir
+
+- a est multiple de b signifie a = kb avec k entier.
+- A ∩ B : éléments communs.
+- A ∪ B : éléments appartenant à au moins un des deux ensembles.
+
+## Synthèse
+
+Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.

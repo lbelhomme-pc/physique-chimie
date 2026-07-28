@@ -1,0 +1,78 @@
+---
+export interface Props {
+  tone?: "neutral" | "success" | "warning" | "danger" | "premium" | "maths" | "physics" | "chemistry" | "science";
+  size?: "sm" | "md";
+}
+
+const { tone = "neutral", size = "md" } = Astro.props;
+---
+
+<span class:list={["v3-badge", `v3-badge--${tone}`, `v3-badge--${size}`]}>
+  <slot />
+</span>
+
+<style>
+  .v3-badge {
+    align-items: center;
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-pill);
+    display: inline-flex;
+    font-family: var(--v3-font-family-sans);
+    font-weight: 750;
+    gap: var(--v3-space-1);
+    letter-spacing: var(--v3-letter-spacing-body);
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .v3-badge--sm {
+    font-size: var(--v3-font-size-xs);
+    padding: 0.22rem var(--v3-space-2);
+  }
+
+  .v3-badge--md {
+    font-size: var(--v3-font-size-sm);
+    padding: 0.32rem var(--v3-space-3);
+  }
+
+  .v3-badge--neutral {
+    background: var(--v3-color-surface-muted);
+    color: var(--v3-color-text-subtle);
+  }
+
+  .v3-badge--success {
+    background: var(--v3-color-success-subtle);
+    color: var(--v3-color-success);
+  }
+
+  .v3-badge--warning,
+  .v3-badge--premium {
+    background: var(--v3-color-warning-subtle);
+    color: var(--v3-color-warning);
+  }
+
+  .v3-badge--danger {
+    background: var(--v3-color-danger-subtle);
+    color: var(--v3-color-danger);
+  }
+
+  .v3-badge--maths {
+    background: var(--v3-color-action-subtle);
+    color: var(--v3-color-discipline-maths);
+  }
+
+  .v3-badge--physics {
+    background: var(--v3-color-pedagogy-definition-bg);
+    color: var(--v3-color-discipline-physics);
+  }
+
+  .v3-badge--chemistry {
+    background: var(--v3-color-success-subtle);
+    color: var(--v3-color-discipline-chemistry);
+  }
+
+  .v3-badge--science {
+    background: var(--v3-color-warning-subtle);
+    color: var(--v3-color-discipline-science);
+  }
+</style>

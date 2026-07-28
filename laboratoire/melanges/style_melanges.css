@@ -1,0 +1,208 @@
+/* style_melanges.css */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+}
+
+h2 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 8px;
+}
+
+/* --- BOUTONS ET INVENTAIRE --- */
+.btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.btn-small { margin: 0; padding: 10px; font-size: 0.9rem; }
+.btn-full { width: 100%; margin: 0; }
+
+.inventory-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px; }
+.chip { 
+    background: var(--bg-page); 
+    border: 1px solid var(--card-border); 
+    padding: 6px 12px; 
+    border-radius: 20px; 
+    font-size: 0.8rem; 
+    font-weight: 700; 
+    color: var(--text-main);
+}
+
+/* --- SCÈNE VISUELLE --- */
+.scene-melanges {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 16px;
+    border: 2px solid var(--card-border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-page);
+    box-shadow: inset 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.lab-table {
+    position: absolute;
+    bottom: -20px;
+    left: -40px;
+    right: -40px;
+    height: 100px;
+    background: rgba(148, 163, 184, 0.2);
+    transform: skewX(-8deg);
+    border-top: 2px solid rgba(148, 163, 184, 0.3);
+}
+
+/* --- LE BÉCHER --- */
+.beakerWrap {
+    position: relative;
+    width: 220px;
+    height: 300px;
+    transform: translateY(-20px);
+    z-index: 5;
+}
+
+.beaker {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px 20px 30px 30px;
+    border: 3px solid rgba(148, 163, 184, 0.5);
+    background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1), 0 18px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.beaker:before {
+    content: "";
+    position: absolute;
+    top: -12px; left: -3px; right: -3px;
+    height: 24px;
+    border-radius: 50%;
+    border: 3px solid rgba(148, 163, 184, 0.5);
+    background: transparent;
+}
+
+.measure {
+    position: absolute;
+    top: 40px; bottom: 30px; left: 15px;
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0.5;
+    z-index: 10;
+}
+.tick { height: 2px; background: rgba(148, 163, 184, 0.8); width: 10px; }
+.tick.big { width: 16px; }
+
+/* --- CONTENU DU BÉCHER DYNAMIQUE --- */
+.content {
+    position: absolute;
+    left: 0; right: 0; bottom: 0; top: 0;
+}
+
+.liquid-layer {
+    position: absolute;
+    left: 0; right: 0;
+    transition: height 0.5s ease, bottom 0.5s ease, background 0.5s ease;
+}
+
+.aqueousLayer {
+    bottom: 0;
+    height: 0%;
+    background: rgba(59, 130, 246, 0.3);
+    border-top: 1px solid rgba(255,255,255,0.2);
+    z-index: 2;
+}
+
+.oilLayer {
+    bottom: 0; /* Géré par JS */
+    height: 0%;
+    background: rgba(245, 158, 11, 0.5);
+    border-top: 1px solid rgba(255,255,255,0.4);
+    z-index: 3;
+}
+
+.surface {
+    position: absolute;
+    left: -10%; right: -10%; top: -10px;
+    height: 20px;
+    border-radius: 50%;
+    transition: background 0.5s ease;
+    z-index: 4;
+}
+
+#aqueousSurface { background: rgba(59, 130, 246, 0.4); filter: blur(1px); }
+#oilSurface { background: rgba(245, 158, 11, 0.6); }
+
+/* --- SEDIMENTS ET PARTICULES --- */
+.sediment {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 0%;
+    transition: height 0.5s ease;
+    background: linear-gradient(180deg, rgba(120, 113, 108, 0.7), rgba(87, 83, 78, 0.9));
+    z-index: 5; /* Au dessus des liquides au fond */
+}
+
+.grain {
+    position: absolute;
+    width: 4px; height: 4px;
+    border-radius: 1px;
+    background: rgba(120, 113, 108, 0.9);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+    z-index: 6;
+}
+
+.bubble {
+    position: absolute;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.6);
+    animation: rise 1s ease-in infinite;
+    opacity: 0;
+    z-index: 10;
+}
+@keyframes rise {
+    0% { transform: translateY(10px) scale(0.8); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-150px) scale(1.2); opacity: 0; }
+}
+
+/* --- BOÎTES DE STATUT ET JOURNAL --- */
+.status-box { padding: 15px; border-radius: 12px; border-left: 5px solid; transition: all 0.3s ease; }
+.status-box h3 { margin: 0 0 5px 0; font-size: 1.1rem; border: none; padding: 0;}
+.status-box p { margin: 0; font-size: 0.95rem; line-height: 1.4; color: var(--text-main); }
+
+.status-box.neutral { background: rgba(148, 163, 184, 0.1); border-color: var(--text-muted); }
+.status-box.neutral h3 { color: var(--text-muted); }
+.status-box.homogene { background: rgba(16, 185, 129, 0.1); border-color: #10b981; }
+.status-box.homogene h3 { color: #10b981; }
+.status-box.heterogene { background: rgba(245, 158, 11, 0.1); border-color: #f59e0b; }
+.status-box.heterogene h3 { color: #f59e0b; }
+
+.log-box {
+    background: var(--bg-page);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 15px;
+}
+.log-content {
+    height: 100px;
+    overflow-y: auto;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+.log-content p { margin: 0 0 5px 0; border-bottom: 1px dashed var(--card-border); padding-bottom: 3px;}
+.log-content .time { color: var(--primary); font-weight: bold; margin-right: 8px; }
+
+@media (max-width: 850px) { .dashboard { grid-template-columns: 1fr; } } 

@@ -1,0 +1,19 @@
+---
+export interface Props {
+  id: string;
+  labelledBy?: string;
+  active?: boolean;
+}
+
+const { id, labelledBy = `v3-tab-${id}`, active = false } = Astro.props;
+---
+
+<section
+  id={`v3-panel-${id}`}
+  data-v3-panel={id}
+  role="tabpanel"
+  aria-labelledby={labelledBy}
+  hidden={!active}
+>
+  <slot />
+</section>

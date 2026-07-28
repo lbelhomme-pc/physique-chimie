@@ -1,0 +1,53 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[
+ >={Stealth[length=3mm,width=2mm]},
+ node distance=3.5cm,
+ every node/.style={font=\small}
+]
+ % Boîtes
+ \node[draw, rounded corners, fill=primary!10, minimum width=3.5cm, minimum height=1.8cm, align=center] (reactifs) {\textbf{R\'{e}actifs}\\(A et B)};
+ \node[draw, rounded corners, fill=examplepink!10, minimum width=3.5cm, minimum height=1.8cm, align=center, right=4cm of reactifs] (produits) {\textbf{Produits}\\(D et E)};
+
+ % Flèches
+ \draw[->, thick, primary, line width=1.2pt] ([yshift=4mm]reactifs.east) -- ([yshift=4mm]produits.west) node[midway, above, yshift=2mm, text=primary] {\textbf{Sens direct}};
+ \draw[->, thick, examplepink, line width=1.2pt] ([yshift=-4mm]produits.west) -- ([yshift=-4mm]reactifs.east) node[midway, below, yshift=-2mm, text=examplepink] {\textbf{Sens indirect}};
+
+ % Annotation
+ \node[align=center, text=dark] at ($(reactifs)!0.5!(produits)+(0,-1.8)$) {\`{A} l'\'{e}quilibre dynamique : les deux r\'{e}actions se compensent\\\(\Rightarrow\) les quantit\'{e}s de mati\`{e}re restent constantes};
+\end{tikzpicture}
+\end{document}

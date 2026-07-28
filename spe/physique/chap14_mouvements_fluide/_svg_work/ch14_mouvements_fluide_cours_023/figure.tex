@@ -1,0 +1,68 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>=Stealth, scale=1]
+ % Fluide
+ \fill[blue!10] (-3,-2.5) rectangle (3,1.5);
+ \draw[thick, blue!50] (-3,1.5) -- (3,1.5);
+ \node[blue!70, anchor=west] at (1.6, 1.8) {Surface du fluide};
+
+ % Objet (sph\`ere simplifi\'{e}e)
+ \fill[orange!30] (0,0) circle (1);
+ \draw[thick, orange!80!black] (0,0) circle (1);
+ \node at (0,0) {\textbf{Corps}};
+ \node[below] at (0,-0.3) {Volume $V$};
+
+ % Fl\`eche poids
+ \draw[->, very thick, red!70!black, line width=1.5pt] (0,-1) -- (0,-2.3);
+ \node[red!70!black, anchor=west] at (0.15,-1.7) {$\vec{P} = m\vec{g}$};
+
+ % Fl\`eche pouss\'{e}e d'Archim\`ede
+ \draw[->, very thick, green!50!black, line width=1.5pt] (0,1) -- (0,2.3);
+ \node[green!50!black, anchor=west] at (0.15,1.7) {$\vec{\Pi}_A = -\rho V \vec{g}$};
+
+ % Annotations du fluide
+ \node[blue!70, anchor=east] at (-1.5, -2) {Fluide : $\rho$};
+
+ % Axe
+ \draw[->, thick] (3.5, -2.5) -- (3.5, 2.5);
+ \node[anchor=south] at (3.5, 2.5) {$z$};
+ \draw[->, thick, blue!60!black] (-1.35,-1.15) -- (-1.35,-0.35);
+ \node[left, font=\footnotesize, blue!60!black] at (-1.35,-0.75) {pression plus forte};
+ \draw[->, thick, blue!35!black] (-1.35,0.85) -- (-1.35,0.45);
+ \node[left, font=\footnotesize, blue!35!black] at (-1.35,0.65) {pression plus faible};
+\end{tikzpicture}
+\end{document}

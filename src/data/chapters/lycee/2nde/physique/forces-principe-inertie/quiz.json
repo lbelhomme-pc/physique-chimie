@@ -1,22 +1,960 @@
 [
-  {"id":"forces-principe-inertie-q01","type":"mcq","question":"Si les forces exercées sur un système se compensent, alors...","choices":["le système est immobile ou en mouvement rectiligne uniforme","le système accélère forcément","le système tourne forcément","le système disparaît"],"answer":0,"explanation":"C'est le principe d'inertie dans un référentiel galiléen."},
-  {"id":"forces-principe-inertie-q02","type":"mcq","question":"Un mouvement rectiligne uniforme signifie...","choices":["trajectoire droite et vecteur vitesse constant","trajectoire courbe et vitesse croissante","repos uniquement","forces toujours absentes"],"answer":0,"explanation":"Le vecteur vitesse conserve direction, sens et valeur."},
-  {"id":"forces-principe-inertie-q03","type":"mcq","question":"Si le vecteur vitesse varie, alors les forces...","choices":["ne se compensent pas","se compensent toujours","sont absentes","sont toutes verticales"],"answer":0,"explanation":"C'est la contraposée du principe d'inertie."},
-  {"id":"forces-principe-inertie-q04","type":"mcq","question":"La chute libre, si on néglige l'air, signifie que l'objet...","choices":["n'est soumis qu'à son poids","ne subit aucune force","est immobile","n'a pas de masse"],"answer":0,"explanation":"Chute libre ne veut pas dire absence de force."},
-  {"id":"forces-principe-inertie-q05","type":"mcq","question":"Une pierre en chute libre a un mouvement...","choices":["accéléré vers le bas","rectiligne uniforme","toujours immobile","circulaire uniforme"],"answer":0,"explanation":"Le poids n'est pas compensé, donc le vecteur vitesse varie."},
-  {"id":"forces-principe-inertie-q06","type":"mcq","question":"Un objet immobile peut-il subir des forces ?","choices":["Oui, si elles se compensent","Non, jamais","Oui, mais seulement une force","Non, car force signifie mouvement"],"answer":0,"explanation":"Un livre posé sur une table subit son poids et la force du support."},
-  {"id":"forces-principe-inertie-q07","type":"mcq","question":"Un palet qui glisse sans frottement en ligne droite à vitesse constante subit des forces...","choices":["qui se compensent","non compensées vers l'avant","toutes nulles obligatoirement","verticales vers le bas seulement"],"answer":0,"explanation":"Le mouvement rectiligne uniforme est compatible avec des forces compensées."},
-  {"id":"forces-principe-inertie-q08","type":"mcq","question":"Dans un virage à vitesse de valeur constante, le vecteur vitesse...","choices":["change de direction","reste forcément constant","est nul","change seulement d'unité"],"answer":0,"explanation":"Un vecteur dépend aussi de sa direction."},
-  {"id":"forces-principe-inertie-q09","type":"mcq","question":"Dans un virage, les forces exercées sur le système...","choices":["ne se compensent pas","se compensent forcément","sont absentes","sont uniquement le poids"],"answer":0,"explanation":"Le vecteur vitesse varie car sa direction change."},
-  {"id":"forces-principe-inertie-q10","type":"mcq","question":"Pendant la montée d'une balle lancée vers le haut, son poids est dirigé...","choices":["vers le bas","vers le haut","dans le sens de la vitesse","horizontalement"],"answer":0,"explanation":"Le poids est toujours dirigé vers le centre de la Terre près de sa surface."},
-  {"id":"forces-principe-inertie-q11","type":"mcq","question":"Pendant la montée d'une balle lancée vers le haut, la vitesse...","choices":["diminue","augmente toujours","reste constante","est nulle tout le temps"],"answer":0,"explanation":"Le poids est opposé au mouvement pendant la montée."},
-  {"id":"forces-principe-inertie-q12","type":"mcq","question":"Le principe d'inertie s'applique dans un référentiel...","choices":["galiléen","toujours quelconque sans condition","chimique","sonore"],"answer":0,"explanation":"Au niveau seconde, le référentiel terrestre est souvent admis pour des durées courtes."},
-  {"id":"forces-principe-inertie-q13","type":"mcq","question":"Un vélo qui freine en ligne droite a un mouvement...","choices":["rectiligne décéléré","rectiligne uniforme","circulaire uniforme","immobile dès le début"],"answer":0,"explanation":"La trajectoire est droite mais la valeur de la vitesse diminue."},
-  {"id":"forces-principe-inertie-q14","type":"mcq","question":"Si un système est en mouvement rectiligne uniforme, alors son vecteur vitesse...","choices":["est constant","augmente","diminue","change de direction"],"answer":0,"explanation":"Rectiligne uniforme correspond à un vecteur vitesse constant."},
-  {"id":"forces-principe-inertie-q15","type":"mcq","question":"Le symbole \\(\\sum \\vec F_{ext}=\\vec 0\\) signifie...","choices":["les forces extérieures se compensent","il n'y a aucune masse","la vitesse est nulle obligatoirement","le système est nucléaire"],"answer":0,"explanation":"La somme vectorielle des forces extérieures est nulle."},
-  {"id":"forces-principe-inertie-q16","type":"mcq","question":"Une force non compensée provoque une variation...","choices":["du vecteur vitesse","de la masse","du volume uniquement","du numéro atomique"],"answer":0,"explanation":"Elle modifie au moins la valeur, la direction ou le sens du vecteur vitesse."},
-  {"id":"forces-principe-inertie-q17","type":"mcq","question":"Un objet suspendu immobile à un fil subit...","choices":["poids et tension du fil compensés","seulement son poids","aucune force","seulement une force vers le bas"],"answer":0,"explanation":"L'immobilité indique que les forces se compensent."},
-  {"id":"forces-principe-inertie-q18","type":"mcq","question":"Après qu'une main a lancé un palet et ne le touche plus, la force de la main...","choices":["n'agit plus sur le palet","continue toujours vers l'avant","augmente la vitesse","devient le poids"],"answer":0,"explanation":"Une action de contact cesse quand le contact cesse."},
-  {"id":"forces-principe-inertie-q19","type":"mcq","question":"Le piège principal de la chute libre est de croire que...","choices":["l'objet ne subit aucune force","le poids existe","le mouvement est accéléré","l'air peut être négligé dans un modèle"],"answer":0,"explanation":"En chute libre modélisée, l'objet subit son poids seul."},
-  {"id":"forces-principe-inertie-q20","type":"mcq","question":"Pour analyser forces et mouvement, il faut d'abord...","choices":["choisir le référentiel et le système","calculer une fréquence","identifier un soluté","changer les unités de température"],"answer":0,"explanation":"Le bilan de forces et la description du mouvement dépendent du système et du référentiel."}
+  {
+    "id": "forces-principe-inertie-q01",
+    "type": "mcq",
+    "question": "Si les forces exercées sur un système se compensent, alors...",
+    "choices": [
+      "le système est immobile ou en mouvement rectiligne uniforme",
+      "le système accélère forcément",
+      "le système tourne forcément",
+      "le système disparaît"
+    ],
+    "answer": 0,
+    "explanation": "C'est le principe d'inertie dans un référentiel galiléen.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "forces-principe-inertie-q02",
+    "type": "mcq",
+    "question": "Un mouvement rectiligne uniforme signifie...",
+    "choices": [
+      "trajectoire droite et vecteur vitesse constant",
+      "trajectoire courbe et vitesse croissante",
+      "repos uniquement",
+      "forces toujours absentes"
+    ],
+    "answer": 0,
+    "explanation": "Le vecteur vitesse conserve direction, sens et valeur.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "forces-principe-inertie-q03",
+    "type": "mcq",
+    "question": "Si le vecteur vitesse varie, alors les forces...",
+    "choices": [
+      "ne se compensent pas",
+      "se compensent toujours",
+      "sont absentes",
+      "sont toutes verticales"
+    ],
+    "answer": 0,
+    "explanation": "C'est la contraposée du principe d'inertie.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "forces-principe-inertie-q04",
+    "type": "mcq",
+    "question": "La chute libre, si on néglige l'air, signifie que l'objet...",
+    "choices": [
+      "n'est soumis qu'à son poids",
+      "ne subit aucune force",
+      "est immobile",
+      "n'a pas de masse"
+    ],
+    "answer": 0,
+    "explanation": "Chute libre ne veut pas dire absence de force.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "forces-principe-inertie-q05",
+    "type": "mcq",
+    "question": "Une pierre en chute libre a un mouvement...",
+    "choices": [
+      "accéléré vers le bas",
+      "rectiligne uniforme",
+      "toujours immobile",
+      "circulaire uniforme"
+    ],
+    "answer": 0,
+    "explanation": "Le poids n'est pas compensé, donc le vecteur vitesse varie.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "forces-principe-inertie-q06",
+    "type": "mcq",
+    "question": "Un objet immobile peut-il subir des forces ?",
+    "choices": [
+      "Oui, si elles se compensent",
+      "Non, jamais",
+      "Oui, mais seulement une force",
+      "Non, car force signifie mouvement"
+    ],
+    "answer": 0,
+    "explanation": "Un livre posé sur une table subit son poids et la force du support.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "forces-principe-inertie-q07",
+    "type": "mcq",
+    "question": "Un palet qui glisse sans frottement en ligne droite à vitesse constante subit des forces...",
+    "choices": [
+      "qui se compensent",
+      "non compensées vers l'avant",
+      "toutes nulles obligatoirement",
+      "verticales vers le bas seulement"
+    ],
+    "answer": 0,
+    "explanation": "Le mouvement rectiligne uniforme est compatible avec des forces compensées.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "forces-principe-inertie-q08",
+    "type": "mcq",
+    "question": "Dans un virage à vitesse de valeur constante, le vecteur vitesse...",
+    "choices": [
+      "change de direction",
+      "reste forcément constant",
+      "est nul",
+      "change seulement d'unité"
+    ],
+    "answer": 0,
+    "explanation": "Un vecteur dépend aussi de sa direction.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "forces-principe-inertie-q09",
+    "type": "mcq",
+    "question": "Dans un virage, les forces exercées sur le système...",
+    "choices": [
+      "ne se compensent pas",
+      "se compensent forcément",
+      "sont absentes",
+      "sont uniquement le poids"
+    ],
+    "answer": 0,
+    "explanation": "Le vecteur vitesse varie car sa direction change.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "forces-principe-inertie-q10",
+    "type": "mcq",
+    "question": "Pendant la montée d'une balle lancée vers le haut, son poids est dirigé...",
+    "choices": [
+      "vers le bas",
+      "vers le haut",
+      "dans le sens de la vitesse",
+      "horizontalement"
+    ],
+    "answer": 0,
+    "explanation": "Le poids est toujours dirigé vers le centre de la Terre près de sa surface.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "forces-principe-inertie-q11",
+    "type": "mcq",
+    "question": "Pendant la montée d'une balle lancée vers le haut, la vitesse...",
+    "choices": [
+      "diminue",
+      "augmente toujours",
+      "reste constante",
+      "est nulle tout le temps"
+    ],
+    "answer": 0,
+    "explanation": "Le poids est opposé au mouvement pendant la montée.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "forces-principe-inertie-q12",
+    "type": "mcq",
+    "question": "Le principe d'inertie s'applique dans un référentiel...",
+    "choices": [
+      "galiléen",
+      "toujours quelconque sans condition",
+      "chimique",
+      "sonore"
+    ],
+    "answer": 0,
+    "explanation": "Au niveau seconde, le référentiel terrestre est souvent admis pour des durées courtes.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "forces-principe-inertie-q13",
+    "type": "mcq",
+    "question": "Un vélo qui freine en ligne droite a un mouvement...",
+    "choices": [
+      "rectiligne décéléré",
+      "rectiligne uniforme",
+      "circulaire uniforme",
+      "immobile dès le début"
+    ],
+    "answer": 0,
+    "explanation": "La trajectoire est droite mais la valeur de la vitesse diminue.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "forces-principe-inertie-q14",
+    "type": "mcq",
+    "question": "Si un système est en mouvement rectiligne uniforme, alors son vecteur vitesse...",
+    "choices": [
+      "est constant",
+      "augmente",
+      "diminue",
+      "change de direction"
+    ],
+    "answer": 0,
+    "explanation": "Rectiligne uniforme correspond à un vecteur vitesse constant.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "forces-principe-inertie-q15",
+    "type": "mcq",
+    "question": "Le symbole \\(\\sum \\vec F_{ext}=\\vec 0\\) signifie...",
+    "choices": [
+      "les forces extérieures se compensent",
+      "il n'y a aucune masse",
+      "la vitesse est nulle obligatoirement",
+      "le système est nucléaire"
+    ],
+    "answer": 0,
+    "explanation": "La somme vectorielle des forces extérieures est nulle.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "forces-principe-inertie-q16",
+    "type": "mcq",
+    "question": "Une force non compensée provoque une variation...",
+    "choices": [
+      "du vecteur vitesse",
+      "de la masse",
+      "du volume uniquement",
+      "du numéro atomique"
+    ],
+    "answer": 0,
+    "explanation": "Elle modifie au moins la valeur, la direction ou le sens du vecteur vitesse.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "forces-principe-inertie-q17",
+    "type": "mcq",
+    "question": "Un objet suspendu immobile à un fil subit...",
+    "choices": [
+      "poids et tension du fil compensés",
+      "seulement son poids",
+      "aucune force",
+      "seulement une force vers le bas"
+    ],
+    "answer": 0,
+    "explanation": "L'immobilité indique que les forces se compensent.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "forces-principe-inertie-q18",
+    "type": "mcq",
+    "question": "Après qu'une main a lancé un palet et ne le touche plus, la force de la main...",
+    "choices": [
+      "n'agit plus sur le palet",
+      "continue toujours vers l'avant",
+      "augmente la vitesse",
+      "devient le poids"
+    ],
+    "answer": 0,
+    "explanation": "Une action de contact cesse quand le contact cesse.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "forces-principe-inertie-q19",
+    "type": "mcq",
+    "question": "Le piège principal de la chute libre est de croire que...",
+    "choices": [
+      "l'objet ne subit aucune force",
+      "le poids existe",
+      "le mouvement est accéléré",
+      "l'air peut être négligé dans un modèle"
+    ],
+    "answer": 0,
+    "explanation": "En chute libre modélisée, l'objet subit son poids seul.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "forces-principe-inertie-q20",
+    "type": "mcq",
+    "question": "Pour analyser forces et mouvement, il faut d'abord...",
+    "choices": [
+      "choisir le référentiel et le système",
+      "calculer une fréquence",
+      "identifier un soluté",
+      "changer les unités de température"
+    ],
+    "answer": 0,
+    "explanation": "Le bilan de forces et la description du mouvement dépendent du système et du référentiel.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Forces et mouvements - principe d'inertie",
+        "href": "/laboratoire/poids-masse",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "physique",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  }
 ]

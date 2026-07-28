@@ -1,0 +1,161 @@
+---
+import { premiumGatePrototype, type AccessDecision } from "../../types/accessControl";
+
+interface Props {
+  decision?: AccessDecision;
+  title?: string;
+  message?: string;
+  previewLabel?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  tone?: "account" | "premium" | "teacher";
+}
+
+const {
+  decision = "upgrade-required",
+  title = premiumGatePrototype.title,
+  message = premiumGatePrototype.message,
+  previewLabel = premiumGatePrototype.previewLabel,
+  ctaLabel = premiumGatePrototype.upgradeLabel,
+  ctaHref = "/inscription",
+  tone = "premium",
+} = Astro.props;
+
+const titleId = `access-gate-${decision}`;
+---
+
+<aside
+  class={`access-gate access-gate--${tone}`}
+  role="note"
+  aria-labelledby={titleId}
+  data-access-gate-prototype
+  data-gating-source="access-control-decision"
+>
+  <div class="access-gate__icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" focusable="false">
+      <path d="M7 10V8a5 5 0 0 1 10 0v2" />
+      <rect x="5" y="10" width="14" height="10" rx="2" />
+      <path d="M12 14v2" />
+    </svg>
+  </div>
+  <div class="access-gate__body">
+    <p class="access-gate__eyebrow">
+      <span class="sr-only">{premiumGatePrototype.ariaPrefix} : </span>{previewLabel}
+    </p>
+    <h2 id={titleId}>{title}</h2>
+    <p>{message}</p>
+  </div>
+  <a class="access-gate__cta" href={ctaHref}>{ctaLabel}</a>
+</aside>
+
+<style>
+  .access-gate {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.875rem;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid rgba(14, 91, 218, 0.22);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--color-surface, #ffffff) 92%, #e7f0ff);
+    color: var(--color-text, #07194a);
+  }
+
+  .access-gate--account {
+    border-color: rgba(2, 132, 199, 0.26);
+    background: color-mix(in srgb, var(--color-surface, #ffffff) 92%, #e0f2fe);
+  }
+
+  .access-gate--teacher {
+    border-color: rgba(15, 118, 110, 0.28);
+    background: color-mix(in srgb, var(--color-surface, #ffffff) 92%, #dff7f1);
+  }
+
+  .access-gate__icon {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background: #1555e8;
+    color: #ffffff;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .access-gate__icon svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+  }
+
+  .access-gate__body {
+    min-width: 0;
+  }
+
+  .access-gate__eyebrow,
+  .access-gate h2,
+  .access-gate p {
+    margin: 0;
+  }
+
+  .access-gate__eyebrow {
+    color: #1555e8;
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .access-gate h2 {
+    margin-top: 0.15rem;
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  .access-gate__body p:last-child {
+    margin-top: 0.25rem;
+    color: var(--color-text-muted, #4b587c);
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .access-gate__cta {
+    justify-self: end;
+    border-radius: 999px;
+    background: #1555e8;
+    color: #ffffff;
+    padding: 0.65rem 0.9rem;
+    text-decoration: none;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .access-gate__cta:focus-visible {
+    outline: 3px solid #facc15;
+    outline-offset: 3px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 42rem) {
+    .access-gate {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .access-gate__cta {
+      grid-column: 1 / -1;
+      justify-self: start;
+      white-space: normal;
+    }
+  }
+</style>

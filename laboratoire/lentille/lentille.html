@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : Lentilles et Images | Physique-Chimie</title>
+    <meta name="theme-color" content="#6366f1">
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_lentille.css">
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="labo-container">
+        <header class="hero-header">
+            <h1 class="header-flex">
+                <span>👁️‍🗨️</span> 
+                <span class="gradient-text gradient-labo">Banc d'Optique Virtuel</span>
+            </h1>
+            <p class="subtitle">Déplace l'objet par rapport à la lentille et observe la construction géométrique de l'image.</p>
+        </header>
+
+        <div class="tabs">
+            <button id="tab-conv" class="tab-btn tab-conv active" onclick="setLens('conv')">Lentille Convergente</button>
+            <button id="tab-div" class="tab-btn tab-div" onclick="setLens('div')">Lentille Divergente</button>
+        </div>
+
+        <div class="canvas-wrapper">
+            <canvas id="optics-canvas" width="1000" height="500"></canvas>
+        </div>
+
+        <div class="main-dashboard">
+            <div class="panel">
+                <div class="panel-title">🎛️ 1. Paramètres de l'expérience</div>
+                
+                <div class="slider-group">
+                    <label><span>Position de l'Objet (<span class="math-var">OA</span>)</span> <span id="lbl-oa" class="val-red">-25.0 cm</span></label>
+                    <input type="range" id="slider-oa" min="-60" max="-2" step="0.5" value="-25">
+                </div>
+                
+                <div class="slider-group" style="margin-bottom: 0;">
+                    <label><span>Distance Focale (<span id="math-f-sym" class="math-var val-purple">f'</span>)</span> <span id="lbl-f" class="val-purple">10.0 cm</span></label>
+                    <input type="range" id="slider-f" min="5" max="25" step="1" value="10">
+                </div>
+
+                <div id="tip-box" class="tip-box tip-conv">
+                    <strong>💡 Astuce :</strong> Place l'objet très près de la lentille (OA &gt; -f') pour recréer l'effet d'une loupe !
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">📐 2. Mesures de l'Image</div>
+                
+                <div class="data-line">
+                    <span class="data-label">Position Image (<span class="math-var">OA'</span>) :</span>
+                    <span class="data-value val-blue" id="val-oap">--</span>
+                </div>
+                
+                <div class="data-line">
+                    <span class="data-label">Grandissement (<span class="math-var">γ</span>) :</span>
+                    <span class="data-value" id="val-gamma">--</span>
+                </div>
+
+                <div class="badge-container">
+                    <div id="badge-nature" class="badge badge-real">Image Réelle<br><span>(Projetable sur écran)</span></div>
+                    <div id="badge-sens" class="badge badge-inverted">Renversée<br><span>(Tête en bas)</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-footer">
+            <a href="../laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Laboratoire</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_lentille.js"></script>
+</body>
+</html>

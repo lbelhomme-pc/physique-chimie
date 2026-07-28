@@ -1,0 +1,77 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[scale=1.0, >=Stealth]
+ % Voiture (source)
+ \fill[primary!80] (-0.5,-0.2) rectangle (0.8,0.2);
+ \fill[primary!60] (0.8,-0.15) -- (1.3,0) -- (0.8,0.15) -- cycle;
+ \node[above, font=\small\bfseries, primary] at (0.4,0.3) {Source S};
+ 
+ % Fleche de deplacement
+ \draw[->, very thick, synthorange] (1.4,0) -- (2.8,0);
+ \node[above, font=\small\bfseries, synthorange] at (2.1,0.1) {$v_S$};
+ 
+ % Observateur A (devant)
+ \fill[examplepink] (5.5,0) circle (5pt);
+ \node[above, font=\small\bfseries, examplepink] at (5.5,0.25) {Observateur A};
+ \node[below, font=\footnotesize, examplepink] at (5.5,-0.25) {(devant)};
+ 
+ % Observateur B (derriere)
+ \fill[remarkblue] (-3.5,0) circle (5pt);
+ \node[above, font=\small\bfseries, remarkblue] at (-3.5,0.25) {Observateur B};
+ \node[below, font=\footnotesize, remarkblue] at (-3.5,-0.25) {(derri\`{e}re)};
+ 
+ % Ondes comprimees devant
+ \foreach \r in {0.6,0.9,1.2}{
+ \draw[examplepink!70, thick] (1.3,0) ++(30:\r) arc (30:-30:\r);
+ }
+ \node[below, font=\footnotesize, examplepink] at (2.8,-0.9) {Ondes compress\'{e}es};
+ \node[below, font=\footnotesize, examplepink] at (2.8,-1.3) {$\rightarrow$ son plus \textbf{aigu}};
+\node[below, font=\footnotesize, examplepink] at (2.8,-1.7) {$f_{A} > f$};
+\node[above, font=\footnotesize, examplepink] at (2.8,0.95) {$\lambda_A < \lambda$};
+ 
+ % Ondes etirees derriere
+ \foreach \r in {0.8,1.4,2.0}{
+ \draw[remarkblue!70, thick] (-0.5,0) ++(150:\r) arc (150:210:\r);
+ }
+ \node[below, font=\footnotesize, remarkblue] at (-2.0,-0.9) {Ondes \'{e}tir\'{e}es};
+ \node[below, font=\footnotesize, remarkblue] at (-2.0,-1.3) {$\rightarrow$ son plus \textbf{grave}};
+\node[below, font=\footnotesize, remarkblue] at (-2.0,-1.7) {$f_{B} < f$};
+\node[above, font=\footnotesize, remarkblue] at (-2.0,0.95) {$\lambda_B > \lambda$};
+\draw[->, thick, dark!70] (-0.5,1.2) -- (1.4,1.2)
+node[midway, above, font=\footnotesize] {mouvement de S};
+\end{tikzpicture}
+\end{document}

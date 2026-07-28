@@ -1,43 +1,259 @@
 ---
 // src/pages/lycee/index.astro
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getDisciplineFromLevelSlug, getDisciplineIdentity, getDisciplineStyle } from "../../data/disciplineIdentity";
 import { lyceeLevels, getLevelLabel } from "../../data/levels";
 
-// Noms courts pour l'affichage dans les pills
+const allMeta = import.meta.glob("/src/data/chapters/lycee/**/meta.json", { eager: true });
+
 function getShortLabel(slug: string): string {
   const map: Record<string, string> = {
-    "2nde": "2nde",
-    "1ere-spe": "1ère Spé",
-    "1ere-ens-scientifique": "1ère ES",
-    "terminale-spe": "Term. Spé",
-    "terminale-ens-scientifique": "Term. ES",
+    "2nde": "Seconde",
+    "1ere-spe": "1re spécialité PC",
+    "1ere-ens-scientifique": "1re enseignement scientifique",
+    "terminale-spe": "Terminale spécialité PC",
+    "terminale-ens-scientifique": "Terminale enseignement scientifique",
   };
   return map[slug] ?? getLevelLabel(slug);
 }
+
+function countChapters(levelSlug: string, matiere?: string) {
+  return Object.keys(allMeta).filter((path) => {
+    const segments = path.replace("/src/data/chapters/", "").replace("/meta.json", "").split("/");
+    const [, niveau, chapterMatiere] = segments;
+    return niveau === levelSlug && (!matiere || chapterMatiere === matiere);
+  }).length;
+}
+
+const levelCards = lyceeLevels.map((level) => {
+  const discipline = getDisciplineIdentity(getDisciplineFromLevelSlug(level.slug));
+  const chimie = countChapters(level.slug, "chimie");
+  const physique = countChapters(level.slug, "physique");
+  const total = chimie + physique;
+  const countLabel =
+    discipline.id === "enseignement-scientifique"
+      ? `${total} chapitre(s) en ligne dans l'espace Enseignement scientifique.`
+      : `${total} chapitre(s) en ligne : ${physique} en physique et ${chimie} en chimie.`;
+
+  return {
+    ...level,
+    label: getShortLabel(level.slug),
+    fullLabel: getLevelLabel(level.slug),
+    chimie,
+    physique,
+    total,
+    discipline,
+    countLabel,
+  };
+});
 ---
-<BaseLayout title="Espace Lycée — Physique-Chimie">
 
-  <nav class="level-nav" aria-label="Niveaux lycée">
-    {lyceeLevels.map(level => (
-      <a href={`/lycee/${level.slug}`} class="nav-pill">
-        {getShortLabel(level.slug)}
-      </a>
-    ))}
+<BaseLayout
+  title="Lycée — Physique-Chimie et Enseignement scientifique"
+  description="Choisir son niveau lycée : Physique-Chimie et Enseignement scientifique sont identifiés séparément, avec leurs routes actuelles."
+>
+  <main class="level-home">
+    <header class="level-hero">
+      <h1>Choisir mon niveau lycée</h1>
+      <p>
+        Accède aux chapitres de seconde, première et terminale. Les cartes indiquent la discipline
+        par un symbole, un libellé et un accent visuel pour éviter toute confusion.
+      </p>
+    </header>
 
-  </nav>
+    <section class="level-card-grid" aria-label="Niveaux lycée">
+      {levelCards.map((level) => (
+        <article
+          class="level-card"
+          data-discipline={level.discipline.id}
+          style={getDisciplineStyle(level.discipline)}
+        >
+          <div class="level-card-head">
+            <span class="discipline-badge" aria-label={level.discipline.iconLabel}>
+              <span aria-hidden="true">{level.discipline.mark}</span>
+              <strong>{level.discipline.label}</strong>
+            </span>
+            <div>
+              <h2>{level.label}</h2>
+              <p class="full-label">{level.fullLabel}</p>
+            </div>
+          </div>
+          <p>
+            {level.total > 0
+              ? level.countLabel
+              : "Cette partie est prévue, mais les chapitres ne sont pas encore publiés."}
+          </p>
+          <p class="discipline-microcopy">{level.discipline.microcopy}</p>
+          <div class="level-actions">
+            <a class="primary-action" href={`/lycee/${level.slug}`}>Voir le niveau</a>
+            {level.discipline.id === "physique-chimie" && level.chimie > 0 && <a href={`/lycee/${level.slug}/chimie`}>Chimie</a>}
+            {level.discipline.id === "physique-chimie" && level.physique > 0 && <a href={`/lycee/${level.slug}/physique`}>Physique</a>}
+          </div>
+        </article>
+      ))}
+    </section>
 
-  <div style="text-align:center; padding: 3rem 1rem;">
-    <span style="font-size:3rem;">🎓</span>
-    <h1 style="font-size:1.6rem; font-weight:800; color:var(--accent-primary); margin:0.5rem 0;">Espace Lycée</h1>
-    <p style="color:var(--text-muted); font-size:1rem;">Choisis ton niveau pour accéder aux cours de physique-chimie.</p>
-  </div>
-
+    <section class="tools-callout" aria-labelledby="tools-title">
+      <div>
+        <h2 id="tools-title">Outils et méthodes lycée</h2>
+        <p>Maths utiles, méthodes numériques, Python, laboratoire et ressources transversales.</p>
+      </div>
+      <a href="/outils-methodes/lycee">Voir les outils lycée</a>
+    </section>
+  </main>
 </BaseLayout>
 
 <style>
-  .level-nav {
-    display: flex; justify-content: center; align-items: center; gap: 0.5rem;
-    padding: 0.75rem 1rem; background: var(--bg-card); border-radius: var(--radius-pill);
-    box-shadow: var(--shadow-card); max-width: 850px; margin: 1rem auto; flex-wrap: wrap;
+  .level-home {
+    margin: 0 auto;
+    max-width: 1080px;
+    padding: 1rem 1rem 3rem;
+  }
+
+  .level-hero {
+    margin: 1rem auto 1.5rem;
+    max-width: 760px;
+    text-align: center;
+  }
+
+  .level-hero h1 {
+    color: var(--accent-primary);
+    font-size: clamp(1.8rem, 4.4vw, 2.55rem);
+    letter-spacing: 0;
+    line-height: 1.12;
+    margin: 0 0 0.75rem;
+  }
+
+  .level-hero p,
+  .level-card p,
+  .tools-callout p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .level-card-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .level-card,
+  .tools-callout {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--discipline-accent, var(--accent-primary));
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    padding: 1.15rem;
+  }
+
+  .level-card-head {
+    align-items: start;
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .discipline-badge {
+    align-items: center;
+    background: var(--discipline-surface);
+    border: 1px solid var(--discipline-border);
+    border-radius: var(--radius-pill);
+    color: var(--discipline-accent);
+    display: inline-flex;
+    font-size: 0.78rem;
+    font-weight: 900;
+    gap: 0.45rem;
+    justify-self: start;
+    min-height: 34px;
+    padding: 0.32rem 0.7rem;
+  }
+
+  .discipline-badge span {
+    align-items: center;
+    background: var(--bg-card);
+    border-radius: var(--v3-radius-sm);
+    display: inline-flex;
+    justify-content: center;
+    min-width: 26px;
+    padding: 0.08rem 0.22rem;
+  }
+
+  .level-card h2,
+  .tools-callout h2 {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .full-label {
+    color: var(--text-muted) !important;
+    font-size: 0.82rem;
+    margin-top: 0.15rem !important;
+  }
+
+  .discipline-microcopy {
+    color: color-mix(in srgb, var(--discipline-accent) 72%, var(--text-secondary)) !important;
+    font-size: 0.9rem;
+    font-weight: 850;
+    margin-top: 0.6rem !important;
+  }
+
+  .level-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .level-actions a,
+  .tools-callout a {
+    align-items: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    color: var(--text-secondary);
+    display: inline-flex;
+    font-weight: 800;
+    min-height: 44px;
+    padding: 0.5rem 0.8rem;
+    text-decoration: none;
+  }
+
+  .level-actions .primary-action,
+  .tools-callout a {
+    background: var(--discipline-accent, var(--accent-primary));
+    color: white;
+  }
+
+  .level-actions a:hover,
+  .level-actions a:focus-visible,
+  .tools-callout a:hover,
+  .tools-callout a:focus-visible {
+    border-color: var(--discipline-accent, var(--accent-primary));
+    outline: none;
+    text-decoration: none;
+  }
+
+  .tools-callout {
+    --discipline-accent: var(--accent-primary);
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+  }
+
+  @media (max-width: 760px) {
+    .level-card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tools-callout {
+      align-items: start;
+      flex-direction: column;
+    }
   }
 </style>

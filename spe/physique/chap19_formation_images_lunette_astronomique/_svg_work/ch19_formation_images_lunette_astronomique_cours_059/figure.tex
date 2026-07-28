@@ -1,0 +1,81 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[
+ scale=0.9,
+ transform shape,
+ >=Stealth,
+ thick
+]
+
+% Axe optique
+\draw[->] (-1,0) -- (10,0) node[right]{\small axe optique};
+
+% Lentille
+\draw[primary, line width=1.4pt] (4,-2) -- (4,2);
+\draw[primary, ->, line width=0.9pt] (4,1.7) -- (4.25,2);
+\draw[primary, ->, line width=0.9pt] (4,-1.7) -- (3.75,-2);
+\node[above, primary, font=\bfseries] at (4,2.2) {Lentille convergente};
+
+% Centre optique
+\fill (4,0) circle (2.5pt);
+\node[below left, font=\small] at (4,-0.2) {$O$};
+
+% Foyer objet F
+\fill[blue!70!black] (2,0) circle (2.5pt);
+\node[below, blue!70!black, font=\small\bfseries] at (2,-0.3) {$F$};
+
+% Foyer image F'
+\fill[red!70!black] (6,0) circle (2.5pt);
+\node[below, red!70!black, font=\small\bfseries] at (6,-0.3) {$F'$};
+
+% Distance focale
+\draw[<->, accent, line width=0.8pt] (4,-1.0) -- (6,-1.0);
+\node[below, accent, font=\small\bfseries] at (5,-1.0) {$f'$};
+
+% Rayon passant par le centre optique
+\draw[red!70!black, ->, line width=0.7pt] (1,1.2) -- (4,0) -- (7.5,-1.35);
+\node[above, red!70!black, font=\scriptsize] at (2.2,0.8) {Rayon par $O$ : non d\'{e}vi\'{e}};
+
+% Rayon parallèle à l'axe
+\draw[blue!70!black, line width=0.7pt] (0.5,1.5) -- (4,1.5);
+\draw[blue!70!black, ->, line width=0.7pt] (4,1.5) -- (8,-0.5);
+\fill[blue!70!black] (6,0.5) circle (0pt);
+\node[above, blue!70!black, font=\scriptsize] at (1.5,1.7) {Rayon parall\`{e}le};
+\node[right, blue!70!black, font=\scriptsize] at (6.5,0.3) {$\rightarrow$ passe par $F'$};
+
+\end{tikzpicture}
+\end{document}

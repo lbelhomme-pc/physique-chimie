@@ -1,0 +1,74 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+ width=12cm, height=7cm,
+ xlabel={$t$ (s)},
+ ylabel={$A(t)$ (MBq)},
+ xmin=0, xmax=520,
+ ymin=0, ymax=170,
+ grid=both,
+ grid style={gray!30},
+ minor grid style={gray!15},
+ xtick={0,60,120,180,240,300,360,420,480},
+ ytick={0,20,40,60,80,100,120,140,160},
+ tick label style={font=\small},
+ legend pos=north east
+]
+\addplot[only marks, mark=*, mark size=2pt, primary] coordinates {
+ (0,150) (60,107) (120,76) (180,54) (240,38) (360,19) (480,9.7)
+};
+\addlegendentry{Points exp.}
+\addplot[domain=0:500, samples=100, smooth, examplepink, thick] {150*exp(-0.00568*x)};
+\addlegendentry{$A_0\,\text{e}^{-\lambda t}$}
+% Demi-vie
+\draw[dashed, gray] (0,75) -- (122,75) -- (122,0);
+\node[above, font=\small] at (122,0) {$t_{1/2}$};
+\end{axis}
+\end{tikzpicture}
+\end{document}

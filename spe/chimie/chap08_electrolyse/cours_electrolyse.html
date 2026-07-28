@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours : Électrolyse (Terminale Spé) | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">🔋</span> 
+                <h1 class="hero-title">Électrolyse</h1>
+            </div>
+        </header>
+
+<p>[<br>  enhanced,<br>  sharp corners,<br>  colback=bglight,<br>  colframe=borderlight,<br>  boxrule=0.5pt,<br>  top=2mm,<br>  bottom=2mm,<br>  left=3mm,<br>  right=3mm<br>]<br><strong>Objectifs du chapitre</strong><br><ul><li>Comprendre le principe et le fonctionnement d'un électrolyseur.</li><li>Identifier les réactions aux électrodes (oxydation et réduction).</li><li>Distinguer anode et cathode dans un électrolyseur.</li><li>Exploiter la relation entre quantité de matière, intensité et durée.</li><li>Réaliser un bilan de matière lors d'une électrolyse.</li><li>Comprendre les aspects énergétiques de l'électrolyse.</li><li>Connaître des applications industrielles et énergétiques de l'électrolyse.<br></li></ul></p>
+<h2 class="section-title">1. Principe de l'électrolyse</h2>
+<div class="card chapter-card">
+<h3>1.1 Définition et constitution d'un électrolyseur</h3>
+<div class="definition-box">
+<strong>Définition -- Électrolyse</strong>
+<p>L'<strong>électrolyse</strong> est une transformation chimique <strong>forcée</strong> par un apport d'énergie électrique. Contrairement aux piles, où la réaction est spontanée, l'électrolyse nécessite un <strong>générateur de courant continu</strong> pour imposer le sens du courant et forcer une réaction chimique qui ne se produirait pas spontanément.<br></div></p>
+<p>Un <strong>électrolyseur</strong> est constitué de :<br><ul><li>une <strong>solution électrolytique</strong> (solution contenant des ions) ou un <strong>électrolyte fondu</strong> ;</li><li>deux <strong>électrodes</strong> conductrices (souvent en métal ou en graphite), plongées dans la solution ;</li><li>un <strong>générateur de courant continu</strong> relié aux deux électrodes par des fils conducteurs.<br></li></ul></p>
+<p>Le générateur fournit l'énergie nécessaire pour forcer le transfert d'électrons aux électrodes.</p>
+<div class="info-box">
+<strong>Remarque -- Différence pile/électrolyseur</strong>
+<p>{1.3}<br><div class="text-center"><br><div class="table-responsive"><table class="modern-table"><tbody><tr><th></th><th><strong>Pile</strong></th><th><strong>Électrolyseur</strong></th></tr><tr><td>Transformation</td><td>Spontanée</td><td>Forcée (non spontanée)</td></tr><tr><td>Énergie</td><td>Convertit énergie chimique $$ électrique</td><td>Convertit énergie électrique $$ chimique</td></tr><tr><td>Générateur</td><td>La pile <em>est</em> le générateur</td><td>Nécessite un générateur externe</td></tr></tbody></table></div><br></div><br></div></p>
+<h3>1.2 Identification des électrodes</h3>
+<div class="definition-box">
+<strong>Définition -- Anode et cathode</strong>
+<ul><li>L'<strong>anode</strong> est l'électrode où se produit l'<strong>oxydation</strong> (perte d'électrons).</li><li>La <strong>cathode</strong> est l'électrode où se produit la <strong>réduction</strong> (gain d'électrons).
+</li></ul>
+<strong>Moyen mnémotechnique :</strong> le mot <strong>A</strong>node commence par <strong>A</strong> comme <strong>A</strong>bandon (d'électrons = oxydation). Le mot réduc<strong>C</strong>tion contient <strong>C</strong> comme <strong>C</strong>athode.
+<strong>Attention :</strong> dans un électrolyseur, l'anode est reliée à la <strong>borne $+$</strong> du générateur et la cathode à la <strong>borne $-$</strong> du générateur. C'est l'inverse de la pile !
+</div>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-68.273505 -66.690846 170.87511 188.54784'>
+<defs>
+<path id='g3-0' d='M4.758157-1.338979C4.853798-1.338979 5.003238-1.338979 5.003238-1.494396S4.853798-1.649813 4.758157-1.649813H.992279C.896638-1.649813 .747198-1.649813 .747198-1.494396S.896638-1.338979 .992279-1.338979H4.758157Z'/>
+<path id='g4-73' d='M3.416189-5.424658C3.505853-5.76538 3.523786-5.846077 4.250062-5.846077C4.420423-5.846077 4.510087-5.846077 4.510087-6.007472C4.510087-6.106102 4.420423-6.124035 4.366625-6.124035C4.187298-6.124035 3.981071-6.106102 3.801743-6.106102C3.595517-6.106102 3.254795-6.097136 3.19203-6.097136C2.985803-6.097136 2.779577-6.106102 2.57335-6.106102C2.385056-6.106102 2.169863-6.124035 1.990535-6.124035C1.936737-6.124035 1.811208-6.124035 1.811208-5.96264C1.811208-5.846077 1.900872-5.846077 2.080199-5.846077C2.27746-5.846077 2.483686-5.846077 2.663014-5.774346C2.67198-5.738481 2.67198-5.702615 2.67198-5.693649C2.67198-5.657783 2.663014-5.559153 2.654047-5.523288L1.43462-.681445C1.353923-.367621 1.33599-.277958 .645579-.277958C.448319-.277958 .349689-.277958 .349689-.116563C.349689-.071731 .367621 0 .484184 0C.663512 0 .860772-.017933 1.049066-.017933C1.255293-.017933 1.461519-.026899 1.667746-.026899S2.080199-.017933 2.286426-.017933C2.47472-.017933 2.689913 0 2.86924 0C2.932005 0 3.048568 0 3.048568-.161395C3.048568-.277958 2.958904-.277958 2.779577-.277958C2.438854-.277958 2.178829-.277958 2.178829-.439352C2.178829-.502117 2.178829-.52005 2.214695-.645579L3.416189-5.424658Z'/>
+<path id='g4-101' d='M1.228394-2.0533C1.775342-2.0533 2.358157-2.0533 2.833375-2.169863C3.676214-2.37609 3.828643-2.878207 3.828643-3.183064C3.828643-3.694147 3.353425-3.963138 2.824408-3.963138C1.784309-3.963138 .42142-3.084433 .42142-1.542217C.42142-.690411 .923537 .09863 1.891905 .09863C3.236862 .09863 3.990037-.833873 3.990037-.950436C3.990037-1.004234 3.927273-1.075965 3.864508-1.075965C3.819676-1.075965 3.81071-1.066999 3.730012-.968369C3.19203-.304857 2.37609-.125529 1.909838-.125529C1.273225-.125529 1.102864-.726276 1.102864-1.174595C1.102864-1.192528 1.102864-1.506351 1.228394-2.0533ZM1.291158-2.27746C1.685679-3.694147 2.680946-3.738979 2.824408-3.738979C3.129265-3.738979 3.496887-3.595517 3.496887-3.183064C3.496887-2.27746 2.142964-2.27746 1.291158-2.27746Z'/>
+<path id='g8-0' d='M4.383562-1.105853C4.463263-1.105853 4.597758-1.105853 4.597758-1.24533S4.463263-1.384807 4.383562-1.384807H1.011208C.931507-1.384807 .797011-1.384807 .797011-1.24533S.931507-1.105853 1.011208-1.105853H4.383562Z'/>
+<path id='g9-43' d='M2.699875-1.105853H4.433375C4.498132-1.105853 4.632628-1.105853 4.632628-1.24533S4.498132-1.384807 4.433375-1.384807H2.699875V-3.118306C2.699875-3.188045 2.699875-3.32254 2.560399-3.32254S2.420922-3.188045 2.420922-3.118306V-1.384807H.682441C.617684-1.384807 .483188-1.384807 .483188-1.24533S.617684-1.105853 .682441-1.105853H2.420922V.627646C2.420922 .697385 2.420922 .83188 2.560399 .83188S2.699875 .697385 2.699875 .627646V-1.105853Z'/>
+</defs>
+<g id='page1'>
+<path d='M-67.875 108.3008V-5.0859H102.2031V108.3008Z' stroke='#0e7490' fill='none' stroke-width='.79701'/>
+<path d='M-67.875 108.3008V37.4336H102.2031V108.3008Z' fill='#f2f2ff'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 -45.3143 70.2486)'>
+<use x='17.163968' y='51.608394' xlink:href='#g7-83'/>
+<use x='22.28241' y='51.608394' xlink:href='#g7-111'/>
+<use x='26.889006' y='51.608394' xlink:href='#g7-108'/>
+<use x='29.448227' y='51.608394' xlink:href='#g7-117'/>
+<use x='34.566669' y='51.608394' xlink:href='#g7-116'/>
+<use x='38.149573' y='51.608394' xlink:href='#g7-105'/>
+<use x='40.708794' y='51.608394' xlink:href='#g7-111'/>
+<use x='45.31539' y='51.608394' xlink:href='#g7-110'/>
+<use x='53.504896' y='51.608394' xlink:href='#g7-233'/>
+<use x='57.603118' y='51.608394' xlink:href='#g7-108'/>
+<use x='60.162339' y='51.608394' xlink:href='#g7-101'/>
+<use x='64.260561' y='51.608394' xlink:href='#g7-99'/>
+<use x='68.355311' y='51.608394' xlink:href='#g7-116'/>
+<use x='71.938216' y='51.608394' xlink:href='#g7-114'/>
+<use x='75.541873' y='51.608394' xlink:href='#g7-111'/>
+<use x='80.148469' y='51.608394' xlink:href='#g7-108'/>
+<use x='82.70769' y='51.608394' xlink:href='#g7-121'/>
+<use x='87.570209' y='51.608394' xlink:href='#g7-116'/>
+<use x='91.153114' y='51.608394' xlink:href='#g7-105'/>
+<use x='93.712335' y='51.608394' xlink:href='#g7-113'/>
+<use x='98.574854' y='51.608394' xlink:href='#g7-117'/>
+<use x='103.693296' y='51.608394' xlink:href='#g7-101'/>
+</g>
+<path d='M-39.5313 37.4336V-19.2578' stroke='#595959' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M73.8594 37.4336V-19.2578' stroke='#595959' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M-45.1992 102.6328V37.4336H-33.8594V102.6328Z' fill='#ccc'/>
+<path d='M68.1875 102.6328V37.4336H79.5273V102.6328Z' fill='#ccc'/>
+<g fill='#b30000' transform='matrix(1 0 0 1 -83.8528 -82.5503)'>
+<use x='17.163968' y='51.608394' xlink:href='#g6-65'/>
+<use x='25.823815' y='51.608394' xlink:href='#g6-110'/>
+<use x='32.187281' y='51.608394' xlink:href='#g6-111'/>
+<use x='38.232574' y='51.608394' xlink:href='#g6-100'/>
+<use x='44.59604' y='51.608394' xlink:href='#g6-101'/>
+<use x='53.663979' y='51.608394' xlink:href='#g6-40'/>
+<use x='58.118405' y='51.608394' xlink:href='#g6-43'/>
+<use x='67.027258' y='51.608394' xlink:href='#g6-41'/>
+</g>
+<g fill='#b30000' transform='matrix(1 0 0 1 -77.9354 -74.3201)'>
+<use x='17.163968' y='51.608394' xlink:href='#g7-79'/>
+<use x='24.329785' y='51.608394' xlink:href='#g7-120'/>
+<use x='29.192304' y='51.608394' xlink:href='#g7-121'/>
+<use x='34.054823' y='51.608394' xlink:href='#g7-100'/>
+<use x='39.173265' y='51.608394' xlink:href='#g7-97'/>
+<use x='43.779861' y='51.608394' xlink:href='#g7-116'/>
+<use x='47.362765' y='51.608394' xlink:href='#g7-105'/>
+<use x='49.921986' y='51.608394' xlink:href='#g7-111'/>
+<use x='54.528582' y='51.608394' xlink:href='#g7-110'/>
+</g>
+<g fill='currentColor0b3' transform='matrix(1 0 0 1 27.2622 -82.5503)'>
+<use x='17.163968' y='51.608394' xlink:href='#g6-67'/>
+<use x='25.436474' y='51.608394' xlink:href='#g6-97'/>
+<use x='31.004506' y='51.608394' xlink:href='#g6-116'/>
+<use x='35.458933' y='51.608394' xlink:href='#g6-104'/>
+<use x='41.822399' y='51.608394' xlink:href='#g6-111'/>
+<use x='47.867692' y='51.608394' xlink:href='#g6-100'/>
+<use x='54.231158' y='51.608394' xlink:href='#g6-101'/>
+<use x='63.299097' y='51.608394' xlink:href='#g6-40'/>
+<use x='67.753523' y='51.608394' xlink:href='#g6-45'/>
+<use x='71.571603' y='51.608394' xlink:href='#g6-41'/>
+</g>
+<g fill='currentColor0b3' transform='matrix(1 0 0 1 36.1542 -73.4486)'>
+<use x='17.163968' y='51.608394' xlink:href='#g7-82'/>
+<use x='23.945212' y='51.608394' xlink:href='#g7-233'/>
+<use x='28.043434' y='51.608394' xlink:href='#g7-100'/>
+<use x='33.161876' y='51.608394' xlink:href='#g7-117'/>
+<use x='38.280318' y='51.608394' xlink:href='#g7-99'/>
+<use x='42.375068' y='51.608394' xlink:href='#g7-116'/>
+<use x='45.957972' y='51.608394' xlink:href='#g7-105'/>
+<use x='48.517193' y='51.608394' xlink:href='#g7-111'/>
+<use x='53.12379' y='51.608394' xlink:href='#g7-110'/>
+</g>
+<path d='M-39.5313-19.2578V-47.6055H.1563' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M73.8594-19.2578V-47.6055H34.1719' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M.1563-36.2656V-58.9456H34.1719V-36.2656Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -4.1681 -96.1199)'>
+<use x='17.163968' y='51.608394' xlink:href='#g5-71'/>
+</g>
+<g fill='#b30000' transform='matrix(1 0 0 1 -13.89847 -114.9767)'>
+<use x='17.163968' y='51.608394' xlink:href='#g9-43'/>
+</g>
+<g fill='currentColor0b3' transform='matrix(1 0 0 1 8.6403 -114.9767)'>
+<use x='17.163968' y='51.608394' xlink:href='#g8-0'/>
+</g>
+<path d='M-11.1836-47.6055H34.6836' stroke='#f97316' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M38.14063-47.605446L33.40234-49.40232L34.98438-47.605446L33.40234-45.80857Z' fill='#f97316'/>
+<path d='M38.14063-47.605446L33.40234-49.40232L34.98438-47.605446L33.40234-45.80857Z' stroke='#f97316' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#f97316' transform='matrix(1 0 0 1 -5.2 -108.9063)'>
+<use x='17.163968' y='51.608394' xlink:href='#g4-73'/>
+</g>
+<path d='M59.6836-27.7617H-21.2461' stroke='#10b981' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-24.2227-27.761678L-20.06645-26.19137L-21.44535-27.761678L-20.06645-29.33199Z' fill='#10b981'/>
+<path d='M-24.2227-27.761678L-20.06645-26.19137L-21.44535-27.761678L-20.06645-29.33199Z' stroke='#10b981' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#10b981' transform='matrix(1 0 0 1 -5.2693 -67.053)'>
+<use x='17.163968' y='51.608394' xlink:href='#g4-101'/>
+<use x='21.448225' y='47.79939' xlink:href='#g3-0'/>
+</g>
+<path d='M2.9922 65.7813H-26.9141' stroke='#f66' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-29.89058 65.781258L-25.73824 67.35157L-27.11324 65.781258L-25.73824 64.21095Z' fill='#f66'/>
+<path d='M-29.89058 65.781258L-25.73824 67.35157L-27.11324 65.781258L-25.73824 64.21095Z' stroke='#f66' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#f66' transform='matrix(1 0 0 1 -6.8926 17.9953)'>
+<use x='17.163968' y='51.608394' xlink:href='#g7-77'/>
+<use x='25.60801' y='47.79939' xlink:href='#g1-110'/>
+<use x='30.531778' y='47.79939' xlink:href='#g2-43'/>
+</g>
+<g fill='#f66' transform='matrix(1 0 0 1 -70.2053 31.0914)'>
+<use x='17.163968' y='51.608394' xlink:href='#g0-118'/>
+<use x='21.397056' y='51.608394' xlink:href='#g0-101'/>
+<use x='25.159801' y='51.608394' xlink:href='#g0-114'/>
+<use x='28.45912' y='51.608394' xlink:href='#g0-115'/>
+<use x='34.620615' y='51.608394' xlink:href='#g0-108'/>
+<use x='36.972331' y='51.608394' xlink:href='#g0-39'/>
+<use x='39.324047' y='51.608394' xlink:href='#g0-97'/>
+<use x='43.557135' y='51.608394' xlink:href='#g0-110'/>
+<use x='48.260566' y='51.608394' xlink:href='#g0-111'/>
+<use x='52.728826' y='51.608394' xlink:href='#g0-100'/>
+<use x='57.432258' y='51.608394' xlink:href='#g0-101'/>
+</g>
+<path d='M31.3359 51.609377H61.2422' stroke='#66f' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M64.21871 51.609377L60.06637 50.03906L61.44137 51.609377L60.06637 53.17969Z' fill='#66f'/>
+<path d='M64.21871 51.609377L60.06637 50.03906L61.44137 51.609377L60.06637 53.17969Z' stroke='#66f' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#66f' transform='matrix(1 0 0 1 -12.56232 3.8219)'>
+<use x='17.163968' y='51.608394' xlink:href='#g7-77'/>
+<use x='25.60801' y='47.79939' xlink:href='#g1-110'/>
+<use x='30.531778' y='47.79939' xlink:href='#g2-43'/>
+</g>
+<g fill='#66f' transform='matrix(1 0 0 1 20.2943 16.918)'>
+<use x='17.163968' y='51.608394' xlink:href='#g0-118'/>
+<use x='21.397056' y='51.608394' xlink:href='#g0-101'/>
+<use x='25.159801' y='51.608394' xlink:href='#g0-114'/>
+<use x='28.45912' y='51.608394' xlink:href='#g0-115'/>
+<use x='34.620615' y='51.608394' xlink:href='#g0-108'/>
+<use x='36.972331' y='51.608394' xlink:href='#g0-97'/>
+<use x='44.027478' y='51.608394' xlink:href='#g0-99'/>
+<use x='47.790223' y='51.608394' xlink:href='#g0-97'/>
+<use x='52.023312' y='51.608394' xlink:href='#g0-116'/>
+<use x='55.315714' y='51.608394' xlink:href='#g0-104'/>
+<use x='60.019145' y='51.608394' xlink:href='#g0-111'/>
+<use x='64.487405' y='51.608394' xlink:href='#g0-100'/>
+<use x='69.190836' y='51.608394' xlink:href='#g0-101'/>
+</g>
+</g>
+</svg></div>
+</div>
+</div>
+<h2 class="section-title">2. Réactions aux électrodes</h2>
+<div class="card chapter-card">
+<h3>2.1 Transfert d'électrons aux électrodes</h3>
+<p>Lors de l'électrolyse, les réactions qui se produisent aux électrodes sont des réactions d'<strong>oxydoréduction</strong> :</p>
+<div class="definition-box">
+<strong>Réactions aux électrodes</strong>
+<strong>À la cathode</strong> (borne $-$ du générateur) : il y a <strong>réduction</strong>.
+<p>L'espèce chimique <strong>gagne</strong> des électrons fournis par le générateur :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{n + }(aq) + n e^{-}  (s)$$</div></div>$</div></div></p>
+<strong>À l'anode</strong> (borne $+$ du générateur) : il y a <strong>oxydation</strong>.
+<p>L'espèce chimique <strong>perd</strong> des électrons qui sont captés par le générateur :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$(s)  ^{n + }(aq) + n e^{-}$$</div></div>$</div></div><br></div></p>
+<div class="example-box">
+<strong>Exemple -- Électrolyse d'une solution de sulfate de cuivre (II)</strong>
+<p>La solution contient des ions cuivre (II) $$^{2 + }(aq)$$ et des ions sulfate $${}_4^{2-}(aq)$$.</p>
+<strong>À la cathode</strong> (réduction des ions cuivre) :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{2 + }(aq) + 2 e^{-}  (s)$$</div></div>$</div></div>
+Un dépôt de cuivre métallique se forme sur la cathode.
+<strong>À l'anode</strong> (oxydation de l'eau) :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2 {}_2(l)  {}_2(g) + 4 ^ + (aq) + 4 e^{-}$$</div></div>$</div></div>
+Du dioxygène gazeux se dégage à l'anode.
+<strong>Bilan :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2 ^{2 + }(aq) + 2 {}_2(l)  2 (s) + {}_2(g) + 4 ^ + (aq)$$</div></div>$</div></div>
+</div>
+<h3>2.2 Électrolyse de l'eau</h3>
+<p>L'eau pure ne conduit pratiquement pas le courant. Pour réaliser l'électrolyse de l'eau, on ajoute un électrolyte (par exemple de l'acide sulfurique dilué $${}_2{}_4$$ ou de la soude $$NaO$$) qui fournit des ions pour assurer la conduction dans la solution.</p>
+<div class="definition-box">
+<strong>Demi-équations de l'électrolyse de l'eau</strong>
+<strong>À la cathode</strong> (réduction) :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2 {}_2(l) + 2 e^{-}  {}_2(g) + 2 O^{-}(aq)$$</div></div>$</div></div>
+ou, en milieu acide :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2 ^ + (aq) + 2 e^{-}  {}_2(g)$$</div></div>$</div></div>
+<strong>À l'anode</strong> (oxydation) :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2 {}_2(l)  {}_2(g) + 4 ^ + (aq) + 4 e^{-}$$</div></div>$</div></div>
+<strong>Bilan global</strong> (en multipliant la réaction cathodique par 2 pour équilibrer les électrons) :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${$2 {}_2(l)  2 {}_2(g) + {}_2(g)$}$$</div></div></div></div>
+</div>
+<div class="info-box">
+<strong>Remarque -- Rapport des volumes</strong>
+<p>On produit <strong>deux fois plus</strong> de dihydrogène que de dioxygène (en volume, à même température et pression). Si on recueille les gaz dans des tubes gradués, on observe $V(${}_2$) = 2  V(${}_2$)$. C'est cohérent avec l'équation bilan.<br></div></p>
+</div>
+<h2 class="section-title">3. Étude quantitative de l'électrolyse</h2>
+<div class="card chapter-card">
+<h3>3.1 Relation entre intensité, durée et quantité de matière d'électrons</h3>
+<div class="definition-box">
+<strong>Relation fondamentale</strong>
+<p>La charge électrique $Q$ qui circule pendant une durée $ t$ à intensité constante $I$ est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div><br>où :<br><ul><li>$Q$ : charge électrique en <strong>coulombs</strong> ($$) ;</li><li>$I$ : intensité du courant en <strong>ampères</strong> ($$) ;</li><li>$ t$ : durée de l'électrolyse en <strong>secondes</strong> ($$).<br></li></ul><br></div></p>
+<div class="definition-box">
+<strong>Relation entre charge et quantité de matière d'électrons</strong>
+<p>La charge $Q$ est liée à la quantité de matière d'électrons $n(e^-)$ échangés :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div><br>où :<br><ul><li>$n(e^-)$ : quantité de matière d'électrons en <strong>moles</strong> ($$) ;</li><li>$F$ : <strong>constante de Faraday</strong>, $F = {C.mol^{-1}}$.<br></li></ul></p>
+<p>La constante de Faraday $F$ représente la charge électrique portée par <strong>une mole d'électrons</strong>. Elle se calcule par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$F = N_A  e$$</div></div></div></div><br>où $N_A = {mol^{-1}}$ est le nombre d'Avogadro et $e = $1{,}60  10^{-19}   $$ est la charge élémentaire.</p>
+<p>Application numérique : $F = $6{,}02  10^{23}$  $1{,}60  10^{-19}$ = {C.mol^{-1}}  {C.mol^{-1}}$.<br></div></p>
+<p>En combinant les deux relations, on obtient :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$I   t = n(e^-)  F$$</div></div></div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${n(e^-) = {F}}$$</div></div></div></div></p>
+<div class="example-box">
+<strong>Méthode -- Exploiter la relation quantitative</strong>
+<p>Pour déterminer la quantité de matière d'une espèce produite ou consommée lors d'une électrolyse :</p>
+<ol><li>Écrire les demi-équations aux électrodes et identifier les coefficients stœchiométriques.</li><li>Calculer la charge $Q = I   t$ (en coulombs).</li><li>Calculer la quantité de matière d'électrons : $n(e^-) = Q/F$.</li><li>Utiliser la stœchiométrie de la demi-équation pour relier $n(e^-)$ à la quantité de matière de l'espèce recherchée.</li><li>Si nécessaire, convertir en masse avec $m = n  M$ ou en volume avec $V = n  V_m$.
+</li></ol>
+</div>
+<h3>3.2 Tableau d'avancement pour l'électrolyse</h3>
+<p>Comme pour toute réaction chimique, on peut dresser un tableau d'avancement. L'avancement maximal est ici limité soit par la quantité de matière des espèces en solution, soit par la quantité d'électrons échangés (déterminée par $I$ et $ t$).</p>
+<div class="example-box">
+<strong>Exemple -- Électrolyse d'une solution de chlorure de cuivre (II)</strong>
+<p>On électrolyse une solution de chlorure de cuivre (II) avec un courant d'intensité $I = $2{,}0   $$ pendant $ t = $30   $$.</p>
+<strong>À la cathode :</strong> $$^{2 + }(aq) + 2 e^{-}  (s)$$
+<strong>Étape 1 :</strong> Charge transférée :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = I   t = 2{,}0  30  60 = $3600   $$</div></div>$</div></div>
+<strong>Étape 2 :</strong> Quantité de matière d'électrons :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(e^-) = {F} = {96500} = $0{,}0373   $$</div></div>$</div></div>
+<strong>Étape 3 :</strong> D'après la demi-équation, $$2   $$ d'électrons déposent $$1   $$ de cuivre :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n($$) = {2} = {0{,}0373}{2} = $0{,}0187   $$</div></div>$</div></div>
+<strong>Étape 4 :</strong> Masse de cuivre déposée ($M($$) = {g.mol^{-1}}$) :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m($$) = n($$)  M($$) = 0{,}0187  63{,}5 = $1{,}19   $$</div></div>$</div></div>
+</div>
+</div>
+<h2 class="section-title">4. Aspects énergétiques</h2>
+<div class="card chapter-card">
+<h3>4.1 Énergie électrique consommée</h3>
+<div class="definition-box">
+<strong>Énergie consommée par un électrolyseur</strong>
+<p>L'énergie électrique $E$ fournie par le générateur à l'électrolyseur est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div><br>où :<br><ul><li>$E$ : énergie en <strong>joules</strong> ($$) ;</li><li>$U$ : tension aux bornes de l'électrolyseur en <strong>volts</strong> ($$) ;</li><li>$I$ : intensité du courant en <strong>ampères</strong> ($$) ;</li><li>$ t$ : durée en <strong>secondes</strong> ($$).<br></li></ul></p>
+<p>On peut aussi écrire $E = U  Q$, puisque $Q = I   t$.<br></div></p>
+<div class="info-box">
+<strong>Remarque -- Rendement</strong>
+<p>En pratique, toute l'énergie fournie n'est pas convertie en énergie chimique. Une partie est dissipée sous forme de chaleur (effet Joule dans la solution, dans les fils, etc.). Le rendement de l'électrolyseur est toujours inférieur à $100 <br></div></p>
+<h3>4.2 Applications industrielles et énergétiques</h3>
+<p>L'électrolyse a de nombreuses applications importantes :</p>
+<ul><li><strong>Galvanoplastie</strong> (dépôt métallique) : on dépose une fine couche de métal (or, argent, chrome, zinc...) sur un objet par électrolyse. L'objet à recouvrir est placé à la cathode. Cette technique est utilisée pour la protection contre la corrosion ou pour des raisons esthétiques.</li><li><strong>Production de métaux</strong> : l'aluminium est produit industriellement par électrolyse de l'alumine fondue (procédé Hall-Héroult). Le cuivre est purifié par électrolyse (affinage électrolytique).</li><li><strong>Production de dihydrogène</strong> : l'électrolyse de l'eau permet de produire du dihydrogène $${}_2$$, vecteur énergétique propre si l'électricité utilisée est d'origine renouvelable. C'est un enjeu majeur de la transition énergétique.</li><li><strong>Production de dichlore et de soude</strong> : l'électrolyse d'une solution de chlorure de sodium (eau salée) produit du dichlore $${}_2$$ à l'anode et de la soude $$NaO$$ à la cathode (procédé chlore-soude).
+</li></ul>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.007905 -68.604787 405.03511 62.975952'>
+<defs/>
+<g id='page1'>
+<path d='M11.4453-67.5039H-65.625C-67.8242-67.5039-69.6094-65.7188-69.6094-63.5156V-43.1406C-69.6094-40.9414-67.8242-39.1563-65.625-39.1563H11.4453C13.6484-39.1563 15.4297-40.9414 15.4297-43.1406V-63.5156C15.4297-65.7188 13.6484-67.5039 11.4453-67.5039Z' fill='#feeadc'/>
+<path d='M11.4453-67.5039H-65.625C-67.8242-67.5039-69.6094-65.7188-69.6094-63.5156V-43.1406C-69.6094-40.9414-67.8242-39.1563-65.625-39.1563H11.4453C13.6484-39.1563 15.4297-40.9414 15.4297-43.1406V-63.5156C15.4297-65.7188 13.6484-67.5039 11.4453-67.5039Z' stroke='#f97316' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -22.6013 8.5214)'>
+<use x='-22.095715' y='-64.288246' xlink:href='#g1-201'/>
+<use x='-15.134634' y='-64.288246' xlink:href='#g1-110'/>
+<use x='-9.241514' y='-64.288246' xlink:href='#g1-101'/>
+<use x='-4.374147' y='-64.288246' xlink:href='#g1-114'/>
+<use x='.001427' y='-64.288246' xlink:href='#g1-103'/>
+<use x='5.305238' y='-64.288246' xlink:href='#g1-105'/>
+<use x='8.251802' y='-64.288246' xlink:href='#g1-101'/>
+<use x='-27.089303' y='-53.329342' xlink:href='#g1-233'/>
+<use x='-22.221935' y='-53.329342' xlink:href='#g1-108'/>
+<use x='-19.275371' y='-53.329342' xlink:href='#g1-101'/>
+<use x='-14.408003' y='-53.329342' xlink:href='#g1-99'/>
+<use x='-9.693502' y='-53.329342' xlink:href='#g1-116'/>
+<use x='-5.568319' y='-53.329342' xlink:href='#g1-114'/>
+<use x='-1.192745' y='-53.329342' xlink:href='#g1-105'/>
+<use x='1.753819' y='-53.329342' xlink:href='#g1-113'/>
+<use x='7.352289' y='-53.329342' xlink:href='#g1-117'/>
+<use x='13.245409' y='-53.329342' xlink:href='#g1-101'/>
+</g>
+<path d='M168.1487-67.5039H91.0777C88.8787-67.5039 87.0937-65.7188 87.0937-63.5156V-43.1406C87.0937-40.9414 88.8787-39.1563 91.0777-39.1563H168.1487C170.3517-39.1563 172.1367-40.9414 172.1367-43.1406V-63.5156C172.1367-65.7188 170.3517-67.5039 168.1487-67.5039Z' fill='#dbeaee'/>
+<path d='M168.1487-67.5039H91.0777C88.8787-67.5039 87.0937-65.7188 87.0937-63.5156V-43.1406C87.0937-40.9414 88.8787-39.1563 91.0777-39.1563H168.1487C170.3517-39.1563 172.1367-40.9414 172.1367-43.1406V-63.5156C172.1367-65.7188 170.3517-67.5039 168.1487-67.5039Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 136.0023 8.5214)'>
+<use x='-23.994387' y='-64.288246' xlink:href='#g1-201'/>
+<use x='-17.033306' y='-64.288246' xlink:href='#g1-110'/>
+<use x='-11.140186' y='-64.288246' xlink:href='#g1-101'/>
+<use x='-6.272819' y='-64.288246' xlink:href='#g1-114'/>
+<use x='-1.897245' y='-64.288246' xlink:href='#g1-103'/>
+<use x='3.406566' y='-64.288246' xlink:href='#g1-105'/>
+<use x='6.35313' y='-64.288246' xlink:href='#g1-101'/>
+<use x='-27.089303' y='-53.329342' xlink:href='#g1-99'/>
+<use x='-22.669473' y='-53.329342' xlink:href='#g1-104'/>
+<use x='-16.776353' y='-53.329342' xlink:href='#g1-105'/>
+<use x='-13.829788' y='-53.329342' xlink:href='#g1-109'/>
+<use x='-4.990104' y='-53.329342' xlink:href='#g1-105'/>
+<use x='-2.04354' y='-53.329342' xlink:href='#g1-113'/>
+<use x='3.55493' y='-53.329342' xlink:href='#g1-117'/>
+<use x='9.44805' y='-53.329342' xlink:href='#g1-101'/>
+</g>
+<path d='M330.6447-67.5039H247.7847C245.5817-67.5039 243.8007-65.7188 243.8007-63.5156V-43.1406C243.8007-40.9414 245.5817-39.1563 247.7847-39.1563H330.6447C332.8437-39.1563 334.6287-40.9414 334.6287-43.1406V-63.5156C334.6287-65.7188 332.8437-67.5039 330.6447-67.5039Z' fill='#d9efe8'/>
+<path d='M330.6447-67.5039H247.7847C245.5817-67.5039 243.8007-65.7188 243.8007-63.5156V-43.1406C243.8007-40.9414 245.5817-39.1563 247.7847-39.1563H330.6447C332.8437-39.1563 334.6287-40.9414 334.6287-43.1406V-63.5156C334.6287-65.7188 332.8437-67.5039 330.6447-67.5039Z' stroke='#059669' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 274.2083 7.4529)'>
+<use x='-9.35463' y='-64.288246' xlink:href='#g1-85'/>
+<use x='-1.209389' y='-64.288246' xlink:href='#g1-116'/>
+<use x='2.915794' y='-64.288246' xlink:href='#g1-105'/>
+<use x='5.862358' y='-64.288246' xlink:href='#g1-108'/>
+<use x='8.808923' y='-64.288246' xlink:href='#g1-105'/>
+<use x='11.755487' y='-64.288246' xlink:href='#g1-115'/>
+<use x='15.939612' y='-64.288246' xlink:href='#g1-97'/>
+<use x='21.096089' y='-64.288246' xlink:href='#g1-116'/>
+<use x='25.221272' y='-64.288246' xlink:href='#g1-105'/>
+<use x='28.167837' y='-64.288246' xlink:href='#g1-111'/>
+<use x='33.471647' y='-64.288246' xlink:href='#g1-110'/>
+<use x='-27.089303' y='-53.329342' xlink:href='#g1-40'/>
+<use x='-22.964119' y='-53.329342' xlink:href='#g1-112'/>
+<use x='-17.070999' y='-53.329342' xlink:href='#g1-105'/>
+<use x='-14.124435' y='-53.329342' xlink:href='#g1-108'/>
+<use x='-11.177871' y='-53.329342' xlink:href='#g1-101'/>
+<use x='-6.310503' y='-53.329342' xlink:href='#g1-44'/>
+<use x='.171935' y='-53.329342' xlink:href='#g1-99'/>
+<use x='4.886436' y='-53.329342' xlink:href='#g1-111'/>
+<use x='10.190247' y='-53.329342' xlink:href='#g1-109'/>
+<use x='18.73526' y='-53.329342' xlink:href='#g1-98'/>
+<use x='24.62838' y='-53.329342' xlink:href='#g1-117'/>
+<use x='30.5215' y='-53.329342' xlink:href='#g1-115'/>
+<use x='34.705625' y='-53.329342' xlink:href='#g1-116'/>
+<use x='38.830809' y='-53.329342' xlink:href='#g1-105'/>
+<use x='41.777373' y='-53.329342' xlink:href='#g1-111'/>
+<use x='47.081184' y='-53.329342' xlink:href='#g1-110'/>
+<use x='52.974304' y='-53.329342' xlink:href='#g1-41'/>
+</g>
+<path d='M15.8281-53.328125H81.5387' stroke='#f97316' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M84.99222-53.328125L80.25785-55.125L81.83988-53.328125L80.25785-51.53516Z' fill='#f97316'/>
+<path d='M84.99222-53.328125L80.25785-55.125L81.83988-53.328125L80.25785-51.53516Z' stroke='#f97316' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#f97316' transform='matrix(1 0 0 1 56.3676 -5.6605)'>
+<use x='-27.089303' y='-53.329342' xlink:href='#g2-201'/>
+<use x='-20.819904' y='-53.329342' xlink:href='#g2-108'/>
+<use x='-18.260683' y='-53.329342' xlink:href='#g2-101'/>
+<use x='-14.162461' y='-53.329342' xlink:href='#g2-99'/>
+<use x='-10.067711' y='-53.329342' xlink:href='#g2-116'/>
+<use x='-6.484807' y='-53.329342' xlink:href='#g2-114'/>
+<use x='-2.881149' y='-53.329342' xlink:href='#g2-111'/>
+<use x='1.725447' y='-53.329342' xlink:href='#g2-108'/>
+<use x='4.284668' y='-53.329342' xlink:href='#g2-121'/>
+<use x='9.147187' y='-53.329342' xlink:href='#g2-115'/>
+<use x='12.781278' y='-53.329342' xlink:href='#g2-101'/>
+</g>
+<g fill='#f97316' transform='matrix(1 0 0 1 67.0051 10.0929)'>
+<use x='-27.089303' y='-53.329342' xlink:href='#g0-102'/>
+<use x='-24.267241' y='-53.329342' xlink:href='#g0-111'/>
+<use x='-19.563813' y='-53.329342' xlink:href='#g0-114'/>
+<use x='-16.153823' y='-53.329342' xlink:href='#g0-99'/>
+<use x='-12.391077' y='-53.329342' xlink:href='#g0-233'/>
+<use x='-8.628332' y='-53.329342' xlink:href='#g0-101'/>
+</g>
+<path d='M172.5347-53.328125H238.2457' stroke='#059669' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M241.69893-53.328125L236.96065-55.125L238.54268-53.328125L236.96065-51.53516Z' fill='#059669'/>
+<path d='M241.69893-53.328125L236.96065-55.125L238.54268-53.328125L236.96065-51.53516Z' stroke='#059669' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#059669' transform='matrix(1 0 0 1 220.9153 -3.9175)'>
+<use x='-27.089303' y='-53.329342' xlink:href='#g2-80'/>
+<use x='-20.819904' y='-53.329342' xlink:href='#g2-105'/>
+<use x='-18.260683' y='-53.329342' xlink:href='#g2-108'/>
+<use x='-15.701462' y='-53.329342' xlink:href='#g2-101'/>
+<use x='-8.532176' y='-53.329342' xlink:href='#g2-111'/>
+<use x='-3.92558' y='-53.329342' xlink:href='#g2-117'/>
+</g>
+<g fill='#059669' transform='matrix(1 0 0 1 212.1263 10.0929)'>
+<use x='-27.089303' y='-53.329342' xlink:href='#g2-99'/>
+<use x='-22.994552' y='-53.329342' xlink:href='#g2-111'/>
+<use x='-18.387956' y='-53.329342' xlink:href='#g2-109'/>
+<use x='-10.96623' y='-53.329342' xlink:href='#g2-98'/>
+<use x='-5.847788' y='-53.329342' xlink:href='#g2-117'/>
+<use x='-.729346' y='-53.329342' xlink:href='#g2-115'/>
+<use x='2.904744' y='-53.329342' xlink:href='#g2-116'/>
+<use x='6.487649' y='-53.329342' xlink:href='#g2-105'/>
+<use x='9.04687' y='-53.329342' xlink:href='#g2-111'/>
+<use x='13.653466' y='-53.329342' xlink:href='#g2-110'/>
+</g>
+<path d='M289.2147-67.9023C182.3907-6.2266 79.7347-6.2266-22.625-65.3242' stroke='#808080' fill='none' stroke-width='1.19553' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M-25.613272-67.05082L-22.410147-63.128942L-22.882805-65.472694L-20.617179-66.238322Z' fill='#808080'/>
+<path d='M-25.613272-67.05082L-22.410147-63.128942L-22.882805-65.472694L-20.617179-66.238322Z' stroke='#808080' fill='none' stroke-width='1.195503' stroke-miterlimit='10'/>
+<g fill='#808080' transform='matrix(1 0 0 1 114.9384 25.5255)'>
+<use x='-27.089303' y='-53.329342' xlink:href='#g0-83'/>
+<use x='-21.915527' y='-53.329342' xlink:href='#g0-116'/>
+<use x='-18.858296' y='-53.329342' xlink:href='#g0-111'/>
+<use x='-14.625211' y='-53.329342' xlink:href='#g0-99'/>
+<use x='-10.392123' y='-53.329342' xlink:href='#g0-107'/>
+<use x='-6.159034' y='-53.329342' xlink:href='#g0-97'/>
+<use x='-1.455607' y='-53.329342' xlink:href='#g0-103'/>
+<use x='2.777482' y='-53.329342' xlink:href='#g0-101'/>
+<use x='10.302957' y='-53.329342' xlink:href='#g0-47'/>
+<use x='18.298771' y='-53.329342' xlink:href='#g0-114'/>
+<use x='21.708762' y='-53.329342' xlink:href='#g0-101'/>
+<use x='25.94185' y='-53.329342' xlink:href='#g0-115'/>
+<use x='29.704599' y='-53.329342' xlink:href='#g0-116'/>
+<use x='32.761831' y='-53.329342' xlink:href='#g0-105'/>
+<use x='35.583892' y='-53.329342' xlink:href='#g0-116'/>
+<use x='38.641124' y='-53.329342' xlink:href='#g0-117'/>
+<use x='43.57973' y='-53.329342' xlink:href='#g0-116'/>
+<use x='46.636961' y='-53.329342' xlink:href='#g0-105'/>
+<use x='49.459023' y='-53.329342' xlink:href='#g0-111'/>
+<use x='54.16245' y='-53.329342' xlink:href='#g0-110'/>
+</g>
+</g>
+</svg></div>
+</div>
+<div class="info-box">
+<strong>L'hydrogène vert</strong>
+<p>Quand l'électricité provient de sources renouvelables (solaire, éolien, hydraulique), le dihydrogène produit par électrolyse est qualifié de <strong>« vert »</strong>. Il peut ensuite être utilisé dans une <strong>pile à combustible</strong> pour produire de l'électricité, avec comme seul rejet de l'eau :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2 {}_2(g) + {}_2(g)  2 {}_2(l)$$</div></div>$</div></div><br>Ce cycle « électrolyse + pile à combustible » constitue un moyen de <strong>stocker l'énergie</strong> renouvelable sous forme chimique.<br></div></p>
+<p>[<br>  enhanced,<br>  sharp corners,<br>  colback=synthgreen!5,<br>  colframe=synthgreen,<br>  boxrule=1.2pt,<br>  width=,<br>  top=4mm,<br>  bottom=4mm,<br>  left=4mm,<br>  right=4mm,<br>  title={{<strong> À retenir -- L'essentiel du chapitre</strong>}},<br>  coltitle=white,<br>  colbacktitle=synthgreen,<br>  attach boxed title to top left={yshift=-2mm, xshift=2mm},<br>  boxed title style={sharp corners, boxrule=0pt}<br>]</p>
+<strong>Principe :</strong> l'électrolyse est une transformation chimique <strong>forcée</strong> par un générateur de courant continu.
+<strong>Électrodes :</strong>
+<ul><li><strong>Anode</strong> (borne $+$) : <strong>oxydation</strong> (perte d'$e^-$)</li><li><strong>Cathode</strong> (borne $-$) : <strong>réduction</strong> (gain d'$e^-$)
+</li></ul>
+<strong>Relations fondamentales :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = I   t  ($$ = $$  $$)$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = n(e^-)  F   F = {C.mol^{-1}}$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n(e^-) = {F}$$</div></div></div></div>
+<strong>Énergie :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$E = U  I   t  ($$ = $$  $$  $$)$$</div></div></div></div>
+<strong>Constante de Faraday :</strong> $F = N_A  e = {C.mol^{-1}}$. C'est la charge d'une mole d'électrons.
+<strong>Électrolyse de l'eau :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2 {}_2(l)  2 {}_2(g) + {}_2(g)$$</div></div>$</div></div>
+<strong>Points de vigilance :</strong>
+<ul><li>$ t$ doit être en <strong>secondes</strong> pour obtenir $Q$ en coulombs.</li><li>Bien identifier quel ion est réduit (cathode) et quelle espèce est oxydée (anode).</li><li>Utiliser la stœchiométrie de la demi-équation pour relier $n(e^-)$ à $n$ de l'espèce.</li><li>Dans l'électrolyseur : anode = borne $+$ (inverse de la pile).
+</li></ul>
+</div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="exercices_electrolyse.html" class="btn-action">📝 Exercices</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=electrolyse" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=electrolyse" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

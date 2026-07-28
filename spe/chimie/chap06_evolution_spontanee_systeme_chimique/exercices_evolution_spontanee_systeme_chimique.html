@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Évolution spontanée d'un système chimique | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+
+    <style>
+        .graph-container { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; max-width: 600px; margin: 25px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .svg-grid { stroke: #cbd5e1; stroke-width: 1; }
+        .svg-grid-minor { stroke: #f1f5f9; stroke-width: 1; }
+        .svg-axis { stroke: #1e293b; stroke-width: 2; }
+        .svg-text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #475569; }
+        .svg-text-bold { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #1e293b; }
+        .svg-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; fill: #0f172a; text-anchor: middle; }
+        .svg-line { stroke: #3b82f6; stroke-width: 3; stroke-linecap: round; }
+        .svg-point { stroke: #ef4444; stroke-width: 2; fill: none; }
+        body.dark-mode .graph-container { background: #0f172a; border-color: #334155; }
+        body.dark-mode .svg-grid { stroke: #334155; }
+        body.dark-mode .svg-grid-minor { stroke: #1e293b; }
+        body.dark-mode .svg-axis { stroke: #cbd5e1; }
+        body.dark-mode .svg-text { fill: #94a3b8; }
+        body.dark-mode .svg-text-bold { fill: #f8fafc; }
+        body.dark-mode .svg-title { fill: #f8fafc; }
+        body.dark-mode .svg-line { stroke: #60a5fa; }
+    </style>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">📝</span>
+                <h1 class="hero-title">Exercices : Évolution spontanée d'un système chimique</h1>
+            </div>
+        </header>
+
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 1</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Quotient de réaction -- Calcul à l'état initial.
+</div>
+<p>On considère la réaction entre les ions étain (IV) $^{4 + }$ et les ions thiosulfate ${}_2{}_3^{2-}$ dont l'équation s'écrit :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{4 + }(aq) + 2{}_2{}_3^{2-}(aq)  ^{2 + }(aq) + {}_4{}_6^{2-}(aq)$$</div></div>$</div></div>
+<p>La constante d'équilibre de cette réaction à {{}^{}} vaut $K(T) = 120$.</p>
+<p>Dans un bécher, on mélange les espèces chimiques suivantes dans un volume total $V = {1{,}00}{}$ :</p>
+<ul><li>$n_{$^{4 + }$} = {25{,}0}{}$ ;</li><li>$n_{$^{2 + }$} = {12{,}5}{}$ ;</li><li>$n_{${}_2{}_3^{2-}$} = {50{,}0}{}$ ;</li><li>$n_{${}_4{}_6^{2-}$} = {5{,}0}{}$.
+</li></ul>
+<ol><li>Rappeler l'expression du quotient de réaction $Q_r$ associé à cette réaction.</li><li>Calculer les concentrations en quantité de matière de chaque espèce à l'état initial.</li><li>Calculer la valeur du quotient de réaction $Q_{r,i}$ à l'état initial.</li><li>Comparer $Q_{r,i}$ à $K(T)$. En déduire le sens d'évolution spontanée du système.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Pour déterminer le sens d'évolution spontanée d'un système chimique, on calcule le quotient de réaction $Q_{r,i}$ à l'état initial, puis on le compare à la constante d'équilibre $K(T)$.
+<ul><li>Si $Q_{r,i} < K(T)$ : le système évolue dans le <strong>sens direct</strong> (sens 1, de gauche à droite).</li><li>Si $Q_{r,i} > K(T)$ : le système évolue dans le <strong>sens indirect</strong> (sens 2, de droite à gauche).</li><li>Si $Q_{r,i} = K(T)$ : le système est à l'<strong>équilibre</strong> et n'évolue pas.
+</li></ul>
+</div>
+<strong>1. Expression du quotient de réaction $Q_r$.</strong>
+<p>L'équation de la réaction est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{4 + }(aq) + 2{}_2{}_3^{2-}(aq)  ^{2 + }(aq) + {}_4{}_6^{2-}(aq)$$</div></div>$</div></div></p>
+<p>Le quotient de réaction s'écrit en utilisant les concentrations des espèces dissoutes rapportées à la concentration standard $c{^} = $1   $$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_r = {{[$^{2 + }$]}{c{^}}  {[${}_4{}_6^{2-}$]}{c{^}}}{{[$^{4 + }$]}{c{^}}  ({[${}_2{}_3^{2-}$]}{c{^}})^2}$$</div></div></div></div>
+<p>En simplifiant avec $c{^} = $1   $$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_r = {[$^{2 + }$]  [${}_4{}_6^{2-}$]}{[$^{4 + }$]  [${}_2{}_3^{2-}$]^2}$$</div></div></div></div></p>
+<strong>2. Calcul des concentrations à l'état initial.</strong>
+<p>Le volume total est $V = {1{,}00}{}$. On calcule chaque concentration par $C = {V}$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+[$^{4 + }$]_i &= {n_{$^{4 + }$}}{V} = {{25{,}0e-3}{}}{{1{,}00}{}} = {25{,}0e-3}{} = {25{,}0}{} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>6pt]
+[$^{2 + }$]_i &= {n_{$^{2 + }$}}{V} = {{12{,}5e-3}{}}{{1{,}00}{}} = {12{,}5e-3}{} = {12{,}5}{} \\[6pt]
+[${}_2{}_3^{2-}$]_i &= {n_{${}_2{}_3^{2-}$}}{V} = {{50{,}0e-3}{}}{{1{,}00}{}} = {50{,}0e-3}{} = {50{,}0}{} \\[6pt]
+[${}_4{}_6^{2-}$]_i &= {n_{${}_4{}_6^{2-}$}}{V} = {{5{,}0e-3}{}}{{1{,}00}{}} = {5{,}0e-3}{} = {5{,}0}{}
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<p>{3. Calcul du quotient de réaction $Q_{r,i}$ à l'état initial.}</p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+Q_{r,i} &= {[$^{2 + }$]_i  [${}_4{}_6^{2-}$]_i}{[$^{4 + }$]_i  ([${}_2{}_3^{2-}$]_i)^2} \\[6pt]
+Q_{r,i} &= {{12{,}5e-3}  {5{,}0e-3}}{{25{,}0e-3}  ({50{,}0e-3})^2} \\[6pt]
+Q_{r,i} &= {{12{,}5e-3}  {5{,}0e-3}}{{25{,}0e-3}  {2{,}50e-3}} \\[6pt]
+Q_{r,i} &= {{6{,}25e-5}}{{6{,}25e-5}} \\[6pt]
+Q_{r,i} &= 1{,}0
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>4. Comparaison et sens d'évolution.</strong>
+<p>On compare $Q_{r,i}$ à $K(T)$ :<br>\[<br>Q_{r,i} = 1{,}0    K(T) = 120$$</div></div></div></div></p>
+<p>On constate que $Q_{r,i} < K(T)$.</p>
+<strong>Conclusion :</strong> Puisque $Q_{r,i} < K(T)$, le système évolue spontanément dans le <strong>sens direct</strong> (sens 1). Les ions $^{4 + }$ et ${}_2{}_3^{2-}$ sont consommés, tandis que les ions $^{2 + }$ et ${}_4{}_6^{2-}$ sont formés.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 2</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Taux d'avancement final -- Transformation totale ou non totale.
+</div>
+<p>L'acide éthanoïque ${}_3{}_2$ réagit avec le méthanol ${}_3O$ selon la réaction d'équation :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_3{}_2(aq) + {}_3O(aq)  {}_3{}_2{}_3(aq) + {}_2()$$</div></div>$</div></div>
+<p>Cette transformation est réalisée à partir des quantités initiales suivantes :</p>
+<ul><li>$n_{i,} = {1{,}00}{}$ d'acide éthanoïque ;</li><li>$n_{i,} = {2{,}00}{}$ de méthanol.
+</li></ul>
+<p>À l'état final, il reste $n_{f,} = {0{,}16}{}$ d'acide éthanoïque.</p>
+<ol><li>Identifier le réactif limitant et calculer l'avancement maximal $x_{}$.</li><li>Déterminer l'avancement final $x_f$ à partir de la quantité d'acide éthanoïque restante.</li><li>Calculer le taux d'avancement final $$.</li><li>La transformation est-elle totale ou non totale ? Justifier.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Le taux d'avancement final $$ mesure le degré d'avancement de la réaction par rapport à la situation théorique où le réactif limitant serait totalement consommé :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {x_{}}$$</div></div></div></div>
+<ul><li>Si $ = 1$ : la transformation est <strong>totale</strong>.</li><li>Si $ < 1$ : la transformation est <strong>non totale</strong>.
+</li></ul>
+</div>
+<p>{1. Identification du réactif limitant et calcul de $x_{}$.}</p>
+<p>L'équation de la réaction est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_3{}_2(aq) + {}_3O(aq)  {}_3{}_2{}_3(aq) + {}_2()$$</div></div>$</div></div></p>
+<p>Les coefficients st chiométriques sont tous égaux à 1. On dresse le tableau d'avancement :</p>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th></th><th>${}_3{}_2$</th><th>${}_3O$</th><th>${}_3{}_2{}_3$</th><th>${}_2$</th></tr><tr><td>État initial</td><td>${1{,}00}{}$</td><td>${2{,}00}{}$</td><td>0</td><td>excès</td></tr><tr><td>En cours ($x$)</td><td>$1{,}00 - x$</td><td>$2{,}00 - x$</td><td>$x$</td><td>--</td></tr></tbody></table></div>
+</div>
+<p>Pour trouver le réactif limitant, on cherche quelle espèce s'épuise en premier :<br><ul><li>Pour ${}_3{}_2$ : $1{,}00 - x_{} = 0  x_{} = {1{,}00}{}$.</li><li>Pour ${}_3O$ : $2{,}00 - x_{} = 0  x_{} = {2{,}00}{}$.<br></li></ul></p>
+<p>Le réactif limitant est celui qui impose la plus petite valeur de $x_{}$, donc c'est l'<strong>acide éthanoïque</strong> ${}_3{}_2$, avec :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${x_{} = {1{,}00}{}}$$</div></div></div></div></p>
+<strong>2. Détermination de l'avancement final $x_f$.</strong>
+<p>À l'état final, la quantité d'acide éthanoïque restante est $n_{f,} = {0{,}16}{}$.</p>
+<p>D'après le tableau d'avancement :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n_{f,} = n_{i,} - x_f$$</div></div></div></div></p>
+<p>On isole $x_f$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$x_f = n_{i,} - n_{f,}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$x_f = {1{,}00}{} - {0{,}16}{} = {0{,}84}{}$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${x_f = {0{,}84}{}}$$</div></div></div></div>
+<strong>3. Calcul du taux d'avancement final $$.</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {x_{}} = {0{,}84}{1{,}00} = 0{,}84$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ = 0{,}84  84
+<strong>4. Caractère de la transformation.</strong>
+<strong>Conclusion :</strong> Le taux d'avancement final $ = 0{,}84 < 1$. La transformation est donc <strong>non totale</strong>. Il reste de l'acide éthanoïque et du méthanol dans le milieu réactionnel à l'état final : le système a atteint un état d'équilibre chimique.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 3</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Quotient de réaction et sens d'évolution spontanée -- Test d'identification.
+</div>
+<p>L'hydroxyde de cobalt $(O)2$(s) est un composé ionique utilisé dans la fabrication des cathodes de batteries lithium-ion.</p>
+<p>Dans un bécher contenant une solution de chlorure de cobalt de concentration en quantité d'ion $^{2 + }(aq)$ : $C_1 = $20   $$ et de volume $V_1 = $50   $$, on ajoute une solution d'hydroxyde de sodium de concentration en quantité d'ion $H^{-}(aq)$ : $C_2 = $40   $$ et de volume $V_2 = $50   $$.</p>
+<p>L'équation de la réaction entre $^{2 + }$ et $H^{-}$ s'écrit :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{2 + }(aq) + 2H^{-}(aq)  (O)2(s)$$</div></div>$</div></div>
+<p>La constante d'équilibre de cette réaction à {{}^{}} vaut $K(T) = {4{,}0e15}$.</p>
+<ol><li>Écrire l'expression du quotient de réaction $Q_r$.</li><li>Calculer les concentrations effectives des ions $^{2 + }$ et $H^{-}$ après le mélange, à l'état initial.</li><li>Calculer la valeur du quotient de réaction $Q_{r,i}$ à l'état initial.</li><li>Déterminer le sens d'évolution spontanée du système. Le précipité d'hydroxyde de cobalt se forme-t-il ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Lorsqu'un solide ou le solvant intervient dans la réaction, son activité vaut 1. Seules les espèces dissoutes apparaissent dans l'expression du quotient de réaction.
+</div>
+<strong>1. Expression du quotient de réaction $Q_r$.</strong>
+<p>L'équation de la réaction est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{2 + }(aq) + 2H^{-}(aq)  (O)2(s)$$</div></div>$</div></div></p>
+<p>Le produit $(O)2$ est un solide : son activité vaut 1. Le quotient de réaction ne contient donc que les espèces dissoutes (au dénominateur, car ce sont les réactifs) :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_r = {{[$^{2 + }$]}{c{^}}  ({[$H^{-}$]}{c{^}})^2}$$</div></div></div></div>
+<p>En simplifiant avec $c{^} = $1   $$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${Q_r = {[$^{2 + }$]  [$H^{-}$]^2}}$$</div></div></div></div></p>
+<strong>2. Calcul des concentrations après mélange.</strong>
+<p>Lors du mélange, le volume total est $V_{} = V_1 + V_2 = $50   $ + $50   $ = $100   $$.</p>
+<p>Les quantités de matière initiales sont :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>n_{$^{2 + }$} &= C_1  V_1 = 20  10^{-3} $$  50  10^{-3} $$ = {1{,}0e-3}{} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>4pt]<br>n_{$H^{-}$} &= C_2  V_2 = 40  10^{-3} $$  50  10^{-3} $$ = {2{,}0e-3}{}<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<p>Les concentrations après mélange (avant réaction) sont :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div><br>[$^{2 + }$]_i &= {n_{$^{2 + }$}}{V_{}} = {{1{,}0e-3}{}}{100  10^{-3} $$} = 10  10^{-3} $$ = $10   $ \\[6pt]<br>[$H^{-}$]_i &= {n_{$H^{-}$}}{V_{}} = {{2{,}0e-3}{}}{100  10^{-3} $$} = 20  10^{-3} $$ = $20   $<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<p>{3. Calcul du quotient de réaction $Q_{r,i}$ à l'état initial.}</p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+Q_{r,i} &= {[$^{2 + }$]_i  ([$H^{-}$]_i)^2} \\[6pt]
+Q_{r,i} &= {(10  10^{-3})  (20  10^{-3})^2} \\[6pt]
+Q_{r,i} &= {10  10^{-3}  4{,}0  10^{-4}} \\[6pt]
+Q_{r,i} &= {{4{,}0e-6}} \\[6pt]
+Q_{r,i} &= {2{,}5e5}
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>4. Sens d'évolution spontanée.</strong>
+<p>On compare $Q_{r,i}$ à $K(T)$ :<br>\[<br>Q_{r,i} = {2{,}5e5}    K(T) = {4{,}0e15}$$</div></div></div></div></p>
+<p>On constate que $Q_{r,i}  K(T)$.</p>
+<strong>Conclusion :</strong> Puisque $Q_{r,i} < K(T)$, le système évolue dans le <strong>sens direct</strong>. La réaction de formation du précipité d'hydroxyde de cobalt $(O)2$(s) a bien lieu : le <strong>précipité se forme</strong>. Ce test constitue donc un test d'identification positif pour l'ion $^{2 + }$.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 4</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Taux d'avancement final -- Réactif en agroalimentaire.
+</div>
+<p>L'hydroxyde de calcium $(O)2$, ou chaux éteinte, est un solide peu soluble dans l'eau utilisé dans l'industrie agroalimentaire pour purifier le jus de la betterave sucrière.</p>
+<p>Une quantité initiale $n_i = $50   $$ d'hydroxyde de calcium $(O)2$(s) se dissout dans l'eau pour former des ions calcium $^{2 + }(aq)$ et hydroxyde $H^{-}(aq)$. À l'état final, la quantité d'ion hydroxyde formée est $n_{$H^{-}$} = $60   $$.</p>
+<ol><li>Écrire l'équation de dissolution de l'hydroxyde de calcium dans l'eau.</li><li>Dresser le tableau d'avancement de cette transformation.</li><li>Déterminer l'avancement final $x_f$.</li><li>Calculer le taux d'avancement final $$. La transformation est-elle totale ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Pour une dissolution, on écrit l'équation de dissolution, on dresse le tableau d'avancement, puis on détermine l'avancement final à partir de la quantité de produit formée.
+</div>
+<strong>1. Équation de dissolution de l'hydroxyde de calcium dans l'eau.</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$(O)2(s)  ^{2 + }(aq) + 2H^{-}(aq)$$</div></div>$</div></div>
+<strong>2. Tableau d'avancement.</strong>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th></th><th>$(O)2(s)$</th><th>$^{2 + }(aq)$</th><th>$H^{-}(aq)$</th></tr><tr><td>État initial</td><td>$n_i = $50   <div class="formula-wrapper-centered"><div class="formula-content">$$</td><td>0</td><td>0</td></tr><tr><td>En cours ($x$)</td><td>$n_i - x$</td><td>$x$</td><td>$2x$</td></tr><tr><td>État final ($x_f$)</td><td>$n_i - x_f$</td><td>$x_f$</td><td>$2x_f$</td></tr></tbody></table></div>
+</div>
+<strong>3. Détermination de l'avancement final $x_f$.</strong>
+<p>D'après le tableau d'avancement, la quantité d'ion hydroxyde formée est :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>n_{$H^{-}$} = 2 x_f<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<p>On isole $x_f$ :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>x_f = {n_{$H^{-}$}}{2}<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>x_f = {$60   $}{2} = $30   <div class="formula-wrapper-centered"><div class="formula-content">$$$</div></div>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>{x_f = $30   $}<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>4. Calcul du taux d'avancement final $$.</strong>
+<p>L'avancement maximal correspond à la consommation totale de $(O)2$ :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>x_{} = n_i = $50   <div class="formula-wrapper-centered"><div class="formula-content">$$$</div></div></p>
+<p>Le taux d'avancement final vaut :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div> = {x_{}} = {50} = 0{,}60<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>{ = 0{,}60  60
+<strong>Conclusion :</strong> Le taux d'avancement final $ = 0{,}60 < 1$. La transformation est donc <strong>non totale</strong>. L'hydroxyde de calcium ne se dissout pas entièrement : il reste du solide $(O)2$ dans le bécher à l'état final. C'est cohérent avec le fait que $(O)2$ est <strong>peu soluble</strong> dans l'eau.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 5</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Caractérisation d'un ion -- Quotient de réaction et évolution spontanée.
+</div>
+<p>La présence d'ion thiocyanate $SC^{-}(aq)$ dans la salive peut être une des conséquences d'une exposition au tabagisme, même passif. Cet ion, dont une solution est incolore, peut être dosé par colorimétrie après avoir réagi avec l'ion fer (III) $^{3 + }(aq)$.</p>
+<p>La réaction entre les ions $^{3 + }$ et $SC^{-}$ produit une espèce colorée rouge de formule $FeSC^{2 + }(aq)$.</p>
+<p>Les ions $^{3 + }$ et $SC^{-}$ sont introduits en même quantité initiale $n_i = {10{,}0}{}$ dans un bécher. Le volume total de la solution est $V = $200   $$.</p>
+<p>En fin de réaction, il reste une quantité $n_f = {5{,}4}{}$ de chaque réactif.</p>
+<ol><li>Écrire l'équation de la réaction modélisant la transformation étudiée.</li><li>Dresser le tableau d'avancement et déterminer $x_f$.</li><li>Calculer le taux d'avancement final $$.</li><li>En déduire le caractère total ou non total de cette transformation.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On écrit l'équation de la réaction, on dresse le tableau d'avancement, puis on utilise la quantité de réactif restante pour déterminer $x_f$ et $$.
+</div>
+<strong>1. Équation de la réaction.</strong>
+<p>Les ions $^{3 + }$ et $SC^{-}$ réagissent pour former le complexe coloré $FeSC^{2 + }$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{3 + }(aq) + SC^{-}(aq)  FeSC^{2 + }(aq)$$</div></div>$</div></div>
+<strong>2. Tableau d'avancement et détermination de $x_f$.</strong>
+<p>Les coefficients st chiométriques sont tous égaux à 1. Les deux réactifs sont introduits en même quantité initiale $n_i = {10{,}0}{}$.</p>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th></th><th>$^{3 + }$</th><th>$SC^{-}$</th><th>$FeSC^{2 + }$</th></tr><tr><td>État initial</td><td>${10{,}0}{}$</td><td>${10{,}0}{}$</td><td>0</td></tr><tr><td>En cours ($x$)</td><td>$10{,}0 - x$</td><td>$10{,}0 - x$</td><td>$x$</td></tr><tr><td>État final ($x_f$)</td><td>$10{,}0 - x_f$</td><td>$10{,}0 - x_f$</td><td>$x_f$</td></tr></tbody></table></div>
+</div>
+<p>À l'état final, il reste $n_f = {5{,}4}{}$ de chaque réactif. Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$10{,}0 - x_f = 5{,}4$$</div></div></div></div><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$x_f = 10{,}0 - 5{,}4 = {4{,}6}{}$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${x_f = {4{,}6}{}}$$</div></div></div></div>
+<strong>3. Calcul du taux d'avancement final $$.</strong>
+<p>Les deux réactifs étant en même quantité et ayant le même coefficient st chiométrique, ils sont tous les deux limitants simultanément :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$x_{} = {10{,}0}{}$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {x_{}} = {4{,}6}{10{,}0} = 0{,}46$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ = 0{,}46  46
+<strong>4. Caractère de la transformation.</strong>
+<strong>Conclusion :</strong> Le taux d'avancement final $ = 0{,}46 < 1$. La transformation est donc <strong>non totale</strong>. Le système atteint un état d'équilibre chimique dans lequel coexistent les réactifs $^{3 + }$ et $SC^{-}$ et le produit $FeSC^{2 + }$.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 6</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Transfert direct d'électrons -- Sens d'évolution en oxydoréduction.
+</div>
+<p>Dans un bécher, on introduit quatre échantillons de solutions de même volume $V = $100   $$ :</p>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Échantillon</strong></th><th><strong>Solution</strong></th><th><strong>Concentration</strong> ($$)</th></tr><tr><td>1</td><td>$^ + (aq)$, $^{-}(aq)$</td><td>0{,}050</td></tr><tr><td>2</td><td>$^{3 + }(aq)$, $3^{-}(aq)$</td><td>0{,}050</td></tr><tr><td>3</td><td>${}_2(aq)$</td><td>0{,}10</td></tr><tr><td>4</td><td>$^{2 + }(aq)$, ${}_4^{2-}(aq)$</td><td>1{,}00</td></tr></tbody></table></div>
+</div>
+<strong>Données :</strong> Couples oxydant-réducteur : ${}_2(aq)$/$^{-}(aq)$ et $^{3 + }(aq)$/$^{2 + }(aq)$.
+<p>La constante d'équilibre de la réaction d'oxydation de l'ion iodure par l'ion fer (III), avec les nombres stoechiométriques entiers les plus petits possibles, vaut $K(T) = {5{,}0e8}$ à {{}^{}}.</p>
+<ol><li>Écrire l'équation de la réaction d'oxydation de l'ion iodure par l'ion fer (III).</li><li>Exprimer puis calculer le quotient de réaction $Q_{r,i}$ à l'état initial lorsque l'on mélange les échantillons 1 et 2.</li><li>Déterminer le sens d'évolution spontanée du système chimique étudié.</li><li>Reprendre les questions précédentes pour un mélange des échantillons 3 et 4. Conclure.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Pour une réaction d'oxydoréduction, on écrit les demi-équations électroniques de chaque couple, puis on les combine pour obtenir l'équation de réaction. Ensuite, on calcule $Q_{r,i}$ et on compare à $K(T)$.
+</div>
+<strong>1. Équation de la réaction d'oxydation de l'ion iodure par l'ion fer (III).</strong>
+<p>Les deux couples sont ${}_2(aq)$/$^{-}(aq)$ et $^{3 + }(aq)$/$^{2 + }(aq)$.</p>
+<p>Demi-équation d'oxydation (couple ${}_2$/$^{-}$) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2^{-}(aq)  {}_2(aq) + 2e^{-}$$</div></div>$</div></div></p>
+<p>Demi-équation de réduction (couple $^{3 + }$/$^{2 + }$) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^{3 + }(aq) + e^{-}  ^{2 + }(aq)$$</div></div>$</div></div></p>
+<p>On multiplie la demi-équation de réduction par 2 pour équilibrer les électrons :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2^{3 + }(aq) + 2e^{-}  2^{2 + }(aq)$$</div></div>$</div></div></p>
+<p>L'équation bilan de la réaction est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${$2^{3 + }(aq) + 2^{-}(aq)  2^{2 + }(aq) + {}_2(aq)$}$$</div></div></div></div></p>
+<p>{2. Quotient de réaction $Q_{r,i}$ pour le mélange des échantillons 1 et 2.}</p>
+<p>L'expression du quotient de réaction est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_r = {[$^{2 + }$]^2  [${}_2$]}{[$^{3 + }$]^2  [$^{-}$]^2}$$</div></div></div></div></p>
+<strong>Données :</strong> On mélange les échantillons 1 et 2, chacun de volume $V = $100   $$. Le volume total est $V_{} = $200   $$.
+<p>Calcul des concentrations après mélange :<br><ul><li>Échantillon 1 ($^ + $, $^{-}$ à ${0{,}050}{}$) : $n_{$^{-}$} = 0{,}050  0{,}100 = {5{,}0e-3}{}$.</li><li>Échantillon 2 ($^{3 + }$, $3^{-}$ à ${0{,}050}{}$) : $n_{$^{3 + }$} = 0{,}050  0{,}100 = {5{,}0e-3}{}$.<br></li></ul></p>
+<p>Après mélange :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>[$^{-}$]_i &= {{5{,}0e-3}{}}{{0{,}200}{}} = {0{,}025}{} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>4pt]<br>[$^{3 + }$]_i &= {{5{,}0e-3}{}}{{0{,}200}{}} = {0{,}025}{}<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<p>À l'état initial, les produits $^{2 + }$ et ${}_2$ ne sont pas présents dans ces échantillons :<br>\[<br>[$^{2 + }$]_i = 0    [${}_2$]_i = 0$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_{r,i} = {(0{,}025)^2  (0{,}025)^2} = 0$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${Q_{r,i} = 0}$$</div></div></div></div>
+<strong>3. Sens d'évolution spontanée.</strong>
+<p>On compare : $Q_{r,i} = 0 < K(T) = {5{,}0e8}$.</p>
+<strong>Conclusion :</strong> Puisque $Q_{r,i} < K(T)$, le système évolue dans le <strong>sens direct</strong> : les ions $^{3 + }$ oxydent les ions $^{-}$. Il se forme du diiode ${}_2$ et des ions $^{2 + }$.
+<strong>4. Mélange des échantillons 3 et 4.</strong>
+<p>On mélange maintenant les échantillons 3 (${}_2$ à ${0{,}10}{}$) et 4 ($^{2 + }$, ${}_4^{2-}$ à ${1{,}00}{}$), chacun de volume $V = $100   $$. Le volume total est $V_{} = $200   $$.</p>
+<p>Concentrations après mélange :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>[${}_2$]_i &= {0{,}10  0{,}100}{0{,}200} = {0{,}050}{} \\[4pt]<br>[$^{2 + }$]_i &= {1{,}00  0{,}100}{0{,}200} = {0{,}50}{}<br>$$</div></div></div></div></p>
+<p>À l'état initial, les réactifs $^{3 + }$ et $^{-}$ ne sont pas présents dans ces échantillons. Cela pose un problème mathématique car ils figurent au dénominateur de $Q_r$.</p>
+<div class="info-box">
+<strong>Remarque :</strong> Lorsque les concentrations des réactifs sont nulles au dénominateur, on considère que $Q_{r,i}  +$. Cela signifie que $Q_{r,i} > K(T)$.
+</div>
+<p>Donc : $Q_{r,i}  + > K(T) = {5{,}0e8}$.</p>
+<strong>Conclusion :</strong> Puisque $Q_{r,i} > K(T)$, le système évolue dans le <strong>sens indirect</strong> (sens 2). La réaction inverse a lieu : le diiode ${}_2$ est réduit en ions $^{-}$ et les ions $^{2 + }$ sont oxydés en ions $^{3 + }$. Cela confirme que le sens d'évolution dépend de la composition initiale du système.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 7</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Transfert indirect d'électrons -- Fonctionnement d'une pile.
+</div>
+<p>On considère une pile zinc-argent dont les deux couples oxydant-réducteur mis en jeu sont : $^{2 + }(aq)$/$(s)$ et $^ + (aq)$/$(s)$.</p>
+<p>Le pôle positif de cette pile est l'électrode d'argent.</p>
+<ol><li>Déterminer l'équation de la réaction électrochimique modélisant la transformation ayant lieu à l'électrode d'argent. S'agit-il d'une oxydation ou d'une réduction ?</li><li>Déterminer l'équation de la réaction électrochimique ayant lieu à l'électrode de zinc.</li><li>En déduire l'équation de la réaction globale modélisant le fonctionnement de la pile.</li><li>Indiquer le sens de circulation des électrons dans le circuit extérieur et le sens de circulation du courant.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Dans une pile, le pôle positif est le siège de la <strong>réduction</strong> (les électrons y arrivent). Le pôle négatif est le siège de l'<strong>oxydation</strong> (les électrons en partent).
+</div>
+<strong>1. Réaction à l'électrode d'argent (pôle positif).</strong>
+<p>Le pôle positif est l'électrode d'argent. C'est le lieu où arrivent les électrons venant du circuit extérieur : il s'y produit une <strong>réduction</strong>.</p>
+<p>Le couple mis en jeu est $^ + (aq)$/$(s)$. La demi-équation de réduction est :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${$^ + (aq) + e^{-}  (s)$}  $$</div></div></div></div>
+<strong>2. Réaction à l'électrode de zinc (pôle négatif).</strong>
+<p>Le pôle négatif est l'électrode de zinc. C'est le lieu d'où partent les électrons vers le circuit extérieur : il s'y produit une <strong>oxydation</strong>.</p>
+<p>Le couple mis en jeu est $^{2 + }(aq)$/$(s)$. La demi-équation d'oxydation est :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${$(s)  ^{2 + }(aq) + 2e^{-}$}  $$</div></div></div></div>
+<strong>3. Équation de la réaction globale.</strong>
+<p>On multiplie la demi-équation de réduction par 2 pour équilibrer les électrons :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2^ + (aq) + 2e^{-}  2(s)$$</div></div>$</div></div></p>
+<p>On additionne les deux demi-équations :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>&$(s)  ^{2 + }(aq) + 2e^{-}$ \\<br>+  &$2^ + (aq) + 2e^{-}  2(s)$<br>$$</div></div></div></div></p>
+<p>Les électrons se simplifient et on obtient :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${$(s) + 2^ + (aq)  ^{2 + }(aq) + 2(s)$}$$</div></div></div></div></p>
+<strong>4. Sens de circulation des électrons et du courant.</strong>
+<ul><li>Les <strong>électrons</strong> circulent dans le circuit extérieur depuis l'électrode de <strong>zinc</strong> (pôle $-$) vers l'électrode d'<strong>argent</strong> (pôle $+$).</li><li>Le <strong>courant conventionnel</strong> (sens conventionnel, opposé au sens des électrons) circule dans le circuit extérieur depuis l'électrode d'<strong>argent</strong> (pôle $+$) vers l'électrode de <strong>zinc</strong> (pôle $-$).
+</li></ul>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 8</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Pile et capacité électrique -- Calcul de durée de vie.
+</div>
+<p>Une pile à base d'aluminium et d'une solution d'ion zinc (II) fonctionne selon la transformation chimique dont l'équation s'écrit :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2(s) + 3^{2 + }(aq)  2^{3 + }(aq) + 3(s)$$</div></div>$</div></div>
+<p>L'intensité mesurée à la température ambiante vaut $I = {10{,}0}{}$. La pile fonctionne pendant $ t = $12   $$.</p>
+<strong>Données :</strong>
+<ul><li>Constante de Faraday : $F = $96500   $$.</li><li>Masses molaires : $M($$) = {27{,}0}{}$ ; $M($$) = {65{,}4}{}$.
+</li></ul>
+<ol><li>Identifier le nombre d'électrons échangés pour un avancement $x$ de la réaction.</li><li>Exprimer la quantité de matière d'électrons $n_{e^-}$ échangés entre les deux électrodes de la pile pendant cette durée de fonctionnement.</li><li>Calculer numériquement $n_{e^-}$.</li><li>Déterminer la quantité de matière de zinc $n_{$$}$ formée pendant cette durée.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise la relation entre l'intensité $I$, la durée $ t$, la constante de Faraday $F$ et la quantité de matière d'électrons $n_{e^-}$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n_{e^-} = {F}$$</div></div></div></div>
+Puis on relie $n_{e^-}$ à l'avancement de la réaction via les coefficients st chiométriques.
+</div>
+<strong>1. Nombre d'électrons échangés pour un avancement $x$.</strong>
+<p>L'équation de la réaction est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2(s) + 3^{2 + }(aq)  2^{3 + }(aq) + 3(s)$$</div></div>$</div></div></p>
+<p>Analysons les demi-équations :<br><ul><li>Oxydation de l'aluminium : $$(s)  ^{3 + }(aq) + 3e^{-}$$. Pour 2 mol d'Al : $2  3 = 6$ électrons.</li><li>Réduction du zinc : $$^{2 + }(aq) + 2e^{-}  (s)$$. Pour 3 mol de $^{2 + }$ : $3  2 = 6$ électrons.<br></li></ul></p>
+<strong>Conclusion :</strong> Pour un avancement $x$ de la réaction, il y a <strong>6 moles d'électrons</strong> échangées :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${n_{e^-} = 6x}$$</div></div></div></div>
+<strong>2. Expression de la quantité de matière d'électrons échangés.</strong>
+<p>La charge électrique totale transférée pendant la durée $ t$ est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = I   t$$</div></div></div></div></p>
+<p>Cette charge est reliée à la quantité de matière d'électrons par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q = n_{e^-}  F$$</div></div></div></div></p>
+<p>On en déduit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${n_{e^-} = {F}}$$</div></div></div></div></p>
+<p>{3. Calcul numérique de $n_{e^-}$.}</p>
+<strong>Données :</strong>
+<ul><li>$I = {10{,}0}{} = {10{,}0e-3}{}$</li><li>$ t = $12   $ = 12  3600 = $43200   $$</li><li>$F = $96500   $$
+</li></ul>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+n_{e^-} &= {F} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>6pt]
+n_{e^-} &= {{10{,}0e-3}  $43200$}{$96500$} \\[6pt]
+n_{e^-} &= {$96500$} \\[6pt]
+n_{e^-} &= {4{,}48e-3}{}
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<p>\[<br>{n_{e^-}  {4{,}5e-3}{}}$$</div></div></div></div></p>
+<strong>4. Quantité de matière de zinc formée.</strong>
+<p>D'après la relation $n_{e^-} = 6x$, on obtient l'avancement :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$x = {n_{e^-}}{6} = {{4{,}48e-3}}{6} = {7{,}47e-4}{}$$</div></div></div></div></p>
+<p>D'après le tableau d'avancement, la quantité de zinc formée est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n_{$$} = 3x$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n_{$$} = 3  {7{,}47e-4} = {2{,}24e-3}{}$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${n_{$$}  {2{,}2e-3}{}}$$</div></div></div></div>
+<div class="info-box">
+<strong>Vérification :</strong> On pouvait aussi utiliser directement la relation entre $n_{e^-}$ et $n_{$$}$. D'après la demi-équation $$^{2 + } + 2e^{-}  $$, pour chaque mole de zinc formée, 2 moles d'électrons sont consommées. Donc $n_{$$} = {n_{e^-}}{2} = {{4{,}48e-3}}{2} = {2{,}24e-3}{}$. On retrouve le même résultat.
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 9</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Pile argent-plomb -- Sens de circulation et schéma.
+</div>
+<p>Une pile argent-plomb fait intervenir les couples oxydant-réducteur $^ + (aq)$/$(s)$ et $^{2 + }(aq)$/$(s)$.</p>
+<p>Sa tension à vide est positive lorsque l'électrode de plomb est connectée à la borne marquée (COM) du voltmètre et l'électrode d'argent à la borne de mesure (V).</p>
+<p>Les deux demi-piles sont reliées par un pont salin contenant du nitrate de potassium ($^ + (aq)$, ${}_3^{-}(aq)$).</p>
+<ol><li>Déterminer l'équation de la réaction électrochimique ayant lieu à chaque électrode.</li><li>En déduire l'équation de la réaction globale de fonctionnement de la pile.</li><li>Déterminer le sens de circulation des porteurs de charge à l'intérieur et à l'extérieur de la pile lorsqu'elle fonctionne.</li><li>Réaliser un schéma clair et annoté de cette pile en fonctionnement, indiquant :
+<ol><li>la polarité des électrodes ;</li><li>le sens de circulation des électrons ;</li><li>le sens de circulation du courant ;</li><li>le sens de déplacement des ions dans le pont salin.
+</li></ol>
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Lorsque la tension à vide est positive avec le plomb sur COM et l'argent sur V, cela signifie que $U = V_{} - V_{} > 0$, donc l'électrode d'argent est au potentiel le plus élevé : c'est le <strong>pôle positif</strong>.
+</div>
+<strong>1. Réactions électrochimiques à chaque électrode.</strong>
+<em>Électrode d'argent (pôle $+$) :</em> c'est le siège de la <strong>réduction</strong>. Le couple est $^ + (aq)$/$(s)$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^ + (aq) + e^{-}  (s)$  $$</div></div></div></div>
+<em>Électrode de plomb (pôle $-$) :</em> c'est le siège de l'<strong>oxydation</strong>. Le couple est $^{2 + }(aq)$/$(s)$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$(s)  ^{2 + }(aq) + 2e^{-}$  $$</div></div></div></div>
+<strong>2. Équation de la réaction globale.</strong>
+<p>On équilibre les électrons en multipliant la demi-équation de réduction par 2 :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$2^ + (aq) + 2e^{-}  2(s)$$</div></div>$</div></div></p>
+<p>On additionne :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>&$(s)  ^{2 + }(aq) + 2e^{-}$ \\<br>+  &$2^ + (aq) + 2e^{-}  2(s)$<br>$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${$(s) + 2^ + (aq)  ^{2 + }(aq) + 2(s)$}$$</div></div></div></div>
+<strong>3. Sens de circulation des porteurs de charge.</strong>
+<em>Dans le circuit extérieur :</em>
+<ul><li>Les <strong>électrons</strong> circulent de l'électrode de plomb (pôle $-$, où ils sont libérés par l'oxydation) vers l'électrode d'argent (pôle $+$, où ils sont consommés par la réduction).</li><li>Le <strong>courant conventionnel</strong> circule en sens inverse : de l'électrode d'argent (pôle $+$) vers l'électrode de plomb (pôle $-$).
+</li></ul>
+<em>Dans le pont salin :</em>
+<ul><li>Les <strong>cations</strong> $^ + $ migrent vers la demi-pile contenant l'électrode d'argent (pôle $+$), pour compenser la disparition des ions $^ + $ consommés par la réduction.</li><li>Les <strong>anions</strong> ${}_3^{-}$ migrent vers la demi-pile contenant l'électrode de plomb (pôle $-$), pour compenser l'apparition des ions $^{2 + }$ formés par l'oxydation.
+</li></ul>
+<em>Dans les solutions :</em>
+<ul><li>Le courant circule dans le même sens que les cations, c'est-à-dire du pôle $-$ vers le pôle $+$ à l'intérieur de la pile (via le pont salin).
+</li></ul>
+<strong>4. Schéma annoté de la pile.</strong>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.6887 -64.644605 335.31201 130.99497'>
+<defs>
+<path id='g3-0' d='M4.758157-1.338979C4.853798-1.338979 5.003238-1.338979 5.003238-1.494396S4.853798-1.649813 4.758157-1.649813H.992279C.896638-1.649813 .747198-1.649813 .747198-1.494396S.896638-1.338979 .992279-1.338979H4.758157Z'/>
+<path id='g4-0' d='M6.052304-2.0533C6.213699-2.0533 6.38406-2.0533 6.38406-2.25056C6.38406-2.438854 6.204732-2.438854 6.052304-2.438854H1.102864C.950436-2.438854 .771108-2.438854 .771108-2.25056C.771108-2.0533 .941469-2.0533 1.102864-2.0533H6.052304Z'/>
+<path id='g5-73' d='M3.416189-5.424658C3.505853-5.76538 3.523786-5.846077 4.250062-5.846077C4.420423-5.846077 4.510087-5.846077 4.510087-6.007472C4.510087-6.106102 4.420423-6.124035 4.366625-6.124035C4.187298-6.124035 3.981071-6.106102 3.801743-6.106102C3.595517-6.106102 3.254795-6.097136 3.19203-6.097136C2.985803-6.097136 2.779577-6.106102 2.57335-6.106102C2.385056-6.106102 2.169863-6.124035 1.990535-6.124035C1.936737-6.124035 1.811208-6.124035 1.811208-5.96264C1.811208-5.846077 1.900872-5.846077 2.080199-5.846077C2.27746-5.846077 2.483686-5.846077 2.663014-5.774346C2.67198-5.738481 2.67198-5.702615 2.67198-5.693649C2.67198-5.657783 2.663014-5.559153 2.654047-5.523288L1.43462-.681445C1.353923-.367621 1.33599-.277958 .645579-.277958C.448319-.277958 .349689-.277958 .349689-.116563C.349689-.071731 .367621 0 .484184 0C.663512 0 .860772-.017933 1.049066-.017933C1.255293-.017933 1.461519-.026899 1.667746-.026899S2.080199-.017933 2.286426-.017933C2.47472-.017933 2.689913 0 2.86924 0C2.932005 0 3.048568 0 3.048568-.161395C3.048568-.277958 2.958904-.277958 2.779577-.277958C2.438854-.277958 2.178829-.277958 2.178829-.439352C2.178829-.502117 2.178829-.52005 2.214695-.645579L3.416189-5.424658Z'/>
+<path id='g5-101' d='M1.228394-2.0533C1.775342-2.0533 2.358157-2.0533 2.833375-2.169863C3.676214-2.37609 3.828643-2.878207 3.828643-3.183064C3.828643-3.694147 3.353425-3.963138 2.824408-3.963138C1.784309-3.963138 .42142-3.084433 .42142-1.542217C.42142-.690411 .923537 .09863 1.891905 .09863C3.236862 .09863 3.990037-.833873 3.990037-.950436C3.990037-1.004234 3.927273-1.075965 3.864508-1.075965C3.819676-1.075965 3.81071-1.066999 3.730012-.968369C3.19203-.304857 2.37609-.125529 1.909838-.125529C1.273225-.125529 1.102864-.726276 1.102864-1.174595C1.102864-1.192528 1.102864-1.506351 1.228394-2.0533ZM1.291158-2.27746C1.685679-3.694147 2.680946-3.738979 2.824408-3.738979C3.129265-3.738979 3.496887-3.595517 3.496887-3.183064C3.496887-2.27746 2.142964-2.27746 1.291158-2.27746Z'/>
+<path id='g6-43' d='M6.330262-2.0533C6.455791-2.0533 6.644085-2.0533 6.644085-2.241594C6.644085-2.438854 6.473724-2.438854 6.330262-2.438854H3.774844V-5.003238C3.774844-5.1467 3.774844-5.317061 3.577584-5.317061C3.38929-5.317061 3.38929-5.128767 3.38929-5.003238V-2.438854H.824907C.699377-2.438854 .511083-2.438854 .511083-2.25056C.511083-2.0533 .681445-2.0533 .824907-2.0533H3.38929V.511083C3.38929 .654545 3.38929 .824907 3.58655 .824907C3.774844 .824907 3.774844 .636613 3.774844 .511083V-2.0533H6.330262Z'/>
+</defs>
+<g id='page1'>
+<path d='M39.70707-19.9102H-35.67973C-36.77733-19.9102-37.67183-19.0156-37.67183-17.918V48.9648C-37.67183 50.0664-36.77733 50.957-35.67973 50.957H39.70707C40.80857 50.957 41.69917 50.0664 41.69917 48.9648V-17.918C41.69917-19.0156 40.80857-19.9102 39.70707-19.9102Z' fill='#ebebff'/>
+<path d='M39.70707-19.9102H-35.67973C-36.77733-19.9102-37.67183-19.0156-37.67183-17.918V48.9648C-37.67183 50.0664-36.77733 50.957-35.67973 50.957H39.70707C40.80857 50.957 41.69917 50.0664 41.69917 48.9648V-17.918C41.69917-19.0156 40.80857-19.9102 39.70707-19.9102Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-19.95313 35.3672H-10.03123V-21.3281H-19.95313Z' fill='#bfbfbf'/>
+<path d='M-19.95313 35.3672H-10.03123V-21.3281H-19.95313Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -23.57647 -42.761)'>
+<use x='2.01527' y='15.524516' xlink:href='#g7-80'/>
+<use x='9.258551' y='15.524516' xlink:href='#g7-98'/>
+</g>
+<g transform='matrix(1 0 0 1 -41.97327 49.8296)'>
+<use x='2.01527' y='15.524516' xlink:href='#g8-80'/>
+<use x='8.284668' y='15.524516' xlink:href='#g8-98'/>
+<use x='13.403107' y='11.715512' xlink:href='#g2-50'/>
+<use x='17.055184' y='11.715512' xlink:href='#g2-43'/>
+<use x='23.142084' y='15.524516' xlink:href='#g8-40'/>
+<use x='26.724977' y='15.524516' xlink:href='#g8-97'/>
+<use x='31.331573' y='15.524516' xlink:href='#g8-113'/>
+<use x='36.194091' y='15.524516' xlink:href='#g8-41'/>
+<use x='39.776984' y='15.524516' xlink:href='#g8-44'/>
+<use x='45.407269' y='15.524516' xlink:href='#g8-78'/>
+<use x='52.315778' y='15.524516' xlink:href='#g8-79'/>
+<use x='59.481581' y='16.520765' xlink:href='#g2-51'/>
+<use x='64.403705' y='11.715512' xlink:href='#g2-21'/>
+<use x='69.325829' y='15.524516' xlink:href='#g8-40'/>
+<use x='72.908722' y='15.524516' xlink:href='#g8-97'/>
+<use x='77.515318' y='15.524516' xlink:href='#g8-113'/>
+<use x='82.377836' y='15.524516' xlink:href='#g8-41'/>
+</g>
+<g fill='#f00' transform='matrix(1 0 0 1 -68.70397 -48.6854)'>
+<use x='2.01527' y='15.524516' xlink:href='#g7-80'/>
+<use x='8.963879' y='15.524516' xlink:href='#g7-244'/>
+<use x='14.26769' y='15.524516' xlink:href='#g7-108'/>
+<use x='17.214254' y='15.524516' xlink:href='#g7-101'/>
+<use x='25.617495' y='15.524516' xlink:href='#g4-0'/>
+</g>
+<path d='M238.13627-19.9102H162.75027C161.64827-19.9102 160.75827-19.0156 160.75827-17.918V48.9648C160.75827 50.0664 161.64827 50.957 162.75027 50.957H238.13627C239.23827 50.957 240.12927 50.0664 240.12927 48.9648V-17.918C240.12927-19.0156 239.23827-19.9102 238.13627-19.9102Z' fill='#ffffeb'/>
+<path d='M238.13627-19.9102H162.75027C161.64827-19.9102 160.75827-19.0156 160.75827-17.918V48.9648C160.75827 50.0664 161.64827 50.957 162.75027 50.957H238.13627C239.23827 50.957 240.12927 50.0664 240.12927 48.9648V-17.918C240.12927-19.0156 239.23827-19.9102 238.13627-19.9102Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M212.49227 35.3672H222.41027V-21.3281H212.49227Z' fill='#a6a6a6'/>
+<path d='M212.49227 35.3672H222.41027V-21.3281H212.49227Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 208.78173 -44.504)'>
+<use x='2.01527' y='15.524516' xlink:href='#g7-65'/>
+<use x='10.019402' y='15.524516' xlink:href='#g7-103'/>
+</g>
+<g transform='matrix(1 0 0 1 158.21673 49.8296)'>
+<use x='2.01527' y='15.524516' xlink:href='#g8-65'/>
+<use x='8.923779' y='15.524516' xlink:href='#g8-103'/>
+<use x='13.530362' y='11.715512' xlink:href='#g2-43'/>
+<use x='19.617262' y='15.524516' xlink:href='#g8-40'/>
+<use x='23.200155' y='15.524516' xlink:href='#g8-97'/>
+<use x='27.806751' y='15.524516' xlink:href='#g8-113'/>
+<use x='32.669269' y='15.524516' xlink:href='#g8-41'/>
+<use x='36.252162' y='15.524516' xlink:href='#g8-44'/>
+<use x='41.882447' y='15.524516' xlink:href='#g8-78'/>
+<use x='48.790956' y='15.524516' xlink:href='#g8-79'/>
+<use x='55.956759' y='16.520765' xlink:href='#g2-51'/>
+<use x='60.878883' y='11.715512' xlink:href='#g2-21'/>
+<use x='65.801007' y='15.524516' xlink:href='#g8-40'/>
+<use x='69.3839' y='15.524516' xlink:href='#g8-97'/>
+<use x='73.990496' y='15.524516' xlink:href='#g8-113'/>
+<use x='78.853014' y='15.524516' xlink:href='#g8-41'/>
+</g>
+<g fill='#f00' transform='matrix(1 0 0 1 236.36173 -48.6854)'>
+<use x='2.01527' y='15.524516' xlink:href='#g7-80'/>
+<use x='8.963879' y='15.524516' xlink:href='#g7-244'/>
+<use x='14.26769' y='15.524516' xlink:href='#g7-108'/>
+<use x='17.214254' y='15.524516' xlink:href='#g7-101'/>
+<use x='25.617495' y='15.524516' xlink:href='#g6-43'/>
+</g>
+<path d='M41.69917-7.1523V-26.9961H160.75827V-7.1523H152.25427V-18.4922H50.20317V-7.1523Z' fill='#e6ffe6'/>
+<path d='M41.69917-7.1523V-26.9961H160.75827V-7.1523H152.25427V-18.4922H50.20317V-7.1523Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 78.90653 -29.5109)'>
+<use x='2.01527' y='15.524516' xlink:href='#g8-80'/>
+<use x='8.028731' y='15.524516' xlink:href='#g8-111'/>
+<use x='12.635327' y='15.524516' xlink:href='#g8-110'/>
+<use x='17.497832' y='15.524516' xlink:href='#g8-116'/>
+<use x='24.1518' y='15.524516' xlink:href='#g8-115'/>
+<use x='27.785891' y='15.524516' xlink:href='#g8-97'/>
+<use x='32.392487' y='15.524516' xlink:href='#g8-108'/>
+<use x='34.951708' y='15.524516' xlink:href='#g8-105'/>
+<use x='37.510929' y='15.524516' xlink:href='#g8-110'/>
+</g>
+<g transform='matrix(1 0 0 1 80.36163 -21.59761)'>
+<use x='2.01527' y='15.524516' xlink:href='#g0-75'/>
+<use x='8.10898' y='12.517999' xlink:href='#g1-43'/>
+<use x='13.725552' y='15.524516' xlink:href='#g0-44'/>
+<use x='18.664156' y='15.524516' xlink:href='#g0-78'/>
+<use x='24.543445' y='15.524516' xlink:href='#g0-79'/>
+<use x='30.657906' y='16.52078' xlink:href='#g1-51'/>
+<use x='35.188539' y='12.517999' xlink:href='#g1-21'/>
+</g>
+<path d='M-14.99223-21.7266V-64.2461H217.44927L217.45327-21.7266' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M16.18747-55.3437H153.81227' stroke='#00f' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M156.78879-55.343751L152.63254-56.91406L154.01144-55.343751L152.63254-53.77344Z' fill='#00f'/>
+<path d='M156.78879-55.343751L152.63254-56.91406L154.01144-55.343751L152.63254-53.77344Z' stroke='#00f' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#00f' transform='matrix(1 0 0 1 79.77113 -74.5853)'>
+<use x='2.01527' y='15.524516' xlink:href='#g5-101'/>
+<use x='6.299527' y='11.715512' xlink:href='#g3-0'/>
+</g>
+<path d='M157.92227-44.0039H20.30077' stroke='#f00' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M17.32422-44.003947L21.47656-42.43363L20.10156-44.003947L21.47656-45.57426Z' fill='#f00'/>
+<path d='M17.32422-44.003947L21.47656-42.43363L20.10156-44.003947L21.47656-45.57426Z' stroke='#f00' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#f00' transform='matrix(1 0 0 1 62.31893 -49.087)'>
+<use x='2.01527' y='15.524516' xlink:href='#g5-73'/>
+<use x='9.81649' y='15.524516' xlink:href='#g8-40'/>
+<use x='13.399394' y='15.524516' xlink:href='#g8-99'/>
+<use x='17.494145' y='15.524516' xlink:href='#g8-111'/>
+<use x='22.100741' y='15.524516' xlink:href='#g8-117'/>
+<use x='27.219183' y='15.524516' xlink:href='#g8-114'/>
+<use x='30.82284' y='15.524516' xlink:href='#g8-97'/>
+<use x='35.429436' y='15.524516' xlink:href='#g8-110'/>
+<use x='40.291941' y='15.524516' xlink:href='#g8-116'/>
+<use x='43.874846' y='15.524516' xlink:href='#g8-41'/>
+</g>
+<path d='M64.37887-26.9961H125.46527' stroke='#ff8000' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M128.44094-26.996095L124.2886-28.56641L125.6636-26.996095L124.2886-25.42578Z' fill='#ff8000'/>
+<path d='M128.44094-26.996095L124.2886-28.56641L125.6636-26.996095L124.2886-25.42578Z' stroke='#ff8000' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#ff8000' transform='matrix(1 0 0 1 89.10653 -46.2384)'>
+<use x='2.01527' y='15.524516' xlink:href='#g0-75'/>
+<use x='8.10898' y='12.517999' xlink:href='#g1-43'/>
+</g>
+<path d='M129.57427-4.3164H68.48827' stroke='#bf0040' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M65.51174-4.316406L69.66799-2.74609L68.28908-4.316406L69.66799-5.89062Z' fill='#bf0040'/>
+<path d='M65.51174-4.316406L69.66799-2.74609L68.28908-4.316406L69.66799-5.89062Z' stroke='#bf0040' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#bf0040' transform='matrix(1 0 0 1 84.43413 -10.97362)'>
+<use x='2.01527' y='15.524516' xlink:href='#g0-78'/>
+<use x='7.894559' y='15.524516' xlink:href='#g0-79'/>
+<use x='14.00902' y='16.52078' xlink:href='#g1-51'/>
+<use x='18.539653' y='12.517999' xlink:href='#g1-21'/>
+</g>
+</g>
+</svg></div>
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 10</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Brassage de la bière -- Quotient de réaction et constante d'équilibre.
+</div>
+<p>Le sulfate de calcium est un additif utilisé en brasserie pour accentuer, entre autres, l'amertume de la bière. Il est recommandé de ne pas dépasser {0{,}5}{} de sulfate de calcium par litre d'eau de brassage pour éviter toute formation de solide.</p>
+<p>Dans un bécher est introduite une solution limpide de concentration en quantité d'ion calcium $^{2 + }(aq)$ : $C_1 = $10   $$ et de volume $V_1 = $100   $$. À cette solution est progressivement ajoutée une solution de concentration en quantité d'ion sulfate ${}_4^{2-}(aq)$ : $C_2$, et de volume $V_2$. Le milieu est à {{}^{}}.</p>
+<p>Tant que le volume $V_2$ est faible, il ne se passe rien. Lorsque $V_2$ dépasse la valeur $V_{2,} = $67   $$, un solide blanc apparaît.</p>
+<ol><li>Écrire l'équation de la réaction de précipitation associée à la formation du sulfate de calcium solide $Ca{}_4(s)$.</li><li>Exprimer le quotient de réaction $Q_r$ de cette réaction.</li><li>À l'aide d'un raisonnement sur le quotient de réaction au volume $V_{2,}$, déterminer la valeur de la constante d'équilibre $K(T)$ de cette réaction à {{}^{}}.
+<em>Indication :</em> au volume $V_{2,}$, le système est à la limite de l'équilibre.</li><li>Déterminer si la recommandation faite pour la bière (ne pas dépasser {0{,}5}{} de sulfate de calcium par litre) est cohérente avec cette constante d'équilibre.
+<strong>Donnée :</strong> $M($Ca{}_4$) = $136   $$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Lorsqu'un précipité apparaît exactement au volume $V_{2,}$, le système se trouve à la <strong>limite de l'équilibre</strong> : $Q_r = K(T)$. On peut donc calculer $K(T)$ à partir des concentrations à ce volume.
+</div>
+<strong>1. Équation de la réaction de précipitation.</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${$^{2 + }(aq) + {}_4^{2-}(aq)  Ca{}_4(s)$}$$</div></div></div></div>
+<strong>2. Expression du quotient de réaction $Q_r$.</strong>
+<p>Le produit $Ca{}_4$ est un solide : son activité vaut 1. Le quotient de réaction ne contient que les espèces dissoutes (au dénominateur) :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${Q_r = {[$^{2 + }$]  [${}_4^{2-}$]}}$$</div></div></div></div>
+<strong>3. Détermination de $K(T)$.</strong>
+<p>Au volume $V_{2,} = $67   $$, le précipité apparaît tout juste : le système est à la limite de l'équilibre, donc $Q_r = K(T)$.</p>
+<p>Le volume total au moment de l'apparition du précipité est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$V_{} = V_1 + V_{2,} = $100   $ + $67   $ = $167   $$</div></div>$</div></div></p>
+<p>Calculons les concentrations à ce moment :</p>
+<p>{Concentration en $^{2 + }$ :}<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[$^{2 + }$] = {V_{}} = {10  10^{-3}  0{,}100}{0{,}167} = {5{,}99e-3}{}$$</div></div></div></div></p>
+<p>Pour calculer la concentration en ${}_4^{2-}$, on a besoin de $C_2$. Cependant, l'énoncé ne donne pas explicitement $C_2$.</p>
+<div class="info-box">
+<strong>Remarque :</strong> Au moment précis où le précipité apparaît, le système atteint l'équilibre. On peut raisonner en notant que juste avant l'apparition du précipité, aucune réaction n'a encore eu lieu : toutes les espèces sont encore en solution. L'apparition du précipité signifie que le quotient de réaction vient d'atteindre $K(T)$.
+<p>On suppose ici que la solution ajoutée est de même concentration que celle de $^{2 + }$, c'est-à-dire $C_2 = $10   $$ (hypothèse raisonnable d'après le contexte du problème).<br></div></p>
+<p>Avec $C_2 = $10   $$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[${}_4^{2-}$] = {C_2  V_{2,}}{V_{}} = {10  10^{-3}  0{,}067}{0{,}167} = {4{,}01e-3}{}$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>K(T) &= Q_{r,} = {[$^{2 + }$]  [${}_4^{2-}$]} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>6pt]<br>K(T) &= {{5{,}99e-3}  {4{,}01e-3}} \\[6pt]<br>K(T) &= {{2{,}40e-5}} \\[6pt]<br>K(T) & {4{,}2e4}<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<p>\[<br>{K(T)  {4{,}2e4}}$$</div></div></div></div></p>
+<strong>4. Vérification de la recommandation pour la bière.</strong>
+<p>La recommandation est de ne pas dépasser ${0{,}5}{}$ de sulfate de calcium par litre de bière.</p>
+<p>Calculons la concentration correspondante :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C_{$Ca{}_4$} = {M  V} = {0{,}5}{136  1{,}0} = {3{,}68e-3}{}$$</div></div></div></div></p>
+<p>Si tout le sulfate de calcium était dissous, on aurait :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[$^{2 + }$] = [${}_4^{2-}$] = {3{,}68e-3}{}$$</div></div></div></div></p>
+<p>Calculons le quotient de réaction correspondant :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_r = {({3{,}68e-3})^2} = {{1{,}35e-5}} = {7{,}4e4}$$</div></div></div></div></p>
+<p>Comparaison : $Q_r = {7{,}4e4} > K(T)  {4{,}2e4}$.</p>
+<p>Puisque $Q_r > K(T)$, le système évoluerait dans le sens indirect, c'est-à-dire que du sulfate de calcium solide se formerait. Cela signifie que la concentration de {0{,}5}{} est à la limite de la précipitation.</p>
+<strong>Conclusion :</strong> La recommandation de ne pas dépasser {0{,}5}{} est cohérente avec la valeur de la constante d'équilibre : au-delà de cette concentration, le sulfate de calcium précipite, rendant la bière trouble.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 11</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Pile Leclanché -- Capacité électrique et durée de vie.
+</div>
+<p>L'équation de la réaction modélisant la transformation ayant lieu lorsqu'une pile Leclanché débite du courant électrique s'écrit :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$(s) + 2{}_2(s) + 2^ + (aq)  ^{2 + }(aq) + 2MnOO(s)$$</div></div>$</div></div>
+<p>Une pile Leclanché neuve contient {2{,}8}{} de dioxyde de manganèse ${}_2(s)$, qui est le réactif limitant.</p>
+<strong>Données :</strong>
+<ul><li>Couples oxydant-réducteur : $^{2 + }(aq)$/$(s)$ et ${}_2(s)$/$MnOO(s)$.</li><li>Masses molaires : $M($$) = {54{,}9}{}$ ; $M($$) = {16{,}0}{}$.</li><li>Constante de Faraday : $F = $96500$$ $$.
+</li></ul>
+<ol><li>Déterminer l'équation de la réaction électrochimique ayant lieu à chaque électrode. Justifier.</li><li>Déterminer le nombre d'électrons échangés pour un avancement $x$ de la réaction globale.</li><li>Calculer la quantité de matière initiale de dioxyde de manganèse $n_{${}_2$}$.</li><li>Exprimer puis calculer la capacité électrique $Q_{}$ de la pile en coulombs, puis en milliampères-heures ($$).</li><li>Un campeur utilise cette pile Leclanché neuve dans sa lampe de poche pour alimenter une ampoule avec un courant d'intensité constante égale à $I = $70   $$. Il part 15 jours pendant lesquels il prévoit d'utiliser sa lampe pendant $2   $ par jour.
+<ol><li>Calculer la durée totale d'utilisation prévue.</li><li>Déterminer la durée de vie de la pile à cette intensité.</li><li>Le campeur doit-il prévoir des piles de rechange ? Justifier.
+</li></ol>
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> La capacité électrique d'une pile est $Q_{} = n_{e^-}  F$, où $n_{e^-}$ est la quantité totale d'électrons échangés lorsque le réactif limitant est entièrement consommé. La durée de vie est $ t_{} = {Q_{}}{I}$.
+</div>
+<strong>1. Réactions électrochimiques à chaque électrode.</strong>
+<p>L'équation globale est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$(s) + 2{}_2(s) + 2^ + (aq)  ^{2 + }(aq) + 2MnOO(s)$$</div></div>$</div></div></p>
+<em>Électrode de zinc (pôle $-$, oxydation) :</em>
+<p>Le couple $^{2 + }$/$$ intervient. Le zinc est oxydé :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$(s)  ^{2 + }(aq) + 2e^{-}$  $$</div></div></div></div></p>
+<em>Électrode de dioxyde de manganèse (pôle $+$, réduction) :</em>
+<p>Le couple ${}_2$/$MnOO$ intervient. Le dioxyde de manganèse est réduit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_2(s) + ^ + (aq) + e^{-}  MnOO(s)$  $$</div></div></div></div></p>
+<strong>Vérification :</strong> En multipliant la réduction par 2 et en additionnant : $$ + 2{}_2 + 2^ +   ^{2 + } + 2MnOO$$. On retrouve bien l'équation globale.
+<strong>2. Nombre d'électrons échangés.</strong>
+<p>D'après la demi-équation d'oxydation, pour un avancement $x$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n_{e^-} = 2x$$</div></div></div></div></p>
+<p>(2 électrons sont libérés pour chaque mole de zinc oxydé, c'est-à-dire pour un avancement $x$.)</p>
+<strong>3. Quantité de matière initiale de dioxyde de manganèse.</strong>
+<strong>Données :</strong> $m_{${}_2$} = {2{,}8}{}$.
+<p>Masse molaire du dioxyde de manganèse :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$M(${}_2$) = M($$) + 2  M($$) = 54{,}9 + 2  16{,}0 = {86{,}9}{}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n_{${}_2$} = {m_{${}_2$}}{M(${}_2$)} = {2{,}8}{86{,}9} = {3{,}22e-2}{}$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${n_{${}_2$}  {3{,}2e-2}{}}$$</div></div></div></div>
+<strong>4. Capacité électrique de la pile.</strong>
+<p>${}_2$ est le réactif limitant. D'après l'équation, pour un avancement $x_{}$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n_{${}_2$} = 2 x_{}    x_{} = {n_{${}_2$}}{2} = {{3{,}22e-2}}{2} = {1{,}61e-2}{}$$</div></div></div></div></p>
+<p>La quantité totale d'électrons échangés est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$n_{e^-} = 2 x_{} = 2  {1{,}61e-2} = {3{,}22e-2}{}$$</div></div></div></div></p>
+<div class="info-box">
+<strong>Remarque :</strong> On constate que $n_{e^-} = n_{${}_2$}$. Cela se comprend car chaque mole de ${}_2$ réduite consomme 1 électron (demi-équation de réduction), et il y a 2 mol de ${}_2$ par avancement $x$, donnant $2x$ électrons via l'oxydation. Les deux résultats sont cohérents.
+</div>
+<p>La capacité électrique en coulombs est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>Q_{} &= n_{e^-}  F \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>4pt]<br>Q_{} &= {3{,}22e-2}  $96500$ \\[4pt]<br>Q_{} &= {3{,}11e3}{}<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<p>Conversion en milliampères-heures. On utilise$$</div></div>1   $ = $3600   <div class="formula-wrapper-centered"><div class="formula-content">$$, donc$$</div></div>1   $ = {3{,}6}{}$ :<br>\[<br>Q_{} = {3{,}6} = $864   <div class="formula-wrapper-centered"><div class="formula-content">$$$</div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>{Q_{}  {3{,}1e3}{}  $860   $}<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>5. Utilisation par le campeur.</strong>
+<strong>a) Durée totale d'utilisation prévue.</strong>
+<p>Le campeur utilise la lampe pendant $2   $ par jour pendant 15 jours :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div> t_{} = 15  2 = $30   <div class="formula-wrapper-centered"><div class="formula-content">$$$</div></div></p>
+<strong>b) Durée de vie de la pile.</strong>
+<p>Avec une intensité $I = $70   $$ :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div> t_{} = {Q_{}}{I} = {70}  $12   <div class="formula-wrapper-centered"><div class="formula-content">$$$</div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>{ t_{}  $12   $}<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>c) Le campeur doit-il prévoir des piles de rechange ?</strong>
+<p>La durée de vie de la pile est d'environ $12   $, alors que le campeur prévoit une utilisation totale de $30   $.</p>
+<p>Nombre de piles nécessaires :<br><div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>{12} = 2{,}5$$</div></div></p>
+<p>Il faut donc au minimum <strong>3 piles</strong> (la première dure 12 h, la deuxième dure 12 h, la troisième couvre les 6 h restantes).</p>
+<strong>Conclusion :</strong> Oui, le campeur doit prévoir <strong>au minimum 2 piles de rechange</strong> (soit 3 piles au total), car une seule pile ne dure que 12 heures environ, ce qui est insuffisant pour les 30 heures d'utilisation prévues.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 12</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Protection du fourrage -- Acide propanoïque, conductimétrie et constante d'équilibre.
+</div>
+<p>L'acide propanoïque ${}_2{}_5{}_2$ est utilisé en agriculture pour traiter le foin et empêcher le développement de moisissures. Avant d'être utilisé sur le fourrage, l'acide propanoïque doit être dilué dans l'eau.</p>
+<p>Or, il réagit avec l'eau, suivant une transformation non totale, pour donner les ions propanoate ${}_2{}_5{}_2^{-}$ et oxonium ${}_3^ + $ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_2{}_5{}_2(aq) + {}_2()  {}_2{}_5{}_2^{-}(aq) + {}_3^ + (aq)$$</div></div>$</div></div>
+<p>La concentration en acide propanoïque à l'état initial dans le mélange $n{^} j$ est notée $c_j$. La conductivité $_j$ de chaque mélange est mesurée à l'état final. Les résultats sont regroupés dans le tableau suivant :</p>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Mélange</strong></th><th>1</th><th>2</th><th>3</th></tr><tr><td>$c_j$ ($$)</td><td>10{,}0</td><td>5{,}00</td><td>1{,}00</td></tr><tr><td>$_j$ ($$)</td><td>13{,}9</td><td>9{,}76</td><td>4{,}23</td></tr></tbody></table></div>
+</div>
+<strong>Données :</strong>
+<ul><li>Conductivités ioniques molaires :
+$(${}_2{}_5{}_2^{-}$) = {3{,}58}{}$ ;
+$(${}_3^ + $) = {35{,}0}{}$.
+</li></ul>
+<ol><li>Écrire l'équation de la réaction modélisant la transformation entre l'acide propanoïque et l'eau.</li><li>À l'aide de la loi de Kohlrausch, exprimer la conductivité $_j$ à l'état final d'un mélange en fonction notamment des concentrations en quantité des ions ${}_2{}_5{}_2^{-}$ et ${}_3^ + $.</li><li>Pour chaque mélange, calculer :
+<ol><li>la concentration en quantité de matière des différents ions à l'état final ;</li><li>la concentration en quantité de matière d'acide propanoïque à l'état final.
+</li></ol></li><li>Exprimer puis calculer le quotient de réaction $Q_{r,f}$ à l'état final pour chaque mélange.</li><li>Conclure sur l'influence de la concentration en quantité de soluté sur le quotient de réaction $Q_{r,f}$.</li><li>Calculer la valeur de la constante d'équilibre $K(T)$ de cette réaction.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> La loi de Kohlrausch relie la conductivité $$ d'une solution aux concentrations des ions en solution :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = _i _i  [_i]$$</div></div></div></div>
+où $_i$ est la conductivité ionique molaire de l'ion $i$. À l'équilibre, le quotient de réaction $Q_{r,f}$ est égal à la constante d'équilibre $K(T)$.
+</div>
+<strong>1. Équation de la réaction.</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_2{}_5{}_2(aq) + {}_2()  {}_2{}_5{}_2^{-}(aq) + {}_3^ + (aq)$$</div></div>$</div></div>
+<p>Cette équation est déjà donnée dans l'énoncé.</p>
+<strong>2. Expression de la conductivité à l'aide de la loi de Kohlrausch.</strong>
+<p>À l'état final, les ions présents en solution sont ${}_2{}_5{}_2^{-}$ et ${}_3^ + $. La loi de Kohlrausch donne :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${_j = (${}_2{}_5{}_2^{-}$)  [${}_2{}_5{}_2^{-}$]_f + (${}_3^ + $)  [${}_3^ + $]_f}$$</div></div></div></div>
+<p>Or, d'après la st chiométrie de la réaction, les deux ions sont formés en quantités égales à partir de l'état initial (où il n'y a pas d'ions) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[${}_2{}_5{}_2^{-}$]_f = [${}_3^ + $]_f$$</div></div></div></div></p>
+<p>Notons cette concentration commune $[]_f$. Alors :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_j = ((${}_2{}_5{}_2^{-}$) + (${}_3^ + $))  []_f$$</div></div></div></div></p>
+<p>On en déduit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${[]_f = {(${}_2{}_5{}_2^{-}$) + (${}_3^ + $)}}$$</div></div></div></div></p>
+<strong>Application numérique de la somme des conductivités ioniques molaires :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$(${}_2{}_5{}_2^{-}$) + (${}_3^ + $) = 3{,}58 + 35{,}0 = {38{,}58}{}$$</div></div></div></div>
+<strong>3. Calcul des concentrations pour chaque mélange.</strong>
+<strong>a) Concentration des ions à l'état final.</strong>
+<em>Mélange 1 :</em> $c_1 = {10{,}0}{}$, $_1 = {13{,}9}{}$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[]_{f,1} = {13{,}9}{38{,}58} = {0{,}360}{}$$</div></div></div></div>
+<em>Mélange 2 :</em> $c_2 = {5{,}00}{}$, $_2 = {9{,}76}{}$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[]_{f,2} = {9{,}76}{38{,}58} = {0{,}253}{}$$</div></div></div></div>
+<em>Mélange 3 :</em> $c_3 = {1{,}00}{}$, $_3 = {4{,}23}{}$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[]_{f,3} = {4{,}23}{38{,}58} = {0{,}110}{}$$</div></div></div></div>
+<p>Ainsi :</p>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Mélange</strong></th><th>1</th><th>2</th><th>3</th></tr><tr><td>$[${}_2{}_5{}_2^{-}$]_f = [${}_3^ + $]_f$ ($$)</td><td>0{,}360</td><td>0{,}253</td><td>0{,}110</td></tr></tbody></table></div>
+</div>
+<strong>b) Concentration en acide propanoïque à l'état final.</strong>
+<p>D'après la st chiométrie, la quantité d'acide consommée est égale à la quantité d'ions formée. La concentration en acide à l'état final est donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[${}_2{}_5{}_2$]_f = c_j - []_f$$</div></div></div></div></p>
+<em>Mélange 1 :</em>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[${}_2{}_5{}_2$]_{f,1} = 10{,}0 - 0{,}360 = {9{,}64}{}$$</div></div></div></div>
+<em>Mélange 2 :</em>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[${}_2{}_5{}_2$]_{f,2} = 5{,}00 - 0{,}253 = {4{,}75}{}$$</div></div></div></div>
+<em>Mélange 3 :</em>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$[${}_2{}_5{}_2$]_{f,3} = 1{,}00 - 0{,}110 = {0{,}890}{}$$</div></div></div></div>
+<p>{4. Calcul du quotient de réaction $Q_{r,f}$ à l'état final.}</p>
+<p>L'expression du quotient de réaction est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_{r,f} = {[${}_2{}_5{}_2^{-}$]_f  [${}_3^ + $]_f}{[${}_2{}_5{}_2$]_f}$$</div></div></div></div></p>
+<p>(L'eau étant le solvant, son activité vaut 1.)</p>
+<div class="info-box">
+<strong>Attention aux unités :</strong> Les concentrations doivent être exprimées en $$ pour obtenir un quotient de réaction sans dimension (rapporté à $c{^} = $1   $$). Les valeurs en $$ doivent être converties en les divisant par 1000.
+</div>
+<p>Convertissons les concentrations en $$ :</p>
+<em>Mélange 1 :</em>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+Q_{r,f,1} &= {({0{,}360e-3})  ({0{,}360e-3})}{{9{,}64e-3}} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>6pt]
+Q_{r,f,1} &= {{1{,}296e-7}}{{9{,}64e-3}} \\[6pt]
+Q_{r,f,1} &= {1{,}34e-5}
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<em>Mélange 2 :</em>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+Q_{r,f,2} &= {({0{,}253e-3})  ({0{,}253e-3})}{{4{,}75e-3}} \\[6pt]
+Q_{r,f,2} &= {{6{,}40e-8}}{{4{,}75e-3}} \\[6pt]
+Q_{r,f,2} &= {1{,}35e-5}
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<em>Mélange 3 :</em>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+Q_{r,f,3} &= {({0{,}110e-3})  ({0{,}110e-3})}{{0{,}890e-3}} \\[6pt]
+Q_{r,f,3} &= {{1{,}21e-8}}{{0{,}890e-3}} \\[6pt]
+Q_{r,f,3} &= {1{,}36e-5}
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Mélange</strong></th><th>1</th><th>2</th><th>3</th></tr><tr><td>$Q_{r,f}$</td><td>${1{,}34e-5}$</td><td>${1{,}35e-5}$</td><td>${1{,}36e-5}$</td></tr></tbody></table></div>
+</div>
+<strong>5. Conclusion sur l'influence de la concentration.</strong>
+<strong>Conclusion :</strong> Les trois valeurs de $Q_{r,f}$ sont <strong>quasiment identiques</strong>, malgré des concentrations initiales en acide propanoïque très différentes (de {1{,}00}{} à {10{,}0}{}).
+<p>Cela signifie que le quotient de réaction à l'état final <strong>ne dépend pas de la composition initiale</strong> du système. Cette valeur constante correspond à la <strong>constante d'équilibre</strong> $K(T)$ de la réaction à la température considérée.</p>
+<strong>6. Calcul de la constante d'équilibre $K(T)$.</strong>
+<p>La constante d'équilibre est la valeur commune du quotient de réaction à l'état final. On calcule la moyenne des trois valeurs :</p>
+<p>\[<br>K(T) = {Q_{r,f,1} + Q_{r,f,2} + Q_{r,f,3}}{3} = {{1{,}34e-5} + {1{,}35e-5} + {1{,}36e-5}}{3}$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$K(T) = {{4{,}05e-5}}{3} = {1{,}35e-5}$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${K(T)  {1{,}35e-5}}$$</div></div></div></div>
+<div class="info-box">
+<strong>Remarque :</strong> Cette valeur est très faible ($K(T)  1$), ce qui confirme que la réaction entre l'acide propanoïque et l'eau est une transformation <strong>très peu avancée</strong> : l'acide propanoïque est un acide <strong>faible</strong>. La constante $K(T)$ est aussi appelée constante d'acidité $K_a$ de l'acide propanoïque. On peut calculer le $K_a = -(K_a) = -({1{,}35e-5})  4{,}9$, ce qui est cohérent avec la valeur tabulée.
+</div>
+                </div>
+            </details>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="cours_evolution_spontanee_systeme_chimique.html" class="btn-action">📖 Revoir le cours</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=evolution_spontanee_systeme_chimique" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=evolution_spontanee_systeme_chimique" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

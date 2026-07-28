@@ -1,0 +1,694 @@
+.dashboard-columns {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 24px;
+}
+
+.rc-hero {
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.84), rgba(15, 23, 42, 0.58));
+    box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+}
+
+.rc-title {
+    background: linear-gradient(135deg, #c084fc, #60a5fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.rc-subtitle {
+    max-width: 72ch;
+}
+
+.rc-card {
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 22px;
+    box-shadow: 0 16px 38px rgba(2, 6, 23, 0.14);
+}
+
+.section-head {
+    margin-bottom: 16px;
+}
+
+.section-head h2,
+h2 {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+}
+
+.section-head p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+.slider-group {
+    margin-bottom: 18px;
+}
+
+.slider-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+
+.val-highlight {
+    color: #60a5fa;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.06rem;
+    background: rgba(148, 163, 184, 0.08);
+    padding: 2px 8px;
+    border-radius: 7px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.tau-box {
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.10), rgba(59, 130, 246, 0.05));
+    border: 1px solid rgba(59, 130, 246, 0.28);
+    border-radius: 18px;
+    padding: 16px;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.tau-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.tau-formula {
+    color: var(--text-main);
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.tau-value {
+    font-size: 1.55rem;
+    font-weight: 900;
+    color: #60a5fa;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.switch-head {
+    margin-top: 22px;
+}
+
+.switch-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.switch-controls button {
+    flex: 1;
+    margin: 0;
+    padding: 12px;
+    font-size: 0.95rem;
+    border-radius: 14px;
+}
+
+.theory-box {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.42), rgba(15, 23, 42, 0.26));
+    border: 1px dashed rgba(148, 163, 184, 0.28);
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+}
+
+.theory-box h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.formula {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    margin: 8px 0;
+}
+
+.formula-mini {
+    font-size: 0.96rem;
+}
+
+.small-text {
+    font-size: 0.82rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+}
+
+.phase-charge {
+    color: #ec4899;
+}
+
+.phase-discharge {
+    color: #8b5cf6;
+}
+
+.theory-footer {
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
+    margin-top: 10px;
+    padding-top: 8px;
+}
+
+.visual-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.circuit-card {
+    padding: 22px;
+    background: linear-gradient(180deg, rgba(248, 250, 252, 0.84), rgba(241, 245, 249, 0.76));
+}
+
+.schematic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.schematic-title {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #0f172a;
+}
+
+.schematic-subtitle {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-top: 4px;
+}
+
+.schematic-pill {
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #0f172a;
+    background: rgba(96, 165, 250, 0.16);
+    border: 1px solid rgba(96, 165, 250, 0.35);
+    white-space: nowrap;
+}
+
+.circuit-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 22px;
+    align-items: start;
+}
+
+.circuit-container {
+    width: 100%;
+    min-width: 0;
+}
+
+.circuit-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+}
+
+.wire {
+    fill: none;
+    stroke: #475569;
+    stroke-width: 5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.wire.subtle {
+    stroke: #64748b;
+    opacity: 0.95;
+}
+
+.source-short,
+.source-long {
+    stroke: #e11d48;
+    stroke-linecap: round;
+}
+
+.source-short {
+    stroke-width: 4;
+}
+
+.source-long {
+    stroke-width: 7;
+}
+
+.resistor {
+    fill: none;
+    stroke: #111827;
+    stroke-width: 4.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.capacitor-plate {
+    stroke: #111827;
+    stroke-width: 5.5;
+    stroke-linecap: round;
+}
+
+.node {
+    fill: #111827;
+}
+
+.node-pivot {
+    fill: #f43f5e;
+}
+
+.switch-blade {
+    stroke: #ef4444;
+    stroke-width: 7;
+    stroke-linecap: round;
+    transition: all 0.28s ease;
+}
+
+.label-component,
+.label-current,
+.label-ur,
+.label-uc,
+.label-switch,
+.label-source,
+.polarity,
+.switch-index {
+    font-family: Inter, Arial, sans-serif;
+    font-weight: 800;
+}
+
+.label-component {
+    fill: #0f172a;
+    font-size: 20px;
+}
+
+.label-current {
+    fill: #d97706;
+    font-size: 19px;
+}
+
+.label-ur {
+    fill: #16a34a;
+    font-size: 17px;
+}
+
+.label-uc {
+    fill: #0284c7;
+    font-size: 17px;
+}
+
+.label-switch,
+.switch-index,
+.label-source,
+.polarity {
+    fill: #0f172a;
+    font-size: 17px;
+}
+
+.arrow-current {
+    stroke: #f59e0b;
+    stroke-width: 3.5;
+    fill: none;
+}
+
+.arrow-ur {
+    stroke: #22c55e;
+    stroke-width: 3;
+    fill: none;
+}
+
+.arrow-uc {
+    stroke: #38bdf8;
+    stroke-width: 3;
+    fill: none;
+}
+
+.capacitor-model-card {
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.55);
+}
+
+.model-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.capacitor-model {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plate {
+    width: 100%;
+    min-height: 34px;
+    background: linear-gradient(180deg, #e2e8f0, #cbd5e1);
+    border: 2px solid #64748b;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 0 6px;
+    gap: 4px;
+}
+
+.isolant-text {
+    font-size: 0.72rem;
+    color: #64748b;
+    font-weight: 800;
+    margin: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+
+.model-caption {
+    margin: 12px 0 0;
+    font-size: 0.82rem;
+    color: #475569;
+    line-height: 1.45;
+}
+
+.charge-plus,
+.charge-minus {
+    font-weight: 900;
+    line-height: 1;
+}
+
+.charge-plus {
+    color: #ef4444;
+    font-size: 14px;
+}
+
+.charge-minus {
+    color: #2563eb;
+    font-size: 16px;
+}
+
+.graph-card {
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
+}
+
+.graph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 20px;
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    position: relative;
+    z-index: 12;
+}
+
+.graph-title {
+    font-weight: 800;
+    color: #e2e8f0;
+}
+
+.graph-subtitle {
+    font-size: 0.84rem;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.time-readout {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    background: rgba(15, 23, 42, 0.6);
+    color: #e2e8f0;
+    padding: 6px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.time-value {
+    color: #60a5fa;
+}
+
+.regime-bg {
+    position: absolute;
+    top: 76px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: 1;
+}
+
+.regime-transitoire {
+    height: 100%;
+    background: linear-gradient(90deg, rgba(236, 72, 153, 0.08), rgba(236, 72, 153, 0.04));
+    border-right: 2px dashed rgba(236, 72, 153, 0.7);
+    position: relative;
+}
+
+.regime-transitoire span {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    color: #f472b6;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.regime-stationnaire {
+    flex: 1;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.02));
+    position: relative;
+}
+
+.regime-stationnaire span {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    color: #34d399;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.graph-canvas {
+    width: 100%;
+    height: 320px;
+    display: block;
+    position: relative;
+    z-index: 10;
+}
+
+@media (max-width: 1120px) {
+    .dashboard-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 960px) {
+    .circuit-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .capacitor-model-card {
+        max-width: 320px;
+    }
+}
+
+
+/* === Correctifs lisibilité v3 === */
+.circuit-card {
+    padding: 24px;
+}
+
+.circuit-layout {
+    grid-template-columns: minmax(0, 1.45fr) 260px;
+    gap: 26px;
+    align-items: center;
+}
+
+.circuit-container {
+    background: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(248,250,252,0.62));
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 20px;
+    padding: 14px 18px 10px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.62);
+}
+
+.circuit-svg {
+    min-height: 255px;
+}
+
+.wire {
+    stroke: #334155;
+    stroke-width: 6;
+}
+
+.wire.subtle {
+    stroke: #475569;
+}
+
+.source-short {
+    stroke-width: 5;
+}
+
+.source-long {
+    stroke-width: 8;
+}
+
+.resistor {
+    stroke: #0f172a;
+    stroke-width: 5.6;
+}
+
+.capacitor-plate {
+    stroke: #0f172a;
+    stroke-width: 6.4;
+}
+
+.node {
+    fill: #0f172a;
+}
+
+.switch-blade {
+    stroke-width: 8;
+}
+
+.label-component {
+    font-size: 24px;
+}
+
+.label-current {
+    font-size: 22px;
+}
+
+.label-ur,
+.label-uc {
+    font-size: 19px;
+}
+
+.label-switch,
+.switch-index,
+.label-source,
+.polarity {
+    font-size: 19px;
+}
+
+.capacitor-model-card {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 210px;
+}
+
+.graph-card {
+    overflow: hidden;
+}
+
+.graph-header {
+    padding: 18px 22px;
+}
+
+.graph-title {
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+
+.graph-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.time-readout {
+    font-size: 0.95rem;
+    padding: 8px 14px;
+}
+
+.regime-bg {
+    top: 92px;
+}
+
+.regime-transitoire span,
+.regime-stationnaire span {
+    top: 12px;
+    left: 72px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(4px);
+    white-space: nowrap;
+}
+
+.graph-canvas {
+    height: 340px;
+}
+
+@media (max-width: 1120px) {
+    .circuit-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .circuit-container {
+        order: 1;
+    }
+
+    .capacitor-model-card {
+        order: 2;
+        max-width: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .circuit-card {
+        padding: 18px;
+    }
+
+    .circuit-container {
+        padding: 10px 12px 6px;
+    }
+
+    .circuit-svg {
+        min-height: 220px;
+    }
+
+    .schematic-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .schematic-pill {
+        align-self: flex-start;
+    }
+
+    .regime-transitoire span,
+    .regime-stationnaire span {
+        left: 52px;
+        font-size: 0.74rem;
+    }
+}

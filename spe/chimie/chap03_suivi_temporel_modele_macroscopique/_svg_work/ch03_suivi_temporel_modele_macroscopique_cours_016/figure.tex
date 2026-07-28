@@ -1,0 +1,75 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+ width=11cm, height=6.5cm,
+ xlabel={$t$},
+ ylabel={$[\ce{R}]$},
+ xmin=0, xmax=7,
+ ymin=0, ymax=5.5,
+ xtick=\empty,
+ ytick=\empty,
+ axis lines=left,
+ every axis label/.style={font=\normalsize},
+ clip=false,
+]
+
+% Courbe décroissante de [R]
+\addplot[domain=0:7, samples=100, thick, color=primary]
+ {5*exp(-0.4*x)};
+
+% Point M
+\addplot[only marks, mark=*, mark size=2.5pt, color=examplepink] coordinates {(2, {5*exp(-0.8)})};
+\node[above right, font=\small, color=examplepink] at (axis cs:2.1, {5*exp(-0.8)+0.15}) {$M$};
+
+% Tangente en M : f(x) = 5*exp(-0{,}8), f'(x) = -2*exp(-0{,}8) ; y - f(2) = f'(2)*(x-2)
+% f(2) = 2{,}2466, f'(2) = -0{,}8987*5 = -0{,}8987 non : f'(x) = 5*(-0{,}4)*exp(-0{,}4*x), f'(2) = -2*exp(-0{,}8) = -0{,}8987
+% tangente : y = 2{,}2466 + (-0{,}8987)*(x - 2) = 2{,}2466 - 0{,}8987*x + 1{,}7974 = 4{,}044 - 0{,}8987*x
+\addplot[domain=0.2:5.5, samples=2, dashed, thick, color=examplepink]
+ {4.044 - 0.8987*x};
+
+% Annotation pente
+\node[font=\small, color=examplepink, anchor=west] at (axis cs:4.2, 2.8) {tangente en $M$};
+\draw[-{Stealth}, color=examplepink, thin] (axis cs:4.2, 2.65) -- (axis cs:3.2, {4.044 - 0.8987*3.2 + 0.15});
+
+% Annotation pente = p
+\node[font=\small, color=dark, anchor=west] at (axis cs:4.5, 1.2) {pente $p < 0$};
+\node[font=\small, color=dark, anchor=west] at (axis cs:4.5, 0.6) {$v_{c,R}(t) = -p > 0$};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

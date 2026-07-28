@@ -1,0 +1,137 @@
+/* =========================================
+   STYLES DU LABO : TITRAGE CONDUCTIMÉTRIQUE
+   ========================================= */
+
+.labo-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+
+.bench-panel { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; position: relative;}
+.bench-header { font-size: 1.2rem; color: #1e293b; font-weight: 900; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;}
+
+.conditions-box { background: #f8fafc; border: 2px dashed #cbd5e1; padding: 15px; border-radius: 12px; margin-bottom: 20px; font-size: 0.95rem; color: #334155; text-align: left; }
+
+.lab-setup-wrapper { display: flex; gap: 25px; justify-content: center; align-items: flex-end; margin-bottom: 20px;}
+
+/* =========================================
+   LA VERRERIE 3D (GLASSMORPHISM)
+   ========================================= */
+.lab-setup { position: relative; height: 400px; width: 200px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; background: #f8fafc; border-radius: 16px; border: 1px inset #e2e8f0; overflow: hidden; }
+
+/* 1. La Cellule Conductimétrique */
+.cond-probe { position: absolute; width: 14px; height: 180px; background: #94a3b8; border-radius: 4px; bottom: 35px; left: calc(50% - 40px); z-index: 15; box-shadow: 2px 5px 5px rgba(0,0,0,0.2); display: flex; justify-content: space-between; padding: 0 2px;}
+.cond-probe::before, .cond-probe::after { content: ''; width: 4px; height: 25px; background: #1e293b; position: absolute; bottom: -5px; }
+.cond-probe::before { left: 2px; } .cond-probe::after { right: 2px; }
+
+/* 2. La Burette Graduée */
+.burette { width: 28px; height: 200px; border: 2px solid rgba(255, 255, 255, 0.9); border-top: none; border-radius: 2px 2px 15px 15px; position: absolute; top: 10px; left: calc(50% - 14px); background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.8) 20%, rgba(255,255,255,0.1) 100%); box-shadow: inset -5px 0 10px rgba(0,0,0,0.05), 5px 5px 10px rgba(0,0,0,0.05); z-index: 10; backdrop-filter: blur(2px); overflow: hidden;}
+.burette-liquid { position: absolute; bottom: 0; width: 100%; height: 100%; background: rgba(14, 165, 233, 0.3); border-top: 2px solid rgba(255,255,255,0.9); transition: height 0.3s linear; }
+.burette-grad { position: absolute; right: -25px; top: 10px; font-size: 0.7rem; color: #64748b; font-weight: bold; }
+.stopcock { position: absolute; top: 210px; left: calc(50% - 18px); width: 36px; height: 12px; background: linear-gradient(to bottom, #94a3b8, #cbd5e1); border-radius: 4px; z-index: 11; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+
+/* 3. La goutte */
+.drop { width: 8px; height: 12px; background: rgba(14, 165, 233, 0.5); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; position: absolute; top: 225px; opacity: 0; z-index: 5; box-shadow: inset -2px -2px 4px rgba(255,255,255,0.5); }
+.drop.falling { animation: fall 0.3s ease-in; }
+@keyframes fall { 0% { top: 225px; opacity: 1; transform: scale(1); } 80% { opacity: 1; } 100% { top: 310px; opacity: 0; transform: scale(0.5) scaleY(1.5); } }
+
+/* 4. Le Bécher */
+.beaker { width: 140px; height: 130px; border: 3px solid rgba(255, 255, 255, 0.9); border-top: 1px solid rgba(255,255,255,0.5); border-radius: 2px 2px 20px 20px; position: absolute; bottom: 20px; background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1)); box-shadow: inset -10px -10px 20px rgba(0,0,0,0.05), 10px 10px 20px rgba(0,0,0,0.1); z-index: 20; backdrop-filter: blur(4px); overflow: hidden; }
+.beaker-liquid { position: absolute; bottom: 0; width: 100%; height: 70%; background: rgba(186, 230, 253, 0.3); border-top: 2px solid rgba(255,255,255,0.8); transition: height 0.3s, border-radius 0.5s ease; }
+.beaker-liquid.vortex { border-top-left-radius: 50% 15px; border-top-right-radius: 50% 15px; }
+
+/* 5. Agitateur */
+.stir-bar { width: 30px; height: 8px; background: radial-gradient(circle, #ffffff 40%, #cbd5e1 100%); border-radius: 10px; position: absolute; bottom: 6px; left: 50%; margin-left: -15px; box-shadow: 0 4px 6px rgba(0,0,0,0.4); z-index: 25;}
+.stirring { animation: spin 0.2s linear infinite; }
+@keyframes spin { 0% { transform: perspective(150px) rotateY(0deg); } 100% { transform: perspective(150px) rotateY(360deg); } }
+.stirrer-plate { width: 180px; height: 20px; background: linear-gradient(to right, #94a3b8, #cbd5e1, #94a3b8); border-radius: 8px 8px 4px 4px; position: absolute; bottom: 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1), inset 0 2px 2px rgba(255,255,255,0.5); z-index: 5; }
+
+/* =========================================
+   LA VUE MICROSCOPIQUE AGRANDIE (LES IONS)
+   ========================================= */
+.microscope-panel { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f8fafc; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0; width: 280px;}
+.microscope-header { font-size: 1rem; font-weight: 900; color: #1e293b; margin-bottom: 15px; text-transform: uppercase;}
+.microscope-view { width: 220px; height: 220px; border-radius: 50%; border: 8px solid #e2e8f0; background: radial-gradient(circle, #e0f2fe 0%, #bae6fd 100%); position: relative; overflow: hidden; box-shadow: inset 0 15px 30px rgba(0,0,0,0.2), 0 10px 25px rgba(0,0,0,0.1); }
+
+/* Animation des ions dissous */
+.ion { position: absolute; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 900; color: white; box-shadow: 0 2px 6px rgba(0,0,0,0.3); animation: float 3s infinite alternate ease-in-out; opacity: 0; transition: opacity 0.5s, background 0.5s;}
+.ion.visible { opacity: 1; }
+
+.ion-cl { background: radial-gradient(circle at 30% 30%, #34d399, #10b981); animation-duration: 3s;}
+.ion-na { background: radial-gradient(circle at 30% 30%, #fbbf24, #f59e0b); animation-duration: 4s;}
+.ion-no3 { background: radial-gradient(circle at 30% 30%, #c084fc, #8b5cf6); animation-duration: 3.5s;}
+.ion-ag { background: radial-gradient(circle at 30% 30%, #cbd5e1, #64748b); animation-duration: 2.8s;}
+
+/* Spécificité du précipité solide (AgCl) */
+.ion-agcl { background: #ffffff; color: #475569; border: 2px solid #cbd5e1; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); animation: none !important; font-size: 8px;}
+
+@keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(15px, -15px) scale(1.1); } }
+
+.ion-legend { margin-top: 20px; font-size: 0.8rem; text-align: left; color: #475569; font-weight: bold; width: 100%;}
+.ion-legend div { display: flex; align-items: center; gap: 8px; margin-bottom: 6px;}
+.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+
+/* =========================================
+   APPAREILLAGE ET BOUTONS
+   ========================================= */
+.ph-meter { background: #1e293b; font-family: 'Courier New', Courier, monospace; font-weight: 900; padding: 15px; border-radius: 12px; box-shadow: inset 0 3px 10px rgba(0,0,0,0.8), 0 5px 15px rgba(0,0,0,0.2); margin-top: 15px; letter-spacing: 1px; text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);}
+.ph-meter.unstable { color: #f87171 !important; text-shadow: 0 0 10px rgba(248, 113, 113, 0.8) !important; }
+
+.controls-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+.btn-lab { background: #f1f5f9; border: 2px solid #cbd5e1; color: #334155; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.2s; }
+.btn-lab:hover { background: #e2e8f0; border-color: #94a3b8; }
+.btn-lab.active { background: #0ea5e9; color: white; border-color: #0284c7; }
+.btn-lab.danger { background: #fef2f2; color: #dc2626; border-color: #fca5a5; }
+
+/* --- PANNEAU DROIT : DONNÉES & ANALYSE --- */
+.data-panel { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+.tab-btn { background: none; border: none; font-size: 1.1rem; font-weight: bold; color: #64748b; cursor: pointer; padding: 5px 10px; transition: color 0.2s; }
+.tab-btn.active { color: #0ea5e9; border-bottom: 3px solid #0ea5e9; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.3s; }
+
+.chart-container { width: 100%; height: 350px; }
+
+.data-panel .table-container { max-height: 350px; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 8px; }
+.data-panel table { width: 100%; border-collapse: collapse; text-align: center; }
+.data-panel th { background: #f8fafc; padding: 10px; position: sticky; top: 0; font-size: 0.9rem; color: #1e293b; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.data-panel td { padding: 8px; border-bottom: 1px solid #f1f5f9; font-family: monospace; font-size: 1.1rem; color: #475569; }
+
+.alert-box { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 0 8px 8px 0; margin-top: 15px; font-size: 0.95rem; color: #b45309; font-weight: bold; }
+
+@media (max-width: 900px) { .labo-container { grid-template-columns: 1fr; } .lab-setup-wrapper { flex-direction: column; align-items: center;} }
+
+/* --- Paramètres et Résultats --- */
+.settings-box { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; margin-bottom: 15px; text-align: left; overflow: hidden; }
+.settings-box summary { background: #e2e8f0; padding: 10px 15px; font-weight: bold; cursor: pointer; color: #1e293b; outline: none; }
+.settings-box summary:hover { background: #cbd5e1; }
+.settings-grid { padding: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.settings-grid label { font-size: 0.85rem; color: #475569; font-weight: bold; display: flex; flex-direction: column; gap: 5px; }
+.settings-grid input { padding: 5px; border: 1px solid #cbd5e1; border-radius: 5px; font-family: monospace; font-size: 1rem; }
+
+.success-box { background: #f0f9ff; border: 2px solid #0ea5e9; padding: 20px; border-radius: 12px; margin-bottom: 20px; font-size: 1.1rem; color: #0369a1; line-height: 1.6; animation: fadeIn 0.5s ease;}
+.calc-details { background: rgba(255, 255, 255, 0.6); padding: 12px; border-radius: 8px; font-size: 0.95rem; color: #0284c7; margin-top: 10px; border-left: 4px solid #0ea5e9; }
+
+/* =========================================
+   🌙 MODE SOMBRE (Adaptations Glassmorphism)
+   ========================================= */
+body.dark-mode .bench-panel, body.dark-mode .data-panel, body.dark-mode .microscope-panel { background: #1e293b; border-color: #334155; }
+body.dark-mode .bench-header, body.dark-mode .microscope-header { color: #f8fafc; }
+body.dark-mode .conditions-box { background: #0f172a; border-color: #334155; color: #cbd5e1; } 
+body.dark-mode .lab-setup { background: #0f172a; border-color: #334155; }
+body.dark-mode .burette { border-color: rgba(255, 255, 255, 0.2); background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0.05) 100%); }
+body.dark-mode .beaker { border-color: rgba(255, 255, 255, 0.2); background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)); }
+body.dark-mode .stirrer-plate { background: linear-gradient(to right, #334155, #475569, #334155); border-top-color: #1e293b; }
+body.dark-mode .microscope-view { border-color: #334155; background: radial-gradient(circle, #0f172a 0%, #1e293b 100%); }
+
+body.dark-mode .btn-lab { background: #0f172a; border-color: #334155; color: #cbd5e1; }
+body.dark-mode .btn-lab:hover { background: #334155; color: white; }
+body.dark-mode .tab-btn { color: #94a3b8; }
+body.dark-mode .tab-btn.active { color: #38bdf8; border-bottom-color: #38bdf8; }
+body.dark-mode th { background: #0f172a; color: #cbd5e1; }
+body.dark-mode td { border-bottom-color: #334155; color: #94a3b8; }
+
+body.dark-mode .settings-box { background: #0f172a; border-color: #334155; }
+body.dark-mode .settings-box summary { background: #1e293b; color: #cbd5e1; }
+body.dark-mode .settings-grid label, body.dark-mode .ion-legend { color: #94a3b8; }
+body.dark-mode .settings-grid input { background: #1e293b; color: #f8fafc; border-color: #475569; }
+body.dark-mode .success-box { background: #082f49; border-color: #0284c7; color: #bae6fd; }
+body.dark-mode .calc-details { background: rgba(0, 0, 0, 0.2); color: #7dd3fc; border-left-color: #0ea5e9; }

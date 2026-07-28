@@ -1,0 +1,117 @@
+/* style_gaz_parfaits.css */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+}
+
+h2 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+/* --- BOÎTE D'ÉQUATION --- */
+.equation-box {
+    background: var(--bg-page);
+    border: 2px dashed rgba(6, 182, 212, 0.4);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.formula { font-size: 1.2rem; color: var(--text-main); margin-bottom: 5px; }
+.small-text { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+
+/* --- CONTRÔLES --- */
+.slider-group { margin-bottom: 25px; }
+.slider-group label {
+    display: block; font-weight: 700; margin-bottom: 10px; color: var(--text-main);
+}
+input[type="range"] { width: 100%; cursor: pointer; margin-bottom: 10px; }
+
+.values-row { display: flex; gap: 10px; }
+.chip-val {
+    display: inline-block; font-size: 0.85rem; font-weight: 700; color: var(--text-main);
+    background: var(--bg-page); border: 1px solid var(--card-border);
+    padding: 6px 12px; border-radius: 8px;
+}
+.temp-chip { transition: background 0.3s, color 0.3s, border-color 0.3s; }
+
+/* --- MANOMÈTRE (ÉCRAN DIGITAL) --- */
+.pressure-gauge-container {
+    width: 100%; max-width: 400px; text-align: center; margin-bottom: 30px;
+}
+.pressure-label {
+    font-weight: 800; font-size: 1.1rem; color: var(--text-muted); margin-bottom: 8px;
+}
+.digital-screen {
+    background: #0f172a; color: #22d3ee;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5rem; font-weight: bold;
+    padding: 15px 30px; border-radius: 12px;
+    box-shadow: inset 0 4px 10px rgba(0,0,0,0.8), 0 4px 15px rgba(6, 182, 212, 0.2);
+    border: 3px solid #1e293b;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+.pressure-warning {
+    color: #ef4444; font-weight: bold; font-size: 0.9rem; margin-top: 10px;
+    opacity: 0; transition: opacity 0.3s;
+}
+
+/* --- CYLINDRE ET PISTON --- */
+.cylinder-wrapper {
+    position: relative; width: 100%; max-width: 600px; margin: 0 auto;
+}
+
+.cylinder-walls {
+    position: relative; width: 100%; height: 250px;
+    border: 6px solid #64748b; border-right: none;
+    border-radius: 16px 0 0 16px;
+    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    box-shadow: inset 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden; /* Cache les particules hors du volume */
+}
+
+/* Le Canvas contient le gaz */
+canvas { position: absolute; top: 0; left: 0; height: 100%; z-index: 1; }
+
+/* PISTON MOBILE */
+.piston {
+    position: absolute; top: 0; bottom: 0; width: 20px;
+    background: linear-gradient(to right, #94a3b8, #cbd5e1, #64748b);
+    border-left: 2px solid #cbd5e1;
+    z-index: 10;
+    transition: left 0.1s linear; /* Mouvement fluide */
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+}
+
+.piston-rod {
+    position: absolute; top: 50%; left: 20px;
+    width: 2000px; /* Très long pour sortir de l'écran */
+    height: 12px; background: #94a3b8;
+    transform: translateY(-50%);
+    border-top: 2px solid #cbd5e1; border-bottom: 2px solid #475569;
+}
+
+.piston-handle {
+    position: absolute; top: 50%; left: 200px;
+    width: 15px; height: 80px; background: #475569;
+    transform: translateY(-50%); border-radius: 4px;
+}
+
+/* Règle de graduation */
+.volume-ruler {
+    display: flex; justify-content: space-between;
+    margin-top: 10px; padding: 0 10px 0 0;
+    color: var(--text-muted); font-size: 0.8rem; font-weight: bold;
+    border-top: 2px solid var(--card-border); padding-top: 5px;
+}
+
+@media (max-width: 950px) {
+    .dashboard { grid-template-columns: 1fr; }
+    .cylinder-walls { height: 180px; }
+}

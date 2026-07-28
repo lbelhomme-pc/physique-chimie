@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire : Chaînes Énergétiques | Physique-Chimie</title>
+    <meta name="theme-color" content="#6366f1">
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_sources_formes_energies.css">
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="labo-container">
+        <header class="hero-header">
+            <h1 class="header-flex">
+                <span>⚡</span> 
+                <span class="gradient-text gradient-labo">Constructeur de Chaînes</span>
+            </h1>
+            <p class="subtitle">Sélectionne un élément en bas, puis clique sur les zones du schéma pour le placer.</p>
+        </header>
+
+        <div class="mission-selector">
+            <label for="mission-select">🎯 Mission :</label>
+            <select id="mission-select">
+                <option value="ampoule">Mission 1 : Allumer l'ampoule de la Tour Eiffel</option>
+                <option value="eolienne">Mission 2 : Produire de l'électricité avec le vent</option>
+                <option value="velo">Mission 3 : Faire avancer un vélo électrique</option>
+                <option value="muscle">Mission 4 : Courir un sprint (Corps humain)</option>
+                <option value="bouilloire">Mission 5 : Chauffer de l'eau (Bouilloire)</option>
+            </select>
+            <button id="btn-check" class="btn-start">Vérifier la chaîne</button>
+            <button id="btn-reset" class="btn-reset">🔄 Vider</button>
+        </div>
+
+        <div class="svg-wrapper">
+            <div id="feedback-msg" class="feedback-msg"></div>
+            
+            <svg viewBox="0 0 900 350" id="lab-svg" class="interactive-svg" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <marker id="arrow-empty" markerWidth="16" markerHeight="14" refX="14" refY="7" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0, 16 7, 0 14" class="marker-empty-poly"/></marker>
+                    <marker id="arrow-blue" markerWidth="16" markerHeight="14" refX="14" refY="7" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0, 16 7, 0 14" fill="#3b82f6" /></marker>
+                    <marker id="arrow-green" markerWidth="16" markerHeight="14" refX="14" refY="7" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0, 16 7, 0 14" fill="#10b981" /></marker>
+                    <marker id="arrow-red" markerWidth="16" markerHeight="14" refX="14" refY="7" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0, 16 7, 0 14" fill="#ef4444" /></marker>
+                </defs>
+
+                <text x="450" y="100" class="bg-watermark">LABORATOIRE</text>
+
+                <path id="arrow-in" d="M 180 160 L 360 160" class="arrow-path" />
+                <path id="arrow-utile" d="M 540 160 L 800 160" class="arrow-path" />
+                <path id="arrow-perte" d="M 450 205 C 450 280, 530 280, 800 280" class="arrow-path" />
+
+                <g transform="translate(110, 160)">
+                    <g class="slot-group type-source" data-slot="source">
+                        <text y="-55" class="slot-title">Source</text>
+                        <rect x="-70" y="-40" width="140" height="80" rx="10" class="slot-shape shape-rect" />
+                        <text y="6" class="slot-text">Clique ici</text>
+                    </g>
+                </g>
+
+                <g transform="translate(450, 160)">
+                    <g class="slot-group type-converter" data-slot="converter">
+                        <text y="-60" class="slot-title">Convertisseur</text>
+                        <ellipse cx="0" cy="0" rx="90" ry="45" class="slot-shape shape-oval" />
+                        <text y="6" class="slot-text">Clique ici</text>
+                    </g>
+                </g>
+
+                <g transform="translate(270, 160)">
+                    <g class="slot-group type-energy" data-slot="enerIn">
+                        <text y="-30" class="slot-title">Énergie reçue</text>
+                        <rect x="-60" y="-15" width="120" height="30" rx="15" class="hitbox" />
+                        <text y="5" class="slot-text">?</text>
+                    </g>
+                </g>
+
+                <g transform="translate(670, 160)">
+                    <g class="slot-group type-energy" data-slot="enerUtile">
+                        <text y="-30" class="slot-title">Énergie Utile</text>
+                        <rect x="-70" y="-15" width="140" height="30" rx="15" class="hitbox" />
+                        <text y="5" class="slot-text">?</text>
+                    </g>
+                </g>
+
+                <g transform="translate(670, 280)">
+                    <g class="slot-group type-energy" data-slot="enerPerte">
+                        <text y="-30" class="slot-title">Énergie Perdue</text>
+                        <rect x="-70" y="-15" width="140" height="30" rx="15" class="hitbox" />
+                        <text y="5" class="slot-text">?</text>
+                    </g>
+                </g>
+            </svg>
+        </div>
+
+        <div class="inventory-panel">
+            <div class="inventory-col">
+                <h3 style="color: #f59e0b;">🔲 Sources (Réservoirs)</h3>
+                <div class="tool-grid" id="tools-sources">
+                    <button class="tool-btn" data-type="source" data-val="Secteur">Secteur</button>
+                    <button class="tool-btn" data-type="source" data-val="Batterie">Batterie</button>
+                    <button class="tool-btn" data-type="source" data-val="Vent">Vent</button>
+                    <button class="tool-btn" data-type="source" data-val="Aliments">Aliments</button>
+                    <button class="tool-btn" data-type="source" data-val="Soleil">Soleil</button>
+                </div>
+            </div>
+
+            <div class="inventory-col">
+                <h3 style="color: #6366f1;">🥚 Convertisseurs</h3>
+                <div class="tool-grid" id="tools-converters">
+                    <button class="tool-btn" data-type="converter" data-val="Ampoule LED">Ampoule LED</button>
+                    <button class="tool-btn" data-type="converter" data-val="Moteur">Moteur</button>
+                    <button class="tool-btn" data-type="converter" data-val="Éolienne">Éolienne</button>
+                    <button class="tool-btn" data-type="converter" data-val="Muscle">Muscle</button>
+                    <button class="tool-btn" data-type="converter" data-val="Bouilloire">Bouilloire</button>
+                </div>
+            </div>
+
+            <div class="inventory-col">
+                <h3 style="color: #10b981;">➡️ Formes d'énergie</h3>
+                <div class="tool-grid" id="tools-energies">
+                    <button class="tool-btn" data-type="energy" data-val="Électrique">Électrique</button>
+                    <button class="tool-btn" data-type="energy" data-val="Mécanique">Mécanique</button>
+                    <button class="tool-btn" data-type="energy" data-val="Rayonnement">Rayonnement</button>
+                    <button class="tool-btn" data-type="energy" data-val="Thermique (Eau)">Thermique (Eau)</button>
+                    <button class="tool-btn" data-type="energy" data-val="Thermique (Air)">Thermique (Air)</button>
+                    <button class="tool-btn" data-type="energy" data-val="Chimique">Chimique</button>
+                    <button class="tool-btn" data-type="energy" data-val="Thermique">Thermique</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Labo</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="sources_formes_energies.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : Diffusion et Température</title>
+
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_diffusion.css">
+</head>
+<body>
+
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture" style="max-width: 1200px;">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">🌡️</span>
+                <h1 class="hero-title" style="background: linear-gradient(135deg, #ec4899, #3b82f6); -webkit-background-clip: text; background-clip: text; color: transparent;">Diffusion & Température</h1>
+            </div>
+            <p class="hero-subtitle">Observe l'impact de la température et du type de colorant sur sa vitesse de diffusion.</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="card controls-panel">
+
+                <h2>🌡️ Paramètres Physiques</h2>
+                <div class="slider-group">
+                    <label for="temperature">Température de l'eau : <span id="tempValText" style="color: #3b82f6;">20°C</span></label>
+                    <input id="temperature" type="range" min="0" max="100" value="20" />
+                    <div class="temp-scale">
+                        <span>0°C (Glace)</span>
+                        <span>100°C (Bouillante)</span>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 25px;">🎨 Choix du Colorant</h2>
+                <div class="colorant-selector">
+                    <select id="colorantSelect" class="custom-select">
+                        <option value="blue">🔵 Bleu (Léger, se diffuse vite)</option>
+                        <option value="green">🟢 Vert (Standard)</option>
+                        <option value="red">🔴 Rouge (Lourd, coule au fond)</option>
+                    </select>
+                </div>
+
+                <div class="btn-grid" style="margin-top: 15px;">
+                    <button class="btn-action btn-primary" id="drop" style="width: 100%; margin: 0;">➕ Ajouter 1 Goutte</button>
+                </div>
+
+                <h2 style="margin-top: 25px;">⚙️ Matériel de Laboratoire</h2>
+                <div class="btn-grid">
+                    <button class="btn-action btn-secondary" id="toggleStirrer">🌪️ Agitateur : OFF</button>
+                    <button class="btn-action btn-secondary" id="reset" style="color: #ef4444; border-color: #fca5a5;">🧽 Vider le bécher</button>
+                </div>
+
+                <div class="info-box mt-2 mb-0">
+                    <p style="margin: 0; font-size: 0.9rem;">💡 <b>Observation :</b> Plus l'eau est chaude, plus ses molécules (invisibles) s'agitent vite, dispersant le colorant dans toutes les directions ! L'agitateur magnétique crée, lui, un courant forcé (vortex).</p>
+                </div>
+            </div>
+
+            <div class="card canvas-panel" style="display: flex; flex-direction: column; align-items: center;">
+                <div class="scene-diffusion" id="scene">
+                    <div class="lab-table"></div>
+
+                    <div class="thermometer-container">
+                        <div class="thermometer-marks">
+                            <span>100</span><span>75</span><span>50</span><span>25</span><span>0</span>
+                        </div>
+                        <div class="thermometer-body">
+                            <div class="thermo-liquid" id="thermoLiquid"></div>
+                        </div>
+                        <div class="thermometer-bulb" id="thermoBulb"></div>
+                    </div>
+
+                    <div class="beakerWrap" aria-label="Bécher">
+                        <div class="beaker" id="beaker">
+                            <div class="water" id="waterLayer">
+                                <div class="surface" id="surface"></div>
+                            </div>
+
+                            <canvas id="c"></canvas>
+
+                            <div class="magnetic-stirrer" id="stirrerBar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_diffusion.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>=Stealth, scale=1]
+ % Axe pH
+ \draw[->, thick] (-0.5,0) -- (15,0) node[right] {pH};
+ \foreach \x in {0,2,...,14} {
+ \draw (\x,0.12) -- (\x,-0.12) node[below, font=\small] {\x};
+ }
+
+ % pKa
+ \draw[very thick, primary] (9.2,-0.25) -- (9.2,0.25);
+ \node[above, primary, font=\small\bfseries] at (9.2,0.35) {$\text{p}K_a$};
+
+ % Zones
+ \draw[decorate, decoration={brace, amplitude=8pt, raise=4pt}, examplepink, thick]
+ (0,0.6) -- (9.1,0.6);
+ \node[above, examplepink, font=\small\bfseries] at (4.55,1.1) {[Acide] $>$ [Base]};
+
+ \draw[decorate, decoration={brace, amplitude=8pt, raise=4pt}, remarkblue, thick]
+ (9.3,0.6) -- (14.5,0.6);
+ \node[above, remarkblue, font=\small\bfseries] at (11.9,1.1) {[Base] $>$ [Acide]};
+
+ % Texte descriptif sous l'axe
+ \node[below, examplepink, font=\small] at (4.55,-0.7) {L'acide pr\'{e}domine};
+ \node[below, remarkblue, font=\small] at (11.9,-0.7) {La base pr\'{e}domine};
+
+ % Point pKa
+ \node[below, primary, font=\small] at (9.2,-0.7) {\begin{tabular}{c}pH = p$K_a$\\[2pt][Acide] = [Base]\end{tabular}};
+\end{tikzpicture}
+\end{document}

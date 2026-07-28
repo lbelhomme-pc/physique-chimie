@@ -1,161 +1,55 @@
 ---
 // src/pages/outils-methodes.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const spaces = [
+  {
+    title: "Collège",
+    href: "/outils-methodes/college",
+    description: "Méthodes de calcul, conversions, formules et outils adaptés au collège.",
+    label: "Voir les outils collège",
+  },
+  {
+    title: "Lycée",
+    href: "/outils-methodes/lycee",
+    description: "Méthodes numériques, Python, mathématiques utiles et ressources de lycée.",
+    label: "Voir les outils lycée",
+  },
+  {
+    title: "Transverses",
+    href: "/outils-methodes/transverses",
+    description: "Ressources utilisables dans plusieurs niveaux, du collège au lycée.",
+    label: "Voir les ressources transverses",
+  },
+];
 ---
 
 <BaseLayout
-  title="Outils & Méthodes - Physique-Chimie"
-  description="Outils interactifs, formulaires, méthodes numériques, méthodes maths et Python pour le collège et le lycée."
+  title="Outils & méthodes - Physique-Chimie"
+  description="Espace central pour les outils et méthodes de physique-chimie, séparés entre collège, lycée et ressources transverses."
   canonical="/outils-methodes"
 >
-  <section class="tools-hub" aria-labelledby="tools-title">
-    <header class="tools-header">
-      <p class="tools-eyebrow">Ressources transversales</p>
-      <h1 id="tools-title">Outils & Méthodes</h1>
+  <main class="om-page" aria-labelledby="om-title">
+    <header class="om-hero">
+      <p class="om-eyebrow">Ressources de travail</p>
+      <h1 id="om-title">Outils & méthodes</h1>
       <p>
-        Des outils interactifs et des méthodes courtes pour calculer, convertir, tracer, modéliser et vérifier les relations utiles en physique-chimie.
+        Un espace rangé par usage : les <strong>méthodes</strong> expliquent comment faire,
+        les <strong>outils</strong> aident à calculer, vérifier ou manipuler.
       </p>
     </header>
 
-    <div class="tools-grid">
-      <a class="tool-card tool-card-active" href="/outils-methodes/kit-scientifique">
-        <span class="tool-icon" aria-hidden="true">∑</span>
-        <strong>Kit scientifique</strong>
-        <span>Calculatrice, convertisseur, traceur graphique, équilibreur d'équations et préparation de solutions.</span>
-      </a>
-
-      <a class="tool-card tool-card-active" href="/outils-methodes/tableau-periodique">
-        <span class="tool-icon" aria-hidden="true">H</span>
-        <strong>Tableau périodique</strong>
-        <span>Recherche par nom, symbole ou numéro atomique, avec fiches détaillées des éléments.</span>
-      </a>
-
-      <a class="tool-card tool-card-active" href="/outils-methodes/methodes-maths-college">
-        <span class="tool-icon" aria-hidden="true">fx</span>
-        <strong>Méthodes maths collège</strong>
-        <span>Conversions, proportionnalité, puissances, graphiques, statistiques, calculs et vecteurs.</span>
-      </a>
-
-      <a class="tool-card tool-card-active" href="/outils-methodes/formulaires-college">
-        <span class="tool-icon" aria-hidden="true">=</span>
-        <strong>Formulaires collège</strong>
-        <span>Relations utiles en mécanique, électricité, chimie et signaux, avec unités et pièges classiques.</span>
-      </a>
-
-      <a class="tool-card tool-card-active" href="/outils-methodes/seconde-numerique">
-        <span class="tool-icon" aria-hidden="true">#</span>
-        <strong>Outils numériques - Seconde</strong>
-        <span>Tableur, histogrammes, nuages de points, Python, vecteurs vitesse, caractéristiques et étalonnage.</span>
-      </a>
-
-      <a class="tool-card tool-card-active" href="/outils-methodes/python">
-        <span class="tool-icon" aria-hidden="true">Py</span>
-        <strong>Python en physique-chimie</strong>
-        <span>Scripts guidés, graphiques, vecteurs vitesse, caractéristiques et options Pyodide ou JupyterLite.</span>
-      </a>
-
-      <a class="tool-card tool-card-active" href="/outils-methodes/cours-python">
-        <span class="tool-icon" aria-hidden="true">Py</span>
-        <strong>Cours Python lycée</strong>
-        <span>Variables, listes, boucles, conditions, fonctions, graphiques et exercices corrigés.</span>
-      </a>
-
-      <a class="tool-card tool-card-active" href="/outils-methodes/python-lab">
-        <span class="tool-icon" aria-hidden="true">▶</span>
-        <strong>Laboratoire Python</strong>
-        <span>Tester de petits scripts directement dans le navigateur avec Pyodide, sans serveur Python.</span>
-      </a>
-    </div>
-  </section>
+    <section class="om-section" aria-labelledby="om-spaces-title">
+      <h2 id="om-spaces-title">Choisir un espace</h2>
+      <div class="om-entry-grid">
+        {spaces.map((space) => (
+          <a class="om-entry-card" href={space.href}>
+            <strong>{space.title}</strong>
+            <span>{space.description}</span>
+            <em>{space.label}</em>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
 </BaseLayout>
-
-<style>
-  .tools-hub {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-
-  .tools-header {
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .tools-eyebrow {
-    color: var(--accent-primary);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    margin: 0 0 0.4rem;
-    text-transform: uppercase;
-  }
-
-  .tools-header h1 {
-    color: var(--accent-primary);
-    font-size: 1.6rem;
-    font-weight: 800;
-    margin: 0.35rem 0;
-  }
-
-  .tools-header p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0 auto;
-    max-width: 720px;
-  }
-
-  .tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
-  }
-
-  .tool-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
-    color: var(--text-primary);
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-    min-height: 165px;
-    padding: 1.15rem;
-    text-decoration: none;
-  }
-
-  .tool-card strong {
-    font-size: 1rem;
-  }
-
-  .tool-card span:not(.tool-icon) {
-    color: var(--text-muted);
-    font-size: 0.86rem;
-    line-height: 1.5;
-  }
-
-  .tool-icon {
-    align-items: center;
-    background: var(--accent-primary-light);
-    border-radius: 999px;
-    color: var(--accent-primary);
-    display: inline-flex;
-    font-size: 1.2rem;
-    font-weight: 900;
-    height: 2.2rem;
-    justify-content: center;
-    width: 2.2rem;
-  }
-
-  .tool-card-active {
-    border-left: 5px solid var(--accent-primary);
-  }
-
-  .tool-card-active:hover,
-  .tool-card-active:focus-visible {
-    border-color: var(--accent-primary);
-    box-shadow: var(--shadow-lg);
-    text-decoration: none;
-    transform: translateY(-2px);
-  }
-</style>

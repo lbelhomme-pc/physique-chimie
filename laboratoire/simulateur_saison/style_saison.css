@@ -1,0 +1,112 @@
+/* Fixer la largeur du laboratoire pour les grands écrans */
+.labo-container {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Intégration de la zone 3D dans le layout du labo */
+.simulation-area {
+    width: 100%;
+    height: 450px;
+    background-color: #020617; /* Fond spatial très sombre */
+    border-radius: 12px;
+    border: 2px solid var(--card-border);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+    cursor: grab;
+}
+
+.simulation-area:active {
+    cursor: grabbing;
+}
+
+/* Mise en page des contrôles */
+.controls-saison {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.slider-container {
+    flex: 1;
+    min-width: 250px;
+    background: var(--bg-page);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+}
+
+.slider-container label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+/* Stylisation du curseur des mois */
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    background: #334155;
+    border-radius: 4px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    margin-top: -6px;
+    box-shadow: 0 0 10px var(--primary);
+    transition: transform 0.1s;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Boutons spécifiques au simulateur */
+.btn-alert {
+    background-color: #ef4444 !important;
+    border-color: #ef4444 !important;
+    color: white !important;
+}
+.btn-alert:hover {
+    background-color: #dc2626 !important;
+}
+
+.btn-success {
+    background-color: #10b981 !important;
+    border-color: #10b981 !important;
+    color: white !important;
+}
+.btn-success:hover {
+    background-color: #059669 !important;
+}
+
+/* Couleurs des saisons */
+.season-summer { color: #ef4444; font-weight: bold; }
+.season-winter { color: #3b82f6; font-weight: bold; }
+.season-spring { color: #10b981; font-weight: bold; }
+.season-none { color: #94a3b8; font-weight: bold; font-style: italic; }
+
+/* Couleurs des distances */
+.dist-close { color: #ef4444; font-weight: bold; }
+.dist-far { color: #3b82f6; font-weight: bold; }
+.dist-mid { color: #f59e0b; font-weight: bold; }

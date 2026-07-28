@@ -1,0 +1,93 @@
+## Objectifs
+
+- Développer, réduire et factoriser des expressions simples.
+- Utiliser les identités remarquables.
+- Calculer avec des puissances entières relatives.
+- Utiliser les règles de base sur les racines carrées positives.
+
+## Prérequis
+
+- priorités opératoires
+- développement simple
+- fractions
+
+## Activité de découverte
+
+Pour comparer deux offres de location, on écrit le prix total avec une variable x. La forme développée aide à calculer, la forme factorisée aide à résoudre.
+
+## Vocabulaire
+
+- **expression**
+- **développer**
+- **factoriser**
+- **réduire**
+- **puissance**
+- **racine carrée**
+- **forme adaptée**
+
+## Cours
+
+### Définitions
+
+- Développer consiste à transformer un produit en somme.
+- Factoriser consiste à transformer une somme en produit.
+- La racine carrée de a ≥ 0 est le nombre positif dont le carré vaut a.
+
+### Propriétés
+
+- (a + b)^2 = a^2 + 2ab + b^2.
+- (a - b)^2 = a^2 - 2ab + b^2.
+- (a + b)(a - b) = a^2 - b^2.
+- Pour a ≥ 0 et b ≥ 0, √(ab) = √a × √b.
+
+### Méthodes
+
+1. Avant de transformer, se demander le but : calculer, résoudre, comparer ou étudier un signe.
+2. Pour factoriser ax + bx, repérer le facteur commun x : ax + bx = (a + b)x.
+3. Pour une expression fractionnaire, commencer par préciser les valeurs interdites.
+
+## Exemples corrigés
+
+- (x + 3)^2 = x^2 + 6x + 9.
+- 5x^2 - 10x = 5x(x - 2).
+- √72 = √(36 × 2) = 6√2.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 680 230" role="img" aria-labelledby="algebra-title algebra-desc"><title id="algebra-title">Choisir une forme algébrique</title><desc id="algebra-desc">Trois formes d'une expression reliées à trois usages.</desc><rect x="55" y="45" width="165" height="70" rx="8" fill="#dbeafe" stroke="#2563eb"/><rect x="258" y="45" width="165" height="70" rx="8" fill="#dcfce7" stroke="#16a34a"/><rect x="461" y="45" width="165" height="70" rx="8" fill="#fef3c7" stroke="#d97706"/><text x="138" y="76" textAnchor="middle" fontWeight="700">Forme factorisée</text><text x="138" y="98" textAnchor="middle">résoudre</text><text x="341" y="76" textAnchor="middle" fontWeight="700">Forme développée</text><text x="341" y="98" textAnchor="middle">calculer</text><text x="544" y="76" textAnchor="middle" fontWeight="700">Forme réduite</text><text x="544" y="98" textAnchor="middle">comparer</text><text x="340" y="165" textAnchor="middle">(x - 2)(x + 5) = x² + 3x - 10</text></svg>
+  <figcaption>Calcul littéral, puissances et racines carrées : représentation schématique à commenter avant les exercices.</figcaption>
+</figure>
+
+## Algorithmique en Python
+
+### Première puissance dépassant un seuil
+
+```python
+def premiere_puissance(base, seuil):
+    n = 0
+    valeur = 1
+    while valeur < seuil:
+        n = n + 1
+        valeur = valeur * base
+    return n, valeur
+
+print(premiere_puissance(2, 1000))
+```
+
+La boucle multiplie par la base jusqu'à dépasser le seuil demandé.
+
+## Erreurs fréquentes
+
+- Écrire à tort (a + b)^2 = a^2 + b^2.
+- Oublier que √a est toujours positif.
+- Transformer une expression sans tenir compte de l'objectif.
+
+## Formules et idées à retenir
+
+- (a + b)^2 = a^2 + 2ab + b^2
+- (a - b)^2 = a^2 - 2ab + b^2
+- (a + b)(a - b) = a^2 - b^2
+- √(ab) = √a√b pour a,b ≥ 0
+
+## Synthèse
+
+Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.

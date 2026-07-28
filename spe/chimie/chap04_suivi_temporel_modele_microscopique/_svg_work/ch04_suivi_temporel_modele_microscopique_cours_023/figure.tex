@@ -1,0 +1,92 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>=Stealth, scale=0.95]
+\begin{axis}[
+    width=14cm, height=7.5cm,
+    xlabel={Coordonnée de réaction},
+    ylabel={Énergie potentielle $E_p$},
+    xmin=0, xmax=10,
+    ymin=0, ymax=100,
+    xtick=\empty,
+    ytick=\empty,
+    axis lines=left,
+    xlabel style={at={(axis description cs:0.5,-0.02)}, font=\small},
+    ylabel style={at={(axis description cs:-0.04,0.5)}, font=\small},
+    clip=false
+]
+
+% Courbe sans catalyseur
+\addplot[primary, ultra thick, smooth, tension=0.6] coordinates {
+    (0.5,30) (1,30) (2,31) (3,40) (4,75) (5,85) (6,75) (7,40) (8,18) (9,15) (9.5,15)
+};
+
+% Courbe avec catalyseur
+\addplot[synthorange, ultra thick, smooth, tension=0.6, dashed] coordinates {
+    (0.5,30) (1,30) (2,31) (3,38) (4,55) (5,60) (6,50) (7,35) (8,18) (9,15) (9.5,15)
+};
+
+% Niveaux
+\draw[dark, thin, dashed] (axis cs:0.5,30) -- (axis cs:9.5,30) node[right, font=\footnotesize] {};
+\draw[dark, thin, dashed] (axis cs:0.5,15) -- (axis cs:9.5,15) node[right, font=\footnotesize] {};
+
+% Annotations réactifs / produits
+\node[font=\small\bfseries, dark] at (axis cs:0.8,35) {Réactifs};
+\node[font=\small\bfseries, dark] at (axis cs:9.2,20) {Produits};
+
+% Ea sans catalyseur
+\draw[primary, <->, thick] (axis cs:1.5,30) -- (axis cs:1.5,85);
+\node[font=\footnotesize, primary, left] at (axis cs:1.5,57) {$E_a$};
+
+% Ea avec catalyseur
+\draw[synthorange, <->, thick] (axis cs:8.5,30) -- (axis cs:8.5,60);
+\node[font=\footnotesize, synthorange, right] at (axis cs:8.5,45) {$E_a'$};
+
+% Delta H
+\draw[synthgreen, <->, thick] (axis cs:9.8,15) -- (axis cs:9.8,30);
+\node[font=\footnotesize, synthgreen, right] at (axis cs:9.8,22.5) {$\Delta_r H < 0$};
+
+% État de transition
+\node[font=\footnotesize, primary, above] at (axis cs:5,87) {État de transition};
+\node[font=\footnotesize, synthorange, above] at (axis cs:5,62) {avec catalyseur};
+
+% Légende
+\node[primary, font=\footnotesize] at (axis cs:7.5,90) {--- sans catalyseur};
+\node[synthorange, font=\footnotesize] at (axis cs:7.5,83) {- - avec catalyseur};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

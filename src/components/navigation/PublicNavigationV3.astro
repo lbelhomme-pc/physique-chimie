@@ -1,0 +1,509 @@
+---
+import { siteConfig } from "../../config/site";
+import {
+  disciplineIdentities,
+  getDisciplineIdentity,
+  getDisciplineStyle,
+  publicDisciplineIds,
+} from "../../data/disciplineIdentity";
+import SubjectSwitcher from "./SubjectSwitcher.astro";
+import {
+  getSubjectLabel,
+  type CycleContext,
+  type SubjectId,
+} from "./SubjectContext";
+
+export interface Props {
+  currentPath: string;
+  subject?: SubjectId;
+  cycle?: CycleContext;
+  level?: string;
+  resourceType?: string;
+}
+
+const {
+  currentPath,
+  subject = "transversal",
+  cycle,
+  level,
+  resourceType,
+} = Astro.props;
+
+function isActive(href: string) {
+  if (href === "/") return currentPath === "/";
+  return currentPath === href || currentPath.startsWith(`${href}/`);
+}
+
+const matterLinks = publicDisciplineIds.map((id) => disciplineIdentities[id]);
+
+const levelLinks = [
+  { label: "Collège", href: "/college", meta: "6e à 3e", discipline: disciplineIdentities["physique-chimie"] },
+  { label: "6e", href: "/college/6eme", meta: "Physique-Chimie" },
+  { label: "5e", href: "/college/5eme", meta: "Physique-Chimie" },
+  { label: "4e", href: "/college/4eme", meta: "Physique-Chimie" },
+  { label: "3e", href: "/college/3eme", meta: "Physique-Chimie" },
+  { label: "Lycée", href: "/lycee", meta: "PC et ES" },
+  { label: "2nde maths", href: "/mathematiques/lycee/2nde", meta: "Mathématiques" },
+  { label: "2nde PC", href: "/lycee/2nde", meta: "Physique-Chimie" },
+  { label: "1re spé PC", href: "/lycee/1ere-spe", meta: "Physique-Chimie" },
+  { label: "1re ES", href: "/lycee/1ere-ens-scientifique", meta: "Enseignement scientifique" },
+  { label: "Terminale spé PC", href: "/lycee/terminale-spe", meta: "Physique-Chimie" },
+  { label: "Terminale ES", href: "/lycee/terminale-ens-scientifique", meta: "Enseignement scientifique" },
+];
+
+const resourceLinks = [
+  { label: "Méthodes", href: "/outils-methodes", meta: "Fiches et outils" },
+  { label: "Kit scientifique", href: "/outils-methodes/kit-scientifique", meta: "Calculs et constantes" },
+  { label: "Mémorisation", href: "/memorisation", meta: "Quiz et flashcards" },
+  { label: "Méthodes maths", href: "/outils-methodes/methodes-maths-lycee", meta: "Lycée" },
+  { label: "Tableau périodique", href: "/outils-methodes/tableau-periodique", meta: "Chimie" },
+];
+
+const contextLabel = getSubjectLabel(subject);
+const contextIdentity = getDisciplineIdentity(subject);
+const cycleLabel = cycle === "college" ? "Collège" : cycle === "lycee" ? "Lycée" : undefined;
+---
+
+<header class="public-nav" data-public-navigation>
+  <a class="skip-link" href="#main-content">Aller au contenu</a>
+
+  <div class="public-nav__inner">
+    <a class="public-nav__brand" href="/" aria-label={`${siteConfig.name} - accueil`}>
+      <span class="public-nav__mark" aria-hidden="true">R</span>
+      <span class="public-nav__brand-text">
+        <strong>{siteConfig.shortName}</strong>
+        <small>Sciences et maths</small>
+      </span>
+    </a>
+
+    <SubjectSwitcher subject={subject} label="Choisir une matière principale" />
+
+    <nav class="public-nav__links" aria-label="Navigation publique V3">
+      <details class="public-nav__menu">
+        <summary aria-label="Ouvrir le menu Matières">Matières</summary>
+        <div class="public-nav__panel">
+          {matterLinks.map((item) => (
+            <a
+              href={item.href}
+              class:list={["public-nav__panel-link", "public-nav__panel-link--discipline", { active: isActive(item.href) }]}
+              data-discipline={item.id}
+              style={getDisciplineStyle(item)}
+            >
+              <span class="public-nav__discipline-mark" aria-hidden="true">{item.mark}</span>
+              <span class="public-nav__panel-copy">
+                <span>{item.label}</span>
+                <small>{item.microcopy}</small>
+              </span>
+            </a>
+          ))}
+        </div>
+      </details>
+
+      <details class="public-nav__menu">
+        <summary aria-label="Ouvrir le menu Niveaux">Niveaux</summary>
+        <div class="public-nav__panel public-nav__panel--wide">
+          {levelLinks.map((item) => (
+            <a href={item.href} class:list={["public-nav__panel-link", { active: isActive(item.href) }]}>
+              <span>{item.label}</span>
+              <small>{item.meta}</small>
+            </a>
+          ))}
+        </div>
+      </details>
+
+      <details class="public-nav__menu">
+        <summary aria-label="Ouvrir le menu Ressources">Ressources</summary>
+        <div class="public-nav__panel public-nav__panel--wide">
+          {resourceLinks.map((item) => (
+            <a href={item.href} class:list={["public-nav__panel-link", { active: isActive(item.href) }]}>
+              <span>{item.label}</span>
+              <small>{item.meta}</small>
+            </a>
+          ))}
+        </div>
+      </details>
+
+      <a href="/#recherche" class:list={["public-nav__link", { active: currentPath === "/" }]}>Recherche</a>
+      <a href="/laboratoire" class:list={["public-nav__link", { active: isActive("/laboratoire") }]}>Labo</a>
+      <a href="/profil" class:list={["public-nav__account", { active: isActive("/profil") }]}>
+        <span>Compte</span>
+        <small>futur</small>
+      </a>
+    </nav>
+  </div>
+
+  <div class="public-nav__context" aria-label="Contexte de navigation">
+    <span
+      class="public-nav__context-discipline"
+      data-discipline={contextIdentity.id}
+      style={getDisciplineStyle(contextIdentity)}
+    >
+      <span class="public-nav__context-mark" aria-hidden="true">{contextIdentity.mark}</span>
+      Matière : <strong>{contextLabel}</strong>
+      <small>{contextIdentity.microcopy}</small>
+    </span>
+    {cycleLabel && <span>{cycleLabel}</span>}
+    {level && <span>{level}</span>}
+    {resourceType && <span>{resourceType}</span>}
+  </div>
+</header>
+
+<style>
+  .skip-link {
+    background: var(--v3-color-action);
+    border-radius: var(--v3-radius-md);
+    color: #fff;
+    left: var(--v3-space-4);
+    padding: var(--v3-space-3) var(--v3-space-4);
+    position: fixed;
+    top: var(--v3-space-3);
+    transform: translateY(-170%);
+    z-index: 1001;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  .public-nav {
+    background: color-mix(in srgb, var(--v3-color-surface-page) 96%, transparent);
+    border-bottom: 1px solid var(--v3-color-border-default);
+    position: sticky;
+    top: 0;
+    z-index: 90;
+  }
+
+  .public-nav__inner {
+    align-items: center;
+    display: grid;
+    gap: var(--v3-space-3);
+    grid-template-columns: auto auto minmax(0, 1fr);
+    margin: 0 auto;
+    max-width: 1180px;
+    padding: var(--v3-space-3) var(--v3-space-4);
+  }
+
+  .public-nav__brand {
+    align-items: center;
+    color: var(--v3-color-text-main);
+    display: inline-flex;
+    gap: var(--v3-space-2);
+    min-height: 44px;
+    text-decoration: none;
+  }
+
+  .public-nav__mark {
+    align-items: center;
+    background: var(--v3-color-action);
+    border-radius: var(--v3-radius-md);
+    color: #fff;
+    display: inline-flex;
+    font-weight: 950;
+    height: 38px;
+    justify-content: center;
+    width: 38px;
+  }
+
+  .public-nav__brand-text {
+    display: grid;
+    line-height: 1.1;
+  }
+
+  .public-nav__brand-text strong {
+    font-size: var(--v3-font-size-sm);
+  }
+
+  .public-nav__brand-text small {
+    color: var(--v3-color-text-muted);
+    font-size: var(--v3-font-size-xs);
+  }
+
+  .public-nav__links {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--v3-space-2);
+    justify-content: flex-end;
+  }
+
+  .public-nav__link,
+  .public-nav__account,
+  .public-nav__menu summary {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: var(--v3-radius-md);
+    color: var(--v3-color-text-subtle);
+    cursor: pointer;
+    display: inline-flex;
+    font-size: var(--v3-font-size-sm);
+    font-weight: 800;
+    gap: var(--v3-space-2);
+    min-height: 44px;
+    padding: var(--v3-space-2) var(--v3-space-3);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .public-nav__menu {
+    position: relative;
+  }
+
+  .public-nav__menu summary {
+    list-style: none;
+  }
+
+  .public-nav__menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .public-nav__menu summary::after {
+    content: "v";
+    font-size: 0.72em;
+  }
+
+  .public-nav__menu[open] summary,
+  .public-nav__link.active,
+  .public-nav__account.active {
+    background: var(--v3-color-action-subtle);
+    color: var(--v3-color-action);
+  }
+
+  .public-nav__brand:focus-visible,
+  .public-nav__link:focus-visible,
+  .public-nav__account:focus-visible,
+  .public-nav__menu summary:focus-visible,
+  .public-nav__panel-link:focus-visible {
+    box-shadow: var(--v3-shadow-focus);
+    outline: none;
+  }
+
+  .public-nav__link:hover,
+  .public-nav__account:hover,
+  .public-nav__menu summary:hover {
+    background: var(--v3-color-surface-muted);
+    color: var(--v3-color-text-main);
+  }
+
+  .public-nav__account {
+    background: var(--v3-color-surface-muted);
+  }
+
+  .public-nav__account small {
+    background: var(--v3-color-warning-subtle);
+    border-radius: var(--v3-radius-pill);
+    color: var(--v3-color-warning);
+    font-size: 0.68rem;
+    padding: 0.05rem var(--v3-space-2);
+  }
+
+  .public-nav__panel {
+    background: var(--v3-color-surface-raised);
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    box-shadow: var(--v3-shadow-md);
+    display: grid;
+    gap: var(--v3-space-2);
+    left: 0;
+    min-width: 240px;
+    padding: var(--v3-space-2);
+    position: absolute;
+    top: calc(100% + var(--v3-space-2));
+  }
+
+  .public-nav__panel--wide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-width: 420px;
+  }
+
+  .public-nav__panel-link {
+    border-radius: var(--v3-radius-md);
+    color: var(--v3-color-text-main);
+    display: grid;
+    gap: 0.1rem;
+    min-height: 52px;
+    padding: var(--v3-space-3);
+    text-decoration: none;
+  }
+
+  .public-nav__panel-link--discipline {
+    align-items: center;
+    display: flex;
+    gap: var(--v3-space-3);
+  }
+
+  .public-nav__discipline-mark,
+  .public-nav__context-mark {
+    align-items: center;
+    background: var(--discipline-surface);
+    border: 1px solid var(--discipline-border);
+    border-radius: var(--v3-radius-sm);
+    color: var(--discipline-accent);
+    display: inline-flex;
+    font-weight: 950;
+    justify-content: center;
+  }
+
+  .public-nav__discipline-mark {
+    min-height: 34px;
+    min-width: 34px;
+    padding: 0 var(--v3-space-2);
+  }
+
+  .public-nav__panel-copy {
+    display: grid;
+    gap: 0.1rem;
+  }
+
+  .public-nav__panel-link span {
+    font-weight: 850;
+  }
+
+  .public-nav__panel-link small {
+    color: var(--v3-color-text-muted);
+    font-size: var(--v3-font-size-xs);
+  }
+
+  .public-nav__panel-link:hover,
+  .public-nav__panel-link.active {
+    background: var(--v3-color-action-subtle);
+    color: var(--v3-color-action);
+  }
+
+  .public-nav__panel-link--discipline:hover,
+  .public-nav__panel-link--discipline.active {
+    background: var(--discipline-surface);
+    color: var(--discipline-accent);
+  }
+
+  .public-nav__context {
+    align-items: center;
+    background: var(--v3-color-surface-muted);
+    border-top: 1px solid var(--v3-color-border-default);
+    color: var(--v3-color-text-subtle);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: var(--v3-font-size-xs);
+    font-weight: 750;
+    gap: var(--v3-space-2);
+    justify-content: center;
+    padding: var(--v3-space-2) var(--v3-space-4);
+  }
+
+  .public-nav__context > span + span::before {
+    color: var(--v3-color-text-muted);
+    content: "/";
+    margin-right: var(--v3-space-2);
+  }
+
+  .public-nav__context-discipline {
+    align-items: center;
+    display: inline-flex;
+    gap: var(--v3-space-2);
+  }
+
+  .public-nav__context-mark {
+    min-height: 24px;
+    min-width: 28px;
+    padding: 0 var(--v3-space-1);
+  }
+
+  .public-nav__context-discipline small {
+    color: color-mix(in srgb, var(--discipline-accent) 70%, var(--v3-color-text-subtle));
+  }
+
+  .public-nav__context strong {
+    color: var(--v3-color-text-main);
+  }
+
+  @media (max-width: 980px) {
+    .public-nav__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .public-nav__links {
+      justify-content: flex-start;
+    }
+
+    .public-nav__panel,
+    .public-nav__panel--wide {
+      left: 0;
+      min-width: min(520px, calc(100vw - 2rem));
+    }
+  }
+
+  @media (max-width: 620px) {
+    .public-nav {
+      position: static;
+    }
+
+    .public-nav__inner {
+      padding-inline: var(--v3-space-3);
+    }
+
+    .public-nav__brand {
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .public-nav__links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 100%;
+    }
+
+    .public-nav__links > * {
+      min-width: 0;
+    }
+
+    .public-nav__menu {
+      width: 100%;
+    }
+
+    .public-nav__menu[open] {
+      grid-column: 1 / -1;
+    }
+
+    .public-nav__link,
+    .public-nav__account,
+    .public-nav__menu summary {
+      font-size: 0.82rem;
+      justify-content: center;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      padding-inline: var(--v3-space-2);
+      text-align: center;
+      white-space: normal;
+      width: 100%;
+    }
+
+    .public-nav__account {
+      display: grid;
+      gap: 0.12rem;
+    }
+
+    .public-nav__panel,
+    .public-nav__panel--wide {
+      grid-template-columns: 1fr;
+      max-height: min(52vh, 420px);
+      min-width: 0;
+      overflow-y: auto;
+      position: static;
+      width: 100%;
+    }
+
+    .public-nav__context {
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-inline: var(--v3-space-3);
+    }
+
+    .public-nav__context-discipline {
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .public-nav__context-discipline small {
+      display: none;
+    }
+  }
+</style>

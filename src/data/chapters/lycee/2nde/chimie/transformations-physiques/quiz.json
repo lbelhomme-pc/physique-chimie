@@ -1,22 +1,956 @@
 [
-  {"id":"transformations-physiques-q01","type":"mcq","question":"Une transformation physique forme-t-elle une nouvelle espèce ?","choices":["Oui, toujours","Non","Seulement avec l'eau","Seulement à chaud"],"answer":1,"explanation":"Une transformation physique ne forme pas de nouvelle espèce chimique."},
-  {"id":"transformations-physiques-q02","type":"mcq","question":"Le passage solide vers liquide s'appelle...","choices":["fusion","solidification","vaporisation","liquéfaction"],"answer":0,"explanation":"C'est une fusion."},
-  {"id":"transformations-physiques-q03","type":"mcq","question":"Le passage liquide vers solide s'appelle...","choices":["fusion","solidification","sublimation","vaporisation"],"answer":1,"explanation":"C'est une solidification."},
-  {"id":"transformations-physiques-q04","type":"mcq","question":"Le passage liquide vers gaz s'appelle...","choices":["liquéfaction","vaporisation","fusion","dissolution"],"answer":1,"explanation":"C'est une vaporisation."},
-  {"id":"transformations-physiques-q05","type":"mcq","question":"Le passage gaz vers liquide s'appelle...","choices":["liquéfaction","fusion","solidification","dissolution"],"answer":0,"explanation":"C'est une liquéfaction."},
-  {"id":"transformations-physiques-q06","type":"mcq","question":"La fusion de l'eau s'écrit...","choices":["\\(H_2O(s)\\rightarrow H_2O(l)\\)","\\(H_2+O_2\\rightarrow H_2O\\)","\\(H_2O(l)\\rightarrow H_2O(s)\\)","\\(NaCl(s)\\rightarrow Na^+(aq)+Cl^-(aq)\\)"],"answer":0,"explanation":"Seul l'état change."},
-  {"id":"transformations-physiques-q07","type":"mcq","question":"La disparition du sel dans l'eau est...","choices":["une fusion","une dissolution","une vaporisation","une transformation nucléaire"],"answer":1,"explanation":"Le sel est mis en solution dans l'eau."},
-  {"id":"transformations-physiques-q08","type":"mcq","question":"Une transformation endothermique...","choices":["reçoit de l'énergie","libère toujours de l'énergie","forme un nouvel atome","ne change jamais d'état"],"answer":0,"explanation":"Le système reçoit de l'énergie."},
-  {"id":"transformations-physiques-q09","type":"mcq","question":"Une transformation exothermique...","choices":["libère de l'énergie","absorbe toujours de l'énergie","est une mole","est un test chimique"],"answer":0,"explanation":"Le système cède de l'énergie."},
-  {"id":"transformations-physiques-q10","type":"mcq","question":"La relation énergie-changement d'état est...","choices":["\\(Q=mL\\)","\\(C=m/V\\)","\\(N=nN_A\\)","\\(U=RI\\)"],"answer":0,"explanation":"L'énergie échangée est proportionnelle à la masse qui change d'état."},
-  {"id":"transformations-physiques-q11","type":"mcq","question":"Dans \\(Q=mL\\), si \\(L\\) est en J·kg\\(^{-1}\\), \\(m\\) s'exprime en...","choices":["kg","mol","L","g·L\\(^{-1}\\)"],"answer":0,"explanation":"La masse doit être en kilogramme."},
-  {"id":"transformations-physiques-q12","type":"mcq","question":"Dans \\(Q=mL\\), \\(Q\\) s'exprime en...","choices":["J","kg","mol","°C"],"answer":0,"explanation":"\\(Q\\) est une énergie, exprimée en joule."},
-  {"id":"transformations-physiques-q13","type":"mcq","question":"Lors d'un changement d'état, les molécules...","choices":["restent les mêmes","deviennent des protons","disparaissent","changent toujours de formule"],"answer":0,"explanation":"L'espèce chimique ne change pas."},
-  {"id":"transformations-physiques-q14","type":"mcq","question":"La vaporisation de l'eau est...","choices":["endothermique","exothermique","nucléaire","une électrolyse"],"answer":0,"explanation":"Elle demande de l'énergie."},
-  {"id":"transformations-physiques-q15","type":"mcq","question":"La solidification de l'eau est...","choices":["exothermique","endothermique","une dissolution","une combustion"],"answer":0,"explanation":"Elle libère de l'énergie."},
-  {"id":"transformations-physiques-q16","type":"mcq","question":"Pour trouver \\(m\\) dans \\(Q=mL\\), on écrit...","choices":["\\(m=Q/L\\)","\\(m=QL\\)","\\(m=L/Q\\)","\\(m=Q+L\\)"],"answer":0,"explanation":"On divise l'énergie par l'énergie massique."},
-  {"id":"transformations-physiques-q17","type":"mcq","question":"Un palier de température pendant la fusion signifie que...","choices":["l'énergie reçue sert au changement d'état","la température est mal mesurée","l'eau disparaît","il y a réaction chimique"],"answer":0,"explanation":"Pendant le changement d'état d'un corps pur, la température peut rester constante."},
-  {"id":"transformations-physiques-q18","type":"mcq","question":"Une transformation physique conserve...","choices":["les espèces chimiques","toujours la température","toujours le volume","la couleur uniquement"],"answer":0,"explanation":"Les espèces chimiques restent les mêmes."},
-  {"id":"transformations-physiques-q19","type":"mcq","question":"L'énergie massique \\(L\\) s'exprime en...","choices":["J·kg\\(^{-1}\\)","kg·J\\(^{-1}\\)","g·L\\(^{-1}\\)","mol"],"answer":0,"explanation":"C'est une énergie par kilogramme."},
-  {"id":"transformations-physiques-q20","type":"mcq","question":"Le piège avec la fusion est de la confondre avec...","choices":["la dissolution","la masse volumique","la quantité de matière","la chromatographie"],"answer":0,"explanation":"Un solide qui disparaît dans l'eau ne fond pas forcément : il peut se dissoudre."}
+  {
+    "id": "transformations-physiques-q01",
+    "type": "mcq",
+    "question": "Une transformation physique forme-t-elle une nouvelle espèce ?",
+    "choices": [
+      "Oui, toujours",
+      "Non",
+      "Seulement avec l'eau",
+      "Seulement à chaud"
+    ],
+    "answer": 1,
+    "explanation": "Une transformation physique ne forme pas de nouvelle espèce chimique.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-q02",
+    "type": "mcq",
+    "question": "Le passage solide vers liquide s'appelle...",
+    "choices": [
+      "fusion",
+      "solidification",
+      "vaporisation",
+      "liquéfaction"
+    ],
+    "answer": 0,
+    "explanation": "C'est une fusion.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q03",
+    "type": "mcq",
+    "question": "Le passage liquide vers solide s'appelle...",
+    "choices": [
+      "fusion",
+      "solidification",
+      "sublimation",
+      "vaporisation"
+    ],
+    "answer": 1,
+    "explanation": "C'est une solidification.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q04",
+    "type": "mcq",
+    "question": "Le passage liquide vers gaz s'appelle...",
+    "choices": [
+      "liquéfaction",
+      "vaporisation",
+      "fusion",
+      "dissolution"
+    ],
+    "answer": 1,
+    "explanation": "C'est une vaporisation.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q05",
+    "type": "mcq",
+    "question": "Le passage gaz vers liquide s'appelle...",
+    "choices": [
+      "liquéfaction",
+      "fusion",
+      "solidification",
+      "dissolution"
+    ],
+    "answer": 0,
+    "explanation": "C'est une liquéfaction.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q06",
+    "type": "mcq",
+    "question": "La fusion de l'eau s'écrit...",
+    "choices": [
+      "\\(H_2O(s)\\rightarrow H_2O(l)\\)",
+      "\\(H_2+O_2\\rightarrow H_2O\\)",
+      "\\(H_2O(l)\\rightarrow H_2O(s)\\)",
+      "\\(NaCl(s)\\rightarrow Na^+(aq)+Cl^-(aq)\\)"
+    ],
+    "answer": 0,
+    "explanation": "Seul l'état change.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q07",
+    "type": "mcq",
+    "question": "La disparition du sel dans l'eau est...",
+    "choices": [
+      "une fusion",
+      "une dissolution",
+      "une vaporisation",
+      "une transformation nucléaire"
+    ],
+    "answer": 1,
+    "explanation": "Le sel est mis en solution dans l'eau.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q08",
+    "type": "mcq",
+    "question": "Une transformation endothermique...",
+    "choices": [
+      "reçoit de l'énergie",
+      "libère toujours de l'énergie",
+      "forme un nouvel atome",
+      "ne change jamais d'état"
+    ],
+    "answer": 0,
+    "explanation": "Le système reçoit de l'énergie.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q09",
+    "type": "mcq",
+    "question": "Une transformation exothermique...",
+    "choices": [
+      "libère de l'énergie",
+      "absorbe toujours de l'énergie",
+      "est une mole",
+      "est un test chimique"
+    ],
+    "answer": 0,
+    "explanation": "Le système cède de l'énergie.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q10",
+    "type": "mcq",
+    "question": "La relation énergie-changement d'état est...",
+    "choices": [
+      "\\(Q=mL\\)",
+      "\\(C=m/V\\)",
+      "\\(N=nN_A\\)",
+      "\\(U=RI\\)"
+    ],
+    "answer": 0,
+    "explanation": "L'énergie échangée est proportionnelle à la masse qui change d'état.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q11",
+    "type": "mcq",
+    "question": "Dans \\(Q=mL\\), si \\(L\\) est en J·kg\\(^{-1}\\), \\(m\\) s'exprime en...",
+    "choices": [
+      "kg",
+      "mol",
+      "L",
+      "g·L\\(^{-1}\\)"
+    ],
+    "answer": 0,
+    "explanation": "La masse doit être en kilogramme.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-q12",
+    "type": "mcq",
+    "question": "Dans \\(Q=mL\\), \\(Q\\) s'exprime en...",
+    "choices": [
+      "J",
+      "kg",
+      "mol",
+      "°C"
+    ],
+    "answer": 0,
+    "explanation": "\\(Q\\) est une énergie, exprimée en joule.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-q13",
+    "type": "mcq",
+    "question": "Lors d'un changement d'état, les molécules...",
+    "choices": [
+      "restent les mêmes",
+      "deviennent des protons",
+      "disparaissent",
+      "changent toujours de formule"
+    ],
+    "answer": 0,
+    "explanation": "L'espèce chimique ne change pas.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q14",
+    "type": "mcq",
+    "question": "La vaporisation de l'eau est...",
+    "choices": [
+      "endothermique",
+      "exothermique",
+      "nucléaire",
+      "une électrolyse"
+    ],
+    "answer": 0,
+    "explanation": "Elle demande de l'énergie.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q15",
+    "type": "mcq",
+    "question": "La solidification de l'eau est...",
+    "choices": [
+      "exothermique",
+      "endothermique",
+      "une dissolution",
+      "une combustion"
+    ],
+    "answer": 0,
+    "explanation": "Elle libère de l'énergie.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q16",
+    "type": "mcq",
+    "question": "Pour trouver \\(m\\) dans \\(Q=mL\\), on écrit...",
+    "choices": [
+      "\\(m=Q/L\\)",
+      "\\(m=QL\\)",
+      "\\(m=L/Q\\)",
+      "\\(m=Q+L\\)"
+    ],
+    "answer": 0,
+    "explanation": "On divise l'énergie par l'énergie massique.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-q17",
+    "type": "mcq",
+    "question": "Un palier de température pendant la fusion signifie que...",
+    "choices": [
+      "l'énergie reçue sert au changement d'état",
+      "la température est mal mesurée",
+      "l'eau disparaît",
+      "il y a réaction chimique"
+    ],
+    "answer": 0,
+    "explanation": "Pendant le changement d'état d'un corps pur, la température peut rester constante.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "transformations-physiques-q18",
+    "type": "mcq",
+    "question": "Une transformation physique conserve...",
+    "choices": [
+      "les espèces chimiques",
+      "toujours la température",
+      "toujours le volume",
+      "la couleur uniquement"
+    ],
+    "answer": 0,
+    "explanation": "Les espèces chimiques restent les mêmes.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-q19",
+    "type": "mcq",
+    "question": "L'énergie massique \\(L\\) s'exprime en...",
+    "choices": [
+      "J·kg\\(^{-1}\\)",
+      "kg·J\\(^{-1}\\)",
+      "g·L\\(^{-1}\\)",
+      "mol"
+    ],
+    "answer": 0,
+    "explanation": "C'est une énergie par kilogramme.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "transformations-physiques-q20",
+    "type": "mcq",
+    "question": "Le piège avec la fusion est de la confondre avec...",
+    "choices": [
+      "la dissolution",
+      "la masse volumique",
+      "la quantité de matière",
+      "la chromatographie"
+    ],
+    "answer": 0,
+    "explanation": "Un solide qui disparaît dans l'eau ne fond pas forcément : il peut se dissoudre.",
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Transformations physiques et énergie",
+        "href": "/laboratoire/gaz-parfaits",
+        "kind": "laboratory"
+      }
+    ],
+    "tags": [
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  }
 ]

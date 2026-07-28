@@ -1,0 +1,98 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[scale=0.85, >=Stealth]
+ % Source
+ \fill[yellow!40] (-6.5,0.3) rectangle (-5.5,-0.3);
+ \draw[thick] (-6.5,0.3) rectangle (-5.5,-0.3);
+ \node[font=\footnotesize\bfseries] at (-6,0) {Source};
+ 
+ % Rayons vers les fentes
+ \draw[orange!80, thick] (-5.5,0) -- (-2,0.5);
+ \draw[orange!80, thick] (-5.5,0) -- (-2,-0.5);
+ 
+ % Ecran avec deux fentes (trous d'Young)
+ \fill[gray!60] (-2,3) rectangle (-1.7,0.7);
+ \fill[gray!60] (-2,-0.7) rectangle (-1.7,-3);
+ \fill[gray!60] (-2,0.35) rectangle (-1.7,-0.35);
+ 
+ % Labels des fentes
+ \node[left, font=\footnotesize\bfseries, primary] at (-2.2,0.55) {$S_1$};
+ \node[left, font=\footnotesize\bfseries, primary] at (-2.2,-0.55) {$S_2$};
+ 
+ % Distance entre fentes
+ \draw[<->, thick, red!70!black] (-2.7,0.5) -- (-2.7,-0.5);
+ \node[left, red!70!black, font=\footnotesize\bfseries] at (-2.7,0) {$a_{1\text{-}2}$};
+ 
+ \node[below, font=\footnotesize\itshape] at (-1.85,-3.2) {Fentes d'Young};
+ 
+ % Ecran d'observation
+ \fill[gray!15] (5,3.5) rectangle (5.4,-3.5);
+ \draw[thick] (5,3.5) -- (5,-3.5);
+ \node[right, font=\footnotesize\itshape] at (5.5,0) {\'{E}cran};
+ 
+ % Distance D
+ \draw[<->, thick] (-1.7,-3.8) -- (5,-3.8);
+ \node[below, font=\small\bfseries] at (1.65,-3.8) {$D$};
+ 
+ % Ondes diffractees depuis S1
+ \draw[blue!50, thick] (-1.7,0.5) -- (5,2.5);
+ \draw[blue!50, thick] (-1.7,0.5) -- (5,0);
+ \draw[blue!50, thick] (-1.7,0.5) -- (5,-2.0);
+ 
+ % Ondes diffractees depuis S2
+ \draw[red!50, thick, dashed] (-1.7,-0.5) -- (5,2.0);
+ \draw[red!50, thick, dashed] (-1.7,-0.5) -- (5,0);
+ \draw[red!50, thick, dashed] (-1.7,-0.5) -- (5,-2.5);
+ 
+ % Franges sur l'ecran
+ \foreach \y in {-2.5,-1.5,-0.5,0.5,1.5,2.5} {
+ \fill[red!60] (5,\y-0.15) rectangle (5.15,\y+0.15);
+ }
+ \foreach \y in {-2.0,-1.0,0,1.0,2.0} {
+ \fill[red!20] (5,\y-0.15) rectangle (5.15,\y+0.15);
+ }
+ 
+ % Point M
+ \fill[black] (5,1.5) circle (2pt);
+ \node[right, font=\footnotesize\bfseries] at (5.2,1.5) {M};
+ 
+ % Axe x
+ \draw[<->, thick, gray] (4.7,-2.8) -- (4.7,2.8);
+ \node[left, gray, font=\footnotesize] at (4.7,2.8) {$x$};
+ 
+\end{tikzpicture}
+\end{document}

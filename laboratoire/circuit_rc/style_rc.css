@@ -1,0 +1,173 @@
+/* style_rc.css */
+
+.dashboard-columns {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 25px;
+}
+
+h2 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+/* --- CONTRÔLES --- */
+.slider-group { margin-bottom: 20px; }
+.slider-group label {
+    display: block; font-weight: bold; margin-bottom: 8px; color: var(--text-main);
+}
+input[type="range"] { width: 100%; cursor: pointer; margin-bottom: 5px; }
+
+.val-highlight {
+    color: var(--primary);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    background: var(--bg-page);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--card-border);
+}
+
+.tau-box {
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px solid #3b82f6;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    margin-top: 10px;
+}
+.tau-title { font-size: 0.9rem; font-weight: bold; color: var(--text-muted); margin-bottom: 5px;}
+.tau-value { font-size: 1.5rem; font-weight: 900; color: #3b82f6; font-family: 'Courier New', Courier, monospace;}
+
+.switch-controls { display: flex; gap: 10px; }
+.switch-controls button { flex: 1; margin: 0; padding: 12px; font-size: 0.95rem; }
+
+/* --- BOÎTE THÉORIE MATHÉMATIQUE --- */
+.theory-box {
+    background: var(--bg-page);
+    border: 1px dashed var(--text-muted);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+}
+.formula { font-size: 1.1rem; color: var(--text-main); margin: 8px 0; }
+.small-text { font-size: 0.85rem; margin: 0; text-transform: uppercase; letter-spacing: 1px;}
+
+/* --- VISUEL CIRCUIT & CONDENSATEUR --- */
+.visual-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.circuit-card {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background: var(--bg-page);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.circuit-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+}
+.circuit-svg { width: 100%; height: auto; display: block; }
+
+/* Modèle microscopique du condensateur */
+.capacitor-model {
+    position: absolute;
+    right: -40px; /* À côté du symbole C */
+    top: 140px;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg-card);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.plate {
+    width: 100px;
+    height: 15px;
+    background: #cbd5e1;
+    border: 2px solid #64748b;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.isolant-text {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: bold;
+    margin: 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.charge-plus { color: #ef4444; font-weight: 900; font-size: 14px; line-height: 1;}
+.charge-minus { color: #3b82f6; font-weight: 900; font-size: 16px; line-height: 1;}
+
+/* --- GRAPHIQUE (OSCILLOSCOPE) --- */
+.graph-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: var(--bg-page);
+    border-bottom: 1px solid var(--card-border);
+}
+.time-readout {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    background: var(--bg-card);
+    padding: 2px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+}
+
+.regime-bg {
+    position: absolute;
+    top: 55px; /* Sous le header */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: 1; /* Sous le canvas */
+}
+
+/* Les pourcentages de largeur seront gérés en JS pour caler exactement sur 5 tau */
+.regime-transitoire {
+    height: 100%;
+    background: rgba(236, 72, 153, 0.08); /* Rose très léger */
+    border-right: 2px dashed #ec4899;
+    position: relative;
+}
+.regime-transitoire span {
+    position: absolute; top: 10px; left: 10px; color: #ec4899; font-size: 0.8rem; font-weight: bold;
+}
+
+.regime-stationnaire {
+    flex: 1;
+    height: 100%;
+    background: rgba(16, 185, 129, 0.08); /* Vert très léger */
+    position: relative;
+}
+.regime-stationnaire span {
+    position: absolute; top: 10px; left: 10px; color: #10b981; font-size: 0.8rem; font-weight: bold;
+}
+
+@media (max-width: 1050px) {
+    .dashboard-columns { grid-template-columns: 1fr; }
+    .capacitor-model { right: auto; left: 50%; transform: translateX(-50%); top: 250px;}
+    .circuit-card { padding-bottom: 120px; }
+}

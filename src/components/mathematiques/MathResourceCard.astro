@@ -1,0 +1,28 @@
+---
+import type { MathematicsResource } from "../../data/mathematiques/types";
+
+interface Props {
+  resource: MathematicsResource;
+}
+
+const { resource } = Astro.props;
+const isAvailable = resource.status === "available";
+const Tag = isAvailable && resource.href ? "a" : "article";
+---
+
+<Tag
+  class:list={["math-resource-card", { disabled: !isAvailable }]}
+  href={isAvailable ? resource.href : undefined}
+  aria-disabled={!isAvailable ? "true" : undefined}
+>
+  <p class="math-resource-title">
+    <span>{resource.title}</span>
+    {isAvailable && resource.href && <span aria-hidden="true">→</span>}
+  </p>
+  {resource.description && <p class="math-resource-description">{resource.description}</p>}
+  <div class="math-card-meta">
+    <span class:list={["math-badge", isAvailable ? "success" : "muted"]}>
+      {isAvailable ? "Disponible" : "A venir"}
+    </span>
+  </div>
+</Tag>

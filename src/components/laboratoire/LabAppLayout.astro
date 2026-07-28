@@ -1,8 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getLabAccessibilityGuide } from "../../data/laboratoire/accessibilityGuides";
 import "../../styles/laboratoire/global-lab.css";
 
 interface Props {
+  slug: string;
   title: string;
   description: string;
   icon: string;
@@ -12,10 +14,11 @@ interface Props {
   legacyPath?: string;
 }
 
-const { title, description, icon, level, concept, objective, legacyPath } = Astro.props;
+const { slug, title, description, icon, level, concept, objective, legacyPath } = Astro.props;
+const accessibilityGuide = getLabAccessibilityGuide(slug);
 ---
 
-<BaseLayout title={`${title} — Laboratoire`} description={description} schemaType="EducationalContent">
+<BaseLayout title={`${title} — Laboratoire`} description={description} schemaType="SoftwareApplication">
   <article class="lab-page" data-legacy-path={legacyPath}>
     <nav class="lab-breadcrumb" aria-label="Fil d'Ariane">
       <a href="/laboratoire">← Laboratoire</a>
@@ -31,6 +34,40 @@ const { title, description, icon, level, concept, objective, legacyPath } = Astr
         <p class="lab-hero__objective">{objective}</p>
       </div>
     </header>
+
+    <section class="lab-access-guide" aria-labelledby={`${slug}-access-title`} data-lab-access-guide>
+      <div class="lab-access-guide__head">
+        <p class="lab-access-guide__eyebrow">Exploitation accessible</p>
+        <h2 id={`${slug}-access-title`}>Lire la simulation sans dependre uniquement du visuel</h2>
+        <p>{accessibilityGuide.nonVisualSummary}</p>
+      </div>
+
+      <div class="lab-access-guide__grid">
+        <article>
+          <h3>Hypothese</h3>
+          <p>{accessibilityGuide.hypothesis}</p>
+        </article>
+
+        <article>
+          <h3>Mesures a relever</h3>
+          <ul>
+            {accessibilityGuide.measurements.map((measurement) => <li>{measurement}</li>)}
+          </ul>
+        </article>
+
+        <article>
+          <h3>Conclusion attendue</h3>
+          <p>{accessibilityGuide.conclusionPrompt}</p>
+        </article>
+      </div>
+
+      <details class="lab-access-guide__questions">
+        <summary>Questions de verification</summary>
+        <ol>
+          {accessibilityGuide.questions.map((question) => <li>{question}</li>)}
+        </ol>
+      </details>
+    </section>
 
     <slot />
   </article>

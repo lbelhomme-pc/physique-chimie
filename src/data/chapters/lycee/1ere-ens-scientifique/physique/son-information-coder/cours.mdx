@@ -1,0 +1,86 @@
+# Le son, une information à coder
+
+## Objectifs
+
+- distinguer signal analogique et signal numérique
+- expliquer le principe de l'échantillonnage
+- expliquer le principe de la quantification
+- justifier le choix de paramètres de numérisation
+- estimer la taille d'un fichier audio
+- calculer un taux de compression
+
+## Prérequis
+
+- connaître fréquence et période
+- utiliser les puissances de 2
+- calculer un pourcentage
+- distinguer bit et octet si fourni
+
+## Cours
+
+### 1. Numériser un son
+
+#### Définition
+
+Un son analogique varie continûment au cours du temps. Pour le stocker dans un ordinateur, on le numérise par échantillonnage et quantification.
+
+#### Formule ou méthode
+
+Pour décrire une numérisation, préciser combien de mesures sont prises chaque seconde et avec combien de valeurs possibles chaque mesure est codée.
+
+#### Exemple
+
+Une fréquence d'échantillonnage de 44 100 Hz signifie que le signal est mesuré 44 100 fois par seconde.
+
+### 2. Fidélité et taille du fichier
+
+#### Définition
+
+Plus l'échantillonnage est fréquent et la quantification fine, plus le son numérique est fidèle, mais plus le fichier est volumineux.
+
+#### Formule ou méthode
+
+Taille approximative : durée × fréquence d'échantillonnage × nombre de bits par échantillon × nombre de voies, puis convertir en octets si besoin.
+
+#### Exemple
+
+Un son mono de 10 s échantillonné à 1000 Hz avec 8 bits par échantillon contient \(10\times1000\times8=80000\) bits.
+
+### 3. Compression audio
+
+#### Définition
+
+La compression diminue la taille d'un fichier. Une compression avec perte retire des informations auxquelles l'oreille est peu sensible.
+
+#### Formule ou méthode
+
+Le taux de compression peut se calculer par taille compressée / taille initiale ou par le pourcentage de réduction selon la consigne.
+
+#### Exemple
+
+Un fichier de 40 Mo compressé à 8 Mo a une taille divisée par 5. La taille finale représente 20 % de la taille initiale.
+
+## À retenir
+
+### Définitions et idées essentielles
+
+- Numériser un son revient à échantillonner puis quantifier un signal.
+- Une fréquence d'échantillonnage plus élevée prend plus de mesures par seconde.
+- Une quantification plus fine utilise plus de bits par échantillon.
+- Plus la qualité augmente, plus la taille du fichier augmente.
+- La compression réduit la taille, parfois avec perte d'information.
+
+### Méthode importante
+
+1. Identifier les grandeurs, les objets ou les documents étudiés.
+2. Repérer les unités, les échelles et les conditions du modèle.
+3. Appliquer la relation ou la méthode adaptée.
+4. Vérifier la cohérence du résultat ou de l'interprétation.
+5. Conclure en répondant clairement à la question posée.
+
+### Pièges classiques
+
+- Confondre un modèle avec la réalité complète.
+- Oublier les unités ou les échelles.
+- Lire un graphique sans regarder les axes.
+- Donner une réponse sans justification scientifique.

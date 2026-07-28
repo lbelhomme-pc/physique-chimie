@@ -1,0 +1,65 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>=Stealth, scale=0.85]
+ % Axes
+ \draw[->,thick] (-0.5,0) -- (9.5,0) node[right]{$x$ (m)};
+ \draw[->,thick] (0,-0.5) -- (0,5.5) node[above]{$z$ (m)};
+ \node[below left] at (0,0) {$O$};
+
+ % Trajectoire parabolique (tir oblique alpha = 60{^\circ})
+ \draw[very thick, primary, domain=0:8.5, samples=80, smooth]
+ plot (\x, {-0.08*\x*\x + 0.7*\x});
+ \node[primary, right] at (8.7, 0.4) {\small tir oblique};
+ \node[primary, right] at (8.7, 0.0) {\small ($\alpha \neq 90{^\circ}$)};
+
+ % Trajectoire verticale (chute libre)
+ \draw[very thick, red!70!black, dashed] (0,5) -- (0,0.2);
+ \draw[->,very thick, red!70!black] (0,2.5) -- (0,1.5);
+ \node[red!70!black, left] at (-0.2, 4) {\small chute verticale};
+ \node[red!70!black, left] at (-0.2, 3.5) {\small ($v_0 = 0$)};
+
+ % Flèche v0 sur la parabole
+ \draw[->,thick,synthorange] (0,0) -- (1.5,1.05) node[above left]{\small $\vec{v}_0$};
+ 
+ % Sommet
+ \filldraw[primary] (4.375,1.53) circle (2pt);
+ \node[primary,above] at (4.375,1.65) {\small sommet};
+
+ % Titre
+ \node[below, font=\small\itshape] at (4.5,-1.2) {Trajectoires possibles en chute libre};
+\end{tikzpicture}
+\end{document}

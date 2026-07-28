@@ -1,0 +1,173 @@
+{
+  "outputDir": "docs/refonte-v3/reference/captures/e2e-visual-v3-2026-07-28",
+  "journeys": [
+    {
+      "label": "accueil-public",
+      "route": "/",
+      "kind": "v3",
+      "requiredSelectors": [
+        "a.skip-link[href=\"#main-content\"]",
+        "[data-public-navigation]",
+        "[data-subject-switcher]",
+        "[data-subject-card=\"mathematiques\"]",
+        "[data-subject-card=\"physique-chimie\"]",
+        "#recherche",
+        "main h1"
+      ],
+      "requiredText": [
+        "Comprendre",
+        "Math",
+        "Physique"
+      ],
+      "keyboard": {
+        "focusableMin": 8,
+        "requiredSelectors": [
+          "a.skip-link",
+          "summary[aria-label=\"Ouvrir le menu Matières\"]",
+          "summary[aria-label=\"Ouvrir le menu Niveaux\"]",
+          "summary[aria-label=\"Ouvrir le menu Ressources\"]",
+          "a[href=\"/#recherche\"]"
+        ]
+      },
+      "captures": [
+        { "viewport": "desktop", "width": 1440, "height": 1100 },
+        { "viewport": "mobile", "width": 390, "height": 844 },
+        { "viewport": "dyslexia", "width": 390, "height": 844, "profile": "dyslexia" }
+      ]
+    },
+    {
+      "label": "catalogue-college",
+      "route": "/college/4eme/chimie",
+      "kind": "v3",
+      "requiredSelectors": [
+        "main h1",
+        "a[href*=\"atomes-molecules\"]",
+        "[data-public-navigation]"
+      ],
+      "requiredText": [
+        "4e",
+        "Chimie"
+      ],
+      "captures": [
+        { "viewport": "desktop", "width": 1440, "height": 1000 },
+        { "viewport": "mobile", "width": 390, "height": 844 }
+      ]
+    },
+    {
+      "label": "chapitre-cours-quiz-flashcards",
+      "route": "/college/4eme/chimie/atomes-molecules",
+      "kind": "v3",
+      "requiredSelectors": [
+        "main h1",
+        "[data-chapter-tabs]",
+        "[data-tab=\"cours\"]",
+        "[data-tab=\"exercices\"]",
+        "[data-tab=\"quiz\"]",
+        "[data-tab=\"flashcards\"]"
+      ],
+      "requiredText": [
+        "Quiz",
+        "Flashcards"
+      ],
+      "keyboard": {
+        "focusableMin": 8,
+        "requiredSelectors": [
+          "[data-tab=\"cours\"]",
+          "[data-tab=\"exercices\"]",
+          "[data-tab=\"quiz\"]",
+          "[data-tab=\"flashcards\"]"
+        ]
+      },
+      "captures": [
+        { "viewport": "desktop", "width": 1440, "height": 1100 },
+        { "viewport": "mobile", "width": 390, "height": 844 }
+      ]
+    },
+    {
+      "label": "mega-quiz",
+      "route": "/memorisation/mega-quiz",
+      "kind": "v3",
+      "requiredSelectors": [
+        "main h1",
+        "astro-island[component-url*=\"MegaQuizPlayer\"]"
+      ],
+      "requiredText": [
+        "Mega Quiz",
+        "questions disponibles"
+      ],
+      "captures": [
+        { "viewport": "desktop", "width": 1440, "height": 1000 },
+        { "viewport": "mobile", "width": 390, "height": 844 }
+      ]
+    },
+    {
+      "label": "mega-flashcards",
+      "route": "/memorisation/mega-flashcards",
+      "kind": "v3",
+      "requiredSelectors": [
+        "main h1",
+        "astro-island[component-url*=\"MegaFlashcardsPlayer\"]"
+      ],
+      "requiredText": [
+        "Mega Flashcards",
+        "cartes disponibles"
+      ],
+      "captures": [
+        { "viewport": "desktop", "width": 1440, "height": 1000 },
+        { "viewport": "mobile", "width": 390, "height": 844 }
+      ]
+    },
+    {
+      "label": "laboratoire-circuit-rc",
+      "route": "/laboratoire/circuit-rc",
+      "kind": "v3",
+      "requiredSelectors": [
+        "main h1",
+        "[data-circuit-rc-root]",
+        "[data-lab-access-guide]",
+        "svg.crc-graph"
+      ],
+      "requiredText": [
+        "Dipôle RC",
+        "Exploitation accessible"
+      ],
+      "captures": [
+        { "viewport": "desktop", "width": 1440, "height": 1100 },
+        { "viewport": "mobile", "width": 390, "height": 844 }
+      ]
+    },
+    {
+      "label": "kit-scientifique",
+      "route": "/outils-methodes/kit-scientifique",
+      "kind": "v3",
+      "requiredSelectors": [
+        "main h1",
+        "form, input, button",
+        "table"
+      ],
+      "requiredText": [
+        "Kit scientifique"
+      ],
+      "captures": [
+        { "viewport": "desktop", "width": 1440, "height": 1000 },
+        { "viewport": "mobile", "width": 390, "height": 844 }
+      ]
+    },
+    {
+      "label": "legacy-mega-quiz",
+      "route": "/mega-quiz",
+      "kind": "legacy",
+      "expectedRedirect": "/memorisation/mega-quiz",
+      "requiredSelectors": [
+        "meta[http-equiv]",
+        "a[href=\"/memorisation/mega-quiz\"]"
+      ],
+      "requiredText": [
+        "Redirecting"
+      ],
+      "captures": [
+        { "viewport": "desktop", "width": 1200, "height": 800 }
+      ]
+    }
+  ]
+}

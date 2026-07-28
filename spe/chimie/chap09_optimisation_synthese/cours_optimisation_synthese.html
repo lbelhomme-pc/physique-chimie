@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours : Optimisation d'une synthèse (Terminale Spé) | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">🔬</span> 
+                <h1 class="hero-title">Optimisation d'une synthèse</h1>
+            </div>
+        </header>
+
+<div class="box-pedagogie box-objectif">
+{ Objectifs du chapitre}
+<ul><li>Connaître les formules topologiques et savoir les interpréter.</li><li>Identifier les principales familles fonctionnelles en chimie organique.</li><li>Comprendre la notion d'isomères de constitution.</li><li>Définir ce qu'est un polymère et en reconnaître le motif.</li><li>Savoir augmenter le rendement d'une synthèse (excès de réactif, élimination de produit).</li><li>Connaître les facteurs cinétiques permettant d'augmenter la vitesse de synthèse.
+</li></ul>
+</div>
+<h2 class="section-title">1. Structure et propriétés</h2>
+<div class="card chapter-card">
+<h3>1.1 Formule topologique</h3>
+<p>En chimie organique, on manipule des molécules qui peuvent être très grandes. Pour les représenter de façon rapide et lisible, on utilise la <strong>formule topologique</strong>.</p>
+<div class="definition-box">
+{ Définition -- Formule topologique}
+<p>Dans la formule topologique d'une molécule organique :<br><ul><li>la <strong>chaîne carbonée</strong> est représentée par une <strong>ligne brisée</strong> (en zigzag) ;</li><li>les <strong>atomes de carbone</strong> (C) ne sont <strong>pas écrits</strong> : chaque sommet ou extrémité de la ligne brisée représente un atome de carbone ;</li><li>les <strong>atomes d'hydrogène</strong> liés aux carbones ne sont <strong>pas écrits</strong> non plus ;</li><li>seuls les <strong>hétéroatomes</strong> (atomes autres que C et H : O, N, Cl, Br, etc.) et les atomes d'hydrogène liés à ces hétéroatomes <strong>sont écrits</strong>.</li><li>Les <strong>liaisons doubles</strong> sont représentées par un <strong>double trait</strong>.<br></li></ul><br></div></p>
+<div class="info-box">
+{ Rappel important}
+<p>L'atome de carbone est <strong>tétravalent</strong> : il forme toujours <strong>4 liaisons covalentes</strong>. Quand on écrit une formule topologique, il faut se rappeler que chaque carbone complète ses 4 liaisons avec des atomes d'hydrogène (non représentés).<br></div></p>
+<div class="example-box">
+{ Exemple -- L'acide lactique}
+<p>L'acide lactique a pour formule brute ${}_3{}_6{}_3$. Il est présent dans le lait. Voici sa formule semi-développée et sa formule topologique :</p>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Formule semi-développée</strong></th><th><strong>Formule topologique</strong> \\[0.3cm]</th></tr><tr><td>${}_3-C(O)-COO$</td><td></td></tr></tbody></table></div>
+</div>
+<em>Chaque sommet de la ligne brisée correspond à un atome de carbone. Les H liés aux C ne sont pas représentés, mais les H liés à O sont écrits.</em>
+</div>
+<div class="example-box">
+{ Méthode -- \'{E}crire une formule semi-développée à partir d'une formule topologique}
+<ol><li>Repérer chaque sommet et chaque extrémité de la ligne brisée : c'est un atome de <strong>C</strong>.</li><li>Compter le nombre de liaisons visibles sur chaque carbone (liaisons simples, doubles, triples, et liaisons vers les hétéroatomes).</li><li>Compléter avec des atomes d'<strong>H</strong> pour que chaque carbone ait exactement <strong>4 liaisons</strong>.
+</li></ol>
+</div>
+<p>Les formules topologiques permettent de mieux visualiser la structure du squelette carboné, qui peut être :</p>
+<div class="text-center">
+<div class="card-dashed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 120" class="svg-center" style="max-width: 620px;"><text x="20" y="58" font-size="16" fill="currentColor">Figure TikZ à relire : conversion SVG automatique impossible.</text></svg></div>
+</div>
+<p>De plus, si la molécule contient une <strong>double liaison</strong> $=$, on dit que le squelette est <strong>insaturé</strong> et l'espèce appartient à la famille des <strong>alcènes</strong>. Sinon, le squelette est <strong>saturé</strong> (que des liaisons simples C--C).</p>
+<h3>1{,}2 Quelques familles fonctionnelles</h3>
+<div class="definition-box">
+{ Définition -- Nom d'une espèce chimique organique}
+<p>Le nom d'une espèce chimique organique se décompose en trois parties :<br><ul><li>un <strong>préfixe</strong> : indique le nombre de carbones de la chaîne principale (méth-, éth-, prop-, but-, pent-) ;</li><li>un <strong>radical</strong> : indique la nature de la chaîne (ramifications, positions) ;</li><li>un <strong>suffixe</strong> : indique la <strong>famille fonctionnelle</strong> (<em>-ol</em>, <em>-al</em>, <em>-one</em>, <em>-amine</em>, <em>-oate</em>, <em>-amide</em>).<br></li></ul><br></div></p>
+<p>Le tableau suivant récapitule les principales familles fonctionnelles à connaître en Terminale :</p>
+<div class="text-center">
+{1.6}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Famille fonctionnelle</strong></th><th><strong>Groupe caractéristique</strong></th><th><strong>Suffixe</strong></th><th><strong>Exemple</strong></th></tr><tr><td>Halogénoalcane</td><td>Atome d'halogène lié à C : $-$ (X = F, Cl, Br, I)</td><td>--</td><td>${}_3{}_2$</td></tr><tr><td>Amine</td><td>$-{}_2$ (amine primaire)</td><td><em>-amine</em></td><td>${}_3{}_2$</td></tr><tr><td>Ester</td><td>$-CO-$</td><td><em>-oate</em></td><td>\'{E}thanoate de méthyle</td></tr><tr><td>Amide</td><td>$-C-N-$</td><td><em>-amide</em></td><td>\'{E}thanamide</td></tr><tr><td>Alcool</td><td>$-O$ lié à un C</td><td><em>-ol</em></td><td>\'{E}thanol</td></tr><tr><td>Aldéhyde</td><td>$-CH$</td><td><em>-al</em></td><td>\'{E}thanal</td></tr><tr><td>Cétone</td><td>$-C-$ (carbone du carbonyle lié à 2 autres C)</td><td><em>-one</em></td><td>Propanone</td></tr><tr><td>Acide carboxylique</td><td>$-COO$</td><td><em>acide  -oïque</em></td><td>Acide éthanoïque</td></tr></tbody></table></div>
+</div>
+<div class="info-box">
+{ Remarque}
+<p>Certaines de ces familles ont déjà été étudiées en classe de Première (alcool, aldéhyde, cétone, acide carboxylique). Les familles ester et amide sont nouvelles en Terminale.<br></div></p>
+<h3>1{,}3 Isomères de constitution</h3>
+<div class="definition-box">
+{ Définition -- Isomères de constitution}
+<p>Deux espèces chimiques différentes sont <strong>isomères de constitution</strong> si elles possèdent la <strong>même formule brute</strong>, mais des <strong>formules semi-développées ou topologiques différentes</strong>.</p>
+<p>Autrement dit : mêmes atomes, même nombre de chaque type d'atome, mais arrangés différemment.<br></div></p>
+<div class="example-box">
+{ Exemples}
+<ul><li>Le <strong>propan-1-ol</strong> et le <strong>propan-2-ol</strong> ont la même formule brute ${}_3{}_8$, mais le groupe $-O$ n'est pas placé sur le même atome de carbone. Ce sont des isomères de constitution.</li><li>Le <strong>butanal</strong> (un aldéhyde) et le <strong>but-3-èn-1-ol</strong> (un alcool insaturé) ont la même formule brute ${}_4{}_8$. Ils appartiennent même à des familles fonctionnelles différentes : ce sont aussi des isomères de constitution.
+</li></ul>
+</div>
+<div class="info-box">
+{ Attention}
+<p>Des isomères de constitution peuvent appartenir à la <strong>même famille fonctionnelle</strong> (exemple : propan-1-ol et propan-2-ol, tous deux alcools) ou à des <strong>familles différentes</strong> (exemple : un aldéhyde et un alcool de même formule brute).<br></div></p>
+<h3>1{,}4 Polymères</h3>
+<div class="definition-box">
+{ Définition -- Polymère}
+<p>Un <strong>polymère</strong> est un matériau constitué de <strong>macromolécules</strong> de tailles différentes, mais de <strong>masses molaires toujours élevées</strong>, dans lesquelles un <strong>motif</strong> se répète un très grand nombre de fois.</p>
+<p>On note $n$ le nombre de répétitions du motif. Le motif est l'unité de répétition du polymère.<br></div></p>
+<div class="example-box">
+{ Exemple -- Le polychlorure de vinyle (PVC)}
+<p>Le PVC est un polymère. Sa macromolécule est partiellement représentée ci-dessous en formule topologique. Le motif de répétition est :</p>
+<div class="text-center">
+$-({}_2-CH)_{$n$}-$
+</div>
+<p>Le monomère de départ est le <strong>chlorure de vinyle</strong> : ${}_2=CH$.<br></div></p>
+<p>Les polymères peuvent être :<br><ul><li><strong>naturels</strong> : par exemple le latex, l'amidon ;</li><li><strong>synthétiques</strong> : par exemple le polypropylène, le nylon, le PVC.<br></li></ul></p>
+<p>Leurs utilisations sont très variées : habitat (PVC), agroalimentaire (PTFE), transport (caoutchouc), textile (polyester), médecine (polyéthylène), etc.</p>
+<div class="info-box">
+{ Remarque}
+<p>Le nombre $n$ de répétitions du motif peut varier d'une macromolécule à l'autre au sein d'un même polymère. Les propriétés du polymère dépendent de la <strong>distribution</strong> de $n$ (c'est-à-dire de la répartition des longueurs de chaîne).<br></div></p>
+</div>
+<h2 class="section-title">2. Optimisation d'une synthèse</h2>
+<div class="card chapter-card">
+<p>Lorsqu'on réalise une synthèse chimique, on cherche à obtenir le <strong>maximum de produit</strong> de la façon la <strong>plus rapide</strong> possible. Deux axes d'optimisation sont possibles :<br><ul><li>augmenter le <strong>rendement</strong> (quantité de produit formé) ;</li><li>augmenter la <strong>vitesse</strong> de formation du produit.<br></li></ul></p>
+<h3>2{,}1 Augmentation du rendement</h3>
+<div class="definition-box">
+{ Rappel -- Rendement d'une synthèse}
+<p>Le <strong>rendement</strong> $$ (lettre grecque  eta ) d'une synthèse est le rapport entre la quantité de produit effectivement obtenue et la quantité maximale théorique :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {n_{}}{n_{}}    0    1$$</div></div></div></div><br>On l'exprime souvent en pourcentage : $  100$.</p>
+<p>Un rendement de 100 <br></div></p>
+<p>L'augmentation du rendement d'une synthèse peut être assurée par <strong>deux stratégies principales</strong> :</p>
+<strong>a) Introduction d'un réactif en excès</strong>
+<p>{ Vocabulaire}</p>
+<p>Un réactif est dit  en excès  s'il n'est pas le réactif limitant. Introduire un <strong>excès d'un réactif</strong> signifie qu'il a été introduit en <strong>plus grande quantité</strong> que celle correspondant à la proportion st chiométrique de la réaction.</p>
+<div class="info-box">
+{ Raisonnement à retenir -- Déplacement d'équilibre par excès de réactif}
+<p>Considérons la synthèse du méthanol ${}_3O$ à partir du bromométhane, selon la réaction d'équation :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$${}_3 + H^{-}  {}_3O + ^{-}$$</div></div>$</div></div>
+<p>\`{A} l'équilibre, le quotient de réaction $Q_r$ est égal à la constante d'équilibre $K(T)$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_{r,} = K(T) = {[${}_3O$]_{}  [$^{-}$]_{}}{[${}_3$]_{}  [$H^{-}$]_{}}$$</div></div></div></div></p>
+<p>{Si on ajoute le réactif $H^{-}$} dans le milieu :<br><ul><li>la concentration $[$H^{-}$]$ augmente ;</li><li>le quotient de réaction $Q_r$ <strong>diminue</strong> (car $H^{-}$ est au dénominateur) ;</li><li>on a alors $Q_r < K(T)$ ;</li><li>d'après le critère d'évolution (vu au Chapitre 6), le système évolue dans le <strong>sens direct</strong>, c'est-à-dire vers la formation de ${}_3O$.<br></li></ul></p>
+<strong>Conclusion :</strong> ajouter un réactif en excès déplace l'équilibre dans le sens de formation du produit, ce qui <strong>augmente le rendement</strong>.
+</div>
+<p>{b) \'{E}limination d'un produit du mélange réactionnel}</p>
+<p>La deuxième stratégie consiste à <strong>retirer un produit</strong> du mélange au fur et à mesure qu'il se forme.</p>
+<div class="example-box">
+{ Exemple -- \'{E}limination par précipitation}
+<p>Reprenons la réaction : ${}_3 + H^{-}  {}_3O + ^{-}$</p>
+<p>Si l'on ajoute des ions $^ + $ au mélange réactionnel, ils réagissent avec les ions $^{-}$ pour former le <strong>bromure d'argent</strong> $Ag$, un précipité solide blanc :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$^ + (aq) + ^{-}(aq)  Ag(s)$$</div></div>$</div></div>
+<p>Conséquence :<br><ul><li>la concentration $[$^{-}$]$ dans le mélange <strong>diminue fortement</strong> (tend vers zéro) ;</li><li>le quotient $Q_r$ <strong>diminue</strong> (car $^{-}$ est au numérateur) ;</li><li>on a alors $Q_r < K(T)$ : le système évolue dans le <strong>sens direct</strong> ;</li><li>davantage de ${}_3O$ est produit.<br></li></ul><br></div></p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.00825 -70.00785 369.8755 181.8165'>
+<defs>
+<path id='g0-41' d='M6.635118-2.96787C7.092403-2.57335 7.531756-2.367123 7.827646-2.25056C7.442092-2.080199 7.038605-1.865006 6.635118-1.524284H.824907C.690411-1.524284 .511083-1.524284 .511083-1.33599C.511083-1.13873 .708344-1.13873 .869738-1.13873H6.204732C5.639851-.537983 5.326027 .080697 5.326027 .152428C5.326027 .268991 5.433624 .268991 5.514321 .268991C5.621918 .268991 5.66675 .268991 5.711582 .188294C6.437858-1.210461 7.442092-1.811208 8.598755-2.133998C8.670486-2.15193 8.697385-2.205729 8.697385-2.241594C8.697385-2.331258 8.616687-2.349191 8.598755-2.358157C8.159402-2.483686 7.531756-2.654047 6.760648-3.308593C6.428892-3.595517 6.052304-4.016936 5.756413-4.581818C5.66675-4.752179 5.657783-4.761146 5.514321-4.761146C5.433624-4.761146 5.326027-4.761146 5.326027-4.644583C5.326027-4.572852 5.630884-3.963138 6.204732-3.353425H.869738C.708344-3.353425 .511083-3.353425 .511083-3.156164C.511083-2.96787 .690411-2.96787 .824907-2.96787H6.635118Z'/>
+<path id='g1-114' d='M1.697634-1.787298C1.715567-1.817186 1.853051-2.086177 2.086177-2.271482C2.157908-2.319303 2.331258-2.438854 2.606227-2.438854C2.660025-2.438854 2.851308-2.438854 3.006725-2.349191C2.851308-2.295392 2.761644-2.157908 2.761644-2.026401C2.761644-1.835118 2.917061-1.793275 3.000747-1.793275C3.174097-1.793275 3.347447-1.936737 3.347447-2.169863C3.347447-2.486675 3.000747-2.636115 2.618182-2.636115C2.462765-2.636115 2.098132-2.624159 1.733499-2.199751C1.643836-2.516563 1.321046-2.636115 1.075965-2.636115C.818929-2.636115 .675467-2.462765 .585803-2.319303C.454296-2.098132 .364633-1.75741 .364633-1.721544C.364633-1.655791 .418431-1.63188 .472229-1.63188C.56787-1.63188 .573848-1.673724 .603736-1.769365C.71731-2.229639 .860772-2.438854 1.058032-2.438854C1.243337-2.438854 1.273225-2.265504 1.273225-2.139975C1.273225-2.038356 1.21345-1.799253 1.171606-1.63188C1.129763-1.470486 1.069988-1.225405 1.0401-1.093898C.998257-.944458 .962391-.789041 .920548-.639601C.878705-.472229 .806974-.17335 .806974-.137484C.806974-.005978 .908593 .059776 1.016189 .059776C1.135741 .059776 1.249315-.02391 1.285181-.143462C1.303113-.191283 1.524284-1.093898 1.560149-1.231382L1.697634-1.787298Z'/>
+<path id='g2-60' d='M6.204732-4.545953C6.28543-4.581818 6.38406-4.635616 6.38406-4.752179C6.38406-4.850809 6.312329-4.94944 6.1868-4.94944C6.177833-4.94944 6.133001-4.94944 6.025405-4.895641L.950436-2.456787C.869738-2.420922 .771108-2.367123 .771108-2.25056C.771108-2.125031 .851806-2.080199 .950436-2.035367L6.007472 .394521C6.133001 .457285 6.168867 .457285 6.1868 .457285C6.330262 .457285 6.38406 .331756 6.38406 .268991C6.38406 .152428 6.321295 .116563 6.222665 .071731L1.407721-2.25056L6.204732-4.545953Z'/>
+<path id='g2-75' d='M4.62665-3.738979L6.446824-5.110834L6.554421-5.173599C7.110336-5.559153 7.451059-5.792279 7.980075-5.846077C8.042839-5.855044 8.141469-5.86401 8.141469-6.007472C8.141469-6.052304 8.11457-6.124035 8.033873-6.124035C7.962142-6.124035 7.908344-6.097136 7.370361-6.097136C7.047572-6.097136 6.715816-6.124035 6.401993-6.124035C6.348194-6.124035 6.231631-6.124035 6.231631-5.96264C6.231631-5.855044 6.330262-5.846077 6.357161-5.846077C6.428892-5.837111 6.608219-5.828144 6.608219-5.684682C6.608219-5.612951 6.554421-5.496389 6.428892-5.388792C6.393026-5.352927 6.38406-5.34396 6.357161-5.326027C6.330262-5.290162 6.312329-5.281196 6.267497-5.24533L2.698879-2.57335L3.416189-5.433624C3.496887-5.774346 3.523786-5.846077 4.223163-5.846077C4.366625-5.846077 4.465255-5.846077 4.465255-6.007472C4.465255-6.088169 4.402491-6.124035 4.33076-6.124035C4.160399-6.124035 3.945205-6.106102 3.765878-6.106102C3.577584-6.097136 3.371357-6.097136 3.19203-6.097136C2.905106-6.097136 2.887173-6.097136 2.618182-6.106102C2.438854-6.115068 2.205729-6.124035 2.035367-6.124035C1.981569-6.124035 1.85604-6.124035 1.85604-5.96264C1.85604-5.846077 1.936737-5.846077 2.125031-5.846077C2.160897-5.846077 2.322291-5.846077 2.465753-5.828144C2.618182-5.810212 2.680946-5.792279 2.680946-5.693649C2.680946-5.648817 2.67198-5.612951 2.645081-5.514321L1.43462-.681445C1.353923-.358655 1.33599-.277958 .663512-.277958C.493151-.277958 .394521-.277958 .394521-.116563C.394521-.017933 .466252 0 .529016 0C.699377 0 .923537-.008966 1.093898-.017933C1.362889-.026899 1.380822-.026899 1.667746-.026899S1.972603-.026899 2.241594-.017933C2.420922-.008966 2.654047 0 2.824408 0C2.887173 0 3.003736 0 3.003736-.161395C3.003736-.277958 2.914072-.277958 2.725778-.277958C2.689913-.277958 2.528518-.277958 2.385056-.29589C2.187796-.32279 2.178829-.358655 2.178829-.439352C2.178829-.511083 2.259527-.81594 2.618182-2.232628L3.990037-3.263761L5.137733-.753176C5.182565-.636613 5.200498-.609714 5.200498-.546949C5.200498-.286924 4.82391-.277958 4.752179-.277958C4.644583-.277958 4.536986-.277958 4.536986-.116563C4.536986-.026899 4.617684 0 4.680448 0C4.850809 0 5.030137-.017933 5.200498-.017933C5.379826-.017933 5.56812-.026899 5.747447-.026899C5.899875-.026899 6.141968-.026899 6.204732-.017933L6.644085 0C6.67995 0 6.805479 0 6.805479-.161395C6.805479-.277958 6.697883-.277958 6.644085-.277958C6.330262-.286924 6.177833-.32279 6.025405-.654545L4.62665-3.738979Z'/>
+<path id='g2-81' d='M3.694147 .367621C3.676214 .466252 3.676214 .591781 3.676214 .699377C3.676214 1.129763 3.747945 1.739477 4.456289 1.739477C5.523288 1.739477 5.980573 .134496 5.980573 0C5.980573-.053798 5.935741-.107597 5.86401-.107597S5.774346-.044832 5.747447 .017933C5.54122 .627646 5.021171 .851806 4.689415 .851806C4.276961 .851806 4.142466 .591781 4.052802-.044832C6.007472-.887671 6.796513-2.654047 6.796513-3.882441C6.796513-5.299128 5.846077-6.321295 4.438356-6.321295C2.429888-6.321295 .448319-4.259029 .448319-2.214695C.448319-.744209 1.461519 .19726 2.815442 .19726C3.183064 .19726 3.550685 .116563 3.703113 .071731L3.694147 .367621ZM2.27746-.161395C1.865006-.32279 1.264259-.789041 1.264259-1.945704C1.264259-2.420922 1.416687-3.864508 2.385056-5.021171C2.851308-5.56812 3.604483-6.070237 4.375592-6.070237C5.263263-6.070237 5.980573-5.415691 5.980573-4.160399C5.980573-3.263761 5.54122-1.23736 3.999004-.376588C3.918306-.860772 3.747945-1.33599 3.174097-1.33599C2.67198-1.33599 2.232628-.878705 2.232628-.42142C2.232628-.349689 2.25056-.224159 2.27746-.161395ZM3.721046-.233126C3.595517-.179328 3.245828-.053798 2.878207-.053798C2.761644-.053798 2.456787-.053798 2.456787-.42142C2.456787-.753176 2.788543-1.111831 3.183064-1.111831C3.71208-1.111831 3.721046-.627646 3.721046-.233126Z'/>
+<path id='g2-84' d='M3.936239-5.460523C3.990037-5.657783 4.00797-5.747447 4.160399-5.774346C4.23213-5.792279 4.519054-5.792279 4.707347-5.792279C5.738481-5.792279 6.043337-5.729514 6.043337-5.030137C6.043337-4.913574 6.043337-4.779078 5.96264-4.250062L5.953674-4.178331C5.953674-4.115567 5.989539-4.052802 6.079203-4.052802C6.1868-4.052802 6.204732-4.133499 6.222665-4.267995L6.455791-5.819178C6.464757-5.86401 6.473724-5.917808 6.473724-5.944707C6.473724-6.070237 6.38406-6.070237 6.213699-6.070237H1.111831C.896638-6.070237 .887671-6.06127 .824907-5.890909L.268991-4.312827C.233126-4.196264 .233126-4.178331 .233126-4.169365C.233126-4.124533 .260025-4.052802 .349689-4.052802C.448319-4.052802 .466252-4.1066 .52005-4.267995C1.0132-5.66675 1.291158-5.792279 2.591283-5.792279H2.940971C3.19203-5.792279 3.19203-5.76538 3.19203-5.693649C3.19203-5.639851 3.174097-5.577086 3.156164-5.505355L1.95467-.708344C1.873973-.385554 1.847073-.277958 .896638-.277958C.609714-.277958 .529016-.277958 .529016-.116563C.529016 0 .645579 0 .681445 0C.91457 0 1.174595-.017933 1.416687-.017933C1.667746-.017933 1.927771-.026899 2.178829-.026899C2.57335-.026899 2.591283-.026899 2.923039-.017933C3.039601-.017933 3.631382 0 3.703113 0C3.783811 0 3.891407 0 3.891407-.161395C3.891407-.277958 3.81071-.277958 3.58655-.277958S3.254795-.277958 3.012702-.29589C2.806476-.32279 2.698879-.331756 2.698879-.484184C2.698879-.529016 2.716812-.600747 2.734745-.663512L3.936239-5.460523Z'/>
+<path id='g3-40' d='M3.057534 2.133998C3.057534 2.089166 3.030635 2.062267 2.976837 1.999502C1.820174 .941469 1.470486-.672478 1.470486-2.241594C1.470486-3.631382 1.739477-5.317061 3.003736-6.518555C3.039601-6.554421 3.057534-6.58132 3.057534-6.626152C3.057534-6.688917 3.012702-6.724782 2.949938-6.724782C2.842341-6.724782 2.035367-6.079203 1.551183-5.101868C1.120797-4.241096 .905604-3.317559 .905604-2.25056C.905604-1.604981 .986301-.582814 1.479452 .475218C2.008468 1.578082 2.842341 2.232628 2.949938 2.232628C3.012702 2.232628 3.057534 2.196762 3.057534 2.133998Z'/>
+<path id='g3-41' d='M2.67198-2.25056C2.67198-2.985803 2.564384-3.972105 2.098132-4.967372C1.569116-6.070237 .735243-6.724782 .627646-6.724782C.537983-6.724782 .52005-6.653051 .52005-6.626152C.52005-6.58132 .537983-6.554421 .600747-6.491656C1.120797-6.025405 2.107098-4.805978 2.107098-2.25056C2.107098-.968369 1.873973 .81594 .573848 2.026401C.555915 2.0533 .52005 2.089166 .52005 2.133998C.52005 2.160897 .537983 2.232628 .627646 2.232628C.735243 2.232628 1.542217 1.587049 2.026401 .609714C2.456787-.251059 2.67198-1.174595 2.67198-2.25056Z'/>
+<path id='g3-91' d='M2.349191 2.241594V1.85604H1.461519V-6.339228H2.349191V-6.724782H1.075965V2.241594H2.349191Z'/>
+<path id='g3-93' d='M1.470486 2.241594V-6.724782H.19726V-6.339228H1.084932V1.85604H.19726V2.241594H1.470486Z'/>
+<path id='g7-17' d='M4.861768-2.759651C4.911582-2.938979 4.941469-3.068493 4.941469-3.337484C4.941469-3.985056 4.542964-4.403487 3.795766-4.403487C3.008717-4.403487 2.49066-3.88543 2.251557-3.536737C2.201743-4.104608 1.783313-4.403487 1.334994-4.403487C.876712-4.403487 .687422-4.014944 .597758-3.835616C.418431-3.496887 .288917-2.899128 .288917-2.86924C.288917-2.769614 .388543-2.769614 .408468-2.769614C.508095-2.769614 .518057-2.779577 .577833-2.998755C.747198-3.706102 .946451-4.184309 1.305106-4.184309C1.474471-4.184309 1.613948-4.104608 1.613948-3.726027C1.613948-3.516812 1.58406-3.407223 1.454545-2.889166L.876712-.587796C.846824-.438356 .787049-.209215 .787049-.159402C.787049 .019925 .926526 .109589 1.075965 .109589C1.195517 .109589 1.374844 .029888 1.444583-.169365C1.454545-.18929 1.574097-.657534 1.633873-.9066L1.853051-1.803238C1.912827-2.022416 1.972603-2.241594 2.022416-2.470735C2.042341-2.530511 2.122042-2.859278 2.132005-2.919054C2.161893-3.008717 2.470735-3.566625 2.809465-3.835616C3.028643-3.995019 3.337484-4.184309 3.765878-4.184309S4.303861-3.845579 4.303861-3.486924C4.303861-3.437111 4.303861-3.257783 4.204234-2.859278L3.068493 1.723537C3.038605 1.843088 3.038605 1.863014 3.038605 1.882939C3.038605 2.032379 3.148194 2.15193 3.317559 2.15193C3.626401 2.15193 3.696139 1.863014 3.726027 1.753425L4.861768-2.759651Z'/>
+</defs>
+<g id='page1'>
+<path d='M194.9883-69.8086H34.8711C32.1172-69.8086 29.8867-67.5781 29.8867-64.8281V-46.4453C29.8867-43.6914 32.1172-41.4609 34.8711-41.4609H194.9883C197.7383-41.4609 199.9687-43.6914 199.9687-46.4453V-64.8281C199.9687-67.5781 197.7383-69.8086 194.9883-69.8086Z' fill='#ececee'/>
+<path d='M194.9883-69.8086H34.8711C32.1172-69.8086 29.8867-67.5781 29.8867-64.8281V-46.4453C29.8867-43.6914 32.1172-41.4609 34.8711-41.4609H194.9883C197.7383-41.4609 199.9687-43.6914 199.9687-46.4453V-64.8281C199.9687-67.5781 197.7383-69.8086 194.9883-69.8086Z' stroke='#0f172a' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -67.2214 -82.5713)'>
+<use x='114.928789' y='29.404321' xlink:href='#g6-65'/>
+<use x='123.588636' y='29.404321' xlink:href='#g6-117'/>
+<use x='129.952102' y='29.404321' xlink:href='#g6-103'/>
+<use x='135.679222' y='29.404321' xlink:href='#g6-109'/>
+<use x='145.224421' y='29.404321' xlink:href='#g6-101'/>
+<use x='150.47428' y='29.404321' xlink:href='#g6-110'/>
+<use x='156.519573' y='29.404321' xlink:href='#g6-116'/>
+<use x='160.973999' y='29.404321' xlink:href='#g6-101'/>
+<use x='166.223859' y='29.404321' xlink:href='#g6-114'/>
+<use x='174.759204' y='29.404321' xlink:href='#g6-108'/>
+<use x='177.940937' y='29.404321' xlink:href='#g6-101'/>
+<use x='187.008876' y='29.404321' xlink:href='#g6-114'/>
+<use x='191.726141' y='29.404321' xlink:href='#g6-101'/>
+<use x='196.976001' y='29.404321' xlink:href='#g6-110'/>
+<use x='203.339467' y='29.404321' xlink:href='#g6-100'/>
+<use x='209.702933' y='29.404321' xlink:href='#g6-101'/>
+<use x='214.952792' y='29.404321' xlink:href='#g6-109'/>
+<use x='224.497992' y='29.404321' xlink:href='#g6-101'/>
+<use x='229.747851' y='29.404321' xlink:href='#g6-110'/>
+<use x='235.793144' y='29.404321' xlink:href='#g6-116'/>
+<use x='244.06565' y='29.404321' xlink:href='#g7-17'/>
+</g>
+<path d='M60.3398-14.5352H-57.258C-60.008-14.5352-62.238-12.3047-62.238-9.5508V23.00391C-62.238 25.75781-60.008 27.98828-57.258 27.98828H60.3398C63.0937 27.98828 65.3203 25.75781 65.3203 23.00391V-9.5508C65.3203-12.3047 63.0937-14.5352 60.3398-14.5352Z' fill='#e7f1f4'/>
+<path d='M60.3398-14.5352H-57.258C-60.008-14.5352-62.238-12.3047-62.238-9.5508V23.00391C-62.238 25.75781-60.008 27.98828-57.258 27.98828H60.3398C63.0937 27.98828 65.3203 25.75781 65.3203 23.00391V-9.5508C65.3203-12.3047 63.0937-14.5352 60.3398-14.5352Z' stroke='#0e7490' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -172.9155 -30.54263)'>
+<use x='145.965325' y='29.404321' xlink:href='#g4-83'/>
+<use x='151.858445' y='29.404321' xlink:href='#g4-116'/>
+<use x='155.983629' y='29.404321' xlink:href='#g4-114'/>
+<use x='160.359202' y='29.404321' xlink:href='#g4-97'/>
+<use x='165.515679' y='29.404321' xlink:href='#g4-116'/>
+<use x='169.640862' y='29.404321' xlink:href='#g4-233'/>
+<use x='174.50823' y='29.404321' xlink:href='#g4-103'/>
+<use x='179.812041' y='29.404321' xlink:href='#g4-105'/>
+<use x='182.758605' y='29.404321' xlink:href='#g4-101'/>
+<use x='191.161466' y='29.404321' xlink:href='#g4-49'/>
+<use x='200.000771' y='29.404321' xlink:href='#g4-58'/>
+<use x='132.409121' y='40.363225' xlink:href='#g4-65'/>
+<use x='140.413252' y='40.363225' xlink:href='#g4-106'/>
+<use x='143.654467' y='40.363225' xlink:href='#g4-111'/>
+<use x='148.958278' y='40.363225' xlink:href='#g4-117'/>
+<use x='154.851398' y='40.363225' xlink:href='#g4-116'/>
+<use x='158.976581' y='40.363225' xlink:href='#g4-101'/>
+<use x='163.843949' y='40.363225' xlink:href='#g4-114'/>
+<use x='171.755016' y='40.363225' xlink:href='#g4-117'/>
+<use x='177.648136' y='40.363225' xlink:href='#g4-110'/>
+<use x='187.07675' y='40.363225' xlink:href='#g4-114'/>
+<use x='191.452324' y='40.363225' xlink:href='#g4-233'/>
+<use x='196.319691' y='40.363225' xlink:href='#g4-97'/>
+<use x='201.476168' y='40.363225' xlink:href='#g4-99'/>
+<use x='206.190669' y='40.363225' xlink:href='#g4-116'/>
+<use x='210.315853' y='40.363225' xlink:href='#g4-105'/>
+<use x='213.262417' y='40.363225' xlink:href='#g4-102'/>
+<use x='155.192412' y='51.322129' xlink:href='#g4-101'/>
+<use x='160.059779' y='51.322129' xlink:href='#g4-110'/>
+<use x='169.488393' y='51.322129' xlink:href='#g4-101'/>
+<use x='174.355761' y='51.322129' xlink:href='#g4-120'/>
+<use x='179.95423' y='51.322129' xlink:href='#g4-99'/>
+<use x='184.668732' y='51.322129' xlink:href='#g4-232'/>
+<use x='189.536099' y='51.322129' xlink:href='#g4-115'/>
+</g>
+<path d='M287.113-14.5352H169.5156C166.7656-14.5352 164.5352-12.3047 164.5352-9.5508V23.00391C164.5352 25.75781 166.7656 27.98828 169.5156 27.98828H287.113C289.867 27.98828 292.098 25.75781 292.098 23.00391V-9.5508C292.098-12.3047 289.867-14.5352 287.113-14.5352Z' fill='#e7f1f4'/>
+<path d='M287.113-14.5352H169.5156C166.7656-14.5352 164.5352-12.3047 164.5352-9.5508V23.00391C164.5352 25.75781 166.7656 27.98828 169.5156 27.98828H287.113C289.867 27.98828 292.098 25.75781 292.098 23.00391V-9.5508C292.098-12.3047 289.867-14.5352 287.113-14.5352Z' stroke='#0e7490' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 53.859 -31.41417)'>
+<use x='145.965325' y='29.404321' xlink:href='#g4-83'/>
+<use x='151.858445' y='29.404321' xlink:href='#g4-116'/>
+<use x='155.983629' y='29.404321' xlink:href='#g4-114'/>
+<use x='160.359202' y='29.404321' xlink:href='#g4-97'/>
+<use x='165.515679' y='29.404321' xlink:href='#g4-116'/>
+<use x='169.640862' y='29.404321' xlink:href='#g4-233'/>
+<use x='174.50823' y='29.404321' xlink:href='#g4-103'/>
+<use x='179.812041' y='29.404321' xlink:href='#g4-105'/>
+<use x='182.758605' y='29.404321' xlink:href='#g4-101'/>
+<use x='191.161466' y='29.404321' xlink:href='#g4-50'/>
+<use x='200.000771' y='29.404321' xlink:href='#g4-58'/>
+<use x='130.911973' y='40.363225' xlink:href='#g4-82'/>
+<use x='138.860771' y='40.363225' xlink:href='#g4-101'/>
+<use x='143.728139' y='40.363225' xlink:href='#g4-116'/>
+<use x='147.853322' y='40.363225' xlink:href='#g4-105'/>
+<use x='150.799886' y='40.363225' xlink:href='#g4-114'/>
+<use x='155.17546' y='40.363225' xlink:href='#g4-101'/>
+<use x='160.042828' y='40.363225' xlink:href='#g4-114'/>
+<use x='167.953895' y='40.363225' xlink:href='#g4-117'/>
+<use x='173.847015' y='40.363225' xlink:href='#g4-110'/>
+<use x='183.275629' y='40.363225' xlink:href='#g4-112'/>
+<use x='189.168749' y='40.363225' xlink:href='#g4-114'/>
+<use x='193.544323' y='40.363225' xlink:href='#g4-111'/>
+<use x='199.14279' y='40.363225' xlink:href='#g4-100'/>
+<use x='205.03591' y='40.363225' xlink:href='#g4-117'/>
+<use x='210.92903' y='40.363225' xlink:href='#g4-105'/>
+<use x='213.875594' y='40.363225' xlink:href='#g4-116'/>
+<use x='147.858266' y='51.322129' xlink:href='#g4-100'/>
+<use x='153.751387' y='51.322129' xlink:href='#g4-117'/>
+<use x='163.18' y='51.322129' xlink:href='#g4-109'/>
+<use x='172.019685' y='51.322129' xlink:href='#g4-233'/>
+<use x='176.887052' y='51.322129' xlink:href='#g4-108'/>
+<use x='179.833617' y='51.322129' xlink:href='#g4-97'/>
+<use x='184.990094' y='51.322129' xlink:href='#g4-110'/>
+<use x='190.883214' y='51.322129' xlink:href='#g4-103'/>
+<use x='196.187024' y='51.322129' xlink:href='#g4-101'/>
+</g>
+<path d='M68.9102 49.2461H-65.824C-68.027 49.2461-69.809 51.0312-69.809 53.2305V107.625C-69.809 109.8242-68.027 111.6094-65.824 111.6094H68.9102C71.1094 111.6094 72.8945 109.8242 72.8945 107.625V53.2305C72.8945 51.0312 71.1094 49.2461 68.9102 49.2461Z' fill='#ecf9f5'/>
+<path d='M68.9102 49.2461H-65.824C-68.027 49.2461-69.809 51.0312-69.809 53.2305V107.625C-69.809 109.8242-68.027 111.6094-65.824 111.6094H68.9102C71.1094 111.6094 72.8945 109.8242 72.8945 107.625V53.2305C72.8945 51.0312 71.1094 49.2461 68.9102 49.2461Z' stroke='#10b981' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -181.4196 37.9482)'>
+<use x='145.270543' y='29.404321' xlink:href='#g3-91'/>
+<use x='147.830371' y='29.404321' xlink:href='#g5-82'/>
+<use x='154.611616' y='29.404321' xlink:href='#g5-233'/>
+<use x='158.709837' y='29.404321' xlink:href='#g5-97'/>
+<use x='163.316434' y='29.404321' xlink:href='#g5-99'/>
+<use x='167.411184' y='29.404321' xlink:href='#g5-116'/>
+<use x='170.994088' y='29.404321' xlink:href='#g5-105'/>
+<use x='173.553309' y='29.404321' xlink:href='#g5-102'/>
+<use x='176.368419' y='29.404321' xlink:href='#g3-93'/>
+<use x='181.998977' y='29.404321' xlink:href='#g5-97'/>
+<use x='186.605573' y='29.404321' xlink:href='#g5-117'/>
+<use x='191.724015' y='29.404321' xlink:href='#g5-103'/>
+<use x='196.330611' y='29.404321' xlink:href='#g5-109'/>
+<use x='204.008274' y='29.404321' xlink:href='#g5-101'/>
+<use x='208.106496' y='29.404321' xlink:href='#g5-110'/>
+<use x='212.969001' y='29.404321' xlink:href='#g5-116'/>
+<use x='216.551905' y='29.404321' xlink:href='#g5-101'/>
+<use x='153.571932' y='40.363225' xlink:href='#g0-41'/>
+<use x='165.858043' y='40.363225' xlink:href='#g2-81'/>
+<use x='173.126293' y='41.359474' xlink:href='#g1-114'/>
+<use x='180.355014' y='40.363225' xlink:href='#g5-100'/>
+<use x='185.473456' y='40.363225' xlink:href='#g5-105'/>
+<use x='188.032677' y='40.363225' xlink:href='#g5-109'/>
+<use x='195.71034' y='40.363225' xlink:href='#g5-105'/>
+<use x='198.269561' y='40.363225' xlink:href='#g5-110'/>
+<use x='203.132066' y='40.363225' xlink:href='#g5-117'/>
+<use x='208.250508' y='40.363225' xlink:href='#g5-101'/>
+<use x='149.08312' y='51.322129' xlink:href='#g0-41'/>
+<use x='161.369231' y='51.322129' xlink:href='#g2-81'/>
+<use x='168.63748' y='52.318378' xlink:href='#g1-114'/>
+<use x='180.100095' y='51.322129' xlink:href='#g2-60'/>
+<use x='194.572223' y='51.322129' xlink:href='#g2-75'/>
+<use x='203.014119' y='51.322129' xlink:href='#g3-40'/>
+<use x='206.597879' y='51.322129' xlink:href='#g2-84'/>
+<use x='213.253782' y='51.322129' xlink:href='#g3-41'/>
+<use x='138.838487' y='62.281034' xlink:href='#g0-41'/>
+<use x='151.124597' y='62.281034' xlink:href='#g5-115'/>
+<use x='154.758688' y='62.281034' xlink:href='#g5-101'/>
+<use x='158.85691' y='62.281034' xlink:href='#g5-110'/>
+<use x='163.975352' y='62.281034' xlink:href='#g5-115'/>
+<use x='170.680172' y='62.281034' xlink:href='#g5-100'/>
+<use x='175.798614' y='62.281034' xlink:href='#g5-105'/>
+<use x='178.357835' y='62.281034' xlink:href='#g5-114'/>
+<use x='181.961493' y='62.281034' xlink:href='#g5-101'/>
+<use x='186.059715' y='62.281034' xlink:href='#g5-99'/>
+<use x='190.154465' y='62.281034' xlink:href='#g5-116'/>
+<use x='196.808099' y='62.281034' xlink:href='#g5-102'/>
+<use x='199.623243' y='62.281034' xlink:href='#g5-97'/>
+<use x='203.973902' y='62.281034' xlink:href='#g5-118'/>
+<use x='208.580484' y='62.281034' xlink:href='#g5-111'/>
+<use x='213.18708' y='62.281034' xlink:href='#g5-114'/>
+<use x='216.790737' y='62.281034' xlink:href='#g5-105'/>
+<use x='219.349958' y='62.281034' xlink:href='#g5-115'/>
+<use x='222.984049' y='62.281034' xlink:href='#g5-233'/>
+</g>
+<path d='M295.684 49.2461H160.9492C158.75 49.2461 156.9648 51.0312 156.9648 53.2305V107.625C156.9648 109.8242 158.75 111.6094 160.9492 111.6094H295.684C297.883 111.6094 299.668 109.8242 299.668 107.625V53.2305C299.668 51.0312 297.883 49.2461 295.684 49.2461Z' fill='#ecf9f5'/>
+<path d='M295.684 49.2461H160.9492C158.75 49.2461 156.9648 51.0312 156.9648 53.2305V107.625C156.9648 109.8242 158.75 111.6094 160.9492 111.6094H295.684C297.883 111.6094 299.668 109.8242 299.668 107.625V53.2305C299.668 51.0312 297.883 49.2461 295.684 49.2461Z' stroke='#10b981' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 45.355 37.9482)'>
+<use x='147.311002' y='29.404321' xlink:href='#g3-91'/>
+<use x='149.87083' y='29.404321' xlink:href='#g5-80'/>
+<use x='156.140229' y='29.404321' xlink:href='#g5-114'/>
+<use x='159.743886' y='29.404321' xlink:href='#g5-111'/>
+<use x='164.606405' y='29.404321' xlink:href='#g5-100'/>
+<use x='169.724847' y='29.404321' xlink:href='#g5-117'/>
+<use x='174.843289' y='29.404321' xlink:href='#g5-105'/>
+<use x='177.40251' y='29.404321' xlink:href='#g5-116'/>
+<use x='180.985383' y='29.404321' xlink:href='#g3-93'/>
+<use x='186.61594' y='29.404321' xlink:href='#g5-100'/>
+<use x='191.734382' y='29.404321' xlink:href='#g5-105'/>
+<use x='194.293603' y='29.404321' xlink:href='#g5-109'/>
+<use x='201.971266' y='29.404321' xlink:href='#g5-105'/>
+<use x='204.530487' y='29.404321' xlink:href='#g5-110'/>
+<use x='209.392992' y='29.404321' xlink:href='#g5-117'/>
+<use x='214.511434' y='29.404321' xlink:href='#g5-101'/>
+<use x='153.571932' y='40.363225' xlink:href='#g0-41'/>
+<use x='165.858043' y='40.363225' xlink:href='#g2-81'/>
+<use x='173.126293' y='41.359474' xlink:href='#g1-114'/>
+<use x='180.355014' y='40.363225' xlink:href='#g5-100'/>
+<use x='185.473456' y='40.363225' xlink:href='#g5-105'/>
+<use x='188.032677' y='40.363225' xlink:href='#g5-109'/>
+<use x='195.71034' y='40.363225' xlink:href='#g5-105'/>
+<use x='198.269561' y='40.363225' xlink:href='#g5-110'/>
+<use x='203.132066' y='40.363225' xlink:href='#g5-117'/>
+<use x='208.250508' y='40.363225' xlink:href='#g5-101'/>
+<use x='149.08312' y='51.322129' xlink:href='#g0-41'/>
+<use x='161.369231' y='51.322129' xlink:href='#g2-81'/>
+<use x='168.63748' y='52.318378' xlink:href='#g1-114'/>
+<use x='180.100095' y='51.322129' xlink:href='#g2-60'/>
+<use x='194.572223' y='51.322129' xlink:href='#g2-75'/>
+<use x='203.014119' y='51.322129' xlink:href='#g3-40'/>
+<use x='206.597879' y='51.322129' xlink:href='#g2-84'/>
+<use x='213.253782' y='51.322129' xlink:href='#g3-41'/>
+<use x='138.838487' y='62.281034' xlink:href='#g0-41'/>
+<use x='151.124597' y='62.281034' xlink:href='#g5-115'/>
+<use x='154.758688' y='62.281034' xlink:href='#g5-101'/>
+<use x='158.85691' y='62.281034' xlink:href='#g5-110'/>
+<use x='163.975352' y='62.281034' xlink:href='#g5-115'/>
+<use x='170.680172' y='62.281034' xlink:href='#g5-100'/>
+<use x='175.798614' y='62.281034' xlink:href='#g5-105'/>
+<use x='178.357835' y='62.281034' xlink:href='#g5-114'/>
+<use x='181.961493' y='62.281034' xlink:href='#g5-101'/>
+<use x='186.059715' y='62.281034' xlink:href='#g5-99'/>
+<use x='190.154465' y='62.281034' xlink:href='#g5-116'/>
+<use x='196.808099' y='62.281034' xlink:href='#g5-102'/>
+<use x='199.623243' y='62.281034' xlink:href='#g5-97'/>
+<use x='203.973902' y='62.281034' xlink:href='#g5-118'/>
+<use x='208.580484' y='62.281034' xlink:href='#g5-111'/>
+<use x='213.18708' y='62.281034' xlink:href='#g5-114'/>
+<use x='216.790737' y='62.281034' xlink:href='#g5-105'/>
+<use x='219.349958' y='62.281034' xlink:href='#g5-115'/>
+<use x='222.984049' y='62.281034' xlink:href='#g5-233'/>
+</g>
+<path d='M114.929687-41.2617V-32.7578H1.543V-20.1445' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M1.542965-15.86719L3.83593-21.94922L1.542965-19.94531L-.75391-21.94922Z' fill='#0e7490'/>
+<path d='M1.542965-15.86719L3.83593-21.94922L1.542965-19.94531L-.75391-21.94922Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M114.929687-41.2617V-32.7578H228.316V-20.1445' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M228.316168-15.86719L230.60914-21.94922L228.316168-19.94531L226.0232-21.94922Z' fill='#0e7490'/>
+<path d='M228.316168-15.86719L230.60914-21.94922L228.316168-19.94531L226.0232-21.94922Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M1.543 28.1875V43.6367' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M1.542965 47.91407L3.83593 41.83204L1.542965 43.83595L-.75391 41.83204Z' fill='#0e7490'/>
+<path d='M1.542965 47.91407L3.83593 41.83204L1.542965 43.83595L-.75391 41.83204Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M228.316 28.1875V43.6367' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M228.316168 47.91407L230.60914 41.83204L228.316168 43.83595L226.0232 41.83204Z' fill='#0e7490'/>
+<path d='M228.316168 47.91407L230.60914 41.83204L228.316168 43.83595L226.0232 41.83204Z' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+</g>
+</svg></div>
+</div>
+<div class="example-box">
+{ Méthode -- Comment savoir si le rendement augmente ?}
+<ol><li>\'{E}crire l'expression du quotient de réaction $Q_r$.</li><li>Repérer la modification apportée au système (ajout d'un réactif ou retrait d'un produit).</li><li>Déterminer si $Q_r$ augmente ou diminue par rapport à $K(T)$.</li><li>Conclure sur le sens d'évolution :
+ <ul><li>si $Q_r < K(T)$ $$ évolution dans le <strong>sens direct</strong> (formation du produit) ;</li><li>si $Q_r > K(T)$ $$ évolution dans le <strong>sens inverse</strong>.
+ </li></ul>
+</li></ol>
+</div>
+<h3>2.2 Augmentation de la vitesse</h3>
+<p>Même si le rendement est bon, il est souvent nécessaire que la synthèse soit <strong>rapide</strong>. On cherche alors à augmenter la <strong>vitesse volumique de formation</strong> du produit d'intérêt.</p>
+<div class="definition-box">
+{ Rappel -- Facteurs cinétiques (Chapitre 3)}
+<p>Un <strong>facteur cinétique</strong> est un paramètre expérimental qui modifie la vitesse d'une réaction chimique sans en changer l'état d'équilibre final.</p>
+<p>Les principaux facteurs cinétiques sont :<br><ol><li>La <strong>concentration des réactifs</strong> : augmenter la concentration d'un réactif augmente généralement la vitesse de réaction (c'est aussi un facteur cinétique).</li><li>La <strong>température</strong> : augmenter la température augmente l'agitation thermique des molécules, ce qui augmente la fréquence et l'énergie des chocs moléculaires, et donc la vitesse de réaction.</li><li>L'utilisation d'un <strong>catalyseur adapté</strong> : un catalyseur accélère la réaction sans être consommé et sans modifier l'état d'équilibre.<br></li></ol><br></div></p>
+<div class="info-box">
+{ Attention à ne pas confondre !}
+<ul><li><strong>Augmenter le rendement</strong> = obtenir <strong>plus de produit</strong> à l'équilibre. On agit sur l'équilibre chimique (déplacement d'équilibre).</li><li><strong>Augmenter la vitesse</strong> = obtenir le produit <strong>plus vite</strong>. On agit sur la cinétique chimique (facteurs cinétiques).
+</li></ul>
+<p>Un catalyseur augmente la vitesse mais <strong>ne modifie pas</strong> le rendement. Un excès de réactif peut agir sur <strong>les deux</strong> : il déplace l'équilibre <strong>et</strong> il augmente la concentration, donc la vitesse.<br></div></p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.01125 -70.00785 383.0815 71.2657'>
+<defs>
+<path id='g1-15' d='M4.088667-2.241594C4.088667-3.245828 3.263761-4.034869 2.304359-4.034869C1.291158-4.034869 .511083-3.200996 .511083-2.25056C.511083-1.246326 1.33599-.457285 2.295392-.457285C3.308593-.457285 4.088667-1.291158 4.088667-2.241594Z'/>
+<path id='g2-114' d='M1.697634-1.787298C1.715567-1.817186 1.853051-2.086177 2.086177-2.271482C2.157908-2.319303 2.331258-2.438854 2.606227-2.438854C2.660025-2.438854 2.851308-2.438854 3.006725-2.349191C2.851308-2.295392 2.761644-2.157908 2.761644-2.026401C2.761644-1.835118 2.917061-1.793275 3.000747-1.793275C3.174097-1.793275 3.347447-1.936737 3.347447-2.169863C3.347447-2.486675 3.000747-2.636115 2.618182-2.636115C2.462765-2.636115 2.098132-2.624159 1.733499-2.199751C1.643836-2.516563 1.321046-2.636115 1.075965-2.636115C.818929-2.636115 .675467-2.462765 .585803-2.319303C.454296-2.098132 .364633-1.75741 .364633-1.721544C.364633-1.655791 .418431-1.63188 .472229-1.63188C.56787-1.63188 .573848-1.673724 .603736-1.769365C.71731-2.229639 .860772-2.438854 1.058032-2.438854C1.243337-2.438854 1.273225-2.265504 1.273225-2.139975C1.273225-2.038356 1.21345-1.799253 1.171606-1.63188C1.129763-1.470486 1.069988-1.225405 1.0401-1.093898C.998257-.944458 .962391-.789041 .920548-.639601C.878705-.472229 .806974-.17335 .806974-.137484C.806974-.005978 .908593 .059776 1.016189 .059776C1.135741 .059776 1.249315-.02391 1.285181-.143462C1.303113-.191283 1.524284-1.093898 1.560149-1.231382L1.697634-1.787298Z'/>
+<path id='g3-75' d='M4.62665-3.738979L6.446824-5.110834L6.554421-5.173599C7.110336-5.559153 7.451059-5.792279 7.980075-5.846077C8.042839-5.855044 8.141469-5.86401 8.141469-6.007472C8.141469-6.052304 8.11457-6.124035 8.033873-6.124035C7.962142-6.124035 7.908344-6.097136 7.370361-6.097136C7.047572-6.097136 6.715816-6.124035 6.401993-6.124035C6.348194-6.124035 6.231631-6.124035 6.231631-5.96264C6.231631-5.855044 6.330262-5.846077 6.357161-5.846077C6.428892-5.837111 6.608219-5.828144 6.608219-5.684682C6.608219-5.612951 6.554421-5.496389 6.428892-5.388792C6.393026-5.352927 6.38406-5.34396 6.357161-5.326027C6.330262-5.290162 6.312329-5.281196 6.267497-5.24533L2.698879-2.57335L3.416189-5.433624C3.496887-5.774346 3.523786-5.846077 4.223163-5.846077C4.366625-5.846077 4.465255-5.846077 4.465255-6.007472C4.465255-6.088169 4.402491-6.124035 4.33076-6.124035C4.160399-6.124035 3.945205-6.106102 3.765878-6.106102C3.577584-6.097136 3.371357-6.097136 3.19203-6.097136C2.905106-6.097136 2.887173-6.097136 2.618182-6.106102C2.438854-6.115068 2.205729-6.124035 2.035367-6.124035C1.981569-6.124035 1.85604-6.124035 1.85604-5.96264C1.85604-5.846077 1.936737-5.846077 2.125031-5.846077C2.160897-5.846077 2.322291-5.846077 2.465753-5.828144C2.618182-5.810212 2.680946-5.792279 2.680946-5.693649C2.680946-5.648817 2.67198-5.612951 2.645081-5.514321L1.43462-.681445C1.353923-.358655 1.33599-.277958 .663512-.277958C.493151-.277958 .394521-.277958 .394521-.116563C.394521-.017933 .466252 0 .529016 0C.699377 0 .923537-.008966 1.093898-.017933C1.362889-.026899 1.380822-.026899 1.667746-.026899S1.972603-.026899 2.241594-.017933C2.420922-.008966 2.654047 0 2.824408 0C2.887173 0 3.003736 0 3.003736-.161395C3.003736-.277958 2.914072-.277958 2.725778-.277958C2.689913-.277958 2.528518-.277958 2.385056-.29589C2.187796-.32279 2.178829-.358655 2.178829-.439352C2.178829-.511083 2.259527-.81594 2.618182-2.232628L3.990037-3.263761L5.137733-.753176C5.182565-.636613 5.200498-.609714 5.200498-.546949C5.200498-.286924 4.82391-.277958 4.752179-.277958C4.644583-.277958 4.536986-.277958 4.536986-.116563C4.536986-.026899 4.617684 0 4.680448 0C4.850809 0 5.030137-.017933 5.200498-.017933C5.379826-.017933 5.56812-.026899 5.747447-.026899C5.899875-.026899 6.141968-.026899 6.204732-.017933L6.644085 0C6.67995 0 6.805479 0 6.805479-.161395C6.805479-.277958 6.697883-.277958 6.644085-.277958C6.330262-.286924 6.177833-.32279 6.025405-.654545L4.62665-3.738979Z'/>
+<path id='g3-81' d='M3.694147 .367621C3.676214 .466252 3.676214 .591781 3.676214 .699377C3.676214 1.129763 3.747945 1.739477 4.456289 1.739477C5.523288 1.739477 5.980573 .134496 5.980573 0C5.980573-.053798 5.935741-.107597 5.86401-.107597S5.774346-.044832 5.747447 .017933C5.54122 .627646 5.021171 .851806 4.689415 .851806C4.276961 .851806 4.142466 .591781 4.052802-.044832C6.007472-.887671 6.796513-2.654047 6.796513-3.882441C6.796513-5.299128 5.846077-6.321295 4.438356-6.321295C2.429888-6.321295 .448319-4.259029 .448319-2.214695C.448319-.744209 1.461519 .19726 2.815442 .19726C3.183064 .19726 3.550685 .116563 3.703113 .071731L3.694147 .367621ZM2.27746-.161395C1.865006-.32279 1.264259-.789041 1.264259-1.945704C1.264259-2.420922 1.416687-3.864508 2.385056-5.021171C2.851308-5.56812 3.604483-6.070237 4.375592-6.070237C5.263263-6.070237 5.980573-5.415691 5.980573-4.160399C5.980573-3.263761 5.54122-1.23736 3.999004-.376588C3.918306-.860772 3.747945-1.33599 3.174097-1.33599C2.67198-1.33599 2.232628-.878705 2.232628-.42142C2.232628-.349689 2.25056-.224159 2.27746-.161395ZM3.721046-.233126C3.595517-.179328 3.245828-.053798 2.878207-.053798C2.761644-.053798 2.456787-.053798 2.456787-.42142C2.456787-.753176 2.788543-1.111831 3.183064-1.111831C3.71208-1.111831 3.721046-.627646 3.721046-.233126Z'/>
+<path id='g3-84' d='M3.936239-5.460523C3.990037-5.657783 4.00797-5.747447 4.160399-5.774346C4.23213-5.792279 4.519054-5.792279 4.707347-5.792279C5.738481-5.792279 6.043337-5.729514 6.043337-5.030137C6.043337-4.913574 6.043337-4.779078 5.96264-4.250062L5.953674-4.178331C5.953674-4.115567 5.989539-4.052802 6.079203-4.052802C6.1868-4.052802 6.204732-4.133499 6.222665-4.267995L6.455791-5.819178C6.464757-5.86401 6.473724-5.917808 6.473724-5.944707C6.473724-6.070237 6.38406-6.070237 6.213699-6.070237H1.111831C.896638-6.070237 .887671-6.06127 .824907-5.890909L.268991-4.312827C.233126-4.196264 .233126-4.178331 .233126-4.169365C.233126-4.124533 .260025-4.052802 .349689-4.052802C.448319-4.052802 .466252-4.1066 .52005-4.267995C1.0132-5.66675 1.291158-5.792279 2.591283-5.792279H2.940971C3.19203-5.792279 3.19203-5.76538 3.19203-5.693649C3.19203-5.639851 3.174097-5.577086 3.156164-5.505355L1.95467-.708344C1.873973-.385554 1.847073-.277958 .896638-.277958C.609714-.277958 .529016-.277958 .529016-.116563C.529016 0 .645579 0 .681445 0C.91457 0 1.174595-.017933 1.416687-.017933C1.667746-.017933 1.927771-.026899 2.178829-.026899C2.57335-.026899 2.591283-.026899 2.923039-.017933C3.039601-.017933 3.631382 0 3.703113 0C3.783811 0 3.891407 0 3.891407-.161395C3.891407-.277958 3.81071-.277958 3.58655-.277958S3.254795-.277958 3.012702-.29589C2.806476-.32279 2.698879-.331756 2.698879-.484184C2.698879-.529016 2.716812-.600747 2.734745-.663512L3.936239-5.460523Z'/>
+<path id='g4-40' d='M3.057534 2.133998C3.057534 2.089166 3.030635 2.062267 2.976837 1.999502C1.820174 .941469 1.470486-.672478 1.470486-2.241594C1.470486-3.631382 1.739477-5.317061 3.003736-6.518555C3.039601-6.554421 3.057534-6.58132 3.057534-6.626152C3.057534-6.688917 3.012702-6.724782 2.949938-6.724782C2.842341-6.724782 2.035367-6.079203 1.551183-5.101868C1.120797-4.241096 .905604-3.317559 .905604-2.25056C.905604-1.604981 .986301-.582814 1.479452 .475218C2.008468 1.578082 2.842341 2.232628 2.949938 2.232628C3.012702 2.232628 3.057534 2.196762 3.057534 2.133998Z'/>
+<path id='g4-41' d='M2.67198-2.25056C2.67198-2.985803 2.564384-3.972105 2.098132-4.967372C1.569116-6.070237 .735243-6.724782 .627646-6.724782C.537983-6.724782 .52005-6.653051 .52005-6.626152C.52005-6.58132 .537983-6.554421 .600747-6.491656C1.120797-6.025405 2.107098-4.805978 2.107098-2.25056C2.107098-.968369 1.873973 .81594 .573848 2.026401C.555915 2.0533 .52005 2.089166 .52005 2.133998C.52005 2.160897 .537983 2.232628 .627646 2.232628C.735243 2.232628 1.542217 1.587049 2.026401 .609714C2.456787-.251059 2.67198-1.174595 2.67198-2.25056Z'/>
+</defs>
+<g id='page1'>
+<path d='M82.1133-69.8086H-65.824C-68.027-69.8086-69.812-68.0234-69.812-65.8242V-2.9258C-69.812-.7266-68.027 1.0586-65.824 1.0586H82.1133C84.3125 1.0586 86.0977-.7266 86.0977-2.9258V-65.8242C86.0977-68.0234 84.3125-69.8086 82.1133-69.8086Z' fill='#fff4ec'/>
+<path d='M82.1133-69.8086H-65.824C-68.027-69.8086-69.812-68.0234-69.812-65.8242V-2.9258C-69.812-.7266-68.027 1.0586-65.824 1.0586H82.1133C84.3125 1.0586 86.0977-.7266 86.0977-2.9258V-65.8242C86.0977-68.0234 84.3125-69.8086 82.1133-69.8086Z' stroke='#f97316' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -187.0889 -24.9055)'>
+<use x='137.652459' y='-34.375167' xlink:href='#g5-65'/>
+<use x='145.65659' y='-34.375167' xlink:href='#g5-117'/>
+<use x='151.549711' y='-34.375167' xlink:href='#g5-103'/>
+<use x='156.853521' y='-34.375167' xlink:href='#g5-109'/>
+<use x='165.693206' y='-34.375167' xlink:href='#g5-101'/>
+<use x='170.560573' y='-34.375167' xlink:href='#g5-110'/>
+<use x='176.159022' y='-34.375167' xlink:href='#g5-116'/>
+<use x='180.284205' y='-34.375167' xlink:href='#g5-101'/>
+<use x='185.151573' y='-34.375167' xlink:href='#g5-114'/>
+<use x='192.597876' y='-34.375167' xlink:href='#g5-108'/>
+<use x='195.54444' y='-34.375167' xlink:href='#g5-101'/>
+<use x='203.482537' y='-34.375167' xlink:href='#g5-114'/>
+<use x='207.858111' y='-34.375167' xlink:href='#g5-101'/>
+<use x='212.725479' y='-34.375167' xlink:href='#g5-110'/>
+<use x='218.618599' y='-34.375167' xlink:href='#g5-100'/>
+<use x='224.511719' y='-34.375167' xlink:href='#g5-101'/>
+<use x='229.379086' y='-34.375167' xlink:href='#g5-109'/>
+<use x='238.218771' y='-34.375167' xlink:href='#g5-101'/>
+<use x='243.086138' y='-34.375167' xlink:href='#g5-110'/>
+<use x='248.684587' y='-34.375167' xlink:href='#g5-116'/>
+<use x='159.553074' y='-17.747062' xlink:href='#g1-15'/>
+<use x='167.231494' y='-17.747062' xlink:href='#g6-69'/>
+<use x='173.500892' y='-17.747062' xlink:href='#g6-120'/>
+<use x='178.363411' y='-17.747062' xlink:href='#g6-99'/>
+<use x='182.458162' y='-17.747062' xlink:href='#g6-232'/>
+<use x='186.556384' y='-17.747062' xlink:href='#g6-115'/>
+<use x='193.261204' y='-17.747062' xlink:href='#g6-100'/>
+<use x='198.379646' y='-17.747062' xlink:href='#g6-101'/>
+<use x='205.548597' y='-17.747062' xlink:href='#g6-114'/>
+<use x='209.152255' y='-17.747062' xlink:href='#g6-233'/>
+<use x='213.250477' y='-17.747062' xlink:href='#g6-97'/>
+<use x='217.857073' y='-17.747062' xlink:href='#g6-99'/>
+<use x='221.951823' y='-17.747062' xlink:href='#g6-116'/>
+<use x='225.534727' y='-17.747062' xlink:href='#g6-105'/>
+<use x='228.093948' y='-17.747062' xlink:href='#g6-102'/>
+<use x='140.773582' y='-6.788158' xlink:href='#g1-15'/>
+<use x='148.452003' y='-6.788158' xlink:href='#g6-201'/>
+<use x='154.721401' y='-6.788158' xlink:href='#g6-108'/>
+<use x='157.280622' y='-6.788158' xlink:href='#g6-105'/>
+<use x='159.839843' y='-6.788158' xlink:href='#g6-109'/>
+<use x='167.517506' y='-6.788158' xlink:href='#g6-105'/>
+<use x='170.076727' y='-6.788158' xlink:href='#g6-110'/>
+<use x='175.195169' y='-6.788158' xlink:href='#g6-97'/>
+<use x='179.801765' y='-6.788158' xlink:href='#g6-116'/>
+<use x='183.384669' y='-6.788158' xlink:href='#g6-105'/>
+<use x='185.94389' y='-6.788158' xlink:href='#g6-111'/>
+<use x='190.550487' y='-6.788158' xlink:href='#g6-110'/>
+<use x='198.739658' y='-6.788158' xlink:href='#g6-100'/>
+<use x='203.8581' y='-6.788158' xlink:href='#g6-39'/>
+<use x='206.417321' y='-6.788158' xlink:href='#g6-117'/>
+<use x='211.535763' y='-6.788158' xlink:href='#g6-110'/>
+<use x='219.724935' y='-6.788158' xlink:href='#g6-112'/>
+<use x='224.843377' y='-6.788158' xlink:href='#g6-114'/>
+<use x='228.447035' y='-6.788158' xlink:href='#g6-111'/>
+<use x='233.309553' y='-6.788158' xlink:href='#g6-100'/>
+<use x='238.427995' y='-6.788158' xlink:href='#g6-117'/>
+<use x='243.546437' y='-6.788158' xlink:href='#g6-105'/>
+<use x='246.105658' y='-6.788158' xlink:href='#g6-116'/>
+<use x='151.483086' y='8.422532' xlink:href='#g0-79'/>
+<use x='158.538236' y='8.422532' xlink:href='#g0-110'/>
+<use x='166.782741' y='8.422532' xlink:href='#g0-97'/>
+<use x='171.486169' y='8.422532' xlink:href='#g0-103'/>
+<use x='175.719257' y='8.422532' xlink:href='#g0-105'/>
+<use x='178.541319' y='8.422532' xlink:href='#g0-116'/>
+<use x='184.66928' y='8.422532' xlink:href='#g0-115'/>
+<use x='188.432029' y='8.422532' xlink:href='#g0-117'/>
+<use x='193.370635' y='8.422532' xlink:href='#g0-114'/>
+<use x='200.321698' y='8.422532' xlink:href='#g0-108'/>
+<use x='202.673412' y='8.422532' xlink:href='#g0-39'/>
+<use x='205.495474' y='8.422532' xlink:href='#g0-233'/>
+<use x='209.258219' y='8.422532' xlink:href='#g0-113'/>
+<use x='213.491307' y='8.422532' xlink:href='#g0-117'/>
+<use x='218.429913' y='8.422532' xlink:href='#g0-105'/>
+<use x='221.251975' y='8.422532' xlink:href='#g0-108'/>
+<use x='223.603689' y='8.422532' xlink:href='#g0-105'/>
+<use x='226.42575' y='8.422532' xlink:href='#g0-98'/>
+<use x='230.658839' y='8.422532' xlink:href='#g0-114'/>
+<use x='234.068829' y='8.422532' xlink:href='#g0-101'/>
+<use x='167.391265' y='19.381436' xlink:href='#g0-40'/>
+<use x='171.154014' y='19.381436' xlink:href='#g3-81'/>
+<use x='178.422263' y='20.377685' xlink:href='#g2-114'/>
+<use x='185.650984' y='19.381436' xlink:href='#g0-118'/>
+<use x='189.884073' y='19.381436' xlink:href='#g0-115'/>
+<use x='196.717551' y='19.381436' xlink:href='#g3-75'/>
+<use x='205.159448' y='19.381436' xlink:href='#g4-40'/>
+<use x='208.743207' y='19.381436' xlink:href='#g3-84'/>
+<use x='215.399111' y='19.381436' xlink:href='#g4-41'/>
+<use x='218.98287' y='19.381436' xlink:href='#g0-41'/>
+</g>
+<path d='M308.887-69.8086H160.9492C158.7461-69.8086 156.9648-68.0234 156.9648-65.8242V-2.9258C156.9648-.7266 158.7461 1.0586 160.9492 1.0586H308.887C311.086 1.0586 312.871-.7266 312.871-2.9258V-65.8242C312.871-68.0234 311.086-69.8086 308.887-69.8086Z' fill='#f1f0fd'/>
+<path d='M308.887-69.8086H160.9492C158.7461-69.8086 156.9648-68.0234 156.9648-65.8242V-2.9258C156.9648-.7266 158.7461 1.0586 160.9492 1.0586H308.887C311.086 1.0586 312.871-.7266 312.871-2.9258V-65.8242C312.871-68.0234 311.086-69.8086 308.887-69.8086Z' stroke='#4f46e5' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 39.686 -24.6562)'>
+<use x='146.784899' y='-34.375167' xlink:href='#g5-65'/>
+<use x='154.789031' y='-34.375167' xlink:href='#g5-117'/>
+<use x='160.682151' y='-34.375167' xlink:href='#g5-103'/>
+<use x='165.985962' y='-34.375167' xlink:href='#g5-109'/>
+<use x='174.825646' y='-34.375167' xlink:href='#g5-101'/>
+<use x='179.693013' y='-34.375167' xlink:href='#g5-110'/>
+<use x='185.291462' y='-34.375167' xlink:href='#g5-116'/>
+<use x='189.416645' y='-34.375167' xlink:href='#g5-101'/>
+<use x='194.284013' y='-34.375167' xlink:href='#g5-114'/>
+<use x='201.730316' y='-34.375167' xlink:href='#g5-108'/>
+<use x='204.676881' y='-34.375167' xlink:href='#g5-97'/>
+<use x='212.904087' y='-34.375167' xlink:href='#g5-118'/>
+<use x='218.502557' y='-34.375167' xlink:href='#g5-105'/>
+<use x='221.449121' y='-34.375167' xlink:href='#g5-116'/>
+<use x='225.574304' y='-34.375167' xlink:href='#g5-101'/>
+<use x='230.441672' y='-34.375167' xlink:href='#g5-115'/>
+<use x='234.625797' y='-34.375167' xlink:href='#g5-115'/>
+<use x='238.809922' y='-34.375167' xlink:href='#g5-101'/>
+<use x='139.77931' y='-17.747062' xlink:href='#g1-15'/>
+<use x='147.45773' y='-17.747062' xlink:href='#g6-67'/>
+<use x='154.111701' y='-17.747062' xlink:href='#g6-111'/>
+<use x='158.718297' y='-17.747062' xlink:href='#g6-110'/>
+<use x='163.836739' y='-17.747062' xlink:href='#g6-99'/>
+<use x='167.931489' y='-17.747062' xlink:href='#g6-101'/>
+<use x='172.029711' y='-17.747062' xlink:href='#g6-110'/>
+<use x='176.892216' y='-17.747062' xlink:href='#g6-116'/>
+<use x='180.47512' y='-17.747062' xlink:href='#g6-114'/>
+<use x='184.078778' y='-17.747062' xlink:href='#g6-97'/>
+<use x='188.685374' y='-17.747062' xlink:href='#g6-116'/>
+<use x='192.268278' y='-17.747062' xlink:href='#g6-105'/>
+<use x='194.827499' y='-17.747062' xlink:href='#g6-111'/>
+<use x='199.434096' y='-17.747062' xlink:href='#g6-110'/>
+<use x='207.623267' y='-17.747062' xlink:href='#g6-112'/>
+<use x='212.741709' y='-17.747062' xlink:href='#g6-108'/>
+<use x='215.30093' y='-17.747062' xlink:href='#g6-117'/>
+<use x='220.419372' y='-17.747062' xlink:href='#g6-115'/>
+<use x='227.124193' y='-17.747062' xlink:href='#g6-233'/>
+<use x='231.222414' y='-17.747062' xlink:href='#g6-108'/>
+<use x='233.781635' y='-17.747062' xlink:href='#g6-101'/>
+<use x='237.879857' y='-17.747062' xlink:href='#g6-118'/>
+<use x='242.486439' y='-17.747062' xlink:href='#g6-233'/>
+<use x='246.584661' y='-17.747062' xlink:href='#g6-101'/>
+<use x='142.452649' y='-6.788158' xlink:href='#g1-15'/>
+<use x='150.13107' y='-6.788158' xlink:href='#g6-84'/>
+<use x='156.01726' y='-6.788158' xlink:href='#g6-101'/>
+<use x='160.115482' y='-6.788158' xlink:href='#g6-109'/>
+<use x='167.793145' y='-6.788158' xlink:href='#g6-112'/>
+<use x='173.167509' y='-6.788158' xlink:href='#g6-233'/>
+<use x='177.265731' y='-6.788158' xlink:href='#g6-114'/>
+<use x='180.869388' y='-6.788158' xlink:href='#g6-97'/>
+<use x='185.475984' y='-6.788158' xlink:href='#g6-116'/>
+<use x='189.058889' y='-6.788158' xlink:href='#g6-117'/>
+<use x='194.177331' y='-6.788158' xlink:href='#g6-114'/>
+<use x='197.780988' y='-6.788158' xlink:href='#g6-101'/>
+<use x='204.94994' y='-6.788158' xlink:href='#g6-112'/>
+<use x='210.068382' y='-6.788158' xlink:href='#g6-108'/>
+<use x='212.627603' y='-6.788158' xlink:href='#g6-117'/>
+<use x='217.746045' y='-6.788158' xlink:href='#g6-115'/>
+<use x='224.450865' y='-6.788158' xlink:href='#g6-233'/>
+<use x='228.549087' y='-6.788158' xlink:href='#g6-108'/>
+<use x='231.108308' y='-6.788158' xlink:href='#g6-101'/>
+<use x='235.20653' y='-6.788158' xlink:href='#g6-118'/>
+<use x='239.813112' y='-6.788158' xlink:href='#g6-233'/>
+<use x='243.911334' y='-6.788158' xlink:href='#g6-101'/>
+<use x='154.627803' y='4.170746' xlink:href='#g1-15'/>
+<use x='162.306223' y='4.170746' xlink:href='#g6-67'/>
+<use x='168.960194' y='4.170746' xlink:href='#g6-97'/>
+<use x='173.56679' y='4.170746' xlink:href='#g6-116'/>
+<use x='177.149694' y='4.170746' xlink:href='#g6-97'/>
+<use x='181.756291' y='4.170746' xlink:href='#g6-108'/>
+<use x='184.315512' y='4.170746' xlink:href='#g6-121'/>
+<use x='189.178031' y='4.170746' xlink:href='#g6-115'/>
+<use x='192.812121' y='4.170746' xlink:href='#g6-101'/>
+<use x='196.910343' y='4.170746' xlink:href='#g6-117'/>
+<use x='202.028785' y='4.170746' xlink:href='#g6-114'/>
+<use x='208.703172' y='4.170746' xlink:href='#g6-97'/>
+<use x='213.309769' y='4.170746' xlink:href='#g6-100'/>
+<use x='218.428211' y='4.170746' xlink:href='#g6-97'/>
+<use x='223.034807' y='4.170746' xlink:href='#g6-112'/>
+<use x='228.153249' y='4.170746' xlink:href='#g6-116'/>
+<use x='231.736153' y='4.170746' xlink:href='#g6-233'/>
+<use x='147.53722' y='19.381436' xlink:href='#g0-79'/>
+<use x='154.59237' y='19.381436' xlink:href='#g0-110'/>
+<use x='162.836875' y='19.381436' xlink:href='#g0-97'/>
+<use x='167.540303' y='19.381436' xlink:href='#g0-103'/>
+<use x='171.773391' y='19.381436' xlink:href='#g0-105'/>
+<use x='174.595453' y='19.381436' xlink:href='#g0-116'/>
+<use x='180.723414' y='19.381436' xlink:href='#g0-115'/>
+<use x='184.486163' y='19.381436' xlink:href='#g0-117'/>
+<use x='189.424769' y='19.381436' xlink:href='#g0-114'/>
+<use x='196.375832' y='19.381436' xlink:href='#g0-108'/>
+<use x='198.727546' y='19.381436' xlink:href='#g0-97'/>
+<use x='206.501704' y='19.381436' xlink:href='#g0-99'/>
+<use x='210.734792' y='19.381436' xlink:href='#g0-105'/>
+<use x='213.556854' y='19.381436' xlink:href='#g0-110'/>
+<use x='218.730629' y='19.381436' xlink:href='#g0-233'/>
+<use x='222.963717' y='19.381436' xlink:href='#g0-116'/>
+<use x='226.020949' y='19.381436' xlink:href='#g0-105'/>
+<use x='228.843011' y='19.381436' xlink:href='#g0-113'/>
+<use x='233.076099' y='19.381436' xlink:href='#g0-117'/>
+<use x='238.014705' y='19.381436' xlink:href='#g0-101'/>
+</g>
+</g>
+</svg></div>
+</div>
+<div class="definition-box retenir-box">
+{ \`{A} retenir -- Synthèse du chapitre}
+<strong>1. Structure et propriétés</strong>
+<ul><li>La <strong>formule topologique</strong> représente le squelette carboné par une ligne brisée. Les atomes C et les H liés aux C ne sont pas écrits.</li><li>Les <strong>familles fonctionnelles</strong> sont identifiées par un <strong>groupe caractéristique</strong> et un <strong>suffixe</strong> dans le nom.</li><li>Des <strong>isomères de constitution</strong> ont la même formule brute mais des formules développées différentes.</li><li>Un <strong>polymère</strong> est un matériau dont les macromolécules sont formées par la répétition d'un <strong>motif</strong>, $n$ fois.
+</li></ul>
+<strong>2. Optimisation d'une synthèse</strong>
+<ul><li>Pour <strong>augmenter le rendement</strong> : introduire un réactif en excès ou éliminer un produit du mélange. Dans les deux cas, $Q_r$ diminue et le système évolue dans le sens direct ($Q_r < K(T)$).</li><li>Pour <strong>augmenter la vitesse</strong> : augmenter la concentration d'un réactif, augmenter la température, ou utiliser un catalyseur adapté.</li><li>Un <strong>catalyseur</strong> accélère la réaction mais <strong>ne modifie pas</strong> l'état d'équilibre (donc pas le rendement).
+</li></ul>
+</div>
+</div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="exercices_optimisation_synthese.html" class="btn-action">📝 Exercices</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=optimisation_synthese" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=optimisation_synthese" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

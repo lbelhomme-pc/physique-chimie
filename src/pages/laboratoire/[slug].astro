@@ -1,27 +1,31 @@
 ---
 import LabAppLayout from "../../components/laboratoire/LabAppLayout.astro";
 import GenericLabSimulator from "../../components/laboratoire/GenericLabSimulator.astro";
+import RadioactiveDecaySimulator from "../../components/laboratoire/RadioactiveDecaySimulator.astro";
+import TitrationPhSimulator from "../../components/laboratoire/TitrationPhSimulator.astro";
 import { labApps } from "../../data/laboratoire/apps";
 import { genericLabConfigs } from "../../data/laboratoire/genericConfigs";
 
 export function getStaticPaths() {
-  const explicitRoutes = new Set(["circuit-rc", "lois-kepler", "gaz-parfaits", "diffusion-temperature"]);
-  const genericApps = labApps.filter((app) => !explicitRoutes.has(app.slug));
-  return genericApps.map((app) => ({
+  const dynamicApps = labApps.filter((app) => app.renderer !== "explicit-page");
+  return dynamicApps.map((app) => ({
     params: { slug: app.slug },
     props: { app },
   }));
 }
 
 const { app } = Astro.props;
+const usesDedicatedTitrationPhSimulator = app.renderer === "dedicated-component" && app.simKind === "titration-ph";
+const usesDedicatedRadioactiveDecaySimulator = app.renderer === "dedicated-component" && app.simKind === "decay";
 const config = genericLabConfigs[app.slug];
 
-if (!config) {
+if (!usesDedicatedTitrationPhSimulator && !usesDedicatedRadioactiveDecaySimulator && !config) {
   throw new Error(`Configuration manquante pour la simulation "${app.slug}".`);
 }
 ---
 
 <LabAppLayout
+  slug={app.slug}
   title={app.title}
   description={app.objective}
   icon={app.icon}
@@ -30,5 +34,9 @@ if (!config) {
   objective={app.objective}
   legacyPath={app.legacyPath}
 >
-  <GenericLabSimulator app={app} config={config} />
+  {usesDedicatedTitrationPhSimulator
+    ? <TitrationPhSimulator />
+    : usesDedicatedRadioactiveDecaySimulator
+      ? <RadioactiveDecaySimulator />
+      : config && <GenericLabSimulator app={app} config={config} />}
 </LabAppLayout>

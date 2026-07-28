@@ -1,128 +1,272 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { methodesMathsCollege } from "../../data/methodesMathsCollege";
 ---
 
 <BaseLayout
-  title="Méthodes maths collège - Outils & méthodes"
-  description="Méthodes mathématiques utiles en physique-chimie au collège : conversions, proportionnalité, puissances, graphiques, statistiques et vecteurs."
+  title="Méthodes mathématiques pour la physique-chimie au collège"
+  description="Accueil des fiches méthodes de mathématiques utiles en physique-chimie au collège : conversions, formules, proportionnalité, graphiques, puissances de 10 et rédaction scientifique."
   canonical="/outils-methodes/methodes-maths-college"
   schemaType="EducationalContent"
 >
-  <main class="method-page">
-    <nav aria-label="Fil d'Ariane" class="breadcrumb">
-      <a href="/">Accueil</a> &rsaquo;
-      <a href="/outils-methodes">Outils & Méthodes</a> &rsaquo;
+  <main class="methods-home">
+    <nav aria-label="Fil d'Ariane" class="breadcrumb-bar">
+      <a href="/">Accueil</a>
+      <span aria-hidden="true">›</span>
+      <a href="/outils-methodes">Outils & Méthodes</a>
+      <span aria-hidden="true">›</span>
+      <a href="/outils-methodes/college">Collège</a>
+      <span aria-hidden="true">›</span>
       <strong>Méthodes maths collège</strong>
     </nav>
 
-    <header class="method-hero">
-      <p class="eyebrow">Ressources transversales</p>
-      <h1>Méthodes maths collège</h1>
-      <p>Les automatismes mathématiques les plus utiles pour réussir les exercices de physique-chimie.</p>
+    <header class="page-hero">
+      <p class="eyebrow">Méthodes - Collège</p>
+      <h1>Méthodes mathématiques utiles en physique-chimie</h1>
+      <p>
+        Chaque fiche a maintenant sa propre page. L'objectif est simple : lire une méthode,
+        voir deux exemples corrigés, éviter les pièges classiques, puis s'entraîner avec un mini-exercice.
+      </p>
+      <div class="hero-actions">
+        <a href="/outils-methodes/college">Retour aux outils collège</a>
+        <a href="/outils-methodes/formulaires-college">Voir les formulaires</a>
+      </div>
     </header>
 
-    <section class="method-grid" aria-label="Liste des méthodes">
-      <article class="method-card">
-        <h2>Tableau de conversion</h2>
-        <p>Utilise-le pour convertir une longueur, une masse, un volume ou une capacité sans perdre l'unité.</p>
-        <ol>
-          <li>Écris le chiffre des unités dans la colonne de l'unité de départ.</li>
-          <li>Complète avec des zéros si nécessaire.</li>
-          <li>Place la virgule dans la colonne de l'unité demandée.</li>
-        </ol>
-        <p class="example">Exemple : 2,5 m = 250 cm.</p>
-      </article>
+    <section class="intro-card" aria-labelledby="intro-title">
+      <h2 id="intro-title">La base à garder en tête</h2>
+      <div class="base-grid">
+        <article>
+          <h3>Grandeur</h3>
+          <p>Ce que l'on mesure ou calcule : masse, volume, vitesse, tension, énergie.</p>
+        </article>
+        <article>
+          <h3>Valeur</h3>
+          <p>Le nombre associé à la grandeur : 12, 0,50 ou 3,2 par exemple.</p>
+        </article>
+        <article>
+          <h3>Unité</h3>
+          <p>Le repère qui donne le sens du nombre : g, L, m, s, V, A, J.</p>
+        </article>
+      </div>
+      <p class="example-line">
+        Exemple : dans <strong>m = 250 g</strong>, la grandeur est la masse, la valeur est 250 et l'unité est le gramme.
+      </p>
+    </section>
 
-      <article class="method-card">
-        <h2>Proportionnalité</h2>
-        <p>Deux grandeurs sont proportionnelles si l'on passe de l'une à l'autre en multipliant toujours par le même nombre.</p>
-        <ol>
-          <li>Repère les deux grandeurs.</li>
-          <li>Vérifie le coefficient multiplicateur.</li>
-          <li>Utilise un tableau ou un produit en croix.</li>
-        </ol>
-        <p class="example">Exemple : si 1 L contient 5 g de sel, alors 2 L contiennent 10 g.</p>
-      </article>
+    <section class="cards-section" aria-labelledby="cards-title">
+      <div class="section-heading">
+        <p>Choisir une fiche</p>
+        <h2 id="cards-title">Méthodes disponibles</h2>
+      </div>
 
-      <article class="method-card">
-        <h2>Isoler une inconnue</h2>
-        <p>Quand une formule contient la grandeur cherchée, on transforme l'égalité en gardant l'équilibre.</p>
-        <ol>
-          <li>Écris la relation littérale.</li>
-          <li>Entoure la grandeur cherchée.</li>
-          <li>Effectue la même opération des deux côtés.</li>
-        </ol>
-        <p class="example">Exemple : avec v = d / t, on obtient d = v × t.</p>
-      </article>
+      <div class="method-grid">
+        {methodesMathsCollege.map((method) => (
+          <a class="method-card" href={`/outils-methodes/methodes-maths-college/${method.slug}`}>
+            <span class="method-number">Fiche {method.number}</span>
+            <strong>{method.title}</strong>
+            <span>{method.description}</span>
+            <em>Ouvrir la fiche</em>
+          </a>
+        ))}
+      </div>
+    </section>
 
-      <article class="method-card">
-        <h2>Calcul numérique</h2>
-        <p>Un calcul scientifique doit toujours aboutir à une valeur accompagnée d'une unité.</p>
-        <ol>
-          <li>Remplace les grandeurs par les valeurs.</li>
-          <li>Vérifie les unités.</li>
-          <li>Calcule puis rédige une phrase de conclusion.</li>
-        </ol>
-        <p class="example">Exemple : v = 120 m / 20 s = 6 m·s⁻¹.</p>
-      </article>
-
-      <article class="method-card">
-        <h2>Puissances de dix</h2>
-        <p>Elles servent à écrire des nombres très grands ou très petits de façon compacte.</p>
-        <ol>
-          <li>10² signifie 10 × 10.</li>
-          <li>10⁻³ signifie 1 / 1000.</li>
-          <li>La notation scientifique s'écrit a × 10ⁿ avec 1 ≤ a &lt; 10.</li>
-        </ol>
-        <p class="example">Exemple : 3000 = 3,0 × 10³.</p>
-      </article>
-
-      <article class="method-card">
-        <h2>Tracer un graphique</h2>
-        <p>Un graphique doit permettre de lire correctement une relation entre deux grandeurs.</p>
-        <ol>
-          <li>Choisis l'axe horizontal et l'axe vertical.</li>
-          <li>Indique les grandeurs et les unités.</li>
-          <li>Place les points avec une échelle régulière.</li>
-        </ol>
-        <p class="example">Exemple : pour une caractéristique, on trace souvent U en fonction de I.</p>
-      </article>
-
-      <article class="method-card">
-        <h2>Statistiques et pourcentages</h2>
-        <p>Ils permettent d'exploiter une série de mesures ou une composition.</p>
-        <ol>
-          <li>Pour une moyenne, additionne les valeurs puis divise par leur nombre.</li>
-          <li>Pour un pourcentage, rapporte la partie au total.</li>
-          <li>Garde l'unité quand il y en a une.</li>
-        </ol>
-        <p class="example">Exemple : 21 L de dioxygène dans 100 L d'air représentent 21 %.</p>
-      </article>
-
-      <article class="method-card">
-        <h2>Vecteurs au collège</h2>
-        <p>Un vecteur représente une action ou un déplacement avec une direction, un sens et une valeur.</p>
-        <ol>
-          <li>Repère le point d'application.</li>
-          <li>Trace la direction.</li>
-          <li>Choisis le sens et une longueur adaptée à l'échelle.</li>
-        </ol>
-        <p class="example">Exemple : le poids est représenté par une flèche verticale vers le bas.</p>
-      </article>
+    <section class="guide-card" aria-labelledby="guide-title">
+      <h2 id="guide-title">Comment utiliser ces fiches ?</h2>
+      <ol>
+        <li>Commence par la fiche qui correspond à ton blocage.</li>
+        <li>Lis d'abord l'idée essentielle avant de regarder les exemples.</li>
+        <li>Refais le mini-exercice sans ouvrir la correction.</li>
+        <li>Reviens au formulaire collège quand tu dois choisir une relation.</li>
+      </ol>
     </section>
   </main>
 </BaseLayout>
 
 <style>
-  .method-page { max-width: 1000px; margin: 0 auto; padding: 1rem; }
-  .method-hero { text-align: center; max-width: 720px; margin: 1rem auto 1.5rem; }
-  .eyebrow { color: var(--accent-primary); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 .35rem; }
-  .method-hero h1 { color: var(--accent-primary); margin: 0 0 .45rem; font-size: 1.7rem; }
-  .method-hero p { color: var(--text-secondary); line-height: 1.65; }
-  .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-  .method-card { background: var(--bg-card); border: 1px solid var(--border-color); border-left: 5px solid var(--accent-primary); border-radius: var(--radius-md); box-shadow: var(--shadow-card); padding: 1rem; }
-  .method-card h2 { color: var(--accent-primary); font-size: 1.08rem; margin: 0 0 .5rem; }
-  .method-card p, .method-card li { color: var(--text-secondary); line-height: 1.55; }
-  .method-card ol { padding-left: 1.25rem; }
-  .example { background: var(--accent-primary-light); border-radius: 8px; color: var(--text-primary) !important; font-weight: 700; padding: .55rem .65rem; }
+  .methods-home {
+    margin: 0 auto;
+    max-width: 1080px;
+    padding: 1rem 1rem 3rem;
+  }
+
+  .page-hero {
+    margin: 1rem auto 1.5rem;
+    max-width: 820px;
+    text-align: center;
+  }
+
+  .eyebrow,
+  .section-heading p,
+  .method-number {
+    color: var(--accent-primary);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .page-hero h1 {
+    color: var(--accent-primary);
+    font-size: clamp(1.8rem, 4.5vw, 2.55rem);
+    letter-spacing: 0;
+    line-height: 1.12;
+    margin: 0.4rem 0 0.75rem;
+  }
+
+  .page-hero p {
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin: 0 auto;
+    max-width: 760px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: 1.1rem;
+  }
+
+  .hero-actions a {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-xs);
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    font-weight: 750;
+    padding: 0.5rem 0.85rem;
+    text-decoration: none;
+  }
+
+  .hero-actions a:hover,
+  .hero-actions a:focus-visible {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    outline: none;
+    text-decoration: none;
+  }
+
+  .intro-card,
+  .guide-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent-primary);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    margin: 1rem 0 1.25rem;
+    padding: 1.2rem;
+  }
+
+  .intro-card h2,
+  .guide-card h2,
+  .section-heading h2 {
+    color: var(--accent-primary);
+    font-size: 1.25rem;
+    letter-spacing: 0;
+    margin: 0.2rem 0 0.85rem;
+  }
+
+  .base-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .base-grid article {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem;
+  }
+
+  .base-grid h3 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin: 0 0 0.35rem;
+  }
+
+  .base-grid p,
+  .guide-card li,
+  .example-line {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .example-line {
+    background: var(--accent-primary-light);
+    border-radius: var(--radius-sm);
+    margin: 1rem 0 0;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .section-heading {
+    margin: 2rem 0 0.9rem;
+  }
+
+  .method-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .method-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    min-height: 180px;
+    padding: 1.1rem;
+    text-decoration: none;
+  }
+
+  .method-card strong {
+    color: var(--text-primary);
+    font-size: 1.08rem;
+  }
+
+  .method-card span:not(.method-number) {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .method-card em {
+    color: var(--accent-primary);
+    font-style: normal;
+    font-weight: 800;
+    margin-top: auto;
+  }
+
+  .method-card:hover,
+  .method-card:focus-visible {
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-lg);
+    outline: none;
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  .guide-card ol {
+    margin: 0;
+    padding-left: 1.35rem;
+  }
+
+  @media (max-width: 760px) {
+    .methods-home {
+      padding: 0.5rem 0.75rem 2rem;
+    }
+
+    .base-grid,
+    .method-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

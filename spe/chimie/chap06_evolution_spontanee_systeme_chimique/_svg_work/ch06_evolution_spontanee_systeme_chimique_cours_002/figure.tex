@@ -1,0 +1,61 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[
+ >={Stealth[length=3mm,width=2mm]},
+ every node/.style={font=\small}
+]
+ % Axe
+ \draw[->, thick, line width=1.2pt] (0,0) -- (14,0) node[right] {$Q_r$};
+
+ % Repère K(T)
+ \draw[thick, synthgreen, line width=1.5pt] (7,-0.3) -- (7,0.3);
+ \node[above, synthgreen, font=\bfseries] at (7,0.35) {$Q_{r,\text{eq}} = K(T)$};
+
+ % Zone sens direct
+ \draw[->, thick, primary, line width=2pt] (2.5,0) -- (5.5,0);
+ \node[below, primary, font=\bfseries] at (4,-0.15) {Sens direct};
+ \node[above, primary] at (2.5,0.1) {$Q_{r,i} < K(T)$};
+
+ % Zone sens indirect
+ \draw[->, thick, examplepink, line width=2pt] (11.5,0) -- (8.5,0);
+ \node[below, examplepink, font=\bfseries] at (10,-0.15) {Sens indirect};
+ \node[above, examplepink] at (11.5,0.1) {$Q_{r,i} > K(T)$};
+
+ % Étiquette équilibre
+ \node[below=0.8cm, synthgreen, font=\bfseries, align=center] at (7,0) {\'{E}quilibre};
+\end{tikzpicture}
+\end{document}

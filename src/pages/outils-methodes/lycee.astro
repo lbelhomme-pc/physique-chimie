@@ -1,0 +1,19 @@
+---
+// src/pages/outils-methodes/lycee.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import OutilsMethodesListing from "../../components/outils/OutilsMethodesListing.astro";
+---
+
+<BaseLayout
+  title="Outils et méthodes lycée - Physique-Chimie"
+  description="Méthodes et outils de physique-chimie pour le lycée : données, numérique, Python, tableau périodique, calculs et laboratoire interactif."
+  canonical="/outils-methodes/lycee"
+  schemaType="EducationalContent"
+>
+  <OutilsMethodesListing
+    level="lycee"
+    eyebrow="Lycée"
+    title="Outils et méthodes lycée"
+    description="Les ressources utiles de la seconde à la terminale, avec une séparation nette entre démarches de travail et outils interactifs."
+  />
+</BaseLayout>

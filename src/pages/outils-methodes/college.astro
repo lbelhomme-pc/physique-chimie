@@ -1,0 +1,19 @@
+---
+// src/pages/outils-methodes/college.astro
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import OutilsMethodesListing from "../../components/outils/OutilsMethodesListing.astro";
+---
+
+<BaseLayout
+  title="Outils et méthodes collège - Physique-Chimie"
+  description="Méthodes et outils de physique-chimie pour le collège : conversions, proportionnalité, formulaires, tableau périodique et kit scientifique."
+  canonical="/outils-methodes/college"
+  schemaType="EducationalContent"
+>
+  <OutilsMethodesListing
+    level="college"
+    eyebrow="Collège"
+    title="Outils et méthodes collège"
+    description="Les ressources utiles de la 6e à la 3e, séparées entre méthodes à apprendre et outils pour calculer ou vérifier."
+  />
+</BaseLayout>

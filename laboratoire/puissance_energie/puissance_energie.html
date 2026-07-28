@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire Virtuel : Puissance et Énergie</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_puissance.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container">
+        
+        <header class="hero-header" style="text-align: center; margin-bottom: 30px;">
+            <h1 class="header-flex" style="justify-content: center; align-items: center; gap: 15px; margin-bottom: 10px;">
+                <span>⚡</span> 
+                <span style="background: linear-gradient(135deg, #fbbf24, #ea580c); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0;">Labo : Puissance & Énergie</span>
+            </h1>
+            <p class="subtitle" style="text-align: center; margin: 0 auto;">Comprendre la relation E = P × t et la consommation électrique domestique.</p>
+        </header>
+
+        <div class="labo-container">
+            
+            <div class="bench-panel">
+                <div class="bench-header">
+                    <span>🏠 Simulation Domestique (230V)</span>
+                    <button class="btn-lab danger" id="btn-reset">🔄 Remise à zéro</button>
+                </div>
+
+                <div class="alert-box" id="status-msg">Choisis un appareil et lance le chronomètre !</div>
+
+                <div class="canvas-container">
+                    <canvas id="energyCanvas" width="350" height="250"></canvas>
+                </div>
+
+                <div class="dashboard">
+                    <label style="font-weight: bold; color: #475569; display: block; margin-bottom: 10px;">🔌 Choisir un appareil à brancher :</label>
+                    <div class="device-grid">
+                        <button class="btn-device active" data-power="10" data-name="Lampe LED">💡 LED<br><small>10 W</small></button>
+                        <button class="btn-device" data-power="100" data-name="Télévision">📺 TV<br><small>100 W</small></button>
+                        <button class="btn-device" data-power="1000" data-name="Micro-ondes">🍲 Micro-ondes<br><small>1000 W</small></button>
+                        <button class="btn-device" data-power="2000" data-name="Radiateur">♨️ Radiateur<br><small>2000 W</small></button>
+                    </div>
+                </div>
+
+                <div class="controls-grid" style="margin-top: 15px;">
+                    <button class="btn-lab" id="btn-play" style="grid-column: span 2; background: #10b981; color: white; border-color: #059669; font-size: 1.1rem;">
+                        ▶ Lancer le chronomètre
+                    </button>
+                </div>
+                
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 15px; text-align: left; line-height: 1.5;">
+                    <strong>Observation :</strong> La Puissance ($P$) détermine la vitesse du courant. Plus l'appareil est puissant, plus le disque tourne vite et plus la jauge d'Énergie ($E$) se remplit rapidement !
+                </p>
+            </div>
+
+            <div class="data-panel">
+                
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('tab-graph')">📈 Graphe E = f(t)</button>
+                    <button class="tab-btn" onclick="switchTab('tab-table')">📋 Données</button>
+                    <button class="tab-btn" onclick="switchTab('tab-analysis')">📐 Exploitation</button>
+                </div>
+
+                <div id="tab-graph" class="tab-content active">
+                    <div class="chart-container">
+                        <canvas id="energyChart"></canvas>
+                    </div>
+                    <div class="chart-info" id="chart-info" style="display: none; background: #fffbeb; border-left: 4px solid #f59e0b; padding: 10px; margin-top: 15px; border-radius: 8px; color: #b45309; font-size: 0.9rem;">
+                        <strong>Analyse :</strong> La courbe est une droite passant par l'origine. L'énergie est bien proportionnelle au temps ! La pente représente la Puissance.
+                    </div>
+                </div>
+
+                <div id="tab-table" class="tab-content">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Temps t (s)</th>
+                                    <th>Énergie E (Joules)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="tab-analysis" class="tab-content" style="text-align: left;">
+                    <h3 style="color: #1e293b; margin-top: 0;">1. La Puissance Électrique ($P$)</h3>
+                    <p style="color: #475569; line-height: 1.6;">La puissance indique la "rapidité" avec laquelle un appareil consomme de l'énergie. Elle se mesure en <strong>Watts (W)</strong>.</p>
+                    <div style="background: #f8fafc; border-left: 4px solid #3b82f6; padding: 15px; margin: 15px 0;">
+                        Elle dépend de la tension ($U$) et de l'intensité ($I$) :<br>
+                        <strong style="font-size: 1.2rem; color: #1e3a8a;">$P = U \times I$</strong>
+                        <br><br><em>Ici, à domicile, la tension est fixée à $230 V$. Donc si $P$ augmente, c'est que l'appareil demande plus de courant ($I$).</em>
+                    </div>
+
+                    <h3 style="color: #1e293b;">2. L'Énergie Électrique ($E$)</h3>
+                    <p style="color: #475569;">L'énergie est l'accumulation de la puissance consommée sur une durée de fonctionnement ($t$). C'est elle que l'on paie sur la facture EDF !</p>
+                    <p style="color: #ea580c; font-weight: 900; font-size: 1.5rem; text-align: center; margin: 20px 0; background: #fff7ed; padding: 15px; border-radius: 12px; border: 2px dashed #fdba74;">
+                        $E = P \times t$
+                    </p>
+                    <ul style="color: #475569;">
+                        <li>Si $P$ est en Watts (W) et $t$ en secondes (s) $\rightarrow$ $E$ est en <strong>Joules (J)</strong>.</li>
+                        <li>Si $P$ est en kiloWatts (kW) et $t$ en heures (h) $\rightarrow$ $E$ est en <strong>kiloWatt-heures (kWh)</strong>.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="nav-footer" style="margin-top: 40px; border-top: none;">
+            <a href="../../laboratoire/laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Labo</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_puissance.js"></script>
+</body>
+</html>

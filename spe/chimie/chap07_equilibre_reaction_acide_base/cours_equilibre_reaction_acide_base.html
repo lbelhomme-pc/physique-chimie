@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours : Équilibre de la réaction acide-base (Terminale Spé) | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">🧪</span> 
+                <h1 class="hero-title">Équilibre de la réaction acide-base</h1>
+            </div>
+        </header>
+
+<div class="box-pedagogie box-objectif">
+{ Objectifs du chapitre}
+<ul><li>Distinguer un acide fort (ou une base forte) d'un acide faible (ou une base faible).</li><li>Utiliser la constante d'acidité $K_a$ et son logarithme $K_a$ pour caractériser un couple acide-base.</li><li>Connaître le produit ionique de l'eau $K_e$ et la valeur du $K_e$ à {{^}C}.</li><li>Déterminer la composition finale d'une solution aqueuse d'acide faible ou de base faible.</li><li>Construire et exploiter un diagramme de prédominance et un diagramme de distribution.</li><li>Connaître le cas particulier des indicateurs colorés et des acides $$-aminés.
+</li></ul>
+</div>
+<h2 class="section-title">1. Acides forts et bases fortes</h2>
+<div class="card chapter-card">
+<h3>1.1 Définitions</h3>
+<div class="definition-box">
+<strong>Définition :</strong> Les <strong>acides forts</strong> et les <strong>bases fortes</strong> réagissent avec l'eau de manière <strong>totale</strong> ou <strong>quasi-totale</strong> pour toutes conditions initiales.
+<p>Concrètement, cela signifie que le taux d'avancement final de la transformation de l'acide fort ou de la base forte avec l'eau, déterminé expérimentalement, vaut ou approche 1, soit 100 <br></div></p>
+<strong>Que se passe-t-il quand un acide fort se dissout dans l'eau ?</strong>
+<p>L'acide fort cède <strong>tous</strong> ses protons $ + $ à l'eau. Il ne reste plus de molécules d'acide dans la solution : la réaction est totale.</p>
+<div class="example-box">
+{Exemple 1 : Dissolution de $H$ (acide chlorhydrique) dans l'eau}
+<p>La dissolution dans l'eau d'un échantillon de quantité $n_0$ de chlorure d'hydrogène gazeux $H(g)$ mène à une solution d'acide chlorhydrique qui ne contient plus que l'ion oxonium ${}_3 + $ et l'ion chlorure $-$. Le tableau d'avancement s'écrit :</p>
+<div class="text-center">
+{1.4}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th></th><th>{\'{E}quation}</th><th>$H(g)$</th><th>+ ${}_2()$</th><th>$$ $^{-}(aq)$</th><th>+ ${}_3^{ + }(aq)$</th></tr><tr><td>{\'{E}tat}</td><td><strong>Avancement</strong></td><td>{c|}{<strong>Quantités de matière</strong>}</td></tr><tr><td>initial</td><td>0</td><td>$n_0$</td><td>--</td><td>0</td><td>0</td></tr><tr><td>final</td><td>$x_f = x_{}$</td><td>$n_0 - x_{} = 0$</td><td>--</td><td>$x_{} = n_0$</td><td>$x_{} = n_0$</td></tr></tbody></table></div>
+</div>
+<p>$$ La solution d'acide chlorhydrique <strong>ne contient pas</strong> l'espèce $H$.<br></div></p>
+<div class="example-box">
+{Exemple 2 : Dissolution de ${}_2{}_5$ (éthanolate de sodium) dans l'eau}
+<p>La dissolution dans l'eau d'éthanolate de sodium ${}_2{}_5(s)$ conduit à la formation de la base forte ${}_2{}_5^{-}(aq)$ qui réagit totalement avec l'eau selon la réaction d'équation :</p>
+<div class="text-center">
+${}_2{}_5^{-}(aq) + {}_2()  {}_2{}_5O(aq) + H^{-}(aq)$
+</div>
+<p>$$ La solution d'éthanolate de sodium <strong>ne contient pas</strong> l'espèce ${}_2{}_5^{-}$.<br></div></p>
+<h3>1.2 Formule chimique des solutions d'acide fort et de base forte</h3>
+<p>Ainsi :<br><ul><li>La formule chimique d'une solution d'acide chlorhydrique est $({}_3^{ + }(aq),^{-}(aq))$.</li><li>Celle d'une solution d'hydroxyde de sodium (soude) est $(^{ + }(aq),H^{-}(aq))$.<br></li></ul></p>
+<div class="definition-box">
+<strong>Convention fondamentale :</strong>
+<ul><li>L'ion <strong>oxonium</strong> ${}_3 + $ est considéré comme un <strong>acide fort</strong>.</li><li>L'ion <strong>hydroxyde</strong> $H^{-}$ est considéré comme une <strong>base forte</strong>.
+</li></ul>
+</div>
+</div>
+<h2 class="section-title">2. Acides faibles et bases faibles</h2>
+<div class="card chapter-card">
+<div class="definition-box">
+<strong>Définition :</strong> Tout acide (ou base) qui ne réagit pas de manière totale ou quasi-totale avec l'eau pour toutes conditions initiales est appelé <strong>acide (ou base) faible</strong>.
+</div>
+<p>{Que signifie faible ?} Cela veut dire que la réaction avec l'eau <strong>n'est pas totale</strong> : à l'équilibre, il reste dans la solution à la fois l'acide et sa base conjuguée (ou inversement).</p>
+<h3>2.1 Constante d'acidité $K_a$ et $K_a$</h3>
+<p>Pour un couple acide faible / base faible noté <strong>Acide / Base</strong>, la constante d'équilibre $K(T)$ de la réaction d'équation :</p>
+<div class="text-center">
+$Acide(aq) + {}_2()  Base(aq) + {}_3^{ + }(aq)$
+</div>
+<p>est appelée <strong>constante d'acidité</strong> du couple, notée $K_a()$.</p>
+<div class="info-box">
+<strong>Remarque importante :</strong> L'eau joue à la fois le rôle de solvant et de réactif. Sa quantité de matière n'est pas précisée dans le tableau d'avancement et on considère que le solvant n'est pas un réactif limitant.
+</div>
+<p>L'échelle de valeurs de $K_a$ pour les différents couples est particulièrement étendue, d'où l'utilisation fréquente de la constante :</p>
+<div class="definition-box">
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${K_a = - K_a}$$</div></div></div></div>
+</div>
+<p>La loi de l'équilibre s'écrit :</p>
+<div class="definition-box">
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${K_a() = Q_{} = {[${}_3 + $]_{}  []_{}}{[]_{}  c^{}}}$$</div></div></div></div>
+<p>avec $c^{} = $1{,}0   $$ (concentration standard de référence).<br></div></p>
+<div class="example-box">
+{Exemple : Couple ${}_3COO / {}_3CO^{-}$ (acide éthanoïque / ion éthanoate)}
+<p>L'acide éthanoïque réagit avec l'eau suivant la réaction d'équation :</p>
+<div class="text-center">
+${}_3COO(aq) + {}_2()  {}_3CO^{-}(aq) + {}_3^{ + }(aq)$
+</div>
+<p>La constante d'acidité du couple vaut $K_a(${}_3COO / {}_3CO^{-}$) = 1{,}6  10^{-5}$.</p>
+<p>\`{A} l'équilibre, la loi de l'équilibre s'écrit :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$K_a(${}_3COO/{}_3CO^{-}$) = Q_{} = {[${}_3 + $]_{}  [${}_3CO^{-}$]_{}}{[${}_3COO$]_{}  c^{}} = 1{,}6  10^{-5}$$</div></div></div></div>
+<p>Le $K_a$ du couple vaut :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$K_a(${}_3COO/{}_3CO^{-}$) = -(1{,}6  10^{-5}) = 4{,}8$$</div></div></div></div>
+</div>
+<h3>2.2 Tableau de quelques couples acide-base et leurs $K_a$</h3>
+<p>Voici un tableau récapitulatif de quelques couples acide-base courants classés par $K_a$ croissant :</p>
+<div class="text-center">
+{1.5}
+{|>{}m{4.5cm}|>{}m{2.5cm}|>{}m{2cm}|}
+<strong>Couple Acide / Base</strong> & $K_a$ & $K_a$ \\
+<p>${}_3 + /{}_2$  (ion oxonium / eau) & $1$ & $0$ \\</p>
+<p>${}_3COO/{}_3CO^{-}$  (acide éthanoïque / ion éthanoate) & $1{,}6  10^{-5}$ & $4{,}8$ \\</p>
+<p>${}_2{}_3/H{}_3^{-}$  (acide carbonique / ion hydrogénocarbonate) & $4{,}0  10^{-7}$ & $6{,}4$ \\</p>
+<p>${}_4 + /{}_3$  (ion ammonium / ammoniac) & $6{,}3  10^{-10}$ & $9{,}2$ \\</p>
+<p>$H{}_3^{-}/{}_3^{2-}$  (ion hydrogénocarbonate / ion carbonate) & $5{,}0  10^{-11}$ & $10{,}3$ \\</p>
+<p>${}_2/H^{-}$  (eau / ion hydroxyde) & $1{,}0  10^{-14}$ & $14{,}0$ \\</p>
+</div>
+<div class="info-box">
+<strong>Comment lire ce tableau ?</strong>
+<p>Plus le $K_a$ est <strong>petit</strong>, plus l'acide du couple est <strong>fort</strong> (il cède facilement ses protons).</p>
+<p>Plus le $K_a$ est <strong>grand</strong>, plus la base du couple est <strong>forte</strong> (elle capte facilement des protons).<br></div></p>
+</div>
+<h2 class="section-title">3. Produit ionique de l'eau $K_e$ et $\text{p}K_e$</h2>
+<div class="card chapter-card">
+<h3>3.1 Définition</h3>
+<div class="definition-box">
+<strong>Définition :</strong> Le <strong>produit ionique de l'eau</strong> est défini comme la constante d'acidité du couple acide-base ${}_2 / H^{-}$. Il s'agit donc de la constante d'équilibre associée à la réaction d'<strong>autoprotolyse de l'eau</strong> d'équation :
+<div class="text-center">
+${}_2() + {}_2()  H^{-}(aq) + {}_3^{ + }(aq)$
+</div>
+<p>soit : $K_a(${}_2 / H^{-}$) = K_e$</p>
+<p>\`{A} l'équilibre :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${K_e = {[${}_3 + $]_{}  [$H^{-}$]_{}}{(c^{})^2}}$$</div></div></div></div>
+</div>
+<p>Comme pour une constante d'acidité, il est courant d'utiliser :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${K_e = - K_e}$$</div></div></div></div>
+<div class="definition-box">
+<strong>Valeur fondamentale :</strong> \`{A} {{^}C} : $K_e = 14{,}0$
+<p>Ce qui donne : $K_e = 10^{-14{,}0} = 1{,}0  10^{-14}$<br></div></p>
+<h3>3.2 Influence de la température sur $K_e$</h3>
+<p>La valeur du produit ionique de l'eau $K_e$ dépend de la température. Plus la température augmente, plus $K_e$ augmente (et donc $K_e$ diminue).</p>
+<div class="text-center">
+{1.4}
+{|>{}m{2.8cm}|>{}m{3cm}|>{}m{2cm}|}
+<strong>Température</strong> (${^}$C) & $K_e$ & $K_e$ \\
+<p>0 & $1{,}1  10^{-15}$ & 15{,}0 \\</p>
+<p>25 & $1{,}0  10^{-14}$ & 14{,}0 \\</p>
+<p>40 & $4{,}0  10^{-14}$ & 13{,}5 \\</p>
+<p>60 & $1{,}0  10^{-13}$ & 13{,}0 \\</p>
+<p>80 & $2{,}5  10^{-13}$ & 12{,}6 \\</p>
+<p>100 & $5{,}5  10^{-13}$ & 12{,}3 \\</p>
+</div>
+<div class="info-box">
+<strong>Conséquence importante :</strong> Dans toute solution aqueuse, la réaction d'autoprotolyse de l'eau se produit et la relation $K_e = {[${}_3 + $]  [$H^{-}$]}{(c^{})^2}$ est <strong>toujours vérifiée</strong>. Toute solution aqueuse contient des ions ${}_3 + $ et $H^{-}$.
+</div>
+</div>
+<h2 class="section-title">4. Force d'un acide faible</h2>
+<div class="card chapter-card">
+<h3>4.1 Lien entre $K_a$, $K_a$ et force de l'acide</h3>
+<p>L'expérience montre qu'à concentration en quantité d'acide apporté identique, le <strong>taux d'avancement final</strong> de la transformation modélisée par la réaction d'équation :</p>
+<div class="text-center">
+$Acide(aq) + {}_2()  Base(aq) + {}_3^{ + }(aq)$
+</div>
+<p>dépend de la valeur de la constante d'acidité $K_a$ du couple acide-base :<br><ul><li>il <strong>augmente</strong> avec la valeur de $K_a$ ;</li><li>il <strong>diminue</strong> avec la valeur du $K_a$ (donc diminue lorsque $K_a$ augmente).<br></li></ul></p>
+<strong>Autrement dit :</strong> plus $K_a$ est grand (ou $K_a$ petit), plus l'acide réagit fortement avec l'eau, et plus la réaction est avancée.
+<div class="example-box">
+<strong>Exemple comparatif :</strong> Pour une solution aqueuse de concentration en quantité d'acide faible apporté $c = $1{,}0   $$ et de volume $V$ :
+<div class="text-center">
+{1.4}
+{|>{}m{3cm}|>{}m{3.5cm}|>{}m{1.5cm}|>{}m{3cm}|}
+<strong>Acide faible</strong> & <strong>Couple</strong> & $K_a$ & $ = {x_{}}$ \\
+<p>Acide éthanoïque & ${}_3COO/{}_3CO^{-}$ & 4{,}8 & 0{,}12 soit 12</p>
+<p>Ion ammonium & ${}_4 + /{}_3$ & 9{,}2 & 0{,}0079 soit 0{,}79</p>
+</div>
+<p>L'acide éthanoïque est dit <strong>plus fort</strong> que l'ion ammonium car, pour une même condition initiale de concentration en quantité, le taux d'avancement final est plus élevé.<br></div></p>
+<div class="info-box">
+<strong>Par analogie :</strong> la réaction de la base d'un couple acide-base avec l'eau est d'autant plus avancée que le $K_a$ du couple auquel elle appartient est <strong>élevé</strong>.
+</div>
+<h3>4.2 \'{E}chelle de $K_a$ et force relative</h3>
+<p>L'échelle de $K_a$ permet de ranger les acides et les bases en fonction de leur force relative.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.687989 -60.500495 465.289857 86.9277'>
+<defs>
+<path id='g4-75' d='M5.070984-4.024907C5.061021-4.054795 5.021171-4.134496 5.021171-4.164384C5.021171-4.174346 5.200498-4.313823 5.310087-4.393524L7.053549-5.738481C7.990037-6.425903 8.37858-6.465753 8.67746-6.495641C8.757161-6.505604 8.856787-6.515567 8.856787-6.694894C8.856787-6.734745 8.826899-6.804483 8.747198-6.804483C8.52802-6.804483 8.278954-6.774595 8.039851-6.774595C7.681196-6.774595 7.292653-6.804483 6.933998-6.804483C6.864259-6.804483 6.744707-6.804483 6.744707-6.60523C6.744707-6.535492 6.794521-6.505604 6.864259-6.495641C7.083437-6.475716 7.173101-6.425903 7.173101-6.286426C7.173101-6.107098 6.874222-5.877958 6.814446-5.828144L2.929016-2.839352L3.726027-6.03736C3.815691-6.396015 3.835616-6.495641 4.562889-6.495641C4.811955-6.495641 4.901619-6.495641 4.901619-6.694894C4.901619-6.784558 4.821918-6.804483 4.762142-6.804483C4.483188-6.804483 3.765878-6.774595 3.486924-6.774595C3.198007-6.774595 2.49066-6.804483 2.201743-6.804483C2.132005-6.804483 2.002491-6.804483 2.002491-6.615193C2.002491-6.495641 2.092154-6.495641 2.291407-6.495641C2.420922-6.495641 2.600249-6.485679 2.719801-6.475716C2.879203-6.455791 2.938979-6.425903 2.938979-6.316314C2.938979-6.276463 2.929016-6.246575 2.899128-6.127024L1.564134-.777086C1.464508-.388543 1.444583-.308842 .657534-.308842C.488169-.308842 .37858-.308842 .37858-.119552C.37858 0 .498132 0 .52802 0C.806974 0 1.514321-.029888 1.793275-.029888C2.002491-.029888 2.221669-.019925 2.430884-.019925C2.650062-.019925 2.86924 0 3.078456 0C3.148194 0 3.277709 0 3.277709-.199253C3.277709-.308842 3.188045-.308842 2.998755-.308842C2.630137-.308842 2.351183-.308842 2.351183-.488169C2.351183-.557908 2.410959-.777086 2.440847-.926526C2.580324-1.444583 2.709838-1.972603 2.839352-2.49066L4.323786-3.646326L5.479452-.966376C5.599004-.697385 5.599004-.67746 5.599004-.617684C5.599004-.318804 5.17061-.308842 5.080946-.308842C4.971357-.308842 4.861768-.308842 4.861768-.109589C4.861768 0 4.98132 0 5.001245 0C5.399751 0 5.818182-.029888 6.216687-.029888C6.435866-.029888 6.973848 0 7.193026 0C7.242839 0 7.372354 0 7.372354-.199253C7.372354-.308842 7.262765-.308842 7.173101-.308842C6.764633-.318804 6.635118-.408468 6.485679-.757161L5.070984-4.024907Z'/>
+<path id='g5-97' d='M2.942964-2.66401C2.796513-2.894147 2.559402-3.075467 2.224658-3.075467C1.332005-3.075467 .425405-2.092154 .425405-1.08792C.425405-.411457 .878705 .069738 1.478456 .069738C1.855044 .069738 2.189788-.146451 2.468742-.418431C2.601245 0 3.005729 .069738 3.187049 .069738C3.438107 .069738 3.612453-.083686 3.737983-.299875C3.891407-.571856 3.982067-.969365 3.982067-.99726C3.982067-1.08792 3.891407-1.08792 3.870486-1.08792C3.772852-1.08792 3.765878-1.060025 3.717061-.871731C3.633375-.536986 3.500872-.125529 3.20797-.125529C3.02665-.125529 2.977833-.278954 2.977833-.467248C2.977833-.585803 3.033624-.836862 3.082441-1.018182C3.131258-1.206476 3.200996-1.492403 3.235866-1.645828L3.375342-2.175841C3.417186-2.357161 3.500872-2.684932 3.500872-2.719801C3.500872-2.873225 3.375342-2.942964 3.263761-2.942964C3.145205-2.942964 2.984807-2.859278 2.942964-2.66401ZM2.496638-.871731C2.447821-.676463 2.294396-.536986 2.140971-.404483C2.078207-.348692 1.799253-.125529 1.499377-.125529C1.241345-.125529 .990286-.306849 .990286-.801993C.990286-1.171606 1.192528-1.93873 1.352927-2.217684C1.673724-2.775592 2.02939-2.880199 2.224658-2.880199C2.712827-2.880199 2.84533-2.350187 2.84533-2.273474C2.84533-2.245579 2.831382-2.196762 2.824408-2.175841L2.496638-.871731Z'/>
+</defs>
+<g id='page1'>
+<path d='M-62.4688-20.128906H372.7972' stroke='currentColor' fill='none' stroke-width='.79701'/>
+<path d='M375.76963-20.128906L371.61729-21.70313L372.99619-20.128906L371.61729-18.55859Z'/>
+<path d='M375.76963-20.128906L371.61729-21.70313L372.99619-20.128906L371.61729-18.55859Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 428.9208 2.4356)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g3-112'/>
+<use x='-42.76234' y='-20.130595' xlink:href='#g4-75'/>
+<use x='-34.301' y='-18.636215' xlink:href='#g5-97'/>
+</g>
+<path d='M-48.296876-24.38281V-15.87891' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -2.3033 13.53676)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g1-48'/>
+</g>
+<path d='M8.3984-24.38281V-15.87891' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 54.39029 13.53676)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g1-50'/>
+</g>
+<path d='M65.0902-24.38281V-15.87891' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 111.0839 13.53676)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g1-52'/>
+</g>
+<path d='M121.7852-24.38281V-15.87891' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 167.7778 13.53676)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g1-54'/>
+</g>
+<path d='M178.4802-24.38281V-15.87891' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 224.4708 13.53676)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g1-56'/>
+</g>
+<path d='M235.1722-24.38281V-15.87891' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 278.8618 13.53676)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g1-49'/>
+<use x='-43.689193' y='-20.130595' xlink:href='#g1-48'/>
+</g>
+<path d='M291.8672-24.38281V-15.87891' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 335.5548 13.53676)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g1-49'/>
+<use x='-43.689193' y='-20.130595' xlink:href='#g1-50'/>
+</g>
+<path d='M348.5582-24.38281V-15.87891' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 392.2488 13.53676)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g1-49'/>
+<use x='-43.689193' y='-20.130595' xlink:href='#g1-52'/>
+</g>
+<path d='M320.2112-54.1484H-14.793' stroke='#ec4899' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M-18.24609-54.148459L-13.51172-52.35158L-15.08984-54.148459L-13.51172-55.94143Z' fill='#ec4899'/>
+<path d='M-18.24609-54.148459L-13.51172-52.35158L-15.08984-54.148459L-13.51172-55.94143Z' stroke='#ec4899' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 137.7574 -40.3699)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g0-70'/>
+<use x='-42.513336' y='-20.130595' xlink:href='#g0-111'/>
+<use x='-37.209525' y='-20.130595' xlink:href='#g0-114'/>
+<use x='-32.833952' y='-20.130595' xlink:href='#g0-99'/>
+<use x='-28.11945' y='-20.130595' xlink:href='#g0-101'/>
+<use x='-19.716209' y='-20.130595' xlink:href='#g0-100'/>
+<use x='-13.823089' y='-20.130595' xlink:href='#g0-101'/>
+<use x='-5.419848' y='-20.130595' xlink:href='#g0-108'/>
+<use x='-2.473283' y='-20.130595' xlink:href='#g0-39'/>
+<use x='.473281' y='-20.130595' xlink:href='#g0-97'/>
+<use x='5.629758' y='-20.130595' xlink:href='#g0-99'/>
+<use x='10.344259' y='-20.130595' xlink:href='#g0-105'/>
+<use x='13.290823' y='-20.130595' xlink:href='#g0-100'/>
+<use x='19.183943' y='-20.130595' xlink:href='#g0-101'/>
+<use x='27.587185' y='-20.130595' xlink:href='#g0-99'/>
+<use x='32.301686' y='-20.130595' xlink:href='#g0-114'/>
+<use x='36.67726' y='-20.130595' xlink:href='#g0-111'/>
+<use x='41.98107' y='-20.130595' xlink:href='#g0-105'/>
+<use x='44.927635' y='-20.130595' xlink:href='#g0-115'/>
+<use x='49.11176' y='-20.130595' xlink:href='#g0-115'/>
+<use x='53.295885' y='-20.130595' xlink:href='#g0-97'/>
+<use x='58.452362' y='-20.130595' xlink:href='#g0-110'/>
+<use x='64.050811' y='-20.130595' xlink:href='#g0-116'/>
+<use x='68.175994' y='-20.130595' xlink:href='#g0-101'/>
+</g>
+<path d='M-19.9492 13.8867H315.0542' stroke='#0ea5e9' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<path d='M318.51169 13.88674L313.77341 12.08986L315.35544 13.88674L313.77341 15.67971Z' fill='#0ea5e9'/>
+<path d='M318.51169 13.88674L313.77341 12.08986L315.35544 13.88674L313.77341 15.67971Z' stroke='#0ea5e9' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#0ea5e9' transform='matrix(1 0 0 1 111.866 46.5578)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g0-70'/>
+<use x='-42.513336' y='-20.130595' xlink:href='#g0-111'/>
+<use x='-37.209525' y='-20.130595' xlink:href='#g0-114'/>
+<use x='-32.833952' y='-20.130595' xlink:href='#g0-99'/>
+<use x='-28.11945' y='-20.130595' xlink:href='#g0-101'/>
+<use x='-19.716209' y='-20.130595' xlink:href='#g0-100'/>
+<use x='-13.823089' y='-20.130595' xlink:href='#g0-101'/>
+<use x='-5.419848' y='-20.130595' xlink:href='#g0-108'/>
+<use x='-2.473283' y='-20.130595' xlink:href='#g0-97'/>
+<use x='6.219067' y='-20.130595' xlink:href='#g0-98'/>
+<use x='12.112187' y='-20.130595' xlink:href='#g0-97'/>
+<use x='17.268664' y='-20.130595' xlink:href='#g0-115'/>
+<use x='21.452789' y='-20.130595' xlink:href='#g0-101'/>
+<use x='29.856031' y='-20.130595' xlink:href='#g0-99'/>
+<use x='34.570532' y='-20.130595' xlink:href='#g0-111'/>
+<use x='39.874343' y='-20.130595' xlink:href='#g0-110'/>
+<use x='45.767463' y='-20.130595' xlink:href='#g0-106'/>
+<use x='49.008678' y='-20.130595' xlink:href='#g0-117'/>
+<use x='54.901798' y='-20.130595' xlink:href='#g0-103'/>
+<use x='60.205608' y='-20.130595' xlink:href='#g0-117'/>
+<use x='66.098728' y='-20.130595' xlink:href='#g0-233'/>
+<use x='70.966096' y='-20.130595' xlink:href='#g0-101'/>
+<use x='79.369337' y='-20.130595' xlink:href='#g0-99'/>
+<use x='84.083838' y='-20.130595' xlink:href='#g0-114'/>
+<use x='88.459412' y='-20.130595' xlink:href='#g0-111'/>
+<use x='93.763223' y='-20.130595' xlink:href='#g0-105'/>
+<use x='96.709787' y='-20.130595' xlink:href='#g0-115'/>
+<use x='100.893912' y='-20.130595' xlink:href='#g0-115'/>
+<use x='105.078038' y='-20.130595' xlink:href='#g0-97'/>
+<use x='110.234514' y='-20.130595' xlink:href='#g0-110'/>
+<use x='115.832963' y='-20.130595' xlink:href='#g0-116'/>
+<use x='119.958146' y='-20.130595' xlink:href='#g0-101'/>
+</g>
+<path d='M-45.30859-20.128906C-45.30859-21.78125-46.64453-23.12109-48.296876-23.12109C-49.94531-23.12109-51.28516-21.78125-51.28516-20.128906C-51.28516-18.48047-49.94531-17.14063-48.296876-17.14063C-46.64453-17.14063-45.30859-18.48047-45.30859-20.128906Z' fill='#0e7490'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 -18.3922 -16.1026)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g2-72'/>
+<use x='-43.41252' y='-19.134347' xlink:href='#g2-51'/>
+<use x='-39.525151' y='-20.130595' xlink:href='#g2-79'/>
+<use x='-34.406711' y='-22.140818' xlink:href='#g2-43'/>
+<use x='-28.790139' y='-20.130595' xlink:href='#g2-47'/>
+<use x='-25.400901' y='-20.130595' xlink:href='#g2-72'/>
+<use x='-20.517633' y='-19.134347' xlink:href='#g2-50'/>
+<use x='-16.630263' y='-20.130595' xlink:href='#g2-79'/>
+</g>
+<path d='M90.7582-20.128906C90.7582-21.78125 89.4182-23.12109 87.7692-23.12109C86.1172-23.12109 84.7812-21.78125 84.7812-20.128906C84.7812-18.48047 86.1172-17.14063 87.7692-17.14063C89.4182-17.14063 90.7582-18.48047 90.7582-20.128906Z' fill='#0e7490'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 117.6519 -15.8538)'>
+<use x='-48.295789' y='-26.10818' xlink:href='#g2-67'/>
+<use x='-43.523189' y='-26.10818' xlink:href='#g2-72'/>
+<use x='-38.639921' y='-25.111931' xlink:href='#g2-51'/>
+<use x='-34.752551' y='-26.10818' xlink:href='#g2-67'/>
+<use x='-29.979952' y='-26.10818' xlink:href='#g2-79'/>
+<use x='-24.861512' y='-26.10818' xlink:href='#g2-79'/>
+<use x='-19.743072' y='-26.10818' xlink:href='#g2-72'/>
+<use x='-14.859803' y='-26.10818' xlink:href='#g2-47'/>
+<use x='-46.746484' y='-20.130595' xlink:href='#g2-67'/>
+<use x='-41.973885' y='-20.130595' xlink:href='#g2-72'/>
+<use x='-37.090616' y='-19.134347' xlink:href='#g2-51'/>
+<use x='-33.203247' y='-20.130595' xlink:href='#g2-67'/>
+<use x='-28.430647' y='-20.130595' xlink:href='#g2-79'/>
+<use x='-23.312207' y='-20.130595' xlink:href='#g2-79'/>
+<use x='-17.550503' y='-22.140818' xlink:href='#g2-21'/>
+</g>
+<path d='M136.1132-20.128906C136.1132-21.78125 134.7732-23.12109 133.1252-23.12109C131.4722-23.12109 130.1372-21.78125 130.1372-20.128906C130.1372-18.48047 131.4722-17.14063 133.1252-17.14063C134.7732-17.14063 136.1132-18.48047 136.1132-20.128906Z' fill='#0e7490'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 168.4498 24.57033)'>
+<use x='-48.295789' y='-26.10818' xlink:href='#g2-72'/>
+<use x='-43.41252' y='-25.111931' xlink:href='#g2-50'/>
+<use x='-39.525151' y='-26.10818' xlink:href='#g2-67'/>
+<use x='-34.752551' y='-26.10818' xlink:href='#g2-79'/>
+<use x='-29.634111' y='-25.111931' xlink:href='#g2-51'/>
+<use x='-25.746742' y='-26.10818' xlink:href='#g2-47'/>
+<use x='-47.244434' y='-20.130595' xlink:href='#g2-72'/>
+<use x='-42.361165' y='-20.130595' xlink:href='#g2-67'/>
+<use x='-37.588566' y='-20.130595' xlink:href='#g2-79'/>
+<use x='-32.470125' y='-19.134347' xlink:href='#g2-51'/>
+<use x='-27.939493' y='-22.140818' xlink:href='#g2-21'/>
+</g>
+<path d='M215.4842-20.128906C215.4842-21.78125 214.1442-23.12109 212.4962-23.12109C210.8442-23.12109 209.5082-21.78125 209.5082-20.128906C209.5082-18.48047 210.8442-17.14063 212.4962-17.14063C214.1442-17.14063 215.4842-18.48047 215.4842-20.128906Z' fill='#0e7490'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 242.6338 -16.1026)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g2-78'/>
+<use x='-43.41252' y='-20.130595' xlink:href='#g2-72'/>
+<use x='-38.529252' y='-19.134347' xlink:href='#g2-52'/>
+<use x='-34.641882' y='-22.140818' xlink:href='#g2-43'/>
+<use x='-29.02531' y='-20.130595' xlink:href='#g2-47'/>
+<use x='-25.636073' y='-20.130595' xlink:href='#g2-78'/>
+<use x='-20.752804' y='-20.130595' xlink:href='#g2-72'/>
+<use x='-15.869536' y='-19.134347' xlink:href='#g2-51'/>
+</g>
+<path d='M246.6642-20.128906C246.6642-21.78125 245.3282-23.12109 243.6762-23.12109C242.0272-23.12109 240.6872-21.78125 240.6872-20.128906C240.6872-18.48047 242.0272-17.14063 243.6762-17.14063C245.3282-17.14063 246.6642-18.48047 246.6642-20.128906Z' fill='#0e7490'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 278.3598 26.47304)'>
+<use x='-48.295789' y='-27.591509' xlink:href='#g2-72'/>
+<use x='-43.41252' y='-27.591509' xlink:href='#g2-67'/>
+<use x='-38.639921' y='-27.591509' xlink:href='#g2-79'/>
+<use x='-33.521481' y='-26.59526' xlink:href='#g2-51'/>
+<use x='-28.990848' y='-29.601732' xlink:href='#g2-21'/>
+<use x='-24.460215' y='-27.591509' xlink:href='#g2-47'/>
+<use x='-45.854155' y='-20.130595' xlink:href='#g2-67'/>
+<use x='-41.081555' y='-20.130595' xlink:href='#g2-79'/>
+<use x='-35.963115' y='-19.134347' xlink:href='#g2-51'/>
+<use x='-32.075746' y='-22.140818' xlink:href='#g2-50'/>
+<use x='-28.043245' y='-22.140818' xlink:href='#g2-21'/>
+</g>
+<path d='M351.5472-20.128906C351.5472-21.78125 350.2112-23.12109 348.5582-23.12109C346.9102-23.12109 345.5702-21.78125 345.5702-20.128906C345.5702-18.48047 346.9102-17.14063 348.5582-17.14063C350.2112-17.14063 351.5472-18.48047 351.5472-20.128906Z' fill='#0e7490'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 380.6278 -16.1026)'>
+<use x='-48.295789' y='-20.130595' xlink:href='#g2-72'/>
+<use x='-43.41252' y='-19.134347' xlink:href='#g2-50'/>
+<use x='-39.525151' y='-20.130595' xlink:href='#g2-79'/>
+<use x='-34.406711' y='-20.130595' xlink:href='#g2-47'/>
+<use x='-31.017474' y='-20.130595' xlink:href='#g2-72'/>
+<use x='-26.134205' y='-20.130595' xlink:href='#g2-79'/>
+<use x='-20.372501' y='-22.140818' xlink:href='#g2-21'/>
+</g>
+</g>
+</svg></div>
+</div>
+</div>
+<h2 class="section-title">5. Composition finale d'une solution d'acide faible</h2>
+<div class="card chapter-card">
+<h3>5.1 Principe</h3>
+<p>La <strong>composition finale</strong> d'une solution aqueuse obtenue par l'introduction d'un acide faible dans l'eau se déduit de l'application de la loi de l'équilibre à la réaction modélisant le transfert d'un ion hydrogène de l'acide faible à l'eau.</p>
+<div class="example-box">
+<strong>Exemple :</strong> La dissolution d'acide éthanoïque en quantité $n_0$ dans l'eau conduit à une solution d'acide éthanoïque de volume $V$, qui contient à l'état final aussi bien l'acide éthanoïque que l'ion éthanoate :
+<div class="text-center">
+{1.4}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th></th><th>{\'{E}quation}</th><th>${}_3COO(aq)$</th><th>+ ${}_2()$</th><th>$$ ${}_3CO^{-}(aq)$</th><th>+ ${}_3^{ + }(aq)$</th></tr><tr><td>{\'{E}tat}</td><td><strong>Avancement</strong></td><td>{c|}{<strong>Quantités de matière</strong>}</td></tr><tr><td>initial</td><td>0</td><td>$n_0$</td><td>--</td><td>0</td><td>0</td></tr><tr><td>final</td><td>$x_f$</td><td>$n_0 - x_f$</td><td>--</td><td>$x_f$</td><td>$x_f$</td></tr></tbody></table></div>
+</div>
+</div>
+<h3>5.2 Grandeurs utiles</h3>
+<p>Les quantités et les concentrations en quantité des différentes espèces à l'état final peuvent s'exprimer à l'aide de deux grandeurs :</p>
+<ul><li>Le <strong>taux d'avancement final</strong> :
+ <div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {x_{}}   x_f =   n_0$$</div></div></div></div></li><li>La <strong>concentration en quantité d'acide apporté</strong> :
+ <div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$c_0 = {V}$$</div></div></div></div>
+</li></ul>
+<h3>5.3 Expressions des concentrations à l'équilibre</h3>
+<p>En reprenant l'exemple de l'acide éthanoïque :</p>
+<p>{\'{E}tape 1 :} On exprime les concentrations à l'équilibre en fonction de $c_0$ et $$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+[${}_3COO$]_{} &= {V} = {V} = c_0(1-) \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>8pt]
+[${}_3CO^{-}$]_{} &= {V} = {V} = c_0   \\[8pt]
+[${}_3 + $]_{} &= {V} = c_0  
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<p>{\'{E}tape 2 :} On injecte dans la loi de l'équilibre :</p>
+<p>\[<br>K_a = Q_{} = {[${}_3 + $]_{}  [${}_3CO^{-}$]_{}}{[${}_3COO$]_{}  c^{}} = {c_0(1-)  c^{}} = {c_0   (1-)   c^{}}$$</div></div></div></div></p>
+<p>{\'{E}tape 3 :} Le taux d'avancement final $$ s'obtient :<br><ul><li>soit en calculant analytiquement les racines du polynôme du second degré : $c_0   ^2 + c^{}   K_a    - c^{}   K_a = 0$ ;</li><li>soit, le plus souvent, grâce à un outil numérique (langage de programmation ou tableur-grapheur).<br></li></ul></p>
+<div class="info-box">
+<strong>Astuce pour vérifier l'homogénéité :</strong> dans une expression, chacun des trois membres du quotient réactionnel est homogène à une concentration en quantité de matière car $K_a$ et $$ sont sans unité.
+</div>
+<div class="info-box">
+<strong>Remarque :</strong> le plus souvent, la composition finale est donnée en quantités de matière de solutions aqueuses, mais elle peut aussi être donnée en concentrations en quantité de matière.
+</div>
+</div>
+<h2 class="section-title">6. Diagrammes</h2>
+<div class="card chapter-card">
+<h3>6.1 Diagramme de distribution</h3>
+<div class="definition-box">
+<strong>Définition :</strong> Une solution aqueuse à l'équilibre contient l'espèce acide (faible) d'un couple en quantité de matière $n_{,f}$ et l'espèce basique du même couple en quantité de matière $n_{,f}$.
+<p>La <strong>proportion à l'équilibre en quantité d'acide</strong> est le quotient sans dimension :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$r_{} = {n_{,f}}{n_{,f} + n_{,f}}$$</div></div></div></div>
+<p>et la <strong>proportion à l'équilibre en quantité de base</strong> est le quotient sans dimension :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$r_{} = {n_{,f}}{n_{,f} + n_{,f}}$$</div></div></div></div>
+</div>
+<strong>Remarque :</strong> on a toujours $r_{} + r_{} = 1$.
+<div class="definition-box">
+Le <strong>diagramme de distribution</strong> d'un couple acide-base est la représentation graphique qui superpose les courbes représentatives des fonctions $r_{}$ et $r_{}$ en fonction du pH de la solution. Il peut être établi grâce à un langage de programmation.
+</div>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-59.965543 -70.00775 328.215962 187.7968'>
+<defs>
+<clipPath id='clip1'>
+<path d='M-31.417963 69.613284H263.9105V-69.8086H-31.417963Z'/>
+</clipPath>
+<path id='g1-97' d='M3.102366-1.918804C3.132254-2.056289 3.19203-2.283437 3.19203-2.32528C3.19203-2.456787 3.090411-2.52254 2.982814-2.52254C2.815442-2.52254 2.713823-2.367123 2.69589-2.27746C2.612204-2.414944 2.408966-2.636115 2.038356-2.636115C1.273225-2.636115 .448319-1.835118 .448319-.956413C.448319-.310834 .902615 .059776 1.41071 .059776C1.811208 .059776 2.15193-.215193 2.30137-.364633C2.414944 .011955 2.815442 .059776 2.946949 .059776C3.162142 .059776 3.317559-.059776 3.431133-.245081C3.580573-.484184 3.664259-.830884 3.664259-.860772C3.664259-.872727 3.658281-.944458 3.550685-.944458C3.461021-.944458 3.449066-.902615 3.425156-.806974C3.329514-.442341 3.203985-.137484 2.970859-.137484C2.767621-.137484 2.749689-.352677 2.749689-.442341C2.749689-.52005 2.809465-.759153 2.851308-.91457L3.102366-1.918804ZM2.32528-.783064C2.295392-.675467 2.295392-.663512 2.211706-.573848C1.882939-.203238 1.578082-.137484 1.428643-.137484C1.189539-.137484 .956413-.298879 .956413-.723288C.956413-.968369 1.081943-1.554172 1.273225-1.894894C1.452553-2.217684 1.75741-2.438854 2.044334-2.438854C2.492653-2.438854 2.606227-1.966625 2.606227-1.924782L2.588294-1.841096L2.32528-.783064Z'/>
+<path id='g2-59' d='M1.63188-.143462C1.63188 .152428 1.63188 .887671 .968369 1.524284C.91457 1.578082 .91457 1.587049 .91457 1.622914C.91457 1.685679 .977335 1.730511 1.031133 1.730511C1.129763 1.730511 1.85604 1.031133 1.85604-.017933C1.85604-.573848 1.65878-.968369 1.273225-.968369C.968369-.968369 .789041-.735243 .789041-.484184S.968369 0 1.273225 0C1.407721 0 1.542217-.044832 1.63188-.143462Z'/>
+<path id='g2-75' d='M4.62665-3.738979L6.446824-5.110834L6.554421-5.173599C7.110336-5.559153 7.451059-5.792279 7.980075-5.846077C8.042839-5.855044 8.141469-5.86401 8.141469-6.007472C8.141469-6.052304 8.11457-6.124035 8.033873-6.124035C7.962142-6.124035 7.908344-6.097136 7.370361-6.097136C7.047572-6.097136 6.715816-6.124035 6.401993-6.124035C6.348194-6.124035 6.231631-6.124035 6.231631-5.96264C6.231631-5.855044 6.330262-5.846077 6.357161-5.846077C6.428892-5.837111 6.608219-5.828144 6.608219-5.684682C6.608219-5.612951 6.554421-5.496389 6.428892-5.388792C6.393026-5.352927 6.38406-5.34396 6.357161-5.326027C6.330262-5.290162 6.312329-5.281196 6.267497-5.24533L2.698879-2.57335L3.416189-5.433624C3.496887-5.774346 3.523786-5.846077 4.223163-5.846077C4.366625-5.846077 4.465255-5.846077 4.465255-6.007472C4.465255-6.088169 4.402491-6.124035 4.33076-6.124035C4.160399-6.124035 3.945205-6.106102 3.765878-6.106102C3.577584-6.097136 3.371357-6.097136 3.19203-6.097136C2.905106-6.097136 2.887173-6.097136 2.618182-6.106102C2.438854-6.115068 2.205729-6.124035 2.035367-6.124035C1.981569-6.124035 1.85604-6.124035 1.85604-5.96264C1.85604-5.846077 1.936737-5.846077 2.125031-5.846077C2.160897-5.846077 2.322291-5.846077 2.465753-5.828144C2.618182-5.810212 2.680946-5.792279 2.680946-5.693649C2.680946-5.648817 2.67198-5.612951 2.645081-5.514321L1.43462-.681445C1.353923-.358655 1.33599-.277958 .663512-.277958C.493151-.277958 .394521-.277958 .394521-.116563C.394521-.017933 .466252 0 .529016 0C.699377 0 .923537-.008966 1.093898-.017933C1.362889-.026899 1.380822-.026899 1.667746-.026899S1.972603-.026899 2.241594-.017933C2.420922-.008966 2.654047 0 2.824408 0C2.887173 0 3.003736 0 3.003736-.161395C3.003736-.277958 2.914072-.277958 2.725778-.277958C2.689913-.277958 2.528518-.277958 2.385056-.29589C2.187796-.32279 2.178829-.358655 2.178829-.439352C2.178829-.511083 2.259527-.81594 2.618182-2.232628L3.990037-3.263761L5.137733-.753176C5.182565-.636613 5.200498-.609714 5.200498-.546949C5.200498-.286924 4.82391-.277958 4.752179-.277958C4.644583-.277958 4.536986-.277958 4.536986-.116563C4.536986-.026899 4.617684 0 4.680448 0C4.850809 0 5.030137-.017933 5.200498-.017933C5.379826-.017933 5.56812-.026899 5.747447-.026899C5.899875-.026899 6.141968-.026899 6.204732-.017933L6.644085 0C6.67995 0 6.805479 0 6.805479-.161395C6.805479-.277958 6.697883-.277958 6.644085-.277958C6.330262-.286924 6.177833-.32279 6.025405-.654545L4.62665-3.738979Z'/>
+<path id='g2-114' d='M3.622416-3.631382C3.326526-3.577584 3.174097-3.326526 3.174097-3.138232C3.174097-2.96787 3.299626-2.815442 3.523786-2.815442C3.765878-2.815442 4.016936-3.021669 4.016936-3.353425C4.016936-3.703113 3.694147-3.963138 3.254795-3.963138C2.582316-3.963138 2.205729-3.461021 2.080199-3.29066C1.972603-3.783811 1.569116-3.963138 1.228394-3.963138C.905604-3.963138 .699377-3.765878 .546949-3.452055C.376588-3.129265 .260025-2.618182 .260025-2.582316C.260025-2.501619 .32279-2.47472 .385554-2.47472C.484184-2.47472 .502117-2.519552 .546949-2.698879C.71731-3.407223 .905604-3.738979 1.210461-3.738979C1.479452-3.738979 1.479452-3.452055 1.479452-3.317559C1.479452-3.129265 1.407721-2.851308 1.353923-2.618182C1.291158-2.385056 1.201494-1.999502 1.165629-1.891905L.806974-.42142C.744209-.206227 .744209-.188294 .744209-.161395C.744209-.044832 .824907 .09863 1.022167 .09863C1.309091 .09863 1.371856-.143462 1.43462-.403487C1.542217-.789041 1.542217-.806974 1.63188-1.174595C1.963636-2.519552 2.017435-2.734745 2.035367-2.779577C2.089166-2.887173 2.501619-3.738979 3.245828-3.738979C3.452055-3.738979 3.577584-3.667248 3.622416-3.631382Z'/>
+<path id='g3-48' d='M4.241096-2.86924C4.241096-3.469988 4.214197-4.241096 3.900374-4.913574C3.505853-5.756413 2.824408-5.971606 2.304359-5.971606C1.766376-5.971606 1.084932-5.756413 .690411-4.895641C.403487-4.276961 .358655-3.550685 .358655-2.86924C.358655-2.286426 .376588-1.416687 .762142-.708344C1.183562 .053798 1.882939 .19726 2.295392 .19726C2.878207 .19726 3.541719-.053798 3.918306-.878705C4.187298-1.479452 4.241096-2.15193 4.241096-2.86924ZM2.304359-.026899C2.035367-.026899 1.389788-.152428 1.219427-1.165629C1.129763-1.694645 1.129763-2.465753 1.129763-2.976837C1.129763-3.58655 1.129763-4.294894 1.23736-4.788045C1.416687-5.586052 1.990535-5.747447 2.295392-5.747447C2.636115-5.747447 3.200996-5.56812 3.371357-4.734247C3.469988-4.241096 3.469988-3.541719 3.469988-2.976837C3.469988-2.420922 3.469988-1.667746 3.380324-1.13873C3.19203-.116563 2.528518-.026899 2.304359-.026899Z'/>
+<path id='g3-49' d='M2.725778-5.729514C2.725778-5.953674 2.716812-5.971606 2.492653-5.971606C1.936737-5.397758 1.111831-5.397758 .833873-5.397758V-5.119801C1.004234-5.119801 1.551183-5.119801 2.035367-5.352927V-.71731C2.035367-.385554 2.008468-.277958 1.174595-.277958H.887671V0C1.210461-.026899 2.008468-.026899 2.37609-.026899S3.550685-.026899 3.873474 0V-.277958H3.58655C2.752677-.277958 2.725778-.385554 2.725778-.71731V-5.729514Z'/>
+<path id='g3-50' d='M4.142466-1.587049H3.891407C3.873474-1.470486 3.801743-.941469 3.685181-.798007C3.631382-.71731 3.012702-.71731 2.833375-.71731H1.23736L2.125031-1.560149C3.595517-2.833375 4.142466-3.308593 4.142466-4.223163C4.142466-5.254296 3.29066-5.971606 2.187796-5.971606C1.156663-5.971606 .457285-5.155666 .457285-4.339726C.457285-3.891407 .842839-3.846575 .923537-3.846575C1.120797-3.846575 1.389788-3.990037 1.389788-4.312827C1.389788-4.581818 1.201494-4.779078 .923537-4.779078C.878705-4.779078 .851806-4.779078 .81594-4.770112C1.031133-5.406725 1.604981-5.693649 2.089166-5.693649C3.003736-5.693649 3.317559-4.841843 3.317559-4.223163C3.317559-3.308593 2.627148-2.564384 2.196762-2.098132L.555915-.32279C.457285-.224159 .457285-.206227 .457285 0H3.891407L4.142466-1.587049Z'/>
+<path id='g3-52' d='M.260025-1.75741V-1.479452H2.707846V-.708344C2.707846-.376588 2.680946-.277958 2.008468-.277958H1.811208V0C2.37609-.026899 3.003736-.026899 3.066501-.026899C3.111333-.026899 3.756912-.026899 4.321793 0V-.277958H4.124533C3.452055-.277958 3.425156-.376588 3.425156-.708344V-1.479452H4.339726V-1.75741H3.425156V-5.828144C3.425156-6.007472 3.425156-6.070237 3.254795-6.070237C3.147198-6.070237 3.138232-6.06127 3.057534-5.935741L.260025-1.75741ZM.546949-1.75741L2.761644-5.074969V-1.75741H.546949Z'/>
+<path id='g3-53' d='M.932503-3.0934C.932503-2.932005 .932503-2.833375 1.058032-2.833375C1.129763-2.833375 1.156663-2.86924 1.210461-2.949938C1.479452-3.326526 1.909838-3.541719 2.37609-3.541719C3.335492-3.541719 3.335492-2.160897 3.335492-1.838107C3.335492-1.560149 3.335492-1.004234 3.084433-.600747C2.842341-.224159 2.465753-.053798 2.116065-.053798C1.587049-.053798 .986301-.385554 .771108-1.049066C.780075-1.049066 .833873-1.031133 .896638-1.031133C1.075965-1.031133 1.33599-1.147696 1.33599-1.470486C1.33599-1.748443 1.13873-1.909838 .896638-1.909838C.708344-1.909838 .457285-1.802242 .457285-1.443587C.457285-.627646 1.13873 .19726 2.133998 .19726C3.218929 .19726 4.142466-.681445 4.142466-1.793275C4.142466-2.878207 3.371357-3.765878 2.394022-3.765878C1.963636-3.765878 1.524284-3.622416 1.210461-3.299626V-5.066002C1.479452-4.985305 1.75741-4.940473 2.035367-4.940473C3.138232-4.940473 3.783811-5.738481 3.783811-5.855044C3.783811-5.935741 3.730012-5.971606 3.685181-5.971606C3.667248-5.971606 3.649315-5.971606 3.568618-5.926775C3.147198-5.756413 2.734745-5.684682 2.358157-5.684682C1.972603-5.684682 1.569116-5.756413 1.156663-5.926775C1.066999-5.971606 1.049066-5.971606 1.0401-5.971606C.932503-5.971606 .932503-5.881943 .932503-5.729514V-3.0934Z'/>
+<path id='g3-54' d='M1.201494-2.96787C1.201494-3.882441 1.300125-4.393524 1.542217-4.859776C1.721544-5.227397 2.160897-5.747447 2.824408-5.747447C3.003736-5.747447 3.416189-5.711582 3.622416-5.388792C3.29066-5.388792 3.147198-5.218431 3.147198-4.976339C3.147198-4.743213 3.308593-4.563885 3.559651-4.563885S3.981071-4.72528 3.981071-4.994271C3.981071-5.496389 3.622416-5.971606 2.806476-5.971606C1.649813-5.971606 .385554-4.832877 .385554-2.833375C.385554-.403487 1.479452 .19726 2.322291 .19726C3.317559 .19726 4.214197-.636613 4.214197-1.820174C4.214197-2.958904 3.38929-3.819676 2.37609-3.819676C1.838107-3.819676 1.452553-3.505853 1.201494-2.96787ZM2.313325-.053798C1.802242-.053798 1.506351-.475218 1.398755-.735243C1.228394-1.13873 1.219427-1.882939 1.219427-2.026401C1.219427-2.627148 1.497385-3.595517 2.358157-3.595517C2.501619-3.595517 2.940971-3.595517 3.227895-3.039601C3.398257-2.698879 3.398257-2.259527 3.398257-1.829141S3.398257-.959402 3.227895-.627646C2.949938-.116563 2.555417-.053798 2.313325-.053798Z'/>
+<path id='g3-55' d='M4.393524-5.469489C4.474222-5.56812 4.474222-5.586052 4.474222-5.774346H2.241594C1.111831-5.774346 1.084932-5.890909 1.058032-6.06127H.806974L.511083-4.187298H.762142C.798007-4.393524 .869738-4.895641 .986301-5.003238C1.049066-5.057036 1.75741-5.057036 1.882939-5.057036H3.765878L2.905106-3.882441C1.739477-2.27746 1.63188-.81594 1.63188-.304857C1.63188-.206227 1.63188 .19726 2.044334 .19726C2.465753 .19726 2.465753-.19726 2.465753-.313823V-.753176C2.465753-2.071233 2.663014-3.111333 3.138232-3.756912L4.393524-5.469489Z'/>
+<path id='g3-56' d='M1.542217-4.070735C1.273225-4.241096 1.066999-4.483188 1.066999-4.814944C1.066999-5.397758 1.694645-5.747447 2.286426-5.747447C2.976837-5.747447 3.532752-5.263263 3.532752-4.635616S2.99477-3.595517 2.636115-3.38929L1.542217-4.070735ZM2.860274-3.245828C3.308593-3.461021 3.963138-3.90934 3.963138-4.635616C3.963138-5.478456 3.120299-5.971606 2.313325-5.971606C1.371856-5.971606 .636613-5.299128 .636613-4.474222C.636613-4.133499 .762142-3.81071 .977335-3.550685C1.129763-3.380324 1.183562-3.344458 1.703611-3.012702C.91457-2.636115 .385554-2.089166 .385554-1.353923C.385554-.403487 1.327024 .19726 2.295392 .19726C3.335492 .19726 4.214197-.537983 4.214197-1.506351C4.214197-2.37609 3.550685-2.806476 3.326526-2.949938C3.227895-3.021669 2.96787-3.183064 2.860274-3.245828ZM1.945704-2.860274L3.075467-2.160897C3.281694-2.026401 3.730012-1.739477 3.730012-1.192528C3.730012-.484184 3.012702-.053798 2.304359-.053798C1.524284-.053798 .869738-.609714 .869738-1.353923C.869738-1.999502 1.318057-2.537484 1.945704-2.860274Z'/>
+<path id='g3-57' d='M3.398257-2.824408V-2.627148C3.398257-.439352 2.402989-.053798 1.891905-.053798C1.685679-.053798 1.228394-.089664 .995268-.385554H1.031133C1.102864-.367621 1.452553-.439352 1.452553-.798007C1.452553-1.031133 1.291158-1.210461 1.0401-1.210461S.61868-1.049066 .61868-.780075C.61868-.188294 1.093898 .19726 1.900872 .19726C3.057534 .19726 4.214197-.986301 4.214197-2.949938C4.214197-5.379826 3.138232-5.971606 2.331258-5.971606C1.300125-5.971606 .385554-5.137733 .385554-3.963138C.385554-2.824408 1.210461-1.963636 2.223661-1.963636C2.878207-1.963636 3.236862-2.438854 3.398257-2.824408ZM2.241594-2.187796C2.098132-2.187796 1.65878-2.187796 1.371856-2.743711C1.201494-3.084433 1.201494-3.523786 1.201494-3.954172S1.201494-4.832877 1.389788-5.173599C1.65878-5.630884 2.008468-5.747447 2.331258-5.747447C2.940971-5.747447 3.183064-5.128767 3.218929-5.039103C3.344458-4.707347 3.380324-4.160399 3.380324-3.774844C3.380324-3.120299 3.084433-2.187796 2.241594-2.187796Z'/>
+<path id='g3-61' d='M6.348194-2.96787C6.473724-2.96787 6.644085-2.96787 6.644085-3.156164C6.644085-3.353425 6.446824-3.353425 6.312329-3.353425H.842839C.708344-3.353425 .511083-3.353425 .511083-3.156164C.511083-2.96787 .690411-2.96787 .806974-2.96787H6.348194ZM6.312329-1.13873C6.446824-1.13873 6.644085-1.13873 6.644085-1.33599C6.644085-1.524284 6.473724-1.524284 6.348194-1.524284H.806974C.690411-1.524284 .511083-1.524284 .511083-1.33599C.511083-1.13873 .708344-1.13873 .842839-1.13873H6.312329Z'/>
+</defs>
+<g id='page1'>
+<path d='M-31.418003 69.613384V-69.8085M10.77336 69.613384V-69.8085M52.96086 69.613384V-69.8085M95.15246 69.613384V-69.8085M137.33946 69.613384V-69.8085M179.53146 69.613384V-69.8085M221.72246 69.613384V-69.8085M263.91046 69.613384V-69.8085' stroke='#d9d9d9' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-31.417963 69.613284H263.9105M-31.417963 36.4141H263.9105M-31.417963 3.2188H263.9105M-31.417963-29.9766H263.9105M-31.417963-63.1716H263.9105' stroke='#d9d9d9' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-31.417963 71.73828V67.48438M10.7734 71.73828V67.48438M52.9609 71.73828V67.48438M95.1525 71.73828V67.48438M137.3395 71.73828V67.48438M179.5315 71.73828V67.48438M221.7225 71.73828V67.48438M263.9105 71.73828V67.48438' stroke='#808080' fill='none' stroke-width='.19925' stroke-miterlimit='10'/>
+<path d='M-33.54296 69.613284H-29.29296M-33.54296 36.4141H-29.29296M-33.54296 3.2188H-29.29296M-33.54296-29.9766H-29.29296M-33.54296-63.1716H-29.29296' stroke='#808080' fill='none' stroke-width='.19925' stroke-miterlimit='10'/>
+<path d='M-31.417963 69.613284H261.9175' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M263.90997 69.613284L260.72247 68.01563L261.917786 69.613284L260.72247 71.20703'/>
+<path d='M-31.417963 69.613284V-67.8166' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-31.417963-69.80855L-33.01171-66.62105L-31.417963-67.816365L-29.82421-66.62105'/>
+<g transform='matrix(1 0 0 1 -40.89486 59.6029)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-48'/>
+</g>
+<g transform='matrix(1 0 0 1 1.2949 59.6029)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-50'/>
+</g>
+<g transform='matrix(1 0 0 1 43.48464 59.6029)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-52'/>
+</g>
+<g transform='matrix(1 0 0 1 85.67434 59.6029)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-54'/>
+</g>
+<g transform='matrix(1 0 0 1 127.86454 59.6029)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-56'/>
+</g>
+<g transform='matrix(1 0 0 1 167.74954 59.6029)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-49'/>
+<use x='11.781153' y='21.432157' xlink:href='#g3-48'/>
+</g>
+<g transform='matrix(1 0 0 1 209.93954 59.6029)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-49'/>
+<use x='11.781153' y='21.432157' xlink:href='#g3-50'/>
+</g>
+<g transform='matrix(1 0 0 1 252.12954 59.6029)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-49'/>
+<use x='11.781153' y='21.432157' xlink:href='#g3-52'/>
+</g>
+<g transform='matrix(1 0 0 1 -48.84366 51.0684)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-48'/>
+</g>
+<g transform='matrix(1 0 0 1 -53.45146 17.873)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-50'/>
+<use x='11.781153' y='21.432157' xlink:href='#g3-53'/>
+</g>
+<g transform='matrix(1 0 0 1 -53.45146 -15.32243)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-53'/>
+<use x='11.781153' y='21.432157' xlink:href='#g3-48'/>
+</g>
+<g transform='matrix(1 0 0 1 -53.45146 -48.5179)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-55'/>
+<use x='11.781153' y='21.432157' xlink:href='#g3-53'/>
+</g>
+<g transform='matrix(1 0 0 1 -58.05916 -81.7133)'>
+<use x='7.173463' y='21.432157' xlink:href='#g3-49'/>
+<use x='11.781153' y='21.432157' xlink:href='#g3-48'/>
+<use x='16.388844' y='21.432157' xlink:href='#g3-48'/>
+</g>
+<path d='M-31.417963-63.1716H-29.93359H-28.44921H-26.96484H-25.48046H-23.99609H-22.51171H-21.0312H-19.5469H-18.0625H-16.5781H-15.0937H-13.6094H-12.125H-10.6406H-9.1562H-7.6719H-6.1875H-4.707H-3.2227H-1.7383H-.2539H1.2305H2.7148H4.1992H5.6836H7.168H8.6523H10.1367H11.6211H13.1016H14.5859H16.0703H17.5547H19.0391H20.5234H22.0078H23.4922H24.9766H26.4609H27.9453H29.4258H30.9102H32.3945H33.8789H35.3633H36.8477H38.332H39.8164H41.3008H42.7852H44.2695H45.75H47.2344H48.7188H50.2031H51.6875H53.1719L54.6563-63.1676H56.1406H57.625H59.1094H60.5938H62.0742H63.5586L65.043-63.1636H66.5273H68.0117H69.4965H70.9805H72.4645L73.9495-63.1606H75.4335H76.9175L78.3985-63.1566L79.8825-63.1526L81.3675-63.1486L82.8515-63.1446H84.3355L85.8205-63.1406L87.3045-63.1326L88.7895-63.1246L90.2735-63.1206L91.7575-63.1136L93.2425-63.1016L94.7225-63.0856L96.2075-63.0746L97.6915-63.0586L99.1755-63.0386L100.6605-63.0196L102.1445-62.9886L103.6285-62.9606L105.1135-62.9176L106.5975-62.8786L108.0825-62.8246L109.5665-62.7656L111.0505-62.6956L112.5315-62.6136L114.0155-62.5156L115.5005-62.4026L116.9845-62.2696L118.4685-62.1096L119.9535-61.9256L121.4375-61.7106L122.9215-61.4566L124.4065-61.1606L125.8905-60.8086L127.3755-60.4066L128.8555-59.9336L130.3395-59.3786L131.8245-58.7346L133.3085-57.9846L134.7925-57.1136L136.2775-56.1096L137.7615-54.9416L139.2465-53.5976L140.7305-52.0586L142.2145-50.3006L143.6995-48.2886L145.1795-46.0116L146.6645-43.4376L148.1485-40.5586L149.6325-37.3556L151.1175-33.8126L152.6015-29.9414L154.0855-25.7422L155.5705-21.2422L157.0545-16.4648L158.5395-11.4492L160.0235-6.25L161.5035-.9336L162.9885 4.4297L164.4725 9.7852L165.9575 15.0586L167.4415 20.1797L168.9255 25.0938L170.4105 29.75L171.8945 34.1172L173.3785 38.1719L174.8635 41.8906L176.3475 45.2773L177.8285 48.332L179.3125 51.0703L180.7965 53.5078L182.2815 55.6602L183.7655 57.5586L185.2505 59.2188L186.7345 60.66797L188.2185 61.92969L189.7035 63.01953L191.1875 63.96485L192.6715 64.77735L194.1525 65.48047L195.6365 66.08203L197.1215 66.59766L198.6055 67.03907L200.0895 67.41797L201.5745 67.74219L203.0585 68.01563L204.5425 68.25391L206.0275 68.45313L207.5115 68.625003L208.9965 68.773441L210.4765 68.898441L211.9605 69.003909L213.4455 69.093753L214.9295 69.171878L216.4145 69.238284L217.8985 69.292972L219.3825 69.339847L220.8675 69.378909L222.3515 69.414066L223.8355 69.445316L225.3205 69.468753L226.8005 69.492191L228.2855 69.507816L229.7695 69.523441L231.2535 69.539066L232.7385 69.546878L234.2225 69.558597L235.7075 69.56641L237.1915 69.574222L238.6755 69.578128L240.1605 69.582035L241.6445 69.585941L243.1285 69.589847L244.6095 69.593753L246.0935 69.59766H247.5785L249.0625 69.601566H250.5465L252.0315 69.605472H253.5155H255.0005H256.4845H257.9685L259.4535 69.609378H260.9335H262.4175H263.9025' stroke='#ec4899' fill='none' stroke-width='.79701' stroke-miterlimit='10' clip-path='url(#clip1)'/>
+<path d='M-31.417963 69.613284H-29.93359H-28.44921H-26.96484H-25.48046H-23.99609H-22.51171H-21.0312H-19.5469H-18.0625H-16.5781H-15.0937H-13.6094H-12.125H-10.6406H-9.1562H-7.6719H-6.1875H-4.707H-3.2227H-1.7383H-.2539H1.2305H2.7148H4.1992H5.6836H7.168H8.6523H10.1367H11.6211H13.1016H14.5859H16.0703H17.5547H19.0391H20.5234H22.0078H23.4922H24.9766H26.4609H27.9453H29.4258H30.9102H32.3945H33.8789H35.3633H36.8477H38.332H39.8164H41.3008H42.7852H44.2695H45.75H47.2344H48.7188H50.2031H51.6875H53.1719L54.6563 69.605472H56.1406H57.625H59.1094H60.5938H62.0742H63.5586H65.043H66.5273H68.0117H69.4965L70.9805 69.601566H72.4645H73.9495H75.4335L76.9175 69.59766H78.3985L79.8825 69.593753L81.3675 69.589847L82.8515 69.585941H84.3355L85.8205 69.582035L87.3045 69.574222L88.7895 69.56641L90.2735 69.562503L91.7575 69.554691L93.2425 69.542972L94.7225 69.527347L96.2075 69.515628L97.6915 69.500003L99.1755 69.480472L100.6605 69.460941L102.1445 69.429691L103.6285 69.398441L105.1135 69.359378L106.5975 69.320316L108.0825 69.265628L109.5665 69.207034L111.0505 69.136722L112.5315 69.054691L114.0155 68.957034L115.5005 68.843753L116.9845 68.710941L118.4685 68.55078L119.9535 68.36719L121.4375 68.15235L122.9215 67.89844L124.4065 67.60157L125.8905 67.25L127.3755 66.84766L128.8555 66.375L130.3395 65.82032L131.8245 65.17578L133.3085 64.42578L134.7925 63.55469L136.2775 62.55078L137.7615 61.38282L139.2465 60.03907L140.7305 58.5L142.2145 56.7422L143.6995 54.7305L145.1795 52.4531L146.6645 49.8789L148.1485 47L149.6325 43.793L151.1175 40.2539L152.6015 36.3828L154.0855 32.1836L155.5705 27.6797L157.0545 22.9023L158.5395 17.8906L160.0235 12.6914L161.5035 7.375L162.9885 2.0078L164.4725-3.3437L165.9575-8.6172L167.4415-13.7383L168.9255-18.6523L170.4105-23.3086L171.8945-27.6758L173.3785-31.7306L174.8635-35.4496L176.3475-38.8356L177.8285-41.8906L179.3125-44.6286L180.7965-47.0666L182.2815-49.2186L183.7655-51.1176L185.2505-52.7816L186.7345-54.2266L188.2185-55.4886L189.7035-56.5786L191.1875-57.5236L192.6715-58.3356L194.1525-59.0386L195.6365-59.6406L197.1215-60.1566L198.6055-60.5976L200.0895-60.9766L201.5745-61.3006L203.0585-61.5746L204.5425-61.8126L206.0275-62.0116L207.5115-62.1836L208.9965-62.3316L210.4765-62.4566L211.9605-62.5626L213.4455-62.6526L214.9295-62.7306L216.4145-62.7966L217.8985-62.8516L219.3825-62.8986L220.8675-62.9416L222.3515-62.9726L223.8355-63.0036L225.3205-63.0276L226.8005-63.0506L228.2855-63.0666L229.7695-63.0816L231.2535-63.0976L232.7385-63.1056L234.2225-63.1176L235.7075-63.1246L237.1915-63.1326L238.6755-63.1366L240.1605-63.1406L241.6445-63.1446L243.1285-63.1486L244.6095-63.1526L246.0935-63.1566H247.5785L249.0625-63.1606H250.5465L252.0315-63.1636H253.5155H255.0005H256.4845L257.9685-63.1676H259.4535H260.9335H262.4175H263.9025' stroke='#0ea5e9' fill='none' stroke-width='.79701' stroke-miterlimit='10' clip-path='url(#clip1)'/>
+<path d='M-31.417963 3.2188H263.9105' stroke='#808080' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883' clip-path='url(#clip1)'/>
+<path d='M162.6565 69.613284V3.2188' stroke='#0e7490' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883' clip-path='url(#clip1)'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 134.72254 -26.12974)'>
+<use x='7.173463' y='21.432157' xlink:href='#g4-112'/>
+<use x='12.291903' y='21.432157' xlink:href='#g2-75'/>
+<use x='20.095933' y='22.428406' xlink:href='#g1-97'/>
+<use x='27.188066' y='21.432157' xlink:href='#g3-61'/>
+<use x='36.915413' y='21.432157' xlink:href='#g3-57'/>
+<use x='41.523103' y='21.432157' xlink:href='#g2-59'/>
+<use x='44.082931' y='21.432157' xlink:href='#g3-50'/>
+</g>
+<g transform='matrix(1 0 0 1 103.05954 72.6166)'>
+<use x='7.173463' y='21.432157' xlink:href='#g4-112'/>
+<use x='12.291905' y='21.432157' xlink:href='#g4-72'/>
+</g>
+<g transform='matrix(0 -1 1 0 -81.3977 37.99786)'>
+<use x='7.173463' y='21.432157' xlink:href='#g4-80'/>
+<use x='13.442861' y='21.432157' xlink:href='#g4-114'/>
+<use x='17.046519' y='21.432157' xlink:href='#g4-111'/>
+<use x='21.653115' y='21.432157' xlink:href='#g4-112'/>
+<use x='27.027479' y='21.432157' xlink:href='#g4-111'/>
+<use x='31.634075' y='21.432157' xlink:href='#g4-114'/>
+<use x='35.237733' y='21.432157' xlink:href='#g4-116'/>
+<use x='38.820637' y='21.432157' xlink:href='#g4-105'/>
+<use x='41.379858' y='21.432157' xlink:href='#g4-111'/>
+<use x='45.986454' y='21.432157' xlink:href='#g4-110'/>
+<use x='54.17596' y='21.432157' xlink:href='#g4-40'/>
+<use x='57.758864' y='21.432157' xlink:href='#g4-37'/>
+<use x='65.436527' y='21.432157' xlink:href='#g4-41'/>
+</g>
+<path d='M39.1875 117.5898H193.3045V100.4844H39.1875Z' fill='#fff'/>
+<path d='M39.1875 117.5898H193.3045V100.4844H39.1875Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M42.574192 109.038709H51.0781H59.582' stroke='#ec4899' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 6.6112 90.6798)'>
+<use x='55.361699' y='21.432157' xlink:href='#g2-114'/>
+<use x='59.51971' y='22.493849' xlink:href='#g0-65'/>
+<use x='64.682415' y='22.493849' xlink:href='#g0-99'/>
+<use x='67.947148' y='22.493849' xlink:href='#g0-105'/>
+<use x='70.049857' y='22.493849' xlink:href='#g0-100'/>
+<use x='74.089276' y='22.493849' xlink:href='#g0-101'/>
+<use x='80.92315' y='21.432157' xlink:href='#g4-40'/>
+<use x='84.506055' y='21.432157' xlink:href='#g4-78'/>
+<use x='91.414563' y='21.432157' xlink:href='#g4-72'/>
+<use x='98.323046' y='22.428406' xlink:href='#g0-52'/>
+<use x='102.473254' y='17.623153' xlink:href='#g0-43'/>
+<use x='108.560154' y='21.432157' xlink:href='#g4-41'/>
+</g>
+<path d='M121.144563 109.039109H129.64847H138.1524' stroke='#0ea5e9' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 11.113 90.2198)'>
+<use x='129.431624' y='21.432157' xlink:href='#g2-114'/>
+<use x='133.589634' y='22.428406' xlink:href='#g0-66'/>
+<use x='138.674875' y='22.428406' xlink:href='#g0-97'/>
+<use x='142.326952' y='22.428406' xlink:href='#g0-115'/>
+<use x='145.243077' y='22.428406' xlink:href='#g0-101'/>
+<use x='152.076978' y='21.432157' xlink:href='#g4-40'/>
+<use x='155.659882' y='21.432157' xlink:href='#g4-78'/>
+<use x='162.568391' y='21.432157' xlink:href='#g4-72'/>
+<use x='169.476873' y='22.428406' xlink:href='#g0-51'/>
+<use x='173.627081' y='21.432157' xlink:href='#g4-41'/>
+</g>
+</g>
+</svg></div>
+</div>
+<div class="text-center">
+{Diagramme de distribution du couple ${}_4 + /{}_3$}
+</div>
+<h3>6.2 Diagramme de prédominance</h3>
+<p>Le diagramme de distribution précédent peut être simplifié en un diagramme, appelé <strong>diagramme de prédominance</strong>, avec un seul axe en pH, qui permet de préciser la zone de pH dans laquelle chaque espèce <strong>prédomine</strong>, c'est-à-dire est présente en plus grande quantité de matière que l'autre dans la solution.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.007905 -64.914513 449.026392 85.875609'>
+<defs>
+<path id='g0-97' d='M3.102366-1.918804C3.132254-2.056289 3.19203-2.283437 3.19203-2.32528C3.19203-2.456787 3.090411-2.52254 2.982814-2.52254C2.815442-2.52254 2.713823-2.367123 2.69589-2.27746C2.612204-2.414944 2.408966-2.636115 2.038356-2.636115C1.273225-2.636115 .448319-1.835118 .448319-.956413C.448319-.310834 .902615 .059776 1.41071 .059776C1.811208 .059776 2.15193-.215193 2.30137-.364633C2.414944 .011955 2.815442 .059776 2.946949 .059776C3.162142 .059776 3.317559-.059776 3.431133-.245081C3.580573-.484184 3.664259-.830884 3.664259-.860772C3.664259-.872727 3.658281-.944458 3.550685-.944458C3.461021-.944458 3.449066-.902615 3.425156-.806974C3.329514-.442341 3.203985-.137484 2.970859-.137484C2.767621-.137484 2.749689-.352677 2.749689-.442341C2.749689-.52005 2.809465-.759153 2.851308-.91457L3.102366-1.918804ZM2.32528-.783064C2.295392-.675467 2.295392-.663512 2.211706-.573848C1.882939-.203238 1.578082-.137484 1.428643-.137484C1.189539-.137484 .956413-.298879 .956413-.723288C.956413-.968369 1.081943-1.554172 1.273225-1.894894C1.452553-2.217684 1.75741-2.438854 2.044334-2.438854C2.492653-2.438854 2.606227-1.966625 2.606227-1.924782L2.588294-1.841096L2.32528-.783064Z'/>
+<path id='g1-62' d='M6.204732-2.035367C6.303362-2.080199 6.38406-2.125031 6.38406-2.25056C6.38406-2.367123 6.28543-2.420922 6.204732-2.456787L1.147696-4.886675C1.022167-4.94944 .977335-4.94944 .959402-4.94944C.842839-4.94944 .771108-4.850809 .771108-4.761146C.771108-4.653549 .824907-4.608717 .950436-4.545953L5.747447-2.25056L.950436 .053798C.824907 .116563 .771108 .161395 .771108 .268991C.771108 .331756 .824907 .457285 .968369 .457285C.977335 .457285 1.022167 .457285 1.129763 .403487L6.204732-2.035367Z'/>
+<path id='g1-75' d='M4.62665-3.738979L6.446824-5.110834L6.554421-5.173599C7.110336-5.559153 7.451059-5.792279 7.980075-5.846077C8.042839-5.855044 8.141469-5.86401 8.141469-6.007472C8.141469-6.052304 8.11457-6.124035 8.033873-6.124035C7.962142-6.124035 7.908344-6.097136 7.370361-6.097136C7.047572-6.097136 6.715816-6.124035 6.401993-6.124035C6.348194-6.124035 6.231631-6.124035 6.231631-5.96264C6.231631-5.855044 6.330262-5.846077 6.357161-5.846077C6.428892-5.837111 6.608219-5.828144 6.608219-5.684682C6.608219-5.612951 6.554421-5.496389 6.428892-5.388792C6.393026-5.352927 6.38406-5.34396 6.357161-5.326027C6.330262-5.290162 6.312329-5.281196 6.267497-5.24533L2.698879-2.57335L3.416189-5.433624C3.496887-5.774346 3.523786-5.846077 4.223163-5.846077C4.366625-5.846077 4.465255-5.846077 4.465255-6.007472C4.465255-6.088169 4.402491-6.124035 4.33076-6.124035C4.160399-6.124035 3.945205-6.106102 3.765878-6.106102C3.577584-6.097136 3.371357-6.097136 3.19203-6.097136C2.905106-6.097136 2.887173-6.097136 2.618182-6.106102C2.438854-6.115068 2.205729-6.124035 2.035367-6.124035C1.981569-6.124035 1.85604-6.124035 1.85604-5.96264C1.85604-5.846077 1.936737-5.846077 2.125031-5.846077C2.160897-5.846077 2.322291-5.846077 2.465753-5.828144C2.618182-5.810212 2.680946-5.792279 2.680946-5.693649C2.680946-5.648817 2.67198-5.612951 2.645081-5.514321L1.43462-.681445C1.353923-.358655 1.33599-.277958 .663512-.277958C.493151-.277958 .394521-.277958 .394521-.116563C.394521-.017933 .466252 0 .529016 0C.699377 0 .923537-.008966 1.093898-.017933C1.362889-.026899 1.380822-.026899 1.667746-.026899S1.972603-.026899 2.241594-.017933C2.420922-.008966 2.654047 0 2.824408 0C2.887173 0 3.003736 0 3.003736-.161395C3.003736-.277958 2.914072-.277958 2.725778-.277958C2.689913-.277958 2.528518-.277958 2.385056-.29589C2.187796-.32279 2.178829-.358655 2.178829-.439352C2.178829-.511083 2.259527-.81594 2.618182-2.232628L3.990037-3.263761L5.137733-.753176C5.182565-.636613 5.200498-.609714 5.200498-.546949C5.200498-.286924 4.82391-.277958 4.752179-.277958C4.644583-.277958 4.536986-.277958 4.536986-.116563C4.536986-.026899 4.617684 0 4.680448 0C4.850809 0 5.030137-.017933 5.200498-.017933C5.379826-.017933 5.56812-.026899 5.747447-.026899C5.899875-.026899 6.141968-.026899 6.204732-.017933L6.644085 0C6.67995 0 6.805479 0 6.805479-.161395C6.805479-.277958 6.697883-.277958 6.644085-.277958C6.330262-.286924 6.177833-.32279 6.025405-.654545L4.62665-3.738979Z'/>
+</defs>
+<g id='page1'>
+<path d='M-69.6094-23.023438H365.6562' stroke='currentColor' fill='none' stroke-width='.79701'/>
+<path d='M368.63289-23.023438L364.47664-24.59375L365.85555-23.023438L364.47664-21.45313Z'/>
+<path d='M368.63289-23.023438L364.47664-24.59375L365.85555-23.023438L364.47664-21.45313Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 428.9208 2.4624)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g4-112'/>
+<use x='-49.902313' y='-23.023373' xlink:href='#g4-72'/>
+</g>
+<path d='M-55.437501-26.42578V-19.62109' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -2.3033 12.6864)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g3-48'/>
+</g>
+<path d='M1.2578-26.42578V-19.62109' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 54.39029 12.6864)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g3-50'/>
+</g>
+<path d='M57.9532-26.42578V-19.62109' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 111.0839 12.6864)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g3-52'/>
+</g>
+<path d='M114.6442-26.42578V-19.62109' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 167.7778 12.6864)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g3-54'/>
+</g>
+<path d='M171.3402-26.42578V-19.62109' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 224.4708 12.6864)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g3-56'/>
+</g>
+<path d='M228.0312-26.42578V-19.62109' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 278.8618 12.6864)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g3-49'/>
+<use x='-50.829166' y='-23.023373' xlink:href='#g3-48'/>
+</g>
+<path d='M284.7262-26.42578V-19.62109' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 335.5548 12.6864)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g3-49'/>
+<use x='-50.829166' y='-23.023373' xlink:href='#g3-50'/>
+</g>
+<path d='M341.4182-26.42578V-19.62109' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 392.2488 12.6864)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g3-49'/>
+<use x='-50.829166' y='-23.023373' xlink:href='#g3-52'/>
+</g>
+<path d='M205.3552-15.9375V-30.10938' stroke='#0e7490' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#0e7490' transform='matrix(1 0 0 1 251.6758 -15.1836)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g2-112'/>
+<use x='-49.542654' y='-23.023373' xlink:href='#g1-75'/>
+<use x='-41.738625' y='-22.027124' xlink:href='#g0-97'/>
+</g>
+<path d='M-55.437501-44.0156C-54.24219-46.4063-51.44922-48-47.46485-48H65.5702C69.5582-48 72.3472-49.5977 73.5432-51.9883C74.7382-49.5977 77.5272-48 81.5122-48H194.5512C198.5352-48 201.3242-46.4063 202.5192-44.0156' stroke='#ec4899' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 92.0264 -36.9417)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g2-91'/>
+<use x='-52.489198' y='-23.023373' xlink:href='#g2-65'/>
+<use x='-44.779737' y='-23.023373' xlink:href='#g2-99'/>
+<use x='-40.065236' y='-23.023373' xlink:href='#g2-105'/>
+<use x='-37.118672' y='-23.023373' xlink:href='#g2-100'/>
+<use x='-31.225552' y='-23.023373' xlink:href='#g2-101'/>
+<use x='-26.358184' y='-23.023373' xlink:href='#g2-93'/>
+<use x='-19.875746' y='-23.023373' xlink:href='#g1-62'/>
+<use x='-9.172354' y='-23.023373' xlink:href='#g2-91'/>
+<use x='-6.225789' y='-23.023373' xlink:href='#g2-66'/>
+<use x='1.31215' y='-23.023373' xlink:href='#g2-97'/>
+<use x='6.468627' y='-23.023373' xlink:href='#g2-115'/>
+<use x='10.652753' y='-23.023373' xlink:href='#g2-101'/>
+<use x='15.52012' y='-23.023373' xlink:href='#g2-93'/>
+</g>
+<path d='M208.1912-44.0156C209.3872-46.4063 212.1762-48 216.1602-48H273.9222C277.9062-48 280.6952-49.5977 281.8902-51.9883C283.0862-49.5977 285.8752-48 289.8632-48H347.6212C351.6092-48 354.3982-46.4063 355.5942-44.0156' stroke='#0ea5e9' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#0ea5e9' transform='matrix(1 0 0 1 300.3748 -36.9417)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g2-91'/>
+<use x='-52.489198' y='-23.023373' xlink:href='#g2-66'/>
+<use x='-44.951258' y='-23.023373' xlink:href='#g2-97'/>
+<use x='-39.794781' y='-23.023373' xlink:href='#g2-115'/>
+<use x='-35.610656' y='-23.023373' xlink:href='#g2-101'/>
+<use x='-30.743288' y='-23.023373' xlink:href='#g2-93'/>
+<use x='-24.26085' y='-23.023373' xlink:href='#g1-62'/>
+<use x='-13.557458' y='-23.023373' xlink:href='#g2-91'/>
+<use x='-10.610894' y='-23.023373' xlink:href='#g2-65'/>
+<use x='-2.901433' y='-23.023373' xlink:href='#g2-99'/>
+<use x='1.813068' y='-23.023373' xlink:href='#g2-105'/>
+<use x='4.759632' y='-23.023373' xlink:href='#g2-100'/>
+<use x='10.652753' y='-23.023373' xlink:href='#g2-101'/>
+<use x='15.52012' y='-23.023373' xlink:href='#g2-93'/>
+</g>
+<g fill='#ec4899' transform='matrix(1 0 0 1 92.0456 29.53708)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g3-76'/>
+<use x='-49.67821' y='-23.023373' xlink:href='#g3-39'/>
+<use x='-47.118989' y='-23.023373' xlink:href='#g3-97'/>
+<use x='-42.512392' y='-23.023373' xlink:href='#g3-99'/>
+<use x='-38.417642' y='-23.023373' xlink:href='#g3-105'/>
+<use x='-35.858421' y='-23.023373' xlink:href='#g3-100'/>
+<use x='-30.739979' y='-23.023373' xlink:href='#g3-101'/>
+<use x='-23.570693' y='-23.023373' xlink:href='#g3-112'/>
+<use x='-18.452251' y='-23.023373' xlink:href='#g3-114'/>
+<use x='-14.848594' y='-23.023373' xlink:href='#g3-233'/>
+<use x='-10.750372' y='-23.023373' xlink:href='#g3-100'/>
+<use x='-5.63193' y='-23.023373' xlink:href='#g3-111'/>
+<use x='-1.025334' y='-23.023373' xlink:href='#g3-109'/>
+<use x='6.652329' y='-23.023373' xlink:href='#g3-105'/>
+<use x='9.21155' y='-23.023373' xlink:href='#g3-110'/>
+<use x='14.329992' y='-23.023373' xlink:href='#g3-101'/>
+</g>
+<g fill='#0ea5e9' transform='matrix(1 0 0 1 299.3448 29.53708)'>
+<use x='-55.435762' y='-23.023373' xlink:href='#g3-76'/>
+<use x='-49.67821' y='-23.023373' xlink:href='#g3-97'/>
+<use x='-42.000549' y='-23.023373' xlink:href='#g3-98'/>
+<use x='-36.882107' y='-23.023373' xlink:href='#g3-97'/>
+<use x='-32.275511' y='-23.023373' xlink:href='#g3-115'/>
+<use x='-28.641421' y='-23.023373' xlink:href='#g3-101'/>
+<use x='-21.472135' y='-23.023373' xlink:href='#g3-112'/>
+<use x='-16.353693' y='-23.023373' xlink:href='#g3-114'/>
+<use x='-12.750035' y='-23.023373' xlink:href='#g3-233'/>
+<use x='-8.651813' y='-23.023373' xlink:href='#g3-100'/>
+<use x='-3.533371' y='-23.023373' xlink:href='#g3-111'/>
+<use x='1.073225' y='-23.023373' xlink:href='#g3-109'/>
+<use x='8.750888' y='-23.023373' xlink:href='#g3-105'/>
+<use x='11.310109' y='-23.023373' xlink:href='#g3-110'/>
+<use x='16.428551' y='-23.023373' xlink:href='#g3-101'/>
+</g>
+<g fill='#0e7490' transform='matrix(1 0 0 1 222.3468 37.5586)'>
+<use x='-38.386887' y='-29.548936' xlink:href='#g3-112'/>
+<use x='-33.268445' y='-29.548936' xlink:href='#g3-72'/>
+<use x='-23.288872' y='-29.548936' xlink:href='#g3-61'/>
+<use x='-13.051991' y='-29.548936' xlink:href='#g3-112'/>
+<use x='-7.933549' y='-29.548936' xlink:href='#g1-75'/>
+<use x='-.129519' y='-28.552687' xlink:href='#g0-97'/>
+<use x='-49.458178' y='-16.597504' xlink:href='#g3-91'/>
+<use x='-46.898957' y='-16.597504' xlink:href='#g3-65'/>
+<use x='-40.246385' y='-16.597504' xlink:href='#g3-99'/>
+<use x='-36.151635' y='-16.597504' xlink:href='#g3-105'/>
+<use x='-33.592414' y='-16.597504' xlink:href='#g3-100'/>
+<use x='-28.473972' y='-16.597504' xlink:href='#g3-101'/>
+<use x='-24.37575' y='-16.597504' xlink:href='#g3-93'/>
+<use x='-18.745465' y='-16.597504' xlink:href='#g3-61'/>
+<use x='-8.508584' y='-16.597504' xlink:href='#g3-91'/>
+<use x='-5.949363' y='-16.597504' xlink:href='#g3-66'/>
+<use x='.575958' y='-16.597504' xlink:href='#g3-97'/>
+<use x='5.182555' y='-16.597504' xlink:href='#g3-115'/>
+<use x='8.816645' y='-16.597504' xlink:href='#g3-101'/>
+<use x='12.914867' y='-16.597504' xlink:href='#g3-93'/>
+</g>
+</g>
+</svg></div>
+</div>
+<div class="example-box">
+<strong>Règle pratique :</strong>
+<ul><li>Pour pH $< K_a$ : l'espèce <strong>acide</strong> prédomine (elle est en plus grande quantité).</li><li>Pour pH $= K_a$ : les deux espèces sont en <strong>quantités égales</strong> : [Acide] = [Base].</li><li>Pour pH $> K_a$ : l'espèce <strong>basique</strong> prédomine.
+</li></ul>
+</div>
+<div class="info-box">
+<strong>Attention !</strong> Ne pas confondre milieu acide et domaine de prédominance de la forme acide.
+<p>Par exemple, dans une solution basique de pH $= 8{,}0$, c'est bien l'espèce acide du couple ${}_4 + /{}_3$ qui prédomine (car $K_a = 9{,}2$ et $8{,}0 < 9{,}2$).<br></div></p>
+</div>
+<h2 class="section-title">7. Cas particulier d'un indicateur coloré</h2>
+<div class="card chapter-card">
+<div class="definition-box">
+<strong>Définition :</strong> Un <strong>indicateur coloré</strong> est un couple acide-base noté $In / ^{-}$ tel que :
+<ul><li>l'espèce basique $^{-}$ donne une couleur à la solution initialement incolore ;</li><li>l'espèce acide $In$ donne une <strong>autre</strong> couleur à la solution.
+</li></ul>
+<p>La <strong>zone de virage</strong> de l'indicateur coloré est l'intervalle de pH pour lequel la couleur de la solution évolue progressivement de la couleur donnée par l'espèce acide à la couleur donnée par l'espèce basique, lorsque le pH augmente progressivement, en passant par différentes nuances.<br></div></p>
+<div class="info-box">
+<strong>Propriété clé :</strong> L'intervalle de pH définissant la zone de virage d'un indicateur coloré {contient la valeur du $K_a$} du couple $In / ^{-}$.
+</div>
+<strong>Application au titrage :</strong> L'équivalence d'un titrage ayant support une réaction acide-base peut être repérée par une brusque variation de la couleur de la solution titrée en introduisant un indicateur coloré dont la <strong>zone de virage est intégralement comprise dans le saut de pH</strong> associé au titrage.
+<div class="example-box">
+<strong>Exemple : le bleu de bromothymol (BBT)</strong>
+<p>Le BBT est un indicateur coloré de $K_a = 7{,}1$. Sa zone de virage est $[5{,}8 ; 7{,}6]$.</p>
+<ul><li>Sa forme acide donne une couleur <strong>jaune</strong> à la solution.</li><li>Sa forme basique donne une couleur <strong>bleue</strong> à la solution.</li><li>Dans la zone de virage, la solution est <strong>verte</strong> (mélange des deux couleurs).
+</li></ul>
+</div>
+</div>
+<h2 class="section-title">8. Cas particulier d'un acide $\alpha$-aminé</h2>
+<div class="card chapter-card">
+<div class="definition-box">
+<strong>Définition :</strong> Les <strong>acides $$-aminés</strong> sont des <strong>amphotères</strong>, intervenant dans <strong>deux</strong> couples acide-base de type :
+<ul><li>acide carboxylique ($-COO$) / ion carboxylate ($-CO^{-}$)</li><li>ion ammonium ($-{}_3 + $) / amine ($-{}_2$)
+</li></ul>
+<p>(Seuls les groupes caractéristiques sont représentés.)<br></div></p>
+<div class="example-box">
+<strong>Exemple : la glycine</strong>
+<p>La glycine est le plus simple des acides $$-aminés. Les valeurs de ses $K_a$ sont :<br><ul><li>$K_{a1}($-COO / -CO^{-}$) = 2{,}4$</li><li>$K_{a2}($-{}_3 +  / -{}_2$) = 9{,}7$<br></li></ul></p>
+<p>En superposant les deux domaines de prédominance correspondants à chacun des deux couples, il est possible d'établir le <strong>diagramme de prédominance des couples de la glycine</strong>.<br></div></p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.007905 -64.11521 395.169383 62.782888'>
+<defs>
+<path id='g2-97' d='M3.102366-1.918804C3.132254-2.056289 3.19203-2.283437 3.19203-2.32528C3.19203-2.456787 3.090411-2.52254 2.982814-2.52254C2.815442-2.52254 2.713823-2.367123 2.69589-2.27746C2.612204-2.414944 2.408966-2.636115 2.038356-2.636115C1.273225-2.636115 .448319-1.835118 .448319-.956413C.448319-.310834 .902615 .059776 1.41071 .059776C1.811208 .059776 2.15193-.215193 2.30137-.364633C2.414944 .011955 2.815442 .059776 2.946949 .059776C3.162142 .059776 3.317559-.059776 3.431133-.245081C3.580573-.484184 3.664259-.830884 3.664259-.860772C3.664259-.872727 3.658281-.944458 3.550685-.944458C3.461021-.944458 3.449066-.902615 3.425156-.806974C3.329514-.442341 3.203985-.137484 2.970859-.137484C2.767621-.137484 2.749689-.352677 2.749689-.442341C2.749689-.52005 2.809465-.759153 2.851308-.91457L3.102366-1.918804ZM2.32528-.783064C2.295392-.675467 2.295392-.663512 2.211706-.573848C1.882939-.203238 1.578082-.137484 1.428643-.137484C1.189539-.137484 .956413-.298879 .956413-.723288C.956413-.968369 1.081943-1.554172 1.273225-1.894894C1.452553-2.217684 1.75741-2.438854 2.044334-2.438854C2.492653-2.438854 2.606227-1.966625 2.606227-1.924782L2.588294-1.841096L2.32528-.783064Z'/>
+<path id='g3-59' d='M1.63188-.143462C1.63188 .152428 1.63188 .887671 .968369 1.524284C.91457 1.578082 .91457 1.587049 .91457 1.622914C.91457 1.685679 .977335 1.730511 1.031133 1.730511C1.129763 1.730511 1.85604 1.031133 1.85604-.017933C1.85604-.573848 1.65878-.968369 1.273225-.968369C.968369-.968369 .789041-.735243 .789041-.484184S.968369 0 1.273225 0C1.407721 0 1.542217-.044832 1.63188-.143462Z'/>
+<path id='g3-75' d='M4.62665-3.738979L6.446824-5.110834L6.554421-5.173599C7.110336-5.559153 7.451059-5.792279 7.980075-5.846077C8.042839-5.855044 8.141469-5.86401 8.141469-6.007472C8.141469-6.052304 8.11457-6.124035 8.033873-6.124035C7.962142-6.124035 7.908344-6.097136 7.370361-6.097136C7.047572-6.097136 6.715816-6.124035 6.401993-6.124035C6.348194-6.124035 6.231631-6.124035 6.231631-5.96264C6.231631-5.855044 6.330262-5.846077 6.357161-5.846077C6.428892-5.837111 6.608219-5.828144 6.608219-5.684682C6.608219-5.612951 6.554421-5.496389 6.428892-5.388792C6.393026-5.352927 6.38406-5.34396 6.357161-5.326027C6.330262-5.290162 6.312329-5.281196 6.267497-5.24533L2.698879-2.57335L3.416189-5.433624C3.496887-5.774346 3.523786-5.846077 4.223163-5.846077C4.366625-5.846077 4.465255-5.846077 4.465255-6.007472C4.465255-6.088169 4.402491-6.124035 4.33076-6.124035C4.160399-6.124035 3.945205-6.106102 3.765878-6.106102C3.577584-6.097136 3.371357-6.097136 3.19203-6.097136C2.905106-6.097136 2.887173-6.097136 2.618182-6.106102C2.438854-6.115068 2.205729-6.124035 2.035367-6.124035C1.981569-6.124035 1.85604-6.124035 1.85604-5.96264C1.85604-5.846077 1.936737-5.846077 2.125031-5.846077C2.160897-5.846077 2.322291-5.846077 2.465753-5.828144C2.618182-5.810212 2.680946-5.792279 2.680946-5.693649C2.680946-5.648817 2.67198-5.612951 2.645081-5.514321L1.43462-.681445C1.353923-.358655 1.33599-.277958 .663512-.277958C.493151-.277958 .394521-.277958 .394521-.116563C.394521-.017933 .466252 0 .529016 0C.699377 0 .923537-.008966 1.093898-.017933C1.362889-.026899 1.380822-.026899 1.667746-.026899S1.972603-.026899 2.241594-.017933C2.420922-.008966 2.654047 0 2.824408 0C2.887173 0 3.003736 0 3.003736-.161395C3.003736-.277958 2.914072-.277958 2.725778-.277958C2.689913-.277958 2.528518-.277958 2.385056-.29589C2.187796-.32279 2.178829-.358655 2.178829-.439352C2.178829-.511083 2.259527-.81594 2.618182-2.232628L3.990037-3.263761L5.137733-.753176C5.182565-.636613 5.200498-.609714 5.200498-.546949C5.200498-.286924 4.82391-.277958 4.752179-.277958C4.644583-.277958 4.536986-.277958 4.536986-.116563C4.536986-.026899 4.617684 0 4.680448 0C4.850809 0 5.030137-.017933 5.200498-.017933C5.379826-.017933 5.56812-.026899 5.747447-.026899C5.899875-.026899 6.141968-.026899 6.204732-.017933L6.644085 0C6.67995 0 6.805479 0 6.805479-.161395C6.805479-.277958 6.697883-.277958 6.644085-.277958C6.330262-.286924 6.177833-.32279 6.025405-.654545L4.62665-3.738979Z'/>
+<path id='g4-49' d='M2.145953-3.795766C2.145953-3.975093 2.122042-3.975093 1.942715-3.975093C1.548194-3.592528 .938481-3.592528 .723288-3.592528V-3.359402C.878705-3.359402 1.273225-3.359402 1.63188-3.526775V-.508095C1.63188-.310834 1.63188-.233126 1.016189-.233126H.759153V0C1.08792-.02391 1.554172-.02391 1.888917-.02391S2.689913-.02391 3.01868 0V-.233126H2.761644C2.145953-.233126 2.145953-.310834 2.145953-.508095V-3.795766Z'/>
+<path id='g4-50' d='M3.21594-1.117808H2.99477C2.982814-1.034122 2.923039-.639601 2.833375-.573848C2.791532-.537983 2.307347-.537983 2.223661-.537983H1.105853L1.870984-1.159651C2.074222-1.321046 2.606227-1.703611 2.791532-1.882939C2.970859-2.062267 3.21594-2.367123 3.21594-2.791532C3.21594-3.53873 2.540473-3.975093 1.739477-3.975093C.968369-3.975093 .430386-3.466999 .430386-2.905106C.430386-2.600249 .687422-2.564384 .753176-2.564384C.902615-2.564384 1.075965-2.67198 1.075965-2.887173C1.075965-3.01868 .998257-3.209963 .735243-3.209963C.872727-3.514819 1.23736-3.741968 1.649813-3.741968C2.27746-3.741968 2.612204-3.275716 2.612204-2.791532C2.612204-2.367123 2.331258-1.93076 1.912827-1.548194L.496139-.251059C.436364-.191283 .430386-.185305 .430386 0H3.030635L3.21594-1.117808Z'/>
+<path id='g5-50' d='M4.142466-1.587049H3.891407C3.873474-1.470486 3.801743-.941469 3.685181-.798007C3.631382-.71731 3.012702-.71731 2.833375-.71731H1.23736L2.125031-1.560149C3.595517-2.833375 4.142466-3.308593 4.142466-4.223163C4.142466-5.254296 3.29066-5.971606 2.187796-5.971606C1.156663-5.971606 .457285-5.155666 .457285-4.339726C.457285-3.891407 .842839-3.846575 .923537-3.846575C1.120797-3.846575 1.389788-3.990037 1.389788-4.312827C1.389788-4.581818 1.201494-4.779078 .923537-4.779078C.878705-4.779078 .851806-4.779078 .81594-4.770112C1.031133-5.406725 1.604981-5.693649 2.089166-5.693649C3.003736-5.693649 3.317559-4.841843 3.317559-4.223163C3.317559-3.308593 2.627148-2.564384 2.196762-2.098132L.555915-.32279C.457285-.224159 .457285-.206227 .457285 0H3.891407L4.142466-1.587049Z'/>
+<path id='g5-52' d='M.260025-1.75741V-1.479452H2.707846V-.708344C2.707846-.376588 2.680946-.277958 2.008468-.277958H1.811208V0C2.37609-.026899 3.003736-.026899 3.066501-.026899C3.111333-.026899 3.756912-.026899 4.321793 0V-.277958H4.124533C3.452055-.277958 3.425156-.376588 3.425156-.708344V-1.479452H4.339726V-1.75741H3.425156V-5.828144C3.425156-6.007472 3.425156-6.070237 3.254795-6.070237C3.147198-6.070237 3.138232-6.06127 3.057534-5.935741L.260025-1.75741ZM.546949-1.75741L2.761644-5.074969V-1.75741H.546949Z'/>
+<path id='g5-55' d='M4.393524-5.469489C4.474222-5.56812 4.474222-5.586052 4.474222-5.774346H2.241594C1.111831-5.774346 1.084932-5.890909 1.058032-6.06127H.806974L.511083-4.187298H.762142C.798007-4.393524 .869738-4.895641 .986301-5.003238C1.049066-5.057036 1.75741-5.057036 1.882939-5.057036H3.765878L2.905106-3.882441C1.739477-2.27746 1.63188-.81594 1.63188-.304857C1.63188-.206227 1.63188 .19726 2.044334 .19726C2.465753 .19726 2.465753-.19726 2.465753-.313823V-.753176C2.465753-2.071233 2.663014-3.111333 3.138232-3.756912L4.393524-5.469489Z'/>
+<path id='g5-57' d='M3.398257-2.824408V-2.627148C3.398257-.439352 2.402989-.053798 1.891905-.053798C1.685679-.053798 1.228394-.089664 .995268-.385554H1.031133C1.102864-.367621 1.452553-.439352 1.452553-.798007C1.452553-1.031133 1.291158-1.210461 1.0401-1.210461S.61868-1.049066 .61868-.780075C.61868-.188294 1.093898 .19726 1.900872 .19726C3.057534 .19726 4.214197-.986301 4.214197-2.949938C4.214197-5.379826 3.138232-5.971606 2.331258-5.971606C1.300125-5.971606 .385554-5.137733 .385554-3.963138C.385554-2.824408 1.210461-1.963636 2.223661-1.963636C2.878207-1.963636 3.236862-2.438854 3.398257-2.824408ZM2.241594-2.187796C2.098132-2.187796 1.65878-2.187796 1.371856-2.743711C1.201494-3.084433 1.201494-3.523786 1.201494-3.954172S1.201494-4.832877 1.389788-5.173599C1.65878-5.630884 2.008468-5.747447 2.331258-5.747447C2.940971-5.747447 3.183064-5.128767 3.218929-5.039103C3.344458-4.707347 3.380324-4.160399 3.380324-3.774844C3.380324-3.120299 3.084433-2.187796 2.241594-2.187796Z'/>
+<path id='g5-61' d='M6.348194-2.96787C6.473724-2.96787 6.644085-2.96787 6.644085-3.156164C6.644085-3.353425 6.446824-3.353425 6.312329-3.353425H.842839C.708344-3.353425 .511083-3.353425 .511083-3.156164C.511083-2.96787 .690411-2.96787 .806974-2.96787H6.348194ZM6.312329-1.13873C6.446824-1.13873 6.644085-1.13873 6.644085-1.33599C6.644085-1.524284 6.473724-1.524284 6.348194-1.524284H.806974C.690411-1.524284 .511083-1.524284 .511083-1.33599C.511083-1.13873 .708344-1.13873 .842839-1.13873H6.312329Z'/>
+</defs>
+<g id='page1'>
+<path d='M-69.6094-13.507812H311.8003' stroke='currentColor' fill='none' stroke-width='.79701'/>
+<path d='M314.77369-13.507812L310.62135-15.07812L312.00025-13.507812L310.62135-11.9375Z'/>
+<path d='M314.77369-13.507812L310.62135-15.07812L312.00025-13.507812L310.62135-11.9375Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 377.1897 2.4624)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g8-112'/>
+<use x='-52.028222' y='-13.508501' xlink:href='#g8-72'/>
+</g>
+<path d='M-57.562501-16.39844V-10.61719' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -2.3033 12.17618)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g7-48'/>
+</g>
+<path d='M-9.3711-16.39844V-10.61719' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 45.8866 12.17618)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g7-50'/>
+</g>
+<path d='M38.8164-16.39844V-10.61719' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 94.0765 12.17618)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g7-52'/>
+</g>
+<path d='M87.0083-16.39844V-10.61719' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 142.2664 12.17618)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g7-54'/>
+</g>
+<path d='M135.1993-16.39844V-10.61719' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 190.4567 12.17618)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g7-56'/>
+</g>
+<path d='M183.3863-16.39844V-10.61719' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 236.3427 12.17618)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g7-49'/>
+<use x='-52.955074' y='-13.508501' xlink:href='#g7-48'/>
+</g>
+<path d='M231.5783-16.39844V-10.61719' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 284.5327 12.17618)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g7-49'/>
+<use x='-52.955074' y='-13.508501' xlink:href='#g7-50'/>
+</g>
+<path d='M279.7693-16.39844V-10.61719' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 332.7227 12.17618)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g7-49'/>
+<use x='-52.955074' y='-13.508501' xlink:href='#g7-52'/>
+</g>
+<path d='M.2656-6.28125V-20.73828' stroke='#ec4899' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#ec4899' transform='matrix(1 0 0 1 34.8551 -14.9003)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g6-112'/>
+<use x='-51.668563' y='-13.508501' xlink:href='#g3-75'/>
+<use x='-43.864533' y='-12.512253' xlink:href='#g2-97'/>
+<use x='-39.830358' y='-12.512253' xlink:href='#g4-49'/>
+<use x='-33.119488' y='-13.508501' xlink:href='#g5-61'/>
+<use x='-23.392141' y='-13.508501' xlink:href='#g5-50'/>
+<use x='-18.78445' y='-13.508501' xlink:href='#g3-59'/>
+<use x='-16.224622' y='-13.508501' xlink:href='#g5-52'/>
+</g>
+<path d='M176.1603-6.28125V-20.73828' stroke='#0ea5e9' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g fill='#0ea5e9' transform='matrix(1 0 0 1 210.7487 -14.9003)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g6-112'/>
+<use x='-51.668563' y='-13.508501' xlink:href='#g3-75'/>
+<use x='-43.864533' y='-12.512253' xlink:href='#g2-97'/>
+<use x='-39.830358' y='-12.512253' xlink:href='#g4-50'/>
+<use x='-33.119488' y='-13.508501' xlink:href='#g5-61'/>
+<use x='-23.392141' y='-13.508501' xlink:href='#g5-57'/>
+<use x='-18.78445' y='-13.508501' xlink:href='#g3-59'/>
+<use x='-16.224622' y='-13.508501' xlink:href='#g5-55'/>
+</g>
+<path d='M-57.562501-42.4219H-2.1445' stroke='#ec4899' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 10.3006 -35.8387)'>
+<use x='-56.403796' y='-24.467406' xlink:href='#g7-21'/>
+<use x='-50.639326' y='-24.467406' xlink:href='#g7-67'/>
+<use x='-43.985355' y='-24.467406' xlink:href='#g7-79'/>
+<use x='-36.819538' y='-24.467406' xlink:href='#g7-79'/>
+<use x='-29.653721' y='-24.467406' xlink:href='#g7-72'/>
+<use x='-54.483796' y='-13.508501' xlink:href='#g7-21'/>
+<use x='-48.719326' y='-13.508501' xlink:href='#g7-78'/>
+<use x='-41.810817' y='-13.508501' xlink:href='#g7-72'/>
+<use x='-34.902335' y='-12.512253' xlink:href='#g1-51'/>
+<use x='-30.752126' y='-17.317506' xlink:href='#g1-43'/>
+</g>
+<g fill='#ec4899' transform='matrix(1 0 0 1 14.1865 -14.4005)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g0-67'/>
+<use x='-50.976868' y='-13.508501' xlink:href='#g0-97'/>
+<use x='-46.273441' y='-13.508501' xlink:href='#g0-116'/>
+<use x='-43.216209' y='-13.508501' xlink:href='#g0-105'/>
+<use x='-40.394148' y='-13.508501' xlink:href='#g0-111'/>
+<use x='-35.69072' y='-13.508501' xlink:href='#g0-110'/>
+</g>
+<path d='M2.6758-42.4219H173.7503' stroke='#059669' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 128.9734 -35.8388)'>
+<use x='-56.403796' y='-24.467406' xlink:href='#g7-21'/>
+<use x='-50.639326' y='-24.467406' xlink:href='#g7-67'/>
+<use x='-43.985355' y='-24.467406' xlink:href='#g7-79'/>
+<use x='-36.819538' y='-24.467406' xlink:href='#g7-79'/>
+<use x='-28.881821' y='-28.27641' xlink:href='#g1-21'/>
+<use x='-55.091031' y='-13.508501' xlink:href='#g7-21'/>
+<use x='-49.326561' y='-13.508501' xlink:href='#g7-78'/>
+<use x='-42.418052' y='-13.508501' xlink:href='#g7-72'/>
+<use x='-35.50957' y='-12.512253' xlink:href='#g1-51'/>
+<use x='-31.359362' y='-17.317506' xlink:href='#g1-43'/>
+</g>
+<g fill='#059669' transform='matrix(1 0 0 1 125.0204 -14.4005)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g0-90'/>
+<use x='-51.917556' y='-13.508501' xlink:href='#g0-119'/>
+<use x='-45.803093' y='-13.508501' xlink:href='#g0-105'/>
+<use x='-42.981031' y='-13.508501' xlink:href='#g0-116'/>
+<use x='-39.9238' y='-13.508501' xlink:href='#g0-116'/>
+<use x='-36.866568' y='-13.508501' xlink:href='#g0-233'/>
+<use x='-32.63348' y='-13.508501' xlink:href='#g0-114'/>
+<use x='-28.753146' y='-13.508501' xlink:href='#g0-105'/>
+<use x='-25.931084' y='-13.508501' xlink:href='#g0-111'/>
+<use x='-21.227657' y='-13.508501' xlink:href='#g0-110'/>
+</g>
+<path d='M178.5703-42.4219H299.0433' stroke='#0ea5e9' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 279.5667 -35.8388)'>
+<use x='-56.403796' y='-24.467406' xlink:href='#g7-21'/>
+<use x='-50.639326' y='-24.467406' xlink:href='#g7-67'/>
+<use x='-43.985355' y='-24.467406' xlink:href='#g7-79'/>
+<use x='-36.819538' y='-24.467406' xlink:href='#g7-79'/>
+<use x='-28.881821' y='-28.27641' xlink:href='#g1-21'/>
+<use x='-52.047574' y='-13.508501' xlink:href='#g7-21'/>
+<use x='-46.283103' y='-13.508501' xlink:href='#g7-78'/>
+<use x='-39.374594' y='-13.508501' xlink:href='#g7-72'/>
+<use x='-32.466112' y='-12.512253' xlink:href='#g1-50'/>
+</g>
+<g fill='#0ea5e9' transform='matrix(1 0 0 1 284.1297 -14.4005)'>
+<use x='-57.561671' y='-13.508501' xlink:href='#g0-65'/>
+<use x='-50.957502' y='-13.508501' xlink:href='#g0-110'/>
+<use x='-45.783727' y='-13.508501' xlink:href='#g0-105'/>
+<use x='-42.961665' y='-13.508501' xlink:href='#g0-111'/>
+<use x='-38.258237' y='-13.508501' xlink:href='#g0-110'/>
+</g>
+</g>
+</svg></div>
+</div>
+<div class="info-box">
+<strong>Qu'est-ce qu'un zwittérion ?</strong> C'est une espèce qui porte à la fois une charge positive ($-{}_3 + $) et une charge négative ($-CO^{-}$). La molécule est globalement <strong>neutre</strong> mais présente deux charges formelles qui se compensent.
+</div>
+<div class="definition-box retenir-box">
+{ \`{A} retenir}
+<ol><li>Un <strong>acide fort</strong> (ou une <strong>base forte</strong>) réagit <strong>totalement</strong> avec l'eau. L'ion ${}_3 + $ est un acide fort ; l'ion $H^{-}$ est une base forte.</li><li>Un <strong>acide faible</strong> (ou une <strong>base faible</strong>) réagit <strong>partiellement</strong> avec l'eau.</li><li>La <strong>constante d'acidité</strong> $K_a$ d'un couple Acide / Base caractérise la force de l'acide :
+ <div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$K_a = {[${}_3 + $]_{}  []_{}}{[]_{}  c^{}}    K_a = - K_a$$</div></div></div></div></li><li>Le <strong>produit ionique de l'eau</strong> vaut : $K_e = {[${}_3 + $]  [$H^{-}$]}{(c^{})^2}$
+<p>\`{A} {{^}C} : $K_e = 14{,}0$.</li><li>Plus $K_a$ est <strong>petit</strong>, plus l'acide est <strong>fort</strong>. Plus $K_a$ est <strong>grand</strong>, plus la base conjuguée est <strong>forte</strong>.</li><li><strong>Diagramme de prédominance :</strong><br> <ul><li>pH $< K_a$ : la forme acide prédomine.</li><li>pH $= K_a$ : les deux formes sont en quantités égales.</li><li>pH $> K_a$ : la forme basique prédomine.<br> </li></ul></li><li>Un <strong>indicateur coloré</strong> est un couple acide-base dont les deux formes ont des couleurs différentes. Sa zone de virage contient la valeur de $K_a$.</li><li>Les <strong>acides $$-aminés</strong> sont des amphotères intervenant dans deux couples acide-base. Ils peuvent exister sous forme de zwittérion (portant deux charges opposées).<br></li></ol><br></div></p>
+</div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="exercices_equilibre_reaction_acide_base.html" class="btn-action">📝 Exercices</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=equilibre_reaction_acide_base" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=equilibre_reaction_acide_base" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

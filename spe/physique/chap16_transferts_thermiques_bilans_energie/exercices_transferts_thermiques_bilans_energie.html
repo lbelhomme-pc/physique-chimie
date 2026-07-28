@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Transferts thermiques et bilans d'énergie | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+
+    <style>
+        .graph-container { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; max-width: 600px; margin: 25px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .svg-grid { stroke: #cbd5e1; stroke-width: 1; }
+        .svg-grid-minor { stroke: #f1f5f9; stroke-width: 1; }
+        .svg-axis { stroke: #1e293b; stroke-width: 2; }
+        .svg-text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #475569; }
+        .svg-text-bold { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #1e293b; }
+        .svg-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; fill: #0f172a; text-anchor: middle; }
+        .svg-line { stroke: #3b82f6; stroke-width: 3; stroke-linecap: round; }
+        .svg-point { stroke: #ef4444; stroke-width: 2; fill: none; }
+        body.dark-mode .graph-container { background: #0f172a; border-color: #334155; }
+        body.dark-mode .svg-grid { stroke: #334155; }
+        body.dark-mode .svg-grid-minor { stroke: #1e293b; }
+        body.dark-mode .svg-axis { stroke: #cbd5e1; }
+        body.dark-mode .svg-text { fill: #94a3b8; }
+        body.dark-mode .svg-text-bold { fill: #f8fafc; }
+        body.dark-mode .svg-title { fill: #f8fafc; }
+        body.dark-mode .svg-line { stroke: #60a5fa; }
+    </style>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">📝</span>
+                <h1 class="hero-title">Exercices : Transferts thermiques et bilans d'énergie</h1>
+            </div>
+        </header>
+
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 1</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Modes de transfert thermique -- Questions de cours.
+</div>
+<p>Pour chacune des situations suivantes, indiquer le mode de transfert thermique principal mis en jeu (conduction, convection ou rayonnement). Justifier en une phrase.</p>
+<ol><li>Une cuillère en métal plongée dans une casserole d'eau bouillante devient chaude à son extrémité.</li><li>L'air chaud s'élève au-dessus d'un radiateur électrique et réchauffe progressivement toute la pièce.</li><li>La Terre reçoit de l'énergie du Soleil, situé à environ $150   $ de kilomètres.</li><li>Un glaçon posé sur une plaque de verre fond plus lentement que sur une plaque de métal.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Il existe trois modes de transfert thermique :
+<ul><li><strong>Conduction :</strong> transfert de proche en proche dans un milieu matériel, sans déplacement de matière.</li><li><strong>Convection :</strong> transfert par déplacement de matière (liquide ou gaz).</li><li><strong>Rayonnement :</strong> transfert par ondes électromagnétiques, ne nécessitant aucun milieu matériel.
+</li></ul>
+</div>
+<ol><li><strong>Cuillère en métal dans l'eau bouillante :</strong>
+<p>Le mode de transfert thermique est la <strong>conduction</strong>.</p>
+<strong>Justification :</strong> L'énergie thermique se propage de proche en proche à travers le métal de la cuillère, sans déplacement de matière. Les atomes du métal vibrent et transmettent leur agitation thermique aux atomes voisins, de l'extrémité plongée dans l'eau chaude vers l'extrémité tenue par la main.</li><li><strong>Air chaud au-dessus d'un radiateur :</strong>
+<p>Le mode de transfert thermique est la <strong>convection</strong>.</p>
+<strong>Justification :</strong> L'air au contact du radiateur s'échauffe, sa masse volumique diminue, il s'élève. De l'air plus froid vient le remplacer en bas, créant un mouvement de circulation de matière (courant de convection) qui réchauffe progressivement toute la pièce.</li><li><strong>Énergie reçue du Soleil par la Terre :</strong>
+<p>Le mode de transfert thermique est le <strong>rayonnement</strong>.</p>
+<strong>Justification :</strong> Entre le Soleil et la Terre, l'espace est essentiellement constitué de vide. Il n'y a pas de milieu matériel permettant un transfert par conduction ou convection. L'énergie est transportée sous forme d'ondes électromagnétiques (rayonnement).</li><li><strong>Glaçon sur plaque de verre vs plaque de métal :</strong>
+<p>Le mode de transfert thermique est la <strong>conduction</strong>.</p>
+<strong>Justification :</strong> Le glaçon est en contact direct avec la plaque. L'énergie se propage de la plaque vers le glaçon par conduction. Le métal est un bien meilleur conducteur thermique que le verre (sa résistance thermique est plus faible) : le flux thermique est donc plus important à travers le métal, ce qui fait fondre le glaçon plus vite sur la plaque de métal.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 2</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Énergie interne et capacité thermique massique.
+</div>
+<p>Un échantillon d'eau liquide de masse $m = $500   $$ est initialement à la température $_i = $18   ^ C$$. On le chauffe jusqu'à la température $_f = $65   ^ C$$.</p>
+<strong>Donnée :</strong> capacité thermique massique de l'eau liquide : $c_{} = $4{,}18  10^{3}   $$.
+<ol><li>Rappeler l'expression de la variation d'énergie interne $ U$ d'un système incompressible de masse $m$ et de capacité thermique massique $c$ lorsque sa température varie de $ T$.</li><li>Calculer la variation de température $ T$ en kelvin.</li><li>Calculer la variation d'énergie interne de l'eau.</li><li>L'énergie interne de l'eau a-t-elle augmenté ou diminué ? Justifier.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Pour un système incompressible (liquide ou solide), la variation d'énergie interne est liée à la variation de température par la relation :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U = m  c   T$$</div></div></div></div>
+avec $m$ la masse (en kg), $c$ la capacité thermique massique (en $$) et $ T = T_f - T_i$ la variation de température (en K ou en {{^}C}).
+</div>
+<ol><li><strong>Expression de la variation d'énergie interne :</strong>
+<p>Pour un système incompressible de masse $m$ et de capacité thermique massique $c$, lorsque sa température varie de $ T$ :</p>
+<div class="definition-box">
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div>
+</div></li><li><strong>Calcul de la variation de température $ T$ :</strong>
+<strong>Données :</strong> $_i = $18   ^ C$$ et $_f = $65   ^ C$$.
+<strong>Calcul :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ T = T_f - T_i = _f - _i = 65 - 18 = $47   $$</div></div>$</div></div>
+<div class="info-box">
+<strong>Remarque importante :</strong> Une variation de température en degrés Celsius est numériquement égale à la même variation en kelvin. En effet, $ T = T_f - T_i = (_f + 273{,}15) - (_i + 273{,}15) = _f - _i$. Il n'est donc pas nécessaire de convertir en kelvin pour calculer $ T$.
+</div>
+<strong>Conclusion :</strong> $ T = $47   $$.</li><li><strong>Calcul de la variation d'énergie interne :</strong>
+<strong>Données :</strong>
+<ul><li>$m = $500   $ = $0{,}500   $$ (conversion nécessaire car $c$ est en $$)</li><li>$c_{} = $4{,}18  10^{3}   $$</li><li>$ T = $47   $$
+</li></ul>
+<strong>Formule :</strong> $ U = m  c_{}   T$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ U &= 0{,}500  4{,}18  10^{3}  47 \\
+ U &= 0{,}500  4{,}18  10^{3}  47 \\
+ U &= 0{,}500  196 460 \\
+ U &= $9{,}8  10^{4}   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $ U  $9{,}8  10^{4}   $$, soit environ $98   $.</li><li><strong>L'énergie interne a-t-elle augmenté ou diminué ?</strong>
+<p>$ U = $9{,}8  10^{4}   $ > 0$.</p>
+<p>La variation d'énergie interne est <strong>positive</strong>, ce qui signifie que l'énergie interne de l'eau a <strong>augmenté</strong>.</p>
+<strong>Justification :</strong> La température de l'eau a augmenté ($_f > _i$), donc $ T > 0$, ce qui entraîne $ U > 0$. L'eau a reçu de l'énergie sous forme de transfert thermique. Cette énergie reçue a provoqué une augmentation de l'agitation des molécules d'eau, donc une augmentation de l'énergie interne et de la température.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 3</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Flux thermique et résistance thermique.
+</div>
+<p>Une paroi plane sépare l'intérieur d'un bâtiment (à la température $_{} = $20   ^ C$$) de l'extérieur (à la température $_{} = $5   ^ C$$). La résistance thermique de cette paroi est $R_{} = $3{,}0   $$.</p>
+<ol><li>Rappeler la relation entre le flux thermique $$, la résistance thermique $R_{}$ et les températures des deux faces de la paroi.</li><li>Préciser le sens du transfert thermique à travers cette paroi. Justifier.</li><li>Calculer le flux thermique $$ traversant cette paroi.</li><li>En déduire l'énergie thermique $Q$ transférée à travers cette paroi pendant une durée $ t = $2{,}0   $$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Le flux thermique $$ (en watt) traversant une paroi de résistance thermique $R_{}$ est lié à la différence de température entre les deux faces par :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {T_{} - T_{}}{R_{}} = {R_{}}$$</div></div></div></div>
+L'énergie thermique transférée pendant une durée $ t$ est : $Q =    t$.
+</div>
+<ol><li><strong>Relation entre flux thermique, résistance thermique et températures :</strong>
+<p>Le flux thermique $$ traversant une paroi est donné par :</p>
+<div class="definition-box">
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ = {R_{}}}$$</div></div></div></div>
+où $T_1$ est la température de la face chaude, $T_2$ celle de la face froide et $R_{}$ la résistance thermique de la paroi.
+</div></li><li><strong>Sens du transfert thermique :</strong>
+<strong>Données :</strong> $_{} = $20   ^ C$$ et $_{} = $5   ^ C$$.
+<p>Comme $_{} > _{}$, l'intérieur est plus chaud que l'extérieur.</p>
+<strong>Conclusion :</strong> Le transfert thermique s'effectue <strong>de l'intérieur vers l'extérieur</strong>, c'est-à-dire du milieu le plus chaud vers le milieu le plus froid. C'est un résultat général : un transfert thermique s'effectue toujours spontanément du corps chaud vers le corps froid.</li><li><strong>Calcul du flux thermique $$ :</strong>
+<strong>Données :</strong>
+<ul><li>$_{} = $20   ^ C$$, $_{} = $5   ^ C$$</li><li>$R_{} = $3{,}0   $$
+</li></ul>
+<strong>Formule :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {_{} - _{}}{R_{}}$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= {3{,}0} \\
+ &= {3{,}0} \\
+ &= $5{,}0   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Le flux thermique traversant la paroi vaut $ = $5{,}0   $$.</li><li>{Énergie thermique transférée pendant $ t = $2{,}0   $$ :}
+<strong>Méthode :</strong> Le flux thermique $$ est l'énergie transférée par unité de temps : $ = { t}$, donc $Q =    t$.
+<strong>Conversion de la durée :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ t = $2{,}0   $ = 2{,}0  3600 = $7200   $$</div></div>$</div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+Q &=    t \\
+Q &= 5{,}0  7200 \\
+Q &= $3{,}6  10^{4}   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'énergie thermique transférée à travers la paroi pendant 2,0 heures est $Q = $3{,}6  10^{4}   $ = $36   $$.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 4</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Chaud ou froid ? -- Comparaison des résistances thermiques.
+</div>
+<p>Dans une salle de travaux pratiques à la température $ = $20   ^ C$$, un élève pose une main sur un plateau en bois et l'autre main sur une plaque de verre. Les deux objets sont à la même température que l'air ambiant. Pourtant, la plaque de verre semble plus froide que le plateau en bois.</p>
+<strong>Donnée :</strong> la résistance thermique du plateau en bois est environ 30 fois plus élevée que celle de la plaque de verre.
+<ol><li>Quel est le mode de transfert thermique mis en jeu lorsque la main est posée sur un objet ?</li><li>Comparer les flux thermiques entre la main et chacun des deux objets. Justifier à l'aide de la relation du flux thermique.</li><li>Expliquer alors pourquoi le bois semble plus chaud que le verre, bien que les deux objets soient à la même température.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Le flux thermique entre la main et un objet dépend de la résistance thermique de l'objet : $ = {R_{}}$. Plus la résistance thermique est faible, plus le flux thermique est élevé : l'objet  pompe  davantage de chaleur de la main.
+</div>
+<ol><li><strong>Mode de transfert thermique :</strong>
+<p>Lorsque la main est posée sur un objet, il y a <strong>contact direct</strong> entre la peau et la surface de l'objet. Le mode de transfert thermique mis en jeu est donc la <strong>conduction</strong>.</p>
+<p>L'énergie thermique se transmet de proche en proche, de la main (plus chaude, à environ $37 {^}$) vers l'objet (à $20 {^}$).</li><li><strong>Comparaison des flux thermiques :</strong></p>
+<strong>Données :</strong>
+<ul><li>Température de la main : $_{}  37 {^}$</li><li>Température des deux objets : $_{} = 20 {^}$</li><li>$R_{}  30  R_{}$
+</li></ul>
+<p>La différence de température $ T = _{} - _{}$ est la même dans les deux cas.</p>
+<p>Le flux thermique est donné par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {R_{}}$$</div></div></div></div></p>
+<p>Pour le <strong>verre</strong> :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{} = {R_{}}$$</div></div></div></div></p>
+<p>Pour le <strong>bois</strong> :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{} = {R_{}} = {30  R_{}} = {_{}}{30}$$</div></div></div></div></p>
+<strong>Conclusion :</strong> Le flux thermique entre la main et le verre est environ <strong>30 fois plus grand</strong> que le flux thermique entre la main et le bois :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{}  30  _{}$$</div></div></div></div></li><li><strong>Explication de la sensation :</strong>
+<p>La sensation de chaud ou de froid n'est <strong>pas</strong> liée à la température de l'objet, mais au <strong>flux thermique</strong> entre la main et l'objet.</p>
+<ul><li>Quand on touche le <strong>verre</strong>, sa résistance thermique est faible : le flux thermique est élevé. La main perd beaucoup d'énergie rapidement, ce qui donne une sensation de <strong>froid</strong>.</li><li>Quand on touche le <strong>bois</strong>, sa résistance thermique est élevée : le flux thermique est faible. La main perd peu d'énergie, ce qui donne une sensation de <strong>chaud</strong> (ou du moins, de tiédeur).
+</li></ul>
+<strong>Conclusion :</strong> Le bois semble plus chaud que le verre car sa résistance thermique est beaucoup plus grande, ce qui limite le flux thermique sortant de la main. La main se refroidit moins vite au contact du bois qu'au contact du verre, d'où la sensation subjective de chaleur, alors que les deux objets sont à la même température.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 5</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Fonctionnement d'une bouilloire.
+</div>
+<p>Un échantillon d'eau de masse $m = $700   $$ est initialement à la température $_i = $20   ^ C$$. On le porte à ébullition ($_f = $100   ^ C$$) à l'aide d'une bouilloire électrique en une durée $ t = $3   $$.</p>
+<p>Le schéma des transferts d'énergie pour le système \{eau\} est représenté ci-dessous :</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.00785 -70.00785 71.2657 188.2852'>
+<defs>
+<path id='g0-81' d='M3.694147 .367621C3.676214 .466252 3.676214 .591781 3.676214 .699377C3.676214 1.129763 3.747945 1.739477 4.456289 1.739477C5.523288 1.739477 5.980573 .134496 5.980573 0C5.980573-.053798 5.935741-.107597 5.86401-.107597S5.774346-.044832 5.747447 .017933C5.54122 .627646 5.021171 .851806 4.689415 .851806C4.276961 .851806 4.142466 .591781 4.052802-.044832C6.007472-.887671 6.796513-2.654047 6.796513-3.882441C6.796513-5.299128 5.846077-6.321295 4.438356-6.321295C2.429888-6.321295 .448319-4.259029 .448319-2.214695C.448319-.744209 1.461519 .19726 2.815442 .19726C3.183064 .19726 3.550685 .116563 3.703113 .071731L3.694147 .367621ZM2.27746-.161395C1.865006-.32279 1.264259-.789041 1.264259-1.945704C1.264259-2.420922 1.416687-3.864508 2.385056-5.021171C2.851308-5.56812 3.604483-6.070237 4.375592-6.070237C5.263263-6.070237 5.980573-5.415691 5.980573-4.160399C5.980573-3.263761 5.54122-1.23736 3.999004-.376588C3.918306-.860772 3.747945-1.33599 3.174097-1.33599C2.67198-1.33599 2.232628-.878705 2.232628-.42142C2.232628-.349689 2.25056-.224159 2.27746-.161395ZM3.721046-.233126C3.595517-.179328 3.245828-.053798 2.878207-.053798C2.761644-.053798 2.456787-.053798 2.456787-.42142C2.456787-.753176 2.788543-1.111831 3.183064-1.111831C3.71208-1.111831 3.721046-.627646 3.721046-.233126Z'/>
+<path id='g1-49' d='M2.145953-3.795766C2.145953-3.975093 2.122042-3.975093 1.942715-3.975093C1.548194-3.592528 .938481-3.592528 .723288-3.592528V-3.359402C.878705-3.359402 1.273225-3.359402 1.63188-3.526775V-.508095C1.63188-.310834 1.63188-.233126 1.016189-.233126H.759153V0C1.08792-.02391 1.554172-.02391 1.888917-.02391S2.689913-.02391 3.01868 0V-.233126H2.761644C2.145953-.233126 2.145953-.310834 2.145953-.508095V-3.795766Z'/>
+<path id='g1-50' d='M3.21594-1.117808H2.99477C2.982814-1.034122 2.923039-.639601 2.833375-.573848C2.791532-.537983 2.307347-.537983 2.223661-.537983H1.105853L1.870984-1.159651C2.074222-1.321046 2.606227-1.703611 2.791532-1.882939C2.970859-2.062267 3.21594-2.367123 3.21594-2.791532C3.21594-3.53873 2.540473-3.975093 1.739477-3.975093C.968369-3.975093 .430386-3.466999 .430386-2.905106C.430386-2.600249 .687422-2.564384 .753176-2.564384C.902615-2.564384 1.075965-2.67198 1.075965-2.887173C1.075965-3.01868 .998257-3.209963 .735243-3.209963C.872727-3.514819 1.23736-3.741968 1.649813-3.741968C2.27746-3.741968 2.612204-3.275716 2.612204-2.791532C2.612204-2.367123 2.331258-1.93076 1.912827-1.548194L.496139-.251059C.436364-.191283 .430386-.185305 .430386 0H3.030635L3.21594-1.117808Z'/>
+</defs>
+<g id='page1'>
+<path d='M-2.9258 7.125H-65.8242C-68.0234 7.125-69.8086 8.9102-69.8086 11.1094V37.1563C-69.8086 39.3555-68.0234 41.1406-65.8242 41.1406H-2.9258C-.7266 41.1406 1.0586 39.3555 1.0586 37.1563V11.1094C1.0586 8.9102-.7266 7.125-2.9258 7.125Z' fill='#dbeaee'/>
+<path d='M-2.9258 7.125H-65.8242C-68.0234 7.125-69.8086 8.9102-69.8086 11.1094V37.1563C-69.8086 39.3555-68.0234 41.1406-65.8242 41.1406H-2.9258C-.7266 41.1406 1.0586 39.3555 1.0586 37.1563V11.1094C1.0586 8.9102-.7266 7.125-2.9258 7.125Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -19.1879 7.4529)'>
+<use x='-34.375167' y='13.174533' xlink:href='#g2-83'/>
+<use x='-28.482047' y='13.174533' xlink:href='#g2-121'/>
+<use x='-22.883577' y='13.174533' xlink:href='#g2-115'/>
+<use x='-18.699452' y='13.174533' xlink:href='#g2-116'/>
+<use x='-14.574269' y='13.174533' xlink:href='#g2-232'/>
+<use x='-9.706901' y='13.174533' xlink:href='#g2-109'/>
+<use x='-.867217' y='13.174533' xlink:href='#g2-101'/>
+<use x='-28.449801' y='24.133438' xlink:href='#g2-123'/>
+<use x='-23.145991' y='24.133438' xlink:href='#g2-101'/>
+<use x='-18.278623' y='24.133438' xlink:href='#g2-97'/>
+<use x='-13.122146' y='24.133438' xlink:href='#g2-117'/>
+<use x='-7.229026' y='24.133438' xlink:href='#g2-125'/>
+</g>
+<path d='M-2.9258-69.8086H-65.8242C-68.0234-69.8086-69.8086-68.0234-69.8086-65.8242V-39.7773C-69.8086-37.5781-68.0234-35.793-65.8242-35.793H-2.9258C-.7266-35.793 1.0586-37.5781 1.0586-39.7773V-65.8242C1.0586-68.0234-.7266-69.8086-2.9258-69.8086Z' fill='#ffecd9'/>
+<path d='M-2.9258-69.8086H-65.8242C-68.0234-69.8086-69.8086-68.0234-69.8086-65.8242V-39.7773C-69.8086-37.5781-68.0234-35.793-65.8242-35.793H-2.9258C-.7266-35.793 1.0586-37.5781 1.0586-39.7773V-65.8242C1.0586-68.0234-.7266-69.8086-2.9258-69.8086Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -24.4441 -68.3614)'>
+<use x='-34.375167' y='13.174533' xlink:href='#g2-82'/>
+<use x='-26.426369' y='13.174533' xlink:href='#g2-233'/>
+<use x='-21.559001' y='13.174533' xlink:href='#g2-115'/>
+<use x='-17.374876' y='13.174533' xlink:href='#g2-105'/>
+<use x='-14.428312' y='13.174533' xlink:href='#g2-115'/>
+<use x='-10.244187' y='13.174533' xlink:href='#g2-116'/>
+<use x='-6.119003' y='13.174533' xlink:href='#g2-97'/>
+<use x='-.962527' y='13.174533' xlink:href='#g2-110'/>
+<use x='4.930594' y='13.174533' xlink:href='#g2-99'/>
+<use x='9.645095' y='13.174533' xlink:href='#g2-101'/>
+<use x='-33.580251' y='24.133438' xlink:href='#g2-99'/>
+<use x='-29.160421' y='24.133438' xlink:href='#g2-104'/>
+<use x='-23.267301' y='24.133438' xlink:href='#g2-97'/>
+<use x='-18.110824' y='24.133438' xlink:href='#g2-117'/>
+<use x='-12.217704' y='24.133438' xlink:href='#g2-27'/>
+<use x='-6.029925' y='24.133438' xlink:href='#g2-97'/>
+<use x='-.873448' y='24.133438' xlink:href='#g2-110'/>
+<use x='4.725001' y='24.133438' xlink:href='#g2-116'/>
+<use x='8.850184' y='24.133438' xlink:href='#g2-101'/>
+</g>
+<path d='M-2.9258 84.0586H-65.8242C-68.0234 84.0586-69.8086 85.8438-69.8086 88.0469V114.0898C-69.8086 116.293-68.0234 118.0781-65.8242 118.0781H-2.9258C-.7266 118.0781 1.0586 116.293 1.0586 114.0898V88.0469C1.0586 85.8438-.7266 84.0586-2.9258 84.0586Z' fill='#e6e6ff'/>
+<path d='M-2.9258 84.0586H-65.8242C-68.0234 84.0586-69.8086 85.8438-69.8086 88.0469V114.0898C-69.8086 116.293-68.0234 118.0781-65.8242 118.0781H-2.9258C-.7266 118.0781 1.0586 116.293 1.0586 114.0898V88.0469C1.0586 85.8438-.7266 84.0586-2.9258 84.0586Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -22.0054 80.0286)'>
+<use x='-34.375167' y='24.133438' xlink:href='#g2-69'/>
+<use x='-27.414087' y='24.133438' xlink:href='#g2-120'/>
+<use x='-21.815617' y='24.133438' xlink:href='#g2-116'/>
+<use x='-17.690434' y='24.133438' xlink:href='#g2-233'/>
+<use x='-12.823066' y='24.133438' xlink:href='#g2-114'/>
+<use x='-8.447493' y='24.133438' xlink:href='#g2-105'/>
+<use x='-5.500928' y='24.133438' xlink:href='#g2-101'/>
+<use x='-.633561' y='24.133438' xlink:href='#g2-117'/>
+<use x='5.259559' y='24.133438' xlink:href='#g2-114'/>
+</g>
+<path d='M-34.375002-35.5937V1.5156' stroke='#ff5900' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-34.375002 5.79297L-32.08203-.28906L-34.375002 1.71484L-36.66797-.28906Z' fill='#ff5900'/>
+<path d='M-34.375002 5.79297L-32.08203-.28906L-34.375002 1.71484L-36.66797-.28906Z' stroke='#ff5900' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#ff5900' transform='matrix(1 0 0 1 12.2223 -36.2756)'>
+<use x='-34.375167' y='24.133438' xlink:href='#g0-81'/>
+<use x='-27.106918' y='25.129686' xlink:href='#g1-49'/>
+</g>
+<path d='M-34.375002 41.3398V78.4492' stroke='#4d4dff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-34.375002 82.72658L-32.08203 76.64455L-34.375002 78.64846L-36.66797 76.64455Z' fill='#4d4dff'/>
+<path d='M-34.375002 82.72658L-32.08203 76.64455L-34.375002 78.64846L-36.66797 76.64455Z' stroke='#4d4dff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#4d4dff' transform='matrix(1 0 0 1 12.2223 40.6592)'>
+<use x='-34.375167' y='24.133438' xlink:href='#g0-81'/>
+<use x='-27.106918' y='25.129686' xlink:href='#g1-50'/>
+</g>
+</g>
+</svg></div>
+</div>
+<strong>Données :</strong>
+<ul><li>Capacité thermique massique de l'eau : $c_{} = $4{,}18  10^{3}   $$.</li><li>Puissance électrique de la résistance chauffante : $ = $1{,}5   $$.
+</li></ul>
+<ol><li>En supposant que l'intégralité de l'énergie électrique reçue par la résistance chauffante est utilisée pour chauffer l'eau, déterminer la valeur du transfert thermique $Q_1$.</li><li>Calculer la variation d'énergie interne de l'eau au cours de l'expérience.</li><li>En déduire la valeur du transfert thermique $Q_2$ vers l'extérieur. Commenter son signe.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Pour un système recevant un transfert thermique $Q_1$ (de la résistance) et cédant un transfert thermique $Q_2$ (vers l'extérieur), le premier principe de la thermodynamique s'écrit :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U = Q_1 + Q_2$$</div></div></div></div>
+(avec $Q_1 > 0$ si reçu et $Q_2 < 0$ si cédé par le système).
+</div>
+<ol><li><strong>Détermination du transfert thermique $Q_1$ :</strong>
+<strong>Données :</strong>
+<ul><li>Puissance électrique : $ = $1{,}5   $ = $1500   $$</li><li>Durée : $ t = $3   $ = 3  60 = $180   $$
+</li></ul>
+<strong>Méthode :</strong> Si l'intégralité de l'énergie électrique est transférée à l'eau sous forme de transfert thermique, alors :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_1 =    t$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+Q_1 &= 1500  180 \\
+Q_1 &= $2{,}70  10^{5}   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $Q_1 = $2{,}70  10^{5}   $ = $270   $$.</li><li><strong>Calcul de la variation d'énergie interne de l'eau :</strong>
+<strong>Données :</strong>
+<ul><li>$m = $700   $ = $0{,}700   $$</li><li>$c_{} = $4{,}18  10^{3}   $$</li><li>$ T = _f - _i = 100 - 20 = $80   $$
+</li></ul>
+<strong>Formule :</strong> $ U = m  c_{}   T$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ U &= 0{,}700  4{,}18  10^{3}  80 \\
+ U &= 0{,}700  334 400 \\
+ U &= $2{,}34  10^{5}   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $ U = $2{,}34  10^{5}   $  $234   $$.</li><li><strong>Valeur du transfert thermique $Q_2$ :</strong>
+<strong>Méthode :</strong> D'après le premier principe de la thermodynamique appliqué au système \{eau\} :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U = Q_1 + Q_2$$</div></div></div></div>
+<p>On isole $Q_2$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_2 =  U - Q_1$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+Q_2 &= 2{,}34  10^{5} - 2{,}70  10^{5} \\
+Q_2 &= -0{,}36  10^{5} \\
+Q_2 &= -3{,}6  10^{4} $$
+$$</div></div></div></div>
+<strong>Commentaire sur le signe :</strong>
+<p>$Q_2 < 0$ : cela signifie que le système \{eau\} <strong>cède</strong> de l'énergie à l'extérieur. Ce résultat est cohérent : une partie de l'énergie fournie par la résistance chauffante n'a pas servi à augmenter la température de l'eau, mais a été perdue sous forme de transfert thermique vers l'extérieur (vers l'air ambiant, le récipient, etc.).</p>
+<strong>Conclusion :</strong> $Q_2 = -3{,}6  10^{4} $$$. Le signe négatif indique que l'eau cède $36   $ à l'extérieur pendant le chauffage.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 6</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Bilan d'énergie dans un sauna.
+</div>
+<p>Un homme se trouve dans la cabine d'un sauna. Un radiateur électrique est utilisé pour compenser les pertes thermiques $Q_2$ avec l'extérieur (air extérieur, homme, etc.) et maintenir ainsi constante la température de la cabine.</p>
+<strong>Données</strong> relatives aux transferts d'énergie pendant la durée d'utilisation du sauna :
+<ul><li>Travail électrique reçu par le radiateur : $W_e = $12  10^{3}   $$.</li><li>Transfert thermique entre la cabine et l'extérieur : $|Q_2| = $13  10^{3}   $$.
+</li></ul>
+<p>On considère le système \{cabine\}.</p>
+<ol><li>Représenter sur un schéma les transferts d'énergie liés au système \{cabine\} et déterminer le signe de chacun de ces transferts.</li><li>Appliquer le premier principe de la thermodynamique et déterminer l'expression de la variation d'énergie interne $ U$ du système \{cabine\} en fonction de $Q_2$ et $W_e$.</li><li>Calculer la valeur de la variation d'énergie interne $ U$ du système \{cabine\}. Préciser si le radiateur permet de compenser entièrement les pertes thermiques. Justifier.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Le premier principe de la thermodynamique s'écrit, pour un système fermé :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U = W + Q$$</div></div></div></div>
+où $W$ est le travail reçu par le système et $Q$ est le transfert thermique reçu par le système.
+</div>
+<ol><li><strong>Schéma des transferts d'énergie et signes :</strong>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.00825 -70.00785 381.0435 34.4141'>
+<defs>
+<path id='g0-106' d='M1.470486-6.393026C1.470486-6.545455 1.470486-6.724782 1.282192-6.724782C1.084932-6.724782 1.084932-6.554421 1.084932-6.393026V1.909838C1.084932 2.062267 1.084932 2.241594 1.273225 2.241594C1.470486 2.241594 1.470486 2.071233 1.470486 1.909838V-6.393026Z'/>
+<path id='g1-101' d='M1.321046-1.344956C1.715567-1.344956 2.169863-1.374844 2.480697-1.476463C3.000747-1.649813 3.024658-2.014446 3.024658-2.10411C3.024658-2.397011 2.737733-2.636115 2.229639-2.636115C1.494396-2.636115 .478207-2.110087 .478207-1.08792C.478207-.454296 .89066 .059776 1.637858 .059776C2.749689 .059776 3.186052-.532005 3.186052-.603736C3.186052-.657534 3.120299-.723288 3.072478-.723288C3.04259-.723288 3.036613-.71731 2.946949-.627646C2.588294-.221171 1.97858-.137484 1.649813-.137484C1.165629-.137484 .992279-.484184 .992279-.86675C.992279-.91457 .998257-1.111831 1.058032-1.344956H1.321046ZM1.111831-1.542217C1.309091-2.247572 1.894894-2.438854 2.229639-2.438854C2.510585-2.438854 2.749689-2.313325 2.749689-2.098132C2.749689-1.542217 1.751432-1.542217 1.111831-1.542217Z'/>
+<path id='g2-62' d='M6.204732-2.035367C6.303362-2.080199 6.38406-2.125031 6.38406-2.25056C6.38406-2.367123 6.28543-2.420922 6.204732-2.456787L1.147696-4.886675C1.022167-4.94944 .977335-4.94944 .959402-4.94944C.842839-4.94944 .771108-4.850809 .771108-4.761146C.771108-4.653549 .824907-4.608717 .950436-4.545953L5.747447-2.25056L.950436 .053798C.824907 .116563 .771108 .161395 .771108 .268991C.771108 .331756 .824907 .457285 .968369 .457285C.977335 .457285 1.022167 .457285 1.129763 .403487L6.204732-2.035367Z'/>
+<path id='g2-81' d='M3.694147 .367621C3.676214 .466252 3.676214 .591781 3.676214 .699377C3.676214 1.129763 3.747945 1.739477 4.456289 1.739477C5.523288 1.739477 5.980573 .134496 5.980573 0C5.980573-.053798 5.935741-.107597 5.86401-.107597S5.774346-.044832 5.747447 .017933C5.54122 .627646 5.021171 .851806 4.689415 .851806C4.276961 .851806 4.142466 .591781 4.052802-.044832C6.007472-.887671 6.796513-2.654047 6.796513-3.882441C6.796513-5.299128 5.846077-6.321295 4.438356-6.321295C2.429888-6.321295 .448319-4.259029 .448319-2.214695C.448319-.744209 1.461519 .19726 2.815442 .19726C3.183064 .19726 3.550685 .116563 3.703113 .071731L3.694147 .367621ZM2.27746-.161395C1.865006-.32279 1.264259-.789041 1.264259-1.945704C1.264259-2.420922 1.416687-3.864508 2.385056-5.021171C2.851308-5.56812 3.604483-6.070237 4.375592-6.070237C5.263263-6.070237 5.980573-5.415691 5.980573-4.160399C5.980573-3.263761 5.54122-1.23736 3.999004-.376588C3.918306-.860772 3.747945-1.33599 3.174097-1.33599C2.67198-1.33599 2.232628-.878705 2.232628-.42142C2.232628-.349689 2.25056-.224159 2.27746-.161395ZM3.721046-.233126C3.595517-.179328 3.245828-.053798 2.878207-.053798C2.761644-.053798 2.456787-.053798 2.456787-.42142C2.456787-.753176 2.788543-1.111831 3.183064-1.111831C3.71208-1.111831 3.721046-.627646 3.721046-.233126Z'/>
+<path id='g2-87' d='M8.464259-5.083935C8.500125-5.137733 8.562889-5.236364 8.616687-5.308095C8.95741-5.801245 9.271233-5.828144 9.522291-5.846077C9.638854-5.855044 9.638854-5.998506 9.638854-6.007472C9.638854-6.06127 9.602989-6.124035 9.531258-6.124035C9.486426-6.124035 9.307098-6.097136 8.813948-6.097136C8.509091-6.097136 8.195268-6.124035 7.908344-6.124035C7.854545-6.124035 7.737983-6.124035 7.737983-5.96264C7.737983-5.855044 7.836613-5.846077 7.872478-5.846077C7.998007-5.837111 8.383562-5.819178 8.383562-5.505355C8.383562-5.44259 8.365629-5.352927 8.258032-5.173599L5.819178-.995268L5.44259-5.559153C5.44259-5.657783 5.532254-5.846077 6.088169-5.846077C6.195766-5.846077 6.303362-5.846077 6.303362-6.007472C6.303362-6.088169 6.240598-6.124035 6.168867-6.124035C5.926775-6.124035 5.326027-6.097136 5.083935-6.097136C4.752179-6.097136 4.734247-6.097136 4.590785-6.106102C4.474222-6.115068 4.23213-6.124035 4.124533-6.124035C4.079701-6.124035 3.963138-6.124035 3.963138-5.96264C3.963138-5.846077 4.061768-5.846077 4.169365-5.846077C4.581818-5.846077 4.617684-5.783313 4.635616-5.639851C4.644583-5.586052 4.689415-5.039103 4.689415-5.021171C4.689415-4.985305 4.689415-4.958406 4.62665-4.850809L2.367123-.995268L1.999502-5.415691C1.981569-5.595019 1.963636-5.837111 2.627148-5.846077C2.743711-5.846077 2.851308-5.846077 2.851308-6.007472C2.851308-6.115068 2.752677-6.124035 2.716812-6.124035C2.555417-6.124035 2.367123-6.106102 2.196762-6.106102C2.017435-6.106102 1.820174-6.097136 1.640847-6.097136C1.479452-6.097136 1.255293-6.097136 1.147696-6.106102C1.066999-6.106102 .753176-6.124035 .681445-6.124035C.645579-6.124035 .52005-6.124035 .52005-5.96264C.52005-5.846077 .61868-5.846077 .726276-5.846077C1.174595-5.846077 1.183562-5.774346 1.201494-5.532254L1.65878-.026899C1.667746 .125529 1.676712 .19726 1.811208 .19726C1.936737 .19726 1.963636 .143462 2.044334 .008966L4.72528-4.572852L5.101868-.044832C5.110834 .116563 5.119801 .19726 5.263263 .19726C5.299128 .19726 5.397758 .19726 5.505355 .008966L8.464259-5.083935Z'/>
+<path id='g3-50' d='M3.21594-1.117808H2.99477C2.982814-1.034122 2.923039-.639601 2.833375-.573848C2.791532-.537983 2.307347-.537983 2.223661-.537983H1.105853L1.870984-1.159651C2.074222-1.321046 2.606227-1.703611 2.791532-1.882939C2.970859-2.062267 3.21594-2.367123 3.21594-2.791532C3.21594-3.53873 2.540473-3.975093 1.739477-3.975093C.968369-3.975093 .430386-3.466999 .430386-2.905106C.430386-2.600249 .687422-2.564384 .753176-2.564384C.902615-2.564384 1.075965-2.67198 1.075965-2.887173C1.075965-3.01868 .998257-3.209963 .735243-3.209963C.872727-3.514819 1.23736-3.741968 1.649813-3.741968C2.27746-3.741968 2.612204-3.275716 2.612204-2.791532C2.612204-2.367123 2.331258-1.93076 1.912827-1.548194L.496139-.251059C.436364-.191283 .430386-.185305 .430386 0H3.030635L3.21594-1.117808Z'/>
+<path id='g4-48' d='M4.241096-2.86924C4.241096-3.469988 4.214197-4.241096 3.900374-4.913574C3.505853-5.756413 2.824408-5.971606 2.304359-5.971606C1.766376-5.971606 1.084932-5.756413 .690411-4.895641C.403487-4.276961 .358655-3.550685 .358655-2.86924C.358655-2.286426 .376588-1.416687 .762142-.708344C1.183562 .053798 1.882939 .19726 2.295392 .19726C2.878207 .19726 3.541719-.053798 3.918306-.878705C4.187298-1.479452 4.241096-2.15193 4.241096-2.86924ZM2.304359-.026899C2.035367-.026899 1.389788-.152428 1.219427-1.165629C1.129763-1.694645 1.129763-2.465753 1.129763-2.976837C1.129763-3.58655 1.129763-4.294894 1.23736-4.788045C1.416687-5.586052 1.990535-5.747447 2.295392-5.747447C2.636115-5.747447 3.200996-5.56812 3.371357-4.734247C3.469988-4.241096 3.469988-3.541719 3.469988-2.976837C3.469988-2.420922 3.469988-1.667746 3.380324-1.13873C3.19203-.116563 2.528518-.026899 2.304359-.026899Z'/>
+</defs>
+<g id='page1'>
+<path d='M156.2109-69.8086H84.8125C82.6094-69.8086 80.8281-68.0234 80.8281-65.8242V-39.7773C80.8281-37.5781 82.6094-35.793 84.8125-35.793H156.2109C158.4141-35.793 160.1992-37.5781 160.1992-39.7773V-65.8242C160.1992-68.0234 158.4141-69.8086 156.2109-69.8086Z' fill='#dbeaee'/>
+<path d='M156.2109-69.8086H84.8125C82.6094-69.8086 80.8281-68.0234 80.8281-65.8242V-39.7773C80.8281-37.5781 82.6094-35.793 84.8125-35.793H156.2109C158.4141-35.793 160.1992-37.5781 160.1992-39.7773V-65.8242C160.1992-68.0234 158.4141-69.8086 156.2109-69.8086Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -20.04 7.4529)'>
+<use x='121.363354' y='-63.7593' xlink:href='#g5-83'/>
+<use x='127.256474' y='-63.7593' xlink:href='#g5-121'/>
+<use x='132.854943' y='-63.7593' xlink:href='#g5-115'/>
+<use x='137.039069' y='-63.7593' xlink:href='#g5-116'/>
+<use x='141.164252' y='-63.7593' xlink:href='#g5-232'/>
+<use x='146.031619' y='-63.7593' xlink:href='#g5-109'/>
+<use x='154.871304' y='-63.7593' xlink:href='#g5-101'/>
+<use x='120.511628' y='-52.800396' xlink:href='#g5-123'/>
+<use x='125.815439' y='-52.800396' xlink:href='#g5-99'/>
+<use x='130.52994' y='-52.800396' xlink:href='#g5-97'/>
+<use x='135.686417' y='-52.800396' xlink:href='#g5-98'/>
+<use x='141.579537' y='-52.800396' xlink:href='#g5-105'/>
+<use x='144.526101' y='-52.800396' xlink:href='#g5-110'/>
+<use x='150.419221' y='-52.800396' xlink:href='#g5-101'/>
+<use x='155.286589' y='-52.800396' xlink:href='#g5-125'/>
+</g>
+<path d='M5.574-69.8086H-65.824C-68.027-69.8086-69.809-68.0234-69.809-65.8242V-39.7773C-69.809-37.5781-68.027-35.793-65.824-35.793H5.574C7.777-35.793 9.562-37.5781 9.562-39.7773V-65.8242C9.562-68.0234 7.777-69.8086 5.574-69.8086Z' fill='#ffecd9'/>
+<path d='M5.574-69.8086H-65.824C-68.027-69.8086-69.809-68.0234-69.809-65.8242V-39.7773C-69.809-37.5781-68.027-35.793-65.824-35.793H5.574C7.777-35.793 9.562-37.5781 9.562-39.7773V-65.8242C9.562-68.0234 7.777-69.8086 5.574-69.8086Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -173.8183 7.7019)'>
+<use x='120.511628' y='-63.7593' xlink:href='#g5-82'/>
+<use x='128.460426' y='-63.7593' xlink:href='#g5-97'/>
+<use x='133.616903' y='-63.7593' xlink:href='#g5-100'/>
+<use x='139.510023' y='-63.7593' xlink:href='#g5-105'/>
+<use x='142.456588' y='-63.7593' xlink:href='#g5-97'/>
+<use x='147.613065' y='-63.7593' xlink:href='#g5-116'/>
+<use x='151.738248' y='-63.7593' xlink:href='#g5-101'/>
+<use x='156.605615' y='-63.7593' xlink:href='#g5-117'/>
+<use x='162.498735' y='-63.7593' xlink:href='#g5-114'/>
+<use x='121.091926' y='-52.800396' xlink:href='#g5-233'/>
+<use x='125.959293' y='-52.800396' xlink:href='#g5-108'/>
+<use x='128.905858' y='-52.800396' xlink:href='#g5-101'/>
+<use x='133.773225' y='-52.800396' xlink:href='#g5-99'/>
+<use x='138.487726' y='-52.800396' xlink:href='#g5-116'/>
+<use x='142.61291' y='-52.800396' xlink:href='#g5-114'/>
+<use x='146.988483' y='-52.800396' xlink:href='#g5-105'/>
+<use x='149.935048' y='-52.800396' xlink:href='#g5-113'/>
+<use x='155.533517' y='-52.800396' xlink:href='#g5-117'/>
+<use x='161.426637' y='-52.800396' xlink:href='#g5-101'/>
+</g>
+<path d='M306.848-69.8086H235.449C233.246-69.8086 231.465-68.0234 231.465-65.8242V-39.7773C231.465-37.5781 233.246-35.793 235.449-35.793H306.848C309.051-35.793 310.836-37.5781 310.836-39.7773V-65.8242C310.836-68.0234 309.051-69.8086 306.848-69.8086Z' fill='#d9d9ff'/>
+<path d='M306.848-69.8086H235.449C233.246-69.8086 231.465-68.0234 231.465-65.8242V-39.7773C231.465-37.5781 233.246-35.793 235.449-35.793H306.848C309.051-35.793 310.836-37.5781 310.836-39.7773V-65.8242C310.836-68.0234 309.051-69.8086 306.848-69.8086Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 128.631 3.0939)'>
+<use x='120.511628' y='-52.800396' xlink:href='#g5-69'/>
+<use x='127.472709' y='-52.800396' xlink:href='#g5-120'/>
+<use x='133.071178' y='-52.800396' xlink:href='#g5-116'/>
+<use x='137.196361' y='-52.800396' xlink:href='#g5-233'/>
+<use x='142.063729' y='-52.800396' xlink:href='#g5-114'/>
+<use x='146.439303' y='-52.800396' xlink:href='#g5-105'/>
+<use x='149.385867' y='-52.800396' xlink:href='#g5-101'/>
+<use x='154.253234' y='-52.800396' xlink:href='#g5-117'/>
+<use x='160.146355' y='-52.800396' xlink:href='#g5-114'/>
+</g>
+<path d='M9.762-52.800781H75.2148' stroke='#ff5900' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M79.49223-52.800781L73.4102-55.09375L75.41411-52.800781L73.4102-50.50781Z' fill='#ff5900'/>
+<path d='M79.49223-52.800781L73.4102-55.09375L75.41411-52.800781L73.4102-50.50781Z' stroke='#ff5900' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#ff5900' transform='matrix(1 0 0 1 -90.1265 -4.7145)'>
+<use x='120.511628' y='-52.800396' xlink:href='#g2-87'/>
+<use x='129.213676' y='-51.804148' xlink:href='#g1-101'/>
+<use x='135.79246' y='-52.800396' xlink:href='#g2-62'/>
+<use x='145.519807' y='-52.800396' xlink:href='#g4-48'/>
+</g>
+<path d='M160.3984-52.800781H225.852' stroke='#4d4dff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M230.12905-52.800781L224.04702-55.09375L226.05092-52.800781L224.04702-50.50781Z' fill='#4d4dff'/>
+<path d='M230.12905-52.800781L224.04702-55.09375L226.05092-52.800781L224.04702-50.50781Z' stroke='#4d4dff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#4d4dff' transform='matrix(1 0 0 1 67.049 -5.9599)'>
+<use x='120.511628' y='-52.800396' xlink:href='#g0-106'/>
+<use x='123.071456' y='-52.800396' xlink:href='#g2-81'/>
+<use x='130.339706' y='-51.804148' xlink:href='#g3-50'/>
+<use x='134.49075' y='-52.800396' xlink:href='#g0-106'/>
+</g>
+</g>
+</svg></div>
+</div>
+<p>{Analyse des signes pour le système \{cabine\} :}</p>
+<ul><li>$W_e > 0$ : le travail électrique est <strong>reçu</strong> par le système \{cabine\}. Le radiateur fournit de l'énergie à la cabine. Donc $W_e = + $12  10^{3}   $$.</li><li>$Q_2 < 0$ : le transfert thermique est <strong>cédé</strong> par le système \{cabine\} vers l'extérieur (la cabine perd de l'énergie vers l'air extérieur, l'homme, etc.). Donc $Q_2 = - $13  10^{3}   $$.
+</li></ul></li><li><strong>Application du premier principe de la thermodynamique :</strong>
+<p>Le premier principe de la thermodynamique appliqué au système \{cabine\} s'écrit :</p>
+<div class="definition-box">
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div>
+</div>
+<p>Le système reçoit le travail électrique $W_e$ (positif) et cède de l'énergie thermique à l'extérieur sous la forme de $Q_2$ (négatif).</li><li><strong>Calcul de $ U$ et analyse :</strong></p>
+<strong>Données :</strong>
+<ul><li>$W_e = + $12  10^{3}   $$</li><li>$Q_2 = - $13  10^{3}   $$
+</li></ul>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ U &= W_e + Q_2 \\
+ U &= (+12  10^{3}) + (-13  10^{3}) \\
+ U &= (12 000) + (-13 000) \\
+ U &= -1{,}0  10^{3} $$
+$$</div></div></div></div>
+<strong>Analyse :</strong>
+<p>$ U = -1{,}0  10^{3} $$ < 0$.</p>
+<p>La variation d'énergie interne est <strong>négative</strong>, ce qui signifie que l'énergie interne de la cabine a <strong>diminué</strong>. La température de la cabine a donc légèrement baissé.</p>
+<strong>Conclusion :</strong> Le radiateur ne permet <strong>pas</strong> de compenser entièrement les pertes thermiques. En effet, l'énergie fournie par le radiateur ($W_e = $12   $$) est inférieure aux pertes thermiques ($|Q_2| = $13   $$). Il manque $1   $ pour maintenir la température constante. Pour maintenir la température de la cabine, il faudrait que $ U = 0$, ce qui nécessiterait $W_e = |Q_2|$, soit un radiateur un peu plus puissant.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 7</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Valeur en eau d'un calorimètre.
+</div>
+<p>Un calorimètre est un récipient parfaitement isolé qui permet d'éviter les transferts thermiques avec l'extérieur.</p>
+<p>Un calorimètre contient un échantillon d'eau chaude de masse $m_1 = $95   $$ à la température $_1 = $20   ^ C$$. Un échantillon d'eau froide de masse $m_2 = $71   $$ à la température $_2 = $50   ^ C$$ est alors ajouté. Lorsque l'équilibre thermique est atteint, la température finale $_f$ est relevée.</p>
+<strong>Données :</strong>
+<ul><li>Capacité thermique massique de l'eau : $c_{} = $4{,}18  10^{3}   $$.
+</li></ul>
+<ol><li>Dans un premier temps, l'influence du calorimètre est négligée. Exprimer la variation d'énergie interne de chacun des systèmes \{eau froide\} et \{eau chaude\}.</li><li>En déduire la température finale de l'eau dans le calorimètre.</li><li>La mesure donne $_f = $31{,}3   ^ C$$. Commenter ce résultat.</li><li>Reprendre les raisonnements précédents en prenant en compte l'influence du calorimètre. En déduire la capacité thermique du calorimètre, appelée  valeur en eau .
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Dans un calorimètre parfaitement isolé, l'énergie thermique ne peut pas s'échapper vers l'extérieur. La somme des variations d'énergie interne de tous les sous-systèmes (eau chaude, eau froide, calorimètre) est nulle :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U_{} +  U_{} +  U_{} = 0$$</div></div></div></div>
+</div>
+<ol><li><strong>Variations d'énergie interne (influence du calorimètre négligée) :</strong>
+<strong>Attention à l'énoncé :</strong> l'eau de masse $m_1 = $95   $$ est à $_1 = $20   ^ C$$ (eau froide) et l'eau de masse $m_2 = $71   $$ est à $_2 = $50   ^ C$$ (eau chaude).
+<div class="info-box">
+<strong>Remarque :</strong> Bien identifier quelle eau est chaude et quelle eau est froide. L'eau à $50   ^ C$ est la plus chaude, l'eau à $20   ^ C$ est la plus froide.
+</div>
+<p>Pour le système \{eau froide\} (masse $m_1$, température initiale $_1$, température finale $_f$) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U_{} = m_1  c_{}  (_f - _1)$$</div></div></div></div></p>
+<p>Pour le système \{eau chaude\} (masse $m_2$, température initiale $_2$, température finale $_f$) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U_{} = m_2  c_{}  (_f - _2)$$</div></div></div></div></li><li><strong>Température finale $_f$ (calorimètre négligé) :</strong></p>
+<strong>Méthode :</strong> Le calorimètre étant isolé, la somme des variations d'énergie interne est nulle :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U_{} +  U_{} = 0$$</div></div></div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m_1  c_{}  (_f - _1) + m_2  c_{}  (_f - _2) = 0$$</div></div></div></div>
+<p>On peut simplifier par $c_{}$ (facteur commun non nul) :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m_1  (_f - _1) + m_2  (_f - _2) = 0$$</div></div></div></div></p>
+<p>Développons :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m_1  _f - m_1  _1 + m_2  _f - m_2  _2 = 0$$</div></div></div></div></p>
+<p>Factorisons $_f$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_f  (m_1 + m_2) = m_1  _1 + m_2  _2$$</div></div></div></div></p>
+<p>D'où :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_f = {m_1 + m_2}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_f &= {95 + 71} \\
+_f &= {166} \\
+_f &= {166} \\
+_f & $32{,}8   ^ C$
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La température finale théorique (calorimètre négligé) est $_f  $32{,}8   ^ C$$.</li><li>{Commentaire sur la mesure $_f = $31{,}3   ^ C$$ :}
+<p>La température mesurée ($$31{,}3   ^ C$$) est <strong>inférieure</strong> à la température théorique calculée ($$32{,}8   ^ C$$).</p>
+<strong>Explication :</strong> La différence provient du fait que le calorimètre lui-même absorbe une partie de l'énergie thermique. Le calorimètre, initialement à la même température que l'eau froide ($$20   ^ C$$), se réchauffe également lors du mélange. L'énergie cédée par l'eau chaude est partagée entre l'eau froide <strong>et</strong> le calorimètre, ce qui conduit à une température finale plus basse que celle calculée en négligeant le calorimètre.</li><li><strong>Prise en compte du calorimètre -- Calcul de la capacité thermique :</strong>
+<strong>Méthode :</strong> On note $C_{}$ la capacité thermique du calorimètre (en $$). Le calorimètre est initialement à la température $_1 = $20   ^ C$$ (même température que l'eau froide qu'il contient).
+<p>Le bilan d'énergie complet dans le calorimètre isolé s'écrit :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U_{} +  U_{} +  U_{} = 0$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m_1  c_{}  (_f - _1) + m_2  c_{}  (_f - _2) + C_{}  (_f - _1) = 0$$</div></div></div></div>
+<p>On isole $C_{}$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C_{}  (_f - _1) = - m_1  c_{}  (_f - _1) - m_2  c_{}  (_f - _2)$$</div></div></div></div></p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$C_{} = {- m_1  c_{}  (_f - _1) - m_2  c_{}  (_f - _2)}{_f - _1}$$</div></div></div></div>
+<strong>Application numérique :</strong> avec $_f = $31{,}3   ^ C$$.
+<p>Calculons chaque terme séparément :</p>
+<ul><li>$_f - _1 = 31{,}3 - 20 = $11{,}3   $$</li><li>$_f - _2 = 31{,}3 - 50 = $-18{,}7   $$
+</li></ul>
+<p>Numérateur :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>N &= - m_1  c_{}  (_f - _1) - m_2  c_{}  (_f - _2) \\<br>N &= - 0{,}095  4180  11{,}3 - 0{,}071  4180  (-18{,}7) \\<br>N &= - 4486 + 5548 \\<br>N &= $1062   $<br>$$</div></div></div></div></p>
+<p>Dénominateur :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$D = _f - _1 = $11{,}3   $$</div></div>$</div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>C_{} &= {11{,}3} \\<br>C_{} & $94   $<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> La capacité thermique du calorimètre (sa  valeur en eau ) est $C_{}  $94   $$.
+<div class="info-box">
+<strong>Remarque :</strong> On appelle cette grandeur  valeur en eau  car elle équivaut à la capacité thermique d'une certaine masse d'eau. Ici, $C_{}  $94   $$, ce qui correspond à environ ${4180}  $22   $$ d'eau. Tout se passe comme si le calorimètre se comportait thermiquement comme $22   $ d'eau supplémentaire.
+</div>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 8</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Confort thermique d'un igloo.
+</div>
+<p>Pour passer la nuit au chaud, les Inuits ont l'habitude de construire des igloos constitués de neige compactée.</p>
+<p>La température intérieure d'un igloo est en moyenne $_{} = $20   ^ C$$, la température extérieure est $_{} = $-40   ^ C$$. Pendant la nuit, un Inuit dégage moins de $0{,}5   $ de chaleur par heure.</p>
+<strong>Données :</strong>
+<ul><li>Conductivité thermique de la neige compactée : $_{} = $0{,}25   $$.</li><li>Rayon intérieur de l'igloo : $R_0 = $1{,}0   $$.</li><li>On modélise l'igloo par une demi-sphère de surface intérieure $S = 2 R_0^2$.</li><li>Résistance thermique d'une paroi plane : $R_{} = {  S}$, où $e$ est l'épaisseur de la paroi.
+</li></ul>
+<ol><li>Préciser la signification de l'expression  $0{,}5   $ de chaleur par heure . Exprimer cette grandeur dans son unité conventionnelle en watt.</li><li>Un igloo peut accueillir trois Inuits. Déterminer la valeur de la résistance thermique $R_{}$ de l'igloo pour qu'il ne se refroidisse pas au cours de la nuit.</li><li>En déduire l'épaisseur $e$ des murs de l'igloo, sachant que la résistance thermique est donnée par la formule ci-dessus.</li><li>Commenter le résultat obtenu. Ce résultat vous semble-t-il réaliste ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Pour que l'igloo ne se refroidisse pas, l'énergie thermique dégagée par les Inuits doit compenser exactement les pertes thermiques à travers les murs. Le flux thermique sortant par les murs est $ = {R_{}}$, et il doit être au plus égal à la puissance thermique dégagée par les occupants.
+</div>
+<ol><li>{Signification de  $0{,}5   $ de chaleur par heure  :}
+<p>Cette expression signifie que chaque Inuit libère une énergie thermique de $0{,}5   $ pendant une durée d'une heure. Il s'agit d'une <strong>puissance thermique</strong> (énergie par unité de temps).</p>
+<strong>Conversion :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_{} &= { t} = {$0{,}5  10^{6}   $}{$1   $} \\
+_{} &= {0{,}5  10^{6}}{3600} \\
+_{} & $139   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Un Inuit dégage une puissance thermique inférieure à $_{}  $139   $$. On retiendra que la puissance est d'au plus $$139   $$ (mais en fait strictement inférieure à cette valeur d'après l'énoncé qui dit  moins de ).</li><li><strong>Résistance thermique minimale de l'igloo :</strong>
+<strong>Données :</strong>
+<ul><li>3 Inuits : puissance thermique totale maximale : $_{} = 3  139  $417   $$</li><li>$_{} = $20   ^ C$$ et $_{} = -40 {^}$</li><li>$ T = _{} - _{} = 20 - (-40) = $60   $$
+</li></ul>
+<strong>Méthode :</strong> Pour que l'igloo ne se refroidisse pas, le flux thermique perdu à travers les murs doit être au plus égal à la puissance thermique dégagée par les 3 Inuits :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$  _{}$$</div></div></div></div>
+<p>Or $ = {R_{}}$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${R_{}}  _{}$$</div></div></div></div></p>
+<p>On isole $R_{}$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$R_{}  {_{}}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+R_{} & {417} \\
+R_{} & $0{,}14   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La résistance thermique de l'igloo doit être au minimum de $R_{}  $0{,}14   $$.</li><li><strong>Épaisseur des murs :</strong>
+<strong>Données :</strong>
+<ul><li>$R_{} = {  S}$</li><li>$_{} = $0{,}25   $$</li><li>$S = 2 R_0^2 = 2  (1{,}0)^2 = 2  $6{,}28   $$
+</li></ul>
+<p>On isole $e$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$e = R_{}    S$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+e &= 0{,}14  0{,}25  6{,}28 \\
+e &= 0{,}14  1{,}57 \\
+e & $0{,}22   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'épaisseur minimale des murs de l'igloo est $e  $0{,}22   $  $22   $$.</li><li><strong>Commentaire :</strong>
+<p>Une épaisseur de mur d'environ $22   $ est tout à fait <strong>réaliste</strong>. En pratique, les igloos sont construits avec des blocs de neige compactée d'épaisseur comprise entre 20 et 40 cm, ce qui est cohérent avec notre résultat.</p>
+<p>De plus, nous avons utilisé la puissance maximale ( moins de $0{,}5   $ par heure ) et supposé un igloo de petit rayon ($1{,}0   $). En réalité, des murs plus épais offrent une meilleure isolation, et la neige compactée est effectivement un bon isolant thermique (grâce à l'air emprisonné entre les cristaux de neige, qui conduit mal la chaleur).</p>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 9</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Bilan énergétique d'un réfrigérateur.
+</div>
+<p>Un réfrigérateur est une machine cyclique dont les transferts énergétiques pour un cycle sont représentés sur le schéma ci-dessous.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.00825 -70.00785 382.4025 176.9454'>
+<defs>
+<path id='g0-101' d='M1.321046-1.344956C1.715567-1.344956 2.169863-1.374844 2.480697-1.476463C3.000747-1.649813 3.024658-2.014446 3.024658-2.10411C3.024658-2.397011 2.737733-2.636115 2.229639-2.636115C1.494396-2.636115 .478207-2.110087 .478207-1.08792C.478207-.454296 .89066 .059776 1.637858 .059776C2.749689 .059776 3.186052-.532005 3.186052-.603736C3.186052-.657534 3.120299-.723288 3.072478-.723288C3.04259-.723288 3.036613-.71731 2.946949-.627646C2.588294-.221171 1.97858-.137484 1.649813-.137484C1.165629-.137484 .992279-.484184 .992279-.86675C.992279-.91457 .998257-1.111831 1.058032-1.344956H1.321046ZM1.111831-1.542217C1.309091-2.247572 1.894894-2.438854 2.229639-2.438854C2.510585-2.438854 2.749689-2.313325 2.749689-2.098132C2.749689-1.542217 1.751432-1.542217 1.111831-1.542217Z'/>
+<path id='g1-81' d='M3.694147 .367621C3.676214 .466252 3.676214 .591781 3.676214 .699377C3.676214 1.129763 3.747945 1.739477 4.456289 1.739477C5.523288 1.739477 5.980573 .134496 5.980573 0C5.980573-.053798 5.935741-.107597 5.86401-.107597S5.774346-.044832 5.747447 .017933C5.54122 .627646 5.021171 .851806 4.689415 .851806C4.276961 .851806 4.142466 .591781 4.052802-.044832C6.007472-.887671 6.796513-2.654047 6.796513-3.882441C6.796513-5.299128 5.846077-6.321295 4.438356-6.321295C2.429888-6.321295 .448319-4.259029 .448319-2.214695C.448319-.744209 1.461519 .19726 2.815442 .19726C3.183064 .19726 3.550685 .116563 3.703113 .071731L3.694147 .367621ZM2.27746-.161395C1.865006-.32279 1.264259-.789041 1.264259-1.945704C1.264259-2.420922 1.416687-3.864508 2.385056-5.021171C2.851308-5.56812 3.604483-6.070237 4.375592-6.070237C5.263263-6.070237 5.980573-5.415691 5.980573-4.160399C5.980573-3.263761 5.54122-1.23736 3.999004-.376588C3.918306-.860772 3.747945-1.33599 3.174097-1.33599C2.67198-1.33599 2.232628-.878705 2.232628-.42142C2.232628-.349689 2.25056-.224159 2.27746-.161395ZM3.721046-.233126C3.595517-.179328 3.245828-.053798 2.878207-.053798C2.761644-.053798 2.456787-.053798 2.456787-.42142C2.456787-.753176 2.788543-1.111831 3.183064-1.111831C3.71208-1.111831 3.721046-.627646 3.721046-.233126Z'/>
+<path id='g1-87' d='M8.464259-5.083935C8.500125-5.137733 8.562889-5.236364 8.616687-5.308095C8.95741-5.801245 9.271233-5.828144 9.522291-5.846077C9.638854-5.855044 9.638854-5.998506 9.638854-6.007472C9.638854-6.06127 9.602989-6.124035 9.531258-6.124035C9.486426-6.124035 9.307098-6.097136 8.813948-6.097136C8.509091-6.097136 8.195268-6.124035 7.908344-6.124035C7.854545-6.124035 7.737983-6.124035 7.737983-5.96264C7.737983-5.855044 7.836613-5.846077 7.872478-5.846077C7.998007-5.837111 8.383562-5.819178 8.383562-5.505355C8.383562-5.44259 8.365629-5.352927 8.258032-5.173599L5.819178-.995268L5.44259-5.559153C5.44259-5.657783 5.532254-5.846077 6.088169-5.846077C6.195766-5.846077 6.303362-5.846077 6.303362-6.007472C6.303362-6.088169 6.240598-6.124035 6.168867-6.124035C5.926775-6.124035 5.326027-6.097136 5.083935-6.097136C4.752179-6.097136 4.734247-6.097136 4.590785-6.106102C4.474222-6.115068 4.23213-6.124035 4.124533-6.124035C4.079701-6.124035 3.963138-6.124035 3.963138-5.96264C3.963138-5.846077 4.061768-5.846077 4.169365-5.846077C4.581818-5.846077 4.617684-5.783313 4.635616-5.639851C4.644583-5.586052 4.689415-5.039103 4.689415-5.021171C4.689415-4.985305 4.689415-4.958406 4.62665-4.850809L2.367123-.995268L1.999502-5.415691C1.981569-5.595019 1.963636-5.837111 2.627148-5.846077C2.743711-5.846077 2.851308-5.846077 2.851308-6.007472C2.851308-6.115068 2.752677-6.124035 2.716812-6.124035C2.555417-6.124035 2.367123-6.106102 2.196762-6.106102C2.017435-6.106102 1.820174-6.097136 1.640847-6.097136C1.479452-6.097136 1.255293-6.097136 1.147696-6.106102C1.066999-6.106102 .753176-6.124035 .681445-6.124035C.645579-6.124035 .52005-6.124035 .52005-5.96264C.52005-5.846077 .61868-5.846077 .726276-5.846077C1.174595-5.846077 1.183562-5.774346 1.201494-5.532254L1.65878-.026899C1.667746 .125529 1.676712 .19726 1.811208 .19726C1.936737 .19726 1.963636 .143462 2.044334 .008966L4.72528-4.572852L5.101868-.044832C5.110834 .116563 5.119801 .19726 5.263263 .19726C5.299128 .19726 5.397758 .19726 5.505355 .008966L8.464259-5.083935Z'/>
+<path id='g2-49' d='M2.145953-3.795766C2.145953-3.975093 2.122042-3.975093 1.942715-3.975093C1.548194-3.592528 .938481-3.592528 .723288-3.592528V-3.359402C.878705-3.359402 1.273225-3.359402 1.63188-3.526775V-.508095C1.63188-.310834 1.63188-.233126 1.016189-.233126H.759153V0C1.08792-.02391 1.554172-.02391 1.888917-.02391S2.689913-.02391 3.01868 0V-.233126H2.761644C2.145953-.233126 2.145953-.310834 2.145953-.508095V-3.795766Z'/>
+<path id='g2-50' d='M3.21594-1.117808H2.99477C2.982814-1.034122 2.923039-.639601 2.833375-.573848C2.791532-.537983 2.307347-.537983 2.223661-.537983H1.105853L1.870984-1.159651C2.074222-1.321046 2.606227-1.703611 2.791532-1.882939C2.970859-2.062267 3.21594-2.367123 3.21594-2.791532C3.21594-3.53873 2.540473-3.975093 1.739477-3.975093C.968369-3.975093 .430386-3.466999 .430386-2.905106C.430386-2.600249 .687422-2.564384 .753176-2.564384C.902615-2.564384 1.075965-2.67198 1.075965-2.887173C1.075965-3.01868 .998257-3.209963 .735243-3.209963C.872727-3.514819 1.23736-3.741968 1.649813-3.741968C2.27746-3.741968 2.612204-3.275716 2.612204-2.791532C2.612204-2.367123 2.331258-1.93076 1.912827-1.548194L.496139-.251059C.436364-.191283 .430386-.185305 .430386 0H3.030635L3.21594-1.117808Z'/>
+</defs>
+<g id='page1'>
+<path d='M156.2109 1.457H84.8125C82.6094 1.457 80.8281 3.2422 80.8281 5.4414V31.4883C80.8281 33.6875 82.6094 35.4727 84.8125 35.4727H156.2109C158.4141 35.4727 160.1992 33.6875 160.1992 31.4883V5.4414C160.1992 3.2422 158.4141 1.457 156.2109 1.457Z' fill='#dbeaee'/>
+<path d='M156.2109 1.457H84.8125C82.6094 1.457 80.8281 3.2422 80.8281 5.4414V31.4883C80.8281 33.6875 82.6094 35.4727 84.8125 35.4727H156.2109C158.4141 35.4727 160.1992 33.6875 160.1992 31.4883V5.4414C160.1992 3.2422 158.4141 1.457 156.2109 1.457Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -24.7127 7.7019)'>
+<use x='130.617439' y='7.505333' xlink:href='#g3-70'/>
+<use x='137.28386' y='7.505333' xlink:href='#g3-108'/>
+<use x='140.230424' y='7.505333' xlink:href='#g3-117'/>
+<use x='146.123545' y='7.505333' xlink:href='#g3-105'/>
+<use x='149.070109' y='7.505333' xlink:href='#g3-100'/>
+<use x='154.963229' y='7.505333' xlink:href='#g3-101'/>
+<use x='120.511628' y='18.464237' xlink:href='#g3-102'/>
+<use x='123.752843' y='18.464237' xlink:href='#g3-114'/>
+<use x='128.128417' y='18.464237' xlink:href='#g3-105'/>
+<use x='131.074981' y='18.464237' xlink:href='#g3-103'/>
+<use x='136.378792' y='18.464237' xlink:href='#g3-111'/>
+<use x='141.682602' y='18.464237' xlink:href='#g3-114'/>
+<use x='146.058176' y='18.464237' xlink:href='#g3-105'/>
+<use x='149.00474' y='18.464237' xlink:href='#g3-103'/>
+<use x='154.308551' y='18.464237' xlink:href='#g3-232'/>
+<use x='159.175918' y='18.464237' xlink:href='#g3-110'/>
+<use x='165.069039' y='18.464237' xlink:href='#g3-101'/>
+</g>
+<path d='M306.848-69.8086H235.449C233.246-69.8086 231.465-68.0234 231.465-65.8242V-39.7773C231.465-37.5781 233.246-35.793 235.449-35.793H306.848C309.051-35.793 310.836-37.5781 310.836-39.7773V-65.8242C310.836-68.0234 309.051-69.8086 306.848-69.8086Z' fill='#ffd9d9'/>
+<path d='M306.848-69.8086H235.449C233.246-69.8086 231.465-68.0234 231.465-65.8242V-39.7773C231.465-37.5781 233.246-35.793 235.449-35.793H306.848C309.051-35.793 310.836-37.5781 310.836-39.7773V-65.8242C310.836-68.0234 309.051-69.8086 306.848-69.8086Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 119.793 -63.8126)'>
+<use x='129.349534' y='7.505333' xlink:href='#g3-69'/>
+<use x='136.310614' y='7.505333' xlink:href='#g3-120'/>
+<use x='141.909084' y='7.505333' xlink:href='#g3-116'/>
+<use x='146.034267' y='7.505333' xlink:href='#g3-233'/>
+<use x='150.901635' y='7.505333' xlink:href='#g3-114'/>
+<use x='155.277208' y='7.505333' xlink:href='#g3-105'/>
+<use x='158.223773' y='7.505333' xlink:href='#g3-101'/>
+<use x='163.09114' y='7.505333' xlink:href='#g3-117'/>
+<use x='168.98426' y='7.505333' xlink:href='#g3-114'/>
+<use x='120.511628' y='18.464237' xlink:href='#g3-40'/>
+<use x='124.636811' y='18.464237' xlink:href='#g3-97'/>
+<use x='129.793288' y='18.464237' xlink:href='#g3-105'/>
+<use x='132.739853' y='18.464237' xlink:href='#g3-114'/>
+<use x='140.6513' y='18.464237' xlink:href='#g3-97'/>
+<use x='145.807777' y='18.464237' xlink:href='#g3-109'/>
+<use x='154.35279' y='18.464237' xlink:href='#g3-98'/>
+<use x='160.24591' y='18.464237' xlink:href='#g3-105'/>
+<use x='163.192474' y='18.464237' xlink:href='#g3-97'/>
+<use x='168.348951' y='18.464237' xlink:href='#g3-110'/>
+<use x='173.9474' y='18.464237' xlink:href='#g3-116'/>
+<use x='178.072583' y='18.464237' xlink:href='#g3-41'/>
+</g>
+<path d='M308.211 72.7227H235.449C233.246 72.7227 231.465 74.5078 231.465 76.707V102.7539C231.465 104.9531 233.246 106.7383 235.449 106.7383H308.211C310.414 106.7383 312.195 104.9531 312.195 102.7539V76.707C312.195 74.5078 310.414 72.7227 308.211 72.7227Z' fill='#d9d9ff'/>
+<path d='M308.211 72.7227H235.449C233.246 72.7227 231.465 74.5078 231.465 76.707V102.7539C231.465 104.9531 233.246 106.7383 235.449 106.7383H308.211C310.414 106.7383 312.195 104.9531 312.195 102.7539V76.707C312.195 74.5078 310.414 72.7227 308.211 72.7227Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 114.271 78.9675)'>
+<use x='137.033108' y='7.505333' xlink:href='#g3-73'/>
+<use x='141.033788' y='7.505333' xlink:href='#g3-110'/>
+<use x='146.632237' y='7.505333' xlink:href='#g3-116'/>
+<use x='150.75742' y='7.505333' xlink:href='#g3-233'/>
+<use x='155.624788' y='7.505333' xlink:href='#g3-114'/>
+<use x='160.000361' y='7.505333' xlink:href='#g3-105'/>
+<use x='162.946926' y='7.505333' xlink:href='#g3-101'/>
+<use x='167.814293' y='7.505333' xlink:href='#g3-117'/>
+<use x='173.707413' y='7.505333' xlink:href='#g3-114'/>
+<use x='120.511628' y='18.464237' xlink:href='#g3-100'/>
+<use x='126.404748' y='18.464237' xlink:href='#g3-117'/>
+<use x='135.833742' y='18.464237' xlink:href='#g3-114'/>
+<use x='140.209316' y='18.464237' xlink:href='#g3-233'/>
+<use x='145.076683' y='18.464237' xlink:href='#g3-102'/>
+<use x='148.317898' y='18.464237' xlink:href='#g3-114'/>
+<use x='152.693472' y='18.464237' xlink:href='#g3-105'/>
+<use x='155.640036' y='18.464237' xlink:href='#g3-103'/>
+<use x='160.943847' y='18.464237' xlink:href='#g3-233'/>
+<use x='165.811214' y='18.464237' xlink:href='#g3-114'/>
+<use x='170.186788' y='18.464237' xlink:href='#g3-97'/>
+<use x='175.343265' y='18.464237' xlink:href='#g3-116'/>
+<use x='179.468448' y='18.464237' xlink:href='#g3-101'/>
+<use x='184.335816' y='18.464237' xlink:href='#g3-117'/>
+<use x='190.228936' y='18.464237' xlink:href='#g3-114'/>
+</g>
+<path d='M5.574 1.457H-65.824C-68.027 1.457-69.809 3.2422-69.809 5.4414V31.4883C-69.809 33.6875-68.027 35.4727-65.824 35.4727H5.574C7.777 35.4727 9.562 33.6875 9.562 31.4883V5.4414C9.562 3.2422 7.777 1.457 5.574 1.457Z' fill='#ffecd9'/>
+<path d='M5.574 1.457H-65.824C-68.027 1.457-69.809 3.2422-69.809 5.4414V31.4883C-69.809 33.6875-68.027 35.4727-65.824 35.4727H5.574C7.777 35.4727 9.562 33.6875 9.562 31.4883V5.4414C9.562 3.2422 7.777 1.457 5.574 1.457Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -173.238 7.7019)'>
+<use x='126.65403' y='7.505333' xlink:href='#g3-82'/>
+<use x='134.602828' y='7.505333' xlink:href='#g3-233'/>
+<use x='139.470196' y='7.505333' xlink:href='#g3-115'/>
+<use x='143.654321' y='7.505333' xlink:href='#g3-101'/>
+<use x='148.521688' y='7.505333' xlink:href='#g3-97'/>
+<use x='153.678165' y='7.505333' xlink:href='#g3-117'/>
+<use x='120.511628' y='18.464237' xlink:href='#g3-233'/>
+<use x='125.378996' y='18.464237' xlink:href='#g3-108'/>
+<use x='128.32556' y='18.464237' xlink:href='#g3-101'/>
+<use x='133.192927' y='18.464237' xlink:href='#g3-99'/>
+<use x='137.907429' y='18.464237' xlink:href='#g3-116'/>
+<use x='142.032612' y='18.464237' xlink:href='#g3-114'/>
+<use x='146.408186' y='18.464237' xlink:href='#g3-105'/>
+<use x='149.35475' y='18.464237' xlink:href='#g3-113'/>
+<use x='154.95322' y='18.464237' xlink:href='#g3-117'/>
+<use x='160.84634' y='18.464237' xlink:href='#g3-101'/>
+</g>
+<path d='M9.762 18.464845H75.2148' stroke='#ff5900' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M79.49223 18.464845L73.4102 16.17188L75.41411 18.464845L73.4102 20.75781Z' fill='#ff5900'/>
+<path d='M79.49223 18.464845L73.4102 16.17188L75.41411 18.464845L73.4102 20.75781Z' stroke='#ff5900' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#ff5900' transform='matrix(1 0 0 1 -81.6789 -4.7145)'>
+<use x='120.511628' y='18.464237' xlink:href='#g1-87'/>
+<use x='129.213676' y='19.460486' xlink:href='#g0-101'/>
+</g>
+<path d='M156.8633 1.2578L229.891-33.2812' stroke='#ff4d4d' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M233.757773-35.109435L227.281209-34.582089L230.070278-33.367243L229.242152-30.433655Z' fill='#ff4d4d'/>
+<path d='M233.757773-35.109435L227.281209-34.582089L230.070278-33.367243L229.242152-30.433655Z' stroke='#ff4d4d' fill='none' stroke-width='.796967' stroke-miterlimit='10'/>
+<g fill='#ff4d4d' transform='matrix(.90396 -.42749 .42749 .90396 71.495712 15.161877)'>
+<use x='120.511628' y='18.464237' xlink:href='#g1-81'/>
+<use x='127.779878' y='19.460486' xlink:href='#g2-49'/>
+</g>
+<path d='M235.316 72.5234L161.9375 37.9766' stroke='#4d4dff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M158.06662 36.15627L162.593947 40.820333L161.758022 37.890654L164.54708 36.671897Z' fill='#4d4dff'/>
+<path d='M158.06662 36.15627L162.593947 40.820333L161.758022 37.890654L164.54708 36.671897Z' stroke='#4d4dff' fill='none' stroke-width='.796974' stroke-miterlimit='10'/>
+<g fill='#4d4dff' transform='matrix(.90472 .4259 -.4259 .90472 92.173286 -21.307192)'>
+<use x='120.511628' y='18.464237' xlink:href='#g1-81'/>
+<use x='127.779878' y='19.460486' xlink:href='#g2-50'/>
+</g>
+</g>
+</svg></div>
+</div>
+<p>Au cours d'un cycle, le fluide frigorigène prélève de l'énergie à l'air intérieur du réfrigérateur pour la restituer à l'extérieur. La variation d'énergie interne du fluide au cours d'un cycle est nulle : $ U_{} = 0$.</p>
+<strong>Données :</strong> $|Q_1| = $11{,}8   $$ ; $|Q_2| = $13{,}9   $$.
+<ol><li>Déterminer les signes des grandeurs $Q_1$, $Q_2$ et $W_e$ pour le système \{fluide frigorigène\}.</li><li>À l'aide d'un bilan d'énergie réalisé sur le système \{fluide frigorigène\}, déterminer la valeur de $W_e$.</li><li>En déduire la puissance électrique consommée par le réfrigérateur si la durée d'un cycle est $ t = $15   $$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Pour une machine cyclique, la variation d'énergie interne du fluide au cours d'un cycle complet est nulle ($ U = 0$). Le premier principe donne alors :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U = W_e + Q_1 + Q_2 = 0  W_e + Q_1 + Q_2 = 0$$</div></div></div></div>
+Le signe d'une grandeur est positif si le système <strong>reçoit</strong> l'énergie, et négatif s'il la <strong>cède</strong>.
+</div>
+<ol><li>{Signes des grandeurs $Q_1$, $Q_2$ et $W_e$ pour le système \{fluide frigorigène\} :}
+<p>D'après le schéma de l'énoncé :</p>
+<ul><li><strong>$W_e > 0$ :</strong> Le fluide <strong>reçoit</strong> du travail électrique du réseau. La flèche va du réseau vers le fluide.</li><li><strong>$Q_1 < 0$ :</strong> Le fluide <strong>cède</strong> de l'énergie thermique à l'extérieur (air ambiant). La flèche va du fluide vers l'extérieur. Le fluide rejette de la chaleur vers l'air de la pièce.</li><li><strong>$Q_2 > 0$ :</strong> Le fluide <strong>reçoit</strong> de l'énergie thermique depuis l'intérieur du réfrigérateur. La flèche va de l'intérieur vers le fluide. Le fluide prélève de la chaleur à l'intérieur froid du réfrigérateur.
+</li></ul>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$W_e > 0  ;  Q_1 < 0  ;  Q_2 > 0$$</div></div></div></div></p>
+<p>Avec les valeurs absolues données :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_1 = -$13{,}9   $  ;  Q_2 = +$11{,}8   $$</div></div>$</div></div></p>
+<div class="info-box">
+<strong>Attention :</strong> le fluide <strong>rejette</strong> $Q_1$ vers l'extérieur (air ambiant), donc $Q_1 < 0$. La valeur absolue la plus grande correspond à ce qui est rejeté à l'extérieur : $|Q_1| = $13{,}9   $$.
+Le fluide <strong>prélève</strong> $Q_2$ de l'intérieur du réfrigérateur, donc $Q_2 > 0$ : $Q_2 = +$11{,}8   $$.
+</div></li><li><strong>Bilan d'énergie et calcul de $W_e$ :</strong>
+<strong>Méthode :</strong> Le premier principe appliqué au fluide sur un cycle complet donne :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U_{} = W_e + Q_1 + Q_2 = 0$$</div></div></div></div>
+<p>On isole $W_e$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$W_e = -Q_1 - Q_2$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+W_e &= -(-13{,}9) - (11{,}8) \\
+W_e &= 13{,}9 - 11{,}8 \\
+W_e &= +$2{,}1   $
+$$</div></div></div></div>
+<strong>Vérification :</strong> $W_e > 0$, ce qui est cohérent : le fluide reçoit bien du travail électrique.
+<strong>Conclusion :</strong> $W_e = $2{,}1   $ = $2{,}1  10^{3}   $$.</li><li><strong>Puissance électrique consommée :</strong>
+<strong>Données :</strong> $ t = $15   $ = 15  60 = $900   $$.
+<strong>Formule :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_e = { t}$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_e &= {2{,}1  10^{3}}{900} \\
+_e & $2{,}3   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La puissance électrique consommée par le réfrigérateur est d'environ $_e  $2{,}3   $$ par cycle. Cette valeur est faible car il s'agit de la puissance moyenne sur la durée d'un seul cycle. Le compresseur du réfrigérateur fonctionne de manière intermittente.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 10</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Bilan énergétique d'une pompe à chaleur (PAC).
+</div>
+<p>Une pompe à chaleur (PAC) est une machine cyclique qui peut être utilisée pour chauffer une piscine. Au terme d'un cycle, le fluide frigorigène de la PAC se retrouve dans le même état qu'initialement : la variation d'énergie interne $ U$ du système \{fluide\} est nulle. Des transferts énergétiques $Q_1$, $Q_2$ et $W_e$ sont mis en jeu au cours d'un cycle.</p>
+<p>La PAC chauffe l'eau d'une piscine de volume $V = $56{,}0   $$, à une température initiale $_i = $17{,}0   ^ C$$. Au cours d'un cycle, le fluide reçoit de l'énergie au contact de l'air extérieur et transfère cette énergie à l'eau de la piscine. La température de l'eau de la piscine augmente jusqu'à $_f = $28{,}0   ^ C$$. Le transfert thermique de la PAC sert intégralement à chauffer l'eau du bassin. Dans ces conditions, $W_e = $8{,}00  10^{8}   $$.</p>
+<strong>Données :</strong>
+<ul><li>Capacité thermique massique de l'eau liquide : $c_{} = $4{,}18  10^{3}   $$.</li><li>Masse volumique de l'eau liquide : $_{} = $1000   $$.
+</li></ul>
+<ol><li>Déterminer le signe des grandeurs $Q_1$, $Q_2$ et $W_e$ pour le système \{fluide\}.</li><li>Réaliser un bilan d'énergie sur le système \{fluide\} pour un nombre entier de cycles. En déduire que $Q_1 = -Q_2 - W_e$.</li><li>Calculer la variation d'énergie interne $ U_{}$ de l'eau du bassin lors du chauffage de $_i$ à $_f$, et en déduire la valeur de $Q_1$, puis celle de $Q_2$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Pour une pompe à chaleur (PAC), le fluide effectue un cycle : $ U_{} = 0$. Le premier principe donne :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$W_e + Q_1 + Q_2 = 0$$</div></div></div></div>
+La PAC prélève de la chaleur à l'air extérieur et la transfère à l'eau de la piscine, en consommant du travail électrique.
+</div>
+<ol><li>{Signes des grandeurs $Q_1$, $Q_2$ et $W_e$ pour le système \{fluide\} :}
+<p>D'après l'énoncé :<br><ul><li>Le fluide <strong>reçoit</strong> de l'énergie au contact de l'air extérieur : il prélève de la chaleur à l'air. Notons $Q_2$ ce transfert. Alors $Q_2 > 0$.</li><li>Le fluide <strong>cède</strong> de l'énergie à l'eau de la piscine (le transfert thermique de la PAC sert intégralement à chauffer l'eau du bassin). Notons $Q_1$ ce transfert. Alors $Q_1 < 0$.</li><li>Le fluide <strong>reçoit</strong> du travail électrique $W_e > 0$.<br></li></ul></p>
+<strong>Conclusion :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_1 < 0  ;  Q_2 > 0  ;  W_e > 0$$</div></div></div></div></li><li><strong>Bilan d'énergie et relation $Q_1 = -Q_2 - W_e$ :</strong>
+<strong>Méthode :</strong> Le premier principe appliqué au fluide sur un nombre entier de cycles donne :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U_{} = 0 = W_e + Q_1 + Q_2$$</div></div></div></div>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_1 + Q_2 + W_e = 0$$</div></div></div></div></p>
+<p>On isole $Q_1$ :<br><div class="definition-box"><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div></div></div><br></div></li><li>{Calcul de $ U_{}$, $Q_1$ et $Q_2$ :}</p>
+<strong>Étape 1 : Calcul de la masse d'eau dans la piscine.</strong>
+<strong>Données :</strong> $V = $56{,}0   $$ et $_{} = $1000   $$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$m = _{}  V = 1000  56{,}0 = $56000   $$</div></div>$</div></div>
+<strong>Étape 2 : Calcul de la variation d'énergie interne de l'eau.</strong>
+<strong>Données :</strong>
+<ul><li>$m = $56000   $$</li><li>$c_{} = $4{,}18  10^{3}   $$</li><li>$ T = _f - _i = 28{,}0 - 17{,}0 = $11{,}0   $$
+</li></ul>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ U_{} &= m  c_{}   T \\
+ U_{} &= 56 000  4{,}18  10^{3}  11{,}0 \\
+ U_{} &= 56 000  45 980 \\
+ U_{} & $2{,}57  10^{9}   $
+$$</div></div></div></div>
+<strong>Étape 3 : Déduction de $Q_1$.</strong>
+<p>Le transfert thermique de la PAC sert <strong>intégralement</strong> à chauffer l'eau du bassin. L'énergie reçue par l'eau est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U_{} = -Q_1$$</div></div></div></div></p>
+<p>En effet, $Q_1 < 0$ pour le fluide signifie que le fluide cède $|Q_1|$ à l'eau. L'eau reçoit donc $|Q_1|$.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$|Q_1| =  U_{} = $2{,}57  10^{9}   $$</div></div>$</div></div>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_1 = -$2{,}57  10^{9}   $$</div></div>$</div></div></p>
+<strong>Étape 4 : Déduction de $Q_2$.</strong>
+<p>D'après la relation établie en question 2 :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_1 = -Q_2 - W_e  Q_2 = -Q_1 - W_e$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+Q_2 &= -(-2{,}57  10^{9}) - 8{,}00  10^{8} \\
+Q_2 &= 2{,}57  10^{9} - 8{,}00  10^{8} \\
+Q_2 &= 2{,}57  10^{9} - 0{,}80  10^{9} \\
+Q_2 &= $1{,}77  10^{9}   $
+$$</div></div></div></div>
+<strong>Vérification :</strong> $Q_2 > 0$, ce qui est cohérent : le fluide reçoit bien de l'énergie thermique de l'air extérieur.
+<strong>Conclusion :</strong>
+<ul><li>$ U_{}  $2{,}57  10^{9}   $  $2{,}57   $$</li><li>$Q_1 = -$2{,}57  10^{9}   $$ (le fluide cède $2{,}57   $ à l'eau de la piscine)</li><li>$Q_2 = +$1{,}77  10^{9}   $$ (le fluide prélève $1{,}77   $ à l'air extérieur)
+</li></ul>
+<div class="info-box">
+<strong>Remarque :</strong> La PAC transfère à l'eau de la piscine plus d'énergie ($$2{,}57   $$) qu'elle n'en consomme en électricité ($$0{,}80   $$). C'est tout l'intérêt d'une PAC : elle utilise l'énergie gratuite de l'air extérieur ($Q_2 = $1{,}77   $$) en complément du travail électrique.
+</div>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 11</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Température de surface d'une planète et bilan thermique.
+</div>
+<p>Les planètes du système solaire sont considérées en équilibre radiatif et rayonnent comme des corps noirs.</p>
+<strong>Données :</strong>
+<ul><li>Loi de Stefan-Boltzmann pour un corps noir : $ =   T^4$, avec $$ le flux thermique surfacique rayonné et $T$ la température de surface du corps en kelvin.</li><li>$ = {}$.</li><li>Caractéristiques de deux planètes :
+</li></ul>
+<div class="text-center">
+{1.3}
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Grandeur</strong></th><th><strong>Mercure</strong></th><th><strong>Vénus</strong></th></tr><tr><td>Distance au Soleil (en km)</td><td>$5{,}8  10^7$</td><td>$1{,}1  10^8$</td></tr><tr><td>Flux thermique surfacique $_S$ reçu du Soleil ($$)</td><td>$2367$</td><td>$657$</td></tr><tr><td>Température moyenne de surface (en K)</td><td>$442$</td><td>$735$</td></tr><tr><td>Albédo $A$</td><td>$0{,}12$</td><td>$0{,}75$</td></tr></tbody></table></div>
+</div>
+<ol><li>Réaliser un schéma représentant les flux thermiques surfaciques à la surface des deux planètes sans prendre en compte l'effet de l'atmosphère.</li><li>Établir une expression du flux thermique surfacique $_{}$ rayonné par la surface terrestre en fonction de $_S$, $A$ et $$.</li><li>Retrouver par le calcul une valeur approchée de la température de surface de Mercure et expliquer ce qu'est l'albédo.</li><li>Proposer une réponse possible à la question suivante :  Pourquoi Vénus est-elle plus chaude que Mercure alors que Mercure est plus proche du Soleil ? . On pourra s'appuyer sur le rôle des gaz à effet de serre.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Pour une planète en équilibre radiatif (sans atmosphère), le flux absorbé par la surface est égal au flux rayonné. Le flux absorbé est la fraction $(1 - A)$ du flux reçu du Soleil. Le flux rayonné est donné par la loi de Stefan-Boltzmann : $_{} =  T^4$.
+</div>
+<ol><li><strong>Schéma des flux thermiques surfaciques :</strong>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.689435 -66.384964 253.053564 66.435814'>
+<defs>
+<path id='g1-1' d='M1.75741-2.25056C1.75741-2.510585 1.551183-2.734745 1.273225-2.734745S.789041-2.510585 .789041-2.25056S.995268-1.766376 1.273225-1.766376S1.75741-1.990535 1.75741-2.25056Z'/>
+<path id='g2-83' d='M4.465255-4.034869C4.483188-4.1066 4.483188-4.118555 4.483188-4.124533C4.483188-4.136488 4.47721-4.208219 4.393524-4.208219C4.345704-4.208219 4.333748-4.196264 4.267995-4.124533C4.196264-4.040847 4.064757-3.897385 3.963138-3.789788C3.718057-4.1066 3.311582-4.208219 2.946949-4.208219C2.062267-4.208219 1.297136-3.53873 1.297136-2.857285C1.297136-2.570361 1.43462-2.373101 1.536239-2.271482C1.75741-2.044334 1.942715-2.002491 2.373101-1.912827C2.504608-1.882939 2.964882-1.775342 3.006725-1.769365C3.281694-1.703611 3.532752-1.494396 3.532752-1.153674C3.532752-.657534 2.982814-.113574 2.27746-.113574C1.960648-.113574 1.052055-.17335 1.052055-.950436C1.052055-.956413 1.052055-1.081943 1.081943-1.219427C1.08792-1.243337 1.093898-1.249315 1.093898-1.267248C1.093898-1.344956 1.034122-1.356912 .986301-1.356912C.926526-1.356912 .89066-1.350934 .860772-1.23736L.549938 .041843C.549938 .053798 .555915 .125529 .639601 .125529C.675467 .125529 .681445 .119552 .765131 .041843C.771108 .035866 1.046077-.268991 1.058032-.286924C1.374844 .065753 1.95467 .125529 2.259527 .125529C3.198007 .125529 3.951183-.633624 3.951183-1.338979C3.951183-1.667746 3.789788-1.882939 3.730012-1.948692C3.478954-2.205729 3.335492-2.235616 2.899128-2.337235C2.707846-2.379078 2.414944-2.438854 2.259527-2.47472C1.936737-2.552428 1.715567-2.755666 1.715567-3.048568C1.715567-3.508842 2.265504-3.987049 2.934994-3.987049C3.461021-3.987049 3.951183-3.765878 3.951183-3.054545C3.951183-2.952927 3.939228-2.827397 3.939228-2.809465C3.939228-2.725778 4.028892-2.725778 4.046824-2.725778C4.136488-2.725778 4.142466-2.755666 4.172354-2.863263L4.465255-4.034869Z'/>
+<path id='g3-27' d='M4.770112-3.308593C4.886675-3.308593 5.218431-3.308593 5.218431-3.631382C5.218431-3.864508 5.021171-3.864508 4.850809-3.864508H2.743711C1.389788-3.864508 .349689-2.456787 .349689-1.33599C.349689-.430386 .986301 .09863 1.748443 .09863C2.842341 .09863 4.052802-.986301 4.052802-2.349191C4.052802-2.914072 3.81071-3.263761 3.783811-3.308593H4.770112ZM1.75741-.125529C1.425654-.125529 .941469-.313823 .941469-1.093898C.941469-1.712578 1.291158-3.308593 2.591283-3.308593C3.030635-3.308593 3.443088-3.111333 3.443088-2.447821C3.443088-2.223661 3.335492-1.407721 2.923039-.833873C2.627148-.412453 2.169863-.125529 1.75741-.125529Z'/>
+<path id='g3-39' d='M2.456787 .080697C2.537484 .089664 2.600249 .09863 2.761644 .09863C4.285928 .09863 5.684682-1.282192 5.684682-2.698879C5.684682-3.443088 5.299128-3.963138 4.617684-3.963138C3.236862-3.963138 2.636115-1.927771 2.214695-.511083C1.273225-.681445 .71731-1.147696 .71731-1.811208C.71731-2.0533 .923537-3.030635 1.461519-3.640349C1.542217-3.721046 1.542217-3.738979 1.542217-3.765878C1.542217-3.774844 1.542217-3.864508 1.425654-3.864508C1.13873-3.864508 .457285-2.546451 .457285-1.712578C.457285-.735243 1.246326-.161395 2.044334 .017933C1.865006 .573848 1.524284 1.622914 1.524284 1.694645C1.524284 1.85604 1.667746 1.95467 1.802242 1.95467C1.820174 1.95467 2.107098 1.95467 2.178829 1.622914C2.27746 1.201494 2.37609 .564882 2.456787 .080697ZM2.564384-.466252C2.591283-.591781 2.645081-.896638 2.663014-1.022167C2.743711-1.43462 2.860274-2.107098 3.326526-2.698879C3.631382-3.0934 4.025903-3.407223 4.536986-3.407223C5.039103-3.407223 5.406725-3.066501 5.406725-2.510585C5.406725-1.506351 4.241096-.457285 2.842341-.457285C2.752677-.457285 2.654047-.457285 2.564384-.466252Z'/>
+<path id='g3-65' d='M1.63188-1.049066C1.192528-.331756 .798007-.304857 .439352-.277958C.376588-.268991 .331756-.19726 .331756-.116563C.331756-.062765 .367621 0 .457285 0C.627646 0 1.049066-.026899 1.219427-.026899C1.416687-.026899 1.900872 0 2.098132 0C2.15193 0 2.268493 0 2.268493-.161395C2.268493-.268991 2.160897-.277958 2.133998-.277958C2.0533-.286924 1.712578-.304857 1.712578-.573848C1.712578-.699377 1.811208-.869738 1.838107-.91457L2.546451-2.071233H4.886675C4.913574-1.865006 4.940473-1.560149 4.967372-1.33599C5.003238-.986301 5.057036-.591781 5.057036-.564882C5.057036-.430386 4.931507-.277958 4.411457-.277958C4.321793-.277958 4.20523-.277958 4.20523-.116563C4.20523-.017933 4.276961 0 4.339726 0C4.510087 0 4.72528-.017933 4.904608-.017933S5.299128-.026899 5.44259-.026899C5.738481-.026899 5.756413-.026899 5.971606-.017933C6.115068-.008966 6.321295 0 6.464757 0C6.518555 0 6.635118 0 6.635118-.161395C6.635118-.277958 6.536488-.277958 6.428892-.277958C5.890909-.277958 5.881943-.340722 5.855044-.600747L5.227397-6.177833C5.209465-6.375093 5.200498-6.419925 5.04807-6.419925C4.92254-6.419925 4.868742-6.357161 4.797011-6.240598L1.63188-1.049066ZM2.716812-2.349191L4.52802-5.308095L4.859776-2.349191H2.716812Z'/>
+<path id='g3-84' d='M3.936239-5.460523C3.990037-5.657783 4.00797-5.747447 4.160399-5.774346C4.23213-5.792279 4.519054-5.792279 4.707347-5.792279C5.738481-5.792279 6.043337-5.729514 6.043337-5.030137C6.043337-4.913574 6.043337-4.779078 5.96264-4.250062L5.953674-4.178331C5.953674-4.115567 5.989539-4.052802 6.079203-4.052802C6.1868-4.052802 6.204732-4.133499 6.222665-4.267995L6.455791-5.819178C6.464757-5.86401 6.473724-5.917808 6.473724-5.944707C6.473724-6.070237 6.38406-6.070237 6.213699-6.070237H1.111831C.896638-6.070237 .887671-6.06127 .824907-5.890909L.268991-4.312827C.233126-4.196264 .233126-4.178331 .233126-4.169365C.233126-4.124533 .260025-4.052802 .349689-4.052802C.448319-4.052802 .466252-4.1066 .52005-4.267995C1.0132-5.66675 1.291158-5.792279 2.591283-5.792279H2.940971C3.19203-5.792279 3.19203-5.76538 3.19203-5.693649C3.19203-5.639851 3.174097-5.577086 3.156164-5.505355L1.95467-.708344C1.873973-.385554 1.847073-.277958 .896638-.277958C.609714-.277958 .529016-.277958 .529016-.116563C.529016 0 .645579 0 .681445 0C.91457 0 1.174595-.017933 1.416687-.017933C1.667746-.017933 1.927771-.026899 2.178829-.026899C2.57335-.026899 2.591283-.026899 2.923039-.017933C3.039601-.017933 3.631382 0 3.703113 0C3.783811 0 3.891407 0 3.891407-.161395C3.891407-.277958 3.81071-.277958 3.58655-.277958S3.254795-.277958 3.012702-.29589C2.806476-.32279 2.698879-.331756 2.698879-.484184C2.698879-.529016 2.716812-.600747 2.734745-.663512L3.936239-5.460523Z'/>
+<path id='g4-52' d='M3.371357-.980324V-1.21345H2.67198V-3.855542C2.67198-3.993026 2.67198-4.034869 2.52254-4.034869C2.414944-4.034869 2.402989-4.016936 2.349191-3.945205L.274969-1.21345V-.980324H2.133998V-.502117C2.133998-.304857 2.133998-.233126 1.63188-.233126H1.458531V0C1.578082-.005978 2.139975-.02391 2.402989-.02391S3.227895-.005978 3.347447 0V-.233126H3.174097C2.67198-.233126 2.67198-.304857 2.67198-.502117V-.980324H3.371357ZM2.175841-3.383313V-1.21345H.532005L2.175841-3.383313Z'/>
+<path id='g5-61' d='M6.348194-2.96787C6.473724-2.96787 6.644085-2.96787 6.644085-3.156164C6.644085-3.353425 6.446824-3.353425 6.312329-3.353425H.842839C.708344-3.353425 .511083-3.353425 .511083-3.156164C.511083-2.96787 .690411-2.96787 .806974-2.96787H6.348194ZM6.312329-1.13873C6.446824-1.13873 6.644085-1.13873 6.644085-1.33599C6.644085-1.524284 6.473724-1.524284 6.348194-1.524284H.806974C.690411-1.524284 .511083-1.524284 .511083-1.33599C.511083-1.13873 .708344-1.13873 .842839-1.13873H6.312329Z'/>
+</defs>
+<g id='page1'>
+<path d='M89.4922-28.492188C89.4922-44.1484 76.8008-56.8398 61.148438-56.8398C45.4922-56.8398 32.8008-44.1484 32.8008-28.492188C32.8008-12.8359 45.4922-.1484 61.148438-.1484C76.8008-.1484 89.4922-12.8359 89.4922-28.492188Z' fill='#e6e6ff'/>
+<path d='M89.4922-28.492188C89.4922-44.1484 76.8008-56.8398 61.148438-56.8398C45.4922-56.8398 32.8008-44.1484 32.8008-28.492188C32.8008-12.8359 45.4922-.1484 61.148438-.1484C76.8008-.1484 89.4922-12.8359 89.4922-28.492188Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -17.5499 3.0939)'>
+<use x='61.146965' y='-28.493339' xlink:href='#g6-80'/>
+<use x='68.390246' y='-28.493339' xlink:href='#g6-108'/>
+<use x='71.33681' y='-28.493339' xlink:href='#g6-97'/>
+<use x='76.493287' y='-28.493339' xlink:href='#g6-110'/>
+<use x='82.386407' y='-28.493339' xlink:href='#g6-232'/>
+<use x='87.253775' y='-28.493339' xlink:href='#g6-116'/>
+<use x='91.378958' y='-28.493339' xlink:href='#g6-101'/>
+</g>
+<g transform='matrix(1 0 0 1 -127.8364 3.0939)'>
+<use x='61.146965' y='-28.493339' xlink:href='#g6-83'/>
+<use x='67.040085' y='-28.493339' xlink:href='#g6-111'/>
+<use x='72.343896' y='-28.493339' xlink:href='#g6-108'/>
+<use x='75.29046' y='-28.493339' xlink:href='#g6-101'/>
+<use x='80.157828' y='-28.493339' xlink:href='#g6-105'/>
+<use x='83.104392' y='-28.493339' xlink:href='#g6-108'/>
+</g>
+<path d='M-38.2656-28.492188H27.1875' stroke='#f60' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M31.46482-28.492188L25.38279-30.78906L27.3867-28.492188L25.38279-26.19922Z' fill='#f60'/>
+<path d='M31.46482-28.492188L25.38279-30.78906L27.3867-28.492188L25.38279-26.19922Z' stroke='#f60' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#f60' transform='matrix(1 0 0 1 -69.65764 -5.4617)'>
+<use x='61.146965' y='-28.493339' xlink:href='#g3-39'/>
+<use x='67.164639' y='-27.497045' xlink:href='#g2-83'/>
+</g>
+<path d='M32.6016-36.99609L-4.8945-51.9961' stroke='#ffbf80' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M-8.867182-53.585888L-4.070313-49.195261L-5.078124-52.070266L-2.36719-53.456988Z' fill='#ffbf80'/>
+<path d='M-8.867182-53.585888L-4.070313-49.195261L-5.078124-52.070266L-2.36719-53.456988Z' stroke='#ffbf80' fill='none' stroke-width='.796977' stroke-miterlimit='10'/>
+<g fill='#ffbf80' transform='matrix(1 0 0 1 -102.8634 -31.4717)'>
+<use x='61.146965' y='-28.493339' xlink:href='#g3-65'/>
+<use x='70.104979' y='-28.493339' xlink:href='#g1-1'/>
+<use x='74.712669' y='-28.493339' xlink:href='#g3-39'/>
+<use x='80.730343' y='-27.497045' xlink:href='#g2-83'/>
+<use x='89.139696' y='-28.493339' xlink:href='#g7-40'/>
+<use x='92.7226' y='-28.493339' xlink:href='#g7-114'/>
+<use x='96.326257' y='-28.493339' xlink:href='#g7-233'/>
+<use x='100.424479' y='-28.493339' xlink:href='#g7-29'/>
+<use x='105.542921' y='-28.493339' xlink:href='#g7-233'/>
+<use x='109.641143' y='-28.493339' xlink:href='#g7-99'/>
+<use x='113.479956' y='-28.493339' xlink:href='#g7-104'/>
+<use x='118.598398' y='-28.493339' xlink:href='#g7-105'/>
+<use x='121.157619' y='-28.493339' xlink:href='#g7-41'/>
+</g>
+<path d='M89.6914-28.492188H140.9727' stroke='#ff4d4d' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M145.25036-28.492188L139.16832-30.78906L141.17223-28.492188L139.16832-26.19922Z' fill='#ff4d4d'/>
+<path d='M145.25036-28.492188L139.16832-30.78906L141.17223-28.492188L139.16832-26.19922Z' stroke='#ff4d4d' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#ff4d4d' transform='matrix(1 0 0 1 41.678 -5.9593)'>
+<use x='61.146965' y='-28.493339' xlink:href='#g3-39'/>
+<use x='67.164639' y='-27.49709' xlink:href='#g0-114'/>
+<use x='70.042035' y='-27.49709' xlink:href='#g0-97'/>
+<use x='73.50044' y='-27.49709' xlink:href='#g0-121'/>
+<use x='80.40413' y='-28.493339' xlink:href='#g5-61'/>
+<use x='90.131477' y='-28.493339' xlink:href='#g3-27'/>
+<use x='95.722613' y='-28.493339' xlink:href='#g3-84'/>
+<use x='102.378516' y='-32.302343' xlink:href='#g4-52'/>
+<use x='109.600625' y='-28.493339' xlink:href='#g7-40'/>
+<use x='113.183529' y='-28.493339' xlink:href='#g7-114'/>
+<use x='116.787187' y='-28.493339' xlink:href='#g7-97'/>
+<use x='121.137846' y='-28.493339' xlink:href='#g7-121'/>
+<use x='125.744427' y='-28.493339' xlink:href='#g7-111'/>
+<use x='130.351024' y='-28.493339' xlink:href='#g7-110'/>
+<use x='135.469466' y='-28.493339' xlink:href='#g7-110'/>
+<use x='140.587908' y='-28.493339' xlink:href='#g7-233'/>
+<use x='144.68613' y='-28.493339' xlink:href='#g7-41'/>
+</g>
+</g>
+</svg></div>
+</div>
+<p>La planète reçoit du Soleil un flux surfacique $_S$. Une fraction $A  _S$ est réfléchie (albédo). La fraction absorbée est $(1-A)  _S$. La planète rayonne un flux $_{} =  T^4$.</li><li><strong>Expression du flux rayonné en fonction de $_S$, $A$ et $$ :</strong></p>
+<strong>Méthode :</strong> À l'équilibre radiatif, la puissance absorbée par la planète est égale à la puissance rayonnée.
+<strong>Puissance absorbée :</strong> La planète intercepte le flux solaire sur un disque de section $ R^2$ (où $R$ est le rayon de la planète) et absorbe la fraction $(1-A)$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_{} = (1-A)  _S   R^2$$</div></div></div></div>
+<strong>Puissance rayonnée :</strong> La planète rayonne sur toute sa surface $4 R^2$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$P_{} =  T^4  4 R^2$$</div></div></div></div>
+<p>À l'équilibre : $P_{} = P_{}$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$(1-A)  _S   R^2 =  T^4  4 R^2$$</div></div></div></div></p>
+<p>Simplifions par $ R^2$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$(1-A)  _S = 4  T^4$$</div></div></div></div></p>
+<p>Donc le flux rayonné par unité de surface est :<br><div class="definition-box"><br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${_{} =  T^4 = {4}}$$</div></div></div></div><br></div></li><li><strong>Calcul de la température de surface de Mercure :</strong></p>
+<strong>Données pour Mercure :</strong> $_S = $2367   $$, $A = 0{,}12$, $ = {}$.
+<p>D'après l'expression précédente :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ T^4 = {4}$$</div></div></div></div></p>
+<p>On isole $T$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$T = ({4})^{1/4}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+T &= ({(1-0{,}12)  2367}{4  5{,}67  10^{-8}})^{1/4} \\
+T &= ({0{,}88  2367}{2{,}268  10^{-7}})^{1/4} \\
+T &= ({2{,}268  10^{-7}})^{1/4} \\
+T &= (9{,}18  10^{9})^{1/4}
+$$</div></div></div></div>
+<p>Calculons : ${9{,}18  10^{9}}  9{,}58  10^{4}$, puis ${9{,}58  10^{4}}  310$.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$T  $440   $$</div></div>$</div></div>
+<strong>Comparaison :</strong> La valeur calculée ($ $440   $$) est très proche de la valeur mesurée ($$442   $$). Le modèle du corps noir en équilibre radiatif fonctionne bien pour Mercure, qui n'a quasiment pas d'atmosphère.
+<strong>Définition de l'albédo :</strong> L'albédo $A$ est le rapport entre le flux lumineux réfléchi et le flux lumineux incident. Il varie entre 0 (corps parfaitement absorbant, noir) et 1 (corps parfaitement réfléchissant, blanc). Pour Mercure, $A = 0{,}12$ : la surface est sombre et absorbe la majeure partie du rayonnement solaire.</li><li><strong>Explication : pourquoi Vénus est-elle plus chaude que Mercure ?</strong>
+<strong>Observation :</strong> Vénus a une température de surface de $735   $, bien supérieure à celle de Mercure ($442   $), alors que Vénus est plus éloignée du Soleil et reçoit un flux solaire plus faible ($657   $ contre $2367   $).
+<p>Si on applique le modèle d'équilibre radiatif sans atmosphère à Vénus :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$T_{} = ({(1-0{,}75)  657}{4  5{,}67  10^{-8}})^{1/4} = ({0{,}25  657}{2{,}268  10^{-7}})^{1/4}  $232   $$</div></div>$</div></div></p>
+<p>Cette valeur théorique ($232   $, soit environ $-41 {^}$) est <strong>bien inférieure</strong> à la température réelle ($735   $, soit environ $462 {^}$).</p>
+<strong>Explication :</strong> Vénus possède une <strong>atmosphère très dense</strong> composée essentiellement de ${}_2$ (dioxyde de carbone), un puissant gaz à effet de serre. Cette atmosphère absorbe le rayonnement infrarouge émis par la surface et le renvoie en partie vers le sol. Ce phénomène d'effet de serre est extrêmement intense sur Vénus : il provoque une augmentation considérable de la température de surface, bien au-delà de ce que le simple équilibre radiatif prédirait.
+<p>Mercure, au contraire, n'a <strong>quasiment pas d'atmosphère</strong> : il n'y a pas d'effet de serre, et le modèle d'équilibre radiatif simple donne une bonne approximation de sa température de surface.</p>
+<strong>Conclusion :</strong> C'est l'effet de serre très intense de l'atmosphère de Vénus (riche en ${}_2$) qui explique que Vénus est plus chaude que Mercure, malgré un flux solaire reçu plus faible.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 12</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Étude énergétique d'une centrale nucléaire.
+</div>
+<p>Une centrale nucléaire est le lieu de nombreux transferts d'énergie dans lesquels l'eau joue un rôle important. Le principe de fonctionnement simplifié est le suivant :</p>
+<ul><li>Le <strong>circuit primaire</strong> contient de l'eau liquide sous haute pression qui circule dans le réacteur nucléaire. L'eau s'y échauffe au contact des barres de combustible.</li><li>Le <strong>circuit secondaire</strong> contient de l'eau qui se transforme en vapeur dans le générateur de vapeur, puis entraîne une turbine couplée à un alternateur pour produire de l'électricité. La vapeur est ensuite condensée.</li><li>Le <strong>circuit de refroidissement</strong> prélève de l'eau dans un fleuve pour refroidir le condenseur du circuit secondaire.
+</li></ul>
+<strong>Données :</strong>
+<ul><li>Capacité thermique massique de l'eau liquide dans les conditions de l'étude : $c_{} = $4{,}18  10^{3}   $$.</li><li>Puissance électrique fournie par la centrale nucléaire : $_e = $900   $$.</li><li>Rendement de la centrale nucléaire : $ = $33   $$.
+</li></ul>
+<strong>Partie A -- Transferts d'énergie dans le circuit primaire</strong>
+<ol><li>Calculer l'énergie fournie chaque seconde par le réacteur nucléaire et préciser le mode de transfert thermique par lequel cette énergie est échangée avec l'eau du circuit primaire.</li><li>En analysant les données, justifier le choix d'utiliser de l'eau liquide dans le circuit primaire, ainsi que de travailler à haute pression.
+</li></ol>
+<strong>Partie B -- Transferts d'énergie dans le circuit secondaire</strong>
+<p>L'énergie fournie par le réacteur nucléaire est supposée intégralement transférée au circuit primaire, puis au circuit secondaire.</p>
+<ol><li>Schématiser les différents transferts d'énergie liés au système \{eau du circuit secondaire\}. Préciser le signe de chacun des transferts représentés sur ce schéma.</li><li>Comment varie l'énergie interne $ U$ du système \{eau du circuit secondaire\} au cours d'un cycle ? Justifier.</li><li>Montrer que le flux thermique entre le circuit secondaire et le circuit de refroidissement vaut environ $1{,}8   $.
+</li></ol>
+<strong>Partie C -- Transferts d'énergie dans le circuit de refroidissement</strong>
+<p>L'eau du fleuve est récupérée par pompage, puis envoyée dans la canalisation avec un débit volumique constant $D_v = $60   $$. La température de l'eau du fleuve à l'entrée du circuit de refroidissement est $_e = $19   ^ C$$.</p>
+<ol><li>Déterminer la température $_s$ de l'eau à la sortie de la canalisation. Commenter le résultat obtenu du point de vue environnemental.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Le rendement d'une centrale thermique est défini par $ = {_e}{_{}}$. L'énergie qui n'est pas convertie en électricité est évacuée sous forme de transfert thermique (vers le circuit de refroidissement). Le premier principe et la conservation de l'énergie permettent de relier les différentes puissances.
+</div>
+<strong>Partie A -- Transferts d'énergie dans le circuit primaire</strong>
+<ol><li><strong>Énergie fournie chaque seconde par le réacteur et mode de transfert :</strong>
+<strong>Données :</strong>
+<ul><li>Puissance électrique : $_e = $900   $ = $9{,}00  10^{8}   $$</li><li>Rendement : $ = 0{,}33$
+</li></ul>
+<strong>Méthode :</strong> Le rendement est défini par :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {_e}{_{}}$$</div></div></div></div>
+<p>On isole la puissance du réacteur :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{} = {_e}{}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_{} &= {9{,}00  10^{8}}{0{,}33} \\
+_{} & $2{,}73  10^{9}   $  $2{,}73   $
+$$</div></div></div></div>
+<p>L'énergie fournie chaque seconde (pendant $ t = $1   $$) est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$E = _{}   t = 2{,}73  10^{9}  1 = $2{,}73  10^{9}   $$</div></div>$</div></div></p>
+<strong>Mode de transfert :</strong> L'énergie est échangée entre les barres de combustible nucléaire et l'eau du circuit primaire par <strong>conduction</strong> (contact direct entre les barres et l'eau) et <strong>convection</strong> (circulation forcée de l'eau dans le circuit).
+<strong>Conclusion :</strong> Le réacteur fournit environ $$2{,}73  10^{9}   $$ chaque seconde, soit une puissance de $2{,}73   $. Le transfert thermique s'effectue par conduction et convection.</li><li><strong>Justification du choix de l'eau liquide et de la haute pression :</strong>
+<p>L'eau possède une <strong>capacité thermique massique très élevée</strong> ($c_{} = $4{,}18  10^{3}   $$), ce qui signifie qu'elle peut stocker et transporter une grande quantité d'énergie thermique pour une variation de température modérée. C'est un fluide caloporteur idéal.</p>
+<p>Le circuit primaire fonctionne sous <strong>haute pression</strong> (environ 155 bar) pour maintenir l'eau à l'<strong>état liquide</strong> malgré les températures élevées (autour de $300 {^}$). En effet, à pression atmosphérique, l'eau bout à $100 {^}$. Sous haute pression, la température d'ébullition augmente, ce qui permet à l'eau de rester liquide et de transporter efficacement la chaleur sans former de bulles de vapeur.</p>
+</li></ol>
+<strong>Partie B -- Transferts d'énergie dans le circuit secondaire</strong>
+<ol><li>{Schéma des transferts d'énergie pour le système \{eau du circuit secondaire\} :}
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-70.00825 -70.00785 381.0435 111.3477'>
+<defs>
+<path id='g1-60' d='M6.204732-4.545953C6.28543-4.581818 6.38406-4.635616 6.38406-4.752179C6.38406-4.850809 6.312329-4.94944 6.1868-4.94944C6.177833-4.94944 6.133001-4.94944 6.025405-4.895641L.950436-2.456787C.869738-2.420922 .771108-2.367123 .771108-2.25056C.771108-2.125031 .851806-2.080199 .950436-2.035367L6.007472 .394521C6.133001 .457285 6.168867 .457285 6.1868 .457285C6.330262 .457285 6.38406 .331756 6.38406 .268991C6.38406 .152428 6.321295 .116563 6.222665 .071731L1.407721-2.25056L6.204732-4.545953Z'/>
+<path id='g1-62' d='M6.204732-2.035367C6.303362-2.080199 6.38406-2.125031 6.38406-2.25056C6.38406-2.367123 6.28543-2.420922 6.204732-2.456787L1.147696-4.886675C1.022167-4.94944 .977335-4.94944 .959402-4.94944C.842839-4.94944 .771108-4.850809 .771108-4.761146C.771108-4.653549 .824907-4.608717 .950436-4.545953L5.747447-2.25056L.950436 .053798C.824907 .116563 .771108 .161395 .771108 .268991C.771108 .331756 .824907 .457285 .968369 .457285C.977335 .457285 1.022167 .457285 1.129763 .403487L6.204732-2.035367Z'/>
+<path id='g1-81' d='M3.694147 .367621C3.676214 .466252 3.676214 .591781 3.676214 .699377C3.676214 1.129763 3.747945 1.739477 4.456289 1.739477C5.523288 1.739477 5.980573 .134496 5.980573 0C5.980573-.053798 5.935741-.107597 5.86401-.107597S5.774346-.044832 5.747447 .017933C5.54122 .627646 5.021171 .851806 4.689415 .851806C4.276961 .851806 4.142466 .591781 4.052802-.044832C6.007472-.887671 6.796513-2.654047 6.796513-3.882441C6.796513-5.299128 5.846077-6.321295 4.438356-6.321295C2.429888-6.321295 .448319-4.259029 .448319-2.214695C.448319-.744209 1.461519 .19726 2.815442 .19726C3.183064 .19726 3.550685 .116563 3.703113 .071731L3.694147 .367621ZM2.27746-.161395C1.865006-.32279 1.264259-.789041 1.264259-1.945704C1.264259-2.420922 1.416687-3.864508 2.385056-5.021171C2.851308-5.56812 3.604483-6.070237 4.375592-6.070237C5.263263-6.070237 5.980573-5.415691 5.980573-4.160399C5.980573-3.263761 5.54122-1.23736 3.999004-.376588C3.918306-.860772 3.747945-1.33599 3.174097-1.33599C2.67198-1.33599 2.232628-.878705 2.232628-.42142C2.232628-.349689 2.25056-.224159 2.27746-.161395ZM3.721046-.233126C3.595517-.179328 3.245828-.053798 2.878207-.053798C2.761644-.053798 2.456787-.053798 2.456787-.42142C2.456787-.753176 2.788543-1.111831 3.183064-1.111831C3.71208-1.111831 3.721046-.627646 3.721046-.233126Z'/>
+<path id='g1-87' d='M8.464259-5.083935C8.500125-5.137733 8.562889-5.236364 8.616687-5.308095C8.95741-5.801245 9.271233-5.828144 9.522291-5.846077C9.638854-5.855044 9.638854-5.998506 9.638854-6.007472C9.638854-6.06127 9.602989-6.124035 9.531258-6.124035C9.486426-6.124035 9.307098-6.097136 8.813948-6.097136C8.509091-6.097136 8.195268-6.124035 7.908344-6.124035C7.854545-6.124035 7.737983-6.124035 7.737983-5.96264C7.737983-5.855044 7.836613-5.846077 7.872478-5.846077C7.998007-5.837111 8.383562-5.819178 8.383562-5.505355C8.383562-5.44259 8.365629-5.352927 8.258032-5.173599L5.819178-.995268L5.44259-5.559153C5.44259-5.657783 5.532254-5.846077 6.088169-5.846077C6.195766-5.846077 6.303362-5.846077 6.303362-6.007472C6.303362-6.088169 6.240598-6.124035 6.168867-6.124035C5.926775-6.124035 5.326027-6.097136 5.083935-6.097136C4.752179-6.097136 4.734247-6.097136 4.590785-6.106102C4.474222-6.115068 4.23213-6.124035 4.124533-6.124035C4.079701-6.124035 3.963138-6.124035 3.963138-5.96264C3.963138-5.846077 4.061768-5.846077 4.169365-5.846077C4.581818-5.846077 4.617684-5.783313 4.635616-5.639851C4.644583-5.586052 4.689415-5.039103 4.689415-5.021171C4.689415-4.985305 4.689415-4.958406 4.62665-4.850809L2.367123-.995268L1.999502-5.415691C1.981569-5.595019 1.963636-5.837111 2.627148-5.846077C2.743711-5.846077 2.851308-5.846077 2.851308-6.007472C2.851308-6.115068 2.752677-6.124035 2.716812-6.124035C2.555417-6.124035 2.367123-6.106102 2.196762-6.106102C2.017435-6.106102 1.820174-6.097136 1.640847-6.097136C1.479452-6.097136 1.255293-6.097136 1.147696-6.106102C1.066999-6.106102 .753176-6.124035 .681445-6.124035C.645579-6.124035 .52005-6.124035 .52005-5.96264C.52005-5.846077 .61868-5.846077 .726276-5.846077C1.174595-5.846077 1.183562-5.774346 1.201494-5.532254L1.65878-.026899C1.667746 .125529 1.676712 .19726 1.811208 .19726C1.936737 .19726 1.963636 .143462 2.044334 .008966L4.72528-4.572852L5.101868-.044832C5.110834 .116563 5.119801 .19726 5.263263 .19726C5.299128 .19726 5.397758 .19726 5.505355 .008966L8.464259-5.083935Z'/>
+<path id='g2-48' d='M4.241096-2.86924C4.241096-3.469988 4.214197-4.241096 3.900374-4.913574C3.505853-5.756413 2.824408-5.971606 2.304359-5.971606C1.766376-5.971606 1.084932-5.756413 .690411-4.895641C.403487-4.276961 .358655-3.550685 .358655-2.86924C.358655-2.286426 .376588-1.416687 .762142-.708344C1.183562 .053798 1.882939 .19726 2.295392 .19726C2.878207 .19726 3.541719-.053798 3.918306-.878705C4.187298-1.479452 4.241096-2.15193 4.241096-2.86924ZM2.304359-.026899C2.035367-.026899 1.389788-.152428 1.219427-1.165629C1.129763-1.694645 1.129763-2.465753 1.129763-2.976837C1.129763-3.58655 1.129763-4.294894 1.23736-4.788045C1.416687-5.586052 1.990535-5.747447 2.295392-5.747447C2.636115-5.747447 3.200996-5.56812 3.371357-4.734247C3.469988-4.241096 3.469988-3.541719 3.469988-2.976837C3.469988-2.420922 3.469988-1.667746 3.380324-1.13873C3.19203-.116563 2.528518-.026899 2.304359-.026899Z'/>
+</defs>
+<g id='page1'>
+<path d='M156.2109 7.125H84.8125C82.6094 7.125 80.8281 8.9102 80.8281 11.1094V37.1563C80.8281 39.3555 82.6094 41.1406 84.8125 41.1406H156.2109C158.4141 41.1406 160.1992 39.3555 160.1992 37.1563V11.1094C160.1992 8.9102 158.4141 7.125 156.2109 7.125Z' fill='#dbeaee'/>
+<path d='M156.2109 7.125H84.8125C82.6094 7.125 80.8281 8.9102 80.8281 11.1094V37.1563C80.8281 39.3555 82.6094 41.1406 84.8125 41.1406H156.2109C158.4141 41.1406 160.1992 39.3555 160.1992 37.1563V11.1094C160.1992 8.9102 158.4141 7.125 156.2109 7.125Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -33.2927 8.5734)'>
+<use x='120.511628' y='13.174533' xlink:href='#g3-69'/>
+<use x='127.472709' y='13.174533' xlink:href='#g3-97'/>
+<use x='132.629186' y='13.174533' xlink:href='#g3-117'/>
+<use x='142.058179' y='13.174533' xlink:href='#g3-100'/>
+<use x='147.951299' y='13.174533' xlink:href='#g3-117'/>
+<use x='157.380293' y='13.174533' xlink:href='#g3-99'/>
+<use x='162.094795' y='13.174533' xlink:href='#g3-105'/>
+<use x='165.041359' y='13.174533' xlink:href='#g3-114'/>
+<use x='169.416933' y='13.174533' xlink:href='#g3-99'/>
+<use x='174.131434' y='13.174533' xlink:href='#g3-117'/>
+<use x='180.024554' y='13.174533' xlink:href='#g3-105'/>
+<use x='182.971118' y='13.174533' xlink:href='#g3-116'/>
+<use x='129.70293' y='24.133438' xlink:href='#g3-115'/>
+<use x='133.887055' y='24.133438' xlink:href='#g3-101'/>
+<use x='138.754423' y='24.133438' xlink:href='#g3-99'/>
+<use x='143.468924' y='24.133438' xlink:href='#g3-111'/>
+<use x='148.772734' y='24.133438' xlink:href='#g3-110'/>
+<use x='154.665855' y='24.133438' xlink:href='#g3-100'/>
+<use x='160.558975' y='24.133438' xlink:href='#g3-97'/>
+<use x='165.715452' y='24.133438' xlink:href='#g3-105'/>
+<use x='168.662016' y='24.133438' xlink:href='#g3-114'/>
+<use x='173.03759' y='24.133438' xlink:href='#g3-101'/>
+</g>
+<path d='M5.574 7.125H-65.824C-68.027 7.125-69.809 8.9102-69.809 11.1094V37.1563C-69.809 39.3555-68.027 41.1406-65.824 41.1406H5.574C7.777 41.1406 9.562 39.3555 9.562 37.1563V11.1094C9.562 8.9102 7.777 7.125 5.574 7.125Z' fill='#ffd9d9'/>
+<path d='M5.574 7.125H-65.824C-68.027 7.125-69.809 8.9102-69.809 11.1094V37.1563C-69.809 39.3555-68.027 41.1406-65.824 41.1406H5.574C7.777 41.1406 9.562 39.3555 9.562 37.1563V11.1094C9.562 8.9102 7.777 7.125 5.574 7.125Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -170.3374 7.7019)'>
+<use x='123.880814' y='13.174533' xlink:href='#g3-67'/>
+<use x='131.541871' y='13.174533' xlink:href='#g3-105'/>
+<use x='134.488436' y='13.174533' xlink:href='#g3-114'/>
+<use x='138.864009' y='13.174533' xlink:href='#g3-99'/>
+<use x='143.578511' y='13.174533' xlink:href='#g3-117'/>
+<use x='149.471631' y='13.174533' xlink:href='#g3-105'/>
+<use x='152.418195' y='13.174533' xlink:href='#g3-116'/>
+<use x='120.511628' y='24.133438' xlink:href='#g3-112'/>
+<use x='126.404748' y='24.133438' xlink:href='#g3-114'/>
+<use x='130.780322' y='24.133438' xlink:href='#g3-105'/>
+<use x='133.726886' y='24.133438' xlink:href='#g3-109'/>
+<use x='142.566571' y='24.133438' xlink:href='#g3-97'/>
+<use x='147.723048' y='24.133438' xlink:href='#g3-105'/>
+<use x='150.669612' y='24.133438' xlink:href='#g3-114'/>
+<use x='155.045186' y='24.133438' xlink:href='#g3-101'/>
+</g>
+<path d='M156.2109-69.8086H84.8125C82.6094-69.8086 80.8281-68.0234 80.8281-65.8242V-39.7773C80.8281-37.5781 82.6094-35.793 84.8125-35.793H156.2109C158.4141-35.793 160.1992-37.5781 160.1992-39.7773V-65.8242C160.1992-68.0234 158.4141-69.8086 156.2109-69.8086Z' fill='#d9ffd9'/>
+<path d='M156.2109-69.8086H84.8125C82.6094-69.8086 80.8281-68.0234 80.8281-65.8242V-39.7773C80.8281-37.5781 82.6094-35.793 84.8125-35.793H156.2109C158.4141-35.793 160.1992-37.5781 160.1992-39.7773V-65.8242C160.1992-68.0234 158.4141-69.8086 156.2109-69.8086Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -27.3151 -69.4819)'>
+<use x='120.511628' y='13.174533' xlink:href='#g3-65'/>
+<use x='128.51576' y='13.174533' xlink:href='#g3-108'/>
+<use x='131.462324' y='13.174533' xlink:href='#g3-116'/>
+<use x='135.587507' y='13.174533' xlink:href='#g3-101'/>
+<use x='140.454875' y='13.174533' xlink:href='#g3-114'/>
+<use x='144.830449' y='13.174533' xlink:href='#g3-110'/>
+<use x='150.723569' y='13.174533' xlink:href='#g3-97'/>
+<use x='155.880046' y='13.174533' xlink:href='#g3-116'/>
+<use x='160.005229' y='13.174533' xlink:href='#g3-101'/>
+<use x='164.872596' y='13.174533' xlink:href='#g3-117'/>
+<use x='170.765716' y='13.174533' xlink:href='#g3-114'/>
+<use x='120.952905' y='24.133438' xlink:href='#g3-40'/>
+<use x='125.078089' y='24.133438' xlink:href='#g3-233'/>
+<use x='129.945456' y='24.133438' xlink:href='#g3-108'/>
+<use x='132.892021' y='24.133438' xlink:href='#g3-101'/>
+<use x='137.759388' y='24.133438' xlink:href='#g3-99'/>
+<use x='142.473889' y='24.133438' xlink:href='#g3-116'/>
+<use x='146.599072' y='24.133438' xlink:href='#g3-114'/>
+<use x='150.974646' y='24.133438' xlink:href='#g3-105'/>
+<use x='153.92121' y='24.133438' xlink:href='#g3-99'/>
+<use x='158.635712' y='24.133438' xlink:href='#g3-105'/>
+<use x='161.582276' y='24.133438' xlink:href='#g3-116'/>
+<use x='165.707459' y='24.133438' xlink:href='#g3-233'/>
+<use x='170.574827' y='24.133438' xlink:href='#g3-41'/>
+</g>
+<path d='M306.848 7.125H235.449C233.246 7.125 231.465 8.9102 231.465 11.1094V37.1563C231.465 39.3555 233.246 41.1406 235.449 41.1406H306.848C309.051 41.1406 310.836 39.3555 310.836 37.1563V11.1094C310.836 8.9102 309.051 7.125 306.848 7.125Z' fill='#d9d9ff'/>
+<path d='M306.848 7.125H235.449C233.246 7.125 231.465 8.9102 231.465 11.1094V37.1563C231.465 39.3555 233.246 41.1406 235.449 41.1406H306.848C309.051 41.1406 310.836 39.3555 310.836 37.1563V11.1094C310.836 8.9102 309.051 7.125 306.848 7.125Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 115.328 8.5734)'>
+<use x='132.340211' y='13.174533' xlink:href='#g3-67'/>
+<use x='140.001268' y='13.174533' xlink:href='#g3-105'/>
+<use x='142.947832' y='13.174533' xlink:href='#g3-114'/>
+<use x='147.323406' y='13.174533' xlink:href='#g3-99'/>
+<use x='152.037907' y='13.174533' xlink:href='#g3-117'/>
+<use x='157.931027' y='13.174533' xlink:href='#g3-105'/>
+<use x='160.877592' y='13.174533' xlink:href='#g3-116'/>
+<use x='168.538649' y='13.174533' xlink:href='#g3-100'/>
+<use x='174.431769' y='13.174533' xlink:href='#g3-101'/>
+<use x='120.511628' y='24.133438' xlink:href='#g3-114'/>
+<use x='124.887202' y='24.133438' xlink:href='#g3-101'/>
+<use x='129.754569' y='24.133438' xlink:href='#g3-102'/>
+<use x='132.995784' y='24.133438' xlink:href='#g3-114'/>
+<use x='137.371358' y='24.133438' xlink:href='#g3-111'/>
+<use x='142.675168' y='24.133438' xlink:href='#g3-105'/>
+<use x='145.621733' y='24.133438' xlink:href='#g3-100'/>
+<use x='151.514853' y='24.133438' xlink:href='#g3-105'/>
+<use x='154.461417' y='24.133438' xlink:href='#g3-115'/>
+<use x='158.645542' y='24.133438' xlink:href='#g3-115'/>
+<use x='162.829668' y='24.133438' xlink:href='#g3-101'/>
+<use x='167.697035' y='24.133438' xlink:href='#g3-109'/>
+<use x='176.53672' y='24.133438' xlink:href='#g3-101'/>
+<use x='181.404087' y='24.133438' xlink:href='#g3-110'/>
+<use x='187.002536' y='24.133438' xlink:href='#g3-116'/>
+</g>
+<path d='M9.762 24.132813H75.2148' stroke='#ff4d4d' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M79.49223 24.132813L73.4102 21.83984L75.41411 24.132813L73.4102 26.42578Z' fill='#ff4d4d'/>
+<path d='M79.49223 24.132813L73.4102 21.83984L75.41411 24.132813L73.4102 26.42578Z' stroke='#ff4d4d' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#ff4d4d' transform='matrix(1 0 0 1 -95.147 -5.8765)'>
+<use x='120.511628' y='24.133438' xlink:href='#g1-81'/>
+<use x='127.779878' y='25.129686' xlink:href='#g0-112'/>
+<use x='131.819297' y='25.129686' xlink:href='#g0-114'/>
+<use x='134.696693' y='25.129686' xlink:href='#g0-105'/>
+<use x='136.799401' y='25.129686' xlink:href='#g0-109'/>
+<use x='145.833469' y='24.133438' xlink:href='#g1-62'/>
+<use x='155.560816' y='24.133438' xlink:href='#g2-48'/>
+</g>
+<path d='M120.511718 6.9258V-30.1836' stroke='#090' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M120.511718-34.46096L118.21875-28.37893L120.511718-30.38283L122.80469-28.37893Z' fill='#090'/>
+<path d='M120.511718-34.46096L118.21875-28.37893L120.511718-30.38283L122.80469-28.37893Z' stroke='#090' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#090' transform='matrix(1 0 0 1 9.388 -35.6324)'>
+<use x='120.511628' y='24.133438' xlink:href='#g1-87'/>
+<use x='133.053418' y='24.133438' xlink:href='#g1-60'/>
+<use x='142.780765' y='24.133438' xlink:href='#g2-48'/>
+</g>
+<path d='M160.3984 24.132813H225.852' stroke='#4d4dff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M230.12905 24.132813L224.04702 21.83984L226.05092 24.132813L224.04702 26.42578Z' fill='#4d4dff'/>
+<path d='M230.12905 24.132813L224.04702 21.83984L226.05092 24.132813L224.04702 26.42578Z' stroke='#4d4dff' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g fill='#4d4dff' transform='matrix(1 0 0 1 52.432 -5.4617)'>
+<use x='120.511628' y='24.133438' xlink:href='#g1-81'/>
+<use x='127.779878' y='25.19513' xlink:href='#g0-114'/>
+<use x='130.657273' y='25.19513' xlink:href='#g0-101'/>
+<use x='133.922006' y='25.19513' xlink:href='#g0-102'/>
+<use x='136.218389' y='25.19513' xlink:href='#g0-114'/>
+<use x='139.095784' y='25.19513' xlink:href='#g0-111'/>
+<use x='142.747861' y='25.19513' xlink:href='#g0-105'/>
+<use x='144.850569' y='25.19513' xlink:href='#g0-100'/>
+<use x='151.947915' y='24.133438' xlink:href='#g1-60'/>
+<use x='161.675262' y='24.133438' xlink:href='#g2-48'/>
+</g>
+</g>
+</svg></div>
+</div>
+<p>{Signes pour le système \{eau du circuit secondaire\} :}<br><ul><li>$Q_{} > 0$ : l'eau du circuit secondaire <strong>reçoit</strong> de l'énergie thermique du circuit primaire (via le générateur de vapeur).</li><li>$W < 0$ : l'eau du circuit secondaire <strong>cède</strong> du travail mécanique à la turbine couplée à l'alternateur (production d'électricité).</li><li>$Q_{} < 0$ : l'eau du circuit secondaire <strong>cède</strong> de l'énergie thermique au circuit de refroidissement (condensation de la vapeur).<br></li></ul></li><li><strong>Variation d'énergie interne $ U$ du circuit secondaire au cours d'un cycle :</strong></p>
+<p>L'eau du circuit secondaire effectue un <strong>cycle</strong> : elle part d'un état (liquide), se vaporise, passe dans la turbine, se condense et revient à son état initial.</p>
+<p>Au cours d'un cycle complet, le système revient dans son état initial. L'énergie interne est une fonction d'état, donc :</p>
+<div class="definition-box">
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ U = 0  }$$</div></div></div></div>
+</div></li><li><strong>Flux thermique entre le circuit secondaire et le circuit de refroidissement :</strong>
+<strong>Méthode :</strong> D'après le premier principe sur un cycle :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ U = 0 = Q_{} + W + Q_{}$$</div></div></div></div>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$Q_{} = -Q_{} - W$$</div></div></div></div></p>
+<p>Or :<br><ul><li>$Q_{}$ correspond à la puissance totale du réacteur transférée au circuit secondaire : $_{} = _{}  $2{,}73   $$.</li><li>$|W|$ correspond à la puissance électrique produite : $_e = $0{,}90   $$.<br></li></ul></p>
+<p>Le flux thermique vers le circuit de refroidissement (en valeur absolue) est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>|_{}| &= _{} - _e \\<br>|_{}| &= 2{,}73 - 0{,}90 \\<br>|_{}| &= $1{,}83   $  $1{,}8   $<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> Le flux thermique entre le circuit secondaire et le circuit de refroidissement vaut environ $$1{,}8   $$, ce qui est bien le résultat demandé.
+<div class="info-box">
+<strong>Remarque :</strong> Environ les deux tiers de l'énergie produite par le réacteur nucléaire sont  perdus  sous forme de chaleur évacuée vers le circuit de refroidissement. Seul un tiers est converti en électricité (rendement de 33
+</div>
+</li></ol>
+<strong>Partie C -- Transferts d'énergie dans le circuit de refroidissement</strong>
+<ol><li><strong>Température de l'eau à la sortie de la canalisation :</strong>
+<strong>Données :</strong>
+<ul><li>Flux thermique reçu par l'eau de refroidissement : $_{} = $1{,}8   $ = $1{,}8  10^{9}   $$</li><li>Débit volumique : $D_v = $60   $$</li><li>Température d'entrée : $_e = $19   ^ C$$</li><li>$c_{} = $4{,}18  10^{3}   $$</li><li>$_{} = $1000   $$
+</li></ul>
+<strong>Méthode :</strong> Chaque seconde, la masse d'eau qui traverse le circuit est :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = _{}  D_v$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = 1000  60 = $60000   $$</div></div>$</div></div>
+<p>Cette masse d'eau reçoit chaque seconde une énergie thermique $_{}$, ce qui provoque une élévation de température $$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{} =   c_{}  $$</div></div></div></div></p>
+<p>On isole $$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {_{}}{  c_{}}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= {1{,}8  10^{9}}{60 000  4{,}18  10^{3}} \\
+ &= {1{,}8  10^{9}}{2{,}508  10^{8}} \\
+ & $7{,}2   ^ C$
+$$</div></div></div></div>
+<p>La température de sortie est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>_s &= _e +  \\<br>_s &= 19 + 7{,}2 \\<br>_s & $26   ^ C$<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> La température de l'eau à la sortie de la canalisation est $_s  $26   ^ C$$.
+<strong>Commentaire environnemental :</strong>
+<p>L'eau du fleuve est rejetée avec une élévation de température d'environ $$7   ^ C$$. Ce réchauffement de l'eau du fleuve constitue une <strong>pollution thermique</strong> qui peut avoir des conséquences environnementales significatives :</p>
+<ul><li>La solubilité de l'oxygène dans l'eau diminue lorsque la température augmente, ce qui peut provoquer une diminution de l'oxygène dissous et affecter la faune aquatique.</li><li>Certaines espèces aquatiques sont sensibles aux variations de température et peuvent voir leur habitat perturbé.</li><li>C'est pourquoi les centrales nucléaires sont souvent équipées de <strong>tours de refroidissement</strong> (aéroréfrigérants) qui permettent de refroidir l'eau avant de la rejeter dans le fleuve, limitant ainsi l'impact sur l'écosystème.
+</li></ul>
+</li></ol>
+                </div>
+            </details>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="cours_transferts_thermiques_bilans_energie.html" class="btn-action">📖 Revoir le cours</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=transferts_thermiques_bilans_energie" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=transferts_thermiques_bilans_energie" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+## Objectifs
+
+- Utiliser le vocabulaire image, antécédent, variable et courbe représentative.
+- Exploiter une formule y = f(x).
+- Lire graphiquement des images et des antécédents.
+- Modéliser une situation par une fonction.
+
+## Prérequis
+
+- repère
+- lecture graphique
+- calcul littéral simple
+
+## Activité de découverte
+
+La hauteur d'eau dans une cuve dépend du temps. À chaque instant, on associe une hauteur : cette dépendance se décrit par une fonction.
+
+## Vocabulaire
+
+- **fonction**
+- **variable**
+- **image**
+- **antécédent**
+- **ensemble de définition**
+- **courbe représentative**
+
+## Cours
+
+### Définitions
+
+- Une fonction associe à chaque valeur de la variable au plus une image.
+- L'image de x par f se note f(x).
+- La courbe d'équation y = f(x) est l'ensemble des points de coordonnées (x ; f(x)).
+
+### Propriétés
+
+- Un point M(x ; y) appartient à la courbe de f si et seulement si y = f(x).
+- Un antécédent de k par f est une valeur x telle que f(x) = k.
+- L'ensemble de définition contient les valeurs de x pour lesquelles f(x) existe.
+
+### Méthodes
+
+1. Pour calculer une image, remplacer x par la valeur donnée dans la formule.
+2. Pour tester un point, remplacer x dans f(x) et comparer avec l'ordonnée du point.
+3. Pour lire un antécédent sur un graphique, partir de l'ordonnée et rejoindre la courbe puis l'axe des abscisses.
+
+## Exemples corrigés
+
+- Si f(x) = 2x + 3, alors f(4) = 11.
+- Le point A(2 ; 7) appartient à la courbe de f(x)=2x+3 car f(2)=7.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 680 300" role="img" aria-labelledby="function-title function-desc"><title id="function-title">Image et antécédent sur une courbe</title><desc id="function-desc">Courbe affine avec lecture de l'image de 2.</desc><line x1="80" y1="240" x2="610" y2="240" stroke="#111827"/><line x1="120" y1="260" x2="120" y2="40" stroke="#111827"/><path d="M130 220 L570 60" stroke="#2563eb" strokeWidth="4" fill="none"/><line x1="320" y1="240" x2="320" y2="151" stroke="#dc2626" strokeDasharray="6 5"/><line x1="120" y1="151" x2="320" y2="151" stroke="#dc2626" strokeDasharray="6 5"/><circle cx="320" cy="151" r="7" fill="#dc2626"/><text x="320" y="264" textAnchor="middle">x=2</text><text x="95" y="155" textAnchor="end">f(2)</text><text x="430" y="95" fontWeight="700">y = f(x)</text></svg>
+  <figcaption>Fonctions : langage, courbes et modélisation : représentation schématique à commenter avant les exercices.</figcaption>
+</figure>
+
+## Algorithmique en Python
+
+### Une fonction Python comme programme de calcul
+
+```python
+def f(x):
+    return 2*x + 3
+
+for x in [-1, 0, 2, 4]:
+    print(x, f(x))
+```
+
+La fonction Python reçoit un argument x et renvoie son image par le programme de calcul.
+
+## Erreurs fréquentes
+
+- Confondre f(2), qui est un nombre, et f, qui est la fonction.
+- Dire qu'une courbe est une fonction.
+- Lire l'image sur l'axe des abscisses au lieu de l'axe des ordonnées.
+
+## Formules et idées à retenir
+
+- M(x ; y) appartient à Cf équivaut à y = f(x).
+- f(a) est l'image de a.
+
+## Synthèse
+
+Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.

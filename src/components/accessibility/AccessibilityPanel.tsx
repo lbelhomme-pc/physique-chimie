@@ -1,20 +1,72 @@
 // src/components/accessibility/AccessibilityPanel.tsx
-// Panneau d'accessibilité — réglages DYS complets
-// Bouton ⚙️ discret qui ouvre un volet de réglages
+// Panneau V3 des preferences DYS et accessibilite.
 
-import { useState, useEffect } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { getA11yEngine, PROFILES, type A11yPreferences } from "../../data/accessibility/a11y-engine";
+
+type PanelTab = "profiles" | "custom";
+
+const THEME_OPTIONS = [
+  ["light", "Clair"],
+  ["gray-light", "Gris clair"],
+  ["gray", "Gris"],
+  ["dark", "Sombre"],
+  ["sepia", "Sepia"],
+  ["blue-light", "Nuit"],
+  ["auto", "Auto"],
+] as const;
+
+const FONT_OPTIONS = [
+  ["default", "Standard"],
+  ["opendyslexic", "DYS lisible"],
+  ["comic-sans", "Comic Sans"],
+  ["verdana", "Verdana"],
+  ["arial", "Arial"],
+] as const;
+
+const SIZE_OPTIONS = [
+  ["normal", "Normal"],
+  ["large", "Grand"],
+  ["x-large", "Tres grand"],
+] as const;
+
+const SPACING_OPTIONS = [
+  ["normal", "Normal"],
+  ["large", "Espace"],
+  ["x-large", "Tres espace"],
+] as const;
+
+const WIDTH_OPTIONS = [
+  ["normal", "Normal"],
+  ["narrow", "Etroit"],
+  ["very-narrow", "Tres etroit"],
+] as const;
 
 export default function AccessibilityPanel() {
   const [engine] = useState(() => getA11yEngine());
   const [prefs, setPrefs] = useState<A11yPreferences>(() => engine.getPrefs());
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<"profiles" | "custom">("profiles");
+  const [activeTab, setActiveTab] = useState<PanelTab>("profiles");
+  const panelTitleId = useId();
+  const statusId = useId();
+  const closeRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
-    const unsub = engine.subscribe((p) => setPrefs(p));
-    return unsub;
+    const unsubscribe = engine.subscribe((nextPrefs) => setPrefs(nextPrefs));
+    return unsubscribe;
   }, [engine]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    closeRef.current?.focus();
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setIsOpen(false);
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
 
   function setPref<K extends keyof A11yPreferences>(key: K, value: A11yPreferences[K]) {
     engine.setPref(key, value);
@@ -24,522 +76,408 @@ export default function AccessibilityPanel() {
     engine.applyProfile(id);
   }
 
-  function reset() {
-    engine.reset();
-  }
-
-  // Déterminer le profil actif
-  const activeProfile = PROFILES.find((p) => {
-    const o = p.overrides;
-    return Object.entries(o).every(([k, v]) => prefs[k as keyof A11yPreferences] === v);
-  })?.id ?? "custom";
+  const activeProfile = PROFILES.find((profile) =>
+    Object.entries(profile.overrides).every(([key, value]) => prefs[key as keyof A11yPreferences] === value)
+  )?.id ?? "custom";
 
   return (
     <>
-      {/* Bouton d'ouverture — discret en bas à gauche */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        style={styles.toggleBtn}
-        aria-label="Ouvrir les paramètres d'accessibilité"
-        title="Accessibilité"
+        type="button"
+        className="a11y-panel-toggle"
+        onClick={() => setIsOpen((open) => !open)}
+        aria-label="Ouvrir les parametres accessibilite et DYS"
+        aria-expanded={isOpen}
+        aria-controls="a11y-panel-v3"
       >
-        <span style={styles.toggleIcon}>⚙️</span>
+        <span aria-hidden="true">Aa</span>
       </button>
 
-      {/* Overlay */}
-      {isOpen && <div style={styles.overlay} onClick={() => setIsOpen(false)} />}
+      {isOpen && <button type="button" className="a11y-panel-overlay" aria-label="Fermer les parametres accessibilite" onClick={() => setIsOpen(false)} />}
 
-      {/* Panneau */}
-      <div style={{
-        ...styles.panel,
-        transform: isOpen ? "translateX(0)" : "translateX(-110%)",
-      }}>
-        <div style={styles.panelHeader}>
-          <h2 style={styles.panelTitle}>♿ Accessibilité</h2>
-          <button onClick={() => setIsOpen(false)} style={styles.closeBtn}>✕</button>
-        </div>
+      <aside
+        id="a11y-panel-v3"
+        className={isOpen ? "a11y-panel is-open" : "a11y-panel"}
+        aria-labelledby={panelTitleId}
+        aria-hidden={!isOpen}
+      >
+        <header className="a11y-panel__header">
+          <div>
+            <p>Preferences</p>
+            <h2 id={panelTitleId}>Accessibilite et DYS</h2>
+          </div>
+          <button ref={closeRef} type="button" className="a11y-panel__close" onClick={() => setIsOpen(false)} aria-label="Fermer le panneau">
+            x
+          </button>
+        </header>
 
-        {/* Onglets Profils / Personnalisé */}
-        <div style={styles.tabRow}>
-          <button
-            onClick={() => setActiveTab("profiles")}
-            style={activeTab === "profiles" ? styles.tabActive : styles.tab}
-          >
+        <p id={statusId} className="a11y-panel__status" aria-live="polite">
+          Preferences conservees sur cet appareil.
+        </p>
+
+        <div className="a11y-panel__tabs" role="tablist" aria-label="Modes de reglage">
+          <button type="button" role="tab" aria-selected={activeTab === "profiles"} onClick={() => setActiveTab("profiles")}>
             Profils
           </button>
-          <button
-            onClick={() => setActiveTab("custom")}
-            style={activeTab === "custom" ? styles.tabActive : styles.tab}
-          >
-            Personnalisé
+          <button type="button" role="tab" aria-selected={activeTab === "custom"} onClick={() => setActiveTab("custom")}>
+            Reglages
           </button>
         </div>
 
-        <div style={styles.panelBody}>
-
-          {/* ─── ONGLET PROFILS ─────────────────────── */}
+        <div className="a11y-panel__body">
           {activeTab === "profiles" && (
-            <div>
-              <p style={styles.hint}>Choisis un profil adapté à tes besoins :</p>
-              <div style={styles.profileGrid}>
-                {PROFILES.map((p) => (
-                  <button
-                    key={p.id}
-                    onClick={() => applyProfile(p.id)}
-                    style={{
-                      ...styles.profileCard,
-                      borderColor: activeProfile === p.id ? "#2563eb" : "#e2e8f0",
-                      background: activeProfile === p.id ? "#eff6ff" : "#ffffff",
-                    }}
-                  >
-                    <span style={styles.profileIcon}>{p.icon}</span>
-                    <span style={styles.profileName}>{p.name}</span>
-                    <span style={styles.profileDesc}>{p.description}</span>
-                    {activeProfile === p.id && <span style={styles.profileActive}>✓ Actif</span>}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <section aria-label="Profils rapides" className="a11y-panel__profiles">
+              <p className="a11y-panel__hint">Choisis un profil, puis ajuste finement si besoin.</p>
+              {PROFILES.map((profile) => (
+                <button
+                  key={profile.id}
+                  type="button"
+                  className={activeProfile === profile.id ? "a11y-profile is-active" : "a11y-profile"}
+                  onClick={() => applyProfile(profile.id)}
+                  aria-describedby={statusId}
+                >
+                  <span>
+                    <strong>{profile.name}</strong>
+                    <small>{profile.description}</small>
+                  </span>
+                  <b>{activeProfile === profile.id ? "Actif" : "Choisir"}</b>
+                </button>
+              ))}
+            </section>
           )}
 
-          {/* ─── ONGLET PERSONNALISÉ ────────────────── */}
           {activeTab === "custom" && (
-            <div style={styles.settingsGrid}>
+            <section aria-label="Reglages detailles" className="a11y-panel__settings">
+              <OptionGroup title="Theme" options={THEME_OPTIONS} value={prefs.theme} onSelect={(value) => setPref("theme", value)} />
+              <OptionGroup title="Police" options={FONT_OPTIONS} value={prefs.fontFamily} onSelect={(value) => setPref("fontFamily", value)} />
+              <OptionGroup title="Taille du texte" options={SIZE_OPTIONS} value={prefs.fontSize} onSelect={(value) => setPref("fontSize", value)} />
+              <OptionGroup title="Interligne" options={SIZE_OPTIONS} value={prefs.lineHeight} onSelect={(value) => setPref("lineHeight", value)} />
+              <OptionGroup title="Espacement lettres" options={SPACING_OPTIONS} value={prefs.letterSpacing} onSelect={(value) => setPref("letterSpacing", value)} />
+              <OptionGroup title="Espacement mots" options={SPACING_OPTIONS} value={prefs.wordSpacing} onSelect={(value) => setPref("wordSpacing", value)} />
+              <OptionGroup title="Largeur de lecture" options={WIDTH_OPTIONS} value={prefs.maxLineWidth} onSelect={(value) => setPref("maxLineWidth", value)} />
 
-              {/* Thème */}
-              <fieldset style={styles.fieldset}>
-                <legend style={styles.legend}>🎨 Thème</legend>
-                <div style={styles.optionRow}>
-                  {([
-                    ["light", "☀️ Clair"],
-                    ["gray-light", "🌤️ Gris clair"],
-                    ["gray", "🌥️ Gris"],
-                    ["dark", "🌙 Sombre"],
-                    ["sepia", "📜 Sépia"],
-                    ["blue-light", "🌅 Nuit"],
-                    ["auto", "🔄 Auto"],
-                  ] as const).map(([val, label]) => (
-                    <button
-                      key={val}
-                      onClick={() => setPref("theme", val)}
-                      style={prefs.theme === val ? styles.optionBtnActive : styles.optionBtn}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-                {prefs.theme === "auto" && (
-                  <p style={{ fontSize: "0.7rem", color: "#94a3b8", marginTop: "0.3rem" }}>
-                    Clair (7h-17h) → Gris clair (17h-20h) → Gris (20h-22h) → Sombre (22h-7h)
-                  </p>
-                )}
+              <fieldset className="a11y-fieldset">
+                <legend>Aides de lecture</legend>
+                <SwitchButton label="Regle de lecture" checked={prefs.readingGuide} onChange={(value) => setPref("readingGuide", value)} />
+                <SwitchButton label="Surligner les liens" checked={prefs.highlightLinks} onChange={(value) => setPref("highlightLinks", value)} />
+                <SwitchButton label="Reduire les animations" checked={prefs.reducedMotion} onChange={(value) => setPref("reducedMotion", value)} />
+                <SwitchButton label="Mode concentration" checked={prefs.focusMode} onChange={(value) => setPref("focusMode", value)} />
+                <SwitchButton label="Curseur agrandi" checked={prefs.cursorSize === "large"} onChange={(value) => setPref("cursorSize", value ? "large" : "normal")} />
               </fieldset>
 
-              {/* Police */}
-              <fieldset style={styles.fieldset}>
-                <legend style={styles.legend}>🔤 Police</legend>
-                <div style={styles.optionRow}>
-                  {([
-                    ["default", "Standard"],
-                    ["opendyslexic", "OpenDyslexic"],
-                    ["comic-sans", "Comic Sans"],
-                    ["verdana", "Verdana"],
-                  ] as const).map(([val, label]) => (
-                    <button
-                      key={val}
-                      onClick={() => setPref("fontFamily", val)}
-                      style={prefs.fontFamily === val ? styles.optionBtnActive : styles.optionBtn}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </fieldset>
-
-              {/* Taille */}
-              <fieldset style={styles.fieldset}>
-                <legend style={styles.legend}>🔍 Taille du texte</legend>
-                <div style={styles.optionRow}>
-                  {([
-                    ["normal", "Normal"],
-                    ["large", "Grand"],
-                    ["x-large", "Très grand"],
-                  ] as const).map(([val, label]) => (
-                    <button
-                      key={val}
-                      onClick={() => setPref("fontSize", val)}
-                      style={prefs.fontSize === val ? styles.optionBtnActive : styles.optionBtn}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </fieldset>
-
-              {/* Interlignage */}
-              <fieldset style={styles.fieldset}>
-                <legend style={styles.legend}>↕️ Interlignage</legend>
-                <div style={styles.optionRow}>
-                  {([
-                    ["normal", "Normal"],
-                    ["large", "Aéré"],
-                    ["x-large", "Très aéré"],
-                  ] as const).map(([val, label]) => (
-                    <button
-                      key={val}
-                      onClick={() => setPref("lineHeight", val)}
-                      style={prefs.lineHeight === val ? styles.optionBtnActive : styles.optionBtn}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </fieldset>
-
-              {/* Espacement lettres */}
-              <fieldset style={styles.fieldset}>
-                <legend style={styles.legend}>↔️ Espacement des lettres</legend>
-                <div style={styles.optionRow}>
-                  {([
-                    ["normal", "Normal"],
-                    ["large", "Espacé"],
-                    ["x-large", "Très espacé"],
-                  ] as const).map(([val, label]) => (
-                    <button
-                      key={val}
-                      onClick={() => setPref("letterSpacing", val)}
-                      style={prefs.letterSpacing === val ? styles.optionBtnActive : styles.optionBtn}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </fieldset>
-
-              {/* Espacement mots */}
-              <fieldset style={styles.fieldset}>
-                <legend style={styles.legend}>📏 Espacement des mots</legend>
-                <div style={styles.optionRow}>
-                  {([
-                    ["normal", "Normal"],
-                    ["large", "Espacé"],
-                    ["x-large", "Très espacé"],
-                  ] as const).map(([val, label]) => (
-                    <button
-                      key={val}
-                      onClick={() => setPref("wordSpacing", val)}
-                      style={prefs.wordSpacing === val ? styles.optionBtnActive : styles.optionBtn}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </fieldset>
-
-              {/* Largeur de ligne */}
-              <fieldset style={styles.fieldset}>
-                <legend style={styles.legend}>📐 Largeur de ligne</legend>
-                <div style={styles.optionRow}>
-                  {([
-                    ["normal", "Normal (75 car.)"],
-                    ["narrow", "Étroit (60 car.)"],
-                    ["very-narrow", "Très étroit (45 car.)"],
-                  ] as const).map(([val, label]) => (
-                    <button
-                      key={val}
-                      onClick={() => setPref("maxLineWidth", val)}
-                      style={prefs.maxLineWidth === val ? styles.optionBtnActive : styles.optionBtn}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </fieldset>
-
-              {/* Toggles */}
-              <fieldset style={styles.fieldset}>
-                <legend style={styles.legend}>🛠️ Aides</legend>
-                <div style={styles.toggleGrid}>
-                  <ToggleSwitch
-                    label="Règle de lecture"
-                    icon="📏"
-                    checked={prefs.readingGuide}
-                    onChange={(v) => setPref("readingGuide", v)}
-                  />
-                  <ToggleSwitch
-                    label="Surligner les liens"
-                    icon="🔗"
-                    checked={prefs.highlightLinks}
-                    onChange={(v) => setPref("highlightLinks", v)}
-                  />
-                  <ToggleSwitch
-                    label="Désactiver les animations"
-                    icon="⏸️"
-                    checked={prefs.reducedMotion}
-                    onChange={(v) => setPref("reducedMotion", v)}
-                  />
-                  <ToggleSwitch
-                    label="Mode concentration"
-                    icon="🎯"
-                    checked={prefs.focusMode}
-                    onChange={(v) => setPref("focusMode", v)}
-                  />
-                  <ToggleSwitch
-                    label="Curseur agrandi"
-                    icon="🖱️"
-                    checked={prefs.cursorSize === "large"}
-                    onChange={(v) => setPref("cursorSize", v ? "large" : "normal")}
-                  />
-                </div>
-              </fieldset>
-
-              {/* Bouton reset */}
-              <button onClick={reset} style={styles.resetBtn}>
-                🔄 Réinitialiser tous les paramètres
+              <button type="button" className="a11y-panel__reset" onClick={() => engine.reset()}>
+                Reinitialiser les reglages
               </button>
-            </div>
+            </section>
           )}
         </div>
-      </div>
+      </aside>
+
+      <style>{`
+        .a11y-panel-toggle {
+          align-items: center;
+          background: var(--v3-color-surface-raised, #fff);
+          border: 1px solid var(--v3-color-border-default, #e2e8f0);
+          border-radius: var(--v3-radius-pill, 999px);
+          bottom: 1rem;
+          box-shadow: var(--v3-shadow-md, 0 8px 18px rgba(15, 23, 42, 0.08));
+          color: var(--v3-color-action, #2563eb);
+          cursor: pointer;
+          display: inline-flex;
+          font: 900 1rem/1 var(--font-family, sans-serif);
+          height: 3rem;
+          justify-content: center;
+          left: 1rem;
+          position: fixed;
+          width: 3rem;
+          z-index: 9998;
+        }
+
+        .a11y-panel-toggle:focus-visible,
+        .a11y-panel__close:focus-visible,
+        .a11y-panel__tabs button:focus-visible,
+        .a11y-profile:focus-visible,
+        .a11y-option:focus-visible,
+        .a11y-switch:focus-visible,
+        .a11y-panel__reset:focus-visible {
+          box-shadow: var(--v3-shadow-focus, 0 0 0 3px rgba(37, 99, 235, 0.28));
+          outline: none;
+        }
+
+        .a11y-panel-overlay {
+          background: rgba(15, 23, 42, 0.42);
+          border: 0;
+          inset: 0;
+          position: fixed;
+          z-index: 9997;
+        }
+
+        .a11y-panel {
+          background: var(--v3-color-surface-raised, #fff);
+          border-right: 1px solid var(--v3-color-border-default, #e2e8f0);
+          box-shadow: var(--v3-shadow-md, 0 8px 18px rgba(15, 23, 42, 0.08));
+          color: var(--v3-color-text-main, #0f172a);
+          display: flex;
+          flex-direction: column;
+          height: 100vh;
+          left: 0;
+          max-width: min(26rem, 94vw);
+          position: fixed;
+          top: 0;
+          transform: translateX(-105%);
+          transition: transform var(--v3-motion-base, 180ms ease);
+          width: 26rem;
+          z-index: 9999;
+        }
+
+        .a11y-panel.is-open {
+          transform: translateX(0);
+        }
+
+        .a11y-panel__header {
+          align-items: center;
+          border-bottom: 1px solid var(--v3-color-border-default, #e2e8f0);
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          padding: 1rem;
+        }
+
+        .a11y-panel__header p {
+          color: var(--v3-color-action, #2563eb);
+          font-size: var(--v3-font-size-xs, 0.75rem);
+          font-weight: 900;
+          margin: 0 0 0.2rem;
+          text-transform: uppercase;
+        }
+
+        .a11y-panel__header h2 {
+          font-size: var(--v3-font-size-xl, 1.25rem);
+          letter-spacing: 0;
+          margin: 0;
+        }
+
+        .a11y-panel__close {
+          background: var(--v3-color-surface-muted, #f5f7fa);
+          border: 1px solid var(--v3-color-border-default, #e2e8f0);
+          border-radius: var(--v3-radius-pill, 999px);
+          color: var(--v3-color-text-subtle, #475569);
+          cursor: pointer;
+          font: inherit;
+          font-weight: 900;
+          height: 2.25rem;
+          width: 2.25rem;
+        }
+
+        .a11y-panel__status,
+        .a11y-panel__hint {
+          color: var(--v3-color-text-subtle, #475569);
+          font-size: var(--v3-font-size-sm, 0.875rem);
+          margin: 0;
+        }
+
+        .a11y-panel__status {
+          padding: 0.75rem 1rem 0;
+        }
+
+        .a11y-panel__tabs {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.25rem;
+          padding: 0.75rem 1rem 0;
+        }
+
+        .a11y-panel__tabs button,
+        .a11y-option,
+        .a11y-switch,
+        .a11y-profile,
+        .a11y-panel__reset {
+          border-radius: var(--v3-radius-md, 8px);
+          cursor: pointer;
+          font: inherit;
+        }
+
+        .a11y-panel__tabs button {
+          background: var(--v3-color-surface-muted, #f5f7fa);
+          border: 1px solid var(--v3-color-border-default, #e2e8f0);
+          color: var(--v3-color-text-subtle, #475569);
+          min-height: 2.5rem;
+        }
+
+        .a11y-panel__tabs button[aria-selected="true"] {
+          background: var(--v3-color-action, #2563eb);
+          border-color: var(--v3-color-action, #2563eb);
+          color: #fff;
+          font-weight: 850;
+        }
+
+        .a11y-panel__body {
+          overflow-y: auto;
+          padding: 1rem;
+        }
+
+        .a11y-panel__profiles,
+        .a11y-panel__settings {
+          display: grid;
+          gap: 0.75rem;
+        }
+
+        .a11y-profile {
+          align-items: center;
+          background: var(--v3-color-surface-muted, #f5f7fa);
+          border: 1px solid var(--v3-color-border-default, #e2e8f0);
+          color: inherit;
+          display: flex;
+          gap: 0.75rem;
+          justify-content: space-between;
+          min-height: 4.25rem;
+          padding: 0.75rem;
+          text-align: left;
+          width: 100%;
+        }
+
+        .a11y-profile.is-active {
+          background: var(--v3-color-action-subtle, #eff6ff);
+          border-color: var(--v3-color-action, #2563eb);
+        }
+
+        .a11y-profile strong,
+        .a11y-profile small {
+          display: block;
+        }
+
+        .a11y-profile small {
+          color: var(--v3-color-text-subtle, #475569);
+          margin-top: 0.2rem;
+        }
+
+        .a11y-profile b,
+        .a11y-switch b {
+          color: var(--v3-color-action, #2563eb);
+          font-size: var(--v3-font-size-xs, 0.75rem);
+          white-space: nowrap;
+        }
+
+        .a11y-fieldset {
+          border: 0;
+          display: grid;
+          gap: 0.5rem;
+          margin: 0;
+          padding: 0;
+        }
+
+        .a11y-fieldset legend {
+          color: var(--v3-color-text-main, #0f172a);
+          font-weight: 850;
+          margin-bottom: 0.4rem;
+        }
+
+        .a11y-option-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.35rem;
+        }
+
+        .a11y-option {
+          background: var(--v3-color-surface-muted, #f5f7fa);
+          border: 1px solid var(--v3-color-border-default, #e2e8f0);
+          color: var(--v3-color-text-subtle, #475569);
+          min-height: 2.25rem;
+          padding: 0.4rem 0.65rem;
+        }
+
+        .a11y-option[aria-pressed="true"] {
+          background: var(--v3-color-action, #2563eb);
+          border-color: var(--v3-color-action, #2563eb);
+          color: #fff;
+          font-weight: 850;
+        }
+
+        .a11y-switch {
+          align-items: center;
+          background: var(--v3-color-surface-muted, #f5f7fa);
+          border: 1px solid var(--v3-color-border-default, #e2e8f0);
+          color: var(--v3-color-text-main, #0f172a);
+          display: flex;
+          justify-content: space-between;
+          min-height: 2.75rem;
+          padding: 0.5rem 0.65rem;
+          text-align: left;
+          width: 100%;
+        }
+
+        .a11y-switch[aria-checked="true"] {
+          border-color: var(--v3-color-action, #2563eb);
+        }
+
+        .a11y-panel__reset {
+          background: var(--v3-color-surface-raised, #fff);
+          border: 1px solid var(--v3-color-border-default, #e2e8f0);
+          color: var(--v3-color-text-subtle, #475569);
+          min-height: 2.75rem;
+          padding: 0.55rem 0.75rem;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .a11y-panel {
+            transition: none;
+          }
+        }
+
+        @media (max-width: 420px) {
+          .a11y-panel-toggle {
+            bottom: calc(9.75rem + env(safe-area-inset-bottom, 0px));
+            left: 0.75rem;
+          }
+
+          body:has(.analytics-consent:not([hidden])) .a11y-panel-toggle {
+            bottom: auto;
+            left: auto;
+            right: 0.75rem;
+            top: 0.75rem;
+          }
+        }
+      `}</style>
     </>
   );
 }
 
-// ─── Sous-composant Toggle ───────────────────────────────
-
-function ToggleSwitch({ label, icon, checked, onChange }: {
-  label: string; icon: string; checked: boolean; onChange: (v: boolean) => void;
+function OptionGroup<T extends string>({
+  title,
+  options,
+  value,
+  onSelect,
+}: {
+  title: string;
+  options: readonly (readonly [T, string])[];
+  value: T;
+  onSelect: (value: T) => void;
 }) {
   return (
-    <label style={styles.toggleRow}>
-      <span style={styles.toggleLabel}>{icon} {label}</span>
-      <div
-        onClick={() => onChange(!checked)}
-        style={{
-          ...styles.toggleTrack,
-          background: checked ? "#2563eb" : "#cbd5e1",
-        }}
-      >
-        <div style={{
-          ...styles.toggleThumb,
-          transform: checked ? "translateX(20px)" : "translateX(2px)",
-        }} />
+    <fieldset className="a11y-fieldset">
+      <legend>{title}</legend>
+      <div className="a11y-option-grid">
+        {options.map(([optionValue, label]) => (
+          <button
+            key={optionValue}
+            type="button"
+            className="a11y-option"
+            aria-pressed={value === optionValue}
+            onClick={() => onSelect(optionValue)}
+          >
+            {label}
+          </button>
+        ))}
       </div>
-    </label>
+    </fieldset>
   );
 }
 
-// ─── Styles ──────────────────────────────────────────────
-
-const styles: Record<string, React.CSSProperties> = {
-  // Toggle button
-  toggleBtn: {
-    position: "fixed",
-    bottom: 20,
-    left: 20,
-    width: 48,
-    height: 48,
-    borderRadius: "50%",
-    border: "2px solid #e2e8f0",
-    background: "#ffffff",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-    cursor: "pointer",
-    zIndex: 9998,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  toggleIcon: { fontSize: "1.4rem" },
-
-  // Overlay
-  overlay: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    background: "rgba(0,0,0,0.3)",
-    zIndex: 9998,
-  },
-
-  // Panel
-  panel: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: 360,
-    maxWidth: "90vw",
-    height: "100vh",
-    background: "#ffffff",
-    boxShadow: "4px 0 20px rgba(0,0,0,0.15)",
-    zIndex: 9999,
-    overflowY: "auto",
-    transition: "transform 0.3s ease",
-    display: "flex",
-    flexDirection: "column",
-  },
-  panelHeader: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "1rem 1.25rem",
-    borderBottom: "1px solid #e2e8f0",
-    flexShrink: 0,
-  },
-  panelTitle: { fontSize: "1.1rem", fontWeight: 700, margin: 0, color: "#1e293b" },
-  closeBtn: {
-    width: 32,
-    height: 32,
-    border: "none",
-    background: "#f1f5f9",
-    borderRadius: "50%",
-    fontSize: "1rem",
-    cursor: "pointer",
-    color: "#64748b",
-  },
-
-  // Tabs
-  tabRow: {
-    display: "flex",
-    borderBottom: "1px solid #e2e8f0",
-    flexShrink: 0,
-  },
-  tab: {
-    flex: 1,
-    padding: "0.65rem",
-    border: "none",
-    background: "transparent",
-    fontSize: "0.85rem",
-    fontWeight: 500,
-    color: "#64748b",
-    cursor: "pointer",
-    borderBottom: "2px solid transparent",
-  },
-  tabActive: {
-    flex: 1,
-    padding: "0.65rem",
-    border: "none",
-    background: "transparent",
-    fontSize: "0.85rem",
-    fontWeight: 600,
-    color: "#2563eb",
-    cursor: "pointer",
-    borderBottom: "2px solid #2563eb",
-  },
-
-  panelBody: {
-    padding: "1rem 1.25rem",
-    flex: 1,
-    overflowY: "auto",
-  },
-
-  hint: { fontSize: "0.85rem", color: "#64748b", marginBottom: "0.75rem" },
-
-  // Profiles
-  profileGrid: { display: "flex", flexDirection: "column", gap: "0.5rem" },
-  profileCard: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    gap: "0.15rem",
-    padding: "0.75rem 1rem",
-    border: "2px solid #e2e8f0",
-    borderRadius: 10,
-    background: "#ffffff",
-    cursor: "pointer",
-    textAlign: "left",
-    position: "relative",
-    width: "100%",
-  },
-  profileIcon: { fontSize: "1.3rem" },
-  profileName: { fontSize: "0.9rem", fontWeight: 700, color: "#1e293b" },
-  profileDesc: { fontSize: "0.75rem", color: "#64748b" },
-  profileActive: {
-    position: "absolute",
-    top: 8,
-    right: 10,
-    fontSize: "0.7rem",
-    fontWeight: 700,
-    color: "#2563eb",
-  },
-
-  // Settings
-  settingsGrid: { display: "flex", flexDirection: "column", gap: "0.75rem" },
-  fieldset: {
-    border: "none",
-    padding: 0,
-    margin: 0,
-  },
-  legend: {
-    fontSize: "0.8rem",
-    fontWeight: 700,
-    color: "#475569",
-    marginBottom: "0.4rem",
-    display: "block",
-  },
-  optionRow: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "0.3rem",
-  },
-  optionBtn: {
-    padding: "0.35rem 0.65rem",
-    border: "1px solid #e2e8f0",
-    borderRadius: 6,
-    background: "#ffffff",
-    fontSize: "0.75rem",
-    cursor: "pointer",
-    color: "#475569",
-  },
-  optionBtnActive: {
-    padding: "0.35rem 0.65rem",
-    border: "2px solid #2563eb",
-    borderRadius: 6,
-    background: "#eff6ff",
-    fontSize: "0.75rem",
-    cursor: "pointer",
-    color: "#1e40af",
-    fontWeight: 600,
-  },
-
-  // Toggles
-  toggleGrid: { display: "flex", flexDirection: "column", gap: "0.5rem" },
-  toggleRow: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    cursor: "pointer",
-    padding: "0.25rem 0",
-  },
-  toggleLabel: { fontSize: "0.8rem", color: "#334155" },
-  toggleTrack: {
-    width: 42,
-    height: 22,
-    borderRadius: 99,
-    position: "relative",
-    cursor: "pointer",
-    flexShrink: 0,
-  },
-  toggleThumb: {
-    width: 18,
-    height: 18,
-    borderRadius: "50%",
-    background: "#ffffff",
-    boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
-    position: "absolute",
-    top: 2,
-    transition: "transform 0.2s",
-  },
-
-  resetBtn: {
-    width: "100%",
-    padding: "0.6rem",
-    border: "1px solid #e2e8f0",
-    borderRadius: 8,
-    background: "#f8fafc",
-    fontSize: "0.8rem",
-    cursor: "pointer",
-    color: "#64748b",
-    marginTop: "0.5rem",
-  },
-};
+function SwitchButton({ label, checked, onChange }: { label: string; checked: boolean; onChange: (value: boolean) => void }) {
+  return (
+    <button type="button" className="a11y-switch" role="switch" aria-checked={checked} onClick={() => onChange(!checked)}>
+      <span>{label}</span>
+      <b>{checked ? "Active" : "Inactive"}</b>
+    </button>
+  );
+}

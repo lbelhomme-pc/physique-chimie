@@ -1,7 +1,7 @@
 // src/components/pedagogie/FlashcardsPlayer.tsx
 // v7 : CSS vars + SRS Anki + input + KaTeX + TTS sur question ET réponse
 
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef } from "react";
 import { getGamificationEngine } from "../../data/gamification/engine";
 import { getSRSEngine, formatInterval, type SRSRating } from "../../data/gamification/srs";
 import XPToast, { type ToastItem } from "./XPToast";
@@ -69,7 +69,7 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
     const due = srsStats?.due ?? 0, newC = srsStats?.newCards ?? allCards.length;
     const learning = srsStats?.learning ?? 0, mature = srsStats?.mature ?? 0;
     return (
-      <div style={{maxWidth:600,margin:"0 auto"}}>
+      <div data-flashcards-player-v3="true" style={{maxWidth:600,margin:"0 auto"}}>
         {title && <h3 style={{fontSize:"1.1rem",fontWeight:600,marginBottom:"0.75rem",color:V.text}}>{title}</h3>}
         {srsStats && (
           <div style={{display:"flex",justifyContent:"center",gap:"0.5rem",fontSize:"0.8rem",marginBottom:"1rem",padding:"0.5rem",background:V.bgSec,borderRadius:8,flexWrap:"wrap"}}>
@@ -105,7 +105,7 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
     const go = results.filter(r=>r.rating==="good").length;
     const ea = results.filter(r=>r.rating==="easy").length;
     return (
-      <div style={{maxWidth:500,margin:"0 auto",textAlign:"center"}}>
+      <div data-flashcards-result-v3="true" style={{maxWidth:500,margin:"0 auto",textAlign:"center"}}>
         <div style={{fontSize:"3rem",marginBottom:"0.5rem"}}>{total===0?"🎉":go+ea>ha+ag?"🌟":"💪"}</div>
         <h3 style={{fontSize:"1.4rem",fontWeight:700,color:V.text,marginBottom:"1.25rem"}}>{total===0?"Rien à revoir !":"Session terminée !"}</h3>
         {total===0?<p style={{fontSize:"1rem",color:V.textSec,marginBottom:"1.5rem"}}>Toutes tes cartes sont à jour. Reviens demain !</p>:(
@@ -151,7 +151,7 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
   const diffInfo = !diff?null:diff<=1?{text:"Facile",color:V.success,bg:V.successLt}:diff<=2?{text:"Moyen",color:V.warning,bg:V.warningLt}:{text:"Difficile",color:V.danger,bg:V.dangerLt};
 
   return (
-    <div style={{maxWidth:600,margin:"0 auto"}}>
+    <div data-flashcards-player-v3="true" style={{maxWidth:600,margin:"0 auto"}}>
       {title&&<h3 style={{fontSize:"1.1rem",fontWeight:600,marginBottom:"0.75rem",color:V.text}}>{title}</h3>}
 
       <div style={{display:"flex",alignItems:"center",gap:"0.75rem",marginBottom:"0.75rem"}}>

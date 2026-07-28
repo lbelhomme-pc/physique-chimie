@@ -1,221 +1,821 @@
-// src/components/pedagogie/Dashboard.tsx
-// v3 : Design compact — tout dans une boîte, pills stats, mega quiz/flashcards
-
-import { useState, useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import type { CSSProperties } from "react";
 import { getGamificationEngine } from "../../data/gamification/engine";
 import { getSRSEngine } from "../../data/gamification/srs";
-import { RANKS, BADGES } from "../../data/gamification/config";
-import SearchBar from "../ui/SearchBar.tsx";
+import type { GlobalSearchResource } from "../search/GlobalSearch";
 
-
-const V = {
-  bg: "var(--bg-card)", bgSec: "var(--bg-secondary)", bgTer: "var(--bg-tertiary)", bgBody: "var(--bg-body)",
-  text: "var(--text-primary)", textSec: "var(--text-secondary)", textMut: "var(--text-muted)", textDis: "var(--text-disabled)",
-  border: "var(--border-color)", borderLight: "var(--border-light)",
-  primary: "var(--accent-primary)", primaryLt: "var(--accent-primary-light)",
-  success: "var(--accent-success)", successLt: "var(--accent-success-light)",
-  warning: "var(--accent-warning)", warningLt: "var(--accent-warning-light)",
-  danger: "var(--accent-danger)", purple: "var(--accent-purple)", purpleLt: "var(--accent-purple-light)",
-  orange: "var(--accent-orange)", pink: "var(--accent-pink)",
-  shadow: "var(--shadow-card)", shadowMd: "var(--shadow-md)",
-  radius: "var(--radius-lg)", radiusPill: "var(--radius-pill)", radiusMd: "var(--radius-md)",
-};
-
-interface DashboardProps {
-  chapters: { id: string; title: string; niveau: string; matiere: string; cycle: string; slug: string; flashcardIds?: string[]; }[];
+interface Props {
+  resources: GlobalSearchResource[];
 }
 
-export default function Dashboard({ chapters }: DashboardProps) {
+interface LastChapter {
+  path: string;
+  tab: string;
+  title: string;
+}
+
+type DashboardItem = {
+  resource: GlobalSearchResource;
+  percent: number;
+};
+
+const quickActions = [
+  { label: "Exercices", href: "/college", detail: "S'entrainer" },
+  { label: "Quiz", href: "/memorisation/mega-quiz", detail: "Tester" },
+  { label: "Flashcards", href: "/memorisation/mega-flashcards", detail: "Reviser" },
+  { label: "Laboratoire", href: "/laboratoire", detail: "Simuler" },
+  { label: "Profil", href: "/profil", detail: "Progression" },
+];
+
+const navItems = [
+  { label: "Accueil", href: "/" },
+  { label: "Cours", href: "/college" },
+  { label: "Exercices", href: "/college#exercices" },
+  { label: "Quiz", href: "/memorisation/mega-quiz" },
+  { label: "Flashcards", href: "/memorisation/mega-flashcards" },
+  { label: "Laboratoire", href: "/laboratoire" },
+  { label: "Ressources", href: "/outils-methodes" },
+];
+
+function subjectPercent(
+  resources: GlobalSearchResource[],
+  subject: GlobalSearchResource["subject"],
+  engine: ReturnType<typeof getGamificationEngine>,
+) {
+  const filtered = resources.filter((resource) => resource.subject === subject);
+  if (filtered.length === 0) return 0;
+  return Math.round(
+    filtered.reduce((sum, resource) => sum + engine.getChapterProgress(resource.id).percent, 0) / filtered.length,
+  );
+}
+
+function formatResourceMeta(resource: GlobalSearchResource): string {
+  return [
+    resource.subjectLabel,
+    resource.levelLabel,
+    resource.matiereLabel,
+  ].filter(Boolean).join(" · ");
+}
+
+function progressLabel(percent: number): string {
+  if (percent >= 100) return "Termine";
+  if (percent > 0) return "En cours";
+  return "A commencer";
+}
+
+function getPriorityItem(
+  resources: GlobalSearchResource[],
+  items: DashboardItem[],
+  lastChapter: LastChapter | null,
+): DashboardItem | null {
+  const lastResource = lastChapter
+    ? resources.find((resource) => lastChapter.path === resource.path || lastChapter.path.startsWith(`${resource.path}#`))
+    : null;
+
+  if (lastResource) {
+    return {
+      resource: lastResource,
+      percent: items.find((item) => item.resource.id === lastResource.id)?.percent ?? 0,
+    };
+  }
+
+  return items.find((item) => item.percent > 0 && item.percent < 100) ?? items[0] ?? (
+    resources[0] ? { resource: resources[0], percent: 0 } : null
+  );
+}
+
+export default function Dashboard({ resources }: Props) {
   const [engine] = useState(() => getGamificationEngine());
   const [srs] = useState(() => getSRSEngine());
+  const [lastChapter, setLastChapter] = useState<LastChapter | null>(null);
   const [, forceUpdate] = useState(0);
 
-  useEffect(() => { const u = engine.subscribe(() => forceUpdate(n => n + 1)); return u; }, [engine]);
+  useEffect(() => {
+    setLastChapter(engine.getLastChapter());
+    const unsubscribe = engine.subscribe(() => {
+      setLastChapter(engine.getLastChapter());
+      forceUpdate((n) => n + 1);
+    });
+    return unsubscribe;
+  }, [engine]);
 
   const xp = engine.getXP();
   const rank = engine.getRank();
   const nextRank = engine.getNextRank();
-  const rp = engine.getRankProgress();
+  const rankProgress = engine.getRankProgress();
   const streak = engine.getStreak();
-  const badges = engine.getBadges();
   const stats = engine.getStats();
-  const lastCh = engine.getLastChapter();
   const globalDue = srs.getGlobalDueCount();
+  const dueByChapter = srs.getGlobalDueByChapter();
 
-  const isNew = xp === 0 && stats.totalDaysActive <= 1;
+  const progressBySubject = {
+    mathematiques: subjectPercent(resources, "mathematiques", engine),
+    physiqueChimie: subjectPercent(resources, "physique-chimie", engine),
+  };
 
-  // Calculer % physique et chimie
-  const physChapters = chapters.filter(c => c.matiere === "physique");
-  const chimChapters = chapters.filter(c => c.matiere === "chimie");
-  const physPercent = physChapters.length > 0
-    ? Math.round(physChapters.reduce((s, c) => s + engine.getChapterProgress(c.id).percent, 0) / physChapters.length)
+  const progressItems = useMemo(() => resources
+    .map((resource) => ({ resource, percent: engine.getChapterProgress(resource.id).percent }))
+    .filter((item) => item.percent > 0)
+    .sort((a, b) => b.percent - a.percent || a.resource.title.localeCompare(b.resource.title)), [engine, resources]);
+
+  const priorityItem = getPriorityItem(resources, progressItems, lastChapter);
+  const completedCount = progressItems.filter((item) => item.percent >= 100).length;
+  const successfulQuizRate = stats.totalQuizCompleted > 0
+    ? Math.round((stats.totalQuizPerfect / stats.totalQuizCompleted) * 100)
     : 0;
-  const chimPercent = chimChapters.length > 0
-    ? Math.round(chimChapters.reduce((s, c) => s + engine.getChapterProgress(c.id).percent, 0) / chimChapters.length)
-    : 0;
 
-  // ─── NOUVEL ÉLÈVE ─────────────────────────────────────
-  if (isNew) {
-    return (
-      <div style={{maxWidth:900,margin:"0 auto"}}>
-        <div style={{textAlign:"center",padding:"2rem 0 1.5rem"}}>
-          <span style={{fontSize:"3rem"}}>🔬</span>
-          <h1 style={{fontSize:"2rem",fontWeight:800,color:V.primary,margin:"0.5rem 0",letterSpacing:"-0.02em"}}>Plateforme de Physique-Chimie</h1>
-          <p style={{fontSize:"1.05rem",color:V.textMut}}>Bienvenue sur ton espace de révisions interactif 🚀</p>
+  const reviewItems = dueByChapter
+    .map((entry) => ({
+      count: entry.count,
+      resource: resources.find((resource) => resource.id === entry.chapterId),
+    }))
+    .filter((item): item is { count: number; resource: GlobalSearchResource } => Boolean(item.resource))
+    .slice(0, 3);
+
+  const historyItems = progressItems.slice(0, 6);
+  const hasLocalActivity = progressItems.length > 0 || xp > 0 || globalDue > 0 || Boolean(lastChapter);
+  const priorityHref = lastChapter?.path ?? priorityItem?.resource.path ?? "/college";
+  const priorityTitle = lastChapter?.title ?? priorityItem?.resource.title ?? "Choisir un chapitre";
+  const priorityMeta = priorityItem ? formatResourceMeta(priorityItem.resource) : "Aucune activite locale detectee";
+
+  return (
+    <section className="dashboard-v3" aria-labelledby="dashboard-v3-title">
+      <aside className="dashboard-v3__sidebar" aria-label="Navigation de l'espace local">
+        <a className="dashboard-v3__brand" href="/">
+          <span aria-hidden="true">PC</span>
+          <strong>Tableau local</strong>
+          <small>Sans compte serveur</small>
+        </a>
+
+        <nav className="dashboard-v3__nav">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href} aria-current={item.href === "/" ? "page" : undefined}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="dashboard-v3__streak" aria-label="Serie en cours">
+          <span>Serie en cours</span>
+          <strong>{streak.current}</strong>
+          <small>jour{streak.current > 1 ? "s" : ""} · meilleur {streak.best}</small>
+        </div>
+      </aside>
+
+      <div className="dashboard-v3__main">
+        <header className="dashboard-v3__header">
+          <div>
+            <p className="dashboard-v3__kicker">Prototype connecte local</p>
+            <h2 id="dashboard-v3-title">Tableau de bord</h2>
+            <span>{hasLocalActivity ? "Voici les actions issues de ta progression sur cet appareil." : "Commence une activite pour alimenter ce tableau."}</span>
+          </div>
+          <a href="/profil" className="dashboard-v3__profile-link">Profil local</a>
+        </header>
+
+        <div className="dashboard-v3__hero-grid" aria-label="Resume de progression">
+          <article className="dashboard-v3__priority">
+            <span className="dashboard-v3__label">A faire maintenant</span>
+            <h3>{priorityTitle}</h3>
+            <p>{priorityMeta}</p>
+            <div
+              className="dashboard-v3__progress-line"
+              role="meter"
+              aria-label="Progression"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={priorityItem?.percent ?? 0}
+            >
+              <i style={{ width: `${priorityItem?.percent ?? 0}%` }} />
+            </div>
+            <a href={priorityHref}>{(priorityItem?.percent ?? 0) > 0 ? "Continuer" : "Commencer"}</a>
+          </article>
+
+          <article className="dashboard-v3__metric">
+            <span>Chapitres termines</span>
+            <strong>{completedCount} / {resources.length}</strong>
+            <small>{resources.length > 0 ? `${Math.round((completedCount / resources.length) * 100)}% du catalogue` : "Catalogue vide"}</small>
+          </article>
+
+          <article className="dashboard-v3__metric">
+            <span>Quiz reussis</span>
+            <strong>{successfulQuizRate}%</strong>
+            <small>{stats.totalQuizCompleted} quiz termines</small>
+          </article>
+
+          <article className="dashboard-v3__metric">
+            <span>XP local</span>
+            <strong>{xp}</strong>
+            <small>{nextRank ? `${rank.name} · ${nextRank.xpRequired - rankProgress.current} XP avant ${nextRank.name}` : rank.name}</small>
+          </article>
         </div>
 
-        {/* Boîte comment ça marche */}
-        <div style={{background:V.bg,borderRadius:V.radius,boxShadow:V.shadow,padding:"1.5rem",marginBottom:"1.5rem",border:`1px solid ${V.borderLight}`}}>
-          <h2 style={{fontSize:"1.1rem",fontWeight:700,color:V.text,marginBottom:"1rem",textAlign:"center"}}>🎯 Comment ça marche ?</h2>
-          <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:"0.75rem"}}>
-            {[["📖","Lis le cours"],["✏️","Exercices"],["❓","Quiz"],["🃏","Flashcards"],["⚡","Gagne des XP !"]].map(([ico,txt],i)=>(
-              <div key={i} style={{display:"flex",alignItems:"center",gap:"0.4rem",padding:"0.5rem 1rem",background:V.bgSec,borderRadius:V.radiusPill,fontSize:"0.85rem",fontWeight:600,color:V.textSec}}>
-                <span>{ico}</span>{txt}
+        <div className="dashboard-v3__content-grid">
+          <section className="dashboard-v3__panel" aria-labelledby="dashboard-continue-title">
+            <div className="dashboard-v3__panel-head">
+              <h3 id="dashboard-continue-title">Continuer</h3>
+              <a href="/profil">Voir tout</a>
+            </div>
+            {historyItems.length > 0 ? (
+              <ul className="dashboard-v3__task-list">
+                {historyItems.slice(0, 3).map((item) => (
+                  <li key={item.resource.id}>
+                    <a href={item.resource.path}>
+                      <strong>{item.resource.title}</strong>
+                      <span>{formatResourceMeta(item.resource)}</span>
+                    </a>
+                    <b>{item.percent}%</b>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="dashboard-v3__empty">Aucun chapitre commence pour le moment.</p>
+            )}
+          </section>
+
+          <section className="dashboard-v3__panel" aria-labelledby="dashboard-review-title">
+            <div className="dashboard-v3__panel-head">
+              <h3 id="dashboard-review-title">A revoir</h3>
+              <a href="/memorisation/revision-du-jour">Revision du jour</a>
+            </div>
+            {reviewItems.length > 0 ? (
+              <ul className="dashboard-v3__task-list dashboard-v3__task-list--review">
+                {reviewItems.map((item) => (
+                  <li key={item.resource.id}>
+                    <a href={item.resource.path}>
+                      <strong>{item.resource.title}</strong>
+                      <span>{item.count} carte{item.count > 1 ? "s" : ""} a revoir</span>
+                    </a>
+                    <b>{item.count}</b>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="dashboard-v3__empty">Aucune carte due aujourd'hui.</p>
+            )}
+          </section>
+
+          <section className="dashboard-v3__panel dashboard-v3__panel--progress" aria-labelledby="dashboard-progress-title">
+            <div className="dashboard-v3__panel-head">
+              <h3 id="dashboard-progress-title">Progression</h3>
+              <a href="/profil">Detail</a>
+            </div>
+            <div className="dashboard-v3__ring" style={{ "--progress": `${priorityItem?.percent ?? 0}%` } as CSSProperties}>
+              <strong>{priorityItem?.percent ?? 0}%</strong>
+              <span>{priorityItem ? progressLabel(priorityItem.percent) : "Vide"}</span>
+            </div>
+            <dl className="dashboard-v3__subject-progress">
+              <div>
+                <dt>Mathematiques</dt>
+                <dd>{progressBySubject.mathematiques}%</dd>
               </div>
+              <div>
+                <dt>Physique-Chimie</dt>
+                <dd>{progressBySubject.physiqueChimie}%</dd>
+              </div>
+            </dl>
+          </section>
+        </div>
+
+        <section className="dashboard-v3__quick" aria-labelledby="dashboard-quick-title">
+          <h3 id="dashboard-quick-title">Poursuivre autrement</h3>
+          <div>
+            {quickActions.map((action) => (
+              <a key={action.href} href={action.href}>
+                <strong>{action.label}</strong>
+                <span>{action.detail}</span>
+              </a>
             ))}
           </div>
-        </div>
+        </section>
 
-        <p style={{textAlign:"center",fontSize:"0.95rem",color:V.textMut,marginBottom:"1.5rem"}}>
-          Bonjour ! 👋 Que souhaites-tu réviser aujourd'hui ? Sélectionne une catégorie ci-dessus pour accéder aux cours et exercices.
-        </p>
-      </div>
-    );
-  }
-
-  // ─── DASHBOARD COMPACT ────────────────────────────────
-  return (
-    <div style={{maxWidth:900,margin:"0 auto"}}>
-
-      {/* Header */}
-      <div style={{textAlign:"center",padding:"1.5rem 0 0.75rem"}}>
-        <span style={{fontSize:"2.5rem"}}>🔬</span>
-        <h1 style={{fontSize:"1.8rem",fontWeight:800,color:V.primary,margin:"0.3rem 0",letterSpacing:"-0.02em"}}>Plateforme de Physique-Chimie</h1>
-        <p style={{fontSize:"1rem",color:V.textMut}}>Bienvenue sur ton espace de révisions interactif 🚀</p>
-      </div>
-
-      {/* Stats pills */}
-      <div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"0.75rem",flexWrap:"wrap",margin:"1rem 0"}}>
-        <span style={{display:"inline-flex",alignItems:"center",gap:"0.4rem",padding:"0.45rem 1rem",background:V.bg,border:`1px solid ${V.border}`,borderRadius:V.radiusPill,fontSize:"0.85rem",fontWeight:600,color:V.orange,boxShadow:"var(--shadow-xs)"}}>
-          🔥 {streak.current} Jour{streak.current > 1 ? "s" : ""}
-        </span>
-        <span style={{display:"inline-flex",alignItems:"center",gap:"0.4rem",padding:"0.45rem 1rem",background:V.bg,border:`1px solid ${V.border}`,borderRadius:V.radiusPill,fontSize:"0.85rem",fontWeight:600,color:V.primary,boxShadow:"var(--shadow-xs)"}}>
-          ⚡ Physique : {physPercent}%
-        </span>
-        <span style={{display:"inline-flex",alignItems:"center",gap:"0.4rem",padding:"0.45rem 1rem",background:V.bg,border:`1px solid ${V.border}`,borderRadius:V.radiusPill,fontSize:"0.85rem",fontWeight:600,color:V.success,boxShadow:"var(--shadow-xs)"}}>
-          🧪 Chimie : {chimPercent}%
-        </span>
-        {/* Rang pill */}
-        <span style={{display:"inline-flex",alignItems:"center",gap:"0.5rem",padding:"0.45rem 1rem",border:"2px solid #d4af37",borderRadius:V.radiusPill,background:V.bg,fontWeight:700,fontSize:"0.85rem",color:"#b8860b",boxShadow:"var(--shadow-sm)"}}>
-          🏅 <span style={{color:"#b8860b",textTransform:"uppercase",letterSpacing:"0.03em"}}>Rang : {rank.name}</span>
-          <span style={{color:V.textMut,fontWeight:500}}>{xp} / {nextRank ? nextRank.xpRequired : "MAX"} XP</span>
-          <span style={{width:60,height:6,background:V.bgTer,borderRadius:99,overflow:"hidden",display:"inline-block"}}>
-            <span style={{display:"block",height:"100%",background:"#d4af37",borderRadius:99,width:`${rp.percent}%`}}/>
-          </span>
-          <a href="/profil" style={{fontSize:"0.7rem",color:V.primary,textDecoration:"none"}}>📊</a>
-        </span>
-      </div>
-
-{/* Barre de recherche */}
-<div style={{maxWidth:700,margin:"1rem auto"}}>
-  <SearchBar
-    chapters={chapters.map(ch => ({
-      ...ch,
-      path: `/${ch.cycle}/${ch.niveau}/${ch.matiere}/${ch.slug}`
-    }))}
-  />
-</div>
-
-      {/* Message de bienvenue */}
-      <p style={{textAlign:"center",fontSize:"1.1rem",fontWeight:700,color:V.text,margin:"1.5rem 0 0.3rem"}}>
-        Bonjour ! 👋
-      </p>
-      <p style={{textAlign:"center",fontSize:"0.95rem",color:V.textMut,marginBottom:"1.5rem"}}>
-        Que souhaites-tu réviser aujourd'hui ? Sélectionne une catégorie ci-dessus pour accéder aux cours et exercices.
-      </p>
-
-      {/* Espaces de révisions globaux */}
-      <div style={{background:V.bg,borderRadius:V.radius,boxShadow:V.shadow,padding:"1.25rem",marginBottom:"1.5rem",border:`1px solid ${V.borderLight}`}}>
-        <h2 style={{fontSize:"1rem",fontWeight:700,color:V.text,textAlign:"center",marginBottom:"1rem"}}>🚀 Espaces de Révisions Globaux</h2>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"0.75rem"}}>
-          <a href="/mega-flashcards" style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.3rem",padding:"1rem",background:V.purpleLt,border:`2px solid ${V.purple}`,borderRadius:V.radiusMd,textDecoration:"none",color:V.purple,fontWeight:700,fontSize:"0.95rem",transition:"transform 0.2s"}}>
-            <span style={{fontSize:"1.5rem"}}>🃏</span>
-            Mega Flashcards
-            {globalDue > 0 && <span style={{fontSize:"0.75rem",fontWeight:500,color:V.textMut}}>{globalDue} carte(s) à revoir</span>}
-          </a>
-          <a href="/mega-quiz" style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.3rem",padding:"1rem",background:V.primaryLt,border:`2px solid ${V.primary}`,borderRadius:V.radiusMd,textDecoration:"none",color:V.primary,fontWeight:700,fontSize:"0.95rem",transition:"transform 0.2s"}}>
-            <span style={{fontSize:"1.5rem"}}>❓</span>
-            Mega Quiz
-            <span style={{fontSize:"0.75rem",fontWeight:500,color:V.textMut}}>Tous chapitres confondus</span>
-          </a>
-        </div>
-      </div>
-
-      {/* Progression + Stats + Badges — tout dans une boîte */}
-      <div style={{background:V.bg,borderRadius:V.radius,boxShadow:V.shadow,padding:"1.25rem",marginBottom:"1.5rem",border:`1px solid ${V.borderLight}`}}>
-
-        {/* Mini stats en ligne */}
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:"0.5rem",marginBottom:"1rem"}}>
-          {[["📝",stats.totalQuizCompleted,"Quiz"],["🃏",stats.totalFlashcardsReviewed,"Flash"],["✏️",stats.totalExercicesDone,"Exos"],["📖",stats.totalCoursRead,"Cours"]].map(([ico,val,lab])=>(
-            <div key={lab as string} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.1rem",padding:"0.5rem",background:V.bgSec,borderRadius:V.radiusMd}}>
-              <span style={{fontSize:"1rem"}}>{ico}</span>
-              <span style={{fontSize:"1.2rem",fontWeight:800,color:V.text}}>{val as number}</span>
-              <span style={{fontSize:"0.65rem",color:V.textMut}}>{lab}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* Progression chapitres */}
-        {(() => {
-          const withProgress = chapters.filter(c => engine.getChapterProgress(c.id).percent > 0);
-          if (withProgress.length === 0) return <p style={{fontSize:"0.85rem",color:V.textMut,fontStyle:"italic",textAlign:"center"}}>Commence un chapitre pour voir ta progression !</p>;
-          return (
-            <div style={{display:"flex",flexDirection:"column",gap:"0.4rem",marginBottom:"0.75rem"}}>
-              {withProgress.slice(0, 5).map(ch => {
-                const p = engine.getChapterProgress(ch.id);
-                return (
-                  <a key={ch.id} href={`/${ch.cycle}/${ch.niveau}/${ch.matiere}/${ch.slug}`} style={{display:"flex",alignItems:"center",gap:"0.75rem",padding:"0.5rem 0.75rem",background:V.bgSec,borderRadius:V.radiusMd,textDecoration:"none",color:"inherit"}}>
-                    <span style={{fontSize:"0.85rem",fontWeight:600,color:V.text,flex:1,minWidth:0,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{ch.title}</span>
-                    <span style={{fontSize:"0.75rem",fontWeight:700,color:V.textMut,flexShrink:0}}>{p.percent}%</span>
-                    <span style={{width:50,height:5,background:V.bgTer,borderRadius:99,overflow:"hidden",flexShrink:0}}>
-                      <span style={{display:"block",height:"100%",borderRadius:99,width:`${p.percent}%`,background:p.percent===100?V.success:p.percent>=50?V.warning:V.primary}}/>
-                    </span>
-                    <span style={{display:"flex",gap:"0.2rem",fontSize:"0.7rem",flexShrink:0}}>
-                      <span style={{opacity:p.cours?1:0.2}}>📖</span>
-                      <span style={{opacity:p.exercices?1:0.2}}>✏️</span>
-                      <span style={{opacity:p.quiz?1:0.2}}>❓</span>
-                      <span style={{opacity:p.flashcards?1:0.2}}>🃏</span>
-                    </span>
-                  </a>
-                );
-              })}
-            </div>
-          );
-        })()}
-
-        {/* Badges en ligne */}
-        {badges.length > 0 && (
-          <div style={{display:"flex",alignItems:"center",gap:"0.5rem",flexWrap:"wrap"}}>
-            <span style={{fontSize:"0.8rem",fontWeight:600,color:V.textMut}}>🏆</span>
-            {badges.slice(0, 6).map(b => {
-              const def = BADGES.find(d => d.id === b.id);
-              return def ? <span key={b.id} title={def.name} style={{fontSize:"1.1rem"}}>{def.icon}</span> : null;
-            })}
-            {badges.length > 6 && <span style={{fontSize:"0.75rem",color:V.textMut}}>+{badges.length - 6}</span>}
-            <a href="/profil" style={{fontSize:"0.75rem",color:V.primary,marginLeft:"auto"}}>Voir tout →</a>
+        <section className="dashboard-v3__history" aria-labelledby="dashboard-history-title">
+          <div className="dashboard-v3__panel-head">
+            <h3 id="dashboard-history-title">Historique local</h3>
+            <span>{historyItems.length} entree{historyItems.length > 1 ? "s" : ""}</span>
           </div>
-        )}
+          <div className="dashboard-v3__table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Chapitre</th>
+                  <th scope="col">Matiere</th>
+                  <th scope="col">Etat</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {historyItems.length > 0 ? historyItems.map((item) => (
+                  <tr key={item.resource.id}>
+                    <td>{item.resource.title}</td>
+                    <td>{formatResourceMeta(item.resource)}</td>
+                    <td>{item.percent}% · {progressLabel(item.percent)}</td>
+                    <td><a href={item.resource.path}>Ouvrir</a></td>
+                  </tr>
+                )) : (
+                  <tr>
+                    <td colSpan={4}>Aucune activite locale enregistree.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </section>
       </div>
 
-      {/* Reprendre */}
-      {lastCh && (
-        <a href={lastCh.path} style={{display:"flex",alignItems:"center",gap:"0.75rem",padding:"0.75rem 1.25rem",background:V.primaryLt,border:`1px solid ${V.border}`,borderRadius:V.radiusMd,textDecoration:"none",color:"inherit",marginBottom:"1.5rem",boxShadow:"var(--shadow-xs)"}}>
-          <span style={{fontSize:"1rem"}}>🕐</span>
-          <span style={{flex:1,fontSize:"0.9rem",fontWeight:600,color:V.text}}>Reprendre : {lastCh.title}</span>
-          <span style={{fontSize:"0.8rem",color:V.textMut}}>{lastCh.tab}</span>
-          <span style={{color:V.primary}}>→</span>
-        </a>
-      )}
-    </div>
+      <style>{`
+        .dashboard-v3 {
+          background: var(--v3-color-surface-raised);
+          border: 1px solid var(--v3-color-border);
+          border-radius: var(--v3-radius-lg);
+          box-shadow: var(--v3-shadow-md);
+          display: grid;
+          grid-template-columns: minmax(13rem, 0.22fr) minmax(0, 1fr);
+          min-height: 760px;
+          overflow: hidden;
+        }
+
+        .dashboard-v3 a {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        .dashboard-v3 a:focus-visible,
+        .dashboard-v3 button:focus-visible {
+          box-shadow: var(--v3-shadow-focus);
+          outline: none;
+        }
+
+        .dashboard-v3__sidebar {
+          background: #071b4f;
+          color: #ffffff;
+          display: flex;
+          flex-direction: column;
+          gap: var(--v3-space-5);
+          padding: var(--v3-space-5) var(--v3-space-4);
+        }
+
+        .dashboard-v3__brand {
+          align-items: center;
+          display: grid;
+          gap: 0.15rem;
+          grid-template-columns: 2.4rem minmax(0, 1fr);
+        }
+
+        .dashboard-v3__brand span {
+          align-items: center;
+          background: rgba(255, 255, 255, 0.12);
+          border: 1px solid rgba(255, 255, 255, 0.24);
+          border-radius: var(--v3-radius-md);
+          display: inline-flex;
+          font-weight: 900;
+          height: 2.4rem;
+          justify-content: center;
+          width: 2.4rem;
+        }
+
+        .dashboard-v3__brand small {
+          color: rgba(255, 255, 255, 0.72);
+          grid-column: 2;
+        }
+
+        .dashboard-v3__nav {
+          display: grid;
+          gap: 0.35rem;
+        }
+
+        .dashboard-v3__nav a {
+          border-radius: var(--v3-radius-md);
+          color: rgba(255, 255, 255, 0.84);
+          font-weight: 750;
+          min-height: 42px;
+          padding: 0.72rem 0.8rem;
+        }
+
+        .dashboard-v3__nav a[aria-current="page"],
+        .dashboard-v3__nav a:hover,
+        .dashboard-v3__nav a:focus-visible {
+          background: var(--v3-color-action);
+          color: #ffffff;
+        }
+
+        .dashboard-v3__streak {
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          border-radius: var(--v3-radius-md);
+          display: grid;
+          gap: 0.25rem;
+          margin-top: auto;
+          padding: var(--v3-space-4);
+        }
+
+        .dashboard-v3__streak strong {
+          font-size: 2rem;
+          line-height: 1;
+        }
+
+        .dashboard-v3__streak small,
+        .dashboard-v3__streak span {
+          color: rgba(255, 255, 255, 0.76);
+        }
+
+        .dashboard-v3__main {
+          background: var(--v3-color-surface-soft);
+          display: grid;
+          gap: var(--v3-space-5);
+          min-width: 0;
+          padding: var(--v3-space-5);
+        }
+
+        .dashboard-v3__main > *,
+        .dashboard-v3__header > *,
+        .dashboard-v3__hero-grid > *,
+        .dashboard-v3__content-grid > *,
+        .dashboard-v3__quick > *,
+        .dashboard-v3__history > * {
+          min-width: 0;
+        }
+
+        .dashboard-v3__header {
+          align-items: center;
+          display: flex;
+          gap: var(--v3-space-4);
+          justify-content: space-between;
+        }
+
+        .dashboard-v3__kicker,
+        .dashboard-v3__label {
+          color: var(--v3-color-action);
+          font-size: 0.76rem;
+          font-weight: 900;
+          letter-spacing: 0;
+          margin: 0;
+          text-transform: uppercase;
+        }
+
+        .dashboard-v3__header h2,
+        .dashboard-v3 h3,
+        .dashboard-v3 p {
+          letter-spacing: 0;
+          margin: 0;
+        }
+
+        .dashboard-v3__header h2 {
+          color: var(--v3-color-text-main);
+          font-size: 1.65rem;
+        }
+
+        .dashboard-v3__header span,
+        .dashboard-v3__empty,
+        .dashboard-v3 small,
+        .dashboard-v3__task-list span,
+        .dashboard-v3__quick span,
+        .dashboard-v3__subject-progress dt {
+          color: var(--v3-color-text-muted);
+        }
+
+        .dashboard-v3__profile-link,
+        .dashboard-v3__priority a,
+        .dashboard-v3__panel-head a,
+        .dashboard-v3__history a {
+          background: var(--v3-color-action);
+          border: 1px solid var(--v3-color-action);
+          border-radius: var(--v3-radius-md);
+          color: #ffffff;
+          font-weight: 850;
+          min-height: 40px;
+          padding: 0.65rem 0.9rem;
+        }
+
+        .dashboard-v3__hero-grid {
+          display: grid;
+          gap: var(--v3-space-3);
+          grid-template-columns: minmax(16rem, 1.8fr) repeat(3, minmax(9rem, 0.75fr));
+        }
+
+        .dashboard-v3__priority,
+        .dashboard-v3__metric,
+        .dashboard-v3__panel,
+        .dashboard-v3__quick,
+        .dashboard-v3__history {
+          background: var(--v3-color-surface-raised);
+          border: 1px solid var(--v3-color-border);
+          border-radius: var(--v3-radius-md);
+          box-shadow: var(--v3-shadow-sm);
+        }
+
+        .dashboard-v3__priority {
+          display: grid;
+          gap: var(--v3-space-3);
+          grid-template-columns: minmax(0, 1fr) auto;
+          padding: var(--v3-space-4);
+        }
+
+        .dashboard-v3__priority h3,
+        .dashboard-v3__priority p,
+        .dashboard-v3__progress-line,
+        .dashboard-v3__label {
+          grid-column: 1;
+        }
+
+        .dashboard-v3__priority h3,
+        .dashboard-v3__panel h3,
+        .dashboard-v3__quick h3,
+        .dashboard-v3__history h3 {
+          color: var(--v3-color-text-main);
+          font-size: 1rem;
+        }
+
+        .dashboard-v3__priority a {
+          align-self: center;
+          grid-column: 2;
+          grid-row: 2 / span 2;
+          justify-self: end;
+        }
+
+        .dashboard-v3__progress-line {
+          background: var(--v3-color-surface-muted);
+          border-radius: 999px;
+          height: 0.55rem;
+          overflow: hidden;
+        }
+
+        .dashboard-v3__progress-line i {
+          background: var(--v3-color-action);
+          display: block;
+          height: 100%;
+        }
+
+        .dashboard-v3__metric {
+          display: grid;
+          gap: 0.35rem;
+          min-height: 126px;
+          padding: var(--v3-space-4);
+        }
+
+        .dashboard-v3__metric strong {
+          color: var(--v3-color-text-main);
+          font-size: 1.55rem;
+        }
+
+        .dashboard-v3__content-grid {
+          display: grid;
+          gap: var(--v3-space-3);
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(14rem, 0.8fr);
+        }
+
+        .dashboard-v3__panel,
+        .dashboard-v3__quick,
+        .dashboard-v3__history {
+          padding: var(--v3-space-4);
+        }
+
+        .dashboard-v3__panel-head {
+          align-items: center;
+          display: flex;
+          gap: var(--v3-space-3);
+          justify-content: space-between;
+          margin-bottom: var(--v3-space-3);
+        }
+
+        .dashboard-v3__panel-head a {
+          background: transparent;
+          color: var(--v3-color-action);
+          min-height: 34px;
+          padding: 0.45rem 0.65rem;
+        }
+
+        .dashboard-v3__task-list {
+          display: grid;
+          gap: 0.35rem;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .dashboard-v3__task-list li {
+          align-items: center;
+          border-bottom: 1px solid var(--v3-color-border);
+          display: flex;
+          gap: var(--v3-space-3);
+          justify-content: space-between;
+          min-height: 54px;
+          padding: 0.45rem 0;
+        }
+
+        .dashboard-v3__task-list li:last-child {
+          border-bottom: 0;
+        }
+
+        .dashboard-v3__task-list a {
+          display: grid;
+          gap: 0.1rem;
+          min-width: 0;
+        }
+
+        .dashboard-v3__task-list strong,
+        .dashboard-v3__quick strong,
+        .dashboard-v3__history td:first-child {
+          color: var(--v3-color-text-main);
+        }
+
+        .dashboard-v3__task-list b {
+          color: var(--v3-color-action);
+        }
+
+        .dashboard-v3__ring {
+          align-items: center;
+          aspect-ratio: 1;
+          background: conic-gradient(var(--v3-color-action) var(--progress), var(--v3-color-surface-muted) 0);
+          border-radius: 50%;
+          display: grid;
+          justify-items: center;
+          margin: 0 auto var(--v3-space-3);
+          max-width: 128px;
+          padding: 0.75rem;
+          position: relative;
+          width: 100%;
+        }
+
+        .dashboard-v3__ring::before {
+          background: var(--v3-color-surface-raised);
+          border-radius: 50%;
+          content: "";
+          inset: 0.75rem;
+          position: absolute;
+        }
+
+        .dashboard-v3__ring strong,
+        .dashboard-v3__ring span {
+          position: relative;
+          z-index: 1;
+        }
+
+        .dashboard-v3__ring strong {
+          color: var(--v3-color-action);
+          font-size: 1.35rem;
+        }
+
+        .dashboard-v3__subject-progress {
+          display: grid;
+          gap: 0.45rem;
+          margin: 0;
+        }
+
+        .dashboard-v3__subject-progress div {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .dashboard-v3__subject-progress dd {
+          color: var(--v3-color-text-main);
+          font-weight: 850;
+          margin: 0;
+        }
+
+        .dashboard-v3__quick {
+          display: grid;
+          gap: var(--v3-space-3);
+        }
+
+        .dashboard-v3__quick div {
+          display: grid;
+          gap: var(--v3-space-3);
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+
+        .dashboard-v3__quick a {
+          background: var(--v3-color-surface-soft);
+          border: 1px solid var(--v3-color-border);
+          border-radius: var(--v3-radius-md);
+          display: grid;
+          gap: 0.15rem;
+          min-height: 74px;
+          padding: var(--v3-space-3);
+        }
+
+        .dashboard-v3__quick a:hover,
+        .dashboard-v3__task-list a:hover,
+        .dashboard-v3__history a:hover {
+          border-color: var(--v3-color-action);
+        }
+
+        .dashboard-v3__table-wrap {
+          overflow-x: auto;
+        }
+
+        .dashboard-v3__history table {
+          border-collapse: collapse;
+          min-width: 680px;
+          width: 100%;
+        }
+
+        .dashboard-v3__history th,
+        .dashboard-v3__history td {
+          border-bottom: 1px solid var(--v3-color-border);
+          padding: 0.75rem;
+          text-align: left;
+        }
+
+        .dashboard-v3__history th {
+          color: var(--v3-color-text-muted);
+          font-size: 0.8rem;
+          font-weight: 850;
+        }
+
+        .dashboard-v3__history a {
+          display: inline-flex;
+          min-height: 34px;
+          padding: 0.42rem 0.7rem;
+        }
+
+        @media (max-width: 1080px) {
+          .dashboard-v3 {
+            grid-template-columns: 1fr;
+          }
+
+          .dashboard-v3__sidebar {
+            display: grid;
+            grid-template-columns: minmax(12rem, 1fr);
+          }
+
+          .dashboard-v3__nav {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+          }
+
+          .dashboard-v3__hero-grid,
+          .dashboard-v3__content-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .dashboard-v3__priority {
+            grid-column: 1 / -1;
+          }
+
+          .dashboard-v3__panel--progress {
+            grid-column: 1 / -1;
+          }
+        }
+
+        @media (max-width: 760px) {
+          .dashboard-v3 {
+            border-radius: var(--v3-radius-md);
+            min-height: 0;
+          }
+
+          .dashboard-v3__main,
+          .dashboard-v3__sidebar {
+            padding: var(--v3-space-3);
+          }
+
+          .dashboard-v3__header,
+          .dashboard-v3__priority,
+          .dashboard-v3__task-list li {
+            align-items: stretch;
+            flex-direction: column;
+          }
+
+          .dashboard-v3__hero-grid,
+          .dashboard-v3__content-grid,
+          .dashboard-v3__quick div,
+          .dashboard-v3__nav {
+            grid-template-columns: 1fr;
+          }
+
+          .dashboard-v3__priority a,
+          .dashboard-v3__priority h3,
+          .dashboard-v3__priority p,
+          .dashboard-v3__progress-line,
+          .dashboard-v3__label {
+            grid-column: 1;
+            grid-row: auto;
+            justify-self: stretch;
+          }
+
+          .dashboard-v3__priority a {
+            text-align: center;
+          }
+
+          .dashboard-v3__profile-link,
+          .dashboard-v3__panel-head a,
+          .dashboard-v3__history a {
+            align-items: center;
+            display: inline-flex;
+            justify-content: center;
+            min-width: 0;
+            text-align: center;
+            white-space: normal;
+          }
+
+          .dashboard-v3__header h2,
+          .dashboard-v3 h3,
+          .dashboard-v3 p,
+          .dashboard-v3 span,
+          .dashboard-v3 small,
+          .dashboard-v3 strong {
+            overflow-wrap: anywhere;
+          }
+        }
+      `}</style>
+    </section>
   );
 }

@@ -2,11 +2,30 @@
   "name": "site-v2",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": "18.20.8 || ^20.3.0 || >=22.0.0",
+    "npm": ">=9.6.5"
+  },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "check": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro check",
+    "lint": "eslint .",
+    "test": "tsx --test \"tests/**/*.test.mjs\"",
+    "verify:content": "tsx scripts/verify-routes-and-content.mjs",
+    "audit:dist": "node scripts/audit-dist.mjs",
+    "audit:dist:fast": "node scripts/audit-dist.mjs --skip-axe",
+    "audit:dist:a11y": "node scripts/audit-dist.mjs --only-axe",
+    "e2e:visual": "node scripts/e2e-visual-regression.mjs --capture",
+    "e2e:visual:check": "node scripts/e2e-visual-regression.mjs",
+    "mobile:dys:visual": "node scripts/e2e-visual-regression.mjs --config tests/fixtures/mobile-dys-validation.config.json --capture",
+    "mobile:dys:check": "node scripts/e2e-visual-regression.mjs --config tests/fixtures/mobile-dys-validation.config.json",
+    "build": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "ci:quality": "npm run check && npm run lint && npm test && npm run verify:content",
+    "ci:dist": "npm run build && npm run audit:dist:fast",
+    "ci:a11y": "npm run build && npm run audit:dist:a11y",
+    "ci": "npm run ci:quality && npm run ci:dist"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
@@ -19,6 +38,23 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "rehype-katex": "^7.0.1",
-    "remark-math": "^6.0.0"
+    "remark-math": "^6.0.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@eslint/js": "^9.39.5",
+    "astro-eslint-parser": "^1.4.0",
+    "axe-core": "^4.12.1",
+    "cross-env": "^10.1.0",
+    "eslint": "^9.39.5",
+    "eslint-plugin-astro": "^1.7.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.7.0",
+    "jsdom": "^29.1.1",
+    "tsx": "^4.23.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.64.0"
   }
 }

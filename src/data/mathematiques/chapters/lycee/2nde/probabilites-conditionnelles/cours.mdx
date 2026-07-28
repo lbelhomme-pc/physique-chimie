@@ -1,0 +1,90 @@
+## Objectifs
+
+- Distinguer situation réelle et modèle probabiliste.
+- Utiliser une probabilité conditionnelle.
+- Construire et lire un arbre pondéré.
+- Observer la loi des grands nombres par simulation.
+
+## Prérequis
+
+- probabilité simple
+- fractions
+- tableaux croisés
+
+## Activité de découverte
+
+Un test médical très fiable peut produire beaucoup de faux positifs si la maladie est rare. La question oblige à distinguer P(positif sachant malade) et P(malade sachant positif).
+
+## Vocabulaire
+
+- **expérience aléatoire**
+- **issue**
+- **événement**
+- **probabilité conditionnelle**
+- **arbre pondéré**
+- **fréquence observée**
+
+## Cours
+
+### Définitions
+
+- PA(B) est la probabilité de B sachant que A est réalisé, lorsque P(A) est non nulle.
+- Un arbre pondéré représente les étapes d'une expérience aléatoire avec les probabilités sur les branches.
+- La loi des grands nombres indique que, lorsque n est grand, la fréquence observée est généralement proche de la probabilité.
+
+### Propriétés
+
+- La probabilité d'un chemin dans un arbre s'obtient en multipliant les probabilités des branches du chemin.
+- Dans une situation d'équiprobabilité, P(A)=Card(A)/Card(Ω).
+- PA(B) et PB(A) ne désignent pas la même probabilité.
+
+### Méthodes
+
+1. Pour lire un arbre, commencer par nommer l'événement de chaque niveau.
+2. Pour calculer une probabilité de chemin, multiplier les branches rencontrées.
+3. Pour éviter l'inversion de conditionnement, écrire en mots ce qui est connu après 'sachant'.
+
+## Exemples corrigés
+
+- Si P(A)=0,4 et PA(B)=0,25, alors la probabilité du chemin A puis B vaut 0,4×0,25=0,10.
+- Dire PTest+(Malade) n'a pas le même sens que PMalade(Test+).
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 680 300" role="img" aria-labelledby="tree-title tree-desc"><title id="tree-title">Arbre pondéré</title><desc id="tree-desc">Arbre de probabilité à deux niveaux avec probabilités conditionnelles.</desc><circle cx="95" cy="150" r="6" fill="#111827"/><line x1="105" y1="150" x2="285" y2="85" stroke="#2563eb" strokeWidth="3"/><line x1="105" y1="150" x2="285" y2="215" stroke="#2563eb" strokeWidth="3"/><circle cx="295" cy="85" r="6" fill="#2563eb"/><circle cx="295" cy="215" r="6" fill="#2563eb"/><line x1="305" y1="85" x2="500" y2="50" stroke="#16a34a" strokeWidth="3"/><line x1="305" y1="85" x2="500" y2="120" stroke="#16a34a" strokeWidth="3"/><line x1="305" y1="215" x2="500" y2="180" stroke="#16a34a" strokeWidth="3"/><line x1="305" y1="215" x2="500" y2="250" stroke="#16a34a" strokeWidth="3"/><text x="190" y="95">P(A)</text><text x="190" y="210">P(A̅)</text><text x="400" y="55">PA(B)</text><text x="400" y="130">PA(B̅)</text><text x="400" y="185">PA̅(B)</text><text x="400" y="260">PA̅(B̅)</text><text x="555" y="54">B</text><text x="555" y="124">B̅</text><text x="555" y="184">B</text><text x="555" y="254">B̅</text></svg>
+  <figcaption>Probabilités conditionnelles et arbres pondérés : représentation schématique à commenter avant les exercices.</figcaption>
+</figure>
+
+## Algorithmique en Python
+
+### Simuler des lancers de pièce
+
+```python
+from random import random
+
+def frequence_pile(n):
+    piles = 0
+    for k in range(n):
+        if random() < 0.5:
+            piles = piles + 1
+    return piles / n
+
+print(frequence_pile(10000))
+```
+
+Quand le nombre de répétitions augmente, la fréquence observée se rapproche souvent de 0,5.
+
+## Erreurs fréquentes
+
+- Confondre P(A sachant B) et P(B sachant A).
+- Additionner les branches d'un même chemin au lieu de les multiplier.
+- Présenter l'équiprobabilité comme une certitude démontrée plutôt que comme une hypothèse de modèle.
+
+## Formules et idées à retenir
+
+- PA(B) : probabilité de B sachant A.
+- P(chemin) = produit des probabilités des branches du chemin.
+- P(A)=Card(A)/Card(Ω) en équiprobabilité.
+
+## Synthèse
+
+Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.

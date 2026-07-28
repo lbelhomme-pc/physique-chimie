@@ -1,77 +1,149 @@
 ---
 // src/pages/college/[niveau]/[matiere]/index.astro
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import CatalogueChapterList from "../../../../components/catalogue/CatalogueChapterList.astro";
+import type { CatalogueChapterItem } from "../../../../components/catalogue/types";
+import Breadcrumb from "../../../../components/ui/Breadcrumb.astro";
 import { collegeLevels, matieres, getLevelLabel, getMatiereLabel } from "../../../../data/levels";
 
-// ─── Scan automatique des meta.json ───────────────────────────
 const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
 
-// ─── Routes statiques ─────────────────────────────────────────
 export function getStaticPaths() {
   const paths: { params: { niveau: string; matiere: string } }[] = [];
-  for (const lvl of collegeLevels) {
-    for (const mat of matieres) {
-      paths.push({ params: { niveau: lvl.slug, matiere: mat.slug } });
+  for (const level of collegeLevels) {
+    for (const matiere of matieres) {
+      paths.push({ params: { niveau: level.slug, matiere: matiere.slug } });
     }
   }
   return paths;
 }
 
-// ─── Params ───────────────────────────────────────────────────
 const { niveau, matiere } = Astro.params;
 const niveauLabel = getLevelLabel(niveau!);
 const matiereLabel = getMatiereLabel(matiere!);
+const accent = matiere === "chimie" ? "chemistry" : "physics";
+const otherMatiere = matiere === "chimie" ? "physique" : "chimie";
+const otherMatiereLabel = getMatiereLabel(otherMatiere);
 
-// ─── Filtrer les chapitres de ce niveau + matière ─────────────
-interface ChapterMeta {
-  title: string;
-  slug: string;
-  niveau: string;
-  matiere: string;
-  theme?: string;
-  order?: number;
-  description?: string;
-}
-
-const chapters: ChapterMeta[] = [];
+const chapters: CatalogueChapterItem[] = [];
 
 for (const [path, mod] of Object.entries(allMeta)) {
-  // path = "/src/data/chapters/college/3eme/chimie/atome/meta.json"
   const segments = path.replace("/src/data/chapters/", "").replace("/meta.json", "").split("/");
-  // segments = ["college", "3eme", "chimie", "atome"]
-  const [cycle, niv, mat, chap] = segments;
+  const [cycle, niv, mat, slug] = segments;
 
   if (cycle === "college" && niv === niveau && mat === matiere) {
     const data = (mod as any).default ?? mod;
-    chapters.push({ ...data, slug: chap });
+    chapters.push({
+      title: data.title ?? slug,
+      href: `/college/${niveau}/${matiere}/${slug}`,
+      order: data.order ?? 99,
+      description: data.description ?? "",
+      badges: [matiereLabel, `Chapitre ${data.order ?? "à placer"}`],
+    });
   }
 }
-
-// Trier par order puis par title
-chapters.sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || a.title.localeCompare(b.title));
 ---
-<BaseLayout title={`${matiereLabel} ${niveauLabel} — Collège`}>
-  <nav aria-label="Fil d'Ariane" class="breadcrumb">
-    <a href="/">Accueil</a> &rsaquo;
-    <a href="/college">Collège</a> &rsaquo;
-    <a href={`/college/${niveau}`}>{niveauLabel}</a> &rsaquo;
-    <strong>{matiereLabel}</strong>
-  </nav>
 
-  <h1>{matiereLabel} — {niveauLabel}</h1>
+<BaseLayout
+  title={`${matiereLabel} ${niveauLabel} — Collège`}
+  description={`Catalogue des chapitres de ${matiereLabel.toLowerCase()} pour ${niveauLabel} au collège.`}
+>
+  <main class="catalogue-page">
+    <Breadcrumb
+      items={[
+        { label: "Accueil", href: "/" },
+        { label: "Collège", href: "/college" },
+        { label: niveauLabel, href: `/college/${niveau}` },
+        { label: matiereLabel },
+      ]}
+    />
 
-  {chapters.length === 0 ? (
-    <p>Aucun chapitre disponible pour le moment. Contenu à venir !</p>
-  ) : (
-    <ul class="chapter-list">
-      {chapters.map((ch) => (
-        <li>
-          <a href={`/college/${niveau}/${matiere}/${ch.slug}`}>
-            <strong>{ch.title}</strong>
-            {ch.description && <span class="desc">{ch.description}</span>}
-          </a>
-        </li>
-      ))}
-    </ul>
-  )}
+    <header class="catalogue-hero">
+      <p class="catalogue-kicker">Collège · {matiereLabel}</p>
+      <h1>{matiereLabel} — {niveauLabel}</h1>
+      <p>Les chapitres sont présentés dans l'ordre du programme. Ouvre un chapitre pour accéder au lecteur complet.</p>
+      <div class="catalogue-actions" aria-label="Navigation de catalogue">
+        <a href={`/college/${niveau}`}>Toutes les matières</a>
+        <a href={`/college/${niveau}/${otherMatiere}`}>Voir {otherMatiereLabel.toLowerCase()}</a>
+      </div>
+    </header>
+
+    <CatalogueChapterList
+      id="chapitres"
+      title={`Chapitres de ${matiereLabel.toLowerCase()}`}
+      chapters={chapters}
+      accent={accent}
+      emptyTitle="Cette matière est en préparation"
+      emptyMessage={`Aucun chapitre de ${matiereLabel.toLowerCase()} n'est encore publié pour ${niveauLabel}.`}
+      emptyActions={[
+        { label: "Retour au niveau", href: `/college/${niveau}`, primary: true },
+        { label: "Voir les outils collège", href: "/outils-methodes/college" },
+      ]}
+    />
+  </main>
 </BaseLayout>
+
+<style>
+  .catalogue-page {
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 1rem 1rem 3rem;
+  }
+
+  .catalogue-hero {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    display: grid;
+    gap: var(--v3-space-3);
+    margin: 1rem auto 1.25rem;
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  .catalogue-kicker {
+    color: var(--accent-primary);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .catalogue-hero h1 {
+    color: var(--text-primary);
+    font-size: clamp(1.55rem, 4vw, 2.2rem);
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .catalogue-hero p {
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .catalogue-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--v3-space-2);
+  }
+
+  .catalogue-actions a {
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    color: var(--accent-primary);
+    display: inline-flex;
+    font-weight: 900;
+    min-height: 44px;
+    padding: 0.55rem 0.85rem;
+    text-decoration: none;
+  }
+
+  .catalogue-actions a:hover,
+  .catalogue-actions a:focus-visible {
+    box-shadow: var(--v3-shadow-focus);
+    outline: none;
+  }
+</style>

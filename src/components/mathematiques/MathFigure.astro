@@ -1,0 +1,20 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  caption?: string;
+  alt?: string;
+  interactive?: boolean;
+}
+
+const { title, description, caption, alt, interactive = false } = Astro.props;
+---
+
+<figure class="math-figure" role={interactive ? "group" : undefined} aria-label={alt ?? title}>
+  {title && <p class="math-figure-title">{title}</p>}
+  {description && <p class="math-figure-description">{description}</p>}
+  <div class="math-figure-body">
+    <slot />
+  </div>
+  {caption && <figcaption class="math-figure-caption">{caption}</figcaption>}
+</figure>

@@ -1,0 +1,138 @@
+/* =========================================
+   STYLES DU LABO : LA MOLE
+   ========================================= */
+
+.labo-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+
+.bench-panel { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+.bench-header { font-size: 1.2rem; color: #1e293b; font-weight: 900; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;}
+
+.canvas-container { display: flex; justify-content: center; align-items: center; background: radial-gradient(circle, #f8fafc 0%, #e2e8f0 100%); border-radius: 12px; border: 1px inset #cbd5e1; margin-bottom: 20px; overflow: hidden; box-shadow: inset 0 10px 20px rgba(0,0,0,0.05);}
+canvas { display: block; max-width: 100%; height: auto; }
+
+.dashboard { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: left;}
+.control-group label { font-size: 0.95rem; font-weight: bold; color: #64748b; margin-bottom: 8px; display: block; }
+.material-buttons { display: flex; gap: 8px; }
+
+.btn-material { flex: 1; padding: 10px 5px; background: white; border: 2px solid #cbd5e1; border-radius: 8px; color: #475569; font-size: 0.9rem; font-weight: bold; cursor: pointer; transition: all 0.2s;}
+.btn-material small { display: block; font-weight: normal; font-size: 0.75rem; margin-top: 3px; color: #94a3b8;}
+.btn-material:hover { border-color: #0ea5e9; color: #0284c7;}
+.btn-material.active { background: #f0f9ff; border-color: #0ea5e9; color: #0369a1; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.2);}
+.btn-material.active small { color: #0284c7;}
+
+.val-badge { display: inline-block; padding: 5px 10px; border-radius: 6px; font-weight: 900; font-size: 0.95rem; text-align: center; width: 75px;}
+.badge-teal { background: #ccfbf1; color: #0f766e; }
+
+input[type=range] { 
+    -webkit-appearance: none; /* Pour Chrome, Safari, Edge */
+    appearance: none;         /* La norme standard demandée par ton éditeur */
+    width: 100%; 
+    background: transparent; 
+}
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #10b981; cursor: pointer; margin-top: -8px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);}
+input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: #cbd5e1; border-radius: 50px; }
+
+.btn-lab { background: #f8fafc; border: 2px solid #cbd5e1; color: #334155; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 0.95rem;}
+.btn-lab:hover { background: #e2e8f0; border-color: #94a3b8; transform: translateY(-2px);}
+.btn-lab.danger { background: #fef2f2; color: #dc2626; border-color: #fca5a5; padding: 8px 15px;}
+
+.data-panel { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+.live-data-box { display: flex; justify-content: space-around; background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #e2e8f0; gap: 5px; }
+.data-column { display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center;}
+.data-label { font-size: 0.75rem; color: #64748b; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; text-align: center; white-space: nowrap; }
+.data-value { font-family: 'Courier New', Courier, monospace; font-size: 1.4rem; font-weight: 900; white-space: nowrap;}
+
+.alert-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 15px; border-radius: 0 8px 8px 0; margin-bottom: 15px; font-size: 0.95rem; color: #065f46; font-weight: bold; text-align: left; }
+
+.tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+.tab-btn { background: none; border: none; font-size: 1.1rem; font-weight: bold; color: #64748b; cursor: pointer; padding: 5px 10px; transition: color 0.2s; }
+.tab-btn.active { color: #10b981; border-bottom: 3px solid #10b981; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.3s; }
+
+/* Cartes d'Analogies */
+.analogy-card { display: flex; align-items: center; gap: 15px; padding: 15px; border-radius: 12px; margin-bottom: 12px; border: 1px solid transparent; transition: all 0.3s;}
+.analogy-rice { background: #f0fdf4; border-color: #bbf7d0; color: #064e3b; }
+.analogy-paper { background: #f8fafc; border-color: #e2e8f0; color: #334155; }
+.analogy-time { background: #fffbeb; border-color: #fef08a; color: #78350f; }
+
+.analogy-icon { font-size: 2rem; background: white; padding: 10px; border-radius: 50%; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.analogy-text { font-size: 0.95rem; line-height: 1.5; }
+.highlight-val { font-family: 'Courier New', Courier, monospace; font-weight: 900; font-size: 1.1rem; color: #ef4444; background: white; padding: 2px 6px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);}
+
+.calc-details { padding: 15px; border-radius: 8px; font-size: 1.1rem; border-left: 4px solid; margin: 10px 0; font-family: 'Courier New', Courier, monospace; font-weight: bold;}
+.formula-box { padding: 15px; margin: 15px 0; border-radius: 8px; text-align: center; display: flex; justify-content: center; align-items: center;}
+.formula-blue { background: #eff6ff; border-left: 4px solid #3b82f6; color: #1e3a8a; }
+.formula-purple { background: #f3e8ff; border-left: 4px solid #8b5cf6; color: #581c87; }
+
+/* =========================================
+   NOUVELLES CLASSES UTILITAIRES (Remplacement des styles en ligne)
+   ========================================= */
+.mole-text-center { text-align: center; }
+.text-left { text-align: left; }
+.center-content { justify-content: center; align-items: center; gap: 15px; margin-bottom: 10px; }
+.center-subtitle { margin: 0 auto; }
+.gradient-title-mole { background: linear-gradient(135deg, #10b981, #0ea5e9); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0; }
+.mt-20 { margin-top: 20px; }
+.slider-container { display: flex; align-items: center; gap: 10px; }
+.flex-grow { flex-grow: 1; }
+.observation-text { font-size: 0.85rem; color: #94a3b8; margin-top: 15px; text-align: left; line-height: 1.5; }
+.col-m { flex: 1; }
+.col-N { flex: 1.5; border-left: 1px solid #cbd5e1; padding-left: 15px; }
+.mole-text-red { color: #ef4444; }
+.text-purple { color: #8b5cf6; }
+.tab-title { color: #1e293b; margin-top: 0; }
+.flex-title { display: flex; align-items: center; gap: 10px; }
+.text-muted { color: #475569; }
+.calc-red { border-left-color: #ef4444; background: #fef2f2; }
+.calc-purple { border-left-color: #8b5cf6; background: #f3e8ff; }
+.math-serif { font-family: serif; font-size: 1.2rem; }
+.text-red-dark { color: #dc2626; }
+.text-purple-dark { color: #7e22ce; }
+.mole-formula-text { font-size: 1.3rem; }
+.mole-formula-legend { color: #475569; font-size: 0.9rem; }
+.footer-clean { margin-top: 40px; border-top: none; }
+
+@media (max-width: 950px) { .labo-container { grid-template-columns: 1fr; } }
+
+/* =========================================
+   MODE SOMBRE BLINDÉ
+   ========================================= */
+body.dark-mode .bench-panel, body.dark-mode .data-panel { background: #1e293b; border-color: #334155; }
+body.dark-mode .bench-header { color: #f8fafc; }
+body.dark-mode .canvas-container { background: radial-gradient(circle, #1e293b 0%, #0f172a 100%); border-color: #334155; }
+body.dark-mode .dashboard, body.dark-mode .live-data-box { background: #0f172a; border-color: #334155; }
+body.dark-mode .control-group label { color: #cbd5e1; }
+
+body.dark-mode .btn-material { background: #1e293b; border-color: #475569; color: #94a3b8; }
+body.dark-mode .btn-material:hover { border-color: #0ea5e9; color: #38bdf8; }
+body.dark-mode .btn-material.active { background: #082f49; border-color: #0ea5e9; color: #7dd3fc; }
+
+body.dark-mode .badge-teal { background: #134e4a; color: #5eead4; }
+
+body.dark-mode .btn-lab { background: #0f172a; border-color: #334155; color: #cbd5e1; }
+body.dark-mode .btn-lab:hover { background: #334155; color: white; }
+body.dark-mode .alert-box { background: #022c22; color: #6ee7b7; border-left-color: #10b981;}
+
+body.dark-mode .tab-btn { color: #94a3b8; }
+body.dark-mode .tab-btn.active { color: #34d399; border-bottom-color: #34d399; }
+body.dark-mode .data-label { color: #cbd5e1; }
+body.dark-mode .col-N { border-color: #334155; }
+body.dark-mode .tab-title { color: #f8fafc !important; }
+body.dark-mode .text-muted, body.dark-mode .mole-formula-legend, body.dark-mode .observation-text { color: #cbd5e1; }
+
+/* Analogies Mode Sombre */
+body.dark-mode .analogy-rice { background: #064e3b; border-color: #047857; color: #a7f3d0; }
+body.dark-mode .analogy-paper { background: #1e293b; border-color: #334155; color: #cbd5e1; }
+body.dark-mode .analogy-time { background: #451a03; border-color: #78350f; color: #fde68a; }
+body.dark-mode .analogy-icon { background: #0f172a; box-shadow: 0 2px 5px rgba(0,0,0,0.5);}
+body.dark-mode .highlight-val { background: #0f172a; color: #f87171; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);}
+
+/* Force les fonds de calculs en mode sombre */
+body.dark-mode .calc-details { background: #0f172a !important; color: #cbd5e1 !important; border-left-color: #334155 !important; }
+body.dark-mode .formula-blue { background: #172554 !important; border-left-color: #3b82f6 !important; color: #93c5fd !important; }
+body.dark-mode .formula-purple { background: #2e1065 !important; border-left-color: #a855f7 !important; color: #d8b4fe !important; }
+
+/* Neutralisation du fond MathJax potentiel */
+body.dark-mode mjx-container, body.dark-mode .MathJax { background-color: transparent !important; }

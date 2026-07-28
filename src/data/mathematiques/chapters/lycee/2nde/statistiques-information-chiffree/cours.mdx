@@ -1,0 +1,87 @@
+## Objectifs
+
+- Distinguer proportion et évolution.
+- Calculer évolutions successives et réciproques.
+- Interpréter moyenne, médiane, quartiles et écart type.
+- Calculer des fréquences marginales et conditionnelles dans un tableau croisé.
+
+## Prérequis
+
+- pourcentages
+- moyenne
+- médiane
+- quartiles
+
+## Activité de découverte
+
+Deux articles indiquent +20 % puis -20 %. On vérifie que revenir au même pourcentage ne ramène pas forcément à la valeur initiale.
+
+## Vocabulaire
+
+- **effectif**
+- **fréquence**
+- **proportion**
+- **taux d'évolution**
+- **coefficient multiplicateur**
+- **écart type**
+- **fréquence conditionnelle**
+
+## Cours
+
+### Définitions
+
+- Une proportion compare une partie à un tout.
+- Un taux d'évolution compare une variation à la valeur de départ.
+- Une fréquence conditionnelle se calcule dans une sous-population définie par une condition.
+
+### Propriétés
+
+- Augmenter de t % revient à multiplier par 1 + t/100.
+- Des évolutions successives se composent en multipliant les coefficients multiplicateurs.
+- La moyenne est sensible aux valeurs extrêmes ; la médiane l'est moins.
+
+### Méthodes
+
+1. Pour un pourcentage de pourcentage, appliquer successivement les deux proportions.
+2. Pour un taux global, multiplier les coefficients puis revenir au taux.
+3. Dans un tableau croisé, toujours préciser l'ensemble de référence avant de calculer une fréquence.
+
+## Exemples corrigés
+
+- 30 % de 40 % d'une classe représente 0,30×0,40=0,12, soit 12 % de la classe.
+- +10 % puis +20 % donne un coefficient global 1,10×1,20=1,32, soit +32 %.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 680 300" role="img" aria-labelledby="stats-title stats-desc"><title id="stats-title">Histogramme simplifié</title><desc id="stats-desc">Trois classes statistiques avec des hauteurs différentes.</desc><line x1="90" y1="245" x2="610" y2="245" stroke="#111827"/><line x1="100" y1="250" x2="100" y2="50" stroke="#111827"/><rect x="150" y="170" width="100" height="75" fill="#dbeafe" stroke="#2563eb"/><rect x="250" y="105" width="100" height="140" fill="#dcfce7" stroke="#16a34a"/><rect x="350" y="145" width="100" height="100" fill="#fef3c7" stroke="#d97706"/><text x="200" y="268" textAnchor="middle">[0;10[</text><text x="300" y="268" textAnchor="middle">[10;20[</text><text x="400" y="268" textAnchor="middle">[20;30[</text><text x="330" y="40" textAnchor="middle" fontWeight="700">Comparer les distributions</text></svg>
+  <figcaption>Statistiques et information chiffrée : représentation schématique à commenter avant les exercices.</figcaption>
+</figure>
+
+## Algorithmique en Python
+
+### Moyenne pondérée par classes
+
+```python
+centres = [5, 15, 25]
+effectifs = [4, 10, 6]
+total = sum(effectifs)
+moyenne = sum(c*e for c, e in zip(centres, effectifs)) / total
+print(moyenne)
+```
+
+On utilise le centre de chaque classe comme valeur représentative lorsque la répartition est supposée uniforme.
+
+## Erreurs fréquentes
+
+- Additionner des taux successifs au lieu de multiplier les coefficients.
+- Confondre 20 % d'un groupe et 20 points de pourcentage.
+- Calculer une fréquence conditionnelle avec le mauvais total.
+
+## Formules et idées à retenir
+
+- proportion = partie / tout
+- coefficient = valeur finale / valeur initiale
+- taux = coefficient - 1
+
+## Synthèse
+
+Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.

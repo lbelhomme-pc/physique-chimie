@@ -1,0 +1,86 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>={Stealth[length=2.5mm]}, scale=0.95]
+ % Terre
+ \fill[blue!25!green!30] (0,0) circle (1.8cm);
+ \draw[thick, blue!50!green!60] (0,0) circle (1.8cm);
+ \node[font=\bfseries, color=dark] at (0,0) {Terre};
+
+ % Atmosphère (anneau)
+ \draw[thick, cyan!40, dashed] (0,0) circle (2.8cm);
+ \draw[thick, cyan!25, dashed] (0,0) circle (2.35cm);
+ \node[font=\footnotesize\bfseries, color=cyan!60!black] at (2.2, 2.2) {Atmosph\`{e}re};
+
+ % Soleil (à gauche)
+ \fill[yellow!80!orange] (-6, 2.5) circle (0.8cm);
+ \node[font=\small\bfseries, color=orange!80!black] at (-6, 2.5) {Soleil};
+
+ % Flux solaire incident
+ \draw[->, very thick, color=orange, line width=1.5pt] (-5, 2.2) -- (-2.2, 0.8)
+ node[midway, above, sloped, font=\small\bfseries] {$\varphi_S$};
+
+ % Partie réfléchie (albédo)
+ \draw[->, thick, color=yellow!70!orange, line width=1.2pt] (-1.8, 1.4) -- (-3.5, 3.5)
+ node[near end, left, font=\footnotesize] {$A \times \varphi_S$};
+ \node[font=\tiny, color=yellow!60!orange, right] at (-3.6, 3.7) {(r\'{e}fl\'{e}chi)};
+
+ % Rayonnement Terre vers espace
+ \draw[->, thick, color=red!70, line width=1.2pt] (1.2, 1.5) -- (3.5, 3.5)
+ node[near end, right, font=\footnotesize, color=red!70] {$\varphi_T$};
+ \node[font=\tiny, color=red!60] at (4.2, 3.2) {(rayon\'{e})};
+
+ % Absorption atmosphère
+ \draw[->, thick, color=red!40, line width=1pt, dashed] (0.8, 2.1) -- (1.8, 2.8);
+ \node[font=\tiny, color=red!50, right] at (1.9, 2.8) {$\alpha \times \varphi_T$ absorb\'{e}};
+
+ % Ré-émission vers Terre
+ \draw[->, thick, color=examplepink, line width=1pt] (0.5, 2.5) -- (0.3, 1.8)
+ node[near start, right, font=\tiny, color=examplepink] {$\frac{\alpha}{2}\varphi_T$};
+ \draw[->, thick, color=examplepink, line width=1pt] (-0.7, -2.5) -- (-0.45, -1.75)
+ node[midway, left, font=\tiny, color=examplepink] {$\frac{\alpha}{2}\varphi_T$};
+
+ % Légende
+ \node[draw=dark!40, fill=white, rounded corners, font=\footnotesize, align=left, text width=4cm]
+ at (6, 0) {
+ \textbf{L\'{e}gende :}\\
+ $\varphi_S$ : flux solaire incident\\
+ $A$ : alb\'{e}do\\
+ $\alpha$ : absorption atmosph\'{e}rique\\
+ $\varphi_T$ : flux rayon\'{e} par la Terre
+ };
+\end{tikzpicture}
+\end{document}

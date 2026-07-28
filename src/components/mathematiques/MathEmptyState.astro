@@ -1,0 +1,40 @@
+---
+interface Action {
+  label: string;
+  href: string;
+  primary?: boolean;
+}
+
+interface Props {
+  title?: string;
+  message?: string;
+  icon?: string;
+  actions?: Action[];
+  headingLevel?: "h2" | "h3";
+}
+
+const {
+  title = "Aucun contenu n'est encore disponible.",
+  message = "Les contenus seront ajoutes progressivement.",
+  icon = "∅",
+  actions = [],
+  headingLevel = "h2",
+} = Astro.props;
+
+const HeadingTag = headingLevel;
+---
+
+<section class="math-empty-state" aria-live="polite">
+  <span class="math-empty-icon" aria-hidden="true">{icon}</span>
+  <HeadingTag>{title}</HeadingTag>
+  <p>{message}</p>
+  {actions.length > 0 && (
+    <div class="math-empty-actions">
+      {actions.map((action) => (
+        <a href={action.href} class:list={["math-action", { primary: action.primary }]}>
+          {action.label}
+        </a>
+      ))}
+    </div>
+  )}
+</section>

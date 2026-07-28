@@ -1,0 +1,415 @@
+---
+import '../../styles/laboratoire/circuit-rc.css';
+
+const svgHidden = { hidden: true } as any;
+---
+
+<section class="crc-simulator" data-circuit-rc-root aria-labelledby="crc-title">
+  <header class="crc-hero">
+    <div>
+      <p class="crc-eyebrow">Laboratoire interactif · Terminale spécialité</p>
+      <h1 id="crc-title">Dipôle RC série</h1>
+      <p class="crc-question">
+        Comment la résistance <strong>R</strong> et la capacité <strong>C</strong> fixent-elles la durée du régime transitoire&nbsp;?
+      </p>
+    </div>
+    <p class="crc-state" data-sim-state role="status" aria-live="polite">
+      <span class="crc-state-dot" aria-hidden="true"></span>
+      <span data-sim-state-text>Prêt à manipuler</span>
+    </p>
+  </header>
+
+  <ol class="crc-steps" aria-label="Progression de l’activité">
+    <li><strong>1. Manipuler</strong><span>Choisir le régime et régler E, R et C</span></li>
+    <li><strong>2. Observer</strong><span>Suivre tensions, courant et énergie</span></li>
+    <li><strong>3. Exploiter</strong><span>Lire τ avec la courbe et la tangente</span></li>
+    <li><strong>4. Conclure</strong><span>Relier τ aux valeurs de R et C</span></li>
+  </ol>
+
+  <div class="crc-main-grid">
+    <aside class="crc-card crc-controls" aria-labelledby="crc-controls-title">
+      <div class="crc-card-heading">
+        <p class="crc-kicker">Manipuler</p>
+        <h2 id="crc-controls-title">Préparer le circuit</h2>
+      </div>
+
+      <fieldset class="crc-fieldset">
+        <legend>Régime étudié</legend>
+        <div class="crc-segmented">
+          <label>
+            <input type="radio" name="crc-mode" value="charge" data-param="mode" checked />
+            <span>Charge</span>
+          </label>
+          <label>
+            <input type="radio" name="crc-mode" value="discharge" data-param="mode" />
+            <span>Décharge</span>
+          </label>
+        </div>
+        <p class="crc-help" data-mode-help>
+          Le condensateur est initialement déchargé : u<sub>C</sub>(0) = 0 V.
+        </p>
+      </fieldset>
+
+      <fieldset class="crc-fieldset">
+        <legend>Paramètres du modèle</legend>
+
+        <div class="crc-range-field">
+          <div class="crc-range-heading">
+            <label for="crc-voltage">Tension E ou U<sub>0</sub></label>
+            <output for="crc-voltage" data-output="voltageV">5,0 V</output>
+          </div>
+          <input id="crc-voltage" type="range" min="1" max="12" step="0.5" value="5" data-param="voltageV" />
+        </div>
+
+        <div class="crc-range-field">
+          <div class="crc-range-heading">
+            <label for="crc-resistance">Résistance R</label>
+            <output for="crc-resistance" data-output="resistanceKOhm">10 kΩ</output>
+          </div>
+          <input id="crc-resistance" type="range" min="1" max="100" step="1" value="10" data-param="resistanceKOhm" />
+        </div>
+
+        <div class="crc-range-field">
+          <div class="crc-range-heading">
+            <label for="crc-capacitance">Capacité C</label>
+            <output for="crc-capacitance" data-output="capacitanceMicroF">100 µF</output>
+          </div>
+          <input id="crc-capacitance" type="range" min="10" max="1000" step="10" value="100" data-param="capacitanceMicroF" />
+        </div>
+
+        <div class="crc-conversion" aria-label="Conversions en unités SI">
+          <span data-output="resistanceOhm">R = 10 000 Ω</span>
+          <span data-output="capacitanceF">C = 1,00 × 10⁻⁴ F</span>
+        </div>
+      </fieldset>
+
+      <fieldset class="crc-fieldset">
+        <legend>Animation et analyse</legend>
+        <div class="crc-range-field">
+          <div class="crc-range-heading">
+            <label for="crc-speed">Vitesse d’animation</label>
+            <output for="crc-speed" data-output="speed">× 1</output>
+          </div>
+          <input id="crc-speed" type="range" min="0.25" max="4" step="0.25" value="1" data-control="speed" />
+        </div>
+
+        <label class="crc-check">
+          <input type="checkbox" data-control="tangent" checked />
+          <span>Afficher la tangente à l’origine</span>
+        </label>
+      </fieldset>
+
+      <div class="crc-action-stack">
+        <button class="crc-button crc-button-primary" type="button" data-action="toggle-run">
+          <span data-run-label>Démarrer</span>
+        </button>
+        <button class="crc-button" type="button" data-action="jump-tau">Aller à t = τ</button>
+        <button class="crc-button crc-button-quiet" type="button" data-action="reset">Réinitialiser l’expérience</button>
+      </div>
+
+      <p class="crc-parameter-note">
+        Modifier E, R, C ou le régime recommence l’expérience à t = 0 afin de conserver des conditions initiales cohérentes.
+      </p>
+    </aside>
+
+    <div class="crc-workspace">
+      <section class="crc-card crc-observation" aria-labelledby="crc-observation-title">
+        <div class="crc-card-heading crc-card-heading-inline">
+          <div>
+            <p class="crc-kicker">Observer</p>
+            <h2 id="crc-observation-title">Circuit et état instantané</h2>
+          </div>
+          <span class="crc-badge" data-output="modeBadge">Charge</span>
+        </div>
+
+        <div class="crc-observation-grid">
+          <figure class="crc-circuit-figure">
+            <svg viewBox="0 0 620 390" role="img" aria-labelledby="crc-circuit-title crc-circuit-desc">
+              <title id="crc-circuit-title">Schéma d’un dipôle RC série</title>
+              <desc id="crc-circuit-desc" data-circuit-description>
+                Le générateur, la résistance et le condensateur sont reliés en série. Les flèches représentent le courant conventionnel de charge.
+              </desc>
+
+              <defs>
+                <marker id="crc-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" class="crc-arrow-head"></path>
+                </marker>
+              </defs>
+
+              <g class="crc-wire">
+                <path d="M95 290 H500 V210" />
+                <path d="M500 150 V105 H360" />
+                <path d="M235 105 H185" />
+                <path d="M110 70 H95 V135" data-charge-branch />
+                <path d="M110 150 H145 V290" data-discharge-branch />
+              </g>
+
+              <g class="crc-generator" data-generator>
+                <path d="M95 135 V190 M95 240 V290" class="crc-wire-line" />
+                <path d="M62 190 H128" class="crc-generator-long" />
+                <path d="M76 240 H114" class="crc-generator-short" />
+                <text x="42" y="221">E</text>
+                <text x="136" y="196">+</text>
+                <text x="122" y="250">−</text>
+              </g>
+
+              <g class="crc-switch">
+                <circle cx="110" cy="70" r="7" />
+                <circle cx="110" cy="150" r="7" />
+                <circle cx="185" cy="105" r="7" />
+                <path d="M185 105 L116 72" data-switch-arm />
+                <text x="134" y="49">K</text>
+                <text x="72" y="64">charge</text>
+                <text x="60" y="159">décharge</text>
+              </g>
+
+              <g class="crc-resistor">
+                <path d="M235 105 h20 l12 -22 24 44 24 -44 24 44 21 -22" />
+                <text x="292" y="65">R</text>
+              </g>
+
+              <g class="crc-capacitor">
+                <path d="M450 150 H550" class="crc-capacitor-plate" />
+                <path d="M450 210 H550" class="crc-capacitor-plate" />
+                <text x="566" y="185">C</text>
+                <text x="514" y="137" class="crc-plate-sign" data-positive-charge>+</text>
+                <text x="514" y="237" class="crc-plate-sign" data-negative-charge>−</text>
+              </g>
+
+              <g class="crc-voltage-arrows" aria-hidden="true">
+                <path d="M248 155 H348" marker-end="url(#crc-arrow)" />
+                <text x="286" y="181">u<tspan baseline-shift="sub">R</tspan></text>
+                <path d="M425 220 V150" marker-end="url(#crc-arrow)" />
+                <text x="384" y="191">u<tspan baseline-shift="sub">C</tspan></text>
+              </g>
+
+              <g class="crc-current crc-current-charge" data-current-charge aria-hidden="true">
+                <path d="M195 105 H230" marker-end="url(#crc-arrow)" />
+                <path d="M500 120 V145" marker-end="url(#crc-arrow)" />
+                <path d="M480 290 H430" marker-end="url(#crc-arrow)" />
+              </g>
+              <g class="crc-current crc-current-discharge" data-current-discharge aria-hidden="true" {...svgHidden}>
+                <path d="M350 105 H315" marker-end="url(#crc-arrow)" />
+                <path d="M145 170 V220" marker-end="url(#crc-arrow)" />
+                <path d="M430 290 H480" marker-end="url(#crc-arrow)" />
+              </g>
+
+              <text x="190" y="342" class="crc-current-label" data-current-label>
+                Flèches : courant conventionnel de charge
+              </text>
+            </svg>
+            <figcaption>
+              Le déplacement des flèches code uniquement le <strong>courant conventionnel</strong>. Aucun électron n’est représenté.
+            </figcaption>
+          </figure>
+
+          <dl class="crc-meter-grid">
+            <div><dt>Temps</dt><dd data-output="timeSeconds">0,000 s</dd></div>
+            <div><dt>Constante τ</dt><dd data-output="tauSeconds">1,00 s</dd></div>
+            <div><dt>u<sub>C</sub></dt><dd data-output="capacitorVoltageV">0,000 V</dd></div>
+            <div><dt>u<sub>R</sub></dt><dd data-output="resistorVoltageV">5,000 V</dd></div>
+            <div><dt>Courant i</dt><dd data-output="currentMilliA">0,500 mA</dd></div>
+            <div><dt>Énergie E<sub>C</sub></dt><dd data-output="energyMilliJ">0,000 mJ</dd></div>
+          </dl>
+        </div>
+
+        <div class="crc-law-strip">
+          <p><strong data-output="lawTitle">Loi de charge</strong></p>
+          <p data-output="lawEquation">uC(t) = E(1 − e−t/τ)</p>
+          <p data-output="loopEquation">Vérification : uC + uR = E</p>
+        </div>
+      </section>
+
+      <section class="crc-card crc-graph-card" aria-labelledby="crc-graph-title">
+        <div class="crc-card-heading crc-card-heading-inline">
+          <div>
+            <p class="crc-kicker">Exploiter</p>
+            <h2 id="crc-graph-title">Évolutions temporelles</h2>
+          </div>
+          <span class="crc-badge">0 à 5τ</span>
+        </div>
+
+        <div class="crc-legend" aria-label="Légende du graphique">
+          <span><i class="crc-line crc-line-uc" aria-hidden="true"></i>u<sub>C</sub> — trait continu</span>
+          <span><i class="crc-line crc-line-ur" aria-hidden="true"></i>u<sub>R</sub> — pointillés</span>
+          <span><i class="crc-line crc-line-i" aria-hidden="true"></i>i — tirets</span>
+          <span><i class="crc-line crc-line-energy" aria-hidden="true"></i>E<sub>C</sub> — trait épais</span>
+          <span><i class="crc-line crc-line-tangent" aria-hidden="true"></i>Tangente — mixte</span>
+        </div>
+
+        <div class="crc-graph-wrap">
+          <svg class="crc-graph" viewBox="0 0 680 590" role="img" aria-labelledby="crc-plot-title crc-plot-desc">
+            <title id="crc-plot-title">Courbes du dipôle RC en fonction du temps</title>
+            <desc id="crc-plot-desc" data-graph-description>
+              Trois graphiques partagent l’axe du temps : tensions, courant et énergie du condensateur.
+            </desc>
+
+            <g class="crc-grid" aria-hidden="true">
+              <path d="M82 52 H640 M82 112 H640 M82 172 H640" />
+              <path d="M82 230 H640 M82 290 H640 M82 350 H640" />
+              <path d="M82 408 H640 M82 468 H640 M82 528 H640" />
+              <path d="M82 52 V528 M193.6 52 V528 M305.2 52 V528 M416.8 52 V528 M528.4 52 V528 M640 52 V528" />
+            </g>
+
+            <g class="crc-axes" aria-hidden="true">
+              <path d="M82 52 V172 H640" />
+              <path d="M82 230 V350 H640" />
+              <path d="M82 408 V528 H640" />
+            </g>
+
+            <g class="crc-y-labels" aria-hidden="true">
+              <text x="14" y="45">Tensions</text><text x="27" y="66">(V)</text>
+              <text x="70" y="58" text-anchor="end" data-y="v-top">5,0</text>
+              <text x="70" y="118" text-anchor="end" data-y="v-mid">2,5</text>
+              <text x="70" y="178" text-anchor="end" data-y="v-bottom">0</text>
+
+              <text x="19" y="223">Courant</text><text x="22" y="244">(mA)</text>
+              <text x="70" y="236" text-anchor="end" data-y="i-top">0,50</text>
+              <text x="70" y="296" text-anchor="end" data-y="i-mid">0,25</text>
+              <text x="70" y="356" text-anchor="end" data-y="i-bottom">0</text>
+
+              <text x="19" y="401">Énergie</text><text x="24" y="422">(mJ)</text>
+              <text x="70" y="414" text-anchor="end" data-y="e-top">1,25</text>
+              <text x="70" y="474" text-anchor="end" data-y="e-mid">0,63</text>
+              <text x="70" y="534" text-anchor="end">0</text>
+            </g>
+
+            <g class="crc-x-labels" aria-hidden="true">
+              <text x="82" y="554" text-anchor="middle">0</text>
+              <text x="193.6" y="554" text-anchor="middle">τ</text>
+              <text x="305.2" y="554" text-anchor="middle">2τ</text>
+              <text x="416.8" y="554" text-anchor="middle">3τ</text>
+              <text x="528.4" y="554" text-anchor="middle">4τ</text>
+              <text x="640" y="554" text-anchor="middle">5τ</text>
+              <text x="361" y="582" text-anchor="middle">Temps t</text>
+            </g>
+
+            <path class="crc-curve crc-curve-uc" data-curve="uc" />
+            <path class="crc-curve crc-curve-ur" data-curve="ur" />
+            <path class="crc-curve crc-curve-i" data-curve="i" />
+            <path class="crc-curve crc-curve-energy" data-curve="energy" />
+            <path class="crc-curve crc-curve-tangent" data-curve="tangent" />
+
+            <g class="crc-time-marker" data-time-marker aria-hidden="true">
+              <path d="M82 52 V528" />
+              <circle r="5" data-marker="uc" />
+              <circle r="5" data-marker="ur" />
+              <circle r="5" data-marker="i" />
+              <circle r="5" data-marker="energy" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="crc-time-control">
+          <div class="crc-range-heading">
+            <label for="crc-time-cursor">Curseur temporel</label>
+            <output for="crc-time-cursor" data-output="normalizedTime">0,00 τ</output>
+          </div>
+          <input id="crc-time-cursor" type="range" min="0" max="5" step="0.01" value="0" data-control="time-cursor" />
+          <p class="crc-help">Le curseur met l’animation en pause et permet une lecture précise, au clavier comme à la souris.</p>
+        </div>
+
+        <p class="crc-graph-summary" data-graph-summary aria-live="polite">
+          À t = 0,000 s : uC = 0,000 V ; uR = 5,000 V ; i = 0,500 mA ; EC = 0,000 mJ.
+        </p>
+      </section>
+
+      <section class="crc-card crc-reference-card" aria-labelledby="crc-reference-title">
+        <div class="crc-card-heading">
+          <p class="crc-kicker">Repères</p>
+          <h2 id="crc-reference-title">Valeurs caractéristiques</h2>
+        </div>
+        <div class="crc-table-wrap">
+          <table>
+            <caption>Valeurs du modèle pour quelques multiples de τ</caption>
+            <thead>
+              <tr><th scope="col">Temps</th><th scope="col">u<sub>C</sub></th><th scope="col">u<sub>R</sub></th><th scope="col">i</th><th scope="col">E<sub>C</sub></th></tr>
+            </thead>
+            <tbody data-reference-table></tbody>
+          </table>
+        </div>
+        <p class="crc-warning" data-five-tau-note>
+          À 5τ, la charge est pratiquement achevée (≈ 99,3 %), mais elle n’est jamais mathématiquement totale à temps fini.
+        </p>
+      </section>
+
+      <section class="crc-card crc-mission-card" aria-labelledby="crc-mission-title">
+        <div class="crc-card-heading">
+          <p class="crc-kicker">Conclure</p>
+          <h2 id="crc-mission-title">Mission : de quoi dépend τ ?</h2>
+        </div>
+
+        <ol class="crc-mission-list">
+          <li>Conserve C constant, puis multiplie R par deux. Compare les valeurs de τ.</li>
+          <li>Reviens aux valeurs initiales, conserve R constant, puis multiplie C par deux.</li>
+          <li>Formule une relation entre τ, R et C.</li>
+        </ol>
+
+        <div class="crc-button-row">
+          <button class="crc-button" type="button" data-action="record-trial">Mémoriser cet essai</button>
+          <button class="crc-button crc-button-quiet" type="button" data-action="clear-trials">Effacer les essais</button>
+        </div>
+
+        <div class="crc-table-wrap">
+          <table>
+            <caption>Comparaison de deux réglages</caption>
+            <thead><tr><th scope="col">Essai</th><th scope="col">R</th><th scope="col">C</th><th scope="col">τ</th></tr></thead>
+            <tbody data-trial-table>
+              <tr><td colspan="4">Aucun essai mémorisé.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <label class="crc-conclusion" for="crc-conclusion">
+          <span>Ma conclusion</span>
+          <textarea id="crc-conclusion" rows="3" placeholder="Lorsque R ou C est multiplié par… alors τ…"></textarea>
+        </label>
+
+        <details class="crc-help-details">
+          <summary>Indice 1</summary>
+          <p>Compare des essais où une seule grandeur varie à la fois.</p>
+        </details>
+        <details class="crc-help-details">
+          <summary>Indice 2</summary>
+          <p>Calcule le produit R × C après conversion en ohms et en farads.</p>
+        </details>
+        <details class="crc-help-details">
+          <summary>Modèle et limites</summary>
+          <p>
+            Le modèle suppose un générateur, une résistance et un condensateur idéaux. Les résistances internes, les fuites et les tolérances des composants réels sont négligées.
+          </p>
+          <p>
+            En décharge, le courant réel est opposé au sens positif choisi pour la charge : sa valeur affichée est donc négative.
+          </p>
+        </details>
+      </section>
+
+      <section class="crc-card crc-sources" aria-labelledby="crc-sources-title">
+        <div class="crc-card-heading">
+          <p class="crc-kicker">Références</p>
+          <h2 id="crc-sources-title">Sources scientifiques et scolaires</h2>
+        </div>
+        <ul>
+          <li><a href="https://www.education.gouv.fr/sites/default/files/document/Physique-chimie-236046.pdf" target="_blank" rel="noreferrer">Programme officiel de Terminale générale, spécialité physique-chimie</a></li>
+          <li><a href="https://www.bipm.org/en/publications/si-brochure" target="_blank" rel="noreferrer">BIPM — Brochure sur le Système international d’unités</a></li>
+          <li><a href="https://iupac.org/what-we-do/books/greenbook/" target="_blank" rel="noreferrer">IUPAC Green Book — grandeurs, unités et symboles</a></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initCircuitRcSimulator } from '../../scripts/laboratoire/circuit-rc-simulator.js';
+
+  const mountCircuitRcSimulators = () => {
+    document.querySelectorAll('[data-circuit-rc-root]').forEach((root) => {
+      if (!(root instanceof HTMLElement) || root.dataset.crcInitialized === 'true') return;
+      root.dataset.crcInitialized = 'true';
+      initCircuitRcSimulator(root);
+    });
+  };
+
+  mountCircuitRcSimulators();
+  document.addEventListener('astro:page-load', mountCircuitRcSimulators, { once: true });
+</script>

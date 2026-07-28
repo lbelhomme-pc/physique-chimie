@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Atténuations et effet Doppler | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+
+    <style>
+        .graph-container { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; max-width: 600px; margin: 25px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .svg-grid { stroke: #cbd5e1; stroke-width: 1; }
+        .svg-grid-minor { stroke: #f1f5f9; stroke-width: 1; }
+        .svg-axis { stroke: #1e293b; stroke-width: 2; }
+        .svg-text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #475569; }
+        .svg-text-bold { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #1e293b; }
+        .svg-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; fill: #0f172a; text-anchor: middle; }
+        .svg-line { stroke: #3b82f6; stroke-width: 3; stroke-linecap: round; }
+        .svg-point { stroke: #ef4444; stroke-width: 2; fill: none; }
+        body.dark-mode .graph-container { background: #0f172a; border-color: #334155; }
+        body.dark-mode .svg-grid { stroke: #334155; }
+        body.dark-mode .svg-grid-minor { stroke: #1e293b; }
+        body.dark-mode .svg-axis { stroke: #cbd5e1; }
+        body.dark-mode .svg-text { fill: #94a3b8; }
+        body.dark-mode .svg-text-bold { fill: #f8fafc; }
+        body.dark-mode .svg-title { fill: #f8fafc; }
+        body.dark-mode .svg-line { stroke: #60a5fa; }
+    </style>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">📝</span>
+                <h1 class="hero-title">Exercices : Atténuations et effet Doppler</h1>
+            </div>
+        </header>
+
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 1</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Niveau d'intensité sonore -- Définition et calcul direct.
+</div>
+<p>L'intensité sonore de référence est $I_0 = 1{,}0  10^{-12} $$$.</p>
+<p>Le niveau d'intensité sonore $L$ (en décibels, dB) est lié à l'intensité sonore $I$ (en $$$$) par la relation :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L = 10  \!({I_0})$$</div></div></div></div></p>
+<ol><li>Calculer le niveau d'intensité sonore $L$ correspondant à une intensité sonore $I = 1{,}0  10^{-5} $$$.</li><li>Calculer le niveau d'intensité sonore $L$ correspondant à une intensité sonore $I = 2{,}0  10^{-3} $$$.</li><li>Le seuil de douleur correspond à $L = $120   $$. Déterminer l'intensité sonore correspondante.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Le niveau d'intensité sonore $L$ (en dB) est lié à l'intensité sonore $I$ (en $$$$) par la relation :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L = 10  \!({I_0})   I_0 = 1{,}0  10^{-12} $$$</div></div>$</div></div>
+Réciproquement, pour retrouver $I$ à partir de $L$ : $I = I_0  10^{L/10}$.
+</div>
+<strong>1.</strong> Calculer $L$ pour $I = 1{,}0  10^{-5} $$$.
+<strong>Données :</strong> $I = 1{,}0  10^{-5} $$$ ; $I_0 = 1{,}0  10^{-12} $$$.
+<strong>Formule :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L = 10  \!({I_0})$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+L &= 10  \!({1{,}0  10^{-5}}{1{,}0  10^{-12}}) \\
+L &= 10  \!(1{,}0  10^{7}) \\
+L &= 10  7 \\
+L &= $70   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Le niveau d'intensité sonore correspondant est $L = $70   $$.
+<strong>2.</strong> Calculer $L$ pour $I = 2{,}0  10^{-3} $$$.
+<strong>Données :</strong> $I = 2{,}0  10^{-3} $$$ ; $I_0 = 1{,}0  10^{-12} $$$.
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+L &= 10  \!({2{,}0  10^{-3}}{1{,}0  10^{-12}}) \\
+L &= 10  \!(2{,}0  10^{9}) \\
+L &= 10  ( 2{,}0 +  10^{9}) \\
+L &= 10  (0{,}30 + 9) \\
+L &= 10  9{,}30 \\
+L &= $93   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Le niveau d'intensité sonore correspondant est $L = $93   $$.
+<strong>3.</strong> Déterminer $I$ pour $L = $120   $$.
+<strong>Méthode :</strong> On isole $I$ dans la relation $L = 10  \!({I_0})$.
+<p>On divise par 10 :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${10} = \!({I_0})$$</div></div></div></div><br>On passe à la puissance de 10 :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${I_0} = 10^{L/10}$$</div></div></div></div><br>D'o\`u :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$I = I_0  10^{L/10}$$</div></div></div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+I &= 1{,}0  10^{-12}  10^{120/10} \\
+I &= 1{,}0  10^{-12}  10^{12} \\
+I &= $1{,}0   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'intensité sonore au seuil de douleur ($$120   $$) est $I = $1{,}0   $$.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 2</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Relation entre intensité sonore et niveau d'intensité sonore -- Propriétés du logarithme.
+</div>
+<p>On rappelle que $L = 10  \!({I_0})$ avec $I_0 = 1{,}0  10^{-12} $$$.</p>
+<ol><li>Lorsque l'intensité sonore est doublée (c'est-à-dire multipliée par 2), de combien augmente le niveau d'intensité sonore $L$ ? Justifier par un calcul.
+<em>Donnée :</em> $ 2  0{,}30$.</li><li>Lorsque le niveau d'intensité sonore augmente de $$10   $$, par quel facteur l'intensité sonore est-elle multipliée ? Justifier.</li><li>Une conversation normale correspond à $L_1 = $60   $$. Si deux conversations identiques ont lieu simultanément au même endroit, quel est le nouveau niveau d'intensité sonore ? Expliquer.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Les propriétés du logarithme décimal sont essentielles :
+<ul><li>$(a  b) =  a +  b$</li><li>$\!({b}) =  a -  b$</li><li>$(10^n) = n$
+</li></ul>
+</div>
+<strong>1.</strong> Lorsque l'intensité sonore est doublée, de combien augmente $L$ ?
+<strong>Méthode :</strong> Soit $I$ l'intensité initiale et $I' = 2I$ la nouvelle intensité. Calculons la différence $L' - L$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+L &= 10  \!({I_0}) \\
+L' &= 10  \!({I_0}) = 10  \!(2  {I_0}) \\
+L' &= 10  ( 2 + \!({I_0})) \\
+L' &= 10   2 + 10  \!({I_0}) \\
+L' &= 10   2 + L
+$$</div></div></div></div>
+<p>D'o\`u :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L' - L = 10   2 = 10  0{,}30 = {3{,}0}{}$$</div></div></div></div></p>
+<strong>Conclusion :</strong> Quand l'intensité sonore est doublée, le niveau d'intensité sonore augmente de $$3{,}0   $$.
+<strong>2.</strong> Lorsque $L$ augmente de $$10   $$, par quel facteur $I$ est-elle multipliée ?
+<strong>Méthode :</strong> Soit $L' = L + 10$. On cherche le rapport $I'/I$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+L' &= 10  \!({I_0}) = L + 10 = 10  \!({I_0}) + 10
+$$</div></div></div></div>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>10  \!({I_0}) &= 10  \!({I_0}) + 10 \\<br>\!({I_0}) &= \!({I_0}) + 1 \\<br>\!({I_0}) &= \!({I_0}) +  10 \\<br>\!({I_0}) &= \!({I_0})<br>$$</div></div></div></div></p>
+<p>Donc $I' = 10 I$.</p>
+<strong>Conclusion :</strong> Une augmentation de $$10   $$ correspond à une intensité sonore multipliée par 10.
+<strong>3.</strong> Deux conversations identiques simultanées.
+<strong>Données :</strong> Une conversation correspond à $L_1 = $60   $$, donc à une intensité $I_1$.
+<strong>Méthode :</strong> Deux conversations identiques au même endroit signifie que les intensités sonores s'additionnent : $I_{} = I_1 + I_1 = 2 I_1$.
+<p>L'intensité sonore est donc doublée. D'après la question 1, le niveau d'intensité sonore augmente de $$3{,}0   $$.</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L_{} = L_1 + 10   2 = 60 + 3{,}0 = $63   $$</div></div>$</div></div>
+<strong>Conclusion :</strong> Le nouveau niveau d'intensité sonore est $L_{} = $63   $$.
+<div class="info-box">
+<strong>Remarque importante :</strong> On n'additionne jamais les décibels directement ! On additionne les <strong>intensités sonores</strong> (en $$$$), puis on recalcule le niveau en dB.
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 3</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Atténuation géométrique -- Influence de la distance.
+</div>
+<p>Une source sonore, supposée isotrope (elle émet la même énergie dans toutes les directions), a une puissance acoustique $$. L'intensité sonore $I$ à une distance $d$ de la source est donnée par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$I = {}{4 d^2}$$</div></div></div></div></p>
+<ol><li>Exprimer le niveau d'intensité sonore $L$ en fonction de $$, $d$ et $I_0$.</li><li>Soit $L$ le niveau d'intensité sonore à la distance $d$ et $L'$ le niveau d'intensité sonore à la distance $d' = 2d$. Montrer que $L' = L - 6{,}0 $ (environ).
+<em>Donnée :</em> $ 4  0{,}60$.</li><li>Un haut-parleur émet un son à $L = $85   $$ à une distance de $$1{,}0   $$. Estimer le niveau d'intensité sonore à $$2{,}0   $$, puis à $$4{,}0   $$ de la source, en l'absence d'atténuation par absorption.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Pour une source isotrope de puissance $$, l'intensité sonore à la distance $d$ est $I = {}{4 d^2}$. Le niveau d'intensité sonore est $L = 10 \!({I_0})$. L'atténuation géométrique provient de la répartition de l'énergie sur une sphère de plus en plus grande.
+</div>
+<strong>1.</strong> Exprimer $L$ en fonction de $$, $d$ et $I_0$.
+<p>On remplace $I$ par son expression dans la formule du niveau d'intensité sonore :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+L &= 10  \!({I_0}) \\
+L &= 10  \!({}{4 d^2  I_0})
+$$</div></div></div></div>
+<strong>Conclusion :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${L = 10  \!({}{4 d^2 I_0})}$$</div></div></div></div>
+<strong>2.</strong> Montrer que $L' = L - 6{,}0 $ lorsque $d' = 2d$.
+<strong>Méthode :</strong> On écrit $L'$ avec $d' = 2d$ et on calcule $L' - L$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+L' &= 10  \!({}{4 (2d)^2 I_0}) \\
+L' &= 10  \!({}{4  4 d^2 I_0}) \\
+L' &= 10  \!({4}  {}{4 d^2 I_0}) \\
+L' &= 10  (\!({4}) + \!({}{4 d^2 I_0})) \\
+L' &= 10  \!({4}) + L \\
+L' &= -10   4 + L \\
+L' &= L - 10  0{,}60 \\
+L' &= L - 6{,}0 
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Lorsque la distance à la source est doublée, le niveau d'intensité sonore diminue de $$6{,}0   $$ (en l'absence d'atténuation par absorption).
+<strong>3.</strong> Estimer $L$ à $$2{,}0   $$ et à $$4{,}0   $$.
+<strong>Données :</strong> $L_1 = $85   $$ à $d_1 = $1{,}0   $$.
+<p>\`A $d_2 = $2{,}0   $$ : la distance est doublée par rapport à $d_1$. D'après le résultat précédent :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L_2 = L_1 - 6{,}0 = 85 - 6{,}0 = $79   $$</div></div>$</div></div></p>
+<p>\`A $d_3 = $4{,}0   $$ : la distance est doublée par rapport à $d_2$. Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L_3 = L_2 - 6{,}0 = 79 - 6{,}0 = $73   $$</div></div>$</div></div></p>
+<strong>Conclusion :</strong> Le niveau d'intensité sonore est de $$79   $$ à $$2{,}0   $$ et de $$73   $$ à $$4{,}0   $$ de la source.
+<div class="info-box">
+<strong>Remarque :</strong> On pouvait également dire que $d_3 = 4 d_1$, soit un doublement deux fois, donc une diminution de $2  6{,}0 = $12   $$. On retrouve bien $85 - 12 = $73   $$.
+</div>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 4</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Atténuation par absorption -- Protections auditives.
+</div>
+<p>Lors d'un concert, le niveau d'intensité sonore près de la scène atteint $L_0 = $110   $$. Un spectateur porte des bouchons d'oreilles en mousse dont l'atténuation est de $$25   $$ pour les fréquences typiques de la musique.</p>
+<ol><li>Quel est le niveau d'intensité sonore perçu par le spectateur portant les bouchons ?</li><li>Calculer l'intensité sonore $I_0$ correspondant au niveau $L_0 = $110   $$ (sans bouchons).</li><li>Calculer l'intensité sonore $I$ perçue avec les bouchons.</li><li>Par quel facteur l'intensité sonore a-t-elle été divisée gr\^ace aux bouchons ? Commenter.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> L'atténuation par absorption se traduit par une diminution directe du niveau d'intensité sonore : $L_{} = L_0 - A$ o\`u $A$ est l'atténuation en dB du dispositif de protection. Pour retrouver l'intensité sonore à partir de $L$, on utilise $I = I_0  10^{L/10}$.
+</div>
+<strong>1.</strong> Niveau d'intensité sonore perçu avec les bouchons.
+<strong>Données :</strong> $L_0 = $110   $$ ; atténuation $A = $25   $$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L = L_0 - A = 110 - 25 = $85   $$</div></div>$</div></div>
+<strong>Conclusion :</strong> Le spectateur perçoit un niveau d'intensité sonore de $$85   $$ avec les bouchons.
+<strong>2.</strong> Calculer l'intensité sonore $I_0$ correspondant à $L_0 = $110   $$.
+<strong>Formule :</strong> $I = I_0  10^{L/10}$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+I_0 &= 1{,}0  10^{-12}  10^{110/10} \\
+I_0 &= 1{,}0  10^{-12}  10^{11} \\
+I_0 &= 1{,}0  10^{-1} \\
+I_0 &= $0{,}10   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'intensité sonore sans bouchons est $I_0 = $0{,}10   $$.
+<strong>3.</strong> Calculer l'intensité sonore $I$ perçue avec les bouchons ($L = $85   $$).
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+I &= 1{,}0  10^{-12}  10^{85/10} \\
+I &= 1{,}0  10^{-12}  10^{8{,}5} \\
+I &= 1{,}0  10^{-12}  3{,}16  10^{8} \\
+I &= 3{,}2  10^{-4} $$
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'intensité sonore perçue avec les bouchons est $I  3{,}2  10^{-4} $$$.
+<strong>4.</strong> Facteur de division de l'intensité sonore.
+<strong>Méthode :</strong> On calcule le rapport ${I}$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{I} &= {0{,}10}{3{,}2  10^{-4}} = {1{,}0  10^{-1}}{3{,}2  10^{-4}}  3{,}2  10^{2}  320
+$$</div></div></div></div>
+<p>On peut également retrouver ce résultat plus rigoureusement. L'atténuation est de $$25   $$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${I} = 10^{25/10} = 10^{2{,}5}  316$$</div></div></div></div></p>
+<strong>Conclusion :</strong> L'intensité sonore a été divisée par un facteur d'environ <strong>316</strong>. Les bouchons réduisent considérablement l'intensité sonore reçue, ce qui protège efficacement l'audition du spectateur. Le niveau de $$85   $$ reste toutefois élevé pour une exposition prolongée.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 5</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Effet Doppler sonore -- Découverte qualitative et calcul de fréquence.
+</div>
+<p>Une ambulance émet une sirène de fréquence $f_{} = $800   $$. Elle se déplace en ligne droite à la vitesse $v_S = $25   $$ vers un piéton immobile.</p>
+<em>Donnée :</em> célérité du son dans l'air $v = $340   $$.
+<p>La fréquence reçue par un observateur immobile lorsque la source se rapproche est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$f_{} = f_{}  {v - v_S}$$</div></div></div></div></p>
+<ol><li>Calculer la fréquence $f_{}$ perçue par le piéton lorsque l'ambulance s'approche.</li><li>Le son perçu est-il plus aigu ou plus grave que le son émis ? Justifier.</li><li>L'ambulance dépasse le piéton puis s'éloigne. La fréquence reçue est alors :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$f_{}' = f_{}  {v + v_S}$$</div></div></div></div>
+Calculer $f_{}'$. Le son perçu est-il plus aigu ou plus grave ?</li><li>Calculer le décalage de fréquence $ f = f_{} - f_{}'$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> L'effet Doppler décrit le changement de fréquence perçu lorsqu'une source et un récepteur sont en mouvement relatif.
+<ul><li>Si la source <strong>s'approche</strong> : $f_{} = f_{}  {v - v_S}$  (fréquence augmente $$ son plus aigu)</li><li>Si la source <strong>s'éloigne</strong> : $f_{}' = f_{}  {v + v_S}$  (fréquence diminue $$ son plus grave)
+</li></ul>
+</div>
+<strong>1.</strong> Calculer $f_{}$ lorsque l'ambulance s'approche.
+<strong>Données :</strong> $f_{} = $800   $$ ; $v_S = $25   $$ ; $v = $340   $$.
+<strong>Formule :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$f_{} = f_{}  {v - v_S}$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+f_{} &= 800  {340 - 25} \\
+f_{} &= 800  {315} \\
+f_{} &= 800  1{,}079 \\
+f_{} & $863   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Le piéton perçoit une fréquence $f_{}  $863   $$ lorsque l'ambulance s'approche.
+<strong>2.</strong> Le son perçu est-il plus aigu ou plus grave ?
+<p>$f_{} = $863   $ > f_{} = $800   $$.</p>
+<p>La fréquence perçue est <strong>plus élevée</strong> que la fréquence émise.</p>
+<strong>Conclusion :</strong> Le son perçu est <strong>plus aigu</strong> que le son émis. C'est caractéristique de l'effet Doppler lorsque la source s'approche du récepteur.
+<strong>3.</strong> Calculer $f_{}'$ lorsque l'ambulance s'éloigne.
+<strong>Formule :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$f_{}' = f_{}  {v + v_S}$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+f_{}' &= 800  {340 + 25} \\
+f_{}' &= 800  {365} \\
+f_{}' &= 800  0{,}9315 \\
+f_{}' & $745   $
+$$</div></div></div></div>
+<p>$f_{}' = $745   $ < f_{} = $800   $$.</p>
+<strong>Conclusion :</strong> Le son perçu est <strong>plus grave</strong> que le son émis lorsque l'ambulance s'éloigne.
+<strong>4.</strong> Calculer le décalage de fréquence $ f = f_{} - f_{}'$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ f &= f_{} - f_{}' \\
+ f &= 863 - 745 \\
+ f &= $118   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Le décalage total de fréquence entre l'approche et l'éloignement est $ f  $118   $$. C'est cette variation brusque de tonalité que l'on entend lorsque l'ambulance passe devant soi.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 6</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Effet Doppler -- Approximation à basse vitesse et décalage relatif.
+</div>
+<p>Pour une source se déplaçant à une vitesse $v_S$ très inférieure à la célérité $v$ de l'onde ($v_S  v$), le décalage Doppler relatif de fréquence peut s'écrire :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${f}  {v}$$</div></div></div></div></p>
+<p>Le décalage en longueur d'onde est relié au décalage en fréquence par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${}  {v}$$</div></div></div></div></p>
+<ol><li>Un radar émet des ondes électromagnétiques de fréquence $f = $34{,}0   $$ vers un véhicule qui roule à $v_S = $130   $$.
+<em>Donnée :</em> célérité des ondes électromagnétiques $c = $3{,}00  10^{8}   $$.
+<ol><li>Convertir $v_S$ en $$$$.</li><li>Vérifier que la condition $v_S  c$ est satisfaite.</li><li>Calculer le décalage Doppler en fréquence $| f|$.
+</li></ol></li><li>Un second véhicule produit un décalage Doppler $| f| = $2{,}27   $$. En déduire sa vitesse en $$$$ puis en $$$$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> L'approximation à basse vitesse ($v_S  v$) simplifie l'expression du décalage Doppler :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${f}  {v}    | f|  f  {v}$$</div></div></div></div>
+Cette formule est valable pour les ondes sonores comme pour les ondes électromagnétiques.
+</div>
+<strong>1.a)</strong> Convertir $v_S = $130   $$ en $$$$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_S &= {3{,}6} \\
+v_S & {36{,}1}{}
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $v_S  {36{,}1}{}$.
+<strong>1.b)</strong> Vérifier que $v_S  c$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{c} &= {36{,}1}{3{,}00  10^{8}} = 1{,}20  10^{-7}
+$$</div></div></div></div>
+<p>Ce rapport est extrêmement petit devant 1 (de l'ordre de $10^{-7}$).</p>
+<strong>Conclusion :</strong> La condition $v_S  c$ est <strong>parfaitement satisfaite</strong>. L'approximation est valide.
+<strong>1.c)</strong> Calculer le décalage Doppler en fréquence $| f|$.
+<strong>Données :</strong> $f = $34{,}0   $ = 34{,}0  10^{9} $$$ ; $v_S = {36{,}1}{}$ ; $c = $3{,}00  10^{8}   $$.
+<strong>Formule :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$| f| = f  {c}$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+| f| &= 34{,}0  10^{9}  {36{,}1}{3{,}00  10^{8}} \\
+| f| &= 34{,}0  10^{9}  1{,}203  10^{-7} \\
+| f| & 4{,}09  10^{3} $$ \\
+| f| & $4{,}09   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Le décalage Doppler en fréquence est $| f|  $4{,}09   $$.
+<strong>2.</strong> Déterminer la vitesse du second véhicule.
+<strong>Données :</strong> $| f| = $2{,}27   $ = 2{,}27  10^{3} $$$ ; $f = 34{,}0  10^{9} $$$ ; $c = $3{,}00  10^{8}   $$.
+<strong>Méthode :</strong> On isole $v_S$ dans la relation $| f| = f  {c}$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_S = {f}$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_S &= {2{,}27  10^{3}  3{,}00  10^{8}}{34{,}0  10^{9}} \\
+v_S &= {6{,}81  10^{11}}{34{,}0  10^{9}} \\
+v_S &= {6{,}81  10^{11}}{3{,}40  10^{10}} \\
+v_S & {20{,}0}{}
+$$</div></div></div></div>
+<p>Conversion en $$$$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_S = 20{,}0  3{,}6 = {72{,}0}{}$$</div></div></div></div></p>
+<strong>Conclusion :</strong> La vitesse du second véhicule est $v_S  $20{,}0   $$, soit $$72{,}0   $$.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 7</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Rendement d'une enceinte acoustique.
+</div>
+<p>Pour déterminer le rendement $$ d'une enceinte, deux élèves mesurent le niveau d'intensité sonore à $$10   $$ de l'enceinte et obtiennent $L = $80   $$. Ils savent que la puissance électrique fournie au haut-parleur est $_{} = $16   $$.</p>
+<em>Données :</em> $I_0 = 1{,}0  10^{-12} $$$. La source est supposée isotrope : $I = {_{}}{4 d^2}$.
+<ol><li>Calculer l'intensité sonore $I$ à $$10   $$ de l'enceinte.</li><li>En déduire la puissance acoustique $_{}$ émise par l'enceinte.</li><li>Calculer le rendement $ = {_{}}{_{}}$ et l'exprimer en pourcentage. Commenter le résultat.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Le rendement d'un dispositif est le rapport entre la puissance utile (ici acoustique) et la puissance consommée (ici électrique) : $ = {_{}}{_{}}$. Pour trouver $_{}$, on passe par l'intensité sonore mesurée et la relation $I = {_{}}{4 d^2}$.
+</div>
+<strong>1.</strong> Calculer l'intensité sonore $I$ à $$10   $$ de l'enceinte.
+<strong>Données :</strong> $L = $80   $$ ; $I_0 = 1{,}0  10^{-12} $$$.
+<strong>Formule :</strong> $I = I_0  10^{L/10}$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+I &= 1{,}0  10^{-12}  10^{80/10} \\
+I &= 1{,}0  10^{-12}  10^{8} \\
+I &= 1{,}0  10^{-4} $$
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'intensité sonore à $$10   $$ est $I = 1{,}0  10^{-4} $$$.
+<strong>2.</strong> En déduire la puissance acoustique $_{}$.
+<strong>Données :</strong> $I = 1{,}0  10^{-4} $$$ ; $d = $10   $$.
+<strong>Méthode :</strong> On isole $_{}$ dans $I = {_{}}{4 d^2}$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{} = I  4 d^2$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_{} &= 1{,}0  10^{-4}  4  (10)^2 \\
+_{} &= 1{,}0  10^{-4}  4  100 \\
+_{} &= 1{,}0  10^{-4}  400 \\
+_{} &= 1{,}0  10^{-4}  1257 \\
+_{} & {0{,}13}{}
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La puissance acoustique émise est $_{}  $0{,}13   $$.
+<strong>3.</strong> Calculer le rendement $$.
+<strong>Données :</strong> $_{}  $0{,}13   $$ ; $_{} = $16   $$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= {_{}}{_{}} = {0{,}13}{16}  7{,}9  10^{-3}
+$$</div></div></div></div>
+<p>En pourcentage :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$  0{,}79</p>
+<strong>Conclusion :</strong> Le rendement de l'enceinte est d'environ $$0{,}8   $$. Ce rendement est très faible : cela signifie que la quasi-totalité de l'énergie électrique fournie au haut-parleur est convertie en chaleur (par effet Joule dans la bobine, frottements mécaniques, etc.) et que moins de 1
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 8</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Indice d'affaiblissement acoustique d'un matériau.
+</div>
+<p>L'indice d'affaiblissement acoustique $R$ d'un matériau caractérise la résistance d'une paroi de $$1   $$ au passage du bruit. Il est défini par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$R = 10  \!({I_{}}{I_{}})$$</div></div></div></div></p>
+<p>Un studio d'enregistrement est séparé de la régie par une paroi vitrée dont l'indice d'affaiblissement acoustique est $R = $50   $$.</p>
+<ol><li>Calculer le rapport ${I_{}}{I_{}}$.</li><li>Dans le studio, le niveau d'intensité sonore est $L_{} = $95   $$. Déterminer l'intensité sonore dans le studio.</li><li>En déduire l'intensité sonore transmise dans la régie, puis le niveau d'intensité sonore correspondant.</li><li>Commenter le résultat : la paroi est-elle adaptée à un usage professionnel ?
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> L'indice d'affaiblissement acoustique $R$ d'un matériau est défini par :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$R = 10  \!({I_{}}{I_{}})$$</div></div></div></div>
+Pour trouver le rapport des intensités : ${I_{}}{I_{}} = 10^{R/10}$.
+<p>L'affaiblissement se traduit par : $L_{} = L_{} - R$.<br></div></p>
+<strong>1.</strong> Calculer le rapport ${I_{}}{I_{}}$.
+<strong>Données :</strong> $R = $50   $$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{I_{}}{I_{}} &= 10^{R/10} = 10^{50/10} = 10^{5} = 100 000
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'intensité sonore est divisée par un facteur $10^5 = 100 000$ en traversant la paroi.
+<strong>2.</strong> Déterminer l'intensité sonore dans le studio.
+<strong>Données :</strong> $L_{} = $95   $$ ; $I_0 = 1{,}0  10^{-12} $$$.
+<strong>Formule :</strong> $I_{} = I_0  10^{L_{}/10}$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+I_{} &= 1{,}0  10^{-12}  10^{95/10} \\
+I_{} &= 1{,}0  10^{-12}  10^{9{,}5} \\
+I_{} &= 1{,}0  10^{-12}  3{,}16  10^{9} \\
+I_{} & 3{,}2  10^{-3} $$
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'intensité sonore dans le studio est $I_{}  3{,}2  10^{-3} $$$.
+<strong>3.</strong> En déduire l'intensité sonore transmise et le niveau correspondant.
+<strong>Méthode :</strong> L'intensité sonore incidente sur la paroi est celle du studio : $I_{} = I_{}$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+I_{} &= {I_{}}{10^5} = {3{,}2  10^{-3}}{10^5} = 3{,}2  10^{-8} $$
+$$</div></div></div></div>
+<p>Calculons le niveau d'intensité sonore dans la régie :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>L_{} &= 10  \!({3{,}2  10^{-8}}{1{,}0  10^{-12}}) \\<br>L_{} &= 10  \!(3{,}2  10^{4}) \\<br>L_{} &= 10  ( 3{,}2 + 4) \\<br>L_{} &= 10  (0{,}51 + 4) \\<br>L_{} &= 10  4{,}51 \\<br>L_{} & $45   $<br>$$</div></div></div></div></p>
+<div class="info-box">
+<strong>Vérification rapide :</strong> On peut aussi calculer directement $L_{} = L_{} - R = 95 - 50 = $45   $$. On retrouve bien le même résultat.
+</div>
+<strong>Conclusion :</strong> L'intensité sonore transmise dans la régie est $I_{}  3{,}2  10^{-8} $$$, ce qui correspond à un niveau de $$45   $$.
+<strong>4.</strong> Commentaire sur l'adaptation à un usage professionnel.
+<p>$$45   $$ correspond au niveau sonore d'une pièce calme ou d'une conversation à voix basse. Pour un studio d'enregistrement professionnel, le bruit ambiant dans la régie ne doit pas perturber le travail d'écoute et de mixage. Un niveau de $$45   $$ peut être encore un peu élevé pour un travail de précision ; idéalement, on viserait un niveau inférieur à $$30   $$ dans la régie. Néanmoins, avec un indice $R = $50   $$, la paroi offre déjà une atténuation très significative. Pour améliorer l'isolation, on pourrait utiliser un double vitrage ou une paroi composite.</p>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 9</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Effet Doppler lumineux -- Vitesse de fuite d'une galaxie.
+</div>
+<p>En astrophysique, lorsqu'une étoile ou une galaxie s'éloigne de la Terre, les longueurs d'onde de la lumière reçue sont décalées vers le rouge (on parle de <em>redshift</em>). Pour $v_S  c$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${_0}  {c}$$</div></div></div></div><br>o\`u $_0$ est la longueur d'onde mesurée au laboratoire, $  = _{} - _0$ et $c = $3{,}00  10^{8}   $$.</p>
+<p>On observe dans le spectre d'une galaxie lointaine la raie $_$ de l'hydrogène. Au laboratoire, cette raie a pour longueur d'onde $_0 = $656{,}3   $$. Dans le spectre de la galaxie, cette même raie est observée à $_{} = $660{,}8   $$.</p>
+<ol><li>La galaxie s'approche-t-elle ou s'éloigne-t-elle de la Terre ? Justifier.</li><li>Calculer le décalage en longueur d'onde $| |$.</li><li>En déduire la vitesse $v_S$ de la galaxie par rapport à la Terre.</li><li>Vérifier que la condition $v_S  c$ est bien satisfaite.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> L'effet Doppler lumineux pour une source s'éloignant provoque un décalage vers les grandes longueurs d'onde (vers le rouge : <em>redshift</em>). Pour $v_S  c$ :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${_0}  {c}    v_S  {_0}  c$$</div></div></div></div>
+</div>
+<strong>1.</strong> La galaxie s'approche-t-elle ou s'éloigne-t-elle de la Terre ?
+<strong>Données :</strong> $_0 = $656{,}3   $$ (au laboratoire) ; $_{} = $660{,}8   $$ (observée).
+<p>La longueur d'onde observée est <strong>plus grande</strong> que la longueur d'onde de référence :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_{} = $660{,}8   $ > _0 = $656{,}3   $$</div></div>$</div></div></p>
+<p>Un décalage vers les grandes longueurs d'onde correspond à un décalage vers le rouge (<em>redshift</em>).</p>
+<strong>Conclusion :</strong> La galaxie <strong>s'éloigne</strong> de la Terre.
+<strong>2.</strong> Calculer le décalage en longueur d'onde $| |$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+| | &= _{} - _0 \\
+| | &= 660{,}8 - 656{,}3 \\
+| | &= $4{,}5   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Le décalage en longueur d'onde est $| | = $4{,}5   $$.
+<strong>3.</strong> En déduire la vitesse $v_S$ de la galaxie.
+<strong>Formule :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_S = {_0}  c$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_S &= {4{,}5}{656{,}3}  3{,}00  10^{8} \\
+v_S &= 6{,}86  10^{-3}  3{,}00  10^{8} \\
+v_S & 2{,}06  10^{6} $$ \\
+v_S & $2{,}1  10^{6}   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La vitesse de la galaxie par rapport à la Terre est $v_S  $2{,}1  10^{6}   $$, soit environ $$2100   $$.
+<strong>4.</strong> Vérifier que la condition $v_S  c$ est satisfaite.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{c} &= {2{,}1  10^{6}}{3{,}00  10^{8}} = 7{,}0  10^{-3}  0{,}007
+$$</div></div></div></div>
+<p>Ce rapport vaut environ $0{,}7</p>
+<strong>Conclusion :</strong> La condition $v_S  c$ est bien satisfaite. L'utilisation de la formule approchée est justifiée.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 10</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Doppler sanguin -- Application médicale de l'effet Doppler.
+</div>
+<p>Le Doppler sanguin est un examen médical utilisant des ultrasons pour mesurer la vitesse d'écoulement du sang dans les artères. Une sonde émet des ultrasons de fréquence $f_e = $4{,}0   $$ vers un vaisseau sanguin. Les ultrasons sont réfléchis par les globules rouges en mouvement et la sonde mesure la fréquence $f_r$ du signal réfléchi.</p>
+<p>Le décalage Doppler en fréquence est donné par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ f = f_r - f_e = 2   f_e  {v}$$</div></div></div></div><br>o\`u $v_g$ est la vitesse des globules rouges, $v = $1540   $$ est la célérité des ultrasons dans le sang et $$ est l'angle entre la direction du vaisseau et la direction de la sonde.</p>
+<ol><li>Lors d'un examen, le décalage de fréquence mesuré est $ f = $5{,}0   $$ pour un angle $ = 20{^}$.
+<p>Calculer la vitesse $v_g$ du sang dans le vaisseau. Exprimer le résultat en $$$$ puis en $$$$.</li><li>L'angle $$ est un paramètre important. Expliquer pourquoi, en pratique, l'angle $$ doit rester inférieur à $60{^}$.</p>
+<em>Indication :</em> calculer $ 60{^}$ et comparer avec $ 20{^}$.</li><li>Que se passe-t-il si $ = 90{^}$ ? Commenter du point de vue physique.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> En Doppler sanguin, la relation utilisée est :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ f = 2  f_e  {v}$$</div></div></div></div>
+Pour isoler $v_g$ : $v_g = {2  f_e}$
+<p>Le facteur 2 vient du fait que l'onde subit deux décalages Doppler : à l'aller (onde émise vers les globules) et au retour (onde réfléchie par les globules vers la sonde).<br></div></p>
+<strong>1.</strong> Calculer la vitesse $v_g$ du sang.
+<strong>Données :</strong> $ f = $5{,}0   $ = 5{,}0  10^3 $$$ ; $ = 20{^}$ ; $f_e = $4{,}0   $ = 4{,}0  10^6 $$$ ; $v = $1540   $$.
+<strong>Formule :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_g = {2  f_e}$$</div></div></div></div>
+<strong>Calcul préalable :</strong> $ 20{^}  0{,}940$.
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+v_g &= {5{,}0  10^3  1540}{2  0{,}940  4{,}0  10^6} \\
+v_g &= {7{,}70  10^6}{7{,}52  10^6} \\
+v_g & {1{,}02}{}
+$$</div></div></div></div>
+<p>Conversion en $$$$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$v_g  $102   $$</div></div>$</div></div></p>
+<strong>Conclusion :</strong> La vitesse du sang dans le vaisseau est $v_g  $1{,}0   $$, soit environ $$100   $$. C'est une valeur réaliste pour une artère de gros calibre.
+<strong>2.</strong> Pourquoi l'angle $$ doit-il rester inférieur à $60{^}$ ?
+<strong>Méthode :</strong> Calculons et comparons les valeurs de $$ pour différents angles.
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>$$</th><th>$$</th><th>Commentaire</th></tr><tr><td>$20{^}$</td><td>$0{,}940$</td><td>Bonne sensibilité</td></tr><tr><td>$45{^}$</td><td>$0{,}707$</td><td>Sensibilité correcte</td></tr><tr><td>$60{^}$</td><td>$0{,}500$</td><td>Sensibilité réduite de moitié</td></tr><tr><td>$80{^}$</td><td>$0{,}174$</td><td>Sensibilité très faible</td></tr></tbody></table></div>
+</div>
+<p>Lorsque $$ augmente, $$ diminue. Le décalage de fréquence $ f$ est proportionnel à $$ : il diminue donc lorsque l'angle augmente.</p>
+<p>Pour $ > 60{^}$, $ < 0{,}5$ : le décalage Doppler mesuré devient très faible, ce qui rend la mesure de vitesse peu précise. De plus, les incertitudes de mesure sur $ f$ deviennent du même ordre de grandeur que $ f$ lui-même.</p>
+<strong>Conclusion :</strong> L'angle $$ doit rester inférieur à $60{^}$ pour que le décalage Doppler soit suffisamment grand et mesurable avec précision.
+<strong>3.</strong> Que se passe-t-il si $ = 90{^}$ ?
+<p>$ 90{^} = 0$, donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ f = 2  0  f_e  {v} = 0$$</div></div></div></div></p>
+<strong>Conclusion :</strong> Si $ = 90{^}$, il n'y a <strong>aucun décalage Doppler</strong> : $ f = 0$. Cela s'explique physiquement par le fait que, lorsque la sonde est perpendiculaire au vaisseau, les globules rouges ne se rapprochent ni ne s'éloignent de la sonde. Il n'y a donc aucune composante de vitesse dans la direction de propagation des ultrasons, et l'effet Doppler est nul.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 11</h2>
+            <div class="info-box">
+<strong>Thème :</strong> \'Etude d'une binaire spectroscopique par effet Doppler.
+</div>
+<p>Une binaire spectroscopique est un système de deux étoiles A et B en orbite autour de leur centre d'inertie commun. Depuis la Terre, on ne distingue pas les deux étoiles séparément, mais l'étude du spectre de la lumière reçue permet de les identifier. On s'intéresse à la raie $_$ de l'hydrogène, dont la longueur d'onde mesurée au laboratoire est $_0 = $656{,}3   $$.</p>
+<p>\`A un instant donné, le spectre de la binaire montre deux raies : l'une à $_A = $656{,}15   $$ et l'autre à $_B = $656{,}45   $$.</p>
+<em>Donnée :</em> célérité de la lumière dans le vide $c = $3{,}00  10^{8}   $$.
+<p>On rappelle que pour $v_S  c$ : ${_0}  {c}$.</p>
+<ol><li>Pour chacune des deux étoiles A et B, préciser si elle s'approche ou s'éloigne de la Terre. Justifier soigneusement.</li><li>Calculer le décalage Doppler en longueur d'onde $| _A|$ pour l'étoile A, puis $| _B|$ pour l'étoile B.</li><li>En déduire la vitesse $v_A$ de l'étoile A et la vitesse $v_B$ de l'étoile B par rapport à la Terre, dans la direction d'observation.</li><li>La distance entre les deux raies observées sur le spectre est $ = _B - _A$. Montrer que $$ est liée aux vitesses des deux étoiles par :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {c} (v_A + v_B)$$</div></div></div></div>
+o\`u $v_A$ et $v_B$ représentent les valeurs absolues des vitesses radiales.</li><li>Vérifier numériquement cette relation avec les valeurs obtenues précédemment.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Pour une binaire spectroscopique, l'analyse du dédoublement de la raie spectrale permet de déterminer la vitesse radiale de chaque étoile. Si la longueur d'onde observée est plus petite que $_0$, l'étoile s'approche (<em>blueshift</em>). Si elle est plus grande, l'étoile s'éloigne (<em>redshift</em>). On utilise : ${_0}  {c}$.
+</div>
+<strong>1.</strong> Préciser si chaque étoile s'approche ou s'éloigne de la Terre.
+<strong>Données :</strong> $_0 = $656{,}3   $$ ; $_A = $656{,}15   $$ ; $_B = $656{,}45   $$.
+<p>Pour l'étoile A :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_A = $656{,}15   $ < _0 = $656{,}3   $$</div></div>$</div></div><br>La longueur d'onde est décalée vers les <strong>courtes longueurs d'onde</strong> (décalage vers le bleu, <em>blueshift</em>). L'étoile A <strong>s'approche</strong> de la Terre.</p>
+<p>Pour l'étoile B :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_B = $656{,}45   $ > _0 = $656{,}3   $$</div></div>$</div></div><br>La longueur d'onde est décalée vers les <strong>grandes longueurs d'onde</strong> (décalage vers le rouge, <em>redshift</em>). L'étoile B <strong>s'éloigne</strong> de la Terre.</p>
+<strong>Conclusion :</strong> L'étoile A s'approche de la Terre et l'étoile B s'éloigne de la Terre. Cela est cohérent avec le fait que les deux étoiles tournent l'une autour de l'autre : à un instant donné, l'une se rapproche tandis que l'autre s'éloigne.
+<strong>2.</strong> Calculer les décalages Doppler en longueur d'onde.
+<p>Pour l'étoile A :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>|_A| &= |_A - _0| = |656{,}15 - 656{,}3| = $0{,}15   $<br>$$</div></div></div></div></p>
+<p>Pour l'étoile B :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>|_B| &= |_B - _0| = |656{,}45 - 656{,}3| = $0{,}15   $<br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> $|_A| = |_B| = $0{,}15   $$. Les décalages sont égaux (en valeur absolue), ce qui suggère que les deux étoiles ont des vitesses radiales de même module.
+<strong>3.</strong> En déduire les vitesses $v_A$ et $v_B$.
+<strong>Formule :</strong> $v = {_0}  c$
+<p>Pour l'étoile A :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>v_A &= {_0}  c = {0{,}15}{656{,}3}  3{,}00  10^{8}<br>$$</div></div></div></div></p>
+<p>Calculons le rapport :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>{0{,}15}{656{,}3} &= 2{,}285  10^{-4}<br>$$</div></div></div></div></p>
+<p>Donc :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>v_A &= 2{,}285  10^{-4}  3{,}00  10^{8} \\<br>v_A & 6{,}86  10^{4} $$ \\<br>v_A & $6{,}9  10^{4}   $<br>$$</div></div></div></div></p>
+<p>Puisque $|_B| = |_A|$, on a $v_B = v_A  $6{,}9  10^{4}   $$.</p>
+<strong>Conclusion :</strong> $v_A  v_B  $6{,}9  10^{4}   $$, soit environ $$69   $$.
+<strong>4.</strong> Montrer que $ = {c} (v_A + v_B)$.
+<strong>Méthode :</strong> On exprime $ = _B - _A$ en fonction des vitesses.
+<p>L'étoile B s'éloigne, donc $_B = _0 + {c} v_B$ (décalage vers le rouge).</p>
+<p>L'étoile A s'approche, donc $_A = _0 - {c} v_A$ (décalage vers le bleu).</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= _B - _A \\
+ &= (_0 + {c} v_B) - (_0 - {c} v_A) \\
+ &= _0 + {c} - _0 + {c} \\
+ &= {c} (v_A + v_B)
+$$</div></div></div></div>
+<strong>Conclusion :</strong> On a bien démontré que $ = {c} (v_A + v_B)$.
+<strong>5.</strong> Vérification numérique.
+<strong>Calcul de $$ directement :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = _B - _A = 656{,}45 - 656{,}15 = $0{,}30   $$</div></div>$</div></div>
+<strong>Calcul avec la formule :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{c} (v_A + v_B) &= {656{,}3  10^{-9}}{3{,}00  10^{8}}  (6{,}86  10^{4} + 6{,}86  10^{4}) \\
+&= 2{,}188  10^{-15}  1{,}372  10^{5} \\
+&= 3{,}00  10^{-10}  \\
+&= $0{,}30   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> Les deux méthodes donnent $ = $0{,}30   $$, ce qui confirme la cohérence des résultats.
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 12</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Le cor des Alpes -- Atténuation géométrique et seuil d'audibilité.
+</div>
+<p>Chaque année, au mois de juillet, se déroule le festival international du cor des Alpes à Haute Nendaz, en Suisse. Cet instrument folklorique était jadis utilisé par les bergers pour communiquer entre eux à travers les montagnes.</p>
+<p>Un cor des Alpes a une longueur de $$3{,}4   $$. La note la plus grave jouable par cet instrument correspond à une fréquence égale au fondamental pour lequel la longueur d'onde est égale au double de la longueur du cor.</p>
+<em>Données :</em>
+<ul><li>Intensité sonore de référence : $I_0 = 1{,}0  10^{-12} $$$.</li><li>Célérité du son dans l'air : $v = $340   $$.</li><li>La source est supposée isotrope : $I = {}{4 d^2}$.</li><li>L'atténuation par absorption n'est pas prise en compte.
+</li></ul>
+<p>Le graphique ci-dessous représente le seuil d'audibilité humaine (niveau d'intensité sonore minimal audible) en fonction de la fréquence.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-59.217409 -62.813885 326.681914 156.715376'>
+<defs>
+<clipPath id='clip1'>
+<path d='M-28.258 69.253944H267.066V-55.9964H-28.258Z'/>
+</clipPath>
+<path id='g1-0' d='M6.56538-2.291407C6.734745-2.291407 6.914072-2.291407 6.914072-2.49066S6.734745-2.689913 6.56538-2.689913H1.175592C1.006227-2.689913 .826899-2.689913 .826899-2.49066S1.006227-2.291407 1.175592-2.291407H6.56538Z'/>
+<path id='g2-48' d='M4.582814-3.188045C4.582814-3.985056 4.533001-4.782067 4.184309-5.519303C3.726027-6.475716 2.909091-6.635118 2.49066-6.635118C1.892902-6.635118 1.165629-6.37609 .757161-5.449564C.438356-4.762142 .388543-3.985056 .388543-3.188045C.388543-2.440847 .428394-1.544209 .836862-.787049C1.265255 .019925 1.992528 .219178 2.480697 .219178C3.01868 .219178 3.775841 .009963 4.214197-.936488C4.533001-1.62391 4.582814-2.400996 4.582814-3.188045ZM2.480697 0C2.092154 0 1.504359-.249066 1.325031-1.205479C1.215442-1.803238 1.215442-2.719801 1.215442-3.307597C1.215442-3.945205 1.215442-4.60274 1.295143-5.140722C1.484433-6.326276 2.231631-6.41594 2.480697-6.41594C2.809465-6.41594 3.466999-6.236613 3.656289-5.250311C3.755915-4.692403 3.755915-3.935243 3.755915-3.307597C3.755915-2.560399 3.755915-1.882939 3.646326-1.24533C3.496887-.298879 2.929016 0 2.480697 0Z'/>
+<path id='g2-49' d='M2.929016-6.37609C2.929016-6.615193 2.929016-6.635118 2.699875-6.635118C2.082192-5.997509 1.205479-5.997509 .886675-5.997509V-5.688667C1.085928-5.688667 1.673724-5.688667 2.191781-5.947696V-.787049C2.191781-.428394 2.161893-.308842 1.265255-.308842H.946451V0C1.295143-.029888 2.161893-.029888 2.560399-.029888S3.825654-.029888 4.174346 0V-.308842H3.855542C2.958904-.308842 2.929016-.418431 2.929016-.787049V-6.37609Z'/>
+<path id='g2-50' d='M1.265255-.767123L2.321295-1.793275C3.875467-3.16812 4.473225-3.706102 4.473225-4.702366C4.473225-5.838107 3.576588-6.635118 2.361146-6.635118C1.235367-6.635118 .498132-5.718555 .498132-4.83188C.498132-4.273973 .996264-4.273973 1.026152-4.273973C1.195517-4.273973 1.544209-4.393524 1.544209-4.801993C1.544209-5.061021 1.364882-5.32005 1.016189-5.32005C.936488-5.32005 .916563-5.32005 .886675-5.310087C1.115816-5.957659 1.653798-6.326276 2.231631-6.326276C3.138232-6.326276 3.566625-5.519303 3.566625-4.702366C3.566625-3.905355 3.068493-3.118306 2.520548-2.500623L.607721-.368618C.498132-.259029 .498132-.239103 .498132 0H4.194271L4.473225-1.733499H4.224159C4.174346-1.43462 4.104608-.996264 4.004981-.846824C3.935243-.767123 3.277709-.767123 3.058531-.767123H1.265255Z'/>
+<path id='g2-51' d='M2.889166-3.506849C3.706102-3.775841 4.283935-4.473225 4.283935-5.260274C4.283935-6.07721 3.407223-6.635118 2.450809-6.635118C1.444583-6.635118 .687422-6.03736 .687422-5.280199C.687422-4.951432 .9066-4.762142 1.195517-4.762142C1.504359-4.762142 1.703611-4.98132 1.703611-5.270237C1.703611-5.768369 1.235367-5.768369 1.085928-5.768369C1.39477-6.256538 2.052304-6.386052 2.410959-6.386052C2.819427-6.386052 3.367372-6.166874 3.367372-5.270237C3.367372-5.150685 3.347447-4.572852 3.088418-4.134496C2.789539-3.656289 2.450809-3.626401 2.201743-3.616438C2.122042-3.606476 1.882939-3.58655 1.8132-3.58655C1.733499-3.576588 1.663761-3.566625 1.663761-3.466999C1.663761-3.35741 1.733499-3.35741 1.902864-3.35741H2.34122C3.158157-3.35741 3.526775-2.67995 3.526775-1.703611C3.526775-.348692 2.839352-.059776 2.400996-.059776C1.972603-.059776 1.225405-.229141 .876712-.816936C1.225405-.767123 1.534247-.986301 1.534247-1.364882C1.534247-1.723537 1.265255-1.92279 .976339-1.92279C.737235-1.92279 .418431-1.783313 .418431-1.344956C.418431-.438356 1.344956 .219178 2.430884 .219178C3.646326 .219178 4.552927-.687422 4.552927-1.703611C4.552927-2.520548 3.92528-3.297634 2.889166-3.506849Z'/>
+<path id='g2-52' d='M2.929016-1.643836V-.777086C2.929016-.418431 2.909091-.308842 2.171856-.308842H1.96264V0C2.371108-.029888 2.889166-.029888 3.307597-.029888S4.254047-.029888 4.662516 0V-.308842H4.4533C3.716065-.308842 3.696139-.418431 3.696139-.777086V-1.643836H4.692403V-1.952677H3.696139V-6.485679C3.696139-6.684932 3.696139-6.744707 3.536737-6.744707C3.447073-6.744707 3.417186-6.744707 3.337484-6.625156L.278954-1.952677V-1.643836H2.929016ZM2.988792-1.952677H.557908L2.988792-5.668742V-1.952677Z'/>
+<path id='g2-53' d='M4.473225-2.002491C4.473225-3.188045 3.656289-4.184309 2.580324-4.184309C2.102117-4.184309 1.673724-4.024907 1.315068-3.676214V-5.618929C1.514321-5.559153 1.843088-5.489415 2.161893-5.489415C3.387298-5.489415 4.084682-6.396015 4.084682-6.525529C4.084682-6.585305 4.054795-6.635118 3.985056-6.635118C3.975093-6.635118 3.955168-6.635118 3.905355-6.60523C3.706102-6.515567 3.217933-6.316314 2.550436-6.316314C2.15193-6.316314 1.693649-6.386052 1.225405-6.595268C1.145704-6.625156 1.125778-6.625156 1.105853-6.625156C1.006227-6.625156 1.006227-6.545455 1.006227-6.386052V-3.437111C1.006227-3.257783 1.006227-3.178082 1.145704-3.178082C1.215442-3.178082 1.235367-3.20797 1.275218-3.267746C1.384807-3.427148 1.753425-3.965131 2.560399-3.965131C3.078456-3.965131 3.327522-3.506849 3.407223-3.327522C3.566625-2.958904 3.58655-2.570361 3.58655-2.072229C3.58655-1.723537 3.58655-1.125778 3.347447-.707347C3.108344-.318804 2.739726-.059776 2.281445-.059776C1.554172-.059776 .986301-.587796 .816936-1.175592C.846824-1.165629 .876712-1.155666 .986301-1.155666C1.315068-1.155666 1.484433-1.404732 1.484433-1.643836S1.315068-2.132005 .986301-2.132005C.846824-2.132005 .498132-2.062267 .498132-1.603985C.498132-.747198 1.185554 .219178 2.30137 .219178C3.457036 .219178 4.473225-.737235 4.473225-2.002491Z'/>
+<path id='g2-54' d='M1.315068-3.267746V-3.506849C1.315068-6.027397 2.550436-6.386052 3.058531-6.386052C3.297634-6.386052 3.716065-6.326276 3.935243-5.987547C3.785803-5.987547 3.387298-5.987547 3.387298-5.539228C3.387298-5.230386 3.626401-5.080946 3.845579-5.080946C4.004981-5.080946 4.303861-5.17061 4.303861-5.559153C4.303861-6.156912 3.865504-6.635118 3.038605-6.635118C1.763387-6.635118 .418431-5.349938 .418431-3.148194C.418431-.488169 1.574097 .219178 2.500623 .219178C3.606476 .219178 4.552927-.71731 4.552927-2.032379C4.552927-3.297634 3.666252-4.254047 2.560399-4.254047C1.882939-4.254047 1.514321-3.745953 1.315068-3.267746ZM2.500623-.059776C1.872976-.059776 1.574097-.657534 1.514321-.806974C1.334994-1.275218 1.334994-2.072229 1.334994-2.251557C1.334994-3.028643 1.653798-4.024907 2.550436-4.024907C2.709838-4.024907 3.16812-4.024907 3.476961-3.407223C3.656289-3.038605 3.656289-2.530511 3.656289-2.042341C3.656289-1.564134 3.656289-1.066002 3.486924-.707347C3.188045-.109589 2.729763-.059776 2.500623-.059776Z'/>
+<path id='g2-55' d='M4.742217-6.067248C4.83188-6.1868 4.83188-6.206725 4.83188-6.41594H2.410959C1.195517-6.41594 1.175592-6.545455 1.135741-6.734745H.886675L.557908-4.682441H.806974C.836862-4.841843 .926526-5.469489 1.05604-5.589041C1.125778-5.648817 1.902864-5.648817 2.032379-5.648817H4.094645C3.985056-5.489415 3.198007-4.403487 2.978829-4.07472C2.082192-2.729763 1.753425-1.344956 1.753425-.328767C1.753425-.229141 1.753425 .219178 2.211706 .219178S2.669988-.229141 2.669988-.328767V-.836862C2.669988-1.384807 2.699875-1.932752 2.779577-2.470735C2.819427-2.699875 2.958904-3.556663 3.39726-4.174346L4.742217-6.067248Z'/>
+<path id='g2-56' d='M1.62391-4.552927C1.165629-4.851806 1.125778-5.190535 1.125778-5.3599C1.125778-5.967621 1.77335-6.386052 2.480697-6.386052C3.20797-6.386052 3.845579-5.867995 3.845579-5.150685C3.845579-4.582814 3.457036-4.104608 2.859278-3.755915L1.62391-4.552927ZM3.078456-3.606476C3.795766-3.975093 4.283935-4.493151 4.283935-5.150685C4.283935-6.067248 3.39726-6.635118 2.49066-6.635118C1.494396-6.635118 .687422-5.897883 .687422-4.971357C.687422-4.79203 .707347-4.343711 1.125778-3.875467C1.235367-3.755915 1.603985-3.506849 1.853051-3.337484C1.275218-3.048568 .418431-2.49066 .418431-1.504359C.418431-.448319 1.43462 .219178 2.480697 .219178C3.606476 .219178 4.552927-.607721 4.552927-1.673724C4.552927-2.032379 4.443337-2.480697 4.064757-2.899128C3.875467-3.108344 3.716065-3.20797 3.078456-3.606476ZM2.082192-3.188045L3.307597-2.410959C3.58655-2.221669 4.054795-1.92279 4.054795-1.315068C4.054795-.577833 3.307597-.059776 2.49066-.059776C1.633873-.059776 .916563-.67746 .916563-1.504359C.916563-2.082192 1.235367-2.719801 2.082192-3.188045Z'/>
+<path id='g2-57' d='M3.656289-3.16812V-2.849315C3.656289-.518057 2.620174-.059776 2.042341-.059776C1.872976-.059776 1.334994-.079701 1.066002-.418431C1.504359-.418431 1.58406-.707347 1.58406-.876712C1.58406-1.185554 1.344956-1.334994 1.125778-1.334994C.966376-1.334994 .667497-1.24533 .667497-.856787C.667497-.18929 1.205479 .219178 2.052304 .219178C3.337484 .219178 4.552927-1.135741 4.552927-3.277709C4.552927-5.957659 3.407223-6.635118 2.520548-6.635118C1.972603-6.635118 1.484433-6.455791 1.05604-6.007472C.647572-5.559153 .418431-5.140722 .418431-4.393524C.418431-3.148194 1.295143-2.171856 2.410959-2.171856C3.01868-2.171856 3.427148-2.590286 3.656289-3.16812ZM2.420922-2.400996C2.261519-2.400996 1.803238-2.400996 1.494396-3.028643C1.315068-3.39726 1.315068-3.895392 1.315068-4.383562C1.315068-4.921544 1.315068-5.389788 1.524284-5.758406C1.793275-6.256538 2.171856-6.386052 2.520548-6.386052C2.978829-6.386052 3.307597-6.047323 3.476961-5.599004C3.596513-5.280199 3.636364-4.652553 3.636364-4.194271C3.636364-3.367372 3.297634-2.400996 2.420922-2.400996Z'/>
+</defs>
+<g id='page1'>
+<path d='M-28.2578 69.253944V-55.9964M-1.3278 69.253944V-55.9964M14.4262 69.253944V-55.9964M25.6052 69.253944V-55.9964M34.2732 69.253944V-55.9964M41.3592 69.253944V-55.9964M47.3472 69.253944V-55.9964M52.5352 69.253944V-55.9964M57.1132 69.253944V-55.9964M61.2072 69.253944V-55.9964M88.1402 69.253944V-55.9964M103.8942 69.253944V-55.9964M115.0702 69.253944V-55.9964M123.7422 69.253944V-55.9964M130.8242 69.253944V-55.9964M136.8162 69.253944V-55.9964M142.0042 69.253944V-55.9964M146.5782 69.253944V-55.9964M150.6722 69.253944V-55.9964M177.6052 69.253944V-55.9964M193.3592 69.253944V-55.9964M204.5392 69.253944V-55.9964M213.2072 69.253944V-55.9964M220.2932 69.253944V-55.9964M226.2812 69.253944V-55.9964M231.4692 69.253944V-55.9964M236.0472 69.253944V-55.9964' stroke='#ececec' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-28.258 69.253944V-55.9964M61.207 69.253944V-55.9964M150.672 69.253944V-55.9964M240.14 69.253944V-55.9964' stroke='#ccc' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-28.258 69.253944H267.066M-28.258 56.7305H267.066M-28.258 44.2032H267.066M-28.258 31.6797H267.066M-28.258 19.1563H267.066M-28.258 6.6289H267.066M-28.258-5.8945H267.066M-28.258-18.4179H267.066M-28.258-30.9454H267.066M-28.258-43.4684H267.066M-28.258-55.9964H267.066' stroke='#ccc' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-28.258 69.253944V66.41801M-1.328 69.253944V66.41801M14.426 69.253944V66.41801M25.605 69.253944V66.41801M34.273 69.253944V66.41801M41.359 69.253944V66.41801M47.347 69.253944V66.41801M52.535 69.253944V66.41801M57.113 69.253944V66.41801M61.207 69.253944V66.41801M88.14 69.253944V66.41801M103.894 69.253944V66.41801M115.07 69.253944V66.41801M123.742 69.253944V66.41801M130.824 69.253944V66.41801M136.816 69.253944V66.41801M142.004 69.253944V66.41801M146.578 69.253944V66.41801M150.672 69.253944V66.41801M177.605 69.253944V66.41801M193.359 69.253944V66.41801M204.539 69.253944V66.41801M213.207 69.253944V66.41801M220.293 69.253944V66.41801M226.281 69.253944V66.41801M231.469 69.253944V66.41801M236.047 69.253944V66.41801M-28.258-55.9964V-53.1604M-1.328-55.9964V-53.1604M14.426-55.9964V-53.1604M25.605-55.9964V-53.1604M34.273-55.9964V-53.1604M41.359-55.9964V-53.1604M47.347-55.9964V-53.1604M52.535-55.9964V-53.1604M57.113-55.9964V-53.1604M61.207-55.9964V-53.1604M88.14-55.9964V-53.1604M103.894-55.9964V-53.1604M115.07-55.9964V-53.1604M123.742-55.9964V-53.1604M130.824-55.9964V-53.1604M136.816-55.9964V-53.1604M142.004-55.9964V-53.1604M146.578-55.9964V-53.1604M150.672-55.9964V-53.1604M177.605-55.9964V-53.1604M193.359-55.9964V-53.1604M204.539-55.9964V-53.1604M213.207-55.9964V-53.1604M220.293-55.9964V-53.1604M226.281-55.9964V-53.1604M231.469-55.9964V-53.1604M236.047-55.9964V-53.1604' stroke='#808080' fill='none' stroke-width='.19925' stroke-miterlimit='10'/>
+<path d='M-28.258 69.253944V65.00394M61.207 69.253944V65.00394M150.672 69.253944V65.00394M240.14 69.253944V65.00394M-28.258-55.9964V-51.7424M61.207-55.9964V-51.7424M150.672-55.9964V-51.7424M240.14-55.9964V-51.7424' stroke='#808080' fill='none' stroke-width='.19925' stroke-miterlimit='10'/>
+<path d='M-28.258 69.253944H-24.008M-28.258 56.7305H-24.008M-28.258 44.2032H-24.008M-28.258 31.6797H-24.008M-28.258 19.1563H-24.008M-28.258 6.6289H-24.008M-28.258-5.8945H-24.008M-28.258-18.4179H-24.008M-28.258-30.9454H-24.008M-28.258-43.4684H-24.008M-28.258-55.9964H-24.008M267.066 69.253944H262.816M267.066 56.7305H262.816M267.066 44.2032H262.816M267.066 31.6797H262.816M267.066 19.1563H262.816M267.066 6.6289H262.816M267.066-5.8945H262.816M267.066-18.4179H262.816M267.066-30.9454H262.816M267.066-43.4684H262.816M267.066-55.9964H262.816' stroke='#808080' fill='none' stroke-width='.19925' stroke-miterlimit='10'/>
+<path d='M-28.258 69.253944V-55.9964H267.066V69.253944H-28.258Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 42.7382 40.5662)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g0-49'/>
+<use x='-70.99769' y='38.797791' xlink:href='#g0-48'/>
+</g>
+<g transform='matrix(1 0 0 1 129.7145 40.5662)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g0-49'/>
+<use x='-70.99769' y='38.797791' xlink:href='#g0-48'/>
+<use x='-66.017586' y='38.797791' xlink:href='#g0-48'/>
+</g>
+<g transform='matrix(1 0 0 1 216.6878 40.5954)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g2-49'/>
+<use x='-70.996455' y='38.797791' xlink:href='#g2-48'/>
+<use x='-66.015116' y='38.797791' xlink:href='#g2-48'/>
+<use x='-61.033777' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<g transform='matrix(1 0 0 1 302.8338 40.5954)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g2-49'/>
+<use x='-70.996455' y='38.797791' xlink:href='#g2-48'/>
+<use x='-64.354716' y='38.797791' xlink:href='#g2-48'/>
+<use x='-59.373377' y='38.797791' xlink:href='#g2-48'/>
+<use x='-54.392038' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<g transform='matrix(1 0 0 1 26.2885 33.2519)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g1-0'/>
+<use x='-68.229046' y='38.797791' xlink:href='#g2-49'/>
+<use x='-63.247707' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<g transform='matrix(1 0 0 1 39.0187 21.1421)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<g transform='matrix(1 0 0 1 34.0373 8.6172)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g2-49'/>
+<use x='-70.996455' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<g transform='matrix(1 0 0 1 34.0373 -3.9077)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g2-50'/>
+<use x='-70.996455' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<g transform='matrix(1 0 0 1 34.0373 -16.4327)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g2-51'/>
+<use x='-70.996455' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<g transform='matrix(1 0 0 1 34.0373 -28.95756)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g2-52'/>
+<use x='-70.996455' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<g transform='matrix(1 0 0 1 34.0373 -41.48248)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g2-53'/>
+<use x='-70.996455' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<g transform='matrix(1 0 0 1 34.0373 -54.0074)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g2-54'/>
+<use x='-70.996455' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<g transform='matrix(1 0 0 1 34.0373 -66.5323)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g2-55'/>
+<use x='-70.996455' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<g transform='matrix(1 0 0 1 34.0373 -79.0572)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g2-56'/>
+<use x='-70.996455' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<g transform='matrix(1 0 0 1 34.0373 -91.5821)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g2-57'/>
+<use x='-70.996455' y='38.797791' xlink:href='#g2-48'/>
+</g>
+<path d='M-1.332-43.4684C-1.332-43.4684 25.597-13.7148 34.273-5.8945C42.953 1.9258 53.734 7.6797 61.207 12.8907C68.679 18.1055 79.457 26.9883 88.136 31.6797C96.812 36.3711 115.062 43.7539 123.742 46.711C132.418 49.6641 143.199 51.5821 150.672 52.9727C158.144 54.3633 171.679 55.3399 177.601 56.7305S189.621 61.77738 193.359 62.99223C197.097 64.20707 201.785 65.49613 204.539 65.49613S210.191 64.20707 213.207 62.99223C216.222 61.77738 222.539 59.33598 226.277 56.7305C230.015 54.1211 236.031 49.418 240.14 44.2032C244.25 38.9922 252.156 29.5821 255.894 19.1563C259.629 8.7266 267.066-30.9454 267.066-30.9454' stroke='#0e7490' fill='none' stroke-width='1.19553' stroke-miterlimit='10' clip-path='url(#clip1)'/>
+<g transform='matrix(1 0 0 1 139.3829 55.1037)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g0-70'/>
+<use x='-70.306009' y='38.797791' xlink:href='#g0-114'/>
+<use x='-66.404927' y='38.797791' xlink:href='#g0-233'/>
+<use x='-61.978168' y='38.797791' xlink:href='#g0-113'/>
+<use x='-56.721392' y='38.797791' xlink:href='#g0-117'/>
+<use x='-51.187943' y='38.797791' xlink:href='#g0-101'/>
+<use x='-46.761184' y='38.797791' xlink:href='#g0-110'/>
+<use x='-41.227735' y='38.797791' xlink:href='#g0-99'/>
+<use x='-36.800976' y='38.797791' xlink:href='#g0-101'/>
+<use x='-29.054148' y='38.797791' xlink:href='#g0-100'/>
+<use x='-23.520699' y='38.797791' xlink:href='#g0-117'/>
+<use x='-14.667181' y='38.797791' xlink:href='#g0-115'/>
+<use x='-10.738433' y='38.797791' xlink:href='#g0-111'/>
+<use x='-5.758329' y='38.797791' xlink:href='#g0-110'/>
+<use x='3.095189' y='38.797791' xlink:href='#g0-40'/>
+<use x='6.968603' y='38.797791' xlink:href='#g0-101'/>
+<use x='11.395362' y='38.797791' xlink:href='#g0-110'/>
+<use x='20.248881' y='38.797791' xlink:href='#g0-72'/>
+<use x='27.719036' y='38.797791' xlink:href='#g0-122'/>
+<use x='32.145795' y='38.797791' xlink:href='#g0-41'/>
+</g>
+<g transform='matrix(0 -1 1 0 -98.0152 3.9713)'>
+<use x='-75.977794' y='38.797791' xlink:href='#g0-78'/>
+<use x='-68.507638' y='38.797791' xlink:href='#g0-105'/>
+<use x='-65.740914' y='38.797791' xlink:href='#g0-118'/>
+<use x='-60.76081' y='38.797791' xlink:href='#g0-101'/>
+<use x='-56.334051' y='38.797791' xlink:href='#g0-97'/>
+<use x='-51.353947' y='38.797791' xlink:href='#g0-117'/>
+<use x='-42.500429' y='38.797791' xlink:href='#g0-100'/>
+<use x='-36.96698' y='38.797791' xlink:href='#g0-39'/>
+<use x='-34.200256' y='38.797791' xlink:href='#g0-105'/>
+<use x='-31.433531' y='38.797791' xlink:href='#g0-110'/>
+<use x='-26.176755' y='38.797791' xlink:href='#g0-116'/>
+<use x='-22.303341' y='38.797791' xlink:href='#g0-101'/>
+<use x='-17.876582' y='38.797791' xlink:href='#g0-110'/>
+<use x='-12.343133' y='38.797791' xlink:href='#g0-115'/>
+<use x='-8.414384' y='38.797791' xlink:href='#g0-105'/>
+<use x='-5.64766' y='38.797791' xlink:href='#g0-116'/>
+<use x='-1.774246' y='38.797791' xlink:href='#g0-233'/>
+<use x='5.972583' y='38.797791' xlink:href='#g0-115'/>
+<use x='9.901331' y='38.797791' xlink:href='#g0-111'/>
+<use x='14.881435' y='38.797791' xlink:href='#g0-110'/>
+<use x='20.414884' y='38.797791' xlink:href='#g0-111'/>
+<use x='25.394988' y='38.797791' xlink:href='#g0-114'/>
+<use x='29.296069' y='38.797791' xlink:href='#g0-101'/>
+<use x='37.042898' y='38.797791' xlink:href='#g0-40'/>
+<use x='40.916312' y='38.797791' xlink:href='#g0-101'/>
+<use x='45.343071' y='38.797791' xlink:href='#g0-110'/>
+<use x='54.196589' y='38.797791' xlink:href='#g0-100'/>
+<use x='59.730038' y='38.797791' xlink:href='#g0-66'/>
+<use x='66.785185' y='38.797791' xlink:href='#g0-41'/>
+</g>
+<path d='M156.047-35.5114H257.808V-51.8394H156.047Z' fill='#fff'/>
+<path d='M156.047-35.5114H257.808V-51.8394H156.047Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M159.633213-43.675754C159.633213-43.675754 165.77774-43.675754 168.13712-43.675754C170.5004-43.675754 176.6449-43.675754 176.6449-43.675754' stroke='#0e7490' fill='none' stroke-width='1.19553' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 198.2163 -79.7898)'>
+<use x='-18.98429' y='38.797791' xlink:href='#g0-83'/>
+<use x='-13.450841' y='38.797791' xlink:href='#g0-101'/>
+<use x='-9.024082' y='38.797791' xlink:href='#g0-117'/>
+<use x='-3.490633' y='38.797791' xlink:href='#g0-105'/>
+<use x='-.723909' y='38.797791' xlink:href='#g0-108'/>
+<use x='5.362885' y='38.797791' xlink:href='#g0-100'/>
+<use x='10.896334' y='38.797791' xlink:href='#g0-39'/>
+<use x='13.663058' y='38.797791' xlink:href='#g0-97'/>
+<use x='18.643162' y='38.797791' xlink:href='#g0-117'/>
+<use x='24.176611' y='38.797791' xlink:href='#g0-100'/>
+<use x='29.710059' y='38.797791' xlink:href='#g0-105'/>
+<use x='32.476784' y='38.797791' xlink:href='#g0-98'/>
+<use x='38.010233' y='38.797791' xlink:href='#g0-105'/>
+<use x='40.776957' y='38.797791' xlink:href='#g0-108'/>
+<use x='43.543681' y='38.797791' xlink:href='#g0-105'/>
+<use x='46.310406' y='38.797791' xlink:href='#g0-116'/>
+<use x='50.18382' y='38.797791' xlink:href='#g0-233'/>
+</g>
+</g>
+</svg></div>
+</div>
+<ol><li>Calculer la longueur d'onde $$ de la note la plus grave du cor des Alpes, puis en déduire sa fréquence $f$.</li><li>\`A l'aide du graphique, déterminer le seuil d'audibilité (niveau d'intensité sonore minimal) pour cette fréquence.</li><li>Le niveau d'intensité sonore mesuré à $$1{,}0   $$ du cor est $L_1 = $100   $$.
+<ol><li>Exprimer le niveau d'intensité sonore $L(d)$ en un point situé à une distance $d$ de la source, en fonction de $L_1$ et $d$ (en prenant $d_1 = $1{,}0   $$ comme référence).
+<em>Indication :</em> montrer que $L(d) = L_1 - 20 \!({d_1})$.</li><li>Déterminer la distance maximale $d_{}$ à laquelle un auditeur peut entendre la note la plus grave du cor des Alpes. Commenter.
+</li></ol></li><li>Un village, situé à Haute Nendaz, se trouve à $$3{,}0   $$ du berger. Pourra-t-on y entendre le cor ? Discuter la validité du modèle utilisé (hypothèses faites, phénomènes négligés).
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Rappel de méthode :</strong> Cet exercice combine plusieurs notions :
+<ul><li>La relation $ = {f}$ pour déterminer la fréquence à partir de la longueur d'onde.</li><li>La lecture d'un graphique de seuil d'audibilité.</li><li>L'atténuation géométrique : $L(d) = L_1 - 20 \!({d_1})$.</li><li>La détermination de la distance maximale d'audibilité.
+</li></ul>
+</div>
+<strong>1.</strong> Calculer la longueur d'onde $$ et la fréquence $f$ de la note la plus grave.
+<strong>Données :</strong> La longueur du cor est $ = $3{,}4   $$. La longueur d'onde de la note fondamentale est égale au double de la longueur du cor : $ = 2$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= 2  3{,}4 = $6{,}8   $
+$$</div></div></div></div>
+<p>On utilise la relation $v =   f$, d'o\`u $f = {}$.</p>
+<strong>Donnée :</strong> $v = $340   $$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+f &= {6{,}8} = $50   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La longueur d'onde est $ = $6{,}8   $$ et la fréquence de la note la plus grave est $f = $50   $$.
+<strong>2.</strong> Déterminer le seuil d'audibilité pour $f = $50   $$.
+<strong>Méthode :</strong> On lit la valeur sur le graphique du seuil d'audibilité à la fréquence $f = $50   $$.
+<p>Sur le graphique, à $$50   $$, la courbe du seuil d'audibilité se situe à environ $$50   $$.</p>
+<strong>Conclusion :</strong> Le seuil d'audibilité pour une fréquence de $$50   $$ est d'environ $L_{}  $50   $$.
+<div class="info-box">
+<strong>Remarque :</strong> L'oreille humaine est beaucoup moins sensible aux basses fréquences qu'aux fréquences moyennes (autour de $$3000   $$ o\`u le seuil est minimal, vers $$-5   $$). C'est pourquoi il faut un niveau d'intensité sonore élevé pour percevoir un son à $$50   $$.
+</div>
+<strong>3.a)</strong> Exprimer $L(d)$ en fonction de $L_1$ et $d$.
+<strong>Méthode :</strong> Pour une source isotrope, $I = {}{4 d^2}$.
+<p>Le niveau d'intensité sonore à la distance $d$ est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L(d) = 10 \!({I_0}) = 10 \!({}{4 d^2 I_0})$$</div></div></div></div></p>
+<p>Le niveau d'intensité sonore à la distance de référence $d_1 = $1{,}0   $$ est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L_1 = 10 \!({}{4 d_1^2 I_0})$$</div></div></div></div></p>
+<p>Calculons la différence $L(d) - L_1$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>L(d) - L_1 &= 10 \!({}{4 d^2 I_0}) - 10 \!({}{4 d_1^2 I_0}) \\<br>&= 10 \!({}{4 d^2 I_0}  {}) \\<br>&= 10 \!({d^2}) \\<br>&= 10 \!(({d})^2) \\<br>&= 20 \!({d}) \\<br>&= -20 \!({d_1})<br>$$</div></div></div></div></p>
+<p>D'o\`u :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${L(d) = L_1 - 20 \!({d_1})}$$</div></div></div></div></p>
+<strong>Conclusion :</strong> Le niveau d'intensité sonore décro\^it de $20 \!({d_1})$ décibels lorsque la distance passe de $d_1$ à $d$.
+<strong>3.b)</strong> Déterminer la distance maximale $d_{}$.
+<strong>Méthode :</strong> On cherche la distance $d_{}$ pour laquelle $L(d_{}) = L_{}$.
+<strong>Données :</strong> $L_1 = $100   $$ ; $d_1 = $1{,}0   $$ ; $L_{}  $50   $$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+L_{} &= L_1 - 20 \!({d_{}}{d_1}) \\
+50 &= 100 - 20 \!({d_{}}{1{,}0}) \\
+20 \!(d_{}) &= 100 - 50 = 50 \\
+\!(d_{}) &= {20} = 2{,}5 \\
+d_{} &= 10^{2{,}5}
+$$</div></div></div></div>
+<p>Calculons $10^{2{,}5}$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>10^{2{,}5} &= 10^2  10^{0{,}5} = 100    100  3{,}16  316 <br>$$</div></div></div></div></p>
+<strong>Conclusion :</strong> La distance maximale à laquelle un auditeur peut entendre la note la plus grave du cor des Alpes est $d_{}  $316   $$, soit environ $$0{,}32   $$.
+<div class="info-box">
+<strong>Commentaire :</strong> Cette distance peut para\^itre modeste pour un instrument réputé porter sur de longues distances. Cependant, il s'agit ici de la note la plus grave, pour laquelle l'oreille est très peu sensible. Les harmoniques plus aigu\"es du cor sont entendues à des distances bien plus grandes.
+</div>
+<strong>4.</strong> Pourra-t-on entendre le cor à $$3{,}0   $$ ?
+<strong>Méthode :</strong> Calculons le niveau d'intensité sonore à $d = $3{,}0   $ = $3000   $$.
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+L(3000) &= L_1 - 20 \!({1{,}0}) \\
+L(3000) &= 100 - 20 (3000) \\
+L(3000) &= 100 - 20  ( 3 +  1000) \\
+L(3000) &= 100 - 20  (0{,}477 + 3) \\
+L(3000) &= 100 - 20  3{,}477 \\
+L(3000) &= 100 - 69{,}5 \\
+L(3000) & {30{,}5}{}
+$$</div></div></div></div>
+<p>Or, le seuil d'audibilité à $$50   $$ est d'environ $$50   $$.</p>
+<p>$L(3000)  $30   $ < L_{}  $50   $$.</p>
+<strong>Conclusion :</strong> Selon ce modèle, la note la plus grave du cor des Alpes ne pourrait <strong>pas être entendue</strong> à $$3{,}0   $$.
+<strong>Discussion de la validité du modèle :</strong>
+<ul><li><strong>Hypothèse d'isotropie :</strong> Le cor des Alpes n'émet pas le son de manière uniforme dans toutes les directions. Il est directif (le son est plus intense dans la direction de l'embouchure). Dans la direction privilégiée, le niveau sonore peut être nettement supérieur à celui prédit par le modèle isotrope.</li><li><strong>Absorption par l'air :</strong> Le modèle ne prend pas en compte l'atténuation par absorption, qui diminue encore le niveau sonore aux grandes distances. Cependant, l'atténuation par absorption est très faible aux basses fréquences.</li><li><strong>Réflexions et relief :</strong> En montagne, les parois rocheuses peuvent réfléchir le son (échos) et le canaliser dans les vallées, augmentant ainsi la portée effective du son.</li><li><strong>Harmoniques :</strong> En pratique, le cor émet aussi des harmoniques de fréquences plus élevées, pour lesquelles l'oreille est beaucoup plus sensible. Ce sont ces harmoniques qui permettent d'entendre le cor à grande distance.</li><li><strong>Conditions atmosphériques :</strong> Le vent, les gradients de température et l'humidité influencent la propagation du son sur de longues distances.
+</li></ul>
+<p>Le modèle utilisé est donc une simplification qui sous-estime la portée réelle du cor des Alpes. En réalité, cet instrument peut être entendu à plusieurs kilomètres gr\^ace à la directivité, aux réflexions sur le relief et surtout aux harmoniques plus facilement audibles.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="cours_attenuations_effet_doppler.html" class="btn-action">📖 Revoir le cours</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=attenuations_effet_doppler" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=attenuations_effet_doppler" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : Dipôle RC (Charge et Décharge)</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_rc.css">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+    
+    <div class="container container-lecture" style="max-width: 1400px;">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">⚡</span> 
+                <h1 class="hero-title" style="background: linear-gradient(135deg, #a855f7, #3b82f6); -webkit-background-clip: text; background-clip: text; color: transparent;">Le Dipôle RC Série</h1>
+            </div>
+            <p class="hero-subtitle">Étudie la charge et la décharge d'un condensateur et observe le régime transitoire.</p>
+        </header>
+
+        <div class="dashboard-columns">
+            
+            <div class="card controls-panel">
+                
+                <h2>🎛️ Composants du Circuit</h2>
+                
+                <div class="slider-group">
+                    <label for="slider-e">Tension du générateur ($E$) : <span id="val-e" class="val-highlight">5</span> V</label>
+                    <input id="slider-e" type="range" min="1" max="12" step="1" value="5" />
+                </div>
+
+                <div class="slider-group">
+                    <label for="slider-r">Résistance ($R$) : <span id="val-r" class="val-highlight">10</span> kΩ</label>
+                    <input id="slider-r" type="range" min="1" max="100" step="1" value="10" />
+                </div>
+
+                <div class="slider-group">
+                    <label for="slider-c">Capacité ($C$) : <span id="val-c" class="val-highlight">100</span> μF</label>
+                    <input id="slider-c" type="range" min="10" max="1000" step="10" value="100" />
+                </div>
+
+                <div class="tau-box">
+                    <div class="tau-title">Constante de temps ($\tau = R \times C$)</div>
+                    <div class="tau-value" id="val-tau">1.00 s</div>
+                </div>
+
+                <h2 style="margin-top: 25px;">🔄 Commutateur (K)</h2>
+                <div class="switch-controls">
+                    <button class="btn-action btn-primary active" id="btn-charge">1️⃣ Charge</button>
+                    <button class="btn-action btn-secondary" id="btn-discharge">2️⃣ Décharge</button>
+                </div>
+
+                <div class="theory-box mt-2">
+                    <h3 style="margin-top: 0; font-size: 1rem;">📝 Modèle Mathématique</h3>
+                    
+                    <div id="math-charge">
+                        <p class="small-text" style="color: #ec4899; font-weight: bold;">Phase de Charge</p>
+                        <div class="formula">$$ \frac{du_C}{dt} + \frac{1}{\tau}u_C = \frac{E}{\tau} $$</div>
+                        <div class="formula">$$ u_C(t) = E(1 - e^{-t/\tau}) $$</div>
+                    </div>
+
+                    <div id="math-discharge" style="display: none;">
+                        <p class="small-text" style="color: #8b5cf6; font-weight: bold;">Phase de Décharge</p>
+                        <div class="formula">$$ \frac{du_C}{dt} + \frac{1}{\tau}u_C = 0 $$</div>
+                        <div class="formula">$$ u_C(t) = E \cdot e^{-t/\tau} $$</div>
+                    </div>
+                    
+                    <div style="border-top: 1px solid var(--card-border); margin-top: 10px; padding-top: 10px;">
+                        <div class="formula" style="font-size: 0.9rem;">$$ i = \frac{dq}{dt} \quad \text{et} \quad q = C \times u_C $$</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="visual-panel">
+                
+                <div class="card circuit-card">
+                    <div class="circuit-container">
+                        <svg class="circuit-svg" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid meet">
+                            <polyline points="50,150 50,50 150,50" fill="none" stroke="var(--text-muted)" stroke-width="4"/>
+                            <polyline points="50,200 50,220 350,220 350,130" fill="none" stroke="var(--text-muted)" stroke-width="4"/>
+                            <polyline points="200,50 350,50 350,70" fill="none" stroke="var(--text-muted)" stroke-width="4"/>
+                            <polyline points="150,220 150,50" fill="none" stroke="var(--text-muted)" stroke-width="4"/>
+                            
+                            <circle cx="50" cy="175" r="25" fill="none" stroke="#ec4899" stroke-width="4"/>
+                            <line x1="50" y1="150" x2="50" y2="160" stroke="#ec4899" stroke-width="4"/>
+                            <text x="15" y="180" fill="#ec4899" font-weight="bold" font-size="20">E</text>
+                            
+                            <rect x="330" y="70" width="40" height="60" fill="none" stroke="var(--text-main)" stroke-width="4"/>
+                            <text x="380" y="105" fill="var(--text-main)" font-weight="bold" font-size="20">R</text>
+
+                            <line x1="390" y1="130" x2="390" y2="70" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+                            <text x="400" y="105" fill="#10b981" font-weight="bold" font-size="16">u_R</text>
+
+                            <line x1="320" y1="180" x2="380" y2="180" stroke="var(--text-main)" stroke-width="6"/>
+                            <line x1="320" y1="195" x2="380" y2="195" stroke="var(--text-main)" stroke-width="6"/>
+                            <text x="390" y="195" fill="var(--text-main)" font-weight="bold" font-size="20">C</text>
+                            
+                            <line x1="300" y1="195" x2="300" y2="180" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                            <text x="270" y="193" fill="#3b82f6" font-weight="bold" font-size="16">u_C</text>
+
+                            <circle cx="150" cy="50" r="5" fill="var(--text-main)"/> <circle cx="50" cy="50" r="5" fill="var(--text-main)"/> <circle cx="200" cy="50" r="5" fill="var(--text-main)"/> <text x="40" y="35" fill="var(--text-main)" font-weight="bold">1</text>
+                            <text x="145" y="35" fill="var(--text-main)" font-weight="bold">K</text>
+                            <text x="200" y="35" fill="var(--text-main)" font-weight="bold">2</text>
+                            
+                            <line id="switch-blade" x1="150" y1="50" x2="50" y2="50" stroke="#ef4444" stroke-width="6" stroke-linecap="round" style="transition: all 0.3s ease; transform-origin: 150px 50px;"/>
+
+                            <defs>
+                                <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
+                                </marker>
+                                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6" />
+                                </marker>
+                            </defs>
+                        </svg>
+                        
+                        <div class="capacitor-model">
+                            <div class="plate top-plate" id="plate-top">
+                                </div>
+                            <div class="isolant-text">Isolant</div>
+                            <div class="plate bottom-plate" id="plate-bottom">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card graph-card" style="margin-top: 20px; padding: 0; overflow: hidden; position: relative;">
+                    
+                    <div class="graph-header">
+                        <div style="font-weight: bold; color: var(--text-main);">Évolution de $u_C(t)$</div>
+                        <div class="time-readout">Temps : <span id="time-display" style="color: var(--primary);">0.00</span> s</div>
+                    </div>
+
+                    <div class="regime-bg" id="regime-bg">
+                        <div class="regime-transitoire">
+                            <span>Régime transitoire</span>
+                        </div>
+                        <div class="regime-stationnaire">
+                            <span>Régime stationnaire</span>
+                        </div>
+                    </div>
+
+                    <canvas id="graphCanvas" style="width: 100%; height: 300px; display: block; position: relative; z-index: 10;"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_rc.js"></script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Laboratoire Virtuel | Physique-Chimie</title>
+    <meta name="description" content="Accédez à un ensemble de simulations et d'expériences interactives en physique-chimie.">
+    
+    <link rel="stylesheet" href="../style/1_core.css">
+    <link rel="stylesheet" href="../style/2_components.css">
+    <link rel="stylesheet" href="../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+    
+    <header class="hero-header">
+        <div class="title-wrapper">
+            <span class="title-icon">🧪</span> 
+            <h1 class="hero-title">Laboratoire Virtuel</h1>
+        </div>
+        <p class="hero-subtitle">Sélectionne tes critères à gauche pour filtrer les simulations.</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" oninput="searchFunction()" placeholder="🔍 Rechercher un chapitre (ex: atomes, ions...)">
+        <ul id="chapterList" class="hidden"></ul> 
+    </div>
+
+    <nav class="main-nav">
+        <a href="../index.html" class="nav-btn"><span class="emoji">🏠</span> Accueil</a>
+        <a href="../college/college.html" class="nav-btn"><span class="emoji">🎒</span> Collège</a>
+        <a href="../lycee/lycee.html" class="nav-btn"><span class="emoji">🎓</span> Lycée</a>
+        <a href="../outils/outils_methodes.html" class="nav-btn"><span class="emoji">📐</span> Outils & Méthodes</a>
+        <button class="nav-btn active"><span class="emoji">🧪</span> Laboratoire</button>
+    </nav>
+    
+    <div class="labo-layout">
+        
+        <aside class="sidebar-filters">
+            <div class="filter-header">
+                <h2>FILTRES</h2>
+                <button id="clear-filters" class="btn-clear hidden">Effacer</button>
+            </div>
+
+            <div class="filter-category filter-category-divider">
+                <span class="filter-section-title">🎒 NIVEAU SCOLAIRE</span>
+                <label><input type="checkbox" class="filter-cb filter-niveau" value="college"> Collège</label>
+                <label><input type="checkbox" class="filter-cb filter-niveau" value="lycee"> Lycée</label>
+            </div>
+
+            <div class="filter-category">
+                <label class="parent-label">
+                    <input type="checkbox" class="filter-cb parent-cb filter-sujet" value="physique"> 
+                    <strong>Physique</strong>
+                </label>
+                <div class="sub-filters">
+                    <label><input type="checkbox" class="filter-cb child-cb filter-sujet" value="mouvement"> Mouvement & Gravitation</label>
+                    <label><input type="checkbox" class="filter-cb child-cb filter-sujet" value="ondes"> Optique, Son & Ondes</label>
+                    <label><input type="checkbox" class="filter-cb child-cb filter-sujet" value="electricite"> Électricité & Énergie</label>
+                </div>
+            </div>
+
+            <div class="filter-category">
+                <label class="parent-label">
+                    <input type="checkbox" class="filter-cb parent-cb filter-sujet" value="chimie"> 
+                    <strong>Chimie</strong>
+                </label>
+                <div class="sub-filters">
+                    <label><input type="checkbox" class="filter-cb child-cb filter-sujet" value="matiere"> Structure de la matière</label>
+                    <label><input type="checkbox" class="filter-cb child-cb filter-sujet" value="transformations"> Transformations chimiques</label>
+                    <label><input type="checkbox" class="filter-cb child-cb filter-sujet" value="acidebase"> Acide / Base & pH</label>
+                </div>
+            </div>
+        </aside>
+
+        <main class="simulations-content">
+            
+            <div class="sim-search-box">
+                <span class="sim-search-icon">🔍</span>
+                <input type="text" id="sim-search-input" placeholder="Rechercher une simulation (ex: lentille, atome, condensateur...)">
+            </div>
+
+            <div class="results-bar">
+                <h3 id="results-count">Toutes les simulations</h3>
+            </div>
+
+            <div class="sim-grid" id="sim-grid">
+                
+                <article class="sim-card" data-sujets="physique electricite" data-niveaux="lycee">
+                    <div class="sim-card-icon bg-gradient-purple">
+                        <span class="emoji-large">⚡</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Électricité</span>
+                            <span class="tag tag-lycee">Lycée (Term)</span>
+                        </div>
+                        <h3 class="sim-title">Le Dipôle RC Série</h3>
+                        <p class="sim-desc">Observe le déplacement microscopique des électrons, la charge du condensateur et le régime transitoire sur l'oscilloscope.</p>
+                        <a href="circuit_rc/circuit_rc_v2.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique mouvement" data-niveaux="lycee">
+                    <div class="sim-card-icon bg-gradient-orange">
+                        <span class="emoji-large">🪐</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Mouvement</span>
+                            <span class="tag tag-lycee">Lycée (Term)</span>
+                        </div>
+                        <h3 class="sim-title">Les Lois de Kepler</h3>
+                        <p class="sim-desc">Vérifie expérimentalement la loi des orbites, la loi des aires et prouve la constante de la loi des périodes ($T^2/a^3$).</p>
+                        <a href="loi_kepler/kepler.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="chimie matiere" data-niveaux="lycee">
+                    <div class="sim-card-icon bg-gradient-sky">
+                        <span class="emoji-large">💨</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-chimie">Chimie</span>
+                            <span class="tag tag-sub">Matière / Thermo</span>
+                            <span class="tag tag-lycee">Lycée (Term)</span>
+                        </div>
+                        <h3 class="sim-title">Modèle des Gaz Parfaits</h3>
+                        <p class="sim-desc">Modifie les variables d'état (Pression, Volume, Température) d'un gaz dans une seringue animée selon $PV = nRT$.</p>
+                        <a href="gaz_parfaits/gaz_parfaits.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="chimie matiere" data-niveaux="college lycee">
+                    <div class="sim-card-icon bg-gradient-pink">
+                        <span class="emoji-large">🌡️</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-chimie">Chimie</span>
+                            <span class="tag tag-sub">Matière</span>
+                            <span class="tag tag-mixte">Collège / Lycée</span>
+                        </div>
+                        <h3 class="sim-title">Diffusion & Température</h3>
+                        <p class="sim-desc">Expérience d'agitation thermique. Observe l'impact de la température sur la vitesse de diffusion microscopique d'un colorant.</p>
+                        <a href="diffusion/diffusion.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique mouvement" data-niveaux="college">
+                    <div class="sim-card-icon bg-gradient-indigo">
+                        <span class="emoji-large">🌍</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Gravitation</span>
+                            <span class="tag tag-college">Collège (6ème)</span>
+                        </div>
+                        <h3 class="sim-title">Le Système Solaire</h3>
+                        <p class="sim-desc">Navigue en 3D dans l'espace, observe les vraies orbites des 8 planètes et comprend le cycle des années.</p>
+                        <a href="systeme_solaire/systeme_solaire.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="chimie matiere" data-niveaux="college">
+                    <div class="sim-card-icon bg-gradient-blue">
+                        <span class="emoji-large">🧪</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-chimie">Chimie</span>
+                            <span class="tag tag-sub">Matière</span>
+                            <span class="tag tag-college">Collège (6ème)</span>
+                        </div>
+                        <h3 class="sim-title">Le Labo des Mélanges</h3>
+                        <p class="sim-desc">Teste la miscibilité des liquides et la solubilité. Que se passe-t-il si on ajoute du sel dans de l'huile ?</p>
+                        <a href="melanges/melanges.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique mouvement" data-niveaux="college lycee">
+                    <div class="sim-card-icon bg-gradient-blue">
+                        <span class="emoji-large">📸</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Mouvement</span>
+                            <span class="tag tag-mixte">Collège / Lycée</span>
+                        </div>
+                        <h3 class="sim-title">La Chronophotographie</h3>
+                        <p class="sim-desc">Analyse des mouvements uniformes, accélérés et ralentis grâce à l'enregistrement par intervalles de temps réguliers.</p>
+                        <a href="chronophotographie/chronophotographie.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique electricite" data-niveaux="college">
+                    <div class="sim-card-icon bg-gradient-yellow">
+                        <span class="emoji-large">⚡</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Énergie</span>
+                            <span class="tag tag-college">Collège</span>
+                        </div>
+                        <h3 class="sim-title">Chaînes Énergétiques</h3>
+                        <p class="sim-desc">Constructeur de chaînes. Manipule les sources, les convertisseurs et les formes d'énergie pour accomplir des missions.</p>
+                        <a href="sources_formes_energies/sources_formes_energies.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="chimie matiere" data-niveaux="lycee">
+                    <div class="sim-card-icon bg-gradient-green">
+                        <span class="emoji-large">☢️</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-chimie">Chimie</span>
+                            <span class="tag tag-sub">Matière</span>
+                            <span class="tag tag-lycee">Lycée (1ère/Term)</span>
+                        </div>
+                        <h3 class="sim-title">Décroissance Radioactive</h3>
+                        <p class="sim-desc">Observe le lien fascinant entre le hasard de la désintégration atomique et la courbe mathématique de demi-vie.</p>
+                        <a href="decroissance_radioactive/decroissance.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique ondes" data-niveaux="lycee">
+                    <div class="sim-card-icon bg-gradient-sky">
+                        <span class="emoji-large">🌈</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Optique</span>
+                            <span class="tag tag-lycee">Lycée (2nde)</span>
+                        </div>
+                        <h3 class="sim-title">La Réfraction de la Lumière</h3>
+                        <p class="sim-desc">Banc d'optique virtuel. Règle les indices des milieux pour vérifier la loi de Snell-Descartes et la réflexion totale.</p>
+                        <a href="snell_descartes/snell_descartes.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique ondes" data-niveaux="lycee">
+                    <div class="sim-card-icon bg-gradient-purple">
+                        <span class="emoji-large">👁️‍🗨️</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Optique</span>
+                            <span class="tag tag-mixte">Lycée (2nde/1ère)</span>
+                        </div>
+                        <h3 class="sim-title">Lentilles et Images</h3>
+                        <p class="sim-desc">Déplace un objet face à une lentille convergente ou divergente et observe la construction géométrique des rayons.</p>
+                        <a href="lentille/lentille.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="chimie acidebase" data-niveaux="college lycee">
+                    <div class="sim-card-icon bg-gradient-pink">
+                        <span class="emoji-large">🧪</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-chimie">Chimie</span>
+                            <span class="tag tag-sub">Acide / Base</span>
+                            <span class="tag tag-mixte">Collège / Lycée</span>
+                        </div>
+                        <h3 class="sim-title">Le Laboratoire du pH</h3>
+                        <p class="sim-desc">Observe le comportement des ions $H^+$ et $OH^-$ au niveau microscopique. Ajoute de l'acide ou de la base et découvre la réaction.</p>
+                        <a href="ph/ph_animation.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique ondes" data-niveaux="college lycee">
+                    <div class="sim-card-icon bg-gradient-indigo">
+                        <span class="emoji-large">🔊</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Ondes</span>
+                            <span class="tag tag-mixte">Collège / Lycée</span>
+                        </div>
+                        <h3 class="sim-title">L'Oscilloscope Secret</h3>
+                        <p class="sim-desc">Étude visuelle et interactive des ondes sonores. Règle la fréquence et l'amplitude pour trouver le son mystère.</p>
+                        <a href="oscilloscope_secret/oscilloscope.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique ondes" data-niveaux="lycee">
+                    <div class="sim-card-icon bg-gradient-pink">
+                        <span class="emoji-large">🌈</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Ondes</span>
+                            <span class="tag tag-lycee">Lycée (Term)</span>
+                        </div>
+                        <h3 class="sim-title">Diffraction & Interférences</h3>
+                        <p class="sim-desc">Banc optique laser. Modifie la longueur d'onde et la fente pour observer la diffraction et les fentes d'Young.</p>
+                        <a href="diffraction_interference/diffraction.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique ondes" data-niveaux="lycee">
+                    <div class="sim-card-icon bg-gradient-purple">
+                        <span class="emoji-large">🔭</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Optique</span>
+                            <span class="tag tag-lycee">Lycée (Term)</span>
+                        </div>
+                        <h3 class="sim-title">La Lunette Afocale</h3>
+                        <p class="sim-desc">Banc d'optique interactif. Déplace les lentilles pour comprendre l'afocalisme et calculer le grossissement $G$.</p>
+                        <a href="lunette_afocale/lunette_afocale.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique mouvement" data-niveaux="college">
+                    <div class="sim-card-icon bg-gradient-orange">
+                        <span class="emoji-large">🪐</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Gravitation</span>
+                            <span class="tag tag-college">Collège</span>
+                        </div>
+                        <h3 class="sim-title">Poids vs Masse</h3>
+                        <p class="sim-desc">Fais voyager un astronaute sur différentes planètes pour comprendre la différence entre la masse et le poids ($P = m \times g$).</p>
+                        <a href="poids_masse/poids_masse.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique electricite" data-niveaux="college">
+                    <div class="sim-card-icon bg-gradient-yellow-alt">
+                        <span class="emoji-large">🔌</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Électricité</span>
+                            <span class="tag tag-college">Collège</span>
+                        </div>
+                        <h3 class="sim-title">La Loi d'Ohm</h3>
+                        <p class="sim-desc">Circuit électrique animé. Comprends l'influence d'une résistance, observe les électrons et trace la caractéristique.</p>
+                        <a href="loi_ohm/loi_ohm.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique electricite" data-niveaux="college">
+                    <div class="sim-card-icon bg-gradient-green">
+                        <span class="emoji-large">⚡</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Énergie</span>
+                            <span class="tag tag-college">Collège</span>
+                        </div>
+                        <h3 class="sim-title">Puissance & Énergie</h3>
+                        <p class="sim-desc">Simulation d'un compteur électrique domestique. Fais le lien entre la puissance $P$ et l'énergie $E = P \times t$.</p>
+                        <a href="puissance_energie/puissance_energie.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="physique electricite" data-niveaux="lycee">
+                    <div class="sim-card-icon bg-gradient-red">
+                        <span class="emoji-large">🔥</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-physique">Physique</span>
+                            <span class="tag tag-sub">Thermo</span>
+                            <span class="tag tag-lycee">Lycée (Term)</span>
+                        </div>
+                        <h3 class="sim-title">Bilans Thermiques</h3>
+                        <p class="sim-desc">Observe le transfert de chaleur par conduction, l'agitation thermique et la courbe de refroidissement de Newton.</p>
+                        <a href="thermodynamique/bilan_thermique.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="chimie acidebase" data-niveaux="lycee">
+                    <div class="sim-card-icon bg-gradient-pink">
+                        <span class="emoji-large">🧪</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-chimie">Chimie</span>
+                            <span class="tag tag-sub">Acide/Base</span>
+                            <span class="tag tag-lycee">Lycée (Term)</span>
+                        </div>
+                        <h3 class="sim-title">Titrage pH-métrique</h3>
+                        <p class="sim-desc">Simulation d'un dosage acide/base. Trace la courbe, utilise la méthode des tangentes et trouve le $pK_A$.</p>
+                        <a href="titrage_ph/titrage_ph.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="chimie acidebase" data-niveaux="lycee">
+                    <div class="sim-card-icon bg-gradient-teal">
+                        <span class="emoji-large">💧</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-chimie">Chimie</span>
+                            <span class="tag tag-sub">Conductimétrie</span>
+                            <span class="tag tag-lycee">Lycée (Term)</span>
+                        </div>
+                        <h3 class="sim-title">Titrage Conductimétrique</h3>
+                        <p class="sim-desc">Réalise un titrage par suivi de la conductivité ($\sigma$). Trouve le volume équivalent à l'intersection des droites.</p>
+                        <a href="titrage_conductimetrie/titrage_cond.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="chimie matiere" data-niveaux="college">
+                    <div class="sim-card-icon bg-gradient-indigo">
+                        <span class="emoji-large">🕵️‍♂️</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-chimie">Chimie</span>
+                            <span class="tag tag-sub">Ions</span>
+                            <span class="tag tag-college">Collège</span>
+                        </div>
+                        <h3 class="sim-title">L'Enquête des Ions</h3>
+                        <p class="sim-desc">Laboratoire interactif. Utilise la soude et le nitrate d'argent pour démasquer l'ion caché dans le tube à essai.</p>
+                        <a href="test_ions/test_ions.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+                <article class="sim-card" data-sujets="chimie matiere" data-niveaux="lycee">
+                    <div class="sim-card-icon bg-gradient-yellow-alt">
+                        <span class="emoji-large">⚖️</span>
+                    </div>
+                    <div class="sim-card-body">
+                        <div class="sim-tags">
+                            <span class="tag tag-chimie">Chimie</span>
+                            <span class="tag tag-sub">Matière</span>
+                            <span class="tag tag-mixte">Lycée (2nde)</span>
+                        </div>
+                        <h3 class="sim-title">La Mole & la Pesée</h3>
+                        <p class="sim-desc">Simulateur de pesée. Fais le lien mathématique et visuel entre la masse, la quantité de matière et la constante d'Avogadro.</p>
+                        <a href="mole/mole.html" class="btn-lancer">▶ Lancer la simulation</a>
+                    </div>
+                </article>
+
+            </div>
+            
+            <div id="no-results" class="hidden">
+                <span class="icon-empty">🔍</span>
+                Aucune simulation ne correspond à l'ensemble de ces critères.
+            </div>
+        </main>
+
+    </div> <div id="accessibility-placeholder"></div>
+    
+    <script src="recherche_labo.js"></script> 
+    <script src="../main.js"></script>
+</body>
+</html>
+

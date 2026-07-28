@@ -1,0 +1,83 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+ width=12cm, height=7cm,
+ xlabel={Temps $t$},
+ ylabel={$u_C(t)$},
+ xmin=0, xmax=6,
+ ymin=0, ymax=1.15,
+ xtick={1, 5},
+ xticklabels={$\tau$, $5\tau$},
+ ytick={0, 0.632, 1},
+ yticklabels={$0$, $0{,}63\,E$, $E$},
+ axis lines=middle,
+ every axis x label/.style={at={(ticklabel* cs:1)}, anchor=west},
+ every axis y label/.style={at={(ticklabel* cs:1)}, anchor=south},
+ grid=none,
+ domain=0:6,
+ samples=200,
+ clip=false
+]
+ % Courbe u_C(t)
+ \addplot[thick, primary, smooth] {1 - exp(-x)};
+
+ % Asymptote E
+ \addplot[dashed, dark, thin] coordinates {(0,1) (6,1)};
+ \node[right, dark, font=\small] at (axis cs:6,1) {$E$};
+
+ % Tangente à l'origine
+ \addplot[dashed, red, thick, domain=0:1.3] {x};
+ \node[red, font=\small, above left] at (axis cs:1.1, 1.1) {Tangente \`{a} l'origine};
+
+ % Point à tau
+ \addplot[only marks, mark=*, mark size=2.5pt, primary] coordinates {(1, 0.632)};
+ \draw[dashed, gray, thin] (axis cs:1,0) -- (axis cs:1,0.632);
+ \draw[dashed, gray, thin] (axis cs:0,0.632) -- (axis cs:1,0.632);
+
+ % Régime transitoire / stationnaire
+ \draw[<->, thick, synthorange] (axis cs:0, -0.08) -- (axis cs:5, -0.08);
+ \node[synthorange, font=\small, below] at (axis cs:2.5, -0.08) {R\'{e}gime transitoire};
+
+ \draw[->, thick, synthgreen] (axis cs:5, -0.08) -- (axis cs:6, -0.08);
+ \node[synthgreen, font=\small, below] at (axis cs:5.5, -0.08) {Stationnaire};
+
+ % Annotations
+ \node[primary, font=\footnotesize, right] at (axis cs:3.5, 0.75) {$u_C(t) = E\!\left(1 - \mathrm{e}^{-t/\tau}\right)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}

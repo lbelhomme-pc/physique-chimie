@@ -1,0 +1,73 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>=Stealth, scale=1]
+ % Axe principal
+ \draw[->, thick] (-0.5,0) -- (15,0) node[right] {$\text{p}K_a$};
+
+ % Graduations
+ \foreach \x in {0,2,...,14} {
+ \draw (\x,0.15) -- (\x,-0.15) node[below] {\small \x};
+ }
+
+ % Flèche force de l'acide
+ \draw[->, very thick, examplepink] (13,1.2) -- (1,1.2);
+ \node[above, examplepink, font=\small\bfseries] at (7,1.3) {Force de l'acide croissante};
+
+ % Flèche force de la base
+ \draw[->, very thick, remarkblue] (1,-1.2) -- (13,-1.2);
+ \node[below, remarkblue, font=\small\bfseries] at (7,-1.3) {Force de la base conjugu\'{e}e croissante};
+
+ % Quelques couples
+ \fill[primary] (0,0) circle (3pt);
+ \node[above, font=\tiny, primary, align=center] at (0,0.4) {\ce{H3O+}/\ce{H2O}};
+
+ \fill[primary] (4.8,0) circle (3pt);
+ \node[above, font=\tiny, primary, align=center] at (4.8,0.4) {\ce{CH3COOH}/\\\ce{CH3COO^{-}}};
+
+ \fill[primary] (6.4,0) circle (3pt);
+ \node[below, font=\tiny, primary, align=center] at (6.4,-0.4) {\ce{H2CO3}/\\\ce{HCO3^{-}}};
+
+ \fill[primary] (9.2,0) circle (3pt);
+ \node[above, font=\tiny, primary, align=center] at (9.2,0.4) {\ce{NH4+}/\ce{NH3}};
+
+ \fill[primary] (10.3,0) circle (3pt);
+ \node[below, font=\tiny, primary, align=center] at (10.3,-0.4) {\ce{HCO3^{-}}/\\\ce{CO3^{2-}}};
+
+ \fill[primary] (14,0) circle (3pt);
+ \node[above, font=\tiny, primary, align=center] at (14,0.4) {\ce{H2O}/\ce{HO^{-}}};
+\end{tikzpicture}
+\end{document}

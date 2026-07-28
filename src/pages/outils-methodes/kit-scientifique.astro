@@ -1,12 +1,13 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { kitChapterLinks, kitMethodCards, kitMiniQuiz } from "../../data/kitScientifique";
 ---
 
 <BaseLayout
   title="Kit scientifique - Outils & méthodes"
   description="Calculatrice, convertisseur, traceur graphique, équilibreur d'équations et préparation de solutions pour la physique-chimie."
   canonical="/outils-methodes/kit-scientifique"
-  schemaType="EducationalContent"
+  schemaType="SoftwareApplication"
 >
   <main class="tool-page" aria-labelledby="page-title">
     <nav aria-label="Fil d'Ariane" class="breadcrumb">
@@ -27,6 +28,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <button type="button" class="tool-tab" data-tool-tab="graph">Traceur graphique</button>
       <button type="button" class="tool-tab" data-tool-tab="balance">Équilibrer</button>
       <button type="button" class="tool-tab" data-tool-tab="solution">Solutions</button>
+      <button type="button" class="tool-tab" data-tool-tab="measure">Mesures</button>
+      <button type="button" class="tool-tab" data-tool-tab="safety">Securite</button>
     </section>
 
     <section class="tool-panel is-active" id="calculator" data-tool-panel>
@@ -99,7 +102,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     <section class="tool-panel" id="balance" data-tool-panel>
       <div class="panel-heading">
         <h2>Équilibrer une équation chimique</h2>
-        <p>Écris une équation non ajustée. Utilise <code>-></code> pour la flèche et <code>+</code> entre les espèces.</p>
+        <p>Écris une équation non ajustée. Utilise <code>-&gt;</code> pour la flèche et <code>+</code> entre les espèces.</p>
       </div>
       <label class="field-label" for="balance-input">Équation</label>
       <div class="input-row">
@@ -150,6 +153,100 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </article>
       </div>
     </section>
+
+    <section class="tool-panel" id="measure" data-tool-panel>
+      <div class="panel-heading">
+        <h2>Mesures et incertitudes simples</h2>
+        <p>Prepare une mesure lisible : grandeur, appareil, unite, precision et conclusion courte.</p>
+      </div>
+      <div class="measure-grid" role="list" aria-label="Methode de mesure">
+        <article role="listitem" class="method-step"><strong>1. Grandeur</strong><span>Je nomme ce que je mesure : masse, volume, tension, intensite, duree.</span></article>
+        <article role="listitem" class="method-step"><strong>2. Appareil</strong><span>Je choisis l'instrument adapte et je verifie son calibre si besoin.</span></article>
+        <article role="listitem" class="method-step"><strong>3. Unite</strong><span>J'ecris la valeur avec l'unite de l'appareil, puis je convertis si la relation l'exige.</span></article>
+        <article role="listitem" class="method-step"><strong>4. Controle</strong><span>Je compare l'ordre de grandeur au contexte pour detecter une erreur.</span></article>
+      </div>
+      <table class="kit-table">
+        <caption>Grandeurs frequentes et instruments</caption>
+        <thead><tr><th scope="col">Grandeur</th><th scope="col">Unite courante</th><th scope="col">Instrument</th></tr></thead>
+        <tbody>
+          <tr><td>Masse</td><td>g, kg</td><td>Balance</td></tr>
+          <tr><td>Volume</td><td>mL, L</td><td>Eprouvette graduee, fiole jaugee</td></tr>
+          <tr><td>Tension</td><td>V</td><td>Voltmetre</td></tr>
+          <tr><td>Intensite</td><td>A, mA</td><td>Amperemetre</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="tool-panel" id="safety" data-tool-panel>
+      <div class="panel-heading">
+        <h2>Securite au laboratoire</h2>
+        <p>Avant un calcul experimental, verifie que le geste prevu est compatible avec les consignes de securite.</p>
+      </div>
+      <div class="safety-grid">
+        <article class="safety-item"><strong>Lunettes</strong><span>Obligatoires pour projections, chauffage ou solutions irritantes.</span></article>
+        <article class="safety-item"><strong>Blouse</strong><span>Protection contre taches, chaleur et petites projections.</span></article>
+        <article class="safety-item"><strong>Etiquette</strong><span>Je lis pictogrammes, concentration et phrase de danger avant usage.</span></article>
+        <article class="safety-item"><strong>Gestes interdits</strong><span>Ne pas gouter, ne pas sentir directement, ne pas pipeter a la bouche.</span></article>
+      </div>
+      <p class="method-note"><strong>Rappel dilution :</strong> en cas de dilution d'acide, on verse l'acide dans l'eau progressivement, jamais l'inverse.</p>
+    </section>
+
+    <section class="kit-methods" aria-labelledby="kit-methods-title">
+      <div class="panel-heading">
+        <h2 id="kit-methods-title">Methodes pas a pas</h2>
+        <p>Chaque fiche relie un outil a une demarche utilisable dans un chapitre.</p>
+      </div>
+      <div class="method-card-grid">
+        {kitMethodCards.map((method) => (
+          <article class="method-card" data-method-tool={method.toolId}>
+            <p class="method-tag">{method.toolId}</p>
+            <h3>{method.title}</h3>
+            <p>{method.objective}</p>
+            <ol>
+              {method.steps.map((step) => <li>{step}</li>)}
+            </ol>
+            <p><strong>Exemple :</strong> {method.example}</p>
+            <p class="method-warning"><strong>Piege :</strong> {method.commonMistake}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="kit-links" aria-labelledby="kit-links-title">
+      <div class="panel-heading">
+        <h2 id="kit-links-title">Utiliser le kit par chapitre</h2>
+        <p>Les anciennes URL sont conservees ; ces liens ajoutent seulement des entrees de travail plus directes.</p>
+      </div>
+      <div class="chapter-link-grid">
+        {kitChapterLinks.map((link) => (
+          <a class="chapter-link-card" href={link.href}>
+            <span>{link.level}</span>
+            <strong>{link.title}</strong>
+            <small>{link.usage}</small>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="kit-mini-quiz" aria-labelledby="kit-quiz-title">
+      <div class="panel-heading">
+        <h2 id="kit-quiz-title">Mini-quiz de verification</h2>
+        <p>Trois questions rapides pour verifier les reflexes avant de retourner au chapitre.</p>
+      </div>
+      <div class="mini-quiz-list">
+        {kitMiniQuiz.map((question, index) => (
+          <article class="mini-quiz-card" data-kit-quiz={question.id} data-answer={question.answer}>
+            <h3>{index + 1}. {question.question}</h3>
+            <div class="mini-quiz-choices">
+              {question.choices.map((choice, choiceIndex) => (
+                <button type="button" data-choice={choiceIndex}>{choice}</button>
+              ))}
+            </div>
+            <p class="mini-quiz-feedback" aria-live="polite" hidden>{question.explanation}</p>
+          </article>
+        ))}
+      </div>
+    </section>
   </main>
 </BaseLayout>
 
@@ -181,38 +278,133 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   .mini-tool { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem; }
   .mini-tool h3 { margin-top: 0; color: var(--accent-primary); }
   .graph-box svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+  .measure-grid, .safety-grid, .method-card-grid, .chapter-link-grid, .mini-quiz-list {
+    display: grid;
+    gap: .8rem;
+  }
+  .measure-grid, .safety-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: .9rem 0; }
+  .method-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chapter-link-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .mini-quiz-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .kit-methods, .kit-links, .kit-mini-quiz {
+    margin-top: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    padding: 1.15rem;
+  }
+  .method-step, .safety-item, .method-card, .chapter-link-card, .mini-quiz-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: .85rem;
+  }
+  .method-step, .safety-item { display: flex; flex-direction: column; gap: .35rem; }
+  .method-step strong, .safety-item strong, .method-card h3, .chapter-link-card strong, .mini-quiz-card h3 { color: var(--text-primary); }
+  .method-step span, .safety-item span, .method-card p, .chapter-link-card small { color: var(--text-secondary); line-height: 1.55; }
+  .kit-table { width: 100%; border-collapse: collapse; margin-top: .85rem; background: var(--bg-primary); border-radius: 10px; overflow: hidden; }
+  .kit-table caption { text-align: left; font-weight: 800; color: var(--text-primary); margin-bottom: .4rem; }
+  .kit-table th, .kit-table td { border: 1px solid var(--border-color); padding: .65rem; text-align: left; }
+  .kit-table th { background: var(--bg-secondary); color: var(--text-primary); }
+  .method-tag, .chapter-link-card span {
+    display: inline-flex;
+    width: fit-content;
+    border-radius: 999px;
+    background: var(--accent-primary-light);
+    color: var(--accent-primary);
+    font-size: .72rem;
+    font-weight: 800;
+    padding: .2rem .55rem;
+  }
+  .method-card ol { margin: .5rem 0 .7rem; padding-left: 1.25rem; color: var(--text-secondary); }
+  .method-warning { border-left: 3px solid var(--accent-warning); padding-left: .65rem; }
+  .chapter-link-card { display: flex; flex-direction: column; gap: .35rem; text-decoration: none; }
+  .chapter-link-card:hover, .chapter-link-card:focus-visible { border-color: var(--accent-primary); transform: translateY(-1px); }
+  .mini-quiz-card h3 { font-size: .96rem; line-height: 1.45; }
+  .mini-quiz-choices { display: grid; gap: .4rem; margin-top: .65rem; }
+  .mini-quiz-choices button {
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    font: inherit;
+    padding: .55rem .65rem;
+    text-align: left;
+  }
+  .mini-quiz-choices button.is-correct { border-color: var(--accent-success); background: var(--accent-success-light); color: var(--accent-success); }
+  .mini-quiz-choices button.is-wrong { border-color: var(--accent-danger); background: var(--accent-danger-light); color: var(--accent-danger); }
+  .mini-quiz-feedback { color: var(--text-secondary); line-height: 1.55; margin-bottom: 0; }
   @media (max-width: 760px) {
-    .input-row, .tool-grid-2, .tool-grid-4, .solution-grid { grid-template-columns: 1fr; }
+    .input-row, .tool-grid-2, .tool-grid-4, .solution-grid, .measure-grid, .safety-grid, .method-card-grid, .chapter-link-grid, .mini-quiz-list { grid-template-columns: 1fr; }
     .primary-btn { width: 100%; }
   }
 </style>
 
 <script>
-  const $ = (id) => document.getElementById(id);
-  const toNumber = (value) => Number(String(value).trim().replace(",", "."));
-  const fmt = (value, digits = 6) => Number(value).toLocaleString("fr-FR", { maximumSignificantDigits: digits });
+  import { kitUnitFamilies } from "../../data/kitScientifique";
+  import { convertUnitValue, dissolutionMassGrams, dilutionVolumeMl, linearModelThroughOrigin, parseMeasurementPairs } from "../../utils/kitScientifique";
+  import { evaluateScientificExpression } from "../../utils/scientificExpression";
 
-  document.querySelectorAll("[data-tool-tab]").forEach((button) => {
+  type ToolElement = HTMLElement & HTMLInputElement & HTMLSelectElement & HTMLTextAreaElement & HTMLOutputElement;
+  type UnitFamily = { label: string; units: [string, number][] };
+  type GraphPoint = { x: number; y: number };
+  type AtomCounts = Record<string, number>;
+
+  const $ = (id: string): ToolElement => {
+    const element = document.getElementById(id);
+    if (!element) throw new Error(`Element introuvable: ${id}`);
+    return element as ToolElement;
+  };
+  const toNumber = (value: unknown) => Number(String(value).trim().replace(",", "."));
+  const fmt = (value: number, digits = 6) => Number(value).toLocaleString("fr-FR", { maximumSignificantDigits: digits });
+  const SVG_NS = "http" + "://www.w3.org/2000/svg";
+
+  function svgEl(name: string, attrs: Record<string, string | number> = {}, text: string | null = null): SVGElement {
+    const element = document.createElementNS(SVG_NS, name);
+    for (const [key, value] of Object.entries(attrs)) element.setAttribute(key, String(value));
+    if (text !== null) element.textContent = String(text);
+    return element as SVGElement;
+  }
+
+  function optionEl(value: string | number, label: string) {
+    const option = document.createElement("option");
+    option.value = String(value);
+    option.textContent = String(label);
+    return option;
+  }
+
+  document.querySelectorAll<HTMLElement>("[data-tool-tab]").forEach((button) => {
     button.addEventListener("click", () => {
       document.querySelectorAll("[data-tool-tab]").forEach((b) => b.classList.remove("is-active"));
       document.querySelectorAll("[data-tool-panel]").forEach((p) => p.classList.remove("is-active"));
       button.classList.add("is-active");
-      $(button.dataset.toolTab).classList.add("is-active");
+      const panelId = button.dataset.toolTab;
+      if (panelId) $(panelId).classList.add("is-active");
     });
   });
 
-  function safeCalc(expression) {
-    const normalized = expression
-      .replace(/,/g, ".")
-      .replace(/×/g, "*")
-      .replace(/÷/g, "/")
-      .replace(/\^/g, "**")
-      .replace(/π/g, "pi")
-      .replace(/√/g, "sqrt");
-    if (!/^[0-9+\-*/().,\s*eEpisncoatlgrq]+$/.test(normalized)) throw new Error("Caractère non autorisé.");
-    const deg = Math.PI / 180;
-    const fn = new Function("sin", "cos", "tan", "sqrt", "log", "ln", "pi", "e", `"use strict"; return (${normalized});`);
-    return fn((x) => Math.sin(x * deg), (x) => Math.cos(x * deg), (x) => Math.tan(x * deg), Math.sqrt, Math.log10, Math.log, Math.PI, Math.E);
+  document.querySelectorAll<HTMLElement>("[data-kit-quiz]").forEach((card) => {
+    const expected = Number(card.dataset.answer);
+    const feedback = card.querySelector<HTMLElement>(".mini-quiz-feedback");
+    card.querySelectorAll<HTMLButtonElement>("[data-choice]").forEach((choice) => {
+      choice.addEventListener("click", () => {
+        const selected = Number(choice.dataset.choice);
+        card.querySelectorAll<HTMLButtonElement>("[data-choice]").forEach((button) => {
+          button.classList.remove("is-correct", "is-wrong");
+          button.setAttribute("aria-pressed", "false");
+          if (Number(button.dataset.choice) === expected) button.classList.add("is-correct");
+        });
+        choice.setAttribute("aria-pressed", "true");
+        if (selected !== expected) choice.classList.add("is-wrong");
+        if (feedback) feedback.hidden = false;
+      });
+    });
+  });
+
+  function safeCalc(expression: string) {
+    return evaluateScientificExpression(expression);
   }
   $("calc-run").addEventListener("click", () => {
     try {
@@ -223,47 +415,38 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       $("calc-output").textContent = "Expression non reconnue. Vérifie les parenthèses, les signes et les nombres.";
     }
   });
-  document.querySelectorAll("[data-calc-example]").forEach((b) => b.addEventListener("click", () => {
-    $("calc-input").value = b.dataset.calcExample;
+  document.querySelectorAll<HTMLElement>("[data-calc-example]").forEach((b) => b.addEventListener("click", () => {
+    $("calc-input").value = b.dataset.calcExample ?? "";
     $("calc-run").click();
   }));
 
-  const unitFamilies = {
-    length: { label: "Longueur", units: [["km", 1000], ["m", 1], ["dm", 0.1], ["cm", 0.01], ["mm", 0.001]] },
-    mass: { label: "Masse", units: [["kg", 1000], ["g", 1], ["mg", 0.001]] },
-    volume: { label: "Volume", units: [["m³", 1000], ["L", 1], ["dL", 0.1], ["cL", 0.01], ["mL", 0.001], ["cm³", 0.001]] },
-    time: { label: "Durée", units: [["h", 3600], ["min", 60], ["s", 1], ["ms", 0.001]] },
-    speed: { label: "Vitesse", units: [["km/h", 1 / 3.6], ["m/s", 1], ["cm/s", 0.01]] },
-    energy: { label: "Énergie", units: [["kWh", 3600000], ["kJ", 1000], ["J", 1], ["eV", 1.602e-19]] }
-  };
+  const unitFamilies: Record<string, UnitFamily> = Object.fromEntries(
+    kitUnitFamilies.map((family) => [family.id, { label: family.label, units: family.units.map((unit) => [unit.label, unit.factor] as [string, number]) }])
+  );
   function fillConverter() {
-    $("conv-kind").innerHTML = Object.entries(unitFamilies).map(([k, f]) => `<option value="${k}">${f.label}</option>`).join("");
+    $("conv-kind").replaceChildren(...Object.entries(unitFamilies).map(([k, f]) => optionEl(k, f.label)));
     updateUnits();
   }
   function updateUnits() {
     const family = unitFamilies[$("conv-kind").value];
-    const options = family.units.map(([u, factor]) => `<option value="${factor}">${u}</option>`).join("");
-    $("conv-from").innerHTML = options;
-    $("conv-to").innerHTML = options;
+    $("conv-from").replaceChildren(...family.units.map(([u, factor]) => optionEl(factor, u)));
+    $("conv-to").replaceChildren(...family.units.map(([u, factor]) => optionEl(factor, u)));
     $("conv-to").selectedIndex = Math.min(1, family.units.length - 1);
   }
   $("conv-kind").addEventListener("change", updateUnits);
   $("conv-run").addEventListener("click", () => {
     const value = toNumber($("conv-value").value);
     if (!Number.isFinite(value)) return $("conv-output").textContent = "Valeur non reconnue.";
-    const result = value * Number($("conv-from").value) / Number($("conv-to").value);
     const fromUnit = $("conv-from").selectedOptions[0].textContent;
     const toUnit = $("conv-to").selectedOptions[0].textContent;
+    if (!fromUnit || !toUnit) return $("conv-output").textContent = "Unite non reconnue.";
+    const result = convertUnitValue(value, $("conv-kind").value, fromUnit, toUnit);
     $("conv-output").textContent = `${fmt(value)} ${fromUnit} = ${fmt(result, 10)} ${toUnit}`;
   });
   fillConverter();
 
-  function parsePairs(text) {
-    return text.split(/\n+/).map((line) => line.trim()).filter(Boolean).map((line) => {
-      const [x, y] = line.split(/[;,\t ]+/).map(toNumber);
-      if (!Number.isFinite(x) || !Number.isFinite(y)) throw new Error("Donnée invalide");
-      return { x, y };
-    });
+  function parsePairs(text: string): GraphPoint[] {
+    return parseMeasurementPairs(text);
   }
   $("graph-run").addEventListener("click", () => {
     try {
@@ -272,30 +455,40 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       const xs = points.map((p) => p.x), ys = points.map((p) => p.y);
       const minX = Math.min(...xs, 0), maxX = Math.max(...xs, 1);
       const minY = Math.min(...ys, 0), maxY = Math.max(...ys, 1);
-      const sx = (x) => 65 + ((x - minX) / (maxX - minX || 1)) * 560;
-      const sy = (y) => 300 - ((y - minY) / (maxY - minY || 1)) * 230;
-      const slope = points.reduce((s, p) => s + p.x * p.y, 0) / (points.reduce((s, p) => s + p.x * p.x, 0) || 1);
-      const dots = points.map((p) => `<circle cx="${sx(p.x).toFixed(1)}" cy="${sy(p.y).toFixed(1)}" r="5" fill="#4f46e5"><title>${p.x}; ${p.y}</title></circle>`).join("");
-      const line = `<line x1="${sx(minX)}" y1="${sy(slope * minX)}" x2="${sx(maxX)}" y2="${sy(slope * maxX)}" stroke="#16a34a" stroke-width="3" stroke-dasharray="8 5"/>`;
-      $("graph-output").innerHTML = `<svg viewBox="0 0 680 345" role="img" aria-label="Graphique généré à partir des points saisis">
-        <rect x="0" y="0" width="680" height="345" rx="12" fill="white"/>
-        <text x="340" y="28" text-anchor="middle" font-weight="800" fill="#1e293b">${$("graph-title").value}</text>
-        <line x1="65" y1="300" x2="640" y2="300" stroke="#1e293b" stroke-width="2"/>
-        <line x1="65" y1="300" x2="65" y2="45" stroke="#1e293b" stroke-width="2"/>
-        ${line}${dots}
-        <text x="635" y="330" text-anchor="end" fill="#475569">${xLabel}</text>
-        <text x="15" y="60" fill="#475569">${yLabel}</text>
-      </svg><p class="method-note">Modèle passant par l'origine estimé : ${yLabel.trim()} ≈ ${fmt(slope, 5)} × ${xLabel.trim()}.</p>`;
+      const sx = (x: number) => 65 + ((x - minX) / (maxX - minX || 1)) * 560;
+      const sy = (y: number) => 300 - ((y - minY) / (maxY - minY || 1)) * 230;
+      const { slope } = linearModelThroughOrigin(points);
+      const svg = svgEl("svg", { viewBox: "0 0 680 345", role: "img", "aria-label": "Graphique genere a partir des points saisis" });
+      svg.append(
+        svgEl("rect", { x: 0, y: 0, width: 680, height: 345, rx: 12, fill: "white" }),
+        svgEl("text", { x: 340, y: 28, "text-anchor": "middle", "font-weight": 800, fill: "#1e293b" }, $("graph-title").value),
+        svgEl("line", { x1: 65, y1: 300, x2: 640, y2: 300, stroke: "#1e293b", "stroke-width": 2 }),
+        svgEl("line", { x1: 65, y1: 300, x2: 65, y2: 45, stroke: "#1e293b", "stroke-width": 2 }),
+        svgEl("line", { x1: sx(minX), y1: sy(slope * minX), x2: sx(maxX), y2: sy(slope * maxX), stroke: "#16a34a", "stroke-width": 3, "stroke-dasharray": "8 5" }),
+      );
+      for (const point of points) {
+        const circle = svgEl("circle", { cx: sx(point.x).toFixed(1), cy: sy(point.y).toFixed(1), r: 5, fill: "#4f46e5" });
+        circle.append(svgEl("title", {}, `${point.x}; ${point.y}`));
+        svg.append(circle);
+      }
+      svg.append(
+        svgEl("text", { x: 635, y: 330, "text-anchor": "end", fill: "#475569" }, xLabel),
+        svgEl("text", { x: 15, y: 60, fill: "#475569" }, yLabel),
+      );
+      const note = document.createElement("p");
+      note.className = "method-note";
+      note.textContent = `Modele passant par l'origine estime : ${yLabel.trim()} ~= ${fmt(slope, 5)} x ${xLabel.trim()}.`;
+      $("graph-output").replaceChildren(svg, note);
     } catch {
-      $("graph-output").textContent = "Impossible de tracer : vérifie le format des données, une ligne par point.";
+      $("graph-output").textContent = "Impossible de tracer : verifie le format des donnees, une ligne par point.";
     }
   });
 
-  function parseFormula(formula) {
+  function parseFormula(formula: string): AtomCounts {
     formula = formula.replace(/_/g, "").replace(/\s/g, "");
     let i = 0;
-    function readGroup(stop) {
-      const counts = {};
+    function readGroup(stop: string): AtomCounts {
+      const counts: AtomCounts = {};
       while (i < formula.length && formula[i] !== stop) {
         if (formula[i] === "(") {
           i++;
@@ -320,7 +513,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     }
     return readGroup("");
   }
-  function solveCoefficients(matrix) {
+  function solveCoefficients(matrix: number[][]): number[] | null {
     const rows = matrix.length, cols = matrix[0].length;
     const a = matrix.map((r) => r.slice());
     let pivot = 0;
@@ -348,8 +541,26 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     }
     return null;
   }
-  function formatFormula(formula) {
-    return formula.replace(/([A-Z][a-z]?)(\d+)/g, "$1<sub>$2</sub>");
+  function formulaNodes(formula: string): Node[] {
+    const nodes: Node[] = [];
+    const parts = String(formula).matchAll(/([A-Z][a-z]?)(\d*)/g);
+    for (const match of parts) {
+      nodes.push(document.createTextNode(match[1]));
+      if (match[2]) {
+        const sub = document.createElement("sub");
+        sub.textContent = match[2];
+        nodes.push(sub);
+      }
+    }
+    return nodes;
+  }
+  function appendBalancedSide(fragment: DocumentFragment, molecules: string[], start: number, coeffs: number[]) {
+    molecules.forEach((molecule, index) => {
+      if (index > 0) fragment.append(document.createTextNode(" + "));
+      const coeff = coeffs[start + index];
+      if (coeff !== 1) fragment.append(document.createTextNode(`${coeff} `));
+      fragment.append(...formulaNodes(molecule));
+    });
   }
   $("balance-run").addEventListener("click", () => {
     try {
@@ -363,26 +574,29 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       const matrix = atoms.map((atom) => parsed.map((m, i) => (i < left.length ? 1 : -1) * (m[atom] || 0)));
       const coeffs = solveCoefficients(matrix);
       if (!coeffs) throw new Error("solve");
-      const render = (arr, start) => arr.map((m, i) => `${coeffs[start + i] === 1 ? "" : coeffs[start + i] + " "}${formatFormula(m)}`).join(" + ");
-      $("balance-output").innerHTML = `${render(left, 0)} → ${render(right, left.length)}`;
+      const fragment = document.createDocumentFragment();
+      appendBalancedSide(fragment, left, 0, coeffs);
+      fragment.append(document.createTextNode(" -> "));
+      appendBalancedSide(fragment, right, left.length, coeffs);
+      $("balance-output").replaceChildren(fragment);
     } catch {
       $("balance-output").textContent = "Équation non reconnue. Essaie une écriture simple comme H2 + O2 -> H2O.";
     }
   });
-  document.querySelectorAll("[data-balance-example]").forEach((b) => b.addEventListener("click", () => {
-    $("balance-input").value = b.dataset.balanceExample;
+  document.querySelectorAll<HTMLElement>("[data-balance-example]").forEach((b) => b.addEventListener("click", () => {
+    $("balance-input").value = b.dataset.balanceExample ?? "";
     $("balance-run").click();
   }));
 
   $("sol-run").addEventListener("click", () => {
     const cm = toNumber($("sol-cm").value), vMl = toNumber($("sol-v").value);
     if (!Number.isFinite(cm) || !Number.isFinite(vMl)) return $("sol-output").textContent = "Données non reconnues.";
-    $("sol-output").textContent = `Volume : ${fmt(vMl / 1000)} L ; masse à peser : ${fmt(cm * vMl / 1000)} g.`;
+    $("sol-output").textContent = `Volume : ${fmt(vMl / 1000)} L ; masse à peser : ${fmt(dissolutionMassGrams(cm, vMl))} g.`;
   });
   $("dil-run").addEventListener("click", () => {
     const c1 = toNumber($("dil-c1").value), c2 = toNumber($("dil-c2").value), v2 = toNumber($("dil-v2").value);
     if (!Number.isFinite(c1) || !Number.isFinite(c2) || !Number.isFinite(v2) || c1 === 0) return $("dil-output").textContent = "Données non reconnues.";
-    $("dil-output").textContent = `Volume de solution mère à prélever : ${fmt((c2 * v2) / c1)} mL.`;
+    $("dil-output").textContent = `Volume de solution mère à prélever : ${fmt(dilutionVolumeMl(c1, c2, v2))} mL.`;
   });
 
   $("calc-run").click();

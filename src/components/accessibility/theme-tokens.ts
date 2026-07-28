@@ -42,3 +42,5 @@ export const T = {
   radiusMd:       "var(--radius-md)",
   radiusLg:       "var(--radius-lg)",
 } as const;
+
+export { V3_TOKENS, V3_TOKEN_TABLE } from "../../data/accessibility/tokens-v3";

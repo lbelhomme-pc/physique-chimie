@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Diffraction des ondes et interférences | Physique-Chimie</title>
+    
+    <link rel="stylesheet" href="../../../style/1_core.css">
+    <link rel="stylesheet" href="../../../style/2_components.css">
+    <link rel="stylesheet" href="../../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../../style/4_apps.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+
+    <style>
+        .graph-container { background: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; max-width: 600px; margin: 25px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .svg-grid { stroke: #cbd5e1; stroke-width: 1; }
+        .svg-grid-minor { stroke: #f1f5f9; stroke-width: 1; }
+        .svg-axis { stroke: #1e293b; stroke-width: 2; }
+        .svg-text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #475569; }
+        .svg-text-bold { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #1e293b; }
+        .svg-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; fill: #0f172a; text-anchor: middle; }
+        .svg-line { stroke: #3b82f6; stroke-width: 3; stroke-linecap: round; }
+        .svg-point { stroke: #ef4444; stroke-width: 2; fill: none; }
+        body.dark-mode .graph-container { background: #0f172a; border-color: #334155; }
+        body.dark-mode .svg-grid { stroke: #334155; }
+        body.dark-mode .svg-grid-minor { stroke: #1e293b; }
+        body.dark-mode .svg-axis { stroke: #cbd5e1; }
+        body.dark-mode .svg-text { fill: #94a3b8; }
+        body.dark-mode .svg-text-bold { fill: #f8fafc; }
+        body.dark-mode .svg-title { fill: #f8fafc; }
+        body.dark-mode .svg-line { stroke: #60a5fa; }
+    </style>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container container-lecture">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">📝</span>
+                <h1 class="hero-title">Exercices : Diffraction des ondes et interférences</h1>
+            </div>
+        </header>
+
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 1</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Connaissances de base sur la diffraction et les interférences.
+</div>
+<p>Pour chacune des affirmations suivantes, indiquer si elle est <strong>vraie</strong> ou <strong>fausse</strong> en justifiant brièvement.</p>
+<ol><li>La diffraction est un phénomène qui se produit lorsqu'une onde rencontre une ouverture ou un obstacle dont la taille est du même ordre de grandeur que sa longueur d'onde.</li><li>Lors de la diffraction par une fente, l'angle caractéristique de diffraction $$ augmente lorsque la largeur de la fente augmente.</li><li>Deux ondes peuvent interférer de manière constructive ou destructive.</li><li>Les interférences constructives se produisent lorsque les deux ondes arrivent en opposition de phase en un point donné.</li><li>La figure de diffraction d'une lumière monochromatique par une fente rectangulaire présente une tache centrale plus large que les taches secondaires.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> Pour chaque affirmation, on rappelle la définition ou la relation concernée, puis on vérifie si l'affirmation est cohérente avec le cours.
+</div>
+<ol><li><strong>VRAIE.</strong>
+<p>La diffraction est un phénomène qui se produit lorsqu'une onde rencontre une ouverture (ou un obstacle) dont la dimension caractéristique $a$ est du même ordre de grandeur que la longueur d'onde $$ de l'onde, ou plus petite. Plus précisément, la diffraction devient significative lorsque $a  $ ou $a$ est de l'ordre de quelques $$.</p>
+<strong>Conclusion :</strong> L'affirmation est vraie.</li><li><strong>FAUSSE.</strong>
+<p>L'angle caractéristique de diffraction est donné par la relation :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {a}$$</div></div></div></div></p>
+<p>Lorsque la largeur $a$ de la fente <strong>augmente</strong>, le dénominateur augmente, donc $$ <strong>diminue</strong>. L'affirmation dit le contraire : elle est fausse.</p>
+<strong>Conclusion :</strong> L'angle $$ diminue quand $a$ augmente.</li><li><strong>VRAIE.</strong>
+<p>Lorsque deux ondes se superposent en un point, elles peuvent interférer :<br><ul><li>de manière <strong>constructive</strong> : les amplitudes s'ajoutent (amplitude résultante maximale) ;</li><li>de manière <strong>destructive</strong> : les amplitudes se compensent (amplitude résultante minimale, voire nulle).<br></li></ul></p>
+<strong>Conclusion :</strong> L'affirmation est vraie.</li><li><strong>FAUSSE.</strong>
+<p>Les interférences <strong>constructives</strong> se produisent lorsque les deux ondes arrivent <strong>en phase</strong> en un point donné (différence de marche $ = k$ avec $k  $).</p>
+<p>Les interférences <strong>destructives</strong> se produisent lorsque les deux ondes arrivent <strong>en opposition de phase</strong> ($ = (2k+1){2}$ avec $k  $).</p>
+<p>L'affirmation confond les deux cas : elle est fausse.</p>
+<strong>Conclusion :</strong> Les interférences constructives correspondent à des ondes en phase, pas en opposition de phase.</li><li><strong>VRAIE.</strong>
+<p>La figure de diffraction d'une lumière monochromatique par une fente rectangulaire présente une tache centrale dont la largeur angulaire est $2 = {a}$, tandis que les taches secondaires ont une largeur angulaire de $ = {a}$ chacune. La tache centrale est donc <strong>deux fois plus large</strong> que chaque tache secondaire.</p>
+<strong>Conclusion :</strong> L'affirmation est vraie.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 2</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Vocabulaire et notions fondamentales sur la diffraction.
+</div>
+<p>Compléter les phrases suivantes avec les termes appropriés parmi : <em>longueur d'onde</em>, <em>diminue</em>, <em>augmente</em>, <em>étalement</em>, <em>ouverture</em>, <em>fente</em>, <em>obstacle</em>.</p>
+<ol><li>La diffraction se manifeste par un  des directions de propagation de l'onde.</li><li>Ce phénomène est d'autant plus marqué que la taille de l' est petite devant la  de l'onde.</li><li>Lorsqu'on diminue la largeur $a$ de la , l'angle caractéristique de diffraction $$ </li><li>Lorsqu'on utilise une lumière de plus grande longueur d'onde avec la même fente, l'angle de diffraction 
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise les connaissances du cours sur la diffraction pour compléter chaque phrase avec le terme approprié. On rappelle la relation $ = {a}$ pour justifier l'évolution de l'angle de diffraction.
+</div>
+<ol><li>La diffraction se manifeste par un <strong>étalement</strong> des directions de propagation de l'onde.
+<em>Justification :</em> Lorsqu'une onde traverse une ouverture étroite, elle ne se propage plus uniquement en ligne droite : elle s'étale dans les directions latérales. C'est cet étalement qui caractérise la diffraction.</li><li>Ce phénomène est d'autant plus marqué que la taille de l'<strong>ouverture</strong> est petite devant la <strong>longueur d'onde</strong> de l'onde.
+<em>Justification :</em> D'après la relation $ = {a}$, lorsque $a$ diminue (ouverture plus petite) ou que $$ augmente, le rapport ${a}$ augmente, donc l'angle de diffraction augmente : le phénomène est plus marqué.</li><li>Lorsqu'on diminue la largeur $a$ de la <strong>fente</strong>, l'angle caractéristique de diffraction $$ <strong>augmente</strong>.
+<em>Justification :</em> $ = {a}$. Si $a$ diminue (à $$ constant), le rapport augmente, donc $$ augmente.</li><li>Lorsqu'on utilise une lumière de plus grande longueur d'onde avec la même fente, l'angle de diffraction <strong>augmente</strong>.
+<em>Justification :</em> $ = {a}$. Si $$ augmente (à $a$ constant), le rapport augmente, donc $$ augmente.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐ Niveau 1 : Application directe</span>
+            <h2 class="exo-title">Exercice 3</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Angle caractéristique de diffraction -- calculs simples.
+</div>
+<p>On éclaire une fente verticale de largeur $a$ avec un faisceau laser monochromatique de longueur d'onde $$. L'angle caractéristique de diffraction $$, exprimé en radian, est donné par la relation :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = {a}$$</div></div></div></div></p>
+<ol><li>Calculer l'angle $$ pour un laser de longueur d'onde $ = $632{,}8   $$ traversant une fente de largeur $a = $200   $$.</li><li>Calculer l'angle $$ pour le même laser traversant une fente de largeur $a = $50   $$.</li><li>Comparer les deux résultats et conclure sur l'influence de la largeur de la fente.</li><li>On observe la figure de diffraction sur un écran situé à une distance $D = $2{,}0   $$ de la fente. La largeur $L$ de la tache centrale de diffraction est liée à $$ par la relation $L = {a}$. Calculer $L$ dans chacun des deux cas précédents.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise la relation $ = {a}$ pour calculer l'angle de diffraction, puis la relation $L = {a}$ pour calculer la largeur de la tache centrale. Il faut convertir toutes les grandeurs dans le système international (SI) avant de faire les calculs.
+</div>
+<strong>Données :</strong>
+<ul><li>$ = $632{,}8   $ = 632{,}8  10^{-9}  = 6{,}328  10^{-7} $$$</li><li>$D = $2{,}0   $$
+</li></ul>
+<ol><li>{Calcul de $$ pour $a = $200   $$}
+<strong>Conversion :</strong> $a = $200   $ = 200  10^{-6}  = 2{,}00  10^{-4} $$$
+<strong>Formule :</strong> $ = {a}$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= {6{,}328  10^{-7}}{2{,}00  10^{-4}} \\[6pt]
+ &= 3{,}16  10^{-3} $$
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'angle caractéristique de diffraction vaut $  3{,}2  10^{-3} $$$.</li><li>{Calcul de $$ pour $a = $50   $$}
+<strong>Conversion :</strong> $a = $50   $ = 50  10^{-6}  = 5{,}0  10^{-5} $$$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= {6{,}328  10^{-7}}{5{,}0  10^{-5}} \\[6pt]
+ &= 1{,}27  10^{-2} $$
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'angle caractéristique de diffraction vaut $  1{,}3  10^{-2} $$$.</li><li><strong>Comparaison et conclusion</strong>
+<p>On observe que :<br><ul><li>Pour $a = $200   $$ : $ = 3{,}2  10^{-3} $$$</li><li>Pour $a = $50   $$ : $ = 1{,}3  10^{-2} $$$<br></li></ul></p>
+<p>L'angle de diffraction est environ <strong>4 fois plus grand</strong> lorsque la fente est 4 fois plus étroite. Cela est cohérent avec la relation $ = {a}$ : $$ est inversement proportionnel à $a$.</p>
+<strong>Conclusion :</strong> Plus la fente est étroite, plus l'angle de diffraction est grand et plus la lumière s'étale.</li><li><strong>Calcul de la largeur $L$ de la tache centrale</strong>
+<strong>Formule :</strong> $L = {a}$
+<strong>Cas 1 :</strong> $a = 2{,}00  10^{-4} $$$
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+L_1 &= {2  6{,}328  10^{-7}  2{,}0}{2{,}00  10^{-4}} \\[6pt]
+L_1 &= {2{,}531  10^{-6}}{2{,}00  10^{-4}} \\[6pt]
+L_1 &= 1{,}27  10^{-2} $$ = $1{,}3   $
+$$</div></div></div></div>
+<strong>Cas 2 :</strong> $a = 5{,}0  10^{-5} $$$
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+L_2 &= {2  6{,}328  10^{-7}  2{,}0}{5{,}0  10^{-5}} \\[6pt]
+L_2 &= {2{,}531  10^{-6}}{5{,}0  10^{-5}} \\[6pt]
+L_2 &= 5{,}06  10^{-2} $$ = $5{,}1   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La tache centrale mesure environ $$1{,}3   $$ avec la fente de $$200   $$ et environ $$5{,}1   $$ avec la fente de $$50   $$. La tache centrale est 4 fois plus large avec la fente 4 fois plus étroite, ce qui confirme que $L$ est inversement proportionnel à $a$.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 4</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Exploitation de l'expression de l'angle de diffraction.
+</div>
+<p>Un laser de longueur d'onde $ = $532   $$ éclaire une fente rectangulaire de largeur $a$ inconnue. On observe la figure de diffraction sur un écran placé à la distance $D = $1{,}50   $$ de la fente. On mesure la largeur de la tache centrale de diffraction : $L = $3{,}2   $$.</p>
+<p>On rappelle que la largeur de la tache centrale de diffraction est donnée par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L = {a}$$</div></div></div></div></p>
+<ol><li>Identifier le phénomène observé et décrire qualitativement la figure obtenue sur l'écran.</li><li>Vérifier par analyse dimensionnelle que la relation donnée est homogène.</li><li>Exprimer littéralement $a$ en fonction de $$, $D$ et $L$.</li><li>Calculer la largeur $a$ de la fente.</li><li>On remplace le laser vert par un laser rouge de longueur d'onde $' = $650   $$. Sans calcul, prévoir si la tache centrale sera plus large ou plus étroite. Justifier.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On identifie le phénomène, on vérifie l'homogénéité de la relation, on isole la grandeur inconnue ($a$), puis on effectue l'application numérique. Enfin, on utilise la relation pour prévoir l'effet d'un changement de longueur d'onde.
+</div>
+<strong>Données :</strong>
+<ul><li>$ = $532   $ = 5{,}32  10^{-7} $$$</li><li>$D = $1{,}50   $$</li><li>$L = $3{,}2   $ = 3{,}2  10^{-2} $$$
+</li></ul>
+<ol><li><strong>Identification du phénomène</strong>
+<p>Le phénomène observé est la <strong>diffraction</strong> de la lumière par une fente rectangulaire.</p>
+<p>Sur l'écran, on observe une figure de diffraction composée de :<br><ul><li>une <strong>tache centrale</strong> très lumineuse, la plus large de toutes ;</li><li>des <strong>taches secondaires</strong> de part et d'autre, de moins en moins lumineuses en s'éloignant du centre ;</li><li>des <strong>zones sombres</strong> (extinctions) séparant les taches.<br></li></ul></p>
+<p>L'étalement se fait perpendiculairement à la fente (ici horizontalement si la fente est verticale).</li><li><strong>Analyse dimensionnelle</strong></p>
+<p>On vérifie que les deux membres de $L = {a}$ ont la même dimension.</p>
+<strong>Membre de gauche :</strong> $[L] = $ (une longueur).
+<strong>Membre de droite :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= {  }{} = 
+$$</div></div></div></div>
+<p>Le facteur 2 est sans dimension. Le membre de droite a bien la dimension d'une longueur.</p>
+<strong>Conclusion :</strong> La relation est homogène.</li><li><strong>Expression littérale de $a$</strong>
+<p>On part de : $L = {a}$</p>
+<p>On multiplie les deux côtés par $a$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$L  a = 2 D$$</div></div></div></div></p>
+<p>On divise les deux côtés par $L$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${a = {L}}$$</div></div></div></div></li><li><strong>Calcul de $a$</strong></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+a &= {2  5{,}32  10^{-7}  1{,}50}{3{,}2  10^{-2}} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>6pt]
+a &= {1{,}596  10^{-6}}{3{,}2  10^{-2}} \\[6pt]
+a &= 4{,}99  10^{-5} $$ \\[4pt]
+a & $50   $
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Conclusion :</strong> La largeur de la fente est $a  $50   $$</div></div>.</li><li><strong>Prévision avec un laser rouge</strong>
+<p>D'après la relation $L = {a}$, la largeur $L$ de la tache centrale est <strong>proportionnelle</strong> à $$.</p>
+<p>Le laser rouge a une longueur d'onde $' = $650   <div class="formula-wrapper-centered"><div class="formula-content">$$supérieure à celle du laser vert ($ = $532   $$</div></div>). Donc :</p>
+<p>\[<br>' >   L' > L$$</div></div></p>
+<strong>Conclusion :</strong> La tache centrale sera <strong>plus large</strong> avec le laser rouge qu'avec le laser vert, car la longueur d'onde rouge est plus grande.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 5</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Diffraction d'ondes ultrasonores -- comparaison avec la lumière.
+</div>
+<p>Une onde ultrasonore de fréquence $f = $40   $$ se propage dans l'air à la célérité $v = $340   $$. Elle rencontre une ouverture rectangulaire de largeur $a = $2{,}0   $$.</p>
+<ol><li>Calculer la longueur d'onde $$ de cette onde ultrasonore dans l'air.</li><li>Calculer l'angle caractéristique de diffraction $ = {a}$.</li><li>Expliquer pourquoi la diffraction est ici nettement observable.</li><li>Pour une onde sonore de fréquence $f' = $100   $$, calculer la longueur d'onde $'$ correspondante. La diffraction est-elle plus ou moins marquée pour cette onde avec la même ouverture ? Justifier.</li><li>Expliquer, en utilisant le phénomène de diffraction, pourquoi une personne assise à côté de la porte ouverte d'une salle de concert peut entendre la musique (sons graves) sans voir la scène.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise la relation $ = {f}$ pour calculer la longueur d'onde, puis $ = {a}$ pour l'angle de diffraction. On compare la longueur d'onde à la taille de l'ouverture pour discuter de l'importance de la diffraction.
+</div>
+<strong>Données :</strong>
+<ul><li>$f = $40   $ = $4{,}0  10^{4}   $$</li><li>$v = $340   $$</li><li>$a = $2{,}0   $ = 2{,}0  10^{-2} $$$
+</li></ul>
+<ol><li><strong>Calcul de la longueur d'onde $$</strong>
+<strong>Formule :</strong> $ = {f}$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= {4{,}0  10^{4}} \\[6pt]
+ &= 8{,}5  10^{-3} $$ = $8{,}5   $ = $0{,}85   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La longueur d'onde des ultrasons est $ = $8{,}5   $$.</li><li><strong>Calcul de l'angle de diffraction $$</strong>
+<strong>Formule :</strong> $ = {a}$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= {8{,}5  10^{-3}}{2{,}0  10^{-2}} \\[6pt]
+ &= $0{,}43   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'angle de diffraction vaut $  $0{,}43   $$, soit environ $24{^}$.</li><li><strong>Pourquoi la diffraction est-elle nettement observable ?</strong>
+<p>La diffraction est nettement observable car la longueur d'onde $ = $8{,}5   $$ est <strong>du même ordre de grandeur</strong> que la largeur de l'ouverture $a = $20   $$. Le rapport ${a} = 0{,}43$ est important (proche de 1), ce qui donne un angle de diffraction grand.</p>
+<p>De manière générale, la diffraction est d'autant plus marquée que le rapport ${a}$ est grand, c'est-à-dire que la longueur d'onde est proche de (ou supérieure à) la taille de l'ouverture.</li><li>{Calcul pour une onde sonore de fréquence $f' = $100   $$}</p>
+<strong>Calcul de $'$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+' &= {f'} = {100} = $3{,}4   $
+$$</div></div></div></div>
+<strong>Calcul de l'angle de diffraction :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+' &= {a} = {3{,}4}{2{,}0  10^{-2}} = 170 
+$$</div></div></div></div>
+<p>Cette valeur n'a pas de sens physique car $$ est exprimé en radian dans l'approximation des petits angles. En réalité, cela signifie que $'  a$ : la diffraction est <strong>totale</strong>. L'onde se propage dans toutes les directions après avoir traversé l'ouverture.</p>
+<strong>Conclusion :</strong> La diffraction est <strong>beaucoup plus marquée</strong> pour l'onde de $$100   $$ car sa longueur d'onde ($$3{,}4   $$) est très grande devant la taille de l'ouverture ($$2{,}0   $$).</li><li><strong>Explication du phénomène au concert</strong>
+<p>Les sons graves ont des fréquences basses (de l'ordre de $$100   $$ à $$500   $$), ce qui correspond à des longueurs d'onde grandes (de $$0{,}7   $$ à $$3{,}4   $$).</p>
+<p>La porte ouverte a une largeur typique de l'ordre de $a  $0{,}80   $$ à $$1{,}0   $$.</p>
+<p>Pour les sons graves, $$ est du même ordre de grandeur que $a$ (voire supérieure). Le rapport ${a}$ est important, donc la <strong>diffraction est très marquée</strong> : les ondes sonores s'étalent largement après la porte et atteignent la personne assise à côté.</p>
+<p>En revanche, la lumière visible a une longueur d'onde de l'ordre de $$500   $ = 5  10^{-7} $$$, ce qui est <strong>extrêmement petit</strong> devant la largeur de la porte. Le rapport ${a}  5  10^{-7}$ est quasi nul : la lumière ne diffracte pratiquement pas par la porte et se propage en ligne droite. La personne ne peut donc pas voir la scène si elle n'est pas dans l'axe de la porte.</p>
+<strong>Conclusion :</strong> La diffraction des sons graves par la porte (ouverture comparable à $$) permet à la musique de se propager au-delà de la porte, tandis que la lumière (longueur d'onde très petite devant la porte) ne diffracte pas et ne contourne pas l'ouverture.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐ Niveau 2 : Maîtrise</span>
+            <h2 class="exo-title">Exercice 6</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Interférences à la surface de l'eau -- conditions constructives et destructives.
+</div>
+<p>Deux pointes vibrantes $S_1$ et $S_2$, alimentées par le même générateur à la fréquence $f = $50   $$, émettent en phase des ondes sinusoïdales à la surface de l'eau. La célérité des ondes à la surface de l'eau vaut $v = $0{,}80   $$.</p>
+<p>On considère un point $M$ de la surface de l'eau. On note $d_1 = S_1M$ et $d_2 = S_2M$.</p>
+<ol><li>Calculer la longueur d'onde $$ des ondes à la surface de l'eau.</li><li>Rappeler la condition sur la différence de marche $ = d_2 - d_1$ pour que les interférences soient constructives en $M$.</li><li>Rappeler la condition sur $$ pour que les interférences soient destructives en $M$.</li><li>On mesure pour trois points :
+<ul><li>Point $A$ : $d_1 = $12{,}0   $$ et $d_2 = $15{,}2   $$ ;</li><li>Point $B$ : $d_1 = $14{,}4   $$ et $d_2 = $15{,}2   $$ ;</li><li>Point $C$ : $d_1 = $10{,}0   $$ et $d_2 = $14{,}8   $$.
+</li></ul>
+Pour chaque point, calculer $$ et préciser si les interférences sont constructives, destructives ou ni l'un ni l'autre.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On calcule $$ à partir de $v$ et $f$, puis on calcule la différence de marche $ = d_2 - d_1$ pour chaque point. On compare $$ à $k$ (constructif) ou $(2k+1){2}$ (destructif) pour conclure.
+</div>
+<strong>Données :</strong>
+<ul><li>$f = $50   $$</li><li>$v = $0{,}80   $$
+</li></ul>
+<ol><li><strong>Calcul de la longueur d'onde $$</strong>
+<strong>Formule :</strong> $ = {f}$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= {0{,}80}{50} = $0{,}016   $ = $1{,}6   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $ = $1{,}6   $$.</li><li><strong>Condition d'interférences constructives</strong>
+<p>Les interférences sont <strong>constructives</strong> en un point $M$ lorsque la différence de marche est un multiple entier de la longueur d'onde :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ = k   k  }$$</div></div></div></div></p>
+<p>Les deux ondes arrivent alors <strong>en phase</strong> en $M$ et l'amplitude résultante est maximale.</li><li><strong>Condition d'interférences destructives</strong></p>
+<p>Les interférences sont <strong>destructives</strong> en un point $M$ lorsque la différence de marche est un multiple demi-entier impair de la longueur d'onde :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${ = (k + {2}) = (2k+1){2}   k  }$$</div></div></div></div></p>
+<p>Les deux ondes arrivent alors <strong>en opposition de phase</strong> en $M$ et l'amplitude résultante est minimale (voire nulle).</li><li><strong>Calcul de $$ pour chaque point</strong></p>
+<p>On rappelle que $ = $1{,}6   $$.</p>
+<strong>Point $A$ :</strong> $d_1 = $12{,}0   $$, $d_2 = $15{,}2   $$
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_A &= d_2 - d_1 = 15{,}2 - 12{,}0 = $3{,}2   $ \\[4pt]
+{} &= {3{,}2}{1{,}6} = 2{,}0
+$$</div></div></div></div>
+<p>On a $_A = 2$ avec $k = 2  $.</p>
+<strong>Conclusion :</strong> Les interférences sont <strong>constructives</strong> au point $A$. L'amplitude y est maximale.
+<strong>Point $B$ :</strong> $d_1 = $14{,}4   $$, $d_2 = $15{,}2   $$
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_B &= d_2 - d_1 = 15{,}2 - 14{,}4 = $0{,}8   $ \\[4pt]
+{} &= {0{,}8}{1{,}6} = 0{,}5
+$$</div></div></div></div>
+<p>On a $_B = 0{,}5  = {2}$, ce qui correspond à $(2k+1){2}$ avec $k = 0$.</p>
+<strong>Conclusion :</strong> Les interférences sont <strong>destructives</strong> au point $B$. L'amplitude y est minimale.
+<strong>Point $C$ :</strong> $d_1 = $10{,}0   $$, $d_2 = $14{,}8   $$
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_C &= d_2 - d_1 = 14{,}8 - 10{,}0 = $4{,}8   $ \\[4pt]
+{} &= {4{,}8}{1{,}6} = 3{,}0
+$$</div></div></div></div>
+<p>On a $_C = 3$ avec $k = 3  $.</p>
+<strong>Conclusion :</strong> Les interférences sont <strong>constructives</strong> au point $C$. L'amplitude y est maximale.
+<div class="info-box">
+<strong>Récapitulatif :</strong>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Point</strong></th><th>$$ (cm)</th><th>$ / $</th><th><strong>Nature</strong></th></tr><tr><td>$A$</td><td>$3{,}2$</td><td>$2{,}0$</td><td>Constructives</td></tr><tr><td>$B$</td><td>$0{,}8$</td><td>$0{,}5$</td><td>Destructives</td></tr><tr><td>$C$</td><td>$4{,}8$</td><td>$3{,}0$</td><td>Constructives</td></tr></tbody></table></div>
+</div>
+</div>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 7</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Interférences lumineuses -- expression et calcul de l'interfrange.
+</div>
+<p>On réalise l'expérience des fentes d'Young avec une lumière monochromatique de longueur d'onde $ = $650   $$. Les deux fentes, distantes de $a_{1-2} = $0{,}40   $$, sont éclairées par un faisceau laser. Un écran est placé à la distance $D = $2{,}0   $$ des fentes.</p>
+<p>L'interfrange $i$ est donné par la relation :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$i = {a_{1-2}}$$</div></div></div></div></p>
+<ol><li>Décrire qualitativement ce que l'on observe sur l'écran.</li><li>Vérifier l'homogénéité de la relation donnant $i$.</li><li>Calculer la valeur de l'interfrange $i$.</li><li>On souhaite doubler la valeur de l'interfrange sans changer la longueur d'onde ni la distance $D$. Quelle modification faut-il apporter au dispositif ?</li><li>On remplace le laser rouge par un laser bleu de longueur d'onde $' = $450   $$. Calculer le nouvel interfrange $i'$ et comparer à $i$.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On décrit la figure d'interférences, on vérifie l'homogénéité de la relation $i = {a_{1-2}}$, puis on calcule l'interfrange. On raisonne ensuite sur les paramètres influençant $i$.
+</div>
+<strong>Données :</strong>
+<ul><li>$ = $650   $ = 6{,}50  10^{-7} $$$</li><li>$a_{1-2} = $0{,}40   $ = 4{,}0  10^{-4} $$$</li><li>$D = $2{,}0   $$
+</li></ul>
+<ol><li><strong>Description qualitative</strong>
+<p>Sur l'écran, on observe une <strong>figure d'interférences</strong> constituée de :<br><ul><li>des <strong>franges brillantes</strong> (zones de forte intensité lumineuse) correspondant aux interférences constructives ;</li><li>des <strong>franges sombres</strong> (zones d'intensité nulle ou très faible) correspondant aux interférences destructives ;</li><li>ces franges sont <strong>équidistantes</strong>, parallèles entre elles, et perpendiculaires à la ligne joignant les deux fentes ;</li><li>l'ensemble de la figure d'interférences est contenu dans l'enveloppe de la figure de diffraction de chaque fente individuelle.<br></li></ul></li><li><strong>Vérification de l'homogénéité</strong></p>
+<p>On vérifie que les deux membres de $i = {a_{1-2}}$ ont la même dimension.</p>
+<strong>Membre de gauche :</strong> $[i]$ = longueur = m.
+<strong>Membre de droite :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= {  }{} = 
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La relation est bien homogène : les deux membres ont la dimension d'une longueur.</li><li><strong>Calcul de l'interfrange $i$</strong>
+<strong>Formule :</strong> $i = {a_{1-2}}$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+i &= {6{,}50  10^{-7}  2{,}0}{4{,}0  10^{-4}} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>6pt]
+i &= {1{,}30  10^{-6}}{4{,}0  10^{-4}} \\[6pt]
+i &= 3{,}25  10^{-3} $$ = $3{,}3   $
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Conclusion :</strong> L'interfrange vaut $i  $3{,}3   $$</div></div>.</li><li><strong>Comment doubler l'interfrange ?</strong>
+<p>D'après $i = {a_{1-2}}$, si on ne change ni $$ ni $D$, la seule grandeur modifiable est $a_{1-2}$.</p>
+<p>Pour doubler $i$, il faut que $a_{1-2}$ soit divisé par 2 :<br>\[<br>i' = 2i  a'_{1-2} = {a_{1-2}}{2} = {0{,}40}{2} = $0{,}20   <div class="formula-wrapper-centered"><div class="formula-content">$$$</div></div></p>
+<strong>Conclusion :</strong> Il faut <strong>diviser par 2</strong> l'écartement entre les fentes, c'est-à-dire utiliser des fentes séparées de $$0{,}20   $$.</li><li><strong>Calcul avec le laser bleu</strong>
+<strong>Données :</strong> $' = $450   $ = 4{,}50  10^{-7} $$$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+i' &= {a_{1-2}} = {4{,}50  10^{-7}  2{,}0}{4{,}0  10^{-4}} \\[6pt]
+i' &= {9{,}00  10^{-7}}{4{,}0  10^{-4}} \\[6pt]
+i' &= 2{,}25  10^{-3} $$ = $2{,}3   $
+$$</div></div>
+<strong>Comparaison :</strong> $i' = $2{,}3   $ < i = $3{,}3   $$.
+<p>L'interfrange est plus petit avec le laser bleu, ce qui est cohérent avec le fait que $' < $ : les franges sont plus resserrées.</p>
+<strong>Conclusion :</strong> L'interfrange avec le laser bleu vaut $i'  $2{,}3   $$, soit environ $$1{,}0   $$ de moins qu'avec le laser rouge.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 8</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Interférences constructives et destructives -- différence de chemin optique.
+</div>
+<p>Une expérience d'interférences en lumière monochromatique de longueur d'onde dans le vide $_0 = $600   $$ est réalisée avec deux sources $S_1$ et $S_2$ émettant en phase, séparées par une distance $a_{1-2} = $0{,}30   $$. Un écran est placé à une distance $D = $2{,}0   $$ des sources.</p>
+<p>L'indice de réfraction de l'air est $n_{} = 1{,}00$.</p>
+<p>La différence de chemin optique au point $M$ d'abscisse $x$ sur l'écran est donnée par :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$_0 = {a_{1-2}  x}{D}$$</div></div></div></div></p>
+<ol><li>Rappeler la condition sur $_0$ pour observer une frange brillante (interférences constructives).</li><li>Rappeler la condition sur $_0$ pour observer une frange sombre (interférences destructives).</li><li>Déterminer l'interfrange $i$.</li><li>On considère un point $M_1$ situé à $x_1 = $8{,}0   $$ du centre de la figure d'interférences. Calculer $_0$ en ce point et indiquer si $M_1$ est au centre d'une frange brillante ou d'une frange sombre.</li><li>On considère un point $M_2$ situé à $x_2 = $6{,}0   $$. Même question.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise l'expression de la différence de chemin optique $_0 = {a_{1-2}  x}{D}$ et on compare aux conditions d'interférences constructives ($_0 = k_0$) et destructives ($_0 = (k + {2})_0$). On calcule aussi l'interfrange par $i = {a_{1-2}}$.
+</div>
+<strong>Données :</strong>
+<ul><li>$_0 = $600   $ = 6{,}00  10^{-7} $$$</li><li>$a_{1-2} = $0{,}30   $ = 3{,}0  10^{-4} $$$</li><li>$D = $2{,}0   $$</li><li>$n_{} = 1{,}00$
+</li></ul>
+<ol><li><strong>Condition pour une frange brillante (interférences constructives)</strong>
+<p>On observe une frange brillante lorsque les deux ondes arrivent en phase. La condition est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${_0 = k_0   k  }$$</div></div></div></div></p>
+<p>Autrement dit, la différence de chemin optique doit être un multiple entier de la longueur d'onde.</li><li><strong>Condition pour une frange sombre (interférences destructives)</strong></p>
+<p>On observe une frange sombre lorsque les deux ondes arrivent en opposition de phase. La condition est :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$${_0 = (k + {2})_0   k  }$$</div></div></div></div></li><li><strong>Calcul de l'interfrange $i$</strong></p>
+<strong>Formule :</strong> $i = {a_{1-2}}$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+i &= {6{,}00  10^{-7}  2{,}0}{3{,}0  10^{-4}} \\[6pt]
+i &= {1{,}20  10^{-6}}{3{,}0  10^{-4}} \\[6pt]
+i &= 4{,}0  10^{-3} $$ = $4{,}0   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'interfrange vaut $i = $4{,}0   $$.</li><li>{Étude du point $M_1$ situé à $x_1 = $8{,}0   $$}
+<strong>Conversion :</strong> $x_1 = $8{,}0   $ = 8{,}0  10^{-3} $$$
+<strong>Calcul de $_0$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_0 &= {a_{1-2}  x_1}{D} = {3{,}0  10^{-4}  8{,}0  10^{-3}}{2{,}0} \\[6pt]
+_0 &= {2{,}4  10^{-6}}{2{,}0} = 1{,}2  10^{-6} $$ = $1200   $
+$$</div></div></div></div>
+<strong>Comparaison avec $_0$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{_0} &= {1{,}2  10^{-6}}{6{,}00  10^{-7}} = 2{,}0
+$$</div></div></div></div>
+<p>On a $_0 = 2_0$ avec $k = 2  $.</p>
+<strong>Conclusion :</strong> Le point $M_1$ est au centre d'une <strong>frange brillante</strong> (interférences constructives).
+<div class="info-box">
+<strong>Vérification alternative :</strong> On peut aussi utiliser l'interfrange. La position $x_1 = $8{,}0   $$ correspond à ${i} = {8{,}0}{4{,}0} = 2{,}0$, ce qui est un nombre entier. Le point est bien sur une frange brillante d'ordre 2.
+</div></li><li>{Étude du point $M_2$ situé à $x_2 = $6{,}0   $$}
+<strong>Conversion :</strong> $x_2 = $6{,}0   $ = 6{,}0  10^{-3} $$$
+<strong>Calcul de $_0$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_0 &= {a_{1-2}  x_2}{D} = {3{,}0  10^{-4}  6{,}0  10^{-3}}{2{,}0} \\[6pt]
+_0 &= {1{,}8  10^{-6}}{2{,}0} = 9{,}0  10^{-7} $$ = $900   $
+$$</div></div></div></div>
+<strong>Comparaison avec $_0$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{_0} &= {9{,}0  10^{-7}}{6{,}00  10^{-7}} = 1{,}5
+$$</div></div></div></div>
+<p>On a $_0 = 1{,}5 _0 = (1 + {2})_0$, ce qui correspond à la condition d'interférences destructives avec $k = 1$.</p>
+<strong>Conclusion :</strong> Le point $M_2$ est au centre d'une <strong>frange sombre</strong> (interférences destructives).
+<div class="info-box">
+<strong>Vérification alternative :</strong> ${i} = {6{,}0}{4{,}0} = 1{,}5$. Ce n'est pas un nombre entier, mais un demi-entier impair (${2}$). Le point est bien sur une frange sombre.
+</div>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 9</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Détection d'ondes ultrasonores -- interférences avec deux émetteurs.
+</div>
+<p>Deux émetteurs ultrasonores $E_1$ et $E_2$, branchés sur le même générateur basse fréquence (GBF), émettent des ondes de fréquence $f = $4{,}25  10^{4}   $$. Dans les conditions de l'expérience, la célérité des ultrasons dans l'air est $v = $340   $$.</p>
+<p>Un récepteur est déplacé le long d'un axe parallèle à la droite reliant les deux émetteurs. On mesure les distances entre chaque émetteur et différents points de mesure :</p>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Point</strong></th><th><strong>M</strong></th><th><strong>N</strong></th><th><strong>P</strong></th></tr><tr><td>Distance à $E_1$ (en mm)</td><td>234</td><td>252</td><td>312</td></tr><tr><td>Distance à $E_2$ (en mm)</td><td>226</td><td>256</td><td>328</td></tr></tbody></table></div>
+</div>
+<ol><li>Calculer la longueur d'onde $$ des ondes ultrasonores dans l'air.</li><li>Pour chaque point $M$, $N$ et $P$, calculer la différence de marche $ = d_2 - d_1$.</li><li>Exprimer chaque différence de marche en fonction de $$.</li><li>En déduire, pour chaque point, si les interférences sont constructives, destructives, ou ni l'un ni l'autre.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On calcule la longueur d'onde $ = {f}$, puis pour chaque point on calcule la différence de marche $ = d_2 - d_1$ et on l'exprime en fonction de $$ pour déterminer la nature des interférences.
+</div>
+<strong>Données :</strong>
+<ul><li>$f = $4{,}25  10^{4}   $$</li><li>$v = $340   $$
+</li></ul>
+<ol><li><strong>Calcul de la longueur d'onde $$</strong>
+<strong>Formule :</strong> $ = {f}$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ &= {4{,}25  10^{4}} \\[6pt]
+ &= 8{,}0  10^{-3} $$ = $8{,}0   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> $ = $8{,}0   $$.</li><li><strong>Calcul de la différence de marche pour chaque point</strong>
+<p>La différence de marche est $ = d_2 - d_1$ (en prenant les distances en mm puis en convertissant).</p>
+<strong>Point $M$ :</strong> $d_1 = $234   $$, $d_2 = $226   $$
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_M &= d_2 - d_1 = 226 - 234 = -8 $$
+$$</div></div></div></div>
+<p>En valeur absolue : $|_M| = $8   $$.</p>
+<strong>Point $N$ :</strong> $d_1 = $252   $$, $d_2 = $256   $$
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_N &= d_2 - d_1 = 256 - 252 = $4   $
+$$</div></div></div></div>
+<strong>Point $P$ :</strong> $d_1 = $312   $$, $d_2 = $328   $$
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+_P &= d_2 - d_1 = 328 - 312 = $16   $
+$$</div></div></div></div></li><li><strong>Expression de chaque différence de marche en fonction de $$</strong>
+<p>On a $ = $8{,}0   $$.</p>
+<strong>Point $M$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{} &= {-8{,}0}{8{,}0} = -1{,}0    _M = -1  
+$$</div></div></div></div>
+<strong>Point $N$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{} &= {4{,}0}{8{,}0} = 0{,}5    _N = 0{,}5  = {2}
+$$</div></div></div></div>
+<strong>Point $P$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+{} &= {8{,}0} = 2{,}0    _P = 2
+$$</div></div></div></div></li><li><strong>Nature des interférences en chaque point</strong>
+<ul><li><strong>Point $M$ :</strong> $_M = -1   = k$ avec $k = -1  $.
+<p>$$ Les interférences sont <strong>constructives</strong>. L'amplitude du signal reçu est maximale.</li><li><strong>Point $N$ :</strong> $_N = 0{,}5  = {2} = (2  0 + 1){2}$ avec $k = 0$.</p>
+<p>$$ Les interférences sont <strong>destructives</strong>. L'amplitude du signal reçu est minimale.</li><li><strong>Point $P$ :</strong> $_P = 2 = k$ avec $k = 2  $.</p>
+<p>$$ Les interférences sont <strong>constructives</strong>. L'amplitude du signal reçu est maximale.<br></li></ul></p>
+<div class="info-box">
+<strong>Récapitulatif :</strong>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Point</strong></th><th>$$ (mm)</th><th>$ / $</th><th><strong>Nature</strong></th></tr><tr><td>$M$</td><td>$-8{,}0$</td><td>$-1{,}0$</td><td>Constructives</td></tr><tr><td>$N$</td><td>$+4{,}0$</td><td>$+0{,}5$</td><td>Destructives</td></tr><tr><td>$P$</td><td>$+16$</td><td>$+2{,}0$</td><td>Constructives</td></tr></tbody></table></div>
+</div>
+</div>
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">⭐⭐⭐ Niveau 3 : Approfondissement</span>
+            <h2 class="exo-title">Exercice 10</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Exploitation graphique de l'angle de diffraction.
+</div>
+<p>On réalise plusieurs expériences de diffraction avec un pointeur laser de longueur d'onde $$ inconnue et des fentes verticales de différentes largeurs $a$. Pour chaque fente, on mesure le demi-angle de diffraction $$. Les résultats sont regroupés dans le tableau suivant :</p>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>$a$ (<div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div>)</th><th>50</th><th>100</th><th>150</th><th>200</th><th>300</th></tr><tr><td>${a}$ (<div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div>)</td><td></td><td></td><td></td><td></td><td>\\[0.4cm]</td></tr><tr><td>$$ (rad)</td><td>0{,}0128</td><td>0{,}0064</td><td>0{,}0043</td><td>0{,}0032</td><td>0{,}0021</td></tr></tbody></table></div>
+</div>
+<ol><li>Compléter le tableau en calculant ${a}$ pour chaque valeur de $a$ (exprimer le résultat en $$$$).</li><li>Tracer le graphique $ = f\!({a})$ sur papier millimétré ou sur un repère adapté.</li><li>Montrer que le graphique est compatible avec la relation $ = {a}$.</li><li>Déterminer graphiquement la valeur de la longueur d'onde $$ du laser utilisé.</li><li>Identifier la couleur probable de ce laser.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On calcule ${a}$ pour chaque valeur, on trace le graphique $ = f\!({a})$, on vérifie qu'il s'agit d'une droite passant par l'origine (relation de proportionnalité), et on détermine la pente qui correspond à $$.
+</div>
+<ol><li>{Calcul de ${a}$ pour chaque valeur de $a$}
+<p>On convertit d'abord $a$ en mètres, puis on calcule ${a}$ en $$$$.</p>
+<ul><li>$a = $50   $ = 5{,}0  10^{-5} $$$ $$ ${a} = {5{,}0  10^{-5}} = $2{,}00  10^{4}   $$</li><li>$a = $100   $ = 1{,}00  10^{-4} $$$ $$ ${a} = {1{,}00  10^{-4}} = $1{,}00  10^{4}   $$</li><li>$a = $150   $ = 1{,}50  10^{-4} $$$ $$ ${a} = {1{,}50  10^{-4}} = $6{,}67  10^{3}   $$</li><li>$a = $200   $ = 2{,}00  10^{-4} $$$ $$ ${a} = {2{,}00  10^{-4}} = $5{,}00  10^{3}   $$</li><li>$a = $300   $ = 3{,}00  10^{-4} $$$ $$ ${a} = {3{,}00  10^{-4}} = $3{,}33  10^{3}   $$
+</li></ul>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th>$a$ (<div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div>)</th><th>50</th><th>100</th><th>150</th><th>200</th><th>300</th></tr><tr><td>${a}$ (<div class="formula-wrapper-centered"><div class="formula-content">$$$$</div></div>)</td><td>$2{,}00  10^{4}$</td><td>$1{,}00  10^{4}$</td><td>$6{,}67  10^{3}$</td><td>$5{,}00  10^{3}$</td><td>$3{,}33  10^{3}$ \<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$0.3cm]</td></tr><tr><td>$$ (rad)</td><td>0{,}0128</td><td>0{,}0064</td><td>0{,}0043</td><td>0{,}0032</td><td>0{,}0021</td></tr></tbody></table></div>
+</div></li><li><strong>Tracé du graphique</strong>
+<p>On trace $$ en ordonnée (en rad) en fonction de ${a}$ en abscisse (en$$</div></div><div class="formula-wrapper-centered"><div class="formula-content">$$).</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.286669 -70.132371 326.220719 221.420992'>
+<defs>
+<clipPath id='clip1'>
+<path d='M-35.589853 125.249778H259.7348V-56.692H-35.589853Z'/>
+</clipPath>
+<path id='g0-0' d='M4.758157-1.338979C4.853798-1.338979 5.003238-1.338979 5.003238-1.494396S4.853798-1.649813 4.758157-1.649813H.992279C.896638-1.649813 .747198-1.649813 .747198-1.494396S.896638-1.338979 .992279-1.338979H4.758157Z'/>
+<path id='g1-1' d='M1.75741-2.25056C1.75741-2.510585 1.551183-2.734745 1.273225-2.734745S.789041-2.510585 .789041-2.25056S.995268-1.766376 1.273225-1.766376S1.75741-1.990535 1.75741-2.25056Z'/>
+<path id='g2-18' d='M4.178331-4.438356C4.178331-5.361893 3.873474-6.321295 3.048568-6.321295C1.739477-6.321295 .367621-3.765878 .367621-1.775342C.367621-1.129763 .564882 .09863 1.497385 .09863C2.806476 .09863 4.178331-2.429888 4.178331-4.438356ZM1.344956-3.254795C1.524284-3.963138 1.712578-4.617684 2.080199-5.236364C2.295392-5.595019 2.627148-6.097136 3.039601-6.097136C3.523786-6.097136 3.559651-5.326027 3.559651-4.985305C3.559651-4.447323 3.416189-3.819676 3.281694-3.254795H1.344956ZM3.200996-2.96787C3.057534-2.402989 2.887173-1.730511 2.528518-1.093898C2.295392-.672478 1.936737-.125529 1.506351-.125529C1.120797-.125529 .995268-.591781 .995268-1.246326C.995268-1.820174 1.13873-2.402989 1.273225-2.96787H3.200996Z'/>
+<path id='g2-58' d='M1.75741-.484184C1.75741-.744209 1.551183-.968369 1.273225-.968369S.789041-.744209 .789041-.484184S.995268 0 1.273225 0S1.75741-.224159 1.75741-.484184Z'/>
+<path id='g2-61' d='M4.034869-6.366127C4.088667-6.491656 4.088667-6.509589 4.088667-6.527522C4.088667-6.644085 3.999004-6.724782 3.900374-6.724782C3.774844-6.724782 3.738979-6.653051 3.730012-6.635118L.564882 1.882939C.511083 2.008468 .511083 2.026401 .511083 2.044334C.511083 2.160897 .600747 2.241594 .699377 2.241594C.789041 2.241594 .860772 2.205729 .923537 2.026401L4.034869-6.366127Z'/>
+<path id='g2-97' d='M3.425156-3.407223C3.254795-3.730012 2.976837-3.963138 2.57335-3.963138C1.53325-3.963138 .376588-2.725778 .376588-1.353923C.376588-.367621 1.004234 .09863 1.604981 .09863C2.187796 .09863 2.663014-.385554 2.806476-.555915C2.905106-.062765 3.353425 .09863 3.640349 .09863C3.900374 .09863 4.124533-.017933 4.321793-.394521C4.483188-.690411 4.608717-1.246326 4.608717-1.282192C4.608717-1.327024 4.581818-1.389788 4.492154-1.389788C4.384558-1.389788 4.375592-1.344956 4.339726-1.174595C4.142466-.394521 3.945205-.125529 3.667248-.125529C3.443088-.125529 3.38929-.340722 3.38929-.537983C3.38929-.708344 3.434122-.887671 3.514819-1.201494L3.738979-2.125031C3.801743-2.349191 3.963138-3.021669 3.999004-3.156164C4.034869-3.281694 4.088667-3.496887 4.088667-3.523786C4.088667-3.667248 3.972105-3.783811 3.81071-3.783811C3.694147-3.783811 3.469988-3.71208 3.425156-3.407223ZM2.842341-1.093898C2.797509-.923537 2.797509-.91457 2.654047-.744209C2.331258-.358655 1.963636-.125529 1.63188-.125529C1.192528-.125529 1.0401-.582814 1.0401-.968369C1.0401-1.407721 1.300125-2.438854 1.515318-2.86924C1.802242-3.407223 2.214695-3.738979 2.57335-3.738979C3.174097-3.738979 3.308593-3.021669 3.308593-2.958904C3.308593-2.914072 3.29066-2.860274 3.281694-2.824408L2.842341-1.093898Z'/>
+<path id='g3-49' d='M2.145953-3.795766C2.145953-3.975093 2.122042-3.975093 1.942715-3.975093C1.548194-3.592528 .938481-3.592528 .723288-3.592528V-3.359402C.878705-3.359402 1.273225-3.359402 1.63188-3.526775V-.508095C1.63188-.310834 1.63188-.233126 1.016189-.233126H.759153V0C1.08792-.02391 1.554172-.02391 1.888917-.02391S2.689913-.02391 3.01868 0V-.233126H2.761644C2.145953-.233126 2.145953-.310834 2.145953-.508095V-3.795766Z'/>
+<path id='g3-50' d='M3.21594-1.117808H2.99477C2.982814-1.034122 2.923039-.639601 2.833375-.573848C2.791532-.537983 2.307347-.537983 2.223661-.537983H1.105853L1.870984-1.159651C2.074222-1.321046 2.606227-1.703611 2.791532-1.882939C2.970859-2.062267 3.21594-2.367123 3.21594-2.791532C3.21594-3.53873 2.540473-3.975093 1.739477-3.975093C.968369-3.975093 .430386-3.466999 .430386-2.905106C.430386-2.600249 .687422-2.564384 .753176-2.564384C.902615-2.564384 1.075965-2.67198 1.075965-2.887173C1.075965-3.01868 .998257-3.209963 .735243-3.209963C.872727-3.514819 1.23736-3.741968 1.649813-3.741968C2.27746-3.741968 2.612204-3.275716 2.612204-2.791532C2.612204-2.367123 2.331258-1.93076 1.912827-1.548194L.496139-.251059C.436364-.191283 .430386-.185305 .430386 0H3.030635L3.21594-1.117808Z'/>
+<path id='g3-52' d='M3.371357-.980324V-1.21345H2.67198V-3.855542C2.67198-3.993026 2.67198-4.034869 2.52254-4.034869C2.414944-4.034869 2.402989-4.016936 2.349191-3.945205L.274969-1.21345V-.980324H2.133998V-.502117C2.133998-.304857 2.133998-.233126 1.63188-.233126H1.458531V0C1.578082-.005978 2.139975-.02391 2.402989-.02391S3.227895-.005978 3.347447 0V-.233126H3.174097C2.67198-.233126 2.67198-.304857 2.67198-.502117V-.980324H3.371357ZM2.175841-3.383313V-1.21345H.532005L2.175841-3.383313Z'/>
+<path id='g4-48' d='M4.241096-2.86924C4.241096-3.469988 4.214197-4.241096 3.900374-4.913574C3.505853-5.756413 2.824408-5.971606 2.304359-5.971606C1.766376-5.971606 1.084932-5.756413 .690411-4.895641C.403487-4.276961 .358655-3.550685 .358655-2.86924C.358655-2.286426 .376588-1.416687 .762142-.708344C1.183562 .053798 1.882939 .19726 2.295392 .19726C2.878207 .19726 3.541719-.053798 3.918306-.878705C4.187298-1.479452 4.241096-2.15193 4.241096-2.86924ZM2.304359-.026899C2.035367-.026899 1.389788-.152428 1.219427-1.165629C1.129763-1.694645 1.129763-2.465753 1.129763-2.976837C1.129763-3.58655 1.129763-4.294894 1.23736-4.788045C1.416687-5.586052 1.990535-5.747447 2.295392-5.747447C2.636115-5.747447 3.200996-5.56812 3.371357-4.734247C3.469988-4.241096 3.469988-3.541719 3.469988-2.976837C3.469988-2.420922 3.469988-1.667746 3.380324-1.13873C3.19203-.116563 2.528518-.026899 2.304359-.026899Z'/>
+<path id='g4-49' d='M2.725778-5.729514C2.725778-5.953674 2.716812-5.971606 2.492653-5.971606C1.936737-5.397758 1.111831-5.397758 .833873-5.397758V-5.119801C1.004234-5.119801 1.551183-5.119801 2.035367-5.352927V-.71731C2.035367-.385554 2.008468-.277958 1.174595-.277958H.887671V0C1.210461-.026899 2.008468-.026899 2.37609-.026899S3.550685-.026899 3.873474 0V-.277958H3.58655C2.752677-.277958 2.725778-.385554 2.725778-.71731V-5.729514Z'/>
+<path id='g4-50' d='M4.142466-1.587049H3.891407C3.873474-1.470486 3.801743-.941469 3.685181-.798007C3.631382-.71731 3.012702-.71731 2.833375-.71731H1.23736L2.125031-1.560149C3.595517-2.833375 4.142466-3.308593 4.142466-4.223163C4.142466-5.254296 3.29066-5.971606 2.187796-5.971606C1.156663-5.971606 .457285-5.155666 .457285-4.339726C.457285-3.891407 .842839-3.846575 .923537-3.846575C1.120797-3.846575 1.389788-3.990037 1.389788-4.312827C1.389788-4.581818 1.201494-4.779078 .923537-4.779078C.878705-4.779078 .851806-4.779078 .81594-4.770112C1.031133-5.406725 1.604981-5.693649 2.089166-5.693649C3.003736-5.693649 3.317559-4.841843 3.317559-4.223163C3.317559-3.308593 2.627148-2.564384 2.196762-2.098132L.555915-.32279C.457285-.224159 .457285-.206227 .457285 0H3.891407L4.142466-1.587049Z'/>
+<path id='g4-52' d='M.260025-1.75741V-1.479452H2.707846V-.708344C2.707846-.376588 2.680946-.277958 2.008468-.277958H1.811208V0C2.37609-.026899 3.003736-.026899 3.066501-.026899C3.111333-.026899 3.756912-.026899 4.321793 0V-.277958H4.124533C3.452055-.277958 3.425156-.376588 3.425156-.708344V-1.479452H4.339726V-1.75741H3.425156V-5.828144C3.425156-6.007472 3.425156-6.070237 3.254795-6.070237C3.147198-6.070237 3.138232-6.06127 3.057534-5.935741L.260025-1.75741ZM.546949-1.75741L2.761644-5.074969V-1.75741H.546949Z'/>
+<path id='g4-53' d='M.932503-3.0934C.932503-2.932005 .932503-2.833375 1.058032-2.833375C1.129763-2.833375 1.156663-2.86924 1.210461-2.949938C1.479452-3.326526 1.909838-3.541719 2.37609-3.541719C3.335492-3.541719 3.335492-2.160897 3.335492-1.838107C3.335492-1.560149 3.335492-1.004234 3.084433-.600747C2.842341-.224159 2.465753-.053798 2.116065-.053798C1.587049-.053798 .986301-.385554 .771108-1.049066C.780075-1.049066 .833873-1.031133 .896638-1.031133C1.075965-1.031133 1.33599-1.147696 1.33599-1.470486C1.33599-1.748443 1.13873-1.909838 .896638-1.909838C.708344-1.909838 .457285-1.802242 .457285-1.443587C.457285-.627646 1.13873 .19726 2.133998 .19726C3.218929 .19726 4.142466-.681445 4.142466-1.793275C4.142466-2.878207 3.371357-3.765878 2.394022-3.765878C1.963636-3.765878 1.524284-3.622416 1.210461-3.299626V-5.066002C1.479452-4.985305 1.75741-4.940473 2.035367-4.940473C3.138232-4.940473 3.783811-5.738481 3.783811-5.855044C3.783811-5.935741 3.730012-5.971606 3.685181-5.971606C3.667248-5.971606 3.649315-5.971606 3.568618-5.926775C3.147198-5.756413 2.734745-5.684682 2.358157-5.684682C1.972603-5.684682 1.569116-5.756413 1.156663-5.926775C1.066999-5.971606 1.049066-5.971606 1.0401-5.971606C.932503-5.971606 .932503-5.881943 .932503-5.729514V-3.0934Z'/>
+<path id='g4-54' d='M1.201494-2.96787C1.201494-3.882441 1.300125-4.393524 1.542217-4.859776C1.721544-5.227397 2.160897-5.747447 2.824408-5.747447C3.003736-5.747447 3.416189-5.711582 3.622416-5.388792C3.29066-5.388792 3.147198-5.218431 3.147198-4.976339C3.147198-4.743213 3.308593-4.563885 3.559651-4.563885S3.981071-4.72528 3.981071-4.994271C3.981071-5.496389 3.622416-5.971606 2.806476-5.971606C1.649813-5.971606 .385554-4.832877 .385554-2.833375C.385554-.403487 1.479452 .19726 2.322291 .19726C3.317559 .19726 4.214197-.636613 4.214197-1.820174C4.214197-2.958904 3.38929-3.819676 2.37609-3.819676C1.838107-3.819676 1.452553-3.505853 1.201494-2.96787ZM2.313325-.053798C1.802242-.053798 1.506351-.475218 1.398755-.735243C1.228394-1.13873 1.219427-1.882939 1.219427-2.026401C1.219427-2.627148 1.497385-3.595517 2.358157-3.595517C2.501619-3.595517 2.940971-3.595517 3.227895-3.039601C3.398257-2.698879 3.398257-2.259527 3.398257-1.829141S3.398257-.959402 3.227895-.627646C2.949938-.116563 2.555417-.053798 2.313325-.053798Z'/>
+<path id='g4-56' d='M1.542217-4.070735C1.273225-4.241096 1.066999-4.483188 1.066999-4.814944C1.066999-5.397758 1.694645-5.747447 2.286426-5.747447C2.976837-5.747447 3.532752-5.263263 3.532752-4.635616S2.99477-3.595517 2.636115-3.38929L1.542217-4.070735ZM2.860274-3.245828C3.308593-3.461021 3.963138-3.90934 3.963138-4.635616C3.963138-5.478456 3.120299-5.971606 2.313325-5.971606C1.371856-5.971606 .636613-5.299128 .636613-4.474222C.636613-4.133499 .762142-3.81071 .977335-3.550685C1.129763-3.380324 1.183562-3.344458 1.703611-3.012702C.91457-2.636115 .385554-2.089166 .385554-1.353923C.385554-.403487 1.327024 .19726 2.295392 .19726C3.335492 .19726 4.214197-.537983 4.214197-1.506351C4.214197-2.37609 3.550685-2.806476 3.326526-2.949938C3.227895-3.021669 2.96787-3.183064 2.860274-3.245828ZM1.945704-2.860274L3.075467-2.160897C3.281694-2.026401 3.730012-1.739477 3.730012-1.192528C3.730012-.484184 3.012702-.053798 2.304359-.053798C1.524284-.053798 .869738-.609714 .869738-1.353923C.869738-1.999502 1.318057-2.537484 1.945704-2.860274Z'/>
+<path id='g4-109' d='M1.667746-2.322291C1.667746-3.29066 2.367123-3.738979 2.905106-3.738979C3.398257-3.738979 3.559651-3.38929 3.559651-2.761644V-.690411C3.559651-.277958 3.461021-.277958 2.86924-.277958V0C3.29066-.017933 3.461021-.026899 3.891407-.026899S4.438356-.017933 4.913574 0V-.277958C4.321793-.277958 4.223163-.277958 4.223163-.690411V-2.322291C4.223163-3.29066 4.92254-3.738979 5.460523-3.738979C5.953674-3.738979 6.115068-3.38929 6.115068-2.761644V-.690411C6.115068-.277958 6.016438-.277958 5.424658-.277958V0C5.846077-.017933 6.016438-.026899 6.446824-.026899S6.993773-.017933 7.468991 0V-.277958C7.011706-.277958 6.787547-.277958 6.77858-.555915V-2.27746C6.77858-3.057534 6.77858-3.308593 6.48269-3.640349C6.294396-3.855542 5.935741-3.963138 5.523288-3.963138C4.877709-3.963138 4.438356-3.58655 4.187298-3.111333C4.079701-3.640349 3.721046-3.963138 2.96787-3.963138C2.25056-3.963138 1.811208-3.496887 1.622914-3.084433H1.613948V-3.963138L.313823-3.864508V-3.58655C.923537-3.58655 1.004234-3.523786 1.004234-3.084433V-.690411C1.004234-.277958 .905604-.277958 .313823-.277958V0C.735243-.017933 .905604-.026899 1.33599-.026899S1.882939-.017933 2.358157 0V-.277958C1.766376-.277958 1.667746-.277958 1.667746-.690411V-2.322291Z'/>
+</defs>
+<g id='page1'>
+<path d='M-35.589803 125.250178V-56.6916M31.52735 125.250178V-56.6916M98.64885 125.250178V-56.6916M165.76985 125.250178V-56.6916M232.88685 125.250178V-56.6916' stroke='#bfbfbf' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-35.589853 125.249778H259.7348M-35.589853 100.992H259.7348M-35.589853 76.7302H259.7348M-35.589853 52.4724H259.7348M-35.589853 28.2146H259.7348M-35.589853 3.957H259.7348M-35.589853-20.305H259.7348M-35.589853-44.563H259.7348' stroke='#bfbfbf' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-35.589853 125.249778V120.99587M31.5273 125.249778V120.99587M98.6488 125.249778V120.99587M165.7698 125.249778V120.99587M232.8868 125.249778V120.99587M-35.589853-56.692V-52.438M31.5273-56.692V-52.438M98.6488-56.692V-52.438M165.7698-56.692V-52.438M232.8868-56.692V-52.438' stroke='#808080' fill='none' stroke-width='.19925' stroke-miterlimit='10'/>
+<path d='M-35.589853 125.249778H-31.33985M-35.589853 100.992H-31.33985M-35.589853 76.7302H-31.33985M-35.589853 52.4724H-31.33985M-35.589853 28.2146H-31.33985M-35.589853 3.957H-31.33985M-35.589853-20.305H-31.33985M-35.589853-44.563H-31.33985M259.7348 125.249778H255.4848M259.7348 100.992H255.4848M259.7348 76.7302H255.4848M259.7348 52.4724H255.4848M259.7348 28.2146H255.4848M259.7348 3.957H255.4848M259.7348-20.305H255.4848M259.7348-44.563H255.4848' stroke='#808080' fill='none' stroke-width='.19925' stroke-miterlimit='10'/>
+<path d='M-35.589853 125.249778V-56.692H259.7348V125.249778H-35.589853Z' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 -36.72105 38.6566)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-48'/>
+</g>
+<g transform='matrix(1 0 0 1 26.81495 38.6566)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-48'/>
+<use x='3.433642' y='95.890426' xlink:href='#g2-58'/>
+<use x='5.99347' y='95.890426' xlink:href='#g4-53'/>
+</g>
+<g transform='matrix(1 0 0 1 97.51855 38.6566)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-49'/>
+</g>
+<g transform='matrix(1 0 0 1 161.05405 38.6566)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-49'/>
+<use x='3.433642' y='95.890426' xlink:href='#g2-58'/>
+<use x='5.99347' y='95.890426' xlink:href='#g4-53'/>
+</g>
+<g transform='matrix(1 0 0 1 231.75805 38.6566)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-50'/>
+</g>
+<g transform='matrix(1 0 0 1 223.41205 54.8176)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g1-1'/>
+<use x='1.385779' y='95.890426' xlink:href='#g4-49'/>
+<use x='5.99347' y='95.890426' xlink:href='#g4-48'/>
+<use x='10.601161' y='92.081422' xlink:href='#g3-52'/>
+</g>
+<g transform='matrix(1 0 0 1 -42.54385 32.2476)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-48'/>
+</g>
+<g transform='matrix(1 0 0 1 -49.71155 7.9896)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-48'/>
+<use x='3.433642' y='95.890426' xlink:href='#g2-58'/>
+<use x='5.99347' y='95.890426' xlink:href='#g4-50'/>
+</g>
+<g transform='matrix(1 0 0 1 -49.71155 -16.2694)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-48'/>
+<use x='3.433642' y='95.890426' xlink:href='#g2-58'/>
+<use x='5.99347' y='95.890426' xlink:href='#g4-52'/>
+</g>
+<g transform='matrix(1 0 0 1 -49.71155 -40.5281)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-48'/>
+<use x='3.433642' y='95.890426' xlink:href='#g2-58'/>
+<use x='5.99347' y='95.890426' xlink:href='#g4-54'/>
+</g>
+<g transform='matrix(1 0 0 1 -49.71155 -64.7868)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-48'/>
+<use x='3.433642' y='95.890426' xlink:href='#g2-58'/>
+<use x='5.99347' y='95.890426' xlink:href='#g4-56'/>
+</g>
+<g transform='matrix(1 0 0 1 -42.54385 -89.04552)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-49'/>
+</g>
+<g transform='matrix(1 0 0 1 -49.71155 -113.3042)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-49'/>
+<use x='3.433642' y='95.890426' xlink:href='#g2-58'/>
+<use x='5.99347' y='95.890426' xlink:href='#g4-50'/>
+</g>
+<g transform='matrix(1 0 0 1 -49.71155 -137.5629)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-49'/>
+<use x='3.433642' y='95.890426' xlink:href='#g2-58'/>
+<use x='5.99347' y='95.890426' xlink:href='#g4-52'/>
+</g>
+<g transform='matrix(1 0 0 1 -31.22975 -158.2387)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g1-1'/>
+<use x='1.385779' y='95.890426' xlink:href='#g4-49'/>
+<use x='5.99347' y='95.890426' xlink:href='#g4-48'/>
+<use x='10.601161' y='92.081422' xlink:href='#g0-0'/>
+<use x='16.357314' y='92.081422' xlink:href='#g3-50'/>
+</g>
+<path d='M-35.589853 125.249778L259.7348-45.531' stroke='#ec4899' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883' clip-path='url(#clip1)'/>
+<path d='M235.3788-30.008C235.3788-31.383 234.2618-32.496 232.8868-32.496S230.3988-31.383 230.3988-30.008S231.5118-27.516 232.8868-27.516S235.3788-28.633 235.3788-30.008Z' fill='#0e7490'/>
+<path d='M235.3788-30.008C235.3788-31.383 234.2618-32.496 232.8868-32.496S230.3988-31.383 230.3988-30.008S231.5118-27.516 232.8868-27.516S235.3788-28.633 235.3788-30.008Z' stroke='#0e7490' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M101.1408 47.6209C101.1408 46.2459 100.0238 45.1287 98.6488 45.1287S96.1558 46.2459 96.1558 47.6209S97.2738 50.1131 98.6488 50.1131S101.1408 48.9959 101.1408 47.6209Z' fill='#0e7490'/>
+<path d='M101.1408 47.6209C101.1408 46.2459 100.0238 45.1287 98.6488 45.1287S96.1558 46.2459 96.1558 47.6209S97.2738 50.1131 98.6488 50.1131S101.1408 48.9959 101.1408 47.6209Z' stroke='#0e7490' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M56.4375 73.0935C56.4375 71.7185 55.3203 70.6013 53.9453 70.6013S51.457 71.7185 51.457 73.0935S52.5703 75.5818 53.9453 75.5818S56.4375 74.4685 56.4375 73.0935Z' fill='#0e7490'/>
+<path d='M56.4375 73.0935C56.4375 71.7185 55.3203 70.6013 53.9453 70.6013S51.457 71.7185 51.457 73.0935S52.5703 75.5818 53.9453 75.5818S56.4375 74.4685 56.4375 73.0935Z' stroke='#0e7490' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M34.0195 86.4334C34.0195 85.0584 32.9023 83.9451 31.5273 83.9451S29.039 85.0584 29.039 86.4334C29.039 87.8123 30.1523 88.9256 31.5273 88.9256S34.0195 87.8123 34.0195 86.4334Z' fill='#0e7490'/>
+<path d='M34.0195 86.4334C34.0195 85.0584 32.9023 83.9451 31.5273 83.9451S29.039 85.0584 29.039 86.4334C29.039 87.8123 30.1523 88.9256 31.5273 88.9256S34.0195 87.8123 34.0195 86.4334Z' stroke='#0e7490' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M11.6016 99.7771C11.6016 98.4021 10.4844 97.2849 9.1094 97.2849S6.6211 98.4021 6.6211 99.7771S7.7344 102.2693 9.1094 102.2693S11.6016 101.1521 11.6016 99.7771Z' fill='#0e7490'/>
+<path d='M11.6016 99.7771C11.6016 98.4021 10.4844 97.2849 9.1094 97.2849S6.6211 98.4021 6.6211 99.7771S7.7344 102.2693 9.1094 102.2693S11.6016 101.1521 11.6016 99.7771Z' stroke='#0e7490' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 92.28565 53.1566)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g4-49'/>
+<use x='3.433642' y='95.890426' xlink:href='#g2-61'/>
+<use x='8.041332' y='95.890426' xlink:href='#g2-97'/>
+<use x='15.994403' y='95.890426' xlink:href='#g5-40'/>
+<use x='19.577308' y='95.890426' xlink:href='#g4-109'/>
+<use x='27.256792' y='92.081422' xlink:href='#g0-0'/>
+<use x='33.012945' y='92.081422' xlink:href='#g3-49'/>
+<use x='37.163976' y='95.890426' xlink:href='#g5-41'/>
+</g>
+<g transform='matrix(0 -1 1 0 -155.8558 47.17285)'>
+<use x='-1.174049' y='95.890426' xlink:href='#g2-18'/>
+<use x='6.466671' y='95.890426' xlink:href='#g5-40'/>
+<use x='10.049575' y='95.890426' xlink:href='#g5-114'/>
+<use x='13.653233' y='95.890426' xlink:href='#g5-97'/>
+<use x='18.259829' y='95.890426' xlink:href='#g5-100'/>
+<use x='23.378271' y='95.890426' xlink:href='#g5-41'/>
+</g>
+</g>
+</svg></div>
+</div></li><li>{Vérification de la compatibilité avec $ = {a}$}
+<p>La relation $ = {a}$ peut s'écrire :<br>\[<br> =   {a}$$</div></div></div></div></p>
+<p>C'est une relation de la forme $y = mx$ avec $y = $, $x = {a}$ et $m = $ (la pente).</p>
+<p>Le graphique $ = f\!({a})$ doit donc être une <strong>droite passant par l'origine</strong>.</p>
+<p>En observant les points tracés, on constate qu'ils sont <strong>alignés</strong> et que la droite qui les relie passe bien <strong>par l'origine</strong> du repère.</p>
+<strong>Conclusion :</strong> Le graphique est compatible avec la relation $ = {a}$.</li><li><strong>Détermination graphique de $$</strong>
+<p>La pente de la droite correspond à $$. On la détermine en prenant deux points éloignés sur la droite.</p>
+<p>Prenons les points $(1{,}00  10^{4} ; 0{,}0064)$ et $(2{,}00  10^{4} ; 0{,}0128)$ :</p>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+ =  &= {({a})} = {0{,}0128 - 0{,}0064}{2{,}00  10^{4} - 1{,}00  10^{4}} \\[6pt]
+ &= {0{,}0064}{1{,}00  10^{4}} \\[6pt]
+ &= 6{,}4  10^{-7} $$ = $640   $
+$$</div></div></div></div>
+<strong>Conclusion :</strong> La longueur d'onde du laser est $  $640   $$.</li><li><strong>Identification de la couleur du laser</strong>
+<p>La longueur d'onde $  $640   $$ se situe dans le domaine visible, dans la zone du <strong>rouge</strong> (approximativement entre $$620   $$ et $$780   $$).</p>
+<strong>Conclusion :</strong> Le laser utilisé est probablement un <strong>laser rouge</strong>.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 11</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Diffraction et interférences -- expérience des fentes d'Young avec exploitation de données.
+</div>
+<p>L'expérience des fentes d'Young est réalisée avec une onde monochromatique de longueur d'onde $ = $650   $$ et des fentes de largeur individuelle $a = $70   $$. Les deux fentes sont séparées d'une distance $a_{1-2}$ et situées à une distance $D = $2{,}1   $$ de l'écran.</p>
+<p>On dispose de trois doubles fentes d'Young d'écartement variable :<br><ul><li>Dispositif 1 : $a_{1-2} = $0{,}20   $$</li><li>Dispositif 2 : $a_{1-2} = $0{,}30   $$</li><li>Dispositif 3 : $a_{1-2} = $0{,}40   $$<br></li></ul></p>
+<p>On rappelle les expressions :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$  i = {a_{1-2}}    L = {a}$$</div></div></div></div></p>
+<ol><li>Identifier les deux phénomènes physiques mis en jeu dans cette expérience et rappeler les conditions nécessaires à leur observation.</li><li>Calculer la largeur $L$ de la tache centrale de diffraction produite par chaque fente individuelle.</li><li>Calculer l'interfrange $i$ pour chacun des trois dispositifs.</li><li>Déterminer, pour chaque dispositif, le nombre de franges brillantes visibles à l'intérieur de la tache centrale de diffraction. On rappelle que ce nombre vaut environ ${i} - 1$.</li><li>Comparer les résultats obtenus avec les trois dispositifs et discuter l'influence de l'écartement $a_{1-2}$ sur la figure observée.</li><li>Le laser rouge est remplacé par un laser vert de longueur d'onde $' = $532   $$, sans modifier le reste du dispositif (dispositif 2). Prévoir qualitativement les modifications de la figure d'interférences : taille de la tache centrale et valeur de l'interfrange. Justifier.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On utilise les deux relations données pour calculer séparément la largeur de la tache de diffraction ($L$) et l'interfrange ($i$), puis on détermine le nombre de franges brillantes dans la tache centrale par $N  {i} - 1$.
+</div>
+<strong>Données :</strong>
+<ul><li>$ = $650   $ = 6{,}50  10^{-7} $$$</li><li>$a = $70   $ = 7{,}0  10^{-5} $$$ (largeur individuelle de chaque fente)</li><li>$D = $2{,}1   $$
+</li></ul>
+<ol><li><strong>Identification des deux phénomènes et conditions d'observation</strong>
+<p>Les deux phénomènes physiques mis en jeu sont :</p>
+<ul><li><strong>La diffraction :</strong> Chaque fente individuelle, de largeur $a$ petite, diffracte la lumière. La condition est que la largeur de la fente $a$ soit du même ordre de grandeur que la longueur d'onde $$. Ici, $a = $70   $$ et $ = $650   $$ : le rapport ${a}  0{,}009$ est petit mais suffisant pour observer une figure de diffraction étendue.</li><li><strong>Les interférences :</strong> Les deux fentes jouent le rôle de deux sources secondaires cohérentes (même fréquence, même phase). Les ondes issues des deux fentes se superposent et interfèrent sur l'écran. La condition est que les deux sources soient <strong>cohérentes</strong> (même fréquence et relation de phase constante), ce qui est assuré par le fait qu'elles sont éclairées par le même laser.
+</li></ul></li><li><strong>Calcul de la largeur $L$ de la tache centrale de diffraction</strong>
+<strong>Formule :</strong> $L = {a}$
+<p>La largeur $a$ est celle d'une fente individuelle.</p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+L &= {2  6{,}50  10^{-7}  2{,}1}{7{,}0  10^{-5}} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>6pt]
+L &= {2{,}730  10^{-6}}{7{,}0  10^{-5}} \\[6pt]
+L &= 3{,}90  10^{-2} $$ = $3{,}9   $
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Conclusion :</strong> La tache centrale de diffraction a une largeur $L  $3{,}9   $$</div></div>. Cette valeur est la <strong>même pour les trois dispositifs</strong> car elle ne dépend que de $a$ (largeur individuelle de la fente), $$ et $D$, qui sont identiques dans les trois cas.</li><li><strong>Calcul de l'interfrange $i$ pour chaque dispositif</strong>
+<strong>Formule :</strong> $i = {a_{1-2}}$
+<strong>Dispositif 1 :</strong> $a_{1-2} = $0{,}20   $ = 2{,}0  10^{-4} $<div class="formula-wrapper-centered"><div class="formula-content">$$<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+i_1 &= {6{,}50  10^{-7}  2{,}1}{2{,}0  10^{-4}} = {1{,}365  10^{-6}}{2{,}0  10^{-4}} = 6{,}83  10^{-3} $$  $6{,}8   $
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Dispositif 2 :</strong> $a_{1-2} = $0{,}30   $ = 3{,}0  10^{-4} $$$</div></div>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+i_2 &= {6{,}50  10^{-7}  2{,}1}{3{,}0  10^{-4}} = {1{,}365  10^{-6}}{3{,}0  10^{-4}} = 4{,}55  10^{-3} $$  $4{,}6   $
+$$</div></div></div></div>
+<strong>Dispositif 3 :</strong> $a_{1-2} = $0{,}40   $ = 4{,}0  10^{-4} $<div class="formula-wrapper-centered"><div class="formula-content">$$<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+i_3 &= {6{,}50  10^{-7}  2{,}1}{4{,}0  10^{-4}} = {1{,}365  10^{-6}}{4{,}0  10^{-4}} = 3{,}41  10^{-3} $$  $3{,}4   $
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Conclusion :</strong>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Dispositif</strong></th><th>$a_{1-2}$ (mm)</th><th>$i$ (mm)</th></tr><tr><td>1</td><td>0{,}20</td><td>6{,}8</td></tr><tr><td>2</td><td>0{,}30</td><td>4{,}6</td></tr><tr><td>3</td><td>0{,}40</td><td>3{,}4</td></tr></tbody></table></div>
+</div></li><li><strong>Nombre de franges brillantes dans la tache centrale</strong>
+<strong>Formule :</strong> $N  {i} - 1$
+<strong>Dispositif 1 :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+{i_1} &= {6{,}8}  5{,}7    N_1  5{,}7 - 1  5 
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Dispositif 2 :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+{i_2} &= {4{,}6}  8{,}5    N_2  8{,}5 - 1  7 
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Dispositif 3 :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+{i_3} &= {3{,}4}  11{,}5    N_3  11{,}5 - 1  11 
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<div class="info-box">
+<strong>Récapitulatif :</strong>
+<div class="text-center">
+<div class="table-responsive"><table class="modern-table"><tbody><tr><th><strong>Dispositif</strong></th><th>$i$ (mm)</th><th>$L/i$</th><th>$N$ (franges brillantes)</th></tr><tr><td>1</td><td>6{,}8</td><td>5{,}7</td><td>$ 5$</td></tr><tr><td>2</td><td>4{,}6</td><td>8{,}5</td><td>$ 7$</td></tr><tr><td>3</td><td>3{,}4</td><td>11{,}5</td><td>$ 11$</td></tr></tbody></table></div>
+</div>
+</div></li><li>{Comparaison et discussion de l'influence de $a_{1-2}$}
+<p>En comparant les trois dispositifs :<br><ul><li>La tache centrale de diffraction a la <strong>même largeur</strong> $L = $3{,}9   $$</div></div> dans les trois cas (elle ne dépend pas de $a_{1-2}$ mais de $a$).</li><li>L'interfrange $i$ <strong>diminue</strong> lorsque $a_{1-2}$ augmente (car $i = {a_{1-2}}$ est inversement proportionnel à $a_{1-2}$).</li><li>Par conséquent, le nombre de franges brillantes visibles dans la tache centrale <strong>augmente</strong> lorsque $a_{1-2}$ augmente.<br></li></ul></p>
+<strong>Conclusion :</strong> Plus l'écartement $a_{1-2}$ entre les fentes est grand, plus les franges d'interférences sont fines et resserrées, et plus on en observe dans la tache centrale de diffraction.</li><li>{Prévision avec un laser vert ($' = $532   <div class="formula-wrapper-centered"><div class="formula-content">$$) pour le dispositif 2}
+<p>On utilise le dispositif 2 : $a_{1-2} = $0{,}30   $$</div></div>, $a = $70   <div class="formula-wrapper-centered"><div class="formula-content">$$, $D = $2{,}1   $$</div></div>.</p>
+<strong>Effet sur la tache centrale de diffraction :</strong>
+<p>$L = {a}$ est proportionnel à $$. Comme $' = $532   $ <  = $650   <div class="formula-wrapper-centered"><div class="formula-content">$$, la nouvelle largeur $L'$ sera <strong>plus petite</strong> que $L$.</p>
+<strong>Effet sur l'interfrange :</strong>
+<p>$i = {a_{1-2}}$ est proportionnel à $$. Comme $' < $, le nouvel interfrange $i'$ sera <strong>plus petit</strong> que $i$.</p>
+<strong>Justification quantitative rapide :</strong> Le rapport ${} = {650}  0{,}82$. Donc $L'$ et $i'$ seront environ 18
+<p>Le nombre de franges dans la tache centrale reste approximativement le même car :<br>\[<br>{i'} = {' D / a_{1-2}} = {2a_{1-2}}{a}$$</div></div></div></div><br>qui ne dépend pas de $$.</p>
+<strong>Conclusion :</strong> Avec le laser vert, la tache centrale de diffraction sera plus étroite et les franges d'interférences seront plus resserrées, mais le nombre de franges brillantes dans la tache centrale restera le même.
+</li></ol>
+                </div>
+            </details>
+        </div>
+        <div class="exo-card">
+            <span class="badge-diff">🏆 Type BAC</span>
+            <h2 class="exo-title">Exercice 12</h2>
+            <div class="info-box">
+<strong>Thème :</strong> Critère de Rayleigh -- observation d'une exoplanète par un télescope terrestre.
+</div>
+<p>L'observation de détails d'un objet céleste avec un télescope terrestre est principalement limitée par le diamètre $D_T$ de l'objectif du télescope qui collecte la lumière provenant de cet objet. Lorsqu'un faisceau lumineux traverse l'ouverture circulaire de diamètre $D_T$, il subit le phénomène de diffraction.</p>
+<strong>Données :</strong>
+<ul><li>La première exoplanète dont on a pu faire une image par observation directe dans le proche infrarouge s'appelle 2M1207b. Elle orbite à une distance estimée à $$55   $$ autour de l'étoile 2M1207a, située à $$230   $$ de la Terre.</li><li>$$1   $ = $1{,}50  10^{11}   $$  ;  $$1   $ = $9{,}461  10^{15}   $$.</li><li>Longueur d'onde d'observation : $ = $2{,}0   $$.</li><li>Pour une ouverture circulaire de diamètre $D_T$, l'angle $$ (en radian) de diffraction vérifie : $ = 1{,}22 {D_T}$.
+</li></ul>
+<strong>Document : Critère de Rayleigh</strong>
+<p>Le télescope permet de distinguer deux objets, à condition que l'écart angulaire $$ entre ces deux objets soit supérieur ou égal à l'angle $$ de diffraction de l'instrument.</p>
+<div class="text-center">
+<div class="card-dashed"><svg class="svg-center" style="max-width: 620px;" version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='-66.688207 -70.007905 235.751637 68.82831'>
+<defs>
+<path id='g1-84' d='M3.108344-3.598506C3.156164-3.789788 3.16812-3.801743 3.4132-3.801743H3.963138C4.60274-3.801743 4.692403-3.616438 4.692403-3.269738C4.692403-3.186052 4.680448-3.024658 4.656538-2.839352C4.65056-2.82142 4.638605-2.755666 4.638605-2.737733C4.638605-2.677958 4.686426-2.642092 4.752179-2.642092C4.847821-2.642092 4.859776-2.701868 4.871731-2.791532L5.033126-3.939228C5.033126-4.040847 4.967372-4.040847 4.847821-4.040847H.962391C.806974-4.040847 .795019-4.040847 .753176-3.915318L.364633-2.827397C.340722-2.755666 .340722-2.737733 .340722-2.731756C.340722-2.713823 .3467-2.642092 .448319-2.642092C.532005-2.642092 .537983-2.660025 .591781-2.815442C.860772-3.544707 1.046077-3.801743 1.817186-3.801743H2.361146C2.47472-3.801743 2.486675-3.801743 2.558406-3.783811L1.751432-.514072C1.709589-.3467 1.679701-.292902 1.512329-.268991C1.344956-.239103 .998257-.239103 .992279-.239103C.836862-.239103 .824907-.239103 .800996-.221171C.771108-.19726 .747198-.113574 .747198-.083686C.747198-.077709 .759153 0 .860772 0C1.022167 0 1.201494-.017933 1.362889-.017933C1.601993-.017933 1.75741-.02391 1.918804-.02391C2.098132-.02391 2.27746-.017933 2.456787-.017933C2.630137-.017933 2.82142 0 2.99477 0C3.04259 0 3.084433 0 3.108344-.041843C3.120299-.059776 3.144209-.131507 3.144209-.155417C3.126276-.239103 3.084433-.239103 2.899128-.239103C2.767621-.239103 2.642092-.245081 2.510585-.251059C2.373101-.263014 2.30137-.268991 2.30137-.358655L3.108344-3.598506Z'/>
+<path id='g2-11' d='M4.402491-2.107098C4.402491-3.443088 3.595517-3.963138 2.833375-3.963138C1.613948-3.963138 .385554-2.725778 .385554-1.43462C.385554-.511083 1.0132 .09863 1.882939 .09863C2.851308 .09863 3.58655-.475218 3.819676-.654545C3.936239-.206227 4.23213 .09863 4.671482 .09863C5.155666 .09863 5.451557-.376588 5.451557-.537983C5.451557-.636613 5.352927-.636613 5.326027-.636613C5.227397-.636613 5.218431-.600747 5.191532-.52005C5.092902-.260025 4.859776-.125529 4.698381-.125529C4.411457-.125529 4.411457-.923537 4.411457-1.102864C4.411457-1.219427 4.411457-1.23736 4.492154-1.33599C4.644583-1.524284 4.886675-1.838107 5.119801-2.295392C5.388792-2.824408 5.532254-3.371357 5.532254-3.425156C5.532254-3.434122 5.532254-3.523786 5.415691-3.523786C5.308095-3.523786 5.308095-3.496887 5.263263-3.353425C5.173599-3.039601 4.967372-2.358157 4.402491-1.604981V-2.107098ZM3.774844-.91457C3.550685-.726276 2.824408-.125529 1.909838-.125529C1.407721-.125529 1.075965-.457285 1.075965-1.102864C1.075965-1.488418 1.246326-2.37609 1.604981-2.949938C1.838107-3.317559 2.313325-3.738979 2.833375-3.738979C3.434122-3.738979 3.631382-3.200996 3.71208-2.663014C3.783811-2.178829 3.730012-1.318057 3.774844-.91457Z'/>
+<path id='g2-68' d='M1.443587-.681445C1.362889-.358655 1.344956-.277958 .672478-.277958C.502117-.277958 .403487-.277958 .403487-.116563C.403487 0 .493151 0 .654545 0H3.676214C5.595019 0 7.379328-1.900872 7.379328-3.837609C7.379328-5.066002 6.608219-6.124035 5.209465-6.124035H2.133998C1.972603-6.124035 1.865006-6.124035 1.865006-5.96264C1.865006-5.846077 1.945704-5.846077 2.133998-5.846077C2.169863-5.846077 2.331258-5.846077 2.47472-5.828144C2.627148-5.810212 2.689913-5.792279 2.689913-5.693649C2.689913-5.648817 2.680946-5.612951 2.654047-5.514321L1.443587-.681445ZM3.416189-5.496389C3.496887-5.819178 3.514819-5.846077 3.891407-5.846077H4.904608C5.837111-5.846077 6.58132-5.326027 6.58132-4.169365C6.58132-3.649315 6.357161-2.214695 5.657783-1.327024C5.24533-.81594 4.501121-.277958 3.514819-.277958H2.438854C2.313325-.277958 2.295392-.277958 2.259527-.286924C2.169863-.29589 2.142964-.304857 2.142964-.367621C2.142964-.394521 2.142964-.412453 2.187796-.573848L3.416189-5.496389Z'/>
+</defs>
+<g id='page1'>
+<path d='M-33.98828-35.59375H135.2972' stroke='currentColor' fill='none' stroke-width='.79701'/>
+<path d='M133.14499-38.70313C133.60983-36.83594 134.6489-35.957031 135.695771-35.59375C134.6489-35.230469 133.60983-34.34766 133.14499-32.48047' stroke='currentColor' fill='none' stroke-width='.79701' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M-33.98828-1.5781V-69.6094' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<path d='M-33.98828-52.6016L121.9222-39.84375' stroke='#0e7490' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M-33.98828-18.5859L121.9222-31.33984' stroke='#ec4899' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-dasharray='2.98883 2.98883'/>
+<path d='M-25.48437-49.0156V-22.1719' stroke='currentColor' fill='none' stroke-width='.3985' stroke-miterlimit='10'/>
+<path d='M-25.484394-52.60157C-25.683612-51.53907-26.281269-49.812508-26.97658-48.617196H-23.9883C-24.687519-49.812508-25.285175-51.53907-25.484394-52.60157'/>
+<path d='M-25.484394-18.58593C-25.285175-19.64843-24.687519-21.37499-23.9883-22.570303H-26.97658C-26.281269-21.37499-25.683612-19.64843-25.484394-18.58593'/>
+<g transform='matrix(1 0 0 1 12.0231 1.9303)'>
+<use x='-33.986807' y='-35.593332' xlink:href='#g2-11'/>
+</g>
+<g transform='matrix(1 0 0 1 -32.7014 -14.7921)'>
+<use x='-33.986807' y='-35.593332' xlink:href='#g3-112'/>
+<use x='-28.868365' y='-35.593332' xlink:href='#g3-108'/>
+<use x='-26.309144' y='-35.593332' xlink:href='#g3-97'/>
+<use x='-21.702548' y='-35.593332' xlink:href='#g3-110'/>
+<use x='-16.584106' y='-35.593332' xlink:href='#g3-232'/>
+<use x='-12.485884' y='-35.593332' xlink:href='#g3-116'/>
+<use x='-8.90298' y='-35.593332' xlink:href='#g3-101'/>
+</g>
+<g transform='matrix(1 0 0 1 -25.0236 20.0959)'>
+<use x='-33.986807' y='-35.593332' xlink:href='#g3-233'/>
+<use x='-29.888585' y='-35.593332' xlink:href='#g3-116'/>
+<use x='-26.305681' y='-35.593332' xlink:href='#g3-111'/>
+<use x='-21.699085' y='-35.593332' xlink:href='#g3-105'/>
+<use x='-19.139864' y='-35.593332' xlink:href='#g3-108'/>
+<use x='-16.580643' y='-35.593332' xlink:href='#g3-101'/>
+</g>
+<g transform='matrix(1 0 0 1 47.9734 -19.2418)'>
+<use x='-33.986807' y='-35.593332' xlink:href='#g0-114'/>
+<use x='-30.687488' y='-35.593332' xlink:href='#g0-97'/>
+<use x='-26.689572' y='-35.593332' xlink:href='#g0-121'/>
+<use x='-22.456483' y='-35.593332' xlink:href='#g0-111'/>
+<use x='-18.223395' y='-35.593332' xlink:href='#g0-110'/>
+<use x='-13.519964' y='-35.593332' xlink:href='#g0-115'/>
+<use x='-7.358468' y='-35.593332' xlink:href='#g0-100'/>
+<use x='-2.655037' y='-35.593332' xlink:href='#g0-101'/>
+<use x='3.929767' y='-35.593332' xlink:href='#g0-108'/>
+<use x='6.281483' y='-35.593332' xlink:href='#g0-97'/>
+<use x='13.33663' y='-35.593332' xlink:href='#g0-112'/>
+<use x='18.040062' y='-35.593332' xlink:href='#g0-108'/>
+<use x='20.391777' y='-35.593332' xlink:href='#g0-97'/>
+<use x='24.624866' y='-35.593332' xlink:href='#g0-110'/>
+<use x='29.328297' y='-35.593332' xlink:href='#g0-232'/>
+<use x='33.091042' y='-35.593332' xlink:href='#g0-116'/>
+<use x='36.383444' y='-35.593332' xlink:href='#g0-101'/>
+</g>
+<g transform='matrix(1 0 0 1 53.8528 23.1816)'>
+<use x='-33.986807' y='-35.593332' xlink:href='#g0-114'/>
+<use x='-30.687488' y='-35.593332' xlink:href='#g0-97'/>
+<use x='-26.689572' y='-35.593332' xlink:href='#g0-121'/>
+<use x='-22.456483' y='-35.593332' xlink:href='#g0-111'/>
+<use x='-18.223395' y='-35.593332' xlink:href='#g0-110'/>
+<use x='-13.519964' y='-35.593332' xlink:href='#g0-115'/>
+<use x='-7.358468' y='-35.593332' xlink:href='#g0-100'/>
+<use x='-2.655037' y='-35.593332' xlink:href='#g0-101'/>
+<use x='3.929767' y='-35.593332' xlink:href='#g0-108'/>
+<use x='6.281483' y='-35.593332' xlink:href='#g0-39'/>
+<use x='8.633199' y='-35.593332' xlink:href='#g0-233'/>
+<use x='12.395944' y='-35.593332' xlink:href='#g0-116'/>
+<use x='15.688346' y='-35.593332' xlink:href='#g0-111'/>
+<use x='19.921434' y='-35.593332' xlink:href='#g0-105'/>
+<use x='22.27315' y='-35.593332' xlink:href='#g0-108'/>
+<use x='24.624866' y='-35.593332' xlink:href='#g0-101'/>
+</g>
+<path d='M113.4182-7.2461V-63.9414H130.4262V-7.2461Z' fill='#f1f5f9'/>
+<path d='M113.4182-7.2461V-63.9414H130.4262V-7.2461Z' stroke='currentColor' fill='none' stroke-width='.79701' stroke-miterlimit='10'/>
+<g transform='matrix(1 0 0 1 167.9308 2.2162)'>
+<use x='-33.986807' y='-35.593332' xlink:href='#g3-84'/>
+<use x='-27.332836' y='-35.593332' xlink:href='#g3-233'/>
+<use x='-23.234614' y='-35.593332' xlink:href='#g3-108'/>
+<use x='-20.675393' y='-35.593332' xlink:href='#g3-101'/>
+<use x='-16.577171' y='-35.593332' xlink:href='#g3-115'/>
+<use x='-12.943081' y='-35.593332' xlink:href='#g3-99'/>
+<use x='-8.84833' y='-35.593332' xlink:href='#g3-111'/>
+<use x='-4.241734' y='-35.593332' xlink:href='#g3-112'/>
+<use x='1.13263' y='-35.593332' xlink:href='#g3-101'/>
+</g>
+<g transform='matrix(1 0 0 1 149.1888 2.5654)'>
+<use x='-33.986807' y='-35.593332' xlink:href='#g2-68'/>
+<use x='-26.387711' y='-34.597037' xlink:href='#g1-84'/>
+</g>
+</g>
+</svg></div>
+</div>
+<ol><li>Identifier le phénomène physique en jeu et la propriété de la lumière qu'il met en évidence.</li><li>Calculer la distance $d$ (en mètres) entre la Terre et l'étoile 2M1207a.</li><li>Calculer la distance $s$ (en mètres) entre l'étoile 2M1207a et la planète 2M1207b.</li><li>En justifiant que $s  d$, montrer que l'écart angulaire $$ (en radian) entre l'étoile et la planète, vus depuis la Terre, peut s'écrire :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$  {d}$$</div></div></div></div>
+Calculer $$.</li><li>En prenant soin de présenter la démarche et de porter un regard critique sur le résultat, déterminer le diamètre minimal $D_T$ du télescope terrestre permettant de distinguer la planète 2M1207b de son étoile, à la longueur d'onde $ = $2{,}0   $$.</li><li>Citer une conséquence concrète du phénomène de diffraction, autre que la limite de résolution, dans le domaine de l'astronomie.
+</li></ol>
+            <details class="correction-accordion">
+                <summary>Voir la correction</summary>
+                <div class="correction-content">
+                    <div class="example-box">
+<strong>Méthode :</strong> On identifie le phénomène de diffraction par l'ouverture circulaire du télescope. On convertit les distances astronomiques en mètres. On calcule l'écart angulaire $$ entre l'étoile et la planète, puis on utilise le critère de Rayleigh ($  $) pour déterminer le diamètre minimal du télescope.
+</div>
+<strong>Données :</strong>
+<ul><li>Distance étoile-planète : $s_{} = $55   $$</li><li>Distance Terre-étoile : $d_{} = $230   $$</li><li>$$1   $ = $1{,}50  10^{11}   $$</li><li>$$1   $ = $9{,}461  10^{15}   $$</li><li>$ = $2{,}0   $ = 2{,}0  10^{-6} $$$</li><li>Relation de diffraction : $ = 1{,}22 {D_T}$
+</li></ul>
+<ol><li><strong>Identification du phénomène physique</strong>
+<p>Le phénomène en jeu est la <strong>diffraction</strong> de la lumière par l'ouverture circulaire du télescope (son objectif de diamètre $D_T$).</p>
+<p>Ce phénomène met en évidence le <strong>caractère ondulatoire</strong> de la lumière. En effet, si la lumière se comportait uniquement comme des rayons rectilignes (modèle de l'optique géométrique), il n'y aurait pas de limite de résolution liée au diamètre de l'ouverture. C'est parce que la lumière est une onde qu'elle diffracte en traversant l'objectif, créant pour chaque source ponctuelle une tache de diffraction (tache d'Airy) au lieu d'un point.</li><li><strong>Calcul de la distance $d$ entre la Terre et l'étoile 2M1207a</strong></p>
+<strong>Formule :</strong> $d = d_{}  $9{,}461  10^{15}    al$$
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+d &= 230  9{,}461  10^{15} \<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>4pt]
+d &= $2{,}176  10^{18}   $ \\[4pt]
+d & $2{,}18  10^{18}   $
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Conclusion :</strong> La distance entre la Terre et l'étoile vaut $d  $2{,}18  10^{18}   $$</div></div>.</li><li><strong>Calcul de la distance $s$ entre l'étoile et la planète</strong>
+<strong>Formule :</strong> $s = s_{}  $1{,}50  10^{11}    ua<div class="formula-wrapper-centered"><div class="formula-content">$$<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+s &= 55  1{,}50  10^{11} \\[4pt]
+s &= $8{,}25  10^{12}   $ \\[4pt]
+s & $8{,}3  10^{12}   $
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+<strong>Conclusion :</strong> La distance entre l'étoile et la planète vaut $s  $8{,}3  10^{12}   $$</div></div>.</li><li><strong>Calcul de l'écart angulaire $$</strong>
+<strong>Justification de l'approximation :</strong>
+<p>Comparons $s$ et $d$ :<br><div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$<br>{d} &= {8{,}25  10^{12}}{2{,}18  10^{18}} = {}<br>$$</div></div></div></div></p>
+<p>On a ${d}  3{,}8  10^{-6}  1$, donc $s  d$.</p>
+<p>Cela signifie que la distance entre l'étoile et la planète est absolument négligeable devant la distance entre la Terre et le système étoile-planète. Dans ce cas, l'angle $$ est très petit et on peut utiliser l'approximation des petits angles :<br>\[<br>()    {d}  <div class="formula-wrapper-centered"><div class="formula-content">$$</div></div></p>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content">$$</div></div>
+ & {d} = {8{,}25  10^{12}}{2{,}18  10^{18}} \<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$6pt]
+ &= 3{,}78  10^{-6} $$ \\[4pt]
+ & 3{,}8  10^{-6} $$
+$$</div></div></div></div>
+<strong>Conclusion :</strong> L'écart angulaire entre l'étoile et la planète vaut $  3{,}8  10^{-6} $<div class="formula-wrapper-centered"><div class="formula-content">$$.</li><li><strong>Détermination du diamètre minimal $D_T$ du télescope</strong>
+<strong>Critère de Rayleigh :</strong> Le télescope peut distinguer les deux objets si l'écart angulaire $$ est supérieur ou égal à l'angle de diffraction $$ de l'instrument :
+\[
+   = 1{,}22 {D_T}$$</div></div></div></div>
+<strong>À la limite de résolution</strong>, $ = $, donc :
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$ = 1{,}22 {D_T}$$</div></div></div></div>
+<strong>On isole $D_T$ :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$D_T = {1{,}22 }{}$$</div></div></div></div>
+<strong>Application numérique :</strong>
+<div class="formula-wrapper-centered"><div class="formula-content"><div class="formula-wrapper-centered"><div class="formula-content">$$
+D_T &= {1{,}22  2{,}0  10^{-6}}{3{,}78  10^{-6}} \\[6pt]
+D_T &= {2{,}44  10^{-6}}{3{,}78  10^{-6}} \\[6pt]
+D_T &= $0{,}65   $
+$$</div></div></div></div>
+<strong>Regard critique :</strong> Le diamètre minimal trouvé ($D_T  $0{,}65   $$, soit $$65   $$) est un résultat <strong>réaliste</strong>. De nombreux télescopes terrestres ont des diamètres bien supérieurs (les grands télescopes ont des miroirs de $$8   $$ à $$10   $$). Cependant, ce calcul ne tient pas compte des perturbations atmosphériques (turbulences) qui dégradent fortement la résolution angulaire réelle d'un télescope terrestre. En pratique, un télescope au sol de $$65   $$ n'atteindrait probablement pas sa résolution théorique sans optique adaptative. L'observation initiale de 2M1207b a d'ailleurs été réalisée avec un très grand télescope (VLT de $$8{,}2   $$) équipé d'optique adaptative.
+<strong>Conclusion :</strong> Le diamètre minimal théorique du télescope est $D_T  $0{,}65   $$.</li><li><strong>Autre conséquence de la diffraction en astronomie</strong>
+<p>Une conséquence concrète de la diffraction en astronomie est la formation d'<strong>aigrettes de diffraction</strong> (ou motifs en étoile) autour des étoiles brillantes sur les images prises par les télescopes. Ces aigrettes sont dues à la diffraction de la lumière par les supports (araignée) du miroir secondaire dans les télescopes de type réflecteur.</p>
+<div class="info-box">
+On peut aussi citer que la diffraction impose une <strong>limite fondamentale à la taille des détails observables</strong> sur les objets célestes lointains (galaxies, nébuleuses). Pour améliorer la résolution, il faut augmenter le diamètre de l'objectif ou utiliser des techniques d'interférométrie (combinaison de plusieurs télescopes) qui permettent d'atteindre une résolution équivalente à celle d'un télescope géant.
+</div>
+</li></ol>
+                </div>
+            </details>
+        </div>
+
+        <div class="nav-footer">
+            <a href="../../lycee.html" class="btn-action">🏠 Retour</a>
+            <a href="cours_diffraction_ondes_interferences.html" class="btn-action">📖 Revoir le cours</a>
+            <a href="../../../activites/quiz/quiz.html#niveau=terminale&chapitre=diffraction_ondes_interferences" class="btn-action">🎯 Quiz</a>
+            <a href="../../../activites/flashcards/flashcards.html#niveau=terminale&chapitre=diffraction_ondes_interferences" class="btn-action">🧠 Flashcards</a>
+        </div>
+    </div>
+    <div id="accessibility-placeholder"></div>
+    <script src="../../../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : Les 3 Lois de Kepler</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_kepler.css">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+    
+    <div class="container container-lecture" style="max-width: 1400px;">
+        <header class="hero-header">
+            <div class="title-wrapper">
+                <span class="title-icon">🪐</span> 
+                <h1 class="hero-title" style="background: linear-gradient(135deg, #f59e0b, #ef4444); -webkit-background-clip: text; background-clip: text; color: transparent;">Les Lois de Kepler</h1>
+            </div>
+            <p class="hero-subtitle">Démontre les aires égales, compare les vitesses moyennes et vérifie la constante $T^2/a^3$.</p>
+        </header>
+
+        <div class="dashboard-vertical">
+            
+            <div class="dashboard-columns">
+                <div class="card controls-panel">
+                    
+                    <h2>⚙️ Paramètres de l'Orbite</h2>
+                    <div class="slider-group">
+                        <label for="aSlider">Demi-grand axe ($a$) : <span id="aVal" style="color:var(--primary);">1.0</span> UA</label>
+                        <input id="aSlider" type="range" min="0.5" max="3.0" step="0.1" value="1.0" />
+                    </div>
+                    <div class="slider-group">
+                        <label for="eSlider">Excentricité ($e$) : <span id="eVal" style="color:var(--primary);">0.60</span></label>
+                        <input id="eSlider" type="range" min="0" max="85" value="60" />
+                        <div class="small-text"><i>Rappel : Si $e = 0$, l'orbite est un cercle.</i></div>
+                    </div>
+
+                    <h2 class="mt-2">📐 2ème Loi : Loi des Aires & Vitesses</h2>
+                    <div class="slider-group" style="margin-bottom: 10px;">
+                        <label for="dtSlider" style="font-size: 0.85rem;">⏳ Durée d'observation ($\Delta t$) : <span id="dtVal">1.5</span> ans</label>
+                        <input id="dtSlider" type="range" min="0.05" max="1.0" step="0.05" value="1.0" />
+                    </div>
+
+                    <div class="measure-controls">
+                        <button class="btn-action btn-primary btn-full" id="btnMeasure" style="margin:0;">🎯 Lancer mesure (Poser A, on s'occupe de B)</button>
+                        <button class="btn-action btn-secondary btn-full" id="btnClearAreas" style="margin:0; color: #ef4444; border-color: #fca5a5;">🧽 Effacer les zones</button>
+                    </div>
+
+                    <div class="areas-results mt-2">
+                        <div class="area-box" id="boxA1" style="border-color: #f59e0b;">
+                            <span class="area-title" style="color: #f59e0b;">Secteur 1 (A → B)</span>
+                            <div class="area-val">Aire = <span id="valA1">—</span></div>
+                            <div class="speed-val">Vit. moy. = <span id="valV1">—</span></div>
+                        </div>
+                        <div class="area-box" id="boxA2" style="border-color: #ec4899;">
+                            <span class="area-title" style="color: #ec4899;">Secteur 2 (C → D)</span>
+                            <div class="area-val">Aire = <span id="valA2">—</span></div>
+                            <div class="speed-val">Vit. moy. = <span id="valV2">—</span></div>
+                        </div>
+                    </div>
+
+                    <h2 class="mt-2">⏱️ 3ème Loi : Loi des Périodes</h2>
+                    <div class="formula-box">
+                        <div style="font-size: 1.0rem; margin-bottom: 15px;">$$ \frac{T^2}{a^3} = \text{Constante} $$</div>
+                        <div class="kepler3-grid">
+                            <div class="k3-item"><span>$a =$</span> <strong id="k3-a">-</strong> UA</div>
+                            <div class="k3-item"><span>$a^3 =$</span> <strong id="k3-a3">-</strong></div>
+                            <div class="k3-item"><span>$T =$</span> <strong id="k3-t">-</strong> ans</div>
+                            <div class="k3-item"><span>$T^2 =$</span> <strong id="k3-t2">-</strong></div>
+                        </div>
+                        <div class="ratio-result mt-1">Rapport final : <strong id="valKepler3" style="color: var(--primary); font-size: 1.2rem;">—</strong></div>
+                    </div>
+
+                </div>
+
+                <div class="card canvas-panel" style="padding: 0; overflow: hidden; position: relative;">
+                    <div class="speed-control-overlay">
+                        <label for="timeSpeed">Vitesse animation :</label>
+                        <input id="timeSpeed" type="range" min="10" max="300" value="100" />
+                    </div>
+
+                    <div class="kepler-scene" id="scene" oncontextmenu="return false;">
+                        <div class="kepler-stars"></div>
+                        <canvas id="c"></canvas>
+
+                        <div class="hud">
+                            <div class="box">
+                                <span>Dist. $r$ = <b id="rNow">—</b> UA</span>
+                                <span>Vit. instantanée $v$ = <b id="vNow">—</b> UA/an</span>
+                            </div>
+                        </div>
+
+                        <div id="recordingOverlay" class="recording-overlay hidden">
+                            🔴 Enregistrement...
+                        </div>
+
+                        <div class="legend">
+                            <div class="box">
+                                <span>🟡 Soleil (Foyer $F_1$)</span>
+                                <span>🌍 Planète</span>
+                                <span><span style="color:#22d3ee; font-weight:bold;">→</span> Vecteur Vitesse $\vec{v}$</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_kepler.js"></script>
+</body>
+</html>

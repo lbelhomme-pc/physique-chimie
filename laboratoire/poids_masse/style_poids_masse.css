@@ -1,0 +1,158 @@
+/* style_poids_masse.css */
+
+/* --- SÉLECTEUR DE PLANÈTES --- */
+.planet-selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.planet-selector .btn-action { margin: 0; }
+.planet-selector .break { flex-basis: 100%; height: 0; }
+
+/* --- SCÈNE ET DÉCOR (CENTRAGE PARFAIT) --- */
+.scene-poids {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 50vh;
+    min-height: 450px;
+    border-radius: 16px;
+    border: 4px solid var(--card-border);
+    overflow: hidden;
+    box-shadow: inset 0 5px 20px rgba(0,0,0,0.3);
+    transition: background 0.5s ease;
+    background: linear-gradient(to bottom, #bae6fd, #e0f2fe);
+}
+
+.ground-poids {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1;
+    transition: background 0.5s ease;
+    background: #4ade80; 
+    box-shadow: inset 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* --- INSTRUMENTS DE MESURE --- */
+.instruments {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 10;
+}
+
+.instrument-card {
+    padding: 15px;
+    margin: 0; 
+    min-width: 220px;
+    opacity: 0.95; 
+}
+
+.inst-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.inst-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+    line-height: 1.2;
+}
+
+/* Écrans LCD */
+.digital-screen {
+    background: #0f172a;
+    color: #38bdf8;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-align: right;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+.screen-weight { color: #fbbf24; }
+
+/* Ressort Dynamomètre */
+.dyn-hook-container {
+    width: 8px;
+    height: 50px;
+    background: rgba(148, 163, 184, 0.2);
+    margin: 10px auto 0 auto;
+    border-radius: 4px;
+    position: relative;
+}
+
+.dyn-spring {
+    width: 100%;
+    background: #94a3b8;
+    position: absolute;
+    top: 0;
+    transition: height 0.3s ease;
+    border-radius: 4px;
+}
+
+/* --- ASTRONAUTE ET BOUTON (CORRECTION FLUIDITÉ MAXIMALE) --- */
+.astronaut-wrapper {
+    position: absolute;
+    bottom: 80px; /* Sur le sol */
+    left: 50%;
+    transform: translateX(-50%); /* Le centrage est bloqué ici et ne bouge plus */
+    z-index: 5;
+}
+
+.astronaut {
+    font-size: 4rem; 
+    transform-origin: bottom center;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    will-change: transform; /* Prévient la carte graphique qu'une animation arrive */
+    display: inline-block;
+}
+
+.btn-jump {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    margin: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* --- PANNEAU DE CONTRÔLE --- */
+.control-panel {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.control-panel label {
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+.control-panel input[type="range"] {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+/* Responsive pour mobiles */
+@media (max-width: 650px) {
+    .instruments { position: relative; top: 0; left: 0; flex-direction: row; flex-wrap: wrap; padding: 10px; }
+    .instrument-card { flex: 1; }
+    .btn-jump { position: relative; bottom: 0; right: 0; margin: 10px auto; display: block; width: calc(100% - 20px); }
+    .scene-poids { height: 600px; }
+}

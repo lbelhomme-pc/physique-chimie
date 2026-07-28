@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Virtuel : Réfraction de la lumière | Physique-Chimie</title>
+    <meta name="theme-color" content="#6366f1">
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_snell.css">
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="labo-container">
+        <header class="hero-header">
+            <h1 class="header-flex">
+                <span>🌈</span> 
+                <span class="gradient-text gradient-labo">Optique : La Réfraction</span>
+            </h1>
+            <p class="subtitle">Observe la déviation de la lumière lorsqu'elle change de milieu.</p>
+        </header>
+
+        <div class="canvas-container">
+            <canvas id="optics-canvas" width="1200" height="800"></canvas>
+        </div>
+
+        <div class="main-dashboard">
+            <div class="panel">
+                <div class="panel-title">🎛️ Paramètres de l'expérience</div>
+                
+                <div class="slider-group">
+                    <label><span>📐 Angle d'incidence (i₁)</span> <span id="lbl-i1" class="val-highlight red">45°</span></label>
+                    <input type="range" id="slider-i1" min="0" max="89" step="1" value="45">
+                </div>
+                
+                <div class="slider-group">
+                    <label><span>☁️ Indice du Milieu 1 (n₁) - Haut</span> <span id="lbl-n1" class="val-highlight gray">1.00 (Air)</span></label>
+                    <input type="range" id="slider-n1" min="1.0" max="2.5" step="0.05" value="1.0">
+                </div>
+
+                <div class="slider-group" style="margin-bottom: 0;">
+                    <label><span>💧 Indice du Milieu 2 (n₂) - Bas</span> <span id="lbl-n2" class="val-highlight blue">1.35 (Eau)</span></label>
+                    <input type="range" id="slider-n2" min="1.0" max="2.5" step="0.05" value="1.35">
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">📐 Mesures & Lois</div>
+                
+                <div class="formula-line">
+                    <span>Angle réfracté <span class="formula-math blue">i₂</span></span>
+                    <span class="formula-value"><span id="val-i2" class="blue">--</span> °</span>
+                </div>
+                
+                <div class="formula-line">
+                    <span>Déviation <span class="formula-math purple">D</span></span>
+                    <span class="formula-value"><span id="val-d">--</span> °</span>
+                </div>
+
+                <div id="alert-tir" class="alert-box">
+                    ⚠️ Réflexion Totale !<br>
+                    <span class="alert-sub">L'angle est trop grand pour que la lumière passe dans le second milieu.</span>
+                </div>
+
+                <div class="law-box">
+                    <strong>Loi de Snell-Descartes :</strong><br>
+                    <span class="law-math">n₁ × sin(i₁) = n₂ × sin(i₂)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-footer">
+            <a href="../laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Laboratoire</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_snell.js"></script>
+</body>
+</html>

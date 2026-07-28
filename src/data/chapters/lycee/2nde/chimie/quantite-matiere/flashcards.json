@@ -1,22 +1,854 @@
 [
-  {"id":"quantite-matiere-fc01","front":"Quantité de matière ?","back":"Grandeur notée \\(n\\), exprimée en mole.","difficulty":1,"tags":["définition"]},
-  {"id":"quantite-matiere-fc02","front":"Unité de \\(n\\) ?","back":"La mole, symbole mol.","difficulty":1,"tags":["unité"]},
-  {"id":"quantite-matiere-fc03","front":"Constante d'Avogadro ?","back":"\\(N_A=6{,}02214076\\times10^{23}\\ mol^{-1}\\).","difficulty":1,"tags":["constante"]},
-  {"id":"quantite-matiere-fc04","front":"Relation \\(N\\) et \\(n\\) ?","back":"\\(N=nN_A\\).","difficulty":1,"tags":["formule"]},
-  {"id":"quantite-matiere-fc05","front":"Relation pour trouver \\(n\\) ?","back":"\\(n=N/N_A\\).","difficulty":1,"tags":["formule"]},
-  {"id":"quantite-matiere-fc06","front":"Unité de \\(N\\) ?","back":"Aucune unité.","difficulty":1,"tags":["unité"]},
-  {"id":"quantite-matiere-fc07","front":"Masse d'une entité ?","back":"Somme des masses des atomes qui la composent.","difficulty":1,"tags":["méthode"]},
-  {"id":"quantite-matiere-fc08","front":"Relation nombre d'entités et masse d'une entité ?","back":"\\(N=m_{échantillon}/m_{entité}\\).","difficulty":2,"tags":["formule"]},
-  {"id":"quantite-matiere-fc09","front":"Masse molaire ?","back":"Masse d'une mole d'entités.","difficulty":2,"tags":["anticipation"]},
-  {"id":"quantite-matiere-fc10","front":"Unité courante de \\(M\\) ?","back":"g·mol\\(^{-1}\\).","difficulty":2,"tags":["unité"]},
-  {"id":"quantite-matiere-fc11","front":"Relation avec masse molaire ?","back":"\\(n=m/M\\), si les unités sont cohérentes.","difficulty":2,"tags":["formule"]},
-  {"id":"quantite-matiere-fc12","front":"Dans \\(H_2O\\), combien d'hydrogènes ?","back":"Deux.","difficulty":1,"tags":["formule chimique"]},
-  {"id":"quantite-matiere-fc13","front":"Une mole, c'est comme...","back":"Un paquet de \\(6{,}02\\times10^{23}\\) entités.","difficulty":1,"tags":["image mentale"]},
-  {"id":"quantite-matiere-fc14","front":"Pourquoi utiliser la mole ?","back":"Pour manipuler des nombres d'entités immenses.","difficulty":1,"tags":["sens"]},
-  {"id":"quantite-matiere-fc15","front":"Piège avec \\(N_A\\) ?","back":"Multiplier ou diviser dans le mauvais sens.","difficulty":2,"tags":["piège"]},
-  {"id":"quantite-matiere-fc16","front":"Piège avec \\(n=m/M\\) ?","back":"Utiliser kg avec g·mol\\(^{-1}\\) sans convertir.","difficulty":2,"tags":["piège"]},
-  {"id":"quantite-matiere-fc17","front":"Ordre de grandeur des masses d'entités ?","back":"Souvent autour de \\(10^{-26}\\ kg\\).","difficulty":2,"tags":["ordre de grandeur"]},
-  {"id":"quantite-matiere-fc18","front":"Si \\(N=N_A\\), alors \\(n=\\) ?","back":"\\(1\\ mol\\).","difficulty":1,"tags":["automatisme"]},
-  {"id":"quantite-matiere-fc19","front":"Si \\(n=0{,}5\\ mol\\), alors \\(N\\) vaut environ ?","back":"\\(3{,}0\\times10^{23}\\) entités.","difficulty":2,"tags":["automatisme"]},
-  {"id":"quantite-matiere-fc20","front":"Conclusion obligatoire dans un calcul ?","back":"Donner la grandeur, la valeur et l'unité si elle existe.","difficulty":1,"tags":["méthode"]}
+  {
+    "id": "quantite-matiere-fc01",
+    "front": "Quantité de matière ?",
+    "back": "Grandeur notée \\(n\\), exprimée en mole.",
+    "difficulty": 1,
+    "tags": [
+      "définition",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc02",
+    "front": "Unité de \\(n\\) ?",
+    "back": "La mole, symbole mol.",
+    "difficulty": 1,
+    "tags": [
+      "unité",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc03",
+    "front": "Constante d'Avogadro ?",
+    "back": "\\(N_A=6{,}02214076\\times10^{23}\\ mol^{-1}\\).",
+    "difficulty": 1,
+    "tags": [
+      "constante",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc04",
+    "front": "Relation \\(N\\) et \\(n\\) ?",
+    "back": "\\(N=nN_A\\).",
+    "difficulty": 1,
+    "tags": [
+      "formule",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc05",
+    "front": "Relation pour trouver \\(n\\) ?",
+    "back": "\\(n=N/N_A\\).",
+    "difficulty": 1,
+    "tags": [
+      "formule",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc06",
+    "front": "Unité de \\(N\\) ?",
+    "back": "Aucune unité.",
+    "difficulty": 1,
+    "tags": [
+      "unité",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc07",
+    "front": "Masse d'une entité ?",
+    "back": "Somme des masses des atomes qui la composent.",
+    "difficulty": 1,
+    "tags": [
+      "méthode",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "quantite-matiere-fc08",
+    "front": "Relation nombre d'entités et masse d'une entité ?",
+    "back": "\\(N=m_{échantillon}/m_{entité}\\).",
+    "difficulty": 2,
+    "tags": [
+      "formule",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc09",
+    "front": "Masse molaire ?",
+    "back": "Masse d'une mole d'entités.",
+    "difficulty": 2,
+    "tags": [
+      "anticipation",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "quantite-matiere-fc10",
+    "front": "Unité courante de \\(M\\) ?",
+    "back": "g·mol\\(^{-1}\\).",
+    "difficulty": 2,
+    "tags": [
+      "unité",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc11",
+    "front": "Relation avec masse molaire ?",
+    "back": "\\(n=m/M\\), si les unités sont cohérentes.",
+    "difficulty": 2,
+    "tags": [
+      "formule",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc12",
+    "front": "Dans \\(H_2O\\), combien d'hydrogènes ?",
+    "back": "Deux.",
+    "difficulty": 1,
+    "tags": [
+      "formule chimique",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc13",
+    "front": "Une mole, c'est comme...",
+    "back": "Un paquet de \\(6{,}02\\times10^{23}\\) entités.",
+    "difficulty": 1,
+    "tags": [
+      "image mentale",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc14",
+    "front": "Pourquoi utiliser la mole ?",
+    "back": "Pour manipuler des nombres d'entités immenses.",
+    "difficulty": 1,
+    "tags": [
+      "sens",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  },
+  {
+    "id": "quantite-matiere-fc15",
+    "front": "Piège avec \\(N_A\\) ?",
+    "back": "Multiplier ou diviser dans le mauvais sens.",
+    "difficulty": 2,
+    "tags": [
+      "piège",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc16",
+    "front": "Piège avec \\(n=m/M\\) ?",
+    "back": "Utiliser kg avec g·mol\\(^{-1}\\) sans convertir.",
+    "difficulty": 2,
+    "tags": [
+      "piège",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc17",
+    "front": "Ordre de grandeur des masses d'entités ?",
+    "back": "Souvent autour de \\(10^{-26}\\ kg\\).",
+    "difficulty": 2,
+    "tags": [
+      "ordre de grandeur",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc18",
+    "front": "Si \\(N=N_A\\), alors \\(n=\\) ?",
+    "back": "\\(1\\ mol\\).",
+    "difficulty": 1,
+    "tags": [
+      "automatisme",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc19",
+    "front": "Si \\(n=0{,}5\\ mol\\), alors \\(N\\) vaut environ ?",
+    "back": "\\(3{,}0\\times10^{23}\\) entités.",
+    "difficulty": 2,
+    "tags": [
+      "automatisme",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {
+      "formulaText": "Les formules sont conservees en texte et rendues avec KaTeX pour les technologies d assistance."
+    }
+  },
+  {
+    "id": "quantite-matiere-fc20",
+    "front": "Conclusion obligatoire dans un calcul ?",
+    "back": "Donner la grandeur, la valeur et l'unité si elle existe.",
+    "difficulty": 1,
+    "tags": [
+      "méthode",
+      "2nde",
+      "chimie",
+      "lycee",
+      "migration-v3"
+    ],
+    "access": {
+      "tier": "free",
+      "preview": true,
+      "requiresAccount": false
+    },
+    "sources": [
+      {
+        "id": "bo-lycee-pc-seconde",
+        "label": "Programme de physique-chimie de seconde generale et technologique",
+        "kind": "official",
+        "citation": "BO_Seconde.pdf, programme de physique-chimie de seconde generale et technologique."
+      }
+    ],
+    "competences": [
+      "S approprier",
+      "Analyser-Raisonner",
+      "Realiser",
+      "Valider",
+      "Communiquer"
+    ],
+    "links": [
+      {
+        "label": "Laboratoire lie : Quantité de matière et mole",
+        "href": "/laboratoire/mole-pesee",
+        "kind": "laboratory"
+      }
+    ],
+    "accessibility": {}
+  }
 ]

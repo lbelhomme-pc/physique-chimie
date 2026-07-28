@@ -1,0 +1,70 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[scale=1.1, >=Stealth]
+ % Astre central
+ \shade[ball color=yellow!60!orange] (0,0) circle (0.5);
+ \node at (0,-0.15) {\small $O$};
+ 
+ % Orbite 1 (petit rayon)
+ \draw[thick, primary!60, dashed] (0,0) circle (1.8);
+ \fill[primary] (45:1.8) circle (2.5pt);
+ \node[primary, above right] at (45:1.8) {$M_1$};
+ \draw[->, thick, accent, line width=1.1pt] (45:1.8) -- ++(135:1.2) node[above left, accent]{\small $\vec{v}_1$};
+ \draw[->, thick, red!70!black, line width=1.1pt] (45:1.8) -- ++(225:0.9)
+ node[midway, below, red!70!black, font=\small] {$\vec{F}_g$};
+ \node[primary] at (-30:1.8) {\small $R_1$};
+ \draw[thin, gray] (0,0) -- (-30:1.8);
+ 
+ % Orbite 2 (grand rayon)
+ \draw[thick, examplepink!60, dashed] (0,0) circle (3.2);
+ \fill[examplepink] (80:3.2) circle (2.5pt);
+ \node[examplepink, above right] at (80:3.2) {$M_2$};
+ \draw[->, thick, accent!60, line width=1.1pt] (80:3.2) -- ++(170:0.7) node[above left, accent!60]{\small $\vec{v}_2$};
+ \draw[->, thick, red!70!black, line width=1.1pt] (80:3.2) -- ++(260:0.9)
+ node[midway, right, red!70!black, font=\small] {$\vec{F}_g$};
+ \node[examplepink] at (10:3.2) {\small $R_2$};
+ \draw[thin, gray] (0,0) -- (10:3.2);
+ 
+ % Legende
+ \node[anchor=west, align=left] at (4,1.5) {$R_1 < R_2$};
+ \node[anchor=west, align=left] at (4,0.7) {donc $v_1 > v_2$};
+ \node[anchor=west, align=left, gray, font=\small] at (4,-0.1) {Plus l'orbite est grande,};
+ \node[anchor=west, align=left, gray, font=\small] at (4,-0.6) {plus la vitesse est faible.};
+ \node[anchor=west, align=left, font=\small, red!70!black] at (4,-1.25)
+ {$\vec{F}_g$ fournit\\l'acc\'{e}l\'{e}ration centrip\`{e}te};
+\end{tikzpicture}
+\end{document}

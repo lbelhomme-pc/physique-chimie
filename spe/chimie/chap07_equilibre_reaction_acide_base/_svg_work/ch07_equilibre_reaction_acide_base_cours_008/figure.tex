@@ -1,0 +1,67 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>=Stealth, scale=0.85]
+ % Axe pH
+\draw[->, thick] (-0.5,0) -- (15.5,0) node[right] {pH};
+ \foreach \x in {0,2,...,14} {
+\draw (\x,0.12) -- (\x,-0.12) node[below, font=\small] {\x};
+ }
+
+ % pKa1 = 2{,}4
+\draw[very thick, examplepink] (2.4,-0.3) -- (2.4,0.3);
+\node[above, examplepink, font=\small\bfseries] at (2.4,0.4) {$\text{p}K_{a1} = 2{,}4$};
+
+ % pKa2 = 9{,}7
+\draw[very thick, remarkblue] (9.7,-0.3) -- (9.7,0.3);
+\node[above, remarkblue, font=\small\bfseries] at (9.7,0.4) {$\text{p}K_{a2} = 9{,}7$};
+
+ % Zone 1 : cation
+\draw[very thick, examplepink] (0,1.2) -- (2.3,1.2);
+\node[above, font=\small, align=center] at (1.15,1.3) {\ce{-COOH} \\ \ce{-NH3+}};
+\node[below, font=\small\itshape, examplepink] at (1.15,1.0) {Cation};
+
+ % Zone 2 : zwitterion
+\draw[very thick, synthgreen] (2.5,1.2) -- (9.6,1.2);
+\node[above, font=\small, align=center] at (6.05,1.3) {\ce{-COO^{-}} \\ \ce{-NH3+}};
+\node[below, font=\small\itshape, synthgreen] at (6.05,1.0) {Zwitt\'{e}rion};
+
+ % Zone 3 : anion
+\draw[very thick, remarkblue] (9.8,1.2) -- (14.8,1.2);
+\node[above, font=\small, align=center] at (12.3,1.3) {\ce{-COO^{-}} \\ \ce{-NH2}};
+\node[below, font=\small\itshape, remarkblue] at (12.3,1.0) {Anion};
+\end{tikzpicture}
+\end{document}

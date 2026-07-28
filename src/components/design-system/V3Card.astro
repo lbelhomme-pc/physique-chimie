@@ -1,0 +1,116 @@
+---
+export interface Props {
+  href?: string;
+  title: string;
+  eyebrow?: string;
+  accent?: "neutral" | "maths" | "physics" | "chemistry" | "science";
+  interactive?: boolean;
+}
+
+const {
+  href,
+  title,
+  eyebrow,
+  accent = "neutral",
+  interactive = Boolean(href),
+} = Astro.props;
+
+const className = ["v3-card", `v3-card--${accent}`, interactive && "is-interactive"].filter(Boolean).join(" ");
+---
+
+{href ? (
+  <a class={className} href={href}>
+    {eyebrow && <p class="v3-card__eyebrow">{eyebrow}</p>}
+    <h3>{title}</h3>
+    <div class="v3-card__body"><slot /></div>
+    <slot name="footer" />
+  </a>
+) : (
+  <article class={className}>
+    {eyebrow && <p class="v3-card__eyebrow">{eyebrow}</p>}
+    <h3>{title}</h3>
+    <div class="v3-card__body"><slot /></div>
+    <slot name="footer" />
+  </article>
+)}
+
+<style>
+  .v3-card {
+    --v3-card-accent: var(--v3-color-action);
+    background: var(--v3-color-surface-raised);
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    box-shadow: var(--v3-shadow-sm);
+    color: var(--v3-color-text-main);
+    display: flex;
+    flex-direction: column;
+    gap: var(--v3-space-3);
+    min-height: 0;
+    padding: var(--v3-space-5);
+    text-decoration: none;
+  }
+
+  .v3-card--maths {
+    --v3-card-accent: var(--v3-color-discipline-maths);
+  }
+
+  .v3-card--physics {
+    --v3-card-accent: var(--v3-color-discipline-physics);
+  }
+
+  .v3-card--chemistry {
+    --v3-card-accent: var(--v3-color-discipline-chemistry);
+  }
+
+  .v3-card--science {
+    --v3-card-accent: var(--v3-color-discipline-science);
+  }
+
+  .v3-card::before {
+    background: var(--v3-card-accent);
+    border-radius: var(--v3-radius-pill);
+    content: "";
+    display: block;
+    height: 4px;
+    width: 48px;
+  }
+
+  .v3-card h3 {
+    color: var(--v3-color-text-main);
+    font-size: var(--v3-font-size-lg);
+    line-height: var(--v3-line-height-tight);
+    margin: 0;
+  }
+
+  .v3-card__eyebrow {
+    color: var(--v3-card-accent);
+    font-size: var(--v3-font-size-xs);
+    font-weight: 800;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .v3-card__body {
+    color: var(--v3-color-text-subtle);
+    font-size: var(--v3-font-size-sm);
+    line-height: var(--v3-line-height-body);
+  }
+
+  .v3-card.is-interactive {
+    transition:
+      border-color var(--v3-motion-base),
+      box-shadow var(--v3-motion-base),
+      transform var(--v3-motion-base);
+  }
+
+  .v3-card.is-interactive:hover {
+    border-color: var(--v3-card-accent);
+    box-shadow: var(--v3-shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .v3-card.is-interactive:focus-visible {
+    box-shadow: var(--v3-shadow-focus);
+    outline: none;
+  }
+</style>

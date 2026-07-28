@@ -1,0 +1,277 @@
+---
+import {
+  createExpectedCurve,
+  createReferenceRows,
+  DEFAULT_DECAY_PRESET,
+  DEFAULT_INITIAL_NUCLEI,
+  DEFAULT_RANDOM_SEED,
+  generateDecayTimes,
+  RADIOACTIVE_DECAY_PRESETS,
+} from "../../scripts/laboratoire/radioactive-decay-model.js";
+import "../../styles/laboratoire/radioactive-decay.css";
+
+const presets = Object.values(RADIOACTIVE_DECAY_PRESETS);
+const plot = { left: 72, top: 24, width: 648, height: 300 };
+const xTicks = Array.from({ length: 6 }, (_, value) => ({
+  value,
+  x: plot.left + (value / 5) * plot.width,
+}));
+const yTicks = [0, 25, 50, 75, 100].map((value) => ({
+  value,
+  y: plot.top + plot.height - (value / 100) * plot.height,
+}));
+type DecayPoint = { elapsedHalfLives: number; fraction: number };
+const mapPoint = ({ elapsedHalfLives, fraction }: DecayPoint) => ({
+  x: plot.left + (elapsedHalfLives / 5) * plot.width,
+  y: plot.top + plot.height - fraction * plot.height,
+});
+const pathFromPoints = (points: DecayPoint[]) => points
+  .map((point, index) => {
+    const mapped = mapPoint(point);
+    return `${index === 0 ? "M" : "L"}${mapped.x.toFixed(2)} ${mapped.y.toFixed(2)}`;
+  })
+  .join(" ");
+const initialDecayTimes = generateDecayTimes(DEFAULT_INITIAL_NUCLEI, DEFAULT_RANDOM_SEED);
+const initialExpectedPath = pathFromPoints(createExpectedCurve());
+const initialObservedPath = pathFromPoints([{ elapsedHalfLives: 0, fraction: 1 }]);
+const initialReferenceRows = createReferenceRows(DEFAULT_INITIAL_NUCLEI, initialDecayTimes);
+---
+
+<section class="decay-lab" data-radioactive-decay-lab>
+  <div class="decay-lab__layout">
+    <section class="lab-panel decay-controls" aria-labelledby="decay-controls-title">
+      <div class="decay-heading">
+        <div>
+          <h2 class="lab-panel__title" id="decay-controls-title">Piloter l'expérience</h2>
+          <p class="lab-panel__subtitle">Observe une réalisation aléatoire et compare-la à la loi moyenne.</p>
+        </div>
+        <span class="decay-status" data-run-status data-state="idle">Prêt</span>
+      </div>
+
+      <div class="decay-field">
+        <label for="decay-preset">Échantillon étudié</label>
+        <select id="decay-preset" data-preset>
+          {presets.map((preset) => (
+            <option value={preset.id} selected={preset.id === DEFAULT_DECAY_PRESET.id}>{preset.label}</option>
+          ))}
+        </select>
+      </div>
+
+      <div class="decay-field-grid">
+        <div class="decay-field">
+          <label for="decay-half-life">Demi-vie T<sub>1/2</sub></label>
+          <input
+            id="decay-half-life"
+            data-half-life
+            type="number"
+            min="0.01"
+            max="1000000000000"
+            step="0.01"
+            value={DEFAULT_DECAY_PRESET.halfLife}
+            inputmode="decimal"
+          />
+        </div>
+        <div class="decay-field">
+          <label for="decay-unit">Unité de temps</label>
+          <select id="decay-unit" data-unit>
+            {[
+              ["s", "seconde (s)"],
+              ["min", "minute (min)"],
+              ["h", "heure (h)"],
+              ["j", "jour (j)"],
+              ["ans", "année (ans)"],
+            ].map(([value, label]) => (
+              <option value={value} selected={value === DEFAULT_DECAY_PRESET.unit}>{label}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div class="decay-field decay-range-field">
+        <div class="decay-range-label">
+          <label for="decay-initial-nuclei">Noyaux initiaux N<sub>0</sub></label>
+          <output for="decay-initial-nuclei" data-initial-output>{DEFAULT_INITIAL_NUCLEI}</output>
+        </div>
+        <input id="decay-initial-nuclei" data-initial-nuclei type="range" min="20" max="160" step="10" value={DEFAULT_INITIAL_NUCLEI} />
+      </div>
+
+      <div class="decay-field">
+        <label for="decay-speed">Vitesse de lecture</label>
+        <select id="decay-speed" data-speed>
+          <option value="0.25">Lente · 0,25 demi-vie/s</option>
+          <option value="0.5" selected>Normale · 0,50 demi-vie/s</option>
+          <option value="1">Rapide · 1 demi-vie/s</option>
+        </select>
+      </div>
+
+      <div class="decay-actions" aria-label="Commandes de l'expérience">
+        <button class="lab-button decay-play" type="button" data-play>Commencer</button>
+        <button class="lab-button" type="button" data-step>Avancer de 0,5 T<sub>1/2</sub></button>
+        <button class="lab-button" type="button" data-new-experiment>Nouvelle expérience</button>
+        <button class="lab-button danger" type="button" data-reset disabled>Revenir au départ</button>
+      </div>
+
+      <p class="decay-live-status" data-live-status role="status" aria-live="polite" aria-atomic="true">
+        Expérience prête. Lance l'animation ou avance demi-vie par demi-vie.
+      </p>
+
+      <div class="lab-note decay-note">
+        <strong>Deux informations différentes</strong>
+        <span>La courbe lisse est une moyenne théorique. L'escalier montre cette expérience aléatoire particulière.</span>
+      </div>
+    </section>
+
+    <section class="lab-panel decay-graph-panel" aria-labelledby="decay-graph-title">
+      <div class="decay-heading decay-graph-heading">
+        <div>
+          <h2 class="lab-panel__title" id="decay-graph-title">Décroissance au cours du temps</h2>
+          <p class="lab-panel__subtitle">L'axe horizontal est exprimé en nombre de demi-vies pour comparer tous les isotopes.</p>
+        </div>
+        <div class="decay-legend" aria-label="Légende du graphique">
+          <span><i class="is-theory" aria-hidden="true"></i>Loi moyenne</span>
+          <span><i class="is-observed" aria-hidden="true"></i>Expérience</span>
+        </div>
+      </div>
+
+      <dl class="decay-readings" aria-label="Valeurs actuelles">
+        <div>
+          <dt>Temps écoulé</dt>
+          <dd data-time-readout>0,00 s</dd>
+        </div>
+        <div>
+          <dt>Demi-vies</dt>
+          <dd data-half-lives-readout>0,00 T<sub>1/2</sub></dd>
+        </div>
+        <div>
+          <dt>Théorie</dt>
+          <dd data-expected-readout>80,0 noyaux</dd>
+        </div>
+        <div>
+          <dt>Observé</dt>
+          <dd data-observed-readout>80 noyaux</dd>
+        </div>
+      </dl>
+
+      <svg class="decay-chart" viewBox="0 0 760 390" role="img" aria-labelledby="decay-chart-title decay-chart-desc">
+        <title id="decay-chart-title">Nombre de noyaux restants en fonction du temps</title>
+        <desc id="decay-chart-desc">Comparaison entre la décroissance moyenne théorique et une expérience aléatoire. Les valeurs sont exprimées en pourcentage du nombre initial.</desc>
+
+        <g class="decay-chart__grid" aria-hidden="true">
+          {xTicks.map((tick) => <line x1={tick.x} y1={plot.top} x2={tick.x} y2={plot.top + plot.height} />)}
+          {yTicks.map((tick) => <line x1={plot.left} y1={tick.y} x2={plot.left + plot.width} y2={tick.y} />)}
+        </g>
+
+        <g class="decay-chart__axes" aria-hidden="true">
+          <path d={`M${plot.left} ${plot.top} V${plot.top + plot.height} H${plot.left + plot.width}`} />
+          {xTicks.map((tick) => (
+            <g>
+              <line x1={tick.x} y1={plot.top + plot.height} x2={tick.x} y2={plot.top + plot.height + 7} />
+              <text x={tick.x} y={plot.top + plot.height + 25} text-anchor="middle">{tick.value}</text>
+            </g>
+          ))}
+          {yTicks.map((tick) => (
+            <g>
+              <line x1={plot.left - 7} y1={tick.y} x2={plot.left} y2={tick.y} />
+              <text x={plot.left - 13} y={tick.y + 4} text-anchor="end">{tick.value}</text>
+            </g>
+          ))}
+          <text class="decay-chart__axis-title" x="396" y="382" text-anchor="middle">Temps écoulé t / T<tspan baseline-shift="sub">1/2</tspan></text>
+          <text class="decay-chart__axis-title" x="18" y="174" text-anchor="middle" transform="rotate(-90 18 174)">Noyaux restants N / N<tspan baseline-shift="sub">0</tspan> (%)</text>
+        </g>
+
+        <g class="decay-chart__half-guides" aria-hidden="true">
+          {[1, 2, 3, 4].map((value) => {
+            const point = mapPoint({ elapsedHalfLives: value, fraction: 2 ** (-value) });
+            return (
+              <g>
+                <circle cx={point.x} cy={point.y} r="4" />
+                <text x={point.x + 7} y={point.y - 8}>{`${100 / 2 ** value} %`}</text>
+              </g>
+            );
+          })}
+        </g>
+
+        <path class="decay-chart__expected" data-expected-curve d={initialExpectedPath} />
+        <path class="decay-chart__observed" data-observed-curve d={initialObservedPath} />
+
+        <g class="decay-chart__current" data-current-guide aria-hidden="true">
+          <line data-current-line x1={plot.left} y1={plot.top} x2={plot.left} y2={plot.top + plot.height} />
+          <circle class="is-expected" data-current-expected cx={plot.left} cy={plot.top} r="7" />
+          <rect class="is-observed" data-current-observed x={plot.left - 5} y={plot.top - 5} width="10" height="10" rx="1" />
+        </g>
+      </svg>
+
+      <p class="lab-sr-only" data-graph-summary>
+        Au départ, 80 noyaux sur 80 sont présents. La valeur moyenne théorique et l'expérience valent 100 %.
+      </p>
+
+      <div class="decay-formula" aria-labelledby="decay-formula-title">
+        <div>
+          <h3 id="decay-formula-title">Relier demi-vie et nombre de noyaux</h3>
+          <p>Après chaque demi-vie, le nombre moyen de noyaux non désintégrés est divisé par deux.</p>
+        </div>
+        <div class="decay-formula__math">
+          <strong>N(t) = N<sub>0</sub> × 2<sup>−t / T<sub>1/2</sub></sup></strong>
+          <span data-formula-application>N(0,00 s) = 80 × 2<sup>−0,00</sup> = 80,0</span>
+        </div>
+        <p class="decay-formula__lambda">Constante radioactive : <strong data-decay-constant>λ = 0,0866 s<sup>−1</sup></strong></p>
+      </div>
+    </section>
+
+    <section class="lab-panel decay-nuclei-panel" aria-labelledby="decay-nuclei-title">
+      <div class="decay-heading">
+        <div>
+          <h2 class="lab-panel__title" id="decay-nuclei-title">Une population de noyaux</h2>
+          <p class="lab-panel__subtitle">Chaque case représente un noyau. Sa date de désintégration est imprévisible.</p>
+        </div>
+        <span class="decay-population" data-population-readout>80 / 80 présents</span>
+      </div>
+
+      <div class="decay-nuclei-grid" data-nuclei-grid aria-hidden="true">
+        {Array.from({ length: DEFAULT_INITIAL_NUCLEI }, (_, index) => (
+          <span class="decay-nucleus is-alive" data-nucleus-index={index}></span>
+        ))}
+      </div>
+
+      <div class="decay-nuclei-key" aria-label="Légende des noyaux">
+        <span><i class="is-alive" aria-hidden="true"></i>Noyau non désintégré</span>
+        <span><i class="is-decayed" aria-hidden="true"></i>Noyau désintégré</span>
+      </div>
+
+      <p class="decay-interpretation" data-interpretation>
+        Au départ, tous les noyaux sont présents. Leur désintégration commencera à des instants différents.
+      </p>
+
+      <details class="decay-reference">
+        <summary>Vérifier la propriété de la demi-vie</summary>
+        <div class="decay-table-wrap">
+          <table>
+            <caption>Valeurs théoriques et résultat de cette expérience</caption>
+            <thead>
+              <tr>
+                <th scope="col">t / T<sub>1/2</sub></th>
+                <th scope="col">Fraction moyenne</th>
+                <th scope="col">N moyen</th>
+                <th scope="col">N observé</th>
+              </tr>
+            </thead>
+            <tbody data-reference-table>
+              {initialReferenceRows.map((row) => (
+                <tr>
+                  <th scope="row">{row.elapsedHalfLives}</th>
+                  <td>{row.fractionPercent.toLocaleString("fr-FR", { maximumFractionDigits: 3 })} %</td>
+                  <td>{row.expected.toLocaleString("fr-FR", { maximumFractionDigits: 1 })}</td>
+                  <td>{row.observed}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+  </div>
+
+  <script>
+    import "../../scripts/laboratoire/radioactive-decay-simulator.js";
+  </script>
+</section>

@@ -1,0 +1,77 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[>=Stealth, scale=0.95]
+ % Parois du conduit avec r\'{e}tr\'{e}cissement
+ % Paroi sup\'{e}rieure
+ \draw[very thick, black] (0,2) -- (3,2) -- (5,1.2) -- (8,1.2) -- (10,2) -- (13,2);
+ % Paroi inf\'{e}rieure
+ \draw[very thick, black] (0,-2) -- (3,-2) -- (5,-1.2) -- (8,-1.2) -- (10,-2) -- (13,-2);
+
+ % Lignes de courant
+ \foreach \y in {-1.2, -0.4, 0.4, 1.2} {
+ \draw[primary, thick, ->] (0.3, \y) -- (2.5, \y);
+ }
+
+ % Dans le r\'{e}tr\'{e}cissement (lignes resserr\'{e}es)
+ \foreach \y in {-0.7, -0.25, 0.25, 0.7} {
+ \draw[red!70!black, thick, ->] (5.5, \y) -- (7.5, \y);
+ }
+
+ % Apr\`es le r\'{e}tr\'{e}cissement
+ \foreach \y in {-1.2, -0.4, 0.4, 1.2} {
+ \draw[primary, thick, ->] (10.5, \y) -- (12.5, \y);
+ }
+
+ % Section S1
+ \draw[dashed, thick, blue!70] (1.5, -2) -- (1.5, 2);
+ \node[blue!70, below] at (1.5, -2.3) {Section $S_1$};
+
+ % Section S2
+ \draw[dashed, thick, red!70] (6.5, -1.2) -- (6.5, 1.2);
+ \node[red!70, below] at (6.5, -1.5) {Section $S_2 < S_1$};
+
+ % Annotations vitesses
+ \node[primary, above] at (1.5, 2.3) {$v_1$};
+ \node[red!70!black, above] at (6.5, 1.5) {$v_2 > v_1$};
+
+ % L\'{e}gende
+ \node[anchor=west] at (0, -3.2) {\small \textcolor{primary}{\textbf{---}} Lignes de courant espac\'{e}es $\rightarrow$ vitesse faible};
+ \node[anchor=west] at (0, -3.8) {\small \textcolor{red!70!black}{\textbf{---}} Lignes de courant resserr\'{e}es $\rightarrow$ vitesse \'{e}lev\'{e}e};
+ \node[draw=primary!50, fill=white, rounded corners=2pt, font=\small\bfseries]
+ at (10.0,-3.45) {$S_1v_1 = S_2v_2$};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,46 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[node distance=1.8cm, every node/.style={font=\small}]
+\node[draw, rounded corners, fill=primary!10, align=center, minimum width=2.6cm] (A) {Molécule avec deux groupes};
+\node[draw, rounded corners, fill=synthorange!12, right=of A, align=center, minimum width=2.5cm] (P) {Protection du groupe sensible};
+\node[draw, rounded corners, fill=accent!10, right=of P, align=center, minimum width=2.5cm] (T) {Transformation du groupe voulu};
+\node[draw, rounded corners, fill=examplepink!10, right=of T, align=center, minimum width=2.5cm] (D) {Déprotection produit final};
+\draw[-{Stealth}, thick] (A) -- (P);
+\draw[-{Stealth}, thick] (P) -- (T);
+\draw[-{Stealth}, thick] (T) -- (D);
+\end{tikzpicture}
+\end{document}

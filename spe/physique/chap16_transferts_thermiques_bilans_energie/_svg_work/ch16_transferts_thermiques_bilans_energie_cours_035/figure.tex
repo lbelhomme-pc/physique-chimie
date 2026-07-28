@@ -1,0 +1,73 @@
+
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{siunitx}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx,booktabs,array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,decorations.pathmorphing,patterns,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{borderlight}{RGB}{203,213,225}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\definecolor{primary}{RGB}{14,116,144}
+\definecolor{accent}{RGB}{16,185,129}
+\definecolor{dark}{RGB}{15,23,42}
+\definecolor{bglight}{RGB}{241,245,249}
+\definecolor{examplepink}{RGB}{236,72,153}
+\definecolor{remarkblue}{RGB}{14,165,233}
+\definecolor{notepurple}{RGB}{99,102,241}
+\definecolor{synthgreen}{RGB}{5,150,105}
+\definecolor{synthorange}{RGB}{249,115,22}
+\definecolor{synthviolet}{RGB}{79,70,229}
+\begin{document}
+\begin{tikzpicture}[
+ >={Stealth[length=2.5mm]},
+ modeblock/.style={draw=#1, fill=#1!8, rounded corners=4pt, thick, minimum width=3.2cm, minimum height=2.5cm, align=center, text width=3cm}
+]
+ % Conduction
+ \node[modeblock=primary] (cond) at (0,0) {
+ \textbf{\color{primary}Conduction}\\[3pt]
+ {\footnotesize De proche en proche}\\[2pt]
+ {\footnotesize Pas de d\'{e}placement}\\
+ {\footnotesize macroscopique}
+ };
+ \draw[->, thick, red!70] ([xshift=-0.8cm, yshift=-1.5cm]cond.south) -- ([xshift=-0.8cm, yshift=-1.5cm]cond.south -| cond.east)
+ node[midway, below, font=\tiny] {Solide chaud $\to$ froid};
+
+ % Convection
+ \node[modeblock=accent, right=1.5cm of cond] (conv) {
+ \textbf{\color{accent}Convection}\\[3pt]
+ {\footnotesize Mouvements}\\
+ {\footnotesize macroscopiques}\\[2pt]
+ {\footnotesize du fluide}
+ };
+ \draw[->, thick, red!70, decorate, decoration={snake, amplitude=1.5mm, segment length=5mm}]
+ ([yshift=-1.5cm]conv.south west) -- ([yshift=-1.5cm]conv.south east)
+ node[midway, below=3pt, font=\tiny] {Fluide en mouvement};
+
+ % Rayonnement
+ \node[modeblock=examplepink, right=1.5cm of conv] (ray) {
+ \textbf{\color{examplepink}Rayonnement}\\[3pt]
+ {\footnotesize Ondes \'{e}lectro-}\\
+ {\footnotesize magn\'{e}tiques}\\[2pt]
+ {\footnotesize M\^{e}me dans le vide}
+ };
+ \foreach \a in {-20,0,20} {
+ \draw[->, thick, orange!80, line width=1pt] ([yshift=-1.2cm]ray.south) ++(-0.3,-0.3) -- ++(\a:1.2cm);
+ }
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire Virtuel : Diffraction & Interférences</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_diffraction.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container">
+        
+        <header class="hero-header" style="text-align: center; margin-bottom: 30px;">
+            <h1 class="header-flex" style="justify-content: center; align-items: center; gap: 15px; margin-bottom: 10px;">
+                <span>🌈</span> 
+                <span style="background: linear-gradient(135deg, #ec4899, #14b8a6); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0;">Labo : Diffraction & Interférences</span>
+            </h1>
+            <p class="subtitle" style="text-align: center; margin: 0 auto;">Étude de la nature ondulatoire de la lumière (Programme Terminale Spé).</p>
+        </header>
+
+        <div class="labo-container">
+            
+            <div class="bench-panel">
+                <div class="bench-header">
+                    <span>🔬 Banc Laser (Vue de dessus)</span>
+                    <div class="mode-switch">
+                        <input type="radio" id="mode-diff" name="mode" value="diffraction" checked>
+                        <label for="mode-diff">Fente Simple</label>
+                        <input type="radio" id="mode-inter" name="mode" value="interference">
+                        <label for="mode-inter">Fentes d'Young</label>
+                    </div>
+                </div>
+
+                <div class="canvas-container">
+                    <canvas id="waveCanvas" width="500" height="300"></canvas>
+                </div>
+
+                <div class="dashboard">
+                    <div class="control-group">
+                        <label>🌈 Longueur d'onde du laser ($\lambda$ en nm)</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="range" id="slider-lambda" min="400" max="750" step="1" value="632" style="flex-grow: 1;">
+                            <span id="val-lambda" class="val-badge" style="background: #ef4444; color: white;">632 nm</span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group" style="margin-top: 15px;">
+                        <label>🎚️ Largeur de la fente ($a$ en µm)</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="range" id="slider-a" min="10" max="200" step="5" value="100" style="flex-grow: 1;">
+                            <span id="val-a" class="val-badge badge-gray">100 µm</span>
+                        </div>
+                    </div>
+
+                    <div class="control-group" id="group-b" style="margin-top: 15px; display: none; opacity: 0.5;">
+                        <label>📏 Écartement entre fentes ($b$ en µm)</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="range" id="slider-b" min="100" max="1000" step="10" value="300" style="flex-grow: 1;" disabled>
+                            <span id="val-b" class="val-badge badge-gray">300 µm</span>
+                        </div>
+                    </div>
+
+                    <div class="control-group" style="margin-top: 15px;">
+                        <label>📽️ Distance obstacle-écran ($D$ en m)</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="range" id="slider-D" min="1" max="5" step="0.1" value="2.0" style="flex-grow: 1;">
+                            <span id="val-D" class="val-badge badge-gray">2.0 m</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 15px; text-align: left; line-height: 1.5;">
+                    <strong>Observation :</strong> Change la longueur d'onde pour voir la figure s'élargir (rouge) ou se resserrer (bleu). Le phénomène est d'autant plus marqué que l'obstacle est petit !
+                </p>
+            </div>
+
+            <div class="data-panel">
+                
+               <div class="live-data-box">
+                    <div class="data-column" id="box-L">
+                        <span class="data-label">Tache centrale (L)</span>
+                        <span class="data-value" id="res-L" style="color: #14b8a6;">-- mm</span>
+                    </div>
+                    <div class="data-column" id="box-i" style="display:none; border-left: 1px solid #cbd5e1; padding-left: 5px;">
+                        <span class="data-label">Interfrange (i)</span>
+                        <span class="data-value" id="res-i" style="color: #ec4899;">-- mm</span>
+                    </div>
+                    <div class="data-column" style="border-left: 1px solid #cbd5e1; padding-left: 5px;">
+                        <span class="data-label">Angle (θ)</span>
+                        <span class="data-value" id="res-theta" style="color: #f59e0b;">-- rad</span>
+                    </div>
+                </div>
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('tab-graph')">📉 Profil d'Intensité I(x)</button>
+                    <button class="tab-btn" onclick="switchTab('tab-analysis')">📐 Le Cours</button>
+                </div>
+
+                <div id="tab-graph" class="tab-content active">
+                    <div class="screen-projection" id="screen-projection"></div>
+                    
+                    <div class="chart-container" style="height: 250px; margin-top: 10px;">
+                        <canvas id="intensityChart"></canvas>
+                    </div>
+                </div>
+
+                <div id="tab-analysis" class="tab-content" style="text-align: left;">
+                    <h3 style="color: #1e293b; margin-top: 0;">1. La Diffraction (Fente simple)</h3>
+                    <p style="color: #475569; line-height: 1.6;">Lorsque la lumière rencontre un obstacle de petite taille (de l'ordre de sa longueur d'onde), elle ne se propage plus en ligne droite : elle s'étale.</p>
+                    
+                    <div class="formula-box formula-teal">
+                        <strong style="font-size: 1.3rem;">$\theta = \frac{\lambda}{a}$</strong> <span style="margin: 0 15px;">et</span> <strong style="font-size: 1.3rem;">$L = \frac{2\lambda D}{a}$</strong>
+                    </div>
+                    <ul style="color: #475569; font-size: 0.9rem;">
+                        <li><strong>$\theta$</strong> : Demi-écart angulaire (rad).</li>
+                        <li><strong>$L$</strong> : Largeur de la tache centrale (m).</li>
+                        <li><strong>$a$</strong> : Largeur de la fente (m).</li>
+                    </ul>
+
+                    <h3 style="color: #1e293b;">2. Les Interférences (Fentes d'Young)</h3>
+                    <p style="color: #475569;">La superposition de deux ondes cohérentes crée des franges brillantes (interférences constructives) et sombres (destructives).</p>
+                    
+                    <div class="formula-box formula-pink">
+                        <strong style="font-size: 1.3rem;">$i = \frac{\lambda D}{b}$</strong>
+                    </div>
+                    <ul style="color: #475569; font-size: 0.9rem;">
+                        <li><strong>$i$</strong> : Interfrange, distance entre deux franges brillantes consécutives (m).</li>
+                        <li><strong>$b$</strong> : Écartement entre les deux fentes (m).</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="nav-footer" style="margin-top: 40px; border-top: none;">
+            <a href="../../laboratoire/laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Labo</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_diffraction.js"></script>
+</body>
+</html>

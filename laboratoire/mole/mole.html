@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire Virtuel : La Mole et la Masse</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_mole.css">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container">
+        
+        <header class="hero-header mole-text-center">
+            <h1 class="header-flex center-content">
+                <span>⚖️</span> 
+                <span class="gradient-title-mole">Labo : La Mole & la Pesée</span>
+            </h1>
+            <p class="subtitle center-subtitle">Faire le lien entre la quantité de matière ($n$), la masse ($m$) et le nombre d'entités ($N$).</p>
+        </header>
+
+        <div class="labo-container">
+            
+            <div class="bench-panel">
+                <div class="bench-header">
+                    <span>🔬 Balance de Précision</span>
+                    <button class="btn-lab danger" id="btn-tare">🔄 Faire la Tare (0g)</button>
+                </div>
+
+                <div class="alert-box" id="status-msg">Choisis une espèce chimique et ajoute des moles !</div>
+
+                <div class="canvas-container">
+                    <canvas id="moleCanvas" width="400" height="350"></canvas>
+                </div>
+
+                <div class="dashboard">
+                    <div class="control-group">
+                        <label>🧪 Espèce chimique à peser</label>
+                        <div class="material-buttons">
+                            <button class="btn-material active" data-m="18.0" data-color="#3b82f6" data-name="Eau (H₂O)">Eau<br><small>$M = 18 \text{ g/mol}$</small></button>
+                            <button class="btn-material" data-m="12.0" data-color="#334155" data-name="Carbone (C)">Carbone<br><small>$M = 12 \text{ g/mol}$</small></button>
+                            <button class="btn-material" data-m="197.0" data-color="#eab308" data-name="Or pur (Au)">Or<br><small>$M = 197 \text{ g/mol}$</small></button>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group mt-20">
+                        <label>📦 Quantité de matière ($n$ en mol)</label>
+                        <div class="slider-container">
+                            <input type="range" id="slider-n" min="0" max="10" step="0.1" value="1.0" class="flex-grow">
+                            <span id="val-n" class="val-badge badge-teal">1.0 mol</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="observation-text">
+                    <strong>Observation :</strong> Une mole d'eau et une mole d'or contiennent <strong>exactement le même nombre d'entités</strong>, mais elles n'ont pas du tout la même masse sur la balance !
+                </p>
+            </div>
+
+            <div class="data-panel">
+                
+                <div class="live-data-box">
+                    <div class="data-column col-m">
+                        <span class="data-label">Masse mesurée (m)</span>
+                        <span class="data-value mole-text-red" id="res-m">18.0 g</span>
+                    </div>
+                    <div class="data-column col-N">
+                        <span class="data-label">Nombre d'entités (N)</span>
+                        <span class="data-value text-purple" id="res-N">6.02 &times; 10<sup>23</sup></span>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('tab-analogies')">🌌 Échelle & Analogies</button>
+                    <button class="tab-btn" onclick="switchTab('tab-calculs')">🧮 Calculs</button>
+                    <button class="tab-btn" onclick="switchTab('tab-cours')">📐 Cours</button>
+                </div>
+
+                <div id="tab-analogies" class="tab-content active text-left">
+                    <h3 class="tab-title flex-title">
+                        <span>🤯</span> L'immensité de la mole
+                    </h3>
+                    <p class="text-muted">Le nombre <strong class="text-purple" id="ana-N">6.02 &times; 10<sup>23</sup></strong> est tellement gigantesque que notre cerveau ne peut pas se le représenter. Voici ce que cela donnerait à notre échelle :</p>
+                    
+                    <div class="analogy-card analogy-rice">
+                        <div class="analogy-icon">🍚</div>
+                        <div class="analogy-text">
+                            <strong>Des grains de riz</strong><br>
+                            S'il s'agissait de grains de riz, cela remplirait <span id="ana-riz" class="highlight-val">3.2</span> <strong>fois la Mer Méditerranée</strong> !
+                        </div>
+                    </div>
+
+                    <div class="analogy-card analogy-paper">
+                        <div class="analogy-icon">📄</div>
+                        <div class="analogy-text">
+                            <strong>Des feuilles de papier</strong><br>
+                            Empilées, ces feuilles feraient <span id="ana-papier" class="highlight-val">400</span> <strong>millions de fois la distance Terre-Soleil</strong> !
+                        </div>
+                    </div>
+
+                    <div class="analogy-card analogy-time">
+                        <div class="analogy-icon">⏳</div>
+                        <div class="analogy-text">
+                            <strong>Des secondes</strong><br>
+                            Il faudrait attendre <span id="ana-temps" class="highlight-val">1.38</span> <strong>millions de fois l'âge de l'Univers</strong> pour finir de compter !
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-calculs" class="tab-content text-left">
+                    <h3 class="tab-title">1. Calcul de la Masse ($m$)</h3>
+                    <p class="text-muted">À partir de la quantité de matière choisie, la balance détermine la masse grâce à la masse molaire $M$ :</p>
+                    
+                    <div class="calc-details calc-red">
+                        <span class="math-serif"><i>m = n &times; M</i></span> <br><br>
+                        <i>m</i> = <b><span id="calc-n">1.0</span></b> mol &times; <b><span id="calc-molar">18.0</span></b> g/mol <br>
+                        <i>m</i> = <b class="text-red-dark"><span id="calc-result-m">18.0</span> g</b>
+                    </div>
+
+                    <h3 class="tab-title mt-20">2. Calcul du nombre d'entités ($N$)</h3>
+                    <p class="text-muted">On utilise la Constante d'Avogadro $N_A$ pour "compter" les particules invisibles :</p>
+                    
+                    <div class="calc-details calc-purple">
+                        <span class="math-serif"><i>N = n &times; N<sub>A</sub></i></span> <br><br>
+                        <i>N</i> = <b><span id="calc-n2">1.0</span></b> mol &times; <b>6.02 &times; 10<sup>23</sup></b> mol<sup>-1</sup> <br>
+                        <i>N</i> = <b class="text-purple-dark"><span id="calc-result-N">6.02 &times; 10<sup>23</sup></span> entités</b>
+                    </div>
+                </div>
+
+                <div id="tab-cours" class="tab-content text-left">
+                    <h3 class="tab-title">La Quantité de Matière ($n$)</h3>
+                    <p class="text-muted">La mole est une unité qui permet de compter un grand nombre de particules (atomes, molécules). La quantité de matière (notée $n$) s'exprime en <strong>mol</strong>.</p>
+                    
+                    <div class="formula-box formula-blue">
+                        <strong class="mole-formula-text">$m = n \times M$</strong>
+                    </div>
+                    <ul class="mole-formula-legend">
+                        <li><strong>$m$</strong> : masse de l'échantillon (en g).</li>
+                        <li><strong>$n$</strong> : quantité de matière (en mol).</li>
+                        <li><strong>$M$</strong> : masse molaire de l'espèce (en g/mol).</li>
+                    </ul>
+
+                    <h3 class="tab-title mt-20">La Constante d'Avogadro ($N_A$)</h3>
+                    <p class="text-muted">Une mole contient toujours exactement $6,022 \times 10^{23}$ entités. Ce nombre immense permet de passer du monde macroscopique au monde microscopique.</p>
+                    
+                    <div class="formula-box formula-purple">
+                        <strong class="mole-formula-text">$N = n \times N_A$</strong>
+                    </div>
+                    <ul class="mole-formula-legend">
+                        <li><strong>$N$</strong> : nombre total de particules (sans unité).</li>
+                        <li><strong>$N_A$</strong> : Constante d'Avogadro ($6,022 \times 10^{23} \text{ mol}^{-1}$).</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="nav-footer footer-clean">
+            <a href="../../laboratoire/laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Labo</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_mole.js"></script>
+</body>
+</html>

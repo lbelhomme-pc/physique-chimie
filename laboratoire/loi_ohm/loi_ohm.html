@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire Virtuel : La Loi d'Ohm</title>
+    
+    <link rel="stylesheet" href="../../style/1_core.css">
+    <link rel="stylesheet" href="../../style/2_components.css">
+    <link rel="stylesheet" href="../../style/3_pedagogie.css">
+    <link rel="stylesheet" href="../../style/4_apps.css">
+    <link rel="stylesheet" href="style_ohm.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb"></nav>
+
+    <div class="container">
+        
+        <header class="hero-header" style="text-align: center; margin-bottom: 30px;">
+            <h1 class="header-flex" style="justify-content: center; align-items: center; gap: 15px; margin-bottom: 10px;">
+                <span>⚡</span> 
+                <span style="background: linear-gradient(135deg, #f59e0b, #ef4444); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0;">Labo : La Loi d'Ohm</span>
+            </h1>
+            <p class="subtitle" style="text-align: center; margin: 0 auto;">Étude de la caractéristique d'un dipôle ohmique (Programme 3ème).</p>
+        </header>
+
+        <div class="labo-container">
+            
+            <div class="bench-panel">
+                <div class="bench-header">
+                    <span>🔬 Circuit Électrique Interactif</span>
+                    <button class="btn-lab danger" id="btn-reset">🔄 Remise à zéro</button>
+                </div>
+
+                <div class="alert-box" id="status-msg">Allume le générateur et relève les mesures !</div>
+
+                <div class="canvas-container">
+                    <canvas id="circuitCanvas" width="350" height="350"></canvas>
+                </div>
+
+                <div class="dashboard">
+                    <div class="control-group">
+                        <label>🎛️ Tension du Générateur ($U_G$)</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="range" id="slider-tension" min="0" max="12" step="1" value="0" style="flex-grow: 1;">
+                            <span id="val-tension" style="font-weight: 900; color: #1e293b; width: 40px;">0 V</span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group" style="margin-top: 15px;">
+                        <label>🧱 Choix de la Résistance ($R$)</label>
+                        <div class="resistor-buttons">
+                            <button class="btn-resistor active" data-r="100">100 Ω</button>
+                            <button class="btn-resistor" data-r="220">220 Ω</button>
+                            <button class="btn-resistor" data-r="470">470 Ω</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-grid" style="margin-top: 20px;">
+                    <button class="btn-lab active" id="btn-record" style="grid-column: span 2; font-size: 1.1rem; padding: 15px;">
+                        📝 Enregistrer ce point (U, I) dans le tableau
+                    </button>
+                </div>
+                
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 15px; text-align: left;">
+                    <strong>Observation :</strong> Regarde les électrons (points bleus). Plus la tension est forte, plus ils vont vite. Plus la résistance est grande, plus ils sont freinés !
+                </p>
+            </div>
+
+            <div class="data-panel">
+                
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('tab-graph')">📈 Caractéristique</button>
+                    <button class="tab-btn" onclick="switchTab('tab-table')">📋 Mesures</button>
+                    <button class="tab-btn" onclick="switchTab('tab-analysis')">📐 Exploitation</button>
+                </div>
+
+                <div id="tab-graph" class="tab-content active">
+                    <div class="chart-container">
+                        <canvas id="ohmChart"></canvas>
+                    </div>
+                    <div class="chart-info" id="chart-info" style="display: none; background: #f0fdf4; border-left: 4px solid #10b981; padding: 10px; margin-top: 15px; border-radius: 8px; color: #065f46; font-size: 0.9rem;">
+                        <strong>Analyse :</strong> Les points sont alignés avec l'origine. C'est une situation de proportionnalité !
+                    </div>
+                </div>
+
+                <div id="tab-table" class="tab-content">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Intensité I (mA)</th>
+                                    <th>Intensité I (A)</th>
+                                    <th>Tension U (V)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="tab-analysis" class="tab-content" style="text-align: left;">
+                    <h3 style="color: #1e293b; margin-top: 0;">1. La Caractéristique</h3>
+                    <p style="color: #475569; line-height: 1.6;">Le graphique représentant la tension en fonction de l'intensité s'appelle la <strong>caractéristique</strong> du dipôle.</p>
+                    <div style="background: #f8fafc; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0;">
+                        Pour une résistance, on observe que la caractéristique est une <strong>droite qui passe par l'origine</strong>.<br>Cela prouve que la tension $U$ et l'intensité $I$ sont <strong>proportionnelles</strong>.
+                    </div>
+
+                    <h3 style="color: #1e293b;">2. La Loi d'Ohm</h3>
+                    <p style="color: #475569;">Le coefficient de proportionnalité correspond à la valeur de la résistance $R$. D'où la célèbre formule :</p>
+                    <p style="color: #ef4444; font-weight: 900; font-size: 1.5rem; text-align: center; margin: 20px 0; background: #fef2f2; padding: 15px; border-radius: 12px; border: 2px dashed #fca5a5;">
+                        $U = R \times I$
+                    </p>
+                    <ul style="color: #475569;">
+                        <li><strong>$U$</strong> : Tension aux bornes de la résistance (en Volts <strong>V</strong>).</li>
+                        <li><strong>$I$</strong> : Intensité du courant qui la traverse (en Ampères <strong>A</strong>).</li>
+                        <li><strong>$R$</strong> : Valeur de la résistance (en Ohms <strong>$\Omega$</strong>).</li>
+                    </ul>
+
+                    <h3 style="color: #1e293b;">3. Le rôle de la Résistance</h3>
+                    <p style="color: #475569;">Comme tu peux le voir dans l'animation, plus la valeur de la résistance est élevée, plus elle "freine" le passage du courant (les électrons vont moins vite). L'intensité $I$ diminue !</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="nav-footer" style="margin-top: 40px; border-top: none;">
+            <a href="../../laboratoire/laboratoire.html" class="btn-action btn-back"><span class="emoji">🧪</span> Retour au Labo</a>
+            <a href="../../index.html" class="btn-action btn-home"><span class="emoji">🏠</span> Accueil</a>
+        </div>
+    </div>
+    
+    <div id="accessibility-placeholder"></div>
+    <script src="../../main.js"></script>
+    <script src="script_ohm.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+## Objectifs
+
+- Calculer les coordonnées d'un vecteur.
+- Calculer une distance et le milieu d'un segment.
+- Utiliser les coordonnées pour additionner des vecteurs.
+- Caractériser alignement et parallélisme par colinéarité.
+
+## Prérequis
+
+- repère orthogonal
+- coordonnées de points
+- théorème de Pythagore
+
+## Activité de découverte
+
+Un déplacement sur une carte peut être décrit par le même vecteur même s'il part d'un autre point : ce qui compte est le déplacement horizontal et vertical.
+
+## Vocabulaire
+
+- **vecteur**
+- **représentant**
+- **vecteur nul**
+- **coordonnées**
+- **norme**
+- **déterminant**
+- **colinéarité**
+- **milieu**
+
+## Cours
+
+### Définitions
+
+- Deux vecteurs sont égaux lorsqu'ils ont même direction, même sens et même norme.
+- Dans un repère, le vecteur AB a pour coordonnées (xB - xA ; yB - yA).
+- Deux vecteurs sont colinéaires lorsqu'ils ont la même direction ou des directions parallèles.
+
+### Propriétés
+
+- La distance AB vaut √((xB-xA)^2 + (yB-yA)^2) dans un repère orthonormé.
+- Le milieu de [AB] a pour coordonnées ((xA+xB)/2 ; (yA+yB)/2).
+- Les vecteurs (x ; y) et (x' ; y') sont colinéaires si xy' - yx' = 0.
+
+### Méthodes
+
+1. Pour calculer AB, soustraire les coordonnées de A à celles de B.
+2. Pour prouver un alignement, montrer que deux vecteurs construits avec les points sont colinéaires.
+3. Pour représenter une somme de vecteurs, placer des représentants de même origine ou utiliser les coordonnées.
+
+## Exemples corrigés
+
+- Si A(1 ; 2) et B(5 ; -1), alors AB a pour coordonnées (4 ; -3) et AB=5.
+- Les vecteurs u(2 ; 3) et v(4 ; 6) sont colinéaires car 2×6 - 3×4 = 0.
+
+<figure className="chapter-figure">
+  <svg viewBox="0 0 680 320" role="img" aria-labelledby="vector-title vector-desc"><title id="vector-title">Vecteur dans un repère</title><desc id="vector-desc">Repère avec points A et B et vecteur AB.</desc><defs><marker id="arrow-vector" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker></defs><line x1="70" y1="250" x2="620" y2="250" stroke="#111827"/><line x1="120" y1="285" x2="120" y2="35" stroke="#111827"/><g stroke="#e5e7eb"><line x1="120" y1="35" x2="120" y2="285"/><line x1="170" y1="35" x2="170" y2="285"/><line x1="220" y1="35" x2="220" y2="285"/><line x1="270" y1="35" x2="270" y2="285"/><line x1="320" y1="35" x2="320" y2="285"/><line x1="370" y1="35" x2="370" y2="285"/><line x1="420" y1="35" x2="420" y2="285"/><line x1="470" y1="35" x2="470" y2="285"/><line x1="520" y1="35" x2="520" y2="285"/><line x1="570" y1="35" x2="570" y2="285"/><line x1="620" y1="35" x2="620" y2="285"/><line x1="70" y1="50" x2="620" y2="50"/><line x1="70" y1="100" x2="620" y2="100"/><line x1="70" y1="150" x2="620" y2="150"/><line x1="70" y1="200" x2="620" y2="200"/><line x1="70" y1="250" x2="620" y2="250"/></g><circle cx="220" cy="190" r="7" fill="#dc2626"/><circle cx="420" cy="90" r="7" fill="#dc2626"/><line x1="220" y1="190" x2="420" y2="90" stroke="#2563eb" strokeWidth="4" markerEnd="url(#arrow-vector)"/><text x="205" y="215">A</text><text x="430" y="85">B</text><text x="330" y="115" fontWeight="700">AB(4 ; 2)</text></svg>
+  <figcaption>Géométrie repérée et vecteurs : représentation schématique à commenter avant les exercices.</figcaption>
+</figure>
+
+## Algorithmique en Python
+
+### Tester la colinéarité
+
+```python
+def colineaires(u, v):
+    return u[0]*v[1] - u[1]*v[0] == 0
+
+print(colineaires((2, 3), (4, 6)))
+```
+
+Le déterminant nul caractérise la colinéarité en repère orthonormé.
+
+## Erreurs fréquentes
+
+- Confondre coordonnées d'un point et coordonnées d'un vecteur.
+- Oublier les parenthèses dans la formule de distance.
+- Conclure à l'alignement avec des vecteurs qui ne partagent pas les bons points.
+
+## Formules et idées à retenir
+
+- AB(xB-xA ; yB-yA)
+- AB = √((xB-xA)^2 + (yB-yA)^2)
+- det(u,v)=xy' - yx'
+
+## Synthèse
+
+Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.
