@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LeaneShell from "../../components/leane/LeaneShell.astro";
-import { leaneLevels } from "../../data/leane";
+import { leaneCoursePracticeEntries } from "../../data/leane";
 ---
 
 <BaseLayout
@@ -16,30 +16,27 @@ import { leaneLevels } from "../../data/leane";
     title="Exercices guid&eacute;s"
     subtitle="Un niveau, une consigne, une aide, puis la correction seulement quand elle est utile."
   >
-    <section class="leane-grid" aria-label="Exercices par niveau">
-      {leaneLevels.map((level) => (
-        <article class="leane-panel" id={level.id}>
-          <p class="leane-eyebrow">{level.subtitle}</p>
-          <h2>{level.title}</h2>
-          <div class="leane-card-grid">
-            {level.exercises.map((exercise) => (
-              <section class="leane-exercise-card">
-                <span class="leane-chip">{exercise.level}</span>
-                <h2>{exercise.title}</h2>
-                <p>{exercise.prompt}</p>
-                <details>
-                  <summary>Voir une aide</summary>
-                  <p>{exercise.hint}</p>
-                </details>
-                <details>
-                  <summary>Voir la correction</summary>
-                  <p>{exercise.answer}</p>
-                </details>
-              </section>
-            ))}
-          </div>
-        </article>
-      ))}
+    <section class="leane-panel">
+      <p class="leane-eyebrow">Par cours</p>
+      <h2>Un exercice pour chaque cours</h2>
+      <div class="leane-card-grid">
+        {leaneCoursePracticeEntries.map(({ level, course, practice }) => (
+          <section class="leane-exercise-card" id={`${level.id}-${course.title.toLowerCase().replaceAll(" ", "-")}`}>
+            <span class="leane-chip">{level.title}</span>
+            <h2>{course.title}</h2>
+            <p><strong>{practice.exercise.title}</strong></p>
+            <p>{practice.exercise.prompt}</p>
+            <details>
+              <summary>Voir une aide</summary>
+              <p>{practice.exercise.hint}</p>
+            </details>
+            <details>
+              <summary>Voir la correction</summary>
+              <p>{practice.exercise.answer}</p>
+            </details>
+          </section>
+        ))}
+      </div>
     </section>
   </LeaneShell>
 </BaseLayout>

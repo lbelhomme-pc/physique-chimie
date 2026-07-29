@@ -36,6 +36,12 @@ export type LeaneFlashcard = {
   tag: string;
 };
 
+export type LeaneCoursePractice = {
+  exercise: LeaneExercise;
+  quiz: LeaneQuizQuestion;
+  flashcard: LeaneFlashcard;
+};
+
 export const leaneLevels: LeaneLevel[] = [
   {
     id: "5e",
@@ -233,6 +239,196 @@ export const leaneLevels: LeaneLevel[] = [
     ],
   },
 ];
+
+export const leaneCoursePractices: Record<string, LeaneCoursePractice> = {
+  "5e:Enchainements d'operations": {
+    exercise: {
+      title: "Priorites en deux lignes",
+      level: "Application",
+      prompt: "Calcule A = 18 - 4 x (7 - 2), en ecrivant une seule transformation par ligne.",
+      hint: "Commence par la parenthese, puis la multiplication.",
+      answer: "A = 18 - 4 x 5 = 18 - 20 = -2.",
+    },
+    quiz: {
+      question: "Dans 18 - 4 x (7 - 2), quelle etape vient en premier ?",
+      choices: ["7 - 2", "4 x 7", "18 - 4"],
+      answer: 0,
+    },
+    flashcard: {
+      tag: "Priorites",
+      front: "Quelle est la regle d'or pour les enchainements d'operations ?",
+      back: "Parentheses d'abord, puis multiplications/divisions, puis additions/soustractions.",
+    },
+  },
+  "5e:Calcul litteral de depart": {
+    exercise: {
+      title: "Remplacer x",
+      level: "Application",
+      prompt: "Calcule E = 4x - 9 pour x = -2.",
+      hint: "Ecris 4 x (-2) - 9.",
+      answer: "E = 4 x (-2) - 9 = -8 - 9 = -17.",
+    },
+    quiz: {
+      question: "Que vaut 3x + 5 pour x = -4 ?",
+      choices: ["-7", "17", "-17"],
+      answer: 0,
+    },
+    flashcard: {
+      tag: "Calcul litteral",
+      front: "Pourquoi mettre des parentheses quand x est negatif ?",
+      back: "Pour garder le signe du nombre et eviter les erreurs de priorite ou de puissance.",
+    },
+  },
+  "5e:Statistiques essentielles": {
+    exercise: {
+      title: "Moyenne simple",
+      level: "Application",
+      prompt: "Calcule la moyenne de 8 ; 11 ; 14 ; 7.",
+      hint: "Additionne les quatre valeurs, puis divise par 4.",
+      answer: "(8 + 11 + 14 + 7) / 4 = 40 / 4 = 10.",
+    },
+    quiz: {
+      question: "Une moyenne de notes doit toujours etre...",
+      choices: ["entre la plus petite et la plus grande note", "plus grande que toutes les notes", "egale a l'effectif total"],
+      answer: 0,
+    },
+    flashcard: {
+      tag: "Statistiques",
+      front: "Comment calcule-t-on une moyenne simple ?",
+      back: "On additionne les valeurs, puis on divise par le nombre de valeurs.",
+    },
+  },
+  "4e:Fractions": {
+    exercise: {
+      title: "Fraction et inverse",
+      level: "Application",
+      prompt: "Calcule et simplifie : 5/6 / 10/9.",
+      hint: "Multiplier par l'inverse de 10/9.",
+      answer: "5/6 x 9/10 = 45/60 = 3/4.",
+    },
+    quiz: {
+      question: "Pour diviser par 2/7, on multiplie par...",
+      choices: ["7/2", "2/7", "2 x 7"],
+      answer: 0,
+    },
+    flashcard: {
+      tag: "Fractions",
+      front: "Quelle est la methode pour additionner deux fractions ?",
+      back: "Les mettre au meme denominateur, puis additionner les numerateurs.",
+    },
+  },
+  "4e:Puissances": {
+    exercise: {
+      title: "Notation scientifique",
+      level: "Application",
+      prompt: "Ecris 0,000073 en notation scientifique.",
+      hint: "Le nombre devant 10 doit etre entre 1 et 10.",
+      answer: "0,000073 = 7,3 x 10^-5.",
+    },
+    quiz: {
+      question: "Que vaut 10^-3 ?",
+      choices: ["0,001", "1000", "-30"],
+      answer: 0,
+    },
+    flashcard: {
+      tag: "Puissances",
+      front: "Que signifie un exposant negatif ?",
+      back: "Il indique l'inverse : a^-n = 1 / a^n, avec a non nul.",
+    },
+  },
+  "4e:Equations": {
+    exercise: {
+      title: "Isoler x",
+      level: "Application",
+      prompt: "Resous 6x - 5 = 2x + 11.",
+      hint: "Regroupe les x d'un cote et les nombres de l'autre.",
+      answer: "4x = 16 donc x = 4.",
+    },
+    quiz: {
+      question: "Dans une equation, on peut garder l'egalite vraie si...",
+      choices: ["on fait la meme operation des deux cotes", "on change seulement le membre de gauche", "on supprime les signes moins"],
+      answer: 0,
+    },
+    flashcard: {
+      tag: "Equations",
+      front: "Quelle est la verification rapide apres une equation ?",
+      back: "Remplacer x par la valeur trouvee dans l'equation de depart.",
+    },
+  },
+  "3e:Developper et factoriser": {
+    exercise: {
+      title: "Double distributivite",
+      level: "Application",
+      prompt: "Developpe et reduis : (x + 6)(2x - 3).",
+      hint: "Multiplie chaque terme de la premiere parenthese par chaque terme de la seconde.",
+      answer: "2x^2 - 3x + 12x - 18 = 2x^2 + 9x - 18.",
+    },
+    quiz: {
+      question: "Factoriser, c'est...",
+      choices: ["ecrire sous forme de produit", "supprimer tous les x", "calculer une moyenne"],
+      answer: 0,
+    },
+    flashcard: {
+      tag: "Factoriser",
+      front: "Quelle difference entre developper et factoriser ?",
+      back: "Developper transforme un produit en somme ; factoriser transforme une somme en produit.",
+    },
+  },
+  "3e:Equations-produits": {
+    exercise: {
+      title: "Produit nul",
+      level: "Application",
+      prompt: "Resous (x - 8)(3x + 6) = 0.",
+      hint: "Un produit est nul si l'un des facteurs est nul.",
+      answer: "x - 8 = 0 donne x = 8 ; 3x + 6 = 0 donne x = -2.",
+    },
+    quiz: {
+      question: "La regle du produit nul s'applique quand le second membre vaut...",
+      choices: ["0", "1", "-1"],
+      answer: 0,
+    },
+    flashcard: {
+      tag: "Produit nul",
+      front: "Si A x B = 0, que peut-on conclure ?",
+      back: "A = 0 ou B = 0.",
+    },
+  },
+  "3e:Fonctions": {
+    exercise: {
+      title: "Image et antecedent",
+      level: "Application",
+      prompt: "Pour f(x) = -3x + 2, calcule f(5), puis cherche x tel que f(x) = 11.",
+      hint: "Remplace x par 5, puis resous -3x + 2 = 11.",
+      answer: "f(5) = -15 + 2 = -13. -3x + 2 = 11 donne -3x = 9 donc x = -3.",
+    },
+    quiz: {
+      question: "Si f(2) = 7, alors 7 est...",
+      choices: ["l'image de 2", "un antecedent de 2", "le nom de la fonction"],
+      answer: 0,
+    },
+    flashcard: {
+      tag: "Fonctions",
+      front: "Quelle est la difference entre image et antecedent ?",
+      back: "L'antecedent est la valeur de depart ; l'image est le resultat donne par la fonction.",
+    },
+  },
+};
+
+export function getLeaneCoursePractice(levelId: LeaneLevel["id"], courseTitle: string) {
+  const practice = leaneCoursePractices[`${levelId}:${courseTitle}`];
+  if (!practice) {
+    throw new Error(`Missing Leane practice for ${levelId}:${courseTitle}`);
+  }
+  return practice;
+}
+
+export const leaneCoursePracticeEntries = leaneLevels.flatMap((level) =>
+  level.courses.map((course) => ({
+    level,
+    course,
+    practice: getLeaneCoursePractice(level.id, course.title),
+  })),
+);
 
 export const leaneBridgeItems = [
   "Manipuler des fractions sans perdre le signe.",

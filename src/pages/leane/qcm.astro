@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LeaneShell from "../../components/leane/LeaneShell.astro";
-import { leaneQuiz } from "../../data/leane";
+import { leaneCoursePracticeEntries, leaneQuiz } from "../../data/leane";
 ---
 
 <BaseLayout
@@ -16,23 +16,55 @@ import { leaneQuiz } from "../../data/leane";
     title="QCM global"
     subtitle="Un diagnostic rapide pour voir ce qui est solide et ce qui doit revenir dans le planning."
   >
-    <form class="leane-grid" data-leane-quiz>
-      {leaneQuiz.map((item, index) => (
-        <fieldset class="leane-question" data-answer={String(item.answer)}>
-          <legend>{index + 1}. {item.question}</legend>
-          {item.choices.map((choice, choiceIndex) => (
-            <label>
-              <input type="radio" name={`q${index}`} value={String(choiceIndex)} required />
-              <span>{choice}</span>
-            </label>
-          ))}
-        </fieldset>
-      ))}
+    <section class="leane-two-col">
+      <form class="leane-grid" data-leane-quiz>
+        <article class="leane-panel">
+          <p class="leane-eyebrow">Global</p>
+          <h2>Diagnostic transversal</h2>
+        </article>
+        {leaneQuiz.map((item, index) => (
+          <fieldset class="leane-question" data-answer={String(item.answer)}>
+            <legend>{index + 1}. {item.question}</legend>
+            {item.choices.map((choice, choiceIndex) => (
+              <label>
+                <input type="radio" name={`q${index}`} value={String(choiceIndex)} required />
+                <span>{choice}</span>
+              </label>
+            ))}
+          </fieldset>
+        ))}
 
-      <div class="leane-inline-actions">
-        <button class="leane-primary-link" type="submit">Corriger le QCM</button>
-        <output class="leane-result" data-leane-quiz-result hidden></output>
-      </div>
-    </form>
+        <div class="leane-inline-actions">
+          <button class="leane-primary-link" type="submit">Corriger le QCM global</button>
+          <output class="leane-result" data-leane-quiz-result hidden></output>
+        </div>
+      </form>
+
+      <aside class="leane-panel">
+        <p class="leane-eyebrow">Par cours</p>
+        <h2>Mini-QCM associes</h2>
+        <div class="leane-grid">
+          {leaneCoursePracticeEntries.map(({ level, course, practice }, index) => (
+            <form class="leane-mini-panel" data-leane-quiz>
+              <span class="leane-chip">{level.title}</span>
+              <fieldset class="leane-mini-quiz" data-answer={String(practice.quiz.answer)}>
+                <legend>{course.title}</legend>
+                <p>{practice.quiz.question}</p>
+                {practice.quiz.choices.map((choice, choiceIndex) => (
+                  <label>
+                    <input type="radio" name={`mini-q${index}`} value={String(choiceIndex)} required />
+                    <span>{choice}</span>
+                  </label>
+                ))}
+              </fieldset>
+              <div class="leane-inline-actions">
+                <button class="leane-primary-link" type="submit">Corriger</button>
+                <output class="leane-result" data-leane-quiz-result hidden></output>
+              </div>
+            </form>
+          ))}
+        </div>
+      </aside>
+    </section>
   </LeaneShell>
 </BaseLayout>

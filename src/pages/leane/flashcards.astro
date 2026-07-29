@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LeaneShell from "../../components/leane/LeaneShell.astro";
-import { leaneFlashcards } from "../../data/leane";
+import { leaneCoursePracticeEntries, leaneFlashcards } from "../../data/leane";
 ---
 
 <BaseLayout
@@ -16,23 +16,53 @@ import { leaneFlashcards } from "../../data/leane";
     title="Flashcards globales"
     subtitle="Cliquer sur une carte pour la retourner, puis revoir en priorit&eacute; les notions h&eacute;sitantes."
   >
-    <section class="leane-card-grid" aria-label="Flashcards globales">
-      {leaneFlashcards.map((card) => (
-        <button class="leane-flashcard" type="button" data-flashcard aria-pressed="false">
-          <span class="leane-flashcard__inner">
-            <span class="leane-flashcard__face">
-              <span class="leane-chip">{card.tag}</span>
-              <strong>{card.front}</strong>
-              <span class="leane-card-muted">Cliquer pour retourner</span>
-            </span>
-            <span class="leane-flashcard__face leane-flashcard__face--back">
-              <span class="leane-chip">R&eacute;ponse</span>
-              <strong>{card.back}</strong>
-              <span class="leane-card-muted">Cliquer pour revenir</span>
-            </span>
-          </span>
-        </button>
-      ))}
+    <section class="leane-grid">
+      <article class="leane-panel">
+        <p class="leane-eyebrow">Par cours</p>
+        <h2>Une flashcard associee a chaque cours</h2>
+        <div class="leane-card-grid">
+          {leaneCoursePracticeEntries.map(({ level, course, practice }) => (
+            <button class="leane-flashcard" type="button" data-flashcard aria-pressed="false">
+              <span class="leane-flashcard__inner">
+                <span class="leane-flashcard__face">
+                  <span class="leane-chip">{level.title}</span>
+                  <strong>{course.title}</strong>
+                  <span>{practice.flashcard.front}</span>
+                  <span class="leane-card-muted">Cliquer pour retourner</span>
+                </span>
+                <span class="leane-flashcard__face leane-flashcard__face--back">
+                  <span class="leane-chip">{practice.flashcard.tag}</span>
+                  <strong>{practice.flashcard.back}</strong>
+                  <span class="leane-card-muted">Cliquer pour revenir</span>
+                </span>
+              </span>
+            </button>
+          ))}
+        </div>
+      </article>
+
+      <article class="leane-panel">
+        <p class="leane-eyebrow">Global</p>
+        <h2>Cartes de synthese</h2>
+        <div class="leane-card-grid">
+          {leaneFlashcards.map((card) => (
+            <button class="leane-flashcard" type="button" data-flashcard aria-pressed="false">
+              <span class="leane-flashcard__inner">
+                <span class="leane-flashcard__face">
+                  <span class="leane-chip">{card.tag}</span>
+                  <strong>{card.front}</strong>
+                  <span class="leane-card-muted">Cliquer pour retourner</span>
+                </span>
+                <span class="leane-flashcard__face leane-flashcard__face--back">
+                  <span class="leane-chip">R&eacute;ponse</span>
+                  <strong>{card.back}</strong>
+                  <span class="leane-card-muted">Cliquer pour revenir</span>
+                </span>
+              </span>
+            </button>
+          ))}
+        </div>
+      </article>
     </section>
   </LeaneShell>
 </BaseLayout>

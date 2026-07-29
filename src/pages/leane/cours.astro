@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LeaneShell from "../../components/leane/LeaneShell.astro";
-import { leaneLevels } from "../../data/leane";
+import { getLeaneCoursePractice, leaneLevels } from "../../data/leane";
 ---
 
 <BaseLayout
@@ -21,8 +21,10 @@ import { leaneLevels } from "../../data/leane";
         <article class="leane-panel" id={level.id}>
           <p class="leane-eyebrow">{level.subtitle}</p>
           <h2>{level.title}</h2>
-          <div class="leane-card-grid">
-            {level.courses.map((course) => (
+          <div class="leane-card-grid leane-card-grid--courses">
+            {level.courses.map((course, courseIndex) => {
+              const practice = getLeaneCoursePractice(level.id, course.title);
+              return (
               <section class="leane-course-card">
                 <h2>{course.title}</h2>
                 <p><strong>{course.focus}</strong></p>
@@ -31,8 +33,63 @@ import { leaneLevels } from "../../data/leane";
                 </ul>
                 <p class="leane-note"><strong>Exemple :</strong> {course.example}</p>
                 <p class="leane-note"><strong>Pi&egrave;ge :</strong> {course.trap}</p>
+
+                <div class="leane-course-practice">
+                  <h3>Exercice + QCM + flashcard</h3>
+                  <div class="leane-practice-grid">
+                    <section class="leane-mini-panel">
+                      <span class="leane-chip">Exercice</span>
+                      <h4>{practice.exercise.title}</h4>
+                      <p>{practice.exercise.prompt}</p>
+                      <details>
+                        <summary>Voir une aide</summary>
+                        <p>{practice.exercise.hint}</p>
+                      </details>
+                      <details>
+                        <summary>Voir la correction</summary>
+                        <p>{practice.exercise.answer}</p>
+                      </details>
+                    </section>
+
+                    <form class="leane-mini-panel" data-leane-quiz>
+                      <fieldset class="leane-mini-quiz" data-answer={String(practice.quiz.answer)}>
+                        <legend>Mini-QCM : {practice.quiz.question}</legend>
+                        {practice.quiz.choices.map((choice, choiceIndex) => (
+                          <label>
+                            <input
+                              type="radio"
+                              name={`course-${level.id}-${courseIndex}`}
+                              value={String(choiceIndex)}
+                              required
+                            />
+                            <span>{choice}</span>
+                          </label>
+                        ))}
+                      </fieldset>
+                      <div class="leane-inline-actions">
+                        <button class="leane-primary-link" type="submit">Corriger</button>
+                        <output class="leane-result" data-leane-quiz-result hidden></output>
+                      </div>
+                    </form>
+
+                    <button class="leane-mini-flashcard" type="button" data-flashcard aria-pressed="false">
+                      <span class="leane-flashcard__inner">
+                        <span class="leane-flashcard__face">
+                          <span class="leane-chip">{practice.flashcard.tag}</span>
+                          <strong>{practice.flashcard.front}</strong>
+                          <span class="leane-card-muted">Cliquer pour retourner</span>
+                        </span>
+                        <span class="leane-flashcard__face leane-flashcard__face--back">
+                          <span class="leane-chip">R&eacute;ponse</span>
+                          <strong>{practice.flashcard.back}</strong>
+                        </span>
+                      </span>
+                    </button>
+                  </div>
+                </div>
               </section>
-            ))}
+              );
+            })}
           </div>
         </article>
       ))}

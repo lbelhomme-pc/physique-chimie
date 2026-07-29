@@ -87,10 +87,10 @@ const navItems = [
     });
   });
 
-  const quizRoot = document.querySelector<HTMLElement>("[data-leane-quiz]");
-  const quizResult = document.querySelector<HTMLElement>("[data-leane-quiz-result]");
+  document.querySelectorAll<HTMLElement>("[data-leane-quiz]").forEach((quizRoot) => {
+    const quizResult = quizRoot.querySelector<HTMLElement>("[data-leane-quiz-result]");
+    if (!quizResult || quizRoot.dataset.leaneReady === "true") return;
 
-  if (quizRoot && quizResult && quizRoot.dataset.leaneReady !== "true") {
     quizRoot.dataset.leaneReady = "true";
     quizRoot.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -113,7 +113,7 @@ const navItems = [
       quizResult.textContent = `Score : ${score} / ${questions.length}`;
       quizResult.hidden = false;
     });
-  }
+  });
 </script>
 
 <style is:global>
@@ -399,6 +399,10 @@ const navItems = [
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .leane-card-grid--courses {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .leane-panel,
   .leane-stat,
   .leane-level-card,
@@ -533,6 +537,99 @@ const navItems = [
     padding-left: 1.2rem;
   }
 
+  .leane-course-practice {
+    border-top: 1px solid #dde7f5;
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .leane-course-practice h3 {
+    font-size: 0.92rem;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .leane-practice-grid {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .leane-mini-panel {
+    background: #f8fbff;
+    border: 1px solid #dce8f7;
+    border-radius: 8px;
+    display: grid;
+    gap: 0.55rem;
+    padding: 0.8rem;
+  }
+
+  .leane-mini-panel h4,
+  .leane-mini-panel legend {
+    color: var(--leane-text);
+    font-size: 0.9rem;
+    font-weight: 850;
+    margin: 0;
+  }
+
+  .leane-mini-panel p {
+    margin: 0;
+  }
+
+  .leane-mini-panel details {
+    border-top: 1px solid #dce8f7;
+    padding-top: 0.55rem;
+  }
+
+  .leane-mini-panel summary {
+    color: #16498f;
+    cursor: pointer;
+    font-weight: 820;
+  }
+
+  .leane-mini-quiz {
+    border: 0;
+    margin: 0;
+    min-inline-size: 0;
+    padding: 0;
+  }
+
+  .leane-mini-quiz label {
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #dce6f4;
+    border-radius: 8px;
+    display: flex;
+    gap: 0.55rem;
+    padding: 0.55rem 0.65rem;
+  }
+
+  .leane-primary-link:is(button) {
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .leane-mini-flashcard {
+    background: #ffffff;
+    border: 1px solid #dce8f7;
+    border-radius: 8px;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+    perspective: 1000px;
+    text-align: left;
+  }
+
+  .leane-mini-flashcard .leane-flashcard__inner {
+    min-height: 126px;
+  }
+
+  .leane-mini-flashcard.is-flipped .leane-flashcard__inner {
+    transform: rotateY(180deg);
+  }
+
   .leane-note {
     background: #f5f9ff;
     border: 1px solid #dce8f7;
@@ -646,6 +743,7 @@ const navItems = [
 
     .leane-stat-grid,
     .leane-card-grid,
+    .leane-card-grid--courses,
     .leane-two-col {
       grid-template-columns: 1fr;
     }
