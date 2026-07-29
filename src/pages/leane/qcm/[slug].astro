@@ -4,29 +4,29 @@ import LeaneShell from "../../../components/leane/LeaneShell.astro";
 import { leaneQuiz } from "../../../data/leane";
 
 const qcmLinks = [
-  { slug: "5e", label: "Bases 5e" },
-  { slug: "4e", label: "Bases 4e" },
-  { slug: "3e", label: "Bases 3e" },
+  { slug: "5e", label: "Bases 5ème" },
+  { slug: "4e", label: "Bases 4ème" },
+  { slug: "3e", label: "Bases 3ème" },
   { slug: "global", label: "Synthèse" },
 ];
 
 export function getStaticPaths() {
   const qcmSets = {
     "5e": {
-      label: "Bases 5e",
-      title: "QCM - Bases 5e",
+      label: "Bases 5ème",
+      title: "QCM - Bases 5ème",
       subtitle: "Priorités, calcul littéral et statistiques.",
       indices: [0, 4, 5, 6, 7, 8, 9, 10, 11, 12, 35, 36],
     },
     "4e": {
-      label: "Bases 4e",
-      title: "QCM - Bases 4e",
+      label: "Bases 4ème",
+      title: "QCM - Bases 4ème",
       subtitle: "Fractions, puissances et équations.",
       indices: [1, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
     },
     "3e": {
-      label: "Bases 3e",
-      title: "QCM - Bases 3e",
+      label: "Bases 3ème",
+      title: "QCM - Bases 3ème",
       subtitle: "Développement, factorisation, produit nul et fonctions.",
       indices: [2, 3, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
     },

@@ -52,7 +52,7 @@ export type LeaneCoursePracticeEntry = {
 export const leaneLevels: LeaneLevel[] = [
   {
     id: "5e",
-    title: "Bases 5e",
+    title: "Bases 5ème",
     subtitle: "Reprendre les automatismes sans stress",
     objective: "Poser un calcul propre, respecter les priorités et manipuler une expression simple.",
     accent: "#1f6feb",
@@ -117,7 +117,7 @@ export const leaneLevels: LeaneLevel[] = [
   },
   {
     id: "4e",
-    title: "Bases 4e",
+    title: "Bases 4ème",
     subtitle: "Solidifier fractions, puissances et équations",
     objective: "Gagner en sécurité sur les calculs qui reviennent constamment au lycée.",
     accent: "#15a887",
@@ -182,7 +182,7 @@ export const leaneLevels: LeaneLevel[] = [
   },
   {
     id: "3e",
-    title: "Bases 3e",
+    title: "Bases 3ème",
     subtitle: "Préparer l'entrée au lycée",
     objective: "Relier calcul littéral, factorisation, fonctions et probabilités avant la première.",
     accent: "#7c5cff",
