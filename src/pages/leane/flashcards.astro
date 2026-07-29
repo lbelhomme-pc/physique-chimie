@@ -317,6 +317,11 @@ const deckCards = [
       render();
     }
 
+    function filterFromHash() {
+      const hash = window.location.hash.replace("#", "");
+      return ["5e", "4e", "3e", "global"].includes(hash) ? hash : "all";
+    }
+
     cardButton?.addEventListener("click", () => {
       flipped = !flipped;
       render();
@@ -332,10 +337,19 @@ const deckCards = [
       button.addEventListener("click", () => nextCard(button.dataset.flashRate ?? "review"));
     });
     filterButtons.forEach((button) => {
-      button.addEventListener("click", () => applyFilter(button.dataset.flashFilter ?? "all"));
+      button.addEventListener("click", () => {
+        const filter = button.dataset.flashFilter ?? "all";
+        applyFilter(filter);
+        if (filter === "all") {
+          window.history.replaceState(null, "", window.location.pathname);
+        } else {
+          window.location.hash = filter;
+        }
+      });
     });
     resetButton?.addEventListener("click", () => applyFilter(filterButtons.find((button) => button.classList.contains("is-active"))?.dataset.flashFilter ?? "all"));
-    render();
+    window.addEventListener("hashchange", () => applyFilter(filterFromHash()));
+    applyFilter(filterFromHash());
   }
 </script>
 

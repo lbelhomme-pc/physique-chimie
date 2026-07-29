@@ -1,5 +1,5 @@
 ---
-import { leaneBridgeItems, leaneCoursePracticeEntries, leaneFlashcards, leaneLevels } from "../../data/leane";
+import { leaneCoursePracticeEntries, leaneFlashcards, leaneLevels } from "../../data/leane";
 import LeaneIcon from "./LeaneIcon.astro";
 import LeaneShell from "./LeaneShell.astro";
 
@@ -49,13 +49,11 @@ const exerciseCount = leaneCoursePracticeEntries.reduce((total, entry) => total 
   <section class="leane-two-col">
     <div class="leane-grid">
       <article class="leane-panel">
-        <h2>Arborescence recommandée</h2>
+        <h2>Accès par niveau</h2>
         <div class="leane-card-grid">
           {leaneLevels.map((level) => (
             <section class="leane-level-card" style={`--level-accent: ${level.accent}`}>
-              <p class="leane-card-muted">{level.subtitle}</p>
               <h2>{level.title}</h2>
-              <p>{level.objective}</p>
               <div class="leane-progress-row">
                 <span>Progression</span>
                 <strong>0%</strong>
@@ -72,11 +70,11 @@ const exerciseCount = leaneCoursePracticeEntries.reduce((total, entry) => total 
                   <LeaneIcon name="exercises" />
                   Exercices
                 </a>
-                <a class="leane-action-tile" href="/leane/qcm">
+                <a class="leane-action-tile" href={`/leane/qcm/${level.id}`}>
                   <LeaneIcon name="quiz" />
                   QCM
                 </a>
-                <a class="leane-action-tile" href="/leane/flashcards">
+                <a class="leane-action-tile" href={`/leane/flashcards#${level.id}`}>
                   <LeaneIcon name="cards" />
                   Flashcards
                 </a>
@@ -85,24 +83,11 @@ const exerciseCount = leaneCoursePracticeEntries.reduce((total, entry) => total 
           ))}
         </div>
       </article>
-
-      <article class="leane-panel">
-        <h2>Objectifs avant la première</h2>
-        <ul class="leane-list">
-          {leaneBridgeItems.map((item) => (
-            <li>
-              <span>{item}</span>
-              <span class="leane-chip">prioritaire</span>
-            </li>
-          ))}
-        </ul>
-      </article>
     </div>
 
     <aside class="leane-grid" aria-label="Actions rapides">
       <article class="leane-panel">
         <h2>Session du jour</h2>
-        <p>Commencer par un cours court, faire deux exercices, puis terminer par cinq flashcards.</p>
         <div class="leane-inline-actions">
           <a class="leane-primary-link" href="/leane/cours">Ouvrir les cours</a>
           <a class="leane-outline-link" href="/leane/flashcards">Revoir les cartes</a>
@@ -111,8 +96,7 @@ const exerciseCount = leaneCoursePracticeEntries.reduce((total, entry) => total 
 
       <article class="leane-panel">
         <h2>QCM global</h2>
-        <p>Un contrôle rapide pour repérer les points fragiles sans se noyer dans tous les chapitres.</p>
-        <a class="leane-primary-link" href="/leane/qcm">Lancer le QCM</a>
+        <a class="leane-primary-link" href="/leane/qcm/global">Lancer le QCM</a>
       </article>
     </aside>
   </section>
