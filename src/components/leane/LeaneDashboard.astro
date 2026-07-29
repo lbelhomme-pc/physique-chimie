@@ -46,58 +46,41 @@ const exerciseCount = leaneCoursePracticeEntries.reduce((total, entry) => total 
     </article>
   </section>
 
-  <section class="leane-two-col">
-    <div class="leane-grid">
-      <article class="leane-panel">
-        <h2>Accès par niveau</h2>
-        <div class="leane-card-grid">
-          {leaneLevels.map((level) => (
-            <section class="leane-level-card" style={`--level-accent: ${level.accent}`}>
-              <h2>{level.title}</h2>
-              <div class="leane-progress-row">
-                <span>Progression</span>
-                <strong>0%</strong>
-              </div>
-              <div class="leane-progress" aria-label={`Progression ${level.title}`}>
-                <span style="width: 0%"></span>
-              </div>
-              <div class="leane-level-card__actions">
-                <a class="leane-action-tile" href={`/leane/cours#${level.id}`}>
-                  <LeaneIcon name="book" />
-                  Cours
-                </a>
-                <a class="leane-action-tile" href={`/leane/exercices#${level.id}`}>
-                  <LeaneIcon name="exercises" />
-                  Exercices
-                </a>
-                <a class="leane-action-tile" href={`/leane/qcm/${level.id}`}>
-                  <LeaneIcon name="quiz" />
-                  QCM
-                </a>
-                <a class="leane-action-tile" href={`/leane/flashcards#${level.id}`}>
-                  <LeaneIcon name="cards" />
-                  Flashcards
-                </a>
-              </div>
-            </section>
-          ))}
-        </div>
-      </article>
-    </div>
-
-    <aside class="leane-grid" aria-label="Actions rapides">
-      <article class="leane-panel">
-        <h2>Session du jour</h2>
-        <div class="leane-inline-actions">
-          <a class="leane-primary-link" href="/leane/cours">Ouvrir les cours</a>
-          <a class="leane-outline-link" href="/leane/flashcards">Revoir les cartes</a>
-        </div>
-      </article>
-
-      <article class="leane-panel">
-        <h2>QCM global</h2>
-        <a class="leane-primary-link" href="/leane/qcm/global">Lancer le QCM</a>
-      </article>
-    </aside>
+  <section class="leane-grid">
+    <article class="leane-panel">
+      <h2>Accès par niveau</h2>
+      <div class="leane-card-grid">
+        {leaneLevels.map((level) => (
+          <section class="leane-level-card" style={`--level-accent: ${level.accent}`}>
+            <h2>{level.title}</h2>
+            <div class="leane-progress-row">
+              <span>Progression</span>
+              <strong>0%</strong>
+            </div>
+            <div class="leane-progress" aria-label={`Progression ${level.title}`}>
+              <span style="width: 0%"></span>
+            </div>
+            <div class="leane-level-card__actions">
+              <a class="leane-action-tile" href={`/leane/cours#${level.id}`}>
+                <LeaneIcon name="book" />
+                Cours
+              </a>
+              <a class="leane-action-tile" href={`/leane/exercices#${level.id}`}>
+                <LeaneIcon name="exercises" />
+                Exercices
+              </a>
+              <a class="leane-action-tile" href={`/leane/qcm/${level.id}`}>
+                <LeaneIcon name="quiz" />
+                QCM
+              </a>
+              <a class="leane-action-tile" href={`/leane/flashcards#${level.id}`}>
+                <LeaneIcon name="cards" />
+                Flashcards
+              </a>
+            </div>
+          </section>
+        ))}
+      </div>
+    </article>
   </section>
 </LeaneShell>
