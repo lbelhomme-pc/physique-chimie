@@ -589,29 +589,76 @@ const navItems = [
   .leane-inline-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.55rem;
+    gap: 0.8rem;
   }
 
-  .leane-chip,
+  .leane-chip {
+    align-items: center;
+    background: #f4f7fc;
+    border: 1px solid #e5edf7;
+    border-radius: 6px;
+    color: #526b96;
+    display: inline-flex;
+    font-size: 0.82rem;
+    font-weight: 760;
+    min-height: 0;
+    padding: 0.32rem 0.58rem;
+    text-decoration: none;
+  }
+
   .leane-outline-link {
+    align-items: center;
+    background: #ffffff;
     border: 1px solid #cddbef;
-    border-radius: var(--radius-pill, 999px);
-    color: #16498f;
+    border-radius: 8px;
+    color: #102a5c;
     display: inline-flex;
     font-size: 0.88rem;
-    font-weight: 780;
-    padding: 0.45rem 0.7rem;
+    font-weight: 760;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0.62rem 0.95rem;
     text-decoration: none;
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease,
+      box-shadow 160ms ease;
   }
 
   .leane-primary-link {
-    background: var(--accent-primary, #4f46e5);
-    border-radius: var(--radius-pill, 999px);
-    color: #fff;
+    align-items: center;
+    background: #2672ff;
+    border: 1px solid #2672ff;
+    border-radius: 8px;
+    color: #ffffff;
     display: inline-flex;
-    font-weight: 820;
-    padding: 0.55rem 0.78rem;
+    font-weight: 760;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0.62rem 0.95rem;
     text-decoration: none;
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      box-shadow 160ms ease,
+      transform 160ms ease;
+  }
+
+  .leane-outline-link:hover,
+  .leane-outline-link:focus-visible {
+    background: #eef5ff;
+    border-color: #2672ff;
+    color: #2672ff;
+    box-shadow: 0 8px 18px rgba(16, 42, 92, 0.06);
+  }
+
+  .leane-primary-link:hover,
+  .leane-primary-link:focus-visible {
+    background: #155ee8;
+    border-color: #155ee8;
+    box-shadow: 0 10px 22px rgba(38, 114, 255, 0.18);
+    transform: translateY(-1px);
   }
 
   .leane-action-tile {
@@ -769,8 +816,12 @@ const navItems = [
 
   .leane-inline-actions button:disabled,
   .leane-inline-actions button[disabled] {
+    background: #ffffff;
+    border-color: #d9e4f2;
+    color: #7c8eac;
     cursor: not-allowed;
-    opacity: 0.48;
+    opacity: 0.72;
+    transform: none;
   }
 
   .leane-mini-panel {
@@ -823,7 +874,6 @@ const navItems = [
   }
 
   .leane-primary-link:is(button) {
-    border: 0;
     cursor: pointer;
     font: inherit;
   }
