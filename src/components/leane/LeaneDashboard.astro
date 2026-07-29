@@ -1,0 +1,99 @@
+---
+import { leaneBridgeItems, leaneFlashcards, leaneLevels } from "../../data/leane";
+import LeaneIcon from "./LeaneIcon.astro";
+import LeaneShell from "./LeaneShell.astro";
+---
+
+<LeaneShell
+  active="accueil"
+  title="Tableau de bord de r&eacute;vision"
+  subtitle="Une arborescence courte pour reprendre les bases avant la premi&egrave;re."
+>
+  <section class="leane-stat-grid" aria-label="Synthèse">
+    <article class="leane-stat">
+      <span class="leane-stat__icon" style="color: #16a887"><LeaneIcon name="check" /></span>
+      <div>
+        <span>Parcours structure</span>
+        <strong>3</strong>
+        <small>niveaux &agrave; consolider</small>
+      </div>
+    </article>
+    <article class="leane-stat">
+      <span class="leane-stat__icon" style="color: #1f6feb"><LeaneIcon name="book" /></span>
+      <div>
+        <span>Cours courts</span>
+        <strong>9</strong>
+        <small>notions prioritaires</small>
+      </div>
+    </article>
+    <article class="leane-stat">
+      <span class="leane-stat__icon" style="color: #ff7a1a"><LeaneIcon name="exercises" /></span>
+      <div>
+        <span>Exercices corriges</span>
+        <strong>9</strong>
+        <small>aides progressives</small>
+      </div>
+    </article>
+    <article class="leane-stat">
+      <span class="leane-stat__icon" style="color: #7c5cff"><LeaneIcon name="cards" /></span>
+      <div>
+        <span>Memorisation</span>
+        <strong>{leaneFlashcards.length}</strong>
+        <small>cartes globales</small>
+      </div>
+    </article>
+  </section>
+
+  <section class="leane-two-col">
+    <div class="leane-grid">
+      <article class="leane-panel">
+        <h2>Arborescence recommand&eacute;e</h2>
+        <div class="leane-card-grid">
+          {leaneLevels.map((level) => (
+            <section class="leane-level-card" style={`--level-accent: ${level.accent}`}>
+              <p class="leane-card-muted">{level.subtitle}</p>
+              <h2>{level.title}</h2>
+              <p>{level.objective}</p>
+              <div class="leane-progress" aria-label={`Progression ${level.title}`}>
+                <span style={`width: ${level.id === "5e" ? "82%" : level.id === "4e" ? "62%" : "38%"}`}></span>
+              </div>
+              <div class="leane-level-card__actions">
+                <a class="leane-primary-link" href={`/leane/cours#${level.id}`}>Cours</a>
+                <a class="leane-outline-link" href={`/leane/exercices#${level.id}`}>Exercices</a>
+              </div>
+            </section>
+          ))}
+        </div>
+      </article>
+
+      <article class="leane-panel">
+        <h2>Objectifs avant la premi&egrave;re</h2>
+        <ul class="leane-list">
+          {leaneBridgeItems.map((item) => (
+            <li>
+              <span>{item}</span>
+              <span class="leane-chip">prioritaire</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </div>
+
+    <aside class="leane-grid" aria-label="Actions rapides">
+      <article class="leane-panel">
+        <h2>Session du jour</h2>
+        <p>Commencer par un cours court, faire deux exercices, puis terminer par cinq flashcards.</p>
+        <div class="leane-inline-actions">
+          <a class="leane-primary-link" href="/leane/cours">Ouvrir les cours</a>
+          <a class="leane-outline-link" href="/leane/flashcards">Revoir les cartes</a>
+        </div>
+      </article>
+
+      <article class="leane-panel">
+        <h2>QCM global</h2>
+        <p>Un controle rapide pour rep&eacute;rer les points fragiles sans se noyer dans tous les chapitres.</p>
+        <a class="leane-primary-link" href="/leane/qcm">Lancer le QCM</a>
+      </article>
+    </aside>
+  </section>
+</LeaneShell>

@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LeaneShell from "../../components/leane/LeaneShell.astro";
+import { leaneFlashcards } from "../../data/leane";
+---
+
+<BaseLayout
+  title="Flashcards Léane - révisions de mathématiques"
+  description="Flashcards globales pour mémoriser les réflexes de calcul et de raisonnement."
+  subject="mathematiques"
+  cycle="lycee"
+  level="1re"
+>
+  <LeaneShell
+    active="flashcards"
+    title="Flashcards globales"
+    subtitle="Cliquer sur une carte pour la retourner, puis revoir en priorit&eacute; les notions h&eacute;sitantes."
+  >
+    <section class="leane-card-grid" aria-label="Flashcards globales">
+      {leaneFlashcards.map((card) => (
+        <button class="leane-flashcard" type="button" data-flashcard aria-pressed="false">
+          <span class="leane-flashcard__inner">
+            <span class="leane-flashcard__face">
+              <span class="leane-chip">{card.tag}</span>
+              <strong>{card.front}</strong>
+              <span class="leane-card-muted">Cliquer pour retourner</span>
+            </span>
+            <span class="leane-flashcard__face leane-flashcard__face--back">
+              <span class="leane-chip">R&eacute;ponse</span>
+              <strong>{card.back}</strong>
+              <span class="leane-card-muted">Cliquer pour revenir</span>
+            </span>
+          </span>
+        </button>
+      ))}
+    </section>
+  </LeaneShell>
+</BaseLayout>

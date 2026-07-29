@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LeaneShell from "../../components/leane/LeaneShell.astro";
+import { leaneLevels } from "../../data/leane";
+---
+
+<BaseLayout
+  title="Exercices Léane - révisions de mathématiques"
+  description="Exercices gradués avec aide et correction pour consolider les bases avant la première."
+  subject="mathematiques"
+  cycle="lycee"
+  level="1re"
+>
+  <LeaneShell
+    active="exercices"
+    title="Exercices guid&eacute;s"
+    subtitle="Un niveau, une consigne, une aide, puis la correction seulement quand elle est utile."
+  >
+    <section class="leane-grid" aria-label="Exercices par niveau">
+      {leaneLevels.map((level) => (
+        <article class="leane-panel" id={level.id}>
+          <p class="leane-eyebrow">{level.subtitle}</p>
+          <h2>{level.title}</h2>
+          <div class="leane-card-grid">
+            {level.exercises.map((exercise) => (
+              <section class="leane-exercise-card">
+                <span class="leane-chip">{exercise.level}</span>
+                <h2>{exercise.title}</h2>
+                <p>{exercise.prompt}</p>
+                <details>
+                  <summary>Voir une aide</summary>
+                  <p>{exercise.hint}</p>
+                </details>
+                <details>
+                  <summary>Voir la correction</summary>
+                  <p>{exercise.answer}</p>
+                </details>
+              </section>
+            ))}
+          </div>
+        </article>
+      ))}
+    </section>
+  </LeaneShell>
+</BaseLayout>

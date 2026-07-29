@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LeaneShell from "../../components/leane/LeaneShell.astro";
+import { leaneQuiz } from "../../data/leane";
+---
+
+<BaseLayout
+  title="QCM Léane - révisions de mathématiques"
+  description="QCM global pour tester rapidement les acquis essentiels avant la première."
+  subject="mathematiques"
+  cycle="lycee"
+  level="1re"
+>
+  <LeaneShell
+    active="qcm"
+    title="QCM global"
+    subtitle="Un diagnostic rapide pour voir ce qui est solide et ce qui doit revenir dans le planning."
+  >
+    <form class="leane-grid" data-leane-quiz>
+      {leaneQuiz.map((item, index) => (
+        <fieldset class="leane-question" data-answer={String(item.answer)}>
+          <legend>{index + 1}. {item.question}</legend>
+          {item.choices.map((choice, choiceIndex) => (
+            <label>
+              <input type="radio" name={`q${index}`} value={String(choiceIndex)} required />
+              <span>{choice}</span>
+            </label>
+          ))}
+        </fieldset>
+      ))}
+
+      <div class="leane-inline-actions">
+        <button class="leane-primary-link" type="submit">Corriger le QCM</button>
+        <output class="leane-result" data-leane-quiz-result hidden></output>
+      </div>
+    </form>
+  </LeaneShell>
+</BaseLayout>

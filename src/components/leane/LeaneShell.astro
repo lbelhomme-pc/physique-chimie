@@ -1,0 +1,677 @@
+---
+import LeaneIcon from "./LeaneIcon.astro";
+
+interface Props {
+  active: "accueil" | "cours" | "exercices" | "qcm" | "flashcards";
+  title: string;
+  subtitle?: string;
+}
+
+const { active, title, subtitle = "Plan de revision personnalise" } = Astro.props;
+
+const navItems = [
+  { id: "accueil", label: "Accueil", href: "/leane", icon: "home" },
+  { id: "cours", label: "Cours", href: "/leane/cours", icon: "book" },
+  { id: "exercices", label: "Exercices", href: "/leane/exercices", icon: "exercises" },
+  { id: "qcm", label: "QCM", href: "/leane/qcm", icon: "quiz" },
+  { id: "flashcards", label: "Flashcards", href: "/leane/flashcards", icon: "cards" },
+] as const;
+---
+
+<section class="leane-app" aria-labelledby="leane-page-title">
+  <aside class="leane-sidebar" aria-label="Navigation Léane">
+    <a class="leane-brand" href="/leane" aria-label="Accueil Léane">
+      <span class="leane-brand__mark">L</span>
+      <span>
+        <strong>L&eacute;ane</strong>
+        <small>Maths · Premi&egrave;re</small>
+      </span>
+    </a>
+
+    <nav class="leane-side-nav" aria-label="Sous-onglets Léane">
+      {navItems.map((item) => (
+        <a class:list={["leane-side-nav__link", { active: item.id === active }]} href={item.href}>
+          <span class="leane-side-nav__icon"><LeaneIcon name={item.icon} /></span>
+          <span>{item.label}</span>
+        </a>
+      ))}
+    </nav>
+
+    <div class="leane-week-card" aria-label="Objectif hebdomadaire">
+      <span>Objectif hebdomadaire</span>
+      <strong>75%</strong>
+      <div class="leane-week-card__ring" aria-hidden="true"></div>
+      <small>7 h 30 / 10 h</small>
+    </div>
+  </aside>
+
+  <div class="leane-workspace">
+    <header class="leane-topbar">
+      <label class="leane-search">
+        <LeaneIcon name="search" />
+        <span class="sr-only">Rechercher</span>
+        <input type="search" placeholder="Rechercher un cours, un exercice..." />
+      </label>
+      <a class="leane-topbar__pill" href="/leane/flashcards">
+        <LeaneIcon name="clock" />
+        12 cartes &agrave; revoir
+      </a>
+    </header>
+
+    <main class="leane-main" id="leane-content">
+      <div class="leane-page-heading">
+        <div>
+          <p class="leane-eyebrow">Espace personnel</p>
+          <h1 id="leane-page-title">{title}</h1>
+          <p>{subtitle}</p>
+        </div>
+        <a class="leane-action" href="/leane/qcm">
+          <LeaneIcon name="quiz" />
+          QCM global
+        </a>
+      </div>
+
+      <slot />
+    </main>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-flashcard]").forEach((card) => {
+    if (card.dataset.leaneReady === "true") return;
+    card.dataset.leaneReady = "true";
+    card.addEventListener("click", () => {
+      const pressed = card.getAttribute("aria-pressed") === "true";
+      card.setAttribute("aria-pressed", String(!pressed));
+      card.classList.toggle("is-flipped", !pressed);
+    });
+  });
+
+  const quizRoot = document.querySelector<HTMLElement>("[data-leane-quiz]");
+  const quizResult = document.querySelector<HTMLElement>("[data-leane-quiz-result]");
+
+  if (quizRoot && quizResult && quizRoot.dataset.leaneReady !== "true") {
+    quizRoot.dataset.leaneReady = "true";
+    quizRoot.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const questions = Array.from(quizRoot.querySelectorAll<HTMLElement>("[data-answer]"));
+      let score = 0;
+
+      questions.forEach((question, index) => {
+        const expected = question.dataset.answer;
+        const selected = quizRoot.querySelector<HTMLInputElement>(`input[name="q${index}"]:checked`);
+        question.classList.remove("is-correct", "is-wrong");
+
+        if (selected?.value === expected) {
+          score += 1;
+          question.classList.add("is-correct");
+        } else {
+          question.classList.add("is-wrong");
+        }
+      });
+
+      quizResult.textContent = `Score : ${score} / ${questions.length}`;
+      quizResult.hidden = false;
+    });
+  }
+</script>
+
+<style is:global>
+  .page-container:has(.leane-app) {
+    margin: 0;
+    max-width: none;
+    padding: 0;
+  }
+
+  .page-container:has(.leane-app) + footer,
+  .site-footer:has(+ .leane-app) {
+    display: none;
+  }
+
+  body:has(.leane-app) {
+    background: #f6f9fe;
+  }
+
+  body:has(.leane-app) .public-nav {
+    display: none;
+  }
+
+  .leane-app .sr-only {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .leane-app {
+    --leane-navy: #082756;
+    --leane-navy-soft: #0d3973;
+    --leane-blue: #1f6feb;
+    --leane-text: #08204a;
+    --leane-muted: #55709c;
+    --leane-border: #d8e3f3;
+    --leane-surface: rgba(255, 255, 255, 0.92);
+    color: var(--leane-text);
+    display: grid;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    grid-template-columns: 248px minmax(0, 1fr);
+    min-height: 100vh;
+  }
+
+  .leane-sidebar {
+    background:
+      linear-gradient(180deg, rgba(15, 86, 169, 0.2), transparent 38%),
+      linear-gradient(180deg, #062450 0%, #082f63 100%);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem 0.85rem;
+  }
+
+  .leane-brand {
+    align-items: center;
+    color: inherit;
+    display: inline-flex;
+    gap: 0.8rem;
+    padding: 0 0.7rem;
+    text-decoration: none;
+  }
+
+  .leane-brand__mark {
+    align-items: center;
+    background: linear-gradient(135deg, #9af7e1, #2f7df6);
+    border-radius: 14px;
+    color: #05224b;
+    display: inline-flex;
+    font-size: 1.1rem;
+    font-weight: 950;
+    height: 42px;
+    justify-content: center;
+    width: 42px;
+  }
+
+  .leane-brand strong,
+  .leane-brand small {
+    display: block;
+  }
+
+  .leane-brand strong {
+    font-size: 1.28rem;
+    letter-spacing: 0;
+  }
+
+  .leane-brand small {
+    color: #b9cff0;
+    font-size: 0.78rem;
+    margin-top: 0.15rem;
+  }
+
+  .leane-side-nav {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .leane-side-nav__link {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #e7f0ff;
+    display: flex;
+    font-weight: 760;
+    gap: 0.75rem;
+    min-height: 48px;
+    padding: 0.72rem 0.8rem;
+    text-decoration: none;
+  }
+
+  .leane-side-nav__link:hover,
+  .leane-side-nav__link:focus-visible,
+  .leane-side-nav__link.active {
+    background: linear-gradient(90deg, #1b64d8, #0f8fd9);
+    box-shadow: 0 12px 26px rgba(0, 20, 60, 0.18);
+    color: #ffffff;
+  }
+
+  .leane-side-nav__icon {
+    align-items: center;
+    display: inline-flex;
+    height: 24px;
+    justify-content: center;
+    width: 24px;
+  }
+
+  .leane-svg-icon {
+    height: 1.25em;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.9;
+    width: 1.25em;
+  }
+
+  .leane-week-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 8px;
+    margin-top: auto;
+    min-height: 190px;
+    overflow: hidden;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .leane-week-card span,
+  .leane-week-card small {
+    color: #d8e7ff;
+    display: block;
+    font-weight: 760;
+  }
+
+  .leane-week-card strong {
+    display: block;
+    font-size: 2rem;
+    margin-top: 3.6rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .leane-week-card__ring {
+    border: 8px solid rgba(255, 255, 255, 0.14);
+    border-left-color: #64ead7;
+    border-radius: 50%;
+    height: 86px;
+    left: 1.25rem;
+    position: absolute;
+    top: 3.3rem;
+    transform: rotate(-32deg);
+    width: 86px;
+  }
+
+  .leane-workspace {
+    min-width: 0;
+  }
+
+  .leane-topbar {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.86);
+    border-bottom: 1px solid var(--leane-border);
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 1.1rem clamp(1rem, 3vw, 2.8rem);
+  }
+
+  .leane-search {
+    align-items: center;
+    border: 1px solid #cad8ec;
+    border-radius: 8px;
+    color: #55709c;
+    display: flex;
+    gap: 0.75rem;
+    max-width: 720px;
+    min-height: 48px;
+    padding: 0 1rem;
+    width: min(100%, 720px);
+  }
+
+  .leane-search input {
+    border: 0;
+    color: var(--leane-text);
+    flex: 1;
+    font: inherit;
+    min-width: 0;
+    outline: 0;
+  }
+
+  .leane-topbar__pill,
+  .leane-action {
+    align-items: center;
+    border: 1px solid #cddbef;
+    border-radius: 8px;
+    color: #123d7f;
+    display: inline-flex;
+    flex: 0 0 auto;
+    font-weight: 800;
+    gap: 0.55rem;
+    min-height: 44px;
+    padding: 0.7rem 0.95rem;
+    text-decoration: none;
+  }
+
+  .leane-main {
+    display: grid;
+    gap: 1.15rem;
+    padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 2.8rem) 2.4rem;
+  }
+
+  .leane-page-heading {
+    align-items: end;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .leane-eyebrow {
+    color: var(--leane-muted);
+    font-size: 0.82rem;
+    font-weight: 820;
+    margin: 0 0 0.25rem;
+    text-transform: uppercase;
+  }
+
+  .leane-page-heading h1 {
+    color: var(--leane-text);
+    font-size: clamp(1.65rem, 3vw, 2.35rem);
+    letter-spacing: 0;
+    line-height: 1.05;
+    margin: 0;
+  }
+
+  .leane-page-heading p {
+    color: var(--leane-muted);
+    margin: 0.35rem 0 0;
+  }
+
+  .leane-grid,
+  .leane-two-col,
+  .leane-stat-grid,
+  .leane-card-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .leane-stat-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .leane-two-col {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.42fr);
+  }
+
+  .leane-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .leane-panel,
+  .leane-stat,
+  .leane-level-card,
+  .leane-course-card,
+  .leane-exercise-card,
+  .leane-flashcard,
+  .leane-question {
+    background: var(--leane-surface);
+    border: 1px solid var(--leane-border);
+    border-radius: 8px;
+    box-shadow: 0 14px 34px rgba(20, 48, 93, 0.08);
+  }
+
+  .leane-panel,
+  .leane-level-card,
+  .leane-course-card,
+  .leane-exercise-card,
+  .leane-question {
+    padding: 1.1rem;
+  }
+
+  .leane-stat {
+    align-items: center;
+    display: flex;
+    gap: 0.9rem;
+    min-height: 112px;
+    padding: 1rem;
+  }
+
+  .leane-stat__icon {
+    align-items: center;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    display: inline-flex;
+    height: 44px;
+    justify-content: center;
+    width: 44px;
+  }
+
+  .leane-stat strong {
+    color: var(--leane-text);
+    display: block;
+    font-size: 1.75rem;
+    line-height: 1;
+    margin-top: 0.3rem;
+  }
+
+  .leane-stat span,
+  .leane-stat small,
+  .leane-card-muted,
+  .leane-panel p,
+  .leane-course-card p,
+  .leane-exercise-card p {
+    color: var(--leane-muted);
+  }
+
+  .leane-panel h2,
+  .leane-level-card h2,
+  .leane-course-card h2,
+  .leane-exercise-card h2 {
+    font-size: 1.05rem;
+    letter-spacing: 0;
+    margin: 0 0 0.75rem;
+  }
+
+  .leane-level-card {
+    border-top: 4px solid var(--level-accent, var(--leane-blue));
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .leane-level-card__actions,
+  .leane-inline-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .leane-chip,
+  .leane-outline-link {
+    border: 1px solid #cddbef;
+    border-radius: 999px;
+    color: #16498f;
+    display: inline-flex;
+    font-size: 0.88rem;
+    font-weight: 780;
+    padding: 0.45rem 0.7rem;
+    text-decoration: none;
+  }
+
+  .leane-primary-link {
+    background: #1766d8;
+    border-radius: 999px;
+    color: #fff;
+    display: inline-flex;
+    font-weight: 820;
+    padding: 0.55rem 0.78rem;
+    text-decoration: none;
+  }
+
+  .leane-progress {
+    background: #e4ebf6;
+    border-radius: 999px;
+    height: 8px;
+    overflow: hidden;
+  }
+
+  .leane-progress span {
+    background: linear-gradient(90deg, #1aa889, #66dfd3);
+    display: block;
+    height: 100%;
+  }
+
+  .leane-list {
+    display: grid;
+    gap: 0.7rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .leane-list li {
+    border-top: 1px solid #dde7f5;
+    display: flex;
+    gap: 0.7rem;
+    justify-content: space-between;
+    padding-top: 0.7rem;
+  }
+
+  .leane-course-card ul {
+    margin: 0.85rem 0;
+    padding-left: 1.2rem;
+  }
+
+  .leane-note {
+    background: #f5f9ff;
+    border: 1px solid #dce8f7;
+    border-radius: 8px;
+    margin: 0.8rem 0 0;
+    padding: 0.8rem;
+  }
+
+  .leane-exercise-card details {
+    border-top: 1px solid #dde7f5;
+    margin-top: 0.8rem;
+    padding-top: 0.7rem;
+  }
+
+  .leane-exercise-card summary {
+    color: #16498f;
+    cursor: pointer;
+    font-weight: 820;
+  }
+
+  .leane-flashcard {
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    min-height: 190px;
+    padding: 0;
+    perspective: 1000px;
+    text-align: left;
+  }
+
+  .leane-flashcard__inner {
+    display: grid;
+    min-height: 190px;
+    transform-style: preserve-3d;
+    transition: transform 220ms ease;
+  }
+
+  .leane-flashcard.is-flipped .leane-flashcard__inner {
+    transform: rotateY(180deg);
+  }
+
+  .leane-flashcard__face {
+    backface-visibility: hidden;
+    display: grid;
+    gap: 0.75rem;
+    grid-area: 1 / 1;
+    padding: 1.15rem;
+  }
+
+  .leane-flashcard__face--back {
+    background: #f3fff9;
+    border-radius: 8px;
+    transform: rotateY(180deg);
+  }
+
+  .leane-question {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .leane-question label {
+    align-items: center;
+    border: 1px solid #dce6f4;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    gap: 0.7rem;
+    padding: 0.7rem;
+  }
+
+  .leane-question.is-correct {
+    border-color: #16a887;
+  }
+
+  .leane-question.is-wrong {
+    border-color: #e94e57;
+  }
+
+  .leane-result {
+    background: #eaf4ff;
+    border: 1px solid #c8dcf5;
+    border-radius: 8px;
+    color: #0c3d7c;
+    font-weight: 850;
+    padding: 0.8rem;
+  }
+
+  @media (max-width: 1040px) {
+    .leane-app {
+      grid-template-columns: 1fr;
+    }
+
+    .leane-sidebar {
+      display: block;
+      padding: 1rem;
+    }
+
+    .leane-side-nav {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-top: 1rem;
+    }
+
+    .leane-side-nav__link {
+      justify-content: center;
+    }
+
+    .leane-side-nav__link span:last-child,
+    .leane-week-card {
+      display: none;
+    }
+
+    .leane-stat-grid,
+    .leane-card-grid,
+    .leane-two-col {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .leane-topbar,
+    .leane-page-heading {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .leane-topbar__pill,
+    .leane-action {
+      justify-content: center;
+      width: 100%;
+    }
+
+    .leane-side-nav {
+      gap: 0.2rem;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .leane-side-nav__link {
+      min-height: 44px;
+      padding: 0.55rem;
+    }
+  }
+</style>

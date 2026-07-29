@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import LeaneShell from "../../components/leane/LeaneShell.astro";
+import { leaneLevels } from "../../data/leane";
+---
+
+<BaseLayout
+  title="Cours Léane - révisions de mathématiques"
+  description="Cours courts et progressifs pour reprendre les bases de 5e, 4e et 3e avant la première."
+  subject="mathematiques"
+  cycle="lycee"
+  level="1re"
+>
+  <LeaneShell
+    active="cours"
+    title="Cours par niveau"
+    subtitle="Des fiches courtes, une notion &agrave; la fois, avec exemple et pi&egrave;ge classique."
+  >
+    <section class="leane-grid" aria-label="Cours par niveau">
+      {leaneLevels.map((level) => (
+        <article class="leane-panel" id={level.id}>
+          <p class="leane-eyebrow">{level.subtitle}</p>
+          <h2>{level.title}</h2>
+          <div class="leane-card-grid">
+            {level.courses.map((course) => (
+              <section class="leane-course-card">
+                <h2>{course.title}</h2>
+                <p><strong>{course.focus}</strong></p>
+                <ul>
+                  {course.points.map((point) => <li>{point}</li>)}
+                </ul>
+                <p class="leane-note"><strong>Exemple :</strong> {course.example}</p>
+                <p class="leane-note"><strong>Pi&egrave;ge :</strong> {course.trap}</p>
+              </section>
+            ))}
+          </div>
+        </article>
+      ))}
+    </section>
+  </LeaneShell>
+</BaseLayout>

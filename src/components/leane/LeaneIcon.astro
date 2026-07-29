@@ -1,0 +1,97 @@
+---
+interface Props {
+  name: "home" | "book" | "exercises" | "quiz" | "cards" | "levels" | "target" | "search" | "settings" | "clock" | "check";
+}
+
+const { name } = Astro.props;
+---
+
+<svg class="leane-svg-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  {name === "home" && (
+    <>
+      <path d="M4 10.8 12 4l8 6.8" />
+      <path d="M6.5 10.5V20h11v-9.5" />
+      <path d="M10 20v-5h4v5" />
+    </>
+  )}
+  {name === "book" && (
+    <>
+      <path d="M5 5.8c0-1 0.8-1.8 1.8-1.8H20v15H7.2A2.2 2.2 0 0 1 5 16.8v-11Z" />
+      <path d="M5 16.5c0-1 0.8-1.8 1.8-1.8H20" />
+      <path d="M9 7.8h6" />
+    </>
+  )}
+  {name === "exercises" && (
+    <>
+      <path d="M5 5h9l5 5v9H5V5Z" />
+      <path d="M14 5v5h5" />
+      <path d="M8.5 14h7" />
+      <path d="M8.5 17h4" />
+    </>
+  )}
+  {name === "quiz" && (
+    <>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M9.5 9.5A2.6 2.6 0 0 1 12 7.8c1.5 0 2.7 1 2.7 2.4 0 1.2-.7 1.8-1.8 2.4-.7.4-.9.8-.9 1.5" />
+      <path d="M12 17h.01" />
+    </>
+  )}
+  {name === "cards" && (
+    <>
+      <rect x="4.5" y="7.5" width="11" height="11" rx="2" />
+      <path d="M8.5 5.5h8.2c1.1 0 2 .9 2 2v8.2" />
+      <path d="M8 12h4" />
+      <path d="M8 15h6" />
+    </>
+  )}
+  {name === "levels" && (
+    <>
+      <path d="M5 18h14" />
+      <path d="M7 15v-4" />
+      <path d="M12 15V7" />
+      <path d="M17 15V9" />
+      <circle cx="7" cy="8" r="1.6" />
+      <circle cx="12" cy="4.5" r="1.6" />
+      <circle cx="17" cy="6.5" r="1.6" />
+    </>
+  )}
+  {name === "target" && (
+    <>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2.8v3" />
+      <path d="M12 18.2v3" />
+      <path d="M2.8 12h3" />
+      <path d="M18.2 12h3" />
+    </>
+  )}
+  {name === "search" && (
+    <>
+      <circle cx="10.8" cy="10.8" r="5.8" />
+      <path d="m15.2 15.2 4 4" />
+    </>
+  )}
+  {name === "settings" && (
+    <>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 3.8v2" />
+      <path d="M12 18.2v2" />
+      <path d="M4.8 7.8l1.7 1" />
+      <path d="M17.5 15.2l1.7 1" />
+      <path d="M19.2 7.8l-1.7 1" />
+      <path d="M6.5 15.2l-1.7 1" />
+    </>
+  )}
+  {name === "clock" && (
+    <>
+      <circle cx="12" cy="12" r="8" />
+      <path d="M12 7.5V12l3 2" />
+    </>
+  )}
+  {name === "check" && (
+    <>
+      <circle cx="12" cy="12" r="8" />
+      <path d="m8.5 12.2 2.2 2.2 4.8-5" />
+    </>
+  )}
+</svg>
