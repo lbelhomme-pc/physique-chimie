@@ -14,7 +14,7 @@ import { getLeaneCoursePractice, leaneLevels } from "../../data/leane";
   <LeaneShell
     active="cours"
     title="Cours par niveau"
-    subtitle="Des fiches courtes, une notion &agrave; la fois, avec exemple et pi&egrave;ge classique."
+    subtitle="Des fiches courtes, une notion à la fois, avec exemple et piège classique."
   >
     <section class="leane-grid" aria-label="Cours par niveau">
       {leaneLevels.map((level) => (
@@ -32,7 +32,7 @@ import { getLeaneCoursePractice, leaneLevels } from "../../data/leane";
                   {course.points.map((point) => <li>{point}</li>)}
                 </ul>
                 <p class="leane-note"><strong>Exemple :</strong> {course.example}</p>
-                <p class="leane-note"><strong>Pi&egrave;ge :</strong> {course.trap}</p>
+                <p class="leane-note"><strong>Piège :</strong> {course.trap}</p>
 
                 <div class="leane-course-practice">
                   <h3>Exercice + QCM + flashcard</h3>
@@ -80,7 +80,7 @@ import { getLeaneCoursePractice, leaneLevels } from "../../data/leane";
                           <span class="leane-card-muted">Cliquer pour retourner</span>
                         </span>
                         <span class="leane-flashcard__face leane-flashcard__face--back">
-                          <span class="leane-chip">R&eacute;ponse</span>
+                          <span class="leane-chip">Réponse</span>
                           <strong>{practice.flashcard.back}</strong>
                         </span>
                       </span>

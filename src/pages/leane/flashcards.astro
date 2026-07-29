@@ -14,12 +14,12 @@ import { leaneCoursePracticeEntries, leaneFlashcards } from "../../data/leane";
   <LeaneShell
     active="flashcards"
     title="Flashcards globales"
-    subtitle="Cliquer sur une carte pour la retourner, puis revoir en priorit&eacute; les notions h&eacute;sitantes."
+    subtitle="Cliquer sur une carte pour la retourner, puis revoir en priorité les notions hésitantes."
   >
     <section class="leane-grid">
       <article class="leane-panel">
         <p class="leane-eyebrow">Par cours</p>
-        <h2>Une flashcard associee a chaque cours</h2>
+        <h2>Une flashcard associée à chaque cours</h2>
         <div class="leane-card-grid">
           {leaneCoursePracticeEntries.map(({ level, course, practice }) => (
             <button class="leane-flashcard" type="button" data-flashcard aria-pressed="false">
@@ -54,7 +54,7 @@ import { leaneCoursePracticeEntries, leaneFlashcards } from "../../data/leane";
                   <span class="leane-card-muted">Cliquer pour retourner</span>
                 </span>
                 <span class="leane-flashcard__face leane-flashcard__face--back">
-                  <span class="leane-chip">R&eacute;ponse</span>
+                  <span class="leane-chip">Réponse</span>
                   <strong>{card.back}</strong>
                   <span class="leane-card-muted">Cliquer pour revenir</span>
                 </span>

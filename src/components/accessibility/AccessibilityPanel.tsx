@@ -1,5 +1,5 @@
 // src/components/accessibility/AccessibilityPanel.tsx
-// Panneau V3 des preferences DYS et accessibilite.
+// Panneau V3 des préférences DYS et accessibilité.
 
 import { useEffect, useId, useRef, useState } from "react";
 import { getA11yEngine, PROFILES, type A11yPreferences } from "../../data/accessibility/a11y-engine";
@@ -27,19 +27,19 @@ const FONT_OPTIONS = [
 const SIZE_OPTIONS = [
   ["normal", "Normal"],
   ["large", "Grand"],
-  ["x-large", "Tres grand"],
+  ["x-large", "Très grand"],
 ] as const;
 
 const SPACING_OPTIONS = [
   ["normal", "Normal"],
   ["large", "Espace"],
-  ["x-large", "Tres espace"],
+  ["x-large", "Très espacé"],
 ] as const;
 
 const WIDTH_OPTIONS = [
   ["normal", "Normal"],
-  ["narrow", "Etroit"],
-  ["very-narrow", "Tres etroit"],
+  ["narrow", "Étroit"],
+  ["very-narrow", "Très étroit"],
 ] as const;
 
 export default function AccessibilityPanel() {
@@ -86,14 +86,14 @@ export default function AccessibilityPanel() {
         type="button"
         className="a11y-panel-toggle"
         onClick={() => setIsOpen((open) => !open)}
-        aria-label="Ouvrir les parametres accessibilite et DYS"
+        aria-label="Ouvrir les paramètres accessibilité et DYS"
         aria-expanded={isOpen}
         aria-controls="a11y-panel-v3"
       >
         <span aria-hidden="true">Aa</span>
       </button>
 
-      {isOpen && <button type="button" className="a11y-panel-overlay" aria-label="Fermer les parametres accessibilite" onClick={() => setIsOpen(false)} />}
+      {isOpen && <button type="button" className="a11y-panel-overlay" aria-label="Fermer les paramètres accessibilité" onClick={() => setIsOpen(false)} />}
 
       <aside
         id="a11y-panel-v3"
@@ -103,8 +103,8 @@ export default function AccessibilityPanel() {
       >
         <header className="a11y-panel__header">
           <div>
-            <p>Preferences</p>
-            <h2 id={panelTitleId}>Accessibilite et DYS</h2>
+            <p>Préférences</p>
+            <h2 id={panelTitleId}>Accessibilité et DYS</h2>
           </div>
           <button ref={closeRef} type="button" className="a11y-panel__close" onClick={() => setIsOpen(false)} aria-label="Fermer le panneau">
             x
@@ -112,15 +112,15 @@ export default function AccessibilityPanel() {
         </header>
 
         <p id={statusId} className="a11y-panel__status" aria-live="polite">
-          Preferences conservees sur cet appareil.
+          Préférences conservées sur cet appareil.
         </p>
 
-        <div className="a11y-panel__tabs" role="tablist" aria-label="Modes de reglage">
+        <div className="a11y-panel__tabs" role="tablist" aria-label="Modes de réglage">
           <button type="button" role="tab" aria-selected={activeTab === "profiles"} onClick={() => setActiveTab("profiles")}>
             Profils
           </button>
           <button type="button" role="tab" aria-selected={activeTab === "custom"} onClick={() => setActiveTab("custom")}>
-            Reglages
+            Réglages
           </button>
         </div>
 
@@ -147,8 +147,8 @@ export default function AccessibilityPanel() {
           )}
 
           {activeTab === "custom" && (
-            <section aria-label="Reglages detailles" className="a11y-panel__settings">
-              <OptionGroup title="Theme" options={THEME_OPTIONS} value={prefs.theme} onSelect={(value) => setPref("theme", value)} />
+            <section aria-label="Réglages détaillés" className="a11y-panel__settings">
+              <OptionGroup title="Thème" options={THEME_OPTIONS} value={prefs.theme} onSelect={(value) => setPref("theme", value)} />
               <OptionGroup title="Police" options={FONT_OPTIONS} value={prefs.fontFamily} onSelect={(value) => setPref("fontFamily", value)} />
               <OptionGroup title="Taille du texte" options={SIZE_OPTIONS} value={prefs.fontSize} onSelect={(value) => setPref("fontSize", value)} />
               <OptionGroup title="Interligne" options={SIZE_OPTIONS} value={prefs.lineHeight} onSelect={(value) => setPref("lineHeight", value)} />
@@ -158,15 +158,15 @@ export default function AccessibilityPanel() {
 
               <fieldset className="a11y-fieldset">
                 <legend>Aides de lecture</legend>
-                <SwitchButton label="Regle de lecture" checked={prefs.readingGuide} onChange={(value) => setPref("readingGuide", value)} />
+                <SwitchButton label="Règle de lecture" checked={prefs.readingGuide} onChange={(value) => setPref("readingGuide", value)} />
                 <SwitchButton label="Surligner les liens" checked={prefs.highlightLinks} onChange={(value) => setPref("highlightLinks", value)} />
-                <SwitchButton label="Reduire les animations" checked={prefs.reducedMotion} onChange={(value) => setPref("reducedMotion", value)} />
+                <SwitchButton label="Réduire les animations" checked={prefs.reducedMotion} onChange={(value) => setPref("reducedMotion", value)} />
                 <SwitchButton label="Mode concentration" checked={prefs.focusMode} onChange={(value) => setPref("focusMode", value)} />
                 <SwitchButton label="Curseur agrandi" checked={prefs.cursorSize === "large"} onChange={(value) => setPref("cursorSize", value ? "large" : "normal")} />
               </fieldset>
 
               <button type="button" className="a11y-panel__reset" onClick={() => engine.reset()}>
-                Reinitialiser les reglages
+                Réinitialiser les réglages
               </button>
             </section>
           )}

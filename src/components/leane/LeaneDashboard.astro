@@ -6,16 +6,16 @@ import LeaneShell from "./LeaneShell.astro";
 
 <LeaneShell
   active="accueil"
-  title="Tableau de bord de r&eacute;vision"
-  subtitle="Une arborescence courte pour reprendre les bases avant la premi&egrave;re."
+  title="Tableau de bord de révision"
+  subtitle="Une arborescence courte pour reprendre les bases avant la première."
 >
   <section class="leane-stat-grid" aria-label="Synthèse">
     <article class="leane-stat">
       <span class="leane-stat__icon" style="color: #16a887"><LeaneIcon name="check" /></span>
       <div>
-        <span>Parcours structure</span>
+        <span>Parcours structuré</span>
         <strong>3</strong>
-        <small>niveaux &agrave; consolider</small>
+        <small>niveaux à consolider</small>
       </div>
     </article>
     <article class="leane-stat">
@@ -29,7 +29,7 @@ import LeaneShell from "./LeaneShell.astro";
     <article class="leane-stat">
       <span class="leane-stat__icon" style="color: #ff7a1a"><LeaneIcon name="exercises" /></span>
       <div>
-        <span>Exercices corriges</span>
+        <span>Exercices corrigés</span>
         <strong>9</strong>
         <small>aides progressives</small>
       </div>
@@ -37,7 +37,7 @@ import LeaneShell from "./LeaneShell.astro";
     <article class="leane-stat">
       <span class="leane-stat__icon" style="color: #7c5cff"><LeaneIcon name="cards" /></span>
       <div>
-        <span>Memorisation</span>
+        <span>Mémorisation</span>
         <strong>{leaneFlashcards.length}</strong>
         <small>cartes globales</small>
       </div>
@@ -47,19 +47,37 @@ import LeaneShell from "./LeaneShell.astro";
   <section class="leane-two-col">
     <div class="leane-grid">
       <article class="leane-panel">
-        <h2>Arborescence recommand&eacute;e</h2>
+        <h2>Arborescence recommandée</h2>
         <div class="leane-card-grid">
           {leaneLevels.map((level) => (
             <section class="leane-level-card" style={`--level-accent: ${level.accent}`}>
               <p class="leane-card-muted">{level.subtitle}</p>
               <h2>{level.title}</h2>
               <p>{level.objective}</p>
+              <div class="leane-progress-row">
+                <span>Progression</span>
+                <strong>0%</strong>
+              </div>
               <div class="leane-progress" aria-label={`Progression ${level.title}`}>
-                <span style={`width: ${level.id === "5e" ? "82%" : level.id === "4e" ? "62%" : "38%"}`}></span>
+                <span style="width: 0%"></span>
               </div>
               <div class="leane-level-card__actions">
-                <a class="leane-primary-link" href={`/leane/cours#${level.id}`}>Cours</a>
-                <a class="leane-outline-link" href={`/leane/exercices#${level.id}`}>Exercices</a>
+                <a class="leane-action-tile" href={`/leane/cours#${level.id}`}>
+                  <LeaneIcon name="book" />
+                  Cours
+                </a>
+                <a class="leane-action-tile" href={`/leane/exercices#${level.id}`}>
+                  <LeaneIcon name="exercises" />
+                  Exercices
+                </a>
+                <a class="leane-action-tile" href="/leane/qcm">
+                  <LeaneIcon name="quiz" />
+                  QCM
+                </a>
+                <a class="leane-action-tile" href="/leane/flashcards">
+                  <LeaneIcon name="cards" />
+                  Flashcards
+                </a>
               </div>
             </section>
           ))}
@@ -67,7 +85,7 @@ import LeaneShell from "./LeaneShell.astro";
       </article>
 
       <article class="leane-panel">
-        <h2>Objectifs avant la premi&egrave;re</h2>
+        <h2>Objectifs avant la première</h2>
         <ul class="leane-list">
           {leaneBridgeItems.map((item) => (
             <li>
@@ -91,7 +109,7 @@ import LeaneShell from "./LeaneShell.astro";
 
       <article class="leane-panel">
         <h2>QCM global</h2>
-        <p>Un controle rapide pour rep&eacute;rer les points fragiles sans se noyer dans tous les chapitres.</p>
+        <p>Un contrôle rapide pour repérer les points fragiles sans se noyer dans tous les chapitres.</p>
         <a class="leane-primary-link" href="/leane/qcm">Lancer le QCM</a>
       </article>
     </aside>

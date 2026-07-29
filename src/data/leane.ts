@@ -47,26 +47,26 @@ export const leaneLevels: LeaneLevel[] = [
     id: "5e",
     title: "Bases 5e",
     subtitle: "Reprendre les automatismes sans stress",
-    objective: "Poser un calcul propre, respecter les priorites et manipuler une expression simple.",
+    objective: "Poser un calcul propre, respecter les priorités et manipuler une expression simple.",
     accent: "#1f6feb",
     courses: [
       {
-        title: "Enchainements d'operations",
+        title: "Enchaînements d'opérations",
         focus: "Une ligne = une seule transformation.",
         points: [
-          "Parentheses d'abord, en commencant par les plus interieures.",
+          "Parenthèses d'abord, en commençant par les plus intérieures.",
           "Multiplications et divisions avant additions et soustractions.",
-          "A priorite egale, on avance de gauche a droite.",
+          "À priorité égale, on avance de gauche à droite.",
         ],
         example: "50 - [3 x (9 - 5)] = 50 - [3 x 4] = 50 - 12 = 38",
-        trap: "36 / 6 x 4 se calcule de gauche a droite : 6 x 4 = 24.",
+        trap: "36 / 6 x 4 se calcule de gauche à droite : 6 x 4 = 24.",
       },
       {
-        title: "Calcul litteral de depart",
-        focus: "Remplacer une lettre par un nombre et reduire les termes de meme nature.",
+        title: "Calcul littéral de départ",
+        focus: "Remplacer une lettre par un nombre et réduire les termes de même nature.",
         points: [
-          "7 x x s'ecrit 7x ; 1 x a s'ecrit a ; -1 x b s'ecrit -b.",
-          "Avec une valeur negative, on garde les parentheses : (-4)^2 = 16.",
+          "7 x x s'écrit 7x ; 1 x a s'écrit a ; -1 x b s'écrit -b.",
+          "Avec une valeur négative, on garde les parenthèses : (-4)^2 = 16.",
           "On additionne seulement les termes comparables : x avec x, x^2 avec x^2.",
         ],
         example: "Pour x = -3, 2x - 7 = 2 x (-3) - 7 = -13",
@@ -74,11 +74,11 @@ export const leaneLevels: LeaneLevel[] = [
       },
       {
         title: "Statistiques essentielles",
-        focus: "Effectif, frequence, moyenne : trois mots a stabiliser.",
+        focus: "Effectif, fréquence, moyenne : trois mots à stabiliser.",
         points: [
-          "L'effectif total est le nombre de donnees.",
-          "Une frequence se calcule avec effectif de la valeur / effectif total.",
-          "La moyenne simple est la somme des valeurs divisee par le nombre de valeurs.",
+          "L'effectif total est le nombre de données.",
+          "Une fréquence se calcule avec effectif de la valeur / effectif total.",
+          "La moyenne simple est la somme des valeurs divisée par le nombre de valeurs.",
         ],
         example: "12 ; 15 ; 9 ; 14 ; 10 donne une moyenne de 60 / 5 = 12",
         trap: "Une moyenne reste entre la plus petite et la plus grande valeur.",
@@ -89,14 +89,14 @@ export const leaneLevels: LeaneLevel[] = [
         title: "Priorites",
         level: "Niveau 1",
         prompt: "Calcule A = 8 + 6 x 5 puis B = 72 / 8 x 3 - 4.",
-        hint: "Commence par la multiplication ou la division, puis avance de gauche a droite.",
+        hint: "Commence par la multiplication ou la division, puis avance de gauche à droite.",
         answer: "A = 38. B = 9 x 3 - 4 = 27 - 4 = 23.",
       },
       {
-        title: "Parentheses",
+        title: "Parenthèses",
         level: "Niveau 2",
         prompt: "Calcule C = 16 - [4 x (8 - 5)].",
-        hint: "La parenthese la plus interieure se traite en premier.",
+        hint: "La parenthèse la plus intérieure se traite en premier.",
         answer: "C = 16 - [4 x 3] = 16 - 12 = 4.",
       },
       {
@@ -111,39 +111,39 @@ export const leaneLevels: LeaneLevel[] = [
   {
     id: "4e",
     title: "Bases 4e",
-    subtitle: "Solidifier fractions, puissances et equations",
-    objective: "Gagner en securite sur les calculs qui reviennent constamment au lycee.",
+    subtitle: "Solidifier fractions, puissances et équations",
+    objective: "Gagner en sécurité sur les calculs qui reviennent constamment au lycée.",
     accent: "#15a887",
     courses: [
       {
         title: "Fractions",
-        focus: "Additionner demande un denominateur commun ; multiplier demande de simplifier avant.",
+        focus: "Additionner demande un dénominateur commun ; multiplier demande de simplifier avant.",
         points: [
-          "Pour additionner : on met au meme denominateur.",
-          "Pour multiplier : on multiplie les numerateurs et les denominateurs.",
+          "Pour additionner : on met au même dénominateur.",
+          "Pour multiplier : on multiplie les numérateurs et les dénominateurs.",
           "Pour diviser : on multiplie par l'inverse.",
         ],
         example: "3/4 - 5/6 = 9/12 - 10/12 = -1/12",
-        trap: "On n'additionne pas les denominateurs : 1/3 + 1/3 = 2/3.",
+        trap: "On n'additionne pas les dénominateurs : 1/3 + 1/3 = 2/3.",
       },
       {
         title: "Puissances",
-        focus: "Les puissances servent a ecrire vite de grands ou petits nombres.",
+        focus: "Les puissances servent à écrire vite de grands ou petits nombres.",
         points: [
           "a^0 = 1 si a n'est pas nul.",
           "a^-n = 1 / a^n.",
-          "Une notation scientifique s'ecrit a x 10^n avec 1 <= |a| < 10.",
+          "Une notation scientifique s'écrit a x 10^n avec 1 <= |a| < 10.",
         ],
         example: "0,00056 = 5,6 x 10^-4",
         trap: "(-5)^2 = 25, mais -5^2 = -25.",
       },
       {
-        title: "Equations",
-        focus: "Le but est d'isoler x en gardant l'egalite vraie.",
+        title: "Équations",
+        focus: "Le but est d'isoler x en gardant l'égalité vraie.",
         points: [
-          "On peut ajouter, soustraire, multiplier ou diviser les deux membres par le meme nombre non nul.",
-          "On regroupe les x d'un cote et les nombres de l'autre.",
-          "On verifie rapidement dans l'equation de depart.",
+          "On peut ajouter, soustraire, multiplier ou diviser les deux membres par le même nombre non nul.",
+          "On regroupe les x d'un côté et les nombres de l'autre.",
+          "On vérifie rapidement dans l'équation de départ.",
         ],
         example: "5x - 7 = 2x + 8 donne 3x = 15 donc x = 5",
         trap: "Si on deplace un terme, on change son signe.",
@@ -160,15 +160,15 @@ export const leaneLevels: LeaneLevel[] = [
       {
         title: "Puissance",
         level: "Niveau 2",
-        prompt: "Ecris 0,0042 en notation scientifique.",
+        prompt: "Écris 0,0042 en notation scientifique.",
         hint: "Le nombre devant 10 doit etre compris entre 1 et 10.",
         answer: "0,0042 = 4,2 x 10^-3.",
       },
       {
-        title: "Equation",
+        title: "Équation",
         level: "Niveau 2",
-        prompt: "Resous 4 - 3x = x + 12.",
-        hint: "Regroupe les x a droite ou a gauche, puis les nombres de l'autre cote.",
+        prompt: "Résous 4 - 3x = x + 12.",
+        hint: "Regroupe les x à droite ou à gauche, puis les nombres de l'autre côté.",
         answer: "-4x = 8 donc x = -2.",
       },
     ],
@@ -176,27 +176,27 @@ export const leaneLevels: LeaneLevel[] = [
   {
     id: "3e",
     title: "Bases 3e",
-    subtitle: "Preparer l'entree au lycee",
-    objective: "Relier calcul litteral, factorisation, fonctions et probabilites avant la premiere.",
+    subtitle: "Préparer l'entrée au lycée",
+    objective: "Relier calcul littéral, factorisation, fonctions et probabilités avant la première.",
     accent: "#7c5cff",
     courses: [
       {
-        title: "Developper et factoriser",
-        focus: "Developper enleve les parentheses ; factoriser remet sous forme de produit.",
+        title: "Développer et factoriser",
+        focus: "Développer enlève les parenthèses ; factoriser remet sous forme de produit.",
         points: [
-          "Distributivite simple : k(a + b) = ka + kb.",
-          "Double distributivite : chaque terme multiplie chaque terme.",
-          "Identite utile : a^2 - b^2 = (a - b)(a + b).",
+          "Distributivité simple : k(a + b) = ka + kb.",
+          "Double distributivité : chaque terme multiplie chaque terme.",
+          "Identité utile : a^2 - b^2 = (a - b)(a + b).",
         ],
         example: "(2x - 1)(x + 4) = 2x^2 + 8x - x - 4 = 2x^2 + 7x - 4",
-        trap: "Un signe moins devant une parenthese change tous les signes.",
+        trap: "Un signe moins devant une parenthèse change tous les signes.",
       },
       {
-        title: "Equations-produits",
+        title: "Équations-produits",
         focus: "Un produit est nul si au moins un de ses facteurs est nul.",
         points: [
-          "On factorise si l'expression n'est pas deja un produit.",
-          "On resout chaque facteur egal a 0.",
+          "On factorise si l'expression n'est pas déjà un produit.",
+          "On résout chaque facteur égal à 0.",
           "On donne toutes les solutions.",
         ],
         example: "(2x - 6)(x + 5) = 0 donne x = 3 ou x = -5",
@@ -204,10 +204,10 @@ export const leaneLevels: LeaneLevel[] = [
       },
       {
         title: "Fonctions",
-        focus: "Une fonction transforme une valeur de depart en image.",
+        focus: "Une fonction transforme une valeur de départ en image.",
         points: [
           "f(2) se lit l'image de 2 par f.",
-          "Un antecedent de 5 est une valeur x telle que f(x) = 5.",
+          "Un antécédent de 5 est une valeur x telle que f(x) = 5.",
           "Une fonction affine s'ecrit f(x) = ax + b.",
         ],
         example: "Si f(x) = -2x + 7, alors f(3) = 1",
@@ -216,24 +216,24 @@ export const leaneLevels: LeaneLevel[] = [
     ],
     exercises: [
       {
-        title: "Developpement",
+        title: "Développement",
         level: "Niveau 2",
         prompt: "Developpe et reduis : (x - 3)(2x + 5).",
-        hint: "Chaque terme de la premiere parenthese multiplie chaque terme de la seconde.",
+        hint: "Chaque terme de la première parenthèse multiplie chaque terme de la seconde.",
         answer: "2x^2 + 5x - 6x - 15 = 2x^2 - x - 15.",
       },
       {
         title: "Produit nul",
         level: "Niveau 2",
-        prompt: "Resous (3x + 9)(x - 4) = 0.",
-        hint: "Chaque facteur peut etre egal a 0.",
+        prompt: "Résous (3x + 9)(x - 4) = 0.",
+        hint: "Chaque facteur peut être égal à 0.",
         answer: "3x + 9 = 0 donne x = -3 ; x - 4 = 0 donne x = 4.",
       },
       {
         title: "Fonction affine",
         level: "Niveau 3",
         prompt: "Pour f(x) = 2x - 5, calcule f(-3) puis cherche x tel que f(x) = 9.",
-        hint: "Remplace x par -3, puis resous 2x - 5 = 9.",
+        hint: "Remplace x par -3, puis résous 2x - 5 = 9.",
         answer: "f(-3) = -11. 2x - 5 = 9 donne x = 7.",
       },
     ],
@@ -241,26 +241,26 @@ export const leaneLevels: LeaneLevel[] = [
 ];
 
 export const leaneCoursePractices: Record<string, LeaneCoursePractice> = {
-  "5e:Enchainements d'operations": {
+  "5e:Enchaînements d'opérations": {
     exercise: {
       title: "Priorites en deux lignes",
       level: "Application",
-      prompt: "Calcule A = 18 - 4 x (7 - 2), en ecrivant une seule transformation par ligne.",
-      hint: "Commence par la parenthese, puis la multiplication.",
+      prompt: "Calcule A = 18 - 4 x (7 - 2), en écrivant une seule transformation par ligne.",
+      hint: "Commence par la parenthèse, puis la multiplication.",
       answer: "A = 18 - 4 x 5 = 18 - 20 = -2.",
     },
     quiz: {
-      question: "Dans 18 - 4 x (7 - 2), quelle etape vient en premier ?",
+      question: "Dans 18 - 4 x (7 - 2), quelle étape vient en premier ?",
       choices: ["7 - 2", "4 x 7", "18 - 4"],
       answer: 0,
     },
     flashcard: {
       tag: "Priorites",
-      front: "Quelle est la regle d'or pour les enchainements d'operations ?",
-      back: "Parentheses d'abord, puis multiplications/divisions, puis additions/soustractions.",
+      front: "Quelle est la règle d'or pour les enchaînements d'opérations ?",
+      back: "Parenthèses d'abord, puis multiplications/divisions, puis additions/soustractions.",
     },
   },
-  "5e:Calcul litteral de depart": {
+  "5e:Calcul littéral de départ": {
     exercise: {
       title: "Remplacer x",
       level: "Application",
@@ -274,9 +274,9 @@ export const leaneCoursePractices: Record<string, LeaneCoursePractice> = {
       answer: 0,
     },
     flashcard: {
-      tag: "Calcul litteral",
+      tag: "Calcul littéral",
       front: "Pourquoi mettre des parentheses quand x est negatif ?",
-      back: "Pour garder le signe du nombre et eviter les erreurs de priorite ou de puissance.",
+      back: "Pour garder le signe du nombre et éviter les erreurs de priorité ou de puissance.",
     },
   },
   "5e:Statistiques essentielles": {
@@ -288,7 +288,7 @@ export const leaneCoursePractices: Record<string, LeaneCoursePractice> = {
       answer: "(8 + 11 + 14 + 7) / 4 = 40 / 4 = 10.",
     },
     quiz: {
-      question: "Une moyenne de notes doit toujours etre...",
+      question: "Une moyenne de notes doit toujours être...",
       choices: ["entre la plus petite et la plus grande note", "plus grande que toutes les notes", "egale a l'effectif total"],
       answer: 0,
     },
@@ -313,16 +313,16 @@ export const leaneCoursePractices: Record<string, LeaneCoursePractice> = {
     },
     flashcard: {
       tag: "Fractions",
-      front: "Quelle est la methode pour additionner deux fractions ?",
-      back: "Les mettre au meme denominateur, puis additionner les numerateurs.",
+      front: "Quelle est la méthode pour additionner deux fractions ?",
+      back: "Les mettre au même dénominateur, puis additionner les numérateurs.",
     },
   },
   "4e:Puissances": {
     exercise: {
       title: "Notation scientifique",
       level: "Application",
-      prompt: "Ecris 0,000073 en notation scientifique.",
-      hint: "Le nombre devant 10 doit etre entre 1 et 10.",
+      prompt: "Écris 0,000073 en notation scientifique.",
+      hint: "Le nombre devant 10 doit être entre 1 et 10.",
       answer: "0,000073 = 7,3 x 10^-5.",
     },
     quiz: {
@@ -332,35 +332,35 @@ export const leaneCoursePractices: Record<string, LeaneCoursePractice> = {
     },
     flashcard: {
       tag: "Puissances",
-      front: "Que signifie un exposant negatif ?",
+      front: "Que signifie un exposant négatif ?",
       back: "Il indique l'inverse : a^-n = 1 / a^n, avec a non nul.",
     },
   },
-  "4e:Equations": {
+  "4e:Équations": {
     exercise: {
       title: "Isoler x",
       level: "Application",
-      prompt: "Resous 6x - 5 = 2x + 11.",
-      hint: "Regroupe les x d'un cote et les nombres de l'autre.",
+      prompt: "Résous 6x - 5 = 2x + 11.",
+      hint: "Regroupe les x d'un côté et les nombres de l'autre.",
       answer: "4x = 16 donc x = 4.",
     },
     quiz: {
-      question: "Dans une equation, on peut garder l'egalite vraie si...",
-      choices: ["on fait la meme operation des deux cotes", "on change seulement le membre de gauche", "on supprime les signes moins"],
+      question: "Dans une équation, on peut garder l'égalité vraie si...",
+      choices: ["on fait la même opération des deux côtés", "on change seulement le membre de gauche", "on supprime les signes moins"],
       answer: 0,
     },
     flashcard: {
       tag: "Equations",
-      front: "Quelle est la verification rapide apres une equation ?",
-      back: "Remplacer x par la valeur trouvee dans l'equation de depart.",
+      front: "Quelle est la vérification rapide après une équation ?",
+      back: "Remplacer x par la valeur trouvée dans l'équation de départ.",
     },
   },
-  "3e:Developper et factoriser": {
+  "3e:Développer et factoriser": {
     exercise: {
-      title: "Double distributivite",
+      title: "Double distributivité",
       level: "Application",
       prompt: "Developpe et reduis : (x + 6)(2x - 3).",
-      hint: "Multiplie chaque terme de la premiere parenthese par chaque terme de la seconde.",
+      hint: "Multiplie chaque terme de la première parenthèse par chaque terme de la seconde.",
       answer: "2x^2 - 3x + 12x - 18 = 2x^2 + 9x - 18.",
     },
     quiz: {
@@ -370,20 +370,20 @@ export const leaneCoursePractices: Record<string, LeaneCoursePractice> = {
     },
     flashcard: {
       tag: "Factoriser",
-      front: "Quelle difference entre developper et factoriser ?",
-      back: "Developper transforme un produit en somme ; factoriser transforme une somme en produit.",
+      front: "Quelle différence entre développer et factoriser ?",
+      back: "Développer transforme un produit en somme ; factoriser transforme une somme en produit.",
     },
   },
-  "3e:Equations-produits": {
+  "3e:Équations-produits": {
     exercise: {
       title: "Produit nul",
       level: "Application",
-      prompt: "Resous (x - 8)(3x + 6) = 0.",
+      prompt: "Résous (x - 8)(3x + 6) = 0.",
       hint: "Un produit est nul si l'un des facteurs est nul.",
       answer: "x - 8 = 0 donne x = 8 ; 3x + 6 = 0 donne x = -2.",
     },
     quiz: {
-      question: "La regle du produit nul s'applique quand le second membre vaut...",
+      question: "La règle du produit nul s'applique quand le second membre vaut...",
       choices: ["0", "1", "-1"],
       answer: 0,
     },
@@ -395,21 +395,21 @@ export const leaneCoursePractices: Record<string, LeaneCoursePractice> = {
   },
   "3e:Fonctions": {
     exercise: {
-      title: "Image et antecedent",
+      title: "Image et antécédent",
       level: "Application",
       prompt: "Pour f(x) = -3x + 2, calcule f(5), puis cherche x tel que f(x) = 11.",
-      hint: "Remplace x par 5, puis resous -3x + 2 = 11.",
+      hint: "Remplace x par 5, puis résous -3x + 2 = 11.",
       answer: "f(5) = -15 + 2 = -13. -3x + 2 = 11 donne -3x = 9 donc x = -3.",
     },
     quiz: {
       question: "Si f(2) = 7, alors 7 est...",
-      choices: ["l'image de 2", "un antecedent de 2", "le nom de la fonction"],
+      choices: ["l'image de 2", "un antécédent de 2", "le nom de la fonction"],
       answer: 0,
     },
     flashcard: {
       tag: "Fonctions",
-      front: "Quelle est la difference entre image et antecedent ?",
-      back: "L'antecedent est la valeur de depart ; l'image est le resultat donne par la fonction.",
+      front: "Quelle est la différence entre image et antécédent ?",
+      back: "L'antécédent est la valeur de départ ; l'image est le résultat donné par la fonction.",
     },
   },
 };
@@ -432,15 +432,15 @@ export const leaneCoursePracticeEntries = leaneLevels.flatMap((level) =>
 
 export const leaneBridgeItems = [
   "Manipuler des fractions sans perdre le signe.",
-  "Developper, reduire et factoriser avec une ligne par etape.",
-  "Resoudre une equation simple puis verifier la solution.",
-  "Lire une fonction : image, antecedent, variation simple.",
+  "Développer, réduire et factoriser avec une ligne par étape.",
+  "Résoudre une équation simple puis vérifier la solution.",
+  "Lire une fonction : image, antécédent, variation simple.",
 ];
 
 export const leaneQuiz: LeaneQuizQuestion[] = [
   {
     question: "Dans 7 + 3 x 4, que calcule-t-on en premier ?",
-    choices: ["7 + 3", "3 x 4", "Le resultat final sans etape"],
+    choices: ["7 + 3", "3 x 4", "Le résultat final sans étape"],
     answer: 1,
   },
   {
@@ -463,8 +463,8 @@ export const leaneQuiz: LeaneQuizQuestion[] = [
 export const leaneFlashcards: LeaneFlashcard[] = [
   {
     tag: "Priorites",
-    front: "Dans quel ordre calcule-t-on une expression avec parentheses, multiplications et additions ?",
-    back: "Parentheses, puis multiplications/divisions, puis additions/soustractions de gauche a droite.",
+    front: "Dans quel ordre calcule-t-on une expression avec parenthèses, multiplications et additions ?",
+    back: "Parenthèses, puis multiplications/divisions, puis additions/soustractions de gauche à droite.",
   },
   {
     tag: "Fractions",
@@ -478,8 +478,8 @@ export const leaneFlashcards: LeaneFlashcard[] = [
   },
   {
     tag: "Equation",
-    front: "Pourquoi verifier une solution d'equation ?",
-    back: "Pour confirmer que la valeur trouvee rend bien l'egalite de depart vraie.",
+    front: "Pourquoi vérifier une solution d'équation ?",
+    back: "Pour confirmer que la valeur trouvée rend bien l'égalité de départ vraie.",
   },
   {
     tag: "Fonctions",
