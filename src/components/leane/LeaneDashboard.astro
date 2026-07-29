@@ -1,7 +1,9 @@
 ---
-import { leaneBridgeItems, leaneFlashcards, leaneLevels } from "../../data/leane";
+import { leaneBridgeItems, leaneCoursePracticeEntries, leaneFlashcards, leaneLevels } from "../../data/leane";
 import LeaneIcon from "./LeaneIcon.astro";
 import LeaneShell from "./LeaneShell.astro";
+
+const exerciseCount = leaneCoursePracticeEntries.reduce((total, entry) => total + entry.exercises.length, 0);
 ---
 
 <LeaneShell
@@ -30,7 +32,7 @@ import LeaneShell from "./LeaneShell.astro";
       <span class="leane-stat__icon" style="color: #ff7a1a"><LeaneIcon name="exercises" /></span>
       <div>
         <span>Exercices corrigés</span>
-        <strong>9</strong>
+        <strong>{exerciseCount}</strong>
         <small>aides progressives</small>
       </div>
     </article>

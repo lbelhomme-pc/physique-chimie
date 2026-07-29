@@ -18,22 +18,38 @@ import { leaneCoursePracticeEntries } from "../../data/leane";
   >
     <section class="leane-panel">
       <p class="leane-eyebrow">Par cours</p>
-      <h2>Un exercice pour chaque cours</h2>
+      <h2>Séries progressives</h2>
       <div class="leane-card-grid">
-        {leaneCoursePracticeEntries.map(({ level, course, practice }) => (
-          <section class="leane-exercise-card" id={`${level.id}-${course.title.toLowerCase().replaceAll(" ", "-")}`}>
+        {leaneCoursePracticeEntries.map(({ level, course, exercises }) => (
+          <section class="leane-exercise-card leane-exercise-runner" id={`${level.id}-${course.title.toLowerCase().replaceAll(" ", "-")}`} data-leane-exercises>
             <span class="leane-chip">{level.title}</span>
             <h2>{course.title}</h2>
-            <p><strong>{practice.exercise.title}</strong></p>
-            <p>{practice.exercise.prompt}</p>
-            <details>
-              <summary>Voir une aide</summary>
-              <p>{practice.exercise.hint}</p>
-            </details>
-            <details>
-              <summary>Voir la correction</summary>
-              <p>{practice.exercise.answer}</p>
-            </details>
+            <div class="leane-exercise-runner__meta">
+              <span data-leane-exercise-progress>1 / {exercises.length}</span>
+              <small>{exercises.length} exercices</small>
+            </div>
+            <div class="leane-exercise-runner__stack">
+              {exercises.map((exercise, index) => (
+                <article class="leane-exercise-step" data-leane-exercise hidden={index !== 0}>
+                  <p class="leane-card-muted">Niveau {exercise.level}</p>
+                  <h3>{exercise.title}</h3>
+                  <p>{exercise.prompt}</p>
+                  <details>
+                    <summary>Aide</summary>
+                    <p>{exercise.hint}</p>
+                  </details>
+                  <details>
+                    <summary>Correction</summary>
+                    <p>{exercise.answer}</p>
+                  </details>
+                </article>
+              ))}
+            </div>
+            <div class="leane-inline-actions">
+              <button class="leane-outline-link" type="button" data-leane-exercise-prev disabled>Précédent</button>
+              <button class="leane-primary-link" type="button" data-leane-exercise-next>Suivant</button>
+              <button class="leane-outline-link" type="button" data-leane-exercise-reset>Recommencer</button>
+            </div>
           </section>
         ))}
       </div>

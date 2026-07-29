@@ -94,6 +94,73 @@ const navItems = [
     });
   });
 
+  document.querySelectorAll<HTMLElement>("[data-leane-exercises]").forEach((runner) => {
+    if (runner.dataset.leaneReady === "true") return;
+    runner.dataset.leaneReady = "true";
+
+    const steps = Array.from(runner.querySelectorAll<HTMLElement>("[data-leane-exercise]"));
+    const progress = runner.querySelector<HTMLElement>("[data-leane-exercise-progress]");
+    const previous = runner.querySelector<HTMLButtonElement>("[data-leane-exercise-prev]");
+    const next = runner.querySelector<HTMLButtonElement>("[data-leane-exercise-next]");
+    const reset = runner.querySelector<HTMLButtonElement>("[data-leane-exercise-reset]");
+    let index = 0;
+
+    function showStep(nextIndex: number) {
+      index = Math.max(0, Math.min(nextIndex, steps.length - 1));
+      steps.forEach((step, stepIndex) => {
+        step.hidden = stepIndex !== index;
+        if (step.hidden) {
+          step.querySelectorAll("details").forEach((details) => details.removeAttribute("open"));
+        }
+      });
+      if (progress) progress.textContent = `${index + 1} / ${steps.length}`;
+      if (previous) previous.disabled = index === 0;
+      if (next) next.disabled = index === steps.length - 1;
+    }
+
+    previous?.addEventListener("click", () => showStep(index - 1));
+    next?.addEventListener("click", () => showStep(index + 1));
+    reset?.addEventListener("click", () => showStep(0));
+    showStep(0);
+  });
+
+  document.querySelectorAll<HTMLElement>("[data-leane-step-quiz]").forEach((quizRoot) => {
+    if (quizRoot.dataset.leaneStepReady === "true") return;
+    quizRoot.dataset.leaneStepReady = "true";
+
+    const questions = Array.from(quizRoot.querySelectorAll<HTMLElement>("[data-answer]"));
+    const progress = quizRoot.querySelector<HTMLElement>("[data-leane-step-progress]");
+    const previous = quizRoot.querySelector<HTMLButtonElement>("[data-leane-step-prev]");
+    const next = quizRoot.querySelector<HTMLButtonElement>("[data-leane-step-next]");
+    const submit = quizRoot.querySelector<HTMLButtonElement>("[data-leane-step-submit]");
+    const reset = quizRoot.querySelector<HTMLButtonElement>("[data-leane-step-reset]");
+    const result = quizRoot.querySelector<HTMLElement>("[data-leane-quiz-result]");
+    let index = 0;
+
+    function showQuestion(nextIndex: number) {
+      index = Math.max(0, Math.min(nextIndex, questions.length - 1));
+      questions.forEach((question, questionIndex) => {
+        question.hidden = questionIndex !== index;
+      });
+      if (progress) progress.textContent = `Question ${index + 1} / ${questions.length}`;
+      if (previous) previous.disabled = index === 0;
+      if (next) next.hidden = index === questions.length - 1;
+      if (submit) submit.hidden = index !== questions.length - 1;
+    }
+
+    previous?.addEventListener("click", () => showQuestion(index - 1));
+    next?.addEventListener("click", () => showQuestion(index + 1));
+    reset?.addEventListener("click", () => {
+      quizRoot.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((input) => {
+        input.checked = false;
+      });
+      questions.forEach((question) => question.classList.remove("is-correct", "is-wrong"));
+      if (result) result.hidden = true;
+      showQuestion(0);
+    });
+    showQuestion(0);
+  });
+
   document.querySelectorAll<HTMLElement>("[data-leane-quiz]").forEach((quizRoot) => {
     const quizResult = quizRoot.querySelector<HTMLElement>("[data-leane-quiz-result]");
     if (!quizResult || quizRoot.dataset.leaneReady === "true") return;
@@ -153,6 +220,10 @@ const navItems = [
     position: absolute;
     white-space: nowrap;
     width: 1px;
+  }
+
+  .leane-app [hidden] {
+    display: none !important;
   }
 
   .leane-app {
@@ -444,6 +515,10 @@ const navItems = [
     box-shadow: var(--shadow-card, 0 2px 8px rgba(0, 0, 0, 0.04));
   }
 
+  .leane-question[hidden] {
+    display: none;
+  }
+
   .leane-panel,
   .leane-level-card,
   .leane-course-card,
@@ -641,6 +716,60 @@ const navItems = [
     gap: 0.65rem;
   }
 
+  .leane-exercise-runner {
+    align-content: start;
+  }
+
+  .leane-exercise-runner__meta {
+    align-items: center;
+    color: var(--leane-muted);
+    display: flex;
+    font-weight: 780;
+    justify-content: space-between;
+  }
+
+  .leane-exercise-runner__meta small {
+    color: var(--leane-muted);
+    font-weight: 760;
+  }
+
+  .leane-exercise-runner__stack {
+    min-height: 15rem;
+  }
+
+  .leane-exercise-step {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .leane-exercise-step[hidden] {
+    display: none;
+  }
+
+  .leane-exercise-step h3,
+  .leane-exercise-step p {
+    margin: 0;
+  }
+
+  .leane-exercise-step details {
+    background: color-mix(in srgb, var(--accent-primary-light, #eef2ff) 34%, #ffffff);
+    border: 1px solid var(--leane-border);
+    border-radius: var(--radius-md, 12px);
+    padding: 0.7rem 0.8rem;
+  }
+
+  .leane-exercise-step summary {
+    color: var(--accent-primary, #4f46e5);
+    cursor: pointer;
+    font-weight: 850;
+  }
+
+  .leane-inline-actions button:disabled,
+  .leane-inline-actions button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.48;
+  }
+
   .leane-mini-panel {
     background: color-mix(in srgb, var(--accent-primary-light, #eef2ff) 38%, #ffffff);
     border: 1px solid var(--leane-border);
@@ -692,6 +821,12 @@ const navItems = [
 
   .leane-primary-link:is(button) {
     border: 0;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .leane-outline-link:is(button) {
+    background: #ffffff;
     cursor: pointer;
     font: inherit;
   }

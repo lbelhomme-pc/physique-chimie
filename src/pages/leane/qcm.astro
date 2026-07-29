@@ -17,17 +17,18 @@ import { leaneCoursePracticeEntries, leaneQuiz } from "../../data/leane";
     subtitle="Un diagnostic rapide pour voir ce qui est solide et ce qui doit revenir dans le planning."
   >
     <section class="leane-two-col">
-      <form class="leane-grid" data-leane-quiz>
+      <form class="leane-grid leane-step-quiz" data-leane-quiz data-leane-step-quiz>
         <article class="leane-panel">
           <p class="leane-eyebrow">Global</p>
           <h2>Diagnostic transversal</h2>
+          <p class="leane-card-muted" data-leane-step-progress>Question 1 / {leaneQuiz.length}</p>
         </article>
         {leaneQuiz.map((item, index) => (
-          <fieldset class="leane-question" data-answer={String(item.answer)}>
+          <fieldset class="leane-question" data-answer={String(item.answer)} hidden={index !== 0}>
             <legend>{index + 1}. {item.question}</legend>
             {item.choices.map((choice, choiceIndex) => (
               <label>
-                <input type="radio" name={`q${index}`} value={String(choiceIndex)} required />
+                <input type="radio" name={`q${index}`} value={String(choiceIndex)} />
                 <span>{choice}</span>
               </label>
             ))}
@@ -35,7 +36,10 @@ import { leaneCoursePracticeEntries, leaneQuiz } from "../../data/leane";
         ))}
 
         <div class="leane-inline-actions">
-          <button class="leane-primary-link" type="submit">Corriger le QCM global</button>
+          <button class="leane-outline-link" type="button" data-leane-step-prev disabled>Précédent</button>
+          <button class="leane-primary-link" type="button" data-leane-step-next>Suivant</button>
+          <button class="leane-primary-link" type="submit" data-leane-step-submit hidden>Corriger</button>
+          <button class="leane-outline-link" type="button" data-leane-step-reset>Recommencer</button>
           <output class="leane-result" data-leane-quiz-result hidden></output>
         </div>
       </form>
