@@ -1,58 +1,76 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LeaneShell from "../../components/leane/LeaneShell.astro";
-import { leaneCoursePracticeEntries } from "../../data/leane";
+import { leaneLevels } from "../../data/leane";
+
+const slugify = (value: string) =>
+  value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 ---
 
 <BaseLayout
   title="Exercices Léane - révisions de mathématiques"
-  description="Exercices gradués avec aide et correction pour consolider les bases avant la première."
+  description="Séries progressives séparées par cours pour consolider les bases avant la première."
   subject="mathematiques"
   cycle="lycee"
   level="1re"
 >
   <LeaneShell
     active="exercices"
-    title="Exercices guidés"
-    subtitle="Un niveau, une consigne, une aide, puis la correction seulement quand elle est utile."
+    title="Exercices par cours"
+    subtitle="Choisis une série. Chaque cours garde ses 10 exercices, son aide et sa correction."
   >
-    <section class="leane-panel">
-      <p class="leane-eyebrow">Par cours</p>
-      <h2>Séries progressives</h2>
-      <div class="leane-card-grid">
-        {leaneCoursePracticeEntries.map(({ level, course, exercises }) => (
-          <section class="leane-exercise-card leane-exercise-runner" id={`${level.id}-${course.title.toLowerCase().replaceAll(" ", "-")}`} data-leane-exercises>
-            <span class="leane-chip">{level.title}</span>
-            <h2>{course.title}</h2>
-            <div class="leane-exercise-runner__meta">
-              <span data-leane-exercise-progress>1 / {exercises.length}</span>
-              <small>{exercises.length} exercices</small>
-            </div>
-            <div class="leane-exercise-runner__stack">
-              {exercises.map((exercise, index) => (
-                <article class="leane-exercise-step" data-leane-exercise hidden={index !== 0}>
-                  <p class="leane-card-muted">Niveau {exercise.level}</p>
-                  <h3>{exercise.title}</h3>
-                  <p>{exercise.prompt}</p>
-                  <details>
-                    <summary>Aide</summary>
-                    <p>{exercise.hint}</p>
-                  </details>
-                  <details>
-                    <summary>Correction</summary>
-                    <p>{exercise.answer}</p>
-                  </details>
-                </article>
-              ))}
-            </div>
-            <div class="leane-inline-actions">
-              <button class="leane-outline-link" type="button" data-leane-exercise-prev disabled>Précédent</button>
-              <button class="leane-primary-link" type="button" data-leane-exercise-next>Suivant</button>
-              <button class="leane-outline-link" type="button" data-leane-exercise-reset>Recommencer</button>
-            </div>
-          </section>
-        ))}
-      </div>
+    <section class="leane-grid" aria-label="Séries d'exercices par niveau">
+      {leaneLevels.map((level) => (
+        <article class="leane-panel" id={level.id}>
+          <p class="leane-eyebrow">{level.subtitle}</p>
+          <h2>{level.title}</h2>
+          <div class="leane-card-grid leane-card-grid--courses">
+            {level.courses.map((course) => {
+              const href = `/leane/exercices/${level.id}-${slugify(course.title)}`;
+              return (
+                <a class="leane-course-card leane-exercise-choice" href={href}>
+                  <span class="leane-chip">{level.title}</span>
+                  <h2>{course.title}</h2>
+                  <p>{course.focus}</p>
+                  <div class="leane-progress-row">
+                    <strong>0 / 10</strong>
+                    <span>10 exercices</span>
+                  </div>
+                  <div class="leane-progress" aria-hidden="true">
+                    <span style="width: 0%"></span>
+                  </div>
+                  <span class="leane-primary-link">Ouvrir la série</span>
+                </a>
+              );
+            })}
+          </div>
+        </article>
+      ))}
     </section>
   </LeaneShell>
 </BaseLayout>
+
+<style is:global>
+  .leane-exercise-choice {
+    color: inherit;
+    min-height: 250px;
+    text-decoration: none;
+  }
+
+  .leane-exercise-choice:hover,
+  .leane-exercise-choice:focus-visible {
+    border-color: #b9cef0;
+    box-shadow: 0 14px 30px rgba(16, 42, 92, 0.09);
+    transform: translateY(-1px);
+  }
+
+  .leane-exercise-choice .leane-primary-link {
+    justify-self: start;
+    margin-top: auto;
+  }
+</style>

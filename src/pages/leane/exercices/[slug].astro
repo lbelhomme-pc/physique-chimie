@@ -1,0 +1,128 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LeaneShell from "../../../components/leane/LeaneShell.astro";
+import { leaneCoursePracticeEntries } from "../../../data/leane";
+
+export function getStaticPaths() {
+  const toSlug = (value: string) =>
+    value
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+
+  return leaneCoursePracticeEntries.map((entry) => ({
+    params: { slug: `${entry.level.id}-${toSlug(entry.course.title)}` },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { level, course, exercises } = entry;
+const courseAnchor = `/leane/cours#${level.id}`;
+const qcmHref = "/leane/qcm";
+const flashcardsHref = "/leane/flashcards";
+---
+
+<BaseLayout
+  title={`${course.title} - exercices Léane`}
+  description={`Série progressive de 10 exercices pour ${course.title}.`}
+  subject="mathematiques"
+  cycle="lycee"
+  level="1re"
+>
+  <LeaneShell
+    active="exercices"
+    title={course.title}
+    subtitle={`${level.title} · 10 exercices progressifs`}
+  >
+    <section class="leane-two-col leane-exercise-detail">
+      <article class="leane-panel leane-exercise-runner" data-leane-exercises>
+        <div class="leane-exercise-detail__top">
+          <span class="leane-chip">{level.title}</span>
+          <a class="leane-outline-link" href="/leane/exercices">Toutes les séries</a>
+        </div>
+
+        <h2>{course.title}</h2>
+        <p class="leane-card-muted">{course.focus}</p>
+
+        <div class="leane-exercise-runner__meta">
+          <span data-leane-exercise-progress>1 / {exercises.length}</span>
+          <small>{exercises.length} exercices</small>
+        </div>
+
+        <div class="leane-exercise-runner__stack">
+          {exercises.map((exercise, index) => (
+            <article class="leane-exercise-step" data-leane-exercise hidden={index !== 0}>
+              <p class="leane-card-muted">Niveau {exercise.level}</p>
+              <h3>{exercise.title}</h3>
+              <p>{exercise.prompt}</p>
+              <details>
+                <summary>Aide</summary>
+                <p>{exercise.hint}</p>
+              </details>
+              <details>
+                <summary>Correction</summary>
+                <p>{exercise.answer}</p>
+              </details>
+            </article>
+          ))}
+        </div>
+
+        <div class="leane-inline-actions">
+          <button class="leane-outline-link" type="button" data-leane-exercise-prev disabled>Précédent</button>
+          <button class="leane-primary-link" type="button" data-leane-exercise-next>Suivant</button>
+          <button class="leane-outline-link" type="button" data-leane-exercise-reset>Recommencer</button>
+        </div>
+      </article>
+
+      <aside class="leane-panel leane-exercise-side">
+        <p class="leane-eyebrow">Même cours</p>
+        <h2>Continuer</h2>
+        <div class="leane-practice-grid">
+          <a class="leane-action-tile" href={courseAnchor}>Cours</a>
+          <a class="leane-action-tile" href={qcmHref}>QCM</a>
+          <a class="leane-action-tile" href={flashcardsHref}>Flashcards</a>
+        </div>
+      </aside>
+    </section>
+  </LeaneShell>
+</BaseLayout>
+
+<style is:global>
+  .leane-exercise-detail {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.32fr);
+  }
+
+  .leane-exercise-detail__top {
+    align-items: center;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+  }
+
+  .leane-exercise-detail .leane-exercise-runner__stack {
+    min-height: 20rem;
+  }
+
+  .leane-exercise-detail .leane-exercise-step h3 {
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+  }
+
+  .leane-exercise-side {
+    position: sticky;
+    top: 1rem;
+  }
+
+  @media (max-width: 1040px) {
+    .leane-exercise-detail {
+      grid-template-columns: 1fr;
+    }
+
+    .leane-exercise-side {
+      position: static;
+    }
+  }
+</style>
