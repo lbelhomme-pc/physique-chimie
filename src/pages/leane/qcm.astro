@@ -1,74 +1,102 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LeaneShell from "../../components/leane/LeaneShell.astro";
-import { leaneCoursePracticeEntries, leaneQuiz } from "../../data/leane";
+import { leaneQuiz } from "../../data/leane";
+
+const qcmBases = [
+  {
+    href: "/leane/qcm/5e",
+    label: "Bases 5e",
+    title: "Automatismes de 5e",
+    detail: "Priorités, calcul littéral et statistiques.",
+    count: 12,
+  },
+  {
+    href: "/leane/qcm/4e",
+    label: "Bases 4e",
+    title: "Calculs de 4e",
+    detail: "Fractions, puissances et équations.",
+    count: 11,
+  },
+  {
+    href: "/leane/qcm/3e",
+    label: "Bases 3e",
+    title: "Passage lycée",
+    detail: "Développer, factoriser, produit nul et fonctions.",
+    count: 14,
+  },
+  {
+    href: "/leane/qcm/global",
+    label: "Synthèse",
+    title: "Diagnostic global",
+    detail: "Tous les repères essentiels avant la première.",
+    count: leaneQuiz.length,
+  },
+];
 ---
 
 <BaseLayout
   title="QCM Léane - révisions de mathématiques"
-  description="QCM global pour tester rapidement les acquis essentiels avant la première."
+  description="QCM séparés par base pour tester les acquis essentiels avant la première."
   subject="mathematiques"
   cycle="lycee"
   level="1re"
 >
   <LeaneShell
     active="qcm"
-    title="QCM global"
-    subtitle="Un diagnostic rapide pour voir ce qui est solide et ce qui doit revenir dans le planning."
+    title="QCM par base"
+    subtitle="Choisis une base. Chaque QCM a maintenant sa propre page."
   >
-    <section class="leane-two-col">
-      <form class="leane-grid leane-step-quiz" data-leane-quiz data-leane-step-quiz>
-        <article class="leane-panel">
-          <p class="leane-eyebrow">Global</p>
-          <h2>Diagnostic transversal</h2>
-          <p class="leane-card-muted" data-leane-step-progress>Question 1 / {leaneQuiz.length}</p>
-        </article>
-        {leaneQuiz.map((item, index) => (
-          <fieldset class="leane-question" data-answer={String(item.answer)} hidden={index !== 0}>
-            <legend>{index + 1}. {item.question}</legend>
-            {item.choices.map((choice, choiceIndex) => (
-              <label>
-                <input type="radio" name={`q${index}`} value={String(choiceIndex)} />
-                <span>{choice}</span>
-              </label>
-            ))}
-          </fieldset>
+    <section class="leane-panel">
+      <p class="leane-eyebrow">Accès directs</p>
+      <h2>Choisir un QCM</h2>
+      <div class="leane-card-grid leane-qcm-choice-grid">
+        {qcmBases.map((qcm) => (
+          <a class="leane-course-card leane-qcm-choice" href={qcm.href}>
+            <span class="leane-chip">{qcm.label}</span>
+            <h2>{qcm.title}</h2>
+            <p>{qcm.detail}</p>
+            <div class="leane-progress-row">
+              <strong>0 / {qcm.count}</strong>
+              <span>{qcm.count} questions</span>
+            </div>
+            <div class="leane-progress" aria-hidden="true">
+              <span style="width: 0%"></span>
+            </div>
+            <span class="leane-primary-link">Ouvrir le QCM</span>
+          </a>
         ))}
-
-        <div class="leane-inline-actions">
-          <button class="leane-outline-link" type="button" data-leane-step-prev disabled>Précédent</button>
-          <button class="leane-primary-link" type="button" data-leane-step-next>Suivant</button>
-          <button class="leane-primary-link" type="submit" data-leane-step-submit hidden>Corriger</button>
-          <button class="leane-outline-link" type="button" data-leane-step-reset>Recommencer</button>
-          <output class="leane-result" data-leane-quiz-result hidden></output>
-        </div>
-      </form>
-
-      <aside class="leane-panel">
-        <p class="leane-eyebrow">Par cours</p>
-        <h2>Mini-QCM associés</h2>
-        <div class="leane-grid">
-          {leaneCoursePracticeEntries.map(({ level, course, practice }, index) => (
-            <form class="leane-mini-panel" data-leane-quiz>
-              <span class="leane-chip">{level.title}</span>
-              <fieldset class="leane-mini-quiz" data-answer={String(practice.quiz.answer)}>
-                <legend>{course.title}</legend>
-                <p>{practice.quiz.question}</p>
-                {practice.quiz.choices.map((choice, choiceIndex) => (
-                  <label>
-                    <input type="radio" name={`mini-q${index}`} value={String(choiceIndex)} required />
-                    <span>{choice}</span>
-                  </label>
-                ))}
-              </fieldset>
-              <div class="leane-inline-actions">
-                <button class="leane-primary-link" type="submit">Corriger</button>
-                <output class="leane-result" data-leane-quiz-result hidden></output>
-              </div>
-            </form>
-          ))}
-        </div>
-      </aside>
+      </div>
     </section>
   </LeaneShell>
 </BaseLayout>
+
+<style is:global>
+  .leane-qcm-choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .leane-qcm-choice {
+    color: inherit;
+    min-height: 250px;
+    text-decoration: none;
+  }
+
+  .leane-qcm-choice:hover,
+  .leane-qcm-choice:focus-visible {
+    border-color: #b9cef0;
+    box-shadow: 0 14px 30px rgba(16, 42, 92, 0.09);
+    transform: translateY(-1px);
+  }
+
+  .leane-qcm-choice .leane-primary-link {
+    justify-self: start;
+    margin-top: auto;
+  }
+
+  @media (max-width: 900px) {
+    .leane-qcm-choice-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

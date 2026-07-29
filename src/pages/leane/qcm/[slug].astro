@@ -1,0 +1,135 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LeaneShell from "../../../components/leane/LeaneShell.astro";
+import { leaneQuiz } from "../../../data/leane";
+
+const qcmLinks = [
+  { slug: "5e", label: "Bases 5e" },
+  { slug: "4e", label: "Bases 4e" },
+  { slug: "3e", label: "Bases 3e" },
+  { slug: "global", label: "Synthèse" },
+];
+
+export function getStaticPaths() {
+  const qcmSets = {
+    "5e": {
+      label: "Bases 5e",
+      title: "QCM - Bases 5e",
+      subtitle: "Priorités, calcul littéral et statistiques.",
+      indices: [0, 4, 5, 6, 7, 8, 9, 10, 11, 12, 35, 36],
+    },
+    "4e": {
+      label: "Bases 4e",
+      title: "QCM - Bases 4e",
+      subtitle: "Fractions, puissances et équations.",
+      indices: [1, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+    },
+    "3e": {
+      label: "Bases 3e",
+      title: "QCM - Bases 3e",
+      subtitle: "Développement, factorisation, produit nul et fonctions.",
+      indices: [2, 3, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
+    },
+    global: {
+      label: "Synthèse",
+      title: "QCM global",
+      subtitle: "Diagnostic transversal avant la première.",
+      indices: leaneQuiz.map((_, index) => index),
+    },
+  } as const;
+
+  return Object.entries(qcmSets).map(([slug, qcm]) => ({
+    params: { slug },
+    props: { qcm },
+  }));
+}
+
+const { qcm } = Astro.props;
+const questions = qcm.indices.map((index) => leaneQuiz[index]).filter(Boolean);
+---
+
+<BaseLayout
+  title={`${qcm.title} Leane`}
+  description={`${qcm.title} pour consolider les bases de mathématiques avant la première.`}
+  subject="mathematiques"
+  cycle="lycee"
+  level="1re"
+>
+  <LeaneShell active="qcm" title={qcm.title} subtitle={qcm.subtitle}>
+    <section class="leane-two-col leane-qcm-detail">
+      <form class="leane-grid leane-step-quiz" data-leane-quiz data-leane-step-quiz>
+        <article class="leane-panel">
+          <div class="leane-qcm-detail__top">
+            <span class="leane-chip">{qcm.label}</span>
+            <a class="leane-outline-link" href="/leane/qcm">Tous les QCM</a>
+          </div>
+          <h2>{qcm.title}</h2>
+          <p class="leane-card-muted" data-leane-step-progress>Question 1 / {questions.length}</p>
+        </article>
+
+        {questions.map((item, index) => (
+          <fieldset class="leane-question" data-answer={String(item.answer)} hidden={index !== 0}>
+            <legend>{index + 1}. {item.question}</legend>
+            {item.choices.map((choice, choiceIndex) => (
+              <label>
+                <input type="radio" name={`q${index}`} value={String(choiceIndex)} />
+                <span>{choice}</span>
+              </label>
+            ))}
+          </fieldset>
+        ))}
+
+        <div class="leane-inline-actions">
+          <button class="leane-outline-link" type="button" data-leane-step-prev disabled>Précédent</button>
+          <button class="leane-primary-link" type="button" data-leane-step-next>Suivant</button>
+          <button class="leane-primary-link" type="submit" data-leane-step-submit hidden>Corriger</button>
+          <button class="leane-outline-link" type="button" data-leane-step-reset>Recommencer</button>
+          <output class="leane-result" data-leane-quiz-result hidden></output>
+        </div>
+      </form>
+
+      <aside class="leane-panel leane-qcm-side">
+        <p class="leane-eyebrow">Changer de base</p>
+        <h2>Autres QCM</h2>
+        <div class="leane-practice-grid">
+          {qcmLinks.map((item) => (
+            <a class="leane-action-tile" href={`/leane/qcm/${item.slug}`}>{item.label}</a>
+          ))}
+        </div>
+      </aside>
+    </section>
+  </LeaneShell>
+</BaseLayout>
+
+<style is:global>
+  .leane-qcm-detail {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.32fr);
+  }
+
+  .leane-qcm-detail__top {
+    align-items: center;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+  }
+
+  .leane-qcm-detail .leane-question {
+    min-height: 18rem;
+  }
+
+  .leane-qcm-side {
+    position: sticky;
+    top: 1rem;
+  }
+
+  @media (max-width: 1040px) {
+    .leane-qcm-detail {
+      grid-template-columns: 1fr;
+    }
+
+    .leane-qcm-side {
+      position: static;
+    }
+  }
+</style>
