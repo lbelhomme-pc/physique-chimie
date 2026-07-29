@@ -1,68 +1,976 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import LeaneIcon from "../../components/leane/LeaneIcon.astro";
 import LeaneShell from "../../components/leane/LeaneShell.astro";
 import { leaneCoursePracticeEntries, leaneFlashcards } from "../../data/leane";
+
+const courseCards = leaneCoursePracticeEntries.map(({ level, course, practice }, index) => ({
+  id: `course-${index}`,
+  source: "Cours",
+  tag: practice.flashcard.tag,
+  level: level.title,
+  course: course.title,
+  front: practice.flashcard.front,
+  back: practice.flashcard.back,
+  filter: level.id,
+}));
+
+const globalCards = leaneFlashcards.map((card, index) => ({
+  id: `global-${index}`,
+  source: "Global",
+  tag: card.tag,
+  level: "Synthèse",
+  course: card.tag,
+  front: card.front,
+  back: card.back,
+  filter: "global",
+}));
+
+const studyCards = [...courseCards, ...globalCards];
+const totalCards = studyCards.length;
+const filters = [
+  { id: "all", label: "Toutes" },
+  { id: "5e", label: "Bases 5e" },
+  { id: "4e", label: "Bases 4e" },
+  { id: "3e", label: "Bases 3e" },
+  { id: "global", label: "Synthèse" },
+];
+
+const reviewPlan = [
+  { label: "À voir maintenant", count: totalCards, tone: "danger" },
+  { label: "Dans 1 jour", count: 0, tone: "warning" },
+  { label: "Dans 3 jours", count: 0, tone: "gold" },
+  { label: "Dans 7 jours", count: 0, tone: "primary" },
+  { label: "Dans 14 jours", count: 0, tone: "success" },
+];
+
+const deckCards = [
+  {
+    title: "Priorités",
+    detail: "Parenthèses et opérations",
+    count: 3,
+    tone: "primary",
+  },
+  {
+    title: "Fractions",
+    detail: "Calculs et signes",
+    count: 2,
+    tone: "success",
+  },
+  {
+    title: "Équations",
+    detail: "Isoler et vérifier",
+    count: 2,
+    tone: "purple",
+  },
+  {
+    title: "Fonctions",
+    detail: "Images et antécédents",
+    count: 2,
+    tone: "warning",
+  },
+];
 ---
 
 <BaseLayout
   title="Flashcards Léane - révisions de mathématiques"
-  description="Flashcards globales pour mémoriser les réflexes de calcul et de raisonnement."
+  description="Flashcards de révision pour mémoriser les réflexes de calcul et de raisonnement."
   subject="mathematiques"
   cycle="lycee"
   level="1re"
 >
   <LeaneShell
     active="flashcards"
-    title="Flashcards globales"
-    subtitle="Cliquer sur une carte pour la retourner, puis revoir en priorité les notions hésitantes."
+    title="Flashcards Léane"
+    subtitle="Révision progressive par répétition espacée."
+    hideHeading
   >
-    <section class="leane-grid">
-      <article class="leane-panel">
-        <p class="leane-eyebrow">Par cours</p>
-        <h2>Une flashcard associée à chaque cours</h2>
-        <div class="leane-card-grid">
-          {leaneCoursePracticeEntries.map(({ level, course, practice }) => (
-            <button class="leane-flashcard" type="button" data-flashcard aria-pressed="false">
-              <span class="leane-flashcard__inner">
-                <span class="leane-flashcard__face">
-                  <span class="leane-chip">{level.title}</span>
-                  <strong>{course.title}</strong>
-                  <span>{practice.flashcard.front}</span>
-                  <span class="leane-card-muted">Cliquer pour retourner</span>
-                </span>
-                <span class="leane-flashcard__face leane-flashcard__face--back">
-                  <span class="leane-chip">{practice.flashcard.tag}</span>
-                  <strong>{practice.flashcard.back}</strong>
-                  <span class="leane-card-muted">Cliquer pour revenir</span>
-                </span>
-              </span>
-            </button>
-          ))}
+    <section class="leane-flash-space" data-leane-flash-study>
+      <div class="leane-flash-heading">
+        <div>
+          <h1 id="leane-page-title">Flashcards — Maths essentielles</h1>
+          <p>Bases collège à consolider avant la première</p>
         </div>
-      </article>
+        <button class="leane-flash-settings" type="button">
+          <LeaneIcon name="settings" />
+          Paramètres des cartes
+        </button>
+      </div>
 
-      <article class="leane-panel">
-        <p class="leane-eyebrow">Global</p>
-        <h2>Cartes de synthèse</h2>
-        <div class="leane-card-grid">
-          {leaneFlashcards.map((card) => (
-            <button class="leane-flashcard" type="button" data-flashcard aria-pressed="false">
-              <span class="leane-flashcard__inner">
-                <span class="leane-flashcard__face">
-                  <span class="leane-chip">{card.tag}</span>
-                  <strong>{card.front}</strong>
-                  <span class="leane-card-muted">Cliquer pour retourner</span>
-                </span>
-                <span class="leane-flashcard__face leane-flashcard__face--back">
-                  <span class="leane-chip">Réponse</span>
-                  <strong>{card.back}</strong>
-                  <span class="leane-card-muted">Cliquer pour revenir</span>
-                </span>
+      <div class="leane-flash-stats" aria-label="Statistiques des flashcards">
+        <article class="leane-flash-stat leane-flash-stat--success">
+          <span class="leane-flash-stat__icon"><LeaneIcon name="check" /></span>
+          <span>
+            <small>Cartes maîtrisées</small>
+            <strong data-flash-mastered>0</strong>
+            <em>0% du deck</em>
+          </span>
+        </article>
+        <article class="leane-flash-stat leane-flash-stat--warning">
+          <span class="leane-flash-stat__icon"><LeaneIcon name="clock" /></span>
+          <span>
+            <small>Cartes à revoir</small>
+            <strong data-flash-review-count>{totalCards}</strong>
+            <em>Départ à 0%</em>
+          </span>
+        </article>
+        <article class="leane-flash-stat leane-flash-stat--primary">
+          <span class="leane-flash-stat__icon"><LeaneIcon name="cards" /></span>
+          <span>
+            <small>Deck actif</small>
+            <strong data-flash-total>{totalCards}</strong>
+            <em>Cartes disponibles</em>
+          </span>
+        </article>
+        <article class="leane-flash-stat leane-flash-stat--purple">
+          <span class="leane-flash-stat__icon"><LeaneIcon name="target" /></span>
+          <span>
+            <small>Temps d'étude</small>
+            <strong data-flash-time>0 min</strong>
+            <em>Aujourd'hui</em>
+          </span>
+        </article>
+      </div>
+
+      <div class="leane-flash-layout">
+        <div class="leane-flash-maincol">
+          <section class="leane-flash-player" aria-label="Session de flashcards">
+            <div class="leane-flash-tabs" role="tablist" aria-label="Filtrer les cartes">
+              {filters.map((filter, index) => (
+                <button
+                  type="button"
+                  class:list={["leane-flash-tab", { "is-active": index === 0 }]}
+                  data-flash-filter={filter.id}
+                  aria-selected={index === 0 ? "true" : "false"}
+                  role="tab"
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+
+            <button
+              class="leane-flash-card"
+              type="button"
+              aria-live="polite"
+              aria-pressed="false"
+              data-flash-card
+            >
+              <span class="leane-flash-card__tag" data-flash-tag>{studyCards[0].tag}</span>
+              <span class="leane-flash-card__counter" data-flash-counter>1 / {totalCards}</span>
+              <span class="leane-flash-card__symbol" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
               </span>
+              <strong data-flash-question>{studyCards[0].front}</strong>
+              <span class="leane-flash-card__hint" data-flash-hint>Cliquer pour retourner la carte</span>
             </button>
-          ))}
+
+            <div class="leane-flash-actions" aria-label="Évaluer la réponse">
+              <button type="button" class="leane-flash-answer leane-flash-answer--success" data-flash-rate="mastered">
+                <span><LeaneIcon name="check" /> Je maîtrise</span>
+                <small>Facile</small>
+              </button>
+              <button type="button" class="leane-flash-answer leane-flash-answer--warning" data-flash-rate="review">
+                <span><LeaneIcon name="clock" /> À revoir</span>
+                <small>Moyen</small>
+              </button>
+              <button type="button" class="leane-flash-answer leane-flash-answer--danger" data-flash-rate="hard">
+                <span><LeaneIcon name="target" /> Difficile</span>
+                <small>Je ne savais pas</small>
+              </button>
+            </div>
+          </section>
+
+          <section class="leane-flash-progress" aria-label="Progression du deck">
+            <div class="leane-flash-progress__top">
+              <strong>Progression du deck</strong>
+              <span data-flash-percent>0% complété</span>
+            </div>
+            <div class="leane-flash-progress__bar" aria-hidden="true">
+              <span data-flash-progress style="width: 0%"></span>
+            </div>
+            <div class="leane-flash-progress__meta">
+              <span><LeaneIcon name="check" /> <b data-flash-mastered-inline>0</b> / <b>{totalCards}</b> cartes maîtrisées</span>
+              <span><LeaneIcon name="cards" /> <b data-flash-remaining>{totalCards}</b> cartes restantes</span>
+              <button type="button" data-flash-reset>Recommencer</button>
+            </div>
+          </section>
+
+          <section class="leane-flash-decks" aria-label="Decks de révision">
+            <div class="leane-flash-section-title">
+              <strong>Decks récents</strong>
+              <span>Essentiel seulement</span>
+            </div>
+            <div class="leane-flash-decks__grid">
+              {deckCards.map((deck) => (
+                <article class:list={["leane-flash-deck", `leane-flash-deck--${deck.tone}`]}>
+                  <span class="leane-flash-deck__icon"><LeaneIcon name="cards" /></span>
+                  <span>
+                    <strong>{deck.title}</strong>
+                    <small>{deck.detail}</small>
+                  </span>
+                  <em>{deck.count} cartes</em>
+                </article>
+              ))}
+            </div>
+          </section>
         </div>
-      </article>
+
+        <aside class="leane-flash-side" aria-label="Répétition espacée">
+          <section class="leane-flash-panel">
+            <h2>Plan de révision <span>(Répétition espacée)</span></h2>
+            <ul class="leane-flash-plan">
+              {reviewPlan.map((item) => (
+                <li class:list={[`leane-flash-plan__item`, `leane-flash-plan__item--${item.tone}`]}>
+                  <span class="leane-flash-dot" aria-hidden="true"></span>
+                  <strong>{item.label}</strong>
+                  <em>{item.count} cartes</em>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="leane-flash-panel leane-flash-tip">
+            <span class="leane-flash-tip__icon"><LeaneIcon name="target" /></span>
+            <div>
+              <h2>Conseil du jour</h2>
+              <p>Une carte hésitante repart dans le deck. Une carte maîtrisée avance.</p>
+            </div>
+          </section>
+        </aside>
+      </div>
     </section>
+
+    <script type="application/json" id="leane-flash-study-data" set:html={JSON.stringify(studyCards)}></script>
   </LeaneShell>
 </BaseLayout>
+
+<script>
+  const dataNode = document.getElementById("leane-flash-study-data");
+  const root = document.querySelector<HTMLElement>("[data-leane-flash-study]");
+  const cards = dataNode?.textContent ? JSON.parse(dataNode.textContent) : [];
+
+  if (root && Array.isArray(cards) && cards.length > 0) {
+    const cardButton = root.querySelector<HTMLButtonElement>("[data-flash-card]");
+    const question = root.querySelector<HTMLElement>("[data-flash-question]");
+    const tag = root.querySelector<HTMLElement>("[data-flash-tag]");
+    const counter = root.querySelector<HTMLElement>("[data-flash-counter]");
+    const hint = root.querySelector<HTMLElement>("[data-flash-hint]");
+    const progress = root.querySelector<HTMLElement>("[data-flash-progress]");
+    const percent = root.querySelector<HTMLElement>("[data-flash-percent]");
+    const masteredNodes = root.querySelectorAll<HTMLElement>("[data-flash-mastered], [data-flash-mastered-inline]");
+    const remaining = root.querySelector<HTMLElement>("[data-flash-remaining]");
+    const reviewCount = root.querySelector<HTMLElement>("[data-flash-review-count]");
+    const total = root.querySelector<HTMLElement>("[data-flash-total]");
+    const filterButtons = Array.from(root.querySelectorAll<HTMLButtonElement>("[data-flash-filter]"));
+    const resetButton = root.querySelector<HTMLButtonElement>("[data-flash-reset]");
+    const rateButtons = root.querySelectorAll<HTMLButtonElement>("[data-flash-rate]");
+
+    let pool = [...cards];
+    let index = 0;
+    let mastered = 0;
+    let flipped = false;
+
+    const setText = (node: Element | null, value: string) => {
+      if (node) node.textContent = value;
+    };
+
+    function currentCard() {
+      return pool[index] ?? pool[0];
+    }
+
+    function render() {
+      const current = currentCard();
+      const currentText = flipped ? current.back : current.front;
+      const progressValue = pool.length > 0 ? Math.round((mastered / pool.length) * 100) : 0;
+      setText(question, currentText);
+      setText(tag, flipped ? "Réponse" : current.tag);
+      setText(counter, `${Math.min(index + 1, pool.length)} / ${pool.length}`);
+      setText(hint, flipped ? "Cliquer pour revoir la question" : "Cliquer pour retourner la carte");
+      setText(percent, `${progressValue}% complété`);
+      setText(remaining, String(Math.max(pool.length - mastered, 0)));
+      setText(reviewCount, String(Math.max(pool.length - mastered, 0)));
+      setText(total, String(pool.length));
+      masteredNodes.forEach((node) => setText(node, String(mastered)));
+      if (progress) progress.style.width = `${progressValue}%`;
+      cardButton?.classList.toggle("is-flipped", flipped);
+      cardButton?.setAttribute("aria-pressed", String(flipped));
+    }
+
+    function nextCard(rating: string) {
+      if (rating === "mastered") mastered = Math.min(mastered + 1, pool.length);
+      index = index + 1 >= pool.length ? 0 : index + 1;
+      flipped = false;
+      render();
+    }
+
+    function applyFilter(filter: string) {
+      pool = filter === "all" ? [...cards] : cards.filter((card) => card.filter === filter);
+      index = 0;
+      mastered = 0;
+      flipped = false;
+      filterButtons.forEach((button) => {
+        const isActive = button.dataset.flashFilter === filter;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-selected", String(isActive));
+      });
+      render();
+    }
+
+    cardButton?.addEventListener("click", () => {
+      flipped = !flipped;
+      render();
+    });
+    cardButton?.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        flipped = !flipped;
+        render();
+      }
+    });
+    rateButtons.forEach((button) => {
+      button.addEventListener("click", () => nextCard(button.dataset.flashRate ?? "review"));
+    });
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => applyFilter(button.dataset.flashFilter ?? "all"));
+    });
+    resetButton?.addEventListener("click", () => applyFilter(filterButtons.find((button) => button.classList.contains("is-active"))?.dataset.flashFilter ?? "all"));
+    render();
+  }
+</script>
+
+<style is:global>
+  .leane-flash-space {
+    --flash-bg-page: #f8faff;
+    --flash-bg-card: #ffffff;
+    --flash-bg-subtle: #f4f7fc;
+    --flash-text-primary: #102a5c;
+    --flash-text-secondary: #526b96;
+    --flash-text-muted: #7c8eac;
+    --flash-primary: #2672ff;
+    --flash-primary-hover: #155ee8;
+    --flash-primary-light: #eef5ff;
+    --flash-success: #08a88a;
+    --flash-success-light: #eefbf8;
+    --flash-warning: #ff7a1a;
+    --flash-warning-light: #fff7ee;
+    --flash-danger: #ef4f61;
+    --flash-danger-light: #fff1f3;
+    --flash-purple: #7458e8;
+    --flash-purple-light: #f4f1ff;
+    --flash-border: #dde5f0;
+    --flash-border-light: #eaf0f7;
+    color: var(--flash-text-primary);
+    display: grid;
+    gap: 1rem;
+  }
+
+  body:has(.leane-flash-space) {
+    background: var(--flash-bg-page);
+  }
+
+  .leane-main:has(.leane-flash-space) {
+    background: var(--flash-bg-page);
+    gap: 0;
+  }
+
+  body:has(.leane-flash-space) .leane-sidebar {
+    background:
+      radial-gradient(circle at 24% 8%, rgba(38, 114, 255, 0.24), transparent 32%),
+      linear-gradient(180deg, #092f63 0%, #06244d 48%, #041a38 100%);
+  }
+
+  body:has(.leane-flash-space) .leane-side-nav__link.active,
+  body:has(.leane-flash-space) .leane-side-nav__link:hover,
+  body:has(.leane-flash-space) .leane-side-nav__link:focus-visible {
+    background: linear-gradient(90deg, #155ee8, #2672ff);
+    box-shadow: 0 14px 26px rgba(8, 42, 92, 0.24);
+  }
+
+  body:has(.leane-flash-space) .leane-brand__mark {
+    color: #2672ff;
+  }
+
+  .leane-flash-heading {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .leane-flash-heading h1 {
+    color: var(--flash-text-primary);
+    font-size: clamp(1.35rem, 2vw, 1.85rem);
+    letter-spacing: 0;
+    line-height: 1.12;
+    margin: 0;
+  }
+
+  .leane-flash-heading p,
+  .leane-flash-section-title span,
+  .leane-flash-panel h2 span {
+    color: var(--flash-text-secondary);
+    margin: 0.25rem 0 0;
+  }
+
+  .leane-flash-settings {
+    align-items: center;
+    background: var(--flash-bg-card);
+    border: 1px solid #cfdcf0;
+    border-radius: 8px;
+    color: var(--flash-text-primary);
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-weight: 760;
+    gap: 0.55rem;
+    min-height: 44px;
+    padding: 0.65rem 0.95rem;
+  }
+
+  .leane-flash-stats {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .leane-flash-stat,
+  .leane-flash-player,
+  .leane-flash-progress,
+  .leane-flash-decks,
+  .leane-flash-panel {
+    background: var(--flash-bg-card);
+    border: 1px solid var(--flash-border);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(16, 42, 92, 0.06), 0 2px 8px rgba(16, 42, 92, 0.04);
+  }
+
+  .leane-flash-stat {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    min-height: 116px;
+    padding: 1.05rem 1.15rem;
+  }
+
+  .leane-flash-stat__icon {
+    align-items: center;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    display: inline-flex;
+    flex: 0 0 auto;
+    height: 42px;
+    justify-content: center;
+    width: 42px;
+  }
+
+  .leane-flash-stat small,
+  .leane-flash-stat strong,
+  .leane-flash-stat em {
+    display: block;
+    font-style: normal;
+  }
+
+  .leane-flash-stat small {
+    color: var(--flash-text-primary);
+    font-size: 0.82rem;
+    font-weight: 800;
+  }
+
+  .leane-flash-stat strong {
+    color: var(--flash-text-primary);
+    font-size: 1.7rem;
+    line-height: 1;
+    margin-top: 0.35rem;
+  }
+
+  .leane-flash-stat em {
+    color: var(--flash-text-secondary);
+    font-size: 0.76rem;
+    margin-top: 0.45rem;
+  }
+
+  .leane-flash-stat--success {
+    color: var(--flash-success);
+  }
+
+  .leane-flash-stat--warning {
+    color: var(--flash-warning);
+  }
+
+  .leane-flash-stat--primary {
+    color: var(--flash-primary);
+  }
+
+  .leane-flash-stat--purple {
+    color: var(--flash-purple);
+  }
+
+  .leane-flash-layout {
+    align-items: start;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+  }
+
+  .leane-flash-maincol,
+  .leane-flash-side {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .leane-flash-player {
+    display: grid;
+    gap: 1rem;
+    padding: 0.9rem;
+  }
+
+  .leane-flash-tabs {
+    align-items: center;
+    border: 1px solid var(--flash-border-light);
+    border-radius: 8px;
+    display: flex;
+    gap: 0.55rem;
+    min-height: 48px;
+    overflow-x: auto;
+    padding: 0.45rem;
+  }
+
+  .leane-flash-tab {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: var(--flash-text-secondary);
+    cursor: pointer;
+    flex: 0 0 auto;
+    font: inherit;
+    font-size: 0.86rem;
+    font-weight: 760;
+    padding: 0.45rem 0.75rem;
+  }
+
+  .leane-flash-tab.is-active {
+    background: var(--flash-primary-light);
+    border-color: var(--flash-primary);
+    color: var(--flash-primary);
+  }
+
+  .leane-flash-card {
+    align-items: center;
+    background:
+      radial-gradient(circle at 14% 68%, rgba(38, 114, 255, 0.055) 0 38px, transparent 39px),
+      radial-gradient(circle at 86% 34%, rgba(8, 168, 138, 0.045) 0 52px, transparent 53px),
+      var(--flash-bg-card);
+    border: 1px solid #cedbf0;
+    border-radius: 8px;
+    box-shadow: 0 16px 34px rgba(16, 42, 92, 0.09);
+    color: var(--flash-text-primary);
+    cursor: pointer;
+    display: grid;
+    justify-items: center;
+    min-height: 270px;
+    overflow: hidden;
+    padding: clamp(1.3rem, 4vw, 2.6rem);
+    position: relative;
+    text-align: center;
+  }
+
+  .leane-flash-card__tag,
+  .leane-flash-card__counter {
+    position: absolute;
+    top: 1rem;
+  }
+
+  .leane-flash-card__tag {
+    background: var(--flash-bg-subtle);
+    border-radius: 6px;
+    color: var(--flash-text-secondary);
+    font-size: 0.78rem;
+    font-weight: 760;
+    left: 1.1rem;
+    padding: 0.35rem 0.6rem;
+  }
+
+  .leane-flash-card__counter {
+    color: var(--flash-text-secondary);
+    font-size: 0.88rem;
+    font-weight: 780;
+    right: 1.1rem;
+  }
+
+  .leane-flash-card__symbol {
+    display: block;
+    height: 48px;
+    margin-bottom: 0.7rem;
+    position: relative;
+    width: 58px;
+  }
+
+  .leane-flash-card__symbol::before,
+  .leane-flash-card__symbol::after {
+    background: var(--flash-primary);
+    content: "";
+    height: 2px;
+    left: 21px;
+    position: absolute;
+    top: 25px;
+    transform-origin: left center;
+    width: 25px;
+  }
+
+  .leane-flash-card__symbol::before {
+    transform: rotate(32deg);
+  }
+
+  .leane-flash-card__symbol::after {
+    transform: rotate(-44deg);
+  }
+
+  .leane-flash-card__symbol span {
+    background: #ffffff;
+    border: 3px solid var(--flash-primary);
+    border-radius: 50%;
+    height: 13px;
+    position: absolute;
+    width: 13px;
+  }
+
+  .leane-flash-card__symbol span:nth-child(1) {
+    left: 20px;
+    top: 16px;
+  }
+
+  .leane-flash-card__symbol span:nth-child(2) {
+    left: 2px;
+    top: 30px;
+  }
+
+  .leane-flash-card__symbol span:nth-child(3) {
+    right: 4px;
+    top: 34px;
+  }
+
+  .leane-flash-card__symbol span:nth-child(4) {
+    right: 12px;
+    top: 3px;
+  }
+
+  .leane-flash-card strong {
+    font-size: clamp(1.3rem, 3vw, 1.72rem);
+    font-weight: 860;
+    letter-spacing: 0;
+    line-height: 1.42;
+    max-width: 680px;
+  }
+
+  .leane-flash-card__hint {
+    color: var(--flash-text-secondary);
+    font-size: 0.88rem;
+    font-weight: 650;
+    margin-top: 1rem;
+  }
+
+  .leane-flash-card.is-flipped {
+    background:
+      radial-gradient(circle at 18% 70%, rgba(8, 168, 138, 0.06) 0 46px, transparent 47px),
+      linear-gradient(180deg, #ffffff, #fbfffe);
+    border-color: rgba(8, 168, 138, 0.3);
+  }
+
+  .leane-flash-actions {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0 0.5rem 0.25rem;
+  }
+
+  .leane-flash-answer {
+    background: #ffffff;
+    border: 1px solid currentColor;
+    border-radius: 8px;
+    cursor: pointer;
+    display: grid;
+    font: inherit;
+    gap: 0.25rem;
+    justify-items: center;
+    min-height: 70px;
+    padding: 0.7rem;
+  }
+
+  .leane-flash-answer span {
+    align-items: center;
+    display: inline-flex;
+    font-weight: 840;
+    gap: 0.45rem;
+  }
+
+  .leane-flash-answer small {
+    font-size: 0.82rem;
+    font-weight: 650;
+  }
+
+  .leane-flash-answer--success {
+    background: var(--flash-success-light);
+    color: var(--flash-success);
+  }
+
+  .leane-flash-answer--warning {
+    background: var(--flash-warning-light);
+    color: var(--flash-warning);
+  }
+
+  .leane-flash-answer--danger {
+    background: var(--flash-danger-light);
+    color: var(--flash-danger);
+  }
+
+  .leane-flash-progress,
+  .leane-flash-decks,
+  .leane-flash-panel {
+    padding: 1rem;
+  }
+
+  .leane-flash-progress__top,
+  .leane-flash-section-title {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .leane-flash-progress__top strong,
+  .leane-flash-section-title strong,
+  .leane-flash-panel h2 {
+    color: var(--flash-text-primary);
+    font-size: 1rem;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .leane-flash-progress__top span {
+    color: var(--flash-text-secondary);
+    font-weight: 760;
+  }
+
+  .leane-flash-progress__bar {
+    background: #e3eaf4;
+    border-radius: 999px;
+    height: 8px;
+    margin: 0.75rem 0;
+    overflow: hidden;
+  }
+
+  .leane-flash-progress__bar span {
+    background: linear-gradient(90deg, var(--flash-success), #6ad8c7);
+    display: block;
+    height: 100%;
+  }
+
+  .leane-flash-progress__meta {
+    align-items: center;
+    color: var(--flash-text-secondary);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.88rem;
+    font-weight: 720;
+    gap: 0.9rem;
+  }
+
+  .leane-flash-progress__meta span {
+    align-items: center;
+    display: inline-flex;
+    gap: 0.35rem;
+  }
+
+  .leane-flash-progress__meta button {
+    background: transparent;
+    border: 0;
+    color: var(--flash-primary);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 820;
+    margin-left: auto;
+  }
+
+  .leane-flash-decks__grid {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 0.8rem;
+  }
+
+  .leane-flash-deck {
+    align-items: center;
+    border: 1px solid var(--flash-border-light);
+    border-radius: 8px;
+    display: grid;
+    gap: 0.45rem;
+    grid-template-columns: auto 1fr;
+    min-height: 74px;
+    padding: 0.75rem;
+  }
+
+  .leane-flash-deck__icon {
+    color: var(--deck-color, var(--flash-primary));
+    grid-row: span 2;
+  }
+
+  .leane-flash-deck strong,
+  .leane-flash-deck small,
+  .leane-flash-deck em {
+    display: block;
+  }
+
+  .leane-flash-deck strong {
+    color: var(--flash-text-primary);
+    font-size: 0.84rem;
+  }
+
+  .leane-flash-deck small,
+  .leane-flash-deck em {
+    color: var(--flash-text-secondary);
+    font-size: 0.72rem;
+    font-style: normal;
+  }
+
+  .leane-flash-deck em {
+    grid-column: 2;
+    margin-top: 0.1rem;
+  }
+
+  .leane-flash-deck--success {
+    --deck-color: var(--flash-success);
+  }
+
+  .leane-flash-deck--purple {
+    --deck-color: var(--flash-purple);
+  }
+
+  .leane-flash-deck--warning {
+    --deck-color: var(--flash-warning);
+  }
+
+  .leane-flash-panel h2 {
+    margin-bottom: 0.8rem;
+  }
+
+  .leane-flash-plan {
+    display: grid;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .leane-flash-plan__item {
+    align-items: center;
+    border-top: 1px solid var(--flash-border-light);
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: auto 1fr auto;
+    min-height: 56px;
+  }
+
+  .leane-flash-plan__item:first-child {
+    border-top: 0;
+  }
+
+  .leane-flash-dot {
+    background: var(--plan-color, var(--flash-primary));
+    border-radius: 50%;
+    height: 13px;
+    width: 13px;
+  }
+
+  .leane-flash-plan__item strong {
+    color: var(--flash-text-primary);
+    font-size: 0.9rem;
+  }
+
+  .leane-flash-plan__item em {
+    color: var(--flash-text-secondary);
+    font-style: normal;
+    font-weight: 760;
+  }
+
+  .leane-flash-plan__item--danger {
+    --plan-color: var(--flash-danger);
+  }
+
+  .leane-flash-plan__item--warning {
+    --plan-color: var(--flash-warning);
+  }
+
+  .leane-flash-plan__item--gold {
+    --plan-color: #f4b83f;
+  }
+
+  .leane-flash-plan__item--primary {
+    --plan-color: var(--flash-primary);
+  }
+
+  .leane-flash-plan__item--success {
+    --plan-color: var(--flash-success);
+  }
+
+  .leane-flash-tip {
+    align-items: start;
+    display: flex;
+    gap: 0.85rem;
+  }
+
+  .leane-flash-tip__icon {
+    align-items: center;
+    background: var(--flash-primary-light);
+    border-radius: 50%;
+    color: var(--flash-primary);
+    display: inline-flex;
+    flex: 0 0 auto;
+    height: 46px;
+    justify-content: center;
+    width: 46px;
+  }
+
+  .leane-flash-tip p {
+    color: var(--flash-text-secondary);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  @media (max-width: 1160px) {
+    .leane-flash-stats,
+    .leane-flash-decks__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .leane-flash-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .leane-flash-heading,
+    .leane-flash-progress__top {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .leane-flash-settings {
+      justify-content: center;
+      width: 100%;
+    }
+
+    .leane-flash-stats,
+    .leane-flash-actions,
+    .leane-flash-decks__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .leane-flash-card {
+      min-height: 238px;
+    }
+
+    .leane-flash-progress__meta button {
+      margin-left: 0;
+    }
+  }
+</style>

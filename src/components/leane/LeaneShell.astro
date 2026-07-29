@@ -5,9 +5,10 @@ interface Props {
   active: "accueil" | "cours" | "exercices" | "qcm" | "flashcards";
   title: string;
   subtitle?: string;
+  hideHeading?: boolean;
 }
 
-const { active, title, subtitle = "Plan de révision personnalisé" } = Astro.props;
+const { active, title, subtitle = "Plan de révision personnalisé", hideHeading = false } = Astro.props;
 
 const navItems = [
   { id: "accueil", label: "Accueil", href: "/leane", icon: "home" },
@@ -66,17 +67,19 @@ const navItems = [
     </header>
 
     <main class="leane-main" id="leane-content">
-      <div class="leane-page-heading">
-        <div>
-          <p class="leane-eyebrow">Espace personnel</p>
-          <h1 id="leane-page-title">{title}</h1>
-          <p>{subtitle}</p>
+      {!hideHeading && (
+        <div class="leane-page-heading">
+          <div>
+            <p class="leane-eyebrow">Espace personnel</p>
+            <h1 id="leane-page-title">{title}</h1>
+            <p>{subtitle}</p>
+          </div>
+          <a class="leane-action" href="/leane/qcm">
+            <LeaneIcon name="quiz" />
+            QCM global
+          </a>
         </div>
-        <a class="leane-action" href="/leane/qcm">
-          <LeaneIcon name="quiz" />
-          QCM global
-        </a>
-      </div>
+      )}
 
       <slot />
     </main>
