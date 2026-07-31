@@ -1,4 +1,4 @@
-import type { AccessPolicy } from "../data/contentContract";
+import type { AccessPolicy } from "../content-model/index.ts";
 import type { AccountPlan, AccountRight } from "./account";
 
 export const ACCESS_CONTROL_VERSION = 1;

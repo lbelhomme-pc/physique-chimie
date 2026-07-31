@@ -1,10 +1,11 @@
 ---
 // src/pages/college/[niveau]/index.astro
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import V3LandingHero from "../../../components/home/V3LandingHero.astro";
 import CatalogueChapterList from "../../../components/catalogue/CatalogueChapterList.astro";
 import type { CatalogueChapterItem } from "../../../components/catalogue/types";
 import Breadcrumb from "../../../components/ui/Breadcrumb.astro";
-import { disciplineIdentities, getDisciplineStyle } from "../../../data/disciplineIdentity";
+import { disciplineIdentities } from "../../../data/disciplineIdentity";
 import { collegeLevels, getLevelLabel } from "../../../data/levels";
 
 export function getStaticPaths() {
@@ -68,22 +69,30 @@ const total = chapters.length;
       ))}
     </nav>
 
-    <header class="catalogue-hero" data-discipline={pcIdentity.id} style={getDisciplineStyle(pcIdentity)}>
-      <span class="discipline-badge" aria-label={pcIdentity.iconLabel}>
-        <span aria-hidden="true">{pcIdentity.mark}</span>
-        <strong>{pcIdentity.label}</strong>
-      </span>
-      <h1>{niveauLabel} au collège</h1>
-      <p>
-        Les chapitres sont rangés par matière et dans l'ordre du programme. Chaque lien ouvre ensuite
-        le lecteur de chapitre avec cours, exercices, quiz et flashcards quand ils existent.
-      </p>
-      <dl class="catalogue-stats" aria-label="Résumé des chapitres">
-        <div><dt>{total}</dt><dd>chapitres</dd></div>
-        <div><dt>{chimie.length}</dt><dd>chimie</dd></div>
-        <div><dt>{physique.length}</dt><dd>physique</dd></div>
-      </dl>
-    </header>
+    <V3LandingHero
+      tone="pc"
+      eyebrow={pcIdentity.label}
+      mark={pcIdentity.mark}
+      markLabel={pcIdentity.iconLabel}
+      title={`${niveauLabel} au collège`}
+      description="Les chapitres sont classés par matière et dans l’ordre du programme, avec les cours et les activités disponibles."
+      actions={total > 0
+        ? [
+            { label: "Voir les chapitres", href: "#catalogue-tous" },
+            { label: "Outils du collège", href: "/outils-methodes/college", variant: "secondary" },
+          ]
+        : [
+            { label: "Retour aux niveaux", href: "/college" },
+            { label: "Outils du collège", href: "/outils-methodes/college", variant: "secondary" },
+          ]}
+      stats={[
+        { value: total, label: "chapitres" },
+        { value: chimie.length, label: "chimie" },
+        { value: physique.length, label: "physique" },
+      ]}
+      imageAlt={`Espace de travail de physique-chimie pour le niveau ${niveauLabel}.`}
+      contained
+    />
 
     {total > 0 && (
       <nav class="catalogue-filters" aria-label="Filtres de catalogue">

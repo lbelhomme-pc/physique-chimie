@@ -15,6 +15,7 @@ import {
 import { absoluteSiteUrl, buildPageJsonLd, pageDescription, resolveRobotsContent, siteConfig } from "../config/site";
 import "katex/dist/katex.min.css";
 import "../styles/design-system.css";
+import "../styles/landing-v3.css";
 
 interface Props {
   title: string;
@@ -290,6 +291,153 @@ const structuredData = buildPageJsonLd({
         justify-content: center;
       }
     }
+
+    .site-footer {
+      background: #061d59;
+      border-top: 4px solid transparent;
+      border-image: linear-gradient(90deg, #1765ff 0 32%, #7050ee 32% 54%, #08a88a 54% 76%, #ff7a1a 76%) 1;
+      color: #ffffff;
+      margin-top: 0;
+      padding: 0;
+      text-align: left;
+    }
+
+    .site-footer__inner {
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: minmax(240px, 1.35fr) repeat(3, minmax(150px, 0.75fr));
+      margin: 0 auto;
+      max-width: 1180px;
+      padding: 3rem 1.25rem 2.25rem;
+    }
+
+    .site-footer__intro {
+      align-content: start;
+      display: grid;
+      gap: 1rem;
+      max-width: 32ch;
+    }
+
+    .site-footer__brand {
+      align-items: center;
+      color: #ffffff;
+      display: inline-flex;
+      font-size: 1rem;
+      font-weight: 950;
+      gap: 0.65rem;
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+    }
+
+    .site-footer__brand-mark {
+      align-items: center;
+      background: #1765ff;
+      border-radius: 50%;
+      display: inline-flex;
+      flex: 0 0 auto;
+      height: 38px;
+      justify-content: center;
+      width: 38px;
+    }
+
+    .site-footer__intro p {
+      color: #cdd8f0;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .site-footer nav {
+      align-content: start;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .site-footer h2 {
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .site-footer ul {
+      display: grid;
+      gap: 0.45rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-footer a {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      color: #dbe5f8;
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin: 0;
+      padding: 0.25rem 0;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+      text-decoration-color: #65d9c4;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .site-footer a:focus-visible {
+      border-radius: 4px;
+      box-shadow: 0 0 0 3px rgba(101, 217, 196, 0.42);
+      outline: none;
+    }
+
+    .site-footer__bottom {
+      align-items: center;
+      border-top: 1px solid rgba(219, 229, 248, 0.18);
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: 1180px;
+      padding: 1.1rem 1.25rem 1.35rem;
+    }
+
+    .site-footer__bottom p {
+      color: #aebddd;
+      font-size: 0.78rem;
+      margin: 0;
+    }
+
+    .site-footer__bottom strong {
+      color: #ffffff;
+    }
+
+    @media (max-width: 820px) {
+      .site-footer__inner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .site-footer__inner {
+        gap: 2rem;
+        grid-template-columns: 1fr;
+        padding: 2.25rem 1.25rem 1.75rem 4.75rem;
+      }
+
+      .site-footer__bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.35rem;
+        padding-left: 4.75rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -307,12 +455,48 @@ const structuredData = buildPageJsonLd({
   </main>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 - 2026 | <strong>{siteConfig.author.name}</strong> - Physique-Chimie et Mathématiques</p>
-    <p>Tous droits réservés</p>
-    <a href={`mailto:${siteConfig.author.email}`}>
-      <span>✉️</span> Me contacter
-    </a>
+  <footer class="site-footer" id="apropos">
+    <div class="site-footer__inner">
+      <div class="site-footer__intro">
+        <a class="site-footer__brand" href="/" aria-label="Retour à l'accueil">
+          <span class="site-footer__brand-mark" aria-hidden="true">R</span>
+          <span>Révisions PC Maths</span>
+        </a>
+        <p>Révisions scientifiques du collège au lycée.</p>
+      </div>
+
+      <nav aria-label="Disciplines">
+        <h2>Disciplines</h2>
+        <ul>
+          <li><a href="/mathematiques">Mathématiques</a></li>
+          <li><a href="/college">Physique-Chimie</a></li>
+          <li><a href="/lycee/1ere-ens-scientifique">Enseignement scientifique</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Ressources">
+        <h2>Ressources</h2>
+        <ul>
+          <li><a href="/memorisation/mega-quiz">QCM et quiz</a></li>
+          <li><a href="/memorisation/mega-flashcards">Flashcards</a></li>
+          <li><a href="/laboratoire">Laboratoire virtuel</a></li>
+          <li><a href="/outils-methodes">Méthodes et outils</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Espace personnel et contact">
+        <h2>Espace personnel</h2>
+        <ul>
+          <li><a href="/profil">Compte</a></li>
+          <li><a href={`mailto:${siteConfig.author.email}`}>Nous contacter</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>&copy; 2024 - 2026 <strong>{siteConfig.author.name}</strong></p>
+      <p>Tous droits réservés</p>
+    </div>
   </footer>
 
   <div id="analytics-consent" class="analytics-consent" hidden>

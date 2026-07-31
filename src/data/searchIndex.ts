@@ -1,4 +1,4 @@
-export type SearchSubject = "physique-chimie" | "mathematiques";
+export type SearchSubject = "physique-chimie" | "mathematiques" | "enseignement-scientifique";
 export type SearchCycle = "college" | "lycee";
 export type SearchAccessTier = "free" | "premium" | "teacher" | "draft";
 export type SearchResourceType = "chapter" | "course" | "exercise" | "quiz" | "flashcard" | "laboratory" | "tool";

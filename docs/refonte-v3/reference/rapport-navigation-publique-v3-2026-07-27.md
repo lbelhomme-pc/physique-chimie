@@ -77,3 +77,24 @@ Concevoir et integrer une navigation publique V3 claire pour les matieres, nivea
 
 - Le compte est expose comme entree future et renvoie vers le profil existant.
 - Une page dediee "Enseignement scientifique" pourra etre creee plus tard ; la navigation pointe pour l'instant vers le niveau publie `1ere-ens-scientifique`.
+
+## Mise a jour du 29 juillet 2026
+
+La navigation publique a ete alignee sur le menu principal valide visuellement :
+
+- cinq onglets remplacent l'ancien regroupement `Matieres / Niveaux / Ressources` ;
+- les onglets sont `Mathematiques`, `Physique-Chimie`, `Enseignement scientifique`, `Memorisation` et `Kit scientifique` ;
+- chaque onglet contient `Ouvrir l'espace` puis exactement les entrees du menu principal de l'accueil ;
+- `src/data/publicMenu.ts` est la source unique partagee par le bandeau et l'accueil ;
+- un seul onglet peut rester ouvert ;
+- les onglets se ferment au clic sur un lien, au clic exterieur et avec la touche `Echap` ;
+- le panneau long du kit scientifique reste borne et sans debordement sur ordinateur et mobile.
+- l'entree `Seconde` a ete retiree du menu Mathematiques et `Compte` est devenu un acces global, hors du menu Memorisation.
+
+Validations de cette mise a jour :
+
+- tests navigation et accueil : 10 tests passes, 0 echec ;
+- `npm.cmd run check` : 0 erreur ;
+- `npm.cmd run lint` : 0 erreur ;
+- `npm.cmd run build` : 332 pages generees ;
+- controle navigateur a 1440 x 900 et 390 x 844 : 5 onglets, aucun debordement horizontal, un seul panneau ouvert.

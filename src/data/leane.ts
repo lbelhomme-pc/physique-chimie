@@ -52,7 +52,7 @@ export type LeaneCoursePracticeEntry = {
 export const leaneLevels: LeaneLevel[] = [
   {
     id: "5e",
-    title: "Bases 5ème",
+    title: "5ème",
     subtitle: "Reprendre les automatismes sans stress",
     objective: "Poser un calcul propre, respecter les priorités et manipuler une expression simple.",
     accent: "#1f6feb",
@@ -117,7 +117,7 @@ export const leaneLevels: LeaneLevel[] = [
   },
   {
     id: "4e",
-    title: "Bases 4ème",
+    title: "4ème",
     subtitle: "Solidifier fractions, puissances et équations",
     objective: "Gagner en sécurité sur les calculs qui reviennent constamment au lycée.",
     accent: "#15a887",
@@ -182,7 +182,7 @@ export const leaneLevels: LeaneLevel[] = [
   },
   {
     id: "3e",
-    title: "Bases 3ème",
+    title: "3ème",
     subtitle: "Préparer l'entrée au lycée",
     objective: "Relier calcul littéral, factorisation, fonctions et probabilités avant la première.",
     accent: "#7c5cff",
@@ -532,12 +532,52 @@ export const leaneCourseExerciseSeries: Record<string, LeaneExercise[]> = {
   ],
 };
 
+const leaneCourseExerciseExtensions: Record<string, LeaneExercise[]> = {
+  "5e:Enchaînements d'opérations": [
+    { title: "Priorités avec crochet", level: "4", prompt: "Calcule : 42 - [5 x (6 - 2)].", hint: "Parenthèse, multiplication, puis soustraction.", answer: "42 - [5 x 4] = 42 - 20 = 22." },
+    { title: "Bilan multi-étapes", level: "4", prompt: "Calcule : 3 x (14 - 8) + 48 / 6.", hint: "Traite la parenthèse, puis multiplication et division.", answer: "3 x 6 + 8 = 18 + 8 = 26." },
+  ],
+  "5e:Calcul littéral de départ": [
+    { title: "Réduire puis remplacer", level: "4", prompt: "Réduis puis calcule 7x - 2x + 9 pour x = -3.", hint: "Commence par 7x - 2x.", answer: "7x - 2x + 9 = 5x + 9, donc 5 x (-3) + 9 = -6." },
+    { title: "Comparer deux valeurs", level: "4", prompt: "Pour E = x^2 - 2x, calcule E pour x = 3 puis pour x = -3.", hint: "Garde les parenthèses avec la valeur négative.", answer: "Pour x = 3 : 9 - 6 = 3. Pour x = -3 : 9 + 6 = 15." },
+  ],
+  "5e:Statistiques essentielles": [
+    { title: "Moyenne avec effectifs", level: "4", prompt: "Trois élèves ont 10 et deux élèves ont 15. Calcule la moyenne.", hint: "La somme est 3 x 10 + 2 x 15.", answer: "(30 + 30) / 5 = 60 / 5 = 12." },
+    { title: "Retrouver une valeur", level: "4", prompt: "La moyenne de 4 valeurs est 11. Trois valeurs sont 8, 12 et 13. Retrouve la quatrième.", hint: "Commence par retrouver la somme totale.", answer: "Somme totale = 11 x 4 = 44. Or 8 + 12 + 13 = 33, donc la quatrième valeur vaut 11." },
+  ],
+  "4e:Fractions": [
+    { title: "Priorités et fractions", level: "4", prompt: "Calcule : 2/3 + 1/6 x 3.", hint: "La multiplication passe avant l'addition.", answer: "1/6 x 3 = 3/6 = 1/2, donc 2/3 + 1/2 = 7/6." },
+    { title: "Fraction d'une quantité", level: "4", prompt: "Calcule les 3/8 de 56.", hint: "Prends 56 / 8 puis multiplie par 3.", answer: "56 / 8 = 7, donc 3 x 7 = 21." },
+  ],
+  "4e:Puissances": [
+    { title: "Ordre de grandeur", level: "4", prompt: "Compare 4,8 x 10^6 et 52 x 10^5.", hint: "Écris les deux nombres avec la même puissance de 10.", answer: "52 x 10^5 = 5,2 x 10^6, donc 52 x 10^5 est plus grand." },
+    { title: "Exposants mélangés", level: "4", prompt: "Simplifie : 10^2 x 10^-5 / 10^-1.", hint: "Additionne les exposants au numérateur puis soustrais celui du dénominateur.", answer: "10^(2 - 5 - (-1)) = 10^-2." },
+  ],
+  "4e:Équations": [
+    { title: "Avec parenthèses", level: "4", prompt: "Résous : 3(x - 2) = 15.", hint: "Divise par 3 avant de retirer -2.", answer: "x - 2 = 5 donc x = 7." },
+    { title: "Avec fractions", level: "4", prompt: "Résous : x/3 + 5 = 9.", hint: "Soustrais 5 puis multiplie par 3.", answer: "x/3 = 4 donc x = 12." },
+  ],
+  "3e:Développer et factoriser": [
+    { title: "Factorisation avancée", level: "4", prompt: "Factorise : 8x + 12.", hint: "Cherche le plus grand facteur commun.", answer: "8x + 12 = 4(2x + 3)." },
+    { title: "Identité remarquable", level: "4", prompt: "Factorise : x^2 - 49.", hint: "Reconnais a^2 - b^2.", answer: "x^2 - 49 = (x - 7)(x + 7)." },
+  ],
+  "3e:Équations-produits": [
+    { title: "Produit nul à factoriser", level: "4", prompt: "Résous : x^2 - 9 = 0.", hint: "Factorise avec a^2 - b^2.", answer: "(x - 3)(x + 3) = 0, donc x = 3 ou x = -3." },
+    { title: "Produit nul déguisé", level: "4", prompt: "Résous : x(2x - 10) = 0.", hint: "Chaque facteur peut être nul.", answer: "x = 0 ou 2x - 10 = 0, donc x = 0 ou x = 5." },
+  ],
+  "3e:Fonctions": [
+    { title: "Deux images", level: "4", prompt: "Pour f(x) = x^2 - 4, calcule f(-2) et f(3).", hint: "Remplace x par chaque valeur.", answer: "f(-2) = 0 et f(3) = 5." },
+    { title: "Comparer deux fonctions", level: "4", prompt: "Pour f(x) = 2x + 1 et g(x) = -x + 7, trouve x tel que f(x) = g(x).", hint: "Résous 2x + 1 = -x + 7.", answer: "3x = 6 donc x = 2." },
+  ],
+};
+
 export function getLeaneCourseExercises(levelId: LeaneLevel["id"], courseTitle: string) {
-  const exercises = leaneCourseExerciseSeries[`${levelId}:${courseTitle}`];
+  const key = `${levelId}:${courseTitle}`;
+  const exercises = leaneCourseExerciseSeries[key];
   if (!exercises) {
     throw new Error(`Missing Leane exercise series for ${levelId}:${courseTitle}`);
   }
-  return exercises;
+  return [...exercises, ...(leaneCourseExerciseExtensions[key] ?? [])];
 }
 
 export function getLeaneCoursePractice(levelId: LeaneLevel["id"], courseTitle: string) {
@@ -618,6 +658,24 @@ export const leaneQuiz: LeaneQuizQuestion[] = [
   { question: "Une fonction affine s'écrit sous la forme...", choices: ["ax + b", "a/x", "x^2 seulement"], answer: 0 },
   { question: "Avant de remplacer x par -4, il faut souvent...", choices: ["mettre des parenthèses", "supprimer le signe moins", "changer l'exposant"], answer: 0 },
   { question: "Une moyenne de 18 avec des valeurs entre 2 et 12 est...", choices: ["possible", "impossible", "obligatoire"], answer: 1 },
+  { question: "Dans 42 - [5 x (6 - 2)], le résultat est...", choices: ["22", "32", "148"], answer: 0 },
+  { question: "30 / 5 x 2 vaut...", choices: ["3", "12", "30"], answer: 1 },
+  { question: "Réduire 7x - 2x + 9 donne...", choices: ["5x + 9", "5x", "14x + 9"], answer: 0 },
+  { question: "Pour x = -3, x^2 - 2x vaut...", choices: ["3", "15", "-15"], answer: 1 },
+  { question: "La moyenne de 9, 12, 15 et 18 est...", choices: ["13,5", "14", "54"], answer: 0 },
+  { question: "8 réussites sur 40 essais représentent...", choices: ["20%", "25%", "32%"], answer: 0 },
+  { question: "2/3 - 1/6 vaut...", choices: ["1/2", "1/3", "1/6"], answer: 0 },
+  { question: "5/8 x 16/15 vaut...", choices: ["2/3", "10/23", "80/23"], answer: 0 },
+  { question: "10^2 x 10^-5 vaut...", choices: ["10^-3", "10^7", "10^-10"], answer: 0 },
+  { question: "0,0061 s'écrit en notation scientifique...", choices: ["6,1 x 10^-3", "61 x 10^-4", "0,61 x 10^-2"], answer: 0 },
+  { question: "Résoudre 7x - 4 = 3x + 12 donne...", choices: ["x = 2", "x = 4", "x = -4"], answer: 1 },
+  { question: "Résoudre 3(x - 2) = 15 donne...", choices: ["x = 3", "x = 5", "x = 7"], answer: 2 },
+  { question: "Développer (x + 4)(x - 1) donne...", choices: ["x^2 + 3x - 4", "x^2 - 5x - 4", "x^2 + 4x - 1"], answer: 0 },
+  { question: "Factoriser 8x + 12 donne...", choices: ["4(2x + 3)", "8(x + 12)", "20x"], answer: 0 },
+  { question: "x^2 - 49 se factorise en...", choices: ["(x - 7)(x + 7)", "(x - 49)(x + 1)", "(x - 7)^2"], answer: 0 },
+  { question: "Si (5x - 10)(x + 2) = 0, alors...", choices: ["x = 2 ou x = -2", "x = 10 ou x = 2", "x = -2 seulement"], answer: 0 },
+  { question: "Pour f(x) = -x + 6, f(8) vaut...", choices: ["14", "2", "-2"], answer: 2 },
+  { question: "Pour f(x) = 3x + 1, l'antécédent de 10 est...", choices: ["3", "9", "31"], answer: 0 },
 ];
 
 export const leaneFlashcards: LeaneFlashcard[] = [
@@ -670,5 +728,95 @@ export const leaneFlashcards: LeaneFlashcard[] = [
     tag: "Méthode",
     front: "Pourquoi écrire une seule transformation par ligne ?",
     back: "Pour repérer les erreurs et garder un raisonnement lisible.",
+  },
+  {
+    tag: "Priorités",
+    front: "Quand une expression contient un crochet et une parenthèse, par quoi commencer ?",
+    back: "Par la parenthèse la plus intérieure, puis on remonte vers le crochet.",
+  },
+  {
+    tag: "Priorités",
+    front: "À priorité égale, dans quel sens calcule-t-on ?",
+    back: "De gauche à droite, par exemple pour une suite de multiplications et divisions.",
+  },
+  {
+    tag: "Calcul littéral",
+    front: "Pourquoi peut-on écrire 7x - 2x = 5x ?",
+    back: "Parce que ce sont deux termes de même nature : on soustrait les coefficients.",
+  },
+  {
+    tag: "Calcul littéral",
+    front: "Que faut-il surveiller quand on remplace x par un nombre négatif ?",
+    back: "Les parenthèses et les signes, surtout avec les puissances.",
+  },
+  {
+    tag: "Statistiques",
+    front: "Comment calcule-t-on une fréquence ?",
+    back: "Fréquence = effectif de la valeur / effectif total.",
+  },
+  {
+    tag: "Statistiques",
+    front: "Comment retrouver une somme à partir d'une moyenne ?",
+    back: "Somme = moyenne x effectif total.",
+  },
+  {
+    tag: "Fractions",
+    front: "Quelle erreur éviter quand on additionne deux fractions ?",
+    back: "Il ne faut pas additionner les dénominateurs : on met d'abord au même dénominateur.",
+  },
+  {
+    tag: "Fractions",
+    front: "Comment prendre les 3/8 d'une quantité ?",
+    back: "On divise la quantité par 8, puis on multiplie le résultat par 3.",
+  },
+  {
+    tag: "Puissances",
+    front: "Comment simplifier 10^a x 10^b ?",
+    back: "On additionne les exposants : 10^a x 10^b = 10^(a+b).",
+  },
+  {
+    tag: "Puissances",
+    front: "À quoi sert la notation scientifique ?",
+    back: "À écrire lisiblement des nombres très grands ou très petits.",
+  },
+  {
+    tag: "Équations",
+    front: "Quelle est l'idée centrale pour résoudre une équation ?",
+    back: "Isoler l'inconnue en faisant la même opération des deux côtés.",
+  },
+  {
+    tag: "Équations",
+    front: "Que signifie vérifier une solution ?",
+    back: "Remplacer x par la valeur trouvée dans l'équation de départ.",
+  },
+  {
+    tag: "Développer",
+    front: "Que fait la distributivité ?",
+    back: "Elle transforme un produit avec parenthèses en somme ou différence de termes.",
+  },
+  {
+    tag: "Factoriser",
+    front: "Pourquoi chercher un facteur commun ?",
+    back: "Parce qu'il permet de réécrire une somme sous forme de produit.",
+  },
+  {
+    tag: "Produit nul",
+    front: "Pourquoi le second membre doit-il être 0 dans un produit nul ?",
+    back: "La règle dit : si A x B = 0, alors A = 0 ou B = 0.",
+  },
+  {
+    tag: "Fonctions",
+    front: "Dans f(x) = 2x + 1, que représente x ?",
+    back: "x est l'antécédent choisi, la valeur de départ.",
+  },
+  {
+    tag: "Fonctions",
+    front: "Comment chercher l'antécédent de 10 par f(x) = 3x + 1 ?",
+    back: "On résout l'équation 3x + 1 = 10.",
+  },
+  {
+    tag: "Méthode",
+    front: "Que faire quand un exercice mélange plusieurs notions ?",
+    back: "Identifier la première action utile, écrire une étape par ligne, puis vérifier le résultat.",
   },
 ];

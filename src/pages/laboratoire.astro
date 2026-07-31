@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import V3LandingHero from "../components/home/V3LandingHero.astro";
 import LabAppCard from "../components/laboratoire/LabAppCard.astro";
 import { labApps } from "../data/laboratoire/apps";
 import "../styles/laboratoire/global-lab.css";
@@ -8,11 +9,30 @@ import "../styles/laboratoire/global-lab.css";
 <BaseLayout
   title="Laboratoire — Physique-Chimie"
   description="Simulations interactives de physique-chimie migrées dans le nouveau site Astro."
+  canonical="/laboratoire"
+  subject="physique-chimie"
+  resourceType="simulation"
 >
-  <section class="lab-index" data-lab-index>
-    <h1 class="lab-sr-only">Simulations de physique-chimie</h1>
+  <div class="lab-index v3-landing-page v3-landing-page--pc" data-lab-index>
+    <V3LandingHero
+      tone="pc"
+      eyebrow="Laboratoire virtuel"
+      mark="PC"
+      markLabel="Initiales Physique-Chimie"
+      title="Expérimenter en laboratoire"
+      description="Manipule, mesure et observe les notions de physique-chimie avec des simulations accompagnées de consignes accessibles."
+      actions={[
+        { label: "Explorer les simulations", href: "#bibliotheque-laboratoire" },
+        { label: "Ouvrir le kit scientifique", href: "/outils-methodes/kit-scientifique", variant: "secondary" },
+      ]}
+      stats={[
+        { value: labApps.length, label: "simulations" },
+      ]}
+      imageAlt="Montage de laboratoire et outils numériques pour expérimenter en physique-chimie."
+    />
 
-    <div class="lab-library-layout">
+    <div class="v3-landing-content v3-landing-content--wide">
+      <div class="lab-library-layout" id="bibliotheque-laboratoire">
       <aside class="lab-filter-panel" aria-labelledby="lab-filter-title">
         <div class="lab-filter-panel__head">
           <h2 id="lab-filter-title">Filtres</h2>
@@ -46,7 +66,7 @@ import "../styles/laboratoire/global-lab.css";
         </fieldset>
       </aside>
 
-      <main class="lab-results" aria-live="polite">
+      <section class="lab-results" aria-live="polite">
         <label class="lab-search-box">
           <span aria-hidden="true">🔍</span>
           <span class="lab-sr-only">Rechercher une simulation</span>
@@ -69,11 +89,12 @@ import "../styles/laboratoire/global-lab.css";
         <p class="lab-no-results is-hidden" data-lab-no-results>
           Aucune simulation ne correspond à cette recherche.
         </p>
-      </main>
+      </section>
+      </div>
     </div>
 
     <script>
       import "../scripts/laboratoire/filter-lab-index.js";
     </script>
-  </section>
+  </div>
 </BaseLayout>

@@ -58,6 +58,21 @@ const resources = [
     slug: "acide-base-ph",
     keywords: ["pH", "reaction"],
   },
+  {
+    id: "enseignement-scientifique:lycee:1ere:physique:bilan-radiatif",
+    title: "Bilan radiatif terrestre",
+    description: "Puissance solaire recue et temperature de la Terre.",
+    path: "/lycee/1ere-ens-scientifique/physique/bilan-radiatif-terrestre",
+    subject: "enseignement-scientifique",
+    subjectLabel: "Enseignement scientifique",
+    cycle: "lycee",
+    levelLabel: "Premiere",
+    matiereLabel: "Physique",
+    resourceType: "chapter",
+    accessTier: "free",
+    slug: "bilan-radiatif-terrestre",
+    keywords: ["climat", "albedo", "rayonnement"],
+  },
 ];
 
 describe("Recherche globale V3", () => {
@@ -78,6 +93,14 @@ describe("Recherche globale V3", () => {
       "/lycee/terminale-spe/chimie/acide-base-ph",
     ]);
     assert.deepEqual(searchResources(resources, { query: "pH", accessTier: "free" }), []);
+    assert.equal(
+      searchResources(resources, {
+        query: "climat",
+        subject: "enseignement-scientifique",
+        cycle: "lycee",
+      })[0].id,
+      resources[3].id,
+    );
   });
 
   it("expose une combobox accessible et des resultats scannables", () => {
@@ -89,6 +112,10 @@ describe("Recherche globale V3", () => {
     assert.match(componentSource, /Filtrer par discipline/);
     assert.match(componentSource, /Filtrer par cycle/);
     assert.match(componentSource, /Filtrer par acces/);
+    assert.match(componentSource, /enseignement-scientifique/);
+    assert.match(componentSource, /Suggestions de recherche/);
+    assert.match(componentSource, /Effacer la recherche/);
+    assert.match(componentSource, /<fieldset>/);
     assert.match(componentSource, /getSearchResourceTypeLabel/);
     assert.match(componentSource, /getSearchAccessLabel/);
   });
@@ -96,6 +123,8 @@ describe("Recherche globale V3", () => {
   it("indexe les slugs et les niveaux sans modifier les contenus sources", () => {
     assert.match(homeSource, /slug,/);
     assert.match(homeSource, /accessTier: data\.access\?\.tier \?\? "free"/);
+    assert.match(homeSource, /niveau\.includes\("ens-scientifique"\)/);
+    assert.match(homeSource, /subject: isScientificEducation \? "enseignement-scientifique" : "physique-chimie"/);
     assert.match(homeSource, /<GlobalSearch client:load resources=\{resources\} \/>/);
   });
 });

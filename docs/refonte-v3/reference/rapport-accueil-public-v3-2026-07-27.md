@@ -104,3 +104,10 @@ Refondre l'accueil public pour presenter immediatement la promesse de la platefo
 
 - Le bloc compte/options avancees reste volontairement prudent ; il devra etre precise lors des prompts comptes, premium et authentification.
 - Le bandeau de consentement global peut masquer une partie basse du premier ecran mobile, mais il n'entre pas dans le perimetre de ce prompt.
+
+## Ajustement UI du 2026-07-29
+
+- Suppression du bandeau de cinq raccourcis et du bloc `Menu principal`, devenus redondants avec la navigation publique V3.
+- Suppression du faux pied de page de garanties et des mentions internes sur le Premium ou les statistiques.
+- Remplacement du footer minimal global par un pied de page structure en trois groupes : disciplines, ressources, espace personnel et contact.
+- Conservation de toutes les routes : seuls les doublons visuels de l'accueil sont retires.

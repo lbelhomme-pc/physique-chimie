@@ -19,6 +19,7 @@ const files = {
   home: path.join(root, "src/pages/index.astro"),
   lycee: path.join(root, "src/pages/lycee/index.astro"),
   identities: path.join(root, "src/data/disciplineIdentity.ts"),
+  publicMenu: path.join(root, "src/data/publicMenu.ts"),
   tokens: path.join(root, "src/styles/tokens-v3.css"),
 };
 
@@ -61,16 +62,19 @@ test("a11y color review: discipline information is never color-only", () => {
   const home = readFileSync(files.home, "utf8");
   const lycee = readFileSync(files.lycee, "utf8");
   const identities = readFileSync(files.identities, "utf8");
+  const publicMenu = readFileSync(files.publicMenu, "utf8");
+
+  assert.match(nav, /data-discipline=\{section\.discipline\}/);
 
   for (const id of publicDisciplineIds) {
     const identity = disciplineIdentities[id];
     const routePattern = new RegExp(identity.href.replaceAll("/", "\\/"));
 
-    assert.match(nav, new RegExp(`data-discipline=\\{item\\.id\\}|data-discipline="${id}"|data-discipline=\\{contextIdentity\\.id\\}`));
+    assert.match(publicMenu, new RegExp(`discipline:\\s*"${id}"`));
     assert.match(switcher, /subject-switcher__mark/);
     assert.match(gateCard, /subject-gate-card__mark/);
     assert.match(home, new RegExp(identity.label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-    assert.match(home, routePattern, `${id} route should be linked from home`);
+    assert.match(home + publicMenu, routePattern, `${id} route should be linked from home`);
     assert.match(lycee + home + nav + switcher + gateCard + identities, new RegExp(identity.microcopy.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
 

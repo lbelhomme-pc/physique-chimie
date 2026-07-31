@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import V3LandingHero from "../../../components/home/V3LandingHero.astro";
 import Breadcrumb from "../../../components/ui/Breadcrumb.astro";
 import MathLevelCard from "../../../components/mathematiques/MathLevelCard.astro";
 import { getMathematicsLevelsByCycle } from "../../../data/mathematiques/levels";
@@ -25,33 +26,47 @@ const availableCount = levels.filter((level) => countChapters(level.slug) > 0 &&
   canonical="/mathematiques/college"
   subject="mathematiques"
 >
-  <Breadcrumb
-    items={[
-      { label: "Accueil", href: "/" },
-      { label: "Mathématiques", href: "/mathematiques" },
-      { label: "Collège" },
-    ]}
-  />
+  <div class="v3-landing-page v3-landing-page--maths">
+    <V3LandingHero
+      tone="maths"
+      eyebrow="Mathématiques"
+      mark="∑"
+      markLabel="Symbole somme"
+      title="Mathématiques au collège"
+      description="Choisis ton niveau pour retrouver les chapitres, les exercices, les quiz et les flashcards adaptés au programme."
+      actions={[
+        { label: "Voir les niveaux", href: "#niveaux-maths-college" },
+        { label: "Retour aux mathématiques", href: "/mathematiques", variant: "secondary" },
+      ]}
+      stats={[
+        { value: levels.length, label: "niveaux" },
+        { value: availableCount, label: "niveaux publiés" },
+        { value: chapters.length, label: "chapitres" },
+      ]}
+      imageAlt="Espace de travail consacré aux mathématiques du collège."
+    />
 
-  <div class="math-shell">
-    <section class="math-hero">
-      <p class="math-hero-kicker">Mathématiques</p>
-      <h1>Collège</h1>
-      <p>Les niveaux sont prêts. Les chapitres pourront être ajoutés progressivement avec cours, exercices, quiz et flashcards.</p>
-      <dl class="math-catalog-summary" aria-label="Résumé du catalogue mathématiques collège">
-        <div><dt>{levels.length}</dt><dd>niveaux prévus</dd></div>
-        <div><dt>{availableCount}</dt><dd>niveaux publiés</dd></div>
-        <div><dt>{chapters.length}</dt><dd>chapitres</dd></div>
-      </dl>
-    </section>
+    <div class="v3-landing-content math-shell">
+      <Breadcrumb
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Mathématiques", href: "/mathematiques" },
+          { label: "Collège" },
+        ]}
+      />
 
-    <section class="math-section" aria-labelledby="math-college-levels">
-      <div class="math-section-header">
-        <h2 id="math-college-levels">Catalogue des niveaux</h2>
-      </div>
-      <div class="math-grid">
-        {levels.map((level) => <MathLevelCard level={level} chapterCount={countChapters(level.slug)} />)}
-      </div>
-    </section>
+      <section class="v3-landing-section math-section" id="niveaux-maths-college" aria-labelledby="math-college-levels">
+        <div class="v3-landing-section-header">
+          <div>
+            <p>Parcours collège</p>
+            <h2 id="math-college-levels">Choisir un niveau</h2>
+          </div>
+          <span>Les niveaux publiés donnent directement accès aux chapitres disponibles.</span>
+        </div>
+        <div class="math-grid">
+          {levels.map((level) => <MathLevelCard level={level} chapterCount={countChapters(level.slug)} />)}
+        </div>
+      </section>
+    </div>
   </div>
 </BaseLayout>

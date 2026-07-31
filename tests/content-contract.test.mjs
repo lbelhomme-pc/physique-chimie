@@ -1,9 +1,11 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { normalizeChapterPackage } from "../src/data/contentAdapters.ts";
-import { CONTENT_CONTRACT_VERSION } from "../src/data/contentContract.ts";
-import { auditContentContracts } from "../src/data/contentContractAudit.ts";
+import {
+  auditContentContracts,
+  CONTENT_CONTRACT_VERSION,
+  normalizeChapterPackage,
+} from "../src/content-model/index.ts";
 
 test("content contract validates every existing chapter without blocking publication", () => {
   const audit = auditContentContracts(process.cwd());

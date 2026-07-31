@@ -1,0 +1,104 @@
+---
+export type LandingTone = "maths" | "pc" | "science" | "memory" | "kit" | "mixed";
+
+export interface LandingAction {
+  label: string;
+  href: string;
+  variant?: "primary" | "secondary";
+}
+
+export interface LandingStat {
+  value: string | number;
+  label: string;
+}
+
+interface Props {
+  tone: LandingTone;
+  eyebrow: string;
+  mark: string;
+  markLabel: string;
+  title: string;
+  description: string;
+  actions?: readonly LandingAction[];
+  stats?: readonly LandingStat[];
+  imageAlt?: string;
+  contained?: boolean;
+  titleId?: string;
+}
+
+const {
+  tone,
+  eyebrow,
+  mark,
+  markLabel,
+  title,
+  description,
+  actions = [],
+  stats = [],
+  imageAlt = "Bureau scientifique avec matériel de laboratoire, schémas et outils de travail.",
+  contained = false,
+  titleId,
+} = Astro.props;
+---
+
+<header
+  class:list={[
+    "v3-landing-hero",
+    `v3-landing-hero--${tone}`,
+    { "v3-landing-hero--contained": contained },
+  ]}
+  data-v3-landing-hero
+>
+  <picture class="v3-landing-hero__media">
+    <source srcset="/images/accueil-v3-hero-sciences-2026-07-27.webp" type="image/webp" />
+    <img
+      src="/images/accueil-v3-hero-sciences-2026-07-27.png"
+      alt={imageAlt}
+      width="1600"
+      height="762"
+      loading="eager"
+      decoding="async"
+    />
+  </picture>
+
+  <div class="v3-landing-hero__inner">
+    <div class="v3-landing-hero__copy">
+      <p class="v3-landing-identity">
+        <span aria-hidden="true">{mark}</span>
+        <strong>{eyebrow}</strong>
+        <span class="sr-only">{markLabel}</span>
+      </p>
+      <h1 id={titleId}>{title}</h1>
+      <p class="v3-landing-hero__description">{description}</p>
+
+      {actions.length > 0 && (
+        <nav class="v3-landing-actions" aria-label={`Accès rapides - ${title}`}>
+          {actions.map((action) => (
+            <a
+              class:list={[
+                "v3-landing-action",
+                action.variant === "secondary"
+                  ? "v3-landing-action--secondary"
+                  : "v3-landing-action--primary",
+              ]}
+              href={action.href}
+            >
+              {action.label}
+            </a>
+          ))}
+        </nav>
+      )}
+
+      {stats.length > 0 && (
+        <dl class="v3-landing-stats" aria-label={`Repères - ${title}`}>
+          {stats.map((stat) => (
+            <div>
+              <dt>{stat.value}</dt>
+              <dd>{stat.label}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+    </div>
+  </div>
+</header>

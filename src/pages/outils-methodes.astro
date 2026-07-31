@@ -1,21 +1,25 @@
 ---
 // src/pages/outils-methodes.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
+import V3LandingHero from "../components/home/V3LandingHero.astro";
 
 const spaces = [
   {
+    mark: "C",
     title: "Collège",
     href: "/outils-methodes/college",
     description: "Méthodes de calcul, conversions, formules et outils adaptés au collège.",
     label: "Voir les outils collège",
   },
   {
+    mark: "L",
     title: "Lycée",
     href: "/outils-methodes/lycee",
     description: "Méthodes numériques, Python, mathématiques utiles et ressources de lycée.",
     label: "Voir les outils lycée",
   },
   {
+    mark: "T",
     title: "Transverses",
     href: "/outils-methodes/transverses",
     description: "Ressources utilisables dans plusieurs niveaux, du collège au lycée.",
@@ -28,28 +32,46 @@ const spaces = [
   title="Outils & méthodes - Physique-Chimie"
   description="Espace central pour les outils et méthodes de physique-chimie, séparés entre collège, lycée et ressources transverses."
   canonical="/outils-methodes"
+  resourceType="tool"
 >
-  <main class="om-page" aria-labelledby="om-title">
-    <header class="om-hero">
-      <p class="om-eyebrow">Ressources de travail</p>
-      <h1 id="om-title">Outils & méthodes</h1>
-      <p>
-        Un espace rangé par usage : les <strong>méthodes</strong> expliquent comment faire,
-        les <strong>outils</strong> aident à calculer, vérifier ou manipuler.
-      </p>
-    </header>
+  <div class="v3-landing-page v3-landing-page--kit om-page">
+    <V3LandingHero
+      tone="kit"
+      eyebrow="Ressources de travail"
+      mark="K"
+      markLabel="Repère kit scientifique"
+      title="Outils et méthodes"
+      description="Les méthodes expliquent comment faire ; les outils permettent de calculer, vérifier, tracer ou manipuler."
+      actions={[
+        { label: "Choisir un espace", href: "#espaces-outils" },
+        { label: "Kit scientifique", href: "/outils-methodes/kit-scientifique", variant: "secondary" },
+      ]}
+      stats={[
+        { value: spaces.length, label: "espaces de ressources" },
+      ]}
+      imageAlt="Outils numériques, schémas et matériel scientifique réunis sur un bureau de travail."
+    />
 
-    <section class="om-section" aria-labelledby="om-spaces-title">
-      <h2 id="om-spaces-title">Choisir un espace</h2>
-      <div class="om-entry-grid">
-        {spaces.map((space) => (
-          <a class="om-entry-card" href={space.href}>
-            <strong>{space.title}</strong>
-            <span>{space.description}</span>
-            <em>{space.label}</em>
-          </a>
-        ))}
-      </div>
-    </section>
-  </main>
+    <div class="v3-landing-content">
+      <section class="v3-landing-section om-section" id="espaces-outils" aria-labelledby="om-spaces-title">
+        <div class="v3-landing-section-header">
+          <div>
+            <p>Ressources organisées</p>
+            <h2 id="om-spaces-title">Choisir un espace</h2>
+          </div>
+          <span>Entre par ton niveau ou retrouve les ressources utiles dans plusieurs classes.</span>
+        </div>
+        <div class="om-entry-grid v3-landing-grid">
+          {spaces.map((space) => (
+            <a class="om-entry-card v3-landing-card" href={space.href}>
+              <span class="v3-landing-card__mark" aria-hidden="true">{space.mark}</span>
+              <strong>{space.title}</strong>
+              <span>{space.description}</span>
+              <em>{space.label} →</em>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
 </BaseLayout>

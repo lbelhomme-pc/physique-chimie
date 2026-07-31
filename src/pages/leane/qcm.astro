@@ -3,27 +3,27 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import LeaneShell from "../../components/leane/LeaneShell.astro";
 import { leaneQuiz } from "../../data/leane";
 
-const qcmBases = [
+const qcmNiveaux = [
   {
     href: "/leane/qcm/5e",
-    label: "Bases 5ème",
+    label: "5ème",
     title: "Automatismes de 5ème",
     detail: "Priorités, calcul littéral et statistiques.",
-    count: 12,
+    count: 18,
   },
   {
     href: "/leane/qcm/4e",
-    label: "Bases 4ème",
+    label: "4ème",
     title: "Calculs de 4ème",
     detail: "Fractions, puissances et équations.",
-    count: 11,
+    count: 17,
   },
   {
     href: "/leane/qcm/3e",
-    label: "Bases 3ème",
+    label: "3ème",
     title: "Passage lycée",
     detail: "Développer, factoriser, produit nul et fonctions.",
-    count: 14,
+    count: 20,
   },
   {
     href: "/leane/qcm/global",
@@ -37,21 +37,21 @@ const qcmBases = [
 
 <BaseLayout
   title="QCM Léane - révisions de mathématiques"
-  description="QCM séparés par base pour tester les acquis essentiels avant la première."
+  description="QCM séparés par niveau pour tester les acquis essentiels avant la première."
   subject="mathematiques"
   cycle="lycee"
   level="1re"
 >
   <LeaneShell
     active="qcm"
-    title="QCM par base"
-    subtitle="Choisis une base. Chaque QCM a maintenant sa propre page."
+    title="QCM par niveau"
+    subtitle="Choisis un niveau. Chaque QCM a maintenant sa propre page."
   >
     <section class="leane-panel">
       <p class="leane-eyebrow">Accès directs</p>
       <h2>Choisir un QCM</h2>
       <div class="leane-card-grid leane-qcm-choice-grid">
-        {qcmBases.map((qcm) => (
+        {qcmNiveaux.map((qcm) => (
           <a class="leane-course-card leane-qcm-choice" href={qcm.href}>
             <span class="leane-chip">{qcm.label}</span>
             <h2>{qcm.title}</h2>

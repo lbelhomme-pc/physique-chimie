@@ -1,10 +1,11 @@
 ---
 // src/pages/lycee/[niveau]/index.astro
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import V3LandingHero from "../../../components/home/V3LandingHero.astro";
 import CatalogueChapterList from "../../../components/catalogue/CatalogueChapterList.astro";
 import type { CatalogueChapterItem } from "../../../components/catalogue/types";
 import Breadcrumb from "../../../components/ui/Breadcrumb.astro";
-import { getDisciplineFromLevelSlug, getDisciplineIdentity, getDisciplineStyle } from "../../../data/disciplineIdentity";
+import { getDisciplineFromLevelSlug, getDisciplineIdentity } from "../../../data/disciplineIdentity";
 import { lyceeLevels, getLevelLabel } from "../../../data/levels";
 
 export function getStaticPaths() {
@@ -58,6 +59,7 @@ const physique = chapters.filter((chapter) => chapter.matiere === "physique");
 const total = chapters.length;
 const chimieTitle = isTeachingScience ? "Repères chimie et vivant" : "Chimie";
 const physiqueTitle = isTeachingScience ? "Repères physique et Terre" : "Physique";
+const landingTone = isTeachingScience ? "science" : "pc";
 ---
 
 <BaseLayout
@@ -85,22 +87,30 @@ const physiqueTitle = isTeachingScience ? "Repères physique et Terre" : "Physiq
       ))}
     </nav>
 
-    <header class="catalogue-hero" data-discipline={discipline.id} style={getDisciplineStyle(discipline)}>
-      <span class="discipline-badge" aria-label={discipline.iconLabel}>
-        <span aria-hidden="true">{discipline.mark}</span>
-        <strong>{discipline.label}</strong>
-      </span>
-      <h1>{niveauLabel}</h1>
-      <p>
-        Les chapitres sont rangés dans l'ordre du programme. Les filtres ci-dessous servent de raccourcis
-        vers les regroupements publiés, sans charger de recherche client.
-      </p>
-      <dl class="catalogue-stats" aria-label="Résumé des chapitres">
-        <div><dt>{total}</dt><dd>chapitres</dd></div>
-        <div><dt>{chimie.length}</dt><dd>{chimieTitle.toLowerCase()}</dd></div>
-        <div><dt>{physique.length}</dt><dd>{physiqueTitle.toLowerCase()}</dd></div>
-      </dl>
-    </header>
+    <V3LandingHero
+      tone={landingTone}
+      eyebrow={discipline.label}
+      mark={discipline.mark}
+      markLabel={discipline.iconLabel}
+      title={isTeachingScience ? niveauLabel : `${niveauLabel} - Physique-Chimie`}
+      description="Les chapitres sont classés dans l’ordre du programme pour accéder rapidement aux cours et aux activités."
+      actions={total > 0
+        ? [
+            { label: "Voir les chapitres", href: "#catalogue-tous" },
+            { label: "Outils du lycée", href: "/outils-methodes/lycee", variant: "secondary" },
+          ]
+        : [
+            { label: "Retour aux parcours", href: "/lycee" },
+            { label: "Outils du lycée", href: "/outils-methodes/lycee", variant: "secondary" },
+          ]}
+      stats={[
+        { value: total, label: "chapitres" },
+        { value: chimie.length, label: chimieTitle.toLowerCase() },
+        { value: physique.length, label: physiqueTitle.toLowerCase() },
+      ]}
+      imageAlt={`Espace de travail pour ${discipline.label} au niveau ${niveauLabel}.`}
+      contained
+    />
 
     {total > 0 && (
       <nav class="catalogue-filters" aria-label="Filtres de catalogue">

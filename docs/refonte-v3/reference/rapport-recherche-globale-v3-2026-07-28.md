@@ -120,3 +120,12 @@ Preuves : pas d'evaluation dynamique, index local leger, limite de 12 resultats,
 ### Critere 6 - Completude, migration et validation : 9/10
 
 Preuves : aucun contenu source n'a ete modifie, les routes restent celles du corpus existant, l'ancre `#recherche` est conservee, `npm.cmd test` passe avec 166 tests et le build genere 314 pages.
+
+## Ajustement UI du 2026-07-29
+
+- Recherche replacee dans une bande pleine largeur de l'accueil, avec un outil cadre a rayon de 8 px.
+- Champ principal renforce, bouton d'effacement, suggestions rapides et commande de reinitialisation.
+- Filtres regroupes par discipline, niveau et acces avec une couleur secondaire propre a chaque discipline.
+- Ajout du filtre Enseignement scientifique au contrat de recherche.
+- Resultats hierarchises par titre, description, metadonnees et badges, avec un repere colore par discipline.
+- Comportement clavier et roles combobox/listbox conserves.

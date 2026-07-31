@@ -62,7 +62,8 @@ test("mathematics cycle catalogues show planned levels without creating planned 
     const page = source(name);
     assert.match(page, /getMathematicsLevelsByCycle/);
     assert.match(page, /MathLevelCard/);
-    assert.match(page, /math-catalog-summary/);
+    assert.match(page, /V3LandingHero/);
+    assert.match(page, /stats=\{\[/);
     assert.doesNotMatch(page, /getPublishedMathematicsLevels/);
   }
 

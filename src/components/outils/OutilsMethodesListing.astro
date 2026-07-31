@@ -1,4 +1,5 @@
 ---
+import V3LandingHero from "../home/V3LandingHero.astro";
 import {
   getResourcesByLevel,
   getResourcesByType,
@@ -18,6 +19,7 @@ interface Props {
 const { level, eyebrow, title, description } = Astro.props;
 const resources = getResourcesByLevel(level);
 const orderedTypes: OutilMethodeType[] = ["methode", "outil"];
+const levelMark = level === "college" ? "C" : level === "lycee" ? "L" : "T";
 const sections = orderedTypes.map((type) => ({
   type,
   label: typeLabels[type],
@@ -26,7 +28,7 @@ const sections = orderedTypes.map((type) => ({
 }));
 ---
 
-<main class="om-list-page" aria-labelledby="om-list-title">
+<div class="om-list-page" aria-labelledby="om-list-title">
   <nav class="om-breadcrumb" aria-label="Navigation outils et méthodes">
     <a href="/outils-methodes">Outils & méthodes</a>
     <a href="/outils-methodes/college">Collège</a>
@@ -34,11 +36,20 @@ const sections = orderedTypes.map((type) => ({
     <a href="/outils-methodes/transverses">Transverses</a>
   </nav>
 
-  <header class="om-list-hero">
-    <p>{eyebrow}</p>
-    <h1 id="om-list-title">{title}</h1>
-    <span>{description}</span>
-  </header>
+  <V3LandingHero
+    tone="kit"
+    eyebrow={eyebrow}
+    mark={levelMark}
+    markLabel={`Repère ${eyebrow}`}
+    title={title}
+    titleId="om-list-title"
+    description={description}
+    stats={[
+      { value: resources.length, label: "ressources" },
+    ]}
+    imageAlt={`Outils et méthodes scientifiques pour le parcours ${eyebrow.toLowerCase()}.`}
+    contained
+  />
 
   <section class="om-kind-reminder" aria-label="Rappel outil ou méthode">
     <article>
@@ -76,7 +87,7 @@ const sections = orderedTypes.map((type) => ({
       )}
     </section>
   ))}
-</main>
+</div>
 
 <style>
   .om-list-page {

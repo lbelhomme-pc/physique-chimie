@@ -1,12 +1,77 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import V3LandingHero from "../../components/home/V3LandingHero.astro";
+
+const memoryModes = [
+  {
+    mark: "J",
+    title: "Révision du jour",
+    description: "Retrouve les cartes à revoir aujourd’hui selon ton rythme de mémorisation.",
+    href: "/memorisation/revision-du-jour",
+    action: "Commencer la révision",
+  },
+  {
+    mark: "Q",
+    title: "Méga quiz",
+    description: "Teste plusieurs notions, repère tes erreurs et reprends les questions difficiles.",
+    href: "/memorisation/mega-quiz",
+    action: "Lancer un quiz",
+  },
+  {
+    mark: "F",
+    title: "Méga flashcards",
+    description: "Révise rapidement les définitions, formules et idées essentielles des chapitres.",
+    href: "/memorisation/mega-flashcards",
+    action: "Ouvrir les flashcards",
+  },
+];
 ---
 
-<BaseLayout title="Mémorisation">
-  <h1>Mémorisation</h1>
-  <ul>
-    <li><a href="/memorisation/revision-du-jour">Révision du jour</a></li>
-    <li><a href="/memorisation/mega-quiz">Méga quiz</a></li>
-    <li><a href="/memorisation/mega-flashcards">Méga flashcards</a></li>
-  </ul>
+<BaseLayout
+  title="Mémorisation - Quiz, révisions et flashcards"
+  description="Réviser les notions scientifiques avec la révision du jour, les quiz et les flashcards."
+  canonical="/memorisation"
+  resourceType="memorisation"
+>
+  <div class="v3-landing-page v3-landing-page--memory">
+    <V3LandingHero
+      tone="memory"
+      eyebrow="Mémorisation"
+      mark="M"
+      markLabel="Repère mémorisation"
+      title="Réviser pour retenir"
+      description="Quiz, flashcards et reprises ciblées t’aident à consolider les notions importantes sans tout recommencer."
+      actions={[
+        { label: "Révision du jour", href: "/memorisation/revision-du-jour" },
+        { label: "Choisir un mode", href: "#modes-memorisation", variant: "secondary" },
+      ]}
+      stats={[
+        { value: memoryModes.length, label: "modes de révision" },
+      ]}
+      imageAlt="Espace de travail scientifique préparé pour une séance de révision."
+    />
+
+    <div class="v3-landing-content">
+      <section class="v3-landing-section" id="modes-memorisation" aria-labelledby="memory-modes-title">
+        <div class="v3-landing-section-header">
+          <div>
+            <p>Choisir une activité</p>
+            <h2 id="memory-modes-title">Comment veux-tu réviser ?</h2>
+          </div>
+          <span>Commence par les cartes du jour ou entraîne-toi librement.</span>
+        </div>
+
+        <div class="v3-landing-grid">
+          {memoryModes.map((mode) => (
+            <a class="v3-landing-card" href={mode.href}>
+              <span class="v3-landing-card__mark" aria-hidden="true">{mode.mark}</span>
+              <h3>{mode.title}</h3>
+              <p>{mode.description}</p>
+              <em>{mode.action} →</em>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import V3LandingHero from "../../../../components/home/V3LandingHero.astro";
 import CatalogueChapterList from "../../../../components/catalogue/CatalogueChapterList.astro";
 import type { CatalogueChapterItem } from "../../../../components/catalogue/types";
 import Breadcrumb from "../../../../components/ui/Breadcrumb.astro";
@@ -41,6 +42,7 @@ const catalogueChapters: CatalogueChapterItem[] = chapters.map((chapter) => ({
     chapter.duration,
   ].filter((badge): badge is string => Boolean(badge)),
 }));
+const domainCount = new Set(chapters.map((chapter) => chapter.domain ?? chapter.theme).filter(Boolean)).size;
 ---
 
 <BaseLayout
@@ -59,15 +61,24 @@ const catalogueChapters: CatalogueChapterItem[] = chapters.map((chapter) => ({
   />
 
   <div class="math-shell">
-    <section class="math-hero">
-      <p class="math-hero-kicker">Mathématiques collège</p>
-      <h1>{level.label}</h1>
-      {level.description && <p>{level.description}</p>}
-      <dl class="math-catalog-summary" aria-label="Résumé du catalogue">
-        <div><dt>{chapters.length}</dt><dd>chapitres</dd></div>
-        <div><dt>{new Set(chapters.map((chapter) => chapter.domain ?? chapter.theme).filter(Boolean)).size}</dt><dd>domaines</dd></div>
-      </dl>
-    </section>
+    <V3LandingHero
+      tone="maths"
+      eyebrow="Mathématiques collège"
+      mark="∑"
+      markLabel="Symbole somme"
+      title={level.label}
+      description={level.description ?? "Retrouve les chapitres de mathématiques disponibles pour ce niveau."}
+      actions={[
+        { label: "Voir les chapitres", href: "#math-level-chapters" },
+        { label: "Tous les niveaux", href: "/mathematiques/college", variant: "secondary" },
+      ]}
+      stats={[
+        { value: chapters.length, label: "chapitres" },
+        { value: domainCount, label: "domaines" },
+      ]}
+      imageAlt={`Espace de travail en mathématiques pour le niveau ${level.label}.`}
+      contained
+    />
 
     {chapters.length > 0 ? (
       <CatalogueChapterList

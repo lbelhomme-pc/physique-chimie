@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import V3LandingHero from "../../components/home/V3LandingHero.astro";
 import { kitChapterLinks, kitMethodCards, kitMiniQuiz } from "../../data/kitScientifique";
 ---
 
@@ -16,11 +17,26 @@ import { kitChapterLinks, kitMethodCards, kitMiniQuiz } from "../../data/kitScie
       <strong>Kit scientifique</strong>
     </nav>
 
-    <header class="tool-hero">
-      <p class="tool-eyebrow">Outils interactifs</p>
-      <h1 id="page-title">Kit scientifique</h1>
-      <p>Des outils courts pour calculer, convertir, tracer, équilibrer et préparer une solution sans quitter le site.</p>
-    </header>
+    <V3LandingHero
+      tone="kit"
+      eyebrow="Outils interactifs"
+      mark="K"
+      markLabel="Repère kit scientifique"
+      title="Kit scientifique"
+      titleId="page-title"
+      description="Des outils courts pour calculer, convertir, tracer, équilibrer et préparer une solution sans quitter le site."
+      actions={[
+        { label: "Choisir un outil", href: "#calculator" },
+        { label: "Laboratoire virtuel", href: "/laboratoire", variant: "secondary" },
+      ]}
+      stats={[
+        { value: 7, label: "outils" },
+        { value: kitMethodCards.length, label: "méthodes guidées" },
+        { value: kitMiniQuiz.length, label: "mini-quiz" },
+      ]}
+      imageAlt="Calculatrice, graphique et matériel scientifique réunis dans un espace de travail."
+      contained
+    />
 
     <section class="tool-tabs" aria-label="Choisir un outil">
       <button type="button" class="tool-tab is-active" data-tool-tab="calculator">Calculatrice</button>

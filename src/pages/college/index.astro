@@ -1,6 +1,7 @@
 ---
 // src/pages/college/index.astro
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import V3LandingHero from "../../components/home/V3LandingHero.astro";
 import { disciplineIdentities, getDisciplineStyle } from "../../data/disciplineIdentity";
 import { collegeLevels, getLevelLabel } from "../../data/levels";
 
@@ -27,60 +28,82 @@ const levelCards = collegeLevels.map((level) => {
   };
 });
 const pcIdentity = disciplineIdentities["physique-chimie"];
+const totalChapterCount = levelCards.reduce((sum, level) => sum + level.total, 0);
 ---
 
 <BaseLayout
   title="Collège — Physique-Chimie"
   description="Choisir son niveau collège en physique-chimie : 6e, 5e, 4e ou 3e, avec cours, exercices, quiz et flashcards."
+  subject="physique-chimie"
+  cycle="college"
 >
-  <main class="level-home">
-    <header class="level-hero" data-discipline={pcIdentity.id} style={getDisciplineStyle(pcIdentity)}>
-      <span class="discipline-badge" aria-label={pcIdentity.iconLabel}>
-        <span aria-hidden="true">{pcIdentity.mark}</span>
-        <strong>{pcIdentity.label}</strong>
-      </span>
-      <h1>Choisir mon niveau collège</h1>
-      <p>
-        Sélectionne ton niveau pour accéder aux chapitres, puis choisis physique ou chimie.
-        Les outils collège restent disponibles pour les méthodes de calcul et les formules.
-      </p>
-    </header>
+  <div class="v3-landing-page v3-landing-page--pc level-home">
+    <V3LandingHero
+      tone="pc"
+      eyebrow="Physique-Chimie"
+      mark="PC"
+      markLabel={pcIdentity.iconLabel}
+      title="Physique-Chimie au collège"
+      description="Choisis ton niveau pour retrouver les cours, exercices, quiz et flashcards de physique et de chimie."
+      actions={[
+        { label: "Choisir mon niveau", href: "#niveaux-college" },
+        { label: "Outils du collège", href: "/outils-methodes/college", variant: "secondary" },
+      ]}
+      stats={[
+        { value: levelCards.length, label: "niveaux" },
+        { value: totalChapterCount, label: "chapitres publiés" },
+      ]}
+      imageAlt="Matériel de physique-chimie et espace de travail pour les sciences au collège."
+    />
 
-    <section class="level-card-grid" aria-label="Niveaux collège">
-      {levelCards.map((level) => (
-        <article class="level-card" data-discipline={pcIdentity.id} style={getDisciplineStyle(pcIdentity)}>
-          <div class="level-card-head">
-            <h2>{level.label}</h2>
+    <div class="v3-landing-content">
+      <section class="v3-landing-section" id="niveaux-college" aria-labelledby="college-levels-title">
+        <div class="v3-landing-section-header">
+          <div>
+            <p>Parcours collège</p>
+            <h2 id="college-levels-title">Choisir un niveau</h2>
           </div>
-          <p>
-            {level.total > 0
-              ? `${level.total} chapitre(s) en ligne : ${level.physique} en physique et ${level.chimie} en chimie.`
-              : "Les contenus de ce niveau sont en préparation."}
-          </p>
-          <div class="level-actions">
-            <a class="primary-action" href={`/college/${level.slug}`}>Voir le niveau</a>
-            {level.chimie > 0 && <a href={`/college/${level.slug}/chimie`}>Chimie</a>}
-            {level.physique > 0 && <a href={`/college/${level.slug}/physique`}>Physique</a>}
-          </div>
-        </article>
-      ))}
-    </section>
+          <span>Chaque niveau rassemble les chapitres dans l’ordre du programme.</span>
+        </div>
 
-    <section class="tools-callout" aria-labelledby="tools-title">
-      <div>
-        <h2 id="tools-title">Outils et méthodes collège</h2>
-        <p>Conversions, formules, proportionnalité, graphiques et rédaction scientifique.</p>
-      </div>
-      <a href="/outils-methodes/college">Voir les outils collège</a>
-    </section>
-  </main>
+        <div class="level-card-grid v3-landing-grid" aria-label="Niveaux collège">
+          {levelCards.map((level) => (
+            <article class="level-card v3-landing-card" data-discipline={pcIdentity.id} style={getDisciplineStyle(pcIdentity)}>
+              <span class="v3-landing-card__mark" aria-hidden="true">{level.label}</span>
+              <div class="level-card-head">
+                <h2>Niveau {level.label}</h2>
+              </div>
+              <p>
+                {level.total > 0
+                  ? `${level.total} chapitre(s) en ligne : ${level.physique} en physique et ${level.chimie} en chimie.`
+                  : "Les contenus de ce niveau sont en préparation."}
+              </p>
+              <div class="level-actions">
+                <a class="primary-action" href={`/college/${level.slug}`}>Voir le niveau</a>
+                {level.chimie > 0 && <a href={`/college/${level.slug}/chimie`}>Chimie</a>}
+                {level.physique > 0 && <a href={`/college/${level.slug}/physique`}>Physique</a>}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="tools-callout v3-landing-callout" aria-labelledby="tools-title">
+        <div>
+          <h2 id="tools-title">Outils et méthodes collège</h2>
+          <p>Conversions, formules, proportionnalité, graphiques et rédaction scientifique.</p>
+        </div>
+        <a href="/outils-methodes/college">Voir les outils collège</a>
+      </section>
+    </div>
+  </div>
 </BaseLayout>
 
 <style>
   .level-home {
-    margin: 0 auto;
-    max-width: 1080px;
-    padding: 1rem 1rem 3rem;
+    margin: 0;
+    max-width: none;
+    padding: 0;
   }
 
   .level-hero {

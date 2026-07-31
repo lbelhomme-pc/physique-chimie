@@ -6,6 +6,10 @@ import { join } from "node:path";
 const root = process.cwd();
 const homePath = join(root, "src/pages/index.astro");
 const homeSource = readFileSync(homePath, "utf8");
+const publicMenuSource = readFileSync(join(root, "src/data/publicMenu.ts"), "utf8");
+const publicNavigationSource = readFileSync(join(root, "src/components/navigation/PublicNavigationV3.astro"), "utf8");
+const baseLayoutSource = readFileSync(join(root, "src/layouts/BaseLayout.astro"), "utf8");
+const homeNavigationSource = `${homeSource}\n${publicMenuSource}\n${publicNavigationSource}\n${baseLayoutSource}`;
 const heroWebpPath = join(root, "public/images/accueil-v3-hero-sciences-2026-07-27.webp");
 const heroPngPath = join(root, "public/images/accueil-v3-hero-sciences-2026-07-27.png");
 
@@ -22,7 +26,6 @@ describe("Accueil public V3", () => {
       "/college",
       "/lycee",
       "/mathematiques",
-      "/mathematiques/lycee/2nde",
       "/laboratoire",
       "/outils-methodes",
       "/memorisation",
@@ -30,7 +33,7 @@ describe("Accueil public V3", () => {
       "#recherche",
     ]) {
       assert.ok(
-        homeSource.includes(`href="${href}"`) || homeSource.includes(`href: "${href}"`),
+        homeNavigationSource.includes(`href="${href}"`) || homeNavigationSource.includes(`href: "${href}"`),
         `lien public manquant : ${href}`,
       );
     }
@@ -50,7 +53,17 @@ describe("Accueil public V3", () => {
     assert.doesNotMatch(homeSource, /\+\s?\d/);
     assert.doesNotMatch(homeSource, /\d+[,.]\d+\s?€/);
     assert.doesNotMatch(homeSource, /premium.*\d/i);
-    assert.match(homeSource, /[Ff]onctions premium à valider plus tard/);
-    assert.match(homeSource, /L'accueil ne promet pas de prix ni de statistiques non vérifiées/);
+    assert.doesNotMatch(homeSource, /[Ff]onctions premium à valider plus tard/);
+    assert.doesNotMatch(homeSource, /L'accueil ne promet pas de prix ni de statistiques non vérifiées/);
+  });
+
+  it("retire les menus dupliques de l'accueil et affiche un pied de page utile", () => {
+    assert.doesNotMatch(homeSource, /feature-strip/);
+    assert.doesNotMatch(homeSource, /home-main-menu/);
+    assert.doesNotMatch(homeSource, /proof-bar/);
+    assert.match(baseLayoutSource, /class="site-footer"/);
+    assert.match(baseLayoutSource, /aria-label="Disciplines"/);
+    assert.match(baseLayoutSource, /aria-label="Ressources"/);
+    assert.match(baseLayoutSource, /aria-label="Espace personnel et contact"/);
   });
 });

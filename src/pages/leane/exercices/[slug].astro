@@ -27,7 +27,7 @@ const flashcardsHref = "/leane/flashcards";
 
 <BaseLayout
   title={`${course.title} - exercices Léane`}
-  description={`Série progressive de 10 exercices pour ${course.title}.`}
+  description={`Série progressive de ${exercises.length} exercices pour ${course.title}.`}
   subject="mathematiques"
   cycle="lycee"
   level="1re"
@@ -35,7 +35,7 @@ const flashcardsHref = "/leane/flashcards";
   <LeaneShell
     active="exercices"
     title={course.title}
-    subtitle={`${level.title} · 10 exercices progressifs`}
+    subtitle={`${level.title} · ${exercises.length} exercices progressifs`}
   >
     <section class="leane-two-col leane-exercise-detail">
       <article class="leane-panel leane-exercise-runner" data-leane-exercises>

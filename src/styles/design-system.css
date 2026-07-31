@@ -1988,3 +1988,617 @@ input:focus, textarea:focus {
     padding: 1.5rem 0.75rem 2.5rem;
   }
 }
+
+/* Reference UI V3 - couche commune pour les pages publiques */
+:root {
+  --ref-navy: #071b54;
+  --ref-blue: #1457ee;
+  --ref-blue-2: #0f6bff;
+  --ref-cyan: #e9f8ff;
+  --ref-border: #d8e5fb;
+  --ref-muted: #53627d;
+  --ref-soft: #f6f9ff;
+  --ref-card: #ffffff;
+  --ref-shadow: 0 18px 48px rgba(15, 60, 130, 0.1);
+  --ref-shadow-soft: 0 10px 28px rgba(20, 87, 238, 0.08);
+}
+
+body {
+  background:
+    radial-gradient(circle at 82% 0%, rgba(58, 143, 255, 0.12), transparent 34rem),
+    linear-gradient(180deg, #ffffff 0%, #f7fbff 52%, #ffffff 100%);
+  color: var(--ref-navy);
+}
+
+.page-container {
+  max-width: 1180px;
+  padding: 0 1rem 3rem;
+}
+
+:where(
+  .level-home,
+  .catalogue-page,
+  .math-shell,
+  .om-page,
+  .om-list-page,
+  .lab-page,
+  .tools-page,
+  .chapter-shell
+) {
+  color: var(--ref-navy);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+:where(
+  .level-hero,
+  .catalogue-hero,
+  .math-hero,
+  .om-hero,
+  .om-list-hero,
+  .lab-hero,
+  .tools-hero,
+  .chapter-hero-v3
+) {
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 48%, rgba(224, 244, 255, 0.95) 100%),
+    radial-gradient(circle at 86% 24%, rgba(20, 87, 238, 0.2), transparent 18rem);
+  border: 1px solid var(--ref-border);
+  border-radius: 18px;
+  box-shadow: var(--ref-shadow);
+  margin: 1.2rem auto 1.4rem;
+  max-width: 1120px;
+  overflow: hidden;
+  padding: clamp(1.35rem, 4vw, 2.25rem);
+  position: relative;
+}
+
+:where(
+  .level-hero,
+  .catalogue-hero,
+  .math-hero,
+  .om-hero,
+  .om-list-hero,
+  .lab-hero,
+  .tools-hero,
+  .chapter-hero-v3
+)::after {
+  background:
+    linear-gradient(90deg, rgba(20, 87, 238, 0.09) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(20, 87, 238, 0.07) 1px, transparent 1px);
+  background-size: 42px 42px;
+  content: "";
+  inset: 0;
+  opacity: 0.34;
+  pointer-events: none;
+  position: absolute;
+}
+
+:where(
+  .level-hero,
+  .catalogue-hero,
+  .math-hero,
+  .om-hero,
+  .om-list-hero,
+  .lab-hero,
+  .tools-hero,
+  .chapter-hero-v3
+) > * {
+  position: relative;
+  z-index: 1;
+}
+
+:where(
+  .level-hero,
+  .catalogue-hero,
+  .math-hero,
+  .om-hero,
+  .om-list-hero,
+  .lab-hero,
+  .tools-hero,
+  .chapter-hero-v3
+) h1 {
+  color: var(--ref-navy);
+  font-size: clamp(2rem, 4.6vw, 3.35rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 0.98;
+  margin: 0 0 0.85rem;
+}
+
+:where(
+  .level-hero,
+  .catalogue-hero,
+  .math-hero,
+  .om-hero,
+  .om-list-hero,
+  .lab-hero,
+  .tools-hero,
+  .chapter-hero-v3
+) :where(p, .lab-hero__objective) {
+  color: var(--ref-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 760px;
+}
+
+:where(
+  .discipline-badge,
+  .chapter-badge,
+  .math-badge,
+  .catalogue-kicker,
+  .math-hero-kicker,
+  .om-eyebrow,
+  .om-type-badge,
+  .lab-hero__eyebrow,
+  .lab-card__tags span,
+  .catalogue-card__badges span
+) {
+  align-items: center;
+  background: #eff7ff;
+  border: 1px solid #bde9ff;
+  border-radius: 12px;
+  color: #066684;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 850;
+  gap: 0.4rem;
+  letter-spacing: 0;
+  min-height: 30px;
+  padding: 0.28rem 0.62rem;
+  text-transform: none;
+}
+
+:where(
+  .level-card-grid,
+  .catalogue-list,
+  .catalogue-layout,
+  .catalogue-stats,
+  .math-grid,
+  .math-resource-grid,
+  .om-entry-grid,
+  .om-resource-grid,
+  .lab-grid,
+  .lab-access-guide__grid,
+  .chapter-overview,
+  .chapter-quick-facts,
+  .chapter-summary,
+  .chapter-recommended,
+  .chapter-pagination,
+  .dashboard-stats
+) {
+  gap: 1rem;
+}
+
+:where(
+  .level-card,
+  .tools-callout,
+  .catalogue-card,
+  .math-card,
+  .math-resource-card,
+  .om-entry-card,
+  .om-resource-card,
+  .lab-card,
+  .lab-panel,
+  .lab-access-guide,
+  .chapter-info-card,
+  .chapter-overview-main,
+  .chapter-overview-side,
+  .chapter-quick-facts,
+  .chapter-summary,
+  .chapter-recommended,
+  .chapter-pagination,
+  .student-dashboard-card,
+  .dashboard-stat,
+  .chapter-progress-card,
+  .chapter-badges-card,
+  .chapter-section-card,
+  .course-special-card
+) {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--ref-border);
+  border-radius: 16px;
+  border-left: 1px solid var(--ref-border);
+  box-shadow: var(--ref-shadow-soft);
+  color: var(--ref-navy);
+}
+
+:where(
+  .level-card,
+  .catalogue-card,
+  .math-card,
+  .math-resource-card,
+  .om-entry-card,
+  .om-resource-card,
+  .lab-card,
+  .chapter-info-card,
+  .student-dashboard-card,
+  .dashboard-stat
+) {
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+:where(
+  .level-card,
+  .catalogue-card,
+  .math-card,
+  .math-resource-card,
+  .om-entry-card,
+  .om-resource-card,
+  .lab-card,
+  .chapter-info-card,
+  .student-dashboard-card,
+  .dashboard-stat
+):hover {
+  border-color: rgba(20, 87, 238, 0.38);
+  box-shadow: 0 18px 42px rgba(20, 87, 238, 0.13);
+  transform: translateY(-2px);
+}
+
+:where(
+  .level-card h2,
+  .tools-callout h2,
+  .catalogue-card h2,
+  .catalogue-card h3,
+  .math-card-title,
+  .math-resource-title,
+  .om-entry-card strong,
+  .om-resource-card h3,
+  .lab-card h2,
+  .lab-panel h2,
+  .chapter-info-card h2,
+  .chapter-overview-main h2,
+  .chapter-overview-side h2,
+  .student-dashboard-card h2
+) {
+  color: var(--ref-navy);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+:where(
+  .level-card p,
+  .tools-callout p,
+  .catalogue-card p,
+  .math-card-description,
+  .math-resource-description,
+  .om-entry-card span,
+  .om-resource-card p,
+  .lab-card p,
+  .lab-panel p,
+  .chapter-info-card p,
+  .chapter-overview-main p,
+  .chapter-overview-side p
+) {
+  color: var(--ref-muted);
+}
+
+:where(
+  .level-actions a,
+  .tools-callout a,
+  .primary-action,
+  .catalogue-actions a,
+  .catalogue-card__action,
+  .math-card a,
+  .math-resource-card a,
+  .om-entry-card em,
+  .om-resource-card a,
+  .lab-button,
+  .lab-card__action,
+  .chapter-primary-action,
+  .chapter-secondary-action,
+  .chapter-tabs a,
+  .chapter-tabs button
+) {
+  align-items: center;
+  border-radius: 12px;
+  display: inline-flex;
+  font-weight: 850;
+  justify-content: center;
+  min-height: 42px;
+  text-decoration: none;
+}
+
+:where(
+  .level-actions .primary-action,
+  .tools-callout a,
+  .primary-action,
+  .catalogue-actions a:first-child,
+  .catalogue-card__action,
+  .lab-button,
+  .chapter-primary-action
+) {
+  background: linear-gradient(180deg, var(--ref-blue-2), var(--ref-blue));
+  border-color: var(--ref-blue);
+  box-shadow: 0 12px 24px rgba(20, 87, 238, 0.22);
+  color: #ffffff;
+}
+
+:where(
+  .level-actions a:not(.primary-action),
+  .catalogue-actions a:not(:first-child),
+  .chapter-secondary-action,
+  .chapter-tabs a,
+  .chapter-tabs button
+) {
+  background: #ffffff;
+  border: 1px solid var(--ref-border);
+  color: var(--ref-blue);
+}
+
+:where(
+  .level-actions a,
+  .tools-callout a,
+  .primary-action,
+  .catalogue-actions a,
+  .catalogue-card__action,
+  .lab-button,
+  .chapter-primary-action,
+  .chapter-secondary-action
+):hover,
+:where(
+  .level-actions a,
+  .tools-callout a,
+  .primary-action,
+  .catalogue-actions a,
+  .catalogue-card__action,
+  .lab-button,
+  .chapter-primary-action,
+  .chapter-secondary-action
+):focus-visible {
+  filter: brightness(1.02);
+  outline: 3px solid rgba(20, 87, 238, 0.18);
+  outline-offset: 2px;
+  text-decoration: none;
+}
+
+:where(.level-nav, .catalogue-filters, .om-breadcrumb, .lab-breadcrumb, .chapter-tabs, .chapter-header, .math-catalog-summary) {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--ref-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 32px rgba(15, 60, 130, 0.07);
+}
+
+:where(.level-nav a, .catalogue-filters a, .catalogue-filters button) {
+  border-radius: 12px;
+  color: var(--ref-navy);
+  font-weight: 850;
+}
+
+:where(.level-nav a[aria-current="page"], .catalogue-filters a[aria-current="page"], .catalogue-filters button[aria-pressed="true"]) {
+  background: #e9f8ff;
+  color: #066684;
+}
+
+:where(.lab-control input, .lab-control select, .lab-control textarea, .chapter-input, .search-input) {
+  background: #ffffff;
+  border: 1px solid var(--ref-border);
+  border-radius: 12px;
+  color: var(--ref-navy);
+  min-height: 42px;
+}
+
+:where(.lab-control input:focus, .lab-control select:focus, .lab-control textarea:focus, .chapter-input:focus, .search-input:focus) {
+  border-color: var(--ref-blue);
+  box-shadow: 0 0 0 3px rgba(20, 87, 238, 0.14);
+  outline: none;
+}
+
+:where(.catalogue-empty, .catalogue-empty-large, .om-empty) {
+  background: #ffffff;
+  border: 1px dashed #b8cdf2;
+  border-radius: 16px;
+  color: var(--ref-muted);
+}
+
+footer,
+.site-footer,
+.footer-v3 {
+  background: #061d59;
+  border-top: 0;
+  color: #ffffff;
+}
+
+footer a,
+.site-footer a,
+.footer-v3 a {
+  color: #ffffff;
+}
+
+@media (max-width: 780px) {
+  .page-container {
+    padding-inline: 0.75rem;
+  }
+
+  :where(
+    .level-hero,
+    .catalogue-hero,
+    .math-hero,
+    .om-hero,
+    .om-list-hero,
+    .lab-hero,
+    .tools-hero,
+    .chapter-hero-v3
+  ) {
+    border-radius: 16px;
+    margin-top: 0.75rem;
+    padding: 1.2rem;
+  }
+
+  :where(
+    .level-hero,
+    .catalogue-hero,
+    .math-hero,
+    .om-hero,
+    .om-list-hero,
+    .lab-hero,
+    .tools-hero,
+    .chapter-hero-v3
+  ) h1 {
+    font-size: clamp(1.8rem, 10vw, 2.6rem);
+    line-height: 1.04;
+  }
+}
+
+/* Reference UI V3 - priorite sur les anciens styles de pages */
+.page-container :is(
+  .level-hero,
+  .catalogue-hero,
+  .math-hero,
+  .om-hero,
+  .om-list-hero,
+  .lab-index-hero,
+  .lab-hero,
+  .tools-hero,
+  .chapter-hero-v3,
+  .math-chapter-header
+) {
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 48%, rgba(224, 244, 255, 0.95) 100%),
+    radial-gradient(circle at 86% 24%, rgba(20, 87, 238, 0.2), transparent 18rem) !important;
+  border: 1px solid var(--ref-border) !important;
+  border-left: 1px solid var(--ref-border) !important;
+  border-radius: 18px !important;
+  box-shadow: var(--ref-shadow) !important;
+}
+
+.page-container :is(
+  .level-hero,
+  .catalogue-hero,
+  .math-hero,
+  .om-hero,
+  .om-list-hero,
+  .lab-index-hero,
+  .lab-hero,
+  .tools-hero,
+  .chapter-hero-v3,
+  .math-chapter-header
+) h1 {
+  color: var(--ref-navy) !important;
+  font-size: clamp(2rem, 4.6vw, 3.35rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  line-height: 0.98 !important;
+  overflow-wrap: anywhere;
+}
+
+.page-container :is(
+  .level-card,
+  .tools-callout,
+  .catalogue-section__head,
+  .catalogue-card,
+  .catalogue-stats div,
+  .catalogue-empty-large,
+  .catalogue-empty,
+  .math-panel,
+  .math-card,
+  .math-resource-card,
+  .math-tool-card,
+  .math-catalog-summary,
+  .math-catalog-summary div,
+  .math-empty-state,
+  .om-entry-card,
+  .om-resource-card,
+  .lab-filter-panel,
+  .lab-search-box,
+  .lab-card,
+  .lab-panel,
+  .lab-access-guide,
+  .chapter-info-card,
+  .chapter-overview-main,
+  .chapter-overview-side,
+  .chapter-quick-facts,
+  .chapter-summary,
+  .chapter-recommended,
+  .chapter-pagination,
+  .student-dashboard-card,
+  .dashboard-stat,
+  .chapter-progress-card,
+  .chapter-badges-card
+) {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid var(--ref-border) !important;
+  border-left: 1px solid var(--ref-border) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--ref-shadow-soft) !important;
+}
+
+.page-container :is(.catalogue-card, .math-card, .math-resource-card, .om-entry-card, .om-resource-card, .lab-card) {
+  overflow: hidden;
+}
+
+.page-container :is(.lab-card) {
+  min-height: 360px !important;
+}
+
+.page-container :is(.lab-card__visual) {
+  background:
+    radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.55), transparent 8rem),
+    linear-gradient(135deg, #e9f8ff, #dce8ff) !important;
+}
+
+.page-container :is(.lab-filter-panel h2, .lab-filter-group legend, .lab-card__tags span, .math-hero-kicker, .math-eyebrow) {
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.page-container :is(
+  .discipline-badge,
+  .catalogue-count,
+  .catalogue-card__index,
+  .catalogue-card__badges em,
+  .math-badge,
+  .lab-card__tags span,
+  .om-type-badge,
+  .lab-index-hero__eyebrow,
+  .lab-hero__eyebrow
+) {
+  background: #eff7ff !important;
+  border: 1px solid #bde9ff !important;
+  border-radius: 12px !important;
+  color: #066684 !important;
+}
+
+.page-container :is(
+  .level-actions .primary-action,
+  .tools-callout a,
+  .catalogue-card__action,
+  .catalogue-empty__action.primary,
+  .math-action.primary,
+  .lab-card__action,
+  .lab-button,
+  .chapter-primary-action
+) {
+  background: linear-gradient(180deg, var(--ref-blue-2), var(--ref-blue)) !important;
+  border: 1px solid var(--ref-blue) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 24px rgba(20, 87, 238, 0.22) !important;
+  color: #ffffff !important;
+  padding: 0.55rem 0.85rem;
+}
+
+.page-container :is(
+  .level-actions a:not(.primary-action),
+  .catalogue-filters a,
+  .catalogue-empty__action,
+  .math-action:not(.primary),
+  .chapter-secondary-action
+) {
+  background: #ffffff !important;
+  border: 1px solid var(--ref-border) !important;
+  border-radius: 12px !important;
+  color: var(--ref-blue) !important;
+}
+
+.page-container :is(.level-nav, .catalogue-filters, .lab-breadcrumb, .om-breadcrumb, .chapter-header, .chapter-tabs) {
+  border-radius: 16px !important;
+}
+
+@media (max-width: 900px) {
+  .page-container :is(.lab-library-layout, .lab-grid, .catalogue-layout) {
+    grid-template-columns: 1fr !important;
+  }
+
+  .page-container :is(.lab-filter-panel) {
+    position: static !important;
+  }
+}

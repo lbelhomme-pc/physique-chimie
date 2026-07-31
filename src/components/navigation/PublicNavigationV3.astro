@@ -1,17 +1,8 @@
 ---
 import { siteConfig } from "../../config/site";
-import {
-  disciplineIdentities,
-  getDisciplineIdentity,
-  getDisciplineStyle,
-  publicDisciplineIds,
-} from "../../data/disciplineIdentity";
-import SubjectSwitcher from "./SubjectSwitcher.astro";
-import {
-  getSubjectLabel,
-  type CycleContext,
-  type SubjectId,
-} from "./SubjectContext";
+import { disciplineIdentities } from "../../data/disciplineIdentity";
+import { publicMenuSections } from "../../data/publicMenu";
+import type { CycleContext, SubjectId } from "./SubjectContext";
 
 export interface Props {
   currentPath: string;
@@ -21,52 +12,19 @@ export interface Props {
   resourceType?: string;
 }
 
-const {
-  currentPath,
-  subject = "transversal",
-  cycle,
-  level,
-  resourceType,
-} = Astro.props;
+const { currentPath, subject = "transversal", cycle, level, resourceType } = Astro.props;
 
 function isActive(href: string) {
   if (href === "/") return currentPath === "/";
   return currentPath === href || currentPath.startsWith(`${href}/`);
 }
 
-const matterLinks = publicDisciplineIds.map((id) => disciplineIdentities[id]);
-
-const levelLinks = [
-  { label: "Collège", href: "/college", meta: "6e à 3e", discipline: disciplineIdentities["physique-chimie"] },
-  { label: "6e", href: "/college/6eme", meta: "Physique-Chimie" },
-  { label: "5e", href: "/college/5eme", meta: "Physique-Chimie" },
-  { label: "4e", href: "/college/4eme", meta: "Physique-Chimie" },
-  { label: "3e", href: "/college/3eme", meta: "Physique-Chimie" },
-  { label: "Lycée", href: "/lycee", meta: "PC et ES" },
-  { label: "2nde maths", href: "/mathematiques/lycee/2nde", meta: "Mathématiques" },
-  { label: "2nde PC", href: "/lycee/2nde", meta: "Physique-Chimie" },
-  { label: "1re spé PC", href: "/lycee/1ere-spe", meta: "Physique-Chimie" },
-  { label: "1re ES", href: "/lycee/1ere-ens-scientifique", meta: "Enseignement scientifique" },
-  { label: "Terminale spé PC", href: "/lycee/terminale-spe", meta: "Physique-Chimie" },
-  { label: "Terminale ES", href: "/lycee/terminale-ens-scientifique", meta: "Enseignement scientifique" },
-];
-
-const resourceLinks = [
-  { label: "Méthodes", href: "/outils-methodes", meta: "Fiches et outils" },
-  { label: "Kit scientifique", href: "/outils-methodes/kit-scientifique", meta: "Calculs et constantes" },
-  { label: "Mémorisation", href: "/memorisation", meta: "Quiz et flashcards" },
-  { label: "Méthodes maths", href: "/outils-methodes/methodes-maths-lycee", meta: "Lycée" },
-  { label: "Tableau périodique", href: "/outils-methodes/tableau-periodique", meta: "Chimie" },
-];
-
-const contextLabel = getSubjectLabel(subject);
-const contextIdentity = getDisciplineIdentity(subject);
 const cycleLabel = cycle === "college" ? "Collège" : cycle === "lycee" ? "Lycée" : undefined;
+const showContext = currentPath !== "/" && !isActive("/leane") && Boolean(cycleLabel || level || resourceType);
 ---
 
 <header class="public-nav" data-public-navigation>
   <a class="skip-link" href="#main-content">Aller au contenu</a>
-
   <div class="public-nav__inner">
     <a class="public-nav__brand" href="/" aria-label={`${siteConfig.name} - accueil`}>
       <span class="public-nav__mark" aria-hidden="true">R</span>
@@ -76,88 +34,93 @@ const cycleLabel = cycle === "college" ? "Collège" : cycle === "lycee" ? "Lycé
       </span>
     </a>
 
-    <SubjectSwitcher subject={subject} label="Choisir une matière principale" />
-
     <nav class="public-nav__links" aria-label="Navigation publique V3">
-      <details class="public-nav__menu">
-        <summary aria-label="Ouvrir le menu Matières">Matières</summary>
-        <div class="public-nav__panel">
-          {matterLinks.map((item) => (
+      {publicMenuSections.map((section) => (
+        <details
+          class={`public-nav__menu public-nav__menu--${section.tone}`}
+          data-discipline={section.discipline}
+        >
+          <summary aria-label={`Ouvrir le menu ${section.title}`}>
+            <span class="public-nav__menu-mark" aria-hidden="true"></span>
+            <span>{section.title}</span>
+          </summary>
+          <div class="public-nav__panel">
             <a
-              href={item.href}
-              class:list={["public-nav__panel-link", "public-nav__panel-link--discipline", { active: isActive(item.href) }]}
-              data-discipline={item.id}
-              style={getDisciplineStyle(item)}
+              class:list={["public-nav__overview", { active: isActive(section.href) }]}
+              href={section.href}
             >
-              <span class="public-nav__discipline-mark" aria-hidden="true">{item.mark}</span>
-              <span class="public-nav__panel-copy">
-                <span>{item.label}</span>
-                <small>{item.microcopy}</small>
-              </span>
+              Ouvrir l'espace
             </a>
-          ))}
-        </div>
-      </details>
-
-      <details class="public-nav__menu">
-        <summary aria-label="Ouvrir le menu Niveaux">Niveaux</summary>
-        <div class="public-nav__panel public-nav__panel--wide">
-          {levelLinks.map((item) => (
-            <a href={item.href} class:list={["public-nav__panel-link", { active: isActive(item.href) }]}>
-              <span>{item.label}</span>
-              <small>{item.meta}</small>
-            </a>
-          ))}
-        </div>
-      </details>
-
-      <details class="public-nav__menu">
-        <summary aria-label="Ouvrir le menu Ressources">Ressources</summary>
-        <div class="public-nav__panel public-nav__panel--wide">
-          {resourceLinks.map((item) => (
-            <a href={item.href} class:list={["public-nav__panel-link", { active: isActive(item.href) }]}>
-              <span>{item.label}</span>
-              <small>{item.meta}</small>
-            </a>
-          ))}
-        </div>
-      </details>
-
-      <a href="/#recherche" class:list={["public-nav__link", { active: currentPath === "/" }]}>Recherche</a>
-      <a href="/laboratoire" class:list={["public-nav__link", { active: isActive("/laboratoire") }]}>Labo</a>
-      <a href="/leane" class:list={["public-nav__link", { active: isActive("/leane") }]}>L&eacute;ane</a>
-      <a href="/profil" class:list={["public-nav__account", { active: isActive("/profil") }]}>
-        <span>Compte</span>
-        <small>futur</small>
+            <ul>
+              {section.links.map((item) => (
+                <li>
+                  <a href={item.href} class:list={["public-nav__panel-link", { active: isActive(item.href) }]}>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </details>
+      ))}
+      <a
+        class:list={["public-nav__global-link", { active: isActive("/profil") }]}
+        href="/profil"
+      >
+        Compte
       </a>
     </nav>
   </div>
 
-  <div class="public-nav__context" aria-label="Contexte de navigation">
-    <span
-      class="public-nav__context-discipline"
-      data-discipline={contextIdentity.id}
-      style={getDisciplineStyle(contextIdentity)}
-    >
-      <span class="public-nav__context-mark" aria-hidden="true">{contextIdentity.mark}</span>
-      Matière : <strong>{contextLabel}</strong>
-      <small>{contextIdentity.microcopy}</small>
-    </span>
-    {cycleLabel && <span>{cycleLabel}</span>}
-    {level && <span>{level}</span>}
-    {resourceType && <span>{resourceType}</span>}
-  </div>
+  {showContext && (
+    <div class="public-nav__context" aria-label="Contexte de navigation">
+      <span>{subject === "transversal" ? "Toutes les matières" : disciplineIdentities[subject].label}</span>
+      {cycleLabel && <span>{cycleLabel}</span>}
+      {level && <span>{level}</span>}
+    </div>
+  )}
 </header>
+
+<script>
+  const publicNavigation = document.querySelector("[data-public-navigation]");
+
+  if (publicNavigation) {
+    const menus = Array.from(publicNavigation.querySelectorAll<HTMLDetailsElement>("details.public-nav__menu"));
+    const closeMenus = () => menus.forEach((menu) => menu.removeAttribute("open"));
+
+    menus.forEach((menu) => {
+      menu.addEventListener("toggle", () => {
+        if (!menu.open) return;
+        menus.forEach((otherMenu) => {
+          if (otherMenu !== menu) otherMenu.removeAttribute("open");
+        });
+      });
+
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => menu.removeAttribute("open"));
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (target instanceof Node && !publicNavigation.contains(target)) closeMenus();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenus();
+    });
+  }
+</script>
 
 <style>
   .skip-link {
-    background: var(--v3-color-action);
-    border-radius: var(--v3-radius-md);
+    background: #0f5bff;
+    border-radius: 999px;
     color: #fff;
-    left: var(--v3-space-4);
-    padding: var(--v3-space-3) var(--v3-space-4);
+    left: 1rem;
+    padding: 0.7rem 1rem;
     position: fixed;
-    top: var(--v3-space-3);
+    top: 0.75rem;
     transform: translateY(-170%);
     z-index: 1001;
   }
@@ -167,8 +130,9 @@ const cycleLabel = cycle === "college" ? "Collège" : cycle === "lycee" ? "Lycé
   }
 
   .public-nav {
-    background: color-mix(in srgb, var(--v3-color-surface-page) 96%, transparent);
-    border-bottom: 1px solid var(--v3-color-border-default);
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #e8eef8;
+    font-family: "Plus Jakarta Sans", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     position: sticky;
     top: 0;
     z-index: 90;
@@ -177,28 +141,30 @@ const cycleLabel = cycle === "college" ? "Collège" : cycle === "lycee" ? "Lycé
   .public-nav__inner {
     align-items: center;
     display: grid;
-    gap: var(--v3-space-3);
-    grid-template-columns: auto auto minmax(0, 1fr);
+    gap: 1.25rem;
+    grid-template-columns: auto minmax(0, 1fr);
     margin: 0 auto;
-    max-width: 1180px;
-    padding: var(--v3-space-3) var(--v3-space-4);
+    max-width: 1440px;
+    min-height: 84px;
+    padding: 0 1.25rem;
   }
 
   .public-nav__brand {
     align-items: center;
-    color: var(--v3-color-text-main);
+    color: #061849;
     display: inline-flex;
-    gap: var(--v3-space-2);
-    min-height: 44px;
+    gap: 0.65rem;
+    min-width: max-content;
     text-decoration: none;
   }
 
   .public-nav__mark {
     align-items: center;
-    background: var(--v3-color-action);
-    border-radius: var(--v3-radius-md);
+    background: #0f5bff;
+    border-radius: 10px;
     color: #fff;
     display: inline-flex;
+    font-size: 0.95rem;
     font-weight: 950;
     height: 38px;
     justify-content: center;
@@ -207,47 +173,68 @@ const cycleLabel = cycle === "college" ? "Collège" : cycle === "lycee" ? "Lycé
 
   .public-nav__brand-text {
     display: grid;
-    line-height: 1.1;
+    gap: 0.08rem;
+    line-height: 1.05;
   }
 
   .public-nav__brand-text strong {
-    font-size: var(--v3-font-size-sm);
+    color: #061849;
+    font-size: 0.9rem;
+    font-weight: 920;
+    white-space: nowrap;
   }
 
   .public-nav__brand-text small {
-    color: var(--v3-color-text-muted);
-    font-size: var(--v3-font-size-xs);
+    color: #526b96;
+    font-size: 0.72rem;
+    font-weight: 760;
+    white-space: nowrap;
   }
 
   .public-nav__links {
     align-items: center;
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--v3-space-2);
+    gap: 0.35rem;
     justify-content: flex-end;
+    width: 100%;
   }
 
-  .public-nav__link,
-  .public-nav__account,
-  .public-nav__menu summary {
+  .public-nav__menu summary,
+  .public-nav__global-link {
     align-items: center;
+    background: transparent;
     border: 1px solid transparent;
-    border-radius: var(--v3-radius-md);
-    color: var(--v3-color-text-subtle);
+    border-radius: 8px;
+    color: #061849;
     cursor: pointer;
-    display: inline-flex;
-    font-size: var(--v3-font-size-sm);
-    font-weight: 800;
-    gap: var(--v3-space-2);
-    min-height: 44px;
-    padding: var(--v3-space-2) var(--v3-space-3);
+    display: grid;
+    font-size: 0.76rem;
+    font-weight: 900;
+    gap: 0.42rem;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    line-height: 1.15;
+    min-height: 48px;
+    padding: 0.45rem 0.6rem;
     text-decoration: none;
+  }
+
+  .public-nav__global-link {
+    display: inline-flex;
+    justify-content: center;
     white-space: nowrap;
   }
 
   .public-nav__menu {
+    --menu-accent: #0f5bff;
+    --menu-soft: #eef5ff;
     position: relative;
   }
+
+  .public-nav__menu--maths { --menu-accent: #135dff; --menu-soft: #eef5ff; }
+  .public-nav__menu--pc { --menu-accent: #6d4cff; --menu-soft: #f2efff; }
+  .public-nav__menu--science { --menu-accent: #008f78; --menu-soft: #eefbf8; }
+  .public-nav__menu--memory { --menu-accent: #e85d04; --menu-soft: #fff7ee; }
+  .public-nav__menu--kit { --menu-accent: #102a5c; --menu-soft: #f3f6fb; }
 
   .public-nav__menu summary {
     list-style: none;
@@ -258,205 +245,205 @@ const cycleLabel = cycle === "college" ? "Collège" : cycle === "lycee" ? "Lycé
   }
 
   .public-nav__menu summary::after {
-    content: "v";
-    font-size: 0.72em;
+    color: var(--menu-accent);
+    content: "⌄";
+    font-size: 0.85em;
+    transform: translateY(-0.05rem);
   }
 
-  .public-nav__menu[open] summary,
-  .public-nav__link.active,
-  .public-nav__account.active {
-    background: var(--v3-color-action-subtle);
-    color: var(--v3-color-action);
+  .public-nav__menu[open] summary::after {
+    transform: rotate(180deg);
   }
 
-  .public-nav__brand:focus-visible,
-  .public-nav__link:focus-visible,
-  .public-nav__account:focus-visible,
-  .public-nav__menu summary:focus-visible,
-  .public-nav__panel-link:focus-visible {
-    box-shadow: var(--v3-shadow-focus);
-    outline: none;
+  .public-nav__menu-mark {
+    background: var(--menu-accent);
+    border-radius: 999px;
+    height: 9px;
+    position: relative;
+    width: 9px;
   }
 
-  .public-nav__link:hover,
-  .public-nav__account:hover,
-  .public-nav__menu summary:hover {
-    background: var(--v3-color-surface-muted);
-    color: var(--v3-color-text-main);
-  }
-
-  .public-nav__account {
-    background: var(--v3-color-surface-muted);
-  }
-
-  .public-nav__account small {
-    background: var(--v3-color-warning-subtle);
-    border-radius: var(--v3-radius-pill);
-    color: var(--v3-color-warning);
-    font-size: 0.68rem;
-    padding: 0.05rem var(--v3-space-2);
+  .public-nav__menu-mark::after {
+    background: var(--menu-accent);
+    border-radius: 999px;
+    content: "";
+    height: 2px;
+    left: 6px;
+    position: absolute;
+    top: 7px;
+    width: 7px;
   }
 
   .public-nav__panel {
-    background: var(--v3-color-surface-raised);
-    border: 1px solid var(--v3-color-border-default);
-    border-radius: var(--v3-radius-md);
-    box-shadow: var(--v3-shadow-md);
-    display: grid;
-    gap: var(--v3-space-2);
-    left: 0;
-    min-width: 240px;
-    padding: var(--v3-space-2);
+    background: #fff;
+    border: 1px solid #dde8fb;
+    border-radius: 8px;
+    box-shadow: 0 18px 50px rgba(15, 62, 139, 0.14);
+    left: 50%;
+    max-height: min(420px, calc(100vh - 120px));
+    min-width: 250px;
+    overflow-y: auto;
     position: absolute;
-    top: calc(100% + var(--v3-space-2));
+    top: calc(100% + 0.7rem);
+    transform: translateX(-50%);
+    z-index: 5;
   }
 
-  .public-nav__panel--wide {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    min-width: 420px;
+  .public-nav__menu:nth-last-child(-n + 2) .public-nav__panel {
+    left: auto;
+    right: 0;
+    transform: none;
   }
 
-  .public-nav__panel-link {
-    border-radius: var(--v3-radius-md);
-    color: var(--v3-color-text-main);
-    display: grid;
-    gap: 0.1rem;
-    min-height: 52px;
-    padding: var(--v3-space-3);
+  .public-nav__overview {
+    align-items: center;
+    background: var(--menu-soft);
+    border-bottom: 1px solid #e4edf9;
+    color: var(--menu-accent);
+    display: flex;
+    font-size: 0.8rem;
+    font-weight: 900;
+    justify-content: space-between;
+    min-height: 42px;
+    padding: 0 0.85rem;
     text-decoration: none;
   }
 
-  .public-nav__panel-link--discipline {
+  .public-nav__overview::after {
+    content: "→";
+  }
+
+  .public-nav__panel ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.35rem 0.75rem 0.6rem;
+  }
+
+  .public-nav__panel li + li {
+    border-top: 1px solid #edf2fa;
+  }
+
+  .public-nav__panel-link {
     align-items: center;
+    color: #09205d;
     display: flex;
-    gap: var(--v3-space-3);
+    font-size: 0.84rem;
+    font-weight: 800;
+    justify-content: space-between;
+    line-height: 1.25;
+    min-height: 42px;
+    padding: 0.45rem 0.2rem;
+    text-decoration: none;
   }
 
-  .public-nav__discipline-mark,
-  .public-nav__context-mark {
-    align-items: center;
-    background: var(--discipline-surface);
-    border: 1px solid var(--discipline-border);
-    border-radius: var(--v3-radius-sm);
-    color: var(--discipline-accent);
-    display: inline-flex;
+  .public-nav__panel-link::after {
+    color: var(--menu-accent);
+    content: "›";
+    font-size: 1.05rem;
     font-weight: 950;
-    justify-content: center;
   }
 
-  .public-nav__discipline-mark {
-    min-height: 34px;
-    min-width: 34px;
-    padding: 0 var(--v3-space-2);
-  }
-
-  .public-nav__panel-copy {
-    display: grid;
-    gap: 0.1rem;
-  }
-
-  .public-nav__panel-link span {
-    font-weight: 850;
-  }
-
-  .public-nav__panel-link small {
-    color: var(--v3-color-text-muted);
-    font-size: var(--v3-font-size-xs);
-  }
-
+  .public-nav__overview:hover,
+  .public-nav__overview:focus-visible,
   .public-nav__panel-link:hover,
   .public-nav__panel-link.active {
-    background: var(--v3-color-action-subtle);
-    color: var(--v3-color-action);
+    color: var(--menu-accent);
   }
 
-  .public-nav__panel-link--discipline:hover,
-  .public-nav__panel-link--discipline.active {
-    background: var(--discipline-surface);
-    color: var(--discipline-accent);
+  .public-nav__menu[open] summary {
+    background: var(--menu-soft);
+    border-color: color-mix(in srgb, var(--menu-accent) 24%, #ffffff);
+    color: var(--menu-accent);
+  }
+
+  .public-nav__global-link:hover,
+  .public-nav__global-link.active {
+    background: #eef5ff;
+    border-color: #cdddf7;
+    color: #0f5bff;
+  }
+
+  .public-nav__brand:focus-visible,
+  .public-nav__menu summary:focus-visible,
+  .public-nav__global-link:focus-visible,
+  .public-nav__overview:focus-visible,
+  .public-nav__panel-link:focus-visible {
+    box-shadow: 0 0 0 4px rgba(15, 91, 255, 0.18);
+    outline: none;
   }
 
   .public-nav__context {
     align-items: center;
-    background: var(--v3-color-surface-muted);
-    border-top: 1px solid var(--v3-color-border-default);
-    color: var(--v3-color-text-subtle);
+    background: #f5f8fe;
+    border-top: 1px solid #e8eef8;
+    color: #385071;
     display: flex;
-    flex-wrap: wrap;
-    font-size: var(--v3-font-size-xs);
-    font-weight: 750;
-    gap: var(--v3-space-2);
+    font-size: 0.8rem;
+    font-weight: 800;
+    gap: 0.65rem;
     justify-content: center;
-    padding: var(--v3-space-2) var(--v3-space-4);
+    min-height: 36px;
   }
 
-  .public-nav__context > span + span::before {
-    color: var(--v3-color-text-muted);
+  .public-nav__context span + span::before {
+    color: #8ca0bf;
     content: "/";
-    margin-right: var(--v3-space-2);
+    margin-right: 0.65rem;
   }
 
-  .public-nav__context-discipline {
-    align-items: center;
-    display: inline-flex;
-    gap: var(--v3-space-2);
-  }
+  @media (max-width: 1180px) {
+    .public-nav__brand-text small {
+      display: none;
+    }
 
-  .public-nav__context-mark {
-    min-height: 24px;
-    min-width: 28px;
-    padding: 0 var(--v3-space-1);
-  }
-
-  .public-nav__context-discipline small {
-    color: color-mix(in srgb, var(--discipline-accent) 70%, var(--v3-color-text-subtle));
-  }
-
-  .public-nav__context strong {
-    color: var(--v3-color-text-main);
-  }
-
-  @media (max-width: 980px) {
     .public-nav__inner {
-      grid-template-columns: 1fr;
+      grid-template-columns: auto minmax(0, 1fr);
+      min-height: 76px;
+      padding: 0 0.75rem;
     }
 
     .public-nav__links {
+      gap: 0.15rem;
       justify-content: flex-start;
+      overflow-x: auto;
+      padding-bottom: 0.15rem;
     }
 
-    .public-nav__panel,
-    .public-nav__panel--wide {
-      left: 0;
-      min-width: min(520px, calc(100vw - 2rem));
+    .public-nav__menu summary,
+    .public-nav__global-link {
+      font-size: 0.7rem;
+      min-width: max-content;
+      padding-inline: 0.45rem;
     }
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 760px) {
     .public-nav {
       position: static;
     }
 
     .public-nav__inner {
-      padding-inline: var(--v3-space-3);
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 0.75rem 1rem;
     }
 
     .public-nav__brand {
-      max-width: 100%;
-      min-width: 0;
+      justify-content: center;
     }
 
     .public-nav__links {
       display: grid;
+      gap: 0.35rem;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      width: 100%;
     }
 
-    .public-nav__links > * {
-      min-width: 0;
-    }
-
-    .public-nav__menu {
+    .public-nav__menu summary,
+    .public-nav__global-link {
+      background: #f5f8fe;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      min-height: 42px;
+      padding: 0 0.7rem;
       width: 100%;
     }
 
@@ -464,47 +451,14 @@ const cycleLabel = cycle === "college" ? "Collège" : cycle === "lycee" ? "Lycé
       grid-column: 1 / -1;
     }
 
-    .public-nav__link,
-    .public-nav__account,
-    .public-nav__menu summary {
-      font-size: 0.82rem;
-      justify-content: center;
+    .public-nav__panel {
+      left: auto;
       min-width: 0;
-      overflow-wrap: anywhere;
-      padding-inline: var(--v3-space-2);
-      text-align: center;
-      white-space: normal;
-      width: 100%;
-    }
-
-    .public-nav__account {
-      display: grid;
-      gap: 0.12rem;
-    }
-
-    .public-nav__panel,
-    .public-nav__panel--wide {
-      grid-template-columns: 1fr;
-      max-height: min(52vh, 420px);
-      min-width: 0;
-      overflow-y: auto;
       position: static;
+      right: auto;
+      transform: none;
       width: 100%;
     }
 
-    .public-nav__context {
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding-inline: var(--v3-space-3);
-    }
-
-    .public-nav__context-discipline {
-      max-width: 100%;
-      min-width: 0;
-    }
-
-    .public-nav__context-discipline small {
-      display: none;
-    }
   }
 </style>

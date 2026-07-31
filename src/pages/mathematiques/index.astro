@@ -1,12 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumb from "../../components/ui/Breadcrumb.astro";
+import V3LandingHero from "../../components/home/V3LandingHero.astro";
 import MathResourceCard from "../../components/mathematiques/MathResourceCard.astro";
-import { disciplineIdentities, getDisciplineStyle } from "../../data/disciplineIdentity";
 import { mathematicsMainNavigation } from "../../data/mathematiques/navigation";
 import "../../styles/mathematiques/mathematics.css";
-
-const mathIdentity = disciplineIdentities.mathematiques;
 ---
 
 <BaseLayout
@@ -15,49 +12,45 @@ const mathIdentity = disciplineIdentities.mathematiques;
   canonical="/mathematiques"
   subject="mathematiques"
 >
-  <Breadcrumb
-    items={[
-      { label: "Accueil", href: "/" },
-      { label: "Mathématiques" },
-    ]}
-  />
+  <div class="v3-landing-page v3-landing-page--maths">
+    <V3LandingHero
+      tone="maths"
+      eyebrow="Mathématiques"
+      mark="∑"
+      markLabel="Symbole somme"
+      title="Comprendre les mathématiques"
+      description="Des cours structurés, des exercices progressifs et des outils pour calculer, raisonner et modéliser du collège au lycée."
+      actions={[
+        { label: "Accéder au collège", href: "/mathematiques/college" },
+        { label: "Accéder au lycée", href: "/mathematiques/lycee", variant: "secondary" },
+      ]}
+      stats={[
+        { value: mathematicsMainNavigation.length, label: "parcours scolaires" },
+      ]}
+      imageAlt="Bureau d'étude associant schémas mathématiques, outils numériques et matériel scientifique."
+    />
 
-  <div class="math-shell">
-    <section class="math-hero" data-discipline={mathIdentity.id} style={getDisciplineStyle(mathIdentity)}>
-      <span class="discipline-badge" aria-label={mathIdentity.iconLabel}>
-        <span aria-hidden="true">{mathIdentity.mark}</span>
-        <strong>{mathIdentity.label}</strong>
-      </span>
-      <p class="math-hero-kicker">Espace pédagogique</p>
-      <h1>Mathématiques</h1>
-      <p>
-        Cet espace suit une arborescence séparée de la physique-chimie :
-        Mathématiques Collège, Mathématiques Lycée, puis les niveaux et les chapitres.
-      </p>
-      <p class="discipline-microcopy">{mathIdentity.microcopy}</p>
-      <div class="math-actions">
-        <a href="/mathematiques/college" class="math-action primary">Collège</a>
-        <a href="/mathematiques/lycee" class="math-action">Lycée</a>
-      </div>
-    </section>
+    <div class="v3-landing-content math-shell">
+      <section class="v3-landing-section math-section" aria-labelledby="math-main-access">
+        <div class="v3-landing-section-header">
+          <div>
+            <p>Choisir son parcours</p>
+            <h2 id="math-main-access">Collège ou lycée</h2>
+          </div>
+          <span>Retrouve les niveaux puis les chapitres dans l’ordre du programme.</span>
+        </div>
+        <div class="math-grid">
+          {mathematicsMainNavigation.map((resource) => <MathResourceCard resource={resource} />)}
+        </div>
+      </section>
 
-    <section class="math-section" aria-labelledby="math-main-access">
-      <div class="math-section-header">
-        <h2 id="math-main-access">Accès rapides</h2>
-      </div>
-      <div class="math-grid">
-        {mathematicsMainNavigation.map((resource) => <MathResourceCard resource={resource} />)}
-      </div>
-    </section>
-
-    <section class="math-panel" aria-labelledby="math-progress-title">
-      <div class="math-progress-placeholder">
-        <strong id="math-progress-title">Progression locale</strong>
-        <span>
-          La progression des futurs chapitres de mathématiques utilisera des identifiants
-          distincts de ceux de physique-chimie.
-        </span>
-      </div>
-    </section>
+      <section class="v3-landing-callout" aria-labelledby="math-methods-title">
+        <div>
+          <h2 id="math-methods-title">Méthodes de mathématiques</h2>
+          <p>Des fiches pour rédiger, calculer, utiliser les outils numériques et gagner en autonomie.</p>
+        </div>
+        <a href="/outils-methodes/methodes-maths-lycee">Voir les méthodes</a>
+      </section>
+    </div>
   </div>
 </BaseLayout>

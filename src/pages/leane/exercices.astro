@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LeaneShell from "../../components/leane/LeaneShell.astro";
-import { leaneLevels } from "../../data/leane";
+import { getLeaneCourseExercises, leaneLevels } from "../../data/leane";
 
 const slugify = (value: string) =>
   value
@@ -14,7 +14,7 @@ const slugify = (value: string) =>
 
 <BaseLayout
   title="Exercices Léane - révisions de mathématiques"
-  description="Séries progressives séparées par cours pour consolider les bases avant la première."
+  description="Séries progressives séparées par cours pour consolider les acquis avant la première."
   subject="mathematiques"
   cycle="lycee"
   level="1re"
@@ -22,7 +22,7 @@ const slugify = (value: string) =>
   <LeaneShell
     active="exercices"
     title="Exercices par cours"
-    subtitle="Choisis une série. Chaque cours garde ses 10 exercices, son aide et sa correction."
+    subtitle="Choisis une série. Chaque cours garde ses exercices progressifs, son aide et sa correction."
   >
     <section class="leane-grid" aria-label="Séries d'exercices par niveau">
       {leaneLevels.map((level) => (
@@ -32,14 +32,15 @@ const slugify = (value: string) =>
           <div class="leane-card-grid leane-card-grid--courses">
             {level.courses.map((course) => {
               const href = `/leane/exercices/${level.id}-${slugify(course.title)}`;
+              const exerciseCount = getLeaneCourseExercises(level.id, course.title).length;
               return (
                 <a class="leane-course-card leane-exercise-choice" href={href}>
                   <span class="leane-chip">{level.title}</span>
                   <h2>{course.title}</h2>
                   <p>{course.focus}</p>
                   <div class="leane-progress-row">
-                    <strong>0 / 10</strong>
-                    <span>10 exercices</span>
+                    <strong>0 / {exerciseCount}</strong>
+                    <span>{exerciseCount} exercices</span>
                   </div>
                   <div class="leane-progress" aria-hidden="true">
                     <span style="width: 0%"></span>

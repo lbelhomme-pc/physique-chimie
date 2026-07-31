@@ -89,7 +89,7 @@ const deckCards = [
       <div class="leane-flash-heading">
         <div>
           <h1 id="leane-page-title">Flashcards — Maths essentielles</h1>
-          <p>Bases collège à consolider avant la première</p>
+          <p>Collège à consolider avant la première</p>
         </div>
         <button class="leane-flash-settings" type="button">
           <LeaneIcon name="settings" />
@@ -158,9 +158,6 @@ const deckCards = [
             >
               <span class="leane-flash-card__tag" data-flash-tag>{studyCards[0].tag}</span>
               <span class="leane-flash-card__counter" data-flash-counter>1 / {totalCards}</span>
-              <span class="leane-flash-card__symbol" aria-hidden="true">
-                <span></span><span></span><span></span><span></span>
-              </span>
               <strong data-flash-question>{studyCards[0].front}</strong>
               <span class="leane-flash-card__hint" data-flash-hint>Cliquer pour retourner la carte</span>
             </button>
@@ -246,9 +243,20 @@ const deckCards = [
 </BaseLayout>
 
 <script>
+  type StudyCard = {
+    id: string;
+    source: string;
+    tag: string;
+    level: string;
+    course: string;
+    front: string;
+    back: string;
+    filter: string;
+  };
+
   const dataNode = document.getElementById("leane-flash-study-data");
   const root = document.querySelector<HTMLElement>("[data-leane-flash-study]");
-  const cards = dataNode?.textContent ? JSON.parse(dataNode.textContent) : [];
+  const cards = (dataNode?.textContent ? JSON.parse(dataNode.textContent) : []) as StudyCard[];
 
   if (root && Array.isArray(cards) && cards.length > 0) {
     const cardButton = root.querySelector<HTMLButtonElement>("[data-flash-card]");
@@ -610,63 +618,6 @@ const deckCards = [
     font-size: 0.88rem;
     font-weight: 780;
     right: 1.1rem;
-  }
-
-  .leane-flash-card__symbol {
-    display: block;
-    height: 48px;
-    margin-bottom: 0.7rem;
-    position: relative;
-    width: 58px;
-  }
-
-  .leane-flash-card__symbol::before,
-  .leane-flash-card__symbol::after {
-    background: var(--flash-primary);
-    content: "";
-    height: 2px;
-    left: 21px;
-    position: absolute;
-    top: 25px;
-    transform-origin: left center;
-    width: 25px;
-  }
-
-  .leane-flash-card__symbol::before {
-    transform: rotate(32deg);
-  }
-
-  .leane-flash-card__symbol::after {
-    transform: rotate(-44deg);
-  }
-
-  .leane-flash-card__symbol span {
-    background: #ffffff;
-    border: 3px solid var(--flash-primary);
-    border-radius: 50%;
-    height: 13px;
-    position: absolute;
-    width: 13px;
-  }
-
-  .leane-flash-card__symbol span:nth-child(1) {
-    left: 20px;
-    top: 16px;
-  }
-
-  .leane-flash-card__symbol span:nth-child(2) {
-    left: 2px;
-    top: 30px;
-  }
-
-  .leane-flash-card__symbol span:nth-child(3) {
-    right: 4px;
-    top: 34px;
-  }
-
-  .leane-flash-card__symbol span:nth-child(4) {
-    right: 12px;
-    top: 3px;
   }
 
   .leane-flash-card strong {
