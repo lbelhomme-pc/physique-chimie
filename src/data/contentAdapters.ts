@@ -20,6 +20,7 @@ import {
   type SeoMetadata,
 } from "./contentContract.ts";
 import { buildChapterContentId, normalizeIdPart } from "../utils/contentIds.ts";
+import { PUBLISHED_CONTENT_SCHOOL_YEAR, resolveCurriculumVersion } from "./curriculumVersions.ts";
 
 type UnknownRecord = Record<string, unknown>;
 
@@ -260,6 +261,14 @@ function normalizeOfficialSource(value: unknown) {
   return id ? { id } : undefined;
 }
 
+function programmeSourceId(meta: UnknownRecord, sources: PedagogicalSource[]): string | undefined {
+  const programme = asString(meta.programme);
+  if (programme?.startsWith("bo-")) return programme;
+  const officialSource = asString(meta.officialSource);
+  if (officialSource) return officialSource;
+  return sources.find((source) => source.kind === "official")?.id;
+}
+
 function normalizeRelatedChapters(value: unknown): RelatedChapter[] {
   if (!Array.isArray(value)) return [];
   return value
@@ -426,6 +435,23 @@ export function normalizeChapterPackage(input: ChapterPackageInput): ContentCont
   const access = normalizeAccess(meta.access);
   const links = normalizeLinks(meta.links);
   const sources = normalizeSources(meta.sources, meta.officialSource);
+  const curriculumSourceId = programmeSourceId(meta, sources);
+  const resolvedProgrammeVersion = curriculumSourceId
+    ? resolveCurriculumVersion({
+        discipline: input.discipline,
+        cycle: input.cycle,
+        niveau: input.niveau,
+        schoolYear: PUBLISHED_CONTENT_SCHOOL_YEAR,
+        sourceId: curriculumSourceId,
+      })
+    : null;
+  if (!curriculumSourceId) {
+    messages.push(`${input.sourcePath} :: programmeVersion :: source officielle de programme manquante`);
+  } else if (!resolvedProgrammeVersion) {
+    messages.push(
+      `${input.sourcePath} :: programmeVersion :: ${curriculumSourceId} non applicable ou non enregistre pour ${PUBLISHED_CONTENT_SCHOOL_YEAR}`,
+    );
+  }
   const competences = normalizeCompetences(meta.competences ?? meta.competencies);
   const lessons = normalizeLessons(meta.lessons ?? meta.lecons);
   const blocks = normalizeBlocks(meta.blocks ?? meta.blocs);
@@ -433,7 +459,7 @@ export function normalizeChapterPackage(input: ChapterPackageInput): ContentCont
   if (prerequisites.length === 0) missingEditorialFields.push("prerequisites");
   if (meta.status === undefined) adaptedFields.push("publicationStatus:public-route->published");
 
-  if (messages.length > 0) {
+  if (messages.length > 0 || !resolvedProgrammeVersion) {
     return {
       package: null,
       errors: messages,
@@ -448,6 +474,18 @@ export function normalizeChapterPackage(input: ChapterPackageInput): ContentCont
     cycle: input.cycle,
     niveau: input.niveau,
     programme: programme ?? "non-renseigne",
+    programmeVersion: {
+      versionId: resolvedProgrammeVersion.id,
+      officialSourceId: resolvedProgrammeVersion.officialSourceId,
+      label: resolvedProgrammeVersion.label,
+      track: resolvedProgrammeVersion.track,
+      publishedOn: resolvedProgrammeVersion.publishedOn,
+      officialUrl: resolvedProgrammeVersion.officialUrl,
+      schoolYear: resolvedProgrammeVersion.schoolYear,
+      appliesFrom: resolvedProgrammeVersion.appliesFrom,
+      ...(resolvedProgrammeVersion.appliesUntil ? { appliesUntil: resolvedProgrammeVersion.appliesUntil } : {}),
+      applicable: true,
+    },
     slug: input.slug,
     title: title ?? input.slug,
     description: description ?? "Description non renseignee",
