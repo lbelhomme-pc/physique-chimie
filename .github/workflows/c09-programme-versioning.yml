@@ -1,0 +1,347 @@
+name: C09 programme versioning integration
+
+on:
+  push:
+    branches:
+      - audit-2026-c01-route-snapshot
+
+permissions:
+  contents: write
+
+jobs:
+  integrate-versioning:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: audit-2026-c01-route-snapshot
+          fetch-depth: 0
+
+      - name: Integrate curriculum version contract
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          contract_path = Path("src/data/contentContract.ts")
+          contract = contract_path.read_text(encoding="utf-8")
+
+          marker = 'export const PublicationStatusSchema = z.enum(["draft", "published", "archived"]);\n'
+          insertion = '''export const PublicationStatusSchema = z.enum(["draft", "published", "archived"]);\n\nexport const SchoolYearSchema = z.string().regex(/^\\d{4}-\\d{4}$/).superRefine((value, context) => {\n  const [start, end] = value.split("-").map(Number);\n  if (end !== start + 1) {\n    context.addIssue({\n      code: "custom",\n      message: "School year must contain consecutive years",\n    });\n  }\n});\n\nexport const ProgrammeVersionSchema = z.object({\n  versionId: z.string().min(1),\n  officialSourceId: z.string().min(1),\n  label: z.string().min(1),\n  track: z.string().min(1),\n  publishedOn: z.string().regex(/^\\d{4}-\\d{2}-\\d{2}$/),\n  officialUrl: z.url(),\n  schoolYear: SchoolYearSchema,\n  appliesFrom: SchoolYearSchema,\n  appliesUntil: SchoolYearSchema.optional(),\n  applicable: z.literal(true),\n}).superRefine((programme, context) => {\n  if (programme.appliesUntil && programme.appliesUntil < programme.appliesFrom) {\n    context.addIssue({\n      code: "custom",\n      path: ["appliesUntil"],\n      message: "Programme application end must not precede application start",\n    });\n  }\n  if (programme.schoolYear < programme.appliesFrom || (programme.appliesUntil && programme.schoolYear > programme.appliesUntil)) {\n    context.addIssue({\n      code: "custom",\n      path: ["schoolYear"],\n      message: "Programme is not applicable for the selected school year",\n    });\n  }\n});\n'''
+          if marker not in contract:
+              raise SystemExit("contentContract publication marker not found")
+          contract = contract.replace(marker, insertion, 1)
+
+          marker = '  programme: z.string().min(1),\n  slug: z.string().min(1),'
+          replacement = '  programme: z.string().min(1),\n  programmeVersion: ProgrammeVersionSchema,\n  slug: z.string().min(1),'
+          if marker not in contract:
+              raise SystemExit("ChapterContract programme marker not found")
+          contract = contract.replace(marker, replacement, 1)
+
+          marker = 'export type PublicationStatus = z.infer<typeof PublicationStatusSchema>;\nexport type AccessPolicy = z.infer<typeof AccessPolicySchema>;'
+          replacement = 'export type PublicationStatus = z.infer<typeof PublicationStatusSchema>;\nexport type SchoolYear = z.infer<typeof SchoolYearSchema>;\nexport type ProgrammeVersion = z.infer<typeof ProgrammeVersionSchema>;\nexport type AccessPolicy = z.infer<typeof AccessPolicySchema>;'
+          if marker not in contract:
+              raise SystemExit("contentContract type marker not found")
+          contract = contract.replace(marker, replacement, 1)
+          contract_path.write_text(contract, encoding="utf-8")
+
+          adapter_path = Path("src/data/contentAdapters.ts")
+          adapter = adapter_path.read_text(encoding="utf-8")
+
+          marker = 'import { buildChapterContentId, normalizeIdPart } from "../utils/contentIds.ts";\n'
+          replacement = 'import { buildChapterContentId, normalizeIdPart } from "../utils/contentIds.ts";\nimport { PUBLISHED_CONTENT_SCHOOL_YEAR, resolveCurriculumVersion } from "./curriculumVersions.ts";\n'
+          if marker not in adapter:
+              raise SystemExit("contentAdapters import marker not found")
+          adapter = adapter.replace(marker, replacement, 1)
+
+          marker = '''function normalizeOfficialSource(value: unknown) {\n  const id = asString(value);\n  return id ? { id } : undefined;\n}\n'''
+          replacement = '''function normalizeOfficialSource(value: unknown) {\n  const id = asString(value);\n  return id ? { id } : undefined;\n}\n\nfunction programmeSourceId(meta: UnknownRecord, sources: PedagogicalSource[]): string | undefined {\n  const programme = asString(meta.programme);\n  if (programme?.startsWith("bo-")) return programme;\n  const officialSource = asString(meta.officialSource);\n  if (officialSource) return officialSource;\n  return sources.find((source) => source.kind === "official")?.id;\n}\n'''
+          if marker not in adapter:
+              raise SystemExit("normalizeOfficialSource marker not found")
+          adapter = adapter.replace(marker, replacement, 1)
+
+          marker = '''  const sources = normalizeSources(meta.sources, meta.officialSource);\n  const competences = normalizeCompetences(meta.competences ?? meta.competencies);\n'''
+          replacement = '''  const sources = normalizeSources(meta.sources, meta.officialSource);\n  const curriculumSourceId = programmeSourceId(meta, sources);\n  const resolvedProgrammeVersion = curriculumSourceId\n    ? resolveCurriculumVersion({\n        discipline: input.discipline,\n        cycle: input.cycle,\n        niveau: input.niveau,\n        schoolYear: PUBLISHED_CONTENT_SCHOOL_YEAR,\n        sourceId: curriculumSourceId,\n      })\n    : null;\n  if (!curriculumSourceId) {\n    messages.push(`${input.sourcePath} :: programmeVersion :: source officielle de programme manquante`);\n  } else if (!resolvedProgrammeVersion) {\n    messages.push(\n      `${input.sourcePath} :: programmeVersion :: ${curriculumSourceId} non applicable ou non enregistre pour ${PUBLISHED_CONTENT_SCHOOL_YEAR}`,\n    );\n  }\n  const competences = normalizeCompetences(meta.competences ?? meta.competencies);\n'''
+          if marker not in adapter:
+              raise SystemExit("contentAdapters sources marker not found")
+          adapter = adapter.replace(marker, replacement, 1)
+
+          marker = '''  if (messages.length > 0) {\n    return {\n      package: null,\n      errors: messages,\n      warnings: missingEditorialFields.map((field) => `${input.sourcePath} :: ${field} :: donnee editoriale manquante`),\n    };\n  }\n\n  const chapter: ChapterContract = {\n'''
+          replacement = '''  if (messages.length > 0 || !resolvedProgrammeVersion) {\n    return {\n      package: null,\n      errors: messages,\n      warnings: missingEditorialFields.map((field) => `${input.sourcePath} :: ${field} :: donnee editoriale manquante`),\n    };\n  }\n\n  const chapter: ChapterContract = {\n'''
+          if marker not in adapter:
+              raise SystemExit("contentAdapters validation marker not found")
+          adapter = adapter.replace(marker, replacement, 1)
+
+          marker = '''    niveau: input.niveau,\n    programme: programme ?? "non-renseigne",\n    slug: input.slug,\n'''
+          replacement = '''    niveau: input.niveau,\n    programme: programme ?? "non-renseigne",\n    programmeVersion: {\n      versionId: resolvedProgrammeVersion.id,\n      officialSourceId: resolvedProgrammeVersion.officialSourceId,\n      label: resolvedProgrammeVersion.label,\n      track: resolvedProgrammeVersion.track,\n      publishedOn: resolvedProgrammeVersion.publishedOn,\n      officialUrl: resolvedProgrammeVersion.officialUrl,\n      schoolYear: resolvedProgrammeVersion.schoolYear,\n      appliesFrom: resolvedProgrammeVersion.appliesFrom,\n      ...(resolvedProgrammeVersion.appliesUntil ? { appliesUntil: resolvedProgrammeVersion.appliesUntil } : {}),\n      applicable: true,\n    },\n    slug: input.slug,\n'''
+          if marker not in adapter:
+              raise SystemExit("contentAdapters chapter marker not found")
+          adapter = adapter.replace(marker, replacement, 1)
+          adapter_path.write_text(adapter, encoding="utf-8")
+
+          facade_path = Path("src/content-model/index.ts")
+          facade = facade_path.read_text(encoding="utf-8")
+          export_line = 'export * from "../data/curriculumVersions.ts";\n'
+          if export_line not in facade:
+              facade += export_line
+          facade_path.write_text(facade, encoding="utf-8")
+          PY
+
+          cat > tests/curriculum-versions.test.mjs <<'EOF'
+          import { describe, it } from "node:test";
+          import assert from "node:assert/strict";
+          import { existsSync, readFileSync, readdirSync } from "node:fs";
+          import path from "node:path";
+          import {
+            CURRICULUM_VERSIONS,
+            PUBLISHED_CONTENT_SCHOOL_YEAR,
+            isSchoolYearInWindow,
+            parseSchoolYear,
+            resolveCurriculumVersion,
+          } from "../src/data/curriculumVersions.ts";
+          import { normalizeChapterPackage } from "../src/data/contentAdapters.ts";
+          import { ProgrammeVersionSchema, SchoolYearSchema } from "../src/data/contentContract.ts";
+
+          const root = process.cwd();
+
+          function resolve(input) {
+            const result = resolveCurriculumVersion(input);
+            assert.ok(result, JSON.stringify(input));
+            return result;
+          }
+
+          function walkMetaFiles(directory) {
+            if (!existsSync(directory)) return [];
+            const files = [];
+            for (const entry of readdirSync(directory, { withFileTypes: true })) {
+              const full = path.join(directory, entry.name);
+              if (entry.isDirectory()) files.push(...walkMetaFiles(full));
+              else if (entry.isFile() && entry.name === "meta.json") files.push(full);
+            }
+            return files;
+          }
+
+          function curriculumSourceId(meta) {
+            if (typeof meta.programme === "string" && meta.programme.startsWith("bo-")) return meta.programme;
+            if (typeof meta.officialSource === "string" && meta.officialSource.trim()) return meta.officialSource.trim();
+            return meta.sources?.find((source) => source?.kind === "official" && typeof source.id === "string")?.id;
+          }
+
+          function readJson(file) {
+            return JSON.parse(readFileSync(file, "utf8"));
+          }
+
+          function packageFor({ discipline, cycle, niveau, matiere, slug }) {
+            const directory = discipline === "mathematiques"
+              ? path.join(root, "src/data/mathematiques/chapters", cycle, niveau, slug)
+              : path.join(root, "src/data/chapters", cycle, niveau, matiere, slug);
+            const readOptional = (name) => {
+              const file = path.join(directory, name);
+              return existsSync(file) ? readJson(file) : undefined;
+            };
+            return normalizeChapterPackage({
+              sourcePath: path.relative(root, path.join(directory, "meta.json")).replaceAll("\\", "/"),
+              discipline,
+              cycle,
+              niveau,
+              ...(matiere ? { matiere } : {}),
+              slug,
+              meta: readJson(path.join(directory, "meta.json")),
+              coursePath: path.relative(root, path.join(directory, "cours.mdx")).replaceAll("\\", "/"),
+              coursePresent: existsSync(path.join(directory, "cours.mdx")),
+              courseFormat: "mdx",
+              exercices: readOptional("exercices.json"),
+              quiz: readOptional("quiz.json"),
+              flashcards: readOptional("flashcards.json"),
+            });
+          }
+
+          describe("C09 — versionnement des programmes officiels", () => {
+            it("valide strictement le format des annees scolaires", () => {
+              assert.deepEqual(parseSchoolYear("2026-2027"), { start: 2026, end: 2027 });
+              assert.equal(SchoolYearSchema.safeParse("2026-2027").success, true);
+              assert.equal(SchoolYearSchema.safeParse("2026-2028").success, false);
+              assert.equal(SchoolYearSchema.safeParse("2026").success, false);
+              assert.throws(() => parseSchoolYear("2026-2028"), /consecutive/);
+              assert.equal(isSchoolYearInWindow("2026-2027", { appliesFrom: "2026-2027" }), true);
+              assert.equal(isSchoolYearInWindow("2025-2026", { appliesFrom: "2026-2027" }), false);
+            });
+
+            it("applique progressivement le programme de mathematiques cycle 4 de 2026", () => {
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "college", niveau: "5eme", schoolYear: "2025-2026", sourceId: "bo-cycle4-mathematiques-2020" }).id, "mathematiques-cycle4-2020");
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "college", niveau: "5eme", schoolYear: "2026-2027", sourceId: "bo-cycle4-mathematiques-2026" }).id, "mathematiques-cycle4-2026");
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "college", niveau: "4eme", schoolYear: "2026-2027", sourceId: "bo-cycle4-mathematiques-2020" }).id, "mathematiques-cycle4-2020");
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "college", niveau: "4eme", schoolYear: "2027-2028", sourceId: "bo-cycle4-mathematiques-2026" }).id, "mathematiques-cycle4-2026");
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "college", niveau: "3eme", schoolYear: "2027-2028", sourceId: "bo-cycle4-mathematiques-2020" }).id, "mathematiques-cycle4-2020");
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "college", niveau: "3eme", schoolYear: "2028-2029", sourceId: "bo-cycle4-mathematiques-2026" }).id, "mathematiques-cycle4-2026");
+            });
+
+            it("maintient le programme Sciences et technologie 2023 en 6e jusqu en 2026-2027", () => {
+              assert.equal(resolve({ discipline: "physique-chimie", cycle: "college", niveau: "6eme", schoolYear: "2026-2027", sourceId: "bo-cycle3-sciences-technologie-2023" }).id, "sciences-technologie-cycle3-2023");
+              assert.equal(resolve({ discipline: "physique-chimie", cycle: "college", niveau: "6eme", schoolYear: "2027-2028", sourceId: "bo-cycle3-sciences-technologie-2026" }).id, "sciences-technologie-cycle3-2026");
+              assert.equal(resolveCurriculumVersion({ discipline: "physique-chimie", cycle: "college", niveau: "6eme", schoolYear: "2026-2027", sourceId: "bo-cycle3-sciences-technologie-2026" }), null);
+            });
+
+            it("bascule les mathematiques de seconde et de premiere a la rentree 2026", () => {
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "lycee", niveau: "2nde", schoolYear: "2025-2026", sourceId: "bo-2019-mathematiques-seconde-gt" }).id, "mathematiques-seconde-2019");
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "lycee", niveau: "2nde", schoolYear: "2026-2027", sourceId: "bo-2026-mathematiques-seconde-gt" }).id, "mathematiques-seconde-2026");
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "lycee", niveau: "1ere-spe", schoolYear: "2025-2026", sourceId: "bo-2019-mathematiques-premiere-specialite" }).id, "mathematiques-premiere-specialite-2019");
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "lycee", niveau: "1ere-spe", schoolYear: "2026-2027", sourceId: "bo-2026-mathematiques-premiere-specialite" }).id, "mathematiques-premiere-specialite-2026");
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "lycee", niveau: "1ere-ens-scientifique", schoolYear: "2026-2027", sourceId: "bo-2026-mathematiques-integrees-es-premiere" }).id, "mathematiques-integrees-es-premiere-2026");
+            });
+
+            it("ne bascule pas prematurement la terminale mathematique avant 2027-2028", () => {
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "lycee", niveau: "terminale-spe", schoolYear: "2026-2027", sourceId: "bo-2019-mathematiques-terminale-specialite" }).id, "mathematiques-terminale-specialite-2019");
+              assert.equal(resolveCurriculumVersion({ discipline: "mathematiques", cycle: "lycee", niveau: "terminale-spe", schoolYear: "2026-2027", sourceId: "bo-2026-mathematiques-terminale-specialite" }), null);
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "lycee", niveau: "terminale-spe", schoolYear: "2027-2028", sourceId: "bo-2026-mathematiques-terminale-specialite" }).id, "mathematiques-terminale-specialite-2026");
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "lycee", niveau: "terminale-complementaires", schoolYear: "2026-2027", sourceId: "bo-2019-mathematiques-complementaires-terminale" }).id, "mathematiques-complementaires-2019");
+              assert.equal(resolve({ discipline: "mathematiques", cycle: "lycee", niveau: "terminale-complementaires", schoolYear: "2027-2028", sourceId: "bo-2026-mathematiques-complementaires-terminale" }).id, "mathematiques-complementaires-2026");
+            });
+
+            it("garde les programmes Physique-Chimie et Enseignement scientifique actuellement applicables", () => {
+              assert.equal(resolve({ discipline: "physique-chimie", cycle: "college", niveau: "5eme", schoolYear: "2026-2027", sourceId: "bo-cycle4-physique-chimie-2020" }).id, "physique-chimie-cycle4-2020");
+              assert.equal(resolve({ discipline: "physique-chimie", cycle: "lycee", niveau: "2nde", schoolYear: "2026-2027", sourceId: "bo-lycee-pc-seconde" }).id, "physique-chimie-seconde-2019");
+              assert.equal(resolve({ discipline: "physique-chimie", cycle: "lycee", niveau: "1ere-spe", schoolYear: "2026-2027", sourceId: "bo-lycee-pc-premiere-specialite" }).id, "physique-chimie-premiere-specialite-2019");
+              assert.equal(resolve({ discipline: "physique-chimie", cycle: "lycee", niveau: "terminale-spe", schoolYear: "2026-2027", sourceId: "bo-lycee-pc-terminale-specialite" }).id, "physique-chimie-terminale-specialite-2019");
+              assert.equal(resolve({ discipline: "physique-chimie", cycle: "lycee", niveau: "1ere-ens-scientifique", schoolYear: "2026-2027", sourceId: "bo-enseignement-scientifique-premiere-2023" }).id, "enseignement-scientifique-premiere-2023");
+              assert.equal(resolve({ discipline: "physique-chimie", cycle: "lycee", niveau: "terminale-ens-scientifique", schoolYear: "2026-2027", sourceId: "bo-enseignement-scientifique-terminale-2023" }).id, "enseignement-scientifique-terminale-2023");
+            });
+
+            it("ne contient aucune fenetre d application invalide dans le registre", () => {
+              assert.ok(CURRICULUM_VERSIONS.length >= 20);
+              for (const definition of CURRICULUM_VERSIONS) {
+                for (const niveau of definition.niveaux) {
+                  const application = definition.applicationByLevel[niveau];
+                  assert.ok(application, `${definition.id}/${niveau}`);
+                  assert.doesNotThrow(() => parseSchoolYear(application.appliesFrom), `${definition.id}/${niveau}`);
+                  if (application.appliesUntil) {
+                    assert.doesNotThrow(() => parseSchoolYear(application.appliesUntil), `${definition.id}/${niveau}`);
+                    assert.ok(application.appliesUntil >= application.appliesFrom, `${definition.id}/${niveau}`);
+                  }
+                }
+              }
+            });
+
+            it("versionne tout le corpus actuellement publie pour 2026-2027", () => {
+              const roots = [
+                { directory: path.join(root, "src/data/chapters"), discipline: "physique-chimie" },
+                { directory: path.join(root, "src/data/mathematiques/chapters"), discipline: "mathematiques" },
+              ];
+              const records = roots.flatMap(({ directory, discipline }) =>
+                walkMetaFiles(directory).map((file) => ({ file, discipline })),
+              );
+              assert.ok(records.length >= 112, `corpus detecte: ${records.length}`);
+
+              for (const record of records) {
+                const meta = readJson(record.file);
+                const sourceId = curriculumSourceId(meta);
+                assert.ok(sourceId, `${record.file}: source officielle manquante`);
+                const cycle = record.file.includes(`${path.sep}college${path.sep}`) ? "college" : "lycee";
+                const version = resolveCurriculumVersion({
+                  discipline: record.discipline,
+                  cycle,
+                  niveau: meta.niveau,
+                  schoolYear: PUBLISHED_CONTENT_SCHOOL_YEAR,
+                  sourceId,
+                });
+                assert.ok(version, `${record.file}: ${sourceId} non versionne pour ${PUBLISHED_CONTENT_SCHOOL_YEAR}`);
+              }
+            });
+
+            it("injecte programmeVersion dans le contrat normalise sans changer les canoniques", () => {
+              const cases = [
+                {
+                  input: { discipline: "physique-chimie", cycle: "college", niveau: "6eme", matiere: "chimie", slug: "etats-proprietes-matiere" },
+                  versionId: "sciences-technologie-cycle3-2023",
+                  canonical: "/college/6eme/chimie/etats-proprietes-matiere",
+                },
+                {
+                  input: { discipline: "physique-chimie", cycle: "college", niveau: "5eme", matiere: "chimie", slug: "melanges-dissolution" },
+                  versionId: "physique-chimie-cycle4-2020",
+                  canonical: "/college/5eme/chimie/melanges-dissolution",
+                },
+                {
+                  input: { discipline: "mathematiques", cycle: "lycee", niveau: "2nde", slug: "arithmetique-ensembles-logique" },
+                  versionId: "mathematiques-seconde-2026",
+                  canonical: "/mathematiques/lycee/2nde/arithmetique-ensembles-logique",
+                },
+              ];
+
+              for (const item of cases) {
+                const result = packageFor(item.input);
+                assert.equal(result.errors.length, 0, JSON.stringify(result.errors));
+                assert.ok(result.package, JSON.stringify(item.input));
+                const version = result.package.chapter.programmeVersion;
+                assert.equal(version.versionId, item.versionId);
+                assert.equal(version.schoolYear, PUBLISHED_CONTENT_SCHOOL_YEAR);
+                assert.equal(version.applicable, true);
+                assert.equal(ProgrammeVersionSchema.safeParse(version).success, true);
+                assert.equal(result.package.chapter.seo.canonical, item.canonical);
+              }
+            });
+          });
+          EOF
+
+          mkdir -p docs/programmes
+          cat > docs/programmes/versionnement.md <<'EOF'
+          # Versionnement des programmes scolaires
+
+          Ce document décrit le contrat introduit par la mission C09. Le site ne déduit jamais le programme applicable depuis l'année civile courante : le corpus publié est explicitement ciblé sur l'année scolaire `2026-2027` via `PUBLISHED_CONTENT_SCHOOL_YEAR`.
+
+          ## Principe
+
+          `src/data/curriculumVersions.ts` est le registre autoritatif des versions de programmes. Chaque entrée associe une discipline, un cycle, un parcours, un ou plusieurs niveaux, une source officielle et une fenêtre d'application par niveau.
+
+          Lors de la normalisation d'un chapitre, `src/data/contentAdapters.ts` récupère son identifiant de source officielle et résout la version applicable pour l'année scolaire cible. Le contrat `ChapterContract` expose cette information dans `programmeVersion`. Une source absente du registre ou non applicable à l'année scolaire cible rend le chapitre bloquant au contrôle de contenu.
+
+          Le champ historique `programme` reste conservé pour compatibilité éditoriale ; il ne doit plus être utilisé pour décider de l'applicabilité réglementaire d'un contenu.
+
+          ## Transitions enregistrées
+
+          | Enseignement / niveau | Dernière année de l'ancien programme | Première année du nouveau programme |
+          | --- | --- | --- |
+          | Mathématiques cycle 4 — 5e | 2025-2026 | 2026-2027 |
+          | Mathématiques cycle 4 — 4e | 2026-2027 | 2027-2028 |
+          | Mathématiques cycle 4 — 3e | 2027-2028 | 2028-2029 |
+          | Sciences et technologie — 6e | 2026-2027 (programme 2023) | 2027-2028 (programme 2026) |
+          | Mathématiques — Seconde GT | 2025-2026 | 2026-2027 |
+          | Mathématiques — Première spécialité | 2025-2026 | 2026-2027 |
+          | Mathématiques intégrées à l'enseignement scientifique — Première | 2025-2026 | 2026-2027 |
+          | Mathématiques — Terminale spécialité | 2026-2027 | 2027-2028 |
+          | Mathématiques complémentaires — Terminale | 2026-2027 | 2027-2028 |
+
+          Les programmes de Physique-Chimie du cycle 4 et du lycée actuellement présents dans le site restent rattachés à leurs versions 2020/2019 tant qu'aucun texte officiel ne les remplace. L'Enseignement scientifique reste rattaché aux programmes 2023 actuellement utilisés par le corpus.
+
+          L'enregistrement d'une version future dans le registre n'implique pas que les contenus correspondants sont déjà publiés. Les missions de couverture de contenu restent indépendantes.
+
+          ## Invariants CI
+
+          `tests/curriculum-versions.test.mjs` vérifie les dates charnières, le format des années scolaires, l'absence de fenêtres invalides, la résolution de tout le corpus publié et l'injection de `programmeVersion` dans le contrat normalisé. Les routes, slugs, canoniques et identifiants de progression ne dépendent pas du versionnement et ne doivent pas être modifiés par ce mécanisme.
+          EOF
+
+      - name: Validate C09 source diff
+        shell: bash
+        run: |
+          test -f src/data/curriculumVersions.ts
+          test -f tests/curriculum-versions.test.mjs
+          test -f docs/programmes/versionnement.md
+          grep -q 'programmeVersion: ProgrammeVersionSchema' src/data/contentContract.ts
+          grep -q 'resolveCurriculumVersion' src/data/contentAdapters.ts
+          grep -q 'curriculumVersions.ts' src/content-model/index.ts
+          git diff --check
+
+      - name: Commit C09 integration and remove temporary workflow
+        shell: bash
+        run: |
+          rm .github/workflows/c09-programme-versioning.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/contentContract.ts src/data/contentAdapters.ts src/content-model/index.ts src/data/curriculumVersions.ts tests/curriculum-versions.test.mjs docs/programmes/versionnement.md .github/workflows/c09-programme-versioning.yml
+          if git diff --cached --quiet; then
+            echo "No C09 changes to commit"
+            exit 1
+          fi
+          git commit -m "C09: version curricula by school year"
+          git push origin HEAD:audit-2026-c01-route-snapshot
