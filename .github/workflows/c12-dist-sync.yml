@@ -1,0 +1,35 @@
+name: C12 dist snapshot sync
+
+on:
+  push:
+    branches:
+      - audit-2026-c01-route-snapshot
+    paths:
+      - .github/workflows/c12-dist-sync.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit-2026-c01-route-snapshot
+          fetch-depth: 0
+      - name: Synchronize C12 dist fixtures
+        run: python scripts/c12-sync-dist.py
+      - name: Validate fixtures
+        run: |
+          python -m json.tool tests/fixtures/dist-routes.snapshot.json >/dev/null
+          python -m json.tool tests/fixtures/dist-audit.config.json >/dev/null
+          git diff --check
+      - name: Commit synchronized fixtures
+        run: |
+          git rm .github/workflows/c12-dist-sync.yml scripts/c12-sync-dist.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "C12: sync dist audit with canonical PC routes"
+          git push origin HEAD:audit-2026-c01-route-snapshot
