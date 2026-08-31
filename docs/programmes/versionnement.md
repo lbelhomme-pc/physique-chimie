@@ -28,6 +28,10 @@ Les programmes de Physique-Chimie du cycle 4 et du lycée actuellement présents
 
 L'enregistrement d'une version future dans le registre n'implique pas que les contenus correspondants sont déjà publiés. Les missions de couverture de contenu restent indépendantes.
 
+## Références réglementaires de transition
+
+Les bornes du registre sont rattachées aux textes ministériels : BO n° 10 du 5 mars 2026 pour le déploiement progressif des mathématiques au cycle 4, BO n° 24 du 11 juin 2026 pour le nouveau programme de Sciences et technologie du cycle 3, et BO n° 14 du 2 avril 2026 pour les nouveaux programmes de mathématiques du lycée. Les URL exactes de ces textes ainsi que celles des programmes encore applicables sont conservées dans `CURRICULUM_VERSIONS`.
+
 ## Invariants CI
 
 `tests/curriculum-versions.test.mjs` vérifie les dates charnières, le format des années scolaires, l'absence de fenêtres invalides, la résolution de tout le corpus publié et l'injection de `programmeVersion` dans le contrat normalisé. Les routes, slugs, canoniques et identifiants de progression ne dépendent pas du versionnement et ne doivent pas être modifiés par ce mécanisme.
