@@ -1,216 +1,206 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import V3LandingHero from "../../components/home/V3LandingHero.astro";
+import { disciplineIdentities, getDisciplineStyle } from "../../data/disciplineIdentity";
+import {
+  physiqueChimieLyceeTracks,
+  physiqueChimieMainNavigation,
+  physiqueChimieResourceNavigation,
+} from "../../data/physiqueChimie/navigation";
+
+const pcIdentity = disciplineIdentities["physique-chimie"];
 ---
 
 <BaseLayout
-  title="Physique-Chimie — Collège et lycée"
-  description="Accéder aux cours de Physique-Chimie du collège au lycée, y compris les parcours d’Enseignement scientifique au lycée."
+  title="Physique-Chimie - Espace pédagogique"
+  description="Espace Physique-Chimie du site : Sciences et technologie en 6e, Physique-Chimie au cycle 4 et parcours du lycée, dont l’Enseignement scientifique."
+  canonical="/physique-chimie"
   subject="physique-chimie"
 >
-  <main class="pc-portal">
-    <header class="pc-portal__hero">
-      <p class="pc-portal__eyebrow">Physique-Chimie</p>
-      <h1>Explorer la Physique-Chimie du collège au lycée</h1>
-      <p>
-        Choisis ton niveau puis ton parcours. Au lycée, l’<strong>Enseignement scientifique</strong>
-        fait partie de cet espace, aux côtés de la Seconde et de la spécialité Physique-Chimie.
-      </p>
-    </header>
+  <div class="v3-landing-page v3-landing-page--pc pc-shell">
+    <V3LandingHero
+      tone="pc"
+      eyebrow="Physique-Chimie"
+      mark={pcIdentity.mark}
+      markLabel={pcIdentity.iconLabel}
+      title="Comprendre la Physique-Chimie"
+      description="Des cours structurés, des exercices, des outils et des simulations pour observer, expérimenter, raisonner et modéliser du collège au lycée."
+      actions={[
+        { label: "Accéder au collège", href: "/college" },
+        { label: "Accéder au lycée", href: "/lycee", variant: "secondary" },
+      ]}
+      stats={[
+        { value: physiqueChimieMainNavigation.length, label: "cycles scolaires" },
+        { value: physiqueChimieLyceeTracks.length, label: "parcours lycée" },
+      ]}
+      imageAlt="Espace de travail de Physique-Chimie associant verrerie, mesures et représentations scientifiques."
+    />
 
-    <section aria-labelledby="pc-college-title" class="pc-portal__section">
-      <div>
-        <p class="pc-portal__kicker">Collège</p>
-        <h2 id="pc-college-title">Physique-Chimie au collège</h2>
-        <p>Cours, exercices, quiz, flashcards et activités du collège.</p>
-      </div>
-      <a class="pc-portal__primary" href="/college">Voir les niveaux du collège</a>
-    </section>
+    <div class="v3-landing-content">
+      <section class="v3-landing-section" aria-labelledby="pc-main-access">
+        <div class="v3-landing-section-header">
+          <div>
+            <p>Choisir son parcours</p>
+            <h2 id="pc-main-access">Collège ou lycée</h2>
+          </div>
+          <span>Retrouve les niveaux puis les chapitres dans l’ordre du programme applicable.</span>
+        </div>
 
-    <section aria-labelledby="pc-lycee-title" class="pc-portal__section pc-portal__section--lycee">
-      <div>
-        <p class="pc-portal__kicker">Lycée</p>
-        <h2 id="pc-lycee-title">Parcours de Physique-Chimie au lycée</h2>
-        <p>
-          Les parcours restent nommés explicitement pour que chaque élève retrouve son enseignement,
-          mais ils appartiennent tous au même espace Physique-Chimie.
-        </p>
-      </div>
-      <a class="pc-portal__primary" href="/lycee">Voir tous les parcours du lycée</a>
+        <div class="pc-cycle-grid v3-landing-grid">
+          {physiqueChimieMainNavigation.map((resource) => (
+            <a
+              class="pc-cycle-card v3-landing-card"
+              href={resource.href}
+              data-discipline={pcIdentity.id}
+              style={getDisciplineStyle(pcIdentity)}
+            >
+              <span class="pc-cycle-card__title">
+                <strong>{resource.title}</strong>
+                <span aria-hidden="true">→</span>
+              </span>
+              <span class="pc-cycle-card__description">{resource.description}</span>
+              <span class="pc-cycle-card__status">Disponible</span>
+            </a>
+          ))}
+        </div>
+      </section>
 
-      <div class="pc-portal__grid">
-        <a href="/lycee/2nde">
-          <strong>Seconde</strong>
-          <span>Physique-Chimie</span>
-        </a>
-        <a href="/lycee/1ere-spe">
-          <strong>Première</strong>
-          <span>Spécialité Physique-Chimie</span>
-        </a>
-        <a href="/lycee/1ere-ens-scientifique">
-          <strong>Première</strong>
-          <span>Enseignement scientifique</span>
-        </a>
-        <a href="/lycee/terminale-spe">
-          <strong>Terminale</strong>
-          <span>Spécialité Physique-Chimie</span>
-        </a>
-        <a href="/lycee/terminale-ens-scientifique">
-          <strong>Terminale</strong>
-          <span>Enseignement scientifique</span>
-        </a>
-      </div>
-    </section>
+      <section class="v3-landing-section" aria-labelledby="pc-lycee-tracks">
+        <div class="v3-landing-section-header">
+          <div>
+            <p>Parcours lycée</p>
+            <h2 id="pc-lycee-tracks">Physique-Chimie et Enseignement scientifique</h2>
+          </div>
+          <span>L’Enseignement scientifique reste un parcours identifié à l’intérieur de l’espace Physique-Chimie.</span>
+        </div>
 
-    <section class="pc-portal__resources" aria-labelledby="pc-resources-title">
-      <div>
-        <h2 id="pc-resources-title">Expérimenter et réviser</h2>
-        <p>Retrouve les outils scientifiques, les simulations et les ressources de mémorisation.</p>
-      </div>
-      <nav aria-label="Ressources Physique-Chimie">
-        <a href="/laboratoire">Laboratoire virtuel</a>
-        <a href="/outils-methodes">Outils et méthodes</a>
-        <a href="/memorisation">Mémorisation</a>
-      </nav>
-    </section>
-  </main>
+        <ul class="pc-track-grid" aria-label="Parcours Physique-Chimie au lycée">
+          {physiqueChimieLyceeTracks.map((track) => (
+            <li>
+              <a href={track.href}>
+                <strong>{track.title}</strong>
+                <span>{track.description}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="v3-landing-section" aria-labelledby="pc-resources-title">
+        <div class="v3-landing-section-header">
+          <div>
+            <p>Ressources scientifiques</p>
+            <h2 id="pc-resources-title">Expérimenter et réviser</h2>
+          </div>
+          <span>Les simulations sont réservées aux situations où l’interactivité apporte une vraie valeur pédagogique.</span>
+        </div>
+
+        <ul class="pc-resource-grid" aria-label="Ressources Physique-Chimie">
+          {physiqueChimieResourceNavigation.map((resource) => (
+            <li>
+              <a href={resource.href}>
+                <strong>{resource.title}</strong>
+                <span>{resource.description}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+  </div>
 </BaseLayout>
 
 <style>
-  .pc-portal {
-    display: grid;
-    gap: 1.25rem;
-    margin: 0 auto;
-    max-width: 1080px;
-    padding: clamp(1.25rem, 3vw, 2.5rem) 1rem 3rem;
-  }
-
-  .pc-portal__hero,
-  .pc-portal__section,
-  .pc-portal__resources {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
-    padding: clamp(1.25rem, 3vw, 2rem);
-  }
-
-  .pc-portal__hero {
-    border-top: 5px solid var(--v3-color-discipline-pc);
-  }
-
-  .pc-portal__eyebrow,
-  .pc-portal__kicker {
-    color: var(--v3-color-discipline-pc);
-    font-size: 0.8rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    margin: 0 0 0.45rem;
-    text-transform: uppercase;
-  }
-
-  .pc-portal h1,
-  .pc-portal h2 {
-    color: var(--text-primary);
-    letter-spacing: 0;
+  .pc-shell {
     margin: 0;
+    max-width: none;
+    padding: 0;
   }
 
-  .pc-portal h1 {
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    line-height: 1.05;
-    max-width: 18ch;
-  }
-
-  .pc-portal h2 {
-    font-size: clamp(1.3rem, 3vw, 1.75rem);
-  }
-
-  .pc-portal p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0.65rem 0 0;
-    max-width: 72ch;
-  }
-
-  .pc-portal__section {
-    display: grid;
-    gap: 1.1rem;
-  }
-
-  .pc-portal__primary,
-  .pc-portal__resources a {
-    align-items: center;
-    border-radius: var(--radius-pill);
-    display: inline-flex;
-    font-weight: 850;
-    min-height: 44px;
-    padding: 0.55rem 0.9rem;
-    text-decoration: none;
-  }
-
-  .pc-portal__primary {
-    background: var(--v3-color-discipline-pc);
-    color: #fff;
-    justify-self: start;
-  }
-
-  .pc-portal__grid {
-    display: grid;
-    gap: 0.75rem;
+  .pc-cycle-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .pc-portal__grid a {
-    background: var(--bg-secondary);
+  .pc-cycle-card {
+    color: var(--text-primary);
+    display: grid;
+    gap: 0.7rem;
+    min-height: 150px;
+    text-decoration: none;
+  }
+
+  .pc-cycle-card__title {
+    align-items: center;
+    display: flex;
+    font-size: 1.2rem;
+    gap: 0.75rem;
+    justify-content: space-between;
+  }
+
+  .pc-cycle-card__description,
+  .pc-track-grid a span,
+  .pc-resource-grid a span {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .pc-cycle-card__status {
+    align-self: end;
+    background: var(--discipline-surface);
+    border: 1px solid var(--discipline-border);
+    border-radius: var(--radius-pill);
+    color: var(--discipline-accent);
+    font-size: 0.78rem;
+    font-weight: 900;
+    justify-self: start;
+    padding: 0.28rem 0.65rem;
+  }
+
+  .pc-track-grid,
+  .pc-resource-grid {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pc-resource-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pc-track-grid a,
+  .pc-resource-grid a {
+    background: var(--bg-card);
     border: 1px solid var(--border-color);
+    border-left: 4px solid var(--v3-color-discipline-pc);
     border-radius: var(--radius-md);
     color: var(--text-primary);
     display: grid;
-    gap: 0.2rem;
-    min-height: 88px;
+    gap: 0.45rem;
+    height: 100%;
+    min-height: 112px;
     padding: 1rem;
     text-decoration: none;
   }
 
-  .pc-portal__grid a:has(span:last-child:is(:not(:empty))) span {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+  .pc-cycle-card:hover,
+  .pc-cycle-card:focus-visible,
+  .pc-track-grid a:hover,
+  .pc-track-grid a:focus-visible,
+  .pc-resource-grid a:hover,
+  .pc-resource-grid a:focus-visible {
+    border-color: var(--v3-color-discipline-pc);
+    box-shadow: var(--v3-shadow-focus);
+    outline: none;
   }
 
-  .pc-portal__resources {
-    align-items: center;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
-
-  .pc-portal__resources nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-    justify-content: flex-end;
-  }
-
-  .pc-portal__resources a {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-  }
-
-  .pc-portal a:hover,
-  .pc-portal a:focus-visible {
-    outline: 3px solid color-mix(in srgb, var(--v3-color-discipline-pc) 35%, transparent);
-    outline-offset: 2px;
-  }
-
-  @media (max-width: 720px) {
-    .pc-portal__grid,
-    .pc-portal__resources {
+  @media (max-width: 760px) {
+    .pc-cycle-grid,
+    .pc-track-grid,
+    .pc-resource-grid {
       grid-template-columns: 1fr;
-    }
-
-    .pc-portal__resources nav {
-      justify-content: flex-start;
     }
   }
 </style>
