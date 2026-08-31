@@ -4,7 +4,10 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { normalizeChapterPackage } from "../src/data/contentAdapters.ts";
 import { auditContentContracts } from "../src/data/contentContractAudit.ts";
-import { getDisciplineFromLevelSlug } from "../src/data/disciplineIdentity.ts";
+import {
+  getDisciplineFromLevelSlug,
+  getPhysiqueChimieTrackFromLevelSlug,
+} from "../src/data/disciplineIdentity.ts";
 
 const root = process.cwd();
 const targetRoots = [
@@ -77,11 +80,14 @@ function packageFor(key) {
 }
 
 describe("enseignement scientifique V3", () => {
-  it("couvre les routes ES premiere et terminale sans absorber la PC specialite", () => {
+  it("reste un parcours identifie dans la discipline parente Physique-Chimie", () => {
     const keys = chapterKeys();
     assert.equal(keys.length, 16);
-    assert.equal(getDisciplineFromLevelSlug("1ere-ens-scientifique"), "enseignement-scientifique");
-    assert.equal(getDisciplineFromLevelSlug("terminale-ens-scientifique"), "enseignement-scientifique");
+    assert.equal(getDisciplineFromLevelSlug("1ere-ens-scientifique"), "physique-chimie");
+    assert.equal(getDisciplineFromLevelSlug("terminale-ens-scientifique"), "physique-chimie");
+    assert.equal(getPhysiqueChimieTrackFromLevelSlug("1ere-ens-scientifique"), "enseignement-scientifique");
+    assert.equal(getPhysiqueChimieTrackFromLevelSlug("terminale-ens-scientifique"), "enseignement-scientifique");
+    assert.equal(getPhysiqueChimieTrackFromLevelSlug("1ere-spe"), "physique-chimie");
 
     for (const target of targetRoots) {
       assert.equal(keys.filter((key) => key.niveau === target.niveau && key.matiere === target.matiere).length, target.count);
@@ -102,7 +108,7 @@ describe("enseignement scientifique V3", () => {
     }
   });
 
-  it("donne une identite ES autonome aux meta.json", () => {
+  it("conserve l identite de parcours ES dans les meta.json", () => {
     for (const key of chapterKeys()) {
       const meta = readJson(path.join(chapterDir(key), "meta.json"));
       assert.equal(meta.disciplineIdentity, "enseignement-scientifique", key.slug);
@@ -183,7 +189,8 @@ describe("enseignement scientifique V3", () => {
 
   it("branche l experience ES visible sur les pages chapitre et retire les champs manquants du lot", () => {
     const chapterPage = readFileSync(path.join(root, "src/pages/lycee/[niveau]/[matiere]/[chapitre].astro"), "utf8");
-    assert.match(chapterPage, /getDisciplineFromLevelSlug/);
+    assert.match(chapterPage, /getPhysiqueChimieTrackFromLevelSlug/);
+    assert.match(chapterPage, /parentDiscipline/);
     assert.match(chapterPage, /isTeachingScience/);
     assert.match(chapterPage, /subjectDisplayLabel/);
     assert.match(chapterPage, /badges=\{isTeachingScience/);
