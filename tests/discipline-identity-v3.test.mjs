@@ -67,8 +67,8 @@ test("public navigation folds Enseignement scientifique into Physique-Chimie", (
   const pcPortal = readFileSync(files.pcPortal, "utf8");
 
   assert.match(publicMenu, /title:\s*"Physique-Chimie"/);
-  assert.match(publicMenu, /1re — Enseignement scientifique/);
-  assert.match(publicMenu, /Terminale — Enseignement scientifique/);
+  assert.doesNotMatch(publicMenu, /1re — Enseignement scientifique/);
+  assert.doesNotMatch(publicMenu, /Terminale — Enseignement scientifique/);
   assert.doesNotMatch(publicMenu, /discipline:\s*"enseignement-scientifique"/);
 
   assert.match(home, /Deux matières, une seule expérience/);
@@ -80,6 +80,7 @@ test("public navigation folds Enseignement scientifique into Physique-Chimie", (
   assert.match(lycee, /data-track=\{level\.trackId\}/);
   assert.match(lycee, /La discipline parente reste Physique-Chimie/);
   assert.match(pcPortal, /Enseignement scientifique/);
+  assert.match(pcPortal, /physiqueChimieLyceeTracks/);
 });
 
 test("a11y color review: public discipline information is never color-only", () => {
