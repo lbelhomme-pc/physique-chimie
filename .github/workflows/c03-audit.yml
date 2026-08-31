@@ -6,11 +6,10 @@ on:
       - audit-2026-c01-route-snapshot
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   npm-audit:
-    if: "${{ github.event.head_commit.message != 'C03: apply non-breaking dependency fixes' }}"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -26,28 +25,24 @@ jobs:
       - name: Install locked dependencies
         run: npm ci
 
-      - name: Apply non-breaking audit fixes
-        if: "${{ github.event.head_commit.message == 'C03: fix temporary audit workflow' }}"
-        run: npm audit fix --package-lock-only || true
-
-      - name: Commit lockfile fixes
-        if: "${{ github.event.head_commit.message == 'C03: fix temporary audit workflow' }}"
+      - name: Inspect Astro 7 package compatibility
         shell: bash
         run: |
-          if git diff --quiet -- package-lock.json; then
-            echo 'No package-lock changes produced.'
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add package-lock.json
-          git commit -m 'C03: apply non-breaking dependency fixes'
-          git push origin HEAD:audit-2026-c01-route-snapshot
+          echo '--- astro@7.2.9 ---'
+          npm view astro@7.2.9 version engines peerDependencies
+          echo '--- @astrojs/mdx@7.0.8 ---'
+          npm view @astrojs/mdx@7.0.8 version engines peerDependencies
+          echo '--- @astrojs/react@6.0.4 ---'
+          npm view @astrojs/react@6.0.4 version engines peerDependencies
+          echo '--- @astrojs/sitemap@3.7.3 ---'
+          npm view @astrojs/sitemap@3.7.3 version engines peerDependencies
+          echo '--- @astrojs/check@0.9.10 ---'
+          npm view @astrojs/check@0.9.10 version engines peerDependencies
 
-      - name: Print npm audit report
+      - name: Print current npm audit summary
         shell: bash
         run: |
           set +e
           npm audit --json > npm-audit.json
-          cat npm-audit.json
+          node -e "const r=require('./npm-audit.json'); console.log(JSON.stringify(r.metadata.vulnerabilities, null, 2));"
           exit 0
