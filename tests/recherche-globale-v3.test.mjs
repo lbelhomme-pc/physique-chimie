@@ -103,7 +103,7 @@ describe("Recherche globale V3", () => {
     );
   });
 
-  it("expose une combobox accessible et des resultats scannables", () => {
+  it("expose une combobox accessible avec seulement deux disciplines publiques", () => {
     assert.match(componentSource, /role="combobox"/);
     assert.match(componentSource, /aria-controls="global-search-results"/);
     assert.match(componentSource, /"listbox"/);
@@ -112,6 +112,9 @@ describe("Recherche globale V3", () => {
     assert.match(componentSource, /Filtrer par discipline/);
     assert.match(componentSource, /Filtrer par cycle/);
     assert.match(componentSource, /Filtrer par acces/);
+    assert.match(componentSource, /id: "mathematiques", label: "Mathématiques"/);
+    assert.match(componentSource, /id: "physique-chimie", label: "Physique-Chimie"/);
+    assert.doesNotMatch(componentSource, /\{ id: "enseignement-scientifique", label: "Enseignement scientifique"/);
     assert.match(componentSource, /Suggestions de recherche/);
     assert.match(componentSource, /Effacer la recherche/);
     assert.match(componentSource, /<fieldset>/);
