@@ -6,10 +6,11 @@ on:
       - audit-2026-c01-route-snapshot
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   npm-audit:
+    if: github.event.head_commit.message != 'C03: apply non-breaking dependency fixes'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -25,11 +26,28 @@ jobs:
       - name: Install locked dependencies
         run: npm ci
 
+      - name: Apply non-breaking audit fixes
+        if: github.event.head_commit.message == 'C03: prepare non-breaking dependency fixes'
+        run: npm audit fix --package-lock-only
+
+      - name: Commit lockfile fixes
+        if: github.event.head_commit.message == 'C03: prepare non-breaking dependency fixes'
+        shell: bash
+        run: |
+          if git diff --quiet -- package-lock.json; then
+            echo 'No package-lock changes produced.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add package-lock.json
+          git commit -m 'C03: apply non-breaking dependency fixes'
+          git push origin HEAD:audit-2026-c01-route-snapshot
+
       - name: Print npm audit report
         shell: bash
         run: |
           set +e
           npm audit --json > npm-audit.json
-          code=$?
           cat npm-audit.json
           exit 0
