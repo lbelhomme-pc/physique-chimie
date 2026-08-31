@@ -1,4 +1,4 @@
-name: C03 dependency audit
+name: C03 Astro 7 preflight
 
 on:
   push:
@@ -9,9 +9,10 @@ permissions:
   contents: read
 
 jobs:
-  npm-audit:
+  astro7-preflight:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,30 +20,38 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 22.12.0
           cache: npm
 
-      - name: Install locked dependencies
+      - name: Install current locked dependencies
         run: npm ci
 
-      - name: Inspect Astro 7 package compatibility
+      - name: Prepare Astro 7 dependency set
         shell: bash
         run: |
-          echo '--- astro@7.2.9 ---'
-          npm view astro@7.2.9 version engines peerDependencies
-          echo '--- @astrojs/mdx@7.0.8 ---'
-          npm view @astrojs/mdx@7.0.8 version engines peerDependencies
-          echo '--- @astrojs/react@6.0.4 ---'
-          npm view @astrojs/react@6.0.4 version engines peerDependencies
-          echo '--- @astrojs/sitemap@3.7.3 ---'
-          npm view @astrojs/sitemap@3.7.3 version engines peerDependencies
-          echo '--- @astrojs/check@0.9.10 ---'
-          npm view @astrojs/check@0.9.10 version engines peerDependencies
+          npm pkg set engines.node='>=22.12.0'
+          npm pkg set dependencies.astro='^7.2.9'
+          npm pkg set dependencies.'@astrojs/mdx'='^7.0.8'
+          npm pkg set dependencies.'@astrojs/react'='^6.0.4'
+          npm pkg set dependencies.'@astrojs/sitemap'='^3.7.3'
+          npm pkg set devDependencies.'@astrojs/check'='^0.9.10'
+          npm install
 
-      - name: Print current npm audit summary
+      - name: Audit candidate dependency graph
         shell: bash
         run: |
-          set +e
-          npm audit --json > npm-audit.json
-          node -e "const r=require('./npm-audit.json'); console.log(JSON.stringify(r.metadata.vulnerabilities, null, 2));"
-          exit 0
+          npm audit --json > npm-audit.json || true
+          node - <<'NODE'
+          const fs = require('fs');
+          const report = JSON.parse(fs.readFileSync('npm-audit.json', 'utf8'));
+          console.log('AUDIT_CANDIDATE', JSON.stringify(report.metadata?.vulnerabilities ?? {}));
+          for (const [name, item] of Object.entries(report.vulnerabilities ?? {})) {
+            console.log(`VULN_CANDIDATE ${name} severity=${item.severity} range=${item.range}`);
+          }
+          NODE
+
+      - name: Astro check with candidate graph
+        run: npm run check
+
+      - name: Production build with candidate graph
+        run: npm run build
