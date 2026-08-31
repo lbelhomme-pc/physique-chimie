@@ -1,0 +1,137 @@
+name: C12 sync canonical PC routes
+
+on:
+  push:
+    branches: [audit-2026-c01-route-snapshot]
+    paths: [.github/workflows/c12-sync.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit-2026-c01-route-snapshot
+          fetch-depth: 0
+      - name: Align C12 sources and tests
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace(path, old, new):
+              p = Path(path)
+              text = p.read_text(encoding='utf-8')
+              if old not in text:
+                  raise SystemExit(f'pattern not found in {path}: {old[:90]!r}')
+              p.write_text(text.replace(old, new), encoding='utf-8')
+
+          # College level catalogue: chapter links must bypass the legacy 301.
+          replace(
+              'src/pages/college/[niveau]/index.astro',
+              'import { collegeLevels, getLevelLabel } from "../../../data/levels";\n',
+              'import { collegeLevels, getLevelLabel } from "../../../data/levels";\nimport { getPhysicalScienceExplicitChapterPath, type PhysicalScienceSubject } from "../../../data/contentRoutes";\n',
+          )
+          replace(
+              'src/pages/college/[niveau]/index.astro',
+              'href: `/college/${niveau}/${matiere}/${slug}`,',
+              'href: getPhysicalScienceExplicitChapterPath("college", niveau!, matiere as PhysicalScienceSubject, slug),',
+          )
+
+          # Lycée catalogues: same rule, including Enseignement scientifique tracks.
+          replace(
+              'src/pages/lycee/[niveau]/index.astro',
+              'import { lyceeLevels, getLevelLabel } from "../../../data/levels";\n',
+              'import { lyceeLevels, getLevelLabel } from "../../../data/levels";\nimport { getPhysicalScienceExplicitChapterPath, type PhysicalScienceSubject } from "../../../data/contentRoutes";\n',
+          )
+          replace(
+              'src/pages/lycee/[niveau]/index.astro',
+              'href: `/lycee/${niveau}/${matiere}/${slug}`,',
+              'href: getPhysicalScienceExplicitChapterPath("lycee", niveau!, matiere as PhysicalScienceSubject, slug),',
+          )
+          replace(
+              'src/pages/lycee/[niveau]/[matiere]/index.astro',
+              'import { lyceeLevels, matieres, getLevelLabel, getMatiereLabel } from "../../../../data/levels";\n',
+              'import { lyceeLevels, matieres, getLevelLabel, getMatiereLabel } from "../../../../data/levels";\nimport { getPhysicalScienceExplicitChapterPath, type PhysicalScienceSubject } from "../../../../data/contentRoutes";\n',
+          )
+          replace(
+              'src/pages/lycee/[niveau]/[matiere]/index.astro',
+              'href: `/lycee/${niveau}/${matiere}/${slug}`,',
+              'href: getPhysicalScienceExplicitChapterPath("lycee", niveau!, matiere as PhysicalScienceSubject, slug),',
+          )
+
+          # Redirect contract: C12 activates the PC redirects. Keep old export as a compatibility alias.
+          p = Path('src/config/redirects.ts')
+          text = p.read_text(encoding='utf-8')
+          text = text.replace(
+              'export function buildPreparedPhysicalScienceRedirectRules(\n',
+              'export function buildPhysicalScienceRedirectRules(\n',
+          ).replace(
+              '    phase: "prepared",\n  }));\n}\n\nexport function normalizeRoutePath',
+              '    phase: "active",\n  }));\n}\n\n/** @deprecated C12 redirects are active; use buildPhysicalScienceRedirectRules. */\nexport const buildPreparedPhysicalScienceRedirectRules = buildPhysicalScienceRedirectRules;\n\nexport function normalizeRoutePath',
+          )
+          if 'export function buildPhysicalScienceRedirectRules' not in text or 'phase: "active"' not in text:
+              raise SystemExit('redirect contract migration failed')
+          p.write_text(text, encoding='utf-8')
+
+          # Catalogue contract now requires explicit PC chapter helpers.
+          p = Path('tests/catalogues-v3.test.mjs')
+          text = p.read_text(encoding='utf-8')
+          start = text.index('test("catalogue pages keep all current chapter route patterns"')
+          end = text.index('\ntest("catalogues are ordered', start)
+          block = '''test("PC catalogues link directly to canonical chapter routes", () => {\n  for (const name of ["collegeLevel", "collegeSubject", "lyceeLevel", "lyceeSubject"]) {\n    assert.match(source(name), /getPhysicalScienceExplicitChapterPath/);\n    assert.doesNotMatch(source(name), /href:\\s*`\\/(?:college|lycee)\\/\\$\\{niveau\\}\\/\\$\\{matiere\\}\\/\\$\\{slug\\}`/);\n  }\n  assert.match(source("mathCollegeLevel"), /href:\\s*chapter\\.path/);\n  assert.match(source("mathLyceeLevel"), /href:\\s*chapter\\.path/);\n});\n'''
+          p.write_text(text[:start] + block + text[end+1:], encoding='utf-8')
+
+          # One canonical PC renderer replaces the two legacy renderers.
+          p = Path('tests/chapter-shell-v3.test.mjs')
+          text = p.read_text(encoding='utf-8')
+          text = text.replace('  collegeChapter: path.join(root, "src/pages/college/[niveau]/[matiere]/[chapitre].astro"),\n', '')
+          text = text.replace('  lyceeChapter: path.join(root, "src/pages/lycee/[niveau]/[matiere]/[chapitre].astro"),\n', '')
+          text = text.replace('["collegeChapter", "lyceeChapter", "explicitPcChapter", "mathCollegeChapter", "mathLyceeChapter"]', '["explicitPcChapter", "mathCollegeChapter", "mathLyceeChapter"]')
+          p.write_text(text, encoding='utf-8')
+
+          # ES identity is now asserted on the canonical shared renderer.
+          replace(
+              'tests/enseignement-scientifique-v3.test.mjs',
+              'src/pages/lycee/[niveau]/[matiere]/[chapitre].astro',
+              'src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro',
+          )
+
+          # Route symmetry contract: explicit canonical + active 301 + no generated legacy chapter page.
+          p = Path('tests/route-symmetry.test.mjs')
+          text = p.read_text(encoding='utf-8')
+          text = text.replace('  buildPreparedPhysicalScienceRedirectRules,', '  buildPhysicalScienceRedirectRules,')
+          text = text.replace('  assert.equal(context.canonical, context.legacyPath);', '  assert.equal(context.canonical, context.explicitPath);')
+          text = text.replace('test("prepared physical-science redirects point legacy URLs to explicit URLs without deleting legacy routes", () => {', 'test("active physical-science redirects point legacy URLs directly to explicit canonicals", () => {')
+          text = text.replace('const rules = buildPreparedPhysicalScienceRedirectRules(chapters);', 'const rules = buildPhysicalScienceRedirectRules(chapters);')
+          text = text.replace('  assert.equal(target.phase, "prepared");', '  assert.equal(target.phase, "active");')
+          text = text.replace('test("V3 route strategy keeps legacy routes active while declaring explicit canonicals", () => {', 'test("V3 route strategy serves explicit canonicals and redirects legacy chapter URLs", () => {')
+          text = text.replace('  assert.equal(V3_ROUTE_STRATEGY.physicalScienceLegacyStatus, "active-compatible");', '  assert.equal(V3_ROUTE_STRATEGY.physicalScienceLegacyStatus, "redirect-only");')
+          text = text.replace('  assert.equal(V3_ROUTE_STRATEGY.physicalScienceRedirectPhase, "prepared");', '  assert.equal(V3_ROUTE_STRATEGY.physicalScienceRedirectPhase, "active");\n  assert.equal(V3_ROUTE_STRATEGY.physicalScienceRedirectStatus, 301);\n  assert.equal(V3_ROUTE_STRATEGY.preserveLegacyPhysicalScienceContent, false);')
+          text = text.replace('  assert.equal(pair.legacyStatus, "active-compatible");', '  assert.equal(pair.legacyStatus, "redirect-only");\n  assert.equal(pair.redirectPhase, "active");\n  assert.equal(pair.redirectStatus, 301);')
+          text = text.replace('test("every active or prepared redirect has an existing internal target", () => {', 'test("every active redirect has an existing canonical target", () => {')
+          text = text.replace('...buildPreparedPhysicalScienceRedirectRules(chapters),', '...buildPhysicalScienceRedirectRules(chapters),')
+          old_loop = '''  for (const rule of buildPreparedPhysicalScienceRedirectRules(chapters)) {\n    assert.ok(routes.has(normalizeRoutePath(rule.from)), `${rule.from} must remain an active legacy route until redirect activation`);\n  }\n'''
+          text = text.replace(old_loop, '''  for (const rule of buildPhysicalScienceRedirectRules(chapters)) {\n    assert.ok(routes.has(normalizeRoutePath(rule.to)), `${rule.to} must be a generated canonical target`);\n  }\n''')
+          text = text.replace('(slug) => `/college/4eme/chimie/${slug}`', '(slug) => `/physique-chimie/college/4eme/chimie/${slug}`')
+          text = text.replace('"/college/4eme/chimie/solubilite"', '"/physique-chimie/college/4eme/chimie/solubilite"')
+          text = text.replace('"/college/4eme/chimie/reactifs-produits-conservation"', '"/physique-chimie/college/4eme/chimie/reactifs-produits-conservation"')
+          if 'buildPreparedPhysicalScienceRedirectRules(chapters)' in text or 'active-compatible' in text:
+              raise SystemExit('stale C12 route assertions remain')
+          p.write_text(text, encoding='utf-8')
+          PY
+
+          git rm .github/workflows/c12-sync.yml
+          git diff --check
+          git status --short
+      - name: Commit migration
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "C12: align canonical PC routes and redirect contracts"
+          git push origin HEAD:audit-2026-c01-route-snapshot
