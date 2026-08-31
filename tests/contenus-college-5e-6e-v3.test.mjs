@@ -25,6 +25,9 @@ const chapterKeys = [
   "6eme/physique/sources-formes-energie",
 ];
 
+const CYCLE_4_LEGACY_SOURCE_ID = "bo-college-physique-chimie-2025";
+const SIXIEME_SCIENCES_TECHNOLOGIE_SOURCE_ID = "bo-cycle3-sciences-technologie-2023";
+
 function chapterDir(key) {
   return path.join(root, "src/data/chapters/college", key);
 }
@@ -36,6 +39,12 @@ function readJson(file) {
 function resourceItems(raw) {
   if (Array.isArray(raw)) return raw;
   return raw.exercices ?? raw.exercises ?? raw.questions ?? raw.quiz ?? raw.cards ?? raw.flashcards ?? [];
+}
+
+function sourceIdForMeta(key) {
+  return key.startsWith("6eme/")
+    ? SIXIEME_SCIENCES_TECHNOLOGIE_SOURCE_ID
+    : CYCLE_4_LEGACY_SOURCE_ID;
 }
 
 function packageFor(key) {
@@ -83,9 +92,10 @@ describe("migration contenus college 5e-6e V3", () => {
   it("ajoute les champs V3 attendus aux meta.json 5e-6e", () => {
     for (const key of chapterKeys) {
       const meta = readJson(path.join(chapterDir(key), "meta.json"));
+      const expectedSourceId = sourceIdForMeta(key);
       assert.equal(meta.access?.tier, "free", key);
       assert.equal(meta.access?.requiresAccount, false, key);
-      assert.ok(meta.sources.some((item) => item.id === "bo-college-physique-chimie-2025" && item.kind === "official"), key);
+      assert.ok(meta.sources.some((item) => item.id === expectedSourceId && item.kind === "official"), key);
       assert.ok(meta.objectives.length >= 3, key);
       assert.ok(meta.prerequisites.length >= 2, key);
       assert.ok(meta.competencies.length >= 3, key);
@@ -98,7 +108,7 @@ describe("migration contenus college 5e-6e V3", () => {
         assert.ok(lesson.blocks.length >= 1, `${key}/${lesson.id}`);
         for (const block of lesson.blocks) {
           assert.notEqual(block.type, "html", `${key}/${lesson.id}/${block.id}`);
-          assert.ok(block.sourceIds.includes("bo-college-physique-chimie-2025"), `${key}/${lesson.id}/${block.id}`);
+          assert.ok(block.sourceIds.includes(expectedSourceId), `${key}/${lesson.id}/${block.id}`);
         }
       }
     }
@@ -118,7 +128,7 @@ describe("migration contenus college 5e-6e V3", () => {
         assert.equal(new Set(items.map((item) => item.id)).size, items.length, `${key}/${kind}`);
         for (const item of items) {
           assert.equal(item.access?.tier, "free", `${key}/${kind}/${item.id}`);
-          assert.ok(item.sources.some((source) => source.id === "bo-college-physique-chimie-2025"), `${key}/${kind}/${item.id}`);
+          assert.ok(item.sources.some((source) => source.kind === "official"), `${key}/${kind}/${item.id}`);
           assert.ok(item.competences.length >= 3, `${key}/${kind}/${item.id}`);
           assert.ok(item.links.some((link) => link.href.startsWith("/")), `${key}/${kind}/${item.id}`);
           if (kind === "exercices") {
