@@ -3,7 +3,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import GlobalSearch, { type GlobalSearchResource } from "../components/search/GlobalSearch";
 import { getLevelDisplayLabel } from "../utils/levels";
 import { getMatiereLabel } from "../data/levels";
-import { disciplineIdentities } from "../data/disciplineIdentity";
 import { getPublishedMathematicsLevels } from "../data/contentRoutes";
 import { chapterEntryFromGlob } from "../data/mathematiques/content";
 import { getMathematicsLevelsByCycle } from "../data/mathematiques/levels";
@@ -34,8 +33,8 @@ for (const [path, mod] of Object.entries(allMeta)) {
     keywords: data.keywords ?? data.tags ?? [],
     cycle,
     levelLabel: getLevelDisplayLabel(niveau),
-    subject: isScientificEducation ? "enseignement-scientifique" : "physique-chimie",
-    subjectLabel: isScientificEducation ? "Enseignement scientifique" : "Physique-Chimie",
+    subject: "physique-chimie",
+    subjectLabel: isScientificEducation ? "Physique-Chimie — Enseignement scientifique" : "Physique-Chimie",
     matiereLabel,
     resourceType: "chapter",
     accessTier: data.access?.tier ?? "free",
@@ -72,30 +71,22 @@ for (const chapter of mathChapters) {
 
 const publishedLevelCount = new Set(resources.map((resource) => `${resource.subject}:${resource.cycle}:${resource.levelLabel}`)).size;
 const labCount = 25;
-const esIdentity = disciplineIdentities["enseignement-scientifique"];
 const hasFlashcards = Object.keys(allFlash).length > 0;
 
 const subjectCards = [
   {
     title: "Mathématiques",
-    text: "De la 6e à la Terminale, toutes les notions et méthodes essentielles.",
+    text: "Cours, méthodes et entraînement pour progresser du collège au lycée.",
     href: "/mathematiques",
     tone: "maths",
     icon: "atom",
   },
   {
     title: "Physique-Chimie",
-    text: "Cours, expériences virtuelles et exercices pour comprendre le monde qui nous entoure.",
-    href: "/college",
+    text: "Collège et lycée, avec la Seconde, la spécialité PC et l’Enseignement scientifique dans un même espace.",
+    href: "/physique-chimie",
     tone: "pc",
     icon: "flask",
-  },
-  {
-    title: "Enseignement Scientifique",
-    text: "Des contenus modernes et concrets pour développer votre esprit scientifique.",
-    href: esIdentity.href,
-    tone: "science",
-    icon: "leaf",
   },
 ];
 
@@ -111,7 +102,7 @@ const methodSteps = [
 
 <BaseLayout
   title="Cours Physique-Maths - cours, exercices, quiz et laboratoires"
-  description="La plateforme complète pour apprendre, réviser et progresser en Mathématiques, Physique-Chimie et Enseignement Scientifique."
+  description="La plateforme complète pour apprendre, réviser et progresser en Mathématiques et Physique-Chimie, avec l’Enseignement scientifique intégré au lycée."
   subject="transversal"
 >
   <div class="home-v3">
@@ -121,10 +112,10 @@ const methodSteps = [
           <span>Comprendre, s'entraîner, réviser et expérimenter</span>
         </h1>
         <p>
-          La plateforme complète pour apprendre, réviser et progresser en mathématiques, physique-chimie et enseignement scientifique.
+          La plateforme complète pour apprendre, réviser et progresser en mathématiques et en physique-chimie, avec l’enseignement scientifique intégré au lycée.
         </p>
         <div class="hero-reference__actions" aria-label="Actions principales">
-          <a class="btn btn--primary" href="/college">Commencer gratuitement</a>
+          <a class="btn btn--primary" href="/physique-chimie">Explorer la Physique-Chimie</a>
           <a class="btn btn--secondary" href="#recherche">Rechercher un chapitre</a>
         </div>
       </div>
@@ -154,12 +145,12 @@ const methodSteps = [
 
     <section id="plateforme" class="subjects-reference" aria-labelledby="subjects-title">
       <div class="section-title">
-        <h2 id="subjects-title">Trois matières, une seule expérience</h2>
+        <h2 id="subjects-title">Deux matières, une seule expérience</h2>
         <p>Une pédagogie active et scientifique pour tous les niveaux.</p>
       </div>
       <div class="subject-cards" data-subject-switcher>
         {subjectCards.map((card) => (
-          <a class={`subject-card subject-card--${card.tone}`} href={card.href} data-subject-card={card.tone === "maths" ? "mathematiques" : card.tone === "pc" ? "physique-chimie" : "enseignement-scientifique"}>
+          <a class={`subject-card subject-card--${card.tone}`} href={card.href} data-subject-card={card.tone === "maths" ? "mathematiques" : "physique-chimie"}>
             <span class={`big-icon line-icon line-icon--${card.icon}`} aria-hidden="true"></span>
             <strong>{card.title}</strong>
             <small>{card.text}</small>
@@ -404,7 +395,6 @@ const methodSteps = [
   .line-icon--flask::before { content: "⚗"; }
   .line-icon--clipboard::before { content: "▤"; }
   .line-icon--atom::before { content: "∞"; }
-  .line-icon--leaf::before { content: "◜"; }
 
   .subjects-reference,
   .method-reference,
@@ -451,7 +441,7 @@ const methodSteps = [
   .subject-cards {
     display: grid;
     gap: 3.2rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     margin-top: 2.8rem;
   }
 
@@ -471,7 +461,6 @@ const methodSteps = [
 
   .subject-card--maths { --card-color: #135dff; background: linear-gradient(135deg, #f2f6ff, #ffffff); }
   .subject-card--pc { --card-color: #6947e8; background: linear-gradient(135deg, #f7f2ff, #ffffff); }
-  .subject-card--science { --card-color: #009b8d; background: linear-gradient(135deg, #edfbf8, #ffffff); }
 
   .big-icon {
     --icon-color: var(--card-color);
@@ -497,7 +486,7 @@ const methodSteps = [
     font-size: 0.78rem;
     font-weight: 650;
     line-height: 1.45;
-    max-width: 28ch;
+    max-width: 32ch;
   }
 
   .subject-card em {
