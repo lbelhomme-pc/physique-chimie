@@ -1,8 +1,10 @@
-# Maths, Physique-Chimie & Enseignement scientifique
+# Maths & Physique-Chimie
 
-Plateforme éducative française statique destinée au collège et au lycée. Le dépôt regroupe les contenus de **Mathématiques**, **Physique-Chimie**, **Enseignement scientifique**, les outils de mémorisation, les fonctions d’accessibilité/DYS et un laboratoire de simulations interactives.
+Plateforme éducative française statique destinée au collège et au lycée. L’interface publique est organisée autour de **deux disciplines** : **Mathématiques** et **Physique-Chimie**. Au lycée, l’**Enseignement scientifique** est un parcours rattaché à l’espace Physique-Chimie, aux côtés de la Seconde et de la spécialité Physique-Chimie. Le dépôt regroupe également les outils de mémorisation, les fonctions d’accessibilité/DYS et un laboratoire de simulations interactives.
 
 Le projet est en migration progressive vers son architecture V3. La règle est de faire évoluer l’existant sans casser les routes publiées, les identifiants pédagogiques, les progressions locales ni les contenus déjà accessibles.
+
+La décision de taxonomie publique est documentée dans [`docs/architecture/taxonomie-disciplines.md`](docs/architecture/taxonomie-disciplines.md).
 
 ## État technique
 
@@ -21,7 +23,7 @@ La source de vérité des versions est `package.json` et la source de vérité d
 
 Lors de C05, le dépôt contient :
 
-- **101 chapitres** dans le corpus Physique-Chimie / Enseignement scientifique ;
+- **101 chapitres** dans le corpus Physique-Chimie, incluant les parcours d’Enseignement scientifique au lycée ;
 - **11 chapitres de Mathématiques**, actuellement publiés en Seconde ;
 - **25 applications de laboratoire** ;
 - **3 450 identifiants canoniques de ressources**.
@@ -87,7 +89,7 @@ La protection attendue de `main` est documentée dans `.github/BRANCH_PROTECTION
 │   ├── components/             # UI Astro/React et composants pédagogiques
 │   ├── content-model/          # façade du modèle de contenu V3
 │   ├── data/
-│   │   ├── chapters/           # corpus PC / ES historique
+│   │   ├── chapters/           # corpus Physique-Chimie, dont parcours ES au lycée
 │   │   ├── mathematiques/      # corpus Mathématiques
 │   │   └── laboratoire/        # catalogue des applications de laboratoire
 │   ├── layouts/                # layouts Astro
@@ -104,10 +106,23 @@ Le modèle V3 commun est défini principalement dans `src/data/contentContract.t
 
 Deux formats historiques coexistent encore derrière les adaptateurs :
 
-- le corpus Physique-Chimie / Enseignement scientifique utilise majoritairement des fichiers JSON à racine tableau ;
+- le corpus Physique-Chimie, y compris l’Enseignement scientifique au lycée, utilise majoritairement des fichiers JSON à racine tableau ;
 - le corpus Mathématiques utilise déjà des enveloppes nommées (`exercices`, `questions`, `cards`).
 
 Cette coexistence est temporaire mais volontaire. Ne pas supprimer un adaptateur ou convertir massivement un corpus sans migration testée.
+
+### Disciplines et parcours lycée
+
+L’interface ne doit pas présenter l’Enseignement scientifique comme une troisième discipline de premier niveau. La hiérarchie publique est :
+
+- **Mathématiques** ;
+- **Physique-Chimie** ;
+  - collège ;
+  - lycée : Seconde ;
+  - lycée : spécialité Physique-Chimie ;
+  - lycée : Enseignement scientifique.
+
+Les libellés « Enseignement scientifique » restent visibles sur les pages et cartes de parcours. Les anciennes routes contenant `ens-scientifique`, les IDs canoniques et les données de progression restent conservés tant qu’une migration explicite n’est pas certifiée.
 
 ### Routes, IDs et progression
 
