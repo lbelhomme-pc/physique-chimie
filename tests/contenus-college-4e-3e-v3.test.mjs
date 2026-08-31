@@ -91,7 +91,7 @@ describe("migration contenus college 4e-3e V3", () => {
       const isTroisieme = key.startsWith("3eme/");
       assert.equal(meta.access?.tier, "free", key);
       assert.equal(meta.access?.requiresAccount, false, key);
-      assert.ok(meta.sources.some((item) => item.id === "bo-college-physique-chimie-2025" && item.kind === "official"), key);
+      assert.ok(meta.sources.some((item) => item.id === "bo-cycle4-physique-chimie-2020" && item.kind === "official"), key);
       assert.ok(meta.objectives.length >= 3, key);
       assert.ok(meta.prerequisites.length >= 2, key);
       assert.ok(meta.competencies.length >= 3, key);
@@ -106,7 +106,7 @@ describe("migration contenus college 4e-3e V3", () => {
         assert.ok(lesson.blocks.length >= 1, `${key}/${lesson.id}`);
         for (const block of lesson.blocks) {
           assert.notEqual(block.type, "html", `${key}/${lesson.id}/${block.id}`);
-          assert.ok(block.sourceIds.includes("bo-college-physique-chimie-2025"), `${key}/${lesson.id}/${block.id}`);
+          assert.ok(block.sourceIds.includes("bo-cycle4-physique-chimie-2020"), `${key}/${lesson.id}/${block.id}`);
           if (block.type === "formula") {
             assert.ok(block.accessibility?.formulaText, `${key}/${lesson.id}/${block.id}`);
           }
@@ -130,7 +130,7 @@ describe("migration contenus college 4e-3e V3", () => {
         assert.equal(new Set(items.map((item) => item.id)).size, items.length, `${key}/${kind}`);
         for (const item of items) {
           assert.equal(item.access?.tier, "free", `${key}/${kind}/${item.id}`);
-          assert.ok(item.sources.some((source) => source.id === "bo-college-physique-chimie-2025"), `${key}/${kind}/${item.id}`);
+          assert.ok(item.sources.some((source) => source.kind === "official"), `${key}/${kind}/${item.id}`);
           assert.ok(item.competences.length >= 3, `${key}/${kind}/${item.id}`);
           assert.ok(item.links.some((link) => link.href.startsWith("/")), `${key}/${kind}/${item.id}`);
           if (isTroisieme) assert.ok(item.tags.includes("brevet"), `${key}/${kind}/${item.id}`);

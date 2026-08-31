@@ -25,7 +25,7 @@ const chapterKeys = [
   "6eme/physique/sources-formes-energie",
 ];
 
-const CYCLE_4_LEGACY_SOURCE_ID = "bo-college-physique-chimie-2025";
+const CYCLE_4_SOURCE_ID = "bo-cycle4-physique-chimie-2020";
 const SIXIEME_SCIENCES_TECHNOLOGIE_SOURCE_ID = "bo-cycle3-sciences-technologie-2023";
 
 function chapterDir(key) {
@@ -44,7 +44,7 @@ function resourceItems(raw) {
 function sourceIdForMeta(key) {
   return key.startsWith("6eme/")
     ? SIXIEME_SCIENCES_TECHNOLOGIE_SOURCE_ID
-    : CYCLE_4_LEGACY_SOURCE_ID;
+    : CYCLE_4_SOURCE_ID;
 }
 
 function packageFor(key) {
