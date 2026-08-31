@@ -12,7 +12,7 @@ function jobBlock(jobName) {
 
   const bodyStart = start + marker.length;
   const rest = workflow.slice(bodyStart);
-  const nextJob = rest.search(/^  [a-zA-Z0-9_-]+:\n/m);
+  const nextJob = rest.search(/^ {2}[a-zA-Z0-9_-]+:\n/m);
   return nextJob === -1 ? rest : rest.slice(0, nextJob);
 }
 
@@ -24,16 +24,16 @@ test("la CI garde les trois checks requis avec des noms stables", () => {
 });
 
 test("la CI s'exécute sur les PR vers main et reste en lecture seule", () => {
-  assert.match(workflow, /pull_request:\n    branches: \["main"\]/);
-  assert.match(workflow, /permissions:\n  contents: read/);
+  assert.match(workflow, /pull_request:\n {4}branches: \["main"\]/);
+  assert.match(workflow, /permissions:\n {2}contents: read/);
 });
 
 test("les contrôles dist dépendent de quality mais restent indépendants entre eux", () => {
   const fast = jobBlock("dist-fast");
   const a11y = jobBlock("dist-a11y");
 
-  assert.match(fast, /^    needs: quality$/m);
-  assert.match(a11y, /^    needs: quality$/m);
+  assert.match(fast, /^ {4}needs: quality$/m);
+  assert.match(a11y, /^ {4}needs: quality$/m);
   assert.doesNotMatch(a11y, /needs: dist-fast/);
 });
 
