@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "astro dev",
     "check": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro check",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings=0",
     "test": "tsx --test \"tests/**/*.test.mjs\"",
     "verify:content": "tsx scripts/verify-routes-and-content.mjs",
     "audit:security": "npm audit --audit-level=high",
