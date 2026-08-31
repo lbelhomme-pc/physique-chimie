@@ -1,3 +1,4 @@
+// C08 verrouille la source officielle active des métadonnées Physique-Chimie du cycle 4.
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
