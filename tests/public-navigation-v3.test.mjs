@@ -13,6 +13,7 @@ const expectedRouteFiles = {
   "/college": "src/pages/college/index.astro",
   "/lycee": "src/pages/lycee/index.astro",
   "/mathematiques": "src/pages/mathematiques/index.astro",
+  "/physique-chimie": "src/pages/physique-chimie/index.astro",
   "/laboratoire": "src/pages/laboratoire.astro",
   "/outils-methodes": "src/pages/outils-methodes.astro",
   "/memorisation": "src/pages/memorisation/index.astro",
@@ -73,6 +74,8 @@ test("public navigation covers V3 information architecture", () => {
   ]) {
     assert.match(source, new RegExp(label), `missing ${label}`);
   }
+
+  assert.doesNotMatch(readFileSync(menuFile, "utf8"), /discipline:\s*"enseignement-scientifique"/);
 
   for (const route of ["/outils-methodes/kit-scientifique", "/outils-methodes/tableau-periodique"]) {
     assert.match(source, new RegExp(route.replaceAll("/", "\\/").replace("#", "\\#")), `missing ${route}`);
