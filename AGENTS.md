@@ -2,7 +2,9 @@
 
 ## Rôle permanent du projet
 
-Ce dépôt contient une plateforme pédagogique française de **Mathématiques**, **Physique-Chimie** et **Enseignement scientifique**, avec mémorisation, accessibilité/DYS et laboratoires interactifs.
+Ce dépôt contient une plateforme pédagogique française organisée autour de **deux disciplines publiques** : **Mathématiques** et **Physique-Chimie**, avec mémorisation, accessibilité/DYS et laboratoires interactifs.
+
+Au lycée, l’**Enseignement scientifique** est un **parcours rattaché à Physique-Chimie**. Il doit rester clairement nommé pour l’élève, mais ne doit pas être présenté comme une troisième discipline de premier niveau. La décision complète est dans `docs/architecture/taxonomie-disciplines.md`.
 
 La migration V3 est active mais reste progressive : l’objectif est de converger vers une architecture commune sans casser les routes publiées, les contenus, les IDs, les progressions locales ou les usages existants.
 
@@ -12,7 +14,8 @@ Avant toute mission importante, lire :
 - `docs/README.md`
 - `docs/refonte-v3/README.md`
 - `docs/refonte-v3/00-resume-executif.md`
-- le document ou prompt V3 correspondant au périmètre traité
+- `docs/architecture/taxonomie-disciplines.md`
+- le document ou prompt V3 correspondant au périmètre traité ;
 - les fichiers sources explicitement concernés.
 
 ## Règle de base
@@ -27,7 +30,8 @@ Ne pas prendre un ancien rapport de migration pour l’état courant du dépôt.
 - index documentaire : `docs/README.md` ;
 - architecture V3 : `docs/refonte-v3/` ;
 - décisions d’architecture : `docs/architecture/` ;
-- contenus PC / ES : `src/data/chapters/` ;
+- taxonomie publique : `docs/architecture/taxonomie-disciplines.md`, `src/data/disciplineIdentity.ts` ;
+- contenus Physique-Chimie, dont parcours ES : `src/data/chapters/` ;
 - contenus Mathématiques : `src/data/mathematiques/` ;
 - contrat commun : `src/data/contentContract.ts`, `src/content-model/` ;
 - laboratoire : `src/data/laboratoire/`, `src/components/laboratoire/`, `src/scripts/laboratoire/` ;
@@ -35,6 +39,16 @@ Ne pas prendre un ancien rapport de migration pour l’état courant du dépôt.
 - progression : `src/components/pedagogie/progress.ts`, `src/utils/contentIds.ts`, `src/utils/contentProgressMigration.ts` ;
 - sécurité des contenus : `src/utils/trustedContent.ts`, `docs/architecture/securite-contenus.md` ;
 - qualité globale : `scripts/verify-routes-and-content.mjs`, `scripts/audit-dist.mjs`.
+
+## Taxonomie UI obligatoire
+
+- l’accueil expose deux portes : Mathématiques et Physique-Chimie ;
+- la navigation principale ne crée pas de rubrique Enseignement scientifique autonome ;
+- `/physique-chimie` est le portail parent de la discipline ;
+- au lycée, Seconde, spécialité PC et Enseignement scientifique sont des parcours de ce même espace ;
+- les badges et libellés ES peuvent rester distincts pour aider l’élève ;
+- les filtres globaux utilisent `physique-chimie` comme sujet parent pour les ressources ES ;
+- ne pas renommer les anciennes routes `*-ens-scientifique`, IDs ou données de progression sans migration testée.
 
 ## Responsabilités des agents V3
 
@@ -48,7 +62,7 @@ Les expertises à mobiliser selon les missions sont notamment :
 - UI et design system ;
 - Mathématiques collège/lycée ;
 - Physique-Chimie collège/lycée ;
-- Enseignement scientifique ;
+- Enseignement scientifique, comme expertise de parcours lycée ;
 - accessibilité et DYS ;
 - architecture des contenus pédagogiques ;
 - sécurité web ;
@@ -62,7 +76,7 @@ Les expertises à mobiliser selon les missions sont notamment :
 - conserver les routes legacy tant que les redirections explicites ne sont pas testées ;
 - conserver la lecture des anciennes clés `localStorage` et migrer par alias idempotents ;
 - ne jamais créer deux sources de vérité permanentes ;
-- normaliser les contenus vers un contrat commun avec extensions disciplinaires ;
+- normaliser les contenus vers un contrat commun avec extensions nécessaires ;
 - ne pas convertir massivement un corpus sans tests de migration ;
 - ne jamais verrouiller en Premium un contenu indispensable à la compréhension de base ;
 - ne pas modifier un ID canonique sans stratégie d’alias/migration ;
@@ -135,7 +149,7 @@ La CI doit conserver les checks `quality`, `dist-fast` et `dist-a11y`. ESLint fo
 
 ## Critère 2 — UX, UI et cohérence du design
 
-Évaluer clarté des parcours, compréhension immédiate, cohérence de la charte, hiérarchie visuelle, responsive, états interactifs, qualité des composants, différenciation des disciplines et fidélité au design system.
+Évaluer clarté des parcours, compréhension immédiate, cohérence de la charte, hiérarchie visuelle, responsive, états interactifs, qualité des composants, différenciation des deux disciplines publiques et lisibilité des parcours lycée.
 
 ## Critère 3 — Qualité pédagogique et scientifique
 
