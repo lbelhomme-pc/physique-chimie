@@ -2,7 +2,11 @@
 
 ## Projet
 
-Plateforme éducative française **Mathématiques + Physique-Chimie + Enseignement scientifique**, collège et lycée, avec outils de mémorisation, accessibilité/DYS et laboratoires interactifs.
+Plateforme éducative française organisée autour de **deux disciplines publiques** : **Mathématiques** et **Physique-Chimie**, du collège au lycée, avec mémorisation, accessibilité/DYS et laboratoires interactifs.
+
+Au lycée, l’**Enseignement scientifique** est un **parcours rattaché à l’espace Physique-Chimie**. Il conserve un libellé explicite, ses routes historiques et son identité de parcours, mais ne doit pas être recréé comme troisième porte de navigation.
+
+Référence obligatoire : `docs/architecture/taxonomie-disciplines.md`.
 
 Le dépôt est en migration progressive vers la V3. Il ne faut pas réécrire l’application d’un bloc ni casser les compatibilités historiques.
 
@@ -32,8 +36,9 @@ Ne pas recopier de numéro de version dans un autre document si `package.json` p
 
 ## Sources de vérité
 
+- taxonomie publique : `docs/architecture/taxonomie-disciplines.md`, `src/data/disciplineIdentity.ts` ;
 - modèle de contenu : `src/data/contentContract.ts` et `src/content-model/` ;
-- corpus PC / ES : `src/data/chapters/` ;
+- corpus Physique-Chimie, dont parcours ES : `src/data/chapters/` ;
 - corpus Mathématiques : `src/data/mathematiques/` ;
 - laboratoires : `src/data/laboratoire/`, `src/components/laboratoire/`, `src/scripts/laboratoire/` ;
 - routes : `src/pages/` ;
@@ -43,20 +48,28 @@ Ne pas recopier de numéro de version dans un autre document si `package.json` p
 - programmes de référence conservés : `BO/` ;
 - vérification globale : `scripts/verify-routes-and-content.mjs`.
 
+## Contrat de taxonomie
+
+1. Les facettes, portes d’entrée et contextes de premier niveau sont `mathematiques` ou `physique-chimie`.
+2. Les niveaux `1ere-ens-scientifique` et `terminale-ens-scientifique` ont pour discipline parente `physique-chimie`.
+3. `enseignement-scientifique` peut rester une identité de **parcours** afin de conserver badge, libellé et style distinctifs.
+4. Ne pas renommer massivement les routes, IDs ou clés de progression ES.
+5. Les routes historiques `*-ens-scientifique` restent valides jusqu’à une migration explicitement testée.
+
 ## Contrat de migration
 
 1. Conserver les routes legacy tant que les redirections ne sont pas validées.
 2. Conserver la lecture des anciennes clés `localStorage` et des anciens IDs via des migrations idempotentes.
 3. Ne pas créer une deuxième source de vérité permanente.
-4. Ne pas convertir massivement les 101 paquets PC/ES historiques sans migration testée.
+4. Ne pas convertir massivement les paquets historiques sans migration testée.
 5. Ne pas supprimer une simulation, un contenu ou une fonctionnalité DYS sans inventaire et preuve de remplacement.
-6. Toute nouvelle discipline ou extension de contrat doit être représentée explicitement dans le modèle, pas seulement dans l’UI.
+6. Toute extension de contrat doit être représentée explicitement dans le modèle, pas seulement dans l’UI.
 
 ## Contenus pédagogiques
 
 Les chapitres utilisent actuellement deux dialectes historiques derrière les adaptateurs :
 
-- PC / ES : ressources JSON majoritairement à racine tableau ;
+- Physique-Chimie / parcours ES : ressources JSON majoritairement à racine tableau ;
 - Mathématiques : enveloppes nommées (`exercices`, `questions`, `cards`).
 
 Ne pas déduire le format attendu à partir d’un seul chapitre. Passer par les loaders et contrats existants.
@@ -68,11 +81,11 @@ Ne pas déduire le format attendu à partir d’un seul chapitre. Passer par les
 - conserver KaTeX et MathML ;
 - ne jamais transformer une formule en image ;
 - éviter l’HTML arbitraire dans les contenus ;
-- tout SVG/HTML non fiable doit suivre le modèle de confiance documenté dans `docs/architecture/securite-contenus.md`.
+- tout SVG/HTML non fiable doit suivre `docs/architecture/securite-contenus.md`.
 
 ### Figures scientifiques
 
-Pour les nouvelles figures statiques, viser une source scientifique reproductible et réutilisable. La cible du projet est un pipeline LaTeX/TikZ/PGFPlots/circuitikz/chemfig pour les figures non interactives. Tant que cette migration n’est pas achevée, ne pas ajouter d’animation JavaScript décorative à la place d’une figure statique.
+Pour les nouvelles figures statiques, viser une source reproductible et réutilisable. La cible est un pipeline LaTeX/TikZ/PGFPlots/circuitikz/chemfig pour les figures non interactives. Ne pas ajouter d’animation JavaScript décorative là où une figure statique suffit.
 
 JavaScript est justifié lorsqu’un élève agit réellement sur des paramètres, réalise une mesure, teste une hypothèse ou compare des états.
 
@@ -88,8 +101,6 @@ Toute modification visible doit préserver :
 - compatibilité avec les préférences DYS existantes ;
 - `prefers-reduced-motion` ;
 - MathML disponible aux technologies d’assistance.
-
-Ne pas charger une police DYS depuis un CDN comme dépendance fonctionnelle.
 
 ## Sécurité
 
@@ -121,13 +132,7 @@ npm run ci:dist
 npm run ci:a11y
 ```
 
-`npm run lint` utilise `--max-warnings=0`. Un warning n’est donc pas une dette acceptable à ignorer.
-
-La CI GitHub doit conserver les checks :
-
-- `quality`
-- `dist-fast`
-- `dist-a11y`
+`npm run lint` utilise `--max-warnings=0`. La CI GitHub doit conserver les checks `quality`, `dist-fast` et `dist-a11y`.
 
 ## Règles de modification
 
@@ -141,22 +146,12 @@ La CI GitHub doit conserver les checks :
 
 ## Pièges actuels connus
 
-- le corpus PC/ES et le corpus Mathématiques ne sont pas encore nativement uniformes ;
+- le corpus Physique-Chimie/ES et le corpus Mathématiques ne sont pas encore nativement uniformes ;
 - les redirections PC explicites sont préparées mais pas toutes activées ;
 - la racine contient encore des rapports historiques : ne pas les prendre pour documentation courante ;
-- `src/scripts/laboratoire/generic-lab-simulator.js` reste volumineux et doit être refactoré par famille, pas réécrit sans tests scientifiques ;
-- une dépréciation Astro liée à l’ancienne configuration Markdown peut encore apparaître hors diagnostics `astro check` ; elle doit être traitée explicitement, pas masquée.
+- `src/scripts/laboratoire/generic-lab-simulator.js` reste volumineux et doit être refactoré par famille ;
+- une dépréciation Astro liée à l’ancienne configuration Markdown peut encore apparaître hors diagnostics `astro check`.
 
 ## Ajout ou modification d’un chapitre
 
-Avant de créer un chapitre :
-
-1. vérifier le programme et le niveau concernés ;
-2. identifier le corpus et son loader ;
-3. réutiliser le contrat de contenu et les IDs canoniques ;
-4. conserver le format réellement attendu par le loader actuel ;
-5. ajouter cours, exercices, quiz et flashcards selon le contrat du niveau ;
-6. lancer `npm run verify:content` ;
-7. lancer les tests et le build avant publication.
-
-Un nouveau chapitre ne doit pas être considéré comme publié uniquement parce qu’un fichier existe : la route, le contrat, les IDs, les ressources et les contrôles doivent tous être valides.
+Avant de créer un chapitre : vérifier le programme, le corpus et son loader, réutiliser les IDs canoniques, conserver le format attendu, puis exécuter `verify:content`, les tests et le build. Un fichier seul ne constitue jamais une publication valide.
