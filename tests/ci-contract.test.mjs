@@ -54,3 +54,8 @@ test("quality bloque toute vulnérabilité npm high ou critical", () => {
   assert.equal(packageJson.scripts["audit:security"], "npm audit --audit-level=high");
   assert.match(packageJson.scripts["ci:quality"], /npm run audit:security/);
 });
+
+test("quality refuse tout warning ESLint", () => {
+  assert.equal(packageJson.scripts.lint, "eslint . --max-warnings=0");
+  assert.match(packageJson.scripts["ci:quality"], /npm run lint/);
+});
