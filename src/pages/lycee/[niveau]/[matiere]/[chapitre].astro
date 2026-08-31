@@ -1,6 +1,9 @@
 ---
 import ChapterPageShell from "../../../../components/pedagogie/ChapterPageShell.astro";
-import { getDisciplineFromLevelSlug, getDisciplineIdentity } from "../../../../data/disciplineIdentity";
+import {
+  getDisciplineIdentity,
+  getPhysiqueChimieTrackFromLevelSlug,
+} from "../../../../data/disciplineIdentity";
 import { getLevelLabel, getMatiereLabel } from "../../../../data/levels";
 import {
   getChapterNavigation,
@@ -32,8 +35,9 @@ const subject = matiere as PhysicalScienceSubject;
 const context = getPhysicalScienceRouteContext("lycee", niveau!, subject, chapitre!);
 const niveauLabel = getLevelLabel(niveau!);
 const matiereLabel = getMatiereLabel(matiere!);
-const discipline = getDisciplineIdentity(getDisciplineFromLevelSlug(niveau));
-const isTeachingScience = discipline.id === "enseignement-scientifique";
+const parentDiscipline = getDisciplineIdentity("physique-chimie");
+const track = getDisciplineIdentity(getPhysiqueChimieTrackFromLevelSlug(niveau));
+const isTeachingScience = track.id === "enseignement-scientifique";
 const subjectDisplayLabel = isTeachingScience
   ? matiere === "chimie" ? "Repères chimie et vivant" : "Repères physique et Terre"
   : matiereLabel;
@@ -116,6 +120,7 @@ const { previousChapter, nextChapter } = getChapterNavigation(
   schemaType={schemaType}
   breadcrumbItems={[
     { label: "Accueil", href: "/" },
+    { label: "Physique-Chimie", href: parentDiscipline.href },
     { label: "Lycée", href: "/lycee" },
     { label: niveauLabel, href: backUrl },
     { label: subjectDisplayLabel, href: subjectUrl },
@@ -123,14 +128,14 @@ const { previousChapter, nextChapter } = getChapterNavigation(
   ]}
   displayTitle={displayTitle}
   chapterDescription={textOrFallback(meta.description, seoDescription)}
-  eyebrow={isTeachingScience ? `${discipline.label} ${niveauLabel}` : `${matiereLabel} ${niveauLabel}`}
+  eyebrow={isTeachingScience ? `${track.label} ${niveauLabel}` : `${matiereLabel} ${niveauLabel}`}
   theme={meta.theme ? `Thème : ${meta.theme}` : undefined}
   badges={isTeachingScience ? [
-    { label: discipline.label },
+    { label: track.label },
     { label: subjectDisplayLabel, muted: true },
   ] : []}
   levelLabel={niveauLabel}
-  subjectLabel={isTeachingScience ? discipline.shortLabel : matiereLabel}
+  subjectLabel={isTeachingScience ? track.shortLabel : matiereLabel}
   objectives={learningObjectives}
   prerequisites={prerequisites}
   competencies={competencies}
