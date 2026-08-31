@@ -1,0 +1,216 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Physique-Chimie — Collège et lycée"
+  description="Accéder aux cours de Physique-Chimie du collège au lycée, y compris les parcours d’Enseignement scientifique au lycée."
+  subject="physique-chimie"
+>
+  <main class="pc-portal">
+    <header class="pc-portal__hero">
+      <p class="pc-portal__eyebrow">Physique-Chimie</p>
+      <h1>Explorer la Physique-Chimie du collège au lycée</h1>
+      <p>
+        Choisis ton niveau puis ton parcours. Au lycée, l’<strong>Enseignement scientifique</strong>
+        fait partie de cet espace, aux côtés de la Seconde et de la spécialité Physique-Chimie.
+      </p>
+    </header>
+
+    <section aria-labelledby="pc-college-title" class="pc-portal__section">
+      <div>
+        <p class="pc-portal__kicker">Collège</p>
+        <h2 id="pc-college-title">Physique-Chimie au collège</h2>
+        <p>Cours, exercices, quiz, flashcards et activités du collège.</p>
+      </div>
+      <a class="pc-portal__primary" href="/college">Voir les niveaux du collège</a>
+    </section>
+
+    <section aria-labelledby="pc-lycee-title" class="pc-portal__section pc-portal__section--lycee">
+      <div>
+        <p class="pc-portal__kicker">Lycée</p>
+        <h2 id="pc-lycee-title">Parcours de Physique-Chimie au lycée</h2>
+        <p>
+          Les parcours restent nommés explicitement pour que chaque élève retrouve son enseignement,
+          mais ils appartiennent tous au même espace Physique-Chimie.
+        </p>
+      </div>
+      <a class="pc-portal__primary" href="/lycee">Voir tous les parcours du lycée</a>
+
+      <div class="pc-portal__grid">
+        <a href="/lycee/2nde">
+          <strong>Seconde</strong>
+          <span>Physique-Chimie</span>
+        </a>
+        <a href="/lycee/1ere-spe">
+          <strong>Première</strong>
+          <span>Spécialité Physique-Chimie</span>
+        </a>
+        <a href="/lycee/1ere-ens-scientifique">
+          <strong>Première</strong>
+          <span>Enseignement scientifique</span>
+        </a>
+        <a href="/lycee/terminale-spe">
+          <strong>Terminale</strong>
+          <span>Spécialité Physique-Chimie</span>
+        </a>
+        <a href="/lycee/terminale-ens-scientifique">
+          <strong>Terminale</strong>
+          <span>Enseignement scientifique</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="pc-portal__resources" aria-labelledby="pc-resources-title">
+      <div>
+        <h2 id="pc-resources-title">Expérimenter et réviser</h2>
+        <p>Retrouve les outils scientifiques, les simulations et les ressources de mémorisation.</p>
+      </div>
+      <nav aria-label="Ressources Physique-Chimie">
+        <a href="/laboratoire">Laboratoire virtuel</a>
+        <a href="/outils-methodes">Outils et méthodes</a>
+        <a href="/memorisation">Mémorisation</a>
+      </nav>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .pc-portal {
+    display: grid;
+    gap: 1.25rem;
+    margin: 0 auto;
+    max-width: 1080px;
+    padding: clamp(1.25rem, 3vw, 2.5rem) 1rem 3rem;
+  }
+
+  .pc-portal__hero,
+  .pc-portal__section,
+  .pc-portal__resources {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .pc-portal__hero {
+    border-top: 5px solid var(--v3-color-discipline-pc);
+  }
+
+  .pc-portal__eyebrow,
+  .pc-portal__kicker {
+    color: var(--v3-color-discipline-pc);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.45rem;
+    text-transform: uppercase;
+  }
+
+  .pc-portal h1,
+  .pc-portal h2 {
+    color: var(--text-primary);
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .pc-portal h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.05;
+    max-width: 18ch;
+  }
+
+  .pc-portal h2 {
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+  }
+
+  .pc-portal p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0.65rem 0 0;
+    max-width: 72ch;
+  }
+
+  .pc-portal__section {
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .pc-portal__primary,
+  .pc-portal__resources a {
+    align-items: center;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    font-weight: 850;
+    min-height: 44px;
+    padding: 0.55rem 0.9rem;
+    text-decoration: none;
+  }
+
+  .pc-portal__primary {
+    background: var(--v3-color-discipline-pc);
+    color: #fff;
+    justify-self: start;
+  }
+
+  .pc-portal__grid {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pc-portal__grid a {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    display: grid;
+    gap: 0.2rem;
+    min-height: 88px;
+    padding: 1rem;
+    text-decoration: none;
+  }
+
+  .pc-portal__grid a:has(span:last-child:is(:not(:empty))) span {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .pc-portal__resources {
+    align-items: center;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .pc-portal__resources nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    justify-content: flex-end;
+  }
+
+  .pc-portal__resources a {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+  }
+
+  .pc-portal a:hover,
+  .pc-portal a:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--v3-color-discipline-pc) 35%, transparent);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 720px) {
+    .pc-portal__grid,
+    .pc-portal__resources {
+      grid-template-columns: 1fr;
+    }
+
+    .pc-portal__resources nav {
+      justify-content: flex-start;
+    }
+  }
+</style>
