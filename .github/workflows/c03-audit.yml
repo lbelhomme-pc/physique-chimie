@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   npm-audit:
-    if: github.event.head_commit.message != 'C03: apply non-breaking dependency fixes'
+    if: "${{ github.event.head_commit.message != 'C03: apply non-breaking dependency fixes' }}"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -27,11 +27,11 @@ jobs:
         run: npm ci
 
       - name: Apply non-breaking audit fixes
-        if: github.event.head_commit.message == 'C03: prepare non-breaking dependency fixes'
-        run: npm audit fix --package-lock-only
+        if: "${{ github.event.head_commit.message == 'C03: fix temporary audit workflow' }}"
+        run: npm audit fix --package-lock-only || true
 
       - name: Commit lockfile fixes
-        if: github.event.head_commit.message == 'C03: prepare non-breaking dependency fixes'
+        if: "${{ github.event.head_commit.message == 'C03: fix temporary audit workflow' }}"
         shell: bash
         run: |
           if git diff --quiet -- package-lock.json; then
