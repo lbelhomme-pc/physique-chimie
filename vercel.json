@@ -1,4 +1,26 @@
 {
+  "redirects": [
+    {
+      "source": "/college/:niveau/physique/:chapitre",
+      "destination": "/physique-chimie/college/:niveau/physique/:chapitre",
+      "statusCode": 301
+    },
+    {
+      "source": "/college/:niveau/chimie/:chapitre",
+      "destination": "/physique-chimie/college/:niveau/chimie/:chapitre",
+      "statusCode": 301
+    },
+    {
+      "source": "/lycee/:niveau/physique/:chapitre",
+      "destination": "/physique-chimie/lycee/:niveau/physique/:chapitre",
+      "statusCode": 301
+    },
+    {
+      "source": "/lycee/:niveau/chimie/:chapitre",
+      "destination": "/physique-chimie/lycee/:niveau/chimie/:chapitre",
+      "statusCode": 301
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
