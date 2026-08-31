@@ -1,0 +1,35 @@
+name: C08 source export
+
+on:
+  push:
+    branches:
+      - audit-2026-c01-route-snapshot
+
+permissions:
+  contents: read
+
+jobs:
+  export-cycle4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare C08 source bundle
+        run: |
+          mkdir -p c08-source
+          cp -R src/data/chapters/college/5eme c08-source/5eme
+          cp -R src/data/chapters/college/4eme c08-source/4eme
+          cp -R src/data/chapters/college/3eme c08-source/3eme
+          mkdir -p c08-source/tests
+          cp tests/contenus-college-5e-6e-v3.test.mjs c08-source/tests/
+          cp tests/contenus-college-4e-3e-v3.test.mjs c08-source/tests/
+
+      - name: Upload C08 source bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: c08-source-${{ github.sha }}
+          path: c08-source
+          if-no-files-found: error
+          retention-days: 1
