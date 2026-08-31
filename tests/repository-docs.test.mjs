@@ -35,7 +35,10 @@ test('repository README describes the real educational platform', () => {
   const readme = read('README.md');
 
   assert.doesNotMatch(readme, /Astro Starter Kit/i);
-  assert.match(readme, /Maths, Physique-Chimie & Enseignement scientifique/);
+  assert.match(readme, /Maths & Physique-Chimie/);
+  assert.match(readme, /deux disciplines/i);
+  assert.match(readme, /Enseignement scientifique/);
+  assert.match(readme, /parcours rattaché à l’espace Physique-Chimie/);
   assert.match(readme, /npm run verify:content/);
   assert.match(readme, /quality/);
   assert.match(readme, /dist-fast/);
@@ -57,11 +60,15 @@ test('coding assistant documentation no longer advertises stale architecture', (
 test('documentation has explicit current and historical entrypoints', () => {
   const docsIndex = read('docs/README.md');
   const architectureIndex = read('docs/architecture/README.md');
+  const taxonomy = read('docs/architecture/taxonomie-disciplines.md');
   const legacyInventory = read('docs/historique/racine-legacy.md');
 
   assert.match(docsIndex, /Documentation autoritative actuelle/);
   assert.match(docsIndex, /Documents historiques/);
   assert.match(architectureIndex, /Invariants actuels/);
+  assert.match(architectureIndex, /taxonomie-disciplines\.md/);
+  assert.match(taxonomy, /deux disciplines publiques/i);
+  assert.match(taxonomy, /parcours du lycée rattaché à l’espace Physique-Chimie/i);
   assert.match(legacyInventory, /Politique pour les nouvelles contributions/);
 });
 
