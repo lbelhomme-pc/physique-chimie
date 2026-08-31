@@ -1,4 +1,6 @@
 export type DisciplineId = "mathematiques" | "physique-chimie" | "enseignement-scientifique" | "transversal";
+export type PublicDisciplineId = "mathematiques" | "physique-chimie";
+export type PhysiqueChimieTrackId = "physique-chimie" | "enseignement-scientifique";
 
 export interface DisciplineIdentity {
   id: DisciplineId;
@@ -32,14 +34,14 @@ export const disciplineIdentities: Record<DisciplineId, DisciplineIdentity> = {
     id: "physique-chimie",
     label: "Physique-Chimie",
     shortLabel: "PC",
-    href: "/college",
+    href: "/physique-chimie",
     mark: "PC",
     iconLabel: "Initiales Physique-Chimie",
     accentVar: "--v3-color-discipline-pc",
     surfaceVar: "--v3-color-discipline-pc-bg",
     borderVar: "--v3-color-discipline-pc-border",
     microcopy: "Observer, mesurer, expliquer",
-    description: "Cours, exercices, quiz et laboratoires pour la physique et la chimie.",
+    description: "Cours, exercices, quiz et laboratoires de Physique-Chimie, avec l’Enseignement scientifique intégré au lycée.",
   },
   "enseignement-scientifique": {
     id: "enseignement-scientifique",
@@ -52,7 +54,7 @@ export const disciplineIdentities: Record<DisciplineId, DisciplineIdentity> = {
     surfaceVar: "--v3-color-discipline-science-bg",
     borderVar: "--v3-color-discipline-science-border",
     microcopy: "Relier les sciences, le climat, le vivant et l'énergie",
-    description: "Un espace identifié à part, distinct de la Physique-Chimie.",
+    description: "Parcours du lycée intégré à l’espace Physique-Chimie.",
   },
   transversal: {
     id: "transversal",
@@ -72,17 +74,18 @@ export const disciplineIdentities: Record<DisciplineId, DisciplineIdentity> = {
 export const publicDisciplineIds = [
   "mathematiques",
   "physique-chimie",
-  "enseignement-scientifique",
-] as const satisfies readonly DisciplineId[];
+] as const satisfies readonly PublicDisciplineId[];
 
 export function getDisciplineIdentity(id: DisciplineId | undefined): DisciplineIdentity {
   return disciplineIdentities[id ?? "transversal"];
 }
 
-export function getDisciplineFromLevelSlug(levelSlug: string | undefined): DisciplineId {
-  if (!levelSlug) return "physique-chimie";
-  if (levelSlug.includes("ens-scientifique")) return "enseignement-scientifique";
+export function getDisciplineFromLevelSlug(_levelSlug: string | undefined): PublicDisciplineId {
   return "physique-chimie";
+}
+
+export function getPhysiqueChimieTrackFromLevelSlug(levelSlug: string | undefined): PhysiqueChimieTrackId {
+  return levelSlug?.includes("ens-scientifique") ? "enseignement-scientifique" : "physique-chimie";
 }
 
 export function getDisciplineStyle(identity: DisciplineIdentity): string {
