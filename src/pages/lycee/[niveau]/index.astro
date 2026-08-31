@@ -5,7 +5,10 @@ import V3LandingHero from "../../../components/home/V3LandingHero.astro";
 import CatalogueChapterList from "../../../components/catalogue/CatalogueChapterList.astro";
 import type { CatalogueChapterItem } from "../../../components/catalogue/types";
 import Breadcrumb from "../../../components/ui/Breadcrumb.astro";
-import { getDisciplineFromLevelSlug, getDisciplineIdentity } from "../../../data/disciplineIdentity";
+import {
+  getDisciplineIdentity,
+  getPhysiqueChimieTrackFromLevelSlug,
+} from "../../../data/disciplineIdentity";
 import { lyceeLevels, getLevelLabel } from "../../../data/levels";
 
 export function getStaticPaths() {
@@ -14,8 +17,9 @@ export function getStaticPaths() {
 
 const { niveau } = Astro.params;
 const niveauLabel = getLevelLabel(niveau!);
-const discipline = getDisciplineIdentity(getDisciplineFromLevelSlug(niveau));
-const isTeachingScience = discipline.id === "enseignement-scientifique";
+const parentDiscipline = getDisciplineIdentity("physique-chimie");
+const track = getDisciplineIdentity(getPhysiqueChimieTrackFromLevelSlug(niveau));
+const isTeachingScience = track.id === "enseignement-scientifique";
 
 function getShortLabel(slug: string): string {
   const map: Record<string, string> = {
@@ -47,7 +51,7 @@ for (const [path, mod] of Object.entries(allMeta)) {
       order: data.order ?? 99,
       description: data.description ?? "",
       badges: [
-        isTeachingScience ? discipline.label : matiere === "chimie" ? "Chimie" : "Physique",
+        isTeachingScience ? track.label : matiere === "chimie" ? "Chimie" : "Physique",
         `Chapitre ${data.order ?? "à placer"}`,
       ],
     });
@@ -63,13 +67,17 @@ const landingTone = isTeachingScience ? "science" : "pc";
 ---
 
 <BaseLayout
-  title={`${niveauLabel} — Lycée — ${discipline.label}`}
-  description={`Catalogue des chapitres pour ${niveauLabel} au lycée.`}
+  title={`${niveauLabel} — Lycée — ${isTeachingScience ? track.label : parentDiscipline.label}`}
+  description={`Catalogue des chapitres pour ${niveauLabel} dans l’espace Physique-Chimie du lycée.`}
+  subject="physique-chimie"
+  cycle="lycee"
+  level={niveau}
 >
   <main class="catalogue-page">
     <Breadcrumb
       items={[
         { label: "Accueil", href: "/" },
+        { label: "Physique-Chimie", href: "/physique-chimie" },
         { label: "Lycée", href: "/lycee" },
         { label: niveauLabel },
       ]}
@@ -89,9 +97,9 @@ const landingTone = isTeachingScience ? "science" : "pc";
 
     <V3LandingHero
       tone={landingTone}
-      eyebrow={discipline.label}
-      mark={discipline.mark}
-      markLabel={discipline.iconLabel}
+      eyebrow={isTeachingScience ? `${parentDiscipline.label} · ${track.label}` : parentDiscipline.label}
+      mark={track.mark}
+      markLabel={track.iconLabel}
       title={isTeachingScience ? niveauLabel : `${niveauLabel} - Physique-Chimie`}
       description="Les chapitres sont classés dans l’ordre du programme pour accéder rapidement aux cours et aux activités."
       actions={total > 0
@@ -108,7 +116,7 @@ const landingTone = isTeachingScience ? "science" : "pc";
         { value: chimie.length, label: chimieTitle.toLowerCase() },
         { value: physique.length, label: physiqueTitle.toLowerCase() },
       ]}
-      imageAlt={`Espace de travail pour ${discipline.label} au niveau ${niveauLabel}.`}
+      imageAlt={`Espace de travail pour ${isTeachingScience ? track.label : parentDiscipline.label} au niveau ${niveauLabel}.`}
       contained
     />
 
