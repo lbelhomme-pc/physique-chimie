@@ -4,6 +4,8 @@ import test from "node:test";
 
 const workflowUrl = new URL("../.github/workflows/ci.yml", import.meta.url);
 const workflow = fs.readFileSync(workflowUrl, "utf8");
+const packageUrl = new URL("../package.json", import.meta.url);
+const packageJson = JSON.parse(fs.readFileSync(packageUrl, "utf8"));
 
 function jobBlock(jobName) {
   const marker = `  ${jobName}:\n`;
@@ -46,4 +48,9 @@ test("chaque check appelle le script npm autoritatif attendu", () => {
 test("les exécutions obsolètes sont annulées pour éviter des statuts contradictoires", () => {
   assert.match(workflow, /concurrency:/);
   assert.match(workflow, /cancel-in-progress: true/);
+});
+
+test("quality bloque toute vulnérabilité npm high ou critical", () => {
+  assert.equal(packageJson.scripts["audit:security"], "npm audit --audit-level=high");
+  assert.match(packageJson.scripts["ci:quality"], /npm run audit:security/);
 });
