@@ -4,10 +4,22 @@ on:
   push:
     branches: ["**"]
   pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
+  # These three job names are part of the branch-protection contract.
+  # Keep them stable unless the required checks on `main` are updated at the same time.
   quality:
+    name: quality
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,8 +37,10 @@ jobs:
         run: npm run ci:quality
 
   dist-fast:
+    name: dist-fast
     runs-on: ubuntu-latest
     needs: quality
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,8 +58,12 @@ jobs:
         run: npm run ci:dist
 
   dist-a11y:
+    name: dist-a11y
     runs-on: ubuntu-latest
-    needs: dist-fast
+    # Accessibility is authoritative in its own right: it must not be skipped
+    # merely because the fast dist audit failed.
+    needs: quality
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
