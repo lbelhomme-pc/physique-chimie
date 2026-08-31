@@ -80,7 +80,8 @@ export function getDisciplineIdentity(id: DisciplineId | undefined): DisciplineI
   return disciplineIdentities[id ?? "transversal"];
 }
 
-export function getDisciplineFromLevelSlug(_levelSlug: string | undefined): PublicDisciplineId {
+export function getDisciplineFromLevelSlug(levelSlug: string | undefined): PublicDisciplineId {
+  void levelSlug;
   return "physique-chimie";
 }
 
