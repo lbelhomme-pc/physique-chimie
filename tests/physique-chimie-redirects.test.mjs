@@ -87,3 +87,16 @@ test("C12 catalogues link directly to canonical PC chapters instead of consuming
     );
   }
 });
+
+test("C12 authoritative content verifier enforces active 301 redirects and explicit PC routes", () => {
+  const verifier = read("scripts/verify-routes-and-content.mjs");
+
+  assert.match(verifier, /buildPhysicalScienceRedirectRules/);
+  assert.doesNotMatch(verifier, /buildPreparedPhysicalScienceRedirectRules/);
+  assert.doesNotMatch(verifier, /getPhysicalScienceKnownRoutes/);
+  assert.match(verifier, /physicalScienceLegacyStatus === "redirect-only"/);
+  assert.match(verifier, /physicalScienceRedirectPhase === "active"/);
+  assert.match(verifier, /physicalScienceRedirectStatus === 301/);
+  assert.match(verifier, /const route = `\/physique-chimie\/\$\{cycle\}\/\$\{niveau\}\/\$\{matiere\}\/\$\{slug\}`/);
+  assert.match(verifier, /Chaine de redirection PC detectee/);
+});
