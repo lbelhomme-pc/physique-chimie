@@ -33,12 +33,7 @@ export const publicMenuSections = [
     links: [
       { label: "Collège", href: "/college" },
       { label: "Lycée", href: "/lycee" },
-      { label: "1re — Enseignement scientifique", href: "/lycee/1ere-ens-scientifique" },
-      { label: "Terminale — Enseignement scientifique", href: "/lycee/terminale-ens-scientifique" },
-      { label: "1re — Spécialité PC", href: "/lycee/1ere-spe" },
-      { label: "Terminale — Spécialité PC", href: "/lycee/terminale-spe" },
       { label: "Méthodes", href: "/outils-methodes" },
-      { label: "Outils", href: "/outils-methodes/kit-scientifique" },
     ],
   },
   {
