@@ -18,7 +18,17 @@ describe("Accueil public V3", () => {
     const h1Matches = homeSource.match(/<h1\b/g) ?? [];
     assert.equal(h1Matches.length, 1);
     assert.match(homeSource, /Comprendre, s'entraîner, réviser et expérimenter/);
-    assert.match(homeSource, /mathématiques, physique-chimie et enseignement scientifique/);
+    assert.match(homeSource, /mathématiques et en physique-chimie/);
+    assert.match(homeSource, /enseignement scientifique intégré au lycée/i);
+  });
+
+  it("présente deux disciplines publiques et rattache ES à Physique-Chimie", () => {
+    assert.match(homeSource, /Deux matières, une seule expérience/);
+    assert.match(homeSource, /title: "Mathématiques"/);
+    assert.match(homeSource, /title: "Physique-Chimie"/);
+    assert.doesNotMatch(homeSource, /title: "Enseignement Scientifique"/);
+    assert.doesNotMatch(homeSource, /subject-card--science/);
+    assert.match(homeSource, /Enseignement scientifique/);
   });
 
   it("conserve les accès publics attendus sans casser l'ancre de recherche", () => {
@@ -26,6 +36,7 @@ describe("Accueil public V3", () => {
       "/college",
       "/lycee",
       "/mathematiques",
+      "/physique-chimie",
       "/laboratoire",
       "/outils-methodes",
       "/memorisation",
