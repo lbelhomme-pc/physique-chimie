@@ -1,0 +1,77 @@
+name: C04 remaining diagnostics cleanup
+
+on:
+  push:
+    branches: ["audit-2026-c01-route-snapshot"]
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: audit-2026-c01-route-snapshot
+
+      - name: Resolve remaining local Astro diagnostics
+        shell: python
+        run: |
+          from pathlib import Path
+
+          def replace(path, old, new, count=1):
+              p = Path(path)
+              text = p.read_text(encoding="utf-8")
+              if text.count(old) < count:
+                  raise SystemExit(f"{path}: expected fragment not found: {old[:100]!r}")
+              p.write_text(text.replace(old, new, count), encoding="utf-8")
+
+          # Restore the RANKS import: the list is still rendered, only ranksAchieved was dead.
+          replace(
+              "src/components/pedagogie/StatsPage.tsx",
+              'import { getGamificationEngine } from "../../data/gamification/engine";\n',
+              'import { getGamificationEngine } from "../../data/gamification/engine";\nimport { RANKS } from "../../data/gamification/config";\n',
+          )
+
+          # TypeScript diagnostics for intentionally unused compatibility parameters.
+          replace(
+              "src/data/gamification/engine.ts",
+              '  completeExercice(\n    chapterId: string,\n    exerciceId: string,',
+              '  completeExercice(\n    _chapterId: string,\n    _exerciceId: string,',
+          )
+          replace(
+              "src/utils/trustedContent.ts",
+              '(full, slash, rawTag, rawAttrs) => {',
+              '(_full, slash, rawTag, rawAttrs) => {',
+          )
+
+          # Astro already treats these attributed scripts as inline; make that contract explicit.
+          replace(
+              "src/components/pedagogie/FlashcardsBlock.astro",
+              '<script type="module">',
+              '<script type="module" is:inline>',
+          )
+          replace(
+              "src/components/pedagogie/QuizBlock.astro",
+              '<script type="module">',
+              '<script type="module" is:inline>',
+          )
+          replace(
+              "src/pages/leane/flashcards.astro",
+              '<script type="application/json" id="leane-flash-study-data" set:html={JSON.stringify(studyCards)}></script>',
+              '<script type="application/json" is:inline id="leane-flash-study-data" set:html={JSON.stringify(studyCards)}></script>',
+          )
+
+          Path(".github/workflows/c04-hints.yml").unlink()
+
+      - name: Commit diagnostics cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "C04: clear remaining local diagnostics"
+          git push origin HEAD:audit-2026-c01-route-snapshot
