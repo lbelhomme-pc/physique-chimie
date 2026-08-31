@@ -1,8 +1,13 @@
 ---
 import ChapterPageShell from "../../../../../components/pedagogie/ChapterPageShell.astro";
+import {
+  getDisciplineIdentity,
+  getPhysiqueChimieTrackFromLevelSlug,
+} from "../../../../../data/disciplineIdentity";
 import { getLevelLabel, getMatiereLabel } from "../../../../../data/levels";
 import {
   getChapterNavigation,
+  getPhysicalScienceExplicitChapterPath,
   getPhysicalScienceLevelPath,
   getPhysicalScienceRouteContext,
   getPhysicalScienceSubjectPath,
@@ -32,10 +37,18 @@ const allFlash = import.meta.glob("/src/data/chapters/**/flashcards.json", { eag
 const { cycle, niveau, matiere, chapitre } = Astro.params;
 const routeCycle = cycle as CycleRouteId;
 const subject = matiere as PhysicalScienceSubject;
-const context = getPhysicalScienceRouteContext(routeCycle, niveau!, subject, chapitre!, { canonicalMode: "explicit" });
+const context = getPhysicalScienceRouteContext(routeCycle, niveau!, subject, chapitre!);
 const niveauLabel = getLevelLabel(niveau!);
 const matiereLabel = getMatiereLabel(matiere!);
 const cycleLabel = routeCycle === "college" ? "Collège" : "Lycée";
+const parentDiscipline = getDisciplineIdentity("physique-chimie");
+const track = routeCycle === "lycee"
+  ? getDisciplineIdentity(getPhysiqueChimieTrackFromLevelSlug(niveau))
+  : parentDiscipline;
+const isTeachingScience = routeCycle === "lycee" && track.id === "enseignement-scientifique";
+const subjectDisplayLabel = isTeachingScience
+  ? matiere === "chimie" ? "Repères chimie et vivant" : "Repères physique et Terre"
+  : matiereLabel;
 const basePath = `/src/data/chapters/${cycle}/${niveau}/${matiere}/${chapitre}`;
 const chapterId = `${cycle}/${niveau}/${matiere}/${chapitre}`;
 const backUrl = getPhysicalScienceLevelPath(routeCycle, niveau!);
@@ -103,7 +116,7 @@ const chapterNavigation = Object.entries(allMeta)
 const { previousChapter, nextChapter } = getChapterNavigation(
   chapterNavigation,
   chapitre!,
-  (slug) => `/physique-chimie/${cycle}/${niveau}/${matiere}/${slug}`,
+  (slug) => getPhysicalScienceExplicitChapterPath(routeCycle, niveau!, subject, slug),
 );
 ---
 
@@ -115,18 +128,22 @@ const { previousChapter, nextChapter } = getChapterNavigation(
   schemaType={schemaType}
   breadcrumbItems={[
     { label: "Accueil", href: "/" },
-    { label: "Physique-Chimie", href: "/" },
+    { label: "Physique-Chimie", href: parentDiscipline.href },
     { label: cycleLabel, href: `/${cycle}` },
     { label: niveauLabel, href: backUrl },
-    { label: matiereLabel, href: subjectUrl },
+    { label: subjectDisplayLabel, href: subjectUrl },
     { label: displayTitle },
   ]}
   displayTitle={displayTitle}
   chapterDescription={textOrFallback(meta.description, seoDescription)}
-  eyebrow={`${matiereLabel} ${niveauLabel}`}
+  eyebrow={isTeachingScience ? `${track.label} ${niveauLabel}` : `${matiereLabel} ${niveauLabel}`}
   theme={meta.theme ? `Thème : ${meta.theme}` : undefined}
+  badges={isTeachingScience ? [
+    { label: track.label },
+    { label: subjectDisplayLabel, muted: true },
+  ] : []}
   levelLabel={niveauLabel}
-  subjectLabel={matiereLabel}
+  subjectLabel={isTeachingScience ? track.shortLabel : matiereLabel}
   objectives={learningObjectives}
   prerequisites={prerequisites}
   competencies={competencies}
