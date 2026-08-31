@@ -10,6 +10,7 @@ import {
   getPhysiqueChimieTrackFromLevelSlug,
 } from "../../../data/disciplineIdentity";
 import { lyceeLevels, getLevelLabel } from "../../../data/levels";
+import { getPhysicalScienceExplicitChapterPath, type PhysicalScienceSubject } from "../../../data/contentRoutes";
 
 export function getStaticPaths() {
   return lyceeLevels.map((level) => ({ params: { niveau: level.slug } }));
@@ -46,7 +47,7 @@ for (const [path, mod] of Object.entries(allMeta)) {
     const data = (mod as any).default ?? mod;
     chapters.push({
       title: data.title ?? slug,
-      href: `/lycee/${niveau}/${matiere}/${slug}`,
+      href: getPhysicalScienceExplicitChapterPath("lycee", niveau!, matiere as PhysicalScienceSubject, slug),
       matiere,
       order: data.order ?? 99,
       description: data.description ?? "",

@@ -7,6 +7,7 @@ import type { CatalogueChapterItem } from "../../../components/catalogue/types";
 import Breadcrumb from "../../../components/ui/Breadcrumb.astro";
 import { disciplineIdentities } from "../../../data/disciplineIdentity";
 import { collegeLevels, getLevelLabel } from "../../../data/levels";
+import { getPhysicalScienceExplicitChapterPath, type PhysicalScienceSubject } from "../../../data/contentRoutes";
 
 export function getStaticPaths() {
   return collegeLevels.map((level) => ({ params: { niveau: level.slug } }));
@@ -41,7 +42,7 @@ for (const [path, mod] of Object.entries(allMeta)) {
     const data = (mod as any).default ?? mod;
     chapters.push({
       title: data.title ?? slug,
-      href: `/college/${niveau}/${matiere}/${slug}`,
+      href: getPhysicalScienceExplicitChapterPath("college", niveau!, matiere as PhysicalScienceSubject, slug),
       matiere,
       order: data.order ?? 99,
       description: data.description ?? "",

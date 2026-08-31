@@ -18,7 +18,7 @@ import { chapterEntryFromGlob } from "../src/data/mathematiques/content.ts";
 import { labApps } from "../src/data/laboratoire/apps.ts";
 import {
   activeRedirectRules,
-  buildPreparedPhysicalScienceRedirectRules,
+  buildPhysicalScienceRedirectRules,
   findRedirectTargetIssues,
   getPhysicalScienceKnownRoutes,
   normalizeRoutePath,
@@ -83,7 +83,7 @@ test("physical-science legacy and explicit routes resolve from the same context"
   const context = getPhysicalScienceRouteContext("college", "4eme", "chimie", "atomes-molecules");
   assert.equal(context.legacyPath, "/college/4eme/chimie/atomes-molecules");
   assert.equal(context.explicitPath, "/physique-chimie/college/4eme/chimie/atomes-molecules");
-  assert.equal(context.canonical, context.legacyPath);
+  assert.equal(context.canonical, context.explicitPath);
 
   const explicitCanonical = getPhysicalScienceRouteContext("college", "4eme", "chimie", "atomes-molecules", {
     canonicalMode: "explicit",
@@ -111,21 +111,23 @@ test("memorization root duplicates are represented as permanent redirects", () =
   );
 });
 
-test("prepared physical-science redirects point legacy URLs to explicit URLs without deleting legacy routes", () => {
+test("active physical-science redirects point legacy URLs directly to explicit canonicals", () => {
   const chapters = physicalScienceChapters();
-  const rules = buildPreparedPhysicalScienceRedirectRules(chapters);
+  const rules = buildPhysicalScienceRedirectRules(chapters);
   assert.ok(rules.length >= 100);
   const target = rules.find((rule) => rule.from === "/college/4eme/chimie/atomes-molecules");
   assert.ok(target);
   assert.equal(target.to, "/physique-chimie/college/4eme/chimie/atomes-molecules");
   assert.equal(target.status, 301);
-  assert.equal(target.phase, "prepared");
+  assert.equal(target.phase, "active");
 });
 
-test("V3 route strategy keeps legacy routes active while declaring explicit canonicals", () => {
+test("V3 route strategy serves explicit canonicals and redirects legacy chapter URLs", () => {
   assert.equal(V3_ROUTE_STRATEGY.physicalScienceCanonicalMode, "explicit");
-  assert.equal(V3_ROUTE_STRATEGY.physicalScienceLegacyStatus, "active-compatible");
-  assert.equal(V3_ROUTE_STRATEGY.physicalScienceRedirectPhase, "prepared");
+  assert.equal(V3_ROUTE_STRATEGY.physicalScienceLegacyStatus, "redirect-only");
+  assert.equal(V3_ROUTE_STRATEGY.physicalScienceRedirectPhase, "active");
+  assert.equal(V3_ROUTE_STRATEGY.physicalScienceRedirectStatus, 301);
+  assert.equal(V3_ROUTE_STRATEGY.preserveLegacyPhysicalScienceContent, false);
   assert.equal(V3_ROUTE_STRATEGY.notFoundRoute, "/404");
 
   const pair = getPhysicalScienceRoutePairs([
@@ -134,22 +136,24 @@ test("V3 route strategy keeps legacy routes active while declaring explicit cano
   assert.equal(pair.legacyPath, "/college/4eme/chimie/atomes-molecules");
   assert.equal(pair.explicitPath, "/physique-chimie/college/4eme/chimie/atomes-molecules");
   assert.equal(pair.canonicalPath, pair.explicitPath);
-  assert.equal(pair.legacyStatus, "active-compatible");
+  assert.equal(pair.legacyStatus, "redirect-only");
+  assert.equal(pair.redirectPhase, "active");
+  assert.equal(pair.redirectStatus, 301);
 });
 
-test("every active or prepared redirect has an existing internal target", () => {
+test("every active redirect has an existing canonical target", () => {
   const chapters = physicalScienceChapters();
   const rules = [
     ...activeRedirectRules,
-    ...buildPreparedPhysicalScienceRedirectRules(chapters),
+    ...buildPhysicalScienceRedirectRules(chapters),
   ];
   const routes = availableRoutes();
   const issues = findRedirectTargetIssues(rules, routes);
 
   assert.equal(rules.length, chapters.length + Object.keys(MEMORIZATION_LEGACY_REDIRECTS).length);
   assert.deepEqual(issues, []);
-  for (const rule of buildPreparedPhysicalScienceRedirectRules(chapters)) {
-    assert.ok(routes.has(normalizeRoutePath(rule.from)), `${rule.from} must remain an active legacy route until redirect activation`);
+  for (const rule of buildPhysicalScienceRedirectRules(chapters)) {
+    assert.ok(routes.has(normalizeRoutePath(rule.to)), `${rule.to} must be a generated canonical target`);
   }
 });
 
@@ -164,9 +168,9 @@ test("college physical-science navigation is order-based like lycee navigation",
     .filter((chapter) => chapter.cycle === "college" && chapter.niveau === "4eme" && chapter.matiere === "chimie")
     .map((chapter) => ({ slug: chapter.chapitre, title: chapter.title, order: chapter.order }));
 
-  const nav = getChapterNavigation(chapters, "atomes-molecules", (slug) => `/college/4eme/chimie/${slug}`);
-  assert.equal(nav.previousChapter?.href, "/college/4eme/chimie/solubilite");
-  assert.equal(nav.nextChapter?.href, "/college/4eme/chimie/reactifs-produits-conservation");
+  const nav = getChapterNavigation(chapters, "atomes-molecules", (slug) => `/physique-chimie/college/4eme/chimie/${slug}`);
+  assert.equal(nav.previousChapter?.href, "/physique-chimie/college/4eme/chimie/solubilite");
+  assert.equal(nav.nextChapter?.href, "/physique-chimie/college/4eme/chimie/reactifs-produits-conservation");
 });
 
 test("only mathematics levels with published content are exposed as level pages", () => {

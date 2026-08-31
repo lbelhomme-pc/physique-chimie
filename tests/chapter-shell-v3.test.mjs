@@ -7,8 +7,6 @@ const root = process.cwd();
 const files = {
   shell: path.join(root, "src/components/pedagogie/ChapterPageShell.astro"),
   tabs: path.join(root, "src/components/pedagogie/ChapterTabs.astro"),
-  collegeChapter: path.join(root, "src/pages/college/[niveau]/[matiere]/[chapitre].astro"),
-  lyceeChapter: path.join(root, "src/pages/lycee/[niveau]/[matiere]/[chapitre].astro"),
   explicitPcChapter: path.join(root, "src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro"),
   mathCollegeChapter: path.join(root, "src/pages/mathematiques/college/[niveau]/[chapitre].astro"),
   mathLyceeChapter: path.join(root, "src/pages/mathematiques/lycee/[niveau]/[chapitre].astro"),
@@ -63,7 +61,7 @@ describe("chapter shell V3", () => {
   });
 
   it("passes pedagogical metadata from every chapter route family", () => {
-    for (const name of ["collegeChapter", "lyceeChapter", "explicitPcChapter", "mathCollegeChapter", "mathLyceeChapter"]) {
+    for (const name of ["explicitPcChapter", "mathCollegeChapter", "mathLyceeChapter"]) {
       const route = source(name);
 
       assert.match(route, /chapterDescription=/);

@@ -29,7 +29,7 @@ export const activeRedirectRules: RedirectRule[] = Object.entries(MEMORIZATION_L
   phase: "active",
 }));
 
-export function buildPreparedPhysicalScienceRedirectRules(
+export function buildPhysicalScienceRedirectRules(
   chapters: PhysicalScienceChapterRouteInput[],
 ): RedirectRule[] {
   const contexts = chapters.map((chapter) =>
@@ -39,9 +39,12 @@ export function buildPreparedPhysicalScienceRedirectRules(
     from,
     to,
     status: 301,
-    phase: "prepared",
+    phase: "active",
   }));
 }
+
+/** @deprecated C12 redirects are active; use buildPhysicalScienceRedirectRules. */
+export const buildPreparedPhysicalScienceRedirectRules = buildPhysicalScienceRedirectRules;
 
 export function normalizeRoutePath(route: string): string {
   const normalized = route.trim().replace(/\\/g, "/").replace(/\/{2,}/g, "/");

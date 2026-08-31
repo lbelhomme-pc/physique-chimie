@@ -188,7 +188,7 @@ describe("enseignement scientifique V3", () => {
   });
 
   it("branche l experience ES visible sur les pages chapitre et retire les champs manquants du lot", () => {
-    const chapterPage = readFileSync(path.join(root, "src/pages/lycee/[niveau]/[matiere]/[chapitre].astro"), "utf8");
+    const chapterPage = readFileSync(path.join(root, "src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro"), "utf8");
     assert.match(chapterPage, /getPhysiqueChimieTrackFromLevelSlug/);
     assert.match(chapterPage, /parentDiscipline/);
     assert.match(chapterPage, /isTeachingScience/);
