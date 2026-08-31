@@ -1,4 +1,4 @@
-import { createLabRuntime, fitCanvas, frNumber, onLabReady, prefersReducedMotion } from "./lab-utils.js";
+import { createLabRuntime, fitCanvas, frNumber, onLabReady } from "./lab-utils.js";
 
 onLabReady('[data-lab-app="gaz-parfaits"]', (root) => {
   const q = (selector) => root.querySelector(selector);
@@ -28,7 +28,6 @@ onLabReady('[data-lab-app="gaz-parfaits"]', (root) => {
   const runtime = createLabRuntime(root);
   const R = 8.314;
   const particles = [];
-  const reducedMotion = prefersReducedMotion();
   let canvasState = fitCanvas(canvas);
   let temperatureK = 293.15;
   let volumeL = 20;

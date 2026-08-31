@@ -4,7 +4,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { getGamificationEngine, type GamificationEngine } from "./engine";
-import { RANKS, type Rank, type SubLevel, getSubLevel } from "./config";
+import { type Rank, type SubLevel } from "./config";
 
 export interface GamificationState {
   xp: number;

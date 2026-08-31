@@ -186,8 +186,6 @@ const computeChapterStatus = (chapter) => {
     const scoreEl = block.querySelector("[data-quiz-score]");
     const resetBtn = block.querySelector("[data-quiz-reset]");
 
-    let currentAttemptStarted = false;
-
     const notifyProgress = () => {
       window.dispatchEvent(new CustomEvent("progress-updated"));
     };
@@ -267,8 +265,6 @@ const computeChapterStatus = (chapter) => {
         button.addEventListener("click", () => {
           if (card.getAttribute("data-locked") === "true") return;
 
-          currentAttemptStarted = true;
-
           const selectedIndex = Number(button.getAttribute("data-choice-index"));
           const isCorrect = selectedIndex === correctAnswer;
 
@@ -321,7 +317,6 @@ const computeChapterStatus = (chapter) => {
         }
       });
 
-      currentAttemptStarted = false;
       renderScore();
 
       const current = getChapterProgress(chapterKey);

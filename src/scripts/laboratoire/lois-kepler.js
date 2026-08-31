@@ -1,4 +1,4 @@
-import { createLabRuntime, fitCanvas, frNumber, onLabReady, prefersReducedMotion } from "./lab-utils.js";
+import { createLabRuntime, fitCanvas, frNumber, onLabReady } from "./lab-utils.js";
 
 onLabReady('[data-lab-app="lois-kepler"]', (root) => {
   const q = (selector) => root.querySelector(selector);
@@ -24,7 +24,6 @@ onLabReady('[data-lab-app="lois-kepler"]', (root) => {
   if (!scene || !canvas || !aSlider || !eSlider || !speedSlider || !dtSlider) return;
 
   const runtime = createLabRuntime(root);
-  const reducedMotion = prefersReducedMotion();
   let canvasState = fitCanvas(canvas);
   let t = 0;
   let recordedAreas = [];
@@ -35,8 +34,6 @@ onLabReady('[data-lab-app="lois-kepler"]', (root) => {
     canvasState = fitCanvas(canvas);
     draw();
   });
-
-  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
   function normalizeAngle(angle) {
     return ((((angle + Math.PI) % TAU) + TAU) % TAU) - Math.PI;

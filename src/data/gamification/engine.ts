@@ -11,7 +11,6 @@ import {
   COMBO_TIMEOUT_MS,
   BADGES,
   FREE_FREEZES_PER_WEEK,
-  STREAK_FREEZE_COST,
   getSubLevel,
   type Rank,
   type SubLevel,
