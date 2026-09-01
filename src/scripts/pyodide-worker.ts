@@ -1,8 +1,11 @@
-export {};
+import {
+  PYODIDE_BASE_URL,
+  PYODIDE_LOAD_TIMEOUT_MS,
+  PYODIDE_MODULE_URL,
+  PYODIDE_VERSION,
+} from "../config/pyodide";
 
-const PYODIDE_VERSION = "314.0.2";
-const PYODIDE_BASE_URL = `https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/full/`;
-const PYODIDE_MODULE_URL = `${PYODIDE_BASE_URL}pyodide.mjs`;
+export {};
 
 type WorkerRequest =
   | { type: "load" }
@@ -44,18 +47,52 @@ function send(message: WorkerResponse) {
   worker.postMessage(message);
 }
 
+function withTimeout<T>(promise: Promise<T>, timeoutMs: number, message: string): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error(message)), timeoutMs);
+    promise.then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (error) => {
+        clearTimeout(timer);
+        reject(error);
+      },
+    );
+  });
+}
+
+function loadErrorMessage(error: unknown) {
+  const detail = error instanceof Error ? error.message : String(error);
+  return `Impossible de charger Python depuis le CDN. Vérifie ta connexion puis réessaie. Détail : ${detail}`;
+}
+
 async function loadPython() {
   if (pyodide) return pyodide;
 
   if (!pyodideReadyPromise) {
     pyodideReadyPromise = (async () => {
-      send({ type: "status", message: "Téléchargement du moteur Python..." });
-      const module = await import(/* @vite-ignore */ PYODIDE_MODULE_URL);
-      send({ type: "status", message: "Initialisation de Pyodide..." });
-      const runtime = await module.loadPyodide({ indexURL: PYODIDE_BASE_URL });
-      runtime.setStdin({ error: true });
-      pyodide = runtime;
-      return runtime;
+      try {
+        send({ type: "status", message: "Téléchargement du moteur Python..." });
+        const module = await withTimeout(
+          import(/* @vite-ignore */ PYODIDE_MODULE_URL),
+          PYODIDE_LOAD_TIMEOUT_MS,
+          "Délai de téléchargement de Pyodide dépassé.",
+        );
+        send({ type: "status", message: "Initialisation de Pyodide..." });
+        const runtime = await withTimeout<PyodideRuntime>(
+          module.loadPyodide({ indexURL: PYODIDE_BASE_URL }),
+          PYODIDE_LOAD_TIMEOUT_MS,
+          "Délai d'initialisation de Pyodide dépassé.",
+        );
+        runtime.setStdin({ error: true });
+        pyodide = runtime;
+        return runtime;
+      } catch (error) {
+        pyodideReadyPromise = null;
+        throw new Error(loadErrorMessage(error));
+      }
     })();
   }
 
