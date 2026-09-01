@@ -1,0 +1,383 @@
+<!--
+  Shell client global C16.
+  Les comportements simples restent natifs ; le panneau React d'accessibilité
+  n'est téléchargé qu'après une action explicite de l'utilisateur.
+-->
+
+<button
+  type="button"
+  class="global-a11y-launcher"
+  data-global-a11y-launcher
+  aria-label="Ouvrir les paramètres accessibilité et DYS"
+  aria-controls="a11y-react-mount"
+>
+  <span aria-hidden="true">Aa</span>
+</button>
+<div id="a11y-react-mount" data-a11y-react-mount></div>
+
+<div class="native-reading-guide" data-native-reading-guide hidden aria-hidden="true">
+  <div class="native-reading-guide__shade" data-reading-guide-top></div>
+  <div class="native-reading-guide__line" data-reading-guide-line></div>
+  <div class="native-reading-guide__shade" data-reading-guide-bottom></div>
+</div>
+
+<button type="button" class="native-scroll-top" data-native-scroll-top hidden aria-label="Retour en haut">
+  <span aria-hidden="true">↑</span>
+</button>
+
+<div class="native-xp-toast-stack" data-native-xp-toasts aria-live="polite" aria-atomic="false"></div>
+
+<style>
+  .global-a11y-launcher {
+    align-items: center;
+    background: var(--v3-color-surface-raised, #fff);
+    border: 1px solid var(--v3-color-border-default, #e2e8f0);
+    border-radius: var(--v3-radius-pill, 999px);
+    bottom: 1rem;
+    box-shadow: var(--v3-shadow-md, 0 8px 18px rgba(15, 23, 42, 0.08));
+    color: var(--v3-color-action, #2563eb);
+    cursor: pointer;
+    display: inline-flex;
+    font: 900 1rem/1 var(--font-family, sans-serif);
+    height: 3rem;
+    justify-content: center;
+    left: 1rem;
+    position: fixed;
+    width: 3rem;
+    z-index: 9998;
+  }
+
+  .global-a11y-launcher:focus-visible,
+  .native-scroll-top:focus-visible {
+    box-shadow: var(--v3-shadow-focus, 0 0 0 3px rgba(37, 99, 235, 0.28));
+    outline: none;
+  }
+
+  .global-a11y-launcher[aria-busy="true"] {
+    cursor: progress;
+    opacity: 0.7;
+  }
+
+  .native-reading-guide {
+    inset: 0;
+    pointer-events: none;
+    position: fixed;
+    z-index: 9990;
+  }
+
+  .native-reading-guide__shade,
+  .native-reading-guide__line {
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+
+  .native-reading-guide__shade {
+    background: rgba(15, 23, 42, 0.16);
+  }
+
+  .native-reading-guide__line {
+    background: color-mix(in srgb, var(--v3-color-action, #2563eb) 8%, transparent);
+    border-bottom: 2px solid color-mix(in srgb, var(--v3-color-action, #2563eb) 48%, transparent);
+    border-top: 2px solid color-mix(in srgb, var(--v3-color-action, #2563eb) 48%, transparent);
+    height: 44px;
+  }
+
+  .native-scroll-top {
+    align-items: center;
+    background: var(--accent-primary);
+    border: 0;
+    border-radius: 50%;
+    bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font: 900 1.25rem/1 var(--font-family, sans-serif);
+    height: 3rem;
+    justify-content: center;
+    position: fixed;
+    right: 1.5rem;
+    width: 3rem;
+    z-index: 9000;
+  }
+
+  .native-xp-toast-stack {
+    bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: min(22rem, calc(100vw - 2rem));
+    pointer-events: none;
+    position: fixed;
+    right: 1.25rem;
+    z-index: 9996;
+  }
+
+  .native-xp-toast {
+    align-items: center;
+    background: var(--accent-primary);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    display: flex;
+    font-size: 0.9rem;
+    font-weight: 700;
+    gap: 0.5rem;
+    line-height: 1.35;
+    max-width: 100%;
+    opacity: 0;
+    padding: 0.65rem 1rem;
+    pointer-events: auto;
+    transform: translateX(100px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    width: max-content;
+  }
+
+  .native-xp-toast.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .native-xp-toast[data-toast-type="rank_up"] { background: #d4af37; }
+  .native-xp-toast[data-toast-type="badge"] { background: var(--accent-purple); }
+  .native-xp-toast[data-toast-type="streak_bonus"] { background: var(--accent-warning); }
+  .native-xp-toast[data-toast-type="chapter_complete"] { background: var(--accent-success); }
+
+  .native-xp-toast__icon {
+    font-size: 1.2rem;
+  }
+
+  .native-xp-toast__message {
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 420px) {
+    .native-xp-toast-stack {
+      bottom: auto;
+      left: 0.75rem;
+      max-width: none;
+      right: 0.75rem;
+      top: 0.75rem;
+    }
+
+    .native-xp-toast {
+      justify-content: center;
+      width: 100%;
+    }
+
+    body:has(.analytics-consent:not([hidden])) .native-xp-toast-stack {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .native-xp-toast {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const launcher = document.querySelector<HTMLButtonElement>("[data-global-a11y-launcher]");
+  const panelMount = document.querySelector<HTMLElement>("[data-a11y-react-mount]");
+  const readingGuide = document.querySelector<HTMLElement>("[data-native-reading-guide]");
+  const guideTop = document.querySelector<HTMLElement>("[data-reading-guide-top]");
+  const guideLine = document.querySelector<HTMLElement>("[data-reading-guide-line]");
+  const guideBottom = document.querySelector<HTMLElement>("[data-reading-guide-bottom]");
+  const scrollTopButton = document.querySelector<HTMLButtonElement>("[data-native-scroll-top]");
+  const toastStack = document.querySelector<HTMLElement>("[data-native-xp-toasts]");
+
+  let panelMounted = false;
+  let readingGuideEnabled = false;
+  let readingGuideY = -100;
+  const guideHeight = 44;
+
+  function readStoredA11yPreferences(): Record<string, unknown> {
+    try {
+      const raw = localStorage.getItem("a11y_preferences");
+      if (!raw) return {};
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch {
+      return {};
+    }
+  }
+
+  function renderReadingGuide() {
+    if (!readingGuide || !guideTop || !guideLine || !guideBottom) return;
+    if (!readingGuideEnabled || readingGuideY < 0) {
+      readingGuide.hidden = true;
+      return;
+    }
+
+    const topHeight = Math.max(0, readingGuideY - guideHeight / 2);
+    readingGuide.hidden = false;
+    guideTop.style.height = `${topHeight}px`;
+    guideLine.style.top = `${topHeight}px`;
+    guideBottom.style.top = `${topHeight + guideHeight}px`;
+    guideBottom.style.bottom = "0";
+  }
+
+  function onGuideMouseMove(event: MouseEvent) {
+    readingGuideY = event.clientY;
+    renderReadingGuide();
+  }
+
+  function onGuideFocusIn(event: FocusEvent) {
+    const target = event.target instanceof HTMLElement ? event.target : null;
+    const rect = target?.getBoundingClientRect();
+    if (!rect) return;
+    readingGuideY = rect.top + rect.height / 2;
+    renderReadingGuide();
+  }
+
+  function onGuideKeyDown(event: KeyboardEvent) {
+    if (event.key === "ArrowDown" || event.key === "PageDown") {
+      readingGuideY = Math.min(window.innerHeight - 20, Math.max(20, readingGuideY) + 36);
+      renderReadingGuide();
+    }
+    if (event.key === "ArrowUp" || event.key === "PageUp") {
+      readingGuideY = Math.max(20, Math.max(20, readingGuideY) - 36);
+      renderReadingGuide();
+    }
+  }
+
+  function setReadingGuideEnabled(enabled: boolean) {
+    if (readingGuideEnabled === enabled) return;
+    readingGuideEnabled = enabled;
+    if (enabled) {
+      window.addEventListener("mousemove", onGuideMouseMove, { passive: true });
+      window.addEventListener("focusin", onGuideFocusIn);
+      window.addEventListener("keydown", onGuideKeyDown);
+    } else {
+      window.removeEventListener("mousemove", onGuideMouseMove);
+      window.removeEventListener("focusin", onGuideFocusIn);
+      window.removeEventListener("keydown", onGuideKeyDown);
+      readingGuideY = -100;
+    }
+    renderReadingGuide();
+  }
+
+  setReadingGuideEnabled(readStoredA11yPreferences().readingGuide === true);
+
+  const scheduleIdle = (callback: () => void) => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(callback, { timeout: 1500 });
+    } else {
+      window.setTimeout(callback, 250);
+    }
+  };
+
+  scheduleIdle(() => {
+    void import("../../data/accessibility/a11y-engine").then(({ getA11yEngine }) => {
+      const engine = getA11yEngine();
+      setReadingGuideEnabled(engine.getPrefs().readingGuide);
+      engine.subscribe((prefs) => setReadingGuideEnabled(prefs.readingGuide));
+    }).catch((error) => console.warn("C16: moteur d'accessibilité indisponible", error));
+  });
+
+  launcher?.addEventListener("click", async () => {
+    if (!launcher || !panelMount || panelMounted) return;
+    launcher.disabled = true;
+    launcher.setAttribute("aria-busy", "true");
+
+    try {
+      const [{ default: AccessibilityPanel }, { createElement }, { createRoot }] = await Promise.all([
+        import("../accessibility/AccessibilityPanel.tsx"),
+        import("react"),
+        import("react-dom/client"),
+      ]);
+      const root = createRoot(panelMount);
+      root.render(createElement(AccessibilityPanel));
+      panelMounted = true;
+
+      window.setTimeout(() => {
+        const reactToggle = panelMount.querySelector<HTMLButtonElement>(".a11y-panel-toggle");
+        launcher.hidden = true;
+        reactToggle?.click();
+      }, 0);
+    } catch (error) {
+      launcher.disabled = false;
+      launcher.removeAttribute("aria-busy");
+      launcher.setAttribute("aria-label", "Paramètres d'accessibilité indisponibles. Réessayer.");
+      console.error("C16: chargement différé du panneau d'accessibilité impossible", error);
+    }
+  });
+
+  function updateScrollTopVisibility() {
+    if (scrollTopButton) scrollTopButton.hidden = window.scrollY <= 300;
+  }
+
+  window.addEventListener("scroll", updateScrollTopVisibility, { passive: true });
+  updateScrollTopVisibility();
+  scrollTopButton?.addEventListener("click", () => {
+    const reduceMotion =
+      document.documentElement.classList.contains("a11y-reduced-motion") ||
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  });
+
+  type NativeToast = {
+    type: "xp" | "rank_up" | "badge" | "streak_bonus" | "chapter_complete";
+    message: string;
+    icon?: string;
+  };
+
+  function addToast(toast: NativeToast) {
+    if (!toastStack) return;
+    const bubble = document.createElement("div");
+    bubble.className = "native-xp-toast";
+    bubble.dataset.toastType = toast.type;
+    bubble.setAttribute("role", "status");
+
+    if (toast.icon) {
+      const icon = document.createElement("span");
+      icon.className = "native-xp-toast__icon";
+      icon.setAttribute("aria-hidden", "true");
+      icon.textContent = toast.icon;
+      bubble.appendChild(icon);
+    }
+
+    const message = document.createElement("span");
+    message.className = "native-xp-toast__message";
+    message.textContent = toast.message;
+    bubble.appendChild(message);
+    toastStack.appendChild(bubble);
+
+    window.requestAnimationFrame(() => bubble.classList.add("is-visible"));
+    window.setTimeout(() => {
+      bubble.classList.remove("is-visible");
+      window.setTimeout(() => bubble.remove(), 300);
+    }, 3000);
+  }
+
+  scheduleIdle(() => {
+    void import("../../data/gamification/engine").then(({ getGamificationEngine }) => {
+      const engine = getGamificationEngine();
+      const result = engine.dailyLogin();
+
+      if (result.xp > 0) {
+        addToast({ type: "xp", message: `Connexion du jour : +${result.xp} XP`, icon: "🌅" });
+      }
+      if (result.streakBonus > 0) {
+        const streak = engine.getStreak();
+        addToast({
+          type: "streak_bonus",
+          message: `${streak.current} jours d'affilée ! +${result.streakBonus} XP bonus`,
+          icon: "🔥",
+        });
+      }
+      if (result.rankUp) {
+        addToast({
+          type: "rank_up",
+          message: `Nouveau rang : ${result.rankUp.icon} ${result.rankUp.name} !`,
+          icon: result.rankUp.icon,
+        });
+      }
+      for (const badge of result.newBadges) {
+        addToast({ type: "badge", message: `Badge : ${badge.icon} ${badge.name}`, icon: badge.icon });
+      }
+    }).catch((error) => console.warn("C16: gamification quotidienne indisponible", error));
+  });
+</script>
