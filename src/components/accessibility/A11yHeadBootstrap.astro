@@ -1,0 +1,72 @@
+<!-- C16 : applique les préférences persistantes avant le rendu pour éviter un flash de thème. -->
+<script is:inline>
+  (() => {
+    const root = document.documentElement;
+    const defaults = {
+      theme: "light",
+      fontFamily: "default",
+      fontSize: "normal",
+      lineHeight: "normal",
+      letterSpacing: "normal",
+      wordSpacing: "normal",
+      textAlign: "left",
+      maxLineWidth: "normal",
+      cursorSize: "normal",
+      readingGuide: false,
+      highlightLinks: false,
+      reducedMotion: false,
+      focusMode: false,
+    };
+    const allowed = {
+      theme: new Set(["light", "gray-light", "gray", "dark", "sepia", "blue-light", "auto"]),
+      fontFamily: new Set(["default", "opendyslexic", "comic-sans", "verdana", "arial"]),
+      fontSize: new Set(["normal", "large", "x-large"]),
+      lineHeight: new Set(["normal", "large", "x-large"]),
+      letterSpacing: new Set(["normal", "large", "x-large"]),
+      wordSpacing: new Set(["normal", "large", "x-large"]),
+      textAlign: new Set(["left", "justify"]),
+      maxLineWidth: new Set(["normal", "narrow", "very-narrow"]),
+      cursorSize: new Set(["normal", "large"]),
+    };
+
+    let stored = {};
+    try {
+      const raw = localStorage.getItem("a11y_preferences");
+      const parsed = raw ? JSON.parse(raw) : null;
+      if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) stored = parsed;
+    } catch {
+      stored = {};
+    }
+
+    const pick = (key) => {
+      const value = stored[key];
+      return allowed[key].has(value) ? value : defaults[key];
+    };
+
+    let theme = pick("theme");
+    if (theme === "auto") {
+      const hour = new Date().getHours();
+      if (hour >= 7 && hour < 17) theme = "light";
+      else if (hour >= 17 && hour < 20) theme = "gray-light";
+      else if (hour >= 20 && hour < 22) theme = "gray";
+      else theme = "dark";
+    }
+
+    root.classList.add(`a11y-theme-${theme}`);
+    root.classList.add(`a11y-font-${pick("fontFamily")}`);
+    root.classList.add(`a11y-fontsize-${pick("fontSize")}`);
+    root.classList.add(`a11y-lineheight-${pick("lineHeight")}`);
+    root.classList.add(`a11y-letterspacing-${pick("letterSpacing")}`);
+    root.classList.add(`a11y-wordspacing-${pick("wordSpacing")}`);
+    root.classList.add(`a11y-align-${pick("textAlign")}`);
+    root.classList.add(`a11y-linewidth-${pick("maxLineWidth")}`);
+    root.classList.add(`a11y-cursor-${pick("cursorSize")}`);
+
+    if (stored.readingGuide === true) root.classList.add("a11y-reading-guide");
+    if (stored.highlightLinks === true) root.classList.add("a11y-highlight-links");
+    if (stored.reducedMotion === true || window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      root.classList.add("a11y-reduced-motion");
+    }
+    if (stored.focusMode === true) root.classList.add("a11y-focus-mode");
+  })();
+</script>
