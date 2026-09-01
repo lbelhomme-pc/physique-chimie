@@ -39,6 +39,10 @@ root_anchor = "  --accent-orange: #f97316;\n"
 assert text.count(root_anchor) == 1
 text = text.replace(root_anchor, root_anchor + "  --accent-rank: #765600;\n")
 
+gray_primary = "  --accent-primary: #818cf8;\n  --accent-primary-light: #2a2f5f;\n"
+assert text.count(gray_primary) == 1
+text = text.replace(gray_primary, "  --accent-primary: #a7b6fc;\n  --accent-primary-light: #2a2f5f;\n")
+
 gray_anchor = "  --accent-primary-light: #2a2f5f;\n"
 assert text.count(gray_anchor) == 1
 text = text.replace(gray_anchor, gray_anchor + "  --accent-rank: #facc15;\n")
