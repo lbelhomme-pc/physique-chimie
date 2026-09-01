@@ -2,10 +2,8 @@
 // src/layouts/BaseLayout.astro
 // Layout principal - SEO complet, navigation, footer, accessibilite
 
-import DailyLoginTracker from "../components/pedagogie/DailyLoginTracker.tsx";
-import AccessibilityPanel from "../components/accessibility/AccessibilityPanel.tsx";
-import ReadingGuide from "../components/accessibility/ReadingGuide.tsx";
-import ScrollToTop from "../components/ui/ScrollToTop.tsx";
+import A11yHeadBootstrap from "../components/accessibility/A11yHeadBootstrap.astro";
+import GlobalClientTools from "../components/ui/GlobalClientTools.astro";
 import PublicNavigationV3 from "../components/navigation/PublicNavigationV3.astro";
 import {
   getSubjectContextFromPath,
@@ -106,6 +104,8 @@ const structuredData = buildPageJsonLd({
 
   <!-- Schema.org JSON-LD -->
   <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+  <A11yHeadBootstrap />
 
   <link rel="manifest" href={siteConfig.assets.manifest}>
   <style>
@@ -509,11 +509,8 @@ const structuredData = buildPageJsonLd({
     </div>
   </div>
 
-  <!-- Composants globaux -->
-  <DailyLoginTracker client:load />
-  <AccessibilityPanel client:load />
-  <ReadingGuide client:load />
-  <ScrollToTop client:load />
+  <!-- Outils globaux C16 : natifs, panneau accessibilité chargé à la demande -->
+  <GlobalClientTools />
 
   <script
     is:inline
