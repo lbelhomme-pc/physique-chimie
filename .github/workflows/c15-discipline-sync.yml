@@ -1,0 +1,32 @@
+name: C15 discipline sync
+
+on:
+  push:
+    branches:
+      - audit-2026-c01-route-snapshot
+    paths:
+      - .github/workflows/c15-discipline-sync.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit-2026-c01-route-snapshot
+          fetch-depth: 0
+      - name: Apply C15 search dashboard neutralization
+        run: python scripts/c15-neutralize-search-dashboard.py
+      - name: Validate patch
+        run: git diff --check
+      - name: Commit C15 neutralization
+        run: |
+          git rm .github/workflows/c15-discipline-sync.yml scripts/c15-neutralize-search-dashboard.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "C15: make search dashboard and profile discipline-aware"
+          git push origin HEAD:audit-2026-c01-route-snapshot
