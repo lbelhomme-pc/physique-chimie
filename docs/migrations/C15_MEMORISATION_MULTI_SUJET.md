@@ -175,6 +175,14 @@ Ne pas revenir uniquement sur les composants Mega tout en conservant les endpoin
 
 ## VALIDATION FINALE
 
-**État : validation CI finale en cours sur le présent HEAD.**
+**Décision : GO.**
 
-La logique C15 et la réparation du lockfile ont déjà passé leurs tests ciblés. La décision GO définitive est conditionnée aux trois jobs `quality`, `dist-fast` et `dist-a11y` verts sur ce commit utilisateur.
+Le workflow GitHub Actions `33548630596`, exécuté sur le commit utilisateur `b4710f5be8b08c6779314995e3a549b69cbf6391`, valide l'ensemble du périmètre C15 avec le lockfile de sécurité réparé :
+
+- `quality` : PASS ;
+- `dist-fast` : PASS ;
+- `dist-a11y` : PASS.
+
+Le seuil `npm audit --audit-level=high` est respecté, les tests C15 et la suite globale sont verts, les contenus Mathématiques publiés alimentent désormais les banques Mega, le mélange de disciplines reste explicitement opt-in, et aucune migration de progression/SRS/XP n'a été introduite.
+
+**C15 est terminé et validé.**
