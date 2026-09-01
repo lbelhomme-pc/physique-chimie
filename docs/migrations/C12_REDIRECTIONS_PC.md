@@ -19,6 +19,7 @@ Faire des routes `/physique-chimie/...` les seules pages de chapitre Physique-Ch
 - `src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro`
 - anciens renderers de chapitre `src/pages/college/...` et `src/pages/lycee/...`
 - catalogues collège/lycée concernés
+- liens internes PC encore présents dans les outils et contenus
 - `scripts/verify-routes-and-content.mjs`
 - tests de routes/redirections et fixtures d'audit dist
 
@@ -47,6 +48,13 @@ Faire des routes `/physique-chimie/...` les seules pages de chapitre Physique-Ch
 5. Le vérificateur autoritaire traite les anciennes routes comme `redirect-only`, les redirections comme `active` et exige le statut 301.
 6. Le snapshot dist ne contient plus les 101 anciennes pages de chapitre PC ; les échantillons a11y/smoke ont été réalignés sur les routes canoniques.
 7. Des tests dédiés `tests/physique-chimie-redirects.test.mjs` verrouillent la stratégie C12.
+8. Le premier audit `dist-fast` après activation a détecté 14 liens internes encore écrits avec les anciennes URL. Ils ont tous été migrés à leur source vers `/physique-chimie/...` dans cinq fichiers :
+   - `src/pages/outils-methodes/cours-python.astro` : 3 liens ;
+   - `src/data/kitScientifique.ts` : 4 liens ;
+   - `src/pages/outils-methodes/python-lab.astro` : 2 liens ;
+   - `src/pages/outils-methodes/seconde-numerique.astro` : 4 occurrences rendues ;
+   - `src/data/chapters/lycee/1ere-spe/chimie/savons-amphiphilie-tensioactifs/cours.mdx` : 1 lien.
+9. Le script et le workflow temporaires utilisés pour cette migration ciblée ont été supprimés dans le même commit ; aucun artefact C12 temporaire ne reste dans la branche.
 
 ## INTERDICTIONS RESPECTÉES
 
@@ -67,7 +75,8 @@ Faire des routes `/physique-chimie/...` les seules pages de chapitre Physique-Ch
 - contrôle des cibles de redirection ;
 - absence de chaînes ou boucles de redirection ;
 - présence des pages canoniques attendues ;
-- absence des 101 pages HTML legacy dans le build statique.
+- absence des 101 pages HTML legacy dans le build statique ;
+- absence de liens internes cassés causés par la suppression de la double publication.
 
 ## MIGRATION / RETOUR ARRIÈRE
 
@@ -83,6 +92,7 @@ Retour arrière C12 : revenir au commit C10 `ba276393b13aceeb405dfc12322c9ebeedf
 - aucune chaîne/boucle ;
 - `quality`, `dist-fast` et `dist-a11y` sont verts ;
 - tests C12 verts ;
+- aucun lien interne cassé lié à la migration ;
 - aucun impact sur la progression ou les contenus.
 
 ### NO-GO
@@ -91,8 +101,9 @@ Retour arrière C12 : revenir au commit C10 `ba276393b13aceeb405dfc12322c9ebeedf
 - une cible canonique manque ;
 - une ancienne page est encore publiée en parallèle ;
 - une redirection forme une chaîne ou une boucle ;
-- un des trois checks CI obligatoires échoue.
+- un des trois checks CI obligatoires échoue ;
+- un lien interne du site dépend encore de la double publication legacy.
 
 ## ÉTAT AU MOMENT DE CE RAPPORT
 
-L'implémentation C12 est présente sur la branche. Le dernier commit technique avant ce rapport est `9ec4f094d983c1c54f8d921198d66b13cb609ab5` (`C12: sync dist audit with canonical PC routes`). Le workflow déclenché par ce push automatique était en `action_required` sans job exécuté ; ce rapport crée un nouveau commit utilisateur afin de relancer la validation CI normale avant décision GO définitive.
+L'implémentation C12 est complète dans le code. Le commit `a28a59780ec9f54a1e1e059dc1652392eeb6a50d` (`C12: migrate remaining legacy chapter links`) a corrigé les 14 derniers liens internes legacy révélés par `dist-fast` et a supprimé les outils temporaires de migration. Ce commit ayant été produit par GitHub Actions, sa CI de PR a été placée en `action_required` sans exécuter les jobs. La présente mise à jour du rapport relance donc la CI sous un commit utilisateur. La décision GO définitive reste conditionnée aux trois checks `quality`, `dist-fast` et `dist-a11y` verts sur ce nouvel HEAD.
