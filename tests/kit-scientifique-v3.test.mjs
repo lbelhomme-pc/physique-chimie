@@ -42,16 +42,16 @@ describe("kit scientifique V3", () => {
     assert.ok(kitUnitFamilies.some((family) => family.id === "volume"));
   });
 
-  it("conserve les liens de travail vers des chapitres existants", () => {
+  it("conserve les liens de travail vers des chapitres canoniques existants", () => {
     const hrefs = kitChapterLinks.map((link) => link.href);
-    assert.ok(hrefs.includes("/college/5eme/chimie/proprietes-matiere/"));
-    assert.ok(hrefs.includes("/college/5eme/physique/circuits-electriques/"));
-    assert.ok(hrefs.includes("/lycee/2nde/chimie/solutions-concentrations/"));
+    assert.ok(hrefs.includes("/physique-chimie/college/5eme/chimie/proprietes-matiere/"));
+    assert.ok(hrefs.includes("/physique-chimie/college/5eme/physique/circuits-electriques/"));
+    assert.ok(hrefs.includes("/physique-chimie/lycee/2nde/chimie/solutions-concentrations/"));
     assert.equal(new Set(hrefs).size, hrefs.length);
 
     for (const href of hrefs) {
       assert.match(pageSource, /kitChapterLinks/);
-      assert.match(href, /^\/(college|lycee)\//);
+      assert.match(href, /^\/physique-chimie\/(college|lycee)\//);
     }
   });
 
