@@ -27,12 +27,16 @@ jobs:
           path = Path("src/layouts/BaseLayout.astro")
           text = path.read_text(encoding="utf-8")
 
-          old_imports = '''import DailyLoginTracker from "../components/pedagogie/DailyLoginTracker.tsx";
-          import AccessibilityPanel from "../components/accessibility/AccessibilityPanel.tsx";
-          import ReadingGuide from "../components/accessibility/ReadingGuide.tsx";
-          import ScrollToTop from "../components/ui/ScrollToTop.tsx";'''.replace("          ", "")
-          new_imports = '''import A11yHeadBootstrap from "../components/accessibility/A11yHeadBootstrap.astro";
-          import GlobalClientTools from "../components/ui/GlobalClientTools.astro";'''.replace("          ", "")
+          old_imports = "\n".join([
+              'import DailyLoginTracker from "../components/pedagogie/DailyLoginTracker.tsx";',
+              'import AccessibilityPanel from "../components/accessibility/AccessibilityPanel.tsx";',
+              'import ReadingGuide from "../components/accessibility/ReadingGuide.tsx";',
+              'import ScrollToTop from "../components/ui/ScrollToTop.tsx";',
+          ])
+          new_imports = "\n".join([
+              'import A11yHeadBootstrap from "../components/accessibility/A11yHeadBootstrap.astro";',
+              'import GlobalClientTools from "../components/ui/GlobalClientTools.astro";',
+          ])
           if old_imports not in text:
               raise SystemExit("C16: expected global React import block not found")
           text = text.replace(old_imports, new_imports, 1)
@@ -42,19 +46,27 @@ jobs:
               raise SystemExit("C16: manifest anchor not found")
           text = text.replace(manifest, '  <A11yHeadBootstrap />\n\n' + manifest, 1)
 
-          old_islands = '''  <!-- Composants globaux -->
-          <DailyLoginTracker client:load />
-          <AccessibilityPanel client:load />
-          <ReadingGuide client:load />
-          <ScrollToTop client:load />'''.replace("          ", "")
-          new_shell = '''  <!-- Outils globaux C16 : natifs, panneau accessibilité chargé à la demande -->
-          <GlobalClientTools />'''.replace("          ", "")
+          old_islands = "\n".join([
+              "  <!-- Composants globaux -->",
+              "  <DailyLoginTracker client:load />",
+              "  <AccessibilityPanel client:load />",
+              "  <ReadingGuide client:load />",
+              "  <ScrollToTop client:load />",
+          ])
+          new_shell = "\n".join([
+              "  <!-- Outils globaux C16 : natifs, panneau accessibilité chargé à la demande -->",
+              "  <GlobalClientTools />",
+          ])
           if old_islands not in text:
               raise SystemExit("C16: expected global island block not found")
           text = text.replace(old_islands, new_shell, 1)
 
           if "client:load" in text:
               raise SystemExit("C16: BaseLayout still contains client:load")
+          for legacy in ("DailyLoginTracker", "AccessibilityPanel client:", "ReadingGuide client:", "ScrollToTop client:"):
+              if legacy in text:
+                  raise SystemExit(f"C16: legacy global island reference remains: {legacy}")
+
           path.write_text(text, encoding="utf-8")
 
       - name: Remove temporary workflow and commit
