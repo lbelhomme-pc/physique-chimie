@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 20
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -31,15 +31,15 @@ jobs:
           cache: npm
 
       - name: Execute C17 migration
-        if: github.event_name == 'push' && github.event.head_commit.message == 'C17: execute modular CSS migration'
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, 'execute modular CSS migration')
         run: |
           python scripts/c17-migrate.py
           node --test tests/css-modular-c17.test.mjs
-          git show HEAD^:.github/workflows/ci.yml > .github/workflows/ci.yml
+          git show f925ebeef46967b0622eb0f886d2addc479fab80:.github/workflows/ci.yml > .github/workflows/ci.yml
           git config user.name "lbelhomme-pc"
           git config user.email "269287272+lbelhomme-pc@users.noreply.github.com"
           git add src/styles tests/css-modular-c17.test.mjs scripts/c17-migrate.py .github/workflows/ci.yml
-          git commit -m "C17: modularize V3 CSS and enforce contrast"
+          git commit -m "C17 modularize V3 CSS and enforce contrast"
           git push origin HEAD:audit-2026-c01-route-snapshot
 
       - name: Install locked dependencies
