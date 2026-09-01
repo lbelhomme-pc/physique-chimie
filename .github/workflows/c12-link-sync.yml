@@ -1,0 +1,34 @@
+name: C12 legacy link sync
+
+on:
+  push:
+    branches:
+      - audit-2026-c01-route-snapshot
+    paths:
+      - .github/workflows/c12-link-sync.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit-2026-c01-route-snapshot
+          fetch-depth: 0
+      - name: Migrate remaining C12 legacy links
+        run: python scripts/c12-fix-legacy-links.py
+      - name: Validate migration
+        run: |
+          git diff --check
+          git diff --exit-code -- scripts/c12-fix-legacy-links.py || true
+      - name: Commit migrated links
+        run: |
+          git rm .github/workflows/c12-link-sync.yml scripts/c12-fix-legacy-links.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "C12: migrate remaining legacy chapter links"
+          git push origin HEAD:audit-2026-c01-route-snapshot
