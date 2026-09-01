@@ -55,6 +55,7 @@ Faire des routes `/physique-chimie/...` les seules pages de chapitre Physique-Ch
    - `src/pages/outils-methodes/seconde-numerique.astro` : 4 occurrences rendues ;
    - `src/data/chapters/lycee/1ere-spe/chimie/savons-amphiphilie-tensioactifs/cours.mdx` : 1 lien.
 9. Le script et le workflow temporaires utilisés pour cette migration ciblée ont été supprimés dans le même commit ; aucun artefact C12 temporaire ne reste dans la branche.
+10. Le test du Kit scientifique a été réaligné sur les routes canoniques après avoir correctement signalé que ses attentes utilisaient encore les anciennes URL. Aucune logique fonctionnelle du Kit n'a été modifiée.
 
 ## INTERDICTIONS RESPECTÉES
 
@@ -65,18 +66,18 @@ Faire des routes `/physique-chimie/...` les seules pages de chapitre Physique-Ch
 - pas de redirection 302/307/308 pour les routes legacy PC ;
 - pas de double publication legacy + canonique.
 
-## TESTS À EXÉCUTER / VALIDER EN CI
+## TESTS VALIDÉS EN CI
 
-- `quality` ;
-- `dist-fast` ;
-- `dist-a11y` ;
-- tests C12 dédiés ;
-- vérification du snapshot des routes ;
-- contrôle des cibles de redirection ;
-- absence de chaînes ou boucles de redirection ;
-- présence des pages canoniques attendues ;
-- absence des 101 pages HTML legacy dans le build statique ;
-- absence de liens internes cassés causés par la suppression de la double publication.
+- `quality` : PASS ;
+- `dist-fast` : PASS ;
+- `dist-a11y` : PASS ;
+- tests C12 dédiés : PASS ;
+- vérification du snapshot des routes : PASS ;
+- contrôle des cibles de redirection : PASS ;
+- absence de chaînes ou boucles de redirection : PASS ;
+- présence des pages canoniques attendues : PASS ;
+- absence des 101 pages HTML legacy dans le build statique : PASS ;
+- absence de liens internes cassés causés par la suppression de la double publication : PASS.
 
 ## MIGRATION / RETOUR ARRIÈRE
 
@@ -104,6 +105,12 @@ Retour arrière C12 : revenir au commit C10 `ba276393b13aceeb405dfc12322c9ebeedf
 - un des trois checks CI obligatoires échoue ;
 - un lien interne du site dépend encore de la double publication legacy.
 
-## ÉTAT AU MOMENT DE CE RAPPORT
+## VALIDATION FINALE
 
-L'implémentation C12 est complète dans le code. Le commit `a28a59780ec9f54a1e1e059dc1652392eeb6a50d` (`C12: migrate remaining legacy chapter links`) a corrigé les 14 derniers liens internes legacy révélés par `dist-fast` et a supprimé les outils temporaires de migration. Ce commit ayant été produit par GitHub Actions, sa CI de PR a été placée en `action_required` sans exécuter les jobs. La présente mise à jour du rapport relance donc la CI sous un commit utilisateur. La décision GO définitive reste conditionnée aux trois checks `quality`, `dist-fast` et `dist-a11y` verts sur ce nouvel HEAD.
+**Décision : GO.**
+
+Le commit `a28a59780ec9f54a1e1e059dc1652392eeb6a50d` (`C12: migrate remaining legacy chapter links`) a corrigé les 14 derniers liens internes legacy révélés par le premier `dist-fast`. Le commit `1cb94178903a81401be26de857a4a55e71559d36` (`C12: align kit tests with canonical routes`) a réaligné le dernier test obsolète sans modifier le comportement du Kit scientifique.
+
+La CI du commit `1cb94178903a81401be26de857a4a55e71559d36` est entièrement verte : `quality`, `dist-fast` et `dist-a11y` ont tous terminé avec succès. Les anciennes URL de chapitres Physique-Chimie sont donc conservées comme alias 301, les 101 pages legacy ne sont plus publiées en double, les liens internes consomment directement les routes canoniques et la progression reste inchangée.
+
+**C12 est terminé et validé.**
