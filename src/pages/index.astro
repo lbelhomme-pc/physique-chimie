@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import GlobalSearch, { type GlobalSearchResource } from "../components/search/GlobalSearch";
 import { getLevelDisplayLabel } from "../utils/levels";
 import { getMatiereLabel } from "../data/levels";
-import { getPublishedMathematicsLevels } from "../data/contentRoutes";
+import { getPhysicalScienceExplicitChapterPath, getPublishedMathematicsLevels } from "../data/contentRoutes";
 import { chapterEntryFromGlob } from "../data/mathematiques/content";
 import { getMathematicsLevelsByCycle } from "../data/mathematiques/levels";
 import { labApps } from "../data/laboratoire/apps";
@@ -29,7 +29,7 @@ for (const [path, mod] of Object.entries(allMeta)) {
     id: data.canonicalId ?? `physique-chimie:${cycle}:${niveau}:${matiere}:${slug}`,
     title: data.title ?? slug,
     description: data.description,
-    path: `/${cycle}/${niveau}/${matiere}/${slug}`,
+    path: getPhysicalScienceExplicitChapterPath(cycle, niveau, matiere as "physique" | "chimie", slug),
     slug,
     keywords: data.keywords ?? data.tags ?? [],
     cycle,
