@@ -4,16 +4,17 @@ import { MEMORIZATION_CANONICAL_ROUTES } from "../../data/contentRoutes";
 ---
 
 <BaseLayout
-  title="Révision du jour"
-  description="Point d'entrée vers les outils de révision et de mémorisation."
+  title="Révision du jour — Mathématiques et Physique-Chimie"
+  description="Point d'entrée vers les outils de révision et de mémorisation en Mathématiques et Physique-Chimie."
   canonical={MEMORIZATION_CANONICAL_ROUTES.dailyReview}
   noindex={true}
+  subject="transversal"
 >
   <section style="max-width:760px;margin:0 auto;padding:2rem 1rem;text-align:center;">
     <p style="color:var(--text-muted);font-weight:700;margin:0 0 .35rem;">Mémorisation</p>
     <h1 style="font-size:1.6rem;font-weight:800;color:var(--accent-primary);margin:0 0 .75rem;">Révision du jour</h1>
     <p style="color:var(--text-secondary);margin:0 auto 1.25rem;max-width:48rem;">
-      Cette page sert de point d'entrée stable pour les révisions. Les sessions complètes restent disponibles via le Mega Quiz et les Mega Flashcards.
+      Cette page reste le point d'entrée stable des révisions. Dans les banques Mega, choisis Mathématiques ou Physique-Chimie avant de démarrer ta session.
     </p>
     <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
       <a href={MEMORIZATION_CANONICAL_ROUTES.megaQuiz} class="button-like">Lancer le Mega Quiz</a>
