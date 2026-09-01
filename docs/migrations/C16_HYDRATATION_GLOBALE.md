@@ -194,6 +194,8 @@ Ne pas rétablir seulement les anciens composants `client:load` en conservant si
 
 ## VALIDATION FINALE
 
-**État : validation CI finale du présent HEAD en cours.**
+**Décision : GO — C16 terminé et validé.**
 
-Une validation intermédiaire sur `f873f5d486798844d945a1aa6fa74d3945a18698` a déjà obtenu `quality`, `dist-fast` et `dist-a11y` verts, avec 296 tests PASS avant l'ajout du test de verrouillage des budgets. La décision GO définitive exige les mêmes trois checks verts sur le HEAD final contenant les budgets, leur test et ce rapport.
+Le HEAD fonctionnel et documentaire `0799b2eefba89095a6b19c1482b6a12160b96e71` a obtenu les trois checks requis : `quality`, `dist-fast` et `dist-a11y` en succès. La suite contient **297 tests PASS, 0 FAIL**, `astro check` retourne **0 erreur, 0 warning**, la vérification de contenu retourne **0 erreur, 0 warning** et `npm audit --audit-level=high` retourne **0 vulnérabilité**.
+
+Le présent commit ne fait que clore le statut documentaire de C16 ; il ne modifie ni le code, ni les budgets, ni les tests, ni les routes, ni le stockage de progression. Sa CI doit rester verte pour accepter définitivement cette clôture.
