@@ -2,24 +2,43 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import MegaFlashcardsPlayer from "../../components/pedagogie/MegaFlashcardsPlayer.tsx";
 import { MEMORIZATION_CANONICAL_ROUTES } from "../../data/contentRoutes";
+import { getMathematicsLevelsByCycle } from "../../data/mathematiques/levels";
 import { collectMegaFlashcards } from "../../utils/megaMemorizationData";
 
-const flashFiles = import.meta.glob("../../data/chapters/**/flashcards.json", { eager: true });
-const metaFiles = import.meta.glob("../../data/chapters/**/meta.json", { eager: true });
+const physicalScienceFlashFiles = import.meta.glob("../../data/chapters/**/flashcards.json", { eager: true });
+const physicalScienceMetaFiles = import.meta.glob("../../data/chapters/**/meta.json", { eager: true });
+const mathematicsFlashFiles = import.meta.glob("../../data/mathematiques/chapters/**/flashcards.json", { eager: true });
+const mathematicsMetaFiles = import.meta.glob("../../data/mathematiques/chapters/**/meta.json", { eager: true });
 
-const totalCards = collectMegaFlashcards(flashFiles, metaFiles).length;
+const publishedMathematicsLevels = new Set(
+  (["college", "lycee"] as const).flatMap((cycle) =>
+    getMathematicsLevelsByCycle(cycle)
+      .filter((level) => level.status === "available")
+      .map((level) => `${cycle}:${level.slug}`),
+  ),
+);
+const physicalScienceCards = collectMegaFlashcards(physicalScienceFlashFiles, physicalScienceMetaFiles, {
+  discipline: "physique-chimie",
+});
+const mathematicsCards = collectMegaFlashcards(mathematicsFlashFiles, mathematicsMetaFiles, {
+  discipline: "mathematiques",
+  defaultMatiere: "mathematiques",
+  include: ({ cycle, niveau }) => Boolean(cycle && publishedMathematicsLevels.has(`${cycle}:${niveau}`)),
+});
+const totalCards = physicalScienceCards.length + mathematicsCards.length;
 const dataUrl = "/memorisation/mega-flashcards-data.json";
 ---
 
 <BaseLayout
-  title="Mega Flashcards — Physique-Chimie"
-  description="Toutes les flashcards de tous les chapitres en une seule session."
+  title="Mega Flashcards — Mathématiques et Physique-Chimie"
+  description="Banque de flashcards des chapitres publiés en Mathématiques et Physique-Chimie, avec choix explicite de la discipline."
   canonical={MEMORIZATION_CANONICAL_ROUTES.megaFlashcards}
+  subject="transversal"
 >
   <div style="text-align:center;padding:1.5rem 0 0.5rem;">
     <span style="font-size:2.5rem;">▣</span>
     <h1 style="font-size:1.6rem;font-weight:800;color:var(--accent-primary);margin:0.3rem 0;">Mega Flashcards</h1>
-    <p style="color:var(--text-muted);font-size:0.95rem;">{totalCards} cartes disponibles</p>
+    <p style="color:var(--text-muted);font-size:0.95rem;">{totalCards} cartes publiées · choisis ta discipline avant de lancer une session</p>
   </div>
   <div style="max-width:700px;margin:0 auto;padding:0 1rem 2rem;">
     <MegaFlashcardsPlayer client:idle dataUrl={dataUrl} totalCards={totalCards} />
