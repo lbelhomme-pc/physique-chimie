@@ -92,6 +92,18 @@ C16 vérifie explicitement que les styles globaux ne réintroduisent pas :
 
 Aucun fichier de police tiers n'est ajouté au dépôt.
 
+### 7. Budgets de performance représentatifs
+
+`tests/fixtures/dist-audit.config.json` contient désormais des budgets resserrés pour :
+
+- `/` ;
+- `/mathematiques` ;
+- `/physique-chimie` ;
+- `/physique-chimie/college/4eme/chimie/atomes-molecules` ;
+- `/outils-methodes/python-lab`.
+
+Ces budgets ont été définis à partir d'un build C16 mesuré, avec une marge raisonnable, et restent nettement plus stricts que le budget de route générique.
+
 ## TESTS C16
 
 `tests/hydratation-globale-c16.test.mjs` verrouille notamment :
@@ -103,7 +115,8 @@ Aucun fichier de police tiers n'est ajouté au dépôt.
 5. l'application précoce et whitelistée des préférences ;
 6. l'épinglage, la validation et le timeout Pyodide ;
 7. l'absence de Pyodide dans le shell global ;
-8. l'absence de réintroduction de polices distantes.
+8. l'absence de réintroduction de polices distantes ;
+9. la présence de budgets resserrés sur les routes représentatives C16.
 
 ## ÉTAT À PRÉSERVER / INTERDICTIONS RESPECTÉES
 
@@ -120,19 +133,36 @@ C16 n'a pas :
 
 ## MESURE AVANT / APRÈS
 
-### Avant
+Une mesure reproductible a construit la base C15 `393e5314e23362ee58bb1a05319f74fadaa9f4d6` puis C16 avec la même chaîne Astro, sur six routes représentatives.
 
-- 4 îlots React globaux `client:load` dans `BaseLayout`.
-- panneau d'accessibilité React chargé/hydraté dès l'ouverture de chaque page.
+| Route | Îlots C15 | Îlots C16 | Δ îlots | Total audité C15 | Total audité C16 | Δ total |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `/` | 5 | 1 | -4 | 291 283 o | 293 678 o | +2 395 o |
+| `/mathematiques` | 4 | 0 | -4 | 146 253 o | 144 030 o | -2 223 o |
+| `/physique-chimie` | 4 | 0 | -4 | 145 886 o | 143 663 o | -2 223 o |
+| chapitre PC 4e | 8 | 4 | -4 | 232 257 o | 234 638 o | +2 381 o |
+| `/outils-methodes/python-lab` | 5 | 1 | -4 | 147 792 o | 150 186 o | +2 394 o |
+| `/memorisation/mega-quiz` | 5 | 1 | -4 | 138 292 o | 140 539 o | +2 247 o |
 
-### Après, contrat source
+Le résultat architectural est constant : **quatre îlots Astro hydratés de moins sur chacune des routes mesurées**. Les deux portails disciplinaires passent de quatre îlots globaux à zéro.
 
-- 0 îlot React global `client:load` dans `BaseLayout` ;
-- 3 comportements simples natifs ;
-- panneau React conservé mais importé après interaction explicite ;
-- Pyodide toujours absent du shell global.
+### Limite de la mesure JS
 
-Les métriques de build et budgets dist seront consignés après la CI de validation du présent état.
+L'audit dist existant calcule `jsBytes` à partir des seuls `script[src]` présents dans le HTML. Les bundles chargés par les anciens `astro-island` ne sont donc pas inclus dans cette métrique. Il serait incorrect de lire le passage de `0` à `5 948` octets de `script[src]` comme une hausse comparable du JavaScript hydraté : C16 matérialise le petit shell natif comme un script classique tandis que C15 cachait le coût des quatre îlots dans le mécanisme Astro.
+
+Le rapport C16 retient donc comme indicateur comparable principal le **nombre d'îlots hydratés**, et constate que le poids HTML + `script[src]` + CSS audité reste globalement stable, avec des variations d'environ ±2,4 ko selon la route.
+
+### Budgets C16 et valeurs mesurées
+
+| Route | Mesuré HTML / JS / CSS / total | Budget HTML / JS / CSS / total |
+| --- | --- | --- |
+| `/` | 168 048 / 5 948 / 119 682 / 293 678 o | 190 000 / 15 000 / 135 000 / 325 000 o |
+| `/mathematiques` | 21 286 / 5 948 / 116 796 / 144 030 o | 30 000 / 15 000 / 130 000 / 165 000 o |
+| `/physique-chimie` | 27 762 / 5 948 / 109 953 / 143 663 o | 35 000 / 15 000 / 125 000 / 165 000 o |
+| chapitre PC 4e | 102 150 / 5 948 / 126 540 / 234 638 o | 120 000 / 15 000 / 140 000 / 275 000 o |
+| Python Lab | 28 880 / 5 948 / 115 358 / 150 186 o | 40 000 / 15 000 / 130 000 / 180 000 o |
+
+Les seuils sont versionnés et contrôlés par `dist-fast`.
 
 ## RETOUR ARRIÈRE
 
@@ -150,8 +180,8 @@ Ne pas rétablir seulement les anciens composants `client:load` en conservant si
 - Pyodide uniquement chargé depuis l'atelier et après demande ;
 - erreur/timeout Pyodide gérés ;
 - ressources externes maîtrisées ;
-- budgets dist verts ;
-- `quality`, `dist-fast` et `dist-a11y` verts sur le HEAD de validation.
+- budgets représentatifs versionnés et verts ;
+- `quality`, `dist-fast` et `dist-a11y` verts sur le HEAD final.
 
 ### NO-GO
 
@@ -164,4 +194,6 @@ Ne pas rétablir seulement les anciens composants `client:load` en conservant si
 
 ## VALIDATION FINALE
 
-**État : validation CI et mesure dist en cours.**
+**État : validation CI finale du présent HEAD en cours.**
+
+Une validation intermédiaire sur `f873f5d486798844d945a1aa6fa74d3945a18698` a déjà obtenu `quality`, `dist-fast` et `dist-a11y` verts, avec 296 tests PASS avant l'ajout du test de verrouillage des budgets. La décision GO définitive exige les mêmes trois checks verts sur le HEAD final contenant les budgets, leur test et ce rapport.
