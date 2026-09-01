@@ -76,7 +76,8 @@ test("C16 keeps Pyodide out of unrelated pages and creates its worker lazily", (
   assert.doesNotMatch(baseLayout, /Pyodide|pyodide/i);
   assert.match(pyodideLab, /new Worker\(new URL\("\.\.\/\.\.\/scripts\/pyodide-worker\.ts", import\.meta\.url\)/);
   assert.match(pyodideLab, /function ensureWorker/);
-  assert.match(pyodideLab, /workerRef\.current = worker/);
+  assert.match(pyodideLab, /workerRef\.current = createWorker\(\)/);
+  assert.match(pyodideLab, /configureWorker\(workerRef\.current\)/);
   assert.doesNotMatch(pyodideLab, /client:load/);
 });
 
