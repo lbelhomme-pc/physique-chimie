@@ -21,6 +21,7 @@ const pyodideWorker = read("src/scripts/pyodide-worker.ts");
 const pyodideLab = read("src/components/pedagogie/PyodideLab.tsx");
 const designSystem = read("src/styles/design-system.css");
 const tokens = read("src/styles/tokens-v3.css");
+const distAuditConfig = JSON.parse(read("tests/fixtures/dist-audit.config.json"));
 
 test("C16 BaseLayout no longer hydrates the four global React islands at load", () => {
   assert.match(baseLayout, /A11yHeadBootstrap\.astro/);
@@ -87,4 +88,24 @@ test("C16 global styles do not restore remote font imports", () => {
   assert.doesNotMatch(styles, /fonts\.gstatic\.com/i);
   assert.doesNotMatch(styles, /@import\s+url\([^)]*jsdelivr/i);
   assert.doesNotMatch(styles, /@font-face\s*\{[^}]*https?:\/\//is);
+});
+
+test("C16 locks representative route budgets after the hydration comparison", () => {
+  const overrides = distAuditConfig.budgets.routeOverrides;
+  const representatives = [
+    "/",
+    "/mathematiques",
+    "/physique-chimie",
+    "/physique-chimie/college/4eme/chimie/atomes-molecules",
+    "/outils-methodes/python-lab",
+  ];
+
+  for (const route of representatives) {
+    assert.ok(overrides[route], `Budget C16 manquant pour ${route}`);
+    assert.ok(overrides[route].jsBytes <= 15_000, `Budget JS C16 trop large pour ${route}`);
+    assert.ok(
+      overrides[route].totalBytes < distAuditConfig.budgets.defaultRoute.totalBytes,
+      `Budget total C16 non resserré pour ${route}`,
+    );
+  }
 });
