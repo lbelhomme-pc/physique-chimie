@@ -6,7 +6,7 @@ REPLACEMENTS = {
         "/lycee/2nde/physique/decrire-mouvement": "/physique-chimie/lycee/2nde/physique/decrire-mouvement",
         "/lycee/2nde/physique/signaux-capteurs": "/physique-chimie/lycee/2nde/physique/signaux-capteurs",
     },
-    "src/pages/outils-methodes/kit-scientifique.astro": {
+    "src/data/kitScientifique.ts": {
         "/college/5eme/chimie/proprietes-matiere/": "/physique-chimie/college/5eme/chimie/proprietes-matiere/",
         "/college/5eme/physique/circuits-electriques/": "/physique-chimie/college/5eme/physique/circuits-electriques/",
         "/lycee/2nde/chimie/solutions-concentrations/": "/physique-chimie/lycee/2nde/chimie/solutions-concentrations/",
@@ -28,7 +28,7 @@ REPLACEMENTS = {
 
 EXPECTED_BY_FILE = {
     "src/pages/outils-methodes/cours-python.astro": 3,
-    "src/pages/outils-methodes/kit-scientifique.astro": 4,
+    "src/data/kitScientifique.ts": 4,
     "src/pages/outils-methodes/python-lab.astro": 2,
     "src/pages/outils-methodes/seconde-numerique.astro": 4,
     "src/data/chapters/lycee/1ere-spe/chimie/savons-amphiphilie-tensioactifs/cours.mdx": 1,
