@@ -116,7 +116,7 @@ test("C15 Mega players require an explicit choice before mixing disciplines", ()
     assert.match(source, /Le mélange des disciplines n’est activé que si tu choisis/);
     assert.match(source, /aria-pressed/);
     assert.match(source, /discipline === fDiscipline/);
-    assert.doesNotMatch(source, /m===\"chimie\"\?\"🧪 Chimie\":\"⚡ Physique\"/);
+    assert.doesNotMatch(source, /m==="chimie"\?"🧪 Chimie":"⚡ Physique"/);
   }
   assert.match(quizPlayerSource, /data-discipline-filter="mega-quiz"/);
   assert.match(flashPlayerSource, /data-discipline-filter="mega-flashcards"/);
