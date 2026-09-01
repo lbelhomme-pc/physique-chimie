@@ -21,8 +21,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 20
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -35,10 +33,9 @@ jobs:
         run: |
           python scripts/c17-migrate.py
           node --test tests/css-modular-c17.test.mjs
-          git show f925ebeef46967b0622eb0f886d2addc479fab80:.github/workflows/ci.yml > .github/workflows/ci.yml
           git config user.name "lbelhomme-pc"
           git config user.email "269287272+lbelhomme-pc@users.noreply.github.com"
-          git add src/styles tests/css-modular-c17.test.mjs scripts/c17-migrate.py .github/workflows/ci.yml
+          git add src/styles tests/css-modular-c17.test.mjs scripts/c17-migrate.py
           git commit -m "C17 modularize V3 CSS and enforce contrast"
           git push origin HEAD:audit-2026-c01-route-snapshot
 
