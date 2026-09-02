@@ -134,5 +134,6 @@ test("search corpus includes published mathematics chapters without planned leve
   const mathematicsChapters = loadPublishedMathematicsChapters();
   assert.ok(mathematicsChapters.length > 0);
   assert.ok(searchChapters(mathematicsChapters, "fonctions").some((chapter) => chapter.id.startsWith("mathematiques:lycee:2nde:")));
-  assert.deepEqual([...new Set(mathematicsChapters.map((chapter) => chapter.niveau))], ["2nde"]);
+  assert.ok(searchChapters(mathematicsChapters, "fractions").some((chapter) => chapter.id.startsWith("mathematiques:college:5eme:")));
+  assert.deepEqual([...new Set(mathematicsChapters.map((chapter) => chapter.niveau))], ["5eme", "2nde"]);
 });
