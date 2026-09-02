@@ -11,16 +11,17 @@ const routes=JSON.parse(readFileSync(join(root,'tests/fixtures/dist-routes.snaps
 const slugs=['suites-numeriques-modeles-discrets','second-degre','derivation','variations-courbes','fonction-exponentielle','trigonometrie'];
 
 function unique(items,label){const ids=items.map(x=>x.id);assert.equal(new Set(ids).size,ids.length,`${label}: IDs dupliqués`);}
+function c21Chapters(){return mapping.chapters.filter((chapter)=>chapter.mission==='C21'||slugs.includes(chapter.slug));}
+function published(){return mapping.scope.publicLevelStatus==='available';}
 
-test('C21 verrouille le BO 2026 et les six chapitres algèbre/analyse',()=>{
+test('C21 verrouille durablement le BO 2026 et ses six chapitres algèbre/analyse',()=>{
  assert.equal(mapping.source.nor,'MENE2602917A');
  assert.equal(mapping.source.application,'Rentrée scolaire 2026-2027');
- assert.deepEqual(mapping.scope.c21Parts,['Algèbre','Analyse']);
- assert.equal(mapping.chapters.length,6);
- assert.deepEqual(mapping.chapters.map(x=>x.slug),slugs);
+ assert.deepEqual(c21Chapters().map(x=>x.slug),slugs);
+ assert.deepEqual([...new Set(c21Chapters().map(x=>x.part))],['Algèbre','Analyse']);
 });
 
-test('C21 crée six paquets pédagogiques complets mais non publiés',()=>{
+test('C21 conserve six paquets pédagogiques complets pendant et après C22',()=>{
  for(const slug of slugs){
   const dir=join(chaptersRoot,slug);
   for(const file of ['meta.json','cours.mdx','exercices.json','quiz.json','flashcards.json']) assert.ok(existsSync(join(dir,file)),`${slug}: ${file} manquant`);
@@ -30,7 +31,7 @@ test('C21 crée six paquets pédagogiques complets mais non publiés',()=>{
   const fc=JSON.parse(readFileSync(join(dir,'flashcards.json'),'utf8')).cards;
   assert.equal(meta.officialSource,mapping.programmeId);
   assert.equal(meta.programme,mapping.programmeId);
-  assert.equal(meta.seo.noindex,true);
+  assert.equal(Boolean(meta.seo.noindex),!published());
   assert.equal(meta.seo.canonical,`/mathematiques/lycee/1ere-specialite-mathematiques/${slug}`);
   assert.ok(ex.filter(x=>x.level==='N1').length>=2);
   assert.ok(ex.filter(x=>x.level==='N2').length>=2);
@@ -39,8 +40,13 @@ test('C21 crée six paquets pédagogiques complets mais non publiés',()=>{
   assert.ok(q.length>=5);assert.ok(fc.length>=6);unique(ex,`${slug} exercices`);unique(q,`${slug} quiz`);unique(fc,`${slug} flashcards`);
   const course=readFileSync(join(dir,'cours.mdx'),'utf8');assert.match(course,/## Synthèse/i);
  }
- assert.match(levels,/slug:\s*"1ere-specialite-mathematiques"[\s\S]*?status:\s*"planned"/);
- assert.equal(routes.some(r=>r.startsWith('/mathematiques/lycee/1ere-specialite-mathematiques')),false,'C21 ne doit pas publier un demi-programme');
+ if(published()){
+  assert.match(levels,/slug:\s*"1ere-specialite-mathematiques"[\s\S]*?status:\s*"available"/);
+  assert.equal(routes.includes('/mathematiques/lycee/1ere-specialite-mathematiques'),true);
+ }else{
+  assert.match(levels,/slug:\s*"1ere-specialite-mathematiques"[\s\S]*?status:\s*"planned"/);
+  assert.equal(routes.some(r=>r.startsWith('/mathematiques/lycee/1ere-specialite-mathematiques')),false,'C21-C22 ne doivent pas publier un programme incomplet');
+ }
 });
 
 test('C21 maintient les bornes pédagogiques sensibles du BO',()=>{
@@ -48,10 +54,10 @@ test('C21 maintient les bornes pédagogiques sensibles du BO',()=>{
  const sd=readFileSync(join(chaptersRoot,'second-degre','cours.mdx'),'utf8');
  assert.match(suites,/Aucune définition formelle/i);
  assert.match(sd,/cas général n'est pas un attendu/i);
- assert.ok(mapping.scope.c22Deferred.some(x=>/Géométrie/.test(x)));
+ assert.ok(mapping.chapters.some(x=>x.part==='Géométrie'));
  assert.ok(mapping.boundaries.some(x=>/C30-C31/.test(x)));
 });
 
-test('C21 conserve une preuve textuelle de chaque section du mapping',()=>{
- for(const chapter of mapping.chapters){const text=readFileSync(join(chaptersRoot,chapter.slug,'cours.mdx'),'utf8').toLocaleLowerCase('fr');for(const token of chapter.evidence) assert.ok(text.includes(token.toLocaleLowerCase('fr')),`${chapter.slug}: preuve absente ${token}`);}
+test('C21 conserve une preuve textuelle de chacune de ses sections après extension C22',()=>{
+ for(const chapter of c21Chapters()){const text=readFileSync(join(chaptersRoot,chapter.slug,'cours.mdx'),'utf8').toLocaleLowerCase('fr');for(const token of chapter.evidence) assert.ok(text.includes(token.toLocaleLowerCase('fr')),`${chapter.slug}: preuve absente ${token}`);}
 });
