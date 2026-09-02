@@ -9,14 +9,15 @@ import {
 
 test("content contract validates every existing chapter without blocking publication", () => {
   const audit = auditContentContracts(process.cwd());
-  assert.equal(audit.summary.chapters, 112);
+  // C19 adds 13 staged Mathematics 5e chapters to the 112 pre-existing packages.
+  assert.equal(audit.summary.chapters, 125);
   assert.equal(audit.summary.pcChapters, 101);
-  assert.equal(audit.summary.mathChapters, 11);
+  assert.equal(audit.summary.mathChapters, 24);
   assert.equal(audit.summary.bloquants, 0);
   assert.equal(audit.errors.length, 0);
-  assert.deepEqual(audit.summary.exerciseFormats, { "array-root": 101, exercices: 11 });
-  assert.deepEqual(audit.summary.quizFormats, { "array-root": 101, questions: 11 });
-  assert.deepEqual(audit.summary.flashcardFormats, { "array-root": 101, cards: 11 });
+  assert.deepEqual(audit.summary.exerciseFormats, { "array-root": 101, exercices: 24 });
+  assert.deepEqual(audit.summary.quizFormats, { "array-root": 101, questions: 24 });
+  assert.deepEqual(audit.summary.flashcardFormats, { "array-root": 101, cards: 24 });
 });
 
 test("invalid content contract messages include file and field", () => {
