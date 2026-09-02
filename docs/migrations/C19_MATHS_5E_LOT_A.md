@@ -117,6 +117,29 @@ C19 est additif : il ne renomme aucune route historique et ne modifie aucun stoc
 - activation publique prématurée ;
 - régression build, tests, sécurité ou accessibilité.
 
+## CORRECTIONS DE CERTIFICATION
+
+La certification finale a détecté deux garde-fous historiques devenus obsolètes avec l'ajout du lot C19 :
+
+1. `scripts/verify-routes-and-content.mjs` attendait encore 112 chapitres alors que les 13 chapitres C19 portent le contrat total à 125 ; le snapshot contractuel a été mis à jour à 125 sans assouplir les contrôles de schéma ;
+2. la route dynamique des chapitres de mathématiques collège générait tous les dossiers présents, y compris ceux d'un niveau encore `planned`. Elle réutilise désormais `getPublishedMathematicsLevels(...)`, comme la page de niveau, afin qu'un corpus préparé ne crée aucune route publique avant son activation.
+
+Le filtre de publication de `getStaticPaths()` utilise explicitement le cycle `college`, conformément à l'isolation des fonctions de génération statique par Astro.
+
+## RÉSULTAT FINAL
+
+**Verdict : GO.**
+
+Implémentation fonctionnelle certifiée au commit `282fbbd1e674d5b31a5d79e0b86dfd979f16f211` :
+
+- `quality` : PASS ;
+- `dist-fast` : PASS ;
+- `dist-a11y` : PASS ;
+- 13 chapitres 5e présents mais non publiés tant que le niveau reste `planned` ;
+- aucune route 5e prématurée dans le `dist` ;
+- aucune modification des IDs ou du stockage de progression ;
+- périmètre C20 préservé.
+
 ## SUITE
 
 C20 complètera ce corpus avec N3, quiz, flashcards, figures statiques accessibles et la décision d'activation publique du niveau 5e après validation complète.
