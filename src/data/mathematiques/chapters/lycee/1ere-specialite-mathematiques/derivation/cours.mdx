@@ -1,0 +1,34 @@
+## Objectifs
+- Relier taux de variation, sécantes et nombre dérivé.
+- Utiliser le nombre dérivé comme pente de tangente et comme taux instantané.
+- Déterminer l'équation d'une tangente et une approximation linéaire.
+- Calculer les dérivées des fonctions usuelles et de sommes, produits, inverses et quotients.
+
+## Cours
+### Point de vue local
+Le taux de variation entre `a` et `a+h` vaut `(f(a+h)-f(a))/h` pour `h≠0`. Graphiquement, c'est la pente d'une sécante. Lorsque ce taux se stabilise quand `h` devient proche de zéro, on introduit intuitivement le nombre dérivé `f'(a)`.
+
+La tangente au point d'abscisse `a` a pour équation `y=f(a)+f'(a)(x-a)`. Pour `h` petit, `f(a+h)≈f(a)+f'(a)h` : c'est l'approximation linéaire.
+
+Le nombre dérivé peut représenter une vitesse instantanée, un coût marginal ou un autre taux instantané.
+
+### Point de vue global
+Une fonction dérivable sur un intervalle possède une fonction dérivée. Formules de base : `(x²)'=2x`, `(x³)'=3x²`, `(1/x)'=-1/x²`, `(√x)'=1/(2√x)` pour `x>0`, et plus généralement `(x^n)'=n x^{n-1}` dans le domaine adapté pour `n∈Z`.
+
+Règles : `(u+v)'=u'+v'`, `(uv)'=u'v+uv'`, `(1/u)'=-u'/u²`, `(u/v)'=(u'v-uv')/v²` lorsque les dénominateurs ne s'annulent pas.
+
+La fonction valeur absolue n'est pas dérivable en 0 ; la racine carrée n'est pas dérivable en 0.
+
+## Démonstrations à travailler
+- équation de la tangente ;
+- non-dérivabilité de `√x` en 0 ;
+- dérivées de `x²` et `1/x` ;
+- dérivée d'un produit.
+
+## Erreurs fréquentes
+- Confondre `f'(a)` avec `f(a)`.
+- Oublier le domaine lors d'une dérivée d'inverse, quotient ou racine.
+- Traiter la limite du taux de variation avec un formalisme de Terminale non requis ici.
+
+## Synthèse
+La dérivation relie une variation locale à une pente. Le nombre dérivé décrit un comportement en un point ; la fonction dérivée permet ensuite d'étudier globalement une fonction.

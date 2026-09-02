@@ -1,0 +1,33 @@
+## Objectifs
+- Reconnaître fonctions paires et impaires et leur traduction géométrique.
+- Déduire les variations d'une fonction du signe de sa dérivée.
+- Déterminer extrémums, résoudre des optimisations et établir des inégalités.
+- Étudier la position relative de deux courbes.
+
+## Cours
+### Parité
+Sur un domaine symétrique par rapport à 0, `f` est paire si `f(-x)=f(x)` : la courbe est symétrique par rapport à l'axe des ordonnées. Elle est impaire si `f(-x)=-f(x)` : la courbe est symétrique par rapport à l'origine.
+
+### Dérivée et variations
+Si `f'` est positive sur un intervalle, `f` y est croissante ; si `f'` est négative, elle y est décroissante. Si `f'=0` partout sur un intervalle, `f` y est constante.
+
+À un extrémum intérieur où `f` est dérivable, le nombre dérivé est nul. La réciproque est fausse en général : `f'(a)=0` n'impose pas à lui seul un extrémum.
+
+### Optimisation et inégalités
+Pour optimiser, on modélise la grandeur par une fonction sur un domaine pertinent, on calcule la dérivée, on établit le tableau de variations puis on interprète l'extrémum.
+
+Pour comparer `f` et `g`, on peut étudier le signe de `f-g`. Les variations peuvent aussi établir une inégalité en localisant un minimum ou un maximum.
+
+### Second degré et dérivation
+Une fonction `ax²+bx+c` a une dérivée affine `2ax+b`. Le signe de cette dérivée permet de retrouver son sens de variation, son extrémum et l'allure de la parabole selon le signe de `a`.
+
+## Algorithmique
+La méthode de Newton peut être explorée dans des cas favorables comme algorithme de recherche d'une racine, sans développer ici la théorie de convergence.
+
+## Erreurs fréquentes
+- Déduire un extrémum de la seule égalité `f'(a)=0`.
+- Étudier une parité sur un domaine non symétrique.
+- Oublier de restreindre l'optimisation au domaine du problème.
+
+## Synthèse
+Le signe de la dérivée transforme un calcul local en information globale sur la courbe : variations, extrémums, comparaisons et optimisation.

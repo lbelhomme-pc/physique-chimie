@@ -1,0 +1,26 @@
+## Objectifs
+- Connaître la définition de l'exponentielle retenue par le programme.
+- Transformer des expressions avec `exp(x+y)=exp(x)exp(y)`.
+- Étudier signe, variations et dérivée de fonctions `t↦e^{at}`.
+- Modéliser croissance et décroissance exponentielles.
+
+## Cours
+La fonction exponentielle est définie comme l'unique fonction dérivable sur `R` vérifiant `f'=f` et `f(0)=1`. Son existence et son unicité sont admises. On note `exp(x)` ou `e^x`.
+
+Pour tous réels `x,y`, `e^{x+y}=e^x e^y`, `e^{-x}=1/e^x`, et donc `e^{x-y}=e^x/e^y`. L'exponentielle est strictement positive et croissante sur `R` ; sa dérivée est elle-même.
+
+Pour un réel `a`, la dérivée de `t↦e^{at}` est `t↦a e^{at}`. Si `a>0`, le modèle croît ; si `a<0`, il décroît.
+
+### Modélisation
+Une grandeur suivant `Q(t)=Q_0 e^{at}` décrit une évolution continue exponentielle. Cela prolonge la croissance géométrique à temps discret. Les exemples peuvent provenir des intérêts, de la dilution ou de la décroissance radioactive.
+
+### Algorithmes du programme
+On peut approcher `e` avec `(1+1/n)^n` ou construire numériquement l'exponentielle par une méthode d'Euler. Ces algorithmes illustrent le concept sans remplacer les propriétés mathématiques.
+
+## Erreurs fréquentes
+- Écrire `e^{x+y}=e^x+e^y`.
+- Confondre une suite géométrique discrète et une fonction exponentielle continue.
+- Oublier le facteur `a` dans la dérivée de `e^{at}`.
+
+## Synthèse
+L'exponentielle transforme les additions des exposants en produits et modélise naturellement les croissances ou décroissances continues à taux proportionnel à la grandeur.

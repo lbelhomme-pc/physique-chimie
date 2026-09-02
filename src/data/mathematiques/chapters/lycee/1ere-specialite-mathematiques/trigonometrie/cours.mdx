@@ -1,0 +1,33 @@
+## Objectifs
+- Mesurer un angle en radians et utiliser la longueur d'arc.
+- Comprendre l'enroulement de la droite réelle sur le cercle trigonométrique.
+- Lire sinus et cosinus d'un réel et retrouver les valeurs remarquables.
+
+## Cours
+### Radian et cercle trigonométrique
+Le cercle trigonométrique est le cercle de centre O et de rayon 1 orienté dans le sens direct. Un angle de `1` radian intercepte sur un cercle de rayon 1 un arc de longueur 1. Un tour complet mesure `2π` radians.
+
+### Enroulement de la droite
+À chaque réel `x`, on associe un point du cercle en parcourant une longueur algébrique `x` depuis le point `(1,0)`. Des réels qui diffèrent d'un multiple de `2π` ont la même image.
+
+### Sinus et cosinus
+Si le point image de `x` a pour coordonnées `(cos x, sin x)`, alors `cos²x+sin²x=1`. Les définitions prolongent celles du triangle rectangle.
+
+Valeurs remarquables à connaître et retrouver par lecture du cercle : `π/6`, `π/4`, `π/3`, `π/2`, puis leurs angles associés. Par exemple `cos(π/4)=sin(π/4)=√2/2`, `cos(π/3)=1/2` et `sin(π/3)=√3/2`.
+
+### Angles associés
+Les symétries du cercle donnent par exemple `cos(-x)=cos x`, `sin(-x)=-sin x`, `cos(π-x)=-cos x`, `sin(π-x)=sin x`.
+
+## Démonstration à travailler
+Le programme demande notamment de savoir établir les valeurs de `cos(π/4)`, `sin(π/4)`, `cos(π/3)` et `sin(π/3)`.
+
+## Algorithmique
+L'approximation de `π` par la méthode d'Archimède peut servir d'activité algorithmique ; elle sera surtout reliée au bloc algorithmique transversal en C22.
+
+## Erreurs fréquentes
+- Confondre degrés et radians.
+- Inverser les coordonnées : sur le cercle le point est `(cos x, sin x)`.
+- Oublier la périodicité de l'enroulement.
+
+## Synthèse
+Le cercle trigonométrique transforme tout réel en un point du cercle unité ; ses coordonnées définissent cosinus et sinus et permettent de retrouver les valeurs et signes des angles associés.
