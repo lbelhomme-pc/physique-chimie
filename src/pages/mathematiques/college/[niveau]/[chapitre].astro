@@ -27,7 +27,7 @@ export function getStaticPaths() {
     .map(([path, mod]) => chapterEntryFromGlob(path, mod))
     .filter((chapter): chapter is MathematicsChapterListItem => Boolean(chapter));
   const publishedLevels = new Set(
-    getPublishedMathematicsLevels(getMathematicsLevelsByCycle(cycle), chapters).map((level) => level.slug),
+    getPublishedMathematicsLevels(getMathematicsLevelsByCycle("college"), chapters).map((level) => level.slug),
   );
 
   return chapters
