@@ -49,13 +49,16 @@ const domainLabel = chapter.domain ? mathematicsDomainLabels[chapter.domain] : c
 
 const allCours = import.meta.glob("/src/data/mathematiques/chapters/college/**/cours.mdx", { eager: true });
 const allExo = import.meta.glob("/src/data/mathematiques/chapters/college/**/exercices.json", { eager: true });
+const allExoN3 = import.meta.glob("/src/data/mathematiques/chapters/college/**/exercices-n3.json", { eager: true });
 const allQuiz = import.meta.glob("/src/data/mathematiques/chapters/college/**/quiz.json", { eager: true });
 const allFlash = import.meta.glob("/src/data/mathematiques/chapters/college/**/flashcards.json", { eager: true });
 const allMeta = import.meta.glob("/src/data/mathematiques/chapters/college/**/meta.json", { eager: true });
 
 const coursMod = allCours[`${basePath}/cours.mdx`] as any;
 const CoursContent = coursMod?.Content ?? null;
-const exercices = normalizeMathematicsExercises((allExo[`${basePath}/exercices.json`] as any)?.default ?? null);
+const baseExercises = normalizeMathematicsExercises((allExo[`${basePath}/exercices.json`] as any)?.default ?? null);
+const n3Exercises = normalizeMathematicsExercises((allExoN3[`${basePath}/exercices-n3.json`] as any)?.default ?? null);
+const exercices = [...baseExercises, ...n3Exercises];
 const quizData = normalizePlayableMathematicsQuiz((allQuiz[`${basePath}/quiz.json`] as any)?.default ?? null);
 const flashData = normalizeMathematicsFlashcards((allFlash[`${basePath}/flashcards.json`] as any)?.default ?? null);
 const xpConfig = getPedagogieXpConfig(chapter);
