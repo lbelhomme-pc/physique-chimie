@@ -87,9 +87,9 @@ export const mathematicsLyceeLevels: MathematicsLevel[] = [
     shortLabel: "1re spé maths",
     cycle: "lycee",
     path: "/mathematiques/lycee/1ere-specialite-mathematiques",
-    description: "Espace lycée à compléter progressivement.",
+    description: "Cours, exercices progressifs N1 à N3, quiz et flashcards conformes au programme officiel 2026 de Première spécialité mathématiques.",
     enabled: true,
-    status: "planned",
+    status: "available",
     order: 4,
   },
   {
