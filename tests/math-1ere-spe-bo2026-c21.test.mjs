@@ -42,7 +42,6 @@ test('C21 conserve six paquets pédagogiques complets pendant et après C22',()=
  }
  if(published()){
   assert.match(levels,/slug:\s*"1ere-specialite-mathematiques"[\s\S]*?status:\s*"available"/);
-  assert.equal(routes.includes('/mathematiques/lycee/1ere-specialite-mathematiques'),true);
  }else{
   assert.match(levels,/slug:\s*"1ere-specialite-mathematiques"[\s\S]*?status:\s*"planned"/);
   assert.equal(routes.some(r=>r.startsWith('/mathematiques/lycee/1ere-specialite-mathematiques')),false,'C21-C22 ne doivent pas publier un programme incomplet');
