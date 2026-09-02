@@ -647,8 +647,8 @@ function validateContentContracts() {
   const contentAudit = auditContentContracts(root);
   report.counts.contentContract = contentAudit.summary;
 
-  check(contentAudit.summary.chapters === 125, "Nombre de chapitres du contrat de contenu inattendu", {
-    expected: 125,
+  check(contentAudit.summary.chapters === 131, "Nombre de chapitres du contrat de contenu inattendu", {
+    expected: 131,
     actual: contentAudit.summary.chapters,
   });
   check(contentAudit.summary.pcChapters === report.summary.pcChapters, "Nombre de chapitres PC divergent dans le contrat", {
