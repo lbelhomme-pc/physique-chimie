@@ -1,0 +1,38 @@
+# Probabilités conditionnelles, indépendance et probabilités totales
+
+## Objectifs
+- Formaliser l’indépendance.
+- Utiliser une partition de l’univers et la formule des probabilités totales.
+- Représenter des épreuves indépendantes par un arbre ou un tableau.
+
+## Prérequis
+Probabilités conditionnelles, arbres pondérés, évènements.
+
+## Activité de découverte
+Comparer $P(A)$ et $P_B(A)$ permet de décider si la connaissance de $B$ modifie la probabilité de $A$.
+
+## Vocabulaire
+Indépendance, partition, système complet d’évènements, épreuve de Bernoulli.
+
+## Cours
+Deux évènements $A$ et $B$ sont indépendants lorsque
+$$P(A\cap B)=P(A)P(B).$$
+
+Si $(A_i)$ forme une partition de l’univers, alors
+$$P(B)=\sum_i P(A_i)P_{A_i}(B).$$
+
+Deux épreuves indépendantes peuvent être représentées par un arbre ou un tableau. Pour une répétition de $n$ épreuves de Bernoulli indépendantes et identiques, le programme demande explicitement le cas $n\le 4$.
+
+## Exemples corrigés
+Si $P(A)=0,4$ et $P(B)=0,5$ avec indépendance, alors $P(A\cap B)=0,2$.
+
+## Méthode
+Sur un arbre, multiplier le long d’un chemin puis additionner les chemins incompatibles correspondant à l’évènement recherché.
+
+## Erreurs fréquentes
+- Confondre indépendance et incompatibilité.
+- Confondre $P_A(B)$ et $P_B(A)$.
+- Appliquer les probabilités totales sans vérifier la partition.
+
+## Synthèse
+L’indépendance est une propriété du modèle. La formule des probabilités totales relie les probabilités conditionnelles à une probabilité globale.

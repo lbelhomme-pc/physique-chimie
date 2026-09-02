@@ -1,0 +1,44 @@
+# Algorithmique et programmation : listes
+
+## Objectifs
+- Générer des listes.
+- Manipuler éléments et indices.
+- Parcourir une liste et organiser un programme modulaire.
+
+## Prérequis
+Variables, affectations, conditions, boucles et fonctions Python.
+
+## Activité de découverte
+Une suite, un tableau de valeurs ou un échantillon statistique se représente naturellement par une liste.
+
+## Vocabulaire
+Liste, élément, indice, longueur, compréhension, parcours.
+
+## Cours
+En Première spécialité, la variable, les conditions, les boucles et les fonctions sont consolidées. La seule notion algorithmique nouvelle explicitement annoncée par le BO est la **liste**.
+
+Une liste peut être écrite en extension, construite par ajouts successifs ou par compréhension :
+```python
+L = [k*k for k in range(6)]
+```
+
+`L[i]` accède à l’élément d’indice `i` et `len(L)` donne la longueur. On distingue le parcours des éléments
+```python
+for x in L:
+    ...
+```
+du parcours des indices.
+
+## Exemples corrigés
+`[2*n+1 for n in range(5)]` produit `[1, 3, 5, 7, 9]`.
+
+## Méthode
+Découper une tâche complexe en fonctions courtes : génération, transformation, calcul et restitution.
+
+## Erreurs fréquentes
+- Confondre indice et valeur.
+- Oublier que le premier indice est 0.
+- Introduire d’autres collections comme nouvelles notions : le BO demande de se limiter aux listes.
+
+## Synthèse
+Les listes donnent une structure commune aux suites, tableaux de valeurs, séries statistiques et simulations.
