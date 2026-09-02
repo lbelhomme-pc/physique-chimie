@@ -39,9 +39,23 @@ C20 ne réalise pas la migration systématique des figures mathématiques vers L
 
 Le test C19 a été réduit à ses invariants durables : source officielle, 13 chapitres, cours, N1/N2 et mapping BO. Il ne bloque plus les extensions prévues par C20.
 
+Deux tests transversaux hérités supposaient encore que la Seconde était le seul niveau Mathématiques publié. Ils ont été mis à jour pour attendre la 5e et la 2nde tout en continuant à exclure tous les niveaux `planned`.
+
 ## MIGRATION / RETOUR ARRIÈRE
 
 C20 préserve tous les slugs, routes canoniques et IDs des exercices C19. Retour arrière global : revenir au commit C19 `f4bf3717140f73b54b10eee066b1d0ffa72d56f0`.
+
+## VALIDATION CI
+
+Commit fonctionnel certifié avant clôture documentaire : `c09780f099eea55bda5cf87fee113393e561f00b`.
+
+Workflow GitHub Actions : run `33621161347`, conclusion `success`.
+
+- `quality` : SUCCESS ;
+- `dist-fast` : SUCCESS ;
+- `dist-a11y` : SUCCESS.
+
+La suite de tests C20 passe, le build de distribution passe et l'audit d'accessibilité de distribution passe.
 
 ## CRITÈRES GO / NO-GO
 
@@ -63,4 +77,6 @@ C20 préserve tous les slugs, routes canoniques et IDs des exercices C19. Retour
 
 ## VERDICT
 
-En attente de la CI finale du HEAD C20.
+**GO SANS RÉSERVE.**
+
+C20 est terminé : le corpus Mathématiques 5e est publié, complet pour le périmètre C19+C20, indexable et certifié par les trois contrôles CI autoritatifs. La migration générale des figures reste volontairement différée à C30-C31.
