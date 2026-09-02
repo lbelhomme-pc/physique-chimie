@@ -177,8 +177,9 @@ test("only mathematics levels with published content are exposed as level pages"
   const chapters = mathematicsChapters();
   const collegeLevels = getPublishedMathematicsLevels(getMathematicsLevelsByCycle("college"), chapters);
   const lyceeLevels = getPublishedMathematicsLevels(getMathematicsLevelsByCycle("lycee"), chapters);
-  assert.deepEqual(collegeLevels.map((level) => level.slug), []);
+  assert.deepEqual(collegeLevels.map((level) => level.slug), ["5eme"]);
   assert.deepEqual(lyceeLevels.map((level) => level.slug), ["2nde"]);
+  assert.ok(!collegeLevels.some((level) => ["6eme", "4eme", "3eme"].includes(level.slug)));
 });
 
 test("laboratory renderers replace manual reserved slug lists", () => {
