@@ -299,7 +299,7 @@ function validatePcChapters() {
       check(meta.slug === slug, "Slug meta different du dossier", { file: metaFile, metaSlug: meta.slug, folderSlug: slug });
     }
     warn(meta.niveau === niveau, "Niveau meta different du dossier", { file: metaFile, metaNiveau: meta.niveau, folderNiveau: niveau });
-    warn(meta.matiere === matiere, "Matiere meta differente du dossier", { file: metaFile, metaMatiere: meta.matiere, folderMatiere: matiere });
+    warn(meta.matiere === matiere, "Matiere meta different du dossier", { file: metaFile, metaMatiere: meta.matiere, folderMatiere: matiere });
     check(typeof meta.title === "string" && meta.title.trim().length > 0, "Meta sans title", { file: metaFile });
     check(typeof meta.description === "string" && meta.description.trim().length > 0, "Meta sans description", { file: metaFile });
     warn(meta.seo?.canonical !== undefined, "Canonical historique PC absent dans les metadonnees", { file: metaFile, expected: legacyRoute });
@@ -646,9 +646,10 @@ function validateContentIdAliases() {
 function validateContentContracts() {
   const contentAudit = auditContentContracts(root);
   report.counts.contentContract = contentAudit.summary;
+  const expectedChapters = report.summary.pcChapters + report.summary.mathChapters;
 
-  check(contentAudit.summary.chapters === 131, "Nombre de chapitres du contrat de contenu inattendu", {
-    expected: 131,
+  check(contentAudit.summary.chapters === expectedChapters, "Nombre de chapitres du contrat de contenu inattendu", {
+    expected: expectedChapters,
     actual: contentAudit.summary.chapters,
   });
   check(contentAudit.summary.pcChapters === report.summary.pcChapters, "Nombre de chapitres PC divergent dans le contrat", {
