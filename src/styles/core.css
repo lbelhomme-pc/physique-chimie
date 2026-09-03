@@ -1,0 +1,26 @@
+/* ═══════════════════════════════════════════════════════════
+   GLOBAL
+   ═══════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-base);
+  word-spacing: var(--word-spacing-base);
+  color: var(--text-primary);
+  background-color: var(--bg-body);
+  text-align: var(--text-align, left);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+a { color: var(--accent-primary); text-decoration: none; transition: color 0.15s; }
+a:hover { color: var(--accent-primary-hover, var(--accent-primary)); text-decoration: underline; }
+
+img { max-width: 100%; height: auto; }
+

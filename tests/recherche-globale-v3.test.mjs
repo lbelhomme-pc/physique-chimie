@@ -59,19 +59,19 @@ const resources = [
     keywords: ["pH", "reaction"],
   },
   {
-    id: "enseignement-scientifique:lycee:1ere:physique:bilan-radiatif",
+    id: "physique-chimie:lycee:1ere-ens-scientifique:physique:bilan-radiatif",
     title: "Bilan radiatif terrestre",
     description: "Puissance solaire recue et temperature de la Terre.",
     path: "/lycee/1ere-ens-scientifique/physique/bilan-radiatif-terrestre",
-    subject: "enseignement-scientifique",
-    subjectLabel: "Enseignement scientifique",
+    subject: "physique-chimie",
+    subjectLabel: "Physique-Chimie — Enseignement scientifique",
     cycle: "lycee",
     levelLabel: "Premiere",
     matiereLabel: "Physique",
     resourceType: "chapter",
     accessTier: "free",
     slug: "bilan-radiatif-terrestre",
-    keywords: ["climat", "albedo", "rayonnement"],
+    keywords: ["climat", "albedo", "rayonnement", "enseignement scientifique"],
   },
 ];
 
@@ -96,14 +96,31 @@ describe("Recherche globale V3", () => {
     assert.equal(
       searchResources(resources, {
         query: "climat",
-        subject: "enseignement-scientifique",
+        subject: "physique-chimie",
         cycle: "lycee",
       })[0].id,
       resources[3].id,
     );
   });
 
-  it("expose une combobox accessible et des resultats scannables", () => {
+  it("garde les valeurs par defaut de slug et d acces avec un payload compact", () => {
+    const compactResource = {
+      id: "mathematiques:lycee:1ere-generale:variation-exponentielle",
+      title: "Variation exponentielle",
+      description: "Suites geometriques et fonctions exponentielles.",
+      path: "/mathematiques/lycee/1ere-generale/variation-exponentielle",
+      subject: "mathematiques",
+      subjectLabel: "Mathematiques",
+      cycle: "lycee",
+      levelLabel: "Premiere generale",
+      resourceType: "chapter",
+      keywords: ["exponentielle"],
+    };
+    assert.equal(searchResources([compactResource], { query: "variation-exponentielle" })[0].id, compactResource.id);
+    assert.equal(searchResources([compactResource], { query: "exponentielle", accessTier: "free" })[0].id, compactResource.id);
+  });
+
+  it("expose une combobox accessible avec seulement deux disciplines publiques", () => {
     assert.match(componentSource, /role="combobox"/);
     assert.match(componentSource, /aria-controls="global-search-results"/);
     assert.match(componentSource, /"listbox"/);
@@ -112,7 +129,9 @@ describe("Recherche globale V3", () => {
     assert.match(componentSource, /Filtrer par discipline/);
     assert.match(componentSource, /Filtrer par cycle/);
     assert.match(componentSource, /Filtrer par acces/);
-    assert.match(componentSource, /enseignement-scientifique/);
+    assert.match(componentSource, /id: "mathematiques", label: "Mathématiques"/);
+    assert.match(componentSource, /id: "physique-chimie", label: "Physique-Chimie"/);
+    assert.doesNotMatch(componentSource, /\{ id: "enseignement-scientifique", label: "Enseignement scientifique"/);
     assert.match(componentSource, /Suggestions de recherche/);
     assert.match(componentSource, /Effacer la recherche/);
     assert.match(componentSource, /<fieldset>/);
@@ -120,11 +139,15 @@ describe("Recherche globale V3", () => {
     assert.match(componentSource, /getSearchAccessLabel/);
   });
 
-  it("indexe les slugs et les niveaux sans modifier les contenus sources", () => {
+  it("indexe les slugs et les niveaux en rattachant ES a Physique-Chimie", () => {
     assert.match(homeSource, /slug,/);
-    assert.match(homeSource, /accessTier: data\.access\?\.tier \?\? "free"/);
+    assert.match(homeSource, /data\.access\?\.tier && data\.access\.tier !== "free"/);
+    assert.match(homeSource, /\{ accessTier: data\.access\.tier \}/);
+    assert.doesNotMatch(homeSource, /accessTier:\s*"free"/);
     assert.match(homeSource, /niveau\.includes\("ens-scientifique"\)/);
-    assert.match(homeSource, /subject: isScientificEducation \? "enseignement-scientifique" : "physique-chimie"/);
+    assert.match(homeSource, /subject: "physique-chimie"/);
+    assert.match(homeSource, /Physique-Chimie — Enseignement scientifique/);
+    assert.doesNotMatch(homeSource, /subject:\s*isScientificEducation\s*\?\s*"enseignement-scientifique"/);
     assert.match(homeSource, /<GlobalSearch client:load resources=\{resources\} \/>/);
   });
 });

@@ -3,10 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import GlobalSearch, { type GlobalSearchResource } from "../components/search/GlobalSearch";
 import { getLevelDisplayLabel } from "../utils/levels";
 import { getMatiereLabel } from "../data/levels";
-import { disciplineIdentities } from "../data/disciplineIdentity";
-import { getPublishedMathematicsLevels } from "../data/contentRoutes";
+import { getPhysicalScienceExplicitChapterPath, getPublishedMathematicsLevels } from "../data/contentRoutes";
 import { chapterEntryFromGlob } from "../data/mathematiques/content";
 import { getMathematicsLevelsByCycle } from "../data/mathematiques/levels";
+import { labApps } from "../data/laboratoire/apps";
 
 const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
 const allFlash = import.meta.glob("/src/data/chapters/**/flashcards.json", { eager: true });
@@ -29,16 +29,15 @@ for (const [path, mod] of Object.entries(allMeta)) {
     id: data.canonicalId ?? `physique-chimie:${cycle}:${niveau}:${matiere}:${slug}`,
     title: data.title ?? slug,
     description: data.description,
-    path: `/${cycle}/${niveau}/${matiere}/${slug}`,
-    slug,
+    path: getPhysicalScienceExplicitChapterPath(cycle, niveau, matiere as "physique" | "chimie", slug),
     keywords: data.keywords ?? data.tags ?? [],
     cycle,
     levelLabel: getLevelDisplayLabel(niveau),
-    subject: isScientificEducation ? "enseignement-scientifique" : "physique-chimie",
-    subjectLabel: isScientificEducation ? "Enseignement scientifique" : "Physique-Chimie",
+    subject: "physique-chimie",
+    subjectLabel: isScientificEducation ? "Physique-Chimie — Enseignement scientifique" : "Physique-Chimie",
     matiereLabel,
     resourceType: "chapter",
-    accessTier: data.access?.tier ?? "free",
+    ...(data.access?.tier && data.access.tier !== "free" ? { accessTier: data.access.tier } : {}),
   });
 }
 
@@ -51,59 +50,59 @@ const publishedMathLevels = [
   ...getPublishedMathematicsLevels(getMathematicsLevelsByCycle("lycee"), mathChapters),
 ];
 const publishedMathLevelKeys = new Set(publishedMathLevels.map((level) => `${level.cycle}:${level.slug}`));
+const publishedMathChapters = mathChapters.filter((chapter) =>
+  publishedMathLevelKeys.has(`${chapter.cycle}:${chapter.niveau}`),
+);
 
-for (const chapter of mathChapters) {
-  if (!publishedMathLevelKeys.has(`${chapter.cycle}:${chapter.niveau}`)) continue;
+for (const chapter of publishedMathChapters) {
   resources.push({
     id: `mathematiques:${chapter.cycle}:${chapter.niveau}:${chapter.slug}`,
     title: chapter.title,
     description: chapter.description,
     path: chapter.path,
-    slug: chapter.slug,
     keywords: chapter.tags ?? [],
     cycle: chapter.cycle,
     levelLabel: getLevelDisplayLabel(chapter.niveau),
     subject: "mathematiques",
     subjectLabel: "Mathématiques",
     resourceType: "chapter",
-    accessTier: "free",
   });
 }
 
+const mathChapterCount = publishedMathChapters.length;
+const publishedMathLevelLabels = publishedMathLevels.map((level) => level.label);
+const mathCoverageText = publishedMathLevelLabels.length === 0
+  ? "Les contenus de mathématiques seront publiés progressivement."
+  : publishedMathLevelLabels.length === 1
+    ? `${mathChapterCount} chapitres actuellement publiés en ${publishedMathLevelLabels[0]}.`
+    : `${mathChapterCount} chapitres actuellement publiés pour ${publishedMathLevelLabels.slice(0, -1).join(", ")} et ${publishedMathLevelLabels[publishedMathLevelLabels.length - 1]}.`;
+
 const publishedLevelCount = new Set(resources.map((resource) => `${resource.subject}:${resource.cycle}:${resource.levelLabel}`)).size;
-const labCount = 25;
-const esIdentity = disciplineIdentities["enseignement-scientifique"];
+const labCount = labApps.filter((app) => app.status === "migrated").length;
 const hasFlashcards = Object.keys(allFlash).length > 0;
 
 const subjectCards = [
   {
     title: "Mathématiques",
-    text: "De la 6e à la Terminale, toutes les notions et méthodes essentielles.",
+    text: mathCoverageText,
     href: "/mathematiques",
     tone: "maths",
     icon: "atom",
   },
   {
     title: "Physique-Chimie",
-    text: "Cours, expériences virtuelles et exercices pour comprendre le monde qui nous entoure.",
-    href: "/college",
+    text: "Cours et ressources publiés du collège au lycée, avec un espace dédié à l’Enseignement scientifique.",
+    href: "/physique-chimie",
     tone: "pc",
     icon: "flask",
-  },
-  {
-    title: "Enseignement Scientifique",
-    text: "Des contenus modernes et concrets pour développer votre esprit scientifique.",
-    href: esIdentity.href,
-    tone: "science",
-    icon: "leaf",
   },
 ];
 
 const methodSteps = [
-  { title: "Comprendre", text: "Cours et schémas clairs", icon: "book" },
+  { title: "Comprendre", text: "Cours et schémas", icon: "book" },
   { title: "S'entraîner", text: "Exercices progressifs et corrigés", icon: "target" },
   { title: "Tester", text: "Quiz pour valider ses acquis", icon: "spark" },
-  { title: "Réviser", text: hasFlashcards ? "Flashcards et mémos intelligents" : "Mémos et reprises ciblées", icon: "clipboard" },
+  { title: "Réviser", text: hasFlashcards ? "Flashcards et mémos de révision" : "Mémos et reprises ciblées", icon: "clipboard" },
   { title: "Expérimenter", text: "Simulations et labo interactifs", icon: "flask" },
 ];
 
@@ -111,7 +110,7 @@ const methodSteps = [
 
 <BaseLayout
   title="Cours Physique-Maths - cours, exercices, quiz et laboratoires"
-  description="La plateforme complète pour apprendre, réviser et progresser en Mathématiques, Physique-Chimie et Enseignement Scientifique."
+  description="Cours, exercices, quiz et laboratoires en Physique-Chimie, Enseignement scientifique et Mathématiques, selon les niveaux actuellement publiés."
   subject="transversal"
 >
   <div class="home-v3">
@@ -121,10 +120,10 @@ const methodSteps = [
           <span>Comprendre, s'entraîner, réviser et expérimenter</span>
         </h1>
         <p>
-          La plateforme complète pour apprendre, réviser et progresser en mathématiques, physique-chimie et enseignement scientifique.
+          Des ressources en mathématiques, physique-chimie et enseignement scientifique. Les niveaux affichés correspondent aux contenus effectivement publiés.
         </p>
         <div class="hero-reference__actions" aria-label="Actions principales">
-          <a class="btn btn--primary" href="/college">Commencer gratuitement</a>
+          <a class="btn btn--primary" href="#plateforme">Choisir une matière</a>
           <a class="btn btn--secondary" href="#recherche">Rechercher un chapitre</a>
         </div>
       </div>
@@ -154,12 +153,12 @@ const methodSteps = [
 
     <section id="plateforme" class="subjects-reference" aria-labelledby="subjects-title">
       <div class="section-title">
-        <h2 id="subjects-title">Trois matières, une seule expérience</h2>
-        <p>Une pédagogie active et scientifique pour tous les niveaux.</p>
+        <h2 id="subjects-title">Deux matières, une seule expérience</h2>
+        <p>Les cartes ci-dessous reflètent uniquement les contenus actuellement publiés.</p>
       </div>
       <div class="subject-cards" data-subject-switcher>
         {subjectCards.map((card) => (
-          <a class={`subject-card subject-card--${card.tone}`} href={card.href} data-subject-card={card.tone === "maths" ? "mathematiques" : card.tone === "pc" ? "physique-chimie" : "enseignement-scientifique"}>
+          <a class={`subject-card subject-card--${card.tone}`} href={card.href} data-subject-card={card.tone === "maths" ? "mathematiques" : "physique-chimie"}>
             <span class={`big-icon line-icon line-icon--${card.icon}`} aria-hidden="true"></span>
             <strong>{card.title}</strong>
             <small>{card.text}</small>
@@ -171,8 +170,8 @@ const methodSteps = [
 
     <section class="method-reference" aria-labelledby="method-title">
       <div class="section-title">
-        <h2 id="method-title">Une méthode éprouvée</h2>
-        <p>Un parcours d'apprentissage complet pour maîtriser chaque notion.</p>
+        <h2 id="method-title">Un parcours pour apprendre et réviser</h2>
+        <p>Cours, exercices, quiz, flashcards et simulations selon les ressources disponibles.</p>
       </div>
       <div class="method-steps">
         {methodSteps.map((step) => (
@@ -189,8 +188,8 @@ const methodSteps = [
 
     <section class="stats-reference" aria-labelledby="stats-title">
       <div>
-        <h2 id="stats-title">Conçu pour les élèves, recommandé par les enseignants</h2>
-        <p>Une plateforme fiable, conforme aux programmes officiels et pensée pour la réussite de tous.</p>
+        <h2 id="stats-title">Ce qui est actuellement publié</h2>
+        <p>Les compteurs ci-dessous sont calculés à partir des ressources actuellement disponibles sur le site.</p>
       </div>
       <dl>
         <div>
@@ -404,7 +403,6 @@ const methodSteps = [
   .line-icon--flask::before { content: "⚗"; }
   .line-icon--clipboard::before { content: "▤"; }
   .line-icon--atom::before { content: "∞"; }
-  .line-icon--leaf::before { content: "◜"; }
 
   .subjects-reference,
   .method-reference,
@@ -451,7 +449,7 @@ const methodSteps = [
   .subject-cards {
     display: grid;
     gap: 3.2rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     margin-top: 2.8rem;
   }
 
@@ -471,7 +469,6 @@ const methodSteps = [
 
   .subject-card--maths { --card-color: #135dff; background: linear-gradient(135deg, #f2f6ff, #ffffff); }
   .subject-card--pc { --card-color: #6947e8; background: linear-gradient(135deg, #f7f2ff, #ffffff); }
-  .subject-card--science { --card-color: #009b8d; background: linear-gradient(135deg, #edfbf8, #ffffff); }
 
   .big-icon {
     --icon-color: var(--card-color);
@@ -497,7 +494,7 @@ const methodSteps = [
     font-size: 0.78rem;
     font-weight: 650;
     line-height: 1.45;
-    max-width: 28ch;
+    max-width: 32ch;
   }
 
   .subject-card em {

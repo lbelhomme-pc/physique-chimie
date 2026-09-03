@@ -3,15 +3,16 @@
   "type": "module",
   "version": "0.0.1",
   "engines": {
-    "node": "18.20.8 || ^20.3.0 || >=22.0.0",
+    "node": ">=22.19.0",
     "npm": ">=9.6.5"
   },
   "scripts": {
     "dev": "astro dev",
     "check": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro check",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings=0",
     "test": "tsx --test \"tests/**/*.test.mjs\"",
     "verify:content": "tsx scripts/verify-routes-and-content.mjs",
+    "audit:security": "npm audit --audit-level=high",
     "audit:dist": "node scripts/audit-dist.mjs",
     "audit:dist:fast": "node scripts/audit-dist.mjs --skip-axe",
     "audit:dist:a11y": "node scripts/audit-dist.mjs --only-axe",
@@ -22,18 +23,18 @@
     "build": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "ci:quality": "npm run check && npm run lint && npm test && npm run verify:content",
+    "ci:quality": "npm run check && npm run lint && npm test && npm run verify:content && npm run audit:security",
     "ci:dist": "npm run build && npm run audit:dist:fast",
     "ci:a11y": "npm run build && npm run audit:dist:a11y",
     "ci": "npm run ci:quality && npm run ci:dist"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/sitemap": "^3.7.1",
+    "@astrojs/mdx": "^7.0.8",
+    "@astrojs/react": "^6.0.4",
+    "@astrojs/sitemap": "^3.7.3",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "astro": "^5.17.1",
+    "astro": "^7.2.9",
     "katex": "^0.16.38",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
@@ -42,7 +43,7 @@
     "zod": "4.4.3"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.9",
+    "@astrojs/check": "^0.9.10",
     "@eslint/js": "^9.39.5",
     "astro-eslint-parser": "^1.4.0",
     "axe-core": "^4.12.1",

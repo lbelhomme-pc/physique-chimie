@@ -1,208 +1,157 @@
-# CLAUDE.md — Instructions pour Claude Code
+# CLAUDE.md — consignes techniques pour les assistants de code
 
 ## Projet
 
-Plateforme éducative française de physique-chimie (collège + lycée).
-Astro.js + React + MDX. Site statique déployé sur Vercel.
-Développeur : Ludovic Belhomme.
+Plateforme éducative française organisée autour de **deux disciplines publiques** : **Mathématiques** et **Physique-Chimie**, du collège au lycée, avec mémorisation, accessibilité/DYS et laboratoires interactifs.
 
-## Stack technique
+Au lycée, l’**Enseignement scientifique** est un **parcours rattaché à l’espace Physique-Chimie**. Il conserve un libellé explicite, ses routes historiques et son identité de parcours, mais ne doit pas être recréé comme troisième porte de navigation.
 
-- **Framework** : Astro.js v5.18+ avec React et MDX
-- **Math** : KaTeX via `remark-math` + `rehype-katex` (configuré dans astro.config.mjs)
-- **Styles** : CSS variables dans `src/styles/design-system.css` (PAS de Tailwind)
-- **Données** : localStorage (pas de backend)
-- **Déploiement** : Vercel, site statique (`output: 'static'`)
-- **Polices** : Plus Jakarta Sans + OpenDyslexic (CDN)
+Référence obligatoire : `docs/architecture/taxonomie-disciplines.md`.
 
-## Structure du projet
+Le dépôt est en migration progressive vers la V3. Il ne faut pas réécrire l’application d’un bloc ni casser les compatibilités historiques.
 
-```
-src/
-├── components/pedagogie/    → Composants React (Quiz, Flashcards, Exercices, Dashboard, etc.)
-├── components/accessibility/ → AccessibilityPanel, ReadingGuide
-├── components/ui/           → ScrollToTop, SearchBar
-├── data/gamification/       → engine.ts, config.ts, srs.ts, useGamification.ts
-├── data/accessibility/      → a11y-engine.ts
-├── data/levels.ts           → Définition de tous les niveaux (collège + lycée)
-├── data/chapters/           → Contenu des chapitres (meta.json + cours.mdx + exercices/quiz/flashcards.json)
-├── layouts/BaseLayout.astro → Layout principal (SEO, nav, footer, composants globaux)
-├── pages/                   → Pages Astro (routes)
-└── styles/design-system.css → Design system complet (7 thèmes, DYS, responsive)
-```
+Avant une modification importante, lire également :
 
-## Structure d'un chapitre
+- `README.md`
+- `AGENTS.md`
+- `docs/README.md`
+- `docs/refonte-v3/README.md`
+- le document d’architecture correspondant au périmètre modifié.
 
-Chaque chapitre est dans `src/data/chapters/college/[niveau]/[matiere]/[slug]/` et contient 5 fichiers :
+## Stack actuelle
 
-- `meta.json` — métadonnées (title, slug, niveau, matiere, order, description, keywords, xp, seo)
-- `cours.mdx` — cours avec encadrés pédagogiques et formules KaTeX
-- `exercices.json` — exercices progressifs (⭐ à 🏆 Brevet)
-- `quiz.json` — 10 QCM avec 4 choix et explanations
-- `flashcards.json` — cartes recto/verso avec difficulté 1-3
+La source de vérité des versions est `package.json`.
 
-Les routes dynamiques et les pages Mega détectent automatiquement les nouveaux chapitres via `import.meta.glob`.
+- **Astro 7** en sortie statique ;
+- **React 19** pour les îlots interactifs ;
+- **MDX** pour les cours ;
+- **KaTeX + MathML** via `remark-math` / `rehype-katex` ;
+- **Zod** pour les contrats de données ;
+- **CSS natif**, sans Tailwind ;
+- progression active stockée localement ;
+- déploiement prévu sur Vercel ;
+- Node `>= 22.19.0`.
 
-## Règles MDX strictes (IMPORTANT)
+Ne pas recopier de numéro de version dans un autre document si `package.json` peut être référencé à la place.
 
-Les fichiers `cours.mdx` sont parsés par MDX qui traite TOUT comme du JSX. Respecter ces règles :
+## Sources de vérité
 
-1. **Formules LaTeX** : `$...$` inline et `$$...$$` blocs fonctionnent grâce à remark-math + rehype-katex. NE PAS les échapper.
-2. **Style HTML** : utiliser `style="color:red"` (HTML standard). JAMAIS `style={{color:"red"}}` (JSX).
-3. **SVG inline** : INTERDIT dans le MDX (les `{}` sont interprétés comme du JS). Utiliser un composant React importé.
-4. **Encadrés** : utiliser `<div class="definition-box">`, `<div class="example-box">`, `<div class="info-box">`, `<div class="box-regle-or">`.
-5. **Import de composants** : possible en haut du MDX, ex: `import TableauPeriodique from "../../...tsx";`
+- taxonomie publique : `docs/architecture/taxonomie-disciplines.md`, `src/data/disciplineIdentity.ts` ;
+- modèle de contenu : `src/data/contentContract.ts` et `src/content-model/` ;
+- corpus Physique-Chimie, dont parcours ES : `src/data/chapters/` ;
+- corpus Mathématiques : `src/data/mathematiques/` ;
+- laboratoires : `src/data/laboratoire/`, `src/components/laboratoire/`, `src/scripts/laboratoire/` ;
+- routes : `src/pages/` ;
+- IDs et migrations : `src/utils/contentIds.ts`, `src/utils/contentProgressMigration.ts` ;
+- sécurité de contenu : `src/utils/trustedContent.ts` ;
+- design system : `src/styles/` et `src/components/design-system/` ;
+- programmes de référence conservés : `BO/` ;
+- vérification globale : `scripts/verify-routes-and-content.mjs`.
 
-## Encadrés MDX disponibles
+## Contrat de taxonomie
 
-```mdx
-<div class="definition-box">    → bleu (définitions, formules)
-<div class="example-box">       → vert (exemples)
-<div class="info-box">          → jaune (à savoir, astuces)
-<div class="box-regle-or">      → rouge (règles d'or, attention)
-```
+1. Les facettes, portes d’entrée et contextes de premier niveau sont `mathematiques` ou `physique-chimie`.
+2. Les niveaux `1ere-ens-scientifique` et `terminale-ens-scientifique` ont pour discipline parente `physique-chimie`.
+3. `enseignement-scientifique` peut rester une identité de **parcours** afin de conserver badge, libellé et style distinctifs.
+4. Ne pas renommer massivement les routes, IDs ou clés de progression ES.
+5. Les routes historiques `*-ens-scientifique` restent valides jusqu’à une migration explicitement testée.
 
-## Format des fichiers JSON
+## Contrat de migration
 
-### meta.json
-```json
-{
-  "title": "Titre du chapitre",
-  "slug": "slug-du-chapitre",
-  "niveau": "3eme",
-  "matiere": "chimie",
-  "theme": "Organisation et transformation de la matière",
-  "order": 1,
-  "description": "Description courte",
-  "keywords": ["mot1", "mot2"],
-  "xp": { "cours": 10, "quiz_base": 5, "quiz_per_correct": 2, "quiz_perfect": 10, "flashcards_base": 5, "flashcard_known": 1, "exercice_each": 3, "exercice_all": 15, "chapter_complete": 25 },
-  "seo": { "meta_title": "...", "meta_description": "...", "canonical": "/college/3eme/chimie/slug", "schema_type": "EducationalContent", "educationalLevel": "Collège — 3ème" }
-}
-```
+1. Conserver les routes legacy tant que les redirections ne sont pas validées.
+2. Conserver la lecture des anciennes clés `localStorage` et des anciens IDs via des migrations idempotentes.
+3. Ne pas créer une deuxième source de vérité permanente.
+4. Ne pas convertir massivement les paquets historiques sans migration testée.
+5. Ne pas supprimer une simulation, un contenu ou une fonctionnalité DYS sans inventaire et preuve de remplacement.
+6. Toute extension de contrat doit être représentée explicitement dans le modèle, pas seulement dans l’UI.
 
-### quiz.json
-```json
-[
-  {
-    "id": "unique-id",
-    "question": "Texte avec $formule$ KaTeX possible",
-    "choices": ["Choix A", "Choix B", "Choix C", "Choix D"],
-    "answer": 0,
-    "explanation": "Explication détaillée"
-  }
-]
-```
+## Contenus pédagogiques
 
-### exercices.json
-```json
-[
-  {
-    "id": "unique-id",
-    "title": "Titre de l'exercice",
-    "difficulty": 1,
-    "difficultyLabel": "⭐ Débutant",
-    "consigne": "Texte de la consigne (\\n pour sauts de ligne, $formules$ possibles)",
-    "correction": ["Étape 1 de la correction", "Étape 2"]
-  }
-]
-```
+Les chapitres utilisent actuellement deux dialectes historiques derrière les adaptateurs :
 
-### flashcards.json
-```json
-[
-  {
-    "id": "unique-id",
-    "front": "Question recto",
-    "back": "Réponse verso",
-    "difficulty": 1
-  }
-]
-```
+- Physique-Chimie / parcours ES : ressources JSON majoritairement à racine tableau ;
+- Mathématiques : enveloppes nommées (`exercices`, `questions`, `cards`).
 
-## Design system
+Ne pas déduire le format attendu à partir d’un seul chapitre. Passer par les loaders et contrats existants.
 
-- **Fond** : `--bg-body: #eef2f7` (bleu pâle)
-- **Accent** : `--accent-primary: #4f46e5` (indigo)
-- **Cartes** : `--bg-card: #ffffff` avec `--shadow-card` et `--radius-lg`
-- **7 thèmes** : clair, gris-clair, gris, sombre, sépia, nuit, auto
-- **Responsive** : breakpoints 480px, 768px
-- Toujours utiliser les CSS variables (jamais de couleurs en dur dans les composants)
+### MDX et mathématiques
 
-## Gamification
+- formules inline : `$...$` ;
+- formules bloc : `$$...$$` ;
+- conserver KaTeX et MathML ;
+- ne jamais transformer une formule en image ;
+- éviter l’HTML arbitraire dans les contenus ;
+- tout SVG/HTML non fiable doit suivre `docs/architecture/securite-contenus.md`.
 
-- 14 rangs : Quark → Multivers (XP croissant)
-- 23 badges avec niveaux bronze/argent/or
-- Streaks (jours consécutifs)
-- Anti-triche : XP 1x/jour par quiz, shuffle des questions
-- SRS : algorithme SM-2 (4 boutons Anki) pour les flashcards
+### Figures scientifiques
 
-## Commandes utiles
+Pour les nouvelles figures statiques, viser une source reproductible et réutilisable. La cible est un pipeline LaTeX/TikZ/PGFPlots/circuitikz/chemfig pour les figures non interactives. Ne pas ajouter d’animation JavaScript décorative là où une figure statique suffit.
+
+JavaScript est justifié lorsqu’un élève agit réellement sur des paramètres, réalise une mesure, teste une hypothèse ou compare des états.
+
+## Accessibilité et DYS
+
+Toute modification visible doit préserver :
+
+- navigation clavier complète ;
+- focus perceptible ;
+- structure de titres cohérente ;
+- alternatives accessibles aux figures et canvas ;
+- information non transmise uniquement par la couleur ;
+- compatibilité avec les préférences DYS existantes ;
+- `prefers-reduced-motion` ;
+- MathML disponible aux technologies d’assistance.
+
+## Sécurité
+
+- aucun secret dans le dépôt ;
+- aucun `eval`, `new Function` ou équivalent sur une entrée utilisateur ;
+- pas d’injection de HTML non filtré ;
+- utiliser les utilitaires de confiance existants ;
+- ne pas affaiblir CSP ou les contrôles npm pour contourner une erreur ;
+- `npm audit --audit-level=high` fait partie de `quality`.
+
+## Qualité obligatoire
 
 ```bash
-npm run dev      # Développement local (port 4321)
-npm run build    # Build de production
-npm run preview  # Preview du build (faire build AVANT)
+npm run check
+npm run lint
+npm test
+npm run verify:content
+npm run audit:security
+npm run build
+npm run audit:dist:fast
+npm run audit:dist:a11y
 ```
 
-## Contenu existant (3ème complet)
+Raccourcis CI :
 
-### Chimie (6 chapitres)
-1. L'atome (order:1) — avec TableauPeriodique interactif
-2. Les ions (order:2)
-3. Les molécules (order:3)
-4. pH, Acides et Bases (order:4)
-5. La masse volumique (order:5)
-6. Les transformations chimiques (order:6)
+```bash
+npm run ci:quality
+npm run ci:dist
+npm run ci:a11y
+```
 
-### Physique (6 chapitres)
-1. La loi d'Ohm (order:1)
-2. Puissance et énergie (order:2)
-3. L'énergie mécanique (order:3)
-4. Signaux : Sons et Lumière (order:4)
-5. Sources et formes d'énergie (order:5)
-6. Mouvements et interactions (order:6)
+`npm run lint` utilise `--max-warnings=0`. La CI GitHub doit conserver les checks `quality`, `dist-fast` et `dist-a11y`.
 
-## Workflow pour ajouter un chapitre
+## Règles de modification
 
-1. Créer le dossier `src/data/chapters/college/[niveau]/[matiere]/[slug]/`
-2. Créer les 5 fichiers (meta.json, cours.mdx, exercices.json, quiz.json, flashcards.json)
-3. C'est tout — les routes dynamiques, Dashboard, Mega Quiz/Flashcards détectent automatiquement
+- travailler sur une branche dédiée ;
+- garder les changements focalisés ;
+- ajouter ou adapter des tests lorsque le contrat change ;
+- ne jamais « réparer » un test en supprimant le comportement qu’il protège sans justification ;
+- ne pas modifier des centaines de contenus par recherche/remplacement aveugle ;
+- préserver les accents et l’UTF-8 dans les textes, métadonnées et JSON-LD ;
+- documenter toute dette volontaire introduite.
 
-## Ce qui reste à faire (par priorité)
+## Pièges actuels connus
 
-### Priorité haute
-- Soumettre sitemap à Google Search Console
-- Créer image OG (1200×630px)
-- Fusionner pages stats+badges en /profil unique
+- le corpus Physique-Chimie/ES et le corpus Mathématiques ne sont pas encore nativement uniformes ;
+- les redirections PC explicites sont préparées mais pas toutes activées ;
+- la racine contient encore des rapports historiques : ne pas les prendre pour documentation courante ;
+- `src/scripts/laboratoire/generic-lab-simulator.js` reste volumineux et doit être refactoré par famille ;
+- une dépréciation Astro liée à l’ancienne configuration Markdown peut encore apparaître hors diagnostics `astro check`.
 
-### Priorité moyenne
-- Contenu 4ème, 5ème, 6ème (Ludovic fournit les HTML)
-- Contenu lycée (2nde, 1ère Spé, Term Spé)
-- Page Outils & Méthodes (convertisseur, formulaires)
-- Tests mobiles approfondis
+## Ajout ou modification d’un chapitre
 
-### Priorité basse
-- Laboratoire (simulations interactives)
-- Auth Supabase + paiement Stripe
-- PWA / app mobile (Capacitor)
-- Escape game
-
-## Composants et versions
-
-| Composant | Version | Description |
-|-----------|---------|-------------|
-| QuizPlayer | v7 | KaTeX + TTS + hydration guard |
-| FlashcardsPlayer | v7 | KaTeX + TTS + SRS Anki |
-| ExercicesPlayer | v7 | KaTeX + TTS + auto-évaluation |
-| Dashboard | v3 | Compact, pills stats, mega links |
-| TableauPeriodique | v3 | 118 éléments, modale, données complètes |
-| MegaQuizPlayer | v2 | KaTeX + filtres niveau/matière/chapitre |
-| MegaFlashcardsPlayer | v2 | KaTeX + filtres |
-| SearchBar | v1 | Recherche temps réel avec dropdown |
-
-## Pièges fréquents
-
-1. **MDX + accolades** : Tout `{` dans un MDX est interprété comme du JS. Les formules $$...$$ fonctionnent grâce aux plugins, mais le SVG inline ne marche PAS.
-2. **npm run preview sans build** : Montre une version périmée. Toujours faire `npm run build` avant.
-3. **Conversions mA → A** : Dans les quiz/exercices de physique, les intensités sont souvent en mA. Vérifier la cohérence.
-4. **getStaticPaths** : Toute route dynamique `[param].astro` doit exporter une fonction `getStaticPaths()`.
+Avant de créer un chapitre : vérifier le programme, le corpus et son loader, réutiliser les IDs canoniques, conserver le format attendu, puis exécuter `verify:content`, les tests et le build. Un fichier seul ne constitue jamais une publication valide.

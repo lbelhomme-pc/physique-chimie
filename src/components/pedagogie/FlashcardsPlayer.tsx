@@ -32,7 +32,7 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
   }, [data]);
 
   const srs = useMemo(() => getSRSEngine(), []);
-  const srsStats = useMemo(() => chapterId ? srs.getChapterStats(chapterId, allCards.map(c => c.id)) : null, [chapterId, allCards]);
+  const srsStats = useMemo(() => chapterId ? srs.getChapterStats(chapterId, allCards.map(c => c.id)) : null, [chapterId, allCards, srs]);
 
   const [mode, setMode] = useState<SessionMode|null>(null);
   const [sessionCards, setSessionCards] = useState<Flashcard[]>([]);

@@ -1,0 +1,36 @@
+## Objectifs
+- Simuler une variable aléatoire.
+- Calculer la moyenne d’un échantillon.
+- Comparer expérimentalement moyenne observée et espérance.
+
+## Prérequis
+Variables aléatoires, moyenne, fonctions et boucles Python.
+
+## Activité de découverte
+Simuler de nombreux échantillons permet d’observer la fluctuation de leur moyenne autour de l’espérance.
+
+## Vocabulaire
+Simulation, échantillon, taille, moyenne d’échantillon, espérance.
+
+## Cours
+Un échantillon de taille $n$ est une liste de $n$ réalisations d’une variable aléatoire. Sa moyenne vaut
+$$m=\frac{x_1+\cdots+x_n}{n}.$$
+
+Le BO demande d’étudier expérimentalement la distance entre $m$ et l’espérance $\mu$, puis de simuler $N$ échantillons et d’observer la proportion des cas où
+$$|m-\mu|\le \frac{2\sigma}{\sqrt n}.$$
+
+Une simulation illustre un modèle ; elle ne constitue pas une preuve.
+
+## Exemples corrigés
+Pour un dé équilibré, une fonction qui renvoie un entier de 1 à 6 simule une réalisation. Une liste de $n$ appels forme un échantillon.
+
+## Méthode
+Découper le programme en fonctions : simuler une valeur, construire un échantillon, calculer sa moyenne, répéter l’expérience.
+
+## Erreurs fréquentes
+- Confondre fréquence observée et probabilité exacte.
+- Confondre $N$, nombre d’échantillons, et $n$, taille de chaque échantillon.
+- Modifier le modèle entre deux séries que l’on compare.
+
+## Synthèse
+La simulation permet de relier modèle probabiliste, échantillonnage et comportement des moyennes observées.

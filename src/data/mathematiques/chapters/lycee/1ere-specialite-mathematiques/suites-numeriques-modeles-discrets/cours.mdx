@@ -1,0 +1,51 @@
+## Objectifs
+
+- Reconnaître les différents modes de génération d'une suite.
+- Calculer des termes à partir d'une formule explicite ou d'une récurrence.
+- Maîtriser les suites arithmétiques et géométriques, leur terme général, leurs sommes et leur sens de variation.
+- Modéliser une évolution discrète et conjecturer une limite sans formalisation.
+
+## Cours
+
+### Définir une suite
+Une suite `(u_n)` associe à chaque entier naturel `n` un nombre réel. Elle peut être donnée explicitement, par exemple `u_n=f(n)`, par récurrence `u_{n+1}=f(u_n)`, par un algorithme ou par un motif géométrique/combinatoire. Il faut savoir passer d'un registre à l'autre.
+
+### Suites arithmétiques
+Une suite est arithmétique de raison `r` si `u_{n+1}=u_n+r`. Pour des rangs `n` et `p`, `u_n=u_p+(n-p)r`. Une évolution à accroissements constants se modélise ainsi. Si `r>0`, la suite est croissante ; si `r<0`, elle est décroissante.
+
+La somme `1+2+...+n` vaut `n(n+1)/2`. Plus généralement, une somme de termes consécutifs d'une suite arithmétique s'obtient par `nombre de termes × (premier+dernier)/2`.
+
+### Suites géométriques
+Une suite est géométrique de raison `q` si `u_{n+1}=q u_n`. Alors `u_n=u_p q^{n-p}`. Une évolution à taux fixe se modélise par une suite géométrique : le coefficient multiplicateur est `q=1+t`.
+
+Pour `q≠1`, `1+q+...+q^n=(1-q^{n+1})/(1-q)`. Le sens de variation dépend de `q` et du signe des termes ; dans les modèles usuels à termes positifs, `q>1` donne une croissance et `0<q<1` une décroissance.
+
+### Intuition de limite et seuil
+Le programme demande seulement de conjecturer, sur des exemples, une limite finie, infinie ou l'absence de limite. Aucune définition formelle avec quantificateurs n'est exigée. Un algorithme peut rechercher le premier rang où une suite franchit un seuil.
+
+### Modéliser
+Capital avec versement fixe → modèle arithmétique. Capital soumis chaque période au même taux → modèle géométrique. Population, décroissance radioactive ou motifs peuvent conduire à une récurrence plus générale.
+
+## Démonstrations à travailler
+- terme général d'une suite arithmétique ;
+- terme général d'une suite géométrique ;
+- `1+2+...+n=n(n+1)/2` ;
+- somme géométrique `1+q+...+q^n`.
+
+## Algorithmique
+```python
+def seuil(u0, q, s):
+    n, u = 0, u0
+    while u < s:
+        u *= q
+        n += 1
+    return n, u
+```
+
+## Erreurs fréquentes
+- Confondre raison additive `r` et coefficient multiplicatif `q`.
+- Écrire `u_n=u_0+nr` pour une suite qui commence à un autre rang sans adapter la formule.
+- Formaliser une limite au-delà de ce qui est attendu en Première.
+
+## Synthèse
+Les suites décrivent des évolutions discrètes. Les suites arithmétiques modélisent un accroissement constant, les géométriques un taux constant ; formules, récurrences, graphiques et algorithmes doivent pouvoir être articulés.

@@ -25,6 +25,7 @@ const levelCards = collegeLevels.map((level) => {
     chimie,
     physique,
     total,
+    isSixiemeSciencesTechnologie: level.slug === "6eme",
   };
 });
 const pcIdentity = disciplineIdentities["physique-chimie"];
@@ -33,7 +34,7 @@ const totalChapterCount = levelCards.reduce((sum, level) => sum + level.total, 0
 
 <BaseLayout
   title="Collège — Physique-Chimie"
-  description="Choisir son niveau collège en physique-chimie : 6e, 5e, 4e ou 3e, avec cours, exercices, quiz et flashcards."
+  description="Choisir son niveau dans l’espace Physique-Chimie : Sciences et technologie en 6e, puis Physique-Chimie en 5e, 4e et 3e."
   subject="physique-chimie"
   cycle="college"
 >
@@ -44,7 +45,7 @@ const totalChapterCount = levelCards.reduce((sum, level) => sum + level.total, 0
       mark="PC"
       markLabel={pcIdentity.iconLabel}
       title="Physique-Chimie au collège"
-      description="Choisis ton niveau pour retrouver les cours, exercices, quiz et flashcards de physique et de chimie."
+      description="Choisis ton niveau. En 6e, ce parcours Physique-Chimie s’inscrit dans l’enseignement officiel de Sciences et technologie du cycle 3 ; de la 5e à la 3e, tu retrouves la Physique-Chimie du cycle 4."
       actions={[
         { label: "Choisir mon niveau", href: "#niveaux-college" },
         { label: "Outils du collège", href: "/outils-methodes/college", variant: "secondary" },
@@ -71,15 +72,23 @@ const totalChapterCount = levelCards.reduce((sum, level) => sum + level.total, 0
             <article class="level-card v3-landing-card" data-discipline={pcIdentity.id} style={getDisciplineStyle(pcIdentity)}>
               <span class="v3-landing-card__mark" aria-hidden="true">{level.label}</span>
               <div class="level-card-head">
-                <h2>Niveau {level.label}</h2>
+                <h2>
+                  {level.isSixiemeSciencesTechnologie
+                    ? `${level.label} — Sciences et technologie`
+                    : `Niveau ${level.label}`}
+                </h2>
               </div>
               <p>
                 {level.total > 0
-                  ? `${level.total} chapitre(s) en ligne : ${level.physique} en physique et ${level.chimie} en chimie.`
+                  ? level.isSixiemeSciencesTechnologie
+                    ? `${level.total} chapitre(s) du parcours Physique-Chimie, rattachés au thème « Matière, mouvement, énergie, information » du programme de cycle 3.`
+                    : `${level.total} chapitre(s) en ligne : ${level.physique} en physique et ${level.chimie} en chimie.`
                   : "Les contenus de ce niveau sont en préparation."}
               </p>
               <div class="level-actions">
-                <a class="primary-action" href={`/college/${level.slug}`}>Voir le niveau</a>
+                <a class="primary-action" href={`/college/${level.slug}`}>
+                  {level.isSixiemeSciencesTechnologie ? "Voir Sciences et technologie" : "Voir le niveau"}
+                </a>
                 {level.chimie > 0 && <a href={`/college/${level.slug}/chimie`}>Chimie</a>}
                 {level.physique > 0 && <a href={`/college/${level.slug}/physique`}>Physique</a>}
               </div>

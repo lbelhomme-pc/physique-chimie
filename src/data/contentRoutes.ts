@@ -5,6 +5,7 @@ export type CycleRouteId = "college" | "lycee";
 export type PhysicalScienceSubject = "physique" | "chimie";
 export type ResourceRouteKind = "chapter" | "course" | "exercise" | "quiz" | "flashcards" | "simulation";
 export type RouteRedirectPhase = "active" | "prepared";
+export type RouteMigrationStatus = "active-compatible" | "redirect-only" | "stable";
 
 export interface PhysicalScienceChapterRouteInput {
   cycle: CycleRouteId;
@@ -40,15 +41,18 @@ export interface PhysicalScienceRoutePair extends PhysicalScienceChapterRouteInp
   legacyPath: string;
   explicitPath: string;
   canonicalPath: string;
-  legacyStatus: "active-compatible";
-  redirectPhase: Extract<RouteRedirectPhase, "prepared">;
+  legacyStatus: Extract<RouteMigrationStatus, "redirect-only">;
+  redirectPhase: Extract<RouteRedirectPhase, "active">;
+  redirectStatus: 301;
 }
 
 export const PHYSICAL_SCIENCE_ROOT = "/physique-chimie";
 export const V3_ROUTE_STRATEGY = {
   physicalScienceCanonicalMode: "explicit",
-  physicalScienceLegacyStatus: "active-compatible",
-  physicalScienceRedirectPhase: "prepared",
+  physicalScienceLegacyStatus: "redirect-only",
+  physicalScienceRedirectPhase: "active",
+  physicalScienceRedirectStatus: 301,
+  preserveLegacyPhysicalScienceContent: false,
   notFoundRoute: "/404",
 } as const;
 
@@ -98,6 +102,7 @@ export function getPhysicalScienceRouteContext(
 ): ChapterRouteContext {
   const legacyPath = getPhysicalScienceLegacyChapterPath(cycle, niveau, matiere, chapitre);
   const explicitPath = getPhysicalScienceExplicitChapterPath(cycle, niveau, matiere, chapitre);
+  const canonicalMode = options.canonicalMode ?? V3_ROUTE_STRATEGY.physicalScienceCanonicalMode;
   return {
     discipline: "physique-chimie",
     cycle,
@@ -107,7 +112,7 @@ export function getPhysicalScienceRouteContext(
     resourceKind: "chapter",
     legacyPath,
     explicitPath,
-    canonical: options.canonicalMode === "explicit" ? explicitPath : legacyPath,
+    canonical: canonicalMode === "explicit" ? explicitPath : legacyPath,
   };
 }
 
@@ -122,6 +127,7 @@ export function getPhysicalScienceRoutePair(chapter: PhysicalScienceChapterRoute
     canonicalPath: explicitPath,
     legacyStatus: V3_ROUTE_STRATEGY.physicalScienceLegacyStatus,
     redirectPhase: V3_ROUTE_STRATEGY.physicalScienceRedirectPhase,
+    redirectStatus: V3_ROUTE_STRATEGY.physicalScienceRedirectStatus,
   };
 }
 

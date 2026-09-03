@@ -127,7 +127,7 @@ export function sanitizeTrustedHtml(source: string): TrustedHtml {
     .replace(/<\s*(?:script|iframe|object|embed|style|link|meta|base|form|input|button|textarea|select|option|video|audio|source|canvas)\b[\s\S]*?<\s*\/\s*(?:script|iframe|object|embed|style|link|meta|base|form|input|button|textarea|select|option|video|audio|source|canvas)\s*>/gi, "")
     .replace(/<\s*(?:script|iframe|object|embed|style|link|meta|base|form|input|button|textarea|select|option|video|audio|source|canvas)\b[^>]*\/?\s*>/gi, "");
 
-  return withoutDangerousBlocks.replace(/<\s*(\/?)\s*([A-Za-z][A-Za-z0-9:-]*)([^>]*)>/g, (full, slash, rawTag, rawAttrs) => {
+  return withoutDangerousBlocks.replace(/<\s*(\/?)\s*([A-Za-z][A-Za-z0-9:-]*)([^>]*)>/g, (_full, slash, rawTag, rawAttrs) => {
     const tag = rawTag;
     const normalized = tag.toLowerCase();
     const allowedTag = [...ALLOWED_TAGS].find((item) => item.toLowerCase() === normalized);

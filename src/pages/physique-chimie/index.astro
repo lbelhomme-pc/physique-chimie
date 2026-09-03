@@ -1,0 +1,206 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import V3LandingHero from "../../components/home/V3LandingHero.astro";
+import { disciplineIdentities, getDisciplineStyle } from "../../data/disciplineIdentity";
+import {
+  physiqueChimieLyceeTracks,
+  physiqueChimieMainNavigation,
+  physiqueChimieResourceNavigation,
+} from "../../data/physiqueChimie/navigation";
+
+const pcIdentity = disciplineIdentities["physique-chimie"];
+---
+
+<BaseLayout
+  title="Physique-Chimie - Espace pédagogique"
+  description="Espace Physique-Chimie du site : Sciences et technologie en 6e, Physique-Chimie au cycle 4 et parcours du lycée, dont l’Enseignement scientifique."
+  canonical="/physique-chimie"
+  subject="physique-chimie"
+>
+  <div class="v3-landing-page v3-landing-page--pc pc-shell">
+    <V3LandingHero
+      tone="pc"
+      eyebrow="Physique-Chimie"
+      mark={pcIdentity.mark}
+      markLabel={pcIdentity.iconLabel}
+      title="Comprendre la Physique-Chimie"
+      description="Des cours structurés, des exercices, des outils et des simulations pour observer, expérimenter, raisonner et modéliser du collège au lycée."
+      actions={[
+        { label: "Accéder au collège", href: "/college" },
+        { label: "Accéder au lycée", href: "/lycee", variant: "secondary" },
+      ]}
+      stats={[
+        { value: physiqueChimieMainNavigation.length, label: "cycles scolaires" },
+        { value: physiqueChimieLyceeTracks.length, label: "parcours lycée" },
+      ]}
+      imageAlt="Espace de travail de Physique-Chimie associant verrerie, mesures et représentations scientifiques."
+    />
+
+    <div class="v3-landing-content">
+      <section class="v3-landing-section" aria-labelledby="pc-main-access">
+        <div class="v3-landing-section-header">
+          <div>
+            <p>Choisir son parcours</p>
+            <h2 id="pc-main-access">Collège ou lycée</h2>
+          </div>
+          <span>Retrouve les niveaux puis les chapitres dans l’ordre du programme applicable.</span>
+        </div>
+
+        <div class="pc-cycle-grid v3-landing-grid">
+          {physiqueChimieMainNavigation.map((resource) => (
+            <a
+              class="pc-cycle-card v3-landing-card"
+              href={resource.href}
+              data-discipline={pcIdentity.id}
+              style={getDisciplineStyle(pcIdentity)}
+            >
+              <span class="pc-cycle-card__title">
+                <strong>{resource.title}</strong>
+                <span aria-hidden="true">→</span>
+              </span>
+              <span class="pc-cycle-card__description">{resource.description}</span>
+              <span class="pc-cycle-card__status">Disponible</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="v3-landing-section" aria-labelledby="pc-lycee-tracks">
+        <div class="v3-landing-section-header">
+          <div>
+            <p>Parcours lycée</p>
+            <h2 id="pc-lycee-tracks">Physique-Chimie et Enseignement scientifique</h2>
+          </div>
+          <span>L’Enseignement scientifique reste un parcours identifié à l’intérieur de l’espace Physique-Chimie.</span>
+        </div>
+
+        <ul class="pc-track-grid" aria-label="Parcours Physique-Chimie au lycée">
+          {physiqueChimieLyceeTracks.map((track) => (
+            <li>
+              <a href={track.href}>
+                <strong>{track.title}</strong>
+                <span>{track.description}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="v3-landing-section" aria-labelledby="pc-resources-title">
+        <div class="v3-landing-section-header">
+          <div>
+            <p>Ressources scientifiques</p>
+            <h2 id="pc-resources-title">Expérimenter et réviser</h2>
+          </div>
+          <span>Les simulations sont réservées aux situations où l’interactivité apporte une vraie valeur pédagogique.</span>
+        </div>
+
+        <ul class="pc-resource-grid" aria-label="Ressources Physique-Chimie">
+          {physiqueChimieResourceNavigation.map((resource) => (
+            <li>
+              <a href={resource.href}>
+                <strong>{resource.title}</strong>
+                <span>{resource.description}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .pc-shell {
+    margin: 0;
+    max-width: none;
+    padding: 0;
+  }
+
+  .pc-cycle-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pc-cycle-card {
+    color: var(--text-primary);
+    display: grid;
+    gap: 0.7rem;
+    min-height: 150px;
+    text-decoration: none;
+  }
+
+  .pc-cycle-card__title {
+    align-items: center;
+    display: flex;
+    font-size: 1.2rem;
+    gap: 0.75rem;
+    justify-content: space-between;
+  }
+
+  .pc-cycle-card__description,
+  .pc-track-grid a span,
+  .pc-resource-grid a span {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .pc-cycle-card__status {
+    align-self: end;
+    background: var(--discipline-surface);
+    border: 1px solid var(--discipline-border);
+    border-radius: var(--radius-pill);
+    color: var(--discipline-accent);
+    font-size: 0.78rem;
+    font-weight: 900;
+    justify-self: start;
+    padding: 0.28rem 0.65rem;
+  }
+
+  .pc-track-grid,
+  .pc-resource-grid {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pc-resource-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pc-track-grid a,
+  .pc-resource-grid a {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--v3-color-discipline-pc);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    display: grid;
+    gap: 0.45rem;
+    height: 100%;
+    min-height: 112px;
+    padding: 1rem;
+    text-decoration: none;
+  }
+
+  .pc-cycle-card:hover,
+  .pc-cycle-card:focus-visible,
+  .pc-track-grid a:hover,
+  .pc-track-grid a:focus-visible,
+  .pc-resource-grid a:hover,
+  .pc-resource-grid a:focus-visible {
+    border-color: var(--v3-color-discipline-pc);
+    box-shadow: var(--v3-shadow-focus);
+    outline: none;
+  }
+
+  @media (max-width: 760px) {
+    .pc-cycle-grid,
+    .pc-track-grid,
+    .pc-resource-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

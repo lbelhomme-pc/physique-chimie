@@ -6,6 +6,44 @@ export const DisciplineSchema = z.enum(["physique-chimie", "mathematiques", "lab
 export const CycleSchema = z.enum(["college", "lycee"]);
 export const MatiereSchema = z.enum(["physique", "chimie"]);
 export const PublicationStatusSchema = z.enum(["draft", "published", "archived"]);
+
+export const SchoolYearSchema = z.string().regex(/^\d{4}-\d{4}$/).superRefine((value, context) => {
+  const [start, end] = value.split("-").map(Number);
+  if (end !== start + 1) {
+    context.addIssue({
+      code: "custom",
+      message: "School year must contain consecutive years",
+    });
+  }
+});
+
+export const ProgrammeVersionSchema = z.object({
+  versionId: z.string().min(1),
+  officialSourceId: z.string().min(1),
+  label: z.string().min(1),
+  track: z.string().min(1),
+  publishedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  officialUrl: z.url(),
+  schoolYear: SchoolYearSchema,
+  appliesFrom: SchoolYearSchema,
+  appliesUntil: SchoolYearSchema.optional(),
+  applicable: z.literal(true),
+}).superRefine((programme, context) => {
+  if (programme.appliesUntil && programme.appliesUntil < programme.appliesFrom) {
+    context.addIssue({
+      code: "custom",
+      path: ["appliesUntil"],
+      message: "Programme application end must not precede application start",
+    });
+  }
+  if (programme.schoolYear < programme.appliesFrom || (programme.appliesUntil && programme.schoolYear > programme.appliesUntil)) {
+    context.addIssue({
+      code: "custom",
+      path: ["schoolYear"],
+      message: "Programme is not applicable for the selected school year",
+    });
+  }
+});
 export const ResourceDifficultySchema = z.enum(["initiation", "entrainement", "approfondissement", "expert"]);
 export const AccessTierSchema = z.enum(["free", "premium", "teacher", "draft"]);
 export const ContentBlockTypeSchema = z.enum([
@@ -222,6 +260,7 @@ export const ChapterContractSchema = z.object({
   niveau: z.string().min(1),
   matiere: MatiereSchema.optional(),
   programme: z.string().min(1),
+  programmeVersion: ProgrammeVersionSchema,
   slug: z.string().min(1),
   title: z.string().min(1),
   description: z.string().min(1),
@@ -275,6 +314,8 @@ export const ChapterPackageContractSchema = z.object({
 export type Discipline = z.infer<typeof DisciplineSchema>;
 export type Cycle = z.infer<typeof CycleSchema>;
 export type PublicationStatus = z.infer<typeof PublicationStatusSchema>;
+export type SchoolYear = z.infer<typeof SchoolYearSchema>;
+export type ProgrammeVersion = z.infer<typeof ProgrammeVersionSchema>;
 export type AccessPolicy = z.infer<typeof AccessPolicySchema>;
 export type Competence = z.infer<typeof CompetenceSchema>;
 export type AccessibilityAlternative = z.infer<typeof AccessibilityAlternativeSchema>;

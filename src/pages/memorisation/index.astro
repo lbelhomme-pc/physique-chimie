@@ -6,21 +6,21 @@ const memoryModes = [
   {
     mark: "J",
     title: "Révision du jour",
-    description: "Retrouve les cartes à revoir aujourd’hui selon ton rythme de mémorisation.",
+    description: "Retrouve le point d’entrée vers tes outils de révision sur cet appareil.",
     href: "/memorisation/revision-du-jour",
     action: "Commencer la révision",
   },
   {
     mark: "Q",
     title: "Méga quiz",
-    description: "Teste plusieurs notions, repère tes erreurs et reprends les questions difficiles.",
+    description: "Choisis Mathématiques ou Physique-Chimie, puis entraîne-toi sur les chapitres publiés.",
     href: "/memorisation/mega-quiz",
     action: "Lancer un quiz",
   },
   {
     mark: "F",
     title: "Méga flashcards",
-    description: "Révise rapidement les définitions, formules et idées essentielles des chapitres.",
+    description: "Choisis ta discipline avant de réviser les définitions, formules et idées essentielles.",
     href: "/memorisation/mega-flashcards",
     action: "Ouvrir les flashcards",
   },
@@ -28,10 +28,11 @@ const memoryModes = [
 ---
 
 <BaseLayout
-  title="Mémorisation - Quiz, révisions et flashcards"
-  description="Réviser les notions scientifiques avec la révision du jour, les quiz et les flashcards."
+  title="Mémorisation - Mathématiques et Physique-Chimie"
+  description="Quiz et flashcards des chapitres publiés en Mathématiques et Physique-Chimie, avec choix de la discipline."
   canonical="/memorisation"
   resourceType="memorisation"
+  subject="transversal"
 >
   <div class="v3-landing-page v3-landing-page--memory">
     <V3LandingHero
@@ -40,7 +41,7 @@ const memoryModes = [
       mark="M"
       markLabel="Repère mémorisation"
       title="Réviser pour retenir"
-      description="Quiz, flashcards et reprises ciblées t’aident à consolider les notions importantes sans tout recommencer."
+      description="Quiz, flashcards et reprises ciblées pour les contenus publiés en Mathématiques et Physique-Chimie."
       actions={[
         { label: "Révision du jour", href: "/memorisation/revision-du-jour" },
         { label: "Choisir un mode", href: "#modes-memorisation", variant: "secondary" },
@@ -48,7 +49,7 @@ const memoryModes = [
       stats={[
         { value: memoryModes.length, label: "modes de révision" },
       ]}
-      imageAlt="Espace de travail scientifique préparé pour une séance de révision."
+      imageAlt="Espace de travail scientifique et mathématique préparé pour une séance de révision."
     />
 
     <div class="v3-landing-content">
@@ -58,7 +59,7 @@ const memoryModes = [
             <p>Choisir une activité</p>
             <h2 id="memory-modes-title">Comment veux-tu réviser ?</h2>
           </div>
-          <span>Commence par les cartes du jour ou entraîne-toi librement.</span>
+          <span>Les banques Mega proposent un filtre de discipline avant la session.</span>
         </div>
 
         <div class="v3-landing-grid">

@@ -1,0 +1,69 @@
+## Objectifs
+
+- Calculer des probabilités conditionnelles dans un tableau ou un arbre.
+- Comprendre l’indépendance de deux évènements.
+- Représenter des répétitions indépendantes d’une épreuve de Bernoulli lorsque $n\leq 4$.
+
+## Prérequis
+
+Évènement, intersection, probabilité, tableau croisé, arbre pondéré et probabilité conditionnelle introduite en seconde.
+
+## Situation de départ
+
+Un test médical peut être positif chez une personne malade mais aussi chez une personne non malade. La question « probabilité d’un test positif sachant que la personne est malade » n’est pas la même que « probabilité d’être malade sachant que le test est positif ».
+
+## Cours
+
+### Probabilité conditionnelle
+
+Pour $P(B)\neq0$, la probabilité de $A$ sachant $B$ est
+$$
+P_B(A)=\frac{P(A\cap B)}{P(B)}.
+$$
+Ainsi $P(A\cap B)=P(B)P_B(A)$. Dans un arbre pondéré, la probabilité d’un chemin s’obtient en multipliant les probabilités de ses branches.
+
+### Indépendance
+
+Deux évènements $A$ et $B$ sont indépendants lorsque la connaissance de l’un ne modifie pas la probabilité de l’autre. Lorsque les probabilités conditionnelles sont définies, on peut écrire $P_B(A)=P(A)$, ce qui conduit à $P(A\cap B)=P(A)P(B)$.
+
+L’indépendance appartient au **modèle probabiliste**. Elle ne signifie pas que les évènements sont incompatibles.
+
+### Répétitions de Bernoulli
+
+Une épreuve de Bernoulli possède deux issues, succès et échec, de probabilités $p$ et $1-p$. Le programme demande de représenter par un arbre jusqu’à **quatre répétitions identiques et indépendantes** afin de calculer des probabilités. Pour trois répétitions, le chemin « succès, succès, échec » a pour probabilité $p^2(1-p)$. Si un évènement correspond à plusieurs chemins incompatibles, on additionne leurs probabilités.
+
+### Modèle et réalité
+
+Une loi de probabilité est liée à un modèle. Une simulation permet d’observer la stabilisation de fréquences lorsque le nombre de répétitions devient grand, mais ne démontre pas qu’un modèle est exact.
+
+## Exemple guidé
+
+Un test est positif chez $95\,\%$ des personnes malades et chez $4\,\%$ des personnes non malades. Avant tout calcul, on nomme les évènements et on distingue clairement $P_M(+)$, $P_+(M)$ et $P(M\cap +)$.
+
+## Méthode
+
+1. Nommer les évènements.
+2. Traduire chaque donnée dans la bonne notation.
+3. Choisir tableau ou arbre.
+4. Multiplier le long d’un chemin.
+5. Additionner les chemins incompatibles correspondant à l’évènement recherché.
+6. Pour l’indépendance, comparer une probabilité conditionnelle à la probabilité non conditionnelle ou utiliser le produit.
+
+## Automatismes à entretenir
+
+- Distinguer $P(A\cap B)$, $P_A(B)$ et $P_B(A)$.
+- Lire un tableau croisé d’effectifs.
+- Multiplier les probabilités le long d’un chemin.
+- Vérifier qu’une probabilité appartient à $[0;1]$.
+- Passer d’un pourcentage à une écriture décimale.
+
+## Erreurs fréquentes
+
+- Inverser le conditionnement.
+- Confondre indépendance et incompatibilité.
+- Additionner les probabilités le long d’un chemin.
+- Utiliser une formule générale de loi binomiale comme si elle était exigible : ici les arbres pour $n\leq4$ suffisent.
+
+## Synthèse
+
+Les probabilités conditionnelles décrivent une information supplémentaire. L’indépendance traduit l’absence d’influence probabiliste dans le modèle. Les répétitions indépendantes de Bernoulli sont traitées par arbres jusqu’à quatre épreuves.

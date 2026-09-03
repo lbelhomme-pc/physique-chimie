@@ -1,65 +1,93 @@
 ## Objectifs
 
-- Reconnaître les fonctions de référence du programme.
-- Relier courbe, signe et variations.
-- Construire un tableau de signes simple.
-- Résoudre graphiquement ou algébriquement f(x)=k et f(x)&lt;k.
+- Reconnaître et exploiter les fonctions affines et les fonctions de référence du programme.
+- Relier expression algébrique, courbe, signe et variations.
+- Construire et exploiter un tableau de signes d'un produit ou d'un quotient.
+- Relier sens de variation, coefficient directeur et droite représentative d'une fonction affine.
+- Résoudre graphiquement, algébriquement ou numériquement des équations et inéquations liées aux fonctions de référence.
+- Déterminer ou approcher un extrémum et traiter un problème d'optimisation.
 
 ## Prérequis
 
-- fonctions généralités
-- équations
-- repère
+- fonctions : vocabulaire, images et antécédents
+- équations et inéquations
+- repère et droites
 
 ## Activité de découverte
 
-On compare trois programmes de calcul. Leurs courbes n'ont pas la même forme : droite, parabole, hyperbole. Les formes deviennent des repères mentaux.
+On compare plusieurs programmes de calcul. Leurs courbes n'ont pas la même forme : droite, parabole, hyperbole, courbe en V, racine carrée ou cube. Ces formes deviennent des repères visuels, mais la résolution d'un problème doit aussi pouvoir s'appuyer sur l'algèbre et les variations.
 
 ## Vocabulaire
 
-- **croissante**
-- **décroissante**
-- **maximum**
-- **minimum**
-- **tableau de variations**
-- **tableau de signes**
-- **fonction affine**
+- **croissante**, **décroissante**, **monotone**
+- **maximum**, **minimum**, **extrémum**
+- **tableau de variations**, **tableau de signes**
+- **fonction affine**, **coefficient directeur**, **ordonnée à l'origine**, **taux d'accroissement**
+- **fonction valeur absolue**, **carré**, **inverse**, **racine carrée**, **cube**
 
 ## Cours
 
-### Définitions
+### Fonctions affines
 
-- Une fonction est croissante sur un intervalle lorsque les images sont rangées dans le même ordre que les nombres de départ.
-- Un maximum est la plus grande valeur atteinte par la fonction sur un ensemble donné.
-- Le signe d'une fonction indique où ses images sont positives, négatives ou nulles.
+Une fonction affine s'écrit `f(x)=mx+p`.
 
-### Propriétés
+- `m` est le coefficient directeur et le taux d'accroissement : pour `x1≠x2`, `(f(x2)-f(x1))/(x2-x1)=m` ;
+- `p=f(0)` est l'ordonnée à l'origine ;
+- si `m>0`, la fonction est croissante ;
+- si `m<0`, elle est décroissante ;
+- si `m=0`, elle est constante.
 
-- La fonction affine f(x)=mx+p est croissante si m&gt;0, décroissante si m&lt;0 et constante si m=0.
-- La fonction carré est décroissante sur ]-∞ ; 0] et croissante sur [0 ; +∞[.
-- La fonction inverse est décroissante sur ]-∞ ; 0[ et sur ]0 ; +∞[.
-- La fonction valeur absolue est positive et admet un minimum égal à 0 en 0.
+Le signe d'une fonction affine se lit à partir de son éventuelle racine et du signe de `m`.
 
-### Méthodes
+### Fonctions de référence
 
-1. Pour résoudre f(x)=k graphiquement, chercher les intersections de la courbe avec la droite horizontale y=k.
-2. Pour faire un tableau de signes d'un produit, repérer les zéros de chaque facteur puis combiner les signes.
-3. Pour comparer f(a) et f(b), utiliser les variations lorsque a et b sont dans le même intervalle de monotonie.
+- `x ↦ |x|` est définie sur `ℝ`, positive, décroissante sur `]-∞;0]` puis croissante sur `[0;+∞[` ; son minimum vaut `0`.
+- `x ↦ x²` est définie sur `ℝ`, positive, décroissante sur `]-∞;0]` puis croissante sur `[0;+∞[` ; son minimum vaut `0`.
+- `x ↦ 1/x` est définie sur `ℝ\{0}` et décroissante sur chacun des intervalles `]-∞;0[` et `]0;+∞[`.
+- `x ↦ √x` est définie sur `[0;+∞[` et croissante.
+- `x ↦ x³` est définie sur `ℝ` et croissante.
+
+### Signe d'un produit ou d'un quotient
+
+Pour un produit ou un quotient, on détermine d'abord les zéros des facteurs et les valeurs interdites du dénominateur, puis on combine les signes dans un tableau.
+
+Le tableau de signes permet de résoudre `f(x)>0`, `f(x)≤0` lorsque `f` est un produit ou un quotient d'expressions simples.
+
+### Variations et extrémums
+
+Une fonction est croissante sur un intervalle lorsque l'ordre des nombres de départ est conservé par leurs images. Elle est décroissante lorsque cet ordre est inversé.
+
+Un tableau de variations synthétise ces informations. Un maximum ou un minimum doit toujours être indiqué avec l'ensemble ou l'intervalle sur lequel il est considéré.
+
+### Résoudre et comparer
+
+Selon la situation, on choisit le registre le plus efficace :
+
+- graphique pour lire ou estimer les solutions de `f(x)=k`, `f(x)<k`, `f(x)=g(x)` ;
+- algébrique lorsque les expressions s'y prêtent ;
+- calculatrice, logiciel ou Python pour obtenir une approximation ou explorer un problème.
+
+Pour les fonctions affine, valeur absolue, carré, inverse, racine carrée et cube, les équations ou inéquations simples avec une constante doivent pouvoir être traitées graphiquement ou algébriquement.
+
+### Optimisation
+
+Un problème d'optimisation consiste à chercher la plus grande ou la plus petite valeur d'une grandeur modélisée par une fonction. La démarche comprend : choisir la variable, déterminer son domaine, construire la fonction, étudier ou explorer ses variations, puis interpréter l'extrémum dans le contexte.
 
 ## Exemples corrigés
 
-- Pour f(x)=2x-6, f(x)&gt;0 équivaut à x&gt;3.
-- x^2=4 a deux solutions visibles sur la parabole : -2 et 2.
-- La fonction carré a pour minimum 0 en x=0.
+- Pour `f(x)=2x-6`, `f(x)>0` équivaut à `x>3`.
+- `x²=4` a deux solutions : `-2` et `2`.
+- `√x<3` avec `x≥0` équivaut à `0≤x<9`.
+- Pour `f(x)=-3x+2`, le coefficient directeur est négatif : `f` est décroissante sur `ℝ`.
 
 <figure className="chapter-figure">
   <svg viewBox="0 0 680 320" role="img" aria-labelledby="reference-title reference-desc"><title id="reference-title">Courbes de référence</title><desc id="reference-desc">Repère montrant une droite, une parabole et une courbe inverse stylisée.</desc><line x1="70" y1="250" x2="620" y2="250" stroke="#111827"/><line x1="340" y1="285" x2="340" y2="35" stroke="#111827"/><path d="M110 235 C210 205 280 115 340 80 C400 115 470 205 570 235" stroke="#2563eb" strokeWidth="4" fill="none"/><line x1="110" y1="260" x2="570" y2="80" stroke="#16a34a" strokeWidth="4"/><path d="M370 65 C430 95 475 140 585 205 M95 95 C210 115 265 160 310 235" stroke="#dc2626" strokeWidth="4" fill="none"/><text x="510" y="90" fill="#16a34a">affine</text><text x="455" y="225" fill="#2563eb">carré</text><text x="500" y="180" fill="#dc2626">inverse</text></svg>
-  <figcaption>Fonctions de référence, signes et variations : représentation schématique à commenter avant les exercices.</figcaption>
+  <figcaption>Les courbes de référence sont des repères ; la résolution doit aussi pouvoir changer de registre.</figcaption>
 </figure>
 
 ## Algorithmique en Python
 
-### Chercher un minimum par balayage
+### Approcher un minimum par balayage
 
 ```python
 def f(x):
@@ -73,20 +101,29 @@ for k in range(-50, 51):
 print(meilleur_x, f(meilleur_x))
 ```
 
-Le balayage teste des valeurs espacées de 0,1 et garde la meilleure valeur trouvée.
+Le balayage fournit une approximation. Une dichotomie ou un pas plus fin peut ensuite améliorer la précision selon le problème.
+
+## Démonstrations à connaître ou à travailler
+
+- variations des fonctions affines ;
+- variations des fonctions carré et inverse ;
+- position relative de `y=x` et `y=x²` pour `x≥0`.
 
 ## Erreurs fréquentes
 
-- Dire que la fonction carré est croissante sur tout ℝ.
-- Mélanger le signe de f(x) et le sens de variation de f.
-- Oublier que la fonction inverse n'est pas définie en 0.
+- Dire que la fonction carré est croissante sur tout `ℝ`.
+- Mélanger signe de `f(x)` et sens de variation de `f`.
+- Oublier que la fonction inverse n'est pas définie en `0`.
+- Oublier que la racine carrée n'est définie que pour `x≥0`.
+- Donner un maximum ou un minimum sans préciser l'intervalle étudié.
 
 ## Formules et idées à retenir
 
-- f(x)=mx+p : m donne le sens de variation.
-- x^2 ≥ 0 pour tout réel x.
-- |x| ≥ 0 pour tout réel x.
+- `f(x)=mx+p` : le signe de `m` détermine le sens de variation.
+- `x²≥0` et `|x|≥0` pour tout réel `x`.
+- `√x` nécessite `x≥0` ; `1/x` nécessite `x≠0`.
+- Un tableau de signes et un tableau de variations répondent à deux questions différentes.
 
 ## Synthèse
 
-Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.
+Le programme de seconde demande de savoir circuler entre expression, tableau, graphique et outil numérique. Les fonctions de référence fournissent des modèles connus ; les variations, les signes et les extrémums permettent ensuite de résoudre des problèmes et d'optimiser une grandeur.

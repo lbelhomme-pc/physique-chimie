@@ -1,59 +1,87 @@
 ## Objectifs
 
-- Distinguer proportion et évolution.
-- Calculer évolutions successives et réciproques.
-- Interpréter moyenne, médiane, quartiles et écart type.
+- Distinguer proportion, pourcentage et évolution.
+- Calculer des évolutions successives et réciproques à l'aide des coefficients multiplicateurs.
+- Interpréter moyenne, médiane, quartiles, écart interquartile et écart type.
+- Exploiter la linéarité de la moyenne et étudier l'effet de l'ajout ou de la suppression d'une valeur.
+- Étudier une série regroupée en classes : histogramme, polygone des fréquences cumulées, moyenne et classe médiane.
+- Comparer deux séries à l'aide de couples d'indicateurs adaptés.
 - Calculer des fréquences marginales et conditionnelles dans un tableau croisé.
 
 ## Prérequis
 
-- pourcentages
-- moyenne
-- médiane
-- quartiles
+- pourcentages et proportions
+- moyenne, médiane, quartiles
+- lecture de graphiques
 
 ## Activité de découverte
 
-Deux articles indiquent +20 % puis -20 %. On vérifie que revenir au même pourcentage ne ramène pas forcément à la valeur initiale.
+Deux articles indiquent « +20 % puis -20 % ». On vérifie que les deux évolutions ne s'annulent pas. Puis on compare deux séries de données ayant la même moyenne mais des dispersions différentes : un indicateur isolé ne suffit pas toujours à décrire une distribution.
 
 ## Vocabulaire
 
-- **effectif**
-- **fréquence**
-- **proportion**
-- **taux d'évolution**
-- **coefficient multiplicateur**
-- **écart type**
-- **fréquence conditionnelle**
+- **effectif**, **fréquence**, **proportion**
+- **variation absolue**, **taux d'évolution**, **coefficient multiplicateur**
+- **moyenne**, **médiane**, **quartile**, **écart interquartile**, **écart type**
+- **classe**, **histogramme**, **fréquence cumulée**
+- **tableau croisé**, **fréquence marginale**, **fréquence conditionnelle**
 
 ## Cours
 
-### Définitions
+### Proportions et pourcentages
 
-- Une proportion compare une partie à un tout.
-- Un taux d'évolution compare une variation à la valeur de départ.
-- Une fréquence conditionnelle se calcule dans une sous-population définie par une condition.
+Une proportion compare une partie à un ensemble de référence. Pour calculer un pourcentage de pourcentage, on multiplie les proportions.
 
-### Propriétés
+Exemple : 30 % de 40 % d'une population représentent `0,30 × 0,40 = 0,12`, soit 12 % de la population totale.
 
-- Augmenter de t % revient à multiplier par 1 + t/100.
-- Des évolutions successives se composent en multipliant les coefficients multiplicateurs.
-- La moyenne est sensible aux valeurs extrêmes ; la médiane l'est moins.
+### Évolutions
 
-### Méthodes
+Entre une valeur initiale `V1` et une valeur finale `V2` :
 
-1. Pour un pourcentage de pourcentage, appliquer successivement les deux proportions.
-2. Pour un taux global, multiplier les coefficients puis revenir au taux.
-3. Dans un tableau croisé, toujours préciser l'ensemble de référence avant de calculer une fréquence.
+- variation absolue : `V2 - V1` ;
+- coefficient multiplicateur : `V2 / V1` lorsque `V1≠0` ;
+- taux d'évolution : `(V2-V1)/V1`.
+
+Des évolutions successives se composent en multipliant leurs coefficients multiplicateurs. L'évolution réciproque utilise l'inverse du coefficient multiplicateur.
+
+### Statistique à une variable
+
+La moyenne est sensible aux valeurs extrêmes. La médiane et les quartiles décrivent la position des données ; l'écart type et l'écart interquartile décrivent leur dispersion.
+
+**Linéarité de la moyenne.** Si toutes les valeurs sont transformées selon `y = ax+b`, alors la moyenne est transformée de la même manière : `ȳ = a x̄ + b`.
+
+Ajouter ou supprimer une valeur peut modifier la moyenne et la médiane de manière différente. Il faut donc interpréter les indicateurs en lien avec la série, pas seulement les calculer.
+
+Pour comparer deux séries, on peut associer :
+
+- moyenne et écart type ;
+- médiane et écart interquartile.
+
+### Séries regroupées en classes
+
+Pour une série continue regroupée en classes de même amplitude :
+
+- l'histogramme représente les effectifs ou fréquences par classe ;
+- le polygone des fréquences cumulées permet de lire l'accumulation des observations ;
+- la moyenne peut être calculée à partir de la moyenne de chaque classe et de son effectif ;
+- si seule une répartition uniforme dans chaque classe est supposée, le centre de classe sert de valeur représentative ;
+- la classe médiane est celle dans laquelle l'effectif cumulé franchit 50 % de l'effectif total ; sous l'hypothèse d'une répartition uniforme, on peut y estimer la médiane.
+
+### Croisement de deux variables qualitatives
+
+Un tableau croisé répartit les individus selon deux variables qualitatives. Une **fréquence marginale** concerne une modalité sans condition supplémentaire ; une **fréquence conditionnelle** est calculée dans une sous-population définie par la condition.
+
+Avant tout calcul, il faut identifier clairement l'ensemble de référence : c'est le dénominateur de la fréquence.
 
 ## Exemples corrigés
 
-- 30 % de 40 % d'une classe représente 0,30×0,40=0,12, soit 12 % de la classe.
-- +10 % puis +20 % donne un coefficient global 1,10×1,20=1,32, soit +32 %.
+- `+10 %` puis `+20 %` donne `1,10 × 1,20 = 1,32`, soit une évolution globale de `+32 %`.
+- Une hausse de `25 %` a pour coefficient `1,25` ; le coefficient réciproque vaut `1/1,25=0,8`, soit une baisse de `20 %` pour revenir à la valeur initiale.
+- Pour les valeurs `2,4,6`, la moyenne vaut `4`. Après transformation `y=3x+1`, la moyenne devient `3×4+1=13`.
 
 <figure className="chapter-figure">
-  <svg viewBox="0 0 680 300" role="img" aria-labelledby="stats-title stats-desc"><title id="stats-title">Histogramme simplifié</title><desc id="stats-desc">Trois classes statistiques avec des hauteurs différentes.</desc><line x1="90" y1="245" x2="610" y2="245" stroke="#111827"/><line x1="100" y1="250" x2="100" y2="50" stroke="#111827"/><rect x="150" y="170" width="100" height="75" fill="#dbeafe" stroke="#2563eb"/><rect x="250" y="105" width="100" height="140" fill="#dcfce7" stroke="#16a34a"/><rect x="350" y="145" width="100" height="100" fill="#fef3c7" stroke="#d97706"/><text x="200" y="268" textAnchor="middle">[0;10[</text><text x="300" y="268" textAnchor="middle">[10;20[</text><text x="400" y="268" textAnchor="middle">[20;30[</text><text x="330" y="40" textAnchor="middle" fontWeight="700">Comparer les distributions</text></svg>
-  <figcaption>Statistiques et information chiffrée : représentation schématique à commenter avant les exercices.</figcaption>
+  <svg viewBox="0 0 680 300" role="img" aria-labelledby="stats-title stats-desc"><title id="stats-title">Histogramme simplifié</title><desc id="stats-desc">Trois classes statistiques de même amplitude avec des effectifs différents.</desc><line x1="90" y1="245" x2="610" y2="245" stroke="#111827"/><line x1="100" y1="250" x2="100" y2="50" stroke="#111827"/><rect x="150" y="170" width="100" height="75" fill="#dbeafe" stroke="#2563eb"/><rect x="250" y="105" width="100" height="140" fill="#dcfce7" stroke="#16a34a"/><rect x="350" y="145" width="100" height="100" fill="#fef3c7" stroke="#d97706"/><text x="200" y="268" textAnchor="middle">[0;10[</text><text x="300" y="268" textAnchor="middle">[10;20[</text><text x="400" y="268" textAnchor="middle">[20;30[</text><text x="330" y="40" textAnchor="middle" fontWeight="700">Série regroupée en classes</text></svg>
+  <figcaption>Pour des classes de même amplitude, l'histogramme rend directement visibles les différences d'effectifs ou de fréquences.</figcaption>
 </figure>
 
 ## Algorithmique en Python
@@ -68,20 +96,24 @@ moyenne = sum(c*e for c, e in zip(centres, effectifs)) / total
 print(moyenne)
 ```
 
-On utilise le centre de chaque classe comme valeur représentative lorsque la répartition est supposée uniforme.
+Ce calcul utilise les centres de classes comme valeurs représentatives lorsque l'on adopte l'hypothèse de répartition uniforme dans chaque classe.
 
 ## Erreurs fréquentes
 
 - Additionner des taux successifs au lieu de multiplier les coefficients.
-- Confondre 20 % d'un groupe et 20 points de pourcentage.
-- Calculer une fréquence conditionnelle avec le mauvais total.
+- Confondre une proportion et un taux d'évolution.
+- Confondre 20 % et 20 points de pourcentage.
+- Calculer une fréquence conditionnelle avec le total de toute la population au lieu de celui de la sous-population.
+- Comparer deux séries uniquement avec leur moyenne alors que leur dispersion est très différente.
 
 ## Formules et idées à retenir
 
-- proportion = partie / tout
-- coefficient = valeur finale / valeur initiale
-- taux = coefficient - 1
+- proportion = partie / ensemble de référence
+- coefficient multiplicateur = valeur finale / valeur initiale
+- taux d'évolution = coefficient multiplicateur - 1
+- évolutions successives : produit des coefficients
+- évolution réciproque : coefficient inverse
 
 ## Synthèse
 
-Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.
+Le chapitre relie information chiffrée, statistique descriptive et croisement de données. La priorité est l'interprétation : identifier l'ensemble de référence, choisir les indicateurs pertinents et vérifier que le graphique ou le calcul répond réellement à la question posée.

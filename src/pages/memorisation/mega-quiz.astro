@@ -2,24 +2,43 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import MegaQuizPlayer from "../../components/pedagogie/MegaQuizPlayer.tsx";
 import { MEMORIZATION_CANONICAL_ROUTES } from "../../data/contentRoutes";
+import { getMathematicsLevelsByCycle } from "../../data/mathematiques/levels";
 import { collectMegaQuestions } from "../../utils/megaMemorizationData";
 
-const quizFiles = import.meta.glob("../../data/chapters/**/quiz.json", { eager: true });
-const metaFiles = import.meta.glob("../../data/chapters/**/meta.json", { eager: true });
+const physicalScienceQuizFiles = import.meta.glob("../../data/chapters/**/quiz.json", { eager: true });
+const physicalScienceMetaFiles = import.meta.glob("../../data/chapters/**/meta.json", { eager: true });
+const mathematicsQuizFiles = import.meta.glob("../../data/mathematiques/chapters/**/quiz.json", { eager: true });
+const mathematicsMetaFiles = import.meta.glob("../../data/mathematiques/chapters/**/meta.json", { eager: true });
 
-const totalQuestions = collectMegaQuestions(quizFiles, metaFiles).length;
+const publishedMathematicsLevels = new Set(
+  (["college", "lycee"] as const).flatMap((cycle) =>
+    getMathematicsLevelsByCycle(cycle)
+      .filter((level) => level.status === "available")
+      .map((level) => `${cycle}:${level.slug}`),
+  ),
+);
+const physicalScienceQuestions = collectMegaQuestions(physicalScienceQuizFiles, physicalScienceMetaFiles, {
+  discipline: "physique-chimie",
+});
+const mathematicsQuestions = collectMegaQuestions(mathematicsQuizFiles, mathematicsMetaFiles, {
+  discipline: "mathematiques",
+  defaultMatiere: "mathematiques",
+  include: ({ cycle, niveau }) => Boolean(cycle && publishedMathematicsLevels.has(`${cycle}:${niveau}`)),
+});
+const totalQuestions = physicalScienceQuestions.length + mathematicsQuestions.length;
 const dataUrl = "/memorisation/mega-quiz-data.json";
 ---
 
 <BaseLayout
-  title="Mega Quiz — Physique-Chimie"
-  description="Quiz géant avec toutes les questions de tous les chapitres."
+  title="Mega Quiz — Mathématiques et Physique-Chimie"
+  description="Banque de quiz des chapitres publiés en Mathématiques et Physique-Chimie, avec choix explicite de la discipline."
   canonical={MEMORIZATION_CANONICAL_ROUTES.megaQuiz}
+  subject="transversal"
 >
   <div style="text-align:center;padding:1.5rem 0 0.5rem;">
     <span style="font-size:2.5rem;">?</span>
     <h1 style="font-size:1.6rem;font-weight:800;color:var(--accent-primary);margin:0.3rem 0;">Mega Quiz</h1>
-    <p style="color:var(--text-muted);font-size:0.95rem;">{totalQuestions} questions disponibles</p>
+    <p style="color:var(--text-muted);font-size:0.95rem;">{totalQuestions} questions publiées · choisis ta discipline avant de lancer une session</p>
   </div>
   <div style="max-width:700px;margin:0 auto;padding:0 1rem 2rem;">
     <MegaQuizPlayer client:idle dataUrl={dataUrl} totalQuestions={totalQuestions} />

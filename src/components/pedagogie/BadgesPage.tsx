@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { getGamificationEngine } from "../../data/gamification/engine";
-import { BADGES, type BadgeDef } from "../../data/gamification/config";
+import { BADGES } from "../../data/gamification/config";
 
 const V = {
   bg: "var(--bg-card)", bgSec: "var(--bg-secondary)", bgTer: "var(--bg-tertiary)",

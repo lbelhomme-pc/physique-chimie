@@ -1,91 +1,135 @@
 ## Objectifs
 
-- Choisir le type d'une variable.
-- Écrire une affectation, une condition et une boucle.
-- Écrire et appeler une fonction simple.
-- Lire, compléter ou modifier un programme mathématique.
+- Choisir ou déterminer le type d'une variable : entier, flottant, booléen ou chaîne de caractères.
+- Écrire une affectation, une séquence d'instructions, une condition et une boucle.
+- Programmer une boucle bornée `for` et une boucle non bornée `while`.
+- Écrire et appeler une fonction à un ou plusieurs arguments.
+- Lire, comprendre, compléter ou modifier un programme mathématique.
+- Utiliser une fonction aléatoire pour simuler une expérience et répéter une expérience aléatoire.
+- Lire une fonction qui calcule une moyenne ou un écart type sans exiger la maîtrise des listes.
+- Passer du langage naturel à Python et contrôler systématiquement la cohérence du résultat.
 
 ## Prérequis
 
 - calcul numérique
 - lecture d'instructions simples
+- notions d'algorithme vues au cycle 4
 
 ## Activité de découverte
 
-Un programme de calcul répété à la main devient vite pénible. On le traduit en Python pour tester beaucoup de valeurs et observer un phénomène.
+Un programme de calcul répété à la main devient vite pénible. On le décrit d'abord en langage naturel, puis on le traduit en Python afin de tester beaucoup de valeurs et d'observer un phénomène. La comparaison entre les deux écritures aide à distinguer l'idée mathématique de sa traduction informatique.
 
 ## Vocabulaire
 
-- **variable**
-- **affectation**
-- **booléen**
-- **condition**
-- **boucle bornée**
-- **boucle non bornée**
-- **fonction**
-- **argument**
+- **variable**, **entier**, **flottant**, **booléen**, **chaîne de caractères**
+- **affectation**, **séquence d'instructions**
+- **condition**, **boucle bornée**, **boucle non bornée**
+- **fonction**, **argument**, **valeur renvoyée**
+- **simulation**, **nombre aléatoire**, **vérification**
 
 ## Cours
 
-### Définitions
+### Variables et affectation
 
-- Une variable informatique porte un nom et contient une valeur.
-- Une instruction conditionnelle exécute un bloc seulement si une condition est vraie.
-- Une fonction Python reçoit des arguments et renvoie éventuellement un résultat.
+Une variable informatique associe un nom à une valeur. Son type dépend de la valeur manipulée :
 
-### Propriétés
+```python
+n = 12              # entier
+x = 3.5             # flottant
+ok = True            # booléen
+message = "seconde" # chaîne de caractères
+```
 
-- Une boucle for répète un bloc un nombre prévu de fois.
-- Une boucle while répète un bloc tant qu'une condition reste vraie.
-- Tester un programme sur des cas simples aide à vérifier sa cohérence.
+L'affectation Python utilise `=`. Elle ne doit pas être confondue avec l'égalité mathématique. Une séquence d'instructions est exécutée dans l'ordre où elle est écrite.
 
-### Méthodes
+### Conditions
 
-1. Avant de coder, écrire les entrées, les sorties et les étapes en langage naturel.
-2. Nommer les variables clairement : total, effectif, seuil, image.
-3. Après le codage, vérifier le résultat sur un exemple calculable à la main.
+Une instruction conditionnelle choisit un traitement selon une condition booléenne.
 
-## Exemples corrigés
+```python
+if x >= 0:
+    resultat = "positif ou nul"
+else:
+    resultat = "négatif"
+```
 
-- Une fonction f(x)=2x+3 en mathématiques se traduit par def f(x): return 2*x + 3.
-- Une simulation de probabilité utilise souvent random() pour produire une issue aléatoire.
+### Boucles
+
+Une boucle `for` est adaptée lorsque le nombre de répétitions est déterminé à l'avance. Une boucle `while` convient lorsqu'on répète jusqu'à ce qu'une condition soit satisfaite.
+
+```python
+for k in range(5):
+    print(k)
+
+n = 0
+while 2**n < 1000:
+    n += 1
+```
+
+Pour une boucle `while`, il faut vérifier que la condition peut devenir fausse afin d'éviter une boucle infinie.
+
+### Fonctions
+
+Une fonction peut recevoir un ou plusieurs arguments et renvoyer un résultat.
+
+```python
+def affine(x, m, p):
+    return m*x + p
+```
+
+L'appel `affine(2, 3, 1)` renvoie `7`.
+
+Le programme de seconde demande aussi de savoir lire ou compléter des fonctions un peu plus complexes, par exemple une fonction calculant une moyenne ou un écart type ; aucune connaissance particulière sur la structure interne des listes n'est exigée.
+
+### Aléatoire et simulation
+
+Une fonction aléatoire permet de produire le résultat numérique d'une expérience aléatoire. La répétition de l'appel produit une série statistique et permet d'observer la stabilisation des fréquences.
+
+```python
+from random import random
+
+def bernoulli(p):
+    return 1 if random() < p else 0
+
+def frequence(n, p):
+    succes = 0
+    for _ in range(n):
+        succes += bernoulli(p)
+    return succes / n
+```
+
+### Lire, modifier, vérifier
+
+Pour tout programme :
+
+1. préciser les **entrées** et la **sortie** attendue ;
+2. décrire les étapes en langage naturel ;
+3. choisir des noms de variables explicites ;
+4. tester sur un cas calculable à la main ;
+5. vérifier les valeurs limites et la cohérence du résultat ;
+6. modifier une instruction à la fois lorsqu'on cherche une erreur.
 
 <figure className="chapter-figure">
   <svg viewBox="0 0 680 270" role="img" aria-labelledby="algo-title algo-desc"><title id="algo-title">Structure d'un algorithme</title><desc id="algo-desc">Schéma entrée, traitement, sortie.</desc><rect x="60" y="85" width="145" height="80" rx="8" fill="#dbeafe" stroke="#2563eb"/><rect x="268" y="85" width="145" height="80" rx="8" fill="#dcfce7" stroke="#16a34a"/><rect x="475" y="85" width="145" height="80" rx="8" fill="#fef3c7" stroke="#d97706"/><path d="M210 125 H260 M415 125 H468" stroke="#111827" strokeWidth="3"/><text x="132" y="118" textAnchor="middle" fontWeight="700">Entrées</text><text x="132" y="140" textAnchor="middle">données</text><text x="340" y="118" textAnchor="middle" fontWeight="700">Traitement</text><text x="340" y="140" textAnchor="middle">instructions</text><text x="548" y="118" textAnchor="middle" fontWeight="700">Sortie</text><text x="548" y="140" textAnchor="middle">résultat</text></svg>
-  <figcaption>Algorithmique et programmation Python : représentation schématique à commenter avant les exercices.</figcaption>
+  <figcaption>Avant d'écrire du code, identifier entrées, traitement et sortie.</figcaption>
 </figure>
-
-## Algorithmique en Python
-
-### Fonction, condition et boucle
-
-```python
-def signe_affine(x):
-    y = 2*x - 6
-    if y > 0:
-        return "positif"
-    if y == 0:
-        return "nul"
-    return "négatif"
-
-for x in range(1, 6):
-    print(x, signe_affine(x))
-```
-
-Le programme calcule l'image par une fonction affine puis classe son signe.
 
 ## Erreurs fréquentes
 
-- Confondre = en Python, qui affecte une valeur, et l'égalité mathématique.
-- Écrire une boucle while sans s'assurer qu'elle peut s'arrêter.
-- Oublier d'appeler une fonction après l'avoir définie.
+- Confondre `=` en Python et l'égalité mathématique.
+- Confondre entier, flottant et chaîne de caractères.
+- Écrire une boucle `while` sans mécanisme permettant son arrêt.
+- Définir une fonction sans l'appeler ou oublier de renvoyer le résultat attendu.
+- Croire qu'une simulation prouve une propriété mathématique : elle permet d'observer et de conjecturer, pas de démontrer.
 
 ## Formules et idées à retenir
 
-- for : boucle bornée.
-- while : boucle tant qu'une condition est vraie.
-- def nom(arguments): définit une fonction.
+- `for` : boucle bornée.
+- `while` : boucle conditionnelle non bornée a priori.
+- `def nom(arguments):` définit une fonction.
+- `return` renvoie le résultat d'une fonction.
+- `random()` peut être utilisé pour simuler une expérience aléatoire.
 
 ## Synthèse
 
-Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.
+L'algorithmique est transversale au programme : les programmes doivent être reliés aux fonctions, à la géométrie, aux statistiques, aux probabilités et au raisonnement. L'objectif n'est pas d'apprendre Python pour lui-même, mais de décrire une méthode, l'exécuter, la tester et interpréter le résultat mathématique.

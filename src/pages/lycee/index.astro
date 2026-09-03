@@ -2,7 +2,11 @@
 // src/pages/lycee/index.astro
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import V3LandingHero from "../../components/home/V3LandingHero.astro";
-import { getDisciplineFromLevelSlug, getDisciplineIdentity, getDisciplineStyle } from "../../data/disciplineIdentity";
+import {
+  getDisciplineIdentity,
+  getDisciplineStyle,
+  getPhysiqueChimieTrackFromLevelSlug,
+} from "../../data/disciplineIdentity";
 import { lyceeLevels, getLevelLabel } from "../../data/levels";
 
 const allMeta = import.meta.glob("/src/data/chapters/lycee/**/meta.json", { eager: true });
@@ -26,14 +30,16 @@ function countChapters(levelSlug: string, matiere?: string) {
   }).length;
 }
 
+const parentDiscipline = getDisciplineIdentity("physique-chimie");
 const levelCards = lyceeLevels.map((level) => {
-  const discipline = getDisciplineIdentity(getDisciplineFromLevelSlug(level.slug));
+  const trackId = getPhysiqueChimieTrackFromLevelSlug(level.slug);
+  const track = getDisciplineIdentity(trackId);
   const chimie = countChapters(level.slug, "chimie");
   const physique = countChapters(level.slug, "physique");
   const total = chimie + physique;
   const countLabel =
-    discipline.id === "enseignement-scientifique"
-      ? `${total} chapitre(s) en ligne dans l'espace Enseignement scientifique.`
+    trackId === "enseignement-scientifique"
+      ? `${total} chapitre(s) en ligne dans le parcours Enseignement scientifique.`
       : `${total} chapitre(s) en ligne : ${physique} en physique et ${chimie} en chimie.`;
 
   return {
@@ -43,39 +49,42 @@ const levelCards = lyceeLevels.map((level) => {
     chimie,
     physique,
     total,
-    discipline,
+    discipline: parentDiscipline,
+    track,
+    trackId,
     countLabel,
   };
 });
 const totalChapterCount = levelCards.reduce((sum, level) => sum + level.total, 0);
 const scientificEducationLevels = levelCards.filter(
-  (level) => level.discipline.id === "enseignement-scientifique",
+  (level) => level.trackId === "enseignement-scientifique",
 ).length;
 ---
 
 <BaseLayout
   title="Lycée — Physique-Chimie et Enseignement scientifique"
-  description="Choisir son niveau lycée : Physique-Chimie et Enseignement scientifique sont identifiés séparément, avec leurs routes actuelles."
+  description="Choisir son parcours dans l’espace Physique-Chimie du lycée : Seconde, spécialité Physique-Chimie et Enseignement scientifique."
+  subject="physique-chimie"
   cycle="lycee"
 >
   <div class="v3-landing-page v3-landing-page--mixed level-home">
     <V3LandingHero
       tone="mixed"
-      eyebrow="Sciences au lycée"
-      mark="L"
-      markLabel="Repère lycée"
+      eyebrow="Physique-Chimie au lycée"
+      mark="PC"
+      markLabel="Repère Physique-Chimie"
       title="Choisir son parcours au lycée"
-      description="Retrouve la Physique-Chimie et l’Enseignement scientifique dans deux espaces clairement identifiés, de la seconde à la terminale."
+      description="Retrouve dans un même espace la Seconde, la spécialité Physique-Chimie et l’Enseignement scientifique, de la première à la terminale."
       actions={[
         { label: "Voir les parcours", href: "#niveaux-lycee" },
-        { label: "Outils du lycée", href: "/outils-methodes/lycee", variant: "secondary" },
+        { label: "Retour à Physique-Chimie", href: "/physique-chimie", variant: "secondary" },
       ]}
       stats={[
         { value: levelCards.length, label: "parcours" },
         { value: scientificEducationLevels, label: "parcours ES" },
         { value: totalChapterCount, label: "chapitres publiés" },
       ]}
-      imageAlt="Bureau scientifique pour travailler la physique-chimie et l’enseignement scientifique au lycée."
+      imageAlt="Bureau scientifique pour travailler les parcours de physique-chimie au lycée, dont l’enseignement scientifique."
     />
 
     <div class="v3-landing-content">
@@ -83,22 +92,23 @@ const scientificEducationLevels = levelCards.filter(
         <div class="v3-landing-section-header">
           <div>
             <p>Parcours lycée</p>
-            <h2 id="lycee-levels-title">Choisir un niveau et une discipline</h2>
+            <h2 id="lycee-levels-title">Choisir un niveau et un parcours</h2>
           </div>
-          <span>Le symbole, le libellé et la couleur distinguent chaque discipline.</span>
+          <span>La discipline parente reste Physique-Chimie ; le badge précise le parcours suivi.</span>
         </div>
 
-        <div class="level-card-grid v3-landing-grid" aria-label="Niveaux lycée">
+        <div class="level-card-grid v3-landing-grid" aria-label="Parcours Physique-Chimie au lycée">
           {levelCards.map((level) => (
             <article
               class="level-card v3-landing-card"
-              data-discipline={level.discipline.id}
-              style={getDisciplineStyle(level.discipline)}
+              data-discipline="physique-chimie"
+              data-track={level.trackId}
+              style={getDisciplineStyle(level.track)}
             >
               <div class="level-card-head">
-                <span class="discipline-badge" aria-label={level.discipline.iconLabel}>
-                  <span aria-hidden="true">{level.discipline.mark}</span>
-                  <strong>{level.discipline.label}</strong>
+                <span class="discipline-badge" aria-label={level.track.iconLabel}>
+                  <span aria-hidden="true">{level.track.mark}</span>
+                  <strong>{level.track.label}</strong>
                 </span>
                 <div>
                   <h2>{level.label}</h2>
@@ -110,11 +120,11 @@ const scientificEducationLevels = levelCards.filter(
                   ? level.countLabel
                   : "Cette partie est prévue, mais les chapitres ne sont pas encore publiés."}
               </p>
-              <p class="discipline-microcopy">{level.discipline.microcopy}</p>
+              <p class="discipline-microcopy">{level.track.microcopy}</p>
               <div class="level-actions">
                 <a class="primary-action" href={`/lycee/${level.slug}`}>Voir le niveau</a>
-                {level.discipline.id === "physique-chimie" && level.chimie > 0 && <a href={`/lycee/${level.slug}/chimie`}>Chimie</a>}
-                {level.discipline.id === "physique-chimie" && level.physique > 0 && <a href={`/lycee/${level.slug}/physique`}>Physique</a>}
+                {level.trackId === "physique-chimie" && level.chimie > 0 && <a href={`/lycee/${level.slug}/chimie`}>Chimie</a>}
+                {level.trackId === "physique-chimie" && level.physique > 0 && <a href={`/lycee/${level.slug}/physique`}>Physique</a>}
               </div>
             </article>
           ))}

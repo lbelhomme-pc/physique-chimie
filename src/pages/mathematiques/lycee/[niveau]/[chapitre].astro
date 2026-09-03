@@ -3,7 +3,7 @@ import ChapterPageShell from "../../../../components/pedagogie/ChapterPageShell.
 import AffineFunctionExplorer from "../../../../components/mathematiques/AffineFunctionExplorer.astro";
 import type { MathematicsChapterListItem } from "../../../../data/mathematiques/types";
 import { mathematicsDomainLabels } from "../../../../data/mathematiques/types";
-import { getMathematicsLevelLabel } from "../../../../data/mathematiques/levels";
+import { getMathematicsLevelLabel, getMathematicsLevelsByCycle } from "../../../../data/mathematiques/levels";
 import { getMathematicsChapterId, getMathematicsLevelPath } from "../../../../data/mathematiques/paths";
 import {
   chapterEntryFromGlob,
@@ -13,7 +13,11 @@ import {
   normalizePlayableMathematicsQuiz,
   sortMathematicsChapters,
 } from "../../../../data/mathematiques/content";
-import { getChapterNavigation, getMathematicsRouteContext } from "../../../../data/contentRoutes";
+import {
+  getChapterNavigation,
+  getMathematicsRouteContext,
+  getPublishedMathematicsLevels,
+} from "../../../../data/contentRoutes";
 import { getMathematicsPilotActivity } from "../../../../data/mathematiques/activities";
 import "../../../../styles/mathematiques/mathematics.css";
 
@@ -21,9 +25,15 @@ const cycle = "lycee" as const;
 
 export function getStaticPaths() {
   const allMeta = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/meta.json", { eager: true });
-  return Object.entries(allMeta)
+  const chapters = Object.entries(allMeta)
     .map(([path, mod]) => chapterEntryFromGlob(path, mod))
-    .filter((chapter): chapter is MathematicsChapterListItem => Boolean(chapter))
+    .filter((chapter): chapter is MathematicsChapterListItem => Boolean(chapter));
+  const publishedLevels = new Set(
+    getPublishedMathematicsLevels(getMathematicsLevelsByCycle("lycee"), chapters).map((level) => level.slug),
+  );
+
+  return chapters
+    .filter((chapter) => publishedLevels.has(chapter.niveau))
     .map((chapter) => ({
       params: { niveau: chapter.niveau, chapitre: chapter.slug },
       props: { chapter },

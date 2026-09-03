@@ -1,59 +1,84 @@
 ## Objectifs
 
-- Calculer les coordonnées d'un vecteur.
-- Calculer une distance et le milieu d'un segment.
-- Utiliser les coordonnées pour additionner des vecteurs.
-- Caractériser alignement et parallélisme par colinéarité.
+- Manipuler égalité, représentants, somme et multiplication d'un vecteur par un réel.
+- Décomposer un vecteur sur une base formée de deux vecteurs non colinéaires.
+- Calculer les coordonnées d'un vecteur, d'une somme et d'un produit par un réel.
+- Calculer une norme, une distance et le milieu d'un segment dans un repère orthonormé.
+- Utiliser le déterminant pour caractériser la colinéarité.
+- Caractériser alignement et parallélisme par les vecteurs et choisir une méthode géométrique ou repérée adaptée.
 
 ## Prérequis
 
 - repère orthogonal
 - coordonnées de points
+- relation de Chasles et translation vues au cycle 4
 - théorème de Pythagore
 
 ## Activité de découverte
 
-Un déplacement sur une carte peut être décrit par le même vecteur même s'il part d'un autre point : ce qui compte est le déplacement horizontal et vertical.
+Un déplacement sur une carte peut être représenté par le même vecteur même s'il part d'un autre point : le vecteur ne dépend pas d'un emplacement particulier mais du déplacement qu'il décrit. En choisissant deux directions non colinéaires, on peut ensuite décrire n'importe quel vecteur du plan par deux coordonnées.
 
 ## Vocabulaire
 
-- **vecteur**
-- **représentant**
-- **vecteur nul**
-- **coordonnées**
-- **norme**
-- **déterminant**
-- **colinéarité**
-- **milieu**
+- **vecteur**, **représentant**, **vecteur nul**
+- **somme**, **produit par un réel**, **combinaison linéaire**
+- **base orthonormée**, **coordonnées**, **norme**
+- **déterminant**, **colinéarité**, **alignement**, **parallélisme**, **milieu**
 
 ## Cours
 
-### Définitions
+### Vecteurs et représentants
 
-- Deux vecteurs sont égaux lorsqu'ils ont même direction, même sens et même norme.
-- Dans un repère, le vecteur AB a pour coordonnées (xB - xA ; yB - yA).
-- Deux vecteurs sont colinéaires lorsqu'ils ont la même direction ou des directions parallèles.
+Deux vecteurs sont égaux lorsqu'ils représentent le même déplacement. Un même vecteur possède une infinité de représentants. Le vecteur nul est noté `0⃗`.
 
-### Propriétés
+La relation de Chasles s'écrit `AB⃗ + BC⃗ = AC⃗`. On peut additionner des vecteurs et multiplier un vecteur par un réel `λ`.
 
-- La distance AB vaut √((xB-xA)^2 + (yB-yA)^2) dans un repère orthonormé.
-- Le milieu de [AB] a pour coordonnées ((xA+xB)/2 ; (yA+yB)/2).
-- Les vecteurs (x ; y) et (x' ; y') sont colinéaires si xy' - yx' = 0.
+Deux vecteurs non colinéaires `u⃗` et `v⃗` permettent d'écrire tout vecteur du plan sous la forme `x u⃗ + y v⃗` ; ils constituent une base du plan. Dans une base orthonormée `(i⃗,j⃗)`, un vecteur de coordonnées `(x;y)` s'écrit `x i⃗ + y j⃗`.
 
-### Méthodes
+### Coordonnées
 
-1. Pour calculer AB, soustraire les coordonnées de A à celles de B.
-2. Pour prouver un alignement, montrer que deux vecteurs construits avec les points sont colinéaires.
-3. Pour représenter une somme de vecteurs, placer des représentants de même origine ou utiliser les coordonnées.
+Si `A(xA;yA)` et `B(xB;yB)`, alors :
+
+- `AB⃗ = (xB-xA ; yB-yA)` ;
+- si `u⃗=(x;y)` et `v⃗=(x';y')`, alors `u⃗+v⃗=(x+x';y+y')` ;
+- `λu⃗=(λx;λy)`.
+
+Dans un repère orthonormé :
+
+- `||u⃗|| = √(x²+y²)` ;
+- `AB = √((xB-xA)²+(yB-yA)²)` ;
+- le milieu `I` de `[AB]` a pour coordonnées `((xA+xB)/2 ; (yA+yB)/2)`.
+
+### Colinéarité et déterminant
+
+Pour `u⃗=(x;y)` et `v⃗=(x';y')`, on définit :
+
+`det(u⃗,v⃗)=xy'-yx'`.
+
+Deux vecteurs non nuls sont colinéaires si et seulement si leur déterminant est nul, ce qui équivaut à la proportionnalité de leurs coordonnées.
+
+Cette caractérisation permet de :
+
+- prouver que trois points sont alignés ;
+- prouver que deux droites sont parallèles ;
+- choisir une méthode repérée lorsque la figure seule ne suffit pas.
+
+### Géométrie et modélisation
+
+Le vecteur `AB⃗` peut être interprété comme un vecteur déplacement de `A` vers `B`. Si `O` est choisi comme origine, `OM⃗` peut être interprété comme le vecteur position du point `M`.
+
+Selon le problème, une solution peut être plus claire avec une construction géométrique, une relation vectorielle ou des coordonnées. Le choix de la représentation fait partie du raisonnement.
 
 ## Exemples corrigés
 
-- Si A(1 ; 2) et B(5 ; -1), alors AB a pour coordonnées (4 ; -3) et AB=5.
-- Les vecteurs u(2 ; 3) et v(4 ; 6) sont colinéaires car 2×6 - 3×4 = 0.
+- Si `A(1;2)` et `B(5;-1)`, alors `AB⃗=(4;-3)` et `AB=5`.
+- Si `u⃗=(2;3)` et `v⃗=(4;6)`, alors `det(u⃗,v⃗)=2×6-3×4=0` : les vecteurs sont colinéaires.
+- Si `u⃗=(2;-1)`, alors `3u⃗=(6;-3)`.
+- Dans la base `(i⃗,j⃗)`, le vecteur `(4;-2)` s'écrit `4i⃗-2j⃗`.
 
 <figure className="chapter-figure">
-  <svg viewBox="0 0 680 320" role="img" aria-labelledby="vector-title vector-desc"><title id="vector-title">Vecteur dans un repère</title><desc id="vector-desc">Repère avec points A et B et vecteur AB.</desc><defs><marker id="arrow-vector" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker></defs><line x1="70" y1="250" x2="620" y2="250" stroke="#111827"/><line x1="120" y1="285" x2="120" y2="35" stroke="#111827"/><g stroke="#e5e7eb"><line x1="120" y1="35" x2="120" y2="285"/><line x1="170" y1="35" x2="170" y2="285"/><line x1="220" y1="35" x2="220" y2="285"/><line x1="270" y1="35" x2="270" y2="285"/><line x1="320" y1="35" x2="320" y2="285"/><line x1="370" y1="35" x2="370" y2="285"/><line x1="420" y1="35" x2="420" y2="285"/><line x1="470" y1="35" x2="470" y2="285"/><line x1="520" y1="35" x2="520" y2="285"/><line x1="570" y1="35" x2="570" y2="285"/><line x1="620" y1="35" x2="620" y2="285"/><line x1="70" y1="50" x2="620" y2="50"/><line x1="70" y1="100" x2="620" y2="100"/><line x1="70" y1="150" x2="620" y2="150"/><line x1="70" y1="200" x2="620" y2="200"/><line x1="70" y1="250" x2="620" y2="250"/></g><circle cx="220" cy="190" r="7" fill="#dc2626"/><circle cx="420" cy="90" r="7" fill="#dc2626"/><line x1="220" y1="190" x2="420" y2="90" stroke="#2563eb" strokeWidth="4" markerEnd="url(#arrow-vector)"/><text x="205" y="215">A</text><text x="430" y="85">B</text><text x="330" y="115" fontWeight="700">AB(4 ; 2)</text></svg>
-  <figcaption>Géométrie repérée et vecteurs : représentation schématique à commenter avant les exercices.</figcaption>
+  <svg viewBox="0 0 680 320" role="img" aria-labelledby="vector-title vector-desc"><title id="vector-title">Vecteur dans un repère</title><desc id="vector-desc">Repère avec points A et B et vecteur AB.</desc><defs><marker id="arrow-vector" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker></defs><line x1="70" y1="250" x2="620" y2="250" stroke="#111827"/><line x1="120" y1="285" x2="120" y2="35" stroke="#111827"/><circle cx="220" cy="190" r="7" fill="#dc2626"/><circle cx="420" cy="90" r="7" fill="#dc2626"/><line x1="220" y1="190" x2="420" y2="90" stroke="#2563eb" strokeWidth="4" markerEnd="url(#arrow-vector)"/><text x="205" y="215">A</text><text x="430" y="85">B</text><text x="330" y="115" fontWeight="700">AB⃗</text></svg>
+  <figcaption>Un vecteur décrit un déplacement indépendamment du représentant choisi.</figcaption>
 </figure>
 
 ## Algorithmique en Python
@@ -67,20 +92,26 @@ def colineaires(u, v):
 print(colineaires((2, 3), (4, 6)))
 ```
 
-Le déterminant nul caractérise la colinéarité en repère orthonormé.
+Le programme traduit directement le critère du déterminant nul.
+
+## Démonstration à travailler
+
+Pour deux vecteurs non nuls, établir l'équivalence entre colinéarité, nullité du déterminant et proportionnalité des coordonnées.
 
 ## Erreurs fréquentes
 
 - Confondre coordonnées d'un point et coordonnées d'un vecteur.
-- Oublier les parenthèses dans la formule de distance.
-- Conclure à l'alignement avec des vecteurs qui ne partagent pas les bons points.
+- Confondre `AB⃗` et `BA⃗`, qui sont opposés.
+- Oublier que la formule de distance écrite ici suppose un repère orthonormé.
+- Conclure à l'alignement sans construire deux vecteurs adaptés aux points étudiés.
 
 ## Formules et idées à retenir
 
-- AB(xB-xA ; yB-yA)
-- AB = √((xB-xA)^2 + (yB-yA)^2)
-- det(u,v)=xy' - yx'
+- `AB⃗=(xB-xA ; yB-yA)`
+- `||u⃗||=√(x²+y²)` en base orthonormée
+- `det(u⃗,v⃗)=xy'-yx'`
+- déterminant nul ⇔ colinéarité pour deux vecteurs non nuls
 
 ## Synthèse
 
-Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.
+Les vecteurs relient géométrie, calcul et modélisation. En seconde, l'enjeu est de savoir passer d'une figure aux coordonnées, utiliser les opérations vectorielles et choisir la méthode la plus efficace pour démontrer alignement, parallélisme ou propriétés métriques.

@@ -1,60 +1,81 @@
 ## Objectifs
 
+- Calculer avec des puissances entières relatives, des racines carrées et des expressions fractionnaires simples.
 - Développer, réduire et factoriser des expressions simples.
-- Utiliser les identités remarquables.
-- Calculer avec des puissances entières relatives.
-- Utiliser les règles de base sur les racines carrées positives.
+- Utiliser les identités remarquables et choisir la forme d'une expression adaptée au problème.
+- Comparer deux quantités par différence ou, lorsqu'elles sont strictement positives, par quotient.
+- Manipuler des inégalités en tenant compte du signe du nombre par lequel on multiplie.
+- Exprimer une variable en fonction des autres dans une relation simple.
 
 ## Prérequis
 
 - priorités opératoires
 - développement simple
-- fractions
+- fractions et puissances
 
 ## Activité de découverte
 
-Pour comparer deux offres de location, on écrit le prix total avec une variable x. La forme développée aide à calculer, la forme factorisée aide à résoudre.
+Pour comparer deux offres de location, on écrit le prix total avec une variable `x`. Selon la question, une forme développée, réduite ou factorisée peut être plus efficace. Le calcul littéral sert ici à choisir une stratégie, pas seulement à transformer des écritures.
 
 ## Vocabulaire
 
-- **expression**
-- **développer**
-- **factoriser**
-- **réduire**
-- **puissance**
-- **racine carrée**
-- **forme adaptée**
+- **expression**, **développer**, **factoriser**, **réduire**
+- **puissance entière relative**, **racine carrée**, **expression fractionnaire**
+- **forme développée**, **forme factorisée**, **forme réduite**
+- **comparaison additive**, **comparaison multiplicative**
 
 ## Cours
 
-### Définitions
+### Puissances et racines carrées
 
-- Développer consiste à transformer un produit en somme.
-- Factoriser consiste à transformer une somme en produit.
-- La racine carrée de a ≥ 0 est le nombre positif dont le carré vaut a.
+On réinvestit les règles de calcul sur les puissances entières relatives et sur les racines carrées. Pour tout réel `a`, `√(a²)=|a|`. Pour `a ≥ 0` et `b ≥ 0`, `√(ab)=√a × √b`.
 
-### Propriétés
+Une expression fractionnaire n'est définie que lorsque son dénominateur est non nul. Cette condition doit être déterminée avant tout calcul ou simplification.
 
-- (a + b)^2 = a^2 + 2ab + b^2.
-- (a - b)^2 = a^2 - 2ab + b^2.
-- (a + b)(a - b) = a^2 - b^2.
-- Pour a ≥ 0 et b ≥ 0, √(ab) = √a × √b.
+### Calcul littéral
 
-### Méthodes
+Les identités remarquables à maîtriser sont :
 
-1. Avant de transformer, se demander le but : calculer, résoudre, comparer ou étudier un signe.
-2. Pour factoriser ax + bx, repérer le facteur commun x : ax + bx = (a + b)x.
-3. Pour une expression fractionnaire, commencer par préciser les valeurs interdites.
+- `(a+b)² = a² + 2ab + b²` ;
+- `(a-b)² = a² - 2ab + b²` ;
+- `(a+b)(a-b) = a²-b²`.
+
+On factorise aussi des expressions simples en mettant un facteur commun en évidence, par exemple `ax²+bx = x(ax+b)` et `ax+bx=(a+b)x`.
+
+Le choix de la forme dépend de la tâche :
+
+- développer et réduire pour effectuer certains calculs ou comparer ;
+- factoriser pour résoudre une équation produit ou étudier un signe ;
+- conserver une forme fractionnaire lorsqu'elle rend une structure visible.
+
+### Inégalités et comparaisons
+
+- On peut additionner deux inégalités de même sens lorsque les termes sont comparables.
+- Multiplier une inégalité par un réel positif conserve son sens.
+- Multiplier une inégalité par un réel négatif inverse son sens.
+- Deux quantités peuvent être comparées par leur **différence** ; si elles sont strictement positives, on peut aussi comparer leur **quotient**.
+
+Selon le contexte, ces deux comparaisons correspondent à une variation additive ou multiplicative.
+
+### Isoler une variable
+
+Dans une relation comportant plusieurs variables, on peut exprimer l'une d'elles en fonction des autres. Exemples :
+
+- `U = RI` donne `I = U/R` si `R ≠ 0` ;
+- `d = vt` donne `v = d/t` si `t ≠ 0` ;
+- `ax + by = c` donne `y = (c-ax)/b` si `b ≠ 0`.
 
 ## Exemples corrigés
 
-- (x + 3)^2 = x^2 + 6x + 9.
-- 5x^2 - 10x = 5x(x - 2).
-- √72 = √(36 × 2) = 6√2.
+- `(x+3)² = x²+6x+9`.
+- `5x²-10x = 5x(x-2)`.
+- `√72 = √(36×2)=6√2`.
+- Pour `a=3` et `b=5`, `a-b=-2<0`, donc `a<b`.
+- Si `x<4`, alors `-2x>-8` car la multiplication par `-2` inverse le sens.
 
 <figure className="chapter-figure">
-  <svg viewBox="0 0 680 230" role="img" aria-labelledby="algebra-title algebra-desc"><title id="algebra-title">Choisir une forme algébrique</title><desc id="algebra-desc">Trois formes d'une expression reliées à trois usages.</desc><rect x="55" y="45" width="165" height="70" rx="8" fill="#dbeafe" stroke="#2563eb"/><rect x="258" y="45" width="165" height="70" rx="8" fill="#dcfce7" stroke="#16a34a"/><rect x="461" y="45" width="165" height="70" rx="8" fill="#fef3c7" stroke="#d97706"/><text x="138" y="76" textAnchor="middle" fontWeight="700">Forme factorisée</text><text x="138" y="98" textAnchor="middle">résoudre</text><text x="341" y="76" textAnchor="middle" fontWeight="700">Forme développée</text><text x="341" y="98" textAnchor="middle">calculer</text><text x="544" y="76" textAnchor="middle" fontWeight="700">Forme réduite</text><text x="544" y="98" textAnchor="middle">comparer</text><text x="340" y="165" textAnchor="middle">(x - 2)(x + 5) = x² + 3x - 10</text></svg>
-  <figcaption>Calcul littéral, puissances et racines carrées : représentation schématique à commenter avant les exercices.</figcaption>
+  <svg viewBox="0 0 680 230" role="img" aria-labelledby="algebra-title algebra-desc"><title id="algebra-title">Choisir une forme algébrique</title><desc id="algebra-desc">Trois formes d'une expression reliées à trois usages.</desc><rect x="55" y="45" width="165" height="70" rx="8" fill="#dbeafe" stroke="#2563eb"/><rect x="258" y="45" width="165" height="70" rx="8" fill="#dcfce7" stroke="#16a34a"/><rect x="461" y="45" width="165" height="70" rx="8" fill="#fef3c7" stroke="#d97706"/><text x="138" y="76" textAnchor="middle" fontWeight="700">Forme factorisée</text><text x="138" y="98" textAnchor="middle">résoudre / signe</text><text x="341" y="76" textAnchor="middle" fontWeight="700">Forme développée</text><text x="341" y="98" textAnchor="middle">calculer</text><text x="544" y="76" textAnchor="middle" fontWeight="700">Forme réduite</text><text x="544" y="98" textAnchor="middle">comparer</text><text x="340" y="165" textAnchor="middle">(x - 2)(x + 5) = x² + 3x - 10</text></svg>
+  <figcaption>La forme d'une expression est choisie en fonction de l'objectif.</figcaption>
 </figure>
 
 ## Algorithmique en Python
@@ -66,28 +87,31 @@ def premiere_puissance(base, seuil):
     n = 0
     valeur = 1
     while valeur < seuil:
-        n = n + 1
-        valeur = valeur * base
+        n += 1
+        valeur *= base
     return n, valeur
 
 print(premiere_puissance(2, 1000))
 ```
 
-La boucle multiplie par la base jusqu'à dépasser le seuil demandé.
+La boucle détermine la première puissance du nombre positif choisi qui atteint ou dépasse le seuil.
 
 ## Erreurs fréquentes
 
-- Écrire à tort (a + b)^2 = a^2 + b^2.
-- Oublier que √a est toujours positif.
-- Transformer une expression sans tenir compte de l'objectif.
+- Écrire à tort `(a+b)²=a²+b²`.
+- Oublier que `√(a²)=|a|`, et non toujours `a`.
+- Simplifier une expression fractionnaire sans exclure les valeurs qui annulent le dénominateur.
+- Oublier d'inverser le sens d'une inégalité après multiplication ou division par un nombre négatif.
+- Transformer une expression sans tenir compte de l'objectif du problème.
 
 ## Formules et idées à retenir
 
-- (a + b)^2 = a^2 + 2ab + b^2
-- (a - b)^2 = a^2 - 2ab + b^2
-- (a + b)(a - b) = a^2 - b^2
-- √(ab) = √a√b pour a,b ≥ 0
+- `(a+b)²=a²+2ab+b²`
+- `(a-b)²=a²-2ab+b²`
+- `(a+b)(a-b)=a²-b²`
+- `√(a²)=|a|`
+- `√(ab)=√a√b` pour `a,b≥0`
 
 ## Synthèse
 
-Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.
+Le calcul algébrique de seconde ne consiste pas à appliquer une liste de recettes : il faut savoir choisir une écriture, gérer les conditions de définition, comparer des quantités et isoler une variable pour résoudre ou modéliser un problème.

@@ -103,28 +103,28 @@ export const kitMethodCards: KitMethodCard[] = [
 export const kitChapterLinks: KitChapterLink[] = [
   {
     title: "Proprietes de la matiere",
-    href: "/college/5eme/chimie/proprietes-matiere/",
+    href: "/physique-chimie/college/5eme/chimie/proprietes-matiere/",
     level: "5e",
     toolIds: ["converter", "measure"],
     usage: "Associer masse, volume, temperature, pression, unite et appareil.",
   },
   {
     title: "Circuits electriques",
-    href: "/college/5eme/physique/circuits-electriques/",
+    href: "/physique-chimie/college/5eme/physique/circuits-electriques/",
     level: "5e",
     toolIds: ["graph", "measure"],
     usage: "Lire tension et intensite puis exploiter un tableau de mesures.",
   },
   {
     title: "Solutions et concentrations",
-    href: "/lycee/2nde/chimie/solutions-concentrations/",
+    href: "/physique-chimie/lycee/2nde/chimie/solutions-concentrations/",
     level: "2nde",
     toolIds: ["solution", "converter"],
     usage: "Verifier dissolution, dilution et conversions mL/L.",
   },
   {
     title: "Signaux et capteurs",
-    href: "/lycee/2nde/physique/signaux-capteurs/",
+    href: "/physique-chimie/lycee/2nde/physique/signaux-capteurs/",
     level: "2nde",
     toolIds: ["graph", "calculator"],
     usage: "Tracer une courbe d'etalonnage et lire une grandeur physique.",

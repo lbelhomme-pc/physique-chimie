@@ -4,8 +4,13 @@ import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import CatalogueChapterList from "../../../../components/catalogue/CatalogueChapterList.astro";
 import type { CatalogueChapterItem } from "../../../../components/catalogue/types";
 import Breadcrumb from "../../../../components/ui/Breadcrumb.astro";
-import { getDisciplineFromLevelSlug, getDisciplineIdentity, getDisciplineStyle } from "../../../../data/disciplineIdentity";
+import {
+  getDisciplineIdentity,
+  getDisciplineStyle,
+  getPhysiqueChimieTrackFromLevelSlug,
+} from "../../../../data/disciplineIdentity";
 import { lyceeLevels, matieres, getLevelLabel, getMatiereLabel } from "../../../../data/levels";
+import { getPhysicalScienceExplicitChapterPath, type PhysicalScienceSubject } from "../../../../data/contentRoutes";
 
 const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
 
@@ -22,8 +27,9 @@ export function getStaticPaths() {
 const { niveau, matiere } = Astro.params;
 const niveauLabel = getLevelLabel(niveau!);
 const matiereLabel = getMatiereLabel(matiere!);
-const discipline = getDisciplineIdentity(getDisciplineFromLevelSlug(niveau));
-const isTeachingScience = discipline.id === "enseignement-scientifique";
+const parentDiscipline = getDisciplineIdentity("physique-chimie");
+const track = getDisciplineIdentity(getPhysiqueChimieTrackFromLevelSlug(niveau));
+const isTeachingScience = track.id === "enseignement-scientifique";
 const accent = isTeachingScience ? "science" : matiere === "chimie" ? "chemistry" : "physics";
 const otherMatiere = matiere === "chimie" ? "physique" : "chimie";
 const otherMatiereLabel = getMatiereLabel(otherMatiere);
@@ -41,10 +47,10 @@ for (const [path, mod] of Object.entries(allMeta)) {
     const data = (mod as any).default ?? mod;
     chapters.push({
       title: data.title ?? slug,
-      href: `/lycee/${niveau}/${matiere}/${slug}`,
+      href: getPhysicalScienceExplicitChapterPath("lycee", niveau!, matiere as PhysicalScienceSubject, slug),
       order: data.order ?? 99,
       description: data.description ?? "",
-      badges: [isTeachingScience ? discipline.label : matiereLabel, `Chapitre ${data.order ?? "à placer"}`],
+      badges: [isTeachingScience ? track.label : matiereLabel, `Chapitre ${data.order ?? "à placer"}`],
     });
   }
 }
@@ -52,22 +58,26 @@ for (const [path, mod] of Object.entries(allMeta)) {
 
 <BaseLayout
   title={`${catalogueTitle} ${niveauLabel} — Lycée`}
-  description={`Catalogue des chapitres pour ${catalogueTitle.toLowerCase()} en ${niveauLabel}.`}
+  description={`Catalogue des chapitres pour ${catalogueTitle.toLowerCase()} en ${niveauLabel}, dans l’espace Physique-Chimie.`}
+  subject="physique-chimie"
+  cycle="lycee"
+  level={niveau}
 >
   <main class="catalogue-page">
     <Breadcrumb
       items={[
         { label: "Accueil", href: "/" },
+        { label: "Physique-Chimie", href: parentDiscipline.href },
         { label: "Lycée", href: "/lycee" },
         { label: niveauLabel, href: `/lycee/${niveau}` },
         { label: catalogueTitle },
       ]}
     />
 
-    <header class="catalogue-hero" data-discipline={discipline.id} style={getDisciplineStyle(discipline)}>
-      <span class="discipline-badge" aria-label={discipline.iconLabel}>
-        <span aria-hidden="true">{discipline.mark}</span>
-        <strong>{discipline.label}</strong>
+    <header class="catalogue-hero" data-discipline="physique-chimie" data-track={track.id} style={getDisciplineStyle(track)}>
+      <span class="discipline-badge" aria-label={track.iconLabel}>
+        <span aria-hidden="true">{track.mark}</span>
+        <strong>{isTeachingScience ? `${parentDiscipline.label} · ${track.label}` : parentDiscipline.label}</strong>
       </span>
       <p class="catalogue-kicker">Lycée · {catalogueTitle}</p>
       <h1>{catalogueTitle} — {niveauLabel}</h1>

@@ -22,15 +22,14 @@ function source(name) {
   return readFileSync(files[name], "utf8");
 }
 
-test("catalogue pages keep all current chapter route patterns", () => {
-  assert.match(source("collegeLevel"), /href:\s*`\/college\/\$\{niveau\}\/\$\{matiere\}\/\$\{slug\}`/);
-  assert.match(source("collegeSubject"), /href:\s*`\/college\/\$\{niveau\}\/\$\{matiere\}\/\$\{slug\}`/);
-  assert.match(source("lyceeLevel"), /href:\s*`\/lycee\/\$\{niveau\}\/\$\{matiere\}\/\$\{slug\}`/);
-  assert.match(source("lyceeSubject"), /href:\s*`\/lycee\/\$\{niveau\}\/\$\{matiere\}\/\$\{slug\}`/);
+test("PC catalogues link directly to canonical chapter routes", () => {
+  for (const name of ["collegeLevel", "collegeSubject", "lyceeLevel", "lyceeSubject"]) {
+    assert.match(source(name), /getPhysicalScienceExplicitChapterPath/);
+    assert.doesNotMatch(source(name), /href:\s*`\/(?:college|lycee)\/\$\{niveau\}\/\$\{matiere\}\/\$\{slug\}`/);
+  }
   assert.match(source("mathCollegeLevel"), /href:\s*chapter\.path/);
   assert.match(source("mathLyceeLevel"), /href:\s*chapter\.path/);
 });
-
 test("catalogues are ordered by programme metadata and do not cap chapter counts", () => {
   for (const name of ["collegeLevel", "collegeSubject", "lyceeLevel", "lyceeSubject"]) {
     const page = source(name);

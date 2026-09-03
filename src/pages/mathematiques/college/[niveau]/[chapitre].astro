@@ -2,7 +2,7 @@
 import ChapterPageShell from "../../../../components/pedagogie/ChapterPageShell.astro";
 import type { MathematicsChapterListItem } from "../../../../data/mathematiques/types";
 import { mathematicsDomainLabels } from "../../../../data/mathematiques/types";
-import { getMathematicsLevelLabel } from "../../../../data/mathematiques/levels";
+import { getMathematicsLevelLabel, getMathematicsLevelsByCycle } from "../../../../data/mathematiques/levels";
 import { getMathematicsChapterId, getMathematicsLevelPath } from "../../../../data/mathematiques/paths";
 import {
   chapterEntryFromGlob,
@@ -12,16 +12,26 @@ import {
   normalizePlayableMathematicsQuiz,
   sortMathematicsChapters,
 } from "../../../../data/mathematiques/content";
-import { getChapterNavigation, getMathematicsRouteContext } from "../../../../data/contentRoutes";
+import {
+  getChapterNavigation,
+  getMathematicsRouteContext,
+  getPublishedMathematicsLevels,
+} from "../../../../data/contentRoutes";
 import "../../../../styles/mathematiques/mathematics.css";
 
 const cycle = "college" as const;
 
 export function getStaticPaths() {
   const allMeta = import.meta.glob("/src/data/mathematiques/chapters/college/**/meta.json", { eager: true });
-  return Object.entries(allMeta)
+  const chapters = Object.entries(allMeta)
     .map(([path, mod]) => chapterEntryFromGlob(path, mod))
-    .filter((chapter): chapter is MathematicsChapterListItem => Boolean(chapter))
+    .filter((chapter): chapter is MathematicsChapterListItem => Boolean(chapter));
+  const publishedLevels = new Set(
+    getPublishedMathematicsLevels(getMathematicsLevelsByCycle("college"), chapters).map((level) => level.slug),
+  );
+
+  return chapters
+    .filter((chapter) => publishedLevels.has(chapter.niveau))
     .map((chapter) => ({
       params: { niveau: chapter.niveau, chapitre: chapter.slug },
       props: { chapter },
@@ -39,13 +49,16 @@ const domainLabel = chapter.domain ? mathematicsDomainLabels[chapter.domain] : c
 
 const allCours = import.meta.glob("/src/data/mathematiques/chapters/college/**/cours.mdx", { eager: true });
 const allExo = import.meta.glob("/src/data/mathematiques/chapters/college/**/exercices.json", { eager: true });
+const allExoN3 = import.meta.glob("/src/data/mathematiques/chapters/college/**/exercices-n3.json", { eager: true });
 const allQuiz = import.meta.glob("/src/data/mathematiques/chapters/college/**/quiz.json", { eager: true });
 const allFlash = import.meta.glob("/src/data/mathematiques/chapters/college/**/flashcards.json", { eager: true });
 const allMeta = import.meta.glob("/src/data/mathematiques/chapters/college/**/meta.json", { eager: true });
 
 const coursMod = allCours[`${basePath}/cours.mdx`] as any;
 const CoursContent = coursMod?.Content ?? null;
-const exercices = normalizeMathematicsExercises((allExo[`${basePath}/exercices.json`] as any)?.default ?? null);
+const baseExercises = normalizeMathematicsExercises((allExo[`${basePath}/exercices.json`] as any)?.default ?? null);
+const n3Exercises = normalizeMathematicsExercises((allExoN3[`${basePath}/exercices-n3.json`] as any)?.default ?? null);
+const exercices = [...baseExercises, ...n3Exercises];
 const quizData = normalizePlayableMathematicsQuiz((allQuiz[`${basePath}/quiz.json`] as any)?.default ?? null);
 const flashData = normalizeMathematicsFlashcards((allFlash[`${basePath}/flashcards.json`] as any)?.default ?? null);
 const xpConfig = getPedagogieXpConfig(chapter);

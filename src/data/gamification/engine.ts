@@ -11,7 +11,6 @@ import {
   COMBO_TIMEOUT_MS,
   BADGES,
   FREE_FREEZES_PER_WEEK,
-  STREAK_FREEZE_COST,
   getSubLevel,
   type Rank,
   type SubLevel,
@@ -407,8 +406,8 @@ export class GamificationEngine {
    * L'élève a consulté la correction d'un exercice
    */
   completeExercice(
-    chapterId: string,
-    exerciceId: string,
+    _chapterId: string,
+    _exerciceId: string,
     xpConfig?: { exercice_each?: number }
   ): { xp: number; rankUp: Rank | null; newBadges: BadgeDef[] } {
     const xpAmount = xpConfig?.exercice_each ?? DEFAULT_XP.exercice_each;

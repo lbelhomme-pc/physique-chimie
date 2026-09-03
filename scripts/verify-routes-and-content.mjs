@@ -5,9 +5,8 @@ import path from "node:path";
 import process from "node:process";
 import {
   activeRedirectRules,
-  buildPreparedPhysicalScienceRedirectRules,
+  buildPhysicalScienceRedirectRules,
   findRedirectTargetIssues,
-  getPhysicalScienceKnownRoutes,
   normalizeRoutePath,
 } from "../src/config/redirects.ts";
 import { auditContentContracts } from "../src/data/contentContractAudit.ts";
@@ -53,10 +52,8 @@ const report = {
 const requiredDynamicRouteFiles = [
   "src/pages/college/[niveau]/index.astro",
   "src/pages/college/[niveau]/[matiere]/index.astro",
-  "src/pages/college/[niveau]/[matiere]/[chapitre].astro",
   "src/pages/lycee/[niveau]/index.astro",
   "src/pages/lycee/[niveau]/[matiere]/index.astro",
-  "src/pages/lycee/[niveau]/[matiere]/[chapitre].astro",
   "src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro",
   "src/pages/mathematiques/college/[niveau]/index.astro",
   "src/pages/mathematiques/college/[niveau]/[chapitre].astro",
@@ -285,7 +282,8 @@ function validatePcChapters() {
     const segments = parts.slice(index + 1, -1);
     const [cycle, niveau, matiere, slug] = segments;
     const chapterDir = parts.slice(0, -1).join("/");
-    const route = `/${cycle}/${niveau}/${matiere}/${slug}`;
+    const legacyRoute = `/${cycle}/${niveau}/${matiere}/${slug}`;
+    const route = `/physique-chimie/${cycle}/${niveau}/${matiere}/${slug}`;
     routes.push(route);
     report.routes.push({ kind: "pc-chapter", route, source: metaFile });
 
@@ -301,15 +299,15 @@ function validatePcChapters() {
       check(meta.slug === slug, "Slug meta different du dossier", { file: metaFile, metaSlug: meta.slug, folderSlug: slug });
     }
     warn(meta.niveau === niveau, "Niveau meta different du dossier", { file: metaFile, metaNiveau: meta.niveau, folderNiveau: niveau });
-    warn(meta.matiere === matiere, "Matiere meta differente du dossier", { file: metaFile, metaMatiere: meta.matiere, folderMatiere: matiere });
+    warn(meta.matiere === matiere, "Matiere meta different du dossier", { file: metaFile, metaMatiere: meta.matiere, folderMatiere: matiere });
     check(typeof meta.title === "string" && meta.title.trim().length > 0, "Meta sans title", { file: metaFile });
     check(typeof meta.description === "string" && meta.description.trim().length > 0, "Meta sans description", { file: metaFile });
-    warn(meta.seo?.canonical !== undefined, "Canonical PC absent ; fallback route utilise par la page", { file: metaFile, expected: route });
+    warn(meta.seo?.canonical !== undefined, "Canonical historique PC absent dans les metadonnees", { file: metaFile, expected: legacyRoute });
     if (meta.seo?.canonical !== undefined) {
-      check(meta.seo.canonical === route, "Canonical PC different de la route publique", {
+      check(meta.seo.canonical === legacyRoute, "Canonical historique PC different de l alias legacy attendu", {
         file: metaFile,
         canonical: meta.seo.canonical,
-        expected: route,
+        expected: legacyRoute,
       });
     }
 
@@ -388,11 +386,11 @@ function validateRoutesAndGlobs() {
     ["src/pages/index.astro", "/src/data/chapters/**/meta.json"],
     ["src/pages/index.astro", "/src/data/chapters/**/flashcards.json"],
     ["src/pages/index.astro", "/src/data/mathematiques/chapters/**/meta.json"],
-    ["src/pages/college/[niveau]/[matiere]/[chapitre].astro", "/src/data/chapters/**/cours.mdx"],
-    ["src/pages/college/[niveau]/[matiere]/[chapitre].astro", "/src/data/chapters/**/quiz.json"],
-    ["src/pages/lycee/[niveau]/[matiere]/[chapitre].astro", "/src/data/chapters/**/cours.mdx"],
-    ["src/pages/lycee/[niveau]/[matiere]/[chapitre].astro", "/src/data/chapters/**/flashcards.json"],
     ["src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro", "/src/data/chapters/**/meta.json"],
+    ["src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro", "/src/data/chapters/**/cours.mdx"],
+    ["src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro", "/src/data/chapters/**/exercices.json"],
+    ["src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro", "/src/data/chapters/**/quiz.json"],
+    ["src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro", "/src/data/chapters/**/flashcards.json"],
     ["src/pages/mathematiques/college/[niveau]/[chapitre].astro", "/src/data/mathematiques/chapters/college/**/meta.json"],
     ["src/pages/mathematiques/lycee/[niveau]/[chapitre].astro", "/src/data/mathematiques/chapters/lycee/**/meta.json"],
     ["src/pages/memorisation/mega-quiz.astro", "../../data/chapters/**/quiz.json"],
@@ -481,13 +479,12 @@ function validateCanonicalPages() {
 
 function validateRedirectStrategy() {
   const pcChapters = physicalScienceChapterRouteInputs();
-  const preparedPhysicalScienceRules = buildPreparedPhysicalScienceRedirectRules(pcChapters);
-  const rules = [...activeRedirectRules, ...preparedPhysicalScienceRules];
+  const physicalScienceRules = buildPhysicalScienceRedirectRules(pcChapters);
+  const rules = [...activeRedirectRules, ...physicalScienceRules];
   const availableRoutes = new Set([
     ...sensitiveStaticRoutes,
     V3_ROUTE_STRATEGY.notFoundRoute,
     ...Object.values(MEMORIZATION_CANONICAL_ROUTES),
-    ...getPhysicalScienceKnownRoutes(pcChapters),
     ...report.routes.map((item) => item.route),
   ].map(normalizeRoutePath));
   const issues = findRedirectTargetIssues(rules, availableRoutes);
@@ -497,21 +494,33 @@ function validateRedirectStrategy() {
     expected: "explicit",
     actual: V3_ROUTE_STRATEGY.physicalScienceCanonicalMode,
   });
-  check(preparedPhysicalScienceRules.length === pcChapters.length, "Nombre de redirections PC preparees divergent", {
+  check(V3_ROUTE_STRATEGY.physicalScienceLegacyStatus === "redirect-only", "Statut legacy PC V3 inattendu", {
+    expected: "redirect-only",
+    actual: V3_ROUTE_STRATEGY.physicalScienceLegacyStatus,
+  });
+  check(V3_ROUTE_STRATEGY.physicalScienceRedirectPhase === "active", "Phase de redirection PC V3 inattendue", {
+    expected: "active",
+    actual: V3_ROUTE_STRATEGY.physicalScienceRedirectPhase,
+  });
+  check(V3_ROUTE_STRATEGY.physicalScienceRedirectStatus === 301, "Statut HTTP des redirections PC inattendu", {
+    expected: 301,
+    actual: V3_ROUTE_STRATEGY.physicalScienceRedirectStatus,
+  });
+  check(!exists("src/pages/college/[niveau]/[matiere]/[chapitre].astro"), "Renderer legacy college encore genere", {});
+  check(!exists("src/pages/lycee/[niveau]/[matiere]/[chapitre].astro"), "Renderer legacy lycee encore genere", {});
+  check(physicalScienceRules.length === pcChapters.length, "Nombre de redirections PC actives divergent", {
     expected: pcChapters.length,
-    actual: preparedPhysicalScienceRules.length,
+    actual: physicalScienceRules.length,
   });
 
-  for (const rule of preparedPhysicalScienceRules) {
-    check(availableRoutes.has(normalizeRoutePath(rule.from)), "Route legacy PC absente avant activation de redirection", {
-      from: rule.from,
-      to: rule.to,
-    });
-    check(rule.phase === "prepared", "Redirection PC activee trop tot", {
-      from: rule.from,
-      to: rule.to,
-      phase: rule.phase,
-    });
+  const redirectSources = new Set(physicalScienceRules.map((rule) => normalizeRoutePath(rule.from)));
+  for (const rule of physicalScienceRules) {
+    const from = normalizeRoutePath(rule.from);
+    const to = normalizeRoutePath(rule.to);
+    check(rule.phase === "active", "Redirection PC non active", { from, to, phase: rule.phase });
+    check(rule.status === 301, "Redirection PC non permanente", { from, to, status: rule.status });
+    check(availableRoutes.has(to), "Cible canonique PC absente", { from, to });
+    check(!redirectSources.has(to), "Chaine de redirection PC detectee", { from, to });
   }
 
   for (const issue of issues) {
@@ -519,13 +528,13 @@ function validateRedirectStrategy() {
   }
 
   report.counts.redirects = {
-    active: activeRedirectRules.length,
-    preparedPhysicalScience: preparedPhysicalScienceRules.length,
+    active: activeRedirectRules.length + physicalScienceRules.length,
+    physicalScience: physicalScienceRules.length,
     targetIssues: issues.length,
     notFoundRoute: V3_ROUTE_STRATEGY.notFoundRoute,
   };
   report.notes.push({
-    message: `Redirections verifiees : ${activeRedirectRules.length} actives, ${preparedPhysicalScienceRules.length} preparees, ${issues.length} cible manquante`,
+    message: `Redirections verifiees : ${activeRedirectRules.length + physicalScienceRules.length} actives dont ${physicalScienceRules.length} PC, ${issues.length} cible manquante`,
   });
 }
 
@@ -637,9 +646,10 @@ function validateContentIdAliases() {
 function validateContentContracts() {
   const contentAudit = auditContentContracts(root);
   report.counts.contentContract = contentAudit.summary;
+  const expectedChapters = report.summary.pcChapters + report.summary.mathChapters;
 
-  check(contentAudit.summary.chapters === 112, "Nombre de chapitres du contrat de contenu inattendu", {
-    expected: 112,
+  check(contentAudit.summary.chapters === expectedChapters, "Nombre de chapitres du contrat de contenu inattendu", {
+    expected: expectedChapters,
     actual: contentAudit.summary.chapters,
   });
   check(contentAudit.summary.pcChapters === report.summary.pcChapters, "Nombre de chapitres PC divergent dans le contrat", {

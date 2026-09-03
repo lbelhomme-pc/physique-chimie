@@ -1,9 +1,11 @@
 ## Objectifs
 
 - Utiliser les notions de multiple, diviseur, nombre pair et nombre impair.
-- Lire et écrire des appartenances, intersections et réunions d'ensembles.
-- Distinguer implication, réciproque, équivalence et contre-exemple.
 - Présenter une fraction sous forme irréductible.
+- Manipuler les ensembles : appartenance, inclusion, réunion, intersection, complémentaire, cardinal et produit cartésien.
+- Distinguer implication, réciproque, contraposée, équivalence et contre-exemple.
+- Lire et formuler des propositions avec « et », « ou », négation et quantification en langage naturel.
+- Produire des raisonnements courts par disjonction de cas ou par l'absurde.
 
 ## Prérequis
 
@@ -13,47 +15,71 @@
 
 ## Activité de découverte
 
-On observe les numéros de casiers ouverts après plusieurs passages d'élèves. La question est de savoir quels numéros peuvent être atteints par deux règles différentes : être multiple de 3 et être pair.
+On observe les numéros de casiers ouverts après plusieurs passages d'élèves. La question est de savoir quels numéros peuvent être atteints par deux règles différentes : être multiple de 3 et être pair. Cette situation permet de relier arithmétique, ensembles et logique.
 
 ## Vocabulaire
 
-- **multiple**
-- **diviseur**
-- **ensemble**
-- **appartenance**
-- **inclusion**
-- **intersection**
-- **réunion**
-- **contre-exemple**
+- **multiple**, **diviseur**, **pair**, **impair**
+- **ensemble**, **élément**, **sous-ensemble**, **ensemble vide**
+- **appartenance** `∈`, **inclusion** `⊂`, **intersection** `∩`, **réunion** `∪`
+- **complémentaire**, **cardinal**, **couple**, **produit cartésien**
+- **proposition**, **implication**, **réciproque**, **contraposée**, **équivalence**, **contre-exemple**
 
 ## Cours
 
-### Définitions
+### Arithmétique
 
-- Un entier a est multiple d'un entier b non nul lorsqu'il existe un entier k tel que a = kb.
-- Un ensemble regroupe des objets appelés éléments. On écrit x ∈ E pour dire que x appartient à E.
-- Une proposition mathématique est une phrase dont on peut décider si elle est vraie ou fausse.
+Un entier `a` est multiple d'un entier `b` s'il existe un entier `k` tel que `a = kb`. Les notions de pair et d'impair se traduisent respectivement par les écritures `2k` et `2k+1`.
 
-### Propriétés
+Deux résultats servent de modèles de démonstration :
 
-- La somme de deux multiples d'un même entier a est encore un multiple de a.
-- Le carré d'un nombre impair est impair.
-- Pour prouver qu'une affirmation générale est fausse, un seul contre-exemple suffit.
+- la somme de deux multiples d'un même entier est encore un multiple de cet entier ;
+- le carré d'un nombre impair est impair.
 
-### Méthodes
+Pour présenter une fraction sous forme irréductible, on simplifie le numérateur et le dénominateur par leurs facteurs communs jusqu'à obtenir deux entiers premiers entre eux.
 
-1. Pour tester si a est multiple de b, on vérifie si la division de a par b a un reste nul.
-2. Pour rendre une fraction irréductible, on divise le numérateur et le dénominateur par un diviseur commun jusqu'à ne plus pouvoir simplifier.
-3. Pour lire A ∩ B, on cherche les éléments qui sont à la fois dans A et dans B.
+### Ensembles
+
+Un ensemble regroupe des objets appelés éléments. On distingue :
+
+- `x ∈ E` : `x` est un élément de `E` ;
+- `A ⊂ E` : `A` est un sous-ensemble de `E` ;
+- `A ∩ B` : éléments communs à `A` et `B` ;
+- `A ∪ B` : éléments appartenant à au moins un des deux ensembles ;
+- `E \ A` ou le complémentaire de `A` : éléments de `E` qui ne sont pas dans `A` ;
+- `Card(A)` : nombre d'éléments d'un ensemble fini `A` ;
+- `A × B` : ensemble des couples `(a ; b)` avec `a ∈ A` et `b ∈ B`.
+
+On utilise aussi l'ensemble vide `∅`, ainsi que les notations des ensembles de nombres et des intervalles.
+
+### Logique
+
+Une proposition mathématique est une phrase à laquelle on peut attribuer une valeur de vérité.
+
+- « P et Q » n'est vraie que si P et Q sont vraies.
+- « P ou Q » est vraie si au moins l'une des deux propositions est vraie.
+- La négation de « x appartient à A » est « x n'appartient pas à A ».
+- Une implication `P ⇒ Q` n'est pas automatiquement équivalente à sa réciproque `Q ⇒ P`.
+- La contraposée de `P ⇒ Q` est « non Q ⇒ non P » et lui est logiquement équivalente.
+- Un contre-exemple suffit à montrer qu'une affirmation universelle est fausse.
+
+En seconde, on lit et on écrit des formulations comme « pour tout réel x » ou « il existe un réel x », sans exiger les symboles `∀` et `∃`.
+
+Deux raisonnements sont explicitement travaillés :
+
+1. **disjonction de cas** : on sépare une situation en plusieurs cas qui couvrent toutes les possibilités ;
+2. **raisonnement par l'absurde** : on suppose le contraire de ce que l'on veut établir et on aboutit à une contradiction.
 
 ## Exemples corrigés
 
-- 42 est multiple de 6 car 42 = 6 × 7. Il est aussi multiple de 3 car 42 = 3 × 14.
-- Si A = {2, 4, 6, 8} et B = {3, 6, 9}, alors A ∩ B = {6} et A ∪ B = {2, 3, 4, 6, 8, 9}.
+- `42` est multiple de `6` car `42 = 6 × 7`.
+- Si `A = {2,4,6,8}` et `B = {3,6,9}`, alors `A ∩ B = {6}` et `A ∪ B = {2,3,4,6,8,9}`.
+- Dans `E = {1,2,3,4,5}`, si `A = {2,4}`, alors `E \ A = {1,3,5}` et `Card(A)=2`.
+- L'affirmation « si n² est pair alors n est pair » peut être établie par contraposée en montrant que si n est impair, alors n² est impair.
 
 <figure className="chapter-figure">
   <svg viewBox="0 0 640 250" role="img" aria-labelledby="set-title set-desc"><title id="set-title">Intersection et réunion d'ensembles</title><desc id="set-desc">Deux ensembles A et B se recoupent, avec la zone commune mise en évidence.</desc><rect width="640" height="250" fill="none"/><circle cx="270" cy="125" r="82" fill="#dbeafe" stroke="#2563eb" strokeWidth="3"/><circle cx="370" cy="125" r="82" fill="#dcfce7" stroke="#16a34a" strokeWidth="3"/><path d="M320 60 A82 82 0 0 1 320 190 A82 82 0 0 1 320 60" fill="#fde68a" opacity="0.85"/><text x="230" y="125" textAnchor="middle" fontWeight="700">A</text><text x="410" y="125" textAnchor="middle" fontWeight="700">B</text><text x="320" y="128" textAnchor="middle" fontWeight="700">A ∩ B</text><text x="320" y="225" textAnchor="middle">La réunion A ∪ B contient les deux disques.</text></svg>
-  <figcaption>Arithmétique, ensembles et logique : représentation schématique à commenter avant les exercices.</figcaption>
+  <figcaption>Intersection et réunion : les opérations ensemblistes sont ensuite réinvesties en probabilités.</figcaption>
 </figure>
 
 ## Algorithmique en Python
@@ -67,20 +93,22 @@ def est_multiple(a, b):
 print(est_multiple(42, 6))
 ```
 
-L'opérateur % donne le reste de la division euclidienne. Un reste nul signifie que la division tombe juste.
+L'opérateur `%` donne le reste de la division euclidienne. Un reste nul signifie que `a` est multiple de `b`.
 
 ## Erreurs fréquentes
 
-- Confondre A ∈ B et A ⊂ B.
-- Penser qu'une implication vraie impose automatiquement sa réciproque.
-- Oublier de justifier qu'un quotient est entier pour parler de multiple.
+- Confondre `x ∈ A` et `A ⊂ E`.
+- Confondre une implication et sa réciproque.
+- Employer les symboles `∀` et `∃` comme s'ils étaient exigibles : le BO 2026 demande surtout la formulation en langage naturel.
+- Oublier qu'un contre-exemple réfute une affirmation générale mais ne prouve pas une autre affirmation.
 
 ## Formules et idées à retenir
 
-- a est multiple de b signifie a = kb avec k entier.
-- A ∩ B : éléments communs.
-- A ∪ B : éléments appartenant à au moins un des deux ensembles.
+- `a` multiple de `b` signifie `a = kb` avec `k` entier.
+- `A ∩ B` : éléments communs ; `A ∪ B` : éléments appartenant à au moins un ensemble.
+- `Card(A)` désigne le nombre d'éléments d'un ensemble fini.
+- Une implication et sa contraposée sont équivalentes ; la réciproque est une autre proposition.
 
 ## Synthèse
 
-Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.
+Le chapitre rassemble l'arithmétique prévue en seconde et les outils de logique qui doivent être réinvestis tout au long de l'année. Les raisonnements, notations et opérations sur les ensembles ne sont donc pas confinés à ce seul chapitre : ils réapparaissent dans les fonctions, la géométrie, les statistiques et les probabilités.

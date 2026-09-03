@@ -1,7 +1,7 @@
 // src/components/pedagogie/CoursTracker.tsx
 // v2 : Tracking scroll + XP + bouton TTS qui lit le cours depuis le DOM
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { getGamificationEngine } from "../../data/gamification/engine";
 import XPToast, { type ToastItem } from "./XPToast";
 import TextToSpeech from "./TextToSpeech";
@@ -19,10 +19,10 @@ export default function CoursTracker({ chapterId, xpConfig, children }: CoursTra
   const maxScrollRef = useRef(0);
   const [coursText, setCoursText] = useState("");
 
-  function addToast(toast: Omit<ToastItem, "id">) {
+  const addToast = useCallback((toast: Omit<ToastItem, "id">) => {
     const id = `toast-${Date.now()}-${Math.random()}`;
     setToasts((prev) => [...prev, { ...toast, id }]);
-  }
+  }, []);
   function dismissToast(id: string) {
     setToasts((prev) => prev.filter((t) => t.id !== id));
   }
@@ -48,6 +48,25 @@ export default function CoursTracker({ chapterId, xpConfig, children }: CoursTra
       }
     } catch { /* */ }
   }, [chapterId]);
+
+  const rewardCoursRead = useCallback(() => {
+    try {
+      const engine = getGamificationEngine();
+      const result = engine.completeCours(chapterId, xpConfig);
+
+      if (result.xp > 0) {
+        addToast({ type: "xp", message: `Cours lu ! +${result.xp} XP 📖`, icon: "📖" });
+      }
+      if (result.rankUp) {
+        addToast({ type: "rank_up", message: `Nouveau rang : ${result.rankUp.icon} ${result.rankUp.name} !`, icon: result.rankUp.icon });
+      }
+      for (const badge of result.newBadges) {
+        addToast({ type: "badge", message: `Badge : ${badge.icon} ${badge.name}`, icon: badge.icon });
+      }
+    } catch (e) {
+      console.warn("CoursTracker: gamification not available", e);
+    }
+  }, [addToast, chapterId, xpConfig]);
 
   // Scroll tracking
   useEffect(() => {
@@ -77,26 +96,7 @@ export default function CoursTracker({ chapterId, xpConfig, children }: CoursTra
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Check initial
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [chapterId, hasTracked]);
-
-  function rewardCoursRead() {
-    try {
-      const engine = getGamificationEngine();
-      const result = engine.completeCours(chapterId, xpConfig);
-
-      if (result.xp > 0) {
-        addToast({ type: "xp", message: `Cours lu ! +${result.xp} XP 📖`, icon: "📖" });
-      }
-      if (result.rankUp) {
-        addToast({ type: "rank_up", message: `Nouveau rang : ${result.rankUp.icon} ${result.rankUp.name} !`, icon: result.rankUp.icon });
-      }
-      for (const badge of result.newBadges) {
-        addToast({ type: "badge", message: `Badge : ${badge.icon} ${badge.name}`, icon: badge.icon });
-      }
-    } catch (e) {
-      console.warn("CoursTracker: gamification not available", e);
-    }
-  }
+  }, [hasTracked, rewardCoursRead]);
 
   return (
     <div>

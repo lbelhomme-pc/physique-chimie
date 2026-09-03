@@ -322,7 +322,7 @@ onLabReady("[data-generic-lab]", (root) => {
     ctx.fillRect(0, 0, w, h);
 
     drawStarField(ctx, w, h);
-    drawSolarScale(ctx, w, h, c);
+    drawSolarScale(ctx, w);
 
     const displayRadius = (planet) => {
       const ratio = (Math.sqrt(planet.a) - minRoot) / (maxRoot - minRoot);
@@ -406,7 +406,7 @@ onLabReady("[data-generic-lab]", (root) => {
       drawPlanetLabel(ctx, planet, position.x, position.y, isSelected, c);
     });
 
-    drawSelectedPlanetCard(ctx, w, h, selected, c);
+    drawSelectedPlanetCard(ctx, w, selected);
 
     if (orbitDistance) orbitDistance.textContent = `${frNumber(selected.a, 2)} UA`;
     if (orbitPeriod) orbitPeriod.textContent = selected.period < 1
@@ -433,7 +433,7 @@ onLabReady("[data-generic-lab]", (root) => {
     ctx.restore();
   }
 
-  function drawSolarScale(ctx, w, h) {
+  function drawSolarScale(ctx, w) {
     const x = 14;
     const y = 14;
     const width = Math.min(410, w - 28);
@@ -535,7 +535,7 @@ onLabReady("[data-generic-lab]", (root) => {
     ctx.restore();
   }
 
-  function drawSelectedPlanetCard(ctx, w, h, planet) {
+  function drawSelectedPlanetCard(ctx, w, planet) {
     const width = Math.min(300, w - 28);
     const x = w - width - 14;
     const y = 14;
@@ -780,7 +780,6 @@ onLabReady("[data-generic-lab]", (root) => {
 
     if (mix.kind === "immiscible") {
       const oilHeight = Math.min(inner.height * 0.46, inner.height * (0.18 + amount * 0.36));
-      const waterHeight = inner.height - oilHeight;
       const stirPulse = temporaryEmulsion ? Math.max(0.35, agitation) : agitation * 0.16;
       const oilShift = Math.sin(clock * 22) * stirPulse * 9;
       const waterShift = Math.sin(clock * 20 + Math.PI) * stirPulse * 7;
@@ -1453,7 +1452,6 @@ onLabReady("[data-generic-lab]", (root) => {
         const rows = Math.ceil(initial / cols);
         const cell = Math.min(17, Math.max(8, Math.min((box.width - 34) / cols, (box.height - 58) / rows)));
         const gridW = cols * cell;
-        const gridH = rows * cell;
         const startX = box.x + box.width / 2 - gridW / 2;
         const startY = box.y + 40;
         for (let i = 0; i < initial; i += 1) {
@@ -1962,7 +1960,7 @@ onLabReady("[data-generic-lab]", (root) => {
     ctx.roundRect(start, y, end - start, 34, 17);
     ctx.fill();
 
-    for (let mark of [0, 7, 14]) {
+    for (const mark of [0, 7, 14]) {
       const xTick = start + (mark / 14) * (end - start);
       ctx.strokeStyle = "rgba(255,255,255,0.88)";
       ctx.lineWidth = 2;
@@ -2835,199 +2833,6 @@ onLabReady("[data-generic-lab]", (root) => {
     } else {
       setReadout(`Étape 4 : lunette afocale complète. O₁O₂ = f'₁ + f'₂ = ${frNumber(distance, 0)} cm, F'₁ et F₂ coïncident, et G = -f'₁/f'₂ = -${frNumber(grossissement, 1)}.`);
     }
-  }
-
-  function drawWeightLegacy(ctx, w, h, p) {
-    const c = colors();
-    const compact = w < 720;
-    const mass = Math.max(0, p.a);
-    const gravity = Math.max(0, p.b);
-    const weight = mass * gravity;
-    const presets = [
-      { name: "Lune", g: 1.6, color: "#94a3b8" },
-      { name: "Terre", g: 9.8, color: "#2563eb" },
-      { name: "Jupiter", g: 24.8, color: "#f97316" },
-    ];
-    const selectedPreset = presets.find((item) => item.name === p.mode);
-    const maxMass = Number(inputA.max) || 100;
-    const maxVisualForce = Math.max(1, maxMass * 24.8);
-    const stretchNorm = Math.sqrt(Math.min(1, weight / maxVisualForce));
-    const motionActive = !reducedMotion && !isPaused;
-    const intro = reducedMotion || isPaused ? 1 : Math.min(1, clock * 1.35);
-    const ease = 1 - Math.pow(1 - intro, 3);
-    const animatedNorm = stretchNorm * ease;
-    const springPulse = motionActive ? Math.sin(clock * 8.5) * Math.exp(-clock * 0.75) : 0;
-    const idlePulse = motionActive ? Math.sin(clock * 2.4) : 0;
-    const bob = springPulse * (compact ? 9 : 13) + idlePulse * (compact ? 1.3 : 2);
-    const forceProgress = reducedMotion || isPaused ? 1 : Math.max(0.08, ease);
-    const barProgress = reducedMotion || isPaused ? 1 : Math.max(0.12, ease);
-
-    const scene = compact
-      ? { x: 18, y: 18, width: w - 36, height: h * 0.44 }
-      : { x: 28, y: 28, width: w * 0.56, height: h - 56 };
-    const side = compact
-      ? { x: 18, y: scene.y + scene.height + 12, width: w - 36, height: h - scene.y - scene.height - 30 }
-      : { x: scene.x + scene.width + 22, y: 28, width: w - scene.x - scene.width - 50, height: h - 56 };
-
-    function panel(box, title) {
-      ctx.save();
-      ctx.fillStyle = "rgba(255, 255, 255, 0.82)";
-      ctx.strokeStyle = "rgba(148, 163, 184, 0.22)";
-      ctx.lineWidth = 1.2;
-      ctx.beginPath();
-      ctx.roundRect(box.x, box.y, box.width, box.height, 18);
-      ctx.fill();
-      ctx.stroke();
-      ctx.fillStyle = c.text;
-      ctx.font = "900 13px Inter, system-ui, sans-serif";
-      ctx.fillText(title, box.x + 16, box.y + 26);
-      ctx.restore();
-    }
-
-    function pill(text, x, y, color, bg = "rgba(255,255,255,0.88)") {
-      ctx.save();
-      ctx.font = "900 12px Inter, system-ui, sans-serif";
-      const width = ctx.measureText(text).width + 20;
-      ctx.fillStyle = bg;
-      ctx.strokeStyle = `${color}44`;
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.roundRect(x - width / 2, y - 13, width, 26, 10);
-      ctx.fill();
-      ctx.stroke();
-      ctx.fillStyle = color;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText(text, x, y + 1);
-      ctx.restore();
-    }
-
-    panel(scene, "Même masse, poids variable");
-    panel(side, "Comparaison sur astres");
-
-    const objectX = scene.x + scene.width * (compact ? 0.5 : 0.42);
-    const objectW = compact ? 86 : 112;
-    const objectH = compact ? 58 : 72;
-    const springTop = scene.y + (compact ? 72 : 88);
-    const springLength = compact
-      ? 42 + animatedNorm * 52
-      : 64 + animatedNorm * 108;
-    const maxObjectY = scene.y + scene.height - objectH - (compact ? 44 : 94);
-    const objectRestY = compact
-      ? scene.y + 74 + animatedNorm * 28
-      : Math.min(maxObjectY, springTop + springLength);
-    const objectY = Math.min(maxObjectY, Math.max(springTop + 8, objectRestY + bob));
-    const forceStartY = objectY + objectH + 8;
-    const finalForceLength = (compact ? 38 : 76) + stretchNorm * (compact ? 44 : 98);
-    const forceEndY = Math.min(scene.y + scene.height - (compact ? 26 : 42), forceStartY + finalForceLength * forceProgress);
-    const supportY = scene.y + scene.height - (compact ? 24 : 34);
-    const springX = objectX;
-
-    ctx.save();
-    const massGradient = ctx.createLinearGradient(objectX - objectW / 2, objectY, objectX + objectW / 2, objectY + objectH);
-    massGradient.addColorStop(0, "#fef3c7");
-    massGradient.addColorStop(1, "#f59e0b");
-
-    ctx.strokeStyle = "rgba(100, 116, 139, 0.48)";
-    ctx.lineWidth = 2;
-    ctx.lineCap = "round";
-    ctx.beginPath();
-    ctx.moveTo(springX - (compact ? 24 : 36), springTop - 18);
-    ctx.lineTo(springX + (compact ? 24 : 36), springTop - 18);
-    ctx.moveTo(springX, springTop - 18);
-    ctx.lineTo(springX, springTop - 6);
-    for (let i = 0; i <= 8; i += 1) {
-      const y = springTop + i * ((objectY - springTop) / 8);
-      const x = springX + (i % 2 === 0 ? -10 : 10);
-      if (i === 0) ctx.moveTo(springX, springTop - 4);
-      ctx.lineTo(x, y);
-    }
-    ctx.lineTo(springX, objectY);
-    ctx.stroke();
-    centerLabel(ctx, "dynamomètre", springX, springTop - 30, c.muted, compact ? 10 : 11);
-
-    ctx.fillStyle = massGradient;
-    ctx.strokeStyle = "rgba(146, 64, 14, 0.32)";
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.roundRect(objectX - objectW / 2, objectY, objectW, objectH, 14);
-    ctx.fill();
-    ctx.stroke();
-    centerLabel(ctx, `${frNumber(mass, 0)} kg`, objectX, objectY + objectH * 0.47, "#78350f", compact ? 18 : 22);
-    centerLabel(ctx, "masse", objectX, objectY + objectH * 0.73, "#92400e", compact ? 11 : 12);
-
-    arrow(ctx, objectX, forceStartY, objectX, forceEndY, c.danger, compact ? 4 : 5);
-    pill(`P = ${frNumber(weight, 0)} N`, objectX + (compact ? 54 : 82), forceStartY + (forceEndY - forceStartY) * 0.54, c.danger, "rgba(254, 242, 242, 0.92)");
-    if (motionActive) {
-      const markerY = forceStartY + (forceEndY - forceStartY) * (0.22 + 0.56 * ((Math.sin(clock * 3.2) + 1) / 2));
-      ctx.save();
-      ctx.fillStyle = "rgba(239, 68, 68, 0.22)";
-      ctx.beginPath();
-      ctx.arc(objectX, markerY, compact ? 5 : 7, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-    }
-
-    ctx.strokeStyle = "rgba(148, 163, 184, 0.28)";
-    ctx.lineWidth = 1.4;
-    ctx.setLineDash([5, 6]);
-    ctx.beginPath();
-    ctx.moveTo(scene.x + 26, supportY);
-    ctx.lineTo(scene.x + scene.width - 26, supportY);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.restore();
-
-    pill(`g = ${frNumber(gravity, 1)} N/kg`, scene.x + scene.width * (compact ? 0.24 : 0.22), scene.y + (compact ? 58 : 64), c.primary, "rgba(239, 246, 255, 0.93)");
-    pill(selectedPreset ? selectedPreset.name : "g réglé", scene.x + scene.width * (compact ? 0.76 : 0.62), scene.y + (compact ? 58 : 64), selectedPreset?.color || c.success, "rgba(240, 253, 250, 0.92)");
-
-    const formulaY = side.y + (compact ? 56 : 56);
-    centerLabel(ctx, "P = m × g", side.x + side.width / 2, formulaY, c.text, compact ? 18 : 24);
-    centerLabel(ctx, "masse en kg, poids en newtons", side.x + side.width / 2, formulaY + (compact ? 20 : 26), c.muted, compact ? 10 : 12);
-
-    const barsTop = formulaY + (compact ? 38 : 58);
-    const barX = side.x + (compact ? 74 : 88);
-    const valueX = side.x + side.width - (compact ? 16 : 20);
-    const barMaxWidth = Math.max(80, valueX - barX - (compact ? 46 : 58));
-    const maxForce = Math.max(1, mass * 24.8);
-    presets.forEach((item, index) => {
-      const rowY = barsTop + index * (compact ? 30 : 46);
-      const force = mass * item.g;
-      const active = p.mode === item.name || (!selectedPreset && Math.abs(item.g - gravity) < 0.25);
-      ctx.save();
-      ctx.fillStyle = active ? item.color : c.muted;
-      ctx.font = `900 ${compact ? 10 : 12}px Inter, system-ui, sans-serif`;
-      ctx.textAlign = "right";
-      ctx.fillText(item.name, barX - 12, rowY + 7);
-      ctx.fillStyle = "rgba(148, 163, 184, 0.16)";
-      ctx.beginPath();
-      ctx.roundRect(barX, rowY - 7, barMaxWidth, 14, 7);
-      ctx.fill();
-      const targetWidth = Math.max(8, (force / maxForce) * barMaxWidth);
-      const fillWidth = Math.max(8, targetWidth * (active ? barProgress : 0.82 + 0.18 * barProgress));
-      ctx.fillStyle = active ? item.color : "rgba(100, 116, 139, 0.48)";
-      ctx.beginPath();
-      ctx.roundRect(barX, rowY - 7, fillWidth, 14, 7);
-      ctx.fill();
-      if (active && motionActive) {
-        ctx.fillStyle = "rgba(255, 255, 255, 0.82)";
-        ctx.beginPath();
-        ctx.arc(barX + fillWidth, rowY, 4 + 1.5 * ((Math.sin(clock * 5) + 1) / 2), 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.fillStyle = active ? c.text : c.muted;
-      ctx.textAlign = "right";
-      ctx.fillText(`${frNumber(force, 0)} N`, valueX, rowY + 7);
-      ctx.restore();
-    });
-
-    setContextMetrics([
-      `${frNumber(mass, 0)} kg`,
-      `${frNumber(gravity, 1)} N/kg`,
-      `${frNumber(weight, 0)} N`,
-      "m fixe, P varie",
-    ]);
-    setReadout(`Poids et masse : m = ${frNumber(mass, 0)} kg. Observe le ressort et le vecteur P : ils grandissent quand g augmente. P = m × g = ${frNumber(weight, 0)} N.`);
   }
 
   function drawWeight(ctx, w, h, p) {

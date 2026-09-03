@@ -1,4 +1,4 @@
-import { createLabRuntime, fitCanvas, frNumber, getThemeColor, onLabReady, prefersReducedMotion } from "./lab-utils.js";
+import { createLabRuntime, fitCanvas, frNumber, getThemeColor, onLabReady } from "./lab-utils.js";
 
 onLabReady('[data-lab-app="circuit-rc"]', (root) => {
   const q = (selector) => root.querySelector(selector);
@@ -50,7 +50,6 @@ onLabReady('[data-lab-app="circuit-rc"]', (root) => {
   if (!sliderE || !sliderR || !sliderC || !canvas) return;
 
   const runtime = createLabRuntime(root);
-  const reducedMotion = prefersReducedMotion();
   let canvasState = fitCanvas(canvas);
   let E = 5;
   let R = 10000;
@@ -397,7 +396,6 @@ onLabReady('[data-lab-app="circuit-rc"]', (root) => {
     const primary = getThemeColor("--accent-primary", "#4f46e5");
     const success = getThemeColor("--accent-success", "#10b981");
     const warning = getThemeColor("--accent-warning", "#f59e0b");
-    const danger = getThemeColor("--accent-danger", "#ef4444");
     const text = getThemeColor("--text-primary", "#1a2332");
     const muted = getThemeColor("--text-muted", "#8896a6");
     const grid = "rgba(148, 163, 184, 0.24)";

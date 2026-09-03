@@ -20,7 +20,6 @@ const SUBJECT_FILTERS = [
   { id: "all", label: "Toutes", tone: "all" },
   { id: "mathematiques", label: "Mathématiques", tone: "maths" },
   { id: "physique-chimie", label: "Physique-Chimie", tone: "pc" },
-  { id: "enseignement-scientifique", label: "Enseignement scientifique", tone: "science" },
 ] as const;
 
 const CYCLE_FILTERS = [

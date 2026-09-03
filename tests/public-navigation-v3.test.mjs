@@ -8,11 +8,14 @@ const navFile = path.join(root, "src/components/navigation/PublicNavigationV3.as
 const menuFile = path.join(root, "src/data/publicMenu.ts");
 const layoutFile = path.join(root, "src/layouts/BaseLayout.astro");
 const disciplineIdentityFile = path.join(root, "src/data/disciplineIdentity.ts");
+const pcPortalFile = path.join(root, "src/pages/physique-chimie/index.astro");
+const pcNavigationFile = path.join(root, "src/data/physiqueChimie/navigation.ts");
 
 const expectedRouteFiles = {
   "/college": "src/pages/college/index.astro",
   "/lycee": "src/pages/lycee/index.astro",
   "/mathematiques": "src/pages/mathematiques/index.astro",
+  "/physique-chimie": "src/pages/physique-chimie/index.astro",
   "/laboratoire": "src/pages/laboratoire.astro",
   "/outils-methodes": "src/pages/outils-methodes.astro",
   "/memorisation": "src/pages/memorisation/index.astro",
@@ -52,12 +55,12 @@ test("public navigation supports keyboard and screen reader basics", () => {
 });
 
 test("public navigation covers V3 information architecture", () => {
-  const source = `${readFileSync(navFile, "utf8")}\n${readFileSync(menuFile, "utf8")}`;
+  const globalSource = `${readFileSync(navFile, "utf8")}\n${readFileSync(menuFile, "utf8")}`;
+  const pcPortalSource = `${readFileSync(pcPortalFile, "utf8")}\n${readFileSync(pcNavigationFile, "utf8")}`;
 
   for (const label of [
     "Mathématiques",
     "Physique-Chimie",
-    "Enseignement scientifique",
     "Mémorisation",
     "Kit scientifique",
     "QCM et quiz",
@@ -71,11 +74,16 @@ test("public navigation covers V3 information architecture", () => {
     "Préparation d'une solution",
     "Équilibrer une équation chimique",
   ]) {
-    assert.match(source, new RegExp(label), `missing ${label}`);
+    assert.match(globalSource, new RegExp(label), `missing ${label}`);
   }
 
+  assert.doesNotMatch(readFileSync(menuFile, "utf8"), /discipline:\s*"enseignement-scientifique"/);
+  assert.doesNotMatch(readFileSync(menuFile, "utf8"), /1re — Enseignement scientifique/);
+  assert.match(pcPortalSource, /Première — Enseignement scientifique/);
+  assert.match(pcPortalSource, /Terminale — Enseignement scientifique/);
+
   for (const route of ["/outils-methodes/kit-scientifique", "/outils-methodes/tableau-periodique"]) {
-    assert.match(source, new RegExp(route.replaceAll("/", "\\/").replace("#", "\\#")), `missing ${route}`);
+    assert.match(globalSource, new RegExp(route.replaceAll("/", "\\/").replace("#", "\\#")), `missing ${route}`);
   }
 });
 

@@ -1,90 +1,121 @@
 ## Objectifs
 
-- Distinguer situation réelle et modèle probabiliste.
-- Utiliser une probabilité conditionnelle.
-- Construire et lire un arbre pondéré.
-- Observer la loi des grands nombres par simulation.
+- Distinguer une situation réelle du modèle probabiliste choisi.
+- Utiliser l'équiprobabilité comme hypothèse de modèle lorsqu'elle est justifiée par la situation.
+- Interpréter une version vulgarisée de la loi des grands nombres par simulation.
+- Définir et calculer une probabilité conditionnelle.
+- Construire, compléter et lire un tableau ou un arbre pondéré.
+- Relier la probabilité d'un chemin au produit des probabilités de ses branches.
+- Distinguer `P_A(B)` et `P_B(A)` et éviter l'inversion des conditionnements.
+- Interpréter des situations de test : faux positif, faux négatif, sensibilité et spécificité.
 
 ## Prérequis
 
-- probabilité simple
-- fractions
-- tableaux croisés
+- expérience aléatoire, issue, événement et événement contraire
+- équiprobabilité et calcul élémentaire de probabilités
+- fractions, ensembles et tableaux croisés
 
 ## Activité de découverte
 
-Un test médical très fiable peut produire beaucoup de faux positifs si la maladie est rare. La question oblige à distinguer P(positif sachant malade) et P(malade sachant positif).
+Un test médical très sensible peut produire beaucoup de résultats positifs parmi lesquels certains sont faux lorsque la maladie est rare. La question oblige à distinguer « être positif sachant malade » et « être malade sachant positif » : inverser le conditionnement change la question.
 
 ## Vocabulaire
 
-- **expérience aléatoire**
-- **issue**
-- **événement**
-- **probabilité conditionnelle**
-- **arbre pondéré**
-- **fréquence observée**
+- **expérience aléatoire**, **issue**, **événement**, **univers**
+- **modèle probabiliste**, **équiprobabilité**, **fréquence observée**
+- **probabilité conditionnelle**, **arbre pondéré**, **tableau croisé**
+- **faux positif**, **faux négatif**, **sensibilité**, **spécificité**
 
 ## Cours
 
-### Définitions
+### Modèle probabiliste et fréquences
 
-- PA(B) est la probabilité de B sachant que A est réalisé, lorsque P(A) est non nulle.
-- Un arbre pondéré représente les étapes d'une expérience aléatoire avec les probabilités sur les branches.
-- La loi des grands nombres indique que, lorsque n est grand, la fréquence observée est généralement proche de la probabilité.
+Une probabilité appartient au **modèle** choisi. Dans une situation d'équiprobabilité sur un univers fini `Ω` :
 
-### Propriétés
+`P(A)=Card(A)/Card(Ω)`.
 
-- La probabilité d'un chemin dans un arbre s'obtient en multipliant les probabilités des branches du chemin.
-- Dans une situation d'équiprobabilité, P(A)=Card(A)/Card(Ω).
-- PA(B) et PB(A) ne désignent pas la même probabilité.
+L'équiprobabilité est une hypothèse du modèle, pas un résultat que l'on démontre automatiquement à partir d'une situation réelle.
 
-### Méthodes
+La loi des grands nombres est utilisée en seconde sous une forme intuitive : lorsque le nombre de répétitions est grand, la fréquence observée est généralement proche de la probabilité du modèle. Une simulation permet d'observer cette stabilisation.
 
-1. Pour lire un arbre, commencer par nommer l'événement de chaque niveau.
-2. Pour calculer une probabilité de chemin, multiplier les branches rencontrées.
-3. Pour éviter l'inversion de conditionnement, écrire en mots ce qui est connu après 'sachant'.
+### Probabilité conditionnelle
 
-## Exemples corrigés
+Si `P(A)≠0`, la probabilité de `B` sachant `A`, notée `P_A(B)`, décrit la probabilité de `B` lorsqu'on se restreint aux situations où `A` est réalisé.
 
-- Si P(A)=0,4 et PA(B)=0,25, alors la probabilité du chemin A puis B vaut 0,4×0,25=0,10.
-- Dire PTest+(Malade) n'a pas le même sens que PMalade(Test+).
+Dans une population finie tirée au hasard avec équiprobabilité :
+
+`P_A(B)=Card(A∩B)/Card(A)`.
+
+Cette écriture relie directement fréquence conditionnelle en statistique et probabilité conditionnelle.
+
+### Arbres pondérés
+
+Un arbre de probabilités organise les événements successifs. À partir d'un nœud, les pondérations des branches représentent les probabilités correspondantes, souvent conditionnelles.
+
+La probabilité d'un chemin se calcule en multipliant les probabilités des branches du chemin.
+
+Exemple : si `P(A)=0,4` et `P_A(B)=0,25`, alors la probabilité du chemin `A` puis `B` vaut `0,4×0,25=0,10`.
+
+### Tableaux croisés et conditionnement
+
+Un tableau croisé d'effectifs permet aussi de calculer des probabilités conditionnelles lorsque l'on tire au hasard un individu dans la population. Le dénominateur dépend toujours de ce que l'on sait après le mot « sachant ».
+
+Ainsi `P_A(B)` et `P_B(A)` ne sont pas interchangeables.
+
+### Tests diagnostiques
+
+Dans le contexte d'un test :
+
+- un **faux positif** est un test positif chez une personne ne présentant pas le caractère recherché ;
+- un **faux négatif** est un test négatif chez une personne présentant ce caractère ;
+- la **sensibilité** et la **spécificité** correspondent à des probabilités conditionnelles différentes.
+
+Écrire chaque probabilité en langage courant avant de la calculer limite les erreurs d'inversion.
+
+### Limite du programme de seconde
+
+On sait calculer la probabilité d'un chemin et utiliser des probabilités conditionnelles dans un arbre ou un tableau. En revanche, le calcul d'une probabilité à partir de probabilités conditionnelles relatives à une partition complète de l'univers — formule dite des probabilités totales — **n'est pas un attendu du programme de seconde**.
 
 <figure className="chapter-figure">
-  <svg viewBox="0 0 680 300" role="img" aria-labelledby="tree-title tree-desc"><title id="tree-title">Arbre pondéré</title><desc id="tree-desc">Arbre de probabilité à deux niveaux avec probabilités conditionnelles.</desc><circle cx="95" cy="150" r="6" fill="#111827"/><line x1="105" y1="150" x2="285" y2="85" stroke="#2563eb" strokeWidth="3"/><line x1="105" y1="150" x2="285" y2="215" stroke="#2563eb" strokeWidth="3"/><circle cx="295" cy="85" r="6" fill="#2563eb"/><circle cx="295" cy="215" r="6" fill="#2563eb"/><line x1="305" y1="85" x2="500" y2="50" stroke="#16a34a" strokeWidth="3"/><line x1="305" y1="85" x2="500" y2="120" stroke="#16a34a" strokeWidth="3"/><line x1="305" y1="215" x2="500" y2="180" stroke="#16a34a" strokeWidth="3"/><line x1="305" y1="215" x2="500" y2="250" stroke="#16a34a" strokeWidth="3"/><text x="190" y="95">P(A)</text><text x="190" y="210">P(A̅)</text><text x="400" y="55">PA(B)</text><text x="400" y="130">PA(B̅)</text><text x="400" y="185">PA̅(B)</text><text x="400" y="260">PA̅(B̅)</text><text x="555" y="54">B</text><text x="555" y="124">B̅</text><text x="555" y="184">B</text><text x="555" y="254">B̅</text></svg>
-  <figcaption>Probabilités conditionnelles et arbres pondérés : représentation schématique à commenter avant les exercices.</figcaption>
+  <svg viewBox="0 0 680 300" role="img" aria-labelledby="tree-title tree-desc"><title id="tree-title">Arbre pondéré</title><desc id="tree-desc">Arbre de probabilité à deux niveaux avec probabilités conditionnelles.</desc><circle cx="95" cy="150" r="6" fill="#111827"/><line x1="105" y1="150" x2="285" y2="85" stroke="#2563eb" strokeWidth="3"/><line x1="105" y1="150" x2="285" y2="215" stroke="#2563eb" strokeWidth="3"/><circle cx="295" cy="85" r="6" fill="#2563eb"/><circle cx="295" cy="215" r="6" fill="#2563eb"/><line x1="305" y1="85" x2="500" y2="50" stroke="#16a34a" strokeWidth="3"/><line x1="305" y1="85" x2="500" y2="120" stroke="#16a34a" strokeWidth="3"/><line x1="305" y1="215" x2="500" y2="180" stroke="#16a34a" strokeWidth="3"/><line x1="305" y1="215" x2="500" y2="250" stroke="#16a34a" strokeWidth="3"/><text x="190" y="95">P(A)</text><text x="190" y="210">P(A̅)</text><text x="400" y="55">P_A(B)</text><text x="400" y="130">P_A(B̅)</text><text x="400" y="185">P_A̅(B)</text><text x="400" y="260">P_A̅(B̅)</text></svg>
+  <figcaption>Les pondérations du second niveau sont des probabilités conditionnelles.</figcaption>
 </figure>
 
 ## Algorithmique en Python
 
-### Simuler des lancers de pièce
+### Observer la stabilisation d'une fréquence
 
 ```python
 from random import random
 
 def frequence_pile(n):
     piles = 0
-    for k in range(n):
+    for _ in range(n):
         if random() < 0.5:
-            piles = piles + 1
+            piles += 1
     return piles / n
 
-print(frequence_pile(10000))
+for n in [10, 100, 1000, 10000]:
+    print(n, frequence_pile(n))
 ```
 
-Quand le nombre de répétitions augmente, la fréquence observée se rapproche souvent de 0,5.
+La simulation ne démontre pas que la probabilité vaut `0,5` ; elle permet d'observer la stabilisation des fréquences lorsque ce modèle est choisi.
 
 ## Erreurs fréquentes
 
-- Confondre P(A sachant B) et P(B sachant A).
-- Additionner les branches d'un même chemin au lieu de les multiplier.
+- Confondre `P_A(B)` et `P_B(A)`.
 - Présenter l'équiprobabilité comme une certitude démontrée plutôt que comme une hypothèse de modèle.
+- Additionner les branches d'un même chemin au lieu de les multiplier.
+- Calculer une fréquence conditionnelle avec le mauvais ensemble de référence.
+- Utiliser par anticipation une formule des probabilités totales comme si elle était exigible en seconde.
 
 ## Formules et idées à retenir
 
-- PA(B) : probabilité de B sachant A.
-- P(chemin) = produit des probabilités des branches du chemin.
-- P(A)=Card(A)/Card(Ω) en équiprobabilité.
+- en équiprobabilité : `P(A)=Card(A)/Card(Ω)` ;
+- `P_A(B)=Card(A∩B)/Card(A)` dans une population finie équiprobable ;
+- probabilité d'un chemin = produit des pondérations de ses branches ;
+- toujours traduire « sachant » en mots avant de choisir le dénominateur.
 
 ## Synthèse
 
-Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.
+Les probabilités de seconde 2026 font le lien entre données réelles, fréquences conditionnelles et modèle probabiliste. Les arbres et les tableaux servent à représenter le conditionnement ; l'enjeu majeur est de comprendre ce qui est connu, de ne pas inverser les conditions et de distinguer observation statistique et hypothèse probabiliste.

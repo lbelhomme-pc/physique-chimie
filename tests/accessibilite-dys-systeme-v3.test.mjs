@@ -7,7 +7,18 @@ const root = process.cwd();
 const panelSource = readFileSync(join(root, "src/components/accessibility/AccessibilityPanel.tsx"), "utf8");
 const guideSource = readFileSync(join(root, "src/components/accessibility/ReadingGuide.tsx"), "utf8");
 const engineSource = readFileSync(join(root, "src/data/accessibility/a11y-engine.ts"), "utf8");
-const designSystemSource = readFileSync(join(root, "src/styles/design-system.css"), "utf8");
+const designSystemSource = [
+  "design-system.css",
+  "tokens-v3.css",
+  "theme.css",
+  "core.css",
+  "components.css",
+  "course-content.css",
+  "utilities.css",
+  "reference-v3.css",
+]
+  .map((file) => readFileSync(join(root, "src/styles", file), "utf8"))
+  .join("\n");
 
 describe("Accessibilite et DYS systeme V3", () => {
   it("preserve la cle locale et les classes existantes des preferences", () => {

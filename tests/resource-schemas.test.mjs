@@ -4,6 +4,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
+const c19Mapping = readJson("src/data/mathematiques/programmes/cycle4-5e-2026.mapping.json");
+const c19StagedChapters = new Set(c19Mapping.chapters ?? []);
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(path.join(root, file), "utf8"));
@@ -31,6 +33,20 @@ function listChapterDirs(rootDir) {
 
 function asArray(raw, key) {
   return Array.isArray(raw) ? raw : raw[key] ?? [];
+}
+
+function isC19StagedMath5e(dir) {
+  if (!dir.startsWith("src/data/mathematiques/chapters/college/5eme/")) return false;
+  const meta = readJson(`${dir}/meta.json`);
+  return (
+    c19Mapping.mission === "C19" &&
+    c19Mapping.c19Contract?.publicLevelStatus === "planned" &&
+    c19Mapping.c19Contract?.quiz === false &&
+    c19Mapping.c19Contract?.flashcards === false &&
+    meta.niveau === "5eme" &&
+    meta.seo?.noindex === true &&
+    c19StagedChapters.has(meta.slug)
+  );
 }
 
 test("all chapter resource families keep their required schema files", () => {
@@ -63,10 +79,16 @@ test("quiz, flashcard and exercise ids are unique inside each chapter", () => {
     const quiz = asArray(readJson(`${dir}/quiz.json`), "questions");
     const cards = asArray(readJson(`${dir}/flashcards.json`), "cards");
     const exercices = asArray(readJson(`${dir}/exercices.json`), "exercices");
+    const stagedC19 = isC19StagedMath5e(dir);
 
     for (const [kind, items] of [["quiz", quiz], ["flashcards", cards], ["exercices", exercices]]) {
       assert.ok(Array.isArray(items), `${dir}: ${kind} array`);
-      assert.ok(items.length > 0, `${dir}: ${kind} not empty`);
+      const deferredByC19 = stagedC19 && (kind === "quiz" || kind === "flashcards");
+      if (deferredByC19) {
+        assert.equal(items.length, 0, `${dir}: ${kind} must remain deferred to C20`);
+      } else {
+        assert.ok(items.length > 0, `${dir}: ${kind} not empty`);
+      }
       const ids = items.map((item) => item.id);
       assert.equal(new Set(ids).size, ids.length, `${dir}: duplicated ${kind} ids`);
       assert.ok(ids.every((id) => typeof id === "string" && id.trim()), `${dir}: valid ${kind} ids`);

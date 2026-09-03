@@ -9,14 +9,16 @@ import {
 
 test("content contract validates every existing chapter without blocking publication", () => {
   const audit = auditContentContracts(process.cwd());
-  assert.equal(audit.summary.chapters, 112);
+  // C19 added 13 Mathematics 5e packages; C21-C22 add 12 Première specialty packages;
+  // C23 adds 5 Première integrated-mathematics packages; C24 adds 13 Mathematics 6e packages.
   assert.equal(audit.summary.pcChapters, 101);
-  assert.equal(audit.summary.mathChapters, 11);
+  assert.equal(audit.summary.mathChapters, 54);
+  assert.equal(audit.summary.chapters, audit.summary.pcChapters + audit.summary.mathChapters);
   assert.equal(audit.summary.bloquants, 0);
   assert.equal(audit.errors.length, 0);
-  assert.deepEqual(audit.summary.exerciseFormats, { "array-root": 101, exercices: 11 });
-  assert.deepEqual(audit.summary.quizFormats, { "array-root": 101, questions: 11 });
-  assert.deepEqual(audit.summary.flashcardFormats, { "array-root": 101, cards: 11 });
+  assert.deepEqual(audit.summary.exerciseFormats, { "array-root": 101, exercices: 54 });
+  assert.deepEqual(audit.summary.quizFormats, { "array-root": 101, questions: 54 });
+  assert.deepEqual(audit.summary.flashcardFormats, { "array-root": 101, cards: 54 });
 });
 
 test("invalid content contract messages include file and field", () => {
@@ -30,6 +32,8 @@ test("invalid content contract messages include file and field", () => {
     meta: {
       description: "Description sans titre.",
       theme: "Organisation et transformations de la matière",
+      programme: "bo-cycle4-physique-chimie-2020",
+      sources: [{ id: "bo-cycle4-physique-chimie-2020", label: "Programme officiel cycle 4", kind: "official" }],
       seo: { canonical: "/college/4eme/chimie/exemple" },
     },
     coursePath: "src/data/chapters/college/4eme/chimie/exemple/cours.mdx",
@@ -56,11 +60,12 @@ test("valid V3 fixture exposes access, lessons, blocks, links, sources and compe
       title: "Circuits electriques",
       description: "Comprendre un circuit simple.",
       theme: "Energie et circuits",
+      programme: "bo-cycle4-physique-chimie-2020",
       objectives: ["Identifier les dipoles"],
       prerequisites: ["Savoir lire un schema simple"],
       competencies: ["Representer", "Raisonner"],
       access: { tier: "free", preview: true },
-      sources: [{ id: "bo-cycle-4", label: "Programme officiel cycle 4", kind: "official" }],
+      sources: [{ id: "bo-cycle4-physique-chimie-2020", label: "Programme officiel cycle 4", kind: "official" }],
       links: [{ label: "Laboratoire Loi d'Ohm", href: "/laboratoire/loi-ohm", kind: "laboratory" }],
       lessons: [
         {
@@ -129,6 +134,8 @@ test("invalid V3 fixture rejects unmarked HTML and inaccessible visual blocks", 
       title: "Circuits invalides",
       description: "Fixture invalide.",
       theme: "Energie et circuits",
+      programme: "bo-cycle4-physique-chimie-2020",
+      sources: [{ id: "bo-cycle4-physique-chimie-2020", label: "Programme officiel cycle 4", kind: "official" }],
       objectives: ["Verifier le schema"],
       prerequisites: ["Aucun"],
       competencies: ["Observer"],

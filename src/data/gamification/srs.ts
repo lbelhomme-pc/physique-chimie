@@ -120,7 +120,7 @@ export class SRSEngine {
   review(chapterId: string, cardId: string, rating: SRSRating): ReviewResult {
     const canonicalChapterId = this.canonicalChapterId(chapterId);
     const k = this.key(canonicalChapterId, cardId);
-    let state = this.cards.get(k) ?? this.createNewCard(canonicalChapterId, cardId);
+    const state = this.cards.get(k) ?? this.createNewCard(canonicalChapterId, cardId);
     const previousInterval = state.interval;
 
     const todayStr = today();

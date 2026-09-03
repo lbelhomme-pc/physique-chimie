@@ -9,7 +9,7 @@ export interface PublicMenuSection {
   title: string;
   href: string;
   tone: PublicMenuTone;
-  discipline: "mathematiques" | "physique-chimie" | "enseignement-scientifique" | "transversal";
+  discipline: "mathematiques" | "physique-chimie" | "transversal";
   links: readonly PublicMenuLink[];
 }
 
@@ -27,26 +27,13 @@ export const publicMenuSections = [
   },
   {
     title: "Physique-Chimie",
-    href: "/college",
+    href: "/physique-chimie",
     tone: "pc",
     discipline: "physique-chimie",
     links: [
       { label: "Collège", href: "/college" },
       { label: "Lycée", href: "/lycee" },
       { label: "Méthodes", href: "/outils-methodes" },
-      { label: "Outils", href: "/outils-methodes/kit-scientifique" },
-    ],
-  },
-  {
-    title: "Enseignement scientifique",
-    href: "/lycee/1ere-ens-scientifique",
-    tone: "science",
-    discipline: "enseignement-scientifique",
-    links: [
-      { label: "Première", href: "/lycee/1ere-ens-scientifique" },
-      { label: "Terminale", href: "/lycee/terminale-ens-scientifique" },
-      { label: "Méthodes", href: "/outils-methodes/lycee" },
-      { label: "Outils", href: "/outils-methodes/kit-scientifique" },
     ],
   },
   {

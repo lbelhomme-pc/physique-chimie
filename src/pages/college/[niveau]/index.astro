@@ -7,6 +7,7 @@ import type { CatalogueChapterItem } from "../../../components/catalogue/types";
 import Breadcrumb from "../../../components/ui/Breadcrumb.astro";
 import { disciplineIdentities } from "../../../data/disciplineIdentity";
 import { collegeLevels, getLevelLabel } from "../../../data/levels";
+import { getPhysicalScienceExplicitChapterPath, type PhysicalScienceSubject } from "../../../data/contentRoutes";
 
 export function getStaticPaths() {
   return collegeLevels.map((level) => ({ params: { niveau: level.slug } }));
@@ -15,6 +16,17 @@ export function getStaticPaths() {
 const { niveau } = Astro.params;
 const niveauLabel = getLevelLabel(niveau!);
 const pcIdentity = disciplineIdentities["physique-chimie"];
+const isSixiemeSciencesTechnologie = niveau === "6eme";
+const pageTitle = isSixiemeSciencesTechnologie
+  ? "Sciences et technologie 6e — Physique-Chimie"
+  : `${niveauLabel} — Collège — Physique-Chimie`;
+const pageDescription = isSixiemeSciencesTechnologie
+  ? "Ressources du parcours Physique-Chimie en Sciences et technologie de 6e, thème Matière, mouvement, énergie, information du programme de cycle 3 applicable en 2026-2027."
+  : `Catalogue des chapitres de physique-chimie pour le niveau ${niveauLabel} au collège.`;
+const heroTitle = isSixiemeSciencesTechnologie ? "Sciences et technologie — 6e" : `${niveauLabel} au collège`;
+const heroDescription = isSixiemeSciencesTechnologie
+  ? "Parcours Physique-Chimie : les ressources publiées couvrent les notions de matière, mouvement, énergie et information du programme de Sciences et technologie du cycle 3. Elles ne constituent pas à elles seules l’intégralité du programme interdisciplinaire."
+  : "Les chapitres sont classés par matière et dans l’ordre du programme, avec les cours et les activités disponibles.";
 
 const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
 
@@ -30,7 +42,7 @@ for (const [path, mod] of Object.entries(allMeta)) {
     const data = (mod as any).default ?? mod;
     chapters.push({
       title: data.title ?? slug,
-      href: `/college/${niveau}/${matiere}/${slug}`,
+      href: getPhysicalScienceExplicitChapterPath("college", niveau!, matiere as PhysicalScienceSubject, slug),
       matiere,
       order: data.order ?? 99,
       description: data.description ?? "",
@@ -45,15 +57,15 @@ const total = chapters.length;
 ---
 
 <BaseLayout
-  title={`${niveauLabel} — Collège — Physique-Chimie`}
-  description={`Catalogue des chapitres de physique-chimie pour le niveau ${niveauLabel} au collège.`}
+  title={pageTitle}
+  description={pageDescription}
 >
   <main class="catalogue-page">
     <Breadcrumb
       items={[
         { label: "Accueil", href: "/" },
         { label: "Collège", href: "/college" },
-        { label: niveauLabel },
+        { label: isSixiemeSciencesTechnologie ? "6e — Sciences et technologie" : niveauLabel },
       ]}
     />
 
@@ -71,11 +83,11 @@ const total = chapters.length;
 
     <V3LandingHero
       tone="pc"
-      eyebrow={pcIdentity.label}
+      eyebrow={isSixiemeSciencesTechnologie ? `${pcIdentity.label} · Cycle 3` : pcIdentity.label}
       mark={pcIdentity.mark}
       markLabel={pcIdentity.iconLabel}
-      title={`${niveauLabel} au collège`}
-      description="Les chapitres sont classés par matière et dans l’ordre du programme, avec les cours et les activités disponibles."
+      title={heroTitle}
+      description={heroDescription}
       actions={total > 0
         ? [
             { label: "Voir les chapitres", href: "#catalogue-tous" },
@@ -90,7 +102,9 @@ const total = chapters.length;
         { value: chimie.length, label: "chimie" },
         { value: physique.length, label: "physique" },
       ]}
-      imageAlt={`Espace de travail de physique-chimie pour le niveau ${niveauLabel}.`}
+      imageAlt={isSixiemeSciencesTechnologie
+        ? "Espace de travail du parcours Physique-Chimie en Sciences et technologie pour la 6e."
+        : `Espace de travail de physique-chimie pour le niveau ${niveauLabel}.`}
       contained
     />
 

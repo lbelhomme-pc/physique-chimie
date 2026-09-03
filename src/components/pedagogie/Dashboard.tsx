@@ -19,8 +19,16 @@ type DashboardItem = {
   percent: number;
 };
 
+type DashboardSubjectFilter = "all" | "mathematiques" | "physique-chimie";
+
+const dashboardSubjects: Array<{ id: DashboardSubjectFilter; label: string }> = [
+  { id: "all", label: "Toutes" },
+  { id: "mathematiques", label: "Mathématiques" },
+  { id: "physique-chimie", label: "Physique-Chimie" },
+];
+
 const quickActions = [
-  { label: "Exercices", href: "/college", detail: "S'entrainer" },
+  { label: "Cours et exercices", href: "__subject__", detail: "Choisir dans la discipline" },
   { label: "Quiz", href: "/memorisation/mega-quiz", detail: "Tester" },
   { label: "Flashcards", href: "/memorisation/mega-flashcards", detail: "Reviser" },
   { label: "Laboratoire", href: "/laboratoire", detail: "Simuler" },
@@ -29,8 +37,8 @@ const quickActions = [
 
 const navItems = [
   { label: "Accueil", href: "/" },
-  { label: "Cours", href: "/college" },
-  { label: "Exercices", href: "/college#exercices" },
+  { label: "Cours", href: "__subject__" },
+  { label: "Exercices", href: "__subject__" },
   { label: "Quiz", href: "/memorisation/mega-quiz" },
   { label: "Flashcards", href: "/memorisation/mega-flashcards" },
   { label: "Laboratoire", href: "/laboratoire" },
@@ -88,6 +96,7 @@ export default function Dashboard({ resources }: Props) {
   const [engine] = useState(() => getGamificationEngine());
   const [srs] = useState(() => getSRSEngine());
   const [lastChapter, setLastChapter] = useState<LastChapter | null>(null);
+  const [subjectFilter, setSubjectFilter] = useState<DashboardSubjectFilter>("all");
   const [, forceUpdate] = useState(0);
 
   useEffect(() => {
@@ -113,12 +122,19 @@ export default function Dashboard({ resources }: Props) {
     physiqueChimie: subjectPercent(resources, "physique-chimie", engine),
   };
 
-  const progressItems = useMemo(() => resources
+  const visibleResources = useMemo(
+    () => subjectFilter === "all" ? resources : resources.filter((resource) => resource.subject === subjectFilter),
+    [resources, subjectFilter],
+  );
+  const visibleLastChapter = lastChapter && visibleResources.some(
+    (resource) => lastChapter.path === resource.path || lastChapter.path.startsWith(`${resource.path}#`),
+  ) ? lastChapter : null;
+  const progressItems = useMemo(() => visibleResources
     .map((resource) => ({ resource, percent: engine.getChapterProgress(resource.id).percent }))
     .filter((item) => item.percent > 0)
-    .sort((a, b) => b.percent - a.percent || a.resource.title.localeCompare(b.resource.title)), [engine, resources]);
+    .sort((a, b) => b.percent - a.percent || a.resource.title.localeCompare(b.resource.title)), [engine, visibleResources]);
 
-  const priorityItem = getPriorityItem(resources, progressItems, lastChapter);
+  const priorityItem = getPriorityItem(visibleResources, progressItems, visibleLastChapter);
   const completedCount = progressItems.filter((item) => item.percent >= 100).length;
   const successfulQuizRate = stats.totalQuizCompleted > 0
     ? Math.round((stats.totalQuizPerfect / stats.totalQuizCompleted) * 100)
@@ -127,29 +143,30 @@ export default function Dashboard({ resources }: Props) {
   const reviewItems = dueByChapter
     .map((entry) => ({
       count: entry.count,
-      resource: resources.find((resource) => resource.id === entry.chapterId),
+      resource: visibleResources.find((resource) => resource.id === entry.chapterId),
     }))
     .filter((item): item is { count: number; resource: GlobalSearchResource } => Boolean(item.resource))
     .slice(0, 3);
 
   const historyItems = progressItems.slice(0, 6);
-  const hasLocalActivity = progressItems.length > 0 || xp > 0 || globalDue > 0 || Boolean(lastChapter);
-  const priorityHref = lastChapter?.path ?? priorityItem?.resource.path ?? "/college";
-  const priorityTitle = lastChapter?.title ?? priorityItem?.resource.title ?? "Choisir un chapitre";
+  const hasLocalActivity = progressItems.length > 0 || xp > 0 || globalDue > 0 || Boolean(visibleLastChapter);
+  const subjectRoot = subjectFilter === "mathematiques" ? "/mathematiques" : subjectFilter === "physique-chimie" ? "/physique-chimie" : "/";
+  const priorityHref = visibleLastChapter?.path ?? priorityItem?.resource.path ?? subjectRoot;
+  const priorityTitle = visibleLastChapter?.title ?? priorityItem?.resource.title ?? "Choisir un chapitre";
   const priorityMeta = priorityItem ? formatResourceMeta(priorityItem.resource) : "Aucune activite locale detectee";
 
   return (
     <section className="dashboard-v3" aria-labelledby="dashboard-v3-title">
       <aside className="dashboard-v3__sidebar" aria-label="Navigation de l'espace local">
         <a className="dashboard-v3__brand" href="/">
-          <span aria-hidden="true">PC</span>
+          <span aria-hidden="true">R</span>
           <strong>Tableau local</strong>
           <small>Sans compte serveur</small>
         </a>
 
         <nav className="dashboard-v3__nav">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} aria-current={item.href === "/" ? "page" : undefined}>
+            <a key={`${item.label}-${item.href}`} href={item.href === "__subject__" ? subjectRoot : item.href} aria-current={item.href === "/" ? "page" : undefined}>
               {item.label}
             </a>
           ))}
@@ -172,6 +189,20 @@ export default function Dashboard({ resources }: Props) {
           <a href="/profil" className="dashboard-v3__profile-link">Profil local</a>
         </header>
 
+        <div data-dashboard-subject-filter="true" aria-label="Filtrer le tableau de bord par discipline" style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+          {dashboardSubjects.map((subject) => (
+            <button
+              type="button"
+              key={subject.id}
+              aria-pressed={subjectFilter === subject.id}
+              onClick={() => setSubjectFilter(subject.id)}
+              style={{ border: "1px solid var(--v3-color-border)", borderRadius: "999px", padding: "0.45rem 0.75rem", cursor: "pointer", fontWeight: 800, background: subjectFilter === subject.id ? "var(--v3-color-primary)" : "var(--v3-color-surface)", color: subjectFilter === subject.id ? "#fff" : "var(--v3-color-text)" }}
+            >
+              {subject.label}
+            </button>
+          ))}
+        </div>
+
         <div className="dashboard-v3__hero-grid" aria-label="Resume de progression">
           <article className="dashboard-v3__priority">
             <span className="dashboard-v3__label">A faire maintenant</span>
@@ -192,8 +223,8 @@ export default function Dashboard({ resources }: Props) {
 
           <article className="dashboard-v3__metric">
             <span>Chapitres termines</span>
-            <strong>{completedCount} / {resources.length}</strong>
-            <small>{resources.length > 0 ? `${Math.round((completedCount / resources.length) * 100)}% du catalogue` : "Catalogue vide"}</small>
+            <strong>{completedCount} / {visibleResources.length}</strong>
+            <small>{visibleResources.length > 0 ? `${Math.round((completedCount / visibleResources.length) * 100)}% du catalogue affiché` : "Catalogue vide"}</small>
           </article>
 
           <article className="dashboard-v3__metric">
@@ -280,7 +311,7 @@ export default function Dashboard({ resources }: Props) {
           <h3 id="dashboard-quick-title">Poursuivre autrement</h3>
           <div>
             {quickActions.map((action) => (
-              <a key={action.href} href={action.href}>
+              <a key={`${action.label}-${action.href}`} href={action.href === "__subject__" ? subjectRoot : action.href}>
                 <strong>{action.label}</strong>
                 <span>{action.detail}</span>
               </a>

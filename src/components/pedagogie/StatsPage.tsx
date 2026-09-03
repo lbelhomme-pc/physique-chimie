@@ -1,7 +1,7 @@
 // src/components/pedagogie/StatsPage.tsx
 // Page de statistiques détaillées
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { getGamificationEngine } from "../../data/gamification/engine";
 import { RANKS } from "../../data/gamification/config";
 
@@ -31,9 +31,6 @@ export default function StatsPage() {
   const streak = engine.getStreak();
   const stats = engine.getStats();
   const badges = engine.getBadges();
-
-  // Rangs traversés
-  const ranksAchieved = RANKS.filter(r => xp >= r.xpRequired);
 
   return (
     <div style={{ maxWidth: 800, margin: "0 auto" }}>

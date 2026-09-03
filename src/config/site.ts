@@ -139,14 +139,14 @@ export interface PageJsonLdInput {
 }
 
 const SUBJECT_LABELS: Record<string, string> = {
-  mathematiques: "MathÃ©matiques",
+  mathematiques: "Mathématiques",
   "physique-chimie": "Physique-Chimie",
   "enseignement-scientifique": "Enseignement scientifique",
 };
 
 const CYCLE_LABELS: Record<string, string> = {
-  college: "CollÃ¨ge",
-  lycee: "LycÃ©e",
+  college: "Collège",
+  lycee: "Lycée",
 };
 
 const RESOURCE_TYPE_LABELS: Record<string, string> = {
@@ -178,7 +178,7 @@ function educationalLevel(cycle?: string, level?: string): string {
   if (cycleLabel && levelLabel) return `${cycleLabel} - ${levelLabel}`;
   if (cycleLabel) return cycleLabel;
   if (levelLabel) return levelLabel;
-  return "CollÃ¨ge / LycÃ©e";
+  return "Collège / Lycée";
 }
 
 function subjectNode(subject?: string): JsonLdObject | undefined {
