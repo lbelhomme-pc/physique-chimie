@@ -65,9 +65,9 @@ export const mathematicsLyceeLevels: MathematicsLevel[] = [
     shortLabel: "1re générale",
     cycle: "lycee",
     path: "/mathematiques/lycee/1ere-generale",
-    description: "Espace lycée à compléter progressivement.",
+    description: "Mathématiques intégrées à l’enseignement scientifique : cours, exercices N1 à N3, quiz et flashcards conformes au programme officiel 2026.",
     enabled: true,
-    status: "planned",
+    status: "available",
     order: 2,
   },
   {
