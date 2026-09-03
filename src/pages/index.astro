@@ -30,7 +30,6 @@ for (const [path, mod] of Object.entries(allMeta)) {
     title: data.title ?? slug,
     description: data.description,
     path: getPhysicalScienceExplicitChapterPath(cycle, niveau, matiere as "physique" | "chimie", slug),
-    slug,
     keywords: data.keywords ?? data.tags ?? [],
     cycle,
     levelLabel: getLevelDisplayLabel(niveau),
@@ -38,7 +37,7 @@ for (const [path, mod] of Object.entries(allMeta)) {
     subjectLabel: isScientificEducation ? "Physique-Chimie — Enseignement scientifique" : "Physique-Chimie",
     matiereLabel,
     resourceType: "chapter",
-    accessTier: data.access?.tier ?? "free",
+    ...(data.access?.tier && data.access.tier !== "free" ? { accessTier: data.access.tier } : {}),
   });
 }
 
@@ -61,14 +60,12 @@ for (const chapter of publishedMathChapters) {
     title: chapter.title,
     description: chapter.description,
     path: chapter.path,
-    slug: chapter.slug,
     keywords: chapter.tags ?? [],
     cycle: chapter.cycle,
     levelLabel: getLevelDisplayLabel(chapter.niveau),
     subject: "mathematiques",
     subjectLabel: "Mathématiques",
     resourceType: "chapter",
-    accessTier: "free",
   });
 }
 
