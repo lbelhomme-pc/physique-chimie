@@ -103,6 +103,23 @@ describe("Recherche globale V3", () => {
     );
   });
 
+  it("garde les valeurs par defaut de slug et d acces avec un payload compact", () => {
+    const compactResource = {
+      id: "mathematiques:lycee:1ere-generale:variation-exponentielle",
+      title: "Variation exponentielle",
+      description: "Suites geometriques et fonctions exponentielles.",
+      path: "/mathematiques/lycee/1ere-generale/variation-exponentielle",
+      subject: "mathematiques",
+      subjectLabel: "Mathematiques",
+      cycle: "lycee",
+      levelLabel: "Premiere generale",
+      resourceType: "chapter",
+      keywords: ["exponentielle"],
+    };
+    assert.equal(searchResources([compactResource], { query: "variation-exponentielle" })[0].id, compactResource.id);
+    assert.equal(searchResources([compactResource], { query: "exponentielle", accessTier: "free" })[0].id, compactResource.id);
+  });
+
   it("expose une combobox accessible avec seulement deux disciplines publiques", () => {
     assert.match(componentSource, /role="combobox"/);
     assert.match(componentSource, /aria-controls="global-search-results"/);
@@ -124,7 +141,9 @@ describe("Recherche globale V3", () => {
 
   it("indexe les slugs et les niveaux en rattachant ES a Physique-Chimie", () => {
     assert.match(homeSource, /slug,/);
-    assert.match(homeSource, /accessTier: data\.access\?\.tier \?\? "free"/);
+    assert.match(homeSource, /data\.access\?\.tier && data\.access\.tier !== "free"/);
+    assert.match(homeSource, /\{ accessTier: data\.access\.tier \}/);
+    assert.doesNotMatch(homeSource, /accessTier:\s*"free"/);
     assert.match(homeSource, /niveau\.includes\("ens-scientifique"\)/);
     assert.match(homeSource, /subject: "physique-chimie"/);
     assert.match(homeSource, /Physique-Chimie — Enseignement scientifique/);
