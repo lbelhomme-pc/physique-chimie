@@ -1,0 +1,47 @@
+{
+  "mission": "C24",
+  "status": "staged",
+  "source": {
+    "id": "bo-cycle3-mathematiques-2025",
+    "label": "Programme de mathématiques du cycle 3 — 2025",
+    "bo": "BO n° 16 du 17 avril 2025",
+    "nor": "MENE2504620A",
+    "publishedOn": "2025-04-17",
+    "application6e": "Rentrée scolaire 2025-2026",
+    "url": "https://www.education.gouv.fr/bo/2025/Hebdo16/MENE2504620A"
+  },
+  "c24Contract": {
+    "coverage": "complete-6e",
+    "chapterCount": 13,
+    "exerciseLevels": ["N1", "N2", "N3"],
+    "exerciseCount": 78,
+    "quizCount": 65,
+    "flashcardCount": 78,
+    "publicLevelStatus": "planned",
+    "indexation": "noindex-until-staged-ci-green"
+  },
+  "chapters": [
+    {"slug":"nombres-entiers-decimaux","order":1,"block":"Nombres entiers et décimaux"},
+    {"slug":"fractions","order":2,"block":"Fractions"},
+    {"slug":"algebre","order":3,"block":"Algèbre"},
+    {"slug":"longueurs","order":4,"block":"Longueurs"},
+    {"slug":"aires","order":5,"block":"Aires"},
+    {"slug":"volumes","order":6,"block":"Volumes"},
+    {"slug":"temps-durees","order":7,"block":"Temps et durées"},
+    {"slug":"proportionnalite","order":8,"block":"Proportionnalité"},
+    {"slug":"donnees","order":9,"block":"Organisation et représentation de données"},
+    {"slug":"probabilites","order":10,"block":"Probabilités"},
+    {"slug":"configurations-planes","order":11,"block":"Configurations planes"},
+    {"slug":"vision-espace","order":12,"block":"Vision dans l’espace"},
+    {"slug":"pensee-informatique","order":13,"block":"Pensée informatique"}
+  ],
+  "publication": {
+    "stagedRoutesExpected": 0,
+    "activationRoutesExpected": 14,
+    "activationRule": "Publier le niveau et les 13 chapitres dans une bascule atomique après un triplet CI staged vert."
+  },
+  "deferredAfterC24": [
+    {"mission":"C30","scope":"Moteur général de figures LaTeX/TikZ/PGFPlots."},
+    {"mission":"C31","scope":"Migration systématique des figures statiques de mathématiques vers LaTeX/TikZ/PGFPlots."}
+  ]
+}
