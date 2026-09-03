@@ -10,15 +10,15 @@ import {
 test("content contract validates every existing chapter without blocking publication", () => {
   const audit = auditContentContracts(process.cwd());
   // C19 added 13 Mathematics 5e packages; C21-C22 add 12 Première specialty packages;
-  // C23 adds 5 Première integrated-mathematics packages.
+  // C23 adds 5 Première integrated-mathematics packages; C24 adds 13 Mathematics 6e packages.
   assert.equal(audit.summary.pcChapters, 101);
-  assert.equal(audit.summary.mathChapters, 41);
+  assert.equal(audit.summary.mathChapters, 54);
   assert.equal(audit.summary.chapters, audit.summary.pcChapters + audit.summary.mathChapters);
   assert.equal(audit.summary.bloquants, 0);
   assert.equal(audit.errors.length, 0);
-  assert.deepEqual(audit.summary.exerciseFormats, { "array-root": 101, exercices: 41 });
-  assert.deepEqual(audit.summary.quizFormats, { "array-root": 101, questions: 41 });
-  assert.deepEqual(audit.summary.flashcardFormats, { "array-root": 101, cards: 41 });
+  assert.deepEqual(audit.summary.exerciseFormats, { "array-root": 101, exercices: 54 });
+  assert.deepEqual(audit.summary.quizFormats, { "array-root": 101, questions: 54 });
+  assert.deepEqual(audit.summary.flashcardFormats, { "array-root": 101, cards: 54 });
 });
 
 test("invalid content contract messages include file and field", () => {
