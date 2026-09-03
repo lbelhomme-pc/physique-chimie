@@ -85,6 +85,18 @@ export const CURRICULUM_VERSIONS: readonly CurriculumVersionDefinition[] = [
     applicationByLevel: { "6eme": window("2027-2028") },
   },
   {
+    id: "mathematiques-cycle3-6e-2025",
+    discipline: "mathematiques",
+    cycle: "college",
+    track: "mathematiques",
+    niveaux: ["6eme"],
+    officialSourceIds: ["bo-cycle3-mathematiques-2025"],
+    label: "Mathématiques — sixième — programme 2025",
+    publishedOn: "2025-04-17",
+    officialUrl: "https://www.education.gouv.fr/bo/2025/Hebdo16/MENE2504620A",
+    applicationByLevel: { "6eme": window("2025-2026") },
+  },
+  {
     id: "physique-chimie-cycle4-2020",
     discipline: "physique-chimie",
     cycle: "college",
