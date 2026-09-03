@@ -203,12 +203,18 @@ export const CURRICULUM_VERSIONS: readonly CurriculumVersionDefinition[] = [
     discipline: "mathematiques",
     cycle: "lycee",
     track: "mathematiques-integrees-es",
-    niveaux: ["1ere-ens-scientifique"],
-    officialSourceIds: ["bo-2026-mathematiques-integrees-es-premiere"],
+    niveaux: ["1ere-ens-scientifique", "1ere-generale"],
+    officialSourceIds: [
+      "bo-2026-mathematiques-integrees-es-premiere",
+      "bo-2026-mathematiques-premiere-es-integrees",
+    ],
     label: "Mathématiques intégrées à l'enseignement scientifique — première — programme 2026",
     publishedOn: "2026-04-02",
     officialUrl: "https://www.education.gouv.fr/bo/2026/Hebdo14/MENE2602916A",
-    applicationByLevel: { "1ere-ens-scientifique": window("2026-2027") },
+    applicationByLevel: {
+      "1ere-ens-scientifique": window("2026-2027"),
+      "1ere-generale": window("2026-2027"),
+    },
   },
   {
     id: "mathematiques-terminale-specialite-2019",
