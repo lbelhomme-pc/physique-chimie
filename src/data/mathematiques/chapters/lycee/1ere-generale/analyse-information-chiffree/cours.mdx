@@ -1,0 +1,70 @@
+## Objectifs
+
+- Analyser des données réelles portant sur deux caractères.
+- Passer d’un tableau de données à une représentation pertinente.
+- Utiliser un ajustement affine pour estimer une valeur et discuter la validité de cette estimation.
+
+## Prérequis
+
+Proportions, pourcentages, indicateurs de statistique à une variable, lecture de graphiques et fonctions affines de seconde.
+
+## Situation de départ
+
+Deux grandeurs peuvent évoluer ensemble sans que l’une soit nécessairement la cause de l’autre. Température et niveau marin, âge et indicateur de santé, revenu et dépense : les données permettent d’observer une relation, mais leur lecture doit rester critique.
+
+## Cours
+
+### Deux caractères qualitatifs
+
+Lorsque deux caractères sont qualitatifs, on peut organiser les effectifs dans un **tableau croisé**. Chaque case correspond à une combinaison de modalités. Les totaux de lignes et de colonnes permettent de calculer des proportions ou fréquences conditionnelles. Il faut souvent comparer des proportions plutôt que des effectifs bruts lorsque les groupes n’ont pas la même taille.
+
+### Deux caractères quantitatifs
+
+Pour des couples $(x_i,y_i)$, une représentation naturelle est le **nuage de points**. Il permet d’observer une tendance globale, la dispersion et d’éventuels points atypiques.
+
+Le **point moyen** $G(\bar x,\bar y)$ vérifie
+$$
+\bar x=\frac{x_1+\cdots+x_n}{n},\qquad \bar y=\frac{y_1+\cdots+y_n}{n}.
+$$
+
+### Ajustement affine
+
+Quand le nuage présente une tendance approximativement rectiligne, on peut choisir une droite d’ajustement $y=ax+b$. Elle constitue un **modèle**. Elle peut être obtenue au jugé, par la droite de Mayer ou avec un outil numérique utilisant les moindres carrés. Aucune connaissance théorique sur les moindres carrés n’est exigée.
+
+Une estimation entre deux valeurs observées est une **interpolation**. Une estimation au-delà de la zone observée est une **extrapolation** : elle est plus fragile, car rien ne garantit que la tendance se poursuive.
+
+### Corrélation et causalité
+
+Une relation visible entre deux grandeurs ne prouve pas qu’une grandeur provoque l’autre. Une variable cachée, une sélection des données ou le hasard peuvent expliquer une association.
+
+## Exemple guidé
+
+Pour les couples $(1;2)$, $(2;3)$, $(3;5)$ et $(4;6)$, le point moyen est $G(2{,}5;4)$. Une droite d’ajustement peut ensuite fournir une estimation proche de la zone étudiée, à présenter comme une valeur modélisée et non comme une mesure exacte.
+
+## Méthode
+
+1. Identifier la nature des deux caractères.
+2. Choisir tableau croisé, diagramme ou nuage de points.
+3. Calculer les indicateurs utiles, notamment le point moyen.
+4. Si une tendance affine est plausible, déterminer une droite d’ajustement.
+5. Interpoler ou extrapoler en précisant la portée du modèle.
+6. Revenir au contexte et discuter les limites de l’interprétation.
+
+## Automatismes à entretenir
+
+- Lire axes, unités, échelles et légendes.
+- Calculer une proportion et une proportion conditionnelle.
+- Déterminer le coefficient directeur d’une droite à partir de deux points.
+- Lire ou tracer une droite d’équation $y=ax+b$.
+- Calculer et interpréter une moyenne.
+
+## Erreurs fréquentes
+
+- Comparer des effectifs sans tenir compte de la taille des groupes.
+- Confondre corrélation et causalité.
+- Présenter une extrapolation lointaine comme une prédiction certaine.
+- Oublier les unités ou la période couverte par les données.
+
+## Synthèse
+
+L’analyse bivariée met en relation deux caractères à l’aide de tableaux croisés, de nuages de points et, lorsque c’est pertinent, d’un ajustement affine. Un modèle permet d’estimer, mais il doit toujours être confronté au domaine des données et au contexte.

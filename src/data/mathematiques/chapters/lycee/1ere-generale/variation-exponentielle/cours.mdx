@@ -1,0 +1,70 @@
+## Objectifs
+
+- Reconnaître une croissance ou une décroissance exponentielle.
+- Modéliser une évolution discrète par une suite géométrique positive.
+- Utiliser une fonction $x\mapsto a^x$ pour prolonger le modèle à des temps positifs non entiers.
+- Calculer un taux d’évolution moyen et résoudre un problème de seuil.
+
+## Prérequis
+
+Puissances, pourcentages, coefficient multiplicateur, taux d’évolution, fonctions et suites.
+
+## Situation de départ
+
+Une population qui augmente de $3\,\%$ chaque année ne gagne pas la même quantité chaque année : elle est multipliée par le même coefficient. Une quantité radioactive qui perd une fraction fixe à intervalles réguliers suit de même une décroissance multiplicative.
+
+## Cours
+
+### Évolution discrète : suite géométrique
+
+Une suite $(u_n)$ à termes strictement positifs est géométrique de raison $q>0$ lorsque $u_{n+1}=qu_n$. Avec $u_0$,
+$$
+u_n=u_0q^n.
+$$
+Si $q>1$, la suite est croissante ; si $0<q<1$, elle est décroissante. Un taux d’évolution $t$ correspond au coefficient multiplicateur $q=1+t$.
+
+### Évolution continue : fonction exponentielle
+
+Pour $a>0$ et $x\geq0$, le programme introduit $x\mapsto a^x$ comme prolongement d’une suite géométrique à des exposants positifs non entiers. Les propriétés algébriques sont admises par extension des puissances entières, par exemple $a^{x+y}=a^xa^y$.
+
+Le cas $a>1$ correspond à une croissance ; le cas $0<a<1$ à une décroissance.
+
+### Taux d’évolution moyen
+
+Si une grandeur est multipliée par un coefficient global $C>0$ en $n$ périodes et si l’on cherche un coefficient constant $q$ équivalent à chaque période, alors $q^n=C$. Le taux moyen est $t=q-1$. La calculatrice permet d’obtenir $q=C^{1/n}$.
+
+### Seuils et ordres de grandeur
+
+Pour savoir quand une grandeur dépasse ou devient inférieure à un seuil, on peut utiliser des calculs successifs, une représentation graphique ou un outil numérique. Il n’est pas nécessaire d’introduire de logarithme, qui n’appartient pas à ce programme.
+
+## Exemple guidé
+
+Un capital de 1 000 € augmente de $4\,\%$ par an. Le coefficient multiplicateur est $1{,}04$ et $u_n=1000\times1{,}04^n$. Pour une durée non entière positive $x$, un modèle continu associé peut s’écrire $f(x)=1000\times1{,}04^x$.
+
+## Méthode
+
+1. Repérer si l’évolution est multiplicative.
+2. Convertir le taux en coefficient multiplicateur.
+3. Choisir suite géométrique ou fonction exponentielle selon le caractère discret ou continu.
+4. Calculer, représenter ou utiliser un outil numérique.
+5. Pour un seuil, rechercher le premier rang ou instant convenable et interpréter.
+6. Vérifier que le domaine et la durée rendent le modèle plausible.
+
+## Automatismes à entretenir
+
+- Appliquer un taux d’évolution.
+- Calculer un taux réciproque ou un taux équivalent à plusieurs évolutions.
+- Manipuler les puissances.
+- Lire une croissance ou une décroissance sur un graphique.
+- Estimer un ordre de grandeur.
+
+## Erreurs fréquentes
+
+- Confondre ajout d’un pourcentage et ajout d’une quantité constante.
+- Utiliser $1+t$ avec $t$ exprimé en pourcentage sans conversion décimale.
+- Introduire logarithmes ou exponentielle de base $e$ comme des attendus du module.
+- Extrapoler un modèle exponentiel très loin sans discuter sa validité.
+
+## Synthèse
+
+Une évolution à taux relatif constant est exponentielle : suite géométrique pour un temps discret, fonction $a^x$ pour un temps positif continu. Le modèle permet de calculer des taux moyens, des ordres de grandeur et des seuils tout en gardant un regard critique sur sa validité.
