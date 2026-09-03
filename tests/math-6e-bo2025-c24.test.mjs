@@ -9,6 +9,7 @@ const mapping = JSON.parse(readFileSync(join(root, 'src/data/mathematiques/progr
 const levels = readFileSync(join(root, 'src/data/mathematiques/levels.ts'), 'utf8');
 const routes = JSON.parse(readFileSync(join(root, 'tests/fixtures/dist-routes.snapshot.json'), 'utf8'));
 const slugs = ['nombres-entiers-decimaux','fractions','algebre','longueurs','aires','volumes','temps-durees','proportionnalite','donnees','probabilites','configurations-planes','vision-espace','pensee-informatique'];
+const publicRoutes = ['/mathematiques/college/6eme', ...slugs.map((slug) => `/mathematiques/college/6eme/${slug}`)];
 
 function uniqueIds(items, label) {
   const ids = items.map((item) => item.id);
@@ -16,9 +17,9 @@ function uniqueIds(items, label) {
   assert.ok(ids.every((id) => typeof id === 'string' && id.length > 0), `${label}: ID vide`);
 }
 
-test('C24 staged couvre les 13 blocs officiels de mathématiques 6e', () => {
+test('C24 publié couvre les 13 blocs officiels de mathématiques 6e', () => {
   assert.equal(mapping.mission, 'C24');
-  assert.equal(mapping.status, 'staged');
+  assert.equal(mapping.status, 'complete-published');
   assert.equal(mapping.source.nor, 'MENE2504620A');
   assert.equal(mapping.source.application6e, 'Rentrée scolaire 2025-2026');
   assert.equal(mapping.c24Contract.coverage, 'complete-6e');
@@ -26,7 +27,7 @@ test('C24 staged couvre les 13 blocs officiels de mathématiques 6e', () => {
   assert.deepEqual(mapping.chapters.map((item) => item.slug), slugs);
 });
 
-test('C24 staged certifie les paquets cours, exercices N1-N3, quiz et flashcards', () => {
+test('C24 publié certifie les paquets cours, exercices N1-N3, quiz et flashcards', () => {
   let exercises = 0;
   let quizQuestions = 0;
   let flashcards = 0;
@@ -47,7 +48,7 @@ test('C24 staged certifie les paquets cours, exercices N1-N3, quiz et flashcards
     assert.equal(meta.officialSource, 'bo-cycle3-mathematiques-2025');
     assert.equal(meta.programme, 'bo-cycle3-mathematiques-2025');
     assert.equal(meta.applicableFrom, '2025-2026');
-    assert.equal(meta.seo?.noindex, true, `${slug}: doit rester noindex en staged`);
+    assert.equal(meta.seo?.noindex, false, `${slug}: doit être indexable après publication`);
     assert.match(meta.seo?.canonical ?? '', new RegExp(`/mathematiques/college/6eme/${slug}$`));
     assert.match(course, /## Synthèse/);
 
@@ -69,12 +70,14 @@ test('C24 staged certifie les paquets cours, exercices N1-N3, quiz et flashcards
   assert.equal(flashcards, 78);
 });
 
-test('C24 staged ne publie encore aucune route de mathématiques 6e', () => {
-  assert.match(levels, /slug:\s*"6eme"[\s\S]*?status:\s*"planned"/);
-  assert.ok(!routes.some((route) => route === '/mathematiques/college/6eme' || route.startsWith('/mathematiques/college/6eme/')));
-  assert.equal(mapping.c24Contract.publicLevelStatus, 'planned');
-  assert.equal(mapping.publication.stagedRoutesExpected, 0);
-  assert.equal(mapping.publication.activationRoutesExpected, 14);
+test('C24 publie exactement le niveau 6e et ses 13 chapitres', () => {
+  assert.match(levels, /slug:\s*"6eme"[\s\S]*?status:\s*"available"/);
+  for (const route of publicRoutes) assert.ok(routes.includes(route), `${route}: route publique absente du snapshot`);
+  const sixiemeRoutes = routes.filter((route) => route === '/mathematiques/college/6eme' || route.startsWith('/mathematiques/college/6eme/'));
+  assert.equal(sixiemeRoutes.length, 14);
+  assert.equal(mapping.c24Contract.publicLevelStatus, 'available');
+  assert.equal(mapping.c24Contract.indexation, 'indexable');
+  assert.equal(mapping.publication.activatedRoutes, 14);
 });
 
 test('C24 maintient les bornes de 6e et reporte la migration massive des figures', () => {
