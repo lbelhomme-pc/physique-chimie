@@ -1,0 +1,531 @@
+% Mathématiques 5e — cours V3
+% Pensée informatique et algorithmique par blocs
+
+\section{Objectifs}
+
+\begin{itemize}
+\item Manipuler des instructions simples et les séquencer.
+\item Identifier les entrées et les sorties d'un programme.
+\item Représenter des formules par une expression informatique dans un langage de programmation par blocs.
+\item Calculer la valeur d'une formule à l'aide d'une suite d'instructions.
+\item Prévoir la valeur d'une expression informatique avant son exécution.
+\item Analyser un programme simple donné et modifier ses paramètres.
+\item Effectuer une boucle inconditionnelle répétant une séquence un nombre fixé de fois.
+\end{itemize}
+
+\section{1. Une instruction précise}
+
+Une instruction décrit une action élémentaire.
+
+Par exemple :
+\begin{itemize}
+\item lire une valeur ;
+\item ajouter $3$ ;
+\item multiplier par $2$ ;
+\item avancer de $10$ pas ;
+\item afficher un résultat.
+\end{itemize}
+
+Une instruction doit être suffisamment précise pour être exécutée sans interprétation ambiguë.
+
+\section{2. Séquence d'instructions}
+
+Une séquence est une suite ordonnée d'instructions.
+
+\begin{example}
+Programme :
+\begin{verbatim}
+lire un nombre
+ajouter 4
+multiplier par 3
+afficher le résultat
+\end{verbatim}
+
+Avec l'entrée :
+\[
+2,
+\]
+on obtient :
+\[
+2+4=6,
+\]
+puis :
+\[
+6\times3=18.
+\]
+
+La sortie vaut :
+\[
+\boxed{18}.
+\]
+\end{example}
+
+L'ordre des instructions change le résultat.
+
+\section{3. Entrée et sortie}
+
+\begin{definition}
+Une \textbf{entrée} est une donnée fournie au programme.
+
+Une \textbf{sortie} est une information produite par le programme.
+\end{definition}
+
+\coursefigure{/images/mathematiques/5eme/informatique-blocs.svg}{Suite de blocs représentant une entrée, un calcul et une sortie.}{Un programme simple peut être lu comme une chaîne : donnée d'entrée, transformation, résultat de sortie.}
+
+\section{4. Exemple d'entrée numérique}
+
+Une procédure reçoit :
+\[
+x=5.
+\]
+
+Elle calcule :
+\[
+2x+3.
+\]
+
+La sortie vaut :
+\[
+2\times5+3=13.
+\]
+
+Donc :
+\[
+\boxed{13}.
+\]
+
+La valeur de $x$ est l'entrée ; le nombre $13$ est la sortie.
+
+\section{5. Variable lue en entrée}
+
+En 5e, la notion de variable informatique est abordée surtout comme une donnée que le programme lit.
+
+On peut imaginer un bloc :
+\begin{verbatim}
+demander un nombre
+mettre la réponse dans x
+\end{verbatim}
+
+Le programme utilise ensuite la valeur mémorisée.
+
+\begin{attention}
+L'objectif n'est pas encore de manipuler en autonomie des variables complexes ou des structures conditionnelles : ces notions sont approfondies en 4e.
+\end{attention}
+
+\section{6. Traduire une formule}
+
+Considérons :
+\[
+P=2L+2\ell.
+\]
+
+Un programme par blocs doit reproduire exactement cette formule.
+
+Une séquence possible est :
+\begin{verbatim}
+lire L
+lire l
+calculer 2 × L
+calculer 2 × l
+additionner les deux résultats
+afficher
+\end{verbatim}
+
+L'informatique doit respecter les mêmes priorités que le calcul mathématique.
+
+\section{7. Expression informatique}
+
+Une formule mathématique peut être écrite sous une forme proche d'un langage de programmation.
+
+Par exemple :
+\[
+A=\pi r^2
+\]
+peut être représentée par :
+\begin{verbatim}
+pi * r * r
+\end{verbatim}
+
+ou, selon l'environnement :
+\begin{verbatim}
+pi * (r ^ 2)
+\end{verbatim}
+
+Il faut connaître les conventions du langage utilisé.
+
+\section{8. Prévoir avant d'exécuter}
+
+Avant de lancer un programme, il est utile de prévoir le résultat.
+
+Considérons :
+\begin{verbatim}
+x = 4
+résultat = x * x + 3
+\end{verbatim}
+
+On prévoit :
+\[
+4^2+3=16+3=19.
+\]
+
+Si le programme affiche autre chose, il faut chercher une erreur.
+
+\section{9. Table de suivi}
+
+Une table permet de suivre les valeurs intermédiaires.
+
+Pour le programme :
+\begin{verbatim}
+lire x
+ajouter 2
+doubler
+soustraire 1
+\end{verbatim}
+
+avec :
+\[
+x=3,
+\]
+on obtient :
+
+\begin{tabular}{c|c}
+Étape & Valeur \\
+entrée & $3$ \\
+après $+2$ & $5$ \\
+après le double & $10$ \\
+après $-1$ & $9$ \\
+\end{tabular}
+
+La sortie vaut :
+\[
+\boxed{9}.
+\]
+
+\section{10. Modifier un paramètre}
+
+Un paramètre est une valeur que l'on peut modifier sans changer toute la structure du programme.
+
+Par exemple :
+\begin{verbatim}
+avancer de 50
+\end{verbatim}
+
+Le nombre :
+\[
+50
+\]
+est un paramètre.
+
+Le remplacer par :
+\[
+80
+\]
+allonge le déplacement tout en conservant la même instruction.
+
+\section{11. Analyser un programme fourni}
+
+Pour comprendre un programme, on peut se demander :
+\begin{itemize}
+\item quelles sont les entrées ?
+\item quelles opérations sont exécutées ?
+\item dans quel ordre ?
+\item quels paramètres peuvent être modifiés ?
+\item quelle est la sortie ?
+\end{itemize}
+
+Cette lecture structurée évite de modifier le programme au hasard.
+
+\section{12. Exemple de programme géométrique}
+
+Un programme de dessin contient :
+\begin{verbatim}
+avancer de 80
+tourner de 90 degrés
+avancer de 80
+tourner de 90 degrés
+\end{verbatim}
+
+On peut prévoir le trajet avant l'exécution.
+
+La valeur :
+\[
+80
+\]
+contrôle la longueur.
+
+La valeur :
+\[
+90^\circ
+\]
+contrôle le changement de direction.
+
+\section{13. Répéter une séquence}
+
+Lorsque les mêmes instructions doivent être exécutées plusieurs fois, on utilise une boucle.
+
+\coursefigure{/images/mathematiques/5eme/informatique-boucle.svg}{Bloc répéter cinq fois contenant deux instructions.}{Une boucle inconditionnelle répète une séquence un nombre fixé de fois sans tester de condition.}
+
+\begin{definition}
+Une \textbf{boucle inconditionnelle} répète une séquence un nombre de fois fixé à l'avance.
+\end{definition}
+
+\section{14. Exemple de boucle}
+
+Pour tracer un carré :
+\begin{verbatim}
+répéter 4 fois
+    avancer de 60
+    tourner de 90 degrés
+\end{verbatim}
+
+À chaque répétition, les deux instructions sont exécutées.
+
+Il y a :
+\[
+4
+\]
+déplacements et :
+\[
+4
+\]
+rotations.
+
+\section{15. Nombre total d'instructions}
+
+Si une boucle répète :
+\[
+5
+\]
+fois une séquence contenant :
+\[
+3
+\]
+instructions, le nombre total d'exécutions élémentaires vaut :
+\[
+5\times3=15.
+\]
+
+Ce calcul peut aider à prévoir la durée ou la structure du programme.
+
+\section{16. Boucle et formule}
+
+Une boucle peut aussi servir à répéter un calcul.
+
+\begin{verbatim}
+répéter 6 fois
+    ajouter 3 au total
+\end{verbatim}
+
+Si le total vaut initialement :
+\[
+0,
+\]
+la valeur finale est :
+\[
+6\times3=18.
+\]
+
+La boucle traduit ici une multiplication répétée.
+
+\section{17. Modifier le nombre de répétitions}
+
+Dans :
+\begin{verbatim}
+répéter 4 fois
+    avancer de 50
+    tourner de 90 degrés
+\end{verbatim}
+
+si l'on remplace :
+\[
+4
+\]
+par :
+\[
+3,
+\]
+le dessin n'est plus un carré complet.
+
+Modifier un seul paramètre peut donc changer fortement le comportement.
+
+\section{18. Modifier un angle}
+
+Pour un polygone régulier construit par déplacement, l'angle de rotation joue un rôle essentiel.
+
+Une valeur incorrecte produit une figure qui ne se referme pas.
+
+L'élève peut :
+\begin{itemize}
+\item prévoir l'effet ;
+\item tester ;
+\item comparer au résultat attendu ;
+\item corriger le paramètre.
+\end{itemize}
+
+\section{19. Débogage}
+
+Déboguer consiste à rechercher puis corriger une erreur.
+
+\begin{methode}
+\begin{enumerate}
+\item prévoir le résultat attendu ;
+\item exécuter ou simuler pas à pas ;
+\item repérer la première étape incorrecte ;
+\item identifier l'instruction ou le paramètre responsable ;
+\item corriger ;
+\item tester à nouveau.
+\end{enumerate}
+\end{methode}
+
+\section{20. Exemple de débogage numérique}
+
+On veut calculer :
+\[
+3x+2
+\]
+pour :
+\[
+x=4.
+\]
+
+Le programme produit :
+\[
+18.
+\]
+
+Or le calcul attendu est :
+\[
+3\times4+2=14.
+\]
+
+Si le programme contient :
+\begin{verbatim}
+multiplier x par 4
+ajouter 2
+\end{verbatim}
+l'erreur se situe dans le paramètre :
+\[
+4
+\]
+qui devrait être :
+\[
+3.
+\]
+
+\section{21. Exemple de lecture de formule}
+
+Le programme :
+\begin{verbatim}
+lire x
+mettre résultat à x * x
+ajouter 5 à résultat
+afficher résultat
+\end{verbatim}
+
+traduit :
+\[
+x^2+5.
+\]
+
+Pour :
+\[
+x=3,
+\]
+on prévoit :
+\[
+3^2+5=14.
+\]
+
+\section{22. Expression et priorités}
+
+Dans une expression informatique :
+\begin{verbatim}
+2 + 3 * 4
+\end{verbatim}
+la multiplication est généralement prioritaire.
+
+Le résultat attendu est :
+\[
+2+12=14.
+\]
+
+Pour obtenir :
+\[
+20,
+\]
+il faudrait écrire :
+\begin{verbatim}
+(2 + 3) * 4
+\end{verbatim}
+
+Les parenthèses conservent donc leur rôle mathématique.
+
+\section{23. Programme et tableur}
+
+Un tableur et un programme par blocs peuvent calculer une même formule.
+
+Par exemple :
+\[
+y=2x+1.
+\]
+
+Un tableur peut produire automatiquement plusieurs valeurs.
+
+Un programme par blocs peut demander une valeur de $x$ puis afficher la valeur de $y$.
+
+Les outils diffèrent, mais la relation mathématique reste identique.
+
+\section{24. Méthode de lecture}
+
+\begin{methode}
+Pour analyser un programme :
+\begin{enumerate}
+\item identifier les entrées ;
+\item lire les instructions dans l'ordre ;
+\item repérer les calculs ;
+\item repérer les boucles ;
+\item noter les paramètres ;
+\item prévoir la sortie ;
+\item exécuter et comparer.
+\end{enumerate}
+\end{methode}
+
+\section{25. Limite du programme de 5e}
+
+\begin{attention}
+En 5e, on utilise une variable principalement comme donnée saisie et on travaille la boucle à nombre de répétitions fixé.
+
+Les instructions conditionnelles et une manipulation plus autonome des variables sont introduites en 4e.
+\end{attention}
+
+Cette limite évite de mélanger les niveaux du programme.
+
+\section{26. Erreurs fréquentes}
+
+\begin{itemize}
+\item Confondre entrée et sortie.
+\item Exécuter les instructions dans le mauvais ordre.
+\item Oublier une priorité opératoire lors de la traduction d'une formule.
+\item Modifier plusieurs paramètres à la fois lors d'un débogage.
+\item Confondre nombre de répétitions et nombre d'instructions dans la boucle.
+\item Oublier qu'une boucle exécute tout son contenu à chaque tour.
+\item Introduire des conditions alors que la boucle demandée est inconditionnelle.
+\item Croire que la machine garantit la justesse de la formule programmée.
+\end{itemize}
+
+\section{À retenir}
+
+\begin{aretenir}
+Un programme reçoit éventuellement des \textbf{entrées}, exécute une \textbf{séquence d'instructions} et produit une \textbf{sortie}.
+
+Une formule mathématique peut être traduite en expression informatique.
+
+Il faut savoir prévoir le résultat avant l'exécution.
+
+Une boucle inconditionnelle répète une séquence un nombre fixé de fois :
+\[
+\boxed{\text{répéter }n\text{ fois}}.
+\]
+
+En 5e, l'essentiel est de savoir lire, prévoir, modifier et vérifier un programme simple plutôt que d'écrire des programmes complexes en autonomie.
+\end{aretenir}
