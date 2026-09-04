@@ -1,0 +1,55 @@
+## Objectifs
+- Passer de la géométrie vectorielle aux équations.
+- Paramétrer une droite.
+- Écrire l'équation cartésienne d'un plan.
+- Résoudre des problèmes d'intersection et d'appartenance.
+
+## 1. Représentation paramétrique d'une droite
+La droite passant par
+$$A(x_A,y_A,z_A)$$
+et de vecteur directeur
+$$\vec u=(a,b,c)$$
+admet la représentation
+$$
+\begin{cases}
+x=x_A+at\\
+y=y_A+bt\\
+z=z_A+ct
+\end{cases}
+\qquad t\in\mathbb R.
+$$
+
+## 2. Vérifier l'appartenance d'un point
+Un point appartient à la droite si une **même** valeur du paramètre satisfait les trois équations.
+
+## 3. Équation cartésienne d'un plan
+Un plan de vecteur normal
+$$\vec n=(a,b,c)$$
+a une équation de la forme
+$$ax+by+cz+d=0.$$
+
+Si le plan passe par $A(x_A,y_A,z_A)$ :
+$$a(x-x_A)+b(y-y_A)+c(z-z_A)=0.$$
+
+## 4. Intersection droite-plan
+On remplace les coordonnées paramétrées de la droite dans l'équation du plan.
+
+- une solution en $t$ : un point d'intersection ;
+- aucune solution : droite parallèle au plan ;
+- identité : droite incluse dans le plan.
+
+## 5. Intersection de droites
+On égalise les coordonnées de deux représentations paramétriques et on résout le système.
+
+Dans l'espace, deux droites non parallèles peuvent ne pas avoir de point commun.
+
+## 6. Projeté orthogonal
+Pour projeter un point $M$ sur un plan, on peut construire la droite passant par $M$ et dirigée par un vecteur normal au plan, puis calculer son intersection avec le plan.
+
+## Erreurs fréquentes
+- Utiliser trois paramètres différents pour une même droite.
+- Considérer $(a,b,c)$ comme vecteur directeur du plan $ax+by+cz+d=0$ : c'est un vecteur normal.
+- Conclure à une intersection de deux droites en ne vérifiant que deux coordonnées.
+
+## À retenir
+Une droite est naturellement paramétrée par un réel ; un plan est naturellement décrit par une équation cartésienne liée à un vecteur normal.

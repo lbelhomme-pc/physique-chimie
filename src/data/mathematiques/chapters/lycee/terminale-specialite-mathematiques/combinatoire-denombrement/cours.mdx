@@ -1,0 +1,63 @@
+## Objectifs
+- Structurer un dénombrement avant de calculer.
+- Distinguer listes ordonnées, permutations et choix non ordonnés.
+- Utiliser les coefficients binomiaux.
+- Relier dénombrement, arbres et triangle de Pascal.
+
+## 1. Principe additif
+Si une situation se décompose en cas **disjoints**, le nombre total de possibilités est la somme des nombres de possibilités de chaque cas.
+
+Exemple : 7 choix rouges ou 5 choix bleus, sans recouvrement, donnent
+$$7+5=12$$
+possibilités.
+
+## 2. Principe multiplicatif
+Si une procédure comporte plusieurs étapes successives, on multiplie les nombres de choix.
+
+Avec 4 choix à la première étape puis 3 à la seconde :
+$$4\times3=12.$$
+
+Pour un ensemble à $n$ éléments, le nombre de $k$-uplets est
+$$n^k.$$
+
+## 3. Listes sans répétition et permutations
+Le nombre de listes ordonnées de longueur $k$ formées d'éléments distincts parmi $n$ éléments est
+$$n(n-1)\cdots(n-k+1).$$
+
+Une permutation utilise tous les éléments :
+$$n!=n(n-1)\cdots2\times1.$$
+
+## 4. Combinaisons
+Une combinaison de $k$ éléments parmi $n$ est un choix **sans ordre** de $k$ éléments.
+
+Son nombre est
+$$\binom nk=\frac{n!}{k!(n-k)!}.$$
+
+Exemple :
+$$\binom{10}{3}=120.$$
+
+## 5. Propriétés des coefficients binomiaux
+Symétrie :
+$$\binom nk=\binom n{n-k}.$$
+
+Relation de Pascal :
+$$\binom nk=\binom{n-1}{k-1}+\binom{n-1}{k}.$$
+
+La somme d'une ligne du triangle de Pascal vaut
+$$\sum_{k=0}^{n}\binom nk=2^n,$$
+ce qui correspond au nombre de parties d'un ensemble à $n$ éléments.
+
+## 6. Choisir le bon modèle
+Avant de calculer, demander :
+1. l'ordre compte-t-il ?
+2. les répétitions sont-elles autorisées ?
+3. choisit-on tous les éléments ou seulement $k$ ?
+4. les cas traités sont-ils disjoints ?
+
+## Erreurs fréquentes
+- Utiliser une combinaison alors que l'ordre compte.
+- Multiplier des nombres de cas qui devraient être additionnés.
+- Oublier que $\binom nk$ compte des choix non ordonnés.
+
+## À retenir
+Le dénombrement est d'abord un problème de modélisation. Une formule n'est correcte que si l'objet compté est correctement identifié.
