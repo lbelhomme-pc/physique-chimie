@@ -1,51 +1,799 @@
 ## Objectifs
-- Mesurer et construire des angles.
-- Utiliser la bissectrice.
-- Construire des triangles.
-- Exploiter la symétrie axiale.
 
-## 1. Mesure d'un angle
-Un angle se mesure en degrés.
-- angle aigu : mesure inférieure à $90°$ ;
-- angle droit : $90°$ ;
-- angle obtus : entre $90°$ et $180°$ ;
-- angle plat : $180°$.
+Dans ce chapitre, on apprend à :
 
-Le rapporteur doit être centré sur le sommet et aligné sur un côté.
+- nommer et noter un angle ;
+- reconnaître les principaux types d’angles ;
+- mesurer et construire des angles avec un rapporteur ;
+- comprendre angles adjacents, opposés par le sommet et supplémentaires ;
+- construire et utiliser une bissectrice ;
+- construire des triangles à partir de données ;
+- utiliser les propriétés des triangles rectangle, isocèle et équilatéral ;
+- utiliser la somme des angles d’un triangle ;
+- construire le cercle circonscrit à un triangle ;
+- définir et construire une symétrie axiale.
 
-## 2. Bissectrice
+---
+
+## 1. Un angle
+
+Un angle est formé par deux demi-droites ayant la même origine.
+
+Si les demi-droites sont :
+
+$$
+[OA)
+$$
+
+et :
+
+$$
+[OB),
+$$
+
+l’angle se note :
+
+$$
+\widehat{AOB}.
+$$
+
+La lettre du sommet est placée au milieu de la notation.
+
+---
+
+## 2. Mesurer un angle
+
+La mesure d’un angle s’exprime en degrés.
+
+On note par exemple :
+
+$$
+\widehat{AOB}=65^\circ.
+$$
+
+Le rapporteur permet de mesurer un angle.
+
+Pour l’utiliser correctement :
+
+1. placer le centre du rapporteur sur le sommet de l’angle ;
+2. aligner la graduation de départ avec un côté de l’angle ;
+3. lire la graduation rencontrée par l’autre côté ;
+4. choisir la bonne échelle du rapporteur.
+
+---
+
+## 3. Les principaux types d’angles
+
+Un angle nul mesure :
+
+$$
+0^\circ.
+$$
+
+Un angle aigu vérifie :
+
+$$
+0^\circ<\alpha<90^\circ.
+$$
+
+Un angle droit mesure :
+
+$$
+90^\circ.
+$$
+
+Un angle obtus vérifie :
+
+$$
+90^\circ<\alpha<180^\circ.
+$$
+
+Un angle plat mesure :
+
+$$
+180^\circ.
+$$
+
+Un angle plein mesure :
+
+$$
+360^\circ.
+$$
+
+Classer un angle revient donc à comparer sa mesure à des valeurs de référence.
+
+---
+
+## 4. Exemple développé 1 — classer un angle
+
+On mesure :
+
+$$
+\alpha=128^\circ.
+$$
+
+Comme :
+
+$$
+90^\circ<128^\circ<180^\circ,
+$$
+
+l’angle est obtus.
+
+Pour :
+
+$$
+\beta=35^\circ,
+$$
+
+on a :
+
+$$
+0^\circ<35^\circ<90^\circ.
+$$
+
+Donc $\beta$ est aigu.
+
+---
+
+## 5. Angles adjacents
+
+Deux angles sont adjacents lorsqu’ils :
+
+- ont le même sommet ;
+- ont un côté commun ;
+- sont situés de part et d’autre de ce côté commun sans se chevaucher.
+
+Si :
+
+$$
+\widehat{AOC}=40^\circ
+$$
+
+et :
+
+$$
+\widehat{COB}=25^\circ,
+$$
+
+alors :
+
+$$
+\widehat{AOB}=40^\circ+25^\circ=65^\circ
+$$
+
+si les deux angles sont adjacents et forment ensemble $\widehat{AOB}$.
+
+---
+
+## 6. Angles supplémentaires
+
+Deux angles sont supplémentaires lorsque la somme de leurs mesures vaut :
+
+$$
+180^\circ.
+$$
+
+Ainsi, si :
+
+$$
+\alpha=72^\circ,
+$$
+
+l’angle supplémentaire mesure :
+
+$$
+180^\circ-72^\circ=108^\circ.
+$$
+
+---
+
+## 7. Angles opposés par le sommet
+
+Lorsque deux droites se coupent, elles forment des angles opposés par le sommet.
+
+Deux angles opposés par le sommet ont la même mesure.
+
+Si un angle mesure :
+
+$$
+53^\circ,
+$$
+
+l’angle qui lui est opposé par le sommet mesure également :
+
+$$
+53^\circ.
+$$
+
+Les deux angles adjacents sont alors supplémentaires.
+
+Ils mesurent :
+
+$$
+180^\circ-53^\circ=127^\circ.
+$$
+
+---
+
+## 8. Construire un angle
+
+Pour construire un angle de mesure donnée :
+
+1. tracer une première demi-droite ;
+2. placer le centre du rapporteur sur son origine ;
+3. repérer la graduation correspondant à la mesure demandée ;
+4. placer un point ;
+5. tracer la seconde demi-droite passant par ce point.
+
+Une construction doit être suffisamment précise pour que la mesure soit retrouvée au rapporteur.
+
+---
+
+## 9. Bissectrice d’un angle
+
+La bissectrice d’un angle est la demi-droite qui partage cet angle en deux angles de même mesure.
+
+<figure>
+  <img src="/images/mathematiques/6eme/angles-bissectrice.svg" alt="Angle partagé en deux parties égales par sa bissectrice." />
+  <figcaption>
+    Si une demi-droite est la bissectrice de $\widehat{AOB}$, alors les deux angles qu’elle forme avec les côtés de l’angle ont la même mesure.
+  </figcaption>
+</figure>
+
+Si :
+
+$$
+\widehat{AOB}=84^\circ,
+$$
+
+et si $[Ox)$ est la bissectrice, alors :
+
+$$
+\widehat{AOx}
+=
+\widehat{xOB}
+=
+\dfrac{84^\circ}{2}
+=
+42^\circ.
+$$
+
+---
+
+## 10. Construire une bissectrice au rapporteur
+
+Une première méthode consiste à mesurer l’angle puis à construire la moitié de sa mesure.
+
+Pour :
+
+$$
+\widehat{AOB}=70^\circ,
+$$
+
+on calcule :
+
+$$
+\dfrac{70^\circ}{2}=35^\circ.
+$$
+
+On construit alors une demi-droite faisant :
+
+$$
+35^\circ
+$$
+
+avec chacun des deux côtés.
+
+---
+
+## 11. Construire une bissectrice au compas
+
+On peut aussi construire une bissectrice sans mesurer l’angle :
+
+1. tracer un arc de cercle centré au sommet qui coupe les deux côtés ;
+2. conserver la même ouverture de compas ;
+3. tracer deux arcs centrés sur les deux points obtenus ;
+4. relier le sommet à l’intersection des deux arcs.
+
+Cette construction repose sur une situation d’équidistance.
+
+---
+
+## 12. Construire un triangle
+
+Un triangle peut être construit lorsque l’on possède suffisamment de données.
+
+On peut par exemple connaître :
+
+- les trois longueurs de côtés ;
+- deux longueurs et l’angle compris ;
+- une longueur et deux angles.
+
+Chaque donnée doit être utilisée avec l’instrument adapté :
+
+- règle ;
+- compas ;
+- rapporteur.
+
+---
+
+## 13. Construire un triangle à partir de trois côtés
+
+Supposons :
+
+$$
+AB=6\ \text{cm},
+$$
+
+$$
+AC=5\ \text{cm},
+$$
+
+$$
+BC=4\ \text{cm}.
+$$
+
+Méthode :
+
+1. tracer $[AB]$ ;
+2. tracer le cercle de centre $A$ et de rayon :
+
+$$
+5\ \text{cm};
+$$
+
+3. tracer le cercle de centre $B$ et de rayon :
+
+$$
+4\ \text{cm};
+$$
+
+4. choisir un point d’intersection $C$ ;
+5. tracer $[AC]$ et $[BC]$.
+
+Les distances imposées sont ainsi respectées.
+
+---
+
+## 14. Triangle rectangle
+
+Un triangle rectangle possède un angle droit.
+
+Si le triangle $ABC$ est rectangle en $A$ :
+
+$$
+\widehat{BAC}=90^\circ.
+$$
+
+Les deux autres angles sont aigus et leur somme vaut :
+
+$$
+90^\circ.
+$$
+
+---
+
+## 15. Triangle isocèle
+
+Un triangle isocèle possède deux côtés de même longueur.
+
+Si :
+
+$$
+AB=AC,
+$$
+
+le triangle est isocèle en $A$.
+
+Les angles à la base ont alors la même mesure :
+
+$$
+\widehat{ABC}
+=
+\widehat{BCA}.
+$$
+
+Cette propriété permet de calculer des angles sans les mesurer.
+
+---
+
+## 16. Triangle équilatéral
+
+Un triangle équilatéral possède trois côtés de même longueur.
+
+Il possède également trois angles de même mesure.
+
+Comme la somme des angles d’un triangle vaut :
+
+$$
+180^\circ,
+$$
+
+chaque angle d’un triangle équilatéral mesure :
+
+$$
+\dfrac{180^\circ}{3}=60^\circ.
+$$
+
+---
+
+## 17. Somme des angles d’un triangle
+
+Dans tout triangle :
+
+$$
+\boxed{
+\widehat{A}
++
+\widehat{B}
++
+\widehat{C}
+=
+180^\circ
+}.
+$$
+
+Cette propriété est valable quelle que soit la forme du triangle.
+
+---
+
+## 18. Exemple développé 2 — angle manquant
+
+Dans un triangle, deux angles mesurent :
+
+$$
+52^\circ
+$$
+
+et :
+
+$$
+71^\circ.
+$$
+
+Le troisième angle mesure :
+
+$$
+180^\circ-52^\circ-71^\circ.
+$$
+
+Donc :
+
+$$
+180^\circ-123^\circ=57^\circ.
+$$
+
+Le troisième angle vaut :
+
+$$
+\boxed{57^\circ}.
+$$
+
+---
+
+## 19. Exemple développé 3 — triangle isocèle
+
+Le triangle $ABC$ est isocèle en $A$ et :
+
+$$
+\widehat{BAC}=40^\circ.
+$$
+
+Les deux angles à la base sont égaux.
+
+La somme restante vaut :
+
+$$
+180^\circ-40^\circ=140^\circ.
+$$
+
+On partage en deux :
+
+$$
+\dfrac{140^\circ}{2}=70^\circ.
+$$
+
+Donc :
+
+$$
+\widehat{ABC}
+=
+\widehat{BCA}
+=
+70^\circ.
+$$
+
+---
+
+## 20. Vérifier qu’une construction est possible
+
+Les données d’une construction doivent être compatibles.
+
+Par exemple, si un triangle possède deux angles :
+
+$$
+110^\circ
+$$
+
+et :
+
+$$
+80^\circ,
+$$
+
+leur somme vaut déjà :
+
+$$
+190^\circ.
+$$
+
+Un tel triangle est impossible puisque la somme totale doit être :
+
+$$
+180^\circ.
+$$
+
+Avant de tracer, un calcul peut donc éviter une construction impossible.
+
+---
+
+## 21. Médiatrices d’un triangle
+
+Chaque côté d’un triangle possède une médiatrice.
+
+Les trois médiatrices d’un triangle se coupent en un même point.
+
+On dit qu’elles sont **concourantes**.
+
+Si leur point d’intersection est $O$, alors :
+
+$$
+OA=OB=OC.
+$$
+
+Le point $O$ est donc équidistant des trois sommets.
+
+---
+
+## 22. Cercle circonscrit
+
+<figure>
+  <img src="/images/mathematiques/6eme/triangle-cercle-symetrie.svg" alt="Triangle inscrit dans un cercle dont le centre est l’intersection des médiatrices, accompagné d’un exemple de deux points symétriques." />
+  <figcaption>
+    L’intersection des médiatrices d’un triangle est équidistante des trois sommets ; elle est donc le centre du cercle passant par ces trois sommets.
+  </figcaption>
+</figure>
+
+Le cercle de centre $O$ et de rayon :
+
+$$
+OA
+$$
+
+passe alors par :
+
+$$
+A,\quad B,\quad C.
+$$
+
+Il est appelé **cercle circonscrit** au triangle.
+
+---
+
+## 23. Construire le cercle circonscrit
+
+Pour construire le cercle circonscrit à un triangle $ABC$ :
+
+1. construire la médiatrice de $[AB]$ ;
+2. construire la médiatrice de $[AC]$ ;
+3. noter $O$ leur point d’intersection ;
+4. tracer le cercle de centre $O$ passant par $A$.
+
+La troisième médiatrice doit également passer par $O$.
+
+---
+
+## 24. Symétrie axiale
+
+Deux points $A$ et $A'$ sont symétriques par rapport à une droite $(d)$ lorsque $(d)$ est la médiatrice du segment $[AA']$.
+
+Cela implique :
+
+- $(d)$ est perpendiculaire à $(AA')$ ;
+- $(d)$ passe par le milieu de $[AA']$.
+
+Un point situé sur l’axe reste inchangé par la symétrie.
+
+---
+
+## 25. Construire le symétrique d’un point
+
+Pour construire $A'$, symétrique de $A$ par rapport à $(d)$ :
+
+1. tracer la perpendiculaire à $(d)$ passant par $A$ ;
+2. noter $H$ son intersection avec $(d)$ ;
+3. placer $A'$ de l’autre côté de $(d)$ de sorte que :
+
+$$
+HA'=HA.
+$$
+
+Alors $H$ est le milieu de $[AA']$ et $(d)$ est sa médiatrice.
+
+---
+
+## 26. Propriétés de la symétrie axiale
+
+La symétrie axiale conserve :
+
+- les longueurs ;
+- les mesures d’angles ;
+- l’alignement ;
+- les périmètres ;
+- les aires ;
+- la forme des figures.
+
+Si $A'$ et $B'$ sont les images de $A$ et $B$, alors :
+
+$$
+A'B'=AB.
+$$
+
+---
+
+## 27. Construire l’image d’une figure
+
+Pour construire le symétrique d’un polygone :
+
+1. construire le symétrique de chaque sommet ;
+2. relier les points images dans le même ordre.
+
+Il faut construire les sommets géométriquement ; recopier « à l’œil » ne garantit pas la symétrie.
+
+---
+
+## 28. Axes de symétrie
+
+Une droite est un axe de symétrie d’une figure lorsque la symétrie par rapport à cette droite laisse la figure inchangée.
+
+Un rectangle possède :
+
+$$
+2
+$$
+
+axes de symétrie.
+
+Un carré en possède :
+
+$$
+4.
+$$
+
+Un triangle isocèle non équilatéral en possède :
+
+$$
+1.
+$$
+
+Un cercle possède une infinité d’axes de symétrie : toutes les droites passant par son centre.
+
+---
+
+## 29. Méthode — résoudre un problème d’angles
+
+1. identifier les angles connus ;
+2. repérer les propriétés utilisables ;
+3. écrire une égalité de mesures ;
+4. calculer ;
+5. vérifier que la mesure finale est compatible avec le type d’angle.
+
+Dans un triangle, penser à :
+
+$$
+180^\circ.
+$$
+
+Dans un angle plat, penser également à :
+
+$$
+180^\circ.
+$$
+
+Autour d’un point, un tour complet vaut :
+
+$$
+360^\circ.
+$$
+
+---
+
+## 30. Méthode — construire un triangle
+
+1. lister les données ;
+2. choisir un premier côté ;
+3. traduire chaque autre donnée par un cercle, un angle ou une distance ;
+4. construire les intersections ;
+5. vérifier les longueurs et angles obtenus.
+
+La construction doit être lisible et justifiée.
+
+---
+
+## 31. Erreurs fréquentes
+
+### Lire la mauvaise graduation du rapporteur
+
+Avant de lire, vérifier où se trouve :
+
+$$
+0^\circ
+$$
+
+sur le côté de départ.
+
+### Confondre bissectrice et médiatrice
+
+La bissectrice concerne un angle.
+
+La médiatrice concerne un segment.
+
+### Oublier la somme des angles d’un triangle
+
+Une construction produisant une somme différente de :
+
+$$
+180^\circ
+$$
+
+est impossible.
+
+### Croire que les médiatrices se coupent uniquement dans certains triangles
+
+Elles sont concourantes dans tout triangle.
+
+### Construire une symétrie à l’œil
+
+La distance à l’axe doit être conservée de part et d’autre.
+
+### Confondre diagonale et axe de symétrie
+
+Une diagonale d’un rectangle quelconque n’est pas un axe de symétrie.
+
+---
+
+## 32. À retenir
+
+Les mesures de référence sont :
+
+$$
+0^\circ,\quad
+90^\circ,\quad
+180^\circ,\quad
+360^\circ.
+$$
+
 La bissectrice partage un angle en deux angles de même mesure.
 
-Si $\widehat{AOB}=70°$ et si $[Ox)$ est sa bissectrice :
-$$
-\widehat{AOx}=\widehat{xOB}=35°.
-$$
+Dans tout triangle :
 
-## 3. Construire un triangle
-Trois longueurs ne forment pas toujours un triangle. Pour trois côtés $a\le b\le c$, il faut notamment que
 $$
-a+b>c.
+\boxed{
+\widehat{A}+\widehat{B}+\widehat{C}=180^\circ
+}.
 $$
 
-Une construction peut aussi être définie par deux côtés et l'angle compris, ou par un côté et deux angles.
+Dans un triangle isocèle, les angles à la base sont égaux.
 
-## 4. Symétrie axiale
-Deux points A et A' sont symétriques par rapport à une droite $(d)$ lorsque $(d)$ est la médiatrice de $[AA']$.
+Dans un triangle équilatéral, chaque angle mesure :
 
-La symétrie conserve :
-- les longueurs ;
-- les mesures d'angles ;
-- l'alignement ;
-- les aires.
+$$
+60^\circ.
+$$
 
-## 5. Axes de symétrie
-Certaines figures ont un ou plusieurs axes de symétrie : carré, rectangle, triangle isocèle, cercle.
+Les médiatrices d’un triangle sont concourantes et leur intersection est le centre du cercle circonscrit.
 
-## Erreurs fréquentes
-- Lire la mauvaise graduation du rapporteur.
-- Confondre bissectrice et médiatrice.
-- Construire un triangle impossible sans vérifier les longueurs.
-- Penser qu'une symétrie change les longueurs.
+Deux points sont symétriques par rapport à une droite lorsque cette droite est la médiatrice du segment qui les relie.
 
-## À retenir
-Le rapporteur mesure les angles ; la bissectrice partage un angle ; la symétrie axiale conserve les formes et les mesures.
+La symétrie axiale conserve les longueurs et les angles.
