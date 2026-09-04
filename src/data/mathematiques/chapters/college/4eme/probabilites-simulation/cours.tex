@@ -1,0 +1,418 @@
+% Mathématiques 4e — cours V3
+% Probabilités et simulation
+
+\section{Objectifs}
+
+\begin{itemize}
+\item Utiliser le vocabulaire : expérience aléatoire, issue, événement.
+\item Déterminer des probabilités dans des situations simples, équiprobables ou non.
+\item Calculer la probabilité d'un événement à partir d'un modèle explicite.
+\item Comprendre et utiliser l'événement contraire.
+\item Vérifier que les probabilités de toutes les issues forment un total égal à $1$.
+\item Répéter ou simuler une expérience.
+\item Calculer des fréquences expérimentales.
+\item Observer la stabilisation des fréquences lorsque le nombre d'essais augmente.
+\item Étudier des expériences très simples à deux étapes avec un tableau à double entrée.
+\end{itemize}
+
+\section{1. Expérience aléatoire}
+
+Une expérience aléatoire possède plusieurs résultats possibles sans que l'on puisse prévoir avec certitude lequel se réalisera.
+
+Chaque résultat élémentaire est une issue.
+
+Un événement regroupe une ou plusieurs issues.
+
+Exemple avec un dé :
+\[
+A=\text{« obtenir un nombre supérieur à }4\text{ »}.
+\]
+
+Les issues favorables sont :
+\[
+5,\ 6.
+\]
+
+\section{2. Probabilité}
+
+À chaque événement $A$, un modèle associe un nombre :
+\[
+P(A)
+\]
+compris entre :
+\[
+0
+\]
+et :
+\[
+1.
+\]
+
+\[
+\boxed{0\le P(A)\le1}.
+\]
+
+Une probabilité n'est pas une prédiction certaine du prochain résultat.
+
+\section{3. Équiprobabilité}
+
+Si toutes les issues sont également probables :
+\[
+P(A)=\dfrac{\text{nombre d'issues favorables}}{\text{nombre total d'issues}}.
+\]
+
+Avec un dé équilibré :
+\[
+P(\text{pair})=\dfrac36=\dfrac12.
+\]
+
+\section{4. Situation non équiprobable}
+
+Une roue comporte trois secteurs dont les angles valent :
+\[
+180^\circ,\quad120^\circ,\quad60^\circ.
+\]
+
+Si le modèle suppose une probabilité proportionnelle à l'angle du secteur :
+\[
+P(A)=\dfrac{180}{360}=\dfrac12,
+\]
+\[
+P(B)=\dfrac{120}{360}=\dfrac13,
+\]
+\[
+P(C)=\dfrac{60}{360}=\dfrac16.
+\]
+
+Il y a trois issues, mais leurs probabilités ne sont pas égales.
+
+\begin{attention}
+Le nombre d'issues ne suffit pas à justifier une équiprobabilité.
+\end{attention}
+
+\section{5. Somme des probabilités}
+
+Pour des issues qui couvrent tous les résultats possibles :
+\[
+\boxed{p_1+p_2+\cdots+p_n=1}.
+\]
+
+Dans l'exemple de la roue :
+\[
+\dfrac12+\dfrac13+\dfrac16=1.
+\]
+
+Cette égalité permet de contrôler un modèle.
+
+\section{6. Événement contraire}
+
+L'événement contraire de $A$ se réalise exactement lorsque $A$ ne se réalise pas.
+
+\coursefigure{/images/mathematiques/4eme/probabilites-contraire.svg}{Représentation d'un événement A et de son événement contraire partageant l'ensemble des issues.}{Un événement et son contraire sont incompatibles et couvrent ensemble tous les résultats possibles.}
+
+\begin{propriete}
+\[
+\boxed{P(\overline A)=1-P(A)}.
+\]
+\end{propriete}
+
+\section{7. Exemple de contraire}
+
+Avec un dé équilibré :
+\[
+A=\text{« obtenir au moins }5\text{ »}.
+\]
+
+\[
+P(A)=\dfrac26=\dfrac13.
+\]
+
+L'événement contraire est :
+\[
+\overline A=\text{« obtenir un nombre inférieur ou égal à }4\text{ »}.
+\]
+
+Donc :
+\[
+P(\overline A)=1-\dfrac13=\dfrac23.
+\]
+
+\section{8. Événements incompatibles}
+
+Deux événements sont incompatibles s'ils ne peuvent pas se produire en même temps.
+
+Avec un seul lancer de dé :
+\[
+A=\text{« obtenir }2\text{ »}
+\]
+et :
+\[
+B=\text{« obtenir }5\text{ »}
+\]
+sont incompatibles.
+
+Dans ce cas :
+\[
+P(A\text{ ou }B)=P(A)+P(B).
+\]
+
+\section{9. Fréquence expérimentale}
+
+Si un événement se produit :
+\[
+n_A
+\]
+fois lors de :
+\[
+n
+\]
+essais, sa fréquence est :
+\[
+\boxed{f_A=\dfrac{n_A}{n}}.
+\]
+
+Par exemple :
+\[
+43
+\]
+succès sur :
+\[
+100
+\]
+essais donnent :
+\[
+f=0{,}43=43\%.
+\]
+
+\section{10. Probabilité et fréquence}
+
+La probabilité appartient au modèle.
+
+La fréquence appartient aux observations.
+
+Une pièce équilibrée possède :
+\[
+P(\text{pile})=0{,}5.
+\]
+
+Une série de $20$ lancers peut pourtant donner :
+\[
+f(\text{pile})=0{,}65.
+\]
+
+Ce résultat n'est pas contradictoire avec le modèle.
+
+\section{11. Stabilisation des fréquences}
+
+\coursefigure{/images/mathematiques/4eme/probabilites-stabilisation.svg}{Courbe de fréquence se rapprochant progressivement d'une valeur de référence.}{Les fluctuations sont fortes au début ; lorsque le nombre d'essais augmente, la fréquence tend à devenir plus stable autour de la probabilité du modèle.}
+
+Cette observation peut être étudiée matériellement ou par simulation.
+
+\section{12. Simulation}
+
+Un tableur ou un programme permet de simuler rapidement :
+\[
+100,\ 1000,\ 10\,000
+\]
+expériences.
+
+On peut enregistrer à chaque étape :
+\begin{itemize}
+\item l'effectif d'un événement ;
+\item sa fréquence ;
+\item l'écart à la probabilité théorique.
+\end{itemize}
+
+La simulation permet d'observer un comportement statistique.
+
+\section{13. Pseudo-code simple}
+
+\begin{verbatim}
+succès = 0
+répéter 1000 fois
+    simuler une issue
+    si l'événement A se réalise
+        succès = succès + 1
+fréquence = succès / 1000
+\end{verbatim}
+
+La condition sert à compter les réalisations de l'événement.
+
+\section{14. Modèle à probabilités données}
+
+Une urne contient des objets choisis selon un mécanisme qui donne :
+\[
+P(\text{rouge})=0{,}5,
+\]
+\[
+P(\text{bleu})=0{,}3,
+\]
+\[
+P(\text{vert})=0{,}2.
+\]
+
+On n'a pas besoin de supposer l'équiprobabilité : les probabilités sont fournies par le modèle.
+
+\section{15. Retrouver une probabilité manquante}
+
+Si quatre issues ont pour probabilités :
+\[
+0{,}25,\quad0{,}15,\quad0{,}40,\quad p,
+\]
+alors :
+\[
+0{,}25+0{,}15+0{,}40+p=1.
+\]
+
+Donc :
+\[
+p=0{,}20.
+\]
+
+\section{16. Deux étapes très simples}
+
+On peut étudier une expérience comprenant deux étapes lorsque le nombre de cas reste faible.
+
+Exemple :
+\begin{itemize}
+\item lancer une pièce ;
+\item choisir ensuite un nombre parmi $1$ et $2$.
+\end{itemize}
+
+Les résultats peuvent être organisés dans un tableau à double entrée.
+
+\section{17. Tableau à double entrée}
+
+\begin{tabular}{c|c|c}
+ & $1$ & $2$ \\
+Pile & $(P,1)$ & $(P,2)$ \\
+Face & $(F,1)$ & $(F,2)$ \\
+\end{tabular}
+
+Si les quatre couples sont équiprobables, chacun possède une probabilité :
+\[
+\dfrac14.
+\]
+
+\begin{remarque}
+En 4e, on privilégie les situations très simples. L'arbre pondéré de probabilités n'est pas un outil central attendu ici.
+\end{remarque}
+
+\section{18. Événement sur deux étapes}
+
+Dans le tableau précédent :
+\[
+A=\text{« obtenir pile ou le nombre }2\text{ »}.
+\]
+
+Les couples favorables sont :
+\[
+(P,1),\quad(P,2),\quad(F,2).
+\]
+
+Donc :
+\[
+P(A)=\dfrac34
+\]
+dans le modèle équiprobable.
+
+\section{19. Expérience réelle et modèle}
+
+Une simulation ne prouve pas qu'un modèle est exact.
+
+Si une pièce supposée équilibrée donne :
+\[
+560
+\]
+piles sur :
+\[
+1000
+\]
+lancers, la fréquence :
+\[
+0{,}56
+\]
+est une observation.
+
+L'interprétation dépend du contexte et du nombre d'essais.
+
+\section{20. Lire une affirmation probabiliste}
+
+Dire :
+\[
+P(A)=0{,}8
+\]
+signifie que le modèle attribue une forte probabilité à $A$.
+
+Cela ne signifie pas que, sur exactement $10$ essais, $A$ se réalisera obligatoirement :
+\[
+8
+\]
+fois.
+
+Les fréquences fluctuent.
+
+\section{21. Contrôler un résultat}
+
+Une probabilité :
+\[
+1{,}2
+\]
+est impossible.
+
+De même :
+\[
+-0{,}1
+\]
+est impossible.
+
+Dans un modèle complet, la somme des probabilités des issues doit valoir :
+\[
+1.
+\]
+
+\section{22. Méthode}
+
+\begin{methode}
+Pour résoudre un problème :
+\begin{enumerate}
+\item identifier l'expérience et les issues ;
+\item déterminer si le modèle est équiprobable ou si des probabilités sont données ;
+\item définir précisément l'événement ;
+\item calculer sa probabilité ;
+\item utiliser l'événement contraire si cela simplifie ;
+\item contrôler que le résultat appartient à $[0;1]$.
+\end{enumerate}
+\end{methode}
+
+\section{23. Erreurs fréquentes}
+
+\begin{itemize}
+\item Supposer l'équiprobabilité parce qu'il y a plusieurs issues.
+\item Confondre fréquence et probabilité.
+\item Oublier que les probabilités des issues totalisent $1$.
+\item Calculer le contraire par $-P(A)$ au lieu de $1-P(A)$.
+\item Additionner des probabilités d'événements qui se recouvrent sans analyser les cas.
+\item Croire qu'une simulation garantit exactement la fréquence théorique.
+\item Construire un outil complexe alors qu'un tableau suffit.
+\end{itemize}
+
+\section{À retenir}
+
+\begin{aretenir}
+Toute probabilité est comprise entre $0$ et $1$.
+
+Pour l'événement contraire :
+\[
+\boxed{P(\overline A)=1-P(A)}.
+\]
+
+Une fréquence expérimentale vaut :
+\[
+\boxed{f=\dfrac{\text{nombre de réalisations}}{\text{nombre d'essais}}}.
+\]
+
+Lorsque le nombre d'essais augmente, les fréquences tendent à se stabiliser autour des probabilités du modèle.
+
+L'équiprobabilité doit être justifiée et non supposée.
+\end{aretenir}
