@@ -1,44 +1,727 @@
 ## Objectifs
-- Manipuler correctement les distances.
-- Distinguer cercle et disque.
-- Construire et caractériser une médiatrice.
+
+Dans ce chapitre, on apprend à :
+
+- distinguer un point, un segment, une droite et une distance ;
+- utiliser la notation d’une distance entre deux points ;
+- caractériser et construire le milieu d’un segment ;
+- distinguer cercle et disque ;
+- maîtriser les mots rayon, diamètre et corde ;
+- traduire une position par une condition sur une distance au centre ;
+- construire une médiatrice ;
+- utiliser la propriété d’équidistance de la médiatrice ;
+- résoudre des problèmes de localisation géométrique.
+
+---
 
 ## 1. Distance entre deux points
-La distance entre A et B est la longueur du segment $[AB]$, notée $AB$.
 
-## 2. Distance d'un point à une droite
-La distance d'un point A à une droite $(d)$ est la plus courte distance entre A et un point de $(d)$. Elle est obtenue en traçant la perpendiculaire à $(d)$ passant par A.
+Soient deux points $A$ et $B$.
 
-Si H est le pied de cette perpendiculaire, la distance de A à $(d)$ est $AH$.
+Le segment ayant pour extrémités $A$ et $B$ se note :
 
-## 3. Cercle et disque
-Le cercle de centre O et de rayon $r$ est l'ensemble des points M tels que
+$$
+[AB].
+$$
+
+La **distance** entre $A$ et $B$ est la longueur de ce segment.
+
+Elle se note :
+
+$$
+AB.
+$$
+
+Ainsi, si le segment $[AB]$ mesure :
+
+$$
+4{,}5\ \text{cm},
+$$
+
+on écrit :
+
+$$
+AB=4{,}5\ \text{cm}.
+$$
+
+La notation $[AB]$ désigne un objet géométrique ; la notation $AB$ désigne une longueur.
+
+---
+
+## 2. Une distance est toujours positive ou nulle
+
+Pour deux points quelconques :
+
+$$
+AB\ge0.
+$$
+
+Et :
+
+$$
+AB=0
+$$
+
+uniquement lorsque les deux points sont confondus.
+
+De plus :
+
+$$
+AB=BA.
+$$
+
+L’ordre dans lequel on nomme les deux points ne change pas la distance.
+
+---
+
+## 3. Le milieu d’un segment
+
+Un point $I$ est le milieu du segment $[AB]$ lorsqu’il vérifie deux conditions :
+
+1. $I$ appartient au segment $[AB]$ ;
+2. les deux longueurs sont égales :
+
+$$
+AI=IB.
+$$
+
+Si :
+
+$$
+AB=8\ \text{cm},
+$$
+
+alors le milieu $I$ vérifie :
+
+$$
+AI=IB=4\ \text{cm}.
+$$
+
+La seule égalité des distances ne suffit pas à définir le milieu : il faut également que $I$ soit situé sur le segment.
+
+---
+
+## 4. Exemple développé 1 — retrouver une longueur
+
+On sait que $I$ est le milieu de $[AB]$ et que :
+
+$$
+AI=3{,}7\ \text{cm}.
+$$
+
+Comme $I$ est le milieu :
+
+$$
+IB=AI=3{,}7\ \text{cm}.
+$$
+
+Donc :
+
+$$
+AB=AI+IB.
+$$
+
+Ainsi :
+
+$$
+AB=3{,}7+3{,}7=7{,}4\ \text{cm}.
+$$
+
+On obtient :
+
+$$
+\boxed{AB=7{,}4\ \text{cm}}.
+$$
+
+---
+
+## 5. Le cercle
+
+Un cercle est défini par :
+
+- un centre ;
+- un rayon.
+
+Le cercle de centre $O$ et de rayon $r$ est l’ensemble des points $M$ qui vérifient :
+
+$$
+\boxed{OM=r}.
+$$
+
+Tous les points du cercle sont donc situés à la même distance du centre.
+
+---
+
+## 6. Le disque
+
+Le disque de centre $O$ et de rayon $r$ contient tous les points $M$ tels que :
+
+$$
+\boxed{OM\le r}.
+$$
+
+Il comprend :
+
+- les points strictement à l’intérieur :
+
+$$
+OM<r;
+$$
+
+- les points du cercle frontière :
+
 $$
 OM=r.
 $$
-Le disque de centre O et de rayon $r$ contient les points M tels que
+
+Le cercle est donc le contour du disque.
+
+---
+
+## 7. Vocabulaire du cercle
+
+<figure>
+  <img src="/images/mathematiques/6eme/geometrie-cercle-disque.svg" alt="Disque avec centre, rayon, diamètre et corde représentés." />
+  <figcaption>
+    Un rayon relie le centre au cercle ; un diamètre est une corde qui passe par le centre.
+  </figcaption>
+</figure>
+
+Si $O$ est le centre et $A$ un point du cercle, le segment $[OA]$ est un rayon.
+
+Sa longueur est :
+
+$$
+OA=r.
+$$
+
+Un diamètre relie deux points du cercle en passant par le centre.
+
+Si $[AB]$ est un diamètre :
+
+$$
+AB=2r.
+$$
+
+Une corde relie deux points du cercle sans être nécessairement un diamètre.
+
+---
+
+## 8. Rayon et diamètre
+
+La relation entre rayon et diamètre est :
+
+$$
+\boxed{d=2r}.
+$$
+
+Et :
+
+$$
+\boxed{r=\dfrac{d}{2}}.
+$$
+
+Par exemple, pour :
+
+$$
+r=3{,}5\ \text{cm},
+$$
+
+le diamètre vaut :
+
+$$
+d=2\times3{,}5=7\ \text{cm}.
+$$
+
+---
+
+## 9. Position d’un point par rapport à un disque
+
+Pour un disque de centre $O$ et de rayon $r$, on compare $OM$ à $r$.
+
+### Point à l’intérieur
+
+$$
+OM<r.
+$$
+
+### Point sur le cercle
+
+$$
+OM=r.
+$$
+
+### Point à l’extérieur
+
+$$
+OM>r.
+$$
+
+Une simple comparaison de distances permet donc de déterminer la position du point.
+
+---
+
+## 10. Exemple développé 2 — classer plusieurs points
+
+Un disque a pour centre $O$ et pour rayon :
+
+$$
+5\ \text{cm}.
+$$
+
+On connaît :
+
+$$
+OA=3\ \text{cm},
+$$
+
+$$
+OB=5\ \text{cm},
+$$
+
+$$
+OC=6{,}2\ \text{cm}.
+$$
+
+Comme :
+
+$$
+3<5,
+$$
+
+le point $A$ est à l’intérieur du disque.
+
+Comme :
+
+$$
+5=5,
+$$
+
+le point $B$ appartient au cercle.
+
+Comme :
+
+$$
+6{,}2>5,
+$$
+
+le point $C$ est à l’extérieur du disque.
+
+---
+
+## 11. Cercle comme lieu géométrique
+
+Supposons que l’on cherche **tous les points situés exactement à une distance donnée d’un point $O$**.
+
+Si la distance imposée est :
+
+$$
+4\ \text{cm},
+$$
+
+l’ensemble des solutions est le cercle de centre $O$ et de rayon :
+
+$$
+4\ \text{cm}.
+$$
+
+On dit que le cercle constitue un **lieu géométrique** : il représente l’ensemble de tous les points qui satisfont une condition.
+
+---
+
+## 12. Disque comme zone autorisée
+
+Si l’on cherche tous les points situés à une distance **inférieure ou égale** à :
+
+$$
+4\ \text{cm}
+$$
+
+du point $O$, l’ensemble des solutions est le disque.
+
+La différence entre :
+
+$$
+OM=4\ \text{cm}
+$$
+
+et :
+
+$$
+OM\le4\ \text{cm}
+$$
+
+est donc fondamentale.
+
+---
+
+## 13. Médiatrice d’un segment
+
+La médiatrice du segment $[AB]$ est la droite qui :
+
+- est perpendiculaire à la droite $(AB)$ ;
+- passe par le milieu de $[AB]$.
+
+<figure>
+  <img src="/images/mathematiques/6eme/geometrie-mediatrice.svg" alt="Segment horizontal et droite médiatrice perpendiculaire passant par son milieu." />
+  <figcaption>
+    La médiatrice de $[AB]$ est perpendiculaire à $(AB)$ et passe par le milieu du segment.
+  </figcaption>
+</figure>
+
+Ces deux conditions appartiennent à la définition.
+
+---
+
+## 14. Construction de la médiatrice au compas
+
+Pour construire la médiatrice de $[AB]$ :
+
+1. ouvrir le compas avec un rayon suffisamment grand ;
+2. tracer deux arcs de même rayon centrés en $A$ et en $B$ ;
+3. obtenir deux points d’intersection $M$ et $N$ ;
+4. tracer la droite $(MN)$.
+
+Comme les arcs ont le même rayon :
+
+$$
+MA=MB
+$$
+
+et :
+
+$$
+NA=NB.
+$$
+
+Les deux points $M$ et $N$ sont donc équidistants de $A$ et $B$.
+
+---
+
+## 15. Propriété caractéristique de la médiatrice
+
+Un point $M$ appartient à la médiatrice de $[AB]$ **si et seulement si** :
+
+$$
+\boxed{MA=MB}.
+$$
+
+Cette phrase contient deux sens de raisonnement.
+
+### Sens direct
+
+Si $M$ est sur la médiatrice de $[AB]$, alors :
+
+$$
+MA=MB.
+$$
+
+### Sens réciproque
+
+Si :
+
+$$
+MA=MB,
+$$
+
+alors $M$ appartient à la médiatrice de $[AB]$.
+
+Cette propriété est très puissante pour résoudre des problèmes.
+
+---
+
+## 16. Exemple développé 3 — utiliser l’équidistance
+
+On sait qu’un point $M$ appartient à la médiatrice de $[AB]$ et que :
+
+$$
+MA=6{,}4\ \text{cm}.
+$$
+
+La propriété donne immédiatement :
+
+$$
+MB=MA.
+$$
+
+Donc :
+
+$$
+\boxed{MB=6{,}4\ \text{cm}}.
+$$
+
+Aucune mesure supplémentaire n’est nécessaire.
+
+---
+
+## 17. Reconnaître qu’un point appartient à une médiatrice
+
+Supposons :
+
+$$
+MA=5\ \text{cm}
+$$
+
+et :
+
+$$
+MB=5\ \text{cm}.
+$$
+
+Alors :
+
+$$
+MA=MB.
+$$
+
+La propriété réciproque permet de conclure que :
+
+$$
+M
+$$
+
+appartient à la médiatrice de :
+
+$$
+[AB].
+$$
+
+On peut donc reconnaître un lieu géométrique à partir de distances.
+
+---
+
+## 18. Problème de deux villages
+
+Deux villages sont représentés par les points $A$ et $B$.
+
+On cherche tous les endroits situés à la même distance des deux villages.
+
+La condition est :
+
+$$
+MA=MB.
+$$
+
+L’ensemble de ces points est donc :
+
+$$
+\boxed{\text{la médiatrice de }[AB]}.
+$$
+
+Cette modélisation peut servir, par exemple, à chercher des emplacements équidistants de deux sites.
+
+---
+
+## 19. Croiser plusieurs conditions
+
+Une position géométrique peut devoir satisfaire plusieurs contraintes.
+
+On cherche un point $M$ tel que :
+
+$$
+MA=MB
+$$
+
+et :
+
+$$
+MC=4\ \text{cm}.
+$$
+
+La première condition impose que $M$ soit sur la médiatrice de $[AB]$.
+
+La seconde impose que $M$ soit sur le cercle de centre $C$ et de rayon :
+
+$$
+4\ \text{cm}.
+$$
+
+Les solutions sont donc les points d’intersection entre ces deux lieux géométriques.
+
+Il peut y avoir :
+
+- deux solutions ;
+- une seule solution ;
+- aucune solution.
+
+---
+
+## 20. Exemple développé 4 — intersection de lieux
+
+On cherche un point situé :
+
+- à égale distance de $A$ et $B$ ;
+- exactement à :
+
+$$
+3\ \text{cm}
+$$
+
+de $C$.
+
+On construit :
+
+1. la médiatrice de $[AB]$ ;
+2. le cercle de centre $C$ et de rayon :
+
+$$
+3\ \text{cm}.
+$$
+
+Les points d’intersection vérifient simultanément les deux conditions.
+
+Le dessin ne remplace pas le raisonnement : chaque construction correspond à une propriété géométrique précise.
+
+---
+
+## 21. Méthode — traduire une condition de distance
+
+### « À exactement une distance $r$ de $O$ »
+
+On construit un cercle :
+
+$$
+OM=r.
+$$
+
+### « À au plus une distance $r$ de $O$ »
+
+On considère un disque :
+
 $$
 OM\le r.
 $$
 
-## 4. Médiatrice
-La médiatrice d'un segment $[AB]$ est la droite perpendiculaire à $(AB)$ passant par le milieu de $[AB]$.
+### « À égale distance de $A$ et $B$ »
 
-Propriété essentielle :
-> Un point M appartient à la médiatrice de $[AB]$ si et seulement si $MA=MB$.
+On utilise la médiatrice :
 
-Cette propriété permet de construire un point équidistant de A et B.
+$$
+MA=MB.
+$$
 
-## 5. Construction au compas
-Pour construire la médiatrice :
-1. choisir un rayon supérieur à la moitié de $AB$ ;
-2. tracer deux arcs de même rayon centrés en A et B ;
-3. relier leurs deux points d'intersection.
+Traduire correctement la phrase est souvent l’étape la plus importante.
 
-## Erreurs fréquentes
-- Confondre cercle et disque.
-- Mesurer la distance d'un point à une droite avec un segment oblique.
-- Croire que tout point de la médiatrice est le milieu du segment.
+---
 
-## À retenir
-Le cercle correspond à une distance fixe au centre. La médiatrice correspond à l'égalité de deux distances.
+## 22. Méthode — résoudre un problème de construction
+
+1. repérer les conditions données ;
+2. traduire chaque condition par un objet géométrique ;
+3. construire les objets avec règle et compas ;
+4. rechercher leurs intersections ;
+5. vérifier que chaque point obtenu satisfait toutes les conditions.
+
+Une construction doit être accompagnée d’une justification.
+
+---
+
+## 23. Erreurs fréquentes
+
+### Confondre segment et distance
+
+Le segment s’écrit :
+
+$$
+[AB].
+$$
+
+La distance s’écrit :
+
+$$
+AB.
+$$
+
+### Confondre cercle et disque
+
+Le cercle correspond à :
+
+$$
+OM=r.
+$$
+
+Le disque correspond à :
+
+$$
+OM\le r.
+$$
+
+### Dire qu’un diamètre est deux rayons sans préciser l’alignement
+
+Un diamètre passe par le centre et a ses deux extrémités sur le cercle.
+
+### Oublier une condition du milieu
+
+Pour que $I$ soit le milieu de $[AB]$, il faut :
+
+$$
+I\in[AB]
+$$
+
+et :
+
+$$
+AI=IB.
+$$
+
+### Croire que seul le milieu appartient à la médiatrice
+
+La médiatrice contient une infinité de points.
+
+Tous vérifient :
+
+$$
+MA=MB.
+$$
+
+### Utiliser un arc de rayon différent dans la construction
+
+Les arcs centrés en $A$ et $B$ doivent être tracés avec la même ouverture du compas pour obtenir des points équidistants.
+
+---
+
+## 24. À retenir
+
+La distance entre $A$ et $B$ est la longueur du segment $[AB]$ et se note :
+
+$$
+AB.
+$$
+
+Le milieu $I$ de $[AB]$ vérifie :
+
+$$
+I\in[AB]
+$$
+
+et :
+
+$$
+AI=IB.
+$$
+
+Le cercle de centre $O$ et de rayon $r$ est caractérisé par :
+
+$$
+\boxed{OM=r}.
+$$
+
+Le disque est caractérisé par :
+
+$$
+\boxed{OM\le r}.
+$$
+
+La médiatrice de $[AB]$ est la droite perpendiculaire à $(AB)$ passant par son milieu.
+
+Sa propriété essentielle est :
+
+$$
+\boxed{
+M\in\text{médiatrice de }[AB]
+\iff
+MA=MB
+}.
+$$
+
+Ces objets permettent de transformer des contraintes de distance en constructions géométriques précises.
