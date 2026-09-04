@@ -1,78 +1,954 @@
 ## Objectifs
-- Comprendre la valeur de chaque chiffre dans l'écriture décimale.
-- Comparer, ranger et encadrer des nombres.
-- Choisir et effectuer une opération adaptée.
-- Contrôler un résultat par un ordre de grandeur.
 
-## 1. Notre numération est décimale
-Dans $37\,405{,}218$, la valeur d'un chiffre dépend de sa position.
+Dans ce chapitre, on apprend à :
 
-On peut décomposer :
+- lire et écrire correctement de grands nombres entiers et des nombres décimaux ;
+- comprendre la valeur d’un chiffre selon sa position ;
+- décomposer et recomposer un nombre ;
+- passer d’une écriture décimale à une écriture fractionnaire décimale ;
+- comparer, ranger, encadrer et arrondir des nombres décimaux ;
+- placer et repérer des nombres sur une demi-droite graduée ;
+- calculer avec des nombres décimaux ;
+- utiliser un ordre de grandeur pour vérifier qu’un résultat est plausible ;
+- choisir l’opération adaptée dans un problème.
+
+---
+
+## 1. Situation de départ — le même chiffre peut avoir des valeurs différentes
+
+Dans les nombres
+
 $$
-37\,405{,}218
-=3\times10^4+7\times10^3+4\times10^2+5+\frac2{10}+\frac1{100}+\frac8{1000}.
+4\,205{,}37
 $$
 
-Ajouter un zéro à droite de la partie décimale ne change pas le nombre :
+et
+
 $$
-4{,}7=4{,}70.
+0{,}043,
 $$
 
-## 2. Comparer et encadrer
-Pour comparer deux nombres décimaux, on compare d'abord les parties entières, puis les dixièmes, les centièmes, etc.
+le chiffre \(4\) n’a pas la même valeur.
 
-Exemple :
-$$
-12{,}307<12{,}31
-$$
-car $12{,}307<12{,}310$.
+Dans le premier nombre, il représente des milliers :
 
-Un encadrement au dixième de $5{,}83$ est
+$$
+4\times1\,000=4\,000.
+$$
+
+Dans le second, il représente des centièmes :
+
+$$
+4\times\dfrac{1}{100}=0{,}04.
+$$
+
+La valeur d’un chiffre dépend donc de **son rang** dans l’écriture du nombre.
+
+C’est le principe fondamental de la numération décimale de position.
+
+---
+
+## 2. Notre numération est décimale et positionnelle
+
+Notre système utilise dix chiffres :
+
+$$
+0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9.
+$$
+
+Il est **décimal** car les rangs sont organisés par puissances de dix.
+
+Il est **positionnel** car la valeur d’un chiffre dépend de sa position.
+
+Les principaux rangs utilisés en 6e sont :
+
+| Rang | Valeur d’une unité du rang |
+|---|---:|
+| millier | \(1\,000\) |
+| centaine | \(100\) |
+| dizaine | \(10\) |
+| unité | \(1\) |
+| dixième | \(\dfrac{1}{10}=0{,}1\) |
+| centième | \(\dfrac{1}{100}=0{,}01\) |
+| millième | \(\dfrac{1}{1\,000}=0{,}001\) |
+
+<figure>
+  <img src="/images/mathematiques/6eme/nombres-entiers-decimaux-position.svg" alt="Schéma du tableau de numération décimale séparant partie entière et partie décimale." />
+  <figcaption>
+    Pour le nombre \(4\,205{,}37\), les chiffres occupent successivement les rangs des milliers, centaines, dizaines, unités, dixièmes et centièmes.
+  </figcaption>
+</figure>
+
+---
+
+## 3. Décomposer un nombre entier ou décimal
+
+Décomposer un nombre consiste à faire apparaître la valeur de chaque chiffre.
+
+### Exemple développé 1 — décomposer un nombre
+
+Considérons :
+
+$$
+4\,205{,}37.
+$$
+
+On peut écrire :
+
+$$
+4\,205{,}37
+=
+4\times1\,000
++
+2\times100
++
+0\times10
++
+5\times1
++
+3\times\dfrac{1}{10}
++
+7\times\dfrac{1}{100}.
+$$
+
+Donc :
+
+$$
+4\,205{,}37
+=
+4\,000
++
+200
++
+5
++
+0{,}3
++
+0{,}07.
+$$
+
+On peut aussi utiliser des fractions décimales :
+
+$$
+4\,205{,}37
+=
+4\,205+\dfrac{3}{10}+\dfrac{7}{100}.
+$$
+
+Ou encore :
+
+$$
+4\,205{,}37
+=
+\dfrac{420\,537}{100}.
+$$
+
+Ces écritures représentent toutes **le même nombre**.
+
+---
+
+## 4. Passer d’un rang au rang voisin
+
+Deux rangs voisins sont liés par un facteur \(10\).
+
+Par exemple :
+
+$$
+1\text{ dizaine}=10\text{ unités},
+$$
+
+$$
+1\text{ unité}=10\text{ dixièmes},
+$$
+
+$$
+1\text{ dixième}=10\text{ centièmes}.
+$$
+
+On peut donc écrire :
+
+$$
+1=10\times\dfrac{1}{10}
+=100\times\dfrac{1}{100}
+=1\,000\times\dfrac{1}{1\,000}.
+$$
+
+Inversement :
+
+$$
+\dfrac{1}{10}=0{,}1,
+\qquad
+\dfrac{1}{100}=0{,}01,
+\qquad
+\dfrac{1}{1\,000}=0{,}001.
+$$
+
+Ces relations sont essentielles pour comprendre les multiplications et divisions par \(10\), \(100\) et \(1\,000\).
+
+---
+
+## 5. Reconnaître un nombre décimal
+
+Un nombre décimal est un nombre qui peut s’écrire sous la forme :
+
+$$
+\dfrac{a}{10^n},
+$$
+
+où \(a\) est un entier et \(n\) un entier naturel.
+
+Par exemple :
+
+$$
+3{,}47=\dfrac{347}{100}.
+$$
+
+Ainsi \(3{,}47\) est un nombre décimal.
+
+De même :
+
+$$
+12=\dfrac{12}{1}
+$$
+
+est aussi un nombre décimal.
+
+Un entier est donc un cas particulier de nombre décimal.
+
+---
+
+## 6. Zéros inutiles et égalité de nombres décimaux
+
+Ajouter des zéros à droite de la partie décimale ne change pas la valeur du nombre.
+
+Ainsi :
+
+$$
+4{,}7=4{,}70=4{,}700.
+$$
+
+En effet :
+
+$$
+4{,}7
+=
+4+\dfrac{7}{10},
+$$
+
+tandis que
+
+$$
+4{,}70
+=
+4+\dfrac{70}{100}
+=
+4+\dfrac{7}{10}.
+$$
+
+Les deux écritures désignent donc le même nombre.
+
+Attention : on ne peut pas ajouter un zéro n’importe où.
+
+Par exemple :
+
+$$
+4{,}7\neq4{,}07.
+$$
+
+---
+
+## 7. Comparer deux nombres décimaux
+
+Pour comparer deux nombres décimaux, on compare les rangs de gauche à droite.
+
+### Méthode
+
+Pour comparer \(8{,}09\) et \(8{,}9\) :
+
+1. les parties entières sont égales ;
+2. on compare les dixièmes ;
+3. on peut écrire \(8{,}9=8{,}90\).
+
+Ainsi :
+
+$$
+8{,}09<8{,}90.
+$$
+
+Donc :
+
+$$
+\boxed{8{,}09<8{,}9}.
+$$
+
+Il ne faut pas comparer les parties décimales comme si elles étaient des nombres entiers séparés.
+
+---
+
+## 8. Ranger plusieurs nombres
+
+Ranger dans l’ordre croissant signifie aller du plus petit au plus grand.
+
+Par exemple, pour :
+
+$$
+5{,}8,\qquad5{,}72,\qquad5{,}079,\qquad5{,}81,
+$$
+
+on peut écrire :
+
+$$
+5{,}8=5{,}800,
+$$
+
+$$
+5{,}72=5{,}720,
+$$
+
+$$
+5{,}079=5{,}079,
+$$
+
+$$
+5{,}81=5{,}810.
+$$
+
+On obtient alors :
+
+$$
+\boxed{
+5{,}079<5{,}72<5{,}8<5{,}81
+}.
+$$
+
+---
+
+## 9. La demi-droite graduée
+
+Une demi-droite graduée permet de représenter les nombres et de visualiser leur ordre.
+
+<figure>
+  <img src="/images/mathematiques/6eme/nombres-entiers-decimaux-droite-graduee.svg" alt="Schéma d'une demi-droite graduée permettant de placer, comparer et encadrer des nombres décimaux." />
+  <figcaption>
+    Si les points \(A\), \(B\) et \(C\) ont respectivement pour abscisses \(5{,}2\), \(5{,}44\) et \(5{,}7\), leur position permet de lire directement \(5{,}2<5{,}44<5{,}7\).
+  </figcaption>
+</figure>
+
+Pour placer correctement un nombre, il faut toujours déterminer la valeur d’une graduation.
+
+Si l’intervalle entre \(5\) et \(6\) est partagé en dix parties égales, une graduation vaut :
+
+$$
+\dfrac{6-5}{10}=0{,}1.
+$$
+
+Chaque graduation correspond donc à un dixième.
+
+---
+
+## 10. Encadrer et intercaler
+
+Encadrer un nombre consiste à trouver un nombre plus petit et un nombre plus grand.
+
+Par exemple :
+
 $$
 5{,}8<5{,}83<5{,}9.
 $$
 
-## 3. Les quatre opérations
-- Addition : réunir ou ajouter.
-- Soustraction : chercher un écart ou ce qui reste.
-- Multiplication : addition répétée, produit de grandeurs ou changement d'échelle.
-- Division : partage ou recherche du nombre de groupes.
+C’est un encadrement au dixième.
 
-La division décimale n'a de sens que si l'on interprète le quotient dans la situation.
+On peut aussi encadrer au centième :
 
-## 4. Priorités de calcul
-Dans une expression sans parenthèses, multiplications et divisions sont effectuées avant additions et soustractions.
-
-Exemple :
 $$
-18-3\times4=18-12=6.
+5{,}83<5{,}837<5{,}84.
 $$
 
-Avec des parenthèses :
+Intercaler consiste à trouver un nombre entre deux nombres donnés.
+
+Entre \(2{,}3\) et \(2{,}4\), on peut par exemple choisir :
+
 $$
-(18-3)\times4=15\times4=60.
+2{,}35.
 $$
 
-## 5. Ordre de grandeur
-Avant ou après un calcul, on remplace les nombres par des valeurs proches faciles à manipuler.
+On a bien :
 
-Pour
 $$
-49{,}8\times2{,}03,
+2{,}3<2{,}35<2{,}4.
 $$
-on estime $50\times2\approx100$. Un résultat comme 10 ou 1 000 serait donc suspect.
 
-## Automatismes
-- Tables de multiplication.
-- Doubles, moitiés, compléments à 10, 100 ou 1 000.
-- Multiplication et division par 10, 100, 1 000.
-- Placement de nombres sur une demi-droite graduée.
+---
 
-## Erreurs fréquentes
-- Comparer les parties décimales comme des entiers : $4{,}12$ n'est pas supérieur à $4{,}8$.
-- Aligner les derniers chiffres au lieu des virgules dans une addition posée.
-- Oublier les priorités opératoires.
-- Accepter un résultat de calculatrice sans contrôle.
+## 11. Arrondir un nombre décimal
 
-## À retenir
-La valeur d'un chiffre dépend de sa position. Comparer des décimaux revient à comparer successivement unités, dixièmes, centièmes, etc. Un ordre de grandeur est un garde-fou indispensable.
+Arrondir consiste à remplacer un nombre par une valeur proche choisie à un rang donné.
+
+### Arrondi à l’unité
+
+Pour arrondir \(17{,}6\) à l’unité, on compare les deux entiers voisins :
+
+$$
+17<17{,}6<18.
+$$
+
+Le nombre \(17{,}6\) est plus proche de \(18\).
+
+Donc :
+
+$$
+17{,}6\approx18.
+$$
+
+### Arrondi au dixième
+
+Pour arrondir \(5{,}837\) au dixième, on observe le chiffre des centièmes.
+
+On obtient :
+
+$$
+5{,}837\approx5{,}8.
+$$
+
+### Arrondi au centième
+
+On observe cette fois le chiffre des millièmes :
+
+$$
+5{,}837\approx5{,}84.
+$$
+
+L’arrondi dépend donc du rang demandé.
+
+---
+
+## 12. Additionner et soustraire des nombres décimaux
+
+Pour poser une addition ou une soustraction de nombres décimaux, il faut **aligner les virgules**.
+
+### Exemple
+
+Calculons :
+
+$$
+18{,}7+4{,}56.
+$$
+
+On peut écrire :
+
+$$
+18{,}70+4{,}56=23{,}26.
+$$
+
+Donc :
+
+$$
+\boxed{18{,}7+4{,}56=23{,}26}.
+$$
+
+Pour la soustraction :
+
+$$
+18{,}7-4{,}56=14{,}14.
+$$
+
+Le zéro ajouté à droite de \(18{,}7\) ne change pas le nombre, mais facilite le calcul posé.
+
+---
+
+## 13. Multiplier ou diviser par \(10\), \(100\) ou \(1\,000\)
+
+Multiplier par \(10\) signifie rendre chaque chiffre dix fois plus grand en valeur.
+
+Par exemple :
+
+$$
+3{,}47\times10=34{,}7.
+$$
+
+De même :
+
+$$
+3{,}47\times100=347,
+$$
+
+et :
+
+$$
+3{,}47\times1\,000=3\,470.
+$$
+
+Inversement :
+
+$$
+347\div10=34{,}7,
+$$
+
+$$
+347\div100=3{,}47,
+$$
+
+$$
+347\div1\,000=0{,}347.
+$$
+
+Il vaut mieux raisonner sur les **rangs de numération** que mémoriser une règle du type « déplacer la virgule ».
+
+---
+
+## 14. Multiplier par \(0{,}1\), \(0{,}01\) et \(0{,}001\)
+
+Comme :
+
+$$
+0{,}1=\dfrac{1}{10},
+$$
+
+on a :
+
+$$
+a\times0{,}1=a\div10.
+$$
+
+Par exemple :
+
+$$
+42{,}5\times0{,}1=4{,}25.
+$$
+
+De même :
+
+$$
+42{,}5\times0{,}01=0{,}425,
+$$
+
+et :
+
+$$
+42{,}5\times0{,}001=0{,}0425.
+$$
+
+Ces calculs utilisent directement la structure décimale des nombres.
+
+---
+
+## 15. Comprendre la multiplication de deux nombres décimaux
+
+La multiplication de deux nombres décimaux ne doit pas être vue comme une simple « addition répétée ».
+
+Elle peut représenter, par exemple, l’aire d’un rectangle.
+
+Un rectangle de longueur \(3{,}2\ \text{m}\) et de largeur \(1{,}5\ \text{m}\) a pour aire :
+
+$$
+3{,}2\times1{,}5.
+$$
+
+On peut décomposer :
+
+$$
+1{,}5=1+0{,}5.
+$$
+
+Donc :
+
+$$
+3{,}2\times1{,}5
+=
+3{,}2\times1
++
+3{,}2\times0{,}5.
+$$
+
+Ainsi :
+
+$$
+3{,}2\times1{,}5
+=
+3{,}2+1{,}6
+=
+4{,}8.
+$$
+
+Le produit vaut donc :
+
+$$
+\boxed{4{,}8}.
+$$
+
+---
+
+## 16. Exemple développé 2 — calculer et contrôler un produit
+
+Calculons :
+
+$$
+48{,}7\times19{,}8.
+$$
+
+Avant le calcul exact, cherchons un ordre de grandeur.
+
+On peut utiliser :
+
+$$
+48{,}7\approx50
+$$
+
+et
+
+$$
+19{,}8\approx20.
+$$
+
+Ainsi :
+
+$$
+48{,}7\times19{,}8
+\approx
+50\times20
+=
+1\,000.
+$$
+
+Le résultat exact devra donc être proche de \(1\,000\).
+
+Le produit exact est :
+
+$$
+48{,}7\times19{,}8=964{,}26.
+$$
+
+Ce résultat est cohérent avec l’ordre de grandeur.
+
+Un résultat comme :
+
+$$
+96{,}426
+$$
+
+serait immédiatement suspect.
+
+---
+
+## 17. Diviser un nombre décimal par un entier
+
+En 6e, on rencontre notamment des divisions d’un nombre décimal par un entier non nul inférieur à \(10\).
+
+### Exemple développé 3 — partage
+
+On répartit \(7{,}5\ \text{L}\) de jus dans \(6\) bouteilles identiques.
+
+Le volume d’une bouteille est :
+
+$$
+7{,}5\div6.
+$$
+
+On obtient :
+
+$$
+7{,}5\div6=1{,}25.
+$$
+
+Chaque bouteille contient donc :
+
+$$
+\boxed{1{,}25\ \text{L}}.
+$$
+
+Le quotient doit être interprété dans le contexte.
+
+---
+
+## 18. Division euclidienne
+
+La division euclidienne concerne des nombres entiers.
+
+Diviser \(157\) par \(12\), c’est chercher un quotient entier \(q\) et un reste \(r\) tels que :
+
+$$
+157=12\times q+r,
+$$
+
+avec :
+
+$$
+0\le r<12.
+$$
+
+On trouve :
+
+$$
+157=12\times13+1.
+$$
+
+Le quotient est donc :
+
+$$
+q=13,
+$$
+
+et le reste :
+
+$$
+r=1.
+$$
+
+Cette division répond par exemple à une question du type : combien de groupes complets peut-on former ?
+
+---
+
+## 19. Ordre de grandeur
+
+Un ordre de grandeur est une valeur simple et proche du résultat exact.
+
+Il sert à vérifier la cohérence d’un calcul.
+
+### Addition
+
+Pour :
+
+$$
+197{,}8+403{,}2,
+$$
+
+on peut estimer :
+
+$$
+200+400=600.
+$$
+
+### Multiplication
+
+Pour :
+
+$$
+29{,}7\times4{,}1,
+$$
+
+on peut estimer :
+
+$$
+30\times4=120.
+$$
+
+### Division
+
+Pour :
+
+$$
+39{,}8\div8,
+$$
+
+on peut estimer :
+
+$$
+40\div8=5.
+$$
+
+L’ordre de grandeur ne remplace pas le résultat exact : il permet de le contrôler.
+
+---
+
+## 20. Pourcentage : une écriture parmi d’autres
+
+Le pourcentage est une écriture liée à une fraction de dénominateur \(100\).
+
+Ainsi :
+
+$$
+25\,\%=\dfrac{25}{100}=0{,}25.
+$$
+
+De même :
+
+$$
+50\,\%=\dfrac{50}{100}=0{,}5,
+$$
+
+et :
+
+$$
+100\,\%=1.
+$$
+
+Cette écriture sera largement utilisée dans les autres chapitres.
+
+---
+
+## 21. Méthode — résoudre un problème numérique
+
+Pour résoudre un problème, on peut suivre six étapes.
+
+### Étape 1 — identifier la question
+
+Que cherche-t-on ?
+
+### Étape 2 — repérer les données utiles
+
+Toutes les informations de l’énoncé ne sont pas forcément nécessaires.
+
+### Étape 3 — choisir l’opération
+
+Il faut décider si la situation relève d’une addition, d’une soustraction, d’une multiplication, d’une division ou de plusieurs opérations successives.
+
+### Étape 4 — prévoir un ordre de grandeur
+
+Avant le calcul exact, on estime le résultat.
+
+### Étape 5 — effectuer le calcul
+
+Le calcul doit être posé ou organisé proprement.
+
+### Étape 6 — interpréter
+
+On donne une phrase réponse avec l’unité lorsqu’elle est nécessaire.
+
+---
+
+## 22. Exemple développé 4 — problème à plusieurs opérations
+
+Une association achète \(18\) carnets à \(2{,}75\ €\) l’unité et paie avec \(60\ €\).
+
+Le coût total est :
+
+$$
+18\times2{,}75.
+$$
+
+On obtient :
+
+$$
+18\times2{,}75=49{,}50.
+$$
+
+La monnaie rendue vaut :
+
+$$
+60-49{,}50=10{,}50.
+$$
+
+Donc l’association doit recevoir :
+
+$$
+\boxed{10{,}50\ €}.
+$$
+
+Vérification par ordre de grandeur :
+
+$$
+18\times3\approx54.
+$$
+
+Un coût de \(49{,}50\ €\) est donc plausible.
+
+---
+
+## 23. Automatismes à maîtriser
+
+Les automatismes utiles dans ce chapitre sont notamment :
+
+- les tables de multiplication ;
+- les doubles et moitiés usuels ;
+- les compléments à \(10\), \(100\) et \(1\,000\) ;
+- les relations entre unités, dixièmes, centièmes et millièmes ;
+- les multiplications et divisions par \(10\), \(100\) et \(1\,000\) ;
+- les équivalences :
+
+$$
+\dfrac{1}{10}=0{,}1,
+$$
+
+$$
+\dfrac{1}{100}=0{,}01,
+$$
+
+$$
+\dfrac{1}{1\,000}=0{,}001.
+$$
+
+---
+
+## 24. Erreurs fréquentes
+
+### Comparer seulement le nombre de chiffres après la virgule
+
+On pourrait croire que :
+
+$$
+4{,}12>4{,}8
+$$
+
+parce que \(12>8\).
+
+C’est faux.
+
+En écrivant :
+
+$$
+4{,}8=4{,}80,
+$$
+
+on voit que :
+
+$$
+\boxed{4{,}12<4{,}8}.
+$$
+
+### Oublier d’aligner les virgules
+
+Dans une addition ou une soustraction posée, on aligne les **rangs de numération**, donc les virgules.
+
+### Ajouter des zéros au mauvais endroit
+
+On a :
+
+$$
+3{,}4=3{,}40,
+$$
+
+mais :
+
+$$
+3{,}4\neq3{,}04.
+$$
+
+### Confondre quotient décimal et division euclidienne
+
+Une division décimale peut produire un quotient décimal.
+
+Une division euclidienne produit un quotient entier et un reste entier.
+
+### Faire confiance à la calculatrice sans vérifier
+
+Même un calcul correctement saisi peut être mal interprété.
+
+Un ordre de grandeur permet de détecter une erreur grossière.
+
+---
+
+## 25. À retenir
+
+La numération décimale est fondée sur la valeur de position.
+
+Deux rangs voisins sont liés par un facteur \(10\).
+
+Les relations essentielles sont :
+
+$$
+1=10\times\dfrac{1}{10},
+$$
+
+$$
+1=100\times\dfrac{1}{100},
+$$
+
+$$
+1=1\,000\times\dfrac{1}{1\,000}.
+$$
+
+Pour comparer des nombres décimaux, on compare les chiffres rang par rang.
+
+Pour contrôler un calcul, on utilise un ordre de grandeur.
+
+Enfin, dans un problème, le calcul n’est qu’une étape : il faut aussi choisir l’opération, vérifier la vraisemblance du résultat et l’interpréter.
