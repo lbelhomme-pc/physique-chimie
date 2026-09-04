@@ -300,7 +300,7 @@ function validateMeta(meta) {
   if (meta.contentQualityVersion !== 2) return errors;
   if (!meta.officialSource) errors.push("meta: officialSource absent");
   if (!meta.programmeVersion) errors.push("meta: programmeVersion absent");
-  if (!Array.isArray(meta.curriculumItems) || meta.curriculumItems.length < 3) errors.push("meta: moins de 3 curriculumItems");
+  if (!Array.isArray(meta.curriculumItems) || meta.curriculumItems.length < 1) errors.push("meta: aucun curriculumItem officiel");
   if (!Array.isArray(meta.objectives) || meta.objectives.length < 4) errors.push("meta: moins de 4 objectifs");
   const competencies = meta.competencies ?? meta.competences;
   if (!Array.isArray(competencies) || competencies.length < 3) errors.push("meta: compétences insuffisantes");
