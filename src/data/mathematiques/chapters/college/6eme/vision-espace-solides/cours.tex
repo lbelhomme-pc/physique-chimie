@@ -1,39 +1,348 @@
 % Mathématiques 6e — cours V3
-% Source LaTeX rendue côté Astro/KaTeX.
+% Vision dans l'espace et assemblages de cubes
 
 \section{Objectifs}
+
 \begin{itemize}
-\item Décrire des solides usuels.
-\item Passer d'une représentation plane à un objet de l'espace.
-\item Reconnaître un patron valide.
-\item Lire plusieurs vues d'un même solide.
+\item Reconnaître les principaux solides usuels déjà rencontrés à l'école primaire.
+\item Lire une représentation en perspective sans confondre le dessin avec le solide réel.
+\item Voir dans l'espace des assemblages de cubes.
+\item Passer d'un assemblage de cubes à des représentations planes : vue de dessus, de face ou de côté.
+\item Reconstituer un assemblage à partir de plusieurs vues.
+\item Dénombrer les cubes d'un assemblage en tenant compte des cubes cachés.
+\item Décrire une stratégie de comptage claire et vérifiable.
 \end{itemize}
 
-\section{1. Vocabulaire}
-Un polyèdre possède des \textbf{faces}, des \textbf{arêtes} et des \textbf{sommets}.
+\section{1. Solide et représentation}
 
-Un cube possède 6 faces carrées, 12 arêtes et 8 sommets. Un pavé droit possède aussi 6 faces, 12 arêtes et 8 sommets, mais ses faces sont des rectangles.
+Un solide est un objet géométrique de l'espace. Il possède trois dimensions : longueur, largeur et hauteur.
 
-\section{2. Perspective}
-Sur une représentation en perspective, certaines arêtes cachées peuvent être tracées en pointillés. Le dessin ne conserve pas nécessairement les longueurs ni les angles réels.
+Une feuille ou un écran est une surface plane. Lorsqu'on y représente un solide, on produit donc une \textbf{image en deux dimensions} d'un objet qui existe en trois dimensions.
 
-\section{3. Patron}
-Un patron est une figure plane qui peut être pliée pour former le solide sans superposition ni trou.
+\begin{attention}
+Le dessin n'est pas le solide. Une longueur dessinée plus petite sur la feuille peut représenter une arête de même longueur qu'une autre arête du solide.
+\end{attention}
 
-Pour un cube, le patron contient six carrés de même taille, mais tous les assemblages de six carrés ne sont pas des patrons valides.
+La représentation en perspective cherche à donner une impression de profondeur. Elle est utile pour reconnaître la structure générale d'un objet, mais elle ne conserve pas nécessairement les longueurs ni les angles du solide réel.
 
-\section{4. Plusieurs vues}
-Une vue de face, de dessus ou de côté apporte une information différente. Pour reconstituer un assemblage de cubes, une seule vue peut être insuffisante.
+\section{2. Automatismes sur les solides usuels}
 
-\section{5. Repérage et raisonnement}
-Il faut identifier les faces qui deviennent voisines après pliage et celles qui deviennent opposées.
+En 6e, on entretient la reconnaissance de solides déjà étudiés.
 
-\section{Erreurs fréquentes}
 \begin{itemize}
-\item Mesurer directement une arête sur un dessin en perspective.
-\item Penser que tout assemblage de six carrés est un patron de cube.
-\item Confondre une face et une arête.
+\item Le \textbf{cube} possède six faces carrées.
+\item Le \textbf{pavé droit} possède six faces rectangulaires.
+\item Le \textbf{prisme droit} possède deux bases polygonales superposables.
+\item La \textbf{pyramide} possède une base polygonale et des faces latérales triangulaires.
+\item Le \textbf{cylindre} possède deux bases circulaires.
+\item Le \textbf{cône} possède une base circulaire et un sommet.
+\item La \textbf{boule} est un solide ; la \textbf{sphère} désigne sa surface frontière.
+\end{itemize}
+
+\begin{remarque}
+Ces reconnaissances constituent surtout des automatismes. Le travail nouveau du chapitre porte sur la capacité à voir et raisonner sur des assemblages de cubes.
+\end{remarque}
+
+\section{3. Faces, arêtes et sommets}
+
+Pour un polyèdre, on distingue trois éléments.
+
+\begin{definition}
+Une \textbf{face} est une surface plane qui limite le solide.
+
+Une \textbf{arête} est un segment commun à deux faces.
+
+Un \textbf{sommet} est un point où se rencontrent plusieurs arêtes.
+\end{definition}
+
+Un cube possède :
+\[
+6\ \text{faces},\qquad 12\ \text{arêtes},\qquad 8\ \text{sommets}.
+\]
+
+Un pavé droit possède le même nombre de faces, d'arêtes et de sommets, même si ses faces ne sont pas nécessairement carrées.
+
+\section{4. Assemblages de cubes}
+
+Un assemblage de cubes est obtenu en plaçant des cubes identiques les uns contre les autres, face contre face.
+
+\coursefigure{/images/mathematiques/6eme/espace-assemblage-cubes.svg}{Assemblage de cubes unité sur plusieurs niveaux.}{Une représentation en perspective donne des informations sur les niveaux, mais certains cubes peuvent être cachés.}
+
+Un petit cube peut servir d'\textbf{unité de comptage}. Si l'assemblage contient $N$ cubes unité, il est possible de décrire sa taille par ce nombre, même lorsque toutes les faces ne sont pas visibles.
+
+\begin{attention}
+Compter uniquement les cubes dont on voit une face entière conduit souvent à sous-estimer l'assemblage. Un cube peut être caché derrière ou sous un autre cube.
+\end{attention}
+
+\section{5. Organiser le comptage par colonnes}
+
+Une stratégie efficace consiste à observer l'assemblage verticalement.
+
+Supposons que les hauteurs des colonnes visibles depuis le dessus soient :
+\[
+2,\quad 1,\quad 3,\quad 2,\quad 1.
+\]
+
+Le nombre total de cubes vaut :
+\[
+2+1+3+2+1=9.
+\]
+
+\begin{methode}
+Pour compter par colonnes :
+\begin{enumerate}
+\item repérer chaque position occupée au sol ;
+\item déterminer la hauteur de la pile à cette position ;
+\item additionner les hauteurs ;
+\item vérifier qu'aucune position n'a été comptée deux fois.
+\end{enumerate}
+\end{methode}
+
+Cette méthode est particulièrement efficace lorsqu'on dispose d'une vue de dessus accompagnée des hauteurs.
+
+\section{6. Organiser le comptage par couches}
+
+On peut aussi couper mentalement le solide horizontalement.
+
+Si la couche inférieure contient $8$ cubes, la deuxième couche $5$ cubes et la troisième couche $2$ cubes, alors :
+\[
+N=8+5+2=15.
+\]
+
+\begin{exemple}
+Un assemblage comporte une base rectangulaire complète de $4$ cubes sur $3$, puis une deuxième couche de $5$ cubes.
+
+La première couche contient :
+\[
+4\times3=12
+\]
+cubes.
+
+Le total vaut :
+\[
+12+5=17.
+\]
+
+L'assemblage contient donc $\boxed{17}$ cubes.
+\end{exemple}
+
+Le comptage par couches évite de parcourir le dessin de manière désordonnée.
+
+\section{7. Les cubes cachés}
+
+Dans une perspective, un cube situé derrière un autre peut ne laisser apparaître aucune face.
+
+Pour déterminer s'il doit être présent, on utilise la structure de l'assemblage.
+
+\begin{exemple}
+Une colonne atteint une hauteur de $3$ cubes. On ne voit que le cube du sommet et une partie du cube intermédiaire.
+
+La hauteur annoncée impose pourtant :
+\[
+3
+\]
+cubes dans cette colonne.
+
+Le cube du bas doit donc être compté, même s'il est entièrement caché.
+\end{exemple}
+
+\begin{propriete}
+Une représentation en perspective donne des indices visuels, mais le nombre de cubes se déduit de l'organisation spatiale complète, pas seulement de ce qui est visible.
+\end{propriete}
+
+\section{8. Vue de dessus}
+
+Une vue de dessus indique les positions occupées lorsque l'on regarde l'objet verticalement.
+
+Elle permet notamment de savoir :
+\begin{itemize}
+\item combien de colonnes différentes existent ;
+\item quelles positions du sol sont occupées ;
+\item comment les colonnes sont disposées les unes par rapport aux autres.
+\end{itemize}
+
+En revanche, une simple vue de dessus ne donne pas toujours la hauteur de chaque colonne.
+
+Deux assemblages différents peuvent donc avoir exactement la même vue de dessus.
+
+\section{9. Vue de face et vue de côté}
+
+Une vue de face montre les hauteurs observées depuis une direction choisie.
+
+Une vue de côté fournit une information complémentaire.
+
+\coursefigure{/images/mathematiques/6eme/espace-vues-cubes.svg}{Deux représentations planes d'un assemblage : vue de dessus et vue de face.}{Croiser plusieurs vues permet de retrouver davantage d'informations qu'une seule représentation.}
+
+\begin{remarque}
+Le mot « face » dans « vue de face » indique une direction d'observation. Il ne désigne pas nécessairement une face géométrique unique du solide.
+\end{remarque}
+
+\section{10. Une seule vue peut être insuffisante}
+
+Considérons deux colonnes placées l'une derrière l'autre.
+
+Depuis l'avant, elles peuvent se superposer visuellement.
+
+Une vue de face peut alors montrer une seule colonne de hauteur $3$, alors que plusieurs organisations sont possibles :
+\[
+3\text{ devant et }1\text{ derrière},
+\]
+ou
+\[
+2\text{ devant et }3\text{ derrière},
+\]
+par exemple.
+
+La vue de dessus permet de savoir combien de positions sont réellement occupées.
+
+\begin{propriete}
+Pour reconstituer un assemblage sans ambiguïté, il faut souvent croiser plusieurs vues ou disposer d'informations supplémentaires sur les hauteurs.
+\end{propriete}
+
+\section{11. Passer de l'espace au plan}
+
+Passer d'un assemblage réel à une représentation plane consiste à sélectionner une information.
+
+\begin{itemize}
+\item La perspective cherche à montrer le relief.
+\item La vue de dessus montre l'occupation au sol.
+\item La vue de face montre les hauteurs selon une direction.
+\item La vue de côté apporte un autre profil de hauteur.
+\end{itemize}
+
+Aucune représentation n'est « meilleure » dans tous les cas. On choisit celle qui répond à la question posée.
+
+\section{12. Passer du plan à l'espace}
+
+La démarche inverse demande davantage de raisonnement.
+
+On peut procéder ainsi.
+
+\begin{methode}
+Pour reconstituer un assemblage :
+\begin{enumerate}
+\item utiliser la vue de dessus pour placer les colonnes ;
+\item utiliser la vue de face pour contraindre leurs hauteurs ;
+\item utiliser la vue de côté pour lever les ambiguïtés ;
+\item construire mentalement ou matériellement une solution ;
+\item vérifier que toutes les vues correspondent à la construction.
+\end{enumerate}
+\end{methode}
+
+Une solution qui respecte une vue mais contredit une autre doit être rejetée.
+
+\section{13. Exemple développé : retrouver un nombre de cubes}
+
+Une vue de dessus montre quatre positions occupées. Les informations de hauteur sont :
+\[
+1,\quad 2,\quad 2,\quad 3.
+\]
+
+Le nombre total de cubes est la somme des hauteurs :
+\[
+N=1+2+2+3.
+\]
+
+Ainsi :
+\[
+\boxed{N=8}.
+\]
+
+On peut contrôler le résultat couche par couche.
+
+La première couche contient quatre cubes.
+
+La deuxième couche contient les trois colonnes de hauteur au moins $2$ :
+\[
+3\ \text{cubes}.
+\]
+
+La troisième couche contient uniquement la colonne de hauteur $3$ :
+\[
+1\ \text{cube}.
+\]
+
+Donc :
+\[
+4+3+1=8.
+\]
+
+Les deux stratégies donnent le même résultat.
+
+\section{14. Exemple développé : plusieurs assemblages possibles}
+
+Une vue de dessus montre trois positions alignées.
+
+Une vue de face indique une hauteur maximale de $2$.
+
+Ces données ne suffisent pas forcément à déterminer les trois hauteurs.
+
+Les triplets suivants peuvent par exemple respecter cette hauteur maximale :
+\[
+(2,1,1)
+\]
+et
+\[
+(1,2,1).
+\]
+
+Une vue de côté ou une indication supplémentaire peut être nécessaire pour distinguer les assemblages.
+
+\begin{attention}
+« Reconstituer un assemblage » ne signifie pas toujours qu'il existe une unique solution. Il faut savoir signaler lorsque les données sont insuffisantes.
+\end{attention}
+
+\section{15. Utiliser un matériel réel ou virtuel}
+
+La vision dans l'espace se développe par manipulation.
+
+On peut :
+\begin{itemize}
+\item empiler de vrais cubes ;
+\item tourner l'assemblage ;
+\item le dessiner sous plusieurs angles ;
+\item comparer le dessin à l'objet ;
+\item utiliser un logiciel de géométrie ou de modélisation en trois dimensions.
+\end{itemize}
+
+Le passage répété entre l'objet, la représentation et la description verbale est plus important qu'un dessin parfait.
+
+\section{16. Méthode générale}
+
+\begin{methode}
+Face à un assemblage de cubes :
+\begin{enumerate}
+\item repérer le niveau du sol ;
+\item identifier les positions occupées ;
+\item chercher les hauteurs des colonnes ;
+\item choisir un comptage par colonnes ou par couches ;
+\item tenir compte des cubes cachés ;
+\item confronter plusieurs vues si elles sont disponibles ;
+\item vérifier que le total est compatible avec toutes les informations.
+\end{enumerate}
+\end{methode}
+
+\section{17. Erreurs fréquentes}
+
+\begin{itemize}
+\item Compter seulement les cubes visibles.
+\item Confondre une face du cube avec une vue du solide.
+\item Mesurer directement sur une perspective comme si elle conservait toutes les longueurs.
+\item Croire qu'une vue de dessus indique automatiquement les hauteurs.
+\item Déduire une solution unique alors que plusieurs assemblages sont compatibles avec les vues.
+\item Compter deux fois un même cube en changeant de stratégie.
 \end{itemize}
 
 \section{À retenir}
-Les représentations planes donnent des informations partielles sur l'espace ; il faut les interpréter avec les propriétés du solide.
+
+\begin{aretenir}
+Le travail essentiel en 6e consiste à \textbf{voir dans l'espace des assemblages de cubes}.
+
+Une perspective donne une image du relief mais peut cacher des cubes.
+
+Une vue de dessus renseigne sur les positions occupées ; une vue de face ou de côté renseigne sur les hauteurs observées.
+
+Pour dénombrer les cubes, on peut additionner les hauteurs des colonnes ou compter les cubes couche par couche.
+
+Une seule vue peut être insuffisante : il faut alors croiser plusieurs représentations et vérifier que la construction proposée satisfait toutes les informations.
+\end{aretenir}
