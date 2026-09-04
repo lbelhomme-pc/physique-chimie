@@ -737,26 +737,82 @@ Chaque visuel doit être cité ou exploité dans le cours. Un chapitre ne doit p
 
 Tout SVG doit avoir `role="img"` et une alternative accessible (`aria-label`, description ou texte équivalent). Une image externe doit avoir un `alt` descriptif.
 
-## 5. Exercices
+## 5. Exercices — garde-fou pédagogique bloquant
 
-Chaque chapitre V2 contient au minimum **12 exercices** :
+Chaque chapitre V2 contient au minimum **12 vrais exercices**, organisés en progression :
 
-- 4 exercices N1 — application directe ;
-- 4 exercices N2 — raisonnement guidé ou semi-guidé ;
-- 4 exercices N3 — problème, synthèse, transfert ou format évaluation.
+- **4 exercices N1** — appropriation et application directe ;
+- **4 exercices N2** — mobilisation de plusieurs connaissances, lecture de représentation ou raisonnement guidé ;
+- **4 exercices N3** — problème de synthèse, transfert, choix de stratégie, analyse d'erreur ou tâche proche d'une situation d'évaluation.
 
-Pour les chapitres de fin de cycle, un exercice N3 peut être explicitement de type brevet/bac.
+Le nombre d'exercices ne suffit jamais à certifier un chapitre.
 
-Chaque exercice doit contenir :
+### 5.1 Structure obligatoire d'un exercice
 
-- un énoncé réel et contextualisé lorsque cela apporte quelque chose ;
-- les données nécessaires ;
-- un niveau ;
-- une ou plusieurs compétences ;
-- une correction disponible ;
-- une correction qui explique la méthode et pas uniquement le résultat.
+Chaque exercice V2 possède :
 
-Les exercices N2/N3 ne doivent pas être de simples changements de nombres d'un exercice N1.
+- un **énoncé complet** distinct de la consigne de rédaction ;
+- une ou plusieurs **questions explicites et numérotées** ;
+- un champ `pedagogicalType` ;
+- au moins un `curriculumItem` directement rattaché aux attendus du programme ;
+- les compétences mathématiques mobilisées ;
+- une durée indicative ;
+- des aides progressives ;
+- une correction détaillée, organisée selon les questions ;
+- du LaTeX/KaTeX pour toute écriture mathématique.
+
+La consigne générique « calculer », « utiliser un ordre de grandeur » ou « justifier » ne peut jamais constituer à elle seule l'énoncé affiché.
+
+### 5.2 Exigence par niveau
+
+**N1**
+
+- au moins une tâche mathématique explicite ;
+- énoncé suffisamment complet pour être autonome ;
+- application d'une notion précise du cours ;
+- correction avec méthode et calcul, pas seulement le résultat.
+
+**N2**
+
+- au moins **2 questions ou étapes distinctes** ;
+- mobilisation d'au moins deux actions parmi : représenter, calculer, comparer, interpréter, justifier, modéliser ;
+- la réponse ne doit pas se réduire à remplacer des nombres dans une formule unique.
+
+**N3**
+
+- au moins **3 questions ou étapes distinctes** ;
+- au moins une décision, justification, interprétation, comparaison de stratégies ou contrôle de résultat ;
+- au moins une compétence parmi `chercher`, `raisonner`, `modéliser` ou `communiquer` en plus du simple calcul ;
+- correction structurée question par question ;
+- un N3 n'est jamais une question courte simplement rendue « difficile » par les nombres choisis.
+
+### 5.3 Variété pédagogique obligatoire à l'échelle du chapitre
+
+Les 12 exercices doivent couvrir au moins **4 types pédagogiques distincts** parmi :
+
+- `technique` ;
+- `representation` ;
+- `problem-solving` ;
+- `reasoning` ;
+- `error-analysis` ;
+- `interpretation` ;
+- `algorithmic` lorsque le chapitre s'y prête.
+
+À l'échelle du chapitre, les exercices doivent mobiliser une palette large des compétences mathématiques : chercher, modéliser, représenter, raisonner, calculer, communiquer.
+
+Lorsque le contenu s'y prête, au moins **2 exercices utilisent une figure, un graphique, une droite graduée, un tableau, un diagramme ou un autre support de lecture mathématique**.
+
+### 5.4 Alignement avec le programme
+
+Chaque exercice doit pouvoir répondre à la question :
+
+> « Quel attendu ou quelle capacité du programme cet exercice entraîne-t-il ? »
+
+Le lien est enregistré dans `curriculumItems`. Un exercice sans rattachement explicite au référentiel ne peut pas être certifié V2.
+
+Les N2 et N3 ne doivent pas être de simples changements de nombres d'un N1. Les contextes artificiels ou décoratifs sont refusés : un contexte n'est utilisé que s'il apporte du sens à la tâche mathématique.
+
+Pour les chapitres de fin de cycle, certains N3 peuvent reprendre la logique d'un exercice de brevet ou de bac, sans recopier un sujet existant.
 
 ## 6. Quiz
 
@@ -798,6 +854,10 @@ La certification V2 vérifie automatiquement :
 - présence d'exemples, d'une méthode, d'erreurs fréquentes et d'une synthèse ;
 - au moins 12 exercices et corrections ;
 - répartition N1/N2/N3 ;
+- structure énoncé + questions ;
+- complexité minimale réellement différente entre N1, N2 et N3 ;
+- rattachement des exercices aux attendus du programme ;
+- diversité des types pédagogiques et des compétences ;
 - au moins 10 questions de quiz avec explications ;
 - au moins 12 flashcards ;
 - unicité des identifiants.
