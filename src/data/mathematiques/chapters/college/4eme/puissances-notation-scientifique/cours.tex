@@ -1,0 +1,369 @@
+% Mathématiques 4e — cours V3
+% Puissances et notation scientifique
+
+\section{Objectifs}
+
+\begin{itemize}
+\item Comprendre une puissance comme écriture condensée d'un produit.
+\item Utiliser des puissances de base quelconque à exposant entier positif.
+\item Utiliser les puissances de $10$ à exposants positifs et négatifs.
+\item Relier puissances de $10$ et préfixes d'unités de nano à giga.
+\item Écrire un nombre en notation scientifique.
+\item Passer de la notation scientifique à l'écriture décimale.
+\item Comparer des nombres et déterminer des ordres de grandeur.
+\item Effectuer des calculs en revenant à la définition des puissances.
+\end{itemize}
+
+\section{1. Puissance d'exposant positif}
+
+Pour un nombre $a$ et un entier positif $n$ :
+\[
+a^n
+\]
+désigne un produit de $n$ facteurs égaux à $a$.
+
+Par exemple :
+\[
+3^4=3\times3\times3\times3=81.
+\]
+
+\begin{definition}
+Pour $n\ge1$ :
+\[
+\boxed{a^n=\text{produit de }n\text{ facteurs égaux à }a}.
+\]
+\end{definition}
+
+\section{2. Exposant zéro}
+
+Pour $a\neq0$ :
+\[
+\boxed{a^0=1}.
+\]
+
+En particulier :
+\[
+10^0=1.
+\]
+
+\section{3. Puissances de dix positives}
+
+\[
+10^1=10,\qquad 10^2=100,\qquad10^3=1000.
+\]
+
+Plus généralement :
+\[
+10^n
+\]
+est égal à $1$ suivi de $n$ zéros lorsque $n$ est positif.
+
+\section{4. Puissances de dix négatives}
+
+\begin{definition}
+Pour $n>0$ :
+\[
+\boxed{10^{-n}=\dfrac1{10^n}}.
+\]
+\end{definition}
+
+Ainsi :
+\[
+10^{-1}=0{,}1,
+\]
+\[
+10^{-2}=0{,}01,
+\]
+\[
+10^{-3}=0{,}001.
+\]
+
+\begin{attention}
+Le signe négatif de l'exposant ne rend pas le nombre négatif.
+\end{attention}
+
+\section{5. Multiplier par une puissance de dix}
+
+\[
+4{,}27\times10^3=4270.
+\]
+
+Et :
+\[
+4{,}27\times10^{-3}=0{,}00427.
+\]
+
+Le sens du déplacement de la virgule peut être contrôlé par l'ordre de grandeur.
+
+\section{6. Préfixes scientifiques}
+
+\coursefigure{/images/mathematiques/4eme/puissances-prefixes.svg}{Préfixes de nano à giga associés à des puissances de dix.}{Les préfixes scientifiques permettent d'exprimer efficacement des grandeurs très petites ou très grandes.}
+
+Quelques correspondances :
+\[
+\text{nano}=10^{-9},\quad
+\text{micro}=10^{-6},\quad
+\text{milli}=10^{-3},
+\]
+\[
+\text{kilo}=10^3,\quad
+\text{méga}=10^6,\quad
+\text{giga}=10^9.
+\]
+
+\section{7. Conversion avec un préfixe}
+
+\[
+1\ \text{nm}=10^{-9}\ \text{m}.
+\]
+
+Donc :
+\[
+450\ \text{nm}=450\times10^{-9}\ \text{m}.
+\]
+
+Comme :
+\[
+450=4{,}5\times10^2,
+\]
+on obtient :
+\[
+450\ \text{nm}=4{,}5\times10^{-7}\ \text{m}.
+\]
+
+\section{8. Notation scientifique}
+
+\coursefigure{/images/mathematiques/4eme/puissances-scientifique.svg}{Forme générale d'une notation scientifique.}{Le coefficient possède exactement un chiffre non nul avant la virgule.}
+
+\begin{definition}
+La notation scientifique d'un nombre non nul est :
+\[
+\boxed{a\times10^n}
+\]
+avec :
+\[
+1\le |a|<10
+\]
+et $n$ entier.
+\end{definition}
+
+\section{9. Grand nombre}
+
+\[
+45\,700\,000
+=
+4{,}57\times10^7.
+\]
+
+Le coefficient :
+\[
+4{,}57
+\]
+est bien compris entre $1$ et $10$.
+
+\section{10. Petit nombre}
+
+\[
+0{,}000031
+=
+3{,}1\times10^{-5}.
+\]
+
+L'exposant est négatif car le nombre initial est très inférieur à $1$.
+
+\section{11. Méthode}
+
+\begin{methode}
+\begin{enumerate}
+\item déplacer la virgule pour obtenir un coefficient entre $1$ et $10$ en valeur absolue ;
+\item compter les déplacements ;
+\item choisir le signe de l'exposant ;
+\item vérifier en revenant à l'écriture décimale.
+\end{enumerate}
+\end{methode}
+
+\section{12. Revenir à l'écriture décimale}
+
+\[
+6{,}02\times10^4=60\,200.
+\]
+
+Et :
+\[
+6{,}02\times10^{-4}=0{,}000602.
+\]
+
+\section{13. Comparer}
+
+Entre :
+\[
+7{,}3\times10^8
+\]
+et :
+\[
+4{,}9\times10^9,
+\]
+le second est plus grand car son exposant de $10$ est supérieur.
+
+À exposants identiques, on compare les coefficients.
+
+\section{14. Ordre de grandeur}
+
+La notation scientifique rend visibles les échelles.
+
+Le nombre :
+\[
+6{,}4\times10^7
+\]
+est de l'ordre de quelques dizaines de millions.
+
+Selon le contexte, on peut l'associer à la puissance de dix :
+\[
+10^8.
+\]
+
+\section{15. Produit de puissances}
+
+À partir de la définition :
+\[
+10^3\times10^4
+\]
+contient au total sept facteurs $10$.
+
+Donc :
+\[
+10^3\times10^4=10^7.
+\]
+
+\begin{remarque}
+Le programme n'exige pas la mémorisation d'un catalogue de formules générales : il faut savoir retrouver les règles par la définition.
+\end{remarque}
+
+\section{16. Quotient de puissances}
+
+\[
+\dfrac{10^7}{10^3}
+=
+10^4.
+\]
+
+On peut le voir en écrivant les facteurs puis en simplifiant les trois facteurs communs.
+
+\section{17. Calcul scientifique}
+
+\[
+(3\times10^5)\times(2\times10^3)
+=
+6\times10^8.
+\]
+
+Le résultat est déjà sous forme scientifique.
+
+\section{18. Normaliser le coefficient}
+
+\[
+(8\times10^6)\times(5\times10^2)
+=
+40\times10^8.
+\]
+
+On transforme :
+\[
+40=4\times10.
+\]
+
+Donc :
+\[
+40\times10^8=4\times10^9.
+\]
+
+\section{19. Base quelconque}
+
+\[
+2^5=32.
+\]
+
+Pour une base négative :
+\[
+(-3)^4=81.
+\]
+
+Mais :
+\[
+-3^4=-81.
+\]
+
+Les parenthèses changent la base de la puissance.
+
+\section{20. Parité de l'exposant}
+
+\[
+(-2)^3=-8,
+\]
+\[
+(-2)^4=16.
+\]
+
+Un nombre pair de facteurs négatifs donne un produit positif.
+
+\section{21. Exemple scientifique}
+
+Une distance :
+\[
+150\,000\,000\ \text{km}
+\]
+s'écrit :
+\[
+1{,}5\times10^8\ \text{km}.
+\]
+
+Une longueur :
+\[
+0{,}00001\ \text{m}
+\]
+s'écrit :
+\[
+1\times10^{-5}\ \text{m}.
+\]
+
+\section{22. Contrôle}
+
+Pour :
+\[
+0{,}00042,
+\]
+un exposant positif serait incohérent.
+
+On doit obtenir :
+\[
+4{,}2\times10^{-4}.
+\]
+
+\section{23. Erreurs fréquentes}
+
+\begin{itemize}
+\item Confondre $10^{-3}$ et $-10^3$.
+\item Écrire un coefficient scientifique supérieur ou égal à $10$.
+\item Oublier les parenthèses autour d'une base négative.
+\item Additionner les exposants lors d'une addition ordinaire.
+\item Déplacer la virgule dans le mauvais sens.
+\item Donner un ordre de grandeur incompatible avec le nombre.
+\end{itemize}
+
+\section{À retenir}
+
+\begin{aretenir}
+Pour $n>0$ :
+\[
+\boxed{10^{-n}=\dfrac1{10^n}}.
+\]
+
+La notation scientifique s'écrit :
+\[
+\boxed{a\times10^n,\qquad1\le|a|<10}.
+\]
+
+Les puissances de dix permettent de gérer les préfixes d'unités, les très grands nombres, les très petits nombres et les ordres de grandeur.
+
+Les règles de calcul doivent pouvoir être retrouvées à partir de la définition des puissances.
+\end{aretenir}
