@@ -486,6 +486,8 @@ export function normalizeChapterPackage(input: ChapterPackageInput): ContentCont
       ...(resolvedProgrammeVersion.appliesUntil ? { appliesUntil: resolvedProgrammeVersion.appliesUntil } : {}),
       applicable: true,
     },
+    contentQualityVersion: asNumber(meta.contentQualityVersion),
+    curriculumItems: asStringArray(meta.curriculumItems),
     slug: input.slug,
     title: title ?? input.slug,
     description: description ?? "Description non renseignee",
