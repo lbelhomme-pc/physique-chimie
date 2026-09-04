@@ -1,0 +1,516 @@
+% Mathématiques 4e — cours V3
+% Triangles, Thalès et cosinus
+
+\section{Objectifs}
+
+\begin{itemize}
+\item Utiliser des cas d'égalité de triangles dans des raisonnements simples.
+\item Reconnaître une configuration de Thalès avec triangles emboîtés.
+\item Utiliser le théorème de Thalès pour calculer une longueur.
+\item Utiliser la réciproque du théorème de Thalès pour prouver un parallélisme.
+\item Définir le cosinus d'un angle aigu dans un triangle rectangle.
+\item Calculer une longueur avec le cosinus.
+\item Déterminer un angle à l'aide de la calculatrice.
+\item Rédiger une démonstration structurée.
+\item Distinguer Thalès, Pythagore et cosinus selon les données disponibles.
+\end{itemize}
+
+\section{1. Triangles égaux}
+
+Deux triangles sont égaux lorsqu'ils peuvent être superposés exactement.
+
+Ils ont alors :
+\begin{itemize}
+\item des côtés correspondants de même longueur ;
+\item des angles correspondants de même mesure.
+\end{itemize}
+
+Cette idée permet de justifier des égalités géométriques sans mesurer sur la figure.
+
+\section{2. Cas simple côté-côté-côté}
+
+Si deux triangles ont leurs trois côtés respectivement de mêmes longueurs, ils sont égaux.
+
+Par exemple :
+\[
+AB=DE,
+\]
+\[
+BC=EF,
+\]
+\[
+CA=FD.
+\]
+
+On peut alors déduire l'égalité des angles correspondants.
+
+\section{3. Cas côté-angle-côté}
+
+Si deux triangles possèdent :
+\begin{itemize}
+\item deux côtés respectivement égaux ;
+\item l'angle compris entre ces côtés de même mesure,
+\end{itemize}
+alors ils sont égaux.
+
+Cette propriété peut intervenir dans une démonstration de symétrie ou de construction.
+
+\section{4. Configuration de Thalès}
+
+On considère un triangle $ABC$.
+
+Les points $M$ et $N$ appartiennent respectivement aux côtés $[AB]$ et $[AC]$.
+
+Si :
+\[
+(MN)\parallel(BC),
+\]
+alors les triangles :
+\[
+AMN
+\]
+et :
+\[
+ABC
+\]
+ont la même forme et des longueurs proportionnelles.
+
+\coursefigure{/images/mathematiques/4eme/thales-configuration.svg}{Triangle ABC contenant le segment MN parallèle au côté BC.}{Dans cette configuration emboîtée, les longueurs correspondantes des deux triangles sont proportionnelles.}
+
+\section{5. Théorème de Thalès}
+
+\begin{propriete}
+Si :
+\[
+M\in[AB],
+\quad
+N\in[AC],
+\quad
+(MN)\parallel(BC),
+\]
+alors :
+\[
+\boxed{
+\dfrac{AM}{AB}
+=
+\dfrac{AN}{AC}
+=
+\dfrac{MN}{BC}
+}.
+\]
+\end{propriete}
+
+Les trois rapports utilisent des longueurs correspondantes dans le même ordre.
+
+\section{6. Calculer une longueur}
+
+Supposons :
+\[
+AM=3,
+\quad
+AB=5,
+\quad
+AC=8,
+\]
+et :
+\[
+(MN)\parallel(BC).
+\]
+
+Par Thalès :
+\[
+\dfrac{AM}{AB}=\dfrac{AN}{AC}.
+\]
+
+Donc :
+\[
+\dfrac35=\dfrac{AN}{8}.
+\]
+
+Produit en croix :
+\[
+5AN=24.
+\]
+
+Ainsi :
+\[
+\boxed{AN=4{,}8}.
+\]
+
+\section{7. Autre longueur}
+
+Avec :
+\[
+AM=4,
+\quad
+AB=10,
+\quad
+BC=15,
+\]
+on cherche $MN$.
+
+\[
+\dfrac4{10}=\dfrac{MN}{15}.
+\]
+
+Donc :
+\[
+10MN=60.
+\]
+
+Ainsi :
+\[
+\boxed{MN=6}.
+\]
+
+\section{8. Bien associer les côtés}
+
+Une erreur fréquente consiste à mélanger les côtés correspondants.
+
+Le petit triangle est :
+\[
+AMN.
+\]
+
+Le grand triangle est :
+\[
+ABC.
+\]
+
+Les correspondances sont :
+\[
+AM\leftrightarrow AB,
+\]
+\[
+AN\leftrightarrow AC,
+\]
+\[
+MN\leftrightarrow BC.
+\]
+
+\section{9. Réciproque de Thalès}
+
+\begin{propriete}
+Dans une configuration où les points sont correctement alignés, si les rapports de longueurs correspondantes sont égaux, alors on peut conclure au parallélisme.
+\end{propriete}
+
+Par exemple, si :
+\[
+\dfrac{AM}{AB}
+=
+\dfrac{AN}{AC},
+\]
+avec $M$ sur $[AB]$ et $N$ sur $[AC]$, alors :
+\[
+(MN)\parallel(BC).
+\]
+
+\section{10. Exemple de réciproque}
+
+On connaît :
+\[
+AM=4,
+\quad
+AB=10,
+\quad
+AN=6,
+\quad
+AC=15.
+\]
+
+On calcule :
+\[
+\dfrac{AM}{AB}=\dfrac4{10}=0{,}4,
+\]
+et :
+\[
+\dfrac{AN}{AC}=\dfrac6{15}=0{,}4.
+\]
+
+Les rapports sont égaux.
+
+Sous les conditions d'alignement adaptées :
+\[
+\boxed{(MN)\parallel(BC)}.
+\]
+
+\section{11. Thalès et agrandissement}
+
+Le rapport :
+\[
+\dfrac{AB}{AM}
+\]
+est un coefficient d'agrandissement entre les deux triangles.
+
+Si :
+\[
+\dfrac{AB}{AM}=2{,}5,
+\]
+toutes les longueurs du grand triangle sont :
+\[
+2{,}5
+\]
+fois celles du petit triangle.
+
+\section{12. Triangle rectangle et cosinus}
+
+Dans un triangle rectangle, un angle aigu permet de distinguer :
+\begin{itemize}
+\item l'hypoténuse ;
+\item le côté adjacent à cet angle ;
+\item le côté opposé.
+\end{itemize}
+
+Le cosinus compare le côté adjacent à l'hypoténuse.
+
+\coursefigure{/images/mathematiques/4eme/cosinus-triangle.svg}{Triangle rectangle avec angle alpha, côté adjacent et hypoténuse identifiés.}{Pour un angle aigu dans un triangle rectangle, le cosinus est le rapport longueur du côté adjacent sur longueur de l'hypoténuse.}
+
+\section{13. Définition du cosinus}
+
+\begin{definition}
+Dans un triangle rectangle :
+\[
+\boxed{
+\cos(\alpha)
+=
+\dfrac{\text{longueur du côté adjacent à }\alpha}
+{\text{longueur de l'hypoténuse}}
+}.
+\]
+\end{definition}
+
+Comme le côté adjacent est plus court que l'hypoténuse :
+\[
+0<\cos(\alpha)<1
+\]
+pour un angle aigu.
+
+\section{14. Calculer un côté adjacent}
+
+Dans un triangle rectangle, l'hypoténuse mesure :
+\[
+10\ \text{cm}
+\]
+et :
+\[
+\alpha=60^\circ.
+\]
+
+On sait :
+\[
+\cos60^\circ=0{,}5.
+\]
+
+Donc :
+\[
+\dfrac{\text{adjacent}}{10}=0{,}5.
+\]
+
+Ainsi :
+\[
+\text{adjacent}=5\ \text{cm}.
+\]
+
+\section{15. Calculer l'hypoténuse}
+
+Le côté adjacent à un angle de :
+\[
+40^\circ
+\]
+mesure :
+\[
+7\ \text{cm}.
+\]
+
+Si $h$ est l'hypoténuse :
+\[
+\cos40^\circ=\dfrac7h.
+\]
+
+Donc :
+\[
+h=\dfrac7{\cos40^\circ}.
+\]
+
+À la calculatrice :
+\[
+h\approx9{,}14\ \text{cm}.
+\]
+
+\section{16. Calculer un angle}
+
+Dans un triangle rectangle :
+\[
+\text{adjacent}=6,
+\]
+\[
+\text{hypoténuse}=10.
+\]
+
+Donc :
+\[
+\cos(\alpha)=\dfrac6{10}=0{,}6.
+\]
+
+On utilise la fonction inverse de la calculatrice :
+\[
+\alpha\approx53{,}1^\circ.
+\]
+
+\section{17. Mode degré}
+
+Pour des angles exprimés en degrés, la calculatrice doit être réglée en mode degré.
+
+Une erreur de mode peut donner une valeur totalement incohérente.
+
+\begin{attention}
+Toujours contrôler qu'un angle aigu trouvé vérifie :
+\[
+0^\circ<\alpha<90^\circ.
+\]
+\end{attention}
+
+\section{18. Cosinus ou Pythagore ?}
+
+Pythagore est adapté lorsque deux longueurs d'un triangle rectangle sont connues et que l'on cherche la troisième.
+
+Le cosinus est adapté lorsqu'on connaît :
+\begin{itemize}
+\item un angle aigu et une longueur ;
+\item ou deux longueurs impliquant le côté adjacent et l'hypoténuse.
+\end{itemize}
+
+\section{19. Thalès ou cosinus ?}
+
+Thalès utilise un parallélisme et des triangles de même forme.
+
+Le cosinus utilise un triangle rectangle et un angle aigu.
+
+Avant tout calcul, il faut identifier la structure géométrique.
+
+\section{20. Problème de pente}
+
+Une rampe de longueur :
+\[
+5\ \text{m}
+\]
+forme un angle :
+\[
+12^\circ
+\]
+avec le sol.
+
+Sa longueur horizontale $d$ vérifie :
+\[
+\cos12^\circ=\dfrac d5.
+\]
+
+Donc :
+\[
+d=5\cos12^\circ.
+\]
+
+Ainsi :
+\[
+d\approx4{,}89\ \text{m}.
+\]
+
+\section{21. Hauteur indirecte}
+
+Un câble de :
+\[
+12\ \text{m}
+\]
+forme un angle de :
+\[
+35^\circ
+\]
+avec le sol.
+
+Le cosinus permet d'obtenir la composante horizontale :
+\[
+d=12\cos35^\circ.
+\]
+
+Pour calculer directement une hauteur opposée à l'angle, le cosinus seul n'est pas forcément le rapport le plus immédiat ; on peut compléter la figure ou utiliser Pythagore après avoir trouvé $d$.
+
+\section{22. Démonstration structurée}
+
+Une démonstration doit distinguer :
+\begin{itemize}
+\item les données ;
+\item la propriété utilisée ;
+\item les calculs ;
+\item la conclusion.
+\end{itemize}
+
+Une figure n'est pas une preuve.
+
+\section{23. Méthode Thalès}
+
+\begin{methode}
+\begin{enumerate}
+\item identifier les deux triangles ;
+\item vérifier les alignements et le parallélisme ;
+\item écrire les côtés correspondants dans le même ordre ;
+\item écrire l'égalité des rapports ;
+\item remplacer par les valeurs ;
+\item calculer la longueur cherchée ;
+\item donner l'unité.
+\end{enumerate}
+\end{methode}
+
+\section{24. Méthode cosinus}
+
+\begin{methode}
+\begin{enumerate}
+\item vérifier que le triangle est rectangle ;
+\item repérer l'angle étudié ;
+\item identifier hypoténuse et côté adjacent ;
+\item écrire la définition du cosinus ;
+\item remplacer par les valeurs ;
+\item isoler l'inconnue ;
+\item utiliser la calculatrice si nécessaire ;
+\item contrôler l'ordre de grandeur.
+\end{enumerate}
+\end{methode}
+
+\section{25. Erreurs fréquentes}
+
+\begin{itemize}
+\item Appliquer Thalès sans parallélisme.
+\item Croiser les correspondances entre petit et grand triangle.
+\item Utiliser la réciproque sans vérifier les alignements.
+\item Confondre côté adjacent et côté opposé.
+\item Choisir un côté autre que l'hypoténuse au dénominateur du cosinus.
+\item Utiliser la calculatrice en mode radian.
+\item Mesurer sur la figure au lieu d'utiliser les propriétés.
+\end{itemize}
+
+\section{À retenir}
+
+\begin{aretenir}
+Dans une configuration de Thalès :
+\[
+\boxed{
+\dfrac{AM}{AB}
+=
+\dfrac{AN}{AC}
+=
+\dfrac{MN}{BC}
+}.
+\]
+
+L'égalité des rapports peut aussi permettre de prouver un parallélisme par réciproque.
+
+Dans un triangle rectangle :
+\[
+\boxed{
+\cos(\alpha)
+=
+\dfrac{\text{côté adjacent}}{\text{hypoténuse}}
+}.
+\]
+
+Choisir entre Pythagore, Thalès et cosinus dépend toujours des données géométriques disponibles.
+\end{aretenir}
