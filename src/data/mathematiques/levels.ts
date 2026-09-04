@@ -142,9 +142,9 @@ export const mathematicsLyceeLevels: MathematicsLevel[] = [
     shortLabel: "Maths complémentaires",
     cycle: "lycee",
     path: "/mathematiques/lycee/terminale-mathematiques-complementaires",
-    description: "Espace lycée à compléter progressivement.",
+    description: "Programme complet de mathématiques complémentaires actuellement en vigueur, structuré selon les neuf thèmes officiels d'étude.",
     enabled: true,
-    status: "planned",
+    status: "available",
     order: 8,
   },
   {

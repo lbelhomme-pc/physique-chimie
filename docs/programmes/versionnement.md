@@ -71,3 +71,23 @@ C27 complète le programme 2019 de Terminale spécialité pour l'année 2026-202
 C27 ajoute également une ressource dédiée à la préparation de l'épreuve écrite de spécialité : 4 heures, coefficient 16 et quatre exercices indépendants dans la définition consolidée actuellement applicable.
 
 La version de programme publiée en 2026 reste future jusqu'à la rentrée 2027-2028 et n'est utilisée par aucun chapitre C26/C27.
+
+
+## Mission C28 — Terminale mathématiques complémentaires
+
+Pour l'année scolaire 2026-2027, l'enseignement optionnel de mathématiques complémentaires reste régi par le programme publié au BO spécial n° 8 du 25 juillet 2019, NOR MENE1921265A.
+
+Le nouveau programme publié au BO n° 14 du 2 avril 2026, NOR MENE2902920A, n'entre en application qu'à la rentrée 2027-2028. Il reste donc enregistré comme version future, sans route ni chapitre public en C28.
+
+C28 suit l'organisation officielle du programme 2019 en neuf thèmes d'étude :
+1. modèles définis par une fonction d'une variable ;
+2. modèles d'évolution ;
+3. approche historique de la fonction logarithme ;
+4. calculs d'aires ;
+5. répartition des richesses, inégalités ;
+6. inférence bayésienne ;
+7. répétition d'expériences indépendantes, échantillonnage ;
+8. temps d'attente ;
+9. corrélation et causalité.
+
+Le slug public `terminale-mathematiques-complementaires` est un alias réglementaire de `terminale-complementaires` dans le registre de versions.
