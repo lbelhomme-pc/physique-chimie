@@ -37,6 +37,20 @@ function countMatches(text, regexp) {
   return [...text.matchAll(regexp)].length;
 }
 
+function stripLatexMath(value) {
+  return String(value ?? "")
+    .replace(/\$\$[\s\S]*?\$\$/g, " ")
+    .replace(/\$[^$\n]+\$/g, " ")
+    .replace(/\\\([\s\S]*?\\\)/g, " ")
+    .replace(/\\\[[\s\S]*?\\\]/g, " ");
+}
+
+function rawMathIssue(value) {
+  const remaining = stripLatexMath(value);
+  const suspicious = remaining.match(/(?:\d+[.,]\d+|\d+\s*%|\d+\s*[×÷=<>≈≤≥+−*/]\s*\d+|[A-Za-z]\s*[∩∪=<>≈≤≥]\s*[A-Za-z0-9]|[∩∪√∞])/u);
+  return suspicious?.[0] ?? null;
+}
+
 function correctionText(correction) {
   if (typeof correction === "string") return correction.trim();
   if (Array.isArray(correction)) return correction.map(String).join(" ").trim();
@@ -83,6 +97,14 @@ function validateCourse(course, cycle) {
   };
 }
 
+function validateLatexFields(label, fields, errors) {
+  for (const [field, value] of fields) {
+    if (typeof value !== "string") continue;
+    const issue = rawMathIssue(value);
+    if (issue) errors.push(label + ": écriture mathématique hors LaTeX dans " + field + " -> " + issue);
+  }
+}
+
 function validateExercises(raw) {
   const exercises = asArray(raw, ["exercices", "exercises"]);
   const errors = [];
@@ -100,6 +122,16 @@ function validateExercises(raw) {
     if (statement.length < 25) errors.push("exercices: énoncé trop court " + (exercise?.id ?? "(sans id)"));
     const correction = correctionText(exercise?.correction);
     if (correction.length < 30) errors.push("exercices: correction insuffisante " + (exercise?.id ?? "(sans id)"));
+    const correctionLines = Array.isArray(exercise?.correction) ? exercise.correction : [exercise?.correction];
+    validateLatexFields("exercices " + (exercise?.id ?? "(sans id)"), [
+      ["statement", exercise?.statement],
+      ["consigne", exercise?.consigne],
+      ["hint clue", exercise?.hints?.clue],
+      ["hint method", exercise?.hints?.method],
+      ["hint reminder", exercise?.hints?.reminder],
+      ["hint commonMistake", exercise?.hints?.commonMistake],
+      ...correctionLines.map((value, index) => ["correction[" + index + "]", value]),
+    ], errors);
   }
 
   if (exercises.length < 12) errors.push("exercices: " + exercises.length + " < 12");
@@ -126,6 +158,11 @@ function validateQuiz(raw) {
     if (String(question?.explanation ?? question?.feedback ?? "").trim().length < 20) {
       errors.push("quiz: explication manquante/insuffisante " + (question?.id ?? "(sans id)"));
     }
+    validateLatexFields("quiz " + (question?.id ?? "(sans id)"), [
+      ["question", question?.question],
+      ["explanation", question?.explanation ?? question?.feedback],
+      ...((question?.choices ?? []).map((value, index) => ["choices[" + index + "]", value])),
+    ], errors);
   }
 
   if (questions.length < 10) errors.push("quiz: " + questions.length + " < 10");
@@ -147,6 +184,10 @@ function validateFlashcards(raw) {
     if (front.length < 5 || back.length < 10) {
       errors.push("flashcards: carte trop pauvre " + (card?.id ?? "(sans id)"));
     }
+    validateLatexFields("flashcards " + (card?.id ?? "(sans id)"), [
+      ["front", front],
+      ["back", back],
+    ], errors);
   }
 
   if (cards.length < 12) errors.push("flashcards: " + cards.length + " < 12");
