@@ -1,0 +1,65 @@
+## Objectifs
+- Comprendre la continuité comme absence de rupture locale.
+- Utiliser le théorème des valeurs intermédiaires.
+- Justifier existence et unicité d'une solution.
+- Encadrer une solution par dichotomie.
+
+## 1. Continuité
+Une fonction $f$ est continue en $a$ lorsque
+$$\lim_{x\to a}f(x)=f(a).$$
+
+Une fonction dérivable sur un intervalle y est continue.
+
+Les fonctions usuelles sont continues sur leurs domaines de définition.
+
+## 2. Image d'une suite convergente
+Si
+$$u_n\to\ell$$
+et si $f$ est continue en $\ell$, alors
+$$f(u_n)\to f(\ell).$$
+
+## 3. Théorème des valeurs intermédiaires
+Si $f$ est continue sur $[a,b]$, alors toute valeur comprise entre $f(a)$ et $f(b)$ est atteinte au moins une fois.
+
+En particulier, si
+$$f(a)f(b)<0,$$
+il existe au moins un réel
+$$c\in]a,b[$$
+tel que
+$$f(c)=0.$$
+
+## 4. Unicité
+Le TVI garantit l'existence, pas l'unicité.
+
+Si, en plus, $f$ est strictement monotone sur $[a,b]$, l'équation
+$$f(x)=k$$
+admet au plus une solution.
+
+Existence + stricte monotonie donnent donc une solution unique.
+
+## 5. Dichotomie
+Pour encadrer une racine d'une fonction continue :
+1. partir d'un intervalle $[a,b]$ où les valeurs aux extrémités sont de signes opposés ;
+2. calculer le milieu
+$$m=\frac{a+b}{2};$$
+3. conserver la moitié où le changement de signe subsiste ;
+4. répéter.
+
+La longueur de l'intervalle est divisée par 2 à chaque étape.
+
+## 6. Suite définie par itération
+Pour une suite
+$$u_{n+1}=f(u_n),$$
+si $u_n\to\ell$ et si $f$ est continue en $\ell$, alors
+$$\ell=f(\ell).$$
+
+C'est une condition nécessaire pour une limite éventuelle.
+
+## Erreurs fréquentes
+- Utiliser le TVI sans vérifier la continuité.
+- Confondre existence et unicité.
+- Affirmer que toute solution de $\ell=f(\ell)$ est automatiquement la limite de la suite.
+- Choisir une moitié en dichotomie sans conserver le changement de signe.
+
+## À retenir
+La continuité permet de passer d'informations sur les valeurs aux extrémités à l'existence de valeurs intermédiaires ; la monotonie apporte l'unicité.

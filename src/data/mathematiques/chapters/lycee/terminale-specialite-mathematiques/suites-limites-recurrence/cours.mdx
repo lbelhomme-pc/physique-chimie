@@ -1,0 +1,74 @@
+## Objectifs
+- Donner un sens précis à la convergence et à la divergence.
+- Calculer des limites de suites.
+- Utiliser comparaison, encadrement et monotonie.
+- Consolider le raisonnement par récurrence.
+
+## 1. Convergence
+Une suite $(u_n)$ converge vers un réel $\ell$ lorsque ses termes deviennent arbitrairement proches de $\ell$ à partir d'un certain rang.
+
+On note
+$$\lim_{n\to+\infty}u_n=\ell.$$
+
+Exemple :
+$$u_n=\frac1n\longrightarrow0.$$
+
+## 2. Divergence vers l'infini
+On écrit
+$$u_n\longrightarrow+\infty$$
+lorsque, pour tout réel $A$, les termes sont supérieurs à $A$ à partir d'un certain rang.
+
+Une suite croissante et non majorée tend vers $+\infty$.
+
+## 3. Suites géométriques
+Pour $q^n$ :
+- si $|q|<1$, alors $q^n\to0$ ;
+- si $q>1$, alors $q^n\to+\infty$ ;
+- si $q=1$, la suite vaut 1 ;
+- pour $q\le -1$, il n'y a pas de limite finie en général.
+
+## 4. Comparaison
+Si
+$$u_n\le v_n$$
+à partir d'un certain rang et si $u_n\to+\infty$, alors
+$$v_n\to+\infty.$$
+
+Théorème des gendarmes : si
+$$u_n\le v_n\le w_n$$
+et si $u_n$ et $w_n$ tendent vers la même limite $\ell$, alors
+$$v_n\to\ell.$$
+
+## 5. Opérations sur les limites
+Les règles usuelles permettent de traiter somme, produit et quotient lorsque les limites sont compatibles.
+
+Une forme comme
+$$+\infty-\infty$$
+ou
+$$0\times\infty$$
+est indéterminée : il faut transformer l'expression.
+
+## 6. Monotonie et convergence
+Théorème admis :
+- toute suite croissante majorée converge ;
+- toute suite décroissante minorée converge.
+
+Ce théorème garantit l'existence d'une limite sans toujours donner sa valeur.
+
+## 7. Récurrence
+Pour démontrer une propriété $P_n$ :
+1. initialisation ;
+2. hérédité : $P_n\Rightarrow P_{n+1}$ ;
+3. conclusion.
+
+La récurrence sert notamment à établir une majoration ou la monotonie avant d'utiliser un théorème de convergence.
+
+## 8. Recherche de seuil
+Si une suite converge ou diverge de façon monotone, un algorithme peut déterminer le premier rang où une condition est satisfaite.
+
+## Erreurs fréquentes
+- Confondre suite bornée et suite convergente.
+- Déduire la limite d'une suite uniquement à partir de quelques termes.
+- Utiliser le théorème « croissante majorée » sans avoir prouvé les deux propriétés.
+
+## À retenir
+Une limite est une propriété asymptotique. La comparaison, l'encadrement, la monotonie et la récurrence sont les outils centraux pour la justifier.
