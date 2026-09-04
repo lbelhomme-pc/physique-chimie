@@ -281,7 +281,7 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
         backUrl={backUrl}
         backLabel={backLabel}
       >
-        {hasCours && CoursContent && (
+        {hasCours && (
           <div slot="cours" class="cours-content">
             <CourseReader chapterId={chapterId} title={`Cours - ${displayTitle}`}>
               <CoursTracker client:load chapterId={chapterId} xpConfig={xpConfig}>
