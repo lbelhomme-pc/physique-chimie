@@ -1,0 +1,785 @@
+% Mathématiques 5e — cours V3
+% Calcul littéral et premières équations
+
+\section{Objectifs}
+
+\begin{itemize}
+\item Produire des formules simples.
+\item Calculer la valeur d'une expression littérale par substitution.
+\item Tester si une égalité comportant une variable est vraie ou fausse.
+\item Reconnaître si une expression est une somme ou un produit.
+\item Développer et factoriser avec la distributivité simple.
+\item Réduire une expression de la forme $ax+b$.
+\item Démontrer une propriété générale par calcul littéral.
+\item Utiliser un contre-exemple pour réfuter une assertion.
+\item Formuler des conjectures avec un tableur ou un langage algorithmique.
+\item Donner à la lettre le statut d'inconnue.
+\item Modéliser puis résoudre des équations de type $ax=c$ ou $x+b=c$.
+\end{itemize}
+
+\section{1. Pourquoi utiliser des lettres ?}
+
+Une lettre permet de représenter un nombre que l'on ne souhaite pas fixer immédiatement.
+
+Elle peut représenter :
+\begin{itemize}
+\item une grandeur qui varie ;
+\item une longueur quelconque ;
+\item un nombre choisi ;
+\item une inconnue que l'on cherche.
+\end{itemize}
+
+\begin{exemple}
+Le périmètre d'un carré de côté $c$ s'écrit :
+\[
+P=4c.
+\]
+
+La formule est valable quelle que soit la valeur de $c$.
+\end{exemple}
+
+Le calcul littéral sert donc à généraliser.
+
+\section{2. Produire une formule}
+
+Une formule traduit une relation entre plusieurs grandeurs.
+
+Pour un rectangle de longueur $L$ et largeur $\ell$ :
+\[
+P=2L+2\ell.
+\]
+
+Pour son aire :
+\[
+A=L\ell.
+\]
+
+Pour le successeur d'un nombre $n$ :
+\[
+n+1.
+\]
+
+Pour son prédécesseur :
+\[
+n-1.
+\]
+
+Pour son double :
+\[
+2n.
+\]
+
+Pour son carré :
+\[
+n^2.
+\]
+
+\section{3. Écriture simplifiée d'un produit}
+
+En calcul littéral, on écrit :
+\[
+3\times x=3x.
+\]
+
+De même :
+\[
+a\times b=ab.
+\]
+
+Et :
+\[
+4\times(x+2)=4(x+2).
+\]
+
+\begin{attention}
+On supprime le signe de multiplication uniquement lorsque l'écriture reste compréhensible.
+\end{attention}
+
+On ne transforme pas :
+\[
+3\times4
+\]
+en :
+\[
+34.
+\]
+
+\section{4. Calculer par substitution}
+
+Substituer consiste à remplacer une lettre par une valeur donnée.
+
+\begin{exemple}
+Soit :
+\[
+E=3x+5.
+\]
+
+Pour :
+\[
+x=4,
+\]
+on écrit :
+\[
+E=3\times4+5.
+\]
+
+Puis :
+\[
+E=12+5=17.
+\]
+
+Donc :
+\[
+\boxed{E(4)=17}
+\]
+si l'on souhaite utiliser cette notation.
+\end{exemple}
+
+\section{5. Parenthèses lors d'une substitution}
+
+Si la valeur remplaçant la lettre comporte un signe ou plusieurs termes, les parenthèses évitent les erreurs.
+
+Pour :
+\[
+F=2x+1
+\]
+et :
+\[
+x=3{,}5,
+\]
+on écrit :
+\[
+F=2\times3{,}5+1.
+\]
+
+Pour une valeur comme :
+\[
+x=-2,
+\]
+on écrirait :
+\[
+F=2\times(-2)+1.
+\]
+
+\section{6. Tester une égalité}
+
+Une égalité comportant une lettre peut être vraie pour certaines valeurs et fausse pour d'autres.
+
+Considérons :
+\[
+2x+3=11.
+\]
+
+Pour :
+\[
+x=4,
+\]
+le membre de gauche vaut :
+\[
+2\times4+3=11.
+\]
+
+L'égalité est donc vraie pour $x=4$.
+
+Pour :
+\[
+x=5,
+\]
+le membre de gauche vaut :
+\[
+2\times5+3=13.
+\]
+
+L'égalité est fausse pour $x=5$.
+
+\section{7. Somme ou produit}
+
+La nature d'une expression dépend de son opération principale.
+
+L'expression :
+\[
+3x+2
+\]
+est une somme.
+
+L'expression :
+\[
+5(x+4)
+\]
+est un produit.
+
+Dans :
+\[
+3x+2,
+\]
+les termes sont :
+\[
+3x
+\]
+et :
+\[
+2.
+\]
+
+Dans :
+\[
+5(x+4),
+\]
+les facteurs sont :
+\[
+5
+\]
+et :
+\[
+x+4.
+\]
+
+\section{8. Distributivité}
+
+\coursefigure{/images/mathematiques/5eme/calcul-litteral-distributivite.svg}{Rectangle découpé en deux parties illustrant la distributivité k fois a plus b.}{Le même rectangle peut être vu comme une aire globale k(a+b) ou comme la somme des aires ka et kb.}
+
+\begin{propriete}
+Pour tous nombres $k$, $a$ et $b$ :
+\[
+\boxed{k(a+b)=ka+kb}.
+\]
+
+Et :
+\[
+\boxed{k(a-b)=ka-kb}.
+\]
+\end{propriete}
+
+Cette égalité fonctionne dans les deux sens.
+
+\section{9. Développer}
+
+Développer consiste à transformer un produit en somme ou différence.
+
+Par exemple :
+\[
+4(x+3).
+\]
+
+On distribue le facteur $4$ :
+\[
+4\times x+4\times3.
+\]
+
+Donc :
+\[
+\boxed{4(x+3)=4x+12}.
+\]
+
+Autre exemple :
+\[
+5(2x-1)
+=
+10x-5.
+\]
+
+\section{10. Factoriser}
+
+Factoriser consiste à transformer une somme en produit.
+
+Par exemple :
+\[
+7x+21.
+\]
+
+Le facteur commun est :
+\[
+7.
+\]
+
+On écrit :
+\[
+7x+21
+=
+7x+7\times3.
+\]
+
+Donc :
+\[
+\boxed{7x+21=7(x+3)}.
+\]
+
+\section{11. Réduire une expression}
+
+Réduire consiste à regrouper les termes de même nature.
+
+Par exemple :
+\[
+3x+5x+2.
+\]
+
+On additionne les coefficients de $x$ :
+\[
+3x+5x=8x.
+\]
+
+Donc :
+\[
+\boxed{3x+5x+2=8x+2}.
+\]
+
+\section{12. Expression de la forme ax+b}
+
+Une expression :
+\[
+ax+b
+\]
+contient :
+\begin{itemize}
+\item un terme dépendant de $x$ : $ax$ ;
+\item un terme constant : $b$.
+\end{itemize}
+
+Par exemple :
+\[
+4x+7.
+\]
+
+On ne peut pas réduire :
+\[
+4x+7
+\]
+en :
+\[
+11x.
+\]
+
+Les deux termes ne sont pas de même nature.
+
+\section{13. Exemple développé : développer puis réduire}
+
+Considérons :
+\[
+A=3(x+4)+2x.
+\]
+
+On développe :
+\[
+3(x+4)=3x+12.
+\]
+
+Donc :
+\[
+A=3x+12+2x.
+\]
+
+On réduit :
+\[
+3x+2x=5x.
+\]
+
+Ainsi :
+\[
+\boxed{A=5x+12}.
+\]
+
+\section{14. Exemple développé : factoriser}
+
+Considérons :
+\[
+B=6x+18.
+\]
+
+On écrit :
+\[
+6x+18
+=
+6x+6\times3.
+\]
+
+Donc :
+\[
+\boxed{B=6(x+3)}.
+\]
+
+Pour vérifier, on peut développer :
+\[
+6(x+3)=6x+18.
+\]
+
+\section{15. Démontrer une propriété générale}
+
+Le calcul littéral permet de prouver une propriété valable pour tous les nombres d'un certain type.
+
+\begin{exemple}
+Montrons que la somme de deux nombres entiers consécutifs est impaire.
+
+On note le premier entier :
+\[
+n.
+\]
+
+Le suivant vaut :
+\[
+n+1.
+\]
+
+La somme vaut :
+\[
+n+(n+1)=2n+1.
+\]
+
+Or :
+\[
+2n+1
+\]
+est de la forme « deux fois un entier plus un ».
+
+C'est donc un nombre impair.
+\end{exemple}
+
+La lettre permet ici de représenter tous les cas à la fois.
+
+\section{16. Contre-exemple}
+
+Une seule valeur peut suffire à prouver qu'une affirmation générale est fausse.
+
+\begin{example}
+Affirmation : « Pour tout nombre $x$, on a $x^2>x$. »
+
+Choisissons :
+\[
+x=\dfrac12.
+\]
+
+Alors :
+\[
+x^2=\dfrac14.
+\]
+
+Or :
+\[
+\dfrac14<\dfrac12.
+\]
+
+L'affirmation est donc fausse.
+\end{example}
+
+\begin{remarque}
+Un contre-exemple ne prouve pas qu'une affirmation est vraie ; il sert à montrer qu'une affirmation générale est fausse.
+\end{remarque}
+
+\section{17. Formuler une conjecture}
+
+Une conjecture est une affirmation que l'on pense vraie après plusieurs observations, mais qui n'est pas encore démontrée.
+
+On peut utiliser :
+\begin{itemize}
+\item un tableur ;
+\item un programme ;
+\item plusieurs essais numériques.
+\end{itemize}
+
+\begin{attention}
+Tester beaucoup de valeurs ne remplace pas une démonstration lorsqu'on affirme qu'une propriété est vraie pour tous les nombres.
+\end{attention}
+
+\section{18. La lettre comme inconnue}
+
+Dans une équation, la lettre peut représenter un nombre inconnu.
+
+Par exemple :
+\[
+x+7=15.
+\]
+
+On cherche le nombre qui rend l'égalité vraie.
+
+Ici :
+\[
+x=8.
+\]
+
+En effet :
+\[
+8+7=15.
+\]
+
+\section{19. Équation de type x+b=c}
+
+Pour :
+\[
+x+b=c,
+\]
+on utilise l'opération inverse de l'addition.
+
+On obtient :
+\[
+x=c-b.
+\]
+
+\begin{exemple}
+Résolvons :
+\[
+x+9=14.
+\]
+
+On calcule :
+\[
+x=14-9.
+\]
+
+Donc :
+\[
+\boxed{x=5}.
+\]
+
+Vérification :
+\[
+5+9=14.
+\]
+\end{exemple}
+
+\section{20. Équation de type ax=c}
+
+Pour :
+\[
+ax=c,
+\]
+avec :
+\[
+a\neq0,
+\]
+on utilise l'opération inverse de la multiplication.
+
+On obtient :
+\[
+x=\dfrac ca.
+\]
+
+\coursefigure{/images/mathematiques/5eme/calcul-litteral-equation.svg}{Balance schématique représentant une égalité de type a fois x égale c.}{Résoudre une équation consiste à conserver l'égalité tout en isolant l'inconnue par une opération inverse.}
+
+\begin{exemple}
+Résolvons :
+\[
+4x=28.
+\]
+
+On divise par $4$ :
+\[
+x=28\div4.
+\]
+
+Donc :
+\[
+\boxed{x=7}.
+\]
+\end{exemple}
+
+\section{21. Modéliser un problème par une équation}
+
+Un abonnement coûte $5\ \text{€}$ de frais fixes et une dépense inconnue $x$.
+
+Le total est :
+\[
+17\ \text{€}.
+\]
+
+On peut écrire :
+\[
+x+5=17.
+\]
+
+Puis :
+\[
+x=17-5=12.
+\]
+
+La dépense inconnue vaut :
+\[
+\boxed{12\ \text{€}}.
+\]
+
+\section{22. Exemple de partage}
+
+Quatre objets identiques coûtent ensemble :
+\[
+26\ \text{€}.
+\]
+
+Si $x$ désigne le prix d'un objet :
+\[
+4x=26.
+\]
+
+Donc :
+\[
+x=\dfrac{26}{4}=6{,}5.
+\]
+
+Le prix d'un objet est :
+\[
+\boxed{6{,}50\ \text{€}}.
+\]
+
+\section{23. Vérifier une solution}
+
+Une solution d'équation doit être vérifiée en la remplaçant dans l'égalité de départ.
+
+Pour :
+\[
+3x=18,
+\]
+on propose :
+\[
+x=6.
+\]
+
+Vérification :
+\[
+3\times6=18.
+\]
+
+La valeur :
+\[
+6
+\]
+est bien solution.
+
+\section{24. Programme de calcul et expression}
+
+Programme :
+\begin{enumerate}
+\item choisir un nombre $x$ ;
+\item le multiplier par $3$ ;
+\item ajouter $4$.
+\end{enumerate}
+
+L'expression obtenue est :
+\[
+3x+4.
+\]
+
+Pour :
+\[
+x=5,
+\]
+la sortie vaut :
+\[
+3\times5+4=19.
+\]
+
+Le langage littéral permet de décrire le programme pour n'importe quelle entrée.
+
+\section{25. Tableur et formule}
+
+Dans un tableur, une formule peut être calculée pour de nombreuses valeurs.
+
+On peut construire un tableau :
+
+\begin{tabular}{c|c}
+$x$ & $3x+4$ \\
+$0$ & $4$ \\
+$1$ & $7$ \\
+$2$ & $10$ \\
+$3$ & $13$ \\
+\end{tabular}
+
+On observe une régularité.
+
+Cette observation peut conduire à une conjecture ou aider à vérifier une formule.
+
+\section{26. Méthode de substitution}
+
+\begin{methode}
+Pour calculer la valeur d'une expression :
+\begin{enumerate}
+\item recopier l'expression ;
+\item remplacer chaque lettre par sa valeur ;
+\item utiliser des parenthèses si nécessaire ;
+\item respecter les priorités opératoires ;
+\item effectuer le calcul ;
+\item contrôler le résultat.
+\end{enumerate}
+\end{methode}
+
+\section{27. Méthode de développement}
+
+\begin{methode}
+Pour développer :
+\[
+k(a+b),
+\]
+on multiplie $k$ par chacun des termes :
+\[
+ka+kb.
+\]
+
+Pour :
+\[
+k(a-b),
+\]
+on obtient :
+\[
+ka-kb.
+\]
+\end{methode}
+
+\section{28. Méthode d'équation simple}
+
+\begin{methode}
+Pour résoudre une équation arithmétique simple :
+\begin{enumerate}
+\item identifier l'opération effectuée sur l'inconnue ;
+\item utiliser l'opération inverse ;
+\item calculer la valeur de l'inconnue ;
+\item vérifier dans l'égalité initiale.
+\end{enumerate}
+\end{methode}
+
+\section{29. Erreurs fréquentes}
+
+\begin{itemize}
+\item Additionner des termes qui ne sont pas semblables.
+\item Confondre développer et factoriser.
+\item Oublier de distribuer le facteur à tous les termes.
+\item Remplacer une lettre par une valeur sans parenthèses alors qu'elles sont nécessaires.
+\item Croire que plusieurs essais numériques démontrent une propriété générale.
+\item Confondre variable et inconnue.
+\item Résoudre une équation sans vérifier la solution.
+\item Transformer une égalité en modifiant un seul membre sans justification.
+\end{itemize}
+
+\section{À retenir}
+
+\begin{aretenir}
+Une lettre permet de généraliser, de modéliser ou de représenter une inconnue.
+
+La distributivité donne :
+\[
+\boxed{k(a+b)=ka+kb}
+\]
+et :
+\[
+\boxed{k(a-b)=ka-kb}.
+\]
+
+Développer transforme un produit en somme.
+
+Factoriser transforme une somme en produit.
+
+Pour une équation :
+\[
+x+b=c,
+\]
+on utilise :
+\[
+\boxed{x=c-b}.
+\]
+
+Pour :
+\[
+ax=c,
+\]
+on utilise :
+\[
+\boxed{x=\dfrac ca}.
+\]
+
+Enfin, une propriété générale doit être démontrée ; quelques exemples ne suffisent pas.
+\end{aretenir}
