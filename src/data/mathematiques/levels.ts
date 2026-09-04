@@ -71,6 +71,17 @@ export const mathematicsLyceeLevels: MathematicsLevel[] = [
     order: 2,
   },
   {
+    slug: "1ere-ens-scientifique",
+    label: "Première — maths intégrées à l’enseignement scientifique",
+    shortLabel: "1re maths intégrées ES",
+    cycle: "lycee",
+    path: "/mathematiques/lycee/1ere-ens-scientifique",
+    description: "Mathématiques intégrées à l’enseignement scientifique en Première générale, conformes au programme officiel 2026.",
+    enabled: true,
+    status: "available",
+    order: 2.5,
+  },
+  {
     slug: "1ere-technologique",
     label: "Première technologique",
     shortLabel: "1re techno",
