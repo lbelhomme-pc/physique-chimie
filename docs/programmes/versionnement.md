@@ -46,3 +46,19 @@ C25 publie un premier lot de mathématiques 4e et 3e en restant strictement sur 
 - 3e : programme cycle 4 publié en 2020 ; le programme 2026 ne devient applicable qu'en 2028-2029.
 
 Les mappings du programme 2026 pour 4e et 3e sont enregistrés comme `future` avec zéro route publique et zéro chapitre actif. Ils servent uniquement à préparer la transition réglementaire.
+
+
+## Mission C26 — Terminale spécialité, partie 1
+
+Pour l'année scolaire 2026-2027, la Terminale spécialité reste rattachée au programme publié au BO spécial n° 8 du 25 juillet 2019 (NOR MENE1921246A). Le programme publié au BO n° 14 du 2 avril 2026 (NOR MENE2602919A) n'entre en application qu'à la rentrée 2027-2028.
+
+Le slug public du niveau, `terminale-specialite-mathematiques`, est désormais un alias explicite de `terminale-spe` dans le registre curriculaire. Les deux identifiants résolvent les mêmes fenêtres réglementaires.
+
+C26 publie la première moitié éditoriale du programme actuellement applicable :
+- algèbre et géométrie ;
+- suites ;
+- limites de fonctions ;
+- compléments sur la dérivation et convexité ;
+- continuité et théorème des valeurs intermédiaires.
+
+Le programme 2026 reste enregistré comme version future et n'alimente aucune route C26 en 2026-2027.
