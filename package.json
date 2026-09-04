@@ -24,10 +24,11 @@
     "build": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "ci:quality": "npm run check && npm run lint && npm test && npm run verify:content && npm run audit:security && npm run audit:maths-v2",
+    "ci:quality": "npm run check && npm run lint && npm test && npm run verify:content && npm run audit:security && npm run audit:maths-v2 && npm run audit:maths-v3",
     "ci:dist": "npm run build && npm run audit:dist:fast",
     "ci:a11y": "npm run build && npm run audit:dist:a11y",
-    "ci": "npm run ci:quality && npm run ci:dist"
+    "ci": "npm run ci:quality && npm run ci:dist",
+    "audit:maths-v3": "node scripts/audit-maths-v3-latex.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.8",
