@@ -36,3 +36,13 @@ Les bornes du registre sont rattachées aux textes ministériels : BO n° 16 du 
 ## Invariants CI
 
 `tests/curriculum-versions.test.mjs` vérifie les dates charnières, le format des années scolaires, l'absence de fenêtres invalides, la résolution de tout le corpus publié et l'injection de `programmeVersion` dans le contrat normalisé. Les routes, slugs, canoniques et identifiants de progression ne dépendent pas du versionnement et ne doivent pas être modifiés par ce mécanisme.
+
+
+## Mission C25 — 4e et 3e
+
+C25 publie un premier lot de mathématiques 4e et 3e en restant strictement sur le programme actuellement applicable à l'année scolaire 2026-2027 :
+
+- 4e : programme cycle 4 publié en 2020 ; le programme 2026 ne devient applicable qu'en 2027-2028 ;
+- 3e : programme cycle 4 publié en 2020 ; le programme 2026 ne devient applicable qu'en 2028-2029.
+
+Les mappings du programme 2026 pour 4e et 3e sont enregistrés comme `future` avec zéro route publique et zéro chapitre actif. Ils servent uniquement à préparer la transition réglementaire.

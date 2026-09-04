@@ -29,9 +29,9 @@ export const mathematicsCollegeLevels: MathematicsLevel[] = [
     shortLabel: "4e",
     cycle: "college",
     path: "/mathematiques/college/4eme",
-    description: "Espace collège à compléter progressivement.",
+    description: "Premier lot de cours, exercices N1 à N3, quiz et flashcards fondé sur le programme 2020 encore applicable en 4e en 2026-2027.",
     enabled: true,
-    status: "planned",
+    status: "available",
     order: 3,
   },
   {
@@ -40,9 +40,9 @@ export const mathematicsCollegeLevels: MathematicsLevel[] = [
     shortLabel: "3e",
     cycle: "college",
     path: "/mathematiques/college/3eme",
-    description: "Espace collège à compléter progressivement.",
+    description: "Premier lot de cours, exercices N1 à N3, quiz et flashcards fondé sur le programme 2020 encore applicable en 3e en 2026-2027.",
     enabled: true,
-    status: "planned",
+    status: "available",
     order: 4,
   },
 ];
