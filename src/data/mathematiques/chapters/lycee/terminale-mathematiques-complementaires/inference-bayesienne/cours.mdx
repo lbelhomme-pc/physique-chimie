@@ -1,0 +1,37 @@
+## Objectifs
+- Inverser un conditionnement.
+- Utiliser la formule de Bayes.
+- Interpréter les résultats dans des contextes de décision.
+
+## 1. Probabilité conditionnelle
+Pour $P(B)>0$ :
+$$P_B(A)=P(A\mid B)=\frac{P(A\cap B)}{P(B)}.$$
+
+## 2. Formule de Bayes
+Si $P(A)>0$ et $P(B)>0$ :
+$$P(B\mid A)=\frac{P(A\mid B)P(B)}{P(A)}.$$
+
+Elle permet de passer d'une probabilité de l'observation sachant la cause à une probabilité de la cause sachant l'observation.
+
+## 3. Probabilité totale
+Si $A$ et $\bar A$ forment une partition :
+$$P(B)=P(B\mid A)P(A)+P(B\mid\bar A)P(\bar A).$$
+
+## 4. Dépistage
+- sensibilité : $P(T^+\mid M)$ ;
+- spécificité : $P(T^-\mid\bar M)$ ;
+- valeur prédictive positive : $P(M\mid T^+)$.
+
+La valeur prédictive dépend aussi de la prévalence $P(M)$.
+
+## 5. A priori et a posteriori
+$P(A)$ représente la probabilité avant observation.
+Après observation de $B$, on utilise $P(A\mid B)$.
+
+## Erreurs fréquentes
+- Confondre $P(A\mid B)$ et $P(B\mid A)$.
+- Oublier la prévalence dans un test médical.
+- Négliger le calcul de $P(B)$.
+
+## À retenir
+Bayes combine information initiale et observation nouvelle pour réviser une probabilité.

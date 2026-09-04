@@ -1,0 +1,39 @@
+## Objectifs
+- Modéliser des répétitions indépendantes.
+- Utiliser la loi binomiale.
+- Relier probabilité théorique et fréquence observée.
+- Porter un regard critique sur un sondage.
+
+## 1. Bernoulli
+Une épreuve possède succès de probabilité $p$ et échec de probabilité $1-p$.
+
+## 2. Loi binomiale
+Pour $n$ répétitions indépendantes :
+$$X\sim\mathcal B(n,p),$$
+$$P(X=k)=\binom nkp^k(1-p)^{n-k}.$$
+
+## 3. Espérance
+$$E(X)=np.$$
+
+La fréquence $F=X/n$ a pour espérance $p$.
+
+## 4. Simulation
+La loi uniforme sur $[0,1]$ permet de simuler une Bernoulli :
+succès si $U<p$.
+
+Les simulations mettent en évidence la fluctuation d'échantillonnage.
+
+## 5. Intervalle probabiliste
+On peut rechercher un intervalle $I$ tel que
+$$P(X\in I)\ge1-\alpha.$$
+
+## 6. Sondages
+Un sondage aléatoire simple suppose une méthode de sélection maîtrisée. Représentativité, non-réponse et formulation des questions peuvent introduire des biais.
+
+## Erreurs fréquentes
+- Utiliser la binomiale sans indépendance.
+- Confondre fréquence observée et probabilité exacte.
+- Ignorer les biais de collecte.
+
+## À retenir
+L'échantillonnage relie un modèle probabiliste aux données observées, avec une variabilité inévitable.
