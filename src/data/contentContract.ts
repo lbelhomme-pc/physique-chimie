@@ -261,6 +261,8 @@ export const ChapterContractSchema = z.object({
   matiere: MatiereSchema.optional(),
   programme: z.string().min(1),
   programmeVersion: ProgrammeVersionSchema,
+  contentQualityVersion: z.number().int().min(1).optional(),
+  curriculumItems: z.array(z.string().min(1)).default([]),
   slug: z.string().min(1),
   title: z.string().min(1),
   description: z.string().min(1),
