@@ -1,54 +1,625 @@
 % Mathématiques 6e — cours V3
-% Source LaTeX rendue côté Astro/KaTeX.
+% Proportionnalité et échelles
 
 \section{Objectifs}
+
 \begin{itemize}
-\item Reconnaître une situation de proportionnalité.
-\item Utiliser un coefficient ou le passage à l'unité.
-\item Exploiter une échelle.
-\item Résoudre des problèmes de pourcentages simples.
+\item Comprendre ce que signifie la proportionnalité entre deux grandeurs.
+\item Reconnaître une situation qui peut être modélisée par une proportionnalité.
+\item Refuser le modèle proportionnel lorsqu'il n'est pas adapté.
+\item Résoudre des problèmes par retour à l'unité.
+\item Utiliser la linéarité multiplicative et additive.
+\item Organiser les données dans un tableau avec les noms et les unités des grandeurs.
+\item Résoudre de premiers problèmes d'échelle.
+\item Choisir la procédure la plus simple selon les nombres et le contexte.
 \end{itemize}
 
-\section{1. Situation de proportionnalité}
-Deux grandeurs sont proportionnelles lorsqu'on passe de l'une à l'autre en multipliant toujours par le même nombre.
+\section{1. Deux grandeurs qui évoluent ensemble}
 
-Si 3 kg de pommes coûtent 7,50 €, alors 1 kg coûte
-\[
-7{,}50\div3=2{,}50\text{ €}.
-\]
-Pour 5 kg :
-\[
-5\times2{,}50=12{,}50\text{ €}.
-\]
+Une situation de proportionnalité relie \textbf{deux grandeurs}.
 
-\section{2. Coefficient de proportionnalité}
-Dans une situation proportionnelle :
-\[
-y=kx.
-\]
-Le nombre $k$ est le coefficient de proportionnalité.
-
-En 6e, on privilégie le sens des grandeurs, le passage à l'unité, la linéarité et les coefficients simples.
-
-\section{3. Échelle}
-Une échelle $1:50\,000$ signifie que 1 unité sur la carte correspond à 50 000 mêmes unités dans la réalité.
-
-Ainsi, 1 cm sur la carte représente 50 000 cm, soit 500 m.
-
-\section{4. Pourcentages}
-Calculer 20 \% de 150 peut se faire en remarquant que 10 \% vaut 15, donc 20 \% vaut 30.
-
-\section{5. Limite explicite du programme}
-\textbf{Le produit en croix n'est pas enseigné en 6e.}
-
-On utilise des raisonnements accessibles : retour à l'unité, multiplication/division, propriétés de linéarité ou fractions simples.
-
-\section{Erreurs fréquentes}
+Par exemple :
 \begin{itemize}
-\item Supposer qu'une situation est proportionnelle sans le vérifier.
-\item Mélanger les unités dans un problème d'échelle.
-\item Appliquer mécaniquement une technique de produit en croix.
+\item une masse de fruits et son prix lorsque le prix au kilogramme est constant ;
+\item une quantité de farine et une quantité d'eau dans une recette que l'on agrandit sans changer les proportions ;
+\item une distance sur une carte et la distance réelle lorsque l'échelle est fixe.
+\end{itemize}
+
+\begin{definition}
+Deux grandeurs sont proportionnelles lorsque les valeurs de l'une s'obtiennent à partir des valeurs de l'autre en appliquant toujours le même facteur multiplicatif.
+\end{definition}
+
+Le contexte est essentiel : on ne décide pas qu'une situation est proportionnelle uniquement parce qu'un tableau contient des nombres.
+
+\section{2. Expressions de la vie courante}
+
+La proportionnalité apparaît souvent sous des formulations comme :
+\begin{itemize}
+\item « prix au kilogramme » ;
+\item « consommation pour une personne » ;
+\item « quantité pour un litre » ;
+\item « distance parcourue en une heure à vitesse constante » ;
+\item « échelle d'une carte ».
+\end{itemize}
+
+\begin{exemple}
+Des pommes coûtent $2{,}50\ \text{€}$ par kilogramme.
+
+Pour $1\ \text{kg}$, le prix vaut :
+\[
+2{,}50\ \text{€}.
+\]
+
+Pour $3\ \text{kg}$, il vaut :
+\[
+3\times2{,}50=7{,}50\ \text{€}.
+\]
+
+Pour $5\ \text{kg}$ :
+\[
+5\times2{,}50=12{,}50\ \text{€}.
+\]
+\end{exemple}
+
+Le prix au kilogramme reste constant.
+
+\section{3. Reconnaître une situation proportionnelle}
+
+Une situation peut être proportionnelle lorsque doubler une grandeur double l'autre.
+
+De même :
+\[
+\text{tripler}\longrightarrow\text{tripler},
+\]
+\[
+\text{diviser par }2\longrightarrow\text{diviser par }2.
+\]
+
+Ces observations sont des indices utiles.
+
+\begin{propriete}
+Dans une situation de proportionnalité, multiplier une valeur d'une grandeur par un nombre revient à multiplier la valeur correspondante de l'autre grandeur par le même nombre.
+\end{propriete}
+
+\section{4. Exemple : doubler une recette}
+
+Une recette pour $4$ personnes utilise :
+\[
+300\ \text{g}
+\]
+de farine.
+
+Pour $8$ personnes, si l'on conserve exactement les mêmes proportions, le nombre de personnes est doublé.
+
+La masse de farine doit donc être doublée :
+\[
+300\times2=600\ \text{g}.
+\]
+
+Cette situation est modélisée par la proportionnalité.
+
+\section{5. Toutes les situations ne sont pas proportionnelles}
+
+Il faut savoir refuser le modèle proportionnel.
+
+\begin{exemple}
+Une location de vélo coûte :
+\[
+5\ \text{€}
+\]
+de frais fixes, puis :
+\[
+3\ \text{€}
+\]
+par heure.
+
+Pour une heure, le prix est :
+\[
+5+3=8\ \text{€}.
+\]
+
+Pour deux heures :
+\[
+5+2\times3=11\ \text{€}.
+\]
+
+Le temps est doublé, mais :
+\[
+11\neq2\times8.
+\]
+
+Le prix total n'est donc pas proportionnel à la durée.
+\end{exemple}
+
+Les frais fixes empêchent la proportionnalité.
+
+\section{6. Le retour à l'unité}
+
+Le retour à l'unité consiste à déterminer la valeur correspondant à une unité de la première grandeur.
+
+\begin{exemple}
+$3\ \text{kg}$ de pommes coûtent :
+\[
+7{,}50\ \text{€}.
+\]
+
+Le prix d'un kilogramme vaut :
+\[
+7{,}50\div3=2{,}50\ \text{€}.
+\]
+
+Pour $5\ \text{kg}$ :
+\[
+5\times2{,}50=12{,}50\ \text{€}.
+\]
+
+Donc :
+\[
+\boxed{5\ \text{kg}\longrightarrow12{,}50\ \text{€}}.
+\]
+\end{exemple}
+
+\begin{methode}
+Retour à l'unité :
+\begin{enumerate}
+\item identifier les deux grandeurs et leurs unités ;
+\item trouver la valeur pour une unité ;
+\item multiplier cette valeur par la quantité demandée ;
+\item contrôler que le résultat a du sens.
+\end{enumerate}
+\end{methode}
+
+\section{7. Linéarité multiplicative}
+
+Si une quantité est multipliée par :
+\[
+3,
+\]
+la grandeur proportionnelle correspondante est aussi multipliée par :
+\[
+3.
+\]
+
+\begin{exemple}
+$2$ bouteilles contiennent ensemble :
+\[
+3\ \text{L}.
+\]
+
+$6$ bouteilles représentent trois fois plus de bouteilles :
+\[
+6=3\times2.
+\]
+
+Le volume correspondant est donc :
+\[
+3\times3=9\ \text{L}.
+\]
+\end{exemple}
+
+Cette stratégie est rapide lorsque l'on repère un facteur simple.
+
+\section{8. Linéarité additive}
+
+Dans une situation proportionnelle, on peut également additionner des correspondances.
+
+Si :
+\[
+2\ \text{kg}\longrightarrow5\ \text{€}
+\]
+et :
+\[
+3\ \text{kg}\longrightarrow7{,}50\ \text{€},
+\]
+alors :
+\[
+5\ \text{kg}=2\ \text{kg}+3\ \text{kg}
+\]
+correspondent à :
+\[
+5+7{,}50=12{,}50\ \text{€}.
+\]
+
+\begin{propriete}
+Dans une situation proportionnelle, la somme de deux valeurs de la première grandeur correspond à la somme des valeurs associées de la seconde grandeur.
+\end{propriete}
+
+\section{9. Choisir la stratégie la plus simple}
+
+Il n'existe pas une unique procédure à appliquer à tous les problèmes.
+
+\coursefigure{/images/mathematiques/6eme/proportionnalite-tableau.svg}{Tableau reliant deux grandeurs avec plusieurs stratégies possibles.}{Le tableau organise les données ; on peut ensuite utiliser un facteur multiplicatif, une addition de colonnes ou un retour à l'unité.}
+
+\begin{exemple}
+On sait :
+\[
+4\ \text{objets}\longrightarrow12\ \text{€}.
+\]
+
+Pour $8$ objets, doubler est immédiat :
+\[
+12\times2=24\ \text{€}.
+\]
+
+Pour $5$ objets, revenir à l'unité peut être plus simple :
+\[
+12\div4=3\ \text{€}
+\]
+par objet, puis :
+\[
+5\times3=15\ \text{€}.
+\]
+\end{exemple}
+
+Le bon raisonnement dépend des nombres.
+
+\section{10. Le tableau de proportionnalité}
+
+Un tableau peut organiser les correspondances entre les deux grandeurs.
+
+\begin{tabular}{c|c|c|c}
+Masse en kg & $1$ & $3$ & $5$ \\
+Prix en € & $2{,}50$ & $7{,}50$ & $12{,}50$ \\
+\end{tabular}
+
+Les noms des grandeurs et leurs unités doivent apparaître.
+
+\begin{attention}
+Un tableau à deux lignes n'est pas automatiquement un tableau de proportionnalité. Le contexte et les relations entre les valeurs doivent le justifier.
+\end{attention}
+
+\section{11. Représentation symbolique}
+
+On peut représenter une correspondance par une flèche.
+
+Par exemple :
+\[
+3\ \text{kg}
+\longrightarrow
+7{,}50\ \text{€}.
+\]
+
+Puis :
+\[
+1\ \text{kg}
+\longrightarrow
+2{,}50\ \text{€}.
+\]
+
+Cette notation permet de conserver le sens des grandeurs sans introduire prématurément une écriture algébrique abstraite.
+
+\section{12. Automatisme : doubler}
+
+Si une quantité est doublée, on calcule :
+\[
+2\times q.
+\]
+
+Dans une situation proportionnelle, la valeur correspondante est elle aussi doublée.
+
+\begin{exemple}
+$6$ cahiers coûtent $9\ \text{€}$.
+
+$12$ cahiers coûtent :
+\[
+2\times9=18\ \text{€}.
+\]
+\end{exemple}
+
+\section{13. Automatisme : moitié et quart}
+
+Prendre la moitié revient à diviser par :
+\[
+2.
+\]
+
+Prendre le quart revient à diviser par :
+\[
+4.
+\]
+
+\begin{exemple}
+Une recette utilise :
+\[
+800\ \text{mL}
+\]
+de liquide pour une quantité donnée.
+
+Pour une quantité quatre fois plus petite :
+\[
+800\div4=200\ \text{mL}.
+\]
+\end{exemple}
+
+Ces raisonnements simples sont à privilégier lorsqu'ils suffisent.
+
+\section{14. « Quatre fois plus » et « quatre fois moins »}
+
+L'expression :
+\[
+\text{« quatre fois plus »}
+\]
+conduit à une multiplication par :
+\[
+4.
+\]
+
+Dans les exercices scolaires, « quatre fois moins » est interprété comme une division par :
+\[
+4.
+\]
+
+Ainsi :
+\[
+80\div4=20.
+\]
+
+Le langage courant doit toujours être relié à l'opération réellement effectuée.
+
+\section{15. Exemple développé : une recette}
+
+Pour $6$ personnes, il faut :
+\[
+450\ \text{g}
+\]
+de riz.
+
+On veut préparer la même recette pour $10$ personnes.
+
+Le retour à l'unité donne :
+\[
+450\div6=75\ \text{g}
+\]
+par personne.
+
+Pour $10$ personnes :
+\[
+75\times10=750\ \text{g}.
+\]
+
+Donc :
+\[
+\boxed{750\ \text{g}}
+\]
+de riz sont nécessaires.
+
+\section{16. Exemple développé : utiliser l'additivité}
+
+Pour $4$ personnes, on utilise :
+\[
+300\ \text{g}
+\]
+de farine.
+
+Pour $2$ personnes, on utilise la moitié :
+\[
+300\div2=150\ \text{g}.
+\]
+
+Pour $6$ personnes :
+\[
+6=4+2.
+\]
+
+Donc :
+\[
+300+150=450\ \text{g}.
+\]
+
+Cette méthode évite le retour à l'unité lorsque les valeurs se combinent facilement.
+
+\section{17. Pourcentages simples et proportionnalité}
+
+Un pourcentage peut être interprété comme une proportion sur :
+\[
+100.
+\]
+
+Par exemple :
+\[
+20\%=\dfrac{20}{100}=\dfrac15.
+\]
+
+Calculer $20\%$ de $150$ revient à prendre un cinquième de $150$ :
+\[
+150\div5=30.
+\]
+
+Donc :
+\[
+\boxed{20\%\text{ de }150=30}.
+\]
+
+On peut également utiliser :
+\[
+10\%\text{ de }150=15,
+\]
+puis doubler :
+\[
+20\%\text{ de }150=30.
+\]
+
+\section{18. L'échelle}
+
+Une échelle relie une longueur sur une représentation à une longueur réelle.
+
+\coursefigure{/images/mathematiques/6eme/proportionnalite-echelle.svg}{Carte simplifiée montrant une distance sur le plan reliée à une distance réelle.}{Une même échelle impose un facteur constant entre les longueurs mesurées sur la carte et les longueurs réelles.}
+
+Une échelle :
+\[
+1:50\,000
+\]
+signifie qu'une unité de longueur sur la carte représente :
+\[
+50\,000
+\]
+mêmes unités dans la réalité.
+
+\section{19. Conserver les mêmes unités}
+
+Une échelle compare des longueurs exprimées dans la même unité avant conversion.
+
+Si :
+\[
+1\ \text{cm}
+\]
+sur la carte représente :
+\[
+50\,000\ \text{cm}
+\]
+dans la réalité, on peut ensuite convertir :
+\[
+50\,000\ \text{cm}=500\ \text{m}.
+\]
+
+Ainsi :
+\[
+1\ \text{cm}\text{ sur la carte}
+\longrightarrow
+500\ \text{m}\text{ en réalité}.
+\]
+
+\section{20. Exemple développé : distance réelle}
+
+Une carte est à l'échelle :
+\[
+1:25\,000.
+\]
+
+Deux points sont séparés de :
+\[
+4\ \text{cm}
+\]
+sur la carte.
+
+La distance réelle en centimètres vaut :
+\[
+4\times25\,000=100\,000\ \text{cm}.
+\]
+
+Or :
+\[
+100\,000\ \text{cm}=1\,000\ \text{m}=1\ \text{km}.
+\]
+
+Donc :
+\[
+\boxed{4\ \text{cm}\text{ sur la carte correspondent à }1\ \text{km}}.
+\]
+
+\section{21. Exemple développé : retrouver une distance sur la carte}
+
+À l'échelle :
+\[
+1:100\,000,
+\]
+une distance réelle de :
+\[
+3\ \text{km}
+\]
+doit d'abord être exprimée dans la même unité.
+
+On a :
+\[
+3\ \text{km}=300\,000\ \text{cm}.
+\]
+
+Comme :
+\[
+100\,000\ \text{cm}
+\]
+réels correspondent à :
+\[
+1\ \text{cm}
+\]
+sur la carte, on obtient :
+\[
+300\,000\div100\,000=3.
+\]
+
+La distance sur la carte vaut :
+\[
+\boxed{3\ \text{cm}}.
+\]
+
+\section{22. Vérifier qu'un modèle proportionnel convient}
+
+Avant tout calcul, on peut poser plusieurs questions.
+
+\begin{methode}
+\begin{enumerate}
+\item Quelles sont les deux grandeurs ?
+\item Quelles sont leurs unités ?
+\item Si l'une double, l'autre doit-elle réellement doubler ?
+\item Existe-t-il une quantité fixe qui empêcherait la proportionnalité ?
+\item Le contexte parle-t-il d'un prix unitaire, d'une recette, d'une échelle ou d'une grandeur par unité ?
+\end{enumerate}
+\end{methode}
+
+Ce contrôle évite d'appliquer une méthode de proportionnalité à une situation qui ne l'est pas.
+
+\section{23. Limite explicite : pas de produit en croix en 6e}
+
+\begin{attention}
+Le produit en croix n'est pas enseigné en 6e.
+\end{attention}
+
+Les stratégies attendues sont :
+\begin{itemize}
+\item le retour à l'unité ;
+\item la linéarité multiplicative ;
+\item la linéarité additive ;
+\item l'utilisation de fractions ou de pourcentages simples ;
+\item les conversions d'unités dans les problèmes d'échelle.
+\end{itemize}
+
+L'objectif est de comprendre la relation entre les grandeurs, pas d'appliquer une recette formelle sans signification.
+
+\section{24. Méthode générale}
+
+\begin{methode}
+Pour résoudre un problème de proportionnalité :
+\begin{enumerate}
+\item identifier les deux grandeurs et leurs unités ;
+\item vérifier que le modèle proportionnel est adapté ;
+\item organiser les données si nécessaire ;
+\item choisir la stratégie la plus simple ;
+\item effectuer le calcul ;
+\item écrire l'unité du résultat ;
+\item contrôler la vraisemblance de la réponse.
+\end{enumerate}
+\end{methode}
+
+\section{25. Erreurs fréquentes}
+
+\begin{itemize}
+\item Supposer qu'une situation est proportionnelle sans justification.
+\item Oublier les noms ou unités des grandeurs dans un tableau.
+\item Utiliser un facteur différent sur les deux grandeurs.
+\item Mélanger des mètres et des centimètres dans un problème d'échelle.
+\item Choisir une méthode compliquée alors qu'un double ou une moitié suffit.
+\item Appliquer un produit en croix en 6e.
+\item Confondre une proportionnalité avec une situation comportant des frais fixes.
 \end{itemize}
 
 \section{À retenir}
-En proportionnalité, un même coefficient relie les deux grandeurs. En 6e, on raisonne d'abord sur le sens, l'unité et les facteurs multiplicatifs.
+
+\begin{aretenir}
+La proportionnalité met en relation deux grandeurs.
+
+On doit d'abord vérifier que le modèle proportionnel est adapté au contexte.
+
+En 6e, les principales stratégies sont :
+\begin{itemize}
+\item multiplier ou diviser les deux grandeurs par un même facteur ;
+\item additionner des correspondances ;
+\item revenir à l'unité ;
+\item organiser les valeurs dans un tableau avec leurs unités.
+\end{itemize}
+
+Une échelle est une situation de proportionnalité entre une distance représentée et une distance réelle.
+
+Le produit en croix n'est pas une méthode enseignée en 6e.
+
+Le choix de la procédure doit rester lié au sens des grandeurs et aux nombres disponibles.
+\end{aretenir}
