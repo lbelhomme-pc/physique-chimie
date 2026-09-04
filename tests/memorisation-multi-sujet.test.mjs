@@ -16,6 +16,7 @@ const quizPlayerSource = read("src/components/pedagogie/MegaQuizPlayer.tsx");
 const flashPlayerSource = read("src/components/pedagogie/MegaFlashcardsPlayer.tsx");
 const dashboardSource = read("src/components/pedagogie/Dashboard.tsx");
 const homeSource = read("src/pages/index.astro");
+const globalSearchCatalogueSource = read("src/data/globalSearchResources.ts");
 const profilePageSource = read("src/pages/profil.astro");
 const memorizationHubSource = read("src/pages/memorisation/index.astro");
 const dailyReviewSource = read("src/pages/memorisation/revision-du-jour.astro");
@@ -123,9 +124,10 @@ test("C15 Mega players require an explicit choice before mixing disciplines", ()
 });
 
 test("C15 search sends Physique-Chimie results directly to canonical C12 routes", () => {
-  assert.match(homeSource, /getPhysicalScienceExplicitChapterPath/);
-  assert.match(homeSource, /path: getPhysicalScienceExplicitChapterPath\(cycle, niveau, matiere as "physique" \| "chimie", slug\)/);
-  assert.doesNotMatch(homeSource, /path: `\/\$\{cycle\}\/\$\{niveau\}\/\$\{matiere\}\/\$\{slug\}`/);
+  assert.match(homeSource, /getGlobalSearchCatalogue/);
+  assert.match(globalSearchCatalogueSource, /getPhysicalScienceExplicitChapterPath/);
+  assert.match(globalSearchCatalogueSource, /path: getPhysicalScienceExplicitChapterPath\(cycle, niveau, matiere as "physique" \| "chimie", slug\)/);
+  assert.doesNotMatch(globalSearchCatalogueSource, /path: `\/\$\{cycle\}\/\$\{niveau\}\/\$\{matiere\}\/\$\{slug\}`/);
 });
 
 test("C15 dashboard and profile are discipline-aware without changing progress storage", () => {

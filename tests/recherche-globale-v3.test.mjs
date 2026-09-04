@@ -6,6 +6,7 @@ import { join } from "node:path";
 const root = process.cwd();
 const componentSource = readFileSync(join(root, "src/components/search/GlobalSearch.tsx"), "utf8");
 const homeSource = readFileSync(join(root, "src/pages/index.astro"), "utf8");
+const catalogueSource = readFileSync(join(root, "src/data/globalSearchResources.ts"), "utf8");
 
 const {
   normalizeSearchText,
@@ -123,12 +124,12 @@ describe("Recherche globale V3", () => {
   });
 
   it("indexe les slugs et les niveaux en rattachant ES a Physique-Chimie", () => {
-    assert.match(homeSource, /slug,/);
-    assert.match(homeSource, /accessTier: data\.access\?\.tier \?\? "free"/);
-    assert.match(homeSource, /niveau\.includes\("ens-scientifique"\)/);
-    assert.match(homeSource, /subject: "physique-chimie"/);
-    assert.match(homeSource, /Physique-Chimie — Enseignement scientifique/);
-    assert.doesNotMatch(homeSource, /subject:\s*isScientificEducation\s*\?\s*"enseignement-scientifique"/);
-    assert.match(homeSource, /<GlobalSearch client:load resources=\{resources\} \/>/);
+    assert.match(catalogueSource, /slug,/);
+    assert.match(catalogueSource, /accessTier: data\.access\?\.tier \?\? "free"/);
+    assert.match(catalogueSource, /niveau\.includes\("ens-scientifique"\)/);
+    assert.match(catalogueSource, /subject: "physique-chimie"/);
+    assert.match(catalogueSource, /Physique-Chimie — Enseignement scientifique/);
+    assert.doesNotMatch(catalogueSource, /subject:\s*isScientificEducation\s*\?\s*"enseignement-scientifique"/);
+    assert.match(homeSource, /resourceUrl="\/search-index\.json"/);
   });
 });
