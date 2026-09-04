@@ -1,0 +1,479 @@
+% Mathématiques 5e — cours V3
+% Triangles et parallélogrammes
+
+\section{Objectifs}
+
+\begin{itemize}
+\item Connaître et démontrer la somme des angles d'un triangle.
+\item Construire un triangle à partir de données partielles.
+\item Utiliser les médiatrices et le cercle circonscrit dans des triangles particuliers.
+\item Calculer l'aire d'un triangle.
+\item Définir et tracer les hauteurs d'un triangle.
+\item Savoir que les hauteurs sont concourantes.
+\item Définir et tracer les médianes.
+\item Démontrer qu'une médiane partage un triangle en deux triangles de même aire.
+\item Définir, construire et reconnaître un parallélogramme.
+\item Utiliser les propriétés caractéristiques des côtés et des diagonales.
+\item Définir rectangle, losange et carré comme parallélogrammes particuliers.
+\item Calculer l'aire d'un parallélogramme et de figures composées.
+\end{itemize}
+
+\section{1. Somme des angles d'un triangle}
+
+Dans tout triangle :
+\[
+\boxed{\widehat A+\widehat B+\widehat C=180^\circ}.
+\]
+
+Cette propriété est indépendante de la forme du triangle.
+
+\begin{exemple}
+Dans un triangle, deux angles mesurent :
+\[
+48^\circ
+\]
+et :
+\[
+67^\circ.
+\]
+
+Le troisième angle vaut :
+\[
+180^\circ-48^\circ-67^\circ=65^\circ.
+\]
+
+Donc :
+\[
+\boxed{65^\circ}.
+\]
+\end{exemple}
+
+\section{2. Idée d'une démonstration}
+
+On peut tracer par un sommet une droite parallèle au côté opposé.
+
+Les égalités d'angles alternes-internes permettent de reporter les deux autres angles du triangle autour du sommet.
+
+On obtient alors un angle plat :
+\[
+180^\circ.
+\]
+
+Ainsi, les trois angles du triangle ont une somme égale à :
+\[
+180^\circ.
+\]
+
+\begin{remarque}
+Au cycle 4, il faut distinguer une mesure observée sur un dessin d'une propriété démontrée.
+\end{remarque}
+
+\section{3. Construire un triangle}
+
+Un triangle peut être déterminé à partir de différentes données :
+\begin{itemize}
+\item trois longueurs ;
+\item deux longueurs et l'angle compris ;
+\item une longueur et deux angles.
+\end{itemize}
+
+La construction utilise règle, compas et rapporteur.
+
+\section{4. Construction avec trois côtés}
+
+On veut construire :
+\[
+AB=6\ \text{cm},\qquad
+AC=5\ \text{cm},\qquad
+BC=4\ \text{cm}.
+\]
+
+On trace $[AB]$.
+
+Puis :
+\begin{itemize}
+\item un cercle de centre $A$ et rayon $5\ \text{cm}$ ;
+\item un cercle de centre $B$ et rayon $4\ \text{cm}$.
+\end{itemize}
+
+Leur point d'intersection donne $C$.
+
+\section{5. Construction avec deux côtés et un angle}
+
+On connaît :
+\[
+AB=7\ \text{cm},
+\]
+\[
+AC=4\ \text{cm},
+\]
+et :
+\[
+\widehat{BAC}=55^\circ.
+\]
+
+On trace $[AB]$, puis un angle de :
+\[
+55^\circ
+\]
+en $A$.
+
+Sur la seconde demi-droite, on reporte :
+\[
+AC=4\ \text{cm}.
+\]
+
+\section{6. Construction avec un côté et deux angles}
+
+Si :
+\[
+AB=8\ \text{cm},
+\]
+\[
+\widehat{A}=40^\circ,
+\]
+et :
+\[
+\widehat{B}=65^\circ,
+\]
+on trace d'abord $[AB]$.
+
+On construit ensuite les deux demi-droites correspondant aux angles.
+
+Leur intersection détermine le troisième sommet.
+
+Le troisième angle doit vérifier :
+\[
+180^\circ-40^\circ-65^\circ=75^\circ.
+\]
+
+\section{7. Médiatrices et cercle circonscrit}
+
+La médiatrice d'un segment est la droite perpendiculaire au segment passant par son milieu.
+
+Tout point de la médiatrice de $[AB]$ est équidistant de $A$ et de $B$.
+
+Les trois médiatrices d'un triangle sont concourantes.
+
+Leur point commun est le centre du cercle circonscrit au triangle.
+
+\section{8. Triangles particuliers et cercle circonscrit}
+
+Dans un triangle rectangle, le centre du cercle circonscrit est le milieu de l'hypoténuse.
+
+Dans un triangle isocèle, la médiatrice de la base est aussi un axe de symétrie du triangle.
+
+Ces situations permettent de simplifier les constructions.
+
+\section{9. Aire d'un triangle}
+
+Si $b$ est une base et $h$ la hauteur associée :
+\[
+\boxed{A=\dfrac{b\times h}{2}}.
+\]
+
+\begin{exemple}
+Pour :
+\[
+b=9\ \text{cm},
+\qquad
+h=4\ \text{cm},
+\]
+on obtient :
+\[
+A=\dfrac{9\times4}{2}=18\ \text{cm}^2.
+\]
+\end{exemple}
+
+\section{10. Hauteur d'un triangle}
+
+\begin{definition}
+Une hauteur d'un triangle est une droite passant par un sommet et perpendiculaire au côté opposé, ou à la droite qui le porte.
+\end{definition}
+
+\coursefigure{/images/mathematiques/5eme/triangle-droites.svg}{Triangle avec une hauteur, une médiane et une médiatrice représentées différemment.}{Hauteur, médiane et médiatrice ne répondent pas à la même définition et ne doivent pas être confondues.}
+
+Dans un triangle obtus, une hauteur peut se situer à l'extérieur du triangle.
+
+\section{11. Orthocentre}
+
+Les trois hauteurs d'un triangle se coupent en un même point.
+
+On dit qu'elles sont concourantes.
+
+Le point de concours s'appelle l'orthocentre.
+
+\begin{propriete}
+Les trois hauteurs d'un triangle sont concourantes.
+\end{propriete}
+
+\section{12. Médiane}
+
+\begin{definition}
+Une médiane d'un triangle est une droite passant par un sommet et par le milieu du côté opposé.
+\end{definition}
+
+Chaque triangle possède trois médianes.
+
+\section{13. Médiane et aire}
+
+Considérons un triangle $ABC$ et $M$, milieu de $[BC]$.
+
+Alors :
+\[
+BM=MC.
+\]
+
+Les triangles $ABM$ et $AMC$ ont la même hauteur issue de $A$.
+
+Leur base a la même longueur.
+
+Donc :
+\[
+A_{ABM}=A_{AMC}.
+\]
+
+\begin{propriete}
+Une médiane partage un triangle en deux triangles de même aire.
+\end{propriete}
+
+\section{14. Triangles particuliers}
+
+Dans un triangle isocèle, certaines droites remarquables peuvent coïncider.
+
+Par exemple, dans un triangle isocèle en $A$, la droite issue de $A$ passant par le milieu de la base est à la fois :
+\begin{itemize}
+\item médiane ;
+\item hauteur ;
+\item médiatrice de la base ;
+\item axe de symétrie.
+\end{itemize}
+
+Dans un triangle équilatéral, cette coïncidence se produit depuis chacun des sommets.
+
+\section{15. Parallélogramme}
+
+\begin{definition}
+Un parallélogramme est un quadrilatère dont les côtés opposés sont parallèles deux à deux.
+\end{definition}
+
+Si $ABCD$ est un parallélogramme :
+\[
+(AB)\parallel(CD)
+\]
+et :
+\[
+(BC)\parallel(AD).
+\]
+
+\section{16. Construire un parallélogramme}
+
+Pour construire $ABCD$ à partir de trois sommets :
+\begin{enumerate}
+\item tracer par $C$ la parallèle à $(AB)$ ;
+\item tracer par $A$ la parallèle à $(BC)$ ;
+\item leur intersection donne $D$.
+\end{enumerate}
+
+On peut aussi utiliser les diagonales et leur propriété caractéristique.
+
+\section{17. Côtés opposés}
+
+Dans un parallélogramme, les côtés opposés ont la même longueur :
+\[
+AB=CD,
+\]
+et :
+\[
+BC=AD.
+\]
+
+Cette propriété permet de calculer des longueurs ou de reconnaître un parallélogramme dans certaines configurations.
+
+\section{18. Diagonales}
+
+\coursefigure{/images/mathematiques/5eme/parallelogramme.svg}{Parallélogramme avec diagonales se coupant en leur milieu et une hauteur relative à une base.}{Les diagonales d'un parallélogramme se coupent en leur milieu ; cette propriété est caractéristique.}
+
+\begin{propriete}
+Les diagonales d'un parallélogramme se coupent en leur milieu.
+\end{propriete}
+
+Réciproquement, si les diagonales d'un quadrilatère se coupent en leur milieu, alors ce quadrilatère est un parallélogramme.
+
+\section{19. Propriété caractéristique par les côtés}
+
+Si un quadrilatère possède deux côtés opposés parallèles et de même longueur, alors c'est un parallélogramme.
+
+De même, si ses côtés opposés sont de même longueur deux à deux, cela permet aussi de caractériser un parallélogramme.
+
+\section{20. Rectangle}
+
+\begin{definition}
+Un rectangle est un parallélogramme qui possède un angle droit.
+\end{definition}
+
+Ses quatre angles sont droits.
+
+Ses diagonales :
+\begin{itemize}
+\item se coupent en leur milieu ;
+\item ont la même longueur.
+\end{itemize}
+
+\section{21. Losange}
+
+\begin{definition}
+Un losange est un parallélogramme dont les quatre côtés ont la même longueur.
+\end{definition}
+
+Ses diagonales :
+\begin{itemize}
+\item se coupent en leur milieu ;
+\item sont perpendiculaires.
+\end{itemize}
+
+\section{22. Carré}
+
+\begin{definition}
+Un carré est à la fois un rectangle et un losange.
+\end{definition}
+
+Il possède donc :
+\begin{itemize}
+\item quatre côtés égaux ;
+\item quatre angles droits ;
+\item des diagonales de même longueur ;
+\item des diagonales perpendiculaires ;
+\item des diagonales qui se coupent en leur milieu.
+\end{itemize}
+
+\section{23. Aire d'un parallélogramme}
+
+Si $b$ est la longueur d'une base et $h$ la hauteur correspondante :
+\[
+\boxed{A=b\times h}.
+\]
+
+\begin{exemple}
+Pour :
+\[
+b=8\ \text{cm},
+\qquad
+h=5\ \text{cm},
+\]
+on obtient :
+\[
+A=8\times5=40\ \text{cm}^2.
+\]
+\end{exemple}
+
+\section{24. Pourquoi la formule fonctionne}
+
+On peut découper un triangle à une extrémité du parallélogramme et le déplacer à l'autre extrémité.
+
+On obtient un rectangle de même base et de même hauteur.
+
+L'aire est donc conservée :
+\[
+A=b\times h.
+\]
+
+Ce raisonnement par découpage met en évidence un invariant d'aire.
+
+\section{25. Figures complexes}
+
+Pour calculer l'aire d'une figure composée :
+\begin{itemize}
+\item on peut la découper en figures usuelles ;
+\item ou compléter une figure plus simple puis soustraire.
+\end{itemize}
+
+Les conversions d'unités doivent être effectuées avant les additions ou soustractions d'aires.
+
+\section{26. Exemple développé}
+
+Une figure est composée d'un parallélogramme d'aire :
+\[
+36\ \text{cm}^2
+\]
+et d'un triangle d'aire :
+\[
+14\ \text{cm}^2.
+\]
+
+S'ils ne se recouvrent pas, l'aire totale vaut :
+\[
+36+14=50\ \text{cm}^2.
+\]
+
+Donc :
+\[
+\boxed{50\ \text{cm}^2}.
+\]
+
+\section{27. Méthode de construction}
+
+\begin{methode}
+Pour une construction géométrique :
+\begin{enumerate}
+\item lister les données ;
+\item choisir l'instrument adapté à chaque donnée ;
+\item construire progressivement ;
+\item conserver les traits utiles ;
+\item vérifier les longueurs et angles obtenus ;
+\item coder la figure.
+\end{enumerate}
+\end{methode}
+
+\section{28. Méthode de démonstration}
+
+\begin{methode}
+Pour prouver qu'un quadrilatère est un parallélogramme :
+\begin{enumerate}
+\item identifier les données disponibles ;
+\item choisir une propriété caractéristique adaptée ;
+\item établir ses conditions ;
+\item citer la propriété ;
+\item conclure.
+\end{enumerate}
+\end{methode}
+
+\section{29. Erreurs fréquentes}
+
+\begin{itemize}
+\item Confondre hauteur, médiane et médiatrice.
+\item Penser qu'une hauteur est toujours à l'intérieur du triangle.
+\item Utiliser la moitié d'une base sans justification.
+\item Confondre aire du triangle et aire du parallélogramme.
+\item Croire qu'un quadrilatère « ressemble » à un parallélogramme suffit pour conclure.
+\item Utiliser une propriété caractéristique sans vérifier toutes ses conditions.
+\item Confondre rectangle, losange et carré.
+\item Oublier les unités carrées.
+\end{itemize}
+
+\section{À retenir}
+
+\begin{aretenir}
+Dans tout triangle :
+\[
+\boxed{\widehat A+\widehat B+\widehat C=180^\circ}.
+\]
+
+Son aire vaut :
+\[
+\boxed{A=\dfrac{b\times h}{2}}.
+\]
+
+Les hauteurs sont concourantes.
+
+Une médiane partage le triangle en deux triangles de même aire.
+
+Un parallélogramme possède des côtés opposés parallèles et ses diagonales se coupent en leur milieu.
+
+Son aire vaut :
+\[
+\boxed{A=b\times h}.
+\]
+
+Rectangle, losange et carré sont des parallélogrammes particuliers possédant des propriétés supplémentaires.
+\end{aretenir}
