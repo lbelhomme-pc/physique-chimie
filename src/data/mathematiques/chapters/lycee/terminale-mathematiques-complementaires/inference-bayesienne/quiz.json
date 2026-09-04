@@ -1,63 +1,123 @@
 {
   "questions": [
     {
-      "id": "mc-bay-q1",
-      "question": "P(A|B) est :",
+      "id": "mc-bay-v2-q1",
+      "question": "Que représente $P(A\\mid B)$ ?",
       "choices": [
-        "une probabilité conditionnelle",
-        "toujours égale à P(B|A)",
-        "une moyenne"
+        "La probabilité de A sachant B",
+        "La probabilité de B sachant A",
+        "La probabilité de A et B indépendamment"
       ],
       "answer": 0,
-      "explanation": "Le conditionnement porte sur B.",
+      "explanation": "La barre verticale se lit « sachant ». L'événement situé après la barre est l'information connue.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne"
     },
     {
-      "id": "mc-bay-q2",
-      "question": "Bayes sert notamment à :",
+      "id": "mc-bay-v2-q2",
+      "question": "Si $P(A\\cap B)=0,12$ et $P(B)=0,30$, combien vaut $P(A\\mid B)$ ?",
       "choices": [
-        "inverser un conditionnement",
-        "calculer une dérivée",
-        "trouver une primitive"
+        "0,04",
+        "0,40",
+        "2,50"
       ],
-      "answer": 0,
-      "explanation": "On passe de P(B|A) à P(A|B).",
+      "answer": 1,
+      "explanation": "On applique $P(A\\mid B)=P(A\\cap B)/P(B)$, soit $0,12/0,30=0,40$.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne"
     },
     {
-      "id": "mc-bay-q3",
-      "question": "La sensibilité d'un test est :",
+      "id": "mc-bay-v2-q3",
+      "question": "Sur un arbre pondéré, comment calcule-t-on la probabilité d'un chemin complet ?",
       "choices": [
-        "P(T+|M)",
-        "P(M|T+)",
-        "P(T-|M)"
+        "On additionne les probabilités des branches",
+        "On multiplie les probabilités des branches",
+        "On prend la plus grande probabilité"
       ],
-      "answer": 0,
-      "explanation": "C'est la probabilité d'un test positif chez un malade.",
+      "answer": 1,
+      "explanation": "Un chemin correspond à une intersection d'événements successifs ; les probabilités conditionnelles se multiplient.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne"
     },
     {
-      "id": "mc-bay-q4",
-      "question": "La valeur prédictive positive dépend :",
+      "id": "mc-bay-v2-q4",
+      "question": "Une spécificité de 96 % signifie :",
       "choices": [
-        "de la prévalence",
-        "uniquement de la sensibilité",
-        "jamais des faux positifs"
+        "$P(T^+\\mid M)=0,96$",
+        "$P(T^-\\mid\\overline M)=0,96$",
+        "$P(M\\mid T^+)=0,96$"
       ],
-      "answer": 0,
-      "explanation": "Le taux de base influence l'a posteriori.",
+      "answer": 1,
+      "explanation": "La spécificité est la probabilité d'obtenir un résultat négatif chez une personne non malade.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne"
     },
     {
-      "id": "mc-bay-q5",
-      "question": "La formule des probabilités totales sert à calculer :",
+      "id": "mc-bay-v2-q5",
+      "question": "Un test a une spécificité de 98 %. Quel est son taux de faux positifs ?",
       "choices": [
-        "une probabilité globale à partir de cas",
-        "une dérivée seconde",
-        "une médiane"
+        "2 %",
+        "98 %",
+        "Impossible à déterminer"
       ],
       "answer": 0,
-      "explanation": "On somme les contributions des cas d'une partition.",
+      "explanation": "Chez les non-malades, test négatif et test positif sont complémentaires : $1-0,98=0,02$.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne"
+    },
+    {
+      "id": "mc-bay-v2-q6",
+      "question": "Pourquoi faut-il calculer $P(T^+)$ avant d'utiliser Bayes pour obtenir $P(M\\mid T^+)$ ?",
+      "choices": [
+        "Parce que $P(T^+)$ est le dénominateur de la formule de Bayes",
+        "Parce que $P(T^+)$ est toujours égal à la prévalence",
+        "Parce que Bayes ne s'applique qu'aux probabilités supérieures à 0,5"
+      ],
+      "answer": 0,
+      "explanation": "La formule est $P(M\\mid T^+)=P(T^+\\mid M)P(M)/P(T^+)$ ; il faut donc connaître la probabilité globale de l'observation.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne"
+    },
+    {
+      "id": "mc-bay-v2-q7",
+      "question": "Un test peut avoir une sensibilité et une spécificité très élevées tout en ayant une valeur prédictive positive modérée lorsque :",
+      "choices": [
+        "La maladie est très rare",
+        "La maladie est très fréquente",
+        "Le test n'a aucun faux positif"
+      ],
+      "answer": 0,
+      "explanation": "Avec une faible prévalence, même un petit taux de faux positifs peut produire beaucoup de positifs chez les non-malades.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne"
+    },
+    {
+      "id": "mc-bay-v2-q8",
+      "question": "Quelle affirmation traduit l'indépendance de A et B lorsque $P(B)>0$ ?",
+      "choices": [
+        "$P(A\\mid B)=P(A)$",
+        "$P(A\\mid B)=P(B\\mid A)$ dans tous les cas",
+        "$P(A\\cap B)=0$"
+      ],
+      "answer": 0,
+      "explanation": "Si A et B sont indépendants, apprendre B ne modifie pas la probabilité de A : l'information B n'apporte rien sur A.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne"
+    },
+    {
+      "id": "mc-bay-v2-q9",
+      "question": "Dans une population, 200 personnes sont malades. 190 ont un test positif. Quelle est la sensibilité observée ?",
+      "choices": [
+        "5 %",
+        "95 %",
+        "190 %"
+      ],
+      "answer": 1,
+      "explanation": "La sensibilité est la proportion de tests positifs parmi les malades : $190/200=0,95$, soit 95 %.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne"
+    },
+    {
+      "id": "mc-bay-v2-q10",
+      "question": "Parmi 1 170 tests positifs, 190 concernent réellement des personnes malades. Quelle grandeur calcule $190/1170$ ?",
+      "choices": [
+        "La sensibilité",
+        "La spécificité",
+        "La valeur prédictive positive"
+      ],
+      "answer": 2,
+      "explanation": "On conditionne par le fait d'avoir un test positif et on cherche la proportion de malades : c'est $P(M\\mid T^+)$.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne"
     }
   ]
