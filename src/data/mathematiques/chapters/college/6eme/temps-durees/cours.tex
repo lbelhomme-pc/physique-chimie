@@ -1,0 +1,874 @@
+% Mathématiques 6e — cours V3
+% Source LaTeX rendue côté Astro/KaTeX.
+
+\section{Objectifs}
+
+Dans ce chapitre, on apprend à :
+
+\begin{itemize}
+\item lire un horaire sur une horloge ou une frise ;
+\item distinguer un \textbf{instant} d’une \textbf{durée} ;
+\item convertir entre heures, minutes et secondes ;
+\item calculer une durée écoulée entre deux horaires ;
+\item déterminer un horaire de départ ou d’arrivée ;
+\item additionner et soustraire des durées ;
+\item passer d’une écriture heures-minutes à une écriture décimale d’heure ;
+\item résoudre des problèmes de trajet, de planning et d’enchaînement d’activités.
+\end{itemize}
+
+\section{1. Instant et durée}
+
+Un \textbf{instant} repère un moment précis.
+
+Par exemple :
+
+\[
+14\ \text{h}\ 35\ \text{min}
+\]
+
+désigne un horaire.
+
+Une \textbf{durée} mesure l’écart entre deux instants.
+
+Par exemple :
+
+\[
+1\ \text{h}\ 20\ \text{min}
+\]
+
+peut représenter la durée d’un trajet.
+
+Il ne faut pas confondre l’heure affichée par une horloge et le temps écoulé entre deux horaires.
+
+\section{2. Lire une horloge}
+
+\coursefigure{/images/mathematiques/6eme/temps-horloge.svg}{Horloge analogique avec une aiguille des heures et une aiguille des minutes.}{La petite aiguille indique l’heure et la grande aiguille permet de lire les minutes ; l’horaire étudié doit être interprété en tenant compte de la position des deux aiguilles.}
+
+Sur une horloge analogique, un tour complet de la grande aiguille correspond à :
+
+\[
+60\ \text{min}.
+\]
+
+Un tour complet de la petite aiguille correspond à :
+
+\[
+12\ \text{h}.
+\]
+
+\section{3. Relations entre les unités}
+
+Les unités de durée ne suivent pas uniquement un système décimal.
+
+On utilise :
+
+\[
+1\ \text{h}=60\ \text{min},
+\]
+
+\[
+1\ \text{min}=60\ \text{s}.
+\]
+
+Donc :
+
+\[
+1\ \text{h}=3\,600\ \text{s}.
+\]
+
+On utilise également :
+
+\[
+1\ \text{jour}=24\ \text{h}.
+\]
+
+Ces relations doivent être raisonnées et non traitées comme de simples déplacements de virgule.
+
+\section{4. Convertir des heures en minutes}
+
+Convertissons :
+
+\[
+2\ \text{h}\ 15\ \text{min}
+\]
+
+en minutes.
+
+Les deux heures correspondent à :
+
+\[
+2\times60=120\ \text{min}.
+\]
+
+On ajoute :
+
+\[
+15\ \text{min}.
+\]
+
+Donc :
+
+\[
+\boxed{
+2\ \text{h}\ 15\ \text{min}
+=
+135\ \text{min}
+}.
+\]
+
+\section{5. Convertir des minutes en heures et minutes}
+
+Convertissons :
+
+\[
+155\ \text{min}.
+\]
+
+On cherche combien d’heures complètes sont contenues dans cette durée.
+
+Deux heures correspondent à :
+
+\[
+2\times60=120\ \text{min}.
+\]
+
+Il reste :
+
+\[
+155-120=35\ \text{min}.
+\]
+
+Donc :
+
+\[
+\boxed{
+155\ \text{min}
+=
+2\ \text{h}\ 35\ \text{min}
+}.
+\]
+
+\section{6. Convertir des minutes et secondes}
+
+Pour :
+
+\[
+4\ \text{min}\ 20\ \text{s},
+\]
+
+les quatre minutes représentent :
+
+\[
+4\times60=240\ \text{s}.
+\]
+
+On ajoute :
+
+\[
+20\ \text{s}.
+\]
+
+Ainsi :
+
+\[
+\boxed{
+4\ \text{min}\ 20\ \text{s}
+=
+260\ \text{s}
+}.
+\]
+
+\section{7. Fraction d’heure}
+
+Certaines durées usuelles correspondent à des fractions simples d’heure.
+
+Une demi-heure vaut :
+
+\[
+\dfrac{1}{2}\ \text{h}=30\ \text{min}.
+\]
+
+Un quart d’heure vaut :
+
+\[
+\dfrac{1}{4}\ \text{h}=15\ \text{min}.
+\]
+
+Trois quarts d’heure valent :
+
+\[
+\dfrac{3}{4}\ \text{h}=45\ \text{min}.
+\]
+
+Ces repères sont utiles pour les conversions et le calcul mental.
+
+\section{8. Écriture heures-minutes et écriture décimale}
+
+L’écriture :
+
+\[
+1\ \text{h}\ 30\ \text{min}
+\]
+
+n’est pas égale à :
+
+\[
+1{,}30\ \text{h}.
+\]
+
+En effet :
+
+\[
+30\ \text{min}
+=
+\dfrac{30}{60}\ \text{h}
+=
+0{,}5\ \text{h}.
+\]
+
+Donc :
+
+\[
+\boxed{
+1\ \text{h}\ 30\ \text{min}
+=
+1{,}5\ \text{h}
+}.
+\]
+
+\section{9. Exemple développé 1 — conversion en heures décimales}
+
+Convertissons :
+
+\[
+2\ \text{h}\ 24\ \text{min}
+\]
+
+en heures décimales.
+
+Les minutes représentent :
+
+\[
+\dfrac{24}{60}\ \text{h}.
+\]
+
+On simplifie :
+
+\[
+\dfrac{24}{60}
+=
+\dfrac{2}{5}
+=
+0{,}4.
+\]
+
+Donc :
+
+\[
+\boxed{
+2\ \text{h}\ 24\ \text{min}
+=
+2{,}4\ \text{h}
+}.
+\]
+
+Le nombre après la virgule représente une \textbf{fraction d’heure}, pas un nombre de minutes.
+
+\section{10. Calculer une durée entre deux horaires}
+
+Pour calculer une durée, on peut avancer par étapes jusqu’à des horaires faciles.
+
+\coursefigure{/images/mathematiques/6eme/temps-frise.svg}{Frise chronologique permettant de décomposer le temps entre un départ et une arrivée.}{Décomposer un trajet en plusieurs intervalles simples permet de calculer la durée totale sans traiter les horaires comme des nombres décimaux.}
+
+Cette méthode est particulièrement efficace lorsque l’horaire traverse une heure entière.
+
+\section{11. Exemple développé 2 — durée d’un trajet}
+
+Un train part à :
+
+\[
+14\ \text{h}\ 38\ \text{min}
+\]
+
+et arrive à :
+
+\[
+16\ \text{h}\ 05\ \text{min}.
+\]
+
+De :
+
+\[
+14\ \text{h}\ 38\ \text{min}
+\]
+
+à :
+
+\[
+15\ \text{h},
+\]
+
+il s’écoule :
+
+\[
+22\ \text{min}.
+\]
+
+De :
+
+\[
+15\ \text{h}
+\]
+
+à :
+
+\[
+16\ \text{h},
+\]
+
+il s’écoule :
+
+\[
+1\ \text{h}.
+\]
+
+Enfin, de :
+
+\[
+16\ \text{h}
+\]
+
+à :
+
+\[
+16\ \text{h}\ 05\ \text{min},
+\]
+
+il s’écoule :
+
+\[
+5\ \text{min}.
+\]
+
+La durée totale vaut :
+
+\[
+22\ \text{min}
++
+1\ \text{h}
++
+5\ \text{min}
+=
+1\ \text{h}\ 27\ \text{min}.
+\]
+
+\section{12. Soustraire deux horaires}
+
+On peut aussi effectuer une soustraction organisée.
+
+Pour :
+
+\[
+16\ \text{h}\ 05\ \text{min}
+-
+14\ \text{h}\ 38\ \text{min},
+\]
+
+on ne peut pas directement faire :
+
+\[
+5-38.
+\]
+
+On transforme :
+
+\[
+16\ \text{h}\ 05\ \text{min}
+=
+15\ \text{h}\ 65\ \text{min}.
+\]
+
+Alors :
+
+\[
+65-38=27\ \text{min},
+\]
+
+et :
+
+\[
+15-14=1\ \text{h}.
+\]
+
+On retrouve :
+
+\[
+1\ \text{h}\ 27\ \text{min}.
+\]
+
+\section{13. Additionner des durées}
+
+Considérons :
+
+\[
+2\ \text{h}\ 48\ \text{min}
++
+1\ \text{h}\ 37\ \text{min}.
+\]
+
+On additionne séparément les heures et les minutes :
+
+\[
+2+1=3\ \text{h},
+\]
+
+\[
+48+37=85\ \text{min}.
+\]
+
+Or :
+
+\[
+85\ \text{min}
+=
+1\ \text{h}\ 25\ \text{min}.
+\]
+
+Donc :
+
+\[
+3\ \text{h}
++
+1\ \text{h}\ 25\ \text{min}
+=
+\boxed{4\ \text{h}\ 25\ \text{min}}.
+\]
+
+\section{14. Soustraire des durées}
+
+Calculons :
+
+\[
+3\ \text{h}\ 10\ \text{min}
+-
+1\ \text{h}\ 45\ \text{min}.
+\]
+
+On transforme :
+
+\[
+3\ \text{h}\ 10\ \text{min}
+=
+2\ \text{h}\ 70\ \text{min}.
+\]
+
+Alors :
+
+\[
+70-45=25\ \text{min},
+\]
+
+et :
+
+\[
+2-1=1\ \text{h}.
+\]
+
+Donc :
+
+\[
+\boxed{
+3\ \text{h}\ 10\ \text{min}
+-
+1\ \text{h}\ 45\ \text{min}
+=
+1\ \text{h}\ 25\ \text{min}
+}.
+\]
+
+\section{15. Déterminer un horaire d’arrivée}
+
+Une activité commence à :
+
+\[
+9\ \text{h}\ 25\ \text{min}
+\]
+
+et dure :
+
+\[
+1\ \text{h}\ 55\ \text{min}.
+\]
+
+On ajoute :
+
+\[
+9\ \text{h}\ 25\ \text{min}
++
+1\ \text{h}\ 55\ \text{min}.
+\]
+
+Cela donne :
+
+\[
+10\ \text{h}\ 80\ \text{min}.
+\]
+
+Comme :
+
+\[
+80\ \text{min}
+=
+1\ \text{h}\ 20\ \text{min},
+\]
+
+l’horaire final est :
+
+\[
+\boxed{
+11\ \text{h}\ 20\ \text{min}
+}.
+\]
+
+\section{16. Déterminer un horaire de départ}
+
+Un trajet se termine à :
+
+\[
+18\ \text{h}\ 10\ \text{min}
+\]
+
+et dure :
+
+\[
+2\ \text{h}\ 35\ \text{min}.
+\]
+
+On peut remonter :
+
+\[
+18\ \text{h}\ 10\ \text{min}
+-
+2\ \text{h}\ 35\ \text{min}.
+\]
+
+On transforme :
+
+\[
+18\ \text{h}\ 10\ \text{min}
+=
+17\ \text{h}\ 70\ \text{min}.
+\]
+
+Donc :
+
+\[
+70-35=35\ \text{min},
+\]
+
+et :
+
+\[
+17-2=15\ \text{h}.
+\]
+
+Le départ a lieu à :
+
+\[
+\boxed{
+15\ \text{h}\ 35\ \text{min}
+}.
+\]
+
+\section{17. Exemple développé 3 — planning à plusieurs étapes}
+
+Une séance commence à :
+
+\[
+9\ \text{h}\ 25\ \text{min}.
+\]
+
+Une première activité dure :
+
+\[
+1\ \text{h}\ 55\ \text{min}.
+\]
+
+Elle se termine à :
+
+\[
+11\ \text{h}\ 20\ \text{min}.
+\]
+
+Une pause de :
+
+\[
+35\ \text{min}
+\]
+
+mène à :
+
+\[
+11\ \text{h}\ 55\ \text{min}.
+\]
+
+Une seconde activité dure :
+
+\[
+50\ \text{min}.
+\]
+
+L’horaire final est donc :
+
+\[
+\boxed{
+12\ \text{h}\ 45\ \text{min}
+}.
+\]
+
+Dans un problème complexe, une frise ou un tableau d’étapes aide à éviter les oublis.
+
+\section{18. Durée traversant minuit}
+
+Une activité commence à :
+
+\[
+23\ \text{h}\ 35\ \text{min}
+\]
+
+et se termine le lendemain à :
+
+\[
+0\ \text{h}\ 20\ \text{min}.
+\]
+
+De :
+
+\[
+23\ \text{h}\ 35\ \text{min}
+\]
+
+à minuit, il reste :
+
+\[
+25\ \text{min}.
+\]
+
+Puis :
+
+\[
+20\ \text{min}
+\]
+
+s’écoulent après minuit.
+
+La durée totale est :
+
+\[
+25+20=45\ \text{min}.
+\]
+
+Le changement de jour doit donc être pris en compte.
+
+\section{19. Contrôler une durée}
+
+Un ordre de grandeur peut permettre de détecter une erreur.
+
+Si un trajet commence vers :
+
+\[
+14\ \text{h}\ 30
+\]
+
+et se termine vers :
+
+\[
+16\ \text{h},
+\]
+
+la durée est de l’ordre de :
+
+\[
+1\ \text{h}\ 30\ \text{min}.
+\]
+
+Un résultat de :
+
+\[
+15\ \text{min}
+\]
+
+ou de :
+
+\[
+15\ \text{h}
+\]
+
+serait manifestement incohérent.
+
+\section{20. Méthode — convertir une durée}
+
+\subsection{Étape 1 — identifier l’unité de départ}
+
+Heures, minutes ou secondes.
+
+\subsection{Étape 2 — utiliser la relation appropriée}
+
+Par exemple :
+
+\[
+1\ \text{h}=60\ \text{min}.
+\]
+
+\subsection{Étape 3 — convertir chaque partie}
+
+Une durée mixte peut nécessiter plusieurs calculs.
+
+\subsection{Étape 4 — contrôler}
+
+Une petite unité donne généralement une valeur numérique plus grande.
+
+\section{21. Méthode — calculer un temps écoulé}
+
+\subsection{Étape 1 — placer départ et arrivée}
+
+Une frise peut aider.
+
+\subsection{Étape 2 — choisir une stratégie}
+
+\begin{itemize}
+\item avancer jusqu’à des horaires simples ;
+\item effectuer une soustraction avec regroupement ;
+\item convertir tout en minutes lorsque cela simplifie réellement.
+\end{itemize}
+
+\subsection{Étape 3 — normaliser la réponse}
+
+Une écriture finale comme :
+
+\[
+1\ \text{h}\ 85\ \text{min}
+\]
+
+doit être transformée.
+
+\subsection{Étape 4 — interpréter}
+
+Préciser qu’il s’agit d’une durée.
+
+\section{22. Erreurs fréquentes}
+
+\subsection{Confondre base dix et base soixante}
+
+Il est faux d’écrire :
+
+\[
+1\ \text{h}\ 45\ \text{min}
+=
+1{,}45\ \text{h}.
+\]
+
+En réalité :
+
+\[
+45\ \text{min}
+=
+\dfrac{45}{60}\ \text{h}
+=
+0{,}75\ \text{h}.
+\]
+
+Donc :
+
+\[
+1\ \text{h}\ 45\ \text{min}
+=
+1{,}75\ \text{h}.
+\]
+
+\subsection{Laisser plus de soixante minutes dans une écriture finale}
+
+Une écriture :
+
+\[
+2\ \text{h}\ 75\ \text{min}
+\]
+
+se simplifie en :
+
+\[
+3\ \text{h}\ 15\ \text{min}.
+\]
+
+\subsection{Soustraire directement les minutes sans regroupement}
+
+Lorsque le nombre de minutes de l’horaire final est plus petit que celui de l’horaire initial, il faut transformer une heure en :
+
+\[
+60\ \text{min}.
+\]
+
+\subsection{Oublier le changement de jour}
+
+Un horaire après minuit peut appartenir au lendemain.
+
+\subsection{Confondre instant et durée}
+
+Un départ à :
+
+\[
+8\ \text{h}\ 30
+\]
+
+n’est pas une durée de :
+
+\[
+8\ \text{h}\ 30.
+\]
+
+\section{23. À retenir}
+
+Les relations fondamentales sont :
+
+\[
+\boxed{
+1\ \text{h}=60\ \text{min}
+}
+\]
+
+et :
+
+\[
+\boxed{
+1\ \text{min}=60\ \text{s}
+}.
+\]
+
+Une durée est l’écart entre deux instants.
+
+Les calculs de temps utilisent fréquemment des regroupements par :
+
+\[
+60.
+\]
+
+Une écriture heures-minutes n’est pas une écriture décimale.
+
+Par exemple :
+
+\[
+\boxed{
+1\ \text{h}\ 30\ \text{min}=1{,}5\ \text{h}
+}.
+\]
+
+Pour résoudre un problème :
+
+\begin{itemize}
+\item repérer départ, arrivée et durées intermédiaires ;
+\item utiliser une frise si nécessaire ;
+\item convertir dans une unité adaptée ;
+\item gérer correctement les regroupements ;
+\item contrôler l’ordre de grandeur ;
+\item rédiger l’horaire ou la durée avec son unité.
+\end{itemize}
