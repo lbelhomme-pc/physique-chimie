@@ -1,0 +1,711 @@
+% Mathématiques 6e — cours V3
+% Source LaTeX rendue côté Astro/KaTeX.
+
+\section{Objectifs}
+
+Dans ce chapitre, on apprend à :
+
+\begin{itemize}
+\item choisir une unité de longueur adaptée ;
+\item convertir des longueurs sans modifier la grandeur mesurée ;
+\item mesurer et reporter une longueur avec une règle ou un compas ;
+\item distinguer une longueur, un périmètre et une aire ;
+\item calculer le périmètre de polygones usuels et de figures composées ;
+\item comprendre le lien entre le diamètre d’un disque et son périmètre ;
+\item utiliser la formule du périmètre d’un disque ;
+\item résoudre des problèmes de longueur en contrôlant les unités et l’ordre de grandeur.
+\end{itemize}
+
+\section{1. Une longueur est une grandeur}
+
+Une longueur permet de mesurer une distance, un segment, une hauteur, une largeur, un contour ou un trajet.
+
+Une mesure de longueur comporte toujours :
+
+\begin{itemize}
+\item une \textbf{valeur numérique} ;
+\item une \textbf{unité}.
+\end{itemize}
+
+Par exemple :
+
+\[
+2{,}4\ \text{m}
+\]
+
+et
+
+\[
+240\ \text{cm}
+\]
+
+représentent exactement la même longueur.
+
+Changer d’unité ne change donc pas l’objet mesuré : seule l’écriture de la mesure change.
+
+\section{2. Les unités usuelles de longueur}
+
+Les principales unités sont organisées autour du mètre.
+
+\coursefigure{/images/mathematiques/6eme/longueurs-unites.svg}{Schéma des unités de longueur du kilomètre au millimètre.}{Les unités successives sont le kilomètre, l’hectomètre, le décamètre, le mètre, le décimètre, le centimètre et le millimètre.}
+
+Les relations fondamentales sont :
+
+\[
+1\ \text{km}=1\,000\ \text{m},
+\]
+
+\[
+1\ \text{m}=10\ \text{dm}=100\ \text{cm}=1\,000\ \text{mm}.
+\]
+
+Et :
+
+\[
+1\ \text{cm}=10\ \text{mm}.
+\]
+
+\section{3. Convertir une longueur}
+
+Convertir consiste à écrire une même longueur dans une autre unité.
+
+\subsection{Exemple}
+
+Convertissons :
+
+\[
+3{,}25\ \text{m}
+\]
+
+en centimètres.
+
+Comme :
+
+\[
+1\ \text{m}=100\ \text{cm},
+\]
+
+on obtient :
+
+\[
+3{,}25\times100=325.
+\]
+
+Donc :
+
+\[
+\boxed{3{,}25\ \text{m}=325\ \text{cm}}.
+\]
+
+\subsection{Conversion inverse}
+
+Convertissons :
+
+\[
+485\ \text{cm}
+\]
+
+en mètres.
+
+Comme :
+
+\[
+100\ \text{cm}=1\ \text{m},
+\]
+
+on calcule :
+
+\[
+485\div100=4{,}85.
+\]
+
+Donc :
+
+\[
+\boxed{485\ \text{cm}=4{,}85\ \text{m}}.
+\]
+
+\section{4. Méthode de conversion}
+
+Pour convertir une longueur :
+
+\begin{enumerate}
+\item identifier l’unité de départ ;
+\item identifier l’unité d’arrivée ;
+\item déterminer le facteur de conversion ;
+\item effectuer la multiplication ou la division ;
+\item vérifier que l’ordre de grandeur est cohérent.
+\end{enumerate}
+
+Par exemple, passer des mètres aux millimètres doit produire une valeur numérique plus grande, car le millimètre est une unité plus petite.
+
+Ainsi :
+
+\[
+2\ \text{m}=2\,000\ \text{mm}.
+\]
+
+\section{5. Choisir l’unité adaptée}
+
+Une unité est choisie en fonction de l’ordre de grandeur de l’objet.
+
+On mesure généralement :
+
+\begin{itemize}
+\item l’épaisseur d’un petit objet en millimètres ;
+\item la longueur d’un cahier en centimètres ;
+\item la longueur d’une salle en mètres ;
+\item une distance entre deux villes en kilomètres.
+\end{itemize}
+
+Une distance de route écrite :
+
+\[
+4\,850\ \text{m}
+\]
+
+peut être plus lisiblement exprimée :
+
+\[
+4{,}85\ \text{km}.
+\]
+
+Les deux écritures sont exactes, mais l’une est souvent plus adaptée au contexte.
+
+\section{6. Mesurer avec un instrument}
+
+Une mesure est toujours liée à l’instrument utilisé.
+
+Une règle graduée au millimètre permet de lire une longueur au millimètre près.
+
+Le compas peut servir à \textbf{reporter une longueur} : on règle l’écartement sur une longueur donnée puis on le transporte ailleurs sans modifier cet écartement.
+
+Le compas ne sert donc pas uniquement à tracer des cercles.
+
+\section{7. Reporter une longueur avec le compas}
+
+Supposons qu’un segment ait pour longueur :
+
+\[
+AB.
+\]
+
+On ouvre le compas pour que ses pointes coïncident avec $A$ et $B$.
+
+Sans modifier l’ouverture, on peut reporter exactement cette longueur à partir d’un autre point $C$.
+
+On construit alors un point $D$ tel que :
+
+\[
+CD=AB.
+\]
+
+Cette propriété est utile dans de nombreuses constructions géométriques.
+
+\section{8. Le périmètre}
+
+Le périmètre d’une figure est la \textbf{longueur de son contour}.
+
+Il s’exprime donc avec une unité de longueur :
+
+\[
+\text{mm},\quad \text{cm},\quad \text{m},\quad \text{km},\ldots
+\]
+
+Le périmètre ne doit pas être confondu avec l’aire, qui mesure une surface.
+
+\section{9. Périmètre d’un rectangle}
+
+Pour un rectangle de longueur $L$ et de largeur $\ell$ :
+
+\[
+P=L+\ell+L+\ell.
+\]
+
+On regroupe :
+
+\[
+\boxed{P=2(L+\ell)}.
+\]
+
+\subsection{Exemple développé 1}
+
+Pour :
+
+\[
+L=8{,}5\ \text{cm}
+\]
+
+et :
+
+\[
+\ell=3\ \text{cm},
+\]
+
+on calcule :
+
+\[
+P=2(8{,}5+3).
+\]
+
+Donc :
+
+\[
+P=2\times11{,}5=23.
+\]
+
+Ainsi :
+
+\[
+\boxed{P=23\ \text{cm}}.
+\]
+
+\section{10. Périmètre d’un carré}
+
+Si le côté d’un carré mesure $c$, ses quatre côtés ont la même longueur.
+
+Donc :
+
+\[
+P=c+c+c+c.
+\]
+
+Ainsi :
+
+\[
+\boxed{P=4c}.
+\]
+
+Pour :
+
+\[
+c=6{,}2\ \text{cm},
+\]
+
+on obtient :
+
+\[
+P=4\times6{,}2=24{,}8\ \text{cm}.
+\]
+
+\section{11. Périmètre d’un polygone quelconque}
+
+Pour un polygone, on additionne les longueurs de tous les côtés appartenant au contour.
+
+Par exemple, un triangle de côtés :
+
+\[
+4{,}5\ \text{cm},\qquad5\ \text{cm},\qquad6{,}2\ \text{cm}
+\]
+
+a pour périmètre :
+
+\[
+P=4{,}5+5+6{,}2.
+\]
+
+Donc :
+
+\[
+\boxed{P=15{,}7\ \text{cm}}.
+\]
+
+\section{12. Figures composées}
+
+Une figure composée rassemble plusieurs formes simples.
+
+Pour calculer son périmètre, il ne faut pas additionner toutes les longueurs visibles dans le dessin.
+
+Il faut uniquement suivre \textbf{le contour extérieur}.
+
+Une arête intérieure qui sépare deux parties n’appartient pas au périmètre extérieur.
+
+\subsection{Méthode}
+
+\begin{enumerate}
+\item parcourir mentalement le contour ;
+\item repérer uniquement les segments réellement extérieurs ;
+\item déterminer les longueurs manquantes si nécessaire ;
+\item convertir toutes les longueurs dans une même unité ;
+\item additionner.
+\end{enumerate}
+
+\section{13. Exemple développé 2 — figure en forme de marche}
+
+Une figure composée possède un contour constitué des longueurs :
+
+\[
+6\ \text{cm},\quad
+2\ \text{cm},\quad
+3\ \text{cm},\quad
+4\ \text{cm},\quad
+3\ \text{cm},\quad
+6\ \text{cm}.
+\]
+
+Son périmètre vaut :
+
+\[
+P=6+2+3+4+3+6.
+\]
+
+Donc :
+
+\[
+\boxed{P=24\ \text{cm}}.
+\]
+
+La difficulté principale est souvent de sélectionner les bons segments, pas d’effectuer l’addition.
+
+\section{14. Cercle et disque}
+
+Un \textbf{cercle} est le contour.
+
+Un \textbf{disque} est la surface intérieure délimitée par ce cercle.
+
+Le périmètre du disque est donc la longueur du cercle qui le borde.
+
+\coursefigure{/images/mathematiques/6eme/perimetre-disque-diametre.svg}{Disque montrant le centre, un rayon, un diamètre et le contour dont on calcule le périmètre.}{Le diamètre traverse le centre et vaut deux fois le rayon : $d=2r$.}
+
+\section{15. Rayon et diamètre}
+
+Si $r$ est le rayon et $d$ le diamètre :
+
+\[
+\boxed{d=2r}.
+\]
+
+Inversement :
+
+\[
+\boxed{r=\dfrac{d}{2}}.
+\]
+
+Il faut identifier correctement la donnée fournie avant d’utiliser une formule.
+
+\section{16. Une proportionnalité remarquable}
+
+Lorsque l’on mesure plusieurs disques, on constate que le quotient :
+
+\[
+\dfrac{\text{périmètre}}{\text{diamètre}}
+\]
+
+est toujours proche du même nombre.
+
+Ce nombre est noté :
+
+\[
+\pi.
+\]
+
+On a approximativement :
+
+\[
+\pi\approx3{,}14.
+\]
+
+Le périmètre d’un disque est donc \textbf{proportionnel à son diamètre}.
+
+\section{17. Formule du périmètre d’un disque}
+
+Si $d$ est le diamètre :
+
+\[
+\boxed{P=\pi d}.
+\]
+
+Comme :
+
+\[
+d=2r,
+\]
+
+on peut aussi écrire :
+
+\[
+\boxed{P=2\pi r}.
+\]
+
+Les deux formules sont équivalentes.
+
+\section{18. Exemple développé 3 — disque donné par son rayon}
+
+Un disque a pour rayon :
+
+\[
+r=4\ \text{cm}.
+\]
+
+Son périmètre exact est :
+
+\[
+P=2\pi\times4.
+\]
+
+Donc :
+
+\[
+P=8\pi\ \text{cm}.
+\]
+
+Avec :
+
+\[
+\pi\approx3{,}14,
+\]
+
+on obtient :
+
+\[
+P\approx8\times3{,}14=25{,}12\ \text{cm}.
+\]
+
+Ainsi :
+
+\[
+\boxed{P\approx25{,}1\ \text{cm}}.
+\]
+
+\section{19. Exemple développé 4 — disque donné par son diamètre}
+
+Un disque a pour diamètre :
+
+\[
+d=15\ \text{cm}.
+\]
+
+On utilise directement :
+
+\[
+P=\pi d.
+\]
+
+Donc :
+
+\[
+P=15\pi\ \text{cm}.
+\]
+
+Une valeur approchée est :
+
+\[
+P\approx15\times3{,}14=47{,}1\ \text{cm}.
+\]
+
+\section{20. Contrôler un périmètre de disque}
+
+Le périmètre doit être un peu plus de trois fois le diamètre.
+
+Si :
+
+\[
+d=10\ \text{cm},
+\]
+
+le périmètre doit être proche de :
+
+\[
+3\times10=30\ \text{cm}.
+\]
+
+Un résultat de :
+
+\[
+3{,}1\ \text{cm}
+\]
+
+ou de :
+
+\[
+310\ \text{cm}
+\]
+
+serait donc immédiatement suspect.
+
+\section{21. Mélanger des unités}
+
+Avant d’additionner des longueurs, elles doivent être exprimées dans une même unité.
+
+Supposons un rectangle de dimensions :
+
+\[
+1{,}2\ \text{m}
+\]
+
+et :
+
+\[
+75\ \text{cm}.
+\]
+
+On convertit :
+
+\[
+75\ \text{cm}=0{,}75\ \text{m}.
+\]
+
+Puis :
+
+\[
+P=2(1{,}2+0{,}75).
+\]
+
+Donc :
+
+\[
+P=2\times1{,}95=3{,}9\ \text{m}.
+\]
+
+\section{22. Résoudre un problème de clôture}
+
+Un jardin rectangulaire mesure :
+
+\[
+18\ \text{m}
+\]
+
+sur :
+
+\[
+12\ \text{m}.
+\]
+
+Son périmètre total vaut :
+
+\[
+P=2(18+12)=60\ \text{m}.
+\]
+
+Si une ouverture de :
+
+\[
+3\ \text{m}
+\]
+
+ne doit pas être clôturée, la longueur nécessaire vaut :
+
+\[
+60-3=57\ \text{m}.
+\]
+
+Donc :
+
+\[
+\boxed{57\ \text{m}}
+\]
+
+de clôture sont nécessaires.
+
+\section{23. Méthode — résoudre un problème de longueur}
+
+\subsection{Étape 1 — identifier la grandeur cherchée}
+
+S’agit-il :
+
+\begin{itemize}
+\item d’une longueur ;
+\item d’un périmètre ;
+\item d’un rayon ;
+\item d’un diamètre ?
+\end{itemize}
+
+\subsection{Étape 2 — relever les données utiles}
+
+On peut annoter la figure.
+
+\subsection{Étape 3 — harmoniser les unités}
+
+Aucune addition de longueurs dans des unités différentes.
+
+\subsection{Étape 4 — choisir le calcul}
+
+Formule, addition du contour, proportionnalité ou conversion.
+
+\subsection{Étape 5 — contrôler}
+
+Comparer le résultat avec un ordre de grandeur réaliste.
+
+\subsection{Étape 6 — rédiger}
+
+Donner la valeur avec l’unité adaptée.
+
+\section{24. Erreurs fréquentes}
+
+\subsection{Confondre périmètre et aire}
+
+Le périmètre mesure un contour.
+
+Il s’exprime en unité de longueur, par exemple :
+
+\[
+\text{cm}.
+\]
+
+Une aire s’exprime en unité carrée, par exemple :
+
+\[
+\text{cm}^2.
+\]
+
+\subsection{Additionner des unités différentes}
+
+Une écriture comme :
+
+\[
+2\ \text{m}+35\ \text{cm}
+\]
+
+doit être convertie avant de donner une somme numérique unique.
+
+\subsection{Confondre rayon et diamètre}
+
+Si la donnée est le diamètre, ne pas le multiplier encore par :
+
+\[
+2.
+\]
+
+\subsection{Utiliser la formule du disque pour un demi-cercle sans réfléchir}
+
+Dans une figure composée, il faut distinguer la longueur de l’arc et les segments droits présents dans le contour.
+
+\subsection{Oublier une ouverture}
+
+Dans un problème de clôture ou de bordure, il faut lire précisément quelles parties du contour sont réellement concernées.
+
+\section{25. À retenir}
+
+Une conversion change l’unité, pas la longueur.
+
+Le périmètre est la longueur du contour.
+
+Pour un rectangle :
+
+\[
+\boxed{P=2(L+\ell)}.
+\]
+
+Pour un carré :
+
+\[
+\boxed{P=4c}.
+\]
+
+Pour un disque :
+
+\[
+\boxed{P=\pi d=2\pi r}.
+\]
+
+Le périmètre d’un disque est proportionnel à son diamètre.
+
+Avant tout calcul de périmètre :
+
+\begin{itemize}
+\item mettre les longueurs dans la même unité ;
+\item identifier le contour réel ;
+\item choisir la formule ou l’addition adaptée ;
+\item vérifier l’ordre de grandeur ;
+\item donner une unité de longueur.
+\end{itemize}
