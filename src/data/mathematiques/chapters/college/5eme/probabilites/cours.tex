@@ -1,0 +1,531 @@
+% Mathématiques 5e — cours V3
+% Probabilités : premières expériences aléatoires
+
+\section{Objectifs}
+
+\begin{itemize}
+\item Aborder le hasard à partir de situations simples.
+\item Utiliser le vocabulaire : expérience aléatoire, issue, événement.
+\item Attribuer des probabilités dans des situations simples d'équiprobabilité.
+\item Positionner des événements sur une échelle de probabilité.
+\item Donner une probabilité sous forme fractionnaire, décimale ou en pourcentage.
+\item Relier des expressions courantes comme « une chance sur quatre » à une probabilité.
+\item Répéter matériellement une expérience aléatoire simple.
+\item Enregistrer des effectifs et des fréquences observés.
+\item Distinguer modèle probabiliste et résultats expérimentaux.
+\end{itemize}
+
+\section{1. Une expérience aléatoire}
+
+Une expérience aléatoire est une expérience dont on ne connaît pas à l'avance le résultat exact.
+
+Exemples :
+\begin{itemize}
+\item lancer une pièce ;
+\item lancer un dé ;
+\item tirer une boule dans une urne ;
+\item choisir au hasard une personne dans un groupe.
+\end{itemize}
+
+\begin{definition}
+Une \textbf{issue} est un résultat possible d'une expérience aléatoire.
+\end{definition}
+
+\section{2. Lister les issues}
+
+Pour un dé équilibré à six faces, les issues sont :
+\[
+1,\quad2,\quad3,\quad4,\quad5,\quad6.
+\]
+
+Pour une pièce :
+\[
+\text{pile},\quad\text{face}.
+\]
+
+Une liste complète des issues est indispensable avant tout calcul.
+
+\coursefigure{/images/mathematiques/5eme/proba-univers.svg}{Six issues d'un dé dont les issues paires sont mises en évidence.}{Un événement peut regrouper plusieurs issues, comme « obtenir un nombre pair ».}
+
+\section{3. Événement}
+
+\begin{definition}
+Un événement est une condition qui peut être réalisée par une ou plusieurs issues.
+\end{definition}
+
+Avec un dé :
+\[
+A=\text{« obtenir un nombre pair »}.
+\]
+
+Les issues favorables sont :
+\[
+2,\quad4,\quad6.
+\]
+
+\section{4. Événement impossible et certain}
+
+Un événement impossible ne peut jamais se produire.
+
+Sa probabilité vaut :
+\[
+0.
+\]
+
+Un événement certain se produit à chaque expérience.
+
+Sa probabilité vaut :
+\[
+1.
+\]
+
+Par exemple, avec un dé classique :
+\[
+P(\text{obtenir }8)=0,
+\]
+et :
+\[
+P(\text{obtenir un nombre inférieur à }7)=1.
+\]
+
+\section{5. Une probabilité entre zéro et un}
+
+Toute probabilité vérifie :
+\[
+\boxed{0\le P\le1}.
+\]
+
+Plus la probabilité est proche de :
+\[
+1,
+\]
+plus l'événement est probable.
+
+Plus elle est proche de :
+\[
+0,
+\]
+moins il est probable.
+
+\section{6. Plusieurs écritures}
+
+Une même probabilité peut s'écrire sous différentes formes.
+
+Par exemple :
+\[
+\dfrac12=0{,}5=50\%.
+\]
+
+De même :
+\[
+\dfrac14=0{,}25=25\%.
+\]
+
+Et :
+\[
+\dfrac34=0{,}75=75\%.
+\]
+
+\section{7. Langage courant}
+
+L'expression :
+\[
+\text{« une chance sur quatre »}
+\]
+correspond à :
+\[
+\dfrac14.
+\]
+
+Donc :
+\[
+\dfrac14=25\%.
+\]
+
+De même :
+\[
+\text{« trois chances sur cinq »}
+\]
+peut être traduit par :
+\[
+\dfrac35.
+\]
+
+\section{8. Équiprobabilité}
+
+Dans certaines expériences, les issues sont supposées avoir la même probabilité.
+
+On parle d'équiprobabilité.
+
+Un dé équilibré est modélisé par six issues équiprobables.
+
+Une pièce équilibrée est modélisée par deux issues équiprobables.
+
+\begin{propriete}
+Dans une situation simple d'équiprobabilité :
+\[
+\boxed{
+P(A)=
+\dfrac{\text{nombre d'issues favorables}}{\text{nombre total d'issues}}
+}.
+\]
+\end{propriete}
+
+\section{9. Exemple : nombre pair}
+
+Avec un dé équilibré, l'événement :
+\[
+A=\text{« obtenir un nombre pair »}
+\]
+possède trois issues favorables :
+\[
+2,\quad4,\quad6.
+\]
+
+Il y a six issues au total.
+
+Donc :
+\[
+P(A)=\dfrac36=\dfrac12.
+\]
+
+Ainsi :
+\[
+\boxed{P(A)=50\%}.
+\]
+
+\section{10. Exemple : obtenir 1}
+
+L'événement :
+\[
+B=\text{« obtenir }1\text{ »}
+\]
+possède une seule issue favorable.
+
+Donc :
+\[
+P(B)=\dfrac16.
+\]
+
+Cette valeur est inférieure à :
+\[
+\dfrac12.
+\]
+
+L'événement est donc possible mais moins probable qu'obtenir un nombre pair.
+
+\section{11. Urne simple}
+
+Une urne contient :
+\[
+3
+\]
+boules rouges et :
+\[
+2
+\]
+boules bleues, indiscernables au toucher.
+
+Il y a :
+\[
+5
+\]
+boules.
+
+Si chaque boule a la même chance d'être tirée :
+\[
+P(\text{rouge})=\dfrac35,
+\]
+et :
+\[
+P(\text{bleue})=\dfrac25.
+\]
+
+On vérifie :
+\[
+\dfrac35+\dfrac25=1.
+\]
+
+\section{12. Hypothèse d'équiprobabilité}
+
+L'équiprobabilité n'est pas automatique.
+
+Si une roue comporte deux secteurs de tailles différentes, les deux couleurs ne sont pas nécessairement aussi probables.
+
+\begin{attention}
+Compter le nombre de catégories ne suffit pas à conclure à l'équiprobabilité.
+\end{attention}
+
+L'hypothèse doit être justifiée par le contexte : dé équilibré, pièce équilibrée, objets indiscernables, symétrie, etc.
+
+\section{13. Échelle de probabilité}
+
+On peut comparer des événements en les plaçant mentalement sur une échelle entre :
+\[
+0
+\]
+et :
+\[
+1.
+\]
+
+Un événement de probabilité :
+\[
+\dfrac16
+\]
+est moins probable qu'un événement de probabilité :
+\[
+\dfrac12.
+\]
+
+Un événement de probabilité :
+\[
+0{,}9
+\]
+est très probable mais n'est pas certain.
+
+\section{14. Expérience répétée}
+
+On peut répéter une même expérience plusieurs fois.
+
+Par exemple, lancer une pièce :
+\[
+20
+\]
+fois.
+
+On enregistre les résultats obtenus.
+
+\begin{tabular}{c|c}
+Issue & Effectif \\
+Pile & $12$ \\
+Face & $8$ \\
+\end{tabular}
+
+L'effectif total vaut :
+\[
+20.
+\]
+
+\section{15. Fréquence observée}
+
+La fréquence observée de pile vaut :
+\[
+f=\dfrac{12}{20}=0{,}6.
+\]
+
+Donc :
+\[
+f=60\%.
+\]
+
+Pour face :
+\[
+f=\dfrac8{20}=0{,}4=40\%.
+\]
+
+La somme des fréquences vaut :
+\[
+1.
+\]
+
+\section{16. Fréquence et probabilité}
+
+Pour une pièce équilibrée :
+\[
+P(\text{pile})=\dfrac12=0{,}5.
+\]
+
+Mais une série réelle peut donner :
+\[
+f(\text{pile})=0{,}6.
+\]
+
+Il n'y a pas de contradiction.
+
+La probabilité décrit le modèle.
+
+La fréquence décrit une série d'expériences réellement observée.
+
+\coursefigure{/images/mathematiques/5eme/proba-frequences.svg}{Courbe de fréquence observée lors de répétitions comparée à une valeur théorique.}{Les fréquences fluctuent d'une série à l'autre ; elles ne reproduisent pas exactement la probabilité à chaque expérience.}
+
+\section{17. Une petite série peut beaucoup fluctuer}
+
+Si une pièce est lancée seulement :
+\[
+4
+\]
+fois, on peut parfaitement observer :
+\[
+4
+\]
+fois pile.
+
+La fréquence vaut alors :
+\[
+1.
+\]
+
+Pourtant le modèle reste :
+\[
+P(\text{pile})=\dfrac12.
+\]
+
+Une courte expérience ne permet pas à elle seule de réfuter le modèle.
+
+\section{18. Tableau d'effectifs et fréquences}
+
+Pour une expérience répétée, un tableau peut contenir :
+\begin{itemize}
+\item les issues ;
+\item les effectifs observés ;
+\item les fréquences.
+\end{itemize}
+
+\begin{tabular}{c|c|c}
+Issue & Effectif & Fréquence \\
+$1$ & $8$ & $0{,}16$ \\
+$2$ & $10$ & $0{,}20$ \\
+$3$ & $7$ & $0{,}14$ \\
+$4$ & $9$ & $0{,}18$ \\
+$5$ & $8$ & $0{,}16$ \\
+$6$ & $8$ & $0{,}16$ \\
+\end{tabular}
+
+L'effectif total est :
+\[
+50.
+\]
+
+\section{19. Comparer au modèle}
+
+Pour un dé équilibré, chaque face a pour probabilité :
+\[
+\dfrac16\approx0{,}167.
+\]
+
+Les fréquences observées ne sont pas exactement égales à cette valeur, mais on peut les comparer.
+
+Le but est de confronter :
+\[
+\text{modèle théorique}
+\]
+et :
+\[
+\text{observations}.
+\]
+
+\section{20. Simulation et expérience réelle}
+
+Une expérience peut être :
+\begin{itemize}
+\item réalisée matériellement ;
+\item simulée avec un logiciel ou un tableur.
+\end{itemize}
+
+Dans les deux cas, il faut enregistrer les résultats et conserver le nombre total d'essais.
+
+\begin{remarque}
+Une simulation informatique produit des résultats pseudo-aléatoires mais permet de répéter rapidement une expérience.
+\end{remarque}
+
+\section{21. Exemple développé}
+
+On tire au hasard une carte parmi :
+\[
+10
+\]
+cartes numérotées de $1$ à $10$.
+
+On cherche la probabilité d'obtenir un multiple de $3$.
+
+Les issues favorables sont :
+\[
+3,\quad6,\quad9.
+\]
+
+Il y en a :
+\[
+3.
+\]
+
+Donc :
+\[
+P=\dfrac3{10}=0{,}3=30\%.
+\]
+
+Ainsi :
+\[
+\boxed{P=30\%}.
+\]
+
+\section{22. Méthode en équiprobabilité}
+
+\begin{methode}
+\begin{enumerate}
+\item lister les issues possibles ;
+\item vérifier qu'elles sont équiprobables ;
+\item identifier les issues favorables ;
+\item compter les favorables ;
+\item diviser par le nombre total d'issues ;
+\item convertir éventuellement en décimal ou pourcentage ;
+\item vérifier que le résultat est compris entre $0$ et $1$.
+\end{enumerate}
+\end{methode}
+
+\section{23. Méthode expérimentale}
+
+\begin{methode}
+Pour une expérience répétée :
+\begin{enumerate}
+\item fixer le nombre d'essais ;
+\item réaliser ou simuler l'expérience ;
+\item noter chaque résultat ;
+\item calculer les effectifs ;
+\item calculer les fréquences ;
+\item comparer ces fréquences au modèle si celui-ci est connu.
+\end{enumerate}
+\end{methode}
+
+\section{24. Erreurs fréquentes}
+
+\begin{itemize}
+\item Confondre issue et événement.
+\item Donner une probabilité supérieure à $1$.
+\item Supposer une équiprobabilité sans justification.
+\item Compter deux fois une même issue.
+\item Confondre fréquence observée et probabilité théorique.
+\item Croire qu'une probabilité de $50\%$ impose exactement la moitié de succès dans toute série.
+\item Oublier le nombre total d'essais dans le calcul d'une fréquence.
+\end{itemize}
+
+\section{À retenir}
+
+\begin{aretenir}
+Une expérience aléatoire possède plusieurs issues possibles.
+
+Un événement regroupe une ou plusieurs issues.
+
+Toute probabilité vérifie :
+\[
+\boxed{0\le P\le1}.
+\]
+
+Dans une situation d'équiprobabilité :
+\[
+\boxed{
+P(A)=
+\dfrac{\text{issues favorables}}{\text{issues possibles}}
+}.
+\]
+
+Une expérience répétée fournit des fréquences :
+\[
+\boxed{
+f=
+\dfrac{\text{effectif observé}}{\text{nombre total d'essais}}
+}.
+\]
+
+Probabilité et fréquence doivent être distinguées : l'une appartient au modèle, l'autre aux observations.
+\end{aretenir}
