@@ -138,3 +138,15 @@ test("search corpus includes published mathematics chapters without planned leve
   assert.ok(searchChapters(mathematicsChapters, "produit scalaire").some((chapter) => chapter.id.startsWith("mathematiques:lycee:1ere-specialite-mathematiques:")));
   assert.deepEqual([...new Set(mathematicsChapters.map((chapter) => chapter.niveau))], ["5eme", "1ere-ens-scientifique", "1ere-specialite-mathematiques", "2nde"]);
 });
+
+
+test("home keeps the global search catalogue outside the HTML payload", () => {
+  const home = fs.readFileSync(path.join(root, "src/pages/index.astro"), "utf8");
+  const search = fs.readFileSync(path.join(root, "src/components/search/GlobalSearch.tsx"), "utf8");
+  const endpoint = fs.readFileSync(path.join(root, "src/pages/search-index.json.ts"), "utf8");
+
+  assert.match(home, /resourceUrl="\/search-index\.json"/);
+  assert.doesNotMatch(home, /<GlobalSearch client:load resources=\{resources\}/);
+  assert.match(search, /fetch\(resourceUrl/);
+  assert.match(endpoint, /getGlobalSearchCatalogue/);
+});
