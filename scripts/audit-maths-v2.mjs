@@ -61,7 +61,8 @@ function validateCourse(course, cycle) {
   const headings = countMatches(course, /^#{2,4}\s+.+$/gm);
   const displayMath = countMatches(course, /\$\$[\s\S]*?\$\$/g);
   const examples = countMatches(course, /^#{2,4}\s+.*exemple/gim);
-  const hasVisual = /<(svg|figure|img)\b/i.test(course);
+  const visualCount = countMatches(course, /<(svg|img)\b/gi);
+  const hasPedagogicalVisual = /<(svg|img)\b[^>]*(aria-label|alt)=["'][^"']*(graph|courbe|repère|histogramme|nuage|diagramme|arbre|droite|figure|schéma|representation|représentation)/i.test(course);
   const svgBlocks = [...course.matchAll(/<svg\b[\s\S]*?<\/svg>/gi)].map((match) => match[0]);
   const inaccessibleSvg = svgBlocks.filter((svg) => !/role=["']img["']/i.test(svg) || !/aria-label=["'][^"']+["']/i.test(svg));
 
@@ -69,7 +70,8 @@ function validateCourse(course, cycle) {
   if (headings < 6) errors.push("cours: " + headings + " sections < 6");
   if (displayMath < minDisplayMath) errors.push("cours: " + displayMath + " blocs LaTeX affichés < " + minDisplayMath);
   if (examples < 2) errors.push("cours: " + examples + " exemples développés < 2");
-  if (!hasVisual) errors.push("cours: aucun graphique/figure/visuel");
+  if (visualCount < 2) errors.push("cours: " + visualCount + " visuel(s) mathématique(s) < 2");
+  if (!hasPedagogicalVisual) errors.push("cours: aucun graphique/schéma/figure mathématique identifiable par son alternative accessible");
   if (inaccessibleSvg.length) errors.push("cours: " + inaccessibleSvg.length + " SVG sans role=img et aria-label");
   if (!/^#{2,4}\s+.*méthode/im.test(course)) errors.push("cours: section méthode absente");
   if (!/^#{2,4}\s+.*erreurs? fréquentes?/im.test(course)) errors.push("cours: section erreurs fréquentes absente");
@@ -77,7 +79,7 @@ function validateCourse(course, cycle) {
 
   return {
     errors,
-    metrics: { significant, headings, displayMath, examples, visuals: hasVisual ? 1 : 0 },
+    metrics: { significant, headings, displayMath, examples, visuals: visualCount },
   };
 }
 
