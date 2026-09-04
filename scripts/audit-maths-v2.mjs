@@ -110,22 +110,82 @@ function validateExercises(raw) {
   const errors = [];
   const levels = { N1: 0, N2: 0, N3: 0, OTHER: 0 };
   const ids = new Set();
+  const pedagogicalTypes = new Set();
+  const skillsCovered = new Set();
+  let visualExercises = 0;
 
   for (const exercise of exercises) {
+    const id = exercise?.id ?? "(sans id)";
     const level = levelOf(exercise);
     levels[level] += 1;
+
     if (exercise?.id) {
       if (ids.has(exercise.id)) errors.push("exercices: id dupliqué " + exercise.id);
       ids.add(exercise.id);
     }
-    const statement = String(exercise?.statement ?? exercise?.consigne ?? exercise?.title ?? exercise?.titre ?? "").trim();
-    if (statement.length < 25) errors.push("exercices: énoncé trop court " + (exercise?.id ?? "(sans id)"));
+
+    const statement = String(exercise?.statement ?? "").trim();
+    const questions = Array.isArray(exercise?.questions)
+      ? exercise.questions
+          .map((question) => typeof question === "string" ? question : question?.text ?? question?.question ?? "")
+          .filter((question) => String(question).trim())
+      : [];
+    const correctionLines = Array.isArray(exercise?.correction) ? exercise.correction : [exercise?.correction].filter(Boolean);
     const correction = correctionText(exercise?.correction);
-    if (correction.length < 30) errors.push("exercices: correction insuffisante " + (exercise?.id ?? "(sans id)"));
-    const correctionLines = Array.isArray(exercise?.correction) ? exercise.correction : [exercise?.correction];
-    validateLatexFields("exercices " + (exercise?.id ?? "(sans id)"), [
+    const skills = Array.isArray(exercise?.skills) ? exercise.skills : Array.isArray(exercise?.competences) ? exercise.competences : [];
+    const curriculumItems = Array.isArray(exercise?.curriculumItems) ? exercise.curriculumItems.filter(Boolean) : [];
+    const pedagogicalType = String(exercise?.pedagogicalType ?? "").trim();
+
+    if (pedagogicalType) pedagogicalTypes.add(pedagogicalType);
+    for (const skill of skills) skillsCovered.add(typeof skill === "string" ? skill : skill?.label);
+
+    const hasVisual =
+      Boolean(exercise?.schemaSvg) ||
+      (Array.isArray(exercise?.blocks) && exercise.blocks.some((block) => ["diagram", "graph", "schema", "svg", "table"].includes(String(block?.type ?? "").toLowerCase())));
+    if (hasVisual) visualExercises += 1;
+
+    const minStatement = level === "N3" ? 120 : level === "N2" ? 80 : 45;
+    if (statement.length < minStatement) {
+      errors.push("exercices " + id + ": énoncé " + statement.length + " caractères < " + minStatement + " pour " + level);
+    }
+
+    const minQuestions = level === "N3" ? 3 : level === "N2" ? 2 : 1;
+    if (questions.length < minQuestions) {
+      errors.push("exercices " + id + ": " + questions.length + " question(s) < " + minQuestions + " pour " + level);
+    }
+
+    if (!pedagogicalType) errors.push("exercices " + id + ": pedagogicalType absent");
+    if (curriculumItems.length === 0) errors.push("exercices " + id + ": aucun curriculumItem");
+    if (skills.length === 0) errors.push("exercices " + id + ": aucune compétence");
+    if (!exercise?.estimatedTime) errors.push("exercices " + id + ": durée indicative absente");
+
+    const minCorrection = level === "N3" ? 220 : level === "N2" ? 140 : 80;
+    if (correction.length < minCorrection) {
+      errors.push("exercices " + id + ": correction " + correction.length + " caractères < " + minCorrection + " pour " + level);
+    }
+    if (correctionLines.length < questions.length) {
+      errors.push("exercices " + id + ": correction non structurée question par question");
+    }
+
+    if (level === "N2") {
+      const actionCount = new Set(skills.map(String)).size;
+      if (actionCount < 2) errors.push("exercices " + id + ": N2 mobilise moins de 2 compétences/actions");
+    }
+
+    if (level === "N3") {
+      const highLevel = new Set(["chercher", "raisonner", "modéliser", "communiquer"]);
+      if (!skills.some((skill) => highLevel.has(String(skill)))) {
+        errors.push("exercices " + id + ": N3 sans compétence de raisonnement/modélisation/communication");
+      }
+      if (!questions.some((question) => /(justif|expli|interpr|compar|conclu|vérif|contrôl|décid|propos)/i.test(String(question)))) {
+        errors.push("exercices " + id + ": N3 sans question de justification/interprétation/décision");
+      }
+    }
+
+    validateLatexFields("exercices " + id, [
       ["statement", exercise?.statement],
       ["consigne", exercise?.consigne],
+      ...questions.map((value, index) => ["questions[" + index + "]", value]),
       ["hint clue", exercise?.hints?.clue],
       ["hint method", exercise?.hints?.method],
       ["hint reminder", exercise?.hints?.reminder],
@@ -139,7 +199,30 @@ function validateExercises(raw) {
     if (levels[level] < 4) errors.push("exercices: " + levels[level] + " " + level + " < 4");
   }
 
-  return { errors, metrics: { total: exercises.length, levels } };
+  if (pedagogicalTypes.size < 4) {
+    errors.push("exercices: " + pedagogicalTypes.size + " types pédagogiques distincts < 4");
+  }
+
+  const canonicalSkills = ["chercher", "modéliser", "représenter", "raisonner", "calculer", "communiquer"];
+  const canonicalCovered = canonicalSkills.filter((skill) => skillsCovered.has(skill));
+  if (canonicalCovered.length < 5) {
+    errors.push("exercices: seulement " + canonicalCovered.length + "/6 compétences mathématiques couvertes");
+  }
+
+  if (visualExercises < 2) {
+    errors.push("exercices: " + visualExercises + " exercice(s) exploitant un support visuel < 2");
+  }
+
+  return {
+    errors,
+    metrics: {
+      total: exercises.length,
+      levels,
+      pedagogicalTypes: [...pedagogicalTypes].sort(),
+      skillsCovered: [...skillsCovered].filter(Boolean).sort(),
+      visualExercises,
+    },
+  };
 }
 
 function validateQuiz(raw) {
