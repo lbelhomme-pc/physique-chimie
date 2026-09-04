@@ -75,19 +75,35 @@ export function normalizeMathematicsExercises(raw: any) {
   return getArrayPayload(raw, "exercices", "exercises").map((item: any) => {
     const hints = item.hints ?? item.aides ?? {};
     const correction = item.correction;
+    const questions = Array.isArray(item.questions)
+      ? item.questions
+          .map((question: any) => typeof question === "string" ? question : question?.text ?? question?.question ?? "")
+          .filter(Boolean)
+      : [];
     return {
       id: String(item.id ?? cryptoSafeId(item.title ?? item.statement ?? item.consigne ?? "exercice")),
       title: item.title ?? item.titre,
+      statement: item.statement ?? "",
+      questions,
       difficulty: item.difficulty ?? item.difficulte,
       difficultyLabel: item.difficultyLabel ?? item.niveau,
-      consigne: item.consigne ?? item.statement ?? "",
+      level: item.level ?? item.niveau,
+      consigne: item.consigne ?? "",
+      pedagogicalType: item.pedagogicalType ?? item.typePedagogique,
+      curriculumItems: Array.isArray(item.curriculumItems) ? item.curriculumItems : [],
+      skills: Array.isArray(item.skills) ? item.skills : [],
+      estimatedTime: item.estimatedTime,
+      answerType: item.answerType ?? "text",
       correction: Array.isArray(correction) ? correction : correction ? [String(correction)] : [],
+      correctionEssentielle: Array.isArray(item.correctionEssentielle) ? item.correctionEssentielle : undefined,
+      correctionDetaillee: Array.isArray(item.correctionDetaillee) ? item.correctionDetaillee : undefined,
       aides: {
         indice: hints.indice ?? hints.clue ?? item.aide,
         methode: hints.methode ?? hints.method,
         rappelCours: hints.rappelCours ?? hints.reminder,
         erreurFrequente: hints.erreurFrequente ?? hints.commonMistake,
       },
+      blocks: Array.isArray(item.blocks) ? item.blocks : [],
       schemaSvg: item.schemaSvg ?? item.figure?.svg ?? null,
       schemaCaption: item.schemaCaption ?? item.figure?.caption ?? null,
       schemaAlt: item.schemaAlt ?? item.figure?.alt ?? item.figure?.description ?? null,
