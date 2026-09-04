@@ -1,34 +1,64 @@
 {
   "cards": [
     {
-      "id": "mc-bay-f1",
-      "front": "Conditionnelle",
-      "back": "P(A|B)=P(A∩B)/P(B)."
+      "id": "mc-bay-v2-f1",
+      "front": "Probabilité conditionnelle",
+      "back": "$P(A\\mid B)=\\dfrac{P(A\\cap B)}{P(B)}$ lorsque $P(B)>0$."
     },
     {
-      "id": "mc-bay-f2",
-      "front": "Bayes",
-      "back": "P(A|B)=P(B|A)P(A)/P(B)."
+      "id": "mc-bay-v2-f2",
+      "front": "Probabilité d'un chemin dans un arbre",
+      "back": "On multiplie les probabilités portées par les branches successives du chemin."
     },
     {
-      "id": "mc-bay-f3",
-      "front": "A priori",
-      "back": "Probabilité avant observation."
+      "id": "mc-bay-v2-f3",
+      "front": "Probabilités totales",
+      "back": "On additionne les probabilités de tous les chemins incompatibles qui conduisent à l'événement étudié."
     },
     {
-      "id": "mc-bay-f4",
-      "front": "A posteriori",
-      "back": "Probabilité révisée après observation."
+      "id": "mc-bay-v2-f4",
+      "front": "Formule de Bayes",
+      "back": "$P(A\\mid B)=\\dfrac{P(B\\mid A)P(A)}{P(B)}$ : elle permet d'inverser un conditionnement."
     },
     {
-      "id": "mc-bay-f5",
-      "front": "Sensibilité",
-      "back": "P(test positif | malade)."
+      "id": "mc-bay-v2-f5",
+      "front": "Probabilité a priori",
+      "back": "Probabilité attribuée à un événement avant de prendre en compte l'information nouvelle."
     },
     {
-      "id": "mc-bay-f6",
-      "front": "Spécificité",
-      "back": "P(test négatif | non malade)."
+      "id": "mc-bay-v2-f6",
+      "front": "Probabilité a posteriori",
+      "back": "Probabilité révisée après observation d'une information ; par exemple $P(M\\mid T^+)$ après un test positif."
+    },
+    {
+      "id": "mc-bay-v2-f7",
+      "front": "Sensibilité d'un test",
+      "back": "$P(T^+\\mid M)$ : probabilité que le test soit positif chez une personne malade."
+    },
+    {
+      "id": "mc-bay-v2-f8",
+      "front": "Spécificité d'un test",
+      "back": "$P(T^-\\mid\\overline M)$ : probabilité que le test soit négatif chez une personne non malade."
+    },
+    {
+      "id": "mc-bay-v2-f9",
+      "front": "Valeur prédictive positive",
+      "back": "$P(M\\mid T^+)$ : probabilité d'être malade sachant que le test est positif."
+    },
+    {
+      "id": "mc-bay-v2-f10",
+      "front": "Valeur prédictive négative",
+      "back": "$P(\\overline M\\mid T^-)$ : probabilité de ne pas être malade sachant que le test est négatif."
+    },
+    {
+      "id": "mc-bay-v2-f11",
+      "front": "Erreur fréquente avec Bayes",
+      "back": "Ne pas confondre $P(A\\mid B)$ et $P(B\\mid A)$ : traduire chaque probabilité par une phrase avant de calculer."
+    },
+    {
+      "id": "mc-bay-v2-f12",
+      "front": "Effet de la prévalence",
+      "back": "La valeur prédictive d'un test dépend de la fréquence de base : un événement très rare peut produire beaucoup de faux positifs relativement aux vrais positifs."
     }
   ]
 }
