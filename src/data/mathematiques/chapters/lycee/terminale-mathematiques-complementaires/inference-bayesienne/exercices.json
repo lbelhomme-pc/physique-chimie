@@ -1,11 +1,103 @@
 {
   "exercices": [
     {
-      "id": "mc-bay-n1-1",
+      "id": "mc-bay-v2-n1-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne",
-      "title": "Conditionnelle",
-      "statement": "P(A∩B)=0,12 et P(B)=0,3. Calculer P(A|B).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Calculer une conditionnelle",
+      "statement": "On sait que $P(A\\cap B)=0,18$ et $P(B)=0,45$. Calculer $P(A\\mid B)$ puis interpréter le résultat comme une proportion dans la population vérifiant $B$.",
+      "consigne": "Rédiger le raisonnement, les calculs utiles et une phrase d'interprétation lorsque le contexte le demande.",
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application directe",
+      "level": "N1",
+      "skills": [
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 6,
+      "answerType": "text",
+      "hints": {
+        "clue": "Commencer par écrire la définition d'une probabilité conditionnelle.",
+        "method": "Diviser la probabilité de l'intersection par celle de l'événement conditionnant.",
+        "reminder": "La condition est l'événement placé après la barre verticale.",
+        "commonMistake": "Ne pas inverser $P(A\\mid B)$ et $P(B\\mid A)$."
+      },
+      "correction": [
+        "Par définition, $P(A\\mid B)=P(A\\cap B)/P(B)$.",
+        "On obtient $0,18/0,45=0,40$.",
+        "Parmi les situations où $B$ est réalisé, 40 % vérifient aussi $A$."
+      ],
+      "commonMistakes": [
+        "Ne pas inverser $P(A\\mid B)$ et $P(B\\mid A)$."
+      ],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "bayes",
+        "N1"
+      ]
+    },
+    {
+      "id": "mc-bay-v2-n1-2",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne",
+      "title": "Compléter un arbre de dépistage",
+      "statement": "Une maladie touche 3 % d'une population. Un test a une sensibilité de 92 % et une spécificité de 96 %. Donner $P(M)$, $P(\\overline M)$, $P(T^+\\mid M)$, $P(T^-\\mid M)$, $P(T^-\\mid\\overline M)$ et $P(T^+\\mid\\overline M)$.",
+      "consigne": "Rédiger le raisonnement, les calculs utiles et une phrase d'interprétation lorsque le contexte le demande.",
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application directe",
+      "level": "N1",
+      "skills": [
+        "représenter",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 7,
+      "answerType": "text",
+      "hints": {
+        "clue": "Traduire d'abord prévalence, sensibilité et spécificité en probabilités.",
+        "method": "Sur deux branches issues d'un même nœud, les probabilités ont pour somme 1.",
+        "reminder": "Le taux de faux positifs est le complément de la spécificité.",
+        "commonMistake": "Ne pas confondre faux positif et faux négatif."
+      },
+      "correction": [
+        "$P(M)=0,03$ et $P(\\overline M)=0,97$.",
+        "La sensibilité donne $P(T^+\\mid M)=0,92$, donc $P(T^-\\mid M)=0,08$.",
+        "La spécificité donne $P(T^-\\mid\\overline M)=0,96$, donc $P(T^+\\mid\\overline M)=0,04$."
+      ],
+      "commonMistakes": [
+        "Ne pas confondre faux positif et faux négatif."
+      ],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "bayes",
+        "N1"
+      ]
+    },
+    {
+      "id": "mc-bay-v2-n1-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne",
+      "title": "Probabilité d'un chemin",
+      "statement": "Dans l'exercice précédent, calculer la probabilité qu'une personne soit malade et obtienne un test positif, puis la probabilité qu'elle ne soit pas malade et obtienne malgré tout un test positif.",
+      "consigne": "Rédiger le raisonnement, les calculs utiles et une phrase d'interprétation lorsque le contexte le demande.",
       "difficulty": 1,
       "difficultyLabel": "N1 — application directe",
       "level": "N1",
@@ -17,15 +109,19 @@
       "estimatedTime": 6,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Repérer les deux chemins qui se terminent par $T^+$.",
+        "method": "Multiplier les probabilités successives de chaque branche.",
+        "reminder": "Une intersection correspond ici à un chemin complet.",
+        "commonMistake": "Ne pas additionner les probabilités sur un même chemin."
       },
       "correction": [
-        "0,12/0,3=0,4."
+        "Sur un chemin de l'arbre, on multiplie les probabilités.",
+        "$P(M\\cap T^+)=0,03\\times0,92=0,0276$.",
+        "$P(\\overline M\\cap T^+)=0,97\\times0,04=0,0388$."
       ],
-      "commonMistakes": [],
+      "commonMistakes": [
+        "Ne pas additionner les probabilités sur un même chemin."
+      ],
       "access": {
         "tier": "free",
         "preview": true,
@@ -38,214 +134,449 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
+        "bayes",
         "N1"
       ]
     },
     {
-      "id": "mc-bay-n1-2",
+      "id": "mc-bay-v2-n1-4",
       "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne",
-      "title": "Probabilité totale",
-      "statement": "P(M)=0,1, P(T+|M)=0,9, P(T+|non M)=0,05. Calculer P(T+).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Probabilités totales",
+      "statement": "Une machine A fabrique 70 % des pièces et une machine B 30 %. Le taux de défaut est de 1 % pour A et de 4 % pour B. Calculer la probabilité qu'une pièce choisie au hasard soit défectueuse.",
+      "consigne": "Rédiger le raisonnement, les calculs utiles et une phrase d'interprétation lorsque le contexte le demande.",
       "difficulty": 1,
       "difficultyLabel": "N1 — application directe",
       "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "modéliser",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 7,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Séparer les deux origines possibles d'une pièce défectueuse.",
+        "method": "Utiliser la formule des probabilités totales.",
+        "reminder": "Additionner les probabilités des deux chemins conduisant à D.",
+        "commonMistake": "Ne pas faire une moyenne simple de 1 % et 4 %."
       },
       "correction": [
-        "P(T+)=0,9×0,1+0,05×0,9=0,135."
+        "Les événements A et B forment une partition.",
+        "$P(D)=P(A)P(D\\mid A)+P(B)P(D\\mid B)$.",
+        "Ainsi $P(D)=0,70\\times0,01+0,30\\times0,04=0,019$, soit 1,9 %."
       ],
-      "commonMistakes": [],
+      "commonMistakes": [
+        "Ne pas faire une moyenne simple de 1 % et 4 %."
+      ],
       "access": {
         "tier": "free",
         "preview": true,
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "modéliser",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
+        "bayes",
         "N1"
       ]
     },
     {
-      "id": "mc-bay-n2-1",
+      "id": "mc-bay-v2-n2-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne",
-      "title": "Valeur prédictive",
-      "statement": "Avec les données précédentes, calculer P(M|T+).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Valeur prédictive positive",
+      "statement": "Une maladie touche 2 % d'une population. Un test a une sensibilité de 95 % et une spécificité de 90 %. Calculer $P(T^+)$ puis $P(M\\mid T^+)$. Expliquer pourquoi le résultat peut surprendre.",
+      "consigne": "Rédiger le raisonnement, les calculs utiles et une phrase d'interprétation lorsque le contexte le demande.",
       "difficulty": 2,
       "difficultyLabel": "N2 — raisonnement",
       "level": "N2",
       "skills": [
+        "modéliser",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 12,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Calculer d'abord la probabilité globale d'un test positif.",
+        "method": "Le numérateur de Bayes est la probabilité du chemin $M\\cap T^+$.",
+        "reminder": "Comparer le nombre de vrais positifs et de faux positifs.",
+        "commonMistake": "Ne pas répondre 95 % : 95 % est la sensibilité."
       },
       "correction": [
-        "P(M|T+)=0,9×0,1/0,135=2/3≈0,667."
+        "$P(T^+)=0,02\\times0,95+0,98\\times0,10=0,117$.",
+        "Par Bayes, $P(M\\mid T^+)=0,019/0,117\\approx0,162$.",
+        "Un test positif correspond donc ici à environ 16,2 % de probabilité d'être malade. La faible prévalence produit beaucoup de faux positifs relativement aux vrais positifs."
       ],
-      "commonMistakes": [],
+      "commonMistakes": [
+        "Ne pas répondre 95 % : 95 % est la sensibilité."
+      ],
       "access": {
         "tier": "free",
         "preview": true,
         "requiresAccount": false
       },
       "competences": [
+        "modéliser",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
+        "bayes",
         "N2"
       ]
     },
     {
-      "id": "mc-bay-n2-2",
+      "id": "mc-bay-v2-n2-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne",
-      "title": "Urnes",
-      "statement": "On choisit U1 avec probabilité 0,4 et U2 avec 0,6. P(R|U1)=0,7, P(R|U2)=0,2. Calculer P(U1|R).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Raisonner avec 20 000 personnes",
+      "statement": "Reprendre les données de l'exercice précédent sur une population fictive de 20 000 personnes. Construire un tableau d'effectifs malades/non-malades et tests positifs/négatifs, puis retrouver la valeur prédictive positive sans utiliser directement la formule de Bayes.",
+      "consigne": "Rédiger le raisonnement, les calculs utiles et une phrase d'interprétation lorsque le contexte le demande.",
       "difficulty": 2,
       "difficultyLabel": "N2 — raisonnement",
       "level": "N2",
       "skills": [
+        "représenter",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 14,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Commencer par transformer les pourcentages en effectifs.",
+        "method": "Appliquer successivement prévalence, sensibilité et taux de faux positifs.",
+        "reminder": "La VPP est la proportion de malades parmi tous les positifs.",
+        "commonMistake": "Ne pas diviser par l'effectif total : on conditionne par le groupe des tests positifs."
       },
       "correction": [
-        "P(R)=0,4×0,7+0,6×0,2=0,4.",
-        "P(U1|R)=0,28/0,4=0,7."
+        "Il y a $20\\,000\\times0,02=400$ malades et 19 600 non-malades.",
+        "Parmi les malades, $400\\times0,95=380$ ont un test positif. Parmi les non-malades, $19\\,600\\times0,10=1\\,960$ ont un test positif.",
+        "Il y a donc 2 340 tests positifs, dont 380 vrais positifs : $380/2340\\approx0,162$."
       ],
-      "commonMistakes": [],
+      "commonMistakes": [
+        "Ne pas diviser par l'effectif total : on conditionne par le groupe des tests positifs."
+      ],
       "access": {
         "tier": "free",
         "preview": true,
         "requiresAccount": false
       },
       "competences": [
+        "représenter",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
+        "bayes",
         "N2"
       ]
     },
     {
-      "id": "mc-bay-n3-1",
+      "id": "mc-bay-v2-n2-3",
       "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne",
-      "title": "Prévalence faible",
-      "statement": "Un test a sensibilité 0,99 et spécificité 0,99. La prévalence vaut 0,01. Calculer P(M|T+).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Identifier la machine responsable",
+      "statement": "Une usine possède deux machines. A produit 60 % des pièces avec 2 % de défauts ; B produit 40 % des pièces avec 5 % de défauts. Une pièce choisie au hasard est défectueuse. Calculer la probabilité qu'elle provienne de B.",
+      "consigne": "Rédiger le raisonnement, les calculs utiles et une phrase d'interprétation lorsque le contexte le demande.",
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement",
+      "level": "N2",
+      "skills": [
+        "modéliser",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 12,
+      "answerType": "text",
+      "hints": {
+        "clue": "Dessiner un arbre origine de la pièce puis défaut/non-défaut.",
+        "method": "Calculer d'abord $P(D)$ avec les deux machines.",
+        "reminder": "Le numérateur est le chemin B puis D.",
+        "commonMistake": "Ne pas utiliser seulement le taux de défaut de B sans tenir compte de sa part de production."
+      },
+      "correction": [
+        "$P(D)=0,60\\times0,02+0,40\\times0,05=0,032$.",
+        "$P(B\\cap D)=0,40\\times0,05=0,020$.",
+        "Par Bayes, $P(B\\mid D)=0,020/0,032=0,625$. La pièce défectueuse a donc 62,5 % de chances de provenir de B."
+      ],
+      "commonMistakes": [
+        "Ne pas utiliser seulement le taux de défaut de B sans tenir compte de sa part de production."
+      ],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "modéliser",
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "bayes",
+        "N2"
+      ]
+    },
+    {
+      "id": "mc-bay-v2-n2-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne",
+      "title": "Filtre anti-spam",
+      "statement": "5 % des messages reçus sont des spams. Un filtre bloque 98 % des spams et bloque à tort 2 % des messages légitimes. Un message est bloqué. Calculer la probabilité qu'il s'agisse réellement d'un spam.",
+      "consigne": "Rédiger le raisonnement, les calculs utiles et une phrase d'interprétation lorsque le contexte le demande.",
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement",
+      "level": "N2",
+      "skills": [
+        "modéliser",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 12,
+      "answerType": "text",
+      "hints": {
+        "clue": "La situation est exactement celle d'un test de dépistage.",
+        "method": "La probabilité d'être bloqué a deux origines : spam détecté ou message légitime bloqué à tort.",
+        "reminder": "Appliquer Bayes seulement après avoir calculé $P(B)$.",
+        "commonMistake": "Ne pas confondre 98 % des spams bloqués avec 98 % des messages bloqués qui seraient des spams."
+      },
+      "correction": [
+        "Notons S l'événement « spam » et B « bloqué ».",
+        "$P(B)=0,05\\times0,98+0,95\\times0,02=0,068$.",
+        "$P(S\\mid B)=0,05\\times0,98/0,068=0,049/0,068\\approx0,721$. Environ 72,1 % des messages bloqués sont réellement des spams."
+      ],
+      "commonMistakes": [
+        "Ne pas confondre 98 % des spams bloqués avec 98 % des messages bloqués qui seraient des spams."
+      ],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "modéliser",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "bayes",
+        "N2"
+      ]
+    },
+    {
+      "id": "mc-bay-v2-n3-1",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne",
+      "title": "Comparer deux populations",
+      "statement": "Un même test possède une sensibilité de 99 % et une spécificité de 99 %. Calculer sa valeur prédictive positive dans une population où la prévalence vaut 1 %, puis dans une population où elle vaut 20 %. Comparer et expliquer l'écart.",
+      "consigne": "Rédiger le raisonnement, les calculs utiles et une phrase d'interprétation lorsque le contexte le demande.",
       "difficulty": 3,
       "difficultyLabel": "N3 — maîtrise",
       "level": "N3",
       "skills": [
+        "chercher",
         "modéliser",
-        "raisonner"
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 18,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Faire deux arbres identiques sauf pour la première branche.",
+        "method": "Comparer les numérateurs et les faux positifs dans chaque population.",
+        "reminder": "La valeur prédictive n'est pas une caractéristique fixe du test.",
+        "commonMistake": "Ne pas conclure qu'un test est « mauvais » uniquement parce que la VPP est faible dans une population très peu exposée."
       },
       "correction": [
-        "P(T+)=0,99×0,01+0,01×0,99=0,0198.",
-        "P(M|T+)=0,0099/0,0198=0,5."
+        "Avec une prévalence de 1 %, $P(T^+)=0,99\\times0,01+0,01\\times0,99=0,0198$, donc $P(M\\mid T^+)=0,0099/0,0198=0,50$.",
+        "Avec une prévalence de 20 %, $P(T^+)=0,99\\times0,20+0,01\\times0,80=0,206$, donc $P(M\\mid T^+)\\approx0,961$.",
+        "Le test est identique, mais la fréquence de base change fortement la proportion de vrais positifs parmi tous les positifs."
       ],
-      "commonMistakes": [],
+      "commonMistakes": [
+        "Ne pas conclure qu'un test est « mauvais » uniquement parce que la VPP est faible dans une population très peu exposée."
+      ],
       "access": {
         "tier": "free",
         "preview": true,
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
         "modéliser",
-        "raisonner"
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
+        "bayes",
         "N3"
       ]
     },
     {
-      "id": "mc-bay-n3-2",
+      "id": "mc-bay-v2-n3-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne",
-      "title": "Interprétation",
-      "statement": "Pourquoi un test très performant peut-il avoir une valeur prédictive positive modérée ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Deux tests successifs",
+      "statement": "Une maladie touche 1 % de la population. Un test a une sensibilité de 95 % et une spécificité de 95 %. Une personne obtient un premier test positif. On suppose qu'un second test, réalisé indépendamment conditionnellement à l'état de santé, a les mêmes performances. Calculer la probabilité d'être malade après deux tests positifs successifs.",
+      "consigne": "Rédiger le raisonnement, les calculs utiles et une phrase d'interprétation lorsque le contexte le demande.",
       "difficulty": 3,
       "difficultyLabel": "N3 — maîtrise",
       "level": "N3",
       "skills": [
-        "communiquer",
-        "raisonner"
+        "modéliser",
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 20,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Représenter trois niveaux dans l'arbre : état de santé, test 1, test 2.",
+        "method": "L'hypothèse d'indépendance conditionnelle permet de multiplier deux fois la même probabilité de test.",
+        "reminder": "Comparer les deux chemins qui conduisent à deux tests positifs.",
+        "commonMistake": "Ne pas multiplier simplement la probabilité a posteriori du premier test par 0,95."
       },
       "correction": [
-        "Parce que la probabilité a posteriori dépend de la prévalence.",
-        "Si la maladie est très rare, les faux positifs peuvent être nombreux relativement aux vrais positifs."
+        "Après un premier test positif, $P(M\\mid T^+)=(0,95\\times0,01)/(0,95\\times0,01+0,05\\times0,99)\\approx0,161$.",
+        "Pour deux positifs, on peut calculer directement les chemins : $P(M\\cap T_1^+\\cap T_2^+)=0,01\\times0,95^2=0,009025$.",
+        "Pour les non-malades, $P(\\overline M\\cap T_1^+\\cap T_2^+)=0,99\\times0,05^2=0,002475$. Ainsi la probabilité cherchée vaut $0,009025/(0,009025+0,002475)\\approx0,785$, soit 78,5 %."
       ],
-      "commonMistakes": [],
+      "commonMistakes": [
+        "Ne pas multiplier simplement la probabilité a posteriori du premier test par 0,95."
+      ],
       "access": {
         "tier": "free",
         "preview": true,
         "requiresAccount": false
       },
       "competences": [
-        "communiquer",
-        "raisonner"
+        "modéliser",
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
+        "bayes",
+        "N3"
+      ]
+    },
+    {
+      "id": "mc-bay-v2-n3-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne",
+      "title": "Décision et seuil",
+      "statement": "Un contrôle automatique déclenche une vérification humaine lorsque la probabilité qu'une transaction soit frauduleuse après alerte dépasse 30 %. Les fraudes représentent 0,5 % des transactions. Le système détecte 90 % des fraudes et produit 1 % de fausses alertes sur les transactions normales. Calculer la probabilité de fraude après une alerte et décider si le seuil est atteint.",
+      "consigne": "Rédiger le raisonnement, les calculs utiles et une phrase d'interprétation lorsque le contexte le demande.",
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise",
+      "level": "N3",
+      "skills": [
+        "modéliser",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 18,
+      "answerType": "text",
+      "hints": {
+        "clue": "Transformer 0,5 % en 0,005 avant le calcul.",
+        "method": "Calculer le taux global d'alertes en tenant compte des vraies et fausses alertes.",
+        "reminder": "Comparer la probabilité finale au seuil, pas la sensibilité.",
+        "commonMistake": "Une grande sensibilité ne garantit pas seule une forte probabilité de fraude après alerte."
+      },
+      "correction": [
+        "Notons F « fraude » et A « alerte ».",
+        "$P(A)=0,005\\times0,90+0,995\\times0,01=0,01445$.",
+        "$P(F\\mid A)=0,0045/0,01445\\approx0,3114$, soit environ 31,1 %. Le seuil de 30 % est donc légèrement dépassé : la vérification humaine est déclenchée."
+      ],
+      "commonMistakes": [
+        "Une grande sensibilité ne garantit pas seule une forte probabilité de fraude après alerte."
+      ],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "modéliser",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "bayes",
+        "N3"
+      ]
+    },
+    {
+      "id": "mc-bay-v2-n3-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/inference-bayesienne",
+      "title": "Construire un contre-exemple à l'intuition",
+      "statement": "Construire deux situations de dépistage utilisant exactement le même test, de sensibilité 97 % et de spécificité 97 %, mais dans lesquelles la valeur prédictive positive est d'une part inférieure à 30 % et d'autre part supérieure à 90 %. Choisir deux prévalences adaptées, effectuer les calculs et commenter.",
+      "consigne": "Rédiger le raisonnement, les calculs utiles et une phrase d'interprétation lorsque le contexte le demande.",
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Tester une prévalence très faible puis une prévalence nettement plus élevée.",
+        "method": "Écrire la VPP comme fonction de la prévalence si nécessaire.",
+        "reminder": "Vérifier les deux inégalités demandées après le calcul.",
+        "commonMistake": "Ne pas modifier la sensibilité ou la spécificité entre les deux situations."
+      },
+      "correction": [
+        "Avec une prévalence de 1 %, $P(M\\mid T^+)=(0,97\\times0,01)/(0,97\\times0,01+0,03\\times0,99)\\approx0,246$, donc moins de 30 %.",
+        "Avec une prévalence de 30 %, $P(M\\mid T^+)=(0,97\\times0,30)/(0,97\\times0,30+0,03\\times0,70)\\approx0,933$, donc plus de 90 %.",
+        "Le test n'a pas changé. La différence provient de la prévalence : Bayes combine la qualité de l'information nouvelle avec l'information initiale."
+      ],
+      "commonMistakes": [
+        "Ne pas modifier la sensibilité ou la spécificité entre les deux situations."
+      ],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "bayes",
         "N3"
       ]
     }
