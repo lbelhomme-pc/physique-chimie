@@ -49,6 +49,9 @@ interface Exercice {
   title?: string;
   titre?: string;
   statement?: string;
+  questions?: string[];
+  pedagogicalType?: string;
+  curriculumItems?: string[];
   difficulty?: number;
   difficulte?: number | string;
   difficultyLabel?: string;
@@ -77,6 +80,7 @@ interface Exercice {
 interface NormalizedExercice extends Exercice {
   title?: string;
   consigne: string;
+  questions: string[];
   difficulty?: number;
   difficultyLabel?: string;
   aides?: ExerciceAides;
@@ -219,7 +223,8 @@ function normalizeExercice(exercice: Exercice): NormalizedExercice {
   return {
     ...exercice,
     title: exercice.title ?? exercice.titre,
-    consigne: exercice.consigne ?? exercice.statement ?? "",
+    consigne: exercice.consigne ?? "",
+    questions: Array.isArray(exercice.questions) ? exercice.questions.filter((item) => Boolean(String(item).trim())) : [],
     difficulty: Number.isFinite(difficulty) ? difficulty : undefined,
     difficultyLabel: exercice.difficultyLabel ?? exercice.niveau,
     aides: {
@@ -477,8 +482,29 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
         )}
 
         <div style={{ padding: "1rem", background: V.bgSec, borderRadius: 8, marginBottom: "0.75rem", borderLeft: `3px solid ${V.textDis}` }}>
-          <MathText text={cur.consigne} block style={{ fontSize: "1rem", color: V.text, lineHeight: 1.65, margin: 0 }} />
+          <p style={{ margin: "0 0 0.45rem", color: V.textMut, fontSize: "0.78rem", fontWeight: 800, textTransform: "uppercase" }}>Énoncé</p>
+          <MathText text={cur.statement ?? cur.consigne} block style={{ fontSize: "1rem", color: V.text, lineHeight: 1.65, margin: 0 }} />
         </div>
+
+        {cur.questions.length > 0 && (
+          <div style={{ ...cardStyle, padding: "0.95rem 1rem", marginBottom: "0.85rem", background: V.bgPri }}>
+            <p style={{ margin: "0 0 0.6rem", color: V.text, fontWeight: 800 }}>Questions</p>
+            <ol style={{ display: "grid", gap: "0.65rem", paddingLeft: "1.3rem", margin: 0, color: V.text }}>
+              {cur.questions.map((question, index) => (
+                <li key={index} style={{ paddingLeft: "0.2rem", lineHeight: 1.6 }}>
+                  <MathText text={question} />
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
+        {cur.consigne && cur.consigne !== cur.statement && (
+          <div style={{ padding: "0.8rem 0.95rem", background: V.primaryLt, border: `1px solid ${V.primary}`, borderRadius: 8, marginBottom: "0.85rem" }}>
+            <p style={{ margin: "0 0 0.3rem", color: V.primary, fontSize: "0.78rem", fontWeight: 800, textTransform: "uppercase" }}>Consigne de rédaction</p>
+            <MathText text={cur.consigne} block style={{ color: V.text, lineHeight: 1.55 }} />
+          </div>
+        )}
 
         {trustedSchemaSvg && (
           <figure style={{ margin: "0 0 1rem", padding: "1rem", background: V.bgPri, border: `1px solid ${V.border}`, borderRadius: 8 }}>
@@ -499,7 +525,7 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
         {cur.blocks?.map(renderExerciseBlock)}
 
         <div style={{ marginBottom: "1rem" }}>
-          <TextToSpeech compact text={stripHtmlForSpeech(cur.consigne)} />
+          <TextToSpeech compact text={stripHtmlForSpeech([cur.statement, ...cur.questions, cur.consigne].filter(Boolean).join(" "))} />
         </div>
 
         {aideItems.length > 0 && !showCorr && (
