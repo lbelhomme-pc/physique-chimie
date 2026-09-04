@@ -2,39 +2,55 @@
   "exercices": [
     {
       "id": "6e-num-v2-n1-1",
-      "title": "Valeur de position",
-      "statement": "Dans le nombre $47\\,305{,}286$, donner la valeur du chiffre $7$, du chiffre $5$, du chiffre $2$ et du chiffre $8$.",
-      "consigne": "Rédiger les calculs utiles et expliquer la démarche.",
+      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "title": "Lire un tableau de numération",
+      "statement": "On étudie le nombre $47\\,305{,}286$. Le tableau de numération ci-dessous sert à organiser les chiffres selon leur rang.",
+      "questions": [
+        "Donner la valeur du chiffre $7$, du chiffre $5$, du chiffre $2$ et du chiffre $8$.",
+        "Décomposer $47\\,305{,}286$ comme une somme utilisant les valeurs de position.",
+        "Écrire la partie décimale $0{,}286$ comme somme de fractions décimales."
+      ],
+      "consigne": "Présenter les étapes de raisonnement et écrire une phrase de conclusion lorsque la question demande une interprétation.",
+      "pedagogicalType": "representation",
+      "curriculumItems": [
+        "Connaître et utiliser la valeur des chiffres selon leur rang dans l’écriture d’un nombre.",
+        "Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième et millième.",
+        "Connaître des grands nombres entiers.",
+        "Reconnaître un nombre décimal.",
+        "Associer et utiliser différentes écritures d’un nombre décimal : écriture à virgule, fraction décimale, nombre mixte et pourcentage."
+      ],
       "difficulty": 1,
       "difficultyLabel": "N1 — application directe",
       "level": "N1",
       "skills": [
         "représenter",
-        "calculer"
+        "calculer",
+        "communiquer"
       ],
       "competences": [
         "représenter",
-        "calculer"
+        "calculer",
+        "communiquer"
       ],
-      "prerequisites": [],
-      "estimatedTime": 7,
+      "estimatedTime": 10,
       "answerType": "text",
       "hints": {
-        "clue": "Repérer d’abord la virgule puis identifier les rangs de part et d’autre.",
-        "method": "Chaque rang voisin est lié au suivant par un facteur $10$.",
-        "reminder": "À droite des unités viennent les dixièmes, puis les centièmes, puis les millièmes.",
-        "commonMistake": "Ne pas donner le chiffre lui-même lorsque la question demande sa valeur."
+        "clue": "Repérer d’abord la virgule.",
+        "method": "Lire les rangs de gauche à droite.",
+        "reminder": "Deux rangs voisins sont liés par un facteur $10$.",
+        "commonMistake": "Ne pas confondre le chiffre et sa valeur."
       },
       "correction": [
-        "Le chiffre $7$ est au rang des milliers : sa valeur est $7\\times1\\,000=7\\,000$.",
-        "Le chiffre $5$ est au rang des unités : sa valeur est $5$.",
-        "Le chiffre $2$ est au rang des dixièmes : sa valeur est $2\\times\\dfrac{1}{10}=0{,}2$.",
-        "Le chiffre $8$ est au rang des centièmes : sa valeur est $8\\times\\dfrac{1}{100}=0{,}08$."
+        "Le chiffre $7$ est au rang des milliers, donc sa valeur est $7\\times1\\,000=7\\,000$. Le chiffre $5$ vaut $5$, le chiffre $2$ vaut $2\\times\\dfrac{1}{10}=0{,}2$ et le chiffre $8$ vaut $8\\times\\dfrac{1}{100}=0{,}08$.",
+        "On obtient $47\\,305{,}286=4\\times10\\,000+7\\times1\\,000+3\\times100+5+2\\times\\dfrac{1}{10}+8\\times\\dfrac{1}{100}+6\\times\\dfrac{1}{1\\,000}$.",
+        "La partie décimale s’écrit $0{,}286=\\dfrac{2}{10}+\\dfrac{8}{100}+\\dfrac{6}{1\\,000}$. Cette écriture met en évidence dixièmes, centièmes et millièmes."
       ],
       "commonMistakes": [
-        "Ne pas donner le chiffre lui-même lorsque la question demande sa valeur."
+        "Ne pas confondre le chiffre et sa valeur."
       ],
-      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "schemaSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 760 250\" role=\"img\" aria-label=\"Tableau de numération à six colonnes séparant milliers, centaines, dizaines, unités, dixièmes et centièmes\">\n<rect width=\"760\" height=\"250\" rx=\"18\" fill=\"#f8fafc\"/>\n<rect x=\"40\" y=\"70\" width=\"680\" height=\"120\" rx=\"12\" fill=\"#fff\" stroke=\"#cbd5e1\" stroke-width=\"2\"/>\n<g stroke=\"#cbd5e1\" stroke-width=\"2\"><path d=\"M153 70V190\"/><path d=\"M266 70V190\"/><path d=\"M379 70V190\"/><path d=\"M492 70V190\"/><path d=\"M605 70V190\"/></g>\n<path d=\"M492 70V190\" stroke=\"#4f46e5\" stroke-width=\"5\"/>\n<g font-family=\"Arial,sans-serif\" font-size=\"14\" text-anchor=\"middle\" fill=\"#334155\">\n<text x=\"96\" y=\"105\">milliers</text><text x=\"209\" y=\"105\">centaines</text><text x=\"322\" y=\"105\">dizaines</text><text x=\"435\" y=\"105\">unités</text><text x=\"548\" y=\"105\">dixièmes</text><text x=\"662\" y=\"105\">centièmes</text>\n</g></svg>",
+      "schemaAlt": "Tableau de numération séparant les rangs entiers et décimaux.",
+      "schemaCaption": "Support de lecture des rangs de numération.",
       "access": {
         "tier": "free",
         "preview": true,
@@ -44,43 +60,60 @@
       "tags": [
         "6eme",
         "nombres-decimaux",
+        "representation",
         "N1"
       ]
     },
     {
       "id": "6e-num-v2-n1-2",
-      "title": "Décomposer et recomposer",
-      "statement": "Décomposer le nombre $8\\,042{,}507$ sous la forme d’une somme utilisant les valeurs de position, puis écrire ce nombre comme une fraction décimale.",
-      "consigne": "Rédiger les calculs utiles et expliquer la démarche.",
+      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "title": "Lire une demi-droite graduée",
+      "statement": "Sur la demi-droite ci-dessous, les graduations sont régulièrement espacées. La première graduation correspond à $5$ et la dernière à $6$.",
+      "questions": [
+        "Calculer la valeur d’un intervalle entre deux graduations consécutives.",
+        "Déterminer les abscisses des points $A$, $B$ et $C$.",
+        "Donner un encadrement au dixième de l’abscisse de $B$."
+      ],
+      "consigne": "Présenter les étapes de raisonnement et écrire une phrase de conclusion lorsque la question demande une interprétation.",
+      "pedagogicalType": "representation",
+      "curriculumItems": [
+        "Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal.",
+        "Repérer un nombre décimal sur une demi-droite graduée.",
+        "Comparer deux nombres décimaux.",
+        "Encadrer un nombre décimal par deux nombres décimaux et intercaler un nombre décimal entre deux nombres décimaux."
+      ],
       "difficulty": 1,
       "difficultyLabel": "N1 — application directe",
       "level": "N1",
       "skills": [
         "représenter",
-        "calculer"
+        "calculer",
+        "raisonner"
       ],
       "competences": [
         "représenter",
-        "calculer"
+        "calculer",
+        "raisonner"
       ],
-      "prerequisites": [],
-      "estimatedTime": 8,
+      "estimatedTime": 10,
       "answerType": "text",
       "hints": {
-        "clue": "Écrire uniquement les rangs dont le chiffre est non nul.",
-        "method": "Le dénominateur $1\\,000$ correspond aux millièmes.",
-        "reminder": "Vérifier que la somme reconstitue exactement le nombre de départ.",
-        "commonMistake": "Ne pas confondre le nombre de chiffres après la virgule avec la valeur de chaque rang."
+        "clue": "Compter d’abord le nombre d’intervalles.",
+        "method": "Calculer le pas de graduation.",
+        "reminder": "Partir de $5$ puis ajouter le pas.",
+        "commonMistake": "Ne pas compter les traits comme s’ils étaient tous des intervalles."
       },
       "correction": [
-        "On écrit $8\\,042{,}507=8\\times1\\,000+4\\times10+2+5\\times\\dfrac{1}{10}+7\\times\\dfrac{1}{1\\,000}$.",
-        "On peut aussi écrire $8\\,042{,}507=8\\,000+40+2+0{,}5+0{,}007$.",
-        "Comme le nombre comporte des millièmes, on obtient $8\\,042{,}507=\\dfrac{8\\,042\\,507}{1\\,000}$."
+        "L’intervalle de longueur $6-5=1$ est partagé en $10$ parts égales. Une graduation vaut donc $\\dfrac{1}{10}=0{,}1$.",
+        "Le point $A$ est sur la deuxième graduation après $5$, donc $A(5{,}2)$. Le point $B$ est sur la sixième graduation après $5$, donc $B(5{,}6)$. Le point $C$ est sur la neuvième graduation après $5$, donc $C(5{,}9)$.",
+        "Comme l’abscisse de $B$ vaut exactement $5{,}6$, on peut écrire par exemple $5{,}5<5{,}6<5{,}7$."
       ],
       "commonMistakes": [
-        "Ne pas confondre le nombre de chiffres après la virgule avec la valeur de chaque rang."
+        "Ne pas compter les traits comme s’ils étaient tous des intervalles."
       ],
-      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "schemaSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 760 250\" role=\"img\" aria-label=\"Demi-droite graduée en dix intervalles réguliers avec trois points A, B et C\">\n<rect width=\"760\" height=\"250\" rx=\"18\" fill=\"#f8fafc\"/>\n<path d=\"M70 135H700\" stroke=\"#334155\" stroke-width=\"4\"/><path d=\"M690 125L710 135L690 145\" fill=\"none\" stroke=\"#334155\" stroke-width=\"4\"/>\n<g stroke=\"#64748b\" stroke-width=\"3\">\n<path d=\"M100 112V158\"/><path d=\"M155 112V158\"/><path d=\"M210 112V158\"/><path d=\"M265 112V158\"/><path d=\"M320 112V158\"/><path d=\"M375 112V158\"/><path d=\"M430 112V158\"/><path d=\"M485 112V158\"/><path d=\"M540 112V158\"/><path d=\"M595 112V158\"/><path d=\"M650 112V158\"/>\n</g>\n<circle cx=\"210\" cy=\"135\" r=\"9\" fill=\"#4f46e5\"/><circle cx=\"430\" cy=\"135\" r=\"9\" fill=\"#16a34a\"/><circle cx=\"595\" cy=\"135\" r=\"9\" fill=\"#dc2626\"/>\n<g font-family=\"Arial,sans-serif\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\"><text x=\"210\" y=\"95\" fill=\"#3730a3\">A</text><text x=\"430\" y=\"95\" fill=\"#166534\">B</text><text x=\"595\" y=\"95\" fill=\"#991b1b\">C</text></g>\n</svg>",
+      "schemaAlt": "Demi-droite graduée avec les points A, B et C.",
+      "schemaCaption": "Les bornes numériques sont données dans l’énoncé.",
       "access": {
         "tier": "free",
         "preview": true,
@@ -90,43 +123,59 @@
       "tags": [
         "6eme",
         "nombres-decimaux",
+        "representation",
         "N1"
       ]
     },
     {
       "id": "6e-num-v2-n1-3",
-      "title": "Comparer des décimaux",
-      "statement": "Comparer les nombres $6{,}407$ et $6{,}47$, puis les ranger avec $6{,}4$ dans l’ordre croissant.",
-      "consigne": "Rédiger les calculs utiles et expliquer la démarche.",
+      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "title": "Comparer, ranger et arrondir",
+      "statement": "On considère les quatre nombres $8{,}09$, $8{,}9$, $8{,}099$ et $8{,}909$.",
+      "questions": [
+        "Ranger ces quatre nombres dans l’ordre croissant.",
+        "Donner l’arrondi au dixième de chacun des quatre nombres.",
+        "Expliquer pourquoi comparer uniquement le nombre de chiffres après la virgule conduit à une mauvaise méthode."
+      ],
+      "consigne": "Présenter les étapes de raisonnement et écrire une phrase de conclusion lorsque la question demande une interprétation.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Comparer deux nombres décimaux.",
+        "Ordonner une liste de nombres décimaux.",
+        "Donner la valeur arrondie à l’unité, au dixième ou au centième d’un nombre décimal."
+      ],
       "difficulty": 1,
       "difficultyLabel": "N1 — application directe",
       "level": "N1",
       "skills": [
         "raisonner",
+        "calculer",
         "communiquer"
       ],
       "competences": [
         "raisonner",
+        "calculer",
         "communiquer"
       ],
-      "prerequisites": [],
-      "estimatedTime": 7,
+      "estimatedTime": 10,
       "answerType": "text",
       "hints": {
-        "clue": "Ajouter des zéros à droite peut aider à comparer les rangs.",
-        "method": "Les écritures $6{,}4$ et $6{,}400$ représentent le même nombre.",
-        "reminder": "Comparer les chiffres rang par rang, de gauche à droite.",
-        "commonMistake": "Ne pas comparer $407$ et $47$ comme deux entiers indépendants."
+        "clue": "Écrire les nombres avec le même nombre de décimales.",
+        "method": "Comparer d’abord les dixièmes.",
+        "reminder": "Pour arrondir au dixième, observer les centièmes.",
+        "commonMistake": "Ne pas comparer les parties décimales comme des entiers séparés."
       },
       "correction": [
-        "On écrit $6{,}47=6{,}470$ et $6{,}4=6{,}400$.",
-        "Les parties entières sont identiques. On compare donc successivement les dixièmes, centièmes puis millièmes.",
-        "On obtient $\\boxed{6{,}4<6{,}407<6{,}47}$."
+        "On peut compléter avec des zéros : $8{,}09=8{,}090$, $8{,}9=8{,}900$. Ainsi $\\boxed{8{,}09<8{,}099<8{,}9<8{,}909}$.",
+        "Les arrondis au dixième sont respectivement $8{,}1$, $8{,}9$, $8{,}1$ et $8{,}9$. On observe le chiffre des centièmes pour décider.",
+        "Le nombre de chiffres après la virgule ne mesure pas la grandeur d’un nombre. La comparaison correcte se fait rang par rang, de gauche à droite."
       ],
       "commonMistakes": [
-        "Ne pas comparer $407$ et $47$ comme deux entiers indépendants."
+        "Ne pas comparer les parties décimales comme des entiers séparés."
       ],
-      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "schemaSvg": null,
+      "schemaAlt": null,
+      "schemaCaption": null,
       "access": {
         "tier": "free",
         "preview": true,
@@ -136,43 +185,59 @@
       "tags": [
         "6eme",
         "nombres-decimaux",
+        "reasoning",
         "N1"
       ]
     },
     {
       "id": "6e-num-v2-n1-4",
-      "title": "Arrondir",
-      "statement": "Donner l’arrondi à l’unité, au dixième puis au centième du nombre $38{,}476$.",
-      "consigne": "Rédiger les calculs utiles et expliquer la démarche.",
+      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "title": "Calculer avec les rangs décimaux",
+      "statement": "On part du nombre $42{,}5$. On souhaite étudier l’effet des multiplications par $0{,}1$, $0{,}01$ et $0{,}001$.",
+      "questions": [
+        "Calculer $42{,}5\\times0{,}1$, $42{,}5\\times0{,}01$ et $42{,}5\\times0{,}001$.",
+        "Écrire les trois calculs précédents sous forme de divisions par $10$, $100$ et $1\\,000$.",
+        "Expliquer ce qui arrive à la valeur de chaque chiffre lorsque l’on multiplie par $0{,}01$."
+      ],
+      "consigne": "Présenter les étapes de raisonnement et écrire une phrase de conclusion lorsque la question demande une interprétation.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Multiplier un nombre entier ou un nombre décimal par 0,1, par 0,01 et par 0,001.",
+        "Connaître le lien avec la division par 10, 100 et 1 000.",
+        "Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième et millième."
+      ],
       "difficulty": 1,
       "difficultyLabel": "N1 — application directe",
       "level": "N1",
       "skills": [
         "calculer",
-        "raisonner"
+        "raisonner",
+        "communiquer"
       ],
       "competences": [
         "calculer",
-        "raisonner"
+        "raisonner",
+        "communiquer"
       ],
-      "prerequisites": [],
-      "estimatedTime": 8,
+      "estimatedTime": 10,
       "answerType": "text",
       "hints": {
-        "clue": "Repérer le rang auquel l’arrondi est demandé.",
-        "method": "Observer ensuite le chiffre situé immédiatement à droite du rang conservé.",
-        "reminder": "Si ce chiffre est supérieur ou égal à $5$, on augmente d’une unité le chiffre conservé.",
-        "commonMistake": "Ne pas tronquer systématiquement : un arrondi peut modifier le dernier chiffre conservé."
+        "clue": "Transformer les décimaux en fractions décimales.",
+        "method": "Utiliser le lien entre multiplication et division.",
+        "reminder": "Raisonner sur la valeur des chiffres.",
+        "commonMistake": "Éviter la règle mécanique « déplacer la virgule » sans comprendre les rangs."
       },
       "correction": [
-        "À l’unité, $38{,}476\\approx38$ car le chiffre des dixièmes est inférieur à $5$.",
-        "Au dixième, $38{,}476\\approx38{,}5$ car le chiffre des centièmes est supérieur ou égal à $5$.",
-        "Au centième, $38{,}476\\approx38{,}48$ car le chiffre des millièmes est supérieur ou égal à $5$."
+        "On obtient $42{,}5\\times0{,}1=4{,}25$, $42{,}5\\times0{,}01=0{,}425$ et $42{,}5\\times0{,}001=0{,}0425$.",
+        "Comme $0{,}1=\\dfrac{1}{10}$, $0{,}01=\\dfrac{1}{100}$ et $0{,}001=\\dfrac{1}{1\\,000}$, ces calculs correspondent respectivement à $42{,}5\\div10$, $42{,}5\\div100$ et $42{,}5\\div1\\,000$.",
+        "Multiplier par $0{,}01$ revient à diviser par $100$ : chaque chiffre prend une valeur cent fois plus petite, donc il change de deux rangs vers les rangs plus petits."
       ],
       "commonMistakes": [
-        "Ne pas tronquer systématiquement : un arrondi peut modifier le dernier chiffre conservé."
+        "Éviter la règle mécanique « déplacer la virgule » sans comprendre les rangs."
       ],
-      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "schemaSvg": null,
+      "schemaAlt": null,
+      "schemaCaption": null,
       "access": {
         "tier": "free",
         "preview": true,
@@ -182,14 +247,29 @@
       "tags": [
         "6eme",
         "nombres-decimaux",
+        "technique",
         "N1"
       ]
     },
     {
       "id": "6e-num-v2-n2-1",
-      "title": "Demi-droite graduée",
-      "statement": "Sur une demi-droite, l’intervalle entre $4$ et $5$ est partagé en $20$ parts égales. Quelle est la valeur d’une graduation ? À quelle graduation après $4$ placer le nombre $4{,}35$ ?",
-      "consigne": "Rédiger les calculs utiles et expliquer la démarche.",
+      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "title": "Plusieurs écritures d’un même nombre",
+      "statement": "Une fiche indique le nombre $0{,}375$. On veut vérifier que plusieurs écritures proposées représentent bien la même quantité.",
+      "questions": [
+        "Écrire $0{,}375$ comme fraction décimale de dénominateur $1\\,000$.",
+        "Écrire $0{,}375$ comme somme de dixièmes, centièmes et millièmes.",
+        "Écrire $0{,}375$ sous forme de pourcentage.",
+        "Encadrer $0{,}375$ entre deux dixièmes consécutifs."
+      ],
+      "consigne": "Présenter les étapes de raisonnement et écrire une phrase de conclusion lorsque la question demande une interprétation.",
+      "pedagogicalType": "representation",
+      "curriculumItems": [
+        "Reconnaître un nombre décimal.",
+        "Connaître la définition d’un pourcentage.",
+        "Associer et utiliser différentes écritures d’un nombre décimal : écriture à virgule, fraction décimale, nombre mixte et pourcentage.",
+        "Encadrer un nombre décimal par deux nombres décimaux et intercaler un nombre décimal entre deux nombres décimaux."
+      ],
       "difficulty": 2,
       "difficultyLabel": "N2 — raisonnement",
       "level": "N2",
@@ -203,25 +283,26 @@
         "calculer",
         "raisonner"
       ],
-      "prerequisites": [],
-      "estimatedTime": 12,
+      "estimatedTime": 14,
       "answerType": "text",
       "hints": {
-        "clue": "Commencer par calculer la valeur d’une graduation.",
-        "method": "La valeur d’une graduation est $\\dfrac{\\text{écart entre les bornes}}{\\text{nombre d’intervalles}}$.",
-        "reminder": "Une fois le pas connu, mesurer l’écart entre la borne de gauche et le nombre à placer.",
-        "commonMistake": "Ne pas confondre le nombre de graduations tracées avec le nombre d’intervalles."
+        "clue": "Lire les millièmes.",
+        "method": "Décomposer rang par rang.",
+        "reminder": "Un pourcentage est une écriture sur $100$.",
+        "commonMistake": "Ne pas écrire $375,%$."
       },
       "correction": [
-        "La longueur numérique de l’intervalle vaut $5-4=1$.",
-        "Une graduation vaut donc $\\dfrac{1}{20}=0{,}05$.",
-        "On calcule $4{,}35-4=0{,}35$ puis $0{,}35\\div0{,}05=7$.",
-        "Le nombre $4{,}35$ se place donc à la septième graduation après $4$."
+        "On a $0{,}375=\\dfrac{375}{1\\,000}$.",
+        "La décomposition est $0{,}375=\\dfrac{3}{10}+\\dfrac{7}{100}+\\dfrac{5}{1\\,000}$.",
+        "Comme $0{,}375=\\dfrac{37{,}5}{100}$, on peut écrire $0{,}375=37{,}5\\,\\%$.",
+        "L’encadrement au dixième est $\\boxed{0{,}3<0{,}375<0{,}4}$."
       ],
       "commonMistakes": [
-        "Ne pas confondre le nombre de graduations tracées avec le nombre d’intervalles."
+        "Ne pas écrire $375,%$."
       ],
-      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "schemaSvg": null,
+      "schemaAlt": null,
+      "schemaCaption": null,
       "access": {
         "tier": "free",
         "preview": true,
@@ -231,43 +312,62 @@
       "tags": [
         "6eme",
         "nombres-decimaux",
+        "representation",
         "N2"
       ]
     },
     {
       "id": "6e-num-v2-n2-2",
-      "title": "Calcul décimal organisé",
-      "statement": "Calculer $18{,}7+4{,}56-2{,}085$. Présenter les étapes et donner un contrôle simple du résultat.",
-      "consigne": "Rédiger les calculs utiles et expliquer la démarche.",
+      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "title": "Aire et produit de nombres décimaux",
+      "statement": "Une parcelle rectangulaire mesure $12{,}5\\ \\text{m}$ de longueur et $4{,}8\\ \\text{m}$ de largeur. On souhaite calculer son aire sans perdre le contrôle du résultat.",
+      "questions": [
+        "Donner un ordre de grandeur de l’aire avant tout calcul exact.",
+        "Calculer l’aire exacte de la parcelle.",
+        "Comparer le résultat exact à l’ordre de grandeur et expliquer pourquoi ils sont cohérents."
+      ],
+      "consigne": "Présenter les étapes de raisonnement et écrire une phrase de conclusion lorsque la question demande une interprétation.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Comprendre le sens de la multiplication de deux nombres décimaux.",
+        "Calculer le produit de deux nombres décimaux.",
+        "Contrôler les résultats à l’aide d’ordres de grandeur.",
+        "Résoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux."
+      ],
       "difficulty": 2,
       "difficultyLabel": "N2 — raisonnement",
       "level": "N2",
       "skills": [
+        "modéliser",
         "calculer",
+        "raisonner",
         "communiquer"
       ],
       "competences": [
+        "modéliser",
         "calculer",
+        "raisonner",
         "communiquer"
       ],
-      "prerequisites": [],
-      "estimatedTime": 11,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Pour un calcul posé, aligner les virgules.",
-        "method": "On peut écrire $18{,}7=18{,}700$ et $4{,}56=4{,}560$.",
-        "reminder": "Terminer par un ordre de grandeur.",
-        "commonMistake": "Ne pas aligner les derniers chiffres : ce sont les rangs de numération qu’il faut aligner."
+        "clue": "Une aire de rectangle est un produit.",
+        "method": "Arrondir à des nombres faciles à multiplier.",
+        "reminder": "Effectuer ensuite le produit exact.",
+        "commonMistake": "Un ordre de grandeur sert à contrôler, pas à remplacer le résultat exact."
       },
       "correction": [
-        "On calcule d’abord $18{,}7+4{,}56=23{,}26$.",
-        "Puis $23{,}26-2{,}085=21{,}175$.",
-        "Un contrôle par ordre de grandeur donne $19+5-2\\approx22$, ce qui est cohérent avec $21{,}175$."
+        "On peut utiliser $12{,}5\\approx12$ et $4{,}8\\approx5$, ce qui donne un ordre de grandeur $12\\times5=60\\ \\text{m}^2$.",
+        "L’aire vaut $A=12{,}5\\times4{,}8=60\\ \\text{m}^2$.",
+        "Le résultat exact est ici égal à l’ordre de grandeur choisi. Il est donc parfaitement cohérent ; surtout, on sait qu’une réponse proche de $6\\ \\text{m}^2$ ou de $600\\ \\text{m}^2$ aurait été suspecte."
       ],
       "commonMistakes": [
-        "Ne pas aligner les derniers chiffres : ce sont les rangs de numération qu’il faut aligner."
+        "Un ordre de grandeur sert à contrôler, pas à remplacer le résultat exact."
       ],
-      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "schemaSvg": null,
+      "schemaAlt": null,
+      "schemaCaption": null,
       "access": {
         "tier": "free",
         "preview": true,
@@ -277,46 +377,63 @@
       "tags": [
         "6eme",
         "nombres-decimaux",
+        "problem-solving",
         "N2"
       ]
     },
     {
       "id": "6e-num-v2-n2-3",
-      "title": "Multiplier des décimaux",
-      "statement": "Un rectangle mesure $4{,}8\\ \\text{m}$ de longueur et $2{,}5\\ \\text{m}$ de largeur. Calculer son aire et contrôler le résultat par un ordre de grandeur.",
-      "consigne": "Rédiger les calculs utiles et expliquer la démarche.",
+      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "title": "Partager une quantité",
+      "statement": "Pour une sortie, $18{,}9\\ \\text{L}$ de boisson sont répartis équitablement dans $7$ bonbonnes identiques. Chaque bonbonne doit recevoir la même quantité.",
+      "questions": [
+        "Écrire l’opération qui modélise le partage.",
+        "Calculer le volume versé dans une bonbonne.",
+        "Vérifier le résultat par une multiplication.",
+        "Expliquer pourquoi l’unité doit apparaître dans la réponse finale."
+      ],
+      "consigne": "Présenter les étapes de raisonnement et écrire une phrase de conclusion lorsque la question demande une interprétation.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Diviser un nombre décimal par un nombre entier non nul inférieur à 10.",
+        "Résoudre des problèmes mettant en jeu des divisions décimales.",
+        "Contrôler les résultats à l’aide d’ordres de grandeur."
+      ],
       "difficulty": 2,
       "difficultyLabel": "N2 — raisonnement",
       "level": "N2",
       "skills": [
         "modéliser",
         "calculer",
-        "raisonner"
+        "raisonner",
+        "communiquer"
       ],
       "competences": [
         "modéliser",
         "calculer",
-        "raisonner"
+        "raisonner",
+        "communiquer"
       ],
-      "prerequisites": [],
-      "estimatedTime": 12,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la grandeur cherchée avant de calculer.",
-        "method": "Pour un rectangle, $A=L\\times\\ell$.",
-        "reminder": "Choisir des nombres proches faciles à multiplier pour l’ordre de grandeur.",
-        "commonMistake": "Ne pas additionner les deux dimensions : une aire se calcule par un produit."
+        "clue": "Le mot « équitablement » indique un partage.",
+        "method": "Diviser la quantité totale par le nombre de contenants.",
+        "reminder": "Vérifier par l’opération inverse.",
+        "commonMistake": "Ne pas oublier l’unité."
       },
       "correction": [
-        "L’aire d’un rectangle est le produit de sa longueur par sa largeur : $A=4{,}8\\times2{,}5$.",
-        "On obtient $4{,}8\\times2{,}5=12$.",
-        "Donc $A=12\\ \\text{m}^2$.",
-        "Comme $4{,}8\\approx5$ et $2{,}5\\approx2{,}5$, on prévoit un résultat proche de $5\\times2{,}5=12{,}5$ ; le résultat exact est cohérent."
+        "Le partage en $7$ parts égales est modélisé par $18{,}9\\div7$.",
+        "On obtient $18{,}9\\div7=2{,}7$. Chaque bonbonne reçoit donc $\\boxed{2{,}7\\ \\text{L}}$.",
+        "La vérification donne $2{,}7\\times7=18{,}9$, ce qui retrouve bien le volume total.",
+        "Le nombre $2{,}7$ seul ne précise pas la grandeur mesurée ; l’unité $\\text{L}$ est indispensable pour interpréter le quotient dans le contexte."
       ],
       "commonMistakes": [
-        "Ne pas additionner les deux dimensions : une aire se calcule par un produit."
+        "Ne pas oublier l’unité."
       ],
-      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "schemaSvg": null,
+      "schemaAlt": null,
+      "schemaCaption": null,
       "access": {
         "tier": "free",
         "preview": true,
@@ -326,14 +443,26 @@
       "tags": [
         "6eme",
         "nombres-decimaux",
+        "problem-solving",
         "N2"
       ]
     },
     {
       "id": "6e-num-v2-n2-4",
-      "title": "Partage décimal",
-      "statement": "Une réserve de $8{,}4\\ \\text{L}$ d’eau est répartie également dans $7$ récipients. Quel volume reçoit chaque récipient ? Vérifier le résultat par une multiplication.",
-      "consigne": "Rédiger les calculs utiles et expliquer la démarche.",
+      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "title": "Former des groupes complets",
+      "statement": "Un établissement dispose de $347$ badges. Pour une activité, les badges sont rangés dans des pochettes contenant au maximum $24$ badges chacune.",
+      "questions": [
+        "Effectuer la division euclidienne de $347$ par $24$ et écrire l’égalité correspondante.",
+        "Indiquer le nombre de pochettes complètement remplies et le nombre de badges restants.",
+        "Déterminer le nombre total de pochettes nécessaires pour ranger tous les badges."
+      ],
+      "consigne": "Présenter les étapes de raisonnement et écrire une phrase de conclusion lorsque la question demande une interprétation.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Effectuer la division euclidienne d’un nombre entier par un nombre entier inférieur à 100.",
+        "Résoudre des problèmes mettant en jeu des divisions euclidiennes."
+      ],
       "difficulty": 2,
       "difficultyLabel": "N2 — raisonnement",
       "level": "N2",
@@ -347,25 +476,25 @@
         "calculer",
         "raisonner"
       ],
-      "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Le mot « également » indique ici un partage.",
-        "method": "La valeur d’une part est le quotient $\\dfrac{8{,}4}{7}$.",
-        "reminder": "Vérifier le quotient en multipliant par le diviseur.",
-        "commonMistake": "Ne pas oublier l’unité dans la réponse finale."
+        "clue": "Chercher combien de fois $24$ tient dans $347$.",
+        "method": "Écrire l’égalité $a=bq+r$.",
+        "reminder": "Interpréter quotient et reste.",
+        "commonMistake": "Ne pas oublier la pochette nécessaire pour le reste."
       },
       "correction": [
-        "Le partage conduit au calcul $8{,}4\\div7$.",
-        "On obtient $8{,}4\\div7=1{,}2$.",
-        "Chaque récipient reçoit donc $\\boxed{1{,}2\\ \\text{L}}$.",
-        "Vérification : $1{,}2\\times7=8{,}4$."
+        "La division euclidienne donne $\\boxed{347=24\\times14+11}$. Le quotient vaut $14$ et le reste vaut $11$.",
+        "On peut remplir complètement $14$ pochettes et il reste $11$ badges.",
+        "Les $11$ badges restants nécessitent une pochette supplémentaire. Il faut donc $14+1=15$ pochettes au total."
       ],
       "commonMistakes": [
-        "Ne pas oublier l’unité dans la réponse finale."
+        "Ne pas oublier la pochette nécessaire pour le reste."
       ],
-      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "schemaSvg": null,
+      "schemaAlt": null,
+      "schemaCaption": null,
       "access": {
         "tier": "free",
         "preview": true,
@@ -375,46 +504,62 @@
       "tags": [
         "6eme",
         "nombres-decimaux",
+        "problem-solving",
         "N2"
       ]
     },
     {
       "id": "6e-num-v2-n3-1",
-      "title": "Détecter une erreur par ordre de grandeur",
-      "statement": "Une calculatrice affiche $48{,}7\\times19{,}8=96{,}426$. Sans refaire immédiatement le produit exact, expliquer pourquoi cette égalité est impossible puis donner le résultat correct.",
-      "consigne": "Rédiger les calculs utiles et expliquer la démarche.",
+      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "title": "Contrôler et expliquer une erreur de produit",
+      "statement": "Lors d’un contrôle, un élève saisit le calcul $48{,}7\\times19{,}8$ et écrit comme résultat $96{,}426$. Il affirme que la calculatrice confirme son calcul. On veut analyser sa réponse avant de simplement annoncer qu’elle est fausse.",
+      "questions": [
+        "Sans effectuer le produit exact, déterminer un ordre de grandeur et expliquer ce qu’il permet de conclure sur $96{,}426$.",
+        "Calculer ensuite le produit exact $48{,}7\\times19{,}8$.",
+        "Comparer le résultat erroné et le résultat exact. Proposer une origine plausible de l’erreur en observant leur ordre de grandeur.",
+        "Rédiger une méthode de contrôle en deux étapes qu’un élève pourrait appliquer à tout produit de nombres décimaux."
+      ],
+      "consigne": "Présenter les étapes de raisonnement et écrire une phrase de conclusion lorsque la question demande une interprétation.",
+      "pedagogicalType": "error-analysis",
+      "curriculumItems": [
+        "Calculer le produit de deux nombres décimaux.",
+        "Contrôler les résultats à l’aide d’ordres de grandeur."
+      ],
       "difficulty": 3,
       "difficultyLabel": "N3 — maîtrise",
       "level": "N3",
       "skills": [
+        "chercher",
         "raisonner",
         "calculer",
         "communiquer"
       ],
       "competences": [
+        "chercher",
         "raisonner",
         "calculer",
         "communiquer"
       ],
-      "prerequisites": [],
-      "estimatedTime": 14,
+      "estimatedTime": 20,
       "answerType": "text",
       "hints": {
-        "clue": "Commencer par un calcul mental très simple.",
-        "method": "Remplacer les facteurs par $50$ et $20$ donne un bon ordre de grandeur.",
-        "reminder": "Comparer ensuite l’ordre de grandeur avec le résultat proposé.",
-        "commonMistake": "Ne pas confondre contrôle de vraisemblance et calcul exact."
+        "clue": "Commencer par arrondir les deux facteurs.",
+        "method": "Comparer les ordres de grandeur avant le calcul exact.",
+        "reminder": "Chercher un facteur simple entre les deux résultats.",
+        "commonMistake": "Ne pas considérer l’affichage d’une calculatrice comme une preuve."
       },
       "correction": [
-        "On utilise $48{,}7\\approx50$ et $19{,}8\\approx20$.",
-        "L’ordre de grandeur est donc $50\\times20=1\\,000$.",
-        "Le nombre $96{,}426$ est très éloigné de $1\\,000$ : l’affichage proposé ne peut pas être correct.",
-        "Le produit exact est $48{,}7\\times19{,}8=964{,}26$."
+        "On peut prendre $48{,}7\\approx50$ et $19{,}8\\approx20$. On obtient $50\\times20=1\\,000$. Le produit exact doit donc être proche de $1\\,000$ ; $96{,}426$ est beaucoup trop petit.",
+        "Le produit exact est $\\boxed{48{,}7\\times19{,}8=964{,}26}$.",
+        "Le résultat faux $96{,}426$ est exactement dix fois plus petit que $964{,}26$. Une erreur plausible est donc un mauvais placement du rang décimal lors de l’écriture du produit.",
+        "Une méthode efficace est : d’abord estimer avec des nombres proches faciles à calculer ; ensuite effectuer le calcul exact et comparer son ordre de grandeur à l’estimation. Si les deux sont incompatibles, il faut rechercher une erreur de saisie ou de position décimale."
       ],
       "commonMistakes": [
-        "Ne pas confondre contrôle de vraisemblance et calcul exact."
+        "Ne pas considérer l’affichage d’une calculatrice comme une preuve."
       ],
-      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "schemaSvg": null,
+      "schemaAlt": null,
+      "schemaCaption": null,
       "access": {
         "tier": "free",
         "preview": true,
@@ -424,49 +569,67 @@
       "tags": [
         "6eme",
         "nombres-decimaux",
+        "error-analysis",
         "N3"
       ]
     },
     {
       "id": "6e-num-v2-n3-2",
-      "title": "Programme d’achats",
-      "statement": "Une association achète $18$ carnets à $2{,}75\\ €$ l’unité et $6$ classeurs à $3{,}40\\ €$ l’unité. Elle dispose de $80\\ €$. Calculer la somme restante et contrôler la cohérence du résultat.",
-      "consigne": "Rédiger les calculs utiles et expliquer la démarche.",
+      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "title": "Choisir entre deux offres",
+      "statement": "Une association doit acheter $18$ carnets et $6$ classeurs. Le magasin A vend un carnet $2{,}75\\ €$ et un classeur $3{,}40\\ €$. Le magasin B propose un lot unique de tout le matériel pour $71{,}20\\ €$. Le budget disponible est de $80\\ €$.",
+      "questions": [
+        "Calculer le prix total dans le magasin A.",
+        "Comparer les deux offres et déterminer l’économie réalisée avec la moins chère.",
+        "Calculer la somme restant sur le budget de $80\\ €$ après l’achat avec l’offre la moins chère.",
+        "Donner un ordre de grandeur du coût et expliquer pourquoi le résultat obtenu est cohérent."
+      ],
+      "consigne": "Présenter les étapes de raisonnement et écrire une phrase de conclusion lorsque la question demande une interprétation.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Additionner et soustraire des nombres décimaux.",
+        "Calculer le produit de deux nombres décimaux.",
+        "Contrôler les résultats à l’aide d’ordres de grandeur.",
+        "Résoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux.",
+        "Comparer deux nombres décimaux."
+      ],
       "difficulty": 3,
       "difficultyLabel": "N3 — maîtrise",
       "level": "N3",
       "skills": [
+        "chercher",
         "modéliser",
         "calculer",
         "raisonner",
         "communiquer"
       ],
       "competences": [
+        "chercher",
         "modéliser",
         "calculer",
         "raisonner",
         "communiquer"
       ],
-      "prerequisites": [],
-      "estimatedTime": 18,
+      "estimatedTime": 22,
       "answerType": "text",
       "hints": {
-        "clue": "Traiter séparément chaque type d’achat.",
-        "method": "Additionner les deux coûts avant de calculer le reste.",
-        "reminder": "Utiliser des prix arrondis pour contrôler.",
-        "commonMistake": "Ne pas soustraire chaque dépense directement du budget sans organiser le calcul."
+        "clue": "Calculer séparément les deux familles d’objets.",
+        "method": "Comparer seulement après avoir obtenu les deux totaux.",
+        "reminder": "Soustraire le coût minimal au budget.",
+        "commonMistake": "Le contrôle doit utiliser des prix arrondis simples."
       },
       "correction": [
-        "Le coût des carnets est $18\\times2{,}75=49{,}50\\ €$.",
-        "Le coût des classeurs est $6\\times3{,}40=20{,}40\\ €$.",
-        "Le coût total vaut $49{,}50+20{,}40=69{,}90\\ €$.",
-        "La somme restante est $80-69{,}90=10{,}10\\ €$.",
-        "Un ordre de grandeur donne $18\\times3+6\\times3\\approx72\\ €$, donc un reste proche de $8\\ €$ à $10\\ €$ est plausible."
+        "Dans le magasin A, les carnets coûtent $18\\times2{,}75=49{,}50\\ €$ et les classeurs coûtent $6\\times3{,}40=20{,}40\\ €$. Le total vaut donc $49{,}50+20{,}40=69{,}90\\ €$.",
+        "Le magasin A coûte $69{,}90\\ €$ contre $71{,}20\\ €$ au magasin B. L’économie vaut $71{,}20-69{,}90=1{,}30\\ €$.",
+        "Il reste $80-69{,}90=10{,}10\\ €$ sur le budget.",
+        "On peut estimer $18\\times3+6\\times3\\approx72\\ €$. Un coût exact de $69{,}90\\ €$ est donc plausible. L’ordre de grandeur confirme aussi qu’un résultat proche de $7\\ €$ ou de $700\\ €$ serait incohérent."
       ],
       "commonMistakes": [
-        "Ne pas soustraire chaque dépense directement du budget sans organiser le calcul."
+        "Le contrôle doit utiliser des prix arrondis simples."
       ],
-      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "schemaSvg": null,
+      "schemaAlt": null,
+      "schemaCaption": null,
       "access": {
         "tier": "free",
         "preview": true,
@@ -476,46 +639,65 @@
       "tags": [
         "6eme",
         "nombres-decimaux",
+        "problem-solving",
         "N3"
       ]
     },
     {
       "id": "6e-num-v2-n3-3",
-      "title": "Division euclidienne en contexte",
-      "statement": "Un club doit ranger $347$ balles dans des boîtes pouvant contenir au maximum $24$ balles. Combien de boîtes seront complètement remplies ? Combien de balles resteront ? Combien de boîtes faut-il prévoir au total ?",
-      "consigne": "Rédiger les calculs utiles et expliquer la démarche.",
+      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "title": "Valeur approchée d’un quotient non décimal",
+      "statement": "On partage $2\\ \\text{L}$ d’eau en $3$ parts égales. Le quotient $2\\div3$ n’a pas d’écriture décimale finie. Une calculatrice affiche une suite de chiffres commençant par $0{,}666\\ldots$.",
+      "questions": [
+        "Encadrer le quotient $\\dfrac{2}{3}$ entre deux dixièmes consécutifs.",
+        "Donner une valeur arrondie au centième de $\\dfrac{2}{3}$.",
+        "Comparer $0{,}66$ et $0{,}67$ comme valeurs approchées de $\\dfrac{2}{3}$ et justifier laquelle est l’arrondi au centième.",
+        "Expliquer pourquoi écrire $\\dfrac{2}{3}=0{,}67$ serait incorrect."
+      ],
+      "consigne": "Présenter les étapes de raisonnement et écrire une phrase de conclusion lorsque la question demande une interprétation.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Déterminer ou connaître la valeur arrondie de certains nombres non décimaux.",
+        "Encadrer un nombre décimal par deux nombres décimaux et intercaler un nombre décimal entre deux nombres décimaux.",
+        "Comparer deux nombres décimaux."
+      ],
       "difficulty": 3,
       "difficultyLabel": "N3 — maîtrise",
       "level": "N3",
       "skills": [
-        "modéliser",
+        "chercher",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "competences": [
-        "modéliser",
+        "chercher",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
-      "prerequisites": [],
-      "estimatedTime": 17,
+      "estimatedTime": 20,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier si la question porte sur des groupes complets ou sur le nombre total de contenants nécessaires.",
-        "method": "La division euclidienne s’écrit $a=bq+r$ avec $0\\le r<b$.",
-        "reminder": "Le reste peut nécessiter un contenant supplémentaire.",
-        "commonMistake": "Ne pas donner seulement le quotient lorsque la situation demande de ranger tous les objets."
+        "clue": "Utiliser l’affichage décimal fourni.",
+        "method": "Commencer par les dixièmes puis les centièmes.",
+        "reminder": "Comparer les distances aux deux centièmes voisins.",
+        "commonMistake": "Distinguer le symbole $=$ du symbole $approx$."
       },
       "correction": [
-        "On effectue la division euclidienne de $347$ par $24$.",
-        "On obtient $347=24\\times14+11$.",
-        "Il y a donc $14$ boîtes complètement remplies et il reste $11$ balles.",
-        "Comme les $11$ balles restantes doivent également être rangées, il faut prévoir $14+1=15$ boîtes au total."
+        "Comme $0{,}6<0{,}666\\ldots<0{,}7$, on a $\\boxed{0{,}6<\\dfrac{2}{3}<0{,}7}$.",
+        "Au centième, on obtient $\\boxed{\\dfrac{2}{3}\\approx0{,}67}$.",
+        "Le nombre $0{,}666\\ldots$ est à environ $0{,}0067$ de $0{,}66$ et à environ $0{,}0033$ de $0{,}67$ ; $0{,}67$ est donc plus proche.",
+        "Le symbole $=$ affirme une égalité exacte, alors que $0{,}67$ est seulement une valeur arrondie. Il faut écrire $\\dfrac{2}{3}\\approx0{,}67$."
       ],
       "commonMistakes": [
-        "Ne pas donner seulement le quotient lorsque la situation demande de ranger tous les objets."
+        "Distinguer le symbole $=$ du symbole $approx$."
       ],
-      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "schemaSvg": null,
+      "schemaAlt": null,
+      "schemaCaption": null,
       "access": {
         "tier": "free",
         "preview": true,
@@ -525,48 +707,68 @@
       "tags": [
         "6eme",
         "nombres-decimaux",
+        "reasoning",
         "N3"
       ]
     },
     {
       "id": "6e-num-v2-n3-4",
-      "title": "Plusieurs écritures d’un même nombre",
-      "statement": "On considère le nombre $0{,}375$. Écrire ce nombre comme fraction décimale, comme somme de fractions décimales et comme pourcentage. Puis placer mentalement ce nombre entre deux dixièmes consécutifs.",
-      "consigne": "Rédiger les calculs utiles et expliquer la démarche.",
+      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "title": "Nombre mystère",
+      "statement": "On cherche un nombre décimal $N$. Sa partie entière est comprise entre $3\\,000$ et $4\\,000$. Le chiffre des centaines vaut $7$, celui des dizaines vaut $0$, celui des unités vaut $5$. Sa partie décimale comporte un dixième égal à $4$, un centième égal à $2$ et un millième égal à $6$.",
+      "questions": [
+        "Déterminer le nombre $N$ puis le décomposer selon les valeurs de position.",
+        "Écrire $N$ comme somme d’un entier et de fractions décimales.",
+        "Donner l’arrondi à l’unité, au dixième puis au centième de $N$.",
+        "Construire un autre nombre décimal $M$ qui vérifie $N<M<N+0{,}01$ et justifier votre choix."
+      ],
+      "consigne": "Présenter les étapes de raisonnement et écrire une phrase de conclusion lorsque la question demande une interprétation.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Connaître et utiliser la valeur des chiffres selon leur rang dans l’écriture d’un nombre.",
+        "Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième et millième.",
+        "Connaître des grands nombres entiers.",
+        "Associer et utiliser différentes écritures d’un nombre décimal : écriture à virgule, fraction décimale, nombre mixte et pourcentage.",
+        "Donner la valeur arrondie à l’unité, au dixième ou au centième d’un nombre décimal.",
+        "Encadrer un nombre décimal par deux nombres décimaux et intercaler un nombre décimal entre deux nombres décimaux."
+      ],
       "difficulty": 3,
       "difficultyLabel": "N3 — maîtrise",
       "level": "N3",
       "skills": [
+        "chercher",
         "représenter",
         "raisonner",
         "calculer",
         "communiquer"
       ],
       "competences": [
+        "chercher",
         "représenter",
         "raisonner",
         "calculer",
         "communiquer"
       ],
-      "prerequisites": [],
-      "estimatedTime": 18,
+      "estimatedTime": 22,
       "answerType": "text",
       "hints": {
-        "clue": "Lire successivement dixièmes, centièmes et millièmes.",
-        "method": "Une écriture en pourcentage correspond à une écriture sur $100$.",
-        "reminder": "Pour l’encadrement, ne conserver que les dixièmes voisins.",
-        "commonMistake": "Ne pas confondre $0{,}375$ avec $375\\,\\%$."
+        "clue": "Construire le nombre rang par rang.",
+        "method": "Séparer partie entière et partie décimale.",
+        "reminder": "Pour arrondir, regarder le rang immédiatement à droite.",
+        "commonMistake": "Pour intercaler, modifier un rang plus fin que le centième."
       },
       "correction": [
-        "Comme $0{,}375$ comporte des millièmes, $0{,}375=\\dfrac{375}{1\\,000}$.",
-        "On peut écrire $0{,}375=\\dfrac{3}{10}+\\dfrac{7}{100}+\\dfrac{5}{1\\,000}$.",
-        "Comme $0{,}375=\\dfrac{37{,}5}{100}$, on a $0{,}375=37{,}5\\,\\%$.",
-        "Enfin, $\\boxed{0{,}3<0{,}375<0{,}4}$."
+        "Les informations imposent $\\boxed{N=3\\,705{,}426}$. Sa décomposition est $3\\times1\\,000+7\\times100+5+4\\times\\dfrac{1}{10}+2\\times\\dfrac{1}{100}+6\\times\\dfrac{1}{1\\,000}$.",
+        "On peut écrire $N=3\\,705+\\dfrac{4}{10}+\\dfrac{2}{100}+\\dfrac{6}{1\\,000}$.",
+        "Les arrondis sont $N\\approx3\\,705$ à l’unité, $N\\approx3\\,705{,}4$ au dixième et $N\\approx3\\,705{,}43$ au centième.",
+        "Par exemple, $M=3\\,705{,}427$ convient car $3\\,705{,}426<3\\,705{,}427<3\\,705{,}436=N+0{,}01$. Il existe de nombreuses autres réponses possibles."
       ],
       "commonMistakes": [
-        "Ne pas confondre $0{,}375$ avec $375\\,\\%$."
+        "Pour intercaler, modifier un rang plus fin que le centième."
       ],
-      "chapterId": "college/6eme/nombres-entiers-decimaux",
+      "schemaSvg": null,
+      "schemaAlt": null,
+      "schemaCaption": null,
       "access": {
         "tier": "free",
         "preview": true,
@@ -576,6 +778,7 @@
       "tags": [
         "6eme",
         "nombres-decimaux",
+        "reasoning",
         "N3"
       ]
     }
