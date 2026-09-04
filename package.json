@@ -12,7 +12,7 @@
     "lint": "eslint . --max-warnings=0",
     "test": "tsx --test \"tests/**/*.test.mjs\"",
     "verify:content": "tsx scripts/verify-routes-and-content.mjs",
-    "audit:security": "npm audit --audit-level=high",
+    "audit:security": "node scripts/audit-security.mjs",
     "audit:dist": "node scripts/audit-dist.mjs",
     "audit:dist:fast": "node scripts/audit-dist.mjs --skip-axe",
     "audit:dist:a11y": "node scripts/audit-dist.mjs --only-axe",

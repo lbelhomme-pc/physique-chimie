@@ -71,3 +71,8 @@ Le GO final exige :
 - `dist-fast` vert ;
 - `dist-a11y` vert ;
 - aucune route 2026 future exposée pour 4e/3e.
+
+
+## Résilience du contrôle de sécurité
+
+Le contrôle `npm audit --audit-level=high` reste bloquant lorsqu'il signale une vulnérabilité élevée/critique ou une erreur locale inattendue. En revanche, une indisponibilité explicite du registre npm (503, timeout, erreur réseau transitoire) est journalisée comme incident externe et ne transforme plus à elle seule une branche saine en échec CI.
