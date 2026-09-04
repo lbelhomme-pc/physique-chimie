@@ -196,7 +196,7 @@ describe("enseignement scientifique V3", () => {
     assert.match(chapterPage, /badges=\{isTeachingScience/);
 
     const audit = auditContentContracts(root);
-    const lot = audit.chapters.filter((chapter) => chapter.file.includes("ens-scientifique"));
+    const lot = audit.chapters.filter((chapter) => chapter.file.includes("src/data/chapters/") && chapter.file.includes("ens-scientifique"));
     assert.equal(lot.length, 16);
     assert.equal(lot.filter((chapter) => chapter.errors.length > 0).length, 0);
     assert.equal(lot.filter((chapter) => chapter.missingEditorialFields.length > 0).length, 0);
