@@ -1,0 +1,443 @@
+% Mathématiques 4e — cours V3
+% Statistiques et médiane
+
+\section{Objectifs}
+
+\begin{itemize}
+\item Recueillir et organiser une série de données.
+\item Calculer et interpréter des effectifs et des fréquences.
+\item Calculer une moyenne simple ou pondérée par des effectifs.
+\item Ordonner une série.
+\item Déterminer et interpréter une médiane.
+\item Comparer moyenne et médiane.
+\item Lire et produire tableaux, diagrammes et graphiques.
+\item Choisir un indicateur ou une représentation adaptée à une question.
+\item Exercer un regard critique sur des données et leurs représentations.
+\end{itemize}
+
+\section{1. Une série statistique}
+
+Une série statistique est un ensemble de données recueillies sur une population.
+
+Par exemple, on peut relever le temps de trajet de chaque élève d'une classe :
+\[
+12,\ 18,\ 9,\ 15,\ 11,\ 35,\ldots
+\]
+
+Avant tout calcul, il faut connaître :
+\begin{itemize}
+\item la population ;
+\item le caractère étudié ;
+\item l'unité ;
+\item l'effectif total.
+\end{itemize}
+
+\section{2. Effectif}
+
+L'effectif d'une valeur est le nombre de fois où cette valeur apparaît.
+
+Pour la série :
+\[
+2,\ 3,\ 3,\ 4,\ 4,\ 4,\ 7,
+\]
+l'effectif de :
+\[
+4
+\]
+est :
+\[
+3.
+\]
+
+L'effectif total vaut :
+\[
+7.
+\]
+
+\section{3. Fréquence}
+
+La fréquence d'une valeur ou catégorie est :
+\[
+\boxed{
+f=\dfrac{\text{effectif de la valeur}}{\text{effectif total}}
+}.
+\]
+
+Dans l'exemple précédent :
+\[
+f(4)=\dfrac37.
+\]
+
+On peut aussi l'exprimer en écriture décimale ou en pourcentage.
+
+\section{4. Tableau d'effectifs}
+
+Une série peut être regroupée.
+
+\begin{tabular}{c|c|c}
+Valeur & Effectif & Fréquence \\
+$10$ & $3$ & $15\%$ \\
+$11$ & $5$ & $25\%$ \\
+$12$ & $8$ & $40\%$ \\
+$13$ & $4$ & $20\%$ \\
+\end{tabular}
+
+L'effectif total est :
+\[
+3+5+8+4=20.
+\]
+
+La somme des fréquences vaut :
+\[
+100\%.
+\]
+
+\section{5. Moyenne simple}
+
+Pour $n$ valeurs :
+\[
+x_1,\ldots,x_n,
+\]
+la moyenne est :
+\[
+\boxed{
+\overline{x}=\dfrac{x_1+\cdots+x_n}{n}
+}.
+\]
+
+Pour :
+\[
+8,\ 10,\ 13,\ 9,
+\]
+la moyenne vaut :
+\[
+\dfrac{8+10+13+9}{4}=10.
+\]
+
+\section{6. Moyenne avec effectifs}
+
+Lorsque les valeurs sont regroupées par effectifs :
+\[
+\boxed{
+\overline{x}
+=
+\dfrac{x_1n_1+x_2n_2+\cdots+x_kn_k}{n_1+\cdots+n_k}
+}.
+\]
+
+\begin{exemple}
+Les notes $8$, $10$ et $14$ apparaissent respectivement $2$, $3$ et $1$ fois.
+
+La moyenne vaut :
+\[
+\dfrac{8\times2+10\times3+14\times1}{6}
+=
+\dfrac{60}{6}
+=
+10.
+\]
+\end{exemple}
+
+\section{7. Ordonner une série}
+
+La médiane exige d'abord de ranger les valeurs.
+
+Série brute :
+\[
+12,\ 5,\ 8,\ 14,\ 7.
+\]
+
+Série ordonnée :
+\[
+5,\ 7,\ 8,\ 12,\ 14.
+\]
+
+La position des valeurs devient alors exploitable.
+
+\section{8. Médiane : idée}
+
+\begin{definition}
+Une médiane est une valeur qui partage une série ordonnée en deux groupes contenant au moins la moitié des données de chaque côté.
+\end{definition}
+
+Pour un effectif impair, la valeur centrale fournit immédiatement la médiane.
+
+\coursefigure{/images/mathematiques/4eme/statistiques-mediane.svg}{Série de neuf valeurs ordonnées dont la cinquième est mise en évidence.}{Avec neuf valeurs, la cinquième laisse quatre valeurs de chaque côté : c'est la médiane.}
+
+\section{9. Effectif impair}
+
+Considérons :
+\[
+4,\ 6,\ 7,\ 8,\ 10,\ 12,\ 14,\ 17,\ 21.
+\]
+
+Il y a :
+\[
+9
+\]
+valeurs.
+
+La valeur centrale est la cinquième :
+\[
+\boxed{10}.
+\]
+
+Il reste quatre valeurs avant et quatre valeurs après.
+
+\section{10. Effectif pair}
+
+Considérons :
+\[
+3,\ 5,\ 8,\ 9,\ 12,\ 15.
+\]
+
+Il y a :
+\[
+6
+\]
+valeurs.
+
+Les deux valeurs centrales sont :
+\[
+8
+\]
+et :
+\[
+9.
+\]
+
+Au collège, on choisit couramment comme médiane la moyenne de ces deux valeurs :
+\[
+\dfrac{8+9}{2}=8{,}5.
+\]
+
+Donc :
+\[
+\boxed{8{,}5}.
+\]
+
+\section{11. Interpréter la médiane}
+
+Si la médiane d'un temps de trajet vaut :
+\[
+18\ \text{min},
+\]
+cela signifie qu'au moins la moitié des trajets ont une durée inférieure ou égale à :
+\[
+18\ \text{min},
+\]
+et qu'au moins la moitié ont une durée supérieure ou égale à :
+\[
+18\ \text{min}.
+\]
+
+La médiane ne signifie pas que tous les trajets sont proches de $18$ minutes.
+
+\section{12. Moyenne et médiane}
+
+La moyenne utilise les valeurs numériques de toutes les données.
+
+La médiane utilise principalement leur ordre.
+
+\coursefigure{/images/mathematiques/4eme/statistiques-moyenne-mediane.svg}{Deux distributions illustrant l'influence d'une valeur extrême sur la moyenne.}{Une valeur très éloignée peut déplacer fortement la moyenne sans nécessairement déplacer la médiane autant.}
+
+Ces deux indicateurs peuvent donc apporter des informations différentes.
+
+\section{13. Valeur extrême}
+
+Considérons :
+\[
+10,\ 11,\ 11,\ 12,\ 56.
+\]
+
+La médiane vaut :
+\[
+11.
+\]
+
+La moyenne vaut :
+\[
+\dfrac{10+11+11+12+56}{5}
+=
+20.
+\]
+
+La valeur $56$ augmente fortement la moyenne.
+
+La médiane reste proche des quatre premières valeurs.
+
+\section{14. Comparer deux séries}
+
+Deux classes peuvent avoir la même moyenne et des médianes différentes.
+
+Deux séries peuvent aussi avoir la même médiane mais des moyennes différentes.
+
+Un seul indicateur ne décrit donc pas complètement une série.
+
+Il faut revenir à la question posée.
+
+\section{15. Diagramme en barres}
+
+Un diagramme en barres permet de comparer des valeurs ou catégories.
+
+La hauteur des barres traduit l'effectif ou la fréquence.
+
+On contrôle :
+\begin{itemize}
+\item le titre ;
+\item l'échelle ;
+\item les unités ;
+\item l'origine de l'axe.
+\end{itemize}
+
+\section{16. Diagramme circulaire}
+
+Le disque entier représente :
+\[
+100\%.
+\]
+
+Pour une fréquence :
+\[
+35\%,
+\]
+l'angle du secteur vaut :
+\[
+0{,}35\times360^\circ=126^\circ.
+\]
+
+Un diagramme circulaire est adapté à une répartition d'un total.
+
+\section{17. Histogramme ou barres ?}
+
+Dans une situation de données regroupées en classes d'intervalles, on peut rencontrer des représentations où les rectangles sont jointifs.
+
+Il ne faut pas confondre cette situation avec un simple diagramme de catégories indépendantes.
+
+En 4e, l'essentiel est surtout de lire correctement la représentation proposée.
+
+\section{18. Graphique d'évolution}
+
+Une courbe peut représenter une grandeur au cours du temps.
+
+La moyenne ou la médiane d'une série n'est pas nécessairement visible directement sur cette courbe.
+
+Chaque outil répond à une question différente :
+\[
+\text{évolution}\neq\text{position centrale}.
+\]
+
+\section{19. Données manquantes}
+
+Si des données sont absentes, il faut le signaler.
+
+Une moyenne calculée sur :
+\[
+28
+\]
+réponses n'est pas automatiquement représentative d'une classe de :
+\[
+32
+\]
+élèves si les quatre non-réponses ne sont pas aléatoires.
+
+Même au collège, la qualité des données compte.
+
+\section{20. Choisir un indicateur}
+
+\begin{methode}
+\begin{itemize}
+\item Pour partager équitablement un total : la moyenne est naturelle.
+\item Pour chercher une valeur centrale résistante à une valeur extrême : la médiane peut être plus pertinente.
+\item Pour connaître une proportion : utiliser une fréquence.
+\item Pour comparer des catégories : utiliser un tableau ou un diagramme adapté.
+\end{itemize}
+\end{methode}
+
+\section{21. Exemple développé}
+
+Les durées en minutes sont :
+\[
+8,\ 10,\ 11,\ 11,\ 13,\ 15,\ 16,\ 40.
+\]
+
+L'effectif est pair :
+\[
+8.
+\]
+
+Les valeurs centrales sont :
+\[
+11
+\]
+et :
+\[
+13.
+\]
+
+La médiane vaut :
+\[
+\dfrac{11+13}{2}=12.
+\]
+
+La moyenne vaut :
+\[
+\dfrac{124}{8}=15{,}5.
+\]
+
+La valeur $40$ tire la moyenne vers le haut.
+
+\section{22. Tableur}
+
+Un tableur permet :
+\begin{itemize}
+\item de trier les données ;
+\item de calculer une moyenne ;
+\item de compter des effectifs ;
+\item de calculer des fréquences ;
+\item de produire un graphique.
+\end{itemize}
+
+Mais l'élève doit encore interpréter le résultat et choisir l'indicateur pertinent.
+
+\section{23. Méthode de médiane}
+
+\begin{methode}
+\begin{enumerate}
+\item ranger toutes les valeurs dans l'ordre croissant ;
+\item compter l'effectif total ;
+\item si l'effectif est impair, repérer la valeur centrale ;
+\item s'il est pair, repérer les deux valeurs centrales et appliquer la convention utilisée ;
+\item interpréter le résultat dans le contexte.
+\end{enumerate}
+\end{methode}
+
+\section{24. Erreurs fréquentes}
+
+\begin{itemize}
+\item Chercher la médiane sans ordonner la série.
+\item Confondre médiane et moyenne.
+\item Prendre la moitié de la plus grande valeur.
+\item Oublier les effectifs dans un calcul de moyenne pondérée.
+\item Interpréter une fréquence comme un effectif.
+\item Lire un graphique sans vérifier l'échelle.
+\item Présenter une moyenne sans unité alors que les données en ont une.
+\end{itemize}
+
+\section{À retenir}
+
+\begin{aretenir}
+La fréquence vaut :
+\[
+\boxed{f=\dfrac{\text{effectif}}{\text{effectif total}}}.
+\]
+
+La moyenne simple vaut :
+\[
+\boxed{\overline{x}=\dfrac{\text{somme des valeurs}}{\text{effectif total}}}.
+\]
+
+La médiane partage une série ordonnée en deux moitiés.
+
+Moyenne et médiane ne décrivent pas la même propriété d'une série : il faut choisir l'indicateur selon la question et interpréter les résultats dans leur contexte.
+\end{aretenir}
