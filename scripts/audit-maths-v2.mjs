@@ -105,13 +105,15 @@ function validateLatexFields(label, fields, errors) {
   }
 }
 
-function validateExercises(raw) {
+function validateExercises(raw, chapterCurriculumItems = []) {
   const exercises = asArray(raw, ["exercices", "exercises"]);
   const errors = [];
   const levels = { N1: 0, N2: 0, N3: 0, OTHER: 0 };
   const ids = new Set();
   const pedagogicalTypes = new Set();
   const skillsCovered = new Set();
+  const curriculumCovered = new Set();
+  const curriculumSet = new Set(chapterCurriculumItems);
   let visualExercises = 0;
 
   for (const exercise of exercises) {
@@ -156,6 +158,13 @@ function validateExercises(raw) {
 
     if (!pedagogicalType) errors.push("exercices " + id + ": pedagogicalType absent");
     if (curriculumItems.length === 0) errors.push("exercices " + id + ": aucun curriculumItem");
+    for (const item of curriculumItems) {
+      if (curriculumSet.size > 0 && !curriculumSet.has(item)) {
+        errors.push("exercices " + id + ": curriculumItem absent du référentiel du chapitre -> " + item);
+      } else {
+        curriculumCovered.add(item);
+      }
+    }
     if (skills.length === 0) errors.push("exercices " + id + ": aucune compétence");
     if (!exercise?.estimatedTime) errors.push("exercices " + id + ": durée indicative absente");
 
@@ -213,6 +222,13 @@ function validateExercises(raw) {
     errors.push("exercices: " + visualExercises + " exercice(s) exploitant un support visuel < 2");
   }
 
+  if (chapterCurriculumItems.length > 0) {
+    const coverageRate = curriculumCovered.size / chapterCurriculumItems.length;
+    if (coverageRate < 0.8) {
+      errors.push("exercices: couverture des attendus " + curriculumCovered.size + "/" + chapterCurriculumItems.length + " < 80 %");
+    }
+  }
+
   return {
     errors,
     metrics: {
@@ -221,6 +237,8 @@ function validateExercises(raw) {
       pedagogicalTypes: [...pedagogicalTypes].sort(),
       skillsCovered: [...skillsCovered].filter(Boolean).sort(),
       visualExercises,
+      curriculumCovered: curriculumCovered.size,
+      curriculumTotal: chapterCurriculumItems.length,
     },
   };
 }
@@ -321,7 +339,7 @@ export function auditMathsV2(root = CHAPTER_ROOT) {
         row.metrics.course = result.metrics;
       }
       if (existsSync(path.join(dir, "exercices.json"))) {
-        const result = validateExercises(readJson(path.join(dir, "exercices.json")));
+        const result = validateExercises(readJson(path.join(dir, "exercices.json")), Array.isArray(meta.curriculumItems) ? meta.curriculumItems : []);
         row.errors.push(...result.errors);
         row.metrics.exercises = result.metrics;
       }
