@@ -1,0 +1,68 @@
+## Objectifs
+- Modéliser une croissance linéaire.
+- Utiliser une suite arithmétique pour une évolution discrète.
+- Utiliser une fonction affine pour une évolution continue.
+- Résoudre un problème de seuil.
+
+## 1. Croissance linéaire
+Une grandeur évolue linéairement lorsque son **accroissement** est constant.
+
+Si un budget augmente de 120 € chaque mois et si $u(n)$ désigne sa valeur après $n$ mois :
+$$
+u(n+1)=u(n)+120.
+$$
+
+## 2. Suites arithmétiques
+Une suite arithmétique de raison $r$ vérifie
+$$
+u(n+1)=u(n)+r.
+$$
+
+Si le terme initial est $u(0)$ :
+$$
+u(n)=u(0)+nr.
+$$
+
+- si $r>0$, la suite est croissante ;
+- si $r<0$, elle est décroissante ;
+- si $r=0$, elle est constante.
+
+## 3. Fonctions affines
+Une fonction affine s'écrit
+$$
+f(x)=ax+b.
+$$
+
+Le coefficient $a$ représente un taux d'accroissement constant : lorsque $x$ augmente d'une unité, $f(x)$ varie de $a$.
+
+Sa représentation graphique est une droite.
+
+## 4. Discret ou continu ?
+Une suite décrit naturellement des étapes entières : mois, années, générations, rangs. Une fonction peut décrire une grandeur sur un intervalle réel. Le choix du modèle dépend donc du phénomène étudié.
+
+## 5. Problème de seuil
+Pour $u(n)=1400+120n$, cherchons le premier rang tel que $u(n)\ge2000$ :
+$$
+1400+120n\ge2000
+$$
+donc
+$$
+120n\ge600,
+$$
+d'où $n\ge5$.
+
+Le seuil est atteint au rang 5.
+
+## Automatismes à entretenir
+- Calculer un taux d'évolution.
+- Résoudre une équation ou une inéquation simple du premier degré.
+- Lire le coefficient directeur d'une droite.
+- Tracer une droite à partir de son équation.
+
+## Erreurs fréquentes
+- Confondre accroissement constant et taux d'évolution constant.
+- Utiliser un modèle discret pour un phénomène continu sans justification.
+- Oublier que le rang $n$ d'une suite est entier.
+
+## À retenir
+Croissance linéaire = ajout constant. En discret, le modèle naturel est la suite arithmétique ; en continu, la fonction affine.

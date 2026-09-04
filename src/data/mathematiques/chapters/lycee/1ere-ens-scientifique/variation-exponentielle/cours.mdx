@@ -1,0 +1,84 @@
+## Objectifs
+- Modéliser une évolution à taux constant.
+- Utiliser une suite géométrique pour une évolution discrète.
+- Comprendre l'extension vers la fonction exponentielle $x\mapsto a^x$ pour $a>0$ et $x\ge0$.
+- Calculer un taux d'évolution moyen et résoudre un problème de seuil.
+
+## 1. Évolution exponentielle
+Une évolution exponentielle correspond à un **coefficient multiplicateur constant**.
+
+Une hausse de 5 % correspond au coefficient
+$$
+1+\frac{5}{100}=1{,}05.
+$$
+
+Une baisse de 8 % correspond au coefficient
+$$
+1-\frac{8}{100}=0{,}92.
+$$
+
+## 2. Suite géométrique
+Une suite géométrique à termes strictement positifs et de raison $q>0$ vérifie
+$$
+u(n+1)=q\,u(n).
+$$
+
+Ainsi,
+$$
+u(n)=u(0)q^n.
+$$
+
+Si $q>1$, la suite est croissante. Si $0<q<1$, elle est décroissante.
+
+## 3. Fonction exponentielle
+La fonction
+$$
+x\mapsto a^x\qquad(a>0,\ x\ge0)
+$$
+prolonge le modèle géométrique aux valeurs réelles positives de $x$.
+
+On utilise notamment
+$$
+a^{x+y}=a^x a^y.
+$$
+
+Les valeurs comme $a^{1/n}$ permettent d'interpréter une évolution sur une fraction de période.
+
+## 4. Taux d'évolution moyen
+Si un coefficient global $C$ résulte de $n$ évolutions identiques, le coefficient moyen $q$ vérifie
+$$
+q^n=C.
+$$
+
+Le taux moyen vaut alors $q-1$.
+
+Exemple : une quantité est multipliée par 1,21 en deux périodes :
+$$
+q=\sqrt{1{,}21}=1{,}10.
+$$
+Le taux moyen est donc 10 % par période.
+
+## 5. Seuil et ordre de grandeur
+Pour déterminer quand une quantité dépasse un seuil, on peut calculer des termes successifs, utiliser une représentation graphique ou un outil numérique.
+
+Une croissance exponentielle peut devenir très rapide : l'ordre de grandeur du résultat doit toujours être contrôlé.
+
+## 6. Applications
+- intérêts composés ;
+- décroissance radioactive ;
+- élimination d'une substance ;
+- croissance de populations selon un modèle simplifié.
+
+## Automatismes à entretenir
+- Passer d'un taux au coefficient multiplicateur.
+- Calculer des évolutions successives.
+- Utiliser les puissances.
+- Lire une croissance ou une décroissance sur un graphique.
+
+## Erreurs fréquentes
+- Confondre ajout constant et pourcentage constant.
+- Additionner des pourcentages successifs au lieu de multiplier les coefficients.
+- Utiliser une raison négative alors que le programme traite ici des suites géométriques à termes strictement positifs.
+
+## À retenir
+Évolution exponentielle = coefficient multiplicateur constant. En discret : suite géométrique. Sur les réels positifs : fonction exponentielle.
