@@ -70,3 +70,29 @@ L'ancien preview Vercel de la branche a révélé une incompatibilité MDX dans 
 Le chapitre C24 V2 n°1 a lui aussi été normalisé en `$...$` / `$$...$$` afin de conserver un rendu KaTeX compatible avec le parseur MDX.
 
 La certification globale de C24 reste **NON** tant que les 13 chapitres ne sont pas V2.
+
+
+## Garde-fou exercices V2
+
+À partir du chapitre 1, la certification d'un exercice vérifie aussi :
+
+- affichage séparé de l'énoncé complet et de la consigne ;
+- questions numérotées ;
+- N2 : au moins 2 étapes/questions ;
+- N3 : au moins 3 étapes/questions avec justification, interprétation, décision ou contrôle ;
+- rattachement explicite aux attendus du chapitre ;
+- au moins 4 types pédagogiques distincts dans le chapitre ;
+- large couverture des six compétences mathématiques ;
+- au moins 2 exercices avec support visuel lorsque le contenu s'y prête ;
+- couverture d'au moins 80 % des attendus du chapitre ;
+- correction structurée question par question ;
+- toutes les écritures mathématiques en LaTeX/KaTeX.
+
+### Chapitre 1 après renforcement
+
+- 12 exercices : 4 N1, 4 N2, 4 N3 ;
+- 5 types pédagogiques distincts ;
+- 6 compétences mathématiques mobilisées ;
+- 2 exercices avec support visuel ;
+- 24/24 attendus du chapitre couverts ;
+- aucun écrit mathématique brut détecté hors LaTeX dans les ressources d'exercices.
