@@ -1,0 +1,74 @@
+## Objectifs
+- Utiliser Python comme outil de recherche et de validation.
+- Programmer des algorithmes classiques du programme.
+- Lire un code et expliquer son résultat.
+- Distinguer expérimentation numérique et preuve.
+
+## 1. Recherche de seuil
+~~~python
+def seuil(u0, cible):
+    n = 0
+    u = u0
+    while u < cible:
+        u = 1.05 * u
+        n += 1
+    return n
+~~~
+
+## 2. Dichotomie
+~~~python
+def dichotomie(f, a, b, eps):
+    while b - a > eps:
+        m = (a + b) / 2
+        if f(a) * f(m) <= 0:
+            b = m
+        else:
+            a = m
+    return (a + b) / 2
+~~~
+
+Le code ne remplace pas le théorème des valeurs intermédiaires : il affine un encadrement déjà justifié.
+
+## 3. Simulation de Bernoulli
+~~~python
+from random import random
+
+def bernoulli(p):
+    return 1 if random() < p else 0
+~~~
+
+## 4. Sommes
+~~~python
+def somme_inverse_carres(n):
+    s = 0
+    for k in range(1, n + 1):
+        s += 1 / (k * k)
+    return s
+~~~
+
+## 5. Intégration numérique
+~~~python
+def rectangles(f, a, b, n):
+    h = (b - a) / n
+    s = 0
+    for k in range(n):
+        s += f(a + k * h)
+    return h * s
+~~~
+
+## 6. Validation
+Toujours contrôler :
+- les entrées ;
+- les domaines ;
+- l'ordre de grandeur ;
+- la précision ;
+- la différence entre valeur approchée et valeur exacte.
+
+## Erreurs fréquentes
+- Confondre simulation et preuve.
+- Oublier une condition d'arrêt.
+- Modifier la mauvaise borne dans une dichotomie.
+- Interpréter une valeur approchée comme exacte.
+
+## À retenir
+Python sert à explorer, simuler et approcher ; le raisonnement mathématique justifie les propriétés utilisées.
