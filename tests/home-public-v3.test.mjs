@@ -6,6 +6,7 @@ import { join } from "node:path";
 const root = process.cwd();
 const homePath = join(root, "src/pages/index.astro");
 const homeSource = readFileSync(homePath, "utf8");
+const globalSearchCatalogueSource = readFileSync(join(root, "src/data/globalSearchResources.ts"), "utf8");
 const publicMenuSource = readFileSync(join(root, "src/data/publicMenu.ts"), "utf8");
 const publicNavigationSource = readFileSync(join(root, "src/components/navigation/PublicNavigationV3.astro"), "utf8");
 const baseLayoutSource = readFileSync(join(root, "src/layouts/BaseLayout.astro"), "utf8");
@@ -39,8 +40,9 @@ describe("Accueil public V3", () => {
   });
 
   it("calcule la promesse mathematiques depuis les seuls niveaux réellement publies", () => {
-    assert.match(homeSource, /getPublishedMathematicsLevels/);
-    assert.match(homeSource, /const publishedMathChapters = mathChapters\.filter/);
+    assert.match(homeSource, /getGlobalSearchCatalogue/);
+    assert.match(globalSearchCatalogueSource, /getPublishedMathematicsLevels/);
+    assert.match(globalSearchCatalogueSource, /const publishedMathChapters = mathChapters\.filter/);
     assert.match(homeSource, /const mathChapterCount = publishedMathChapters\.length/);
     assert.match(homeSource, /const mathCoverageText = publishedMathLevelLabels\.length === 0/);
     assert.match(homeSource, /text: mathCoverageText/);
@@ -85,7 +87,7 @@ describe("Accueil public V3", () => {
         `lien public manquant : ${href}`,
       );
     }
-    assert.match(homeSource, /<GlobalSearch client:load resources={resources} \/>/);
+    assert.match(homeSource, /<GlobalSearch client:load resourceUrl="\\/search-index\\.json" resourceCount={resources\.length} \/>/);
   });
 
   it("utilise un visuel scientifique optimise et accessible", () => {
