@@ -1,0 +1,456 @@
+% Mathématiques 4e — cours V3
+% Nombres rationnels et calcul
+
+\section{Objectifs}
+
+\begin{itemize}
+\item Étendre les quatre opérations aux nombres relatifs.
+\item Déterminer le signe d'un produit ou d'un quotient.
+\item Comprendre qu'un nombre rationnel est un quotient d'entiers.
+\item Utiliser l'inverse d'un nombre non nul.
+\item Multiplier et diviser des fractions.
+\item Comparer des nombres rationnels écrits sous différentes formes.
+\item Simplifier une fraction et reconnaître une fraction irréductible.
+\item Résoudre des problèmes faisant intervenir plusieurs opérations sur des rationnels.
+\end{itemize}
+
+\section{1. Du nombre décimal au nombre rationnel}
+
+Tous les quotients de deux entiers ne possèdent pas une écriture décimale finie.
+
+Par exemple :
+\[
+1\div3=0{,}333\ldots
+\]
+
+Le nombre est pourtant parfaitement défini par :
+\[
+\dfrac13.
+\]
+
+\begin{definition}
+Un nombre rationnel est un nombre qui peut s'écrire :
+\[
+\dfrac ab
+\]
+où $a$ est un entier relatif et $b$ un entier relatif non nul.
+\end{definition}
+
+Ainsi :
+\[
+-2{,}5=-\dfrac52
+\]
+est rationnel, tout comme :
+\[
+\dfrac7{12}.
+\]
+
+\section{2. Produit de deux nombres relatifs}
+
+La valeur absolue du produit se calcule comme avec des nombres positifs.
+
+Le signe dépend des signes des facteurs.
+
+\coursefigure{/images/mathematiques/4eme/rationnels-signes.svg}{Tableau des signes d'un produit ou d'un quotient de deux nombres relatifs.}{Deux nombres de même signe donnent un résultat positif ; deux nombres de signes différents donnent un résultat négatif.}
+
+\begin{propriete}
+Pour un produit de deux nombres relatifs :
+\begin{itemize}
+\item mêmes signes : produit positif ;
+\item signes différents : produit négatif.
+\end{itemize}
+\end{propriete}
+
+Exemples :
+\[
+(-7)\times(-4)=28,
+\]
+\[
+(-7)\times4=-28.
+\]
+
+\section{3. Produit de plusieurs facteurs}
+
+Pour plusieurs facteurs non nuls, on peut compter le nombre de facteurs négatifs.
+
+\begin{propriete}
+Un produit est positif si le nombre de facteurs négatifs est pair.
+
+Il est négatif si le nombre de facteurs négatifs est impair.
+\end{propriete}
+
+Par exemple :
+\[
+(-2)\times(-3)\times5=30.
+\]
+
+Il y a deux facteurs négatifs.
+
+Au contraire :
+\[
+(-2)\times(-3)\times(-5)=-30.
+\]
+
+\section{4. Quotient de nombres relatifs}
+
+Les mêmes règles de signe s'appliquent au quotient.
+
+\[
+\dfrac{-24}{6}=-4,
+\]
+\[
+\dfrac{-24}{-6}=4.
+\]
+
+\begin{attention}
+Le quotient par zéro n'existe pas.
+\end{attention}
+
+On ne peut jamais écrire :
+\[
+\dfrac a0.
+\]
+
+\section{5. Opposé et signe d'une fraction}
+
+Une fraction peut porter son signe à plusieurs endroits :
+\[
+-\dfrac35
+=
+\dfrac{-3}{5}
+=
+\dfrac3{-5}.
+\]
+
+Mais :
+\[
+\dfrac{-3}{-5}
+=
+\dfrac35.
+\]
+
+Deux signes négatifs se compensent dans un quotient.
+
+\section{6. Inverse}
+
+\begin{definition}
+L'inverse d'un nombre non nul $a$ est :
+\[
+\dfrac1a.
+\]
+
+Il est caractérisé par :
+\[
+a\times\dfrac1a=1.
+\]
+\end{definition}
+
+L'inverse de :
+\[
+5
+\]
+est :
+\[
+\dfrac15.
+\]
+
+L'inverse de :
+\[
+-\dfrac37
+\]
+est :
+\[
+-\dfrac73.
+\]
+
+\section{7. Diviser revient à multiplier par l'inverse}
+
+Pour $b\neq0$ :
+\[
+a\div b=a\times\dfrac1b.
+\]
+
+Cette propriété permet de définir la division des fractions.
+
+\coursefigure{/images/mathematiques/4eme/rationnels-division-fractions.svg}{Transformation d'une division de fractions en multiplication par l'inverse.}{Diviser par une fraction non nulle revient à multiplier par la fraction renversée.}
+
+\section{8. Multiplication de fractions}
+
+Pour $b\neq0$ et $d\neq0$ :
+\[
+\boxed{
+\dfrac ab\times\dfrac cd=\dfrac{ac}{bd}
+}.
+\]
+
+\begin{exemple}
+\[
+\dfrac34\times\dfrac{10}{9}
+=
+\dfrac{30}{36}
+=
+\dfrac56.
+\]
+\end{exemple}
+
+On peut parfois simplifier avant de multiplier :
+\[
+\dfrac{14}{15}\times\dfrac{25}{21}.
+\]
+
+On simplifie $14$ avec $21$ par $7$, et $25$ avec $15$ par $5$ :
+\[
+\dfrac23\times\dfrac53=\dfrac{10}{9}.
+\]
+
+\section{9. Division de fractions}
+
+Pour $c\neq0$ :
+\[
+\boxed{
+\dfrac ab\div\dfrac cd
+=
+\dfrac ab\times\dfrac dc
+}.
+\]
+
+\begin{exemple}
+\[
+\dfrac56\div\dfrac{10}{9}
+=
+\dfrac56\times\dfrac9{10}
+=
+\dfrac{45}{60}
+=
+\dfrac34.
+\]
+\end{exemple}
+
+\section{10. Addition et soustraction}
+
+Les règles vues en 5e restent valables.
+
+Pour additionner ou soustraire des fractions, il faut disposer d'un dénominateur commun.
+
+\[
+-\dfrac23+\dfrac54
+=
+-\dfrac8{12}+\dfrac{15}{12}
+=
+\dfrac7{12}.
+\]
+
+Le signe du numérateur fait partie du calcul.
+
+\section{11. Priorités opératoires}
+
+Dans une expression contenant plusieurs opérations :
+\begin{enumerate}
+\item on traite les parenthèses ;
+\item puis multiplications et divisions ;
+\item enfin additions et soustractions.
+\end{enumerate}
+
+Par exemple :
+\[
+A=-\dfrac35\times\dfrac{10}{9}-\dfrac13.
+\]
+
+On calcule d'abord le produit :
+\[
+-\dfrac35\times\dfrac{10}{9}
+=
+-\dfrac{30}{45}
+=
+-\dfrac23.
+\]
+
+Puis :
+\[
+A=-\dfrac23-\dfrac13=-1.
+\]
+
+\section{12. Comparer des nombres rationnels}
+
+On peut utiliser plusieurs stratégies :
+\begin{itemize}
+\item même dénominateur ;
+\item comparaison à zéro ou à un ;
+\item écriture décimale lorsque celle-ci est pratique ;
+\item mise au même dénominateur.
+\end{itemize}
+
+Par exemple :
+\[
+\dfrac7{12}
+\]
+et :
+\[
+\dfrac58.
+\]
+
+On utilise le dénominateur commun $24$ :
+\[
+\dfrac7{12}=\dfrac{14}{24},
+\]
+\[
+\dfrac58=\dfrac{15}{24}.
+\]
+
+Donc :
+\[
+\dfrac7{12}<\dfrac58.
+\]
+
+\section{13. Fraction irréductible}
+
+\begin{definition}
+Une fraction est irréductible lorsque son numérateur et son dénominateur n'ont aucun diviseur commun autre que $1$.
+\end{definition}
+
+Par exemple :
+\[
+\dfrac{18}{24}
+\]
+n'est pas irréductible.
+
+On simplifie par $6$ :
+\[
+\dfrac{18}{24}=\dfrac34.
+\]
+
+\section{14. Différentes représentations}
+
+Un même rationnel peut être représenté par une fraction, une écriture décimale, un pourcentage ou un point sur une droite graduée.
+
+Par exemple :
+\[
+\dfrac38=0{,}375=37{,}5\%.
+\]
+
+Choisir la représentation adaptée peut simplifier un problème.
+
+\section{15. Problème de recette}
+
+Une recette utilise :
+\[
+\dfrac34\ \text{L}
+\]
+de lait.
+
+On prépare :
+\[
+\dfrac23
+\]
+de la recette.
+
+Le volume nécessaire est :
+\[
+\dfrac34\times\dfrac23
+=
+\dfrac12.
+\]
+
+Il faut :
+\[
+\boxed{\dfrac12\ \text{L}}.
+\]
+
+\section{16. Problème de calcul en plusieurs étapes}
+
+Calculons :
+\[
+B=\dfrac54-\left(-\dfrac23\right)\times\dfrac98.
+\]
+
+La multiplication est prioritaire :
+\[
+-\dfrac23\times\dfrac98=-\dfrac34.
+\]
+
+Donc :
+\[
+B=\dfrac54+\dfrac34=\dfrac84=2.
+\]
+
+\section{17. Contrôler un résultat}
+
+Pour :
+\[
+\dfrac45\times\dfrac23,
+\]
+les deux facteurs sont compris entre $0$ et $1$.
+
+Le produit doit donc être inférieur à chacun d'eux.
+
+Le résultat :
+\[
+\dfrac8{15}
+\]
+est cohérent.
+
+\section{18. Justifier une propriété}
+
+Les règles de fractions ne sont pas de simples recettes.
+
+Par exemple, si $c\neq0$ :
+\[
+\dfrac{ac}{bc}=\dfrac ab.
+\]
+
+On peut le justifier à partir de la définition du quotient.
+
+\begin{remarque}
+Vérifier une propriété sur plusieurs exemples ne constitue pas une démonstration générale.
+\end{remarque}
+
+\section{19. Méthode pour un calcul complexe}
+
+\begin{methode}
+\begin{enumerate}
+\item repérer les opérations prioritaires ;
+\item déterminer les signes ;
+\item simplifier les fractions si possible ;
+\item effectuer produits ou quotients ;
+\item traiter additions et soustractions ;
+\item rendre la fraction irréductible si demandé ;
+\item contrôler le signe et l'ordre de grandeur.
+\end{enumerate}
+\end{methode}
+
+\section{20. Erreurs fréquentes}
+
+\begin{itemize}
+\item Appliquer une règle de signe à une addition.
+\item Oublier que deux signes négatifs donnent un quotient positif.
+\item Inverser la mauvaise fraction lors d'une division.
+\item Diviser par zéro.
+\item Additionner les dénominateurs.
+\item Simplifier à travers une addition.
+\item Donner une fraction réductible lorsqu'une forme irréductible est demandée.
+\end{itemize}
+
+\section{À retenir}
+
+\begin{aretenir}
+Pour un produit ou quotient :
+\[
+\boxed{\text{mêmes signes}\Rightarrow +,\qquad \text{signes différents}\Rightarrow -}.
+\]
+
+L'inverse d'un nombre non nul $a$ est :
+\[
+\boxed{\dfrac1a}.
+\]
+
+Pour les fractions :
+\[
+\boxed{\dfrac ab\times\dfrac cd=\dfrac{ac}{bd}}
+\]
+et :
+\[
+\boxed{\dfrac ab\div\dfrac cd=\dfrac ab\times\dfrac dc}.
+\]
+
+Un nombre rationnel peut avoir plusieurs écritures ; choisir et contrôler l'écriture adaptée fait partie du raisonnement.
+\end{aretenir}
