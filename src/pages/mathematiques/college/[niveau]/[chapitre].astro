@@ -48,14 +48,16 @@ const backUrl = getMathematicsLevelPath(cycle, niveau!);
 const domainLabel = chapter.domain ? mathematicsDomainLabels[chapter.domain] : chapter.theme;
 
 const allCours = import.meta.glob("/src/data/mathematiques/chapters/college/**/cours.mdx", { eager: true });
+const allCoursTex = import.meta.glob("/src/data/mathematiques/chapters/college/**/cours.tex", { eager: true, query: "?raw", import: "default" });
 const allExo = import.meta.glob("/src/data/mathematiques/chapters/college/**/exercices.json", { eager: true });
 const allExoN3 = import.meta.glob("/src/data/mathematiques/chapters/college/**/exercices-n3.json", { eager: true });
 const allQuiz = import.meta.glob("/src/data/mathematiques/chapters/college/**/quiz.json", { eager: true });
 const allFlash = import.meta.glob("/src/data/mathematiques/chapters/college/**/flashcards.json", { eager: true });
 const allMeta = import.meta.glob("/src/data/mathematiques/chapters/college/**/meta.json", { eager: true });
 
+const courseTex = allCoursTex[`${basePath}/cours.tex`] as string | undefined;
 const coursMod = allCours[`${basePath}/cours.mdx`] as any;
-const CoursContent = coursMod?.Content ?? null;
+const CoursContent = courseTex ? null : coursMod?.Content ?? null;
 const baseExercises = normalizeMathematicsExercises((allExo[`${basePath}/exercices.json`] as any)?.default ?? null);
 const n3Exercises = normalizeMathematicsExercises((allExoN3[`${basePath}/exercices-n3.json`] as any)?.default ?? null);
 const exercices = [...baseExercises, ...n3Exercises];
@@ -113,6 +115,7 @@ const canonical = chapter.seo?.canonical ?? context.canonical;
   chapterId={chapterId}
   xpConfig={xpConfig}
   CoursContent={CoursContent}
+  courseTex={courseTex}
   exercices={exercices}
   quizData={quizData}
   flashData={flashData}
