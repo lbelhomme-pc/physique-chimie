@@ -1,57 +1,520 @@
 % Mathématiques 6e — cours V3
-% Source LaTeX rendue côté Astro/KaTeX.
+% Probabilités
 
 \section{Objectifs}
+
 \begin{itemize}
-\item Décrire une expérience aléatoire.
-\item Comprendre qu'une probabilité est un nombre entre 0 et 1.
-\item Calculer dans des situations équiprobables simples.
-\item Comparer modèle et fréquences expérimentales.
+\item Comprendre qu'une expérience aléatoire peut avoir plusieurs résultats possibles.
+\item Comprendre qu'une probabilité est un nombre compris entre $0$ et $1$.
+\item Relier des expressions comme « une chance sur deux » à une fraction, une écriture décimale ou un pourcentage.
+\item Calculer une probabilité dans des situations simples d'équiprobabilité.
+\item Répéter une expérience aléatoire et calculer une fréquence observée.
+\item Comparer une fréquence expérimentale à une probabilité calculée.
+\item Comprendre qu'une courte série d'expériences peut s'écarter fortement du modèle théorique.
 \end{itemize}
 
-\section{1. Expérience aléatoire}
-Une expérience est dite aléatoire lorsque son résultat n'est pas connu à l'avance.
+\section{1. Une expérience dont le résultat n'est pas connu à l'avance}
 
-Lancer un dé à six faces produit six issues possibles :
+Lorsqu'on lance une pièce, on ne sait pas avec certitude quel côté apparaîtra.
+
+Lorsqu'on lance un dé, on ne connaît pas à l'avance le nombre obtenu.
+
+On parle d'\textbf{expérience aléatoire} lorsque le résultat précis ne peut pas être prévu avec certitude avant de réaliser l'expérience.
+
+\begin{remarque}
+Le vocabulaire des probabilités peut être utilisé par le professeur, mais en 6e l'essentiel est surtout de comprendre les situations, les nombres associés et le lien avec des répétitions expérimentales.
+\end{remarque}
+
+\section{2. Les résultats possibles}
+
+Pour un dé équilibré à six faces numérotées, les résultats possibles sont :
 \[
-1,2,3,4,5,6.
+1,\quad2,\quad3,\quad4,\quad5,\quad6.
 \]
 
-\section{2. Évènement}
-Un évènement regroupe une ou plusieurs issues.
+Pour une pièce, on peut obtenir deux résultats :
+\[
+\text{pile}\qquad\text{ou}\qquad\text{face}.
+\]
 
-Exemple : « obtenir un nombre pair » correspond aux issues $2,4,6$.
+Avant de calculer une probabilité, il faut identifier correctement tous les résultats possibles.
 
-\section{3. Probabilité}
-Une probabilité est comprise entre 0 et 1.
+\begin{attention}
+Oublier un résultat possible ou compter deux fois le même résultat fausse tout le raisonnement.
+\end{attention}
+
+\section{3. Un nombre entre zéro et un}
+
+Une probabilité est un nombre compris entre :
+\[
+0
+\]
+et
+\[
+1.
+\]
+
+On écrit :
+\[
+\boxed{0\le P\le1}.
+\]
+
+Une probabilité égale à $0$ correspond à une situation impossible.
+
+Une probabilité égale à $1$ correspond à une situation certaine.
+
+Entre les deux, l'évènement est possible mais non certain.
+
+\coursefigure{/images/mathematiques/6eme/probabilites-echelle.svg}{Échelle de probabilité allant de l'impossible au certain.}{Une probabilité est toujours comprise entre $0$ et $1$ ; la position sur l'échelle traduit le degré de possibilité.}
+
+\section{4. Différentes écritures d'une même probabilité}
+
+Une probabilité peut être écrite sous plusieurs formes.
+
+Par exemple :
+\[
+\dfrac12=0{,}5=50\%.
+\]
+
+Ces trois écritures représentent le même nombre.
+
+De même :
+\[
+\dfrac14=0{,}25=25\%.
+\]
+
+Et :
+\[
+\dfrac34=0{,}75=75\%.
+\]
+
+\begin{propriete}
+Une probabilité peut être représentée par une fraction, une écriture décimale ou un pourcentage, à condition que toutes ces écritures représentent un nombre compris entre $0$ et $1$.
+\end{propriete}
+
+\section{5. « Une chance sur deux »}
+
+L'expression :
+\[
+\text{« une chance sur deux »}
+\]
+correspond naturellement au nombre :
+\[
+\dfrac12.
+\]
+
+On peut aussi écrire :
+\[
+0{,}5
+\]
+ou
+\[
+50\%.
+\]
+
+Cette traduction entre langage courant et nombres est un objectif important en 6e.
+
+\section{6. Équiprobabilité}
+
+Dans certaines expériences, tous les résultats possibles ont la même probabilité.
+
+On parle d'\textbf{équiprobabilité}.
+
+Un dé équilibré est modélisé en considérant ses six faces comme également probables.
+
+Une pièce équilibrée est modélisée en considérant pile et face comme également probables.
+
+Dans ces situations simples :
+\[
+P=\dfrac{\text{nombre de résultats favorables}}{\text{nombre total de résultats possibles}}.
+\]
+
+Cette formule ne doit être utilisée que lorsque les résultats sont bien équiprobables.
+
+\section{7. Exemple développé : obtenir un nombre pair}
+
+On lance un dé équilibré à six faces.
+
+Les résultats possibles sont :
+\[
+1,\quad2,\quad3,\quad4,\quad5,\quad6.
+\]
+
+Les résultats favorables à « obtenir un nombre pair » sont :
+\[
+2,\quad4,\quad6.
+\]
+
+Il y a donc :
+\[
+3
+\]
+résultats favorables parmi :
+\[
+6
+\]
+résultats équiprobables.
+
+La probabilité vaut :
+\[
+P(\text{pair})=\dfrac36=\dfrac12.
+\]
+
+Donc :
+\[
+\boxed{P(\text{pair})=0{,}5=50\%}.
+\]
+
+\section{8. Exemple développé : obtenir un nombre supérieur à quatre}
+
+Avec le même dé, les résultats favorables sont :
+\[
+5,\quad6.
+\]
+
+Il y a donc :
+\[
+2
+\]
+résultats favorables sur :
+\[
+6.
+\]
+
+Ainsi :
+\[
+P(\text{supérieur à }4)=\dfrac26=\dfrac13.
+\]
+
+L'écriture fractionnaire :
+\[
+\dfrac13
+\]
+est ici exacte.
+
+\begin{remarque}
+Il n'est pas toujours nécessaire de convertir une probabilité en écriture décimale. Une fraction peut être l'écriture exacte la plus simple.
+\end{remarque}
+
+\section{9. Évènement impossible}
+
+Avec un dé numéroté de $1$ à $6$, obtenir :
+\[
+8
+\]
+est impossible.
+
+Aucun résultat possible n'est favorable.
+
+On peut écrire :
+\[
+P(\text{obtenir }8)=\dfrac06=0.
+\]
+
+\section{10. Évènement certain}
+
+Avec le même dé, obtenir un nombre inférieur à :
+\[
+7
+\]
+est certain.
+
+Les six résultats possibles conviennent.
+
+On écrit :
+\[
+P(\text{nombre inférieur à }7)=\dfrac66=1.
+\]
+
+\section{11. Comparer des probabilités}
+
+Comparer deux probabilités revient à comparer deux nombres.
+
+Par exemple :
+\[
+\dfrac14<\dfrac12.
+\]
+
+Donc un résultat de probabilité :
+\[
+\dfrac12
+\]
+est plus probable qu'un résultat de probabilité :
+\[
+\dfrac14.
+\]
+
+Cela ne signifie pas qu'il se produira obligatoirement lors de la prochaine expérience.
+
+\begin{attention}
+« Plus probable » ne signifie pas « certain ».
+\end{attention}
+
+\section{12. Répéter une expérience}
+
+Une expérience aléatoire peut être répétée plusieurs fois.
+
+On peut par exemple lancer une pièce :
+\[
+10,\quad50,\quad100,\quad500
+\]
+fois.
+
+À chaque série, on compte combien de fois apparaît un résultat choisi.
+
+Ce comptage conduit à une \textbf{fréquence observée}.
+
+\section{13. Fréquence expérimentale}
+
+Si un résultat apparaît $n_A$ fois au cours de $n$ répétitions, sa fréquence est :
+\[
+f=\dfrac{n_A}{n}.
+\]
+
+\begin{exemple}
+Une pièce est lancée $20$ fois et on observe pile $12$ fois.
+
+La fréquence de pile vaut :
+\[
+f=\dfrac{12}{20}=\dfrac35=0{,}6.
+\]
+
+On peut aussi écrire :
+\[
+f=60\%.
+\]
+\end{exemple}
+
+Cette fréquence est une observation réelle sur une série d'expériences.
+
+\section{14. Probabilité et fréquence ne sont pas la même chose}
+
+Pour une pièce équilibrée, le modèle donne :
+\[
+P(\text{pile})=\dfrac12=0{,}5.
+\]
+
+Une série de $20$ lancers peut pourtant donner :
+\[
+f(\text{pile})=0{,}6.
+\]
+
+Il n'y a pas de contradiction.
+
+La probabilité appartient au \textbf{modèle théorique}.
+
+La fréquence appartient à la \textbf{série effectivement observée}.
+
+\section{15. Les fluctuations}
+
+Lors d'une petite série, la fréquence peut varier fortement.
+
+Sur quatre lancers d'une pièce, on peut observer :
+\[
+4
+\]
+fois pile.
+
+La fréquence vaut alors :
+\[
+1.
+\]
+
+Pourtant, le modèle d'une pièce équilibrée reste :
+\[
+P(\text{pile})=\dfrac12.
+\]
+
+Une courte série n'a aucune obligation de reproduire exactement la probabilité théorique.
+
+\section{16. Que se passe-t-il lorsque l'on répète davantage ?}
+
+Lorsque le nombre de répétitions augmente, les fréquences observées tendent souvent à devenir moins instables autour de la valeur prévue par le modèle.
+
+\coursefigure{/images/mathematiques/6eme/probabilites-frequence.svg}{Graphique schématique de fréquences observées qui fluctuent autour d'une référence théorique.}{Les premières fréquences peuvent beaucoup varier ; avec davantage de répétitions, les fluctuations deviennent généralement moins fortes autour de la valeur théorique.}
+
+\begin{attention}
+Cela ne signifie pas que la fréquence devient obligatoirement exactement égale à la probabilité après un nombre fixé de répétitions.
+\end{attention}
+
+\section{17. Exemple développé : cinquante lancers}
+
+On lance une pièce équilibrée :
+\[
+50
+\]
+fois.
+
+On observe pile :
+\[
+27
+\]
+fois.
+
+La fréquence vaut :
+\[
+f=\dfrac{27}{50}=0{,}54.
+\]
+
+La probabilité théorique vaut :
+\[
+p=0{,}5.
+\]
+
+L'écart numérique est :
+\[
+0{,}54-0{,}5=0{,}04.
+\]
+
+La fréquence observée est donc proche du modèle, sans lui être exactement égale.
+
+\section{18. Exemple développé : deux séries différentes}
+
+Deux groupes lancent chacun la même pièce équilibrée $20$ fois.
+
+Le groupe A obtient pile :
+\[
+8
+\]
+fois.
+
+Sa fréquence est :
+\[
+f_A=\dfrac8{20}=0{,}4.
+\]
+
+Le groupe B obtient pile :
+\[
+13
+\]
+fois.
+
+Sa fréquence est :
+\[
+f_B=\dfrac{13}{20}=0{,}65.
+\]
+
+Les deux groupes ont utilisé le même modèle théorique :
+\[
+p=0{,}5.
+\]
+
+Des résultats expérimentaux différents sont donc parfaitement possibles.
+
+\section{19. Méthode : calculer en équiprobabilité}
+
+\begin{methode}
+Dans une situation simple d'équiprobabilité :
+\begin{enumerate}
+\item lister tous les résultats possibles ;
+\item vérifier qu'ils sont supposés également probables ;
+\item repérer ceux qui réalisent la condition demandée ;
+\item compter les résultats favorables ;
+\item former la fraction
+\[
+\dfrac{\text{favorables}}{\text{possibles}};
+\]
+\item simplifier si possible ;
+\item vérifier que le résultat appartient à l'intervalle $[0;1]$.
+\end{enumerate}
+\end{methode}
+
+\section{20. Méthode : exploiter une expérience répétée}
+
+\begin{methode}
+Après plusieurs répétitions :
+\begin{enumerate}
+\item compter le nombre total d'essais ;
+\item compter le nombre de réalisations du résultat étudié ;
+\item calculer la fréquence ;
+\item comparer cette fréquence à la probabilité théorique si elle est connue ;
+\item décrire l'écart sans déclarer le modèle faux au seul motif que les deux nombres ne sont pas identiques.
+\end{enumerate}
+\end{methode}
+
+\section{21. Un modèle doit correspondre à la situation}
+
+La formule :
+\[
+\dfrac{\text{favorables}}{\text{possibles}}
+\]
+avec simple comptage suppose une équiprobabilité.
+
+Elle n'est pas automatiquement valable pour n'importe quel objet.
+
+\begin{exemple}
+Une roue possède deux secteurs, mais l'un occupe les trois quarts du disque et l'autre seulement un quart.
+
+Il y a bien deux couleurs possibles, mais elles ne sont pas équiprobables.
+
+On ne peut donc pas conclure :
+\[
+\dfrac12
+\]
+pour chaque couleur uniquement parce qu'il existe deux couleurs.
+\end{exemple}
+
+\section{22. Contrôler un résultat}
+
+Une probabilité de :
+\[
+1{,}4
+\]
+est impossible car :
+\[
+1{,}4>1.
+\]
+
+Une probabilité de :
+\[
+-0{,}2
+\]
+est également impossible car :
+\[
+-0{,}2<0.
+\]
+
+Le contrôle :
+\[
+0\le P\le1
+\]
+permet donc de détecter certaines erreurs immédiatement.
+
+\section{23. Erreurs fréquentes}
+
 \begin{itemize}
-\item 0 : évènement impossible ;
-\item 1 : évènement certain ;
-\item entre 0 et 1 : évènement possible.
-\end{itemize}
-
-\section{4. Équiprobabilité}
-Si toutes les issues sont également probables :
-\[
-P(A)=\frac{\text{nombre d'issues favorables}}{\text{nombre total d'issues}}.
-\]
-
-Avec un dé équilibré :
-\[
-P(\text{pair})=\frac36=\frac12.
-\]
-
-\section{5. Fréquence expérimentale}
-Après plusieurs répétitions, on peut calculer la fréquence d'un évènement. Elle varie d'une série d'expériences à l'autre et peut être comparée à la probabilité du modèle.
-
-Une fréquence observée n'est pas obligée d'être exactement égale à la probabilité théorique.
-
-\section{Erreurs fréquentes}
-\begin{itemize}
-\item Croire qu'un évènement de probabilité 1/2 doit se produire exactement une fois sur deux dans une courte série.
-\item Compter deux fois une même issue.
-\item Utiliser la formule d'équiprobabilité lorsque les issues ne sont pas équiprobables.
+\item Croire qu'une probabilité de $\dfrac12$ impose une alternance parfaite des résultats.
+\item Confondre probabilité théorique et fréquence observée.
+\item Utiliser l'équiprobabilité sans vérifier que les résultats ont réellement la même chance.
+\item Oublier un résultat possible.
+\item Compter deux fois un même résultat favorable.
+\item Produire une probabilité supérieure à $1$ sans contrôler le résultat.
+\item Déclarer une pièce « truquée » après seulement quelques lancers différents de $50\%$.
 \end{itemize}
 
 \section{À retenir}
-La probabilité appartient à $[0;1]$ et décrit un modèle du hasard. Les fréquences expérimentales permettent de confronter ce modèle à des observations.
+
+\begin{aretenir}
+Une probabilité est un nombre compris entre $0$ et $1$ :
+\[
+\boxed{0\le P\le1}.
+\]
+
+Dans une situation simple où tous les résultats sont équiprobables :
+\[
+\boxed{
+P=\dfrac{\text{nombre de résultats favorables}}{\text{nombre total de résultats possibles}}
+}.
+\]
+
+Une fréquence expérimentale est calculée à partir de résultats réellement observés :
+\[
+\boxed{
+f=\dfrac{\text{nombre de réalisations observées}}{\text{nombre total d'essais}}
+}.
+\]
+
+La fréquence peut différer de la probabilité théorique, surtout lorsque le nombre de répétitions est faible.
+
+Répéter davantage l'expérience permet de confronter les observations au modèle sans attendre une égalité parfaite à chaque série.
+\end{aretenir}
