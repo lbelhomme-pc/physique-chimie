@@ -1,71 +1,782 @@
 ## Objectifs
-- Comprendre une égalité comme l'affirmation que deux expressions ont la même valeur.
-- Chercher un nombre inconnu dans des situations simples.
-- Décrire et exécuter un programme de calcul.
-- Généraliser une régularité à l'aide d'un symbole ou d'une phrase mathématique.
 
-## 1. Le signe égal
-Le signe $=$ ne signifie pas « voici le résultat ». Il affirme que les deux côtés ont la même valeur.
+Dans ce chapitre, on apprend à :
+
+- raisonner sur une quantité dont on ne connaît pas encore la valeur ;
+- utiliser des schémas, des symboles ou des lettres comme outils de représentation ;
+- comprendre le sens d’une égalité ;
+- chercher une valeur inconnue sans appliquer mécaniquement une technique d’équation ;
+- lire, exécuter et produire des programmes de calcul simples ;
+- reconnaître une régularité dans une suite de nombres ou de motifs ;
+- prévoir une étape éloignée d’un motif évolutif ;
+- expliquer et justifier une règle observée.
+
+---
+
+## 1. La pensée algébrique commence avant le calcul littéral
+
+En 6e, l’algèbre ne consiste pas à apprendre une longue liste de règles sur les lettres.
+
+L’objectif est d’apprendre à raisonner sur des **relations entre des quantités**, parfois sans connaître immédiatement leur valeur.
+
+Par exemple, dans la situation :
+
+> Deux objets identiques et un objet de valeur $3$ ont ensemble une valeur de $17$.
+
+on peut représenter la valeur inconnue d’un objet par un symbole.
+
+Si cette valeur est notée $x$, la situation peut être traduite par :
+
+$$
+x+x+3=17.
+$$
+
+Mais la lettre n’est pas le point de départ obligatoire : un schéma en barres ou une représentation concrète peut être plus efficace.
+
+---
+
+## 2. Le signe égal exprime une égalité de valeurs
+
+Le signe
+
+$$
+=
+$$
+
+signifie que les deux expressions placées de part et d’autre ont **la même valeur**.
 
 Par exemple :
-$$
-7+5=3\times4
-$$
-est une égalité vraie car les deux membres valent 12.
 
-## 2. Une valeur inconnue
-Dans
 $$
-\square+17=42,
-$$
-on cherche le nombre qui rend l'égalité vraie :
-$$
-42-17=25.
+7+5=3\times4.
 $$
 
-Le nombre recherché est 25.
+Cette égalité est vraie car :
 
-On privilégie d'abord le raisonnement sur les opérations plutôt qu'une technique formelle d'équations.
+$$
+7+5=12
+$$
 
-## 3. Programmes de calcul
-Programme :
+et :
+
+$$
+3\times4=12.
+$$
+
+Le signe égal ne signifie donc pas seulement « maintenant, je donne le résultat ».
+
+Il peut relier deux expressions différentes qui représentent le même nombre.
+
+---
+
+## 3. Égalités vraies et fausses
+
+Considérons :
+
+$$
+8+6=7\times2.
+$$
+
+Les deux membres valent :
+
+$$
+14.
+$$
+
+L’égalité est donc vraie.
+
+En revanche :
+
+$$
+8+6=5\times3
+$$
+
+est fausse car :
+
+$$
+14\neq15.
+$$
+
+Pour vérifier une égalité, on calcule les deux membres **séparément** puis on compare leurs valeurs.
+
+---
+
+## 4. Représenter une quantité inconnue
+
+Une quantité inconnue peut être représentée :
+
+- par une case vide ;
+- par un symbole ;
+- par une barre ;
+- éventuellement par une lettre.
+
+Par exemple :
+
+$$
+\Box+9=21
+$$
+
+ou :
+
+$$
+x+9=21
+$$
+
+traduisent la même recherche : trouver un nombre qui, augmenté de $9$, donne $21$.
+
+Le nombre cherché est :
+
+$$
+21-9=12.
+$$
+
+Donc :
+
+$$
+x=12.
+$$
+
+---
+
+## 5. Modèle en barres
+
+Les schémas en barres permettent de visualiser les relations entre les quantités.
+
+<figure>
+  <img src="/images/mathematiques/6eme/algebre-modele-barres.svg" alt="Schéma en barres représentant une quantité inconnue complétée par une quantité connue pour former une quantité totale." />
+  <figcaption>
+    Si une quantité inconnue $x$ augmentée de $6$ donne $20$, le schéma représente la relation $x+6=20$.
+  </figcaption>
+</figure>
+
+On lit alors directement :
+
+$$
+x=20-6.
+$$
+
+Donc :
+
+$$
+\boxed{x=14}.
+$$
+
+Le schéma aide à identifier l’opération à effectuer sans réciter une règle abstraite.
+
+---
+
+## 6. Exemple développé 1 — retrouver une quantité inconnue
+
+Trois boîtes identiques et $4$ objets isolés contiennent ensemble $25$ objets.
+
+Chaque boîte contient le même nombre $x$ d’objets.
+
+On peut écrire :
+
+$$
+3x+4=25.
+$$
+
+On commence par retirer les $4$ objets isolés :
+
+$$
+25-4=21.
+$$
+
+Les trois boîtes identiques contiennent donc ensemble $21$ objets.
+
+Chaque boîte contient :
+
+$$
+21\div3=7.
+$$
+
+Ainsi :
+
+$$
+\boxed{x=7}.
+$$
+
+Vérification :
+
+$$
+3\times7+4=25.
+$$
+
+Cette démarche repose sur le sens des opérations.
+
+---
+
+## 7. Opérations inverses
+
+Les opérations inverses sont utiles pour retrouver une quantité inconnue.
+
+L’addition et la soustraction sont liées.
+
+Par exemple :
+
+$$
+x+8=31
+$$
+
+conduit à :
+
+$$
+x=31-8=23.
+$$
+
+La multiplication et la division sont liées.
+
+Par exemple :
+
+$$
+5x=35
+$$
+
+conduit à :
+
+$$
+x=35\div5=7.
+$$
+
+En 6e, on privilégie ce raisonnement arithmétique avant les techniques formelles d’équations du cycle suivant.
+
+---
+
+## 8. Une lettre peut désigner un nombre variable
+
+Une lettre ne représente pas toujours un nombre que l’on cherche.
+
+Elle peut aussi représenter un nombre qui **peut prendre plusieurs valeurs**.
+
+Supposons qu’un objet coûte $12\ \text{euros}$ et qu’un forfait fixe de livraison coûte $5\ \text{euros}$.
+
+Si $n$ désigne le nombre d’objets achetés, le prix total est :
+
+$$
+12n+5.
+$$
+
+Pour $n=3$ :
+
+$$
+12\times3+5=41.
+$$
+
+Pour $n=8$ :
+
+$$
+12\times8+5=101.
+$$
+
+La même expression décrit donc plusieurs situations.
+
+---
+
+## 9. Substitution
+
+Substituer une valeur à une lettre signifie remplacer la lettre par cette valeur.
+
+Considérons :
+
+$$
+4n+3.
+$$
+
+Pour :
+
+$$
+n=5,
+$$
+
+on calcule :
+
+$$
+4\times5+3=23.
+$$
+
+Pour :
+
+$$
+n=10,
+$$
+
+on calcule :
+
+$$
+4\times10+3=43.
+$$
+
+La substitution sert à tester ou exploiter une règle.
+
+---
+
+## 10. Programmes de calcul
+
+Un programme de calcul est une suite ordonnée d’instructions.
+
+Exemple :
+
 1. choisir un nombre ;
-2. le multiplier par 3 ;
-3. ajouter 5.
+2. le multiplier par $3$ ;
+3. ajouter $5$.
 
-Avec 4, on obtient
+Si le nombre choisi est $4$ :
+
 $$
-4\times3+5=17.
+4\times3=12,
 $$
 
-Si on note le nombre choisi $n$, le résultat peut être décrit par
+puis :
+
+$$
+12+5=17.
+$$
+
+Le résultat final est :
+
+$$
+17.
+$$
+
+---
+
+## 11. Traduire un programme de calcul
+
+Si le nombre de départ est noté $n$, le programme précédent donne :
+
 $$
 3n+5.
 $$
 
-La lettre sert ici à désigner un nombre quelconque.
+Cette écriture permet de décrire le programme **sans choisir une valeur particulière**.
 
-## 4. Tester une conjecture
-Observer quelques exemples peut suggérer une règle, mais ne suffit pas toujours à la prouver.
+Attention : en 6e, l’objectif n’est pas encore de développer tout le calcul littéral. La lettre sert surtout à représenter une quantité de manière générale.
 
-Exemple : « ajouter deux nombres impairs donne un nombre pair ». Des essais permettent de le constater ; une explication par la structure des nombres permet de le justifier.
+---
 
-## 5. Régularités
-Dans une suite de figures, on peut chercher ce qui change d'une étape à l'autre et exprimer le nombre d'objets à l'étape $n$.
+## 12. Exécuter un programme à l’envers
 
-La formule doit toujours être testée sur plusieurs rangs simples.
+On peut parfois retrouver le nombre de départ en remontant les opérations.
 
-## Automatismes
-- Compléter une égalité à trou.
-- Calculer une expression en respectant les priorités.
-- Traduire « triple », « moitié », « somme », « différence ».
-- Vérifier une égalité par substitution d'une valeur.
+Programme :
 
-## Erreurs fréquentes
-- Utiliser $=$ pour enchaîner des calculs qui n'ont pas la même valeur.
-- Confondre une lettre avec une unité ou une étiquette.
-- Croire que quelques exemples suffisent à démontrer une règle générale.
-- Introduire des techniques d'équations trop formelles alors qu'un raisonnement arithmétique suffit.
+1. choisir un nombre ;
+2. ajouter $7$ ;
+3. multiplier le résultat par $2$.
 
-## À retenir
-L'algèbre commence par le sens des égalités, la recherche d'inconnues et la généralisation de programmes ou de régularités.
+Le résultat final est $30$.
+
+On remonte le programme :
+
+$$
+30\div2=15,
+$$
+
+puis :
+
+$$
+15-7=8.
+$$
+
+Le nombre choisi était donc :
+
+$$
+\boxed{8}.
+$$
+
+---
+
+## 13. Comparer deux programmes
+
+Programme A :
+
+1. choisir un nombre ;
+2. le doubler ;
+3. ajouter $6$.
+
+Programme B :
+
+1. choisir un nombre ;
+2. ajouter $3$ ;
+3. doubler.
+
+Pour un nombre $n$, le programme A donne :
+
+$$
+2n+6.
+$$
+
+Le programme B donne :
+
+$$
+2(n+3).
+$$
+
+Or :
+
+$$
+2(n+3)=2n+6.
+$$
+
+Les deux programmes donnent donc toujours le même résultat.
+
+Dans ce cas, quelques essais peuvent suggérer l’égalité, mais l’écriture générale explique **pourquoi** elle est toujours vraie.
+
+---
+
+## 14. Essais et conjectures
+
+Tester une règle sur quelques exemples permet de formuler une **conjecture**.
+
+Une conjecture est une propriété que l’on pense vraie mais qui demande encore une justification.
+
+Par exemple, on observe :
+
+$$
+1+3=4,
+$$
+
+$$
+3+5=8,
+$$
+
+$$
+5+7=12.
+$$
+
+On peut conjecturer :
+
+> La somme de deux nombres impairs consécutifs est paire.
+
+Les exemples rendent la conjecture plausible.
+
+Mais un raisonnement général est nécessaire pour expliquer qu’elle ne dépend pas seulement des exemples choisis.
+
+---
+
+## 15. Motifs évolutifs
+
+Un motif évolutif change d’une étape à la suivante selon une règle.
+
+<figure>
+  <img src="/images/mathematiques/6eme/algebre-motif-evolutif.svg" alt="Quatre étapes d’un motif évolutif construit avec un nombre croissant de carrés." />
+  <figcaption>
+    Dans cet exemple visuel, une nouvelle case est ajoutée à chaque étape. L’objectif est d’identifier la structure, puis de prévoir une étape éloignée.
+  </figcaption>
+</figure>
+
+La première question est :
+
+> Qu’est-ce qui reste identique et qu’est-ce qui change ?
+
+La seconde est :
+
+> Comment décrire la règle sans avoir besoin de dessiner toutes les étapes précédentes ?
+
+---
+
+## 16. Décrire une régularité
+
+Supposons qu’un motif comporte :
+
+$$
+4
+$$
+
+éléments à l’étape $1$, puis gagne :
+
+$$
+3
+$$
+
+éléments à chaque nouvelle étape.
+
+Les premières valeurs sont :
+
+$$
+4,\quad7,\quad10,\quad13,\quad16,\ldots
+$$
+
+On peut dire :
+
+> À chaque étape, on ajoute $3$.
+
+Pour passer de l’étape $1$ à l’étape $n$, on effectue :
+
+$$
+n-1
+$$
+
+augmentations.
+
+Le nombre d’éléments vaut donc :
+
+$$
+4+3(n-1).
+$$
+
+Cette écriture est une manière compacte de décrire la structure du motif.
+
+---
+
+## 17. Exemple développé 2 — prévoir une étape éloignée
+
+Un motif contient $5$ éléments à l’étape $1$ et gagne $4$ éléments à chaque étape.
+
+Combien contient-il d’éléments à l’étape $8$ ?
+
+Entre les étapes $1$ et $8$, il y a :
+
+$$
+8-1=7
+$$
+
+augmentations.
+
+On ajoute donc :
+
+$$
+7\times4=28
+$$
+
+éléments.
+
+Le total vaut :
+
+$$
+5+28=33.
+$$
+
+Ainsi, l’étape $8$ contient :
+
+$$
+\boxed{33}
+$$
+
+éléments.
+
+---
+
+## 18. Chercher une structure plutôt qu’une simple liste
+
+Une suite peut être décrite de plusieurs manières.
+
+Considérons :
+
+$$
+2,\quad5,\quad8,\quad11,\quad14,\ldots
+$$
+
+On peut remarquer :
+
+> On ajoute $3$ à chaque fois.
+
+Mais on peut aussi relier directement le rang $n$ au nombre obtenu.
+
+À l’étape $1$, le résultat est $2$.
+
+Une expression possible est :
+
+$$
+2+3(n-1).
+$$
+
+Cette deuxième description permet d’atteindre directement une étape éloignée.
+
+---
+
+## 19. Motifs non numériques
+
+La pensée algébrique ne concerne pas uniquement les suites de nombres.
+
+Un motif géométrique peut aussi évoluer.
+
+Par exemple :
+
+- étape $1$ : un carré ;
+- étape $2$ : trois carrés ;
+- étape $3$ : cinq carrés ;
+- étape $4$ : sept carrés.
+
+Les nombres d’éléments sont :
+
+$$
+1,\quad3,\quad5,\quad7,\ldots
+$$
+
+La régularité est :
+
+> Ajouter $2$ à chaque étape.
+
+On peut chercher combien d’éléments possède une étape éloignée sans construire toutes les étapes précédentes.
+
+---
+
+## 20. Lire un tableau de valeurs
+
+Un tableau peut aider à observer une relation.
+
+| Étape | Nombre d’éléments |
+|---:|---:|
+| $1$ | $4$ |
+| $2$ | $7$ |
+| $3$ | $10$ |
+| $4$ | $13$ |
+
+On observe que lorsque l’étape augmente de :
+
+$$
+1,
+$$
+
+le nombre d’éléments augmente de :
+
+$$
+3.
+$$
+
+Le tableau ne donne pas encore une preuve, mais il rend la régularité plus visible.
+
+---
+
+## 21. Méthode — résoudre un problème pré-algébrique
+
+Lorsqu’un nombre inconnu intervient :
+
+### Étape 1 — identifier les quantités
+
+Qu’est-ce qui est connu ?
+
+Qu’est-ce qui est inconnu ?
+
+### Étape 2 — représenter la relation
+
+On peut utiliser :
+
+- un schéma en barres ;
+- une case vide ;
+- une lettre ;
+- une égalité.
+
+### Étape 3 — raisonner avec les opérations
+
+On utilise les opérations inverses ou la structure de la situation.
+
+### Étape 4 — vérifier
+
+On remplace la quantité inconnue par la valeur trouvée dans la situation initiale.
+
+---
+
+## 22. Méthode — étudier un motif évolutif
+
+### Étape 1 — observer plusieurs étapes
+
+Repérer précisément ce qui est ajouté ou modifié.
+
+### Étape 2 — décrire la transformation
+
+Par exemple :
+
+> Chaque nouvelle étape ajoute $3$ éléments.
+
+### Étape 3 — compter le nombre de transformations
+
+Pour passer de l’étape $1$ à l’étape $n$ :
+
+$$
+n-1
+$$
+
+transformations sont effectuées.
+
+### Étape 4 — tester la règle
+
+La règle doit retrouver les premières étapes connues.
+
+---
+
+## 23. Erreurs fréquentes
+
+### Utiliser le signe égal comme une flèche
+
+Il est incorrect d’écrire :
+
+$$
+5+3=8\times2=16
+$$
+
+car :
+
+$$
+5+3=8
+$$
+
+mais :
+
+$$
+8\neq16.
+$$
+
+Il faut écrire les étapes séparément.
+
+### Croire qu’une lettre désigne toujours la même valeur
+
+Dans une expression générale, $n$ peut prendre différentes valeurs selon la situation.
+
+### Introduire trop vite des techniques formelles
+
+Pour :
+
+$$
+x+7=18,
+$$
+
+il suffit en 6e de comprendre que :
+
+$$
+x=18-7=11.
+$$
+
+### Confondre l’étape et le nombre d’ajouts
+
+De l’étape $1$ à l’étape $8$, il y a :
+
+$$
+7
+$$
+
+changements, pas $8$.
+
+### Croire que quelques exemples prouvent une règle
+
+Des exemples peuvent permettre de conjecturer.
+
+Ils ne suffisent pas toujours à justifier une affirmation générale.
+
+---
+
+## 24. À retenir
+
+La pensée algébrique consiste d’abord à **raisonner sur des relations**.
+
+Une quantité inconnue peut être représentée par un symbole ou une lettre.
+
+Une égalité affirme que deux expressions ont la même valeur :
+
+$$
+\boxed{A=B}.
+$$
+
+Les modèles en barres permettent de rendre visibles les relations entre quantités.
+
+Un motif évolutif doit être analysé en recherchant :
+
+- ce qui change ;
+- de combien cela change ;
+- combien de fois la transformation est répétée.
+
+Une règle efficace doit être testée sur les premières étapes et permettre de prévoir des étapes plus éloignées.
+
+L’objectif n’est pas de faire du calcul littéral avancé, mais d’apprendre à **généraliser, représenter et justifier**.
