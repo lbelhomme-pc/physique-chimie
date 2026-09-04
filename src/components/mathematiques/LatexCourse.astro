@@ -141,6 +141,24 @@ const html = renderLatexCourse(source);
     text-align: center;
   }
 
+  .latex-course .latex-course-code {
+    overflow-x: auto;
+    margin: 0.35rem 0;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    tab-size: 2;
+  }
+
+  .latex-course .latex-course-code code {
+    font: inherit;
+    white-space: pre;
+  }
+
   .latex-course .latex-course-table-wrap {
     overflow-x: auto;
     max-width: 100%;
