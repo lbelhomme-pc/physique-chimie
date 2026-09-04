@@ -1,82 +1,593 @@
 % Mathématiques 6e — cours V3
-% Source LaTeX rendue côté Astro/KaTeX.
+% Initiation à la pensée informatique
 
 \section{Objectifs}
+
 \begin{itemize}
-\item Décomposer un problème en instructions.
-\item Prévoir le résultat d'un algorithme.
-\item Utiliser une variable et une répétition simple.
-\item Rechercher une erreur.
+\item Identifier une instruction et une séquence d'instructions.
+\item Produire puis exécuter une séquence d'instructions.
+\item Repérer les données d'entrée et le résultat de sortie d'une procédure simple.
+\item Répéter manuellement une même séquence pour accomplir une tâche.
+\item Reconnaître qu'une répétition peut remplacer plusieurs copies identiques d'une séquence.
+\item Programmer la construction d'un trajet simple sur une grille.
+\item Exécuter un algorithme pas à pas pour vérifier son résultat.
+\item Repérer et corriger une erreur simple dans une séquence.
 \end{itemize}
 
-\section{1. Algorithme}
-Un algorithme est une suite finie d'instructions permettant d'obtenir un résultat.
+\section{1. Penser avant de programmer}
 
-Exemple :
+La pensée informatique ne commence pas par un langage de programmation.
+
+Elle commence par une question :
+\[
+\text{« Quelles instructions faut-il exécuter, et dans quel ordre ? »}
+\]
+
+Une procédure peut être décrite oralement, sur papier, avec des flèches, par des blocs ou dans un programme.
+
+\begin{remarque}
+En 6e, le cœur du travail est la compréhension des instructions, des séquences et des répétitions. Il n'est pas nécessaire de transformer immédiatement chaque activité en code textuel complexe.
+\end{remarque}
+
+\section{2. Une instruction}
+
+Une instruction est une action suffisamment précise pour pouvoir être exécutée.
+
+Par exemple :
+\begin{itemize}
+\item avancer d'une case ;
+\item tourner à droite ;
+\item tracer un segment ;
+\item afficher un message ;
+\item prendre la valeur donnée en entrée.
+\end{itemize}
+
+\begin{definition}
+Une \textbf{instruction} décrit une action élémentaire que l'exécutant peut réaliser sans avoir à deviner ce qui est demandé.
+\end{definition}
+
+L'exécutant peut être un élève, un robot, un logiciel ou un personnage dans un environnement de programmation par blocs.
+
+\section{3. Une séquence d'instructions}
+
+Une séquence est une suite ordonnée d'instructions.
+
+L'ordre est essentiel.
+
+\begin{exemple}
+Considérons les instructions :
 \begin{enumerate}
-\item choisir un nombre ;
-\item ajouter 4 ;
+\item avancer de deux cases ;
+\item tourner à droite ;
+\item avancer d'une case.
+\end{enumerate}
+
+Exécuter :
+\[
+1,\quad2,\quad3
+\]
+ne produit pas nécessairement le même trajet que :
+\[
+2,\quad1,\quad3.
+\]
+\end{exemple}
+
+Modifier l'ordre peut modifier le résultat.
+
+\coursefigure{/images/mathematiques/6eme/informatique-sequence.svg}{Robot sur une grille et séquence d'instructions représentée par des flèches.}{Une séquence doit être exécutée dans l'ordre prévu ; chaque instruction transforme la position ou l'orientation obtenue à l'étape précédente.}
+
+\section{4. Entrée et sortie}
+
+Une procédure peut recevoir une information au départ.
+
+On parle d'\textbf{entrée}.
+
+Elle produit ensuite un résultat.
+
+On parle de \textbf{sortie}.
+
+\begin{exemple}
+Une procédure reçoit en entrée un nombre.
+
+Elle demande :
+\begin{enumerate}
+\item ajouter $4$ ;
 \item doubler le résultat.
 \end{enumerate}
 
-Avec 3 : on obtient 14.
+Avec l'entrée :
+\[
+3,
+\]
+on obtient :
+\[
+3+4=7,
+\]
+puis :
+\[
+2\times7=14.
+\]
 
-\section{2. Variable}
-Une variable mémorise une valeur susceptible de changer.
+La sortie vaut :
+\[
+\boxed{14}.
+\]
+\end{exemple}
 
-Pseudo-code :
-\begin{verbatim}
-x ← 5
-x ← x + 3
-\end{verbatim}
-Après ces deux instructions, $x$ vaut 8.
+\section{5. Exécuter pas à pas}
 
-\section{3. Répétition}
-Une boucle permet de répéter une instruction.
+Pour comprendre un algorithme, on peut suivre l'état après chaque instruction.
 
-\begin{verbatim}
-répéter 4 fois
-  avancer de 10
-\end{verbatim}
+\begin{tabular}{c|c}
+Étape & Valeur \\
+entrée & $3$ \\
+après l'ajout & $7$ \\
+après le double & $14$ \\
+\end{tabular}
 
-En géométrie dynamique ou dans un environnement par blocs, une boucle évite de recopier quatre fois la même instruction.
+Cette méthode évite de perdre l'information intermédiaire.
 
-\section{4. Condition}
-Une condition permet de choisir une action selon une situation :
-\begin{verbatim}
-si score ≥ 10
-  afficher "objectif atteint"
-sinon
-  afficher "continuer"
-\end{verbatim}
-
-\section{5. Débogage}
-Déboguer consiste à chercher pourquoi un programme ne produit pas le résultat attendu.
-
-Méthode :
+\begin{methode}
+Pour exécuter une séquence :
 \begin{enumerate}
-\item prévoir le résultat ;
-\item exécuter pas à pas ;
-\item repérer la première étape différente ;
-\item corriger puis tester à nouveau.
+\item noter l'état initial ;
+\item lire une seule instruction ;
+\item l'exécuter ;
+\item noter le nouvel état ;
+\item passer à l'instruction suivante ;
+\item continuer jusqu'à la fin.
 \end{enumerate}
+\end{methode}
 
-\section{6. Pensée informatique}
-Programmer n'est pas seulement écrire du code. Il faut aussi :
+\section{6. Décrire un trajet sur une grille}
+
+Une grille permet de représenter un déplacement de manière simple.
+
+Un robot peut posséder :
 \begin{itemize}
-\item décomposer un problème ;
-\item reconnaître des répétitions ;
-\item organiser des informations ;
-\item tester des cas ;
-\item expliquer une procédure.
+\item une position ;
+\item une orientation ;
+\item des instructions de déplacement.
 \end{itemize}
 
-\section{Erreurs fréquentes}
+Par exemple :
+\begin{verbatim}
+avancer
+avancer
+tourner à droite
+avancer
+\end{verbatim}
+
+Chaque instruction est interprétée à partir de la position et de l'orientation actuelles.
+
+\section{7. Position et orientation}
+
+Deux robots situés sur la même case peuvent réagir différemment à l'instruction :
+\[
+\text{« avancer »}
+\]
+s'ils ne regardent pas dans la même direction.
+
+L'état du robot ne se limite donc pas toujours à sa position.
+
+On doit parfois connaître :
+\[
+\text{position}+\text{orientation}.
+\]
+
+\begin{attention}
+Une séquence de déplacement peut sembler correcte sur le papier mais échouer si l'orientation initiale n'est pas précisée.
+\end{attention}
+
+\section{8. Construire une séquence à partir d'un objectif}
+
+On peut partir du résultat attendu et chercher les instructions nécessaires.
+
+\begin{exemple}
+Un robot part en bas à gauche d'une grille et regarde vers la droite.
+
+La cible se trouve trois cases à droite puis deux cases vers le haut.
+
+Une séquence possible est :
+\begin{verbatim}
+avancer
+avancer
+avancer
+tourner à gauche
+avancer
+avancer
+\end{verbatim}
+\end{exemple}
+
+La séquence doit être testée pour vérifier qu'elle atteint réellement la cible.
+
+\section{9. Une même tâche peut avoir plusieurs séquences}
+
+Deux algorithmes peuvent parfois atteindre le même objectif avec des instructions différentes.
+
+Une solution peut être :
 \begin{itemize}
-\item Confondre la valeur d'une variable avant et après une affectation.
-\item Répéter une instruction une fois de trop.
-\item Modifier plusieurs choses à la fois lors d'un débogage.
+\item plus courte ;
+\item plus facile à comprendre ;
+\item plus facile à vérifier ;
+\item plus simple à modifier.
+\end{itemize}
+
+L'objectif en 6e n'est pas toujours de trouver la solution la plus courte, mais de produire une séquence correcte, compréhensible et testable.
+
+\section{10. Répéter une séquence}
+
+Certaines tâches utilisent plusieurs fois la même suite d'actions.
+
+Supposons que l'on doive répéter quatre fois :
+\begin{verbatim}
+avancer
+tourner à droite
+\end{verbatim}
+
+On peut exécuter manuellement la même séquence :
+\[
+4
+\]
+fois.
+
+Cette répétition permet par exemple de suivre les quatre côtés d'un carré si les longueurs et les angles sont adaptés.
+
+\section{11. Comprendre une répétition}
+
+\coursefigure{/images/mathematiques/6eme/informatique-repetition.svg}{Comparaison entre quatre copies d'une séquence et une structure de répétition unique.}{Une répétition décrit qu'une même séquence doit être exécutée plusieurs fois ; elle réduit les recopies et met en évidence la structure du problème.}
+
+On peut symboliquement écrire :
+\begin{verbatim}
+répéter 4 fois
+    avancer
+    tourner à droite
+\end{verbatim}
+
+La structure « répéter » ne change pas les actions réalisées : elle les organise plus efficacement.
+
+\section{12. Répétition manuelle}
+
+En 6e, on doit être capable d'exécuter une répétition sans ordinateur.
+
+\begin{exemple}
+La séquence :
+\begin{verbatim}
+avancer de 2 cases
+tourner à droite
+\end{verbatim}
+doit être répétée :
+\[
+3
+\]
+fois.
+
+On déroule :
+\begin{enumerate}
+\item avancer de deux cases, tourner ;
+\item avancer de deux cases, tourner ;
+\item avancer de deux cases, tourner.
+\end{enumerate}
+
+La répétition a donc exécuté :
+\[
+3
+\]
+déplacements et :
+\[
+3
+\]
+rotations.
+\end{exemple}
+
+\section{13. Compter le nombre d'exécutions}
+
+Une erreur fréquente consiste à répéter une fois de trop ou une fois de moins.
+
+Si une séquence est exécutée :
+\[
+5
+\]
+fois et qu'elle contient :
+\[
+2
+\]
+instructions, le nombre total d'instructions élémentaires exécutées vaut :
+\[
+5\times2=10,
+\]
+si les deux instructions sont exécutées à chaque répétition.
+
+Cette relation permet de contrôler le déroulement.
+
+\section{14. Construire un trajet simple}
+
+Programmer un trajet simple consiste à transformer une route dessinée ou imaginée en une séquence précise.
+
+\begin{methode}
+\begin{enumerate}
+\item repérer le départ ;
+\item repérer l'orientation initiale ;
+\item localiser la cible ;
+\item découper le trajet en segments simples ;
+\item écrire les déplacements et rotations ;
+\item exécuter la séquence ;
+\item corriger si la cible n'est pas atteinte.
+\end{enumerate}
+\end{methode}
+
+\section{15. Exemple développé : contourner un obstacle}
+
+Un robot se déplace sur une grille.
+
+Un obstacle bloque la case située juste devant lui.
+
+Il peut utiliser :
+\begin{verbatim}
+tourner à droite
+avancer
+tourner à gauche
+avancer
+tourner à gauche
+avancer
+tourner à droite
+\end{verbatim}
+
+La bonne séquence dépend de la forme de l'obstacle et de l'orientation initiale.
+
+L'algorithme doit être testé sur la grille réelle.
+
+\section{16. Décomposer un problème}
+
+Une tâche complexe devient plus simple lorsqu'on la décompose.
+
+Par exemple :
+\[
+\text{aller de A à D}
+\]
+peut être découpé en :
+\[
+A\longrightarrow B,
+\]
+puis :
+\[
+B\longrightarrow C,
+\]
+puis :
+\[
+C\longrightarrow D.
+\]
+
+Chaque sous-trajet peut être résolu séparément avant de réunir les séquences.
+
+\begin{propriete}
+Décomposer une tâche en sous-tâches permet de réduire la difficulté et facilite la vérification de chaque étape.
+\end{propriete}
+
+\section{17. Prévoir avant d'exécuter}
+
+Avant de lancer une séquence sur une machine, il est utile de prévoir le résultat.
+
+Cette prévision permet ensuite de comparer :
+\[
+\text{résultat attendu}
+\]
+et
+\[
+\text{résultat obtenu}.
+\]
+
+Si les deux diffèrent, il faut chercher l'origine de l'écart.
+
+\section{18. Déboguer une séquence}
+
+Déboguer signifie chercher et corriger une erreur dans une procédure ou un programme.
+
+\begin{methode}
+\begin{enumerate}
+\item prévoir ce qui devrait se passer ;
+\item exécuter la séquence pas à pas ;
+\item repérer la première étape où le résultat devient incorrect ;
+\item identifier l'instruction responsable ;
+\item modifier cette instruction ;
+\item recommencer le test depuis le début.
+\end{enumerate}
+\end{methode}
+
+Cette démarche est plus efficace que modifier plusieurs instructions au hasard.
+
+\section{19. Exemple développé : une instruction incorrecte}
+
+Un robot doit aller deux cases à droite puis une case vers le haut.
+
+Il regarde initialement vers la droite.
+
+La séquence proposée est :
+\begin{verbatim}
+avancer
+avancer
+tourner à droite
+avancer
+\end{verbatim}
+
+Après deux déplacements, le robot est correctement placé horizontalement.
+
+Mais tourner à droite l'oriente vers le bas.
+
+La première erreur apparaît donc à la troisième instruction.
+
+Il faut remplacer :
+\[
+\text{« tourner à droite »}
+\]
+par :
+\[
+\text{« tourner à gauche »}.
+\]
+
+\section{20. Lire un programme par blocs}
+
+Dans un environnement comme Scratch, une instruction peut être représentée par un bloc.
+
+Plusieurs blocs emboîtés forment une séquence.
+
+Un bloc « répéter » contient les instructions à exécuter plusieurs fois.
+
+Le principe mathématique reste le même que sur papier :
+\[
+\text{instruction}
+\longrightarrow
+\text{séquence}
+\longrightarrow
+\text{répétition}.
+\]
+
+L'interface graphique change, mais le raisonnement reste transférable.
+
+\section{21. Entrées et sorties dans un programme}
+
+Une entrée peut être :
+\begin{itemize}
+\item une position de départ ;
+\item une orientation ;
+\item un nombre choisi ;
+\item une longueur ;
+\item une consigne donnée par l'utilisateur.
+\end{itemize}
+
+Une sortie peut être :
+\begin{itemize}
+\item une position finale ;
+\item un dessin ;
+\item un nombre obtenu ;
+\item un message affiché.
+\end{itemize}
+
+Identifier entrée et sortie aide à comprendre ce que réalise réellement la procédure.
+
+\section{22. Variables et conditions : seulement comme prolongement}
+
+Certains environnements de programmation utilisent des variables ou des conditions.
+
+Ces notions peuvent apparaître lors d'une activité, mais elles ne constituent pas le cœur des objectifs de ce chapitre de 6e.
+
+\begin{remarque}
+Le socle attendu ici reste : identifier et produire des instructions et séquences, répéter une séquence et programmer un trajet simple.
+\end{remarque}
+
+Cette distinction évite de transformer l'initiation de 6e en cours formel de programmation.
+
+\section{23. Exemple développé : construire un carré}
+
+Un robot graphique doit tracer un carré.
+
+Une procédure possible consiste à répéter quatre fois :
+\begin{verbatim}
+avancer de la même longueur
+tourner d'un angle droit
+\end{verbatim}
+
+Un angle droit mesure :
+\[
+90^\circ.
+\]
+
+La répétition comporte :
+\[
+4
+\]
+déplacements identiques et :
+\[
+4
+\]
+rotations de :
+\[
+90^\circ.
+\]
+
+Au total, la rotation accumulée vaut :
+\[
+4\times90^\circ=360^\circ.
+\]
+
+Le robot retrouve donc son orientation initiale.
+
+\section{24. Exemple développé : prédire une sortie numérique}
+
+La procédure suivante reçoit un nombre :
+\begin{verbatim}
+ajouter 5
+doubler
+\end{verbatim}
+
+Avec l'entrée :
+\[
+7,
+\]
+on obtient :
+\[
+7+5=12,
+\]
+puis :
+\[
+2\times12=24.
+\]
+
+La sortie est :
+\[
+\boxed{24}.
+\]
+
+Pour vérifier la compréhension, on peut ensuite essayer une autre entrée sans changer la séquence.
+
+\section{25. Méthode générale}
+
+\begin{methode}
+Pour résoudre un problème de pensée informatique :
+\begin{enumerate}
+\item identifier l'objectif final ;
+\item préciser les données d'entrée ;
+\item décomposer la tâche ;
+\item écrire les instructions dans l'ordre ;
+\item repérer les séquences répétées ;
+\item exécuter ou simuler pas à pas ;
+\item comparer le résultat obtenu au résultat attendu ;
+\item corriger la première erreur détectée ;
+\item tester à nouveau.
+\end{enumerate}
+\end{methode}
+
+\section{26. Erreurs fréquentes}
+
+\begin{itemize}
+\item Donner une consigne trop vague pour être exécutée.
+\item Oublier que l'ordre des instructions compte.
+\item Ne pas préciser l'orientation initiale d'un robot.
+\item Répéter une séquence une fois de trop.
+\item Confondre le nombre de répétitions et le nombre total d'instructions exécutées.
+\item Modifier plusieurs étapes simultanément pendant un débogage.
+\item Regarder uniquement la position finale sans rechercher la première instruction erronée.
+\item Présenter variables et conditions comme des prérequis alors qu'elles ne sont pas au cœur des attendus de 6e.
 \end{itemize}
 
 \section{À retenir}
-Un bon algorithme est une suite d'instructions compréhensible, testable et finie. La programmation sert à rendre cette procédure exécutable.
+
+\begin{aretenir}
+Une instruction décrit une action précise.
+
+Une séquence est une suite ordonnée d'instructions.
+
+Une procédure peut recevoir des entrées et produire une sortie.
+
+Lorsqu'une même séquence doit être exécutée plusieurs fois, on peut la répéter manuellement ou utiliser une structure de répétition.
+
+En 6e, il faut notamment savoir :
+\begin{itemize}
+\item identifier une instruction ou une séquence ;
+\item produire et exécuter une séquence ;
+\item répéter manuellement une séquence pour accomplir une tâche ;
+\item programmer la construction d'un trajet simple.
+\end{itemize}
+
+Le débogage consiste à exécuter pas à pas afin de repérer la première étape qui ne correspond plus au résultat attendu.
+\end{aretenir}
