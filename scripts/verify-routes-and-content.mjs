@@ -383,9 +383,9 @@ function validateRoutesAndGlobs() {
   }
 
   const criticalGlobs = [
-    ["src/pages/index.astro", "/src/data/chapters/**/meta.json"],
+    ["src/data/globalSearchResources.ts", "/src/data/chapters/**/meta.json"],
     ["src/pages/index.astro", "/src/data/chapters/**/flashcards.json"],
-    ["src/pages/index.astro", "/src/data/mathematiques/chapters/**/meta.json"],
+    ["src/data/globalSearchResources.ts", "/src/data/mathematiques/chapters/**/meta.json"],
     ["src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro", "/src/data/chapters/**/meta.json"],
     ["src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro", "/src/data/chapters/**/cours.mdx"],
     ["src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro", "/src/data/chapters/**/exercices.json"],
