@@ -1,0 +1,745 @@
+% Mathématiques 6e — cours V3
+% Source LaTeX rendue côté Astro/KaTeX.
+
+\section{Objectifs}
+
+Dans ce chapitre, on apprend à :
+
+\begin{itemize}
+\item raisonner sur une quantité dont on ne connaît pas encore la valeur ;
+\item utiliser des schémas, des symboles ou des lettres comme outils de représentation ;
+\item comprendre le sens d’une égalité ;
+\item chercher une valeur inconnue sans appliquer mécaniquement une technique d’équation ;
+\item lire, exécuter et produire des programmes de calcul simples ;
+\item reconnaître une régularité dans une suite de nombres ou de motifs ;
+\item prévoir une étape éloignée d’un motif évolutif ;
+\item expliquer et justifier une règle observée.
+\end{itemize}
+
+\section{1. La pensée algébrique commence avant le calcul littéral}
+
+En 6e, l’algèbre ne consiste pas à apprendre une longue liste de règles sur les lettres.
+
+L’objectif est d’apprendre à raisonner sur des \textbf{relations entre des quantités}, parfois sans connaître immédiatement leur valeur.
+
+Par exemple, dans la situation :
+
+> Deux objets identiques et un objet de valeur $3$ ont ensemble une valeur de $17$.
+
+on peut représenter la valeur inconnue d’un objet par un symbole.
+
+Si cette valeur est notée $x$, la situation peut être traduite par :
+
+\[
+x+x+3=17.
+\]
+
+Mais la lettre n’est pas le point de départ obligatoire : un schéma en barres ou une représentation concrète peut être plus efficace.
+
+\section{2. Le signe égal exprime une égalité de valeurs}
+
+Le signe
+
+\[
+=
+\]
+
+signifie que les deux expressions placées de part et d’autre ont \textbf{la même valeur}.
+
+Par exemple :
+
+\[
+7+5=3\times4.
+\]
+
+Cette égalité est vraie car :
+
+\[
+7+5=12
+\]
+
+et :
+
+\[
+3\times4=12.
+\]
+
+Le signe égal ne signifie donc pas seulement « maintenant, je donne le résultat ».
+
+Il peut relier deux expressions différentes qui représentent le même nombre.
+
+\section{3. Égalités vraies et fausses}
+
+Considérons :
+
+\[
+8+6=7\times2.
+\]
+
+Les deux membres valent :
+
+\[
+14.
+\]
+
+L’égalité est donc vraie.
+
+En revanche :
+
+\[
+8+6=5\times3
+\]
+
+est fausse car :
+
+\[
+14\neq15.
+\]
+
+Pour vérifier une égalité, on calcule les deux membres \textbf{séparément} puis on compare leurs valeurs.
+
+\section{4. Représenter une quantité inconnue}
+
+Une quantité inconnue peut être représentée :
+
+\begin{itemize}
+\item par une case vide ;
+\item par un symbole ;
+\item par une barre ;
+\item éventuellement par une lettre.
+\end{itemize}
+
+Par exemple :
+
+\[
+\Box+9=21
+\]
+
+ou :
+
+\[
+x+9=21
+\]
+
+traduisent la même recherche : trouver un nombre qui, augmenté de $9$, donne $21$.
+
+Le nombre cherché est :
+
+\[
+21-9=12.
+\]
+
+Donc :
+
+\[
+x=12.
+\]
+
+\section{5. Modèle en barres}
+
+Les schémas en barres permettent de visualiser les relations entre les quantités.
+
+\coursefigure{/images/mathematiques/6eme/algebre-modele-barres.svg}{Schéma en barres représentant une quantité inconnue complétée par une quantité connue pour former une quantité totale.}{Si une quantité inconnue $x$ augmentée de $6$ donne $20$, le schéma représente la relation $x+6=20$.}
+
+On lit alors directement :
+
+\[
+x=20-6.
+\]
+
+Donc :
+
+\[
+\boxed{x=14}.
+\]
+
+Le schéma aide à identifier l’opération à effectuer sans réciter une règle abstraite.
+
+\section{6. Exemple développé 1 — retrouver une quantité inconnue}
+
+Trois boîtes identiques et $4$ objets isolés contiennent ensemble $25$ objets.
+
+Chaque boîte contient le même nombre $x$ d’objets.
+
+On peut écrire :
+
+\[
+3x+4=25.
+\]
+
+On commence par retirer les $4$ objets isolés :
+
+\[
+25-4=21.
+\]
+
+Les trois boîtes identiques contiennent donc ensemble $21$ objets.
+
+Chaque boîte contient :
+
+\[
+21\div3=7.
+\]
+
+Ainsi :
+
+\[
+\boxed{x=7}.
+\]
+
+Vérification :
+
+\[
+3\times7+4=25.
+\]
+
+Cette démarche repose sur le sens des opérations.
+
+\section{7. Opérations inverses}
+
+Les opérations inverses sont utiles pour retrouver une quantité inconnue.
+
+L’addition et la soustraction sont liées.
+
+Par exemple :
+
+\[
+x+8=31
+\]
+
+conduit à :
+
+\[
+x=31-8=23.
+\]
+
+La multiplication et la division sont liées.
+
+Par exemple :
+
+\[
+5x=35
+\]
+
+conduit à :
+
+\[
+x=35\div5=7.
+\]
+
+En 6e, on privilégie ce raisonnement arithmétique avant les techniques formelles d’équations du cycle suivant.
+
+\section{8. Une lettre peut désigner un nombre variable}
+
+Une lettre ne représente pas toujours un nombre que l’on cherche.
+
+Elle peut aussi représenter un nombre qui \textbf{peut prendre plusieurs valeurs}.
+
+Supposons qu’un objet coûte $12\ \text{euros}$ et qu’un forfait fixe de livraison coûte $5\ \text{euros}$.
+
+Si $n$ désigne le nombre d’objets achetés, le prix total est :
+
+\[
+12n+5.
+\]
+
+Pour $n=3$ :
+
+\[
+12\times3+5=41.
+\]
+
+Pour $n=8$ :
+
+\[
+12\times8+5=101.
+\]
+
+La même expression décrit donc plusieurs situations.
+
+\section{9. Substitution}
+
+Substituer une valeur à une lettre signifie remplacer la lettre par cette valeur.
+
+Considérons :
+
+\[
+4n+3.
+\]
+
+Pour :
+
+\[
+n=5,
+\]
+
+on calcule :
+
+\[
+4\times5+3=23.
+\]
+
+Pour :
+
+\[
+n=10,
+\]
+
+on calcule :
+
+\[
+4\times10+3=43.
+\]
+
+La substitution sert à tester ou exploiter une règle.
+
+\section{10. Programmes de calcul}
+
+Un programme de calcul est une suite ordonnée d’instructions.
+
+Exemple :
+
+\begin{enumerate}
+\item choisir un nombre ;
+\item le multiplier par $3$ ;
+\item ajouter $5$.
+\end{enumerate}
+
+Si le nombre choisi est $4$ :
+
+\[
+4\times3=12,
+\]
+
+puis :
+
+\[
+12+5=17.
+\]
+
+Le résultat final est :
+
+\[
+17.
+\]
+
+\section{11. Traduire un programme de calcul}
+
+Si le nombre de départ est noté $n$, le programme précédent donne :
+
+\[
+3n+5.
+\]
+
+Cette écriture permet de décrire le programme \textbf{sans choisir une valeur particulière}.
+
+Attention : en 6e, l’objectif n’est pas encore de développer tout le calcul littéral. La lettre sert surtout à représenter une quantité de manière générale.
+
+\section{12. Exécuter un programme à l’envers}
+
+On peut parfois retrouver le nombre de départ en remontant les opérations.
+
+Programme :
+
+\begin{enumerate}
+\item choisir un nombre ;
+\item ajouter $7$ ;
+\item multiplier le résultat par $2$.
+\end{enumerate}
+
+Le résultat final est $30$.
+
+On remonte le programme :
+
+\[
+30\div2=15,
+\]
+
+puis :
+
+\[
+15-7=8.
+\]
+
+Le nombre choisi était donc :
+
+\[
+\boxed{8}.
+\]
+
+\section{13. Comparer deux programmes}
+
+Programme A :
+
+\begin{enumerate}
+\item choisir un nombre ;
+\item le doubler ;
+\item ajouter $6$.
+\end{enumerate}
+
+Programme B :
+
+\begin{enumerate}
+\item choisir un nombre ;
+\item ajouter $3$ ;
+\item doubler.
+\end{enumerate}
+
+Pour un nombre $n$, le programme A donne :
+
+\[
+2n+6.
+\]
+
+Le programme B donne :
+
+\[
+2(n+3).
+\]
+
+Or :
+
+\[
+2(n+3)=2n+6.
+\]
+
+Les deux programmes donnent donc toujours le même résultat.
+
+Dans ce cas, quelques essais peuvent suggérer l’égalité, mais l’écriture générale explique \textbf{pourquoi} elle est toujours vraie.
+
+\section{14. Essais et conjectures}
+
+Tester une règle sur quelques exemples permet de formuler une \textbf{conjecture}.
+
+Une conjecture est une propriété que l’on pense vraie mais qui demande encore une justification.
+
+Par exemple, on observe :
+
+\[
+1+3=4,
+\]
+
+\[
+3+5=8,
+\]
+
+\[
+5+7=12.
+\]
+
+On peut conjecturer :
+
+> La somme de deux nombres impairs consécutifs est paire.
+
+Les exemples rendent la conjecture plausible.
+
+Mais un raisonnement général est nécessaire pour expliquer qu’elle ne dépend pas seulement des exemples choisis.
+
+\section{15. Motifs évolutifs}
+
+Un motif évolutif change d’une étape à la suivante selon une règle.
+
+\coursefigure{/images/mathematiques/6eme/algebre-motif-evolutif.svg}{Quatre étapes d’un motif évolutif construit avec un nombre croissant de carrés.}{Dans cet exemple visuel, une nouvelle case est ajoutée à chaque étape. L’objectif est d’identifier la structure, puis de prévoir une étape éloignée.}
+
+La première question est :
+
+> Qu’est-ce qui reste identique et qu’est-ce qui change ?
+
+La seconde est :
+
+> Comment décrire la règle sans avoir besoin de dessiner toutes les étapes précédentes ?
+
+\section{16. Décrire une régularité}
+
+Supposons qu’un motif comporte :
+
+\[
+4
+\]
+
+éléments à l’étape $1$, puis gagne :
+
+\[
+3
+\]
+
+éléments à chaque nouvelle étape.
+
+Les premières valeurs sont :
+
+\[
+4,\quad7,\quad10,\quad13,\quad16,\ldots
+\]
+
+On peut dire :
+
+> À chaque étape, on ajoute $3$.
+
+Pour passer de l’étape $1$ à l’étape $n$, on effectue :
+
+\[
+n-1
+\]
+
+augmentations.
+
+Le nombre d’éléments vaut donc :
+
+\[
+4+3(n-1).
+\]
+
+Cette écriture est une manière compacte de décrire la structure du motif.
+
+\section{17. Exemple développé 2 — prévoir une étape éloignée}
+
+Un motif contient $5$ éléments à l’étape $1$ et gagne $4$ éléments à chaque étape.
+
+Combien contient-il d’éléments à l’étape $8$ ?
+
+Entre les étapes $1$ et $8$, il y a :
+
+\[
+8-1=7
+\]
+
+augmentations.
+
+On ajoute donc :
+
+\[
+7\times4=28
+\]
+
+éléments.
+
+Le total vaut :
+
+\[
+5+28=33.
+\]
+
+Ainsi, l’étape $8$ contient :
+
+\[
+\boxed{33}
+\]
+
+éléments.
+
+\section{18. Chercher une structure plutôt qu’une simple liste}
+
+Une suite peut être décrite de plusieurs manières.
+
+Considérons :
+
+\[
+2,\quad5,\quad8,\quad11,\quad14,\ldots
+\]
+
+On peut remarquer :
+
+> On ajoute $3$ à chaque fois.
+
+Mais on peut aussi relier directement le rang $n$ au nombre obtenu.
+
+À l’étape $1$, le résultat est $2$.
+
+Une expression possible est :
+
+\[
+2+3(n-1).
+\]
+
+Cette deuxième description permet d’atteindre directement une étape éloignée.
+
+\section{19. Motifs non numériques}
+
+La pensée algébrique ne concerne pas uniquement les suites de nombres.
+
+Un motif géométrique peut aussi évoluer.
+
+Par exemple :
+
+\begin{itemize}
+\item étape $1$ : un carré ;
+\item étape $2$ : trois carrés ;
+\item étape $3$ : cinq carrés ;
+\item étape $4$ : sept carrés.
+\end{itemize}
+
+Les nombres d’éléments sont :
+
+\[
+1,\quad3,\quad5,\quad7,\ldots
+\]
+
+La régularité est :
+
+> Ajouter $2$ à chaque étape.
+
+On peut chercher combien d’éléments possède une étape éloignée sans construire toutes les étapes précédentes.
+
+\section{20. Lire un tableau de valeurs}
+
+Un tableau peut aider à observer une relation.
+
+| Étape | Nombre d’éléments |
+|---:|---:|
+| $1$ | $4$ |
+| $2$ | $7$ |
+| $3$ | $10$ |
+| $4$ | $13$ |
+
+On observe que lorsque l’étape augmente de :
+
+\[
+1,
+\]
+
+le nombre d’éléments augmente de :
+
+\[
+3.
+\]
+
+Le tableau ne donne pas encore une preuve, mais il rend la régularité plus visible.
+
+\section{21. Méthode — résoudre un problème pré-algébrique}
+
+Lorsqu’un nombre inconnu intervient :
+
+\subsection{Étape 1 — identifier les quantités}
+
+Qu’est-ce qui est connu ?
+
+Qu’est-ce qui est inconnu ?
+
+\subsection{Étape 2 — représenter la relation}
+
+On peut utiliser :
+
+\begin{itemize}
+\item un schéma en barres ;
+\item une case vide ;
+\item une lettre ;
+\item une égalité.
+\end{itemize}
+
+\subsection{Étape 3 — raisonner avec les opérations}
+
+On utilise les opérations inverses ou la structure de la situation.
+
+\subsection{Étape 4 — vérifier}
+
+On remplace la quantité inconnue par la valeur trouvée dans la situation initiale.
+
+\section{22. Méthode — étudier un motif évolutif}
+
+\subsection{Étape 1 — observer plusieurs étapes}
+
+Repérer précisément ce qui est ajouté ou modifié.
+
+\subsection{Étape 2 — décrire la transformation}
+
+Par exemple :
+
+> Chaque nouvelle étape ajoute $3$ éléments.
+
+\subsection{Étape 3 — compter le nombre de transformations}
+
+Pour passer de l’étape $1$ à l’étape $n$ :
+
+\[
+n-1
+\]
+
+transformations sont effectuées.
+
+\subsection{Étape 4 — tester la règle}
+
+La règle doit retrouver les premières étapes connues.
+
+\section{23. Erreurs fréquentes}
+
+\subsection{Utiliser le signe égal comme une flèche}
+
+Il est incorrect d’écrire :
+
+\[
+5+3=8\times2=16
+\]
+
+car :
+
+\[
+5+3=8
+\]
+
+mais :
+
+\[
+8\neq16.
+\]
+
+Il faut écrire les étapes séparément.
+
+\subsection{Croire qu’une lettre désigne toujours la même valeur}
+
+Dans une expression générale, $n$ peut prendre différentes valeurs selon la situation.
+
+\subsection{Introduire trop vite des techniques formelles}
+
+Pour :
+
+\[
+x+7=18,
+\]
+
+il suffit en 6e de comprendre que :
+
+\[
+x=18-7=11.
+\]
+
+\subsection{Confondre l’étape et le nombre d’ajouts}
+
+De l’étape $1$ à l’étape $8$, il y a :
+
+\[
+7
+\]
+
+changements, pas $8$.
+
+\subsection{Croire que quelques exemples prouvent une règle}
+
+Des exemples peuvent permettre de conjecturer.
+
+Ils ne suffisent pas toujours à justifier une affirmation générale.
+
+\section{24. À retenir}
+
+La pensée algébrique consiste d’abord à \textbf{raisonner sur des relations}.
+
+Une quantité inconnue peut être représentée par un symbole ou une lettre.
+
+Une égalité affirme que deux expressions ont la même valeur :
+
+\[
+\boxed{A=B}.
+\]
+
+Les modèles en barres permettent de rendre visibles les relations entre quantités.
+
+Un motif évolutif doit être analysé en recherchant :
+
+\begin{itemize}
+\item ce qui change ;
+\item de combien cela change ;
+\item combien de fois la transformation est répétée.
+\end{itemize}
+
+Une règle efficace doit être testée sur les premières étapes et permettre de prévoir des étapes plus éloignées.
+
+L’objectif n’est pas de faire du calcul littéral avancé, mais d’apprendre à \textbf{généraliser, représenter et justifier}.
