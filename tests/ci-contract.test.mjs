@@ -6,6 +6,8 @@ const workflowUrl = new URL("../.github/workflows/ci.yml", import.meta.url);
 const workflow = fs.readFileSync(workflowUrl, "utf8");
 const packageUrl = new URL("../package.json", import.meta.url);
 const packageJson = JSON.parse(fs.readFileSync(packageUrl, "utf8"));
+const auditSecurityUrl = new URL("../scripts/audit-security.mjs", import.meta.url);
+const auditSecuritySource = fs.readFileSync(auditSecurityUrl, "utf8");
 
 function jobBlock(jobName) {
   const marker = `  ${jobName}:\n`;
@@ -51,8 +53,12 @@ test("les exécutions obsolètes sont annulées pour éviter des statuts contrad
 });
 
 test("quality bloque toute vulnérabilité npm high ou critical", () => {
-  assert.equal(packageJson.scripts["audit:security"], "npm audit --audit-level=high");
+  assert.equal(packageJson.scripts["audit:security"], "node scripts/audit-security.mjs");
   assert.match(packageJson.scripts["ci:quality"], /npm run audit:security/);
+  assert.match(auditSecuritySource, /\["audit", "--audit-level=high"\]/);
+  assert.match(auditSecuritySource, /if \(code === 0\) return 0/);
+  assert.match(auditSecuritySource, /if \(isTransientRegistryFailure\(combined\)\)/);
+  assert.match(auditSecuritySource, /return code/);
 });
 
 test("quality refuse tout warning ESLint", () => {
