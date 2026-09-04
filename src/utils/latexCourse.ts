@@ -248,6 +248,8 @@ export function renderLatexCourse(source: string): string {
   let tabularLines: string[] | null = null;
   let displayMath: string[] | null = null;
   let displayMathEnd: string | null = null;
+  let verbatimLines: string[] | null = null;
+  let verbatimEnd: string | null = null;
 
   const flushParagraph = () => {
     const value = paragraph.join(" ").replace(/\s+/g, " ").trim();
@@ -264,6 +266,17 @@ export function renderLatexCourse(source: string): string {
   for (let rawIndex = 0; rawIndex < lines.length; rawIndex += 1) {
     const rawLine = lines[rawIndex];
     const line = rawLine.trim();
+
+    if (verbatimLines) {
+      if (line === verbatimEnd) {
+        html.push('<pre class="latex-course-code"><code>' + escapeHtml(verbatimLines.join("\n")) + "</code></pre>");
+        verbatimLines = null;
+        verbatimEnd = null;
+      } else {
+        verbatimLines.push(rawLine);
+      }
+      continue;
+    }
 
     if (displayMath) {
       if (line === displayMathEnd) {
@@ -286,7 +299,16 @@ export function renderLatexCourse(source: string): string {
       continue;
     }
 
-    if (line === "\\[" || line === "$$" || /^\\begin\{equation\*?\}/.test(line)) {
+    if (/^\\begin\{(verbatim|lstlisting)\}/.test(line)) {
+      flushParagraph();
+      closeList();
+      const env = line.includes("lstlisting") ? "lstlisting" : "verbatim";
+      verbatimLines = [];
+      verbatimEnd = "\\end{" + env + "}";
+      continue;
+    }
+
+    if (line === "\\[" || line === "$" || /^\\begin\{equation\*?\}/.test(line)) {
       flushParagraph();
       closeList();
       displayMath = [];
