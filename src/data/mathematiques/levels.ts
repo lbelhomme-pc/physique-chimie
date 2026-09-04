@@ -131,7 +131,7 @@ export const mathematicsLyceeLevels: MathematicsLevel[] = [
     shortLabel: "Tle spé maths",
     cycle: "lycee",
     path: "/mathematiques/lycee/terminale-specialite-mathematiques",
-    description: "Première moitié du programme de Terminale spécialité actuellement en vigueur : algèbre, géométrie dans l’espace et premiers chapitres d’analyse.",
+    description: "Programme complet de Terminale spécialité actuellement en vigueur, avec cours, exercices N1 à N3, quiz, flashcards, algorithmique et préparation au bac.",
     enabled: true,
     status: "available",
     order: 7,

@@ -62,3 +62,12 @@ C26 publie la première moitié éditoriale du programme actuellement applicable
 - continuité et théorème des valeurs intermédiaires.
 
 Le programme 2026 reste enregistré comme version future et n'alimente aucune route C26 en 2026-2027.
+
+
+## Mission C27 — Terminale spécialité, partie 2 + bac
+
+C27 complète le programme 2019 de Terminale spécialité pour l'année 2026-2027. Avec les 8 chapitres C26 et les 6 chapitres de programme C27, le corpus couvre les cinq grandes parties officielles : algèbre, analyse, géométrie, probabilités et algorithmique-programmation.
+
+C27 ajoute également une ressource dédiée à la préparation de l'épreuve écrite de spécialité : 4 heures, coefficient 16 et quatre exercices indépendants dans la définition consolidée actuellement applicable.
+
+La version de programme publiée en 2026 reste future jusqu'à la rentrée 2027-2028 et n'est utilisée par aucun chapitre C26/C27.

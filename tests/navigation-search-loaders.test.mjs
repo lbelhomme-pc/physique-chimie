@@ -137,6 +137,8 @@ test("search corpus includes published mathematics chapters without planned leve
   assert.ok(searchChapters(mathematicsChapters, "fractions").some((chapter) => chapter.id.startsWith("mathematiques:college:5eme:")));
   assert.ok(searchChapters(mathematicsChapters, "produit scalaire").some((chapter) => chapter.id.startsWith("mathematiques:lycee:1ere-specialite-mathematiques:")));
   assert.ok(searchChapters(mathematicsChapters, "combinatoire").some((chapter) => chapter.id.startsWith("mathematiques:lycee:terminale-specialite-mathematiques:")));
+  assert.ok(searchChapters(mathematicsChapters, "logarithme").some((chapter) => chapter.id.startsWith("mathematiques:lycee:terminale-specialite-mathematiques:")));
+  assert.ok(searchChapters(mathematicsChapters, "bac").some((chapter) => chapter.id.startsWith("mathematiques:lycee:terminale-specialite-mathematiques:")));
   assert.deepEqual([...new Set(mathematicsChapters.map((chapter) => chapter.niveau))], ["3eme", "4eme", "5eme", "6eme", "1ere-ens-scientifique", "1ere-specialite-mathematiques", "2nde", "terminale-specialite-mathematiques"]);
 });
 
