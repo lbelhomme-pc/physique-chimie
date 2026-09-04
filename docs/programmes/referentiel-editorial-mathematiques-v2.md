@@ -95,9 +95,18 @@ Seuil indicatif V2 :
 
 Les formules doivent être expliquées : symboles, hypothèses, unités ou interprétation si nécessaire.
 
-### 4.4 Graphiques et figures
+### 4.4 Graphiques, schémas et figures — garde-fou bloquant
 
-Chaque chapitre V2 possède au moins une vraie représentation visuelle liée à la notion, et généralement plusieurs lorsque le sujet s'y prête.
+**Aucun chapitre V2 ne peut être certifié sans représentations visuelles mathématiques.**
+
+Seuil obligatoire :
+
+- **au moins 2 visuels pédagogiques distincts par chapitre** ;
+- au moins un schéma, une figure ou une représentation structurante de la notion ;
+- au moins un graphique, une courbe, un repère, un diagramme, une représentation de données ou un second visuel mathématique équivalent lorsque la notion s'y prête ;
+- davantage de visuels dès que plusieurs représentations sont nécessaires à la compréhension.
+
+Pour un chapitre où un « graphique » au sens strict serait artificiel (par exemple certains chapitres d'arithmétique), il est remplacé par une représentation mathématique réellement utile : droite graduée, décomposition, schéma de calcul, tableau visuel, représentation géométrique, arbre ou diagramme.
 
 Exemples :
 
@@ -111,9 +120,18 @@ Exemples :
 - représentation d'une suite ou d'une évolution ;
 - schéma algorithmique.
 
-Les visuels ne sont pas décoratifs. Ils doivent permettre une lecture ou un raisonnement.
+Les visuels ne sont pas décoratifs. Ils doivent permettre une lecture, une comparaison, une construction ou un raisonnement.
 
-Tout SVG doit avoir `role="img"` et une alternative accessible (`aria-label`, description ou texte équivalent).
+Sont refusés comme « visuels » de certification :
+
+- icônes décoratives ;
+- illustrations génériques sans information mathématique ;
+- images répétées ;
+- captures d'écran qui n'apportent aucune représentation de la notion.
+
+Chaque visuel doit être cité ou exploité dans le cours. Un chapitre ne doit pas présenter une courbe sans demander au lecteur de la lire, l'interpréter ou la relier à une propriété.
+
+Tout SVG doit avoir `role="img"` et une alternative accessible (`aria-label`, description ou texte équivalent). Une image externe doit avoir un `alt` descriptif.
 
 ## 5. Exercices
 
@@ -172,7 +190,7 @@ La certification V2 vérifie automatiquement :
 - taille minimale du cours ;
 - nombre de sections ;
 - présence de LaTeX ;
-- présence d'au moins un visuel accessible ;
+- présence d'au moins **2 visuels mathématiques pédagogiques distincts et accessibles** ;
 - présence d'exemples, d'une méthode, d'erreurs fréquentes et d'une synthèse ;
 - au moins 12 exercices et corrections ;
 - répartition N1/N2/N3 ;
