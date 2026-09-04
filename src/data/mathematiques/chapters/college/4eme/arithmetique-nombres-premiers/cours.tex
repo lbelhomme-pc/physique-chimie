@@ -1,0 +1,351 @@
+% Mathématiques 4e — cours V3
+% Arithmétique et nombres premiers
+
+\section{Objectifs}
+
+\begin{itemize}
+\item Utiliser les notions de multiple et de diviseur.
+\item Reconnaître un nombre premier.
+\item Connaître ou retrouver les nombres premiers inférieurs ou égaux à $100$.
+\item Décomposer un entier en produit de facteurs premiers.
+\item Utiliser cette décomposition pour simplifier une fraction.
+\item Reconnaître et produire des fractions égales.
+\item Obtenir une fraction irréductible.
+\item Résoudre des problèmes de divisibilité, de partage ou de périodicité.
+\end{itemize}
+
+\section{1. Multiples et diviseurs}
+
+Pour des entiers $a$ et $b$ avec $b\neq0$, dire que $b$ divise $a$ signifie qu'il existe un entier $k$ tel que :
+\[
+a=bk.
+\]
+
+Par exemple :
+\[
+84=7\times12.
+\]
+
+Donc $7$ et $12$ sont des diviseurs de $84$.
+
+\section{2. Critères de divisibilité}
+
+Les critères usuels restent utiles.
+
+Un entier est divisible :
+\begin{itemize}
+\item par $2$ si son chiffre des unités est pair ;
+\item par $3$ si la somme de ses chiffres est divisible par $3$ ;
+\item par $5$ s'il se termine par $0$ ou $5$ ;
+\item par $9$ si la somme de ses chiffres est divisible par $9$ ;
+\item par $10$ s'il se termine par $0$.
+\end{itemize}
+
+\section{3. Nombre premier}
+
+\begin{definition}
+Un nombre premier est un entier positif qui possède exactement deux diviseurs positifs :
+\[
+1
+\]
+et lui-même.
+\end{definition}
+
+Ainsi :
+\[
+2,\ 3,\ 5,\ 7,\ 11
+\]
+sont premiers.
+
+Le nombre $1$ n'est pas premier.
+
+\section{4. Nombres premiers jusqu'à cent}
+
+\coursefigure{/images/mathematiques/4eme/premiers-grille.svg}{Grille des entiers de 1 à 100 avec nombres premiers mis en évidence.}{Les nombres premiers sont les briques élémentaires de la décomposition multiplicative des entiers.}
+
+La liste utile jusqu'à $100$ commence par :
+\[
+2,\ 3,\ 5,\ 7,\ 11,\ 13,\ 17,\ 19,\ 23,\ 29,
+\]
+et se termine par :
+\[
+71,\ 73,\ 79,\ 83,\ 89,\ 97.
+\]
+
+Il faut surtout savoir les retrouver efficacement.
+
+\section{5. Tester un nombre}
+
+Pour :
+\[
+91,
+\]
+on observe :
+\[
+91=7\times13.
+\]
+
+Donc $91$ n'est pas premier.
+
+Pour $97$, il suffit de tester les petits nombres premiers jusqu'à environ $\sqrt{97}<10$ :
+\[
+2,\ 3,\ 5,\ 7.
+\]
+
+Aucun ne divise $97$.
+
+Donc $97$ est premier.
+
+\section{6. Décomposition}
+
+\begin{definition}
+Décomposer un entier en facteurs premiers consiste à l'écrire comme produit de nombres premiers.
+\end{definition}
+
+Pour $84$ :
+\[
+84=2\times42
+\]
+puis :
+\[
+42=2\times21
+\]
+et :
+\[
+21=3\times7.
+\]
+
+Donc :
+\[
+\boxed{84=2^2\times3\times7}.
+\]
+
+\coursefigure{/images/mathematiques/4eme/premiers-arbre.svg}{Arbre de facteurs de 84 aboutissant à 2, 2, 3 et 7.}{On poursuit la décomposition jusqu'à ce que tous les facteurs obtenus soient premiers.}
+
+\section{7. Divisions successives}
+
+Pour $360$ :
+\[
+360\div2=180,
+\]
+\[
+180\div2=90,
+\]
+\[
+90\div2=45,
+\]
+\[
+45\div3=15,
+\]
+\[
+15\div3=5,
+\]
+\[
+5\div5=1.
+\]
+
+Donc :
+\[
+\boxed{360=2^3\times3^2\times5}.
+\]
+
+\section{8. Simplifier une fraction}
+
+Considérons :
+\[
+\dfrac{84}{126}.
+\]
+
+On a :
+\[
+84=2^2\times3\times7,
+\]
+\[
+126=2\times3^2\times7.
+\]
+
+On simplifie les facteurs communs :
+\[
+2\times3\times7.
+\]
+
+Donc :
+\[
+\dfrac{84}{126}=\dfrac23.
+\]
+
+\section{9. Fraction irréductible}
+
+\begin{definition}
+Une fraction est irréductible lorsque son numérateur et son dénominateur n'ont aucun facteur premier commun.
+\end{definition}
+
+\[
+35=5\times7,
+\]
+\[
+48=2^4\times3.
+\]
+
+Donc :
+\[
+\dfrac{35}{48}
+\]
+est irréductible.
+
+\section{10. Fractions égales}
+
+\[
+\dfrac57=\dfrac{30}{42}
+\]
+car on a multiplié le numérateur et le dénominateur par :
+\[
+6.
+\]
+
+La décomposition permet de reconnaître les facteurs communs de deux écritures.
+
+\section{11. Problème de lots}
+
+On dispose de :
+\[
+84
+\]
+jetons rouges et :
+\[
+126
+\]
+jetons bleus.
+
+On veut le plus grand nombre de lots identiques.
+
+Les facteurs communs donnent :
+\[
+42
+\]
+lots.
+
+Chaque lot contient :
+\[
+84\div42=2
+\]
+jetons rouges et :
+\[
+126\div42=3
+\]
+jetons bleus.
+
+\section{12. Problème de périodicité}
+
+Deux alarmes sonnent toutes les :
+\[
+18\ \text{min}
+\]
+et :
+\[
+24\ \text{min}.
+\]
+
+\[
+18=2\times3^2,
+\]
+\[
+24=2^3\times3.
+\]
+
+Le premier multiple commun utile est :
+\[
+2^3\times3^2=72.
+\]
+
+Elles sonnent ensemble après :
+\[
+\boxed{72\ \text{min}}.
+\]
+
+\section{13. Algorithme simple}
+
+\begin{verbatim}
+tester les diviseurs premiers
+si un diviseur exact est trouvé
+    le nombre n'est pas premier
+sinon
+    le nombre est premier
+\end{verbatim}
+
+Un programme permet d'automatiser des tests mais ne remplace pas la compréhension des critères.
+
+\section{14. Recherche efficace}
+
+Si :
+\[
+n=ab,
+\]
+au moins un des facteurs est inférieur ou égal à :
+\[
+\sqrt n.
+\]
+
+On peut donc limiter les tests de divisibilité à des facteurs suffisamment petits.
+
+\section{15. Exemple 210/462}
+
+\[
+210=2\times3\times5\times7,
+\]
+\[
+462=2\times3\times7\times11.
+\]
+
+On simplifie par :
+\[
+2\times3\times7=42.
+\]
+
+Donc :
+\[
+\dfrac{210}{462}=\dfrac5{11}.
+\]
+
+\section{16. Choisir une méthode}
+
+Pour tester la divisibilité par $5$, un critère suffit.
+
+Pour simplifier une fraction complexe, la décomposition en facteurs premiers peut être plus claire.
+
+La méthode dépend donc du problème.
+
+\section{17. Méthode générale}
+
+\begin{methode}
+\begin{enumerate}
+\item tester les plus petits nombres premiers ;
+\item diviser tant que le quotient est entier ;
+\item poursuivre jusqu'à obtenir uniquement des facteurs premiers ;
+\item écrire le produit obtenu ;
+\item utiliser ces facteurs pour simplifier ou résoudre le problème.
+\end{enumerate}
+\end{methode}
+
+\section{18. Erreurs fréquentes}
+
+\begin{itemize}
+\item Considérer $1$ comme premier.
+\item Arrêter une décomposition alors qu'un facteur est encore composé.
+\item Confondre facteur premier et chiffre premier.
+\item Simplifier numérateur et dénominateur par des nombres différents.
+\item Croire qu'une fraction est irréductible sans vérifier les facteurs communs.
+\end{itemize}
+
+\section{À retenir}
+
+\begin{aretenir}
+Un nombre premier possède exactement deux diviseurs positifs :
+\[
+\boxed{1\text{ et lui-même}}.
+\]
+
+Tout entier supérieur à $1$ peut être décomposé en produit de facteurs premiers.
+
+Cette décomposition permet de simplifier des fractions, d'obtenir une fraction irréductible et de résoudre des problèmes de divisibilité, de partage ou de périodicité.
+\end{aretenir}
