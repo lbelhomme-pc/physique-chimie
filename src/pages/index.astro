@@ -1,76 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import GlobalSearch, { type GlobalSearchResource } from "../components/search/GlobalSearch";
-import { getLevelDisplayLabel } from "../utils/levels";
-import { getMatiereLabel } from "../data/levels";
-import { getPhysicalScienceExplicitChapterPath, getPublishedMathematicsLevels } from "../data/contentRoutes";
-import { chapterEntryFromGlob } from "../data/mathematiques/content";
-import { getMathematicsLevelsByCycle } from "../data/mathematiques/levels";
+import GlobalSearch from "../components/search/GlobalSearch";
 import { labApps } from "../data/laboratoire/apps";
+import { getGlobalSearchCatalogue } from "../data/globalSearchResources";
 
-const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
 const allFlash = import.meta.glob("/src/data/chapters/**/flashcards.json", { eager: true });
-const allMathMeta = import.meta.glob("/src/data/mathematiques/chapters/**/meta.json", { eager: true });
-
-const resources: GlobalSearchResource[] = [];
-
-for (const [path, mod] of Object.entries(allMeta)) {
-  const [cycle, niveau, matiere, slug] = path
-    .replace("/src/data/chapters/", "")
-    .replace("/meta.json", "")
-    .split("/");
-  if ((cycle !== "college" && cycle !== "lycee") || !niveau || !matiere || !slug) continue;
-  const data = (mod as any).default ?? mod;
-  const matiereLabel = getMatiereLabel(matiere);
-  const isScientificEducation =
-    data.disciplineIdentity === "enseignement-scientifique" ||
-    niveau.includes("ens-scientifique");
-  resources.push({
-    id: data.canonicalId ?? `physique-chimie:${cycle}:${niveau}:${matiere}:${slug}`,
-    title: data.title ?? slug,
-    description: data.description,
-    path: getPhysicalScienceExplicitChapterPath(cycle, niveau, matiere as "physique" | "chimie", slug),
-    slug,
-    keywords: data.keywords ?? data.tags ?? [],
-    cycle,
-    levelLabel: getLevelDisplayLabel(niveau),
-    subject: "physique-chimie",
-    subjectLabel: isScientificEducation ? "Physique-Chimie — Enseignement scientifique" : "Physique-Chimie",
-    matiereLabel,
-    resourceType: "chapter",
-    accessTier: data.access?.tier ?? "free",
-  });
-}
-
-const mathChapters = Object.entries(allMathMeta)
-  .map(([path, mod]) => chapterEntryFromGlob(path, mod))
-  .filter((chapter): chapter is NonNullable<typeof chapter> => Boolean(chapter));
-
-const publishedMathLevels = [
-  ...getPublishedMathematicsLevels(getMathematicsLevelsByCycle("college"), mathChapters),
-  ...getPublishedMathematicsLevels(getMathematicsLevelsByCycle("lycee"), mathChapters),
-];
-const publishedMathLevelKeys = new Set(publishedMathLevels.map((level) => `${level.cycle}:${level.slug}`));
-const publishedMathChapters = mathChapters.filter((chapter) =>
-  publishedMathLevelKeys.has(`${chapter.cycle}:${chapter.niveau}`),
-);
-
-for (const chapter of publishedMathChapters) {
-  resources.push({
-    id: `mathematiques:${chapter.cycle}:${chapter.niveau}:${chapter.slug}`,
-    title: chapter.title,
-    description: chapter.description,
-    path: chapter.path,
-    slug: chapter.slug,
-    keywords: chapter.tags ?? [],
-    cycle: chapter.cycle,
-    levelLabel: getLevelDisplayLabel(chapter.niveau),
-    subject: "mathematiques",
-    subjectLabel: "Mathématiques",
-    resourceType: "chapter",
-    accessTier: "free",
-  });
-}
+const { resources, publishedMathLevels, publishedMathChapters } = getGlobalSearchCatalogue();
 
 const mathChapterCount = publishedMathChapters.length;
 const publishedMathLevelLabels = publishedMathLevels.map((level) => level.label);
@@ -151,7 +86,7 @@ const methodSteps = [
     </section>
 
     <section id="recherche" class="search-reference" aria-label="Recherche globale">
-      <GlobalSearch client:load resources={resources} />
+      <GlobalSearch client:load resourceUrl="/search-index.json" resourceCount={resources.length} />
     </section>
 
     <section id="plateforme" class="subjects-reference" aria-labelledby="subjects-title">

@@ -12,7 +12,9 @@ import {
 export type { GlobalSearchResource, SearchSubject } from "../../data/searchIndex";
 
 interface Props {
-  resources: GlobalSearchResource[];
+  resources?: GlobalSearchResource[];
+  resourceUrl?: string;
+  resourceCount?: number;
   initialSubject?: SearchSubject | "all";
 }
 
@@ -36,12 +38,49 @@ const ACCESS_FILTERS = [
 
 const SEARCH_SUGGESTIONS = ["Fonctions", "Atomes", "Vitesse"];
 
-export default function GlobalSearch({ resources, initialSubject = "all" }: Props) {
+export default function GlobalSearch({
+  resources: initialResources = [],
+  resourceUrl,
+  resourceCount = initialResources.length,
+  initialSubject = "all",
+}: Props) {
+  const [resources, setResources] = useState<GlobalSearchResource[]>(initialResources);
+  const [isLoading, setIsLoading] = useState(Boolean(resourceUrl && initialResources.length === 0));
+  const [loadError, setLoadError] = useState(false);
   const [query, setQuery] = useState("");
   const [subject, setSubject] = useState<SearchSubject | "all">(initialSubject);
   const [cycle, setCycle] = useState<SearchCycle | "all">("all");
   const [accessTier, setAccessTier] = useState<SearchAccessTier | "all">("all");
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (!resourceUrl || initialResources.length > 0) return;
+
+    let cancelled = false;
+    setIsLoading(true);
+    setLoadError(false);
+
+    fetch(resourceUrl, { headers: { Accept: "application/json" } })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Search index HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((payload) => {
+        if (!cancelled && Array.isArray(payload)) {
+          setResources(payload as GlobalSearchResource[]);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setLoadError(true);
+      })
+      .finally(() => {
+        if (!cancelled) setIsLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [initialResources.length, resourceUrl]);
 
   const results = useMemo(() => {
     return searchResources(resources, { query, subject, cycle, accessTier, limit: 12 });
@@ -58,9 +97,14 @@ export default function GlobalSearch({ resources, initialSubject = "all" }: Prop
 
   const trimmedQuery = query.trim();
   const hasQuery = trimmedQuery.length >= 2;
-  const resultsLabel = hasQuery
-    ? `${results.length} résultat${results.length > 1 ? "s" : ""} pour « ${trimmedQuery} »`
-    : `${resources.length} chapitres disponibles`;
+  const displayedResourceCount = resources.length || resourceCount;
+  const resultsLabel = isLoading
+    ? "Chargement de l’index de recherche…"
+    : loadError
+      ? "Index de recherche indisponible."
+      : hasQuery
+        ? `${results.length} résultat${results.length > 1 ? "s" : ""} pour « ${trimmedQuery} »`
+        : `${displayedResourceCount} chapitres disponibles`;
 
   function openActiveResult() {
     const result = results[activeIndex] ?? results[0];
@@ -82,8 +126,8 @@ export default function GlobalSearch({ resources, initialSubject = "all" }: Prop
           <h2 id="global-search-title">Que veux-tu réviser ?</h2>
           <span>Retrouve un chapitre par notion, niveau ou matière.</span>
         </div>
-        <b className="global-search__total" aria-label={`${resources.length} chapitres indexés`}>
-          {resources.length}
+        <b className="global-search__total" aria-label={`${displayedResourceCount} chapitres indexés`}>
+          {displayedResourceCount}
           <small>chapitres</small>
         </b>
       </header>
@@ -213,7 +257,11 @@ export default function GlobalSearch({ resources, initialSubject = "all" }: Prop
         role={hasQuery && results.length > 0 ? "listbox" : "status"}
         aria-label={hasQuery && results.length > 0 ? "Résultats de recherche" : undefined}
       >
-        {!hasQuery ? (
+        {hasQuery && isLoading ? (
+          <p className="global-search__empty">Chargement de l’index de recherche…</p>
+        ) : hasQuery && loadError ? (
+          <p className="global-search__empty">La recherche est momentanément indisponible.</p>
+        ) : !hasQuery ? (
           <p className="global-search__empty">
             Saisis au moins deux caractères ou choisis une suggestion.
           </p>
