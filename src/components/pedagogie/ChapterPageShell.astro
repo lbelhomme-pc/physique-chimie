@@ -8,6 +8,7 @@ import ExercicesPlayer from "./ExercicesPlayer.tsx";
 import QuizPlayer from "./QuizPlayer.tsx";
 import FlashcardsPlayer from "./FlashcardsPlayer.tsx";
 import MathEmptyState from "../mathematiques/MathEmptyState.astro";
+import LatexCourse from "../mathematiques/LatexCourse.astro";
 
 type BreadcrumbItem = { label: string; href?: string };
 type ChapterLink = { title: string; href: string } | null;
@@ -45,6 +46,7 @@ interface Props {
   chapterId: string;
   xpConfig?: any;
   CoursContent?: any;
+  courseTex?: string;
   ActivityContent?: any;
   exercices?: any[];
   quizData?: any[];
@@ -87,6 +89,7 @@ const {
   chapterId,
   xpConfig,
   CoursContent,
+  courseTex,
   ActivityContent,
   exercices = [],
   quizData = [],
@@ -104,7 +107,7 @@ const {
   flashcardsTitle = `Flashcards - ${displayTitle}`,
 } = Astro.props;
 
-const hasCours = Boolean(CoursContent);
+const hasCours = Boolean(CoursContent || courseTex);
 const hasActivite = Boolean(ActivityContent);
 const hasExercices = exercices.length > 0;
 const hasQuiz = quizData.length > 0;
@@ -282,7 +285,7 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
           <div slot="cours" class="cours-content">
             <CourseReader chapterId={chapterId} title={`Cours - ${displayTitle}`}>
               <CoursTracker client:load chapterId={chapterId} xpConfig={xpConfig}>
-                <CoursContent />
+                {courseTex ? <LatexCourse source={courseTex} /> : <CoursContent />}
               </CoursTracker>
             </CourseReader>
           </div>
