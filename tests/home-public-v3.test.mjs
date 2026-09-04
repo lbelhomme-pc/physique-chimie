@@ -87,7 +87,7 @@ describe("Accueil public V3", () => {
         `lien public manquant : ${href}`,
       );
     }
-    assert.match(homeSource, /<GlobalSearch client:load resourceUrl="\\/search-index\\.json" resourceCount={resources\.length} \/>/);
+    assert.ok(homeSource.includes('<GlobalSearch client:load resourceUrl="/search-index.json" resourceCount={resources.length} />'));
   });
 
   it("utilise un visuel scientifique optimise et accessible", () => {
