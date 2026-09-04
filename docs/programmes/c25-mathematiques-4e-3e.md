@@ -76,3 +76,8 @@ Le GO final exige :
 ## Résilience du contrôle de sécurité
 
 Le contrôle `npm audit --audit-level=high` reste bloquant lorsqu'il signale une vulnérabilité élevée/critique ou une erreur locale inattendue. En revanche, une indisponibilité explicite du registre npm (503, timeout, erreur réseau transitoire) est journalisée comme incident externe et ne transforme plus à elle seule une branche saine en échec CI.
+
+
+## Installation CI sans audit implicite
+
+Les jobs CI utilisent `npm ci --no-audit --fund=false`. L'audit implicite de l'installation est désactivé afin d'éviter un second appel réseau non maîtrisé au registre npm. Le contrôle de sécurité reste exécuté explicitement ensuite par `npm run audit:security`.

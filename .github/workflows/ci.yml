@@ -31,7 +31,7 @@ jobs:
           cache: npm
 
       - name: Install locked dependencies
-        run: npm ci
+        run: npm ci --no-audit --fund=false
 
       - name: Quality checks
         run: npm run ci:quality
@@ -52,7 +52,7 @@ jobs:
           cache: npm
 
       - name: Install locked dependencies
-        run: npm ci
+        run: npm ci --no-audit --fund=false
 
       - name: Build and fast dist audit
         run: npm run ci:dist
@@ -75,7 +75,7 @@ jobs:
           cache: npm
 
       - name: Install locked dependencies
-        run: npm ci
+        run: npm ci --no-audit --fund=false
 
       - name: Build and accessibility sample audit
         run: npm run ci:a11y
