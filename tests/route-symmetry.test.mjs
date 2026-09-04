@@ -177,9 +177,9 @@ test("only mathematics levels with published content are exposed as level pages"
   const chapters = mathematicsChapters();
   const collegeLevels = getPublishedMathematicsLevels(getMathematicsLevelsByCycle("college"), chapters);
   const lyceeLevels = getPublishedMathematicsLevels(getMathematicsLevelsByCycle("lycee"), chapters);
-  assert.deepEqual(collegeLevels.map((level) => level.slug), ["5eme"]);
+  assert.deepEqual(collegeLevels.map((level) => level.slug), ["6eme", "5eme"]);
   assert.deepEqual(lyceeLevels.map((level) => level.slug), ["2nde", "1ere-ens-scientifique", "1ere-specialite-mathematiques"]);
-  assert.ok(!collegeLevels.some((level) => ["6eme", "4eme", "3eme"].includes(level.slug)));
+  assert.ok(!collegeLevels.some((level) => ["4eme", "3eme"].includes(level.slug)));
   assert.ok(!lyceeLevels.some((level) => ["1ere-generale", "1ere-technologique", "terminale-generale", "terminale-technologique", "terminale-specialite-mathematiques", "terminale-mathematiques-complementaires", "terminale-mathematiques-expertes"].includes(level.slug)));
 });
 

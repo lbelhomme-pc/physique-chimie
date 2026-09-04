@@ -7,9 +7,9 @@ export const mathematicsCollegeLevels: MathematicsLevel[] = [
     shortLabel: "6e",
     cycle: "college",
     path: "/mathematiques/college/6eme",
-    description: "Espace collège à compléter progressivement.",
+    description: "Cours, exercices progressifs N1 à N3, quiz et flashcards conformes au programme officiel de mathématiques de 6e publié en 2025.",
     enabled: true,
-    status: "planned",
+    status: "available",
     order: 1,
   },
   {

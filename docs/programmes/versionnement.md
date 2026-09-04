@@ -14,6 +14,7 @@ Le champ historique `programme` reste conservé pour compatibilité éditoriale 
 
 | Enseignement / niveau | Dernière année de l'ancien programme | Première année du nouveau programme |
 | --- | --- | --- |
+| Mathématiques cycle 3 — 6e | 2024-2025 (programme 2020) | 2025-2026 (programme 2025) |
 | Mathématiques cycle 4 — 5e | 2025-2026 | 2026-2027 |
 | Mathématiques cycle 4 — 4e | 2026-2027 | 2027-2028 |
 | Mathématiques cycle 4 — 3e | 2027-2028 | 2028-2029 |
@@ -30,7 +31,7 @@ L'enregistrement d'une version future dans le registre n'implique pas que les co
 
 ## Références réglementaires de transition
 
-Les bornes du registre sont rattachées aux textes ministériels : BO n° 10 du 5 mars 2026 pour le déploiement progressif des mathématiques au cycle 4, BO n° 24 du 11 juin 2026 pour le nouveau programme de Sciences et technologie du cycle 3, et BO n° 14 du 2 avril 2026 pour les nouveaux programmes de mathématiques du lycée. Les URL exactes de ces textes ainsi que celles des programmes encore applicables sont conservées dans `CURRICULUM_VERSIONS`.
+Les bornes du registre sont rattachées aux textes ministériels : BO n° 16 du 17 avril 2025 pour le programme de mathématiques du cycle 3 appliqué en 6e depuis 2025-2026, BO n° 10 du 5 mars 2026 pour le déploiement progressif des mathématiques au cycle 4, BO n° 24 du 11 juin 2026 pour le nouveau programme de Sciences et technologie du cycle 3, et BO n° 14 du 2 avril 2026 pour les nouveaux programmes de mathématiques du lycée. Les URL exactes de ces textes ainsi que celles des programmes encore applicables sont conservées dans `CURRICULUM_VERSIONS`.
 
 ## Invariants CI
 

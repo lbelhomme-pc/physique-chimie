@@ -77,6 +77,13 @@ describe("C09 — versionnement des programmes officiels", () => {
     assert.equal(isSchoolYearInWindow("2025-2026", { appliesFrom: "2026-2027" }), false);
   });
 
+  it("applique le programme de mathématiques cycle 3 publié en 2025 à la 6e", () => {
+    assert.equal(resolve({ discipline: "mathematiques", cycle: "college", niveau: "6eme", schoolYear: "2024-2025", sourceId: "bo-cycle3-mathematiques-2020" }).id, "mathematiques-cycle3-2020");
+    assert.equal(resolve({ discipline: "mathematiques", cycle: "college", niveau: "6eme", schoolYear: "2025-2026", sourceId: "bo-cycle3-mathematiques-2025" }).id, "mathematiques-cycle3-2025");
+    assert.equal(resolve({ discipline: "mathematiques", cycle: "college", niveau: "6eme", schoolYear: "2026-2027", sourceId: "bo-cycle3-mathematiques-2025" }).id, "mathematiques-cycle3-2025");
+    assert.equal(resolveCurriculumVersion({ discipline: "mathematiques", cycle: "college", niveau: "6eme", schoolYear: "2024-2025", sourceId: "bo-cycle3-mathematiques-2025" }), null);
+  });
+
   it("applique progressivement le programme de mathematiques cycle 4 de 2026", () => {
     assert.equal(resolve({ discipline: "mathematiques", cycle: "college", niveau: "5eme", schoolYear: "2025-2026", sourceId: "bo-cycle4-mathematiques-2020" }).id, "mathematiques-cycle4-2020");
     assert.equal(resolve({ discipline: "mathematiques", cycle: "college", niveau: "5eme", schoolYear: "2026-2027", sourceId: "bo-cycle4-mathematiques-2026" }).id, "mathematiques-cycle4-2026");
