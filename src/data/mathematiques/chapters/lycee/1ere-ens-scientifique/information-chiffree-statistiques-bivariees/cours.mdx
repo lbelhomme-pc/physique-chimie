@@ -1,0 +1,72 @@
+## Objectifs
+- Croiser deux caractères et choisir une représentation adaptée.
+- Lire un nuage de points et calculer un point moyen.
+- Utiliser un ajustement affine pour interpoler ou extrapoler.
+- Interpréter les résultats avec esprit critique.
+
+## Prérequis
+Statistiques à une variable, fonctions affines, lecture de graphiques et usage élémentaire du tableur.
+
+## 1. Deux caractères : tableau croisé
+Une étude bivariée porte sur deux caractères observés sur les mêmes individus. Lorsque les deux caractères sont qualitatifs, un **tableau croisé d'effectifs** répartit les individus selon les deux critères.
+
+Exemple : dans un groupe A de 72 personnes, 30 possèdent aussi la caractéristique B. La fréquence de B parmi A vaut
+$$
+\frac{30}{72}\approx 0{,}417,
+$$
+soit environ 41,7 %.
+
+Cette fréquence décrit le sous-groupe A ; elle ne doit pas être confondue avec la fréquence de B dans toute la population.
+
+## 2. Deux caractères quantitatifs : nuage de points
+Pour des couples $(x_i,y_i)$, on représente les données par un **nuage de points**. Sa forme aide à repérer une tendance, sans démontrer à elle seule une relation de cause à effet.
+
+Le **point moyen** $G$ a pour coordonnées
+$$
+G(\bar x,\bar y),\qquad
+\bar x=\frac{x_1+\cdots+x_n}{n},\qquad
+\bar y=\frac{y_1+\cdots+y_n}{n}.
+$$
+
+## 3. Ajustement affine
+Si le nuage présente une tendance approximativement linéaire, on peut choisir une droite d'ajustement
+$$
+y=ax+b.
+$$
+
+Le programme demande d'utiliser et d'interpréter un ajustement affine, sans imposer l'étude théorique de la méthode des moindres carrés.
+
+- **Interpoler** : estimer une valeur à l'intérieur de la zone couverte par les données.
+- **Extrapoler** : estimer une valeur au-delà de cette zone.
+
+Une extrapolation demande davantage de prudence : le modèle peut cesser d'être pertinent.
+
+## 4. Tableur et esprit critique
+Un tableur aide à trier, filtrer, représenter les données et tester un modèle. Le calcul automatique ne remplace pas l'interprétation : axes, unités, période étudiée et ordre de grandeur doivent toujours être vérifiés.
+
+## Automatismes à entretenir
+- Lire correctement axes, unités et échelles.
+- Calculer moyenne et pourcentages simples.
+- Passer d'un tableau à une représentation graphique.
+- Déterminer le coefficient directeur d'une droite à partir de deux points.
+
+## Exemple guidé
+Pour les points $(1,2)$, $(3,4)$ et $(5,6)$ :
+$$
+\bar x=3,\qquad \bar y=4.
+$$
+Le point moyen est donc $G(3,4)$.
+
+Si une droite d'ajustement est $y=1{,}8x+12$, alors pour $x=25$ :
+$$
+y=1{,}8\times25+12=57.
+$$
+
+## Erreurs fréquentes
+- Confondre corrélation et causalité.
+- Oublier les unités.
+- Extrapoler très loin des données sans discuter la validité du modèle.
+- Lire un graphique sans vérifier l'origine ou l'échelle des axes.
+
+## À retenir
+Le tableau croisé convient aux données qualitatives. Pour deux caractères quantitatifs, le nuage de points permet d'étudier une relation éventuelle et un ajustement affine peut fournir des estimations, à condition d'en discuter la pertinence.
