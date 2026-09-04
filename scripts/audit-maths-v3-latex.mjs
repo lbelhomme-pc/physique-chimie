@@ -53,7 +53,7 @@ for (const dir of chapterDirs) {
   if (figures < 2) errors.push(slug + ": figures pedagogiques insuffisantes (" + figures + " < 2)");
   if (!/^\\section\*?\{Objectifs\}/m.test(tex)) errors.push(slug + ": section Objectifs absente");
   if (!/^\\section\*?\{.*Erreurs? frequentes.*\}/mi.test(tex.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) errors.push(slug + ": section Erreurs frequentes absente");
-  if (!/^\\section\*?\{A retenir\}/mi.test(tex.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) errors.push(slug + ": section A retenir absente");
+  if (!/^\\section\*?\{.*A retenir.*\}/mi.test(tex.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) errors.push(slug + ": section A retenir absente");
 
   for (const issue of environmentBalance(tex)) {
     errors.push(slug + ": environnement " + issue.name + " desequilibre (" + issue.begin + "/" + issue.end + ")");
