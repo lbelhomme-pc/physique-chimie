@@ -1,61 +1,447 @@
 % Mathématiques 6e — cours V3
-% Source LaTeX rendue côté Astro/KaTeX.
+% Données, tableaux et graphiques
 
 \section{Objectifs}
+
 \begin{itemize}
-\item Organiser une série de données.
-\item Lire et construire un tableau ou un graphique.
-\item Comparer des effectifs et des fréquences.
-\item Interpréter une représentation avec esprit critique.
+\item Planifier une enquête simple.
+\item Choisir les données à recueillir en fonction d'une question.
+\item Recueillir des observations ou réaliser des mesures.
+\item Consigner les données dans un tableau clair.
+\item Construire un tableau simple pour présenter des données.
+\item Lire un tableau, un diagramme en barres, un diagramme circulaire ou une courbe dans des situations immédiates.
+\item Filtrer un tableau selon un critère pour effectuer un choix.
+\item Lire une représentation graphique avec esprit critique.
 \end{itemize}
 
-\section{1. Effectif}
-L'effectif d'une catégorie est le nombre d'individus qui appartiennent à cette catégorie.
+\section{1. Une donnée répond à une question}
 
-Exemple : si 12 élèves sur 30 viennent à vélo, l'effectif « vélo » est 12.
+Une donnée n'est pas un nombre isolé sans contexte.
 
-\section{2. Fréquence}
-La fréquence d'une catégorie est
+Elle est recueillie pour répondre à une question.
+
+\begin{exemple}
+On souhaite étudier les modes de déplacement utilisés par les élèves pour venir au collège.
+
+La question peut être :
 \[
-\frac{\text{effectif de la catégorie}}{\text{effectif total}}.
+\text{« Quel moyen de transport utilises-tu le plus souvent ? »}
 \]
 
-Ici :
-\[
-\frac{12}{30}=0{,}4=40\%.
-\]
+Les réponses possibles peuvent être : marche, vélo, bus, voiture ou autre.
+\end{exemple}
 
-\section{3. Tableaux}
-Un tableau doit comporter des intitulés clairs et, si nécessaire, des unités. On peut y ranger des effectifs, des fréquences ou des mesures.
+Avant toute collecte, il faut donc déterminer précisément ce que l'on veut savoir.
 
-\section{4. Graphiques}
-Selon les données, on peut utiliser :
+\section{2. Planifier une enquête}
+
+Une enquête peut être organisée en plusieurs étapes.
+
+\coursefigure{/images/mathematiques/6eme/donnees-enquete-tableau.svg}{Schéma des étapes d'une enquête et exemple de tableau de données.}{Une enquête efficace relie la question, la collecte, l'organisation des données et l'interprétation finale.}
+
+\begin{methode}
+Pour préparer une enquête :
+\begin{enumerate}
+\item formuler une question précise ;
+\item définir les personnes ou objets étudiés ;
+\item choisir les informations à recueillir ;
+\item décider comment noter les réponses ;
+\item recueillir les données ;
+\item organiser les résultats ;
+\item interpréter sans dépasser ce que les données permettent d'affirmer.
+\end{enumerate}
+\end{methode}
+
+Une question vague produit souvent des réponses difficiles à comparer.
+
+\section{3. Population et individus étudiés}
+
+La \textbf{population étudiée} est l'ensemble des personnes ou objets sur lesquels porte l'enquête.
+
+Chaque élément de cette population est un individu de l'étude.
+
+\begin{exemple}
+Si l'on interroge les $28$ élèves d'une classe sur leur temps de trajet, la population de l'enquête est constituée de ces $28$ élèves.
+\end{exemple}
+
+Les conclusions concernent d'abord cette population.
+
+Interroger une seule classe ne permet pas automatiquement de conclure pour tous les collégiens de France.
+
+\section{4. Caractères observés}
+
+Une enquête peut porter sur différents types d'informations.
+
 \begin{itemize}
-\item un diagramme en barres ;
-\item un diagramme circulaire ;
-\item une courbe pour une évolution dans le temps.
+\item Une catégorie : moyen de transport, couleur préférée, activité choisie.
+\item Une mesure : taille, durée, distance, température.
+\item Un nombre : quantité de livres lus, nombre de trajets effectués.
 \end{itemize}
 
-Le choix du graphique dépend de la question posée.
+L'information relevée doit être définie avant la collecte pour éviter des réponses ambiguës.
 
-\section{5. Lecture critique}
-Un axe tronqué, une échelle irrégulière ou un choix graphique maladroit peut exagérer ou masquer des différences.
+\section{5. Réaliser des mesures}
 
-Il faut toujours vérifier :
+Certaines données ne sont pas déclarées mais mesurées.
+
+On peut par exemple mesurer :
+\[
+\text{une longueur},\qquad
+\text{une durée},\qquad
+\text{une température}.
+\]
+
+Une mesure doit toujours être accompagnée de son unité.
+
+\begin{attention}
+Un tableau contenant des mesures sans unité est incomplet. Les valeurs $12$, $15$ et $18$ ne signifient pas la même chose selon qu'elles représentent des secondes, des centimètres ou des degrés Celsius.
+\end{attention}
+
+\section{6. Consigner les données}
+
+Pendant la collecte, il faut noter les informations de manière régulière.
+
+On peut utiliser un tableau avec une ligne par individu et une colonne par information.
+
+\begin{exemple}
+Pour une enquête sur le trajet vers le collège, on peut utiliser les colonnes :
+\[
+\text{Élève},\qquad
+\text{moyen de transport},\qquad
+\text{durée du trajet}.
+\]
+
+Cette organisation permet ensuite de filtrer ou de comparer les réponses.
+\end{exemple}
+
+\section{7. Construire un tableau simple}
+
+Un tableau doit comporter des intitulés compréhensibles.
+
+\begin{tabular}{c|c|c}
+Élève & Transport & Durée en minutes \\
+A & Vélo & $12$ \\
+B & Bus & $25$ \\
+C & Marche & $9$ \\
+D & Vélo & $15$ \\
+\end{tabular}
+
+Les intitulés précisent ce que représentent les colonnes.
+
+L'unité « minutes » n'a pas besoin d'être répétée dans chaque cellule lorsqu'elle apparaît clairement dans l'en-tête.
+
+\section{8. Lire un tableau}
+
+Lire un tableau consiste à retrouver une information à l'intersection d'une ligne et d'une colonne.
+
+Dans le tableau précédent, la durée du trajet de l'élève C est :
+\[
+9\ \text{min}.
+\]
+
+Le moyen de transport de l'élève D est :
+\[
+\text{vélo}.
+\]
+
+\begin{methode}
+Avant de lire une cellule :
+\begin{enumerate}
+\item repérer la bonne ligne ;
+\item repérer la bonne colonne ;
+\item vérifier l'intitulé et l'unité ;
+\item seulement ensuite lire la valeur.
+\end{enumerate}
+\end{methode}
+
+\section{9. Regrouper des réponses}
+
+Des données individuelles peuvent être regroupées par catégorie.
+
+Supposons que, sur $30$ élèves :
+\[
+12
+\]
+viennent en bus,
+\[
+8
+\]
+à vélo,
+\[
+6
+\]
+à pied et
+\[
+4
+\]
+en voiture.
+
+On contrôle :
+\[
+12+8+6+4=30.
+\]
+
+Ce contrôle permet de vérifier qu'aucune réponse n'a été oubliée ou comptée deux fois.
+
+\section{10. Effectif d'une catégorie}
+
+L'effectif d'une catégorie est le nombre d'individus appartenant à cette catégorie.
+
+Dans l'exemple précédent, l'effectif « vélo » vaut :
+\[
+8.
+\]
+
+Le mot effectif permet de résumer une collecte, mais le travail essentiel reste l'organisation correcte des données qui ont permis de l'obtenir.
+
+\section{11. Diagramme en barres}
+
+Un diagramme en barres représente des catégories par des barres dont la hauteur ou la longueur correspond à une valeur.
+
+Pour le lire, on vérifie :
 \begin{itemize}
 \item le titre ;
-\item les axes ;
-\item les unités ;
+\item les catégories ;
+\item l'axe des valeurs ;
 \item l'échelle ;
-\item la population étudiée.
+\item l'unité éventuelle.
 \end{itemize}
 
-\section{Erreurs fréquentes}
+Deux barres deux fois plus hautes ne signifient « deux fois plus » que si l'échelle utilisée le permet réellement.
+
+\section{12. Diagramme circulaire}
+
+Un diagramme circulaire représente la répartition d'un ensemble.
+
+Le disque entier représente le total.
+
+Une partie plus grande du disque correspond à une catégorie plus importante.
+
+\begin{remarque}
+En 6e, la lecture immédiate d'un diagramme circulaire peut être travaillée sans transformer systématiquement chaque secteur en calcul d'angle.
+\end{remarque}
+
+\section{13. Courbe d'évolution}
+
+Une courbe permet souvent de représenter une grandeur qui évolue.
+
+Par exemple, une température relevée toutes les heures peut être placée sur un graphique.
+
+On peut alors répondre à des questions comme :
 \begin{itemize}
-\item Confondre effectif et fréquence.
-\item Oublier l'effectif total.
-\item Comparer visuellement deux graphiques ayant des échelles différentes.
+\item à quel instant la température est-elle maximale ?
+\item entre quels instants augmente-t-elle ?
+\item quelle valeur lit-on à un instant donné ?
+\end{itemize}
+
+L'axe horizontal et l'axe vertical doivent être lus séparément.
+
+\section{14. Filtrer un tableau}
+
+Filtrer signifie ne conserver que les lignes qui respectent un critère.
+
+Supposons que l'on cherche les élèves dont le trajet dure moins de :
+\[
+15\ \text{min}.
+\]
+
+On examine la colonne « durée » et on conserve seulement les lignes vérifiant :
+\[
+d<15.
+\]
+
+Le filtre transforme un grand tableau en une liste correspondant à une question précise.
+
+\section{15. Filtrer avec plusieurs critères}
+
+On peut imposer plusieurs conditions.
+
+Par exemple :
+\[
+\text{transport = vélo}
+\]
+et
+\[
+d\le15\ \text{min}.
+\]
+
+Il faut alors conserver uniquement les lignes qui satisfont \textbf{les deux conditions}.
+
+\begin{exemple}
+Dans un tableau, trois élèves viennent à vélo. Leurs durées sont :
+\[
+12,\quad15,\quad19\ \text{min}.
+\]
+
+Avec le critère $d\le15\ \text{min}$, deux élèves sont retenus.
+\end{exemple}
+
+\section{16. Faire un choix à partir d'un filtre}
+
+Le filtrage sert souvent à prendre une décision.
+
+On peut chercher :
+\begin{itemize}
+\item les produits coûtant moins d'un certain prix ;
+\item les trajets durant moins d'une certaine durée ;
+\item les communes répondant à plusieurs critères ;
+\item les mesures situées dans un intervalle fixé.
+\end{itemize}
+
+\begin{attention}
+Le tableau ne décide pas à notre place. Il permet d'identifier les éléments qui respectent les critères choisis.
+\end{attention}
+
+\section{17. Représentation graphique et lecture critique}
+
+Un graphique peut donner une impression visuelle très forte.
+
+\coursefigure{/images/mathematiques/6eme/donnees-graphique-echelle.svg}{Deux diagrammes en barres utilisant des échelles verticales différentes.}{Des valeurs proches peuvent sembler très différentes si l'échelle est resserrée ; l'axe doit être lu avant toute interprétation.}
+
+Pour interpréter correctement un graphique, il faut examiner :
+\begin{itemize}
+\item le point de départ de l'axe ;
+\item la valeur d'un intervalle ;
+\item la régularité de l'échelle ;
+\item les unités ;
+\item la période étudiée ;
+\item la population concernée.
+\end{itemize}
+
+\section{18. Axe tronqué}
+
+Un axe vertical n'est pas obligé de commencer à zéro.
+
+Cela peut être utile pour voir de petites variations.
+
+Mais cela peut aussi exagérer visuellement une différence.
+
+\begin{exemple}
+Deux valeurs valent :
+\[
+98
+\]
+et
+\[
+100.
+\]
+
+La différence est seulement :
+\[
+100-98=2.
+\]
+
+Sur un axe allant de $0$ à $120$, les barres seront proches.
+
+Sur un axe allant de $97$ à $101$, elles sembleront beaucoup plus différentes.
+\end{exemple}
+
+Il faut donc lire les nombres avant de conclure à partir de l'apparence.
+
+\section{19. Une enquête peut être biaisée}
+
+Les résultats dépendent de la manière dont les données ont été recueillies.
+
+\begin{exemple}
+Pour connaître le sport préféré de tous les élèves d'un collège, interroger uniquement les membres de l'association sportive risque de produire une enquête peu représentative.
+\end{exemple}
+
+En 6e, l'objectif n'est pas de formaliser toute la théorie des sondages, mais de développer un premier réflexe critique :
+\[
+\text{Qui a été interrogé ?}
+\]
+
+\section{20. Exemple développé : organiser une enquête}
+
+On veut connaître le temps de trajet des élèves d'une classe.
+
+\begin{methode}
+Une démarche possible est :
+\begin{enumerate}
+\item définir la population : les élèves de la classe ;
+\item demander à chacun la durée habituelle de son trajet ;
+\item imposer une unité commune, par exemple la minute ;
+\item consigner une ligne par élève ;
+\item vérifier que le nombre de lignes correspond au nombre de réponses ;
+\item filtrer ensuite selon une question, par exemple $d\le10\ \text{min}$.
+\end{enumerate}
+\end{methode}
+
+Si $28$ élèves répondent, le tableau final doit contenir :
+\[
+28
+\]
+lignes de données, sauf réponse manquante explicitement signalée.
+
+\section{21. Exemple développé : choisir à partir d'un tableau}
+
+Trois trajets sont décrits ainsi :
+
+\begin{tabular}{c|c|c}
+Trajet & Durée & Correspondance \\
+A & $35\ \text{min}$ & non \\
+B & $28\ \text{min}$ & oui \\
+C & $32\ \text{min}$ & non \\
+\end{tabular}
+
+On cherche un trajet :
+\begin{itemize}
+\item sans correspondance ;
+\item de durée inférieure à $34\ \text{min}$.
+\end{itemize}
+
+Le trajet A ne convient pas car :
+\[
+35>34.
+\]
+
+Le trajet B ne convient pas car il comporte une correspondance.
+
+Le trajet C vérifie les deux critères.
+
+Ainsi, le filtre retient :
+\[
+\boxed{\text{trajet C}}.
+\]
+
+\section{22. Méthode générale}
+
+\begin{methode}
+Pour travailler sur des données :
+\begin{enumerate}
+\item comprendre la question posée ;
+\item identifier la population et les informations utiles ;
+\item recueillir ou mesurer proprement ;
+\item construire un tableau avec des intitulés et unités ;
+\item contrôler les données ;
+\item représenter si cela aide à répondre à la question ;
+\item filtrer selon les critères demandés ;
+\item interpréter en tenant compte de l'échelle et du contexte.
+\end{enumerate}
+\end{methode}
+
+\section{23. Erreurs fréquentes}
+
+\begin{itemize}
+\item Commencer à construire un graphique avant d'avoir organisé les données.
+\item Oublier les unités dans un tableau de mesures.
+\item Lire une cellule sans vérifier sa ligne et sa colonne.
+\item Confondre la hauteur visuelle d'une barre avec sa valeur sans lire l'échelle.
+\item Filtrer sur un seul critère lorsqu'il en faut deux.
+\item Tirer une conclusion sur une population beaucoup plus large que celle réellement étudiée.
+\item Croire qu'un graphique est neutre sans examiner ses axes.
 \end{itemize}
 
 \section{À retenir}
-Un graphique est une représentation des données, pas les données elles-mêmes. Sa lecture exige de contrôler axes, unités et échelle.
+
+\begin{aretenir}
+En 6e, le travail sur les données commence par une question et une collecte organisée.
+
+Il faut savoir planifier une enquête, recueillir des données ou effectuer des mesures, puis les consigner dans un tableau clair.
+
+Un tableau permet ensuite de lire, comparer et \textbf{filtrer} les données selon un critère.
+
+Les diagrammes et courbes sont des représentations : leur titre, leurs axes, leurs unités et leur échelle doivent être vérifiés avant toute interprétation.
+
+Une représentation peut faciliter la compréhension, mais elle ne remplace jamais la lecture des données elles-mêmes.
+\end{aretenir}
