@@ -9,15 +9,15 @@ import {
 
 test("content contract validates every existing chapter without blocking publication", () => {
   const audit = auditContentContracts(process.cwd());
-  // C19 added 13 Mathematics 5e packages; C21-C22 add 12 Première specialty packages; C23 adds 5 integrated-ES Mathematics packages; C24 adds 13 Mathematics 6e packages; C25 adds 8 current-programme Mathematics 4e/3e packages; C26 adds 8 Terminale specialty Mathematics packages (part A); C27 adds 7 Terminale specialty packages (part B + bac).
-  assert.equal(audit.summary.chapters, 178);
+  // C19 added 13 Mathematics 5e packages; C21-C22 add 12 Première specialty packages; C23 adds 5 integrated-ES Mathematics packages; C24 adds 13 Mathematics 6e packages; C25 adds 8 current-programme Mathematics 4e/3e packages; C26 adds 8 Terminale specialty Mathematics packages (part A); C27 adds 7 Terminale specialty packages (part B + bac); C28 adds 9 Terminale complementary Mathematics packages.
+  assert.equal(audit.summary.chapters, 187);
   assert.equal(audit.summary.pcChapters, 101);
-  assert.equal(audit.summary.mathChapters, 77);
+  assert.equal(audit.summary.mathChapters, 86);
   assert.equal(audit.summary.bloquants, 0);
   assert.equal(audit.errors.length, 0);
-  assert.deepEqual(audit.summary.exerciseFormats, { "array-root": 101, exercices: 77 });
-  assert.deepEqual(audit.summary.quizFormats, { "array-root": 101, questions: 77 });
-  assert.deepEqual(audit.summary.flashcardFormats, { "array-root": 101, cards: 77 });
+  assert.deepEqual(audit.summary.exerciseFormats, { "array-root": 101, exercices: 86 });
+  assert.deepEqual(audit.summary.quizFormats, { "array-root": 101, questions: 86 });
+  assert.deepEqual(audit.summary.flashcardFormats, { "array-root": 101, cards: 86 });
 });
 
 test("invalid content contract messages include file and field", () => {
