@@ -9,7 +9,7 @@ import TextToSpeech from "./TextToSpeech";
 interface CoursTrackerProps {
   chapterId: string;
   xpConfig?: { cours?: number };
-  variant?: "default" | "latex";
+  variant?: "default" | "latex" | "sheet";
   children: React.ReactNode;
 }
 
@@ -100,13 +100,14 @@ export default function CoursTracker({ chapterId, xpConfig, variant = "default",
   }, [hasTracked, rewardCoursRead]);
 
   const isLatex = variant === "latex";
+  const isSheet = variant === "sheet";
 
   return (
-    <div className={isLatex ? "cours-tracker cours-tracker--latex" : "cours-tracker"}>
+    <div className={isLatex ? "cours-tracker cours-tracker--latex" : isSheet ? "cours-tracker cours-tracker--sheet" : "cours-tracker"}>
       {/* Barre TTS pour le cours */}
       {coursText.length > 50 && (
-        <div className="cours-tracker__tts" style={{ marginBottom: isLatex ? "1.6rem" : "1rem" }}>
-          <TextToSpeech text={coursText} label="Écouter le cours" variant={variant} />
+        <div className="cours-tracker__tts" style={{ marginBottom: isLatex ? "1.6rem" : isSheet ? "0.8rem" : "1rem" }}>
+          <TextToSpeech text={coursText} label="Écouter" variant={variant} compact={isSheet} />
         </div>
       )}
 
