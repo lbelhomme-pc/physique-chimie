@@ -1,0 +1,122 @@
+\section{Objectifs}
+
+\begin{itemize}
+\item Résoudre des équations et inéquations du premier degré.
+\item Résoudre une équation \texttt{x²=a} en distinguant les cas selon le signe de \texttt{a}.
+\item Résoudre une équation produit nul et une équation quotient simple en tenant compte des valeurs interdites.
+\item Étudier le signe d'un produit ou d'un quotient à l'aide d'un tableau de signes.
+\item Isoler une variable et modéliser une situation par une équation ou une inéquation.
+\end{itemize}
+
+\section{Prérequis}
+
+\begin{itemize}
+\item calcul littéral
+\item factorisation simple
+\item priorités opératoires
+\item droite numérique et intervalles
+\end{itemize}
+
+\section{Activité de découverte}
+
+Une salle facture un forfait puis un prix par heure. On cherche à partir de quelle durée l'offre A devient moins chère que l'offre B : l'inéquation donne la zone de choix. Dans d'autres problèmes, une forme factorisée ou fractionnaire conduit naturellement à une équation produit ou quotient.
+
+\section{Vocabulaire}
+
+\begin{itemize}
+\item \textbf{équation}, \textbf{inéquation}, \textbf{solution}, \textbf{ensemble de solutions}
+\item \textbf{produit nul}, \textbf{quotient}, \textbf{valeur interdite}
+\item \textbf{tableau de signes}, \textbf{facteur}, \textbf{numérateur}, \textbf{dénominateur}
+\item \textbf{variable}, \textbf{modéliser}
+\end{itemize}
+
+\section{Cours}
+
+\subsection{Équations et inéquations du premier degré}
+
+Résoudre une équation consiste à déterminer toutes les valeurs de la variable qui rendent l'égalité vraie. Résoudre une inéquation consiste à déterminer toutes les valeurs qui rendent l'inégalité vraie.
+
+On peut ajouter ou soustraire une même quantité aux deux membres sans changer l'ensemble des solutions. Pour une inéquation, multiplier ou diviser par un nombre strictement négatif inverse le sens de l'inégalité.
+
+\subsection{Équation \texttt{x²=a}}
+
+\begin{itemize}
+\item si \texttt{a<0}, il n'y a pas de solution réelle ;
+\item si \texttt{a=0}, l'unique solution est \texttt{0} ;
+\item si \texttt{a>0}, les solutions sont \texttt{-√a} et \texttt{√a}.
+\end{itemize}
+
+\subsection{Produit nul}
+
+Pour des expressions \texttt{A(x)} et \texttt{B(x)} :
+
+\texttt{A(x)B(x)=0} si et seulement si \texttt{A(x)=0} ou \texttt{B(x)=0}.
+
+Exemple : \texttt{(2x-3)(x+4)=0} donne \texttt{x=3/2} ou \texttt{x=-4}.
+
+\subsection{Quotient et valeurs interdites}
+
+Avant de résoudre une équation comportant un quotient, on détermine les valeurs qui annulent le dénominateur et on les exclut.
+
+Pour résoudre \texttt{A(x)/B(x)=k}, avec \texttt{B(x)≠0}, on peut transformer l'égalité en \texttt{A(x)=kB(x)} puis vérifier que les solutions obtenues ne sont pas interdites.
+
+\subsection{Signe d'un produit ou d'un quotient}
+
+Le signe d'un produit dépend du nombre de facteurs négatifs. Pour un quotient, on combine le signe du numérateur et celui du dénominateur, tout en marquant les valeurs interdites.
+
+Un tableau de signes permet ensuite de résoudre des inéquations de la forme \texttt{A(x)B(x)>0} ou \texttt{A(x)/B(x)≤0}.
+
+\subsection{Modéliser et isoler une variable}
+
+Modéliser consiste à choisir une variable, traduire la situation par une expression, une équation ou une inéquation, résoudre puis interpréter le résultat dans le contexte.
+
+Dans une formule comportant plusieurs variables, on peut isoler celle qui est recherchée, en respectant les conditions éventuelles de division.
+
+\section{Exemples corrigés}
+
+\begin{itemize}
+\item \texttt{3x+5=2x-7} donne \texttt{x=-12}.
+\item \texttt{-2x+1<7} donne \texttt{-2x<6}, puis \texttt{x>-3} car on divise par \texttt{-2}.
+\item \texttt{x²=9} a pour solutions \texttt{-3} et \texttt{3}.
+\item \texttt{(x-2)(3x+6)=0} donne \texttt{x=2} ou \texttt{x=-2}.
+\item \texttt{(x+1)/(x-3)=2}, avec \texttt{x≠3}, donne \texttt{x+1=2x-6}, donc \texttt{x=7}, qui est admissible.
+\end{itemize}
+
+\coursefigure{/images/mathematiques/latex-migration/2nde-equations-inequations-figure-1.svg}{Droite numérique montrant x inférieur ou égal à -2.}{Une solution d'inéquation s'interprète aussi comme un ensemble de nombres.}
+
+\section{Algorithmique en Python}
+
+\subsection{Tester des solutions}
+
+\begin{verbatim}
+def produit(x):
+    return (x - 2) * (3*x + 6)
+
+for x in range(-5, 6):
+    if produit(x) == 0:
+        print(x)
+\end{verbatim}
+
+Ce programme peut aider à conjecturer des solutions entières ; la résolution algébrique reste nécessaire pour déterminer exactement toutes les solutions réelles.
+
+\section{Erreurs fréquentes}
+
+\begin{itemize}
+\item Oublier d'inverser le sens d'une inégalité en multipliant ou divisant par un nombre négatif.
+\item Donner une seule solution à \texttt{x²=a} lorsque \texttt{a>0}.
+\item Utiliser la règle du produit nul sur une somme.
+\item Résoudre une équation quotient sans exclure les valeurs qui annulent le dénominateur.
+\item Lire un tableau de signes sans distinguer zéro et valeur interdite.
+\end{itemize}
+
+\section{Formules et idées à retenir}
+
+\begin{itemize}
+\item \texttt{A(x)B(x)=0 ⇔ A(x)=0 ou B(x)=0}.
+\item Dans \texttt{A(x)/B(x)}, il faut toujours avoir \texttt{B(x)≠0}.
+\item Multiplier une inégalité par un réel négatif inverse son sens.
+\end{itemize}
+
+\section{Synthèse}
+
+Le chapitre relie calcul littéral, ensembles de solutions et modélisation. La forme de l'expression indique souvent la méthode : forme affine pour le premier degré, forme factorisée pour le produit nul, forme fractionnaire pour le quotient et tableau de signes pour les inéquations de produit ou quotient.
