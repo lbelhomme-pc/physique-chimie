@@ -1,0 +1,59 @@
+\section{Objectifs}
+\begin{itemize}
+\item Distinguer attente discrète et continue.
+\item Utiliser lois géométrique et exponentielle.
+\item Comprendre l'absence de mémoire.
+\end{itemize}
+
+\section{1. Loi géométrique}
+On répète des Bernoulli indépendantes de paramètre $p$ jusqu'au premier succès.
+
+Si $X$ est le rang du premier succès :
+\[
+P(X=k)=(1-p)^{k-1}p,\qquad k\ge1.
+\]
+
+Et
+\[
+E(X)=\frac1p.
+\]
+
+\section{2. Absence de mémoire discrète}
+La loi géométrique vérifie :
+\[
+P(X>m+n\mid X>m)=P(X>n).
+\]
+
+\section{3. Loi exponentielle}
+Pour $\lambda>0$, une variable $T$ suit une loi exponentielle de paramètre $\lambda$ si
+\[
+P(T>t)=e^{-\lambda t},\qquad t\ge0.
+\]
+
+Sa densité est
+\[
+f(t)=\lambda e^{-\lambda t}.
+\]
+
+\section{4. Espérance}
+\[
+E(T)=\frac1\lambda.
+\]
+
+\section{5. Absence de mémoire continue}
+\[
+P(T>s+t\mid T>s)=P(T>t).
+\]
+
+\section{6. Interprétation}
+Ces lois modélisent des phénomènes dont le risque instantané reste constant dans le modèle.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Confondre rang du premier succès et nombre d'échecs.
+\item Oublier que la géométrique est discrète et l'exponentielle continue.
+\item Interpréter l'absence de mémoire comme une vérité physique universelle.
+\end{itemize}
+
+\section{À retenir}
+La géométrique et l'exponentielle sont les modèles de référence de temps d'attente sans mémoire.
