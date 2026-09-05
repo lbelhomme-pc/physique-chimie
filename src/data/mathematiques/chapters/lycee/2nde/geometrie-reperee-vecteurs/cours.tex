@@ -1,0 +1,132 @@
+\section{Objectifs}
+
+\begin{itemize}
+\item Manipuler égalité, représentants, somme et multiplication d'un vecteur par un réel.
+\item Décomposer un vecteur sur une base formée de deux vecteurs non colinéaires.
+\item Calculer les coordonnées d'un vecteur, d'une somme et d'un produit par un réel.
+\item Calculer une norme, une distance et le milieu d'un segment dans un repère orthonormé.
+\item Utiliser le déterminant pour caractériser la colinéarité.
+\item Caractériser alignement et parallélisme par les vecteurs et choisir une méthode géométrique ou repérée adaptée.
+\end{itemize}
+
+\section{Prérequis}
+
+\begin{itemize}
+\item repère orthogonal
+\item coordonnées de points
+\item relation de Chasles et translation vues au cycle 4
+\item théorème de Pythagore
+\end{itemize}
+
+\section{Activité de découverte}
+
+Un déplacement sur une carte peut être représenté par le même vecteur même s'il part d'un autre point : le vecteur ne dépend pas d'un emplacement particulier mais du déplacement qu'il décrit. En choisissant deux directions non colinéaires, on peut ensuite décrire n'importe quel vecteur du plan par deux coordonnées.
+
+\section{Vocabulaire}
+
+\begin{itemize}
+\item \textbf{vecteur}, \textbf{représentant}, \textbf{vecteur nul}
+\item \textbf{somme}, \textbf{produit par un réel}, \textbf{combinaison linéaire}
+\item \textbf{base orthonormée}, \textbf{coordonnées}, \textbf{norme}
+\item \textbf{déterminant}, \textbf{colinéarité}, \textbf{alignement}, \textbf{parallélisme}, \textbf{milieu}
+\end{itemize}
+
+\section{Cours}
+
+\subsection{Vecteurs et représentants}
+
+Deux vecteurs sont égaux lorsqu'ils représentent le même déplacement. Un même vecteur possède une infinité de représentants. Le vecteur nul est noté \texttt{0⃗}.
+
+La relation de Chasles s'écrit \texttt{AB⃗ + BC⃗ = AC⃗}. On peut additionner des vecteurs et multiplier un vecteur par un réel \texttt{λ}.
+
+Deux vecteurs non colinéaires \texttt{u⃗} et \texttt{v⃗} permettent d'écrire tout vecteur du plan sous la forme \texttt{x u⃗ + y v⃗} ; ils constituent une base du plan. Dans une base orthonormée \texttt{(i⃗,j⃗)}, un vecteur de coordonnées \texttt{(x;y)} s'écrit \texttt{x i⃗ + y j⃗}.
+
+\subsection{Coordonnées}
+
+Si \texttt{A(xA;yA)} et \texttt{B(xB;yB)}, alors :
+
+\begin{itemize}
+\item \texttt{AB⃗ = (xB-xA ; yB-yA)} ;
+\item si \texttt{u⃗=(x;y)} et \texttt{v⃗=(x';y')}, alors \texttt{u⃗+v⃗=(x+x';y+y')} ;
+\item \texttt{λu⃗=(λx;λy)}.
+\end{itemize}
+
+Dans un repère orthonormé :
+
+\begin{itemize}
+\item \texttt{||u⃗|| = √(x²+y²)} ;
+\item \texttt{AB = √((xB-xA)²+(yB-yA)²)} ;
+\item le milieu \texttt{I} de \texttt{[AB]} a pour coordonnées \texttt{((xA+xB)/2 ; (yA+yB)/2)}.
+\end{itemize}
+
+\subsection{Colinéarité et déterminant}
+
+Pour \texttt{u⃗=(x;y)} et \texttt{v⃗=(x';y')}, on définit :
+
+\texttt{det(u⃗,v⃗)=xy'-yx'}.
+
+Deux vecteurs non nuls sont colinéaires si et seulement si leur déterminant est nul, ce qui équivaut à la proportionnalité de leurs coordonnées.
+
+Cette caractérisation permet de :
+
+\begin{itemize}
+\item prouver que trois points sont alignés ;
+\item prouver que deux droites sont parallèles ;
+\item choisir une méthode repérée lorsque la figure seule ne suffit pas.
+\end{itemize}
+
+\subsection{Géométrie et modélisation}
+
+Le vecteur \texttt{AB⃗} peut être interprété comme un vecteur déplacement de \texttt{A} vers \texttt{B}. Si \texttt{O} est choisi comme origine, \texttt{OM⃗} peut être interprété comme le vecteur position du point \texttt{M}.
+
+Selon le problème, une solution peut être plus claire avec une construction géométrique, une relation vectorielle ou des coordonnées. Le choix de la représentation fait partie du raisonnement.
+
+\section{Exemples corrigés}
+
+\begin{itemize}
+\item Si \texttt{A(1;2)} et \texttt{B(5;-1)}, alors \texttt{AB⃗=(4;-3)} et \texttt{AB=5}.
+\item Si \texttt{u⃗=(2;3)} et \texttt{v⃗=(4;6)}, alors \texttt{det(u⃗,v⃗)=2×6-3×4=0} : les vecteurs sont colinéaires.
+\item Si \texttt{u⃗=(2;-1)}, alors \texttt{3u⃗=(6;-3)}.
+\item Dans la base \texttt{(i⃗,j⃗)}, le vecteur \texttt{(4;-2)} s'écrit \texttt{4i⃗-2j⃗}.
+\end{itemize}
+
+\coursefigure{/images/mathematiques/latex-migration/2nde-geometrie-reperee-vecteurs-figure-1.svg}{Repère avec points A et B et vecteur AB.}{Un vecteur décrit un déplacement indépendamment du représentant choisi.}
+
+\section{Algorithmique en Python}
+
+\subsection{Tester la colinéarité}
+
+\begin{verbatim}
+def colineaires(u, v):
+    return u[0]*v[1] - u[1]*v[0] == 0
+
+print(colineaires((2, 3), (4, 6)))
+\end{verbatim}
+
+Le programme traduit directement le critère du déterminant nul.
+
+\section{Démonstration à travailler}
+
+Pour deux vecteurs non nuls, établir l'équivalence entre colinéarité, nullité du déterminant et proportionnalité des coordonnées.
+
+\section{Erreurs fréquentes}
+
+\begin{itemize}
+\item Confondre coordonnées d'un point et coordonnées d'un vecteur.
+\item Confondre \texttt{AB⃗} et \texttt{BA⃗}, qui sont opposés.
+\item Oublier que la formule de distance écrite ici suppose un repère orthonormé.
+\item Conclure à l'alignement sans construire deux vecteurs adaptés aux points étudiés.
+\end{itemize}
+
+\section{Formules et idées à retenir}
+
+\begin{itemize}
+\item \texttt{AB⃗=(xB-xA ; yB-yA)}
+\item \texttt{||u⃗||=√(x²+y²)} en base orthonormée
+\item \texttt{det(u⃗,v⃗)=xy'-yx'}
+\item déterminant nul ⇔ colinéarité pour deux vecteurs non nuls
+\end{itemize}
+
+\section{Synthèse}
+
+Les vecteurs relient géométrie, calcul et modélisation. En seconde, l'enjeu est de savoir passer d'une figure aux coordonnées, utiliser les opérations vectorielles et choisir la méthode la plus efficace pour démontrer alignement, parallélisme ou propriétés métriques.
