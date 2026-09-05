@@ -1,0 +1,102 @@
+\section{Objectifs}
+\begin{itemize}
+\item Donner un sens précis à la convergence et à la divergence.
+\item Calculer des limites de suites.
+\item Utiliser comparaison, encadrement et monotonie.
+\item Consolider le raisonnement par récurrence.
+\end{itemize}
+
+\section{1. Convergence}
+Une suite $(u_n)$ converge vers un réel $\ell$ lorsque ses termes deviennent arbitrairement proches de $\ell$ à partir d'un certain rang.
+
+On note
+\[
+\lim_{n\to+\infty}u_n=\ell.
+\]
+
+Exemple :
+\[
+u_n=\frac1n\longrightarrow0.
+\]
+
+\section{2. Divergence vers l'infini}
+On écrit
+\[
+u_n\longrightarrow+\infty
+\]
+lorsque, pour tout réel $A$, les termes sont supérieurs à $A$ à partir d'un certain rang.
+
+Une suite croissante et non majorée tend vers $+\infty$.
+
+\section{3. Suites géométriques}
+Pour $q^n$ :
+\begin{itemize}
+\item si $|q|<1$, alors $q^n\to0$ ;
+\item si $q>1$, alors $q^n\to+\infty$ ;
+\item si $q=1$, la suite vaut 1 ;
+\item pour $q\le -1$, il n'y a pas de limite finie en général.
+\end{itemize}
+
+\section{4. Comparaison}
+Si
+\[
+u_n\le v_n
+\]
+à partir d'un certain rang et si $u_n\to+\infty$, alors
+\[
+v_n\to+\infty.
+\]
+
+Théorème des gendarmes : si
+\[
+u_n\le v_n\le w_n
+\]
+et si $u_n$ et $w_n$ tendent vers la même limite $\ell$, alors
+\[
+v_n\to\ell.
+\]
+
+\section{5. Opérations sur les limites}
+Les règles usuelles permettent de traiter somme, produit et quotient lorsque les limites sont compatibles.
+
+Une forme comme
+\[
++\infty-\infty
+\]
+ou
+\[
+0\times\infty
+\]
+est indéterminée : il faut transformer l'expression.
+
+\section{6. Monotonie et convergence}
+Théorème admis :
+\begin{itemize}
+\item toute suite croissante majorée converge ;
+\item toute suite décroissante minorée converge.
+\end{itemize}
+
+Ce théorème garantit l'existence d'une limite sans toujours donner sa valeur.
+
+\section{7. Récurrence}
+Pour démontrer une propriété $P_n$ :
+\begin{enumerate}
+\item initialisation ;
+\item hérédité : $P_n\Rightarrow P_{n+1}$ ;
+\item conclusion.
+\end{enumerate}
+
+La récurrence sert notamment à établir une majoration ou la monotonie avant d'utiliser un théorème de convergence.
+
+\section{8. Recherche de seuil}
+Si une suite converge ou diverge de façon monotone, un algorithme peut déterminer le premier rang où une condition est satisfaite.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Confondre suite bornée et suite convergente.
+\item Déduire la limite d'une suite uniquement à partir de quelques termes.
+\item Utiliser le théorème « croissante majorée » sans avoir prouvé les deux propriétés.
+\end{itemize}
+
+\section{À retenir}
+Une limite est une propriété asymptotique. La comparaison, l'encadrement, la monotonie et la récurrence sont les outils centraux pour la justifier.
