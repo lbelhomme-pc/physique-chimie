@@ -1,0 +1,134 @@
+\section{Objectifs}
+
+\begin{itemize}
+\item Distinguer proportion, pourcentage et évolution.
+\item Calculer des évolutions successives et réciproques à l'aide des coefficients multiplicateurs.
+\item Interpréter moyenne, médiane, quartiles, écart interquartile et écart type.
+\item Exploiter la linéarité de la moyenne et étudier l'effet de l'ajout ou de la suppression d'une valeur.
+\item Étudier une série regroupée en classes : histogramme, polygone des fréquences cumulées, moyenne et classe médiane.
+\item Comparer deux séries à l'aide de couples d'indicateurs adaptés.
+\item Calculer des fréquences marginales et conditionnelles dans un tableau croisé.
+\end{itemize}
+
+\section{Prérequis}
+
+\begin{itemize}
+\item pourcentages et proportions
+\item moyenne, médiane, quartiles
+\item lecture de graphiques
+\end{itemize}
+
+\section{Activité de découverte}
+
+Deux articles indiquent « +20 \% puis -20 \% ». On vérifie que les deux évolutions ne s'annulent pas. Puis on compare deux séries de données ayant la même moyenne mais des dispersions différentes : un indicateur isolé ne suffit pas toujours à décrire une distribution.
+
+\section{Vocabulaire}
+
+\begin{itemize}
+\item \textbf{effectif}, \textbf{fréquence}, \textbf{proportion}
+\item \textbf{variation absolue}, \textbf{taux d'évolution}, \textbf{coefficient multiplicateur}
+\item \textbf{moyenne}, \textbf{médiane}, \textbf{quartile}, \textbf{écart interquartile}, \textbf{écart type}
+\item \textbf{classe}, \textbf{histogramme}, \textbf{fréquence cumulée}
+\item \textbf{tableau croisé}, \textbf{fréquence marginale}, \textbf{fréquence conditionnelle}
+\end{itemize}
+
+\section{Cours}
+
+\subsection{Proportions et pourcentages}
+
+Une proportion compare une partie à un ensemble de référence. Pour calculer un pourcentage de pourcentage, on multiplie les proportions.
+
+Exemple : 30 \% de 40 \% d'une population représentent \texttt{0,30 × 0,40 = 0,12}, soit 12 \% de la population totale.
+
+\subsection{Évolutions}
+
+Entre une valeur initiale \texttt{V1} et une valeur finale \texttt{V2} :
+
+\begin{itemize}
+\item variation absolue : \texttt{V2 - V1} ;
+\item coefficient multiplicateur : \texttt{V2 / V1} lorsque \texttt{V1≠0} ;
+\item taux d'évolution : \texttt{(V2-V1)/V1}.
+\end{itemize}
+
+Des évolutions successives se composent en multipliant leurs coefficients multiplicateurs. L'évolution réciproque utilise l'inverse du coefficient multiplicateur.
+
+\subsection{Statistique à une variable}
+
+La moyenne est sensible aux valeurs extrêmes. La médiane et les quartiles décrivent la position des données ; l'écart type et l'écart interquartile décrivent leur dispersion.
+
+\textbf{Linéarité de la moyenne.} Si toutes les valeurs sont transformées selon \texttt{y = ax+b}, alors la moyenne est transformée de la même manière : \texttt{ȳ = a x̄ + b}.
+
+Ajouter ou supprimer une valeur peut modifier la moyenne et la médiane de manière différente. Il faut donc interpréter les indicateurs en lien avec la série, pas seulement les calculer.
+
+Pour comparer deux séries, on peut associer :
+
+\begin{itemize}
+\item moyenne et écart type ;
+\item médiane et écart interquartile.
+\end{itemize}
+
+\subsection{Séries regroupées en classes}
+
+Pour une série continue regroupée en classes de même amplitude :
+
+\begin{itemize}
+\item l'histogramme représente les effectifs ou fréquences par classe ;
+\item le polygone des fréquences cumulées permet de lire l'accumulation des observations ;
+\item la moyenne peut être calculée à partir de la moyenne de chaque classe et de son effectif ;
+\item si seule une répartition uniforme dans chaque classe est supposée, le centre de classe sert de valeur représentative ;
+\item la classe médiane est celle dans laquelle l'effectif cumulé franchit 50 \% de l'effectif total ; sous l'hypothèse d'une répartition uniforme, on peut y estimer la médiane.
+\end{itemize}
+
+\subsection{Croisement de deux variables qualitatives}
+
+Un tableau croisé répartit les individus selon deux variables qualitatives. Une \textbf{fréquence marginale} concerne une modalité sans condition supplémentaire ; une \textbf{fréquence conditionnelle} est calculée dans une sous-population définie par la condition.
+
+Avant tout calcul, il faut identifier clairement l'ensemble de référence : c'est le dénominateur de la fréquence.
+
+\section{Exemples corrigés}
+
+\begin{itemize}
+\item \texttt{+10 \%} puis \texttt{+20 \%} donne \texttt{1,10 × 1,20 = 1,32}, soit une évolution globale de \texttt{+32 \%}.
+\item Une hausse de \texttt{25 \%} a pour coefficient \texttt{1,25} ; le coefficient réciproque vaut \texttt{1/1,25=0,8}, soit une baisse de \texttt{20 \%} pour revenir à la valeur initiale.
+\item Pour les valeurs \texttt{2,4,6}, la moyenne vaut \texttt{4}. Après transformation \texttt{y=3x+1}, la moyenne devient \texttt{3×4+1=13}.
+\end{itemize}
+
+\coursefigure{/images/mathematiques/latex-migration/2nde-statistiques-information-chiffree-figure-1.svg}{Trois classes statistiques de même amplitude avec des effectifs différents.}{Pour des classes de même amplitude, l'histogramme rend directement visibles les différences d'effectifs ou de fréquences.}
+
+\section{Algorithmique en Python}
+
+\subsection{Moyenne pondérée par classes}
+
+\begin{verbatim}
+centres = [5, 15, 25]
+effectifs = [4, 10, 6]
+total = sum(effectifs)
+moyenne = sum(c*e for c, e in zip(centres, effectifs)) / total
+print(moyenne)
+\end{verbatim}
+
+Ce calcul utilise les centres de classes comme valeurs représentatives lorsque l'on adopte l'hypothèse de répartition uniforme dans chaque classe.
+
+\section{Erreurs fréquentes}
+
+\begin{itemize}
+\item Additionner des taux successifs au lieu de multiplier les coefficients.
+\item Confondre une proportion et un taux d'évolution.
+\item Confondre 20 \% et 20 points de pourcentage.
+\item Calculer une fréquence conditionnelle avec le total de toute la population au lieu de celui de la sous-population.
+\item Comparer deux séries uniquement avec leur moyenne alors que leur dispersion est très différente.
+\end{itemize}
+
+\section{Formules et idées à retenir}
+
+\begin{itemize}
+\item proportion = partie / ensemble de référence
+\item coefficient multiplicateur = valeur finale / valeur initiale
+\item taux d'évolution = coefficient multiplicateur - 1
+\item évolutions successives : produit des coefficients
+\item évolution réciproque : coefficient inverse
+\end{itemize}
+
+\section{Synthèse}
+
+Le chapitre relie information chiffrée, statistique descriptive et croisement de données. La priorité est l'interprétation : identifier l'ensemble de référence, choisir les indicateurs pertinents et vérifier que le graphique ou le calcul répond réellement à la question posée.
