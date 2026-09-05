@@ -109,7 +109,8 @@ const canonical = chapter.seo?.canonical ?? context.canonical;
   tools={chapter.tools ?? []}
   estimatedDuration={chapter.duration}
   headerVariant="math"
-  pageClass="math-shell"
+  pageClass={chapitre === "nombres-entiers-decimaux" ? "math-shell math-latex-course" : "math-shell"}
+  courseVariant={chapitre === "nombres-entiers-decimaux" ? "latex" : "default"}
   chapterId={chapterId}
   xpConfig={xpConfig}
   CoursContent={CoursContent}
