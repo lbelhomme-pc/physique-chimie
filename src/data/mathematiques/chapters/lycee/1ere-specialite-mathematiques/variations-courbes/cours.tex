@@ -1,0 +1,37 @@
+\section{Objectifs}
+\begin{itemize}
+\item Reconnaître fonctions paires et impaires et leur traduction géométrique.
+\item Déduire les variations d'une fonction du signe de sa dérivée.
+\item Déterminer extrémums, résoudre des optimisations et établir des inégalités.
+\item Étudier la position relative de deux courbes.
+\end{itemize}
+
+\section{Cours}
+\subsection{Parité}
+Sur un domaine symétrique par rapport à 0, \texttt{f} est paire si \texttt{f(-x)=f(x)} : la courbe est symétrique par rapport à l'axe des ordonnées. Elle est impaire si \texttt{f(-x)=-f(x)} : la courbe est symétrique par rapport à l'origine.
+
+\subsection{Dérivée et variations}
+Si \texttt{f'} est positive sur un intervalle, \texttt{f} y est croissante ; si \texttt{f'} est négative, elle y est décroissante. Si \texttt{f'=0} partout sur un intervalle, \texttt{f} y est constante.
+
+À un extrémum intérieur où \texttt{f} est dérivable, le nombre dérivé est nul. La réciproque est fausse en général : \texttt{f'(a)=0} n'impose pas à lui seul un extrémum.
+
+\subsection{Optimisation et inégalités}
+Pour optimiser, on modélise la grandeur par une fonction sur un domaine pertinent, on calcule la dérivée, on établit le tableau de variations puis on interprète l'extrémum.
+
+Pour comparer \texttt{f} et \texttt{g}, on peut étudier le signe de \texttt{f-g}. Les variations peuvent aussi établir une inégalité en localisant un minimum ou un maximum.
+
+\subsection{Second degré et dérivation}
+Une fonction \texttt{ax²+bx+c} a une dérivée affine \texttt{2ax+b}. Le signe de cette dérivée permet de retrouver son sens de variation, son extrémum et l'allure de la parabole selon le signe de \texttt{a}.
+
+\section{Algorithmique}
+La méthode de Newton peut être explorée dans des cas favorables comme algorithme de recherche d'une racine, sans développer ici la théorie de convergence.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Déduire un extrémum de la seule égalité \texttt{f'(a)=0}.
+\item Étudier une parité sur un domaine non symétrique.
+\item Oublier de restreindre l'optimisation au domaine du problème.
+\end{itemize}
+
+\section{Synthèse}
+Le signe de la dérivée transforme un calcul local en information globale sur la courbe : variations, extrémums, comparaisons et optimisation.
