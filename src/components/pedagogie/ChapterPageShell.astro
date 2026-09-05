@@ -42,6 +42,7 @@ interface Props {
   estimatedDuration?: string | number;
   headerVariant?: "default" | "math";
   pageClass?: string;
+  courseVariant?: "default" | "latex";
   chapterId: string;
   xpConfig?: any;
   CoursContent?: any;
@@ -84,6 +85,7 @@ const {
   estimatedDuration,
   headerVariant = "default",
   pageClass = "",
+  courseVariant = "default",
   chapterId,
   xpConfig,
   CoursContent,
@@ -281,7 +283,7 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
         {hasCours && CoursContent && (
           <div slot="cours" class="cours-content">
             <CourseReader chapterId={chapterId} title={`Cours - ${displayTitle}`}>
-              <CoursTracker client:load chapterId={chapterId} xpConfig={xpConfig}>
+              <CoursTracker client:load chapterId={chapterId} xpConfig={xpConfig} variant={courseVariant}>
                 <CoursContent />
               </CoursTracker>
             </CourseReader>
