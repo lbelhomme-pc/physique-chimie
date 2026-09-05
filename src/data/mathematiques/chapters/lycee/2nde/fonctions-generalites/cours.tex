@@ -1,0 +1,99 @@
+\section{Objectifs}
+
+\begin{itemize}
+\item Utiliser le vocabulaire image, antécédent, variable et courbe représentative.
+\item Exploiter une formule y = f(x).
+\item Lire graphiquement des images et des antécédents.
+\item Modéliser une situation par une fonction.
+\end{itemize}
+
+\section{Prérequis}
+
+\begin{itemize}
+\item repère
+\item lecture graphique
+\item calcul littéral simple
+\end{itemize}
+
+\section{Activité de découverte}
+
+La hauteur d'eau dans une cuve dépend du temps. À chaque instant, on associe une hauteur : cette dépendance se décrit par une fonction.
+
+\section{Vocabulaire}
+
+\begin{itemize}
+\item \textbf{fonction}
+\item \textbf{variable}
+\item \textbf{image}
+\item \textbf{antécédent}
+\item \textbf{ensemble de définition}
+\item \textbf{courbe représentative}
+\end{itemize}
+
+\section{Cours}
+
+\subsection{Définitions}
+
+\begin{itemize}
+\item Une fonction associe à chaque valeur de la variable au plus une image.
+\item L'image de x par f se note f(x).
+\item La courbe d'équation y = f(x) est l'ensemble des points de coordonnées (x ; f(x)).
+\end{itemize}
+
+\subsection{Propriétés}
+
+\begin{itemize}
+\item Un point M(x ; y) appartient à la courbe de f si et seulement si y = f(x).
+\item Un antécédent de k par f est une valeur x telle que f(x) = k.
+\item L'ensemble de définition contient les valeurs de x pour lesquelles f(x) existe.
+\end{itemize}
+
+\subsection{Méthodes}
+
+\begin{enumerate}
+\item Pour calculer une image, remplacer x par la valeur donnée dans la formule.
+\item Pour tester un point, remplacer x dans f(x) et comparer avec l'ordonnée du point.
+\item Pour lire un antécédent sur un graphique, partir de l'ordonnée et rejoindre la courbe puis l'axe des abscisses.
+\end{enumerate}
+
+\section{Exemples corrigés}
+
+\begin{itemize}
+\item Si f(x) = 2x + 3, alors f(4) = 11.
+\item Le point A(2 ; 7) appartient à la courbe de f(x)=2x+3 car f(2)=7.
+\end{itemize}
+
+\coursefigure{/images/mathematiques/latex-migration/2nde-fonctions-generalites-figure-1.svg}{Courbe affine avec lecture de l'image de 2.}{Fonctions : langage, courbes et modélisation : représentation schématique à commenter avant les exercices.}
+
+\section{Algorithmique en Python}
+
+\subsection{Une fonction Python comme programme de calcul}
+
+\begin{verbatim}
+def f(x):
+    return 2*x + 3
+
+for x in [-1, 0, 2, 4]:
+    print(x, f(x))
+\end{verbatim}
+
+La fonction Python reçoit un argument x et renvoie son image par le programme de calcul.
+
+\section{Erreurs fréquentes}
+
+\begin{itemize}
+\item Confondre f(2), qui est un nombre, et f, qui est la fonction.
+\item Dire qu'une courbe est une fonction.
+\item Lire l'image sur l'axe des abscisses au lieu de l'axe des ordonnées.
+\end{itemize}
+
+\section{Formules et idées à retenir}
+
+\begin{itemize}
+\item M(x ; y) appartient à Cf équivaut à y = f(x).
+\item f(a) est l'image de a.
+\end{itemize}
+
+\section{Synthèse}
+
+Ce chapitre sert à installer des automatismes, mais aussi à choisir une représentation adaptée : texte, formule, tableau, figure, graphique ou programme. Les exercices associés reprennent les cinq niveaux attendus : automatismes, application directe, méthode guidée, raisonnement et synthèse.
