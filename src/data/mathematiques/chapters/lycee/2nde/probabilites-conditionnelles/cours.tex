@@ -1,0 +1,130 @@
+\section{Objectifs}
+
+\begin{itemize}
+\item Distinguer une situation réelle du modèle probabiliste choisi.
+\item Utiliser l'équiprobabilité comme hypothèse de modèle lorsqu'elle est justifiée par la situation.
+\item Interpréter une version vulgarisée de la loi des grands nombres par simulation.
+\item Définir et calculer une probabilité conditionnelle.
+\item Construire, compléter et lire un tableau ou un arbre pondéré.
+\item Relier la probabilité d'un chemin au produit des probabilités de ses branches.
+\item Distinguer \texttt{P_A(B)} et \texttt{P_B(A)} et éviter l'inversion des conditionnements.
+\item Interpréter des situations de test : faux positif, faux négatif, sensibilité et spécificité.
+\end{itemize}
+
+\section{Prérequis}
+
+\begin{itemize}
+\item expérience aléatoire, issue, événement et événement contraire
+\item équiprobabilité et calcul élémentaire de probabilités
+\item fractions, ensembles et tableaux croisés
+\end{itemize}
+
+\section{Activité de découverte}
+
+Un test médical très sensible peut produire beaucoup de résultats positifs parmi lesquels certains sont faux lorsque la maladie est rare. La question oblige à distinguer « être positif sachant malade » et « être malade sachant positif » : inverser le conditionnement change la question.
+
+\section{Vocabulaire}
+
+\begin{itemize}
+\item \textbf{expérience aléatoire}, \textbf{issue}, \textbf{événement}, \textbf{univers}
+\item \textbf{modèle probabiliste}, \textbf{équiprobabilité}, \textbf{fréquence observée}
+\item \textbf{probabilité conditionnelle}, \textbf{arbre pondéré}, \textbf{tableau croisé}
+\item \textbf{faux positif}, \textbf{faux négatif}, \textbf{sensibilité}, \textbf{spécificité}
+\end{itemize}
+
+\section{Cours}
+
+\subsection{Modèle probabiliste et fréquences}
+
+Une probabilité appartient au \textbf{modèle} choisi. Dans une situation d'équiprobabilité sur un univers fini \texttt{Ω} :
+
+\texttt{P(A)=Card(A)/Card(Ω)}.
+
+L'équiprobabilité est une hypothèse du modèle, pas un résultat que l'on démontre automatiquement à partir d'une situation réelle.
+
+La loi des grands nombres est utilisée en seconde sous une forme intuitive : lorsque le nombre de répétitions est grand, la fréquence observée est généralement proche de la probabilité du modèle. Une simulation permet d'observer cette stabilisation.
+
+\subsection{Probabilité conditionnelle}
+
+Si \texttt{P(A)≠0}, la probabilité de \texttt{B} sachant \texttt{A}, notée \texttt{P_A(B)}, décrit la probabilité de \texttt{B} lorsqu'on se restreint aux situations où \texttt{A} est réalisé.
+
+Dans une population finie tirée au hasard avec équiprobabilité :
+
+\texttt{P_A(B)=Card(A∩B)/Card(A)}.
+
+Cette écriture relie directement fréquence conditionnelle en statistique et probabilité conditionnelle.
+
+\subsection{Arbres pondérés}
+
+Un arbre de probabilités organise les événements successifs. À partir d'un nœud, les pondérations des branches représentent les probabilités correspondantes, souvent conditionnelles.
+
+La probabilité d'un chemin se calcule en multipliant les probabilités des branches du chemin.
+
+Exemple : si \texttt{P(A)=0,4} et \texttt{P_A(B)=0,25}, alors la probabilité du chemin \texttt{A} puis \texttt{B} vaut \texttt{0,4×0,25=0,10}.
+
+\subsection{Tableaux croisés et conditionnement}
+
+Un tableau croisé d'effectifs permet aussi de calculer des probabilités conditionnelles lorsque l'on tire au hasard un individu dans la population. Le dénominateur dépend toujours de ce que l'on sait après le mot « sachant ».
+
+Ainsi \texttt{P_A(B)} et \texttt{P_B(A)} ne sont pas interchangeables.
+
+\subsection{Tests diagnostiques}
+
+Dans le contexte d'un test :
+
+\begin{itemize}
+\item un \textbf{faux positif} est un test positif chez une personne ne présentant pas le caractère recherché ;
+\item un \textbf{faux négatif} est un test négatif chez une personne présentant ce caractère ;
+\item la \textbf{sensibilité} et la \textbf{spécificité} correspondent à des probabilités conditionnelles différentes.
+\end{itemize}
+
+Écrire chaque probabilité en langage courant avant de la calculer limite les erreurs d'inversion.
+
+\subsection{Limite du programme de seconde}
+
+On sait calculer la probabilité d'un chemin et utiliser des probabilités conditionnelles dans un arbre ou un tableau. En revanche, le calcul d'une probabilité à partir de probabilités conditionnelles relatives à une partition complète de l'univers — formule dite des probabilités totales — \textbf{n'est pas un attendu du programme de seconde}.
+
+\coursefigure{/images/mathematiques/latex-migration/2nde-probabilites-conditionnelles-figure-1.svg}{Arbre de probabilité à deux niveaux avec probabilités conditionnelles.}{Les pondérations du second niveau sont des probabilités conditionnelles.}
+
+\section{Algorithmique en Python}
+
+\subsection{Observer la stabilisation d'une fréquence}
+
+\begin{verbatim}
+from random import random
+
+def frequence_pile(n):
+    piles = 0
+    for _ in range(n):
+        if random() < 0.5:
+            piles += 1
+    return piles / n
+
+for n in [10, 100, 1000, 10000]:
+    print(n, frequence_pile(n))
+\end{verbatim}
+
+La simulation ne démontre pas que la probabilité vaut \texttt{0,5} ; elle permet d'observer la stabilisation des fréquences lorsque ce modèle est choisi.
+
+\section{Erreurs fréquentes}
+
+\begin{itemize}
+\item Confondre \texttt{P_A(B)} et \texttt{P_B(A)}.
+\item Présenter l'équiprobabilité comme une certitude démontrée plutôt que comme une hypothèse de modèle.
+\item Additionner les branches d'un même chemin au lieu de les multiplier.
+\item Calculer une fréquence conditionnelle avec le mauvais ensemble de référence.
+\item Utiliser par anticipation une formule des probabilités totales comme si elle était exigible en seconde.
+\end{itemize}
+
+\section{Formules et idées à retenir}
+
+\begin{itemize}
+\item en équiprobabilité : \texttt{P(A)=Card(A)/Card(Ω)} ;
+\item \texttt{P_A(B)=Card(A∩B)/Card(A)} dans une population finie équiprobable ;
+\item probabilité d'un chemin = produit des pondérations de ses branches ;
+\item toujours traduire « sachant » en mots avant de choisir le dénominateur.
+\end{itemize}
+
+\section{Synthèse}
+
+Les probabilités de seconde 2026 font le lien entre données réelles, fréquences conditionnelles et modèle probabiliste. Les arbres et les tableaux servent à représenter le conditionnement ; l'enjeu majeur est de comprendre ce qui est connu, de ne pas inverser les conditions et de distinguer observation statistique et hypothèse probabiliste.
