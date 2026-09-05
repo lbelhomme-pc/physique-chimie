@@ -1,0 +1,144 @@
+\section{Objectifs}
+
+\begin{itemize}
+\item Choisir ou déterminer le type d'une variable : entier, flottant, booléen ou chaîne de caractères.
+\item Écrire une affectation, une séquence d'instructions, une condition et une boucle.
+\item Programmer une boucle bornée \texttt{for} et une boucle non bornée \texttt{while}.
+\item Écrire et appeler une fonction à un ou plusieurs arguments.
+\item Lire, comprendre, compléter ou modifier un programme mathématique.
+\item Utiliser une fonction aléatoire pour simuler une expérience et répéter une expérience aléatoire.
+\item Lire une fonction qui calcule une moyenne ou un écart type sans exiger la maîtrise des listes.
+\item Passer du langage naturel à Python et contrôler systématiquement la cohérence du résultat.
+\end{itemize}
+
+\section{Prérequis}
+
+\begin{itemize}
+\item calcul numérique
+\item lecture d'instructions simples
+\item notions d'algorithme vues au cycle 4
+\end{itemize}
+
+\section{Activité de découverte}
+
+Un programme de calcul répété à la main devient vite pénible. On le décrit d'abord en langage naturel, puis on le traduit en Python afin de tester beaucoup de valeurs et d'observer un phénomène. La comparaison entre les deux écritures aide à distinguer l'idée mathématique de sa traduction informatique.
+
+\section{Vocabulaire}
+
+\begin{itemize}
+\item \textbf{variable}, \textbf{entier}, \textbf{flottant}, \textbf{booléen}, \textbf{chaîne de caractères}
+\item \textbf{affectation}, \textbf{séquence d'instructions}
+\item \textbf{condition}, \textbf{boucle bornée}, \textbf{boucle non bornée}
+\item \textbf{fonction}, \textbf{argument}, \textbf{valeur renvoyée}
+\item \textbf{simulation}, \textbf{nombre aléatoire}, \textbf{vérification}
+\end{itemize}
+
+\section{Cours}
+
+\subsection{Variables et affectation}
+
+Une variable informatique associe un nom à une valeur. Son type dépend de la valeur manipulée :
+
+\begin{verbatim}
+n = 12              # entier
+x = 3.5             # flottant
+ok = True            # booléen
+message = "seconde" # chaîne de caractères
+\end{verbatim}
+
+L'affectation Python utilise \texttt{=}. Elle ne doit pas être confondue avec l'égalité mathématique. Une séquence d'instructions est exécutée dans l'ordre où elle est écrite.
+
+\subsection{Conditions}
+
+Une instruction conditionnelle choisit un traitement selon une condition booléenne.
+
+\begin{verbatim}
+if x >= 0:
+    resultat = "positif ou nul"
+else:
+    resultat = "négatif"
+\end{verbatim}
+
+\subsection{Boucles}
+
+Une boucle \texttt{for} est adaptée lorsque le nombre de répétitions est déterminé à l'avance. Une boucle \texttt{while} convient lorsqu'on répète jusqu'à ce qu'une condition soit satisfaite.
+
+\begin{verbatim}
+for k in range(5):
+    print(k)
+
+n = 0
+while 2**n < 1000:
+    n += 1
+\end{verbatim}
+
+Pour une boucle \texttt{while}, il faut vérifier que la condition peut devenir fausse afin d'éviter une boucle infinie.
+
+\subsection{Fonctions}
+
+Une fonction peut recevoir un ou plusieurs arguments et renvoyer un résultat.
+
+\begin{verbatim}
+def affine(x, m, p):
+    return m*x + p
+\end{verbatim}
+
+L'appel \texttt{affine(2, 3, 1)} renvoie \texttt{7}.
+
+Le programme de seconde demande aussi de savoir lire ou compléter des fonctions un peu plus complexes, par exemple une fonction calculant une moyenne ou un écart type ; aucune connaissance particulière sur la structure interne des listes n'est exigée.
+
+\subsection{Aléatoire et simulation}
+
+Une fonction aléatoire permet de produire le résultat numérique d'une expérience aléatoire. La répétition de l'appel produit une série statistique et permet d'observer la stabilisation des fréquences.
+
+\begin{verbatim}
+from random import random
+
+def bernoulli(p):
+    return 1 if random() < p else 0
+
+def frequence(n, p):
+    succes = 0
+    for _ in range(n):
+        succes += bernoulli(p)
+    return succes / n
+\end{verbatim}
+
+\subsection{Lire, modifier, vérifier}
+
+Pour tout programme :
+
+\begin{enumerate}
+\item préciser les \textbf{entrées} et la \textbf{sortie} attendue ;
+\item décrire les étapes en langage naturel ;
+\item choisir des noms de variables explicites ;
+\item tester sur un cas calculable à la main ;
+\item vérifier les valeurs limites et la cohérence du résultat ;
+\item modifier une instruction à la fois lorsqu'on cherche une erreur.
+\end{enumerate}
+
+\coursefigure{/images/mathematiques/latex-migration/2nde-algorithmique-python-figure-1.svg}{Schéma entrée, traitement, sortie.}{Avant d'écrire du code, identifier entrées, traitement et sortie.}
+
+\section{Erreurs fréquentes}
+
+\begin{itemize}
+\item Confondre \texttt{=} en Python et l'égalité mathématique.
+\item Confondre entier, flottant et chaîne de caractères.
+\item Écrire une boucle \texttt{while} sans mécanisme permettant son arrêt.
+\item Définir une fonction sans l'appeler ou oublier de renvoyer le résultat attendu.
+\item Croire qu'une simulation prouve une propriété mathématique : elle permet d'observer et de conjecturer, pas de démontrer.
+\end{itemize}
+
+\section{Formules et idées à retenir}
+
+\begin{itemize}
+\item \texttt{for} : boucle bornée.
+\item \texttt{while} : boucle conditionnelle non bornée a priori.
+\item \texttt{def nom(arguments):} définit une fonction.
+\item \texttt{return} renvoie le résultat d'une fonction.
+\item \texttt{random()} peut être utilisé pour simuler une expérience aléatoire.
+\end{itemize}
+
+\section{Synthèse}
+
+L'algorithmique est transversale au programme : les programmes doivent être reliés aux fonctions, à la géométrie, aux statistiques, aux probabilités et au raisonnement. L'objectif n'est pas d'apprendre Python pour lui-même, mais de décrire une méthode, l'exécuter, la tester et interpréter le résultat mathématique.
