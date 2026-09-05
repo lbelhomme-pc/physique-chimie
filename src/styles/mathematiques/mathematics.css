@@ -850,3 +850,493 @@
     border-bottom: 1px solid var(--latex-rule-soft) !important;
   }
 }
+
+
+/* C24 V2 — reference sheet design inspired by the supplied model */
+.math-sheet-course {
+  --sheet-teal: #008978;
+  --sheet-teal-dark: #006d61;
+  --sheet-orange: #fc743f;
+  --sheet-cyan: #e0f2f2;
+  --sheet-rose: #fbeae8;
+  --sheet-warning: #fff1e9;
+  --sheet-ink: var(--text-primary);
+  --sheet-muted: var(--text-secondary);
+  --sheet-rule: color-mix(in srgb, var(--sheet-teal) 45%, transparent);
+}
+
+/* Barre de titre proche de la fiche de référence */
+.math-sheet-course .math-chapter-header {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.25rem 0.9rem;
+  max-width: 940px !important;
+  margin: 0 auto 0.8rem !important;
+  padding: 0.72rem 1rem !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  background: var(--sheet-teal) !important;
+  box-shadow: none !important;
+}
+
+.math-sheet-course .math-eyebrow {
+  display: none !important;
+}
+
+.math-sheet-course .math-chapter-header h1 {
+  grid-column: 1;
+  margin: 0 !important;
+  color: #fff !important;
+  font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1.6rem, 3.3vw, 2.2rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.035em;
+  line-height: 1.05 !important;
+  text-transform: uppercase;
+}
+
+.math-sheet-course .math-chapter-description {
+  grid-column: 1 / -1;
+  max-width: none !important;
+  margin: 0.15rem 0 0 !important;
+  color: rgba(255, 255, 255, 0.86) !important;
+  font-size: 0.83rem;
+  line-height: 1.35 !important;
+}
+
+.math-sheet-course .math-chapter-meta {
+  grid-column: 2;
+  grid-row: 1;
+  justify-content: flex-end;
+  margin: 0 !important;
+}
+
+.math-sheet-course .math-badge {
+  min-height: 0 !important;
+  padding: 0.18rem 0.45rem !important;
+  border: 1px solid rgba(255,255,255,.4) !important;
+  border-radius: 2px !important;
+  background: transparent !important;
+  color: #fff !important;
+  font-size: 0.66rem !important;
+  font-weight: 600 !important;
+}
+
+/* La fiche se lit directement : on retire les gros blocs "avant de commencer". */
+.math-sheet-course .chapter-overview {
+  display: none !important;
+}
+
+/* Navigation de cours compacte, sans gros pills */
+.math-sheet-course .chapter-tabs-wrapper {
+  max-width: 940px !important;
+}
+
+.math-sheet-course .chapter-tabs {
+  justify-content: flex-start !important;
+  gap: 0 !important;
+  margin-bottom: 1rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-bottom: 2px solid var(--sheet-teal) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.math-sheet-course .chapter-tablist {
+  gap: 0 !important;
+  justify-content: flex-start !important;
+}
+
+.math-sheet-course .tab-pill {
+  min-height: 34px !important;
+  padding: 0.4rem 0.78rem !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--sheet-teal-dark) !important;
+  font-size: 0.78rem !important;
+  font-weight: 750 !important;
+}
+
+.math-sheet-course .tab-pill.active {
+  background: var(--sheet-teal) !important;
+  color: #fff !important;
+}
+
+.math-sheet-course .tab-badge,
+.math-sheet-course .tab-pill.active .tab-badge {
+  min-width: 18px !important;
+  height: 18px !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.18) !important;
+  color: inherit !important;
+  font-size: 0.62rem !important;
+}
+
+.math-sheet-course .tab-back {
+  display: none !important;
+}
+
+/* Lecture : dense, propre, type fiche de synthèse */
+.math-sheet-course .cours-content,
+.math-sheet-course .course-reader-v3 {
+  max-width: 940px !important;
+}
+
+.math-sheet-course .course-reader-v3__body,
+.math-sheet-course .cours-tracker__content {
+  color: var(--sheet-ink);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.94rem !important;
+  line-height: 1.5 !important;
+}
+
+.math-sheet-course .cours-tracker__tts {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.45rem !important;
+}
+
+.math-sheet-course .cours-tracker__tts button {
+  border-color: var(--sheet-teal) !important;
+  color: var(--sheet-teal-dark) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+}
+
+.math-sheet-course .cours-tracker__read-state {
+  display: none !important;
+}
+
+.math-sheet-course .cours-content .course-main-heading {
+  display: none !important;
+}
+
+/* Objectifs : petit cartouche introductif */
+.math-sheet-course .cours-content .course-objectives-card {
+  margin: 0 0 1.15rem !important;
+  padding: 0.75rem 0.9rem !important;
+  border: 0 !important;
+  border-left: 4px solid var(--sheet-teal) !important;
+  border-radius: 3px !important;
+  background: var(--sheet-cyan) !important;
+  box-shadow: none !important;
+}
+
+.math-sheet-course .cours-content .course-special-heading {
+  display: block !important;
+  margin: 0 0 0.45rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  color: var(--sheet-teal-dark) !important;
+  font-size: 0.83rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+}
+
+.math-sheet-course .cours-content .course-special-heading::before {
+  content: none !important;
+}
+
+/* Sections principales : rond orange + titre vert + pointillés */
+.math-sheet-course .cours-tracker__content {
+  counter-reset: sheet-section;
+}
+
+.math-sheet-course .sheet-section {
+  counter-increment: sheet-section;
+  margin: 0 0 1.25rem;
+}
+
+.math-sheet-course .sheet-section > h2 {
+  display: grid !important;
+  grid-template-columns: 32px max-content minmax(24px, 1fr);
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.55rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  color: var(--sheet-teal-dark) !important;
+  font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.025em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.math-sheet-course .sheet-section > h2::before {
+  content: counter(sheet-section);
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--sheet-orange);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.math-sheet-course .sheet-section > h2::after {
+  content: "";
+  align-self: center;
+  min-width: 30px;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    var(--sheet-rule) 55%,
+    transparent 55%
+  );
+  background-size: 7px 1px;
+  background-repeat: repeat-x;
+}
+
+/* Deux colonnes comme sur la fiche fournie */
+.math-sheet-course .sheet-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.math-sheet-course .sheet-card {
+  min-width: 0;
+  padding: 0.72rem 0.82rem 0.78rem;
+  border: 0 !important;
+  border-radius: 3px;
+  box-shadow: none !important;
+}
+
+.math-sheet-course .sheet-card--cyan {
+  background: var(--sheet-cyan);
+}
+
+.math-sheet-course .sheet-card--rose {
+  background: var(--sheet-rose);
+}
+
+.math-sheet-course .sheet-card--warning {
+  background: var(--sheet-warning);
+  border-left: 4px solid var(--sheet-orange) !important;
+}
+
+.math-sheet-course .sheet-card--wide {
+  grid-column: 1 / -1;
+}
+
+.math-sheet-course .sheet-card > h3:first-child {
+  margin-top: 0 !important;
+}
+
+.math-sheet-course .sheet-card h3 {
+  margin: 0.15rem 0 0.38rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--sheet-teal-dark) !important;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.78rem !important;
+  font-style: normal !important;
+  font-weight: 800 !important;
+  line-height: 1.25;
+  text-transform: none !important;
+}
+
+.math-sheet-course .sheet-card p {
+  margin: 0.35rem 0 !important;
+  line-height: 1.45 !important;
+}
+
+.math-sheet-course .sheet-card ul,
+.math-sheet-course .sheet-card ol {
+  margin: 0.35rem 0 !important;
+  padding-left: 1.2rem !important;
+}
+
+.math-sheet-course .sheet-card li {
+  margin: 0.18rem 0 !important;
+  line-height: 1.42 !important;
+}
+
+/* Annule les décorations automatiques appliquées aux sous-titres */
+.math-sheet-course .sheet-card .course-idea-heading,
+.math-sheet-course .sheet-card .course-label-heading {
+  display: block !important;
+  margin: 0.15rem 0 0.38rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--sheet-teal-dark) !important;
+  font-size: 0.78rem !important;
+  font-style: normal !important;
+  font-weight: 800 !important;
+  text-transform: none !important;
+}
+
+.math-sheet-course .sheet-card .course-idea-heading::before,
+.math-sheet-course .sheet-card .course-label-heading::before {
+  content: none !important;
+}
+
+.math-sheet-course .sheet-card .course-label-heading + p,
+.math-sheet-course .sheet-card .course-label-heading + ul,
+.math-sheet-course .sheet-card .course-label-heading + ol,
+.math-sheet-course .sheet-card .course-label-heading + table,
+.math-sheet-course .sheet-card .course-label-heading + .katex-display {
+  margin-top: 0.2rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Formules compactes : aspect manuel imprimé */
+.math-sheet-course .cours-content .katex-display {
+  margin: 0.62rem 0 !important;
+  padding: 0 !important;
+  font-size: 0.98em !important;
+  text-align: center;
+}
+
+.math-sheet-course .cours-content .katex {
+  font-size: 1em !important;
+}
+
+.math-sheet-course .cours-content .katex-display > .katex {
+  white-space: normal;
+}
+
+/* Tableaux sans en-tête plein : proches d'un polycopié */
+.math-sheet-course .cours-content table {
+  width: 100%;
+  margin: 0.45rem 0 0.6rem !important;
+  border-collapse: collapse !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 0.78rem !important;
+}
+
+.math-sheet-course .cours-content thead th {
+  padding: 0.3rem 0.4rem !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--sheet-teal) 45%, transparent) !important;
+  background: transparent !important;
+  color: var(--sheet-teal-dark) !important;
+  font-weight: 800 !important;
+}
+
+.math-sheet-course .cours-content tbody td {
+  padding: 0.28rem 0.4rem !important;
+  border-bottom: 1px solid rgba(0,0,0,.06) !important;
+}
+
+.math-sheet-course .cours-content tbody tr:nth-child(even) {
+  background: transparent !important;
+}
+
+/* Figures comme sur la fiche : dessin directement dans le bloc */
+.math-sheet-course .cours-content figure {
+  margin: 0.55rem 0 0.2rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.math-sheet-course .cours-content figure img,
+.math-sheet-course .cours-content figure svg {
+  display: block;
+  max-height: 175px;
+  margin: 0 auto;
+}
+
+.math-sheet-course .cours-content figcaption {
+  max-width: 100% !important;
+  margin: 0.35rem auto 0 !important;
+  color: var(--sheet-muted) !important;
+  font-size: 0.7rem !important;
+  font-style: italic;
+  line-height: 1.35 !important;
+}
+
+/* Bilan final */
+.math-sheet-course .cours-content .course-summary-card {
+  margin: 0.25rem 0 0 !important;
+  padding: 0.85rem 0.95rem !important;
+  border: 1px solid var(--sheet-teal) !important;
+  border-radius: 3px !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+.math-sheet-course .course-summary-card .course-special-heading {
+  color: var(--sheet-teal-dark) !important;
+}
+
+/* Navigation bas de page allégée */
+.math-sheet-course .chapter-pagination {
+  max-width: 940px !important;
+  margin-top: 1rem !important;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--sheet-teal);
+}
+
+.math-sheet-course .chapter-pagination-link,
+.math-sheet-course .chapter-pagination-index {
+  color: var(--sheet-teal-dark) !important;
+  font-size: 0.76rem !important;
+}
+
+@media (max-width: 760px) {
+  .math-sheet-course .math-chapter-header {
+    grid-template-columns: 1fr;
+  }
+
+  .math-sheet-course .math-chapter-meta {
+    grid-column: 1;
+    grid-row: auto;
+    justify-content: flex-start;
+  }
+
+  .math-sheet-course .sheet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .math-sheet-course .sheet-card--wide {
+    grid-column: auto;
+  }
+
+  .math-sheet-course .sheet-section > h2 {
+    grid-template-columns: 30px minmax(0, auto);
+  }
+
+  .math-sheet-course .sheet-section > h2::after {
+    display: none;
+  }
+
+  .math-sheet-course .chapter-tablist {
+    width: 100%;
+  }
+
+  .math-sheet-course .tab-pill {
+    flex: 1 1 auto !important;
+  }
+}
+
+@media print {
+  .math-sheet-course .chapter-tabs,
+  .math-sheet-course .cours-tracker__tts,
+  .math-sheet-course .chapter-pagination {
+    display: none !important;
+  }
+
+  .math-sheet-course .sheet-section {
+    break-inside: avoid;
+  }
+}
