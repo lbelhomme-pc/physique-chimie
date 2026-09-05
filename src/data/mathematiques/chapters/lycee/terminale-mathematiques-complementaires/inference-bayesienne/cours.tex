@@ -1,0 +1,752 @@
+\section{Objectifs}
+
+À la fin de ce chapitre, tu dois savoir :
+
+\begin{itemize}
+\item lire et construire un arbre pondéré ;
+\item calculer une probabilité conditionnelle ;
+\item utiliser la formule des probabilités totales ;
+\item inverser un conditionnement avec la formule de Bayes ;
+\item distinguer sensibilité, spécificité et valeurs prédictives ;
+\item interpréter une probabilité a priori et une probabilité a posteriori ;
+\item raisonner avec des effectifs lorsque les probabilités sont difficiles à interpréter ;
+\item expliquer pourquoi une information nouvelle modifie une estimation initiale.
+\end{itemize}
+
+\section{1. Situation de départ — un test positif ne signifie pas forcément « malade »}
+
+Un test de dépistage annonce un résultat positif. Est-ce que cela signifie que la personne est presque certainement malade ?
+
+Pas nécessairement.
+
+Le résultat dépend à la fois :
+
+\begin{itemize}
+\item de la qualité du test ;
+\item de la fréquence de la maladie dans la population ;
+\item de la probabilité d'obtenir un faux positif.
+\end{itemize}
+
+C'est précisément le type de problème que permet de traiter le raisonnement bayésien.
+
+On note :
+
+\begin{itemize}
+\item $M$ : « la personne est malade » ;
+\item $\overline M$ : « la personne n'est pas malade » ;
+\item $T^+$ : « le test est positif » ;
+\item $T^-$ : « le test est négatif ».
+\end{itemize}
+
+La question la plus fréquente est alors :
+
+\[
+P(M\mid T^+).
+\]
+
+Cette probabilité ne doit surtout pas être confondue avec :
+
+\[
+P(T^+\mid M).
+\]
+
+La première signifie « probabilité d'être malade sachant que le test est positif ».  
+La seconde signifie « probabilité d'obtenir un test positif sachant que la personne est malade ».
+
+Ces deux probabilités répondent à deux questions différentes.
+
+\section{2. Probabilité conditionnelle}
+
+Lorsque $P(B)>0$, la probabilité de $A$ sachant $B$ est définie par :
+
+\[
+P(A\mid B)=\frac{P(A\cap B)}{P(B)}.
+\]
+
+On peut aussi écrire :
+
+\[
+P(A\cap B)=P(B)\times P(A\mid B).
+\]
+
+Cette deuxième forme est particulièrement utile dans un arbre pondéré : la probabilité d'un chemin est obtenue en multipliant les probabilités portées par ses branches.
+
+\subsection{Interprétation}
+
+Supposons que :
+
+\[
+P(M)=0{,}02
+\]
+
+et
+
+\[
+P(T^+\mid M)=0{,}95.
+\]
+
+Alors :
+
+\[
+P(M\cap T^+)=P(M)\times P(T^+\mid M)
+=0{,}02\times0{,}95
+=0{,}019.
+\]
+
+Dans l'ensemble de la population, environ $1{,}9\%$ des personnes sont donc à la fois malades et testées positives.
+
+\section{3. L'arbre pondéré}
+
+Un arbre pondéré permet d'organiser les événements successifs.
+
+\coursefigure{/images/mathematiques/terminale-complementaires/inference-bayesienne-arbre.svg}{Arbre pondéré d}{Exemple d'arbre pondéré : prévalence 2 \%, sensibilité 95 \%, spécificité 90 \%.}
+
+Dans cet exemple :
+
+\[
+P(M)=0{,}02,
+\qquad
+P(\overline M)=0{,}98.
+\]
+
+La sensibilité vaut $95\%$, donc :
+
+\[
+P(T^+\mid M)=0{,}95.
+\]
+
+Par complémentarité :
+
+\[
+P(T^-\mid M)=1-0{,}95=0{,}05.
+\]
+
+La spécificité vaut $90\%$, donc :
+
+\[
+P(T^-\mid \overline M)=0{,}90.
+\]
+
+Ainsi le taux de faux positifs est :
+
+\[
+P(T^+\mid\overline M)=1-0{,}90=0{,}10.
+\]
+
+\subsection{Règles de calcul dans l'arbre}
+
+Deux règles sont fondamentales.
+
+\textbf{Règle 1 — sur un chemin, on multiplie.}
+
+Par exemple :
+
+\[
+P(M\cap T^+)=P(M)\times P(T^+\mid M).
+\]
+
+\textbf{Règle 2 — lorsque plusieurs chemins conduisent au même événement, on additionne.}
+
+L'événement $T^+$ peut arriver :
+
+\begin{itemize}
+\item soit parce que la personne est malade et le test est positif ;
+\item soit parce qu'elle n'est pas malade mais le test est faussement positif.
+\end{itemize}
+
+Donc :
+
+\[
+P(T^+)=P(M\cap T^+)+P(\overline M\cap T^+).
+\]
+
+\section{4. Formule des probabilités totales}
+
+Si les événements $A_1,\ldots,A_n$ forment une partition de l'univers, alors :
+
+\[
+P(B)=\sum_{i=1}^{n} P(A_i)\,P(B\mid A_i).
+\]
+
+Dans le cas de la partition $M,\overline M$, on obtient :
+
+\[
+P(T^+)
+=
+P(M)P(T^+\mid M)
++
+P(\overline M)P(T^+\mid\overline M).
+\]
+
+Avec les valeurs de l'exemple :
+
+\[
+P(T^+)
+=
+0{,}02\times0{,}95
++
+0{,}98\times0{,}10.
+\]
+
+Ainsi :
+
+\[
+P(T^+)=0{,}019+0{,}098=0{,}117.
+\]
+
+Environ $11{,}7\%$ de la population obtient donc un test positif.
+
+Attention : cela ne signifie pas que $11{,}7\%$ de la population est malade. Les faux positifs interviennent dans ce résultat.
+
+\section{5. Formule de Bayes}
+
+La formule de Bayes permet d'inverser un conditionnement.
+
+À partir de :
+
+\[
+P(A\cap B)=P(A)P(B\mid A)
+\]
+
+et de :
+
+\[
+P(A\mid B)=\frac{P(A\cap B)}{P(B)},
+\]
+
+on obtient :
+
+\[
+\boxed{
+P(A\mid B)
+=
+\frac{P(B\mid A)P(A)}{P(B)}
+}.
+\]
+
+Dans notre contexte :
+
+\[
+\boxed{
+P(M\mid T^+)
+=
+\frac{P(T^+\mid M)P(M)}{P(T^+)}
+}.
+\]
+
+Avec les valeurs calculées précédemment :
+
+\[
+P(M\mid T^+)
+=
+\frac{0{,}95\times0{,}02}{0{,}117}
+=
+\frac{0{,}019}{0{,}117}
+\approx0{,}162.
+\]
+
+La probabilité qu'une personne soit malade sachant que son test est positif est donc d'environ :
+
+\[
+\boxed{16{,}2\%}.
+\]
+
+C'est souvent contre-intuitif : le test détecte pourtant $95\%$ des malades.
+
+La raison est la faible prévalence de la maladie et le nombre relativement important de faux positifs.
+
+\section{6. Exemple développé 1 — raisonner sur 10 000 personnes}
+
+Le raisonnement en effectifs aide à comprendre le résultat précédent.
+
+Considérons une population fictive de 10 000 personnes.
+
+\subsection{Étape 1 — malades et non malades}
+
+La prévalence est $2\%$.
+
+Nombre de malades :
+
+\[
+10\,000\times0{,}02=200.
+\]
+
+Nombre de non-malades :
+
+\[
+10\,000-200=9\,800.
+\]
+
+\subsection{Étape 2 — résultats du test chez les malades}
+
+La sensibilité est $95\%$.
+
+Vrais positifs :
+
+\[
+200\times0{,}95=190.
+\]
+
+Faux négatifs :
+
+\[
+200-190=10.
+\]
+
+\subsection{Étape 3 — résultats du test chez les non-malades}
+
+La spécificité est $90\%$.
+
+Vrais négatifs :
+
+\[
+9\,800\times0{,}90=8\,820.
+\]
+
+Faux positifs :
+
+\[
+9\,800-8\,820=980.
+\]
+
+\subsection{Tableau d'effectifs}
+
+\begin{tabular}{c|c|c|c}
+Situation & Test positif & Test négatif & Total \\
+Malade & 190 & 10 & 200 \\
+Non malade & 980 & 8 820 & 9 800 \\
+Total & 1 170 & 8 830 & 10 000 \\
+\end{tabular}
+
+Parmi les 1 170 tests positifs, seulement 190 correspondent à des personnes malades.
+
+Donc :
+
+\[
+P(M\mid T^+)
+=
+\frac{190}{1170}
+\approx0{,}162.
+\]
+
+On retrouve le résultat obtenu avec Bayes.
+
+\subsection{Ce que montre cet exemple}
+
+Le nombre de faux positifs peut dépasser largement le nombre de vrais positifs lorsque l'événement recherché est rare.
+
+La qualité intrinsèque d'un test ne suffit donc pas à déterminer sa valeur prédictive.
+
+\section{7. Sensibilité, spécificité et valeurs prédictives}
+
+Ces quatre notions doivent être clairement distinguées.
+
+\subsection{Sensibilité}
+
+La sensibilité mesure la capacité du test à détecter les personnes malades :
+
+\[
+\text{sensibilité}=P(T^+\mid M).
+\]
+
+Une sensibilité élevée signifie peu de faux négatifs.
+
+\subsection{Spécificité}
+
+La spécificité mesure la capacité du test à reconnaître les personnes non malades :
+
+\[
+\text{spécificité}=P(T^-\mid\overline M).
+\]
+
+Une spécificité élevée signifie peu de faux positifs.
+
+\subsection{Valeur prédictive positive}
+
+La valeur prédictive positive est :
+
+\[
+\text{VPP}=P(M\mid T^+).
+\]
+
+Elle répond à la question : « sachant que le test est positif, quelle est la probabilité d'être malade ? »
+
+\subsection{Valeur prédictive négative}
+
+La valeur prédictive négative est :
+
+\[
+\text{VPN}=P(\overline M\mid T^-).
+\]
+
+Elle répond à la question : « sachant que le test est négatif, quelle est la probabilité de ne pas être malade ? »
+
+\subsection{Tableau de comparaison}
+
+\begin{tabular}{c|c|c}
+Indicateur & Probabilité & Question \\
+Sensibilité & $P(T^+\mid M)$ & Le test repère-t-il bien les malades ? \\
+Spécificité & $P(T^-\mid\overline M)$ & Le test repère-t-il bien les non-malades ? \\
+VPP & $P(M\mid T^+)$ & Un positif est-il réellement malade ? \\
+VPN & $P(\overline M\mid T^-)$ & Un négatif est-il réellement non malade ? \\
+\end{tabular}
+
+Les deux premières grandeurs caractérisent le comportement du test dans des groupes connus.  
+Les deux dernières dépendent fortement de la prévalence.
+
+\section{8. A priori et a posteriori}
+
+En raisonnement bayésien, on distingue deux étapes.
+
+\subsection{Probabilité a priori}
+
+Avant d'observer le résultat du test, la probabilité d'être malade vaut :
+
+\[
+P(M)=0{,}02.
+\]
+
+Cette probabilité représente l'information disponible avant l'observation.
+
+\subsection{Probabilité a posteriori}
+
+Après un test positif, la probabilité devient :
+
+\[
+P(M\mid T^+)\approx0{,}162.
+\]
+
+L'observation a donc modifié notre estimation.
+
+On peut résumer le mécanisme ainsi :
+
+\[
+\boxed{
+\text{a priori}
++
+\text{information nouvelle}
+\longrightarrow
+\text{a posteriori}
+}
+\]
+
+Bayes ne « crée » pas de certitude. Il met à jour une probabilité à partir d'une information nouvelle.
+
+\section{9. Exemple développé 2 — contrôle qualité en industrie}
+
+Une usine utilise deux machines.
+
+\begin{itemize}
+\item la machine $A$ produit $60\%$ des pièces ;
+\item la machine $B$ produit $40\%$ des pièces ;
+\item $2\%$ des pièces issues de $A$ sont défectueuses ;
+\item $5\%$ des pièces issues de $B$ sont défectueuses.
+\end{itemize}
+
+On choisit une pièce au hasard et on constate qu'elle est défectueuse.
+
+On cherche :
+
+\[
+P(B\mid D).
+\]
+
+\subsection{Étape 1 — probabilité d'une pièce défectueuse}
+
+On applique la formule des probabilités totales :
+
+\[
+P(D)
+=
+P(A)P(D\mid A)+P(B)P(D\mid B).
+\]
+
+Donc :
+
+\[
+P(D)
+=
+0{,}60\times0{,}02
++
+0{,}40\times0{,}05.
+\]
+
+Ainsi :
+
+\[
+P(D)=0{,}012+0{,}020=0{,}032.
+\]
+
+\subsection{Étape 2 — appliquer Bayes}
+
+\[
+P(B\mid D)
+=
+\frac{P(D\mid B)P(B)}{P(D)}.
+\]
+
+Donc :
+
+\[
+P(B\mid D)
+=
+\frac{0{,}05\times0{,}40}{0{,}032}
+=
+\frac{0{,}020}{0{,}032}
+=
+0{,}625.
+\]
+
+Il y a donc $62{,}5\%$ de chances que la pièce défectueuse provienne de la machine $B$.
+
+\subsection{Interprétation}
+
+La machine $B$ ne fabrique que $40\%$ des pièces, mais son taux de défaut est plus élevé. Une pièce défectueuse est donc plus probablement issue de $B$ que de $A$.
+
+\section{10. Effet de la prévalence}
+
+La prévalence joue un rôle majeur dans les valeurs prédictives.
+
+Supposons un test de sensibilité $99\%$ et de spécificité $99\%$.
+
+\subsection{Cas 1 — prévalence 1 \%}
+
+\[
+P(M)=0{,}01.
+\]
+
+Le taux de faux positifs vaut également $1\%$.
+
+Alors :
+
+\[
+P(T^+)
+=
+0{,}99\times0{,}01
++
+0{,}01\times0{,}99
+=
+0{,}0198.
+\]
+
+Donc :
+
+\[
+P(M\mid T^+)
+=
+\frac{0{,}0099}{0{,}0198}
+=
+0{,}50.
+\]
+
+Malgré un test très performant, la valeur prédictive positive n'est que de $50\%$.
+
+\subsection{Cas 2 — prévalence 20 \%}
+
+\[
+P(M)=0{,}20.
+\]
+
+Alors :
+
+\[
+P(T^+)
+=
+0{,}99\times0{,}20
++
+0{,}01\times0{,}80
+=
+0{,}206.
+\]
+
+Et :
+
+\[
+P(M\mid T^+)
+=
+\frac{0{,}198}{0{,}206}
+\approx0{,}961.
+\]
+
+La VPP est cette fois d'environ $96{,}1\%$.
+
+Le même test peut donc donner des interprétations très différentes selon la population étudiée.
+
+\coursefigure{/images/mathematiques/terminale-complementaires/inference-bayesienne-prevalence-vpp.svg}{Courbe montrant l}{À performances de test constantes, la valeur prédictive positive augmente fortement avec la prévalence.}
+
+Cette courbe permet de visualiser un point essentiel : la qualité du test reste identique, mais l'interprétation d'un résultat positif change avec la fréquence de base de l'événement recherché.
+
+\section{11. Méthode — résoudre un problème de Bayes}
+
+Lorsqu'une question demande une probabilité du type $P(A\mid B)$, utilise la démarche suivante.
+
+\subsection{Étape 1 — définir clairement les événements}
+
+Écris ce que signifient $A$, $B$, $\overline A$, etc.
+
+\subsection{Étape 2 — identifier ce qui est donné}
+
+Repère :
+
+\begin{itemize}
+\item les probabilités initiales $P(A)$ ;
+\item les probabilités conditionnelles $P(B\mid A)$ ;
+\item les complémentaires éventuels.
+\end{itemize}
+
+\subsection{Étape 3 — construire un arbre}
+
+L'arbre permet d'éviter les inversions de conditionnement.
+
+\subsection{Étape 4 — calculer la probabilité de l'observation}
+
+Utilise les probabilités totales :
+
+\[
+P(B)
+=
+P(A)P(B\mid A)
++
+P(\overline A)P(B\mid\overline A).
+\]
+
+\subsection{Étape 5 — appliquer Bayes}
+
+\[
+P(A\mid B)
+=
+\frac{P(B\mid A)P(A)}{P(B)}.
+\]
+
+\subsection{Étape 6 — interpréter}
+
+Une réponse comme $0{,}37$ doit être traduite :
+
+« sachant que $B$ est réalisé, la probabilité de $A$ est de $37\%$. »
+
+\subsection{Variante — passer par les effectifs}
+
+Lorsque les pourcentages sont peu intuitifs, choisis une population fictive de 1 000, 10 000 ou 100 000 individus. Le tableau d'effectifs rend souvent le raisonnement beaucoup plus lisible.
+
+\section{12. Indépendance et Bayes}
+
+Deux événements $A$ et $B$ sont indépendants si :
+
+\[
+P(A\cap B)=P(A)P(B).
+\]
+
+Lorsque $P(B)>0$, cela revient à :
+
+\[
+P(A\mid B)=P(A).
+\]
+
+Dans ce cas, apprendre que $B$ s'est produit ne modifie pas la probabilité de $A$.
+
+On peut donc voir l'indépendance comme une situation dans laquelle l'information nouvelle $B$ n'apporte aucune information utile sur $A$.
+
+À l'inverse, si :
+
+\[
+P(A\mid B)\neq P(A),
+\]
+
+alors l'observation de $B$ modifie notre estimation de $A$.
+
+\section{13. Arbre, tableau ou formule ?}
+
+Les trois outils sont complémentaires.
+
+\begin{tabular}{c|c|c}
+Outil & Point fort & À privilégier quand… \\
+Arbre pondéré & Visualise les conditionnements successifs & les événements sont organisés en étapes \\
+Tableau d'effectifs & Rend les proportions concrètes & les probabilités sont contre-intuitives \\
+Formule de Bayes & Donne un calcul compact & les probabilités sont déjà identifiées \\
+\end{tabular}
+
+Un bon raisonnement peut utiliser les trois successivement.
+
+\section{14. Erreurs fréquentes}
+
+\subsection{Confondre $P(A\mid B)$ et $P(B\mid A)$}
+
+C'est l'erreur principale.
+
+\[
+P(A\mid B)
+\neq
+P(B\mid A)
+\]
+
+en général.
+
+Toujours traduire la probabilité en phrase avant de calculer.
+
+\subsection{Oublier les probabilités de base}
+
+Une sensibilité de $99\%$ ne permet pas à elle seule de connaître la probabilité d'être malade après un test positif.
+
+Il faut aussi connaître la prévalence.
+
+\subsection{Oublier un chemin dans les probabilités totales}
+
+Pour calculer $P(T^+)$, il faut compter tous les cas permettant d'obtenir un test positif.
+
+\subsection{Utiliser le complément du mauvais événement}
+
+Si :
+
+\[
+P(T^-\mid\overline M)=0{,}90,
+\]
+
+alors :
+
+\[
+P(T^+\mid\overline M)=0{,}10.
+\]
+
+Le complément s'effectue en gardant la même condition.
+
+\subsection{Donner un nombre sans l'interpréter}
+
+Une probabilité conditionnelle est une proportion dans une sous-population. La phrase finale est indispensable.
+
+\section{15. À retenir}
+
+Les quatre relations essentielles sont :
+
+\[
+\boxed{
+P(A\mid B)=\frac{P(A\cap B)}{P(B)}
+}
+\]
+
+\[
+\boxed{
+P(A\cap B)=P(B)P(A\mid B)
+}
+\]
+
+\[
+\boxed{
+P(B)=\sum_i P(A_i)P(B\mid A_i)
+}
+\]
+
+\[
+\boxed{
+P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B)}
+}
+\]
+
+Le point central du chapitre est conceptuel :
+
+\[
+\boxed{
+\text{une probabilité dépend de l'information disponible}
+}
+\]
+
+La formule de Bayes permet de mettre à jour une probabilité lorsque cette information change.
