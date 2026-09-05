@@ -21,6 +21,10 @@ const readerTitleId = `${chapterId.replace(/[^a-zA-Z0-9_-]/g, "-")}-course-reade
     margin: 0 auto;
   }
 
+  .course-reader-v3:has(.latex-course-document) {
+    max-width: 1040px;
+  }
+
   .course-reader-v3__title {
     position: absolute;
     width: 1px;
