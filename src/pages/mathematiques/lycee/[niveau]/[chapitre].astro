@@ -59,7 +59,6 @@ const courseTex = allCoursTex[`${basePath}/cours.tex`] as string | undefined;
 if (!courseTex) {
   throw new Error(`Maths chapter missing cours.tex: ${basePath}`);
 }
-const coursMod = allCours[`${basePath}/cours.mdx`] as any;
 const exercices = normalizeMathematicsExercises((allExo[`${basePath}/exercices.json`] as any)?.default ?? null);
 const quizData = normalizePlayableMathematicsQuiz((allQuiz[`${basePath}/quiz.json`] as any)?.default ?? null);
 const flashData = normalizeMathematicsFlashcards((allFlash[`${basePath}/flashcards.json`] as any)?.default ?? null);
