@@ -1,0 +1,57 @@
+\section{Objectifs}
+
+\begin{itemize}
+\item Reconnaître les différents modes de génération d'une suite.
+\item Calculer des termes à partir d'une formule explicite ou d'une récurrence.
+\item Maîtriser les suites arithmétiques et géométriques, leur terme général, leurs sommes et leur sens de variation.
+\item Modéliser une évolution discrète et conjecturer une limite sans formalisation.
+\end{itemize}
+
+\section{Cours}
+
+\subsection{Définir une suite}
+Une suite \texttt{(u_n)} associe à chaque entier naturel \texttt{n} un nombre réel. Elle peut être donnée explicitement, par exemple \texttt{u_n=f(n)}, par récurrence \texttt{u_{n+1}=f(u_n)}, par un algorithme ou par un motif géométrique/combinatoire. Il faut savoir passer d'un registre à l'autre.
+
+\subsection{Suites arithmétiques}
+Une suite est arithmétique de raison \texttt{r} si \texttt{u_{n+1}=u_n+r}. Pour des rangs \texttt{n} et \texttt{p}, \texttt{u_n=u_p+(n-p)r}. Une évolution à accroissements constants se modélise ainsi. Si \texttt{r>0}, la suite est croissante ; si \texttt{r<0}, elle est décroissante.
+
+La somme \texttt{1+2+...+n} vaut \texttt{n(n+1)/2}. Plus généralement, une somme de termes consécutifs d'une suite arithmétique s'obtient par \texttt{nombre de termes × (premier+dernier)/2}.
+
+\subsection{Suites géométriques}
+Une suite est géométrique de raison \texttt{q} si \texttt{u_{n+1}=q u_n}. Alors \texttt{u_n=u_p q^{n-p}}. Une évolution à taux fixe se modélise par une suite géométrique : le coefficient multiplicateur est \texttt{q=1+t}.
+
+Pour \texttt{q≠1}, \texttt{1+q+...+q^n=(1-q^{n+1})/(1-q)}. Le sens de variation dépend de \texttt{q} et du signe des termes ; dans les modèles usuels à termes positifs, \texttt{q>1} donne une croissance et \texttt{0<q<1} une décroissance.
+
+\subsection{Intuition de limite et seuil}
+Le programme demande seulement de conjecturer, sur des exemples, une limite finie, infinie ou l'absence de limite. Aucune définition formelle avec quantificateurs n'est exigée. Un algorithme peut rechercher le premier rang où une suite franchit un seuil.
+
+\subsection{Modéliser}
+Capital avec versement fixe → modèle arithmétique. Capital soumis chaque période au même taux → modèle géométrique. Population, décroissance radioactive ou motifs peuvent conduire à une récurrence plus générale.
+
+\section{Démonstrations à travailler}
+\begin{itemize}
+\item terme général d'une suite arithmétique ;
+\item terme général d'une suite géométrique ;
+\item \texttt{1+2+...+n=n(n+1)/2} ;
+\item somme géométrique \texttt{1+q+...+q^n}.
+\end{itemize}
+
+\section{Algorithmique}
+\begin{verbatim}
+def seuil(u0, q, s):
+    n, u = 0, u0
+    while u < s:
+        u *= q
+        n += 1
+    return n, u
+\end{verbatim}
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Confondre raison additive \texttt{r} et coefficient multiplicatif \texttt{q}.
+\item Écrire \texttt{u_n=u_0+nr} pour une suite qui commence à un autre rang sans adapter la formule.
+\item Formaliser une limite au-delà de ce qui est attendu en Première.
+\end{itemize}
+
+\section{Synthèse}
+Les suites décrivent des évolutions discrètes. Les suites arithmétiques modélisent un accroissement constant, les géométriques un taux constant ; formules, récurrences, graphiques et algorithmes doivent pouvoir être articulés.
