@@ -13,6 +13,8 @@ interface TextToSpeechProps {
   rate?: number;
   /** Style compact (petit bouton) ou étendu (avec contrôles) */
   compact?: boolean;
+  /** Variante visuelle du lecteur */
+  variant?: "default" | "latex";
 }
 
 // ─── Nettoyer le texte LaTeX pour la lecture ──────────────
@@ -40,7 +42,7 @@ function cleanForSpeech(text: string): string {
     .trim();
 }
 
-export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, compact = false }: TextToSpeechProps) {
+export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, compact = false, variant = "default" }: TextToSpeechProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [supported, setSupported] = useState(true);
@@ -103,6 +105,7 @@ export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, com
 
   if (!supported) return null;
 
+  const isLatex = variant === "latex";
   const V = {
     primary: "var(--accent-primary)",
     primaryLt: "var(--accent-primary-light)",
@@ -121,9 +124,9 @@ export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, com
         style={{
           padding: "0.35rem 0.7rem",
           border: `1px solid ${V.border}`,
-          borderRadius: 6,
-          background: isPlaying ? V.primaryLt : V.bg,
-          color: isPlaying ? V.primary : V.textSec,
+          borderRadius: isLatex ? 0 : 6,
+          background: isLatex ? V.bg : (isPlaying ? V.primaryLt : V.bg),
+          color: isLatex ? V.text : (isPlaying ? V.primary : V.textSec),
           fontSize: "0.8rem",
           cursor: "pointer",
           display: "flex",
@@ -132,7 +135,7 @@ export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, com
         }}
         title={isPlaying ? "Arrêter la lecture" : "Lire à voix haute"}
       >
-        <span>{isPlaying ? "⏹️" : "🔊"}</span>
+        <span>{isLatex ? (isPlaying ? "■" : "▶") : (isPlaying ? "⏹️" : "🔊")}</span>
         <span>{isPlaying ? "Stop" : label}</span>
       </button>
     );
@@ -145,30 +148,66 @@ export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, com
       alignItems: "center",
       gap: "0.5rem",
       padding: "0.5rem 0.75rem",
-      background: V.primaryLt,
-      border: `1px solid ${V.border}`,
-      borderRadius: 8,
+      background: isLatex ? V.bg : V.primaryLt,
+      border: `1px solid ${isLatex ? V.textMut : V.border}`,
+      borderRadius: isLatex ? 0 : 8,
       flexWrap: "wrap",
     }}>
       {/* Bouton play/pause/stop */}
       {!isPlaying && !isPaused && (
-        <button onClick={speak} style={{...btnStyle, background: V.primary, color: "#fff"}}>
-          🔊 {label}
+        <button
+          onClick={speak}
+          style={{
+            ...btnStyle,
+            background: isLatex ? V.bg : V.primary,
+            color: isLatex ? V.text : "#fff",
+            border: isLatex ? `1px solid ${V.text}` : "none",
+            borderRadius: isLatex ? 0 : btnStyle.borderRadius,
+          }}
+        >
+          {isLatex ? "▶" : "🔊"} {label}
         </button>
       )}
       {isPlaying && (
-        <button onClick={pause} style={{...btnStyle, background: V.primary, color: "#fff"}}>
-          ⏸️ Pause
+        <button
+          onClick={pause}
+          style={{
+            ...btnStyle,
+            background: isLatex ? V.bg : V.primary,
+            color: isLatex ? V.text : "#fff",
+            border: isLatex ? `1px solid ${V.text}` : "none",
+            borderRadius: isLatex ? 0 : btnStyle.borderRadius,
+          }}
+        >
+          {isLatex ? "Ⅱ" : "⏸️"} Pause
         </button>
       )}
       {isPaused && (
-        <button onClick={speak} style={{...btnStyle, background: V.primary, color: "#fff"}}>
-          ▶️ Reprendre
+        <button
+          onClick={speak}
+          style={{
+            ...btnStyle,
+            background: isLatex ? V.bg : V.primary,
+            color: isLatex ? V.text : "#fff",
+            border: isLatex ? `1px solid ${V.text}` : "none",
+            borderRadius: isLatex ? 0 : btnStyle.borderRadius,
+          }}
+        >
+          {isLatex ? "▶" : "▶️"} Reprendre
         </button>
       )}
       {(isPlaying || isPaused) && (
-        <button onClick={stop} style={{...btnStyle, background: "transparent", color: V.textSec, border: `1px solid ${V.border}`}}>
-          ⏹️ Stop
+        <button
+          onClick={stop}
+          style={{
+            ...btnStyle,
+            background: "transparent",
+            color: V.textSec,
+            border: `1px solid ${V.border}`,
+            borderRadius: isLatex ? 0 : btnStyle.borderRadius,
+          }}
+        >
+          {isLatex ? "■" : "⏹️"} Stop
         </button>
       )}
 
@@ -182,9 +221,9 @@ export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, com
             style={{
               padding: "0.15rem 0.4rem",
               border: `1px solid ${currentRate === r ? V.primary : V.border}`,
-              borderRadius: 4,
-              background: currentRate === r ? V.primaryLt : "transparent",
-              color: currentRate === r ? V.primary : V.textMut,
+              borderRadius: isLatex ? 0 : 4,
+              background: currentRate === r ? (isLatex ? V.text : V.primaryLt) : "transparent",
+              color: currentRate === r ? (isLatex ? V.bg : V.primary) : V.textMut,
               fontSize: "0.7rem",
               fontWeight: currentRate === r ? 700 : 400,
               cursor: "pointer",
