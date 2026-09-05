@@ -1,0 +1,146 @@
+\section{Objectifs}
+
+\begin{itemize}
+\item Reconnaître et exploiter les fonctions affines et les fonctions de référence du programme.
+\item Relier expression algébrique, courbe, signe et variations.
+\item Construire et exploiter un tableau de signes d'un produit ou d'un quotient.
+\item Relier sens de variation, coefficient directeur et droite représentative d'une fonction affine.
+\item Résoudre graphiquement, algébriquement ou numériquement des équations et inéquations liées aux fonctions de référence.
+\item Déterminer ou approcher un extrémum et traiter un problème d'optimisation.
+\end{itemize}
+
+\section{Prérequis}
+
+\begin{itemize}
+\item fonctions : vocabulaire, images et antécédents
+\item équations et inéquations
+\item repère et droites
+\end{itemize}
+
+\section{Activité de découverte}
+
+On compare plusieurs programmes de calcul. Leurs courbes n'ont pas la même forme : droite, parabole, hyperbole, courbe en V, racine carrée ou cube. Ces formes deviennent des repères visuels, mais la résolution d'un problème doit aussi pouvoir s'appuyer sur l'algèbre et les variations.
+
+\section{Vocabulaire}
+
+\begin{itemize}
+\item \textbf{croissante}, \textbf{décroissante}, \textbf{monotone}
+\item \textbf{maximum}, \textbf{minimum}, \textbf{extrémum}
+\item \textbf{tableau de variations}, \textbf{tableau de signes}
+\item \textbf{fonction affine}, \textbf{coefficient directeur}, \textbf{ordonnée à l'origine}, \textbf{taux d'accroissement}
+\item \textbf{fonction valeur absolue}, \textbf{carré}, \textbf{inverse}, \textbf{racine carrée}, \textbf{cube}
+\end{itemize}
+
+\section{Cours}
+
+\subsection{Fonctions affines}
+
+Une fonction affine s'écrit \texttt{f(x)=mx+p}.
+
+\begin{itemize}
+\item \texttt{m} est le coefficient directeur et le taux d'accroissement : pour \texttt{x1≠x2}, \texttt{(f(x2)-f(x1))/(x2-x1)=m} ;
+\item \texttt{p=f(0)} est l'ordonnée à l'origine ;
+\item si \texttt{m>0}, la fonction est croissante ;
+\item si \texttt{m<0}, elle est décroissante ;
+\item si \texttt{m=0}, elle est constante.
+\end{itemize}
+
+Le signe d'une fonction affine se lit à partir de son éventuelle racine et du signe de \texttt{m}.
+
+\subsection{Fonctions de référence}
+
+\begin{itemize}
+\item \texttt{x ↦ |x|} est définie sur \texttt{ℝ}, positive, décroissante sur \texttt{]-∞;0]} puis croissante sur \texttt{[0;+∞[} ; son minimum vaut \texttt{0}.
+\item \texttt{x ↦ x²} est définie sur \texttt{ℝ}, positive, décroissante sur \texttt{]-∞;0]} puis croissante sur \texttt{[0;+∞[} ; son minimum vaut \texttt{0}.
+\item \texttt{x ↦ 1/x} est définie sur \texttt{ℝ\{0}} et décroissante sur chacun des intervalles \texttt{]-∞;0[} et \texttt{]0;+∞[}.
+\item \texttt{x ↦ √x} est définie sur \texttt{[0;+∞[} et croissante.
+\item \texttt{x ↦ x³} est définie sur \texttt{ℝ} et croissante.
+\end{itemize}
+
+\subsection{Signe d'un produit ou d'un quotient}
+
+Pour un produit ou un quotient, on détermine d'abord les zéros des facteurs et les valeurs interdites du dénominateur, puis on combine les signes dans un tableau.
+
+Le tableau de signes permet de résoudre \texttt{f(x)>0}, \texttt{f(x)≤0} lorsque \texttt{f} est un produit ou un quotient d'expressions simples.
+
+\subsection{Variations et extrémums}
+
+Une fonction est croissante sur un intervalle lorsque l'ordre des nombres de départ est conservé par leurs images. Elle est décroissante lorsque cet ordre est inversé.
+
+Un tableau de variations synthétise ces informations. Un maximum ou un minimum doit toujours être indiqué avec l'ensemble ou l'intervalle sur lequel il est considéré.
+
+\subsection{Résoudre et comparer}
+
+Selon la situation, on choisit le registre le plus efficace :
+
+\begin{itemize}
+\item graphique pour lire ou estimer les solutions de \texttt{f(x)=k}, \texttt{f(x)<k}, \texttt{f(x)=g(x)} ;
+\item algébrique lorsque les expressions s'y prêtent ;
+\item calculatrice, logiciel ou Python pour obtenir une approximation ou explorer un problème.
+\end{itemize}
+
+Pour les fonctions affine, valeur absolue, carré, inverse, racine carrée et cube, les équations ou inéquations simples avec une constante doivent pouvoir être traitées graphiquement ou algébriquement.
+
+\subsection{Optimisation}
+
+Un problème d'optimisation consiste à chercher la plus grande ou la plus petite valeur d'une grandeur modélisée par une fonction. La démarche comprend : choisir la variable, déterminer son domaine, construire la fonction, étudier ou explorer ses variations, puis interpréter l'extrémum dans le contexte.
+
+\section{Exemples corrigés}
+
+\begin{itemize}
+\item Pour \texttt{f(x)=2x-6}, \texttt{f(x)>0} équivaut à \texttt{x>3}.
+\item \texttt{x²=4} a deux solutions : \texttt{-2} et \texttt{2}.
+\item \texttt{√x<3} avec \texttt{x≥0} équivaut à \texttt{0≤x<9}.
+\item Pour \texttt{f(x)=-3x+2}, le coefficient directeur est négatif : \texttt{f} est décroissante sur \texttt{ℝ}.
+\end{itemize}
+
+\coursefigure{/images/mathematiques/latex-migration/2nde-fonctions-reference-variations-figure-1.svg}{Repère montrant une droite, une parabole et une courbe inverse stylisée.}{Les courbes de référence sont des repères ; la résolution doit aussi pouvoir changer de registre.}
+
+\section{Algorithmique en Python}
+
+\subsection{Approcher un minimum par balayage}
+
+\begin{verbatim}
+def f(x):
+    return (x - 2)**2 + 1
+
+meilleur_x = -5
+for k in range(-50, 51):
+    x = k / 10
+    if f(x) < f(meilleur_x):
+        meilleur_x = x
+print(meilleur_x, f(meilleur_x))
+\end{verbatim}
+
+Le balayage fournit une approximation. Une dichotomie ou un pas plus fin peut ensuite améliorer la précision selon le problème.
+
+\section{Démonstrations à connaître ou à travailler}
+
+\begin{itemize}
+\item variations des fonctions affines ;
+\item variations des fonctions carré et inverse ;
+\item position relative de \texttt{y=x} et \texttt{y=x²} pour \texttt{x≥0}.
+\end{itemize}
+
+\section{Erreurs fréquentes}
+
+\begin{itemize}
+\item Dire que la fonction carré est croissante sur tout \texttt{ℝ}.
+\item Mélanger signe de \texttt{f(x)} et sens de variation de \texttt{f}.
+\item Oublier que la fonction inverse n'est pas définie en \texttt{0}.
+\item Oublier que la racine carrée n'est définie que pour \texttt{x≥0}.
+\item Donner un maximum ou un minimum sans préciser l'intervalle étudié.
+\end{itemize}
+
+\section{Formules et idées à retenir}
+
+\begin{itemize}
+\item \texttt{f(x)=mx+p} : le signe de \texttt{m} détermine le sens de variation.
+\item \texttt{x²≥0} et \texttt{|x|≥0} pour tout réel \texttt{x}.
+\item \texttt{√x} nécessite \texttt{x≥0} ; \texttt{1/x} nécessite \texttt{x≠0}.
+\item Un tableau de signes et un tableau de variations répondent à deux questions différentes.
+\end{itemize}
+
+\section{Synthèse}
+
+Le programme de seconde demande de savoir circuler entre expression, tableau, graphique et outil numérique. Les fonctions de référence fournissent des modèles connus ; les variations, les signes et les extrémums permettent ensuite de résoudre des problèmes et d'optimiser une grandeur.
