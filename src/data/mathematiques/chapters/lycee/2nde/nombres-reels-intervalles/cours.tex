@@ -1,0 +1,133 @@
+\section{Objectifs}
+
+\begin{itemize}
+\item Placer et lire un réel sur une droite graduée.
+\item Distinguer nombres décimaux, rationnels, irrationnels et réels.
+\item Représenter un intervalle et tester une appartenance.
+\item Utiliser la valeur absolue uniquement comme distance dans le cadre du programme de seconde.
+\item Résoudre et interpréter une inéquation de la forme \texttt{|x-a|≤r}.
+\item Donner un encadrement décimal d'amplitude imposée et arrondir avec un nombre de chiffres significatifs adapté à la situation.
+\end{itemize}
+
+\section{Prérequis}
+
+\begin{itemize}
+\item droite graduée
+\item nombres relatifs
+\item comparaison de nombres
+\item puissances de 10
+\end{itemize}
+
+\section{Activité de découverte}
+
+Une application de géolocalisation donne une position à \texttt{0,1 km} près. On cherche tous les emplacements possibles sur une ligne droite : cela conduit à un intervalle centré et à une écriture avec une distance.
+
+\section{Vocabulaire}
+
+\begin{itemize}
+\item \textbf{réel} \texttt{ℝ}, \textbf{décimal} \texttt{𝔻}, \textbf{rationnel} \texttt{ℚ}, \textbf{irrationnel}
+\item \textbf{droite numérique}, \textbf{intervalle}, \textbf{borne}, \textbf{amplitude}
+\item \textbf{valeur absolue}, \textbf{distance}, \textbf{encadrement}, \textbf{arrondi}, \textbf{chiffres significatifs}
+\end{itemize}
+
+\section{Cours}
+
+\subsection{Les ensembles de nombres}
+
+\begin{itemize}
+\item \texttt{𝔻} désigne les nombres décimaux, c'est-à-dire ceux qui possèdent une écriture décimale finie.
+\item \texttt{ℚ} désigne les nombres rationnels, qui peuvent s'écrire comme quotient de deux entiers avec dénominateur non nul.
+\item \texttt{ℝ} désigne les nombres réels, représentés par les points de la droite numérique.
+\item Des nombres comme \texttt{√2} et \texttt{π} sont irrationnels : ils appartiennent à \texttt{ℝ} mais pas à \texttt{ℚ}.
+\end{itemize}
+
+Une calculatrice ne stocke qu'une approximation d'un réel général : il faut distinguer le nombre mathématique et sa valeur affichée.
+
+\subsection{Intervalles}
+
+Un intervalle est un ensemble de réels défini par des inégalités. Les crochets indiquent si une borne finie appartient ou non à l'intervalle.
+
+Exemples :
+
+\begin{itemize}
+\item \texttt{[a;b]} correspond à \texttt{a≤x≤b} ;
+\item \texttt{]a;b[} correspond à \texttt{a<x<b} ;
+\item \texttt{[a;+∞[} correspond à \texttt{x≥a}.
+\end{itemize}
+
+\subsection{Valeur absolue comme distance}
+
+En seconde, la valeur absolue est introduite pour exprimer une distance :
+
+\begin{itemize}
+\item \texttt{|a|} est la distance de \texttt{a} à \texttt{0} ;
+\item \texttt{|a-b|} est la distance entre \texttt{a} et \texttt{b}.
+\end{itemize}
+
+Pour \texttt{r≥0} :
+
+\texttt{|x-a|≤r ⇔ x∈[a-r;a+r]}.
+
+Cette équivalence permet de passer d'une contrainte de distance à un intervalle et inversement.
+
+\subsection{Encadrements décimaux et précision}
+
+Un encadrement décimal à \texttt{10^-n} près doit avoir une amplitude inférieure ou égale à la précision demandée. Dans un problème concret, l'arrondi doit utiliser un nombre de chiffres significatifs cohérent avec les données et la grandeur étudiée.
+
+Exemple : \texttt{1,41<√2<1,42} est un encadrement d'amplitude \texttt{0,01}.
+
+\section{Exemples corrigés}
+
+\begin{itemize}
+\item \texttt{|x-3|≤2} signifie que la distance de \texttt{x} à \texttt{3} est au plus \texttt{2}, donc \texttt{x∈[1;5]}.
+\item \texttt{1/3} est rationnel mais n'est pas décimal.
+\item \texttt{√2} est réel et irrationnel.
+\item Une longueur calculée à partir de mesures données au millimètre ne doit pas être affichée avec une précision artificielle de dix décimales.
+\end{itemize}
+
+\coursefigure{/images/mathematiques/latex-migration/2nde-nombres-reels-intervalles-figure-1.svg}{Droite graduée montrant les solutions de valeur absolue entre 1 et 5.}{Une contrainte de distance peut se traduire par un intervalle centré.}
+
+\section{Algorithmique en Python}
+
+\subsection{Encadrer \texttt{√2} par balayage}
+
+\begin{verbatim}
+def encadre_racine2(pas):
+    x = 1
+    while x * x < 2:
+        x = x + pas
+    return x - pas, x
+
+print(encadre_racine2(0.01))
+\end{verbatim}
+
+Le programme avance par pas réguliers jusqu'à encadrer \texttt{√2}. Le pas choisi contrôle l'amplitude de l'encadrement.
+
+\section{Démonstrations à travailler}
+
+\begin{itemize}
+\item \texttt{1/3} est rationnel mais n'est pas un nombre décimal.
+\item \texttt{√2} est irrationnel.
+\end{itemize}
+
+\section{Erreurs fréquentes}
+
+\begin{itemize}
+\item Confondre une borne ouverte et une borne fermée.
+\item Utiliser la valeur absolue pour d'autres usages non attendus en seconde au lieu de l'interpréter comme distance.
+\item Écrire un encadrement sans vérifier son amplitude.
+\item Confondre nombre réel et approximation affichée par la calculatrice.
+\item Donner trop de chiffres après la virgule sans lien avec la précision des données.
+\end{itemize}
+
+\section{Formules et idées à retenir}
+
+\begin{itemize}
+\item \texttt{|a-b|} est la distance entre \texttt{a} et \texttt{b}.
+\item \texttt{|x-a|≤r ⇔ x∈[a-r;a+r]} pour \texttt{r≥0}.
+\item \texttt{𝔻⊂ℚ⊂ℝ}.
+\end{itemize}
+
+\section{Synthèse}
+
+Les nombres réels sont étudiés à travers la droite numérique, les intervalles et l'approximation. La valeur absolue garde ici un sens géométrique de distance ; encadrer et arrondir exige de contrôler explicitement la précision du résultat.
