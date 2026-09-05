@@ -14,7 +14,7 @@ interface TextToSpeechProps {
   /** Style compact (petit bouton) ou étendu (avec contrôles) */
   compact?: boolean;
   /** Variante visuelle du lecteur */
-  variant?: "default" | "latex";
+  variant?: "default" | "latex" | "sheet";
 }
 
 // ─── Nettoyer le texte LaTeX pour la lecture ──────────────
@@ -106,6 +106,7 @@ export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, com
   if (!supported) return null;
 
   const isLatex = variant === "latex";
+  const isSheet = variant === "sheet";
   const V = {
     primary: "var(--accent-primary)",
     primaryLt: "var(--accent-primary-light)",
@@ -124,9 +125,9 @@ export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, com
         style={{
           padding: "0.35rem 0.7rem",
           border: `1px solid ${V.border}`,
-          borderRadius: isLatex ? 0 : 6,
-          background: isLatex ? V.bg : (isPlaying ? V.primaryLt : V.bg),
-          color: isLatex ? V.text : (isPlaying ? V.primary : V.textSec),
+          borderRadius: isLatex || isSheet ? 3 : 6,
+          background: isSheet ? "transparent" : isLatex ? V.bg : (isPlaying ? V.primaryLt : V.bg),
+          color: isSheet ? "var(--sheet-teal, var(--accent-primary))" : isLatex ? V.text : (isPlaying ? V.primary : V.textSec),
           fontSize: "0.8rem",
           cursor: "pointer",
           display: "flex",
@@ -135,7 +136,7 @@ export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, com
         }}
         title={isPlaying ? "Arrêter la lecture" : "Lire à voix haute"}
       >
-        <span>{isLatex ? (isPlaying ? "■" : "▶") : (isPlaying ? "⏹️" : "🔊")}</span>
+        <span>{isSheet ? (isPlaying ? "■" : "▶") : isLatex ? (isPlaying ? "■" : "▶") : (isPlaying ? "⏹️" : "🔊")}</span>
         <span>{isPlaying ? "Stop" : label}</span>
       </button>
     );
