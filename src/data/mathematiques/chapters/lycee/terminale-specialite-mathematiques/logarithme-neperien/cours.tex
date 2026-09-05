@@ -1,0 +1,101 @@
+\section{Objectifs}
+\begin{itemize}
+\item Comprendre $\ln$ comme fonction réciproque de l'exponentielle.
+\item Calculer avec les propriétés du logarithme.
+\item Étudier des fonctions contenant $\ln$.
+\item Résoudre des équations et des inéquations.
+\end{itemize}
+
+\section{1. Définition}
+La fonction exponentielle réalise une bijection de $\mathbb R$ sur $]0,+\infty[$. Sa fonction réciproque est le logarithme népérien.
+
+Pour $x>0$ :
+\[
+\ln x=y\iff e^y=x.
+\]
+
+Ainsi :
+\[
+\ln 1=0,\qquad \ln e=1,
+\]
+et
+\[
+\ln(e^x)=x,\qquad e^{\ln x}=x\quad(x>0).
+\]
+
+\section{2. Propriétés algébriques}
+Pour $a>0$ et $b>0$ :
+\[
+\ln(ab)=\ln a+\ln b,
+\]
+\[
+\ln\left(\frac ab\right)=\ln a-\ln b.
+\]
+
+Pour tout entier $n$ :
+\[
+\ln(a^n)=n\ln a.
+\]
+
+En particulier :
+\[
+\ln\left(\frac1a\right)=-\ln a.
+\]
+
+\section{3. Dérivée et variations}
+Pour $x>0$ :
+\[
+(\ln x)'=\frac1x.
+\]
+
+Comme $1/x>0$ sur $]0,+\infty[$, $\ln$ est strictement croissante.
+
+Si $u(x)>0$ :
+\[
+(\ln u(x))'=\frac{u'(x)}{u(x)}.
+\]
+
+\section{4. Limites}
+\[
+\lim_{x\to0^+}\ln x=-\infty,
+\]
+\[
+\lim_{x\to+\infty}\ln x=+\infty.
+\]
+
+Croissance comparée :
+\[
+\frac{\ln x}{x}\to0\quad(x\to+\infty).
+\]
+
+Plus généralement, les puissances positives de $x$ dominent le logarithme à l'infini.
+
+\section{5. Équations}
+Comme $\ln$ est strictement croissante :
+\[
+\ln x=a\iff x=e^a.
+\]
+
+Et, pour $A>0$, $B>0$ :
+\[
+\ln A=\ln B\iff A=B.
+\]
+
+\section{6. Inéquations}
+Toujours grâce à la croissance de $\ln$ :
+\[
+\ln x\le a\iff 0<x\le e^a.
+\]
+
+Le domaine de définition doit être traité avant toute manipulation.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Écrire $\ln(a+b)=\ln a+\ln b$.
+\item Oublier la condition $x>0$.
+\item Confondre $\ln(x^2)$ avec $2\ln x$ sans préciser que $x>0$ ; en général $\ln(x^2)=2\ln|x|$ pour $x\ne0$.
+\item Oublier le facteur $u'$ dans $(\ln u)'$.
+\end{itemize}
+
+\section{À retenir}
+Le logarithme transforme les produits en sommes et constitue la fonction réciproque de l'exponentielle sur $]0,+\infty[$.
