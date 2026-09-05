@@ -1,0 +1,83 @@
+\section{Objectifs}
+\begin{itemize}
+\item Reconnaître et déterminer des primitives.
+\item Résoudre les équations différentielles de référence.
+\item Utiliser une condition initiale.
+\item Interpréter une équation différentielle dans un modèle.
+\end{itemize}
+
+\section{1. Primitive}
+Une fonction $F$ est une primitive de $f$ sur un intervalle $I$ si
+\[
+F'(x)=f(x)
+\]
+pour tout $x\in I$.
+
+Si $F$ est une primitive de $f$, toutes les primitives sont
+\[
+F(x)+C,\qquad C\in\mathbb R.
+\]
+
+\section{2. Primitives usuelles}
+Sur les domaines adaptés :
+\[
+x^n\longmapsto \frac{x^{n+1}}{n+1}\quad(n\ne-1),
+\]
+\[
+\frac1x\longmapsto\ln x\quad(x>0),
+\]
+\[
+e^x\longmapsto e^x,
+\]
+\[
+\cos x\longmapsto\sin x,
+\]
+\[
+\sin x\longmapsto-\cos x.
+\]
+
+\section{3. Équation $y'=ay$}
+Pour un réel $a$, les solutions sont
+\[
+y(x)=Ce^{ax},\qquad C\in\mathbb R.
+\]
+
+Une condition initiale $y(x_0)=y_0$ détermine une unique valeur de $C$.
+
+\section{4. Équation $y'=ay+b$}
+Si $a\ne0$, une solution constante est
+\[
+y_p=-\frac ba.
+\]
+
+Les solutions générales sont
+\[
+y(x)=Ce^{ax}-\frac ba.
+\]
+
+Si $a=0$, l'équation devient $y'=b$ et
+\[
+y(x)=bx+C.
+\]
+
+\section{5. Vérification}
+Une solution proposée doit être vérifiée en calculant sa dérivée et en la remplaçant dans l'équation.
+
+\section{6. Modélisation}
+Les équations différentielles décrivent des phénomènes où une vitesse de variation dépend de l'état :
+\begin{itemize}
+\item croissance ou décroissance exponentielle ;
+\item refroidissement simplifié ;
+\item évolution vers une valeur d'équilibre.
+\end{itemize}
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Donner une primitive unique au lieu d'une famille $F+C$.
+\item Oublier la constante $C$.
+\item Utiliser la formule de $y'=ay+b$ avec $a=0$.
+\item Appliquer la condition initiale avant d'avoir écrit la solution générale.
+\end{itemize}
+
+\section{À retenir}
+Dériver et primitiver sont des opérations inverses à une constante près ; les équations $y'=ay$ et $y'=ay+b$ se résolvent grâce à l'exponentielle.
