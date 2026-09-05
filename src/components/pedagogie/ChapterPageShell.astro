@@ -285,7 +285,7 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
           <div slot="cours" class="cours-content">
             <CourseReader chapterId={chapterId} title={`Cours - ${displayTitle}`}>
               <CoursTracker client:load chapterId={chapterId} xpConfig={xpConfig}>
-                {courseTex ? <LatexCourse source={courseTex} /> : <CoursContent />}
+                {courseTex ? <LatexCourse source={courseTex} title={displayTitle} levelLabel={levelLabel} subjectLabel={subjectLabel} /> : <CoursContent />}
               </CoursTracker>
             </CourseReader>
           </div>
