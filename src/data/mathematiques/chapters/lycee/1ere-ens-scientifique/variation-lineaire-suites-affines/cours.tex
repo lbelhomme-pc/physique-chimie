@@ -1,0 +1,76 @@
+\section{Objectifs}
+\begin{itemize}
+\item Modéliser une croissance linéaire.
+\item Utiliser une suite arithmétique pour une évolution discrète.
+\item Utiliser une fonction affine pour une évolution continue.
+\item Résoudre un problème de seuil.
+\end{itemize}
+
+\section{1. Croissance linéaire}
+Une grandeur évolue linéairement lorsque son \textbf{accroissement} est constant.
+
+Si un budget augmente de 120 € chaque mois et si $u(n)$ désigne sa valeur après $n$ mois :
+\[
+u(n+1)=u(n)+120.
+\]
+
+\section{2. Suites arithmétiques}
+Une suite arithmétique de raison $r$ vérifie
+\[
+u(n+1)=u(n)+r.
+\]
+
+Si le terme initial est $u(0)$ :
+\[
+u(n)=u(0)+nr.
+\]
+
+\begin{itemize}
+\item si $r>0$, la suite est croissante ;
+\item si $r<0$, elle est décroissante ;
+\item si $r=0$, elle est constante.
+\end{itemize}
+
+\section{3. Fonctions affines}
+Une fonction affine s'écrit
+\[
+f(x)=ax+b.
+\]
+
+Le coefficient $a$ représente un taux d'accroissement constant : lorsque $x$ augmente d'une unité, $f(x)$ varie de $a$.
+
+Sa représentation graphique est une droite.
+
+\section{4. Discret ou continu ?}
+Une suite décrit naturellement des étapes entières : mois, années, générations, rangs. Une fonction peut décrire une grandeur sur un intervalle réel. Le choix du modèle dépend donc du phénomène étudié.
+
+\section{5. Problème de seuil}
+Pour $u(n)=1400+120n$, cherchons le premier rang tel que $u(n)\ge2000$ :
+\[
+1400+120n\ge2000
+\]
+donc
+\[
+120n\ge600,
+\]
+d'où $n\ge5$.
+
+Le seuil est atteint au rang 5.
+
+\section{Automatismes à entretenir}
+\begin{itemize}
+\item Calculer un taux d'évolution.
+\item Résoudre une équation ou une inéquation simple du premier degré.
+\item Lire le coefficient directeur d'une droite.
+\item Tracer une droite à partir de son équation.
+\end{itemize}
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Confondre accroissement constant et taux d'évolution constant.
+\item Utiliser un modèle discret pour un phénomène continu sans justification.
+\item Oublier que le rang $n$ d'une suite est entier.
+\end{itemize}
+
+\section{À retenir}
+Croissance linéaire = ajout constant. En discret, le modèle naturel est la suite arithmétique ; en continu, la fonction affine.
