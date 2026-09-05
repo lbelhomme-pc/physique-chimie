@@ -1,0 +1,75 @@
+\section{Objectifs}
+\begin{itemize}
+\item Calculer une probabilité conditionnelle.
+\item Distinguer $P(A\cap B)$, $P_A(B)$ et $P_B(A)$.
+\item Comprendre l'indépendance de deux évènements.
+\item Représenter de courtes répétitions de Bernoulli.
+\end{itemize}
+
+\section{1. Probabilité conditionnelle}
+Lorsque $P(A)>0$, la probabilité de $B$ sachant $A$ est
+\[
+P_A(B)=\frac{P(A\cap B)}{P(A)}.
+\]
+Ainsi,
+\[
+P(A\cap B)=P(A)\times P_A(B).
+\]
+
+Sur un arbre pondéré, la probabilité d'un chemin s'obtient en multipliant les probabilités de ses branches.
+
+\section{2. Bien distinguer les notations}
+\begin{itemize}
+\item $P(A\cap B)$ : A et B se réalisent.
+\item $P_A(B)$ : probabilité de B lorsque A est réalisé.
+\item $P_B(A)$ : probabilité de A lorsque B est réalisé.
+\end{itemize}
+
+Ces trois nombres n'ont aucune raison d'être égaux.
+
+\section{3. Indépendance}
+Deux évènements A et B sont indépendants si la connaissance de l'un ne modifie pas la probabilité de l'autre. On peut utiliser
+\[
+P(A\cap B)=P(A)P(B).
+\]
+
+Indépendance ne signifie pas incompatibilité. Deux évènements incompatibles de probabilités non nulles ne peuvent d'ailleurs pas être indépendants.
+
+\section{4. Répétitions de Bernoulli}
+Une épreuve de Bernoulli possède deux issues : succès et échec. Le programme demande de savoir représenter la répétition de $n$ épreuves identiques et indépendantes avec $n\le4$.
+
+Pour trois répétitions de probabilité de succès $p=0{,}7$, la probabilité d'obtenir exactement deux succès est
+\[
+3\times0{,}7^2\times0{,}3=0{,}441.
+\]
+
+La formule générale de la loi binomiale n'est pas nécessaire dans ce module.
+
+\section{5. Modèle et réalité}
+Le modèle probabiliste est une hypothèse. Une simulation permet de comparer des fréquences observées aux probabilités du modèle, mais ne transforme pas une hypothèse en certitude.
+
+\section{Automatismes à entretenir}
+\begin{itemize}
+\item Lire un tableau croisé.
+\item Calculer une fréquence conditionnelle.
+\item Multiplier les probabilités le long d'un chemin.
+\item Distinguer intersection et conditionnement.
+\end{itemize}
+
+\section{Exemple : test médical}
+Supposons que 2 \% d'une population soit malade et qu'un test soit positif chez 90 \% des malades :
+\[
+P(M\cap +)=0{,}02\times0{,}90=0{,}018.
+\]
+Cette valeur n'est pas la probabilité d'être malade sachant que le test est positif.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Confondre $P_A(B)$ et $P_B(A)$.
+\item Dire que deux évènements indépendants sont incompatibles.
+\item Additionner au lieu de multiplier le long d'un chemin.
+\item Introduire une loi binomiale générale qui n'est pas attendue ici.
+\end{itemize}
+
+\section{À retenir}
+Le conditionnement décrit une probabilité sous information. L'indépendance signifie que cette information ne change pas la probabilité de l'évènement considéré.
