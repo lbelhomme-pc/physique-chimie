@@ -871,3 +871,13 @@ La refonte se fait chapitre par chapitre.
 Un chapitre ne reçoit `contentQualityVersion: 2` qu'après réécriture complète de ses cinq ressources. Il reste V1 tant que l'un des éléments est incomplet.
 
 Le corpus complet est certifié uniquement lorsque **tous les chapitres Mathématiques publiés** sont V2 et passent le contrôle éditorial.
+
+
+## Garde-fou global — rendu LaTeX des cours
+
+- Source de cours obligatoire : `cours.tex` pour chaque chapitre de mathématiques publié.
+- Les routes collège et lycée ne doivent pas retomber sur un cours MDX.
+- Le corps éditorial, les formules, les tableaux et les appels de figures sont pilotés depuis LaTeX.
+- Les schémas et graphiques sont intégrés depuis le `cours.tex` via `\coursefigure{...}`.
+- Le rendu visuel doit rester de type polycopié académique : typographie serif, équations centrées, tableaux sobres, environnements de définition/propriété/méthode, peu d'arrondis et aucune décoration gratuite.
+- L'absence de `cours.tex` pour un chapitre déclaré est bloquante au build.
