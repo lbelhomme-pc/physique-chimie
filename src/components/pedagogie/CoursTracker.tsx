@@ -9,10 +9,11 @@ import TextToSpeech from "./TextToSpeech";
 interface CoursTrackerProps {
   chapterId: string;
   xpConfig?: { cours?: number };
+  variant?: "default" | "latex";
   children: React.ReactNode;
 }
 
-export default function CoursTracker({ chapterId, xpConfig, children }: CoursTrackerProps) {
+export default function CoursTracker({ chapterId, xpConfig, variant = "default", children }: CoursTrackerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hasTracked, setHasTracked] = useState(false);
   const [toasts, setToasts] = useState<ToastItem[]>([]);
@@ -98,30 +99,41 @@ export default function CoursTracker({ chapterId, xpConfig, children }: CoursTra
     return () => window.removeEventListener("scroll", handleScroll);
   }, [hasTracked, rewardCoursRead]);
 
+  const isLatex = variant === "latex";
+
   return (
-    <div>
+    <div className={isLatex ? "cours-tracker cours-tracker--latex" : "cours-tracker"}>
       {/* Barre TTS pour le cours */}
       {coursText.length > 50 && (
-        <div style={{ marginBottom: "1rem" }}>
-          <TextToSpeech text={coursText} label="Écouter le cours" />
+        <div className="cours-tracker__tts" style={{ marginBottom: isLatex ? "1.6rem" : "1rem" }}>
+          <TextToSpeech text={coursText} label="Écouter le cours" variant={variant} />
         </div>
       )}
 
       {/* Indicateur si déjà lu */}
       {hasTracked && (
-        <div style={{
-          display: "inline-flex", alignItems: "center", gap: "0.4rem",
-          padding: "0.3rem 0.7rem", background: "var(--accent-success-light)",
-          border: "1px solid var(--accent-success)", borderRadius: 6,
-          fontSize: "0.75rem", fontWeight: 600, color: "var(--accent-success)",
-          marginBottom: "1rem",
-        }}>
-          ✅ Cours déjà lu
+        <div
+          className="cours-tracker__read-state"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.4rem",
+            padding: isLatex ? "0.28rem 0.55rem" : "0.3rem 0.7rem",
+            background: isLatex ? "transparent" : "var(--accent-success-light)",
+            border: isLatex ? "1px solid var(--border-color)" : "1px solid var(--accent-success)",
+            borderRadius: isLatex ? 0 : 6,
+            fontSize: "0.75rem",
+            fontWeight: 600,
+            color: isLatex ? "var(--text-secondary)" : "var(--accent-success)",
+            marginBottom: "1rem",
+          }}
+        >
+          {isLatex ? "Cours déjà lu" : "✅ Cours déjà lu"}
         </div>
       )}
 
       {/* Contenu MDX du cours */}
-      <div ref={containerRef}>
+      <div ref={containerRef} className="cours-tracker__content">
         {children}
       </div>
 
