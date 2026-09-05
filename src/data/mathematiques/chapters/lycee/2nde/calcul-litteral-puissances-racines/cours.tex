@@ -1,0 +1,134 @@
+\section{Objectifs}
+
+\begin{itemize}
+\item Calculer avec des puissances entières relatives, des racines carrées et des expressions fractionnaires simples.
+\item Développer, réduire et factoriser des expressions simples.
+\item Utiliser les identités remarquables et choisir la forme d'une expression adaptée au problème.
+\item Comparer deux quantités par différence ou, lorsqu'elles sont strictement positives, par quotient.
+\item Manipuler des inégalités en tenant compte du signe du nombre par lequel on multiplie.
+\item Exprimer une variable en fonction des autres dans une relation simple.
+\end{itemize}
+
+\section{Prérequis}
+
+\begin{itemize}
+\item priorités opératoires
+\item développement simple
+\item fractions et puissances
+\end{itemize}
+
+\section{Activité de découverte}
+
+Pour comparer deux offres de location, on écrit le prix total avec une variable \texttt{x}. Selon la question, une forme développée, réduite ou factorisée peut être plus efficace. Le calcul littéral sert ici à choisir une stratégie, pas seulement à transformer des écritures.
+
+\section{Vocabulaire}
+
+\begin{itemize}
+\item \textbf{expression}, \textbf{développer}, \textbf{factoriser}, \textbf{réduire}
+\item \textbf{puissance entière relative}, \textbf{racine carrée}, \textbf{expression fractionnaire}
+\item \textbf{forme développée}, \textbf{forme factorisée}, \textbf{forme réduite}
+\item \textbf{comparaison additive}, \textbf{comparaison multiplicative}
+\end{itemize}
+
+\section{Cours}
+
+\subsection{Puissances et racines carrées}
+
+On réinvestit les règles de calcul sur les puissances entières relatives et sur les racines carrées. Pour tout réel \texttt{a}, \texttt{√(a²)=|a|}. Pour \texttt{a ≥ 0} et \texttt{b ≥ 0}, \texttt{√(ab)=√a × √b}.
+
+Une expression fractionnaire n'est définie que lorsque son dénominateur est non nul. Cette condition doit être déterminée avant tout calcul ou simplification.
+
+\subsection{Calcul littéral}
+
+Les identités remarquables à maîtriser sont :
+
+\begin{itemize}
+\item \texttt{(a+b)² = a² + 2ab + b²} ;
+\item \texttt{(a-b)² = a² - 2ab + b²} ;
+\item \texttt{(a+b)(a-b) = a²-b²}.
+\end{itemize}
+
+On factorise aussi des expressions simples en mettant un facteur commun en évidence, par exemple \texttt{ax²+bx = x(ax+b)} et \texttt{ax+bx=(a+b)x}.
+
+Le choix de la forme dépend de la tâche :
+
+\begin{itemize}
+\item développer et réduire pour effectuer certains calculs ou comparer ;
+\item factoriser pour résoudre une équation produit ou étudier un signe ;
+\item conserver une forme fractionnaire lorsqu'elle rend une structure visible.
+\end{itemize}
+
+\subsection{Inégalités et comparaisons}
+
+\begin{itemize}
+\item On peut additionner deux inégalités de même sens lorsque les termes sont comparables.
+\item Multiplier une inégalité par un réel positif conserve son sens.
+\item Multiplier une inégalité par un réel négatif inverse son sens.
+\item Deux quantités peuvent être comparées par leur \textbf{différence} ; si elles sont strictement positives, on peut aussi comparer leur \textbf{quotient}.
+\end{itemize}
+
+Selon le contexte, ces deux comparaisons correspondent à une variation additive ou multiplicative.
+
+\subsection{Isoler une variable}
+
+Dans une relation comportant plusieurs variables, on peut exprimer l'une d'elles en fonction des autres. Exemples :
+
+\begin{itemize}
+\item \texttt{U = RI} donne \texttt{I = U/R} si \texttt{R ≠ 0} ;
+\item \texttt{d = vt} donne \texttt{v = d/t} si \texttt{t ≠ 0} ;
+\item \texttt{ax + by = c} donne \texttt{y = (c-ax)/b} si \texttt{b ≠ 0}.
+\end{itemize}
+
+\section{Exemples corrigés}
+
+\begin{itemize}
+\item \texttt{(x+3)² = x²+6x+9}.
+\item \texttt{5x²-10x = 5x(x-2)}.
+\item \texttt{√72 = √(36×2)=6√2}.
+\item Pour \texttt{a=3} et \texttt{b=5}, \texttt{a-b=-2<0}, donc \texttt{a<b}.
+\item Si \texttt{x<4}, alors \texttt{-2x>-8} car la multiplication par \texttt{-2} inverse le sens.
+\end{itemize}
+
+\coursefigure{/images/mathematiques/latex-migration/2nde-calcul-litteral-puissances-racines-figure-1.svg}{Trois formes d'une expression reliées à trois usages.}{La forme d'une expression est choisie en fonction de l'objectif.}
+
+\section{Algorithmique en Python}
+
+\subsection{Première puissance dépassant un seuil}
+
+\begin{verbatim}
+def premiere_puissance(base, seuil):
+    n = 0
+    valeur = 1
+    while valeur < seuil:
+        n += 1
+        valeur *= base
+    return n, valeur
+
+print(premiere_puissance(2, 1000))
+\end{verbatim}
+
+La boucle détermine la première puissance du nombre positif choisi qui atteint ou dépasse le seuil.
+
+\section{Erreurs fréquentes}
+
+\begin{itemize}
+\item Écrire à tort \texttt{(a+b)²=a²+b²}.
+\item Oublier que \texttt{√(a²)=|a|}, et non toujours \texttt{a}.
+\item Simplifier une expression fractionnaire sans exclure les valeurs qui annulent le dénominateur.
+\item Oublier d'inverser le sens d'une inégalité après multiplication ou division par un nombre négatif.
+\item Transformer une expression sans tenir compte de l'objectif du problème.
+\end{itemize}
+
+\section{Formules et idées à retenir}
+
+\begin{itemize}
+\item \texttt{(a+b)²=a²+2ab+b²}
+\item \texttt{(a-b)²=a²-2ab+b²}
+\item \texttt{(a+b)(a-b)=a²-b²}
+\item \texttt{√(a²)=|a|}
+\item \texttt{√(ab)=√a√b} pour \texttt{a,b≥0}
+\end{itemize}
+
+\section{Synthèse}
+
+Le calcul algébrique de seconde ne consiste pas à appliquer une liste de recettes : il faut savoir choisir une écriture, gérer les conditions de définition, comparer des quantités et isoler une variable pour résoudre ou modéliser un problème.
