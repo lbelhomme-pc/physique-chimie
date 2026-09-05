@@ -1,0 +1,83 @@
+\section{Objectifs}
+\begin{itemize}
+\item Relier intégrale et primitive.
+\item Calculer des intégrales exactes.
+\item Utiliser les propriétés de l'intégrale.
+\item Interpréter une intégrale géométriquement.
+\end{itemize}
+
+\section{1. Définition par les primitives}
+Si $f$ est continue sur $[a,b]$ et si $F$ est une primitive de $f$, alors
+\[
+\int_a^b f(x)\,dx=F(b)-F(a).
+\]
+
+On note parfois
+\[
+[F(x)]_a^b=F(b)-F(a).
+\]
+
+\section{2. Linéarité}
+Pour des réels $\alpha,\beta$ :
+$$\int_a^b(\alpha f+\beta g)
+=\alpha\int_a^bf+\beta\int_a^bg.$$
+
+\section{3. Relation de Chasles}
+Pour tout réel $c$ :
+\[
+\int_a^bf=\int_a^cf+\int_c^bf.
+\]
+
+Et
+\[
+\int_b^af=-\int_a^bf.
+\]
+
+\section{4. Positivité}
+Si $f(x)\ge0$ sur $[a,b]$, alors
+\[
+\int_a^b f(x)\,dx\ge0.
+\]
+
+Si $f\le g$ :
+\[
+\int_a^b f\le\int_a^b g.
+\]
+
+\section{5. Aire}
+Lorsque $f\ge0$ sur $[a,b]$, l'intégrale
+\[
+\int_a^b f(x)\,dx
+\]
+est l'aire comprise entre la courbe, l'axe des abscisses et les droites $x=a$, $x=b$.
+
+Pour l'aire entre deux courbes $f$ et $g$ avec $f\ge g$ :
+\[
+\mathcal A=\int_a^b(f-g).
+\]
+
+\section{6. Valeur moyenne}
+La valeur moyenne de $f$ sur $[a,b]$ est
+\[
+\mu=\frac1{b-a}\int_a^b f(x)\,dx.
+\]
+
+\section{7. Exemples}
+\[
+\int_0^1 3x^2\,dx=[x^3]_0^1=1.
+\]
+
+Et
+\[
+\int_0^\pi \sin x\,dx=[-\cos x]_0^\pi=2.
+\]
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Oublier le « borne supérieure moins borne inférieure ».
+\item Confondre intégrale et aire géométrique lorsque la fonction change de signe.
+\item Oublier le facteur $1/(b-a)$ pour la valeur moyenne.
+\end{itemize}
+
+\section{À retenir}
+Pour une fonction continue, l'intégrale se calcule grâce à une primitive et combine interprétation analytique et géométrique.
