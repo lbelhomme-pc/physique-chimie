@@ -1,0 +1,30 @@
+\section{Objectifs}
+\begin{itemize}
+\item Connaître la définition de l'exponentielle retenue par le programme.
+\item Transformer des expressions avec \texttt{exp(x+y)=exp(x)exp(y)}.
+\item Étudier signe, variations et dérivée de fonctions \texttt{t↦e^{at}}.
+\item Modéliser croissance et décroissance exponentielles.
+\end{itemize}
+
+\section{Cours}
+La fonction exponentielle est définie comme l'unique fonction dérivable sur \texttt{R} vérifiant \texttt{f'=f} et \texttt{f(0)=1}. Son existence et son unicité sont admises. On note \texttt{exp(x)} ou \texttt{e^x}.
+
+Pour tous réels \texttt{x,y}, \texttt{e^{x+y}=e^x e^y}, \texttt{e^{-x}=1/e^x}, et donc \texttt{e^{x-y}=e^x/e^y}. L'exponentielle est strictement positive et croissante sur \texttt{R} ; sa dérivée est elle-même.
+
+Pour un réel \texttt{a}, la dérivée de \texttt{t↦e^{at}} est \texttt{t↦a e^{at}}. Si \texttt{a>0}, le modèle croît ; si \texttt{a<0}, il décroît.
+
+\subsection{Modélisation}
+Une grandeur suivant \texttt{Q(t)=Q_0 e^{at}} décrit une évolution continue exponentielle. Cela prolonge la croissance géométrique à temps discret. Les exemples peuvent provenir des intérêts, de la dilution ou de la décroissance radioactive.
+
+\subsection{Algorithmes du programme}
+On peut approcher \texttt{e} avec \texttt{(1+1/n)^n} ou construire numériquement l'exponentielle par une méthode d'Euler. Ces algorithmes illustrent le concept sans remplacer les propriétés mathématiques.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Écrire \texttt{e^{x+y}=e^x+e^y}.
+\item Confondre une suite géométrique discrète et une fonction exponentielle continue.
+\item Oublier le facteur \texttt{a} dans la dérivée de \texttt{e^{at}}.
+\end{itemize}
+
+\section{Synthèse}
+L'exponentielle transforme les additions des exposants en produits et modélise naturellement les croissances ou décroissances continues à taux proportionnel à la grandeur.
