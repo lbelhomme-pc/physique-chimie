@@ -1,0 +1,37 @@
+\section{Objectifs}
+\begin{itemize}
+\item Mesurer un angle en radians et utiliser la longueur d'arc.
+\item Comprendre l'enroulement de la droite réelle sur le cercle trigonométrique.
+\item Lire sinus et cosinus d'un réel et retrouver les valeurs remarquables.
+\end{itemize}
+
+\section{Cours}
+\subsection{Radian et cercle trigonométrique}
+Le cercle trigonométrique est le cercle de centre O et de rayon 1 orienté dans le sens direct. Un angle de \texttt{1} radian intercepte sur un cercle de rayon 1 un arc de longueur 1. Un tour complet mesure \texttt{2π} radians.
+
+\subsection{Enroulement de la droite}
+À chaque réel \texttt{x}, on associe un point du cercle en parcourant une longueur algébrique \texttt{x} depuis le point \texttt{(1,0)}. Des réels qui diffèrent d'un multiple de \texttt{2π} ont la même image.
+
+\subsection{Sinus et cosinus}
+Si le point image de \texttt{x} a pour coordonnées \texttt{(cos x, sin x)}, alors \texttt{cos²x+sin²x=1}. Les définitions prolongent celles du triangle rectangle.
+
+Valeurs remarquables à connaître et retrouver par lecture du cercle : \texttt{π/6}, \texttt{π/4}, \texttt{π/3}, \texttt{π/2}, puis leurs angles associés. Par exemple \texttt{cos(π/4)=sin(π/4)=√2/2}, \texttt{cos(π/3)=1/2} et \texttt{sin(π/3)=√3/2}.
+
+\subsection{Angles associés}
+Les symétries du cercle donnent par exemple \texttt{cos(-x)=cos x}, \texttt{sin(-x)=-sin x}, \texttt{cos(π-x)=-cos x}, \texttt{sin(π-x)=sin x}.
+
+\section{Démonstration à travailler}
+Le programme demande notamment de savoir établir les valeurs de \texttt{cos(π/4)}, \texttt{sin(π/4)}, \texttt{cos(π/3)} et \texttt{sin(π/3)}.
+
+\section{Algorithmique}
+L'approximation de \texttt{π} par la méthode d'Archimède peut servir d'activité algorithmique ; elle sera surtout reliée au bloc algorithmique transversal en C22.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Confondre degrés et radians.
+\item Inverser les coordonnées : sur le cercle le point est \texttt{(cos x, sin x)}.
+\item Oublier la périodicité de l'enroulement.
+\end{itemize}
+
+\section{Synthèse}
+Le cercle trigonométrique transforme tout réel en un point du cercle unité ; ses coordonnées définissent cosinus et sinus et permettent de retrouver les valeurs et signes des angles associés.
