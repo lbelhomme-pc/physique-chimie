@@ -1,0 +1,46 @@
+\section{Objectifs}
+\begin{itemize}
+\item Générer des listes.
+\item Manipuler éléments et indices.
+\item Parcourir une liste et organiser un programme modulaire.
+\end{itemize}
+
+\section{Prérequis}
+Variables, affectations, conditions, boucles et fonctions Python.
+
+\section{Activité de découverte}
+Une suite, un tableau de valeurs ou un échantillon statistique se représente naturellement par une liste.
+
+\section{Vocabulaire}
+Liste, élément, indice, longueur, compréhension, parcours.
+
+\section{Cours}
+En Première spécialité, la variable, les conditions, les boucles et les fonctions sont consolidées. La seule notion algorithmique nouvelle explicitement annoncée par le BO est la \textbf{liste}.
+
+Une liste peut être écrite en extension, construite par ajouts successifs ou par compréhension :
+\begin{verbatim}
+L = [k*k for k in range(6)]
+\end{verbatim}
+
+\texttt{L[i]} accède à l’élément d’indice \texttt{i} et \texttt{len(L)} donne la longueur. On distingue le parcours des éléments
+\begin{verbatim}
+for x in L:
+    ...
+\end{verbatim}
+du parcours des indices.
+
+\section{Exemples corrigés}
+\texttt{[2*n+1 for n in range(5)]} produit \texttt{[1, 3, 5, 7, 9]}.
+
+\section{Méthode}
+Découper une tâche complexe en fonctions courtes : génération, transformation, calcul et restitution.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Confondre indice et valeur.
+\item Oublier que le premier indice est 0.
+\item Introduire d’autres collections comme nouvelles notions : le BO demande de se limiter aux listes.
+\end{itemize}
+
+\section{Synthèse}
+Les listes donnent une structure commune aux suites, tableaux de valeurs, séries statistiques et simulations.
