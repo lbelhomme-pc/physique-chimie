@@ -1,0 +1,84 @@
+\section{Objectifs}
+\begin{itemize}
+\item Reconnaître un schéma de Bernoulli.
+\item Utiliser la loi binomiale.
+\item Calculer espérance et variance.
+\item Comprendre concentration et loi des grands nombres.
+\end{itemize}
+
+\section{1. Épreuve de Bernoulli}
+Une épreuve de Bernoulli possède deux issues :
+\begin{itemize}
+\item succès, de probabilité $p$ ;
+\item échec, de probabilité $1-p$.
+\end{itemize}
+
+La variable $X$ qui vaut 1 en cas de succès et 0 sinon vérifie
+\[
+\mathbb E(X)=p,
+\]
+\[
+V(X)=p(1-p).
+\]
+
+\section{2. Schéma de Bernoulli}
+On répète $n$ épreuves de Bernoulli identiques et indépendantes.
+
+Si $X$ compte le nombre de succès, alors
+\[
+X\sim\mathcal B(n,p).
+\]
+
+Pour $k\in\{0,\ldots,n\}$ :
+\[
+P(X=k)=\binom nk p^k(1-p)^{n-k}.
+\]
+
+\section{3. Espérance et variance}
+Pour $X\sim\mathcal B(n,p)$ :
+\[
+\mathbb E(X)=np,
+\]
+\[
+V(X)=np(1-p).
+\]
+
+L'écart-type vaut
+\[
+\sigma(X)=\sqrt{np(1-p)}.
+\]
+
+\section{4. Sommes de variables aléatoires}
+Pour des variables admettant une espérance :
+\[
+\mathbb E(X+Y)=\mathbb E(X)+\mathbb E(Y).
+\]
+
+Si $X$ et $Y$ sont indépendantes :
+\[
+V(X+Y)=V(X)+V(Y).
+\]
+
+\section{5. Inégalité de Bienaymé-Tchebychev}
+Pour une variable $X$ d'espérance $\mu$ et de variance $V(X)$, pour tout $\delta>0$ :
+\[
+P(|X-\mu|\ge\delta)\le\frac{V(X)}{\delta^2}.
+\]
+
+\section{6. Fréquence et loi des grands nombres}
+Pour des variables de Bernoulli indépendantes de même paramètre $p$, la fréquence
+\[
+F_n=\frac{X_1+\cdots+X_n}{n}
+\]
+se concentre autour de $p$ lorsque $n$ augmente.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Utiliser une loi binomiale sans indépendance ni probabilité de succès constante.
+\item Confondre $P(X=k)$ et $P(X\le k)$.
+\item Additionner des variances sans indépendance.
+\item Interpréter une borne de Tchebychev comme une probabilité exacte.
+\end{itemize}
+
+\section{À retenir}
+La loi binomiale modélise un nombre de succès dans des essais indépendants ; espérance, variance et concentration décrivent position et dispersion.
