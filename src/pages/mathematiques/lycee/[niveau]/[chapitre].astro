@@ -49,7 +49,6 @@ const chapterId = getMathematicsChapterId(cycle, niveau!, chapitre!);
 const backUrl = getMathematicsLevelPath(cycle, niveau!);
 const domainLabel = chapter.domain ? mathematicsDomainLabels[chapter.domain] : chapter.theme;
 
-const allCours = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/cours.mdx", { eager: true });
 const allCoursTex = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/cours.tex", { eager: true, query: "?raw", import: "default" });
 const allExo = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/exercices.json", { eager: true });
 const allQuiz = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/quiz.json", { eager: true });
@@ -57,6 +56,9 @@ const allFlash = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/fla
 const allMeta = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/meta.json", { eager: true });
 
 const courseTex = allCoursTex[`${basePath}/cours.tex`] as string | undefined;
+if (!courseTex) {
+  throw new Error(`Maths chapter missing cours.tex: ${basePath}`);
+}
 const coursMod = allCours[`${basePath}/cours.mdx`] as any;
 const CoursContent = courseTex ? null : coursMod?.Content ?? null;
 const exercices = normalizeMathematicsExercises((allExo[`${basePath}/exercices.json`] as any)?.default ?? null);
@@ -114,7 +116,6 @@ const canonical = chapter.seo?.canonical ?? context.canonical;
   pageClass="math-shell"
   chapterId={chapterId}
   xpConfig={xpConfig}
-  CoursContent={CoursContent}
   courseTex={courseTex}
   ActivityContent={pilotActivity ? AffineFunctionExplorer : undefined}
   exercices={exercices}
