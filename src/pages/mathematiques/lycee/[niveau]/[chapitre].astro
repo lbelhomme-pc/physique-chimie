@@ -50,13 +50,15 @@ const backUrl = getMathematicsLevelPath(cycle, niveau!);
 const domainLabel = chapter.domain ? mathematicsDomainLabels[chapter.domain] : chapter.theme;
 
 const allCours = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/cours.mdx", { eager: true });
+const allCoursTex = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/cours.tex", { eager: true, query: "?raw", import: "default" });
 const allExo = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/exercices.json", { eager: true });
 const allQuiz = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/quiz.json", { eager: true });
 const allFlash = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/flashcards.json", { eager: true });
 const allMeta = import.meta.glob("/src/data/mathematiques/chapters/lycee/**/meta.json", { eager: true });
 
+const courseTex = allCoursTex[`${basePath}/cours.tex`] as string | undefined;
 const coursMod = allCours[`${basePath}/cours.mdx`] as any;
-const CoursContent = coursMod?.Content ?? null;
+const CoursContent = courseTex ? null : coursMod?.Content ?? null;
 const exercices = normalizeMathematicsExercises((allExo[`${basePath}/exercices.json`] as any)?.default ?? null);
 const quizData = normalizePlayableMathematicsQuiz((allQuiz[`${basePath}/quiz.json`] as any)?.default ?? null);
 const flashData = normalizeMathematicsFlashcards((allFlash[`${basePath}/flashcards.json`] as any)?.default ?? null);
@@ -113,6 +115,7 @@ const canonical = chapter.seo?.canonical ?? context.canonical;
   chapterId={chapterId}
   xpConfig={xpConfig}
   CoursContent={CoursContent}
+  courseTex={courseTex}
   ActivityContent={pilotActivity ? AffineFunctionExplorer : undefined}
   exercices={exercices}
   quizData={quizData}
