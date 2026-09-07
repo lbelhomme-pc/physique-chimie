@@ -300,7 +300,7 @@ export const ChapterPackageContractSchema = z.object({
   chapter: ChapterContractSchema,
   course: z.object({
     path: z.string().min(1),
-    format: z.enum(["mdx", "legacy-html-fragment"]),
+    format: z.enum(["mdx", "latex", "legacy-html-fragment"]),
     present: z.boolean(),
   }),
   activities: z.array(ActivitySchema).default([]),
