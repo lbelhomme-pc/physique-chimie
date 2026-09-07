@@ -34,7 +34,7 @@ export interface ChapterPackageInput {
   meta: unknown;
   coursePath: string;
   coursePresent: boolean;
-  courseFormat: "mdx" | "legacy-html-fragment";
+  courseFormat: "mdx" | "latex" | "legacy-html-fragment";
   exercices?: unknown;
   quiz?: unknown;
   flashcards?: unknown;
