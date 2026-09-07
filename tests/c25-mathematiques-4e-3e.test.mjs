@@ -85,13 +85,14 @@ describe("C25 — mathématiques 4e/3e versionnées", () => {
     }
   });
 
-  it("publie la couverture annuelle V3 complète de 4e et conserve le premier lot 3e", () => {
+  it("publie la couverture annuelle V3 complète de 4e et de 3e", () => {
     const slugs4 = mappings.current4.coverage.order;
-    const slugs3 = mappings.current3.lotA.chapters;
+    const slugs3 = mappings.current3.coverage.order;
 
     assert.equal(mappings.current4.coverage.status, "complete-4e-v3-2026-2027");
     assert.equal(slugs4.length, 13);
-    assert.equal(slugs3.length, 4);
+    assert.equal(mappings.current3.coverage.status, "complete-3e-v3-2026-2027");
+    assert.equal(slugs3.length, 13);
 
     for (const slug of slugs4) {
       const dir = path.join(chapterRoot, "4eme", slug);
@@ -154,9 +155,18 @@ describe("C25 — mathématiques 4e/3e versionnées", () => {
 
       assert.equal(meta.officialSource, "bo-cycle4-mathematiques-2020");
       assert.equal(meta.programmeVersion, "mathematiques-cycle4-2020");
-      assert.equal(exercicesPayload.exercices.length, 6);
-      assert.equal(quizPayload.questions.length, 5);
-      assert.equal(flashPayload.cards.length, 6);
+      assert.equal(meta.courseFormat, "latex");
+      assert.equal(meta.courseSource, "cours.tex");
+      assert.equal(meta.courseFormatVersion, 3);
+      assert.equal(meta.courseQualityVersion, 3);
+      assert.equal(meta.contentQualityVersion, 3);
+      assert.equal(exercicesPayload.exercices.length, 12);
+      assert.deepEqual(
+        Object.fromEntries(["N1","N2","N3"].map(level => [level, exercicesPayload.exercices.filter(item => item.level === level).length])),
+        { N1: 4, N2: 4, N3: 4 },
+      );
+      assert.equal(quizPayload.questions.length, 10);
+      assert.equal(flashPayload.cards.length, 12);
 
       const result = normalizeChapterPackage({
         sourcePath: path.relative(root, path.join(dir, "meta.json")).replaceAll("\\", "/"),
@@ -180,7 +190,7 @@ describe("C25 — mathématiques 4e/3e versionnées", () => {
   it("ne publie aucun chapitre 4e/3e étiqueté programme 2026", () => {
     const levels = [
       ["4eme", mappings.current4.coverage.order],
-      ["3eme", mappings.current3.lotA.chapters],
+      ["3eme", mappings.current3.coverage.order],
     ];
 
     for (const [niveau, slugs] of levels) {
