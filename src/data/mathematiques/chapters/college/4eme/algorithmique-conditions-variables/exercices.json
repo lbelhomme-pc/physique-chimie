@@ -1,0 +1,531 @@
+{
+  "exercices": [
+    {
+      "id": "4e-algo-n1-1",
+      "chapterId": "college/4eme/algorithmique-conditions-variables",
+      "title": "Suivre une variable",
+      "statement": "On exécute : `x=4`, puis `x=x+3`, puis `x=2*x`. Donner la valeur finale de $x$.",
+      "consigne": "Prévoir ou expliquer le comportement du programme sans sauter d’étape.",
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application directe",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 10,
+      "answerType": "text",
+      "hints": {
+        "clue": "Suis la valeur des variables ligne par ligne.",
+        "method": "Construire une table de suivi des variables si nécessaire.",
+        "reminder": "Une affectation remplace la valeur précédente d’une variable.",
+        "commonMistake": "Lire une affectation comme une égalité mathématique ou exécuter les deux branches d’une condition."
+      },
+      "correction": [
+        "Après la première instruction, $x=4$.",
+        "Puis $x=4+3=7$.",
+        "Enfin $x=2\\times7=14$.",
+        "Valeur finale : $14$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "4eme",
+        "N1",
+        "algorithmique"
+      ]
+    },
+    {
+      "id": "4e-algo-n1-2",
+      "chapterId": "college/4eme/algorithmique-conditions-variables",
+      "title": "Condition simple",
+      "statement": "Un programme affiche « grand » si $x>10$. Que se passe-t-il pour $x=10$ puis pour $x=13$ ?",
+      "consigne": "Prévoir ou expliquer le comportement du programme sans sauter d’étape.",
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application directe",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 10,
+      "answerType": "text",
+      "hints": {
+        "clue": "Suis la valeur des variables ligne par ligne.",
+        "method": "Construire une table de suivi des variables si nécessaire.",
+        "reminder": "Une affectation remplace la valeur précédente d’une variable.",
+        "commonMistake": "Lire une affectation comme une égalité mathématique ou exécuter les deux branches d’une condition."
+      },
+      "correction": [
+        "Pour $x=10$, la condition $10>10$ est fausse : le message n’est pas affiché.",
+        "Pour $x=13$, $13>10$ est vraie : « grand » est affiché."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "4eme",
+        "N1",
+        "algorithmique"
+      ]
+    },
+    {
+      "id": "4e-algo-n1-3",
+      "chapterId": "college/4eme/algorithmique-conditions-variables",
+      "title": "Programme de calcul",
+      "statement": "Un programme calcule $y=3x+2$. Donner la sortie pour $x=-4$.",
+      "consigne": "Prévoir ou expliquer le comportement du programme sans sauter d’étape.",
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application directe",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 10,
+      "answerType": "text",
+      "hints": {
+        "clue": "Suis la valeur des variables ligne par ligne.",
+        "method": "Construire une table de suivi des variables si nécessaire.",
+        "reminder": "Une affectation remplace la valeur précédente d’une variable.",
+        "commonMistake": "Lire une affectation comme une égalité mathématique ou exécuter les deux branches d’une condition."
+      },
+      "correction": [
+        "$y=3\\times(-4)+2=-12+2=-10$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "4eme",
+        "N1",
+        "algorithmique"
+      ]
+    },
+    {
+      "id": "4e-algo-n1-4",
+      "chapterId": "college/4eme/algorithmique-conditions-variables",
+      "title": "Boucle répétée",
+      "statement": "Une boucle répète $6$ fois l’instruction « ajouter $4$ à total », avec `total=0` au départ. Quelle est la valeur finale ?",
+      "consigne": "Prévoir ou expliquer le comportement du programme sans sauter d’étape.",
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application directe",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 10,
+      "answerType": "text",
+      "hints": {
+        "clue": "Suis la valeur des variables ligne par ligne.",
+        "method": "Construire une table de suivi des variables si nécessaire.",
+        "reminder": "Une affectation remplace la valeur précédente d’une variable.",
+        "commonMistake": "Lire une affectation comme une égalité mathématique ou exécuter les deux branches d’une condition."
+      },
+      "correction": [
+        "Chaque répétition ajoute $4$.",
+        "Après $6$ répétitions : $6\\times4=24$.",
+        "La valeur finale est $24$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "4eme",
+        "N1",
+        "algorithmique"
+      ]
+    },
+    {
+      "id": "4e-algo-n2-1",
+      "chapterId": "college/4eme/algorithmique-conditions-variables",
+      "title": "Si / sinon",
+      "statement": "Programme : si $x\\ge0$, mettre $y=x^2$ ; sinon mettre $y=-x$. Calculer $y$ pour $x=-5$ puis pour $x=3$.",
+      "consigne": "Prévoir ou expliquer le comportement du programme sans sauter d’étape.",
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement",
+      "level": "N2",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 10,
+      "answerType": "text",
+      "hints": {
+        "clue": "Suis la valeur des variables ligne par ligne.",
+        "method": "Construire une table de suivi des variables si nécessaire.",
+        "reminder": "Une affectation remplace la valeur précédente d’une variable.",
+        "commonMistake": "Lire une affectation comme une égalité mathématique ou exécuter les deux branches d’une condition."
+      },
+      "correction": [
+        "Pour $x=-5$, la condition est fausse : $y=-(-5)=5$.",
+        "Pour $x=3$, la condition est vraie : $y=3^2=9$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "4eme",
+        "N2",
+        "algorithmique"
+      ]
+    },
+    {
+      "id": "4e-algo-n2-2",
+      "chapterId": "college/4eme/algorithmique-conditions-variables",
+      "title": "Compteur de succès",
+      "statement": "Un compteur vaut initialement $0$. Sur dix essais, les succès ont lieu aux essais $1,2,5,7,8,10$. Quelle est la valeur finale du compteur et la fréquence de succès ?",
+      "consigne": "Prévoir ou expliquer le comportement du programme sans sauter d’étape.",
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement",
+      "level": "N2",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 10,
+      "answerType": "text",
+      "hints": {
+        "clue": "Suis la valeur des variables ligne par ligne.",
+        "method": "Construire une table de suivi des variables si nécessaire.",
+        "reminder": "Une affectation remplace la valeur précédente d’une variable.",
+        "commonMistake": "Lire une affectation comme une égalité mathématique ou exécuter les deux branches d’une condition."
+      },
+      "correction": [
+        "Il y a $6$ succès, donc le compteur final vaut $6$.",
+        "La fréquence vaut $\\dfrac6{10}=0{,}6=60\\,\\%$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "4eme",
+        "N2",
+        "algorithmique"
+      ]
+    },
+    {
+      "id": "4e-algo-n2-3",
+      "chapterId": "college/4eme/algorithmique-conditions-variables",
+      "title": "Déboguer une condition",
+      "statement": "On veut afficher « admis » pour toute note $n\\ge10$, mais le programme teste `n>10`. Expliquer le bug et le corriger.",
+      "consigne": "Prévoir ou expliquer le comportement du programme sans sauter d’étape.",
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement",
+      "level": "N2",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 10,
+      "answerType": "text",
+      "hints": {
+        "clue": "Suis la valeur des variables ligne par ligne.",
+        "method": "Construire une table de suivi des variables si nécessaire.",
+        "reminder": "Une affectation remplace la valeur précédente d’une variable.",
+        "commonMistake": "Lire une affectation comme une égalité mathématique ou exécuter les deux branches d’une condition."
+      },
+      "correction": [
+        "La note $10$ ne satisfait pas $10>10$, donc elle est refusée à tort.",
+        "Il faut remplacer la condition par $n\\ge10$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "4eme",
+        "N2",
+        "algorithmique"
+      ]
+    },
+    {
+      "id": "4e-algo-n2-4",
+      "chapterId": "college/4eme/algorithmique-conditions-variables",
+      "title": "Table de suivi",
+      "statement": "Programme : `a=2`, `b=5`, `a=a+b`, `b=2*a`. Donner les valeurs finales de $a$ et $b$.",
+      "consigne": "Prévoir ou expliquer le comportement du programme sans sauter d’étape.",
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement",
+      "level": "N2",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 10,
+      "answerType": "text",
+      "hints": {
+        "clue": "Suis la valeur des variables ligne par ligne.",
+        "method": "Construire une table de suivi des variables si nécessaire.",
+        "reminder": "Une affectation remplace la valeur précédente d’une variable.",
+        "commonMistake": "Lire une affectation comme une égalité mathématique ou exécuter les deux branches d’une condition."
+      },
+      "correction": [
+        "Départ : $a=2$, $b=5$.",
+        "Après `a=a+b` : $a=7$, $b=5$.",
+        "Après `b=2*a` : $b=14$.",
+        "Valeurs finales : $a=7$ et $b=14$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "4eme",
+        "N2",
+        "algorithmique"
+      ]
+    },
+    {
+      "id": "4e-algo-n3-1",
+      "chapterId": "college/4eme/algorithmique-conditions-variables",
+      "title": "Deux branches et affectations",
+      "statement": "Programme : `x=6`; si $x>4$, alors `x=2*x` et `y=x-3`; sinon `x=x+10` et `y=x+1`. Donner les valeurs finales.",
+      "consigne": "Prévoir ou expliquer le comportement du programme sans sauter d’étape.",
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise",
+      "level": "N3",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 12,
+      "answerType": "text",
+      "hints": {
+        "clue": "Suis la valeur des variables ligne par ligne.",
+        "method": "Construire une table de suivi des variables si nécessaire.",
+        "reminder": "Une affectation remplace la valeur précédente d’une variable.",
+        "commonMistake": "Lire une affectation comme une égalité mathématique ou exécuter les deux branches d’une condition."
+      },
+      "correction": [
+        "$6>4$ est vraie, donc seule la première branche s’exécute.",
+        "$x=2\\times6=12$.",
+        "Puis $y=12-3=9$.",
+        "Valeurs finales : $x=12$ et $y=9$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "4eme",
+        "N3",
+        "algorithmique"
+      ]
+    },
+    {
+      "id": "4e-algo-n3-2",
+      "chapterId": "college/4eme/algorithmique-conditions-variables",
+      "title": "Simuler une moyenne",
+      "statement": "Un programme lit quatre nombres, les additionne dans une variable `somme`, puis affiche `somme/4`. Expliquer pourquoi l’initialisation `somme=0` est nécessaire et calculer la sortie pour $3,7,8,10$.",
+      "consigne": "Prévoir ou expliquer le comportement du programme sans sauter d’étape.",
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise",
+      "level": "N3",
+      "skills": [
+        "raisonner",
+        "communiquer",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 12,
+      "answerType": "text",
+      "hints": {
+        "clue": "Suis la valeur des variables ligne par ligne.",
+        "method": "Construire une table de suivi des variables si nécessaire.",
+        "reminder": "Une affectation remplace la valeur précédente d’une variable.",
+        "commonMistake": "Lire une affectation comme une égalité mathématique ou exécuter les deux branches d’une condition."
+      },
+      "correction": [
+        "Sans initialisation, la variable ne possède pas nécessairement une valeur de départ définie pour l’accumulation.",
+        "La somme vaut $3+7+8+10=28$.",
+        "La sortie vaut $28/4=7$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "communiquer",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "4eme",
+        "N3",
+        "algorithmique"
+      ]
+    },
+    {
+      "id": "4e-algo-n3-3",
+      "chapterId": "college/4eme/algorithmique-conditions-variables",
+      "title": "Chercher une entrée",
+      "statement": "Le programme calcule $y=4x+1$ puis affiche $y$. Pour quelle entrée obtient-on $y=29$ ?",
+      "consigne": "Prévoir ou expliquer le comportement du programme sans sauter d’étape.",
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise",
+      "level": "N3",
+      "skills": [
+        "modéliser",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 12,
+      "answerType": "text",
+      "hints": {
+        "clue": "Suis la valeur des variables ligne par ligne.",
+        "method": "Construire une table de suivi des variables si nécessaire.",
+        "reminder": "Une affectation remplace la valeur précédente d’une variable.",
+        "commonMistake": "Lire une affectation comme une égalité mathématique ou exécuter les deux branches d’une condition."
+      },
+      "correction": [
+        "On traduit la question par $4x+1=29$.",
+        "$4x=28$, donc $x=7$.",
+        "L’entrée cherchée est $7$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "modéliser",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "4eme",
+        "N3",
+        "algorithmique"
+      ]
+    },
+    {
+      "id": "4e-algo-n3-4",
+      "chapterId": "college/4eme/algorithmique-conditions-variables",
+      "title": "Analyser un programme de parité",
+      "statement": "Un programme teste d’abord si $n$ est divisible par $2$, puis affiche « pair » sinon « impair ». Expliquer le résultat pour $n=-14$, $n=0$ et $n=23$.",
+      "consigne": "Prévoir ou expliquer le comportement du programme sans sauter d’étape.",
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise",
+      "level": "N3",
+      "skills": [
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 12,
+      "answerType": "text",
+      "hints": {
+        "clue": "Suis la valeur des variables ligne par ligne.",
+        "method": "Construire une table de suivi des variables si nécessaire.",
+        "reminder": "Une affectation remplace la valeur précédente d’une variable.",
+        "commonMistake": "Lire une affectation comme une égalité mathématique ou exécuter les deux branches d’une condition."
+      },
+      "correction": [
+        "$-14$ est divisible par $2$ : le programme affiche « pair ».",
+        "$0$ est aussi divisible par $2$ car $0=2\\times0$ : il affiche « pair ».",
+        "$23$ n’est pas divisible par $2$ : il affiche « impair »."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "4eme",
+        "N3",
+        "algorithmique"
+      ]
+    }
+  ]
+}
