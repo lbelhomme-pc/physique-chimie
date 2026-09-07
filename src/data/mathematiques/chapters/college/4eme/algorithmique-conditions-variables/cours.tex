@@ -1,0 +1,562 @@
+% Mathématiques 4e — cours V3
+% Algorithmique : variables, conditions et boucles
+
+\section{Objectifs}
+
+\begin{itemize}
+\item Comprendre le rôle d'une variable informatique.
+\item Lire et modifier la valeur d'une variable.
+\item Distinguer entrée, traitement et sortie.
+\item Traduire une formule mathématique en instructions.
+\item Utiliser une instruction conditionnelle.
+\item Comprendre la structure « si ... alors ... sinon ».
+\item Utiliser une boucle à nombre de répétitions fixé.
+\item Simuler un calcul ou une expérience simple.
+\item Analyser et corriger un programme.
+\item Prévoir le résultat d'un programme avant de l'exécuter.
+\end{itemize}
+
+\section{1. Programme et algorithme}
+
+Un algorithme décrit une suite d'étapes permettant de réaliser une tâche.
+
+Un programme traduit cet algorithme dans un langage compris par une machine.
+
+En mathématiques, on cherche surtout à comprendre :
+\begin{itemize}
+\item les données d'entrée ;
+\item les calculs ;
+\item les décisions ;
+\item les répétitions ;
+\item le résultat produit.
+\end{itemize}
+
+\section{2. Variable informatique}
+
+\begin{definition}
+Une variable informatique est une zone de mémoire nommée qui contient une valeur pouvant être lue ou modifiée pendant l'exécution.
+\end{definition}
+
+\coursefigure{/images/mathematiques/4eme/algorithmique-variable.svg}{Une variable nommée score contient une valeur puis est modifiée par une instruction.}{La variable peut changer de valeur pendant l'exécution : elle mémorise l'état courant du calcul.}
+
+Si :
+\[
+\text{score}=7,
+\]
+puis que l'on exécute :
+\[
+\text{score}\leftarrow\text{score}+3,
+\]
+la nouvelle valeur est :
+\[
+10.
+\]
+
+\section{3. Affectation}
+
+L'instruction :
+\[
+x\leftarrow5
+\]
+signifie :
+\[
+\text{« mettre la valeur }5\text{ dans la variable }x\text{ »}.
+\]
+
+Elle ne doit pas être confondue avec l'égalité mathématique :
+\[
+x=5.
+\]
+
+Dans un programme, la valeur de $x$ pourra ensuite changer.
+
+\section{4. Lire puis modifier}
+
+Considérons :
+\begin{verbatim}
+x prend la valeur 4
+x prend la valeur x + 3
+x prend la valeur 2 * x
+\end{verbatim}
+
+Après la première instruction :
+\[
+x=4.
+\]
+
+Puis :
+\[
+x=7.
+\]
+
+Enfin :
+\[
+x=14.
+\]
+
+La sortie finale vaut :
+\[
+\boxed{14}.
+\]
+
+\section{5. Entrée et sortie}
+
+Une entrée est une donnée fournie au programme.
+
+Une sortie est une information produite.
+
+Exemple :
+\begin{verbatim}
+demander un nombre
+mettre la réponse dans x
+calculer 3*x+2
+afficher le résultat
+\end{verbatim}
+
+Si l'entrée vaut :
+\[
+5,
+\]
+la sortie vaut :
+\[
+3\times5+2=17.
+\]
+
+\section{6. Traduire une formule}
+
+Pour :
+\[
+A=\pi r^2,
+\]
+un programme peut exécuter :
+\begin{verbatim}
+lire r
+A = pi * r * r
+afficher A
+\end{verbatim}
+
+Les priorités opératoires doivent être respectées.
+
+\section{7. Condition}
+
+Une condition est une affirmation qui peut être vraie ou fausse.
+
+Exemples :
+\[
+x>10,
+\]
+\[
+n=0,
+\]
+\[
+\text{score}\ge20.
+\]
+
+Le programme peut choisir une action en fonction du résultat du test.
+
+\coursefigure{/images/mathematiques/4eme/algorithmique-condition.svg}{Organigramme simple montrant une condition avec une branche oui et une branche non.}{Une instruction conditionnelle permet au programme de prendre des décisions différentes selon que le test est vrai ou faux.}
+
+\section{8. Structure « si ... alors »}
+
+\begin{verbatim}
+si x > 10 alors
+    afficher "grand"
+fin si
+\end{verbatim}
+
+Si :
+\[
+x=14,
+\]
+le message est affiché.
+
+Si :
+\[
+x=8,
+\]
+aucune action n'est exécutée dans le bloc.
+
+\section{9. Structure « si ... alors ... sinon »}
+
+\begin{verbatim}
+si x >= 0 alors
+    afficher "positif ou nul"
+sinon
+    afficher "négatif"
+fin si
+\end{verbatim}
+
+Une seule des deux branches est exécutée.
+
+\section{10. Exemple : parité}
+
+Un entier $n$ est pair si son reste dans la division par $2$ est nul.
+
+On peut écrire :
+\begin{verbatim}
+si n modulo 2 = 0 alors
+    afficher "pair"
+sinon
+    afficher "impair"
+fin si
+\end{verbatim}
+
+Pour :
+\[
+n=18,
+\]
+la condition est vraie.
+
+Pour :
+\[
+n=23,
+\]
+elle est fausse.
+
+\section{11. Comparer deux nombres}
+
+Programme :
+\begin{verbatim}
+lire a
+lire b
+si a > b alors
+    afficher a
+sinon
+    afficher b
+fin si
+\end{verbatim}
+
+Ce programme affiche le plus grand des deux nombres lorsque :
+\[
+a\neq b.
+\]
+
+Si :
+\[
+a=b,
+\]
+il affiche $b$, qui est égal à $a$.
+
+\section{12. Condition composée}
+
+On peut parfois combiner deux tests.
+
+Par exemple, vérifier que :
+\[
+0\le x\le10.
+\]
+
+Dans un langage par blocs, on peut tester :
+\[
+x\ge0
+\]
+et :
+\[
+x\le10.
+\]
+
+Les deux conditions doivent être vraies.
+
+\section{13. Boucle inconditionnelle}
+
+Une boucle répète une suite d'instructions.
+
+Exemple :
+\begin{verbatim}
+répéter 5 fois
+    avancer de 40
+    tourner de 72 degrés
+\end{verbatim}
+
+Cette séquence peut construire un pentagone régulier.
+
+Le nombre de répétitions est fixé avant l'exécution.
+
+\section{14. Variable accumulatrice}
+
+Une variable peut accumuler une somme.
+
+\begin{verbatim}
+somme = 0
+répéter 4 fois
+    lire un nombre
+    somme = somme + nombre
+afficher somme
+\end{verbatim}
+
+Après chaque passage, la variable :
+\[
+\text{somme}
+\]
+mémorise le total provisoire.
+
+\section{15. Compteur}
+
+Un compteur augmente d'une unité à chaque événement.
+
+\begin{verbatim}
+compteur = 0
+répéter 100 fois
+    simuler un lancer
+    si succès alors
+        compteur = compteur + 1
+\end{verbatim}
+
+À la fin :
+\[
+\text{compteur}
+\]
+est le nombre de succès.
+
+\section{16. Simulation d'une fréquence}
+
+Après :
+\[
+n
+\]
+essais, si le compteur vaut :
+\[
+s,
+\]
+la fréquence expérimentale est :
+\[
+f=\dfrac sn.
+\]
+
+Un programme permet de répéter rapidement une expérience aléatoire simple.
+
+\section{17. Table de suivi}
+
+Pour comprendre un programme, on peut suivre les variables étape par étape.
+
+Programme :
+\begin{verbatim}
+x = 3
+y = 2*x + 1
+x = y - 4
+\end{verbatim}
+
+Table de suivi :
+
+\begin{tabular}{c|c|c}
+Étape & $x$ & $y$ \\
+initialisation & $3$ & -- \\
+après calcul de $y$ & $3$ & $7$ \\
+après modification de $x$ & $3$ & $7$ \\
+\end{tabular}
+
+La dernière instruction donne en réalité :
+\[
+x=7-4=3.
+\]
+
+La valeur finale de $x$ reste donc :
+\[
+3.
+\]
+
+\section{18. Prévoir avant d'exécuter}
+
+Considérons :
+\begin{verbatim}
+x = 6
+si x > 4 alors
+    x = 2*x
+sinon
+    x = x+10
+afficher x
+\end{verbatim}
+
+La condition :
+\[
+6>4
+\]
+est vraie.
+
+On exécute donc :
+\[
+x=2\times6=12.
+\]
+
+La sortie vaut :
+\[
+\boxed{12}.
+\]
+
+\section{19. Déboguer}
+
+Déboguer signifie rechercher et corriger une erreur.
+
+\begin{methode}
+\begin{enumerate}
+\item prévoir le résultat attendu ;
+\item exécuter ou simuler pas à pas ;
+\item suivre la valeur des variables ;
+\item repérer la première étape qui diverge ;
+\item corriger une seule erreur à la fois ;
+\item tester à nouveau.
+\end{enumerate}
+\end{methode}
+
+\section{20. Erreur de condition}
+
+On souhaite afficher « admis » si :
+\[
+\text{note}\ge10.
+\]
+
+Le programme contient :
+\begin{verbatim}
+si note > 10 alors
+    afficher "admis"
+\end{verbatim}
+
+La note :
+\[
+10
+\]
+n'est alors pas reconnue comme admise.
+
+Il faut écrire :
+\[
+\text{note}\ge10.
+\]
+
+\section{21. Erreur d'affectation}
+
+Supposons :
+\begin{verbatim}
+x = 5
+x = x + 1
+x = x + 1
+\end{verbatim}
+
+La valeur finale est :
+\[
+7.
+\]
+
+Chaque affectation remplace la valeur précédente.
+
+On ne peut pas lire :
+\[
+x=x+1
+\]
+comme une égalité mathématique ordinaire.
+
+\section{22. Programme de calcul}
+
+On choisit un nombre $x$.
+
+Le programme :
+\begin{verbatim}
+y = x*x
+y = y - 4
+\end{verbatim}
+
+traduit :
+\[
+y=x^2-4.
+\]
+
+Pour :
+\[
+x=-3,
+\]
+on obtient :
+\[
+y=9-4=5.
+\]
+
+\section{23. Programme et équation}
+
+Si l'on cherche une entrée produisant :
+\[
+y=21
+\]
+dans le programme :
+\[
+y=4x+1,
+\]
+on résout :
+\[
+4x+1=21.
+\]
+
+Donc :
+\[
+x=5.
+\]
+
+L'algorithmique et le calcul littéral décrivent ici le même modèle.
+
+\section{24. Géométrie dynamique}
+
+Un programme peut déplacer un point ou un objet selon des instructions.
+
+Exemple :
+\begin{verbatim}
+répéter 4 fois
+    avancer de 80
+    tourner de 90 degrés
+\end{verbatim}
+
+Le tracé forme un carré.
+
+Modifier :
+\[
+80
+\]
+change la taille.
+
+Modifier :
+\[
+90^\circ
+\]
+change la forme du tracé.
+
+\section{25. Méthode d'analyse}
+
+\begin{methode}
+Pour analyser un programme :
+\begin{enumerate}
+\item relever les variables ;
+\item repérer leurs valeurs initiales ;
+\item suivre les affectations dans l'ordre ;
+\item identifier les conditions ;
+\item identifier les boucles ;
+\item prévoir la sortie ;
+\item vérifier par une table de suivi si nécessaire.
+\end{enumerate}
+\end{methode}
+
+\section{26. Erreurs fréquentes}
+
+\begin{itemize}
+\item Confondre affectation et égalité mathématique.
+\item Oublier que la valeur d'une variable peut changer.
+\item Exécuter les deux branches d'une condition.
+\item Inverser les comparateurs $>$ et $<$.
+\item Oublier le cas d'égalité dans une condition.
+\item Confondre compteur et valeur simulée.
+\item Oublier d'initialiser une variable accumulatrice.
+\item Lire une boucle comme si son contenu n'était exécuté qu'une seule fois.
+\end{itemize}
+
+\section{À retenir}
+
+\begin{aretenir}
+Une variable mémorise une valeur susceptible d'être modifiée :
+\[
+\boxed{x\leftarrow\text{nouvelle valeur}}.
+\]
+
+Une condition permet de choisir une action :
+\[
+\boxed{\text{si condition alors ... sinon ...}}.
+\]
+
+Une boucle répète une séquence d'instructions.
+
+Pour comprendre ou corriger un programme, il faut suivre l'évolution des variables étape par étape et prévoir le résultat avant l'exécution.
+\end{aretenir}
