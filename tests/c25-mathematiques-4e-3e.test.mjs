@@ -85,58 +85,106 @@ describe("C25 — mathématiques 4e/3e versionnées", () => {
     }
   });
 
-  it("publie exactement quatre chapitres actuels par niveau", () => {
-    assert.equal(mappings.current4.lotA.chapters.length, 4);
-    assert.equal(mappings.current3.lotA.chapters.length, 4);
+  it("publie la couverture annuelle V3 complète de 4e et conserve le premier lot 3e", () => {
+    const slugs4 = mappings.current4.coverage.order;
+    const slugs3 = mappings.current3.lotA.chapters;
 
-    for (const [niveau, mapping] of [["4eme", mappings.current4], ["3eme", mappings.current3]]) {
-      for (const slug of mapping.lotA.chapters) {
-        const dir = path.join(chapterRoot, niveau, slug);
-        for (const file of ["meta.json", "cours.mdx", "exercices.json", "quiz.json", "flashcards.json"]) {
-          assert.equal(existsSync(path.join(dir, file)), true, `${niveau}/${slug}/${file}`);
-        }
+    assert.equal(mappings.current4.coverage.status, "complete-4e-v3-2026-2027");
+    assert.equal(slugs4.length, 13);
+    assert.equal(slugs3.length, 4);
 
-        const meta = readJson(path.join(dir, "meta.json"));
-        const exercicesPayload = readJson(path.join(dir, "exercices.json"));
-        const quizPayload = readJson(path.join(dir, "quiz.json"));
-        const flashPayload = readJson(path.join(dir, "flashcards.json"));
-        const exercices = exercicesPayload.exercices;
-
-        assert.equal(meta.officialSource, "bo-cycle4-mathematiques-2020");
-        assert.equal(meta.programmeVersion, "mathematiques-cycle4-2020");
-        assert.equal(meta.seo.noindex, false);
-        assert.equal(exercices.length, 6);
-        assert.deepEqual(
-          Object.fromEntries(["N1","N2","N3"].map(level => [level, exercices.filter(item => item.level === level).length])),
-          { N1: 2, N2: 2, N3: 2 },
-        );
-        assert.equal(quizPayload.questions.length, 5);
-        assert.equal(flashPayload.cards.length, 6);
-
-        const result = normalizeChapterPackage({
-          sourcePath: path.relative(root, path.join(dir, "meta.json")).replaceAll("\\", "/"),
-          discipline: "mathematiques",
-          cycle: "college",
-          niveau,
-          slug,
-          meta,
-          coursePath: path.relative(root, path.join(dir, "cours.mdx")).replaceAll("\\", "/"),
-          coursePresent: true,
-          courseFormat: "mdx",
-          exercices: exercicesPayload,
-          quiz: quizPayload,
-          flashcards: flashPayload,
-        });
-        assert.deepEqual(result.errors, [], `${niveau}/${slug}: ${JSON.stringify(result.errors)}`);
-        assert.equal(result.package?.chapter.programmeVersion.versionId, "mathematiques-cycle4-2020");
+    for (const slug of slugs4) {
+      const dir = path.join(chapterRoot, "4eme", slug);
+      for (const file of ["meta.json", "cours.tex", "exercices.json", "quiz.json", "flashcards.json"]) {
+        assert.equal(existsSync(path.join(dir, file)), true, `4eme/${slug}/${file}`);
       }
+
+      const meta = readJson(path.join(dir, "meta.json"));
+      const exercicesPayload = readJson(path.join(dir, "exercices.json"));
+      const quizPayload = readJson(path.join(dir, "quiz.json"));
+      const flashPayload = readJson(path.join(dir, "flashcards.json"));
+      const exercices = exercicesPayload.exercices;
+
+      assert.equal(meta.officialSource, "bo-cycle4-mathematiques-2020");
+      assert.equal(meta.programmeVersion, "mathematiques-cycle4-2020");
+      assert.equal(meta.courseFormat, "latex");
+      assert.equal(meta.courseSource, "cours.tex");
+      assert.equal(meta.courseFormatVersion, 3);
+      assert.equal(meta.courseQualityVersion, 3);
+      assert.equal(meta.contentQualityVersion, 3);
+      assert.equal(meta.seo.noindex, false);
+
+      assert.equal(exercices.length, 12);
+      assert.deepEqual(
+        Object.fromEntries(["N1","N2","N3"].map(level => [level, exercices.filter(item => item.level === level).length])),
+        { N1: 4, N2: 4, N3: 4 },
+      );
+      assert.ok(quizPayload.questions.length >= 10);
+      assert.ok(flashPayload.cards.length >= 12);
+
+      const result = normalizeChapterPackage({
+        sourcePath: path.relative(root, path.join(dir, "meta.json")).replaceAll("\\", "/"),
+        discipline: "mathematiques",
+        cycle: "college",
+        niveau: "4eme",
+        slug,
+        meta,
+        coursePath: path.relative(root, path.join(dir, "cours.tex")).replaceAll("\\", "/"),
+        coursePresent: true,
+        courseFormat: "latex",
+        exercices: exercicesPayload,
+        quiz: quizPayload,
+        flashcards: flashPayload,
+      });
+      assert.deepEqual(result.errors, [], `4eme/${slug}: ${JSON.stringify(result.errors)}`);
+      assert.equal(result.package?.chapter.programmeVersion.versionId, "mathematiques-cycle4-2020");
+      assert.equal(result.package?.course.format, "latex");
+    }
+
+    for (const slug of slugs3) {
+      const dir = path.join(chapterRoot, "3eme", slug);
+      for (const file of ["meta.json", "cours.tex", "exercices.json", "quiz.json", "flashcards.json"]) {
+        assert.equal(existsSync(path.join(dir, file)), true, `3eme/${slug}/${file}`);
+      }
+
+      const meta = readJson(path.join(dir, "meta.json"));
+      const exercicesPayload = readJson(path.join(dir, "exercices.json"));
+      const quizPayload = readJson(path.join(dir, "quiz.json"));
+      const flashPayload = readJson(path.join(dir, "flashcards.json"));
+
+      assert.equal(meta.officialSource, "bo-cycle4-mathematiques-2020");
+      assert.equal(meta.programmeVersion, "mathematiques-cycle4-2020");
+      assert.equal(exercicesPayload.exercices.length, 6);
+      assert.equal(quizPayload.questions.length, 5);
+      assert.equal(flashPayload.cards.length, 6);
+
+      const result = normalizeChapterPackage({
+        sourcePath: path.relative(root, path.join(dir, "meta.json")).replaceAll("\\", "/"),
+        discipline: "mathematiques",
+        cycle: "college",
+        niveau: "3eme",
+        slug,
+        meta,
+        coursePath: path.relative(root, path.join(dir, "cours.tex")).replaceAll("\\", "/"),
+        coursePresent: true,
+        courseFormat: "latex",
+        exercices: exercicesPayload,
+        quiz: quizPayload,
+        flashcards: flashPayload,
+      });
+      assert.deepEqual(result.errors, [], `3eme/${slug}: ${JSON.stringify(result.errors)}`);
+      assert.equal(result.package?.course.format, "latex");
     }
   });
 
   it("ne publie aucun chapitre 4e/3e étiqueté programme 2026", () => {
-    for (const niveau of ["4eme", "3eme"]) {
-      const mapping = niveau === "4eme" ? mappings.current4 : mappings.current3;
-      for (const slug of mapping.lotA.chapters) {
+    const levels = [
+      ["4eme", mappings.current4.coverage.order],
+      ["3eme", mappings.current3.lotA.chapters],
+    ];
+
+    for (const [niveau, slugs] of levels) {
+      for (const slug of slugs) {
         const meta = readJson(path.join(chapterRoot, niveau, slug, "meta.json"));
         assert.notEqual(meta.officialSource, "bo-cycle4-mathematiques-2026");
         assert.notEqual(meta.programmeVersion, "mathematiques-cycle4-2026");
