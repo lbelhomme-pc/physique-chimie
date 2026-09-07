@@ -4,7 +4,7 @@
   "mission": "C25",
   "niveau": "4eme",
   "status": "current",
-  "verifiedAt": "2026-09-04",
+  "verifiedAt": "2026-09-07",
   "source": {
     "bulletin": "Bulletin officiel n° 31 du 30 juillet 2020",
     "nor": "MENE2018714A",
@@ -12,20 +12,55 @@
     "reperesUrl": "https://eduscol.education.gouv.fr/5736/ressources-d-accompagnement-du-programme-de-mathematiques-au-cycle-4",
     "application": "Applicable en 4e jusqu'à l'année scolaire 2026-2027."
   },
-  "decompositionNote": "Ce mapping décrit le premier lot éditorial C25. Il ne prétend pas couvrir à lui seul tout le programme de l'année.",
-  "lotA": {
-    "published": true,
-    "coverage": "first-lot",
-    "chapters": [
-      "nombres-rationnels-calcul",
-      "puissances-notation-scientifique",
-      "calcul-litteral-equations",
-      "pythagore-racine-carree"
-    ]
-  },
+  "decompositionNote": "Couverture éditoriale annuelle complète de la 4e pour l'année scolaire 2026-2027, fondée sur le programme cycle 4 de 2020 encore applicable à ce niveau.",
   "guardrails": {
     "schoolYearTarget": "2026-2027",
     "programme2026PublishedAsCurrent": false,
     "currentProgrammeOnly": true
-  }
+  },
+  "coverage": {
+    "status": "complete-4e-v3-2026-2027",
+    "chapters": 13,
+    "order": [
+      "nombres-rationnels-calcul",
+      "puissances-notation-scientifique",
+      "arithmetique-nombres-premiers",
+      "calcul-litteral-equations",
+      "statistiques-mediane",
+      "probabilites-simulation",
+      "proportionnalite-quatrieme-proportionnelle",
+      "fonctions-tableaux-graphiques",
+      "grandeurs-espace-volumes",
+      "pythagore-racine-carree",
+      "triangles-thales-cosinus",
+      "transformations-agrandissement-reduction",
+      "algorithmique-conditions-variables"
+    ]
+  },
+  "v3CourseContract": {
+    "source": "cours.tex",
+    "courseFormat": "latex",
+    "courseFormatVersion": 3,
+    "courseQualityVersion": 3,
+    "contentQualityVersion": 3,
+    "minimumCourseCharacters": 7000,
+    "minimumPedagogicalVisualsPerChapter": 2,
+    "minimumExercises": 12,
+    "exerciseDistribution": {
+      "N1": 4,
+      "N2": 4,
+      "N3": 4
+    },
+    "minimumQuizQuestions": 10,
+    "minimumFlashcards": 12,
+    "minimumDevelopedProblemsN2N3": 4,
+    "markdownResidualsAllowed": false,
+    "coverage": "complete-4e-v3-2026-2027"
+  },
+  "explicitBoundaries": [
+    "Le programme publié en mars 2026 n'est pas présenté comme programme courant de 4e en 2026-2027 ; son application en 4e est différée à 2027-2028.",
+    "La 4e introduit produit et quotient de nombres relatifs, nombres premiers, médiane, événements contraires, quatrième proportionnelle, dépendance entre grandeurs, volumes de pyramides et cônes, Thalès, cosinus, translation, variables et conditions.",
+    "La formalisation plus avancée des fonctions et les outils propres à la 3e ne sont pas anticipés.",
+    "Chaque chapitre V3 utilise exclusivement cours.tex comme source de cours affichée."
+  ]
 }
