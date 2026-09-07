@@ -1,63 +1,123 @@
 {
   "questions": [
     {
-      "id": "3e-ari-q1",
-      "question": "Un nombre premier possède :",
+      "id": "3e-arithmetique-fractions-puissances-q1",
+      "question": "Quel nombre est premier ?",
       "choices": [
-        "exactement deux diviseurs positifs",
-        "un seul diviseur",
-        "toujours trois diviseurs"
+        "$121$",
+        "$127$",
+        "$129$"
       ],
-      "answer": 0,
-      "explanation": "Ces diviseurs sont 1 et lui-même.",
+      "answer": 1,
+      "explanation": "$127$ n’est divisible par aucun nombre premier inférieur ou égal à $\\sqrt{127}$, contrairement à $121=11^2$ et $129=3\\times43$.",
       "chapterId": "college/3eme/arithmetique-fractions-puissances"
     },
     {
-      "id": "3e-ari-q2",
-      "question": "1 est :",
+      "id": "3e-arithmetique-fractions-puissances-q2",
+      "question": "$2^{-4}$ vaut :",
       "choices": [
-        "non premier",
-        "premier",
-        "multiple de tous les nombres"
+        "$-16$",
+        "$\\dfrac1{16}$",
+        "$\\dfrac14$"
       ],
-      "answer": 0,
-      "explanation": "Il ne possède qu'un seul diviseur positif.",
+      "answer": 1,
+      "explanation": "Un exposant négatif signifie prendre l’inverse : $2^{-4}=1/2^4=1/16$.",
       "chapterId": "college/3eme/arithmetique-fractions-puissances"
     },
     {
-      "id": "3e-ari-q3",
-      "question": "2^-3 vaut :",
+      "id": "3e-arithmetique-fractions-puissances-q3",
+      "question": "La notation scientifique de $0{,}00052$ est :",
       "choices": [
-        "1/8",
-        "-8",
-        "8"
+        "$5{,}2\\times10^{-4}$",
+        "$52\\times10^{-5}$",
+        "$0{,}52\\times10^{-3}$"
       ],
       "answer": 0,
-      "explanation": "a^-n=1/a^n.",
+      "explanation": "Le coefficient normalisé doit être compris entre $1$ et $10$ en valeur absolue.",
       "chapterId": "college/3eme/arithmetique-fractions-puissances"
     },
     {
-      "id": "3e-ari-q4",
-      "question": "84/126 simplifié vaut :",
+      "id": "3e-arithmetique-fractions-puissances-q4",
+      "question": "Une fraction irréductible :",
       "choices": [
-        "2/3",
-        "4/6 uniquement",
-        "3/2"
+        "a un dénominateur premier",
+        "n’a plus de facteur commun supérieur à $1$",
+        "est toujours positive"
       ],
-      "answer": 0,
-      "explanation": "On divise par 42.",
+      "answer": 1,
+      "explanation": "L’irréductibilité concerne les facteurs communs du numérateur et du dénominateur.",
       "chapterId": "college/3eme/arithmetique-fractions-puissances"
     },
     {
-      "id": "3e-ari-q5",
-      "question": "La décomposition première de 60 est :",
+      "id": "3e-arithmetique-fractions-puissances-q5",
+      "question": "$10^5\\times10^{-2}$ vaut :",
       "choices": [
-        "2²×3×5",
-        "2×30",
-        "6×10"
+        "$10^3$",
+        "$10^7$",
+        "$10^{-10}$"
       ],
       "answer": 0,
-      "explanation": "Tous les facteurs sont premiers.",
+      "explanation": "En écrivant les facteurs, trois puissances de $10$ restent après simplification.",
+      "chapterId": "college/3eme/arithmetique-fractions-puissances"
+    },
+    {
+      "id": "3e-arithmetique-fractions-puissances-q6",
+      "question": "Le PPCM est surtout utile pour :",
+      "choices": [
+        "des lots maximaux",
+        "des rythmes périodiques",
+        "une moyenne"
+      ],
+      "answer": 1,
+      "explanation": "Un premier instant commun doit être un multiple de chacune des périodes.",
+      "chapterId": "college/3eme/arithmetique-fractions-puissances"
+    },
+    {
+      "id": "3e-arithmetique-fractions-puissances-q7",
+      "question": "$\\dfrac34\\div\\dfrac25$ devient :",
+      "choices": [
+        "$\\dfrac34\\times\\dfrac52$",
+        "$\\dfrac34\\times\\dfrac25$",
+        "$\\dfrac43\\times\\dfrac52$"
+      ],
+      "answer": 0,
+      "explanation": "Diviser par une fraction non nulle revient à multiplier par son inverse.",
+      "chapterId": "college/3eme/arithmetique-fractions-puissances"
+    },
+    {
+      "id": "3e-arithmetique-fractions-puissances-q8",
+      "question": "Dans une somme de puissances, peut-on additionner les exposants ?",
+      "choices": [
+        "Toujours",
+        "Jamais comme règle générale",
+        "Seulement si les coefficients valent $1$"
+      ],
+      "answer": 1,
+      "explanation": "L’addition des exposants concerne les produits de puissances de même base, pas les sommes.",
+      "chapterId": "college/3eme/arithmetique-fractions-puissances"
+    },
+    {
+      "id": "3e-arithmetique-fractions-puissances-q9",
+      "question": "$6{,}3\\times10^7$ est plus grand que $8{,}9\\times10^6$ parce que :",
+      "choices": [
+        "$6{,}3>8{,}9$",
+        "l’exposant $7$ domine l’exposant $6$",
+        "les deux sont égaux"
+      ],
+      "answer": 1,
+      "explanation": "L’écart d’un ordre de grandeur rend le premier nombre plus grand malgré son coefficient plus petit.",
+      "chapterId": "college/3eme/arithmetique-fractions-puissances"
+    },
+    {
+      "id": "3e-arithmetique-fractions-puissances-q10",
+      "question": "Pour tester la primalité de $n$, il suffit de tester les diviseurs premiers jusqu’à environ :",
+      "choices": [
+        "$n$",
+        "$\\sqrt n$",
+        "$n^2$"
+      ],
+      "answer": 1,
+      "explanation": "Si $n=ab$, au moins l’un des facteurs est inférieur ou égal à $\\sqrt n$.",
       "chapterId": "college/3eme/arithmetique-fractions-puissances"
     }
   ]
