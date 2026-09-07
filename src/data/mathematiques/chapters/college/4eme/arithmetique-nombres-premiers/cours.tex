@@ -327,7 +327,115 @@ La méthode dépend donc du problème.
 \end{enumerate}
 \end{methode}
 
-\section{18. Erreurs fréquentes}
+\section{18. Diviseur commun ou multiple commun ?}
+
+Deux familles de problèmes utilisent les facteurs premiers mais ne posent pas la même question.
+
+Pour constituer le plus grand nombre de groupes identiques à partir de plusieurs quantités, le nombre de groupes doit diviser chacune des quantités.
+
+Pour trouver le premier instant où plusieurs phénomènes périodiques se reproduisent ensemble, la durée cherchée doit être un multiple de chaque période.
+
+\begin{exemple}
+Avec :
+\[
+96
+\]
+objets rouges et :
+\[
+144
+\]
+objets bleus, un problème de lots maximaux demande un diviseur commun.
+
+Deux machines fonctionnant toutes les :
+\[
+24\ \text{min}
+\]
+et :
+\[
+36\ \text{min}
+\]
+conduisent au contraire à un multiple commun.
+\end{exemple}
+
+\section{19. Problème de pavage}
+
+Une salle mesure :
+\[
+840\ \text{cm}
+\]
+sur :
+\[
+1260\ \text{cm}.
+\]
+
+On veut utiliser les plus grands carreaux carrés possibles sans aucune découpe.
+
+Le côté d'un carreau doit donc diviser les deux dimensions.
+
+Les décompositions sont :
+\[
+840=2^3\times3\times5\times7,
+\]
+\[
+1260=2^2\times3^2\times5\times7.
+\]
+
+Le plus grand facteur commun vaut :
+\[
+2^2\times3\times5\times7=420.
+\]
+
+Le côté du carreau est :
+\[
+420\ \text{cm}.
+\]
+
+Il faut :
+\[
+840\div420=2
+\]
+carreaux dans un sens et :
+\[
+1260\div420=3
+\]
+dans l'autre, soit :
+\[
+\boxed{6\text{ carreaux}}.
+\]
+
+\section{20. Montrer qu'une contrainte est impossible}
+
+La factorisation permet aussi de démontrer qu'aucune solution n'existe.
+
+On cherche un entier $n$ à la fois :
+\begin{itemize}
+\item multiple de $14$ ;
+\item sans facteur premier commun avec $180$.
+\end{itemize}
+
+Or :
+\[
+14=2\times7.
+\]
+
+Tout multiple de $14$ est donc divisible par $2$.
+
+Mais :
+\[
+180
+\]
+est également divisible par $2$.
+
+Les deux conditions sont incompatibles.
+
+On peut conclure :
+\[
+\boxed{\text{aucun entier }n\text{ ne convient}}.
+\]
+
+Ce type de raisonnement est important : en mathématiques, résoudre un problème peut aussi consister à démontrer qu'il n'a pas de solution.
+
+\section{21. Erreurs fréquentes}
 
 \begin{itemize}
 \item Considérer $1$ comme premier.
