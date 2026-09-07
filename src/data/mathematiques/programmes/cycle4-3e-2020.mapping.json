@@ -4,28 +4,69 @@
   "mission": "C25",
   "niveau": "3eme",
   "status": "current",
-  "verifiedAt": "2026-09-04",
+  "verifiedAt": "2026-09-07",
   "source": {
     "bulletin": "Bulletin officiel n° 31 du 30 juillet 2020",
     "nor": "MENE2018714A",
     "url": "https://www.education.gouv.fr/bo/20/Hebdo31/MENE2018714A.htm",
-    "reperesUrl": "https://eduscol.education.gouv.fr/5736/ressources-d-accompagnement-du-programme-de-mathematiques-au-cycle-4",
-    "application": "Applicable en 3e jusqu'à l'année scolaire 2027-2028."
+    "reperesUrl": "https://eduscol.education.fr/document/14080/download",
+    "application": "Applicable en 3e pendant l'année scolaire 2026-2027 ; le programme 2026 ne devient applicable en 3e qu'à la rentrée 2028-2029."
   },
-  "decompositionNote": "Ce mapping décrit le premier lot éditorial C25. Il ne prétend pas couvrir à lui seul tout le programme de l'année.",
-  "lotA": {
-    "published": true,
-    "coverage": "first-lot",
-    "chapters": [
-      "arithmetique-fractions-puissances",
-      "calcul-litteral-equations-inequations",
-      "fonctions-lineaires-affines",
-      "thales-trigonometrie"
-    ]
-  },
+  "decompositionNote": "Couverture éditoriale annuelle complète de la 3e V3 pour l'année scolaire 2026-2027, fondée sur le programme cycle 4 de 2020 encore applicable à ce niveau.",
   "guardrails": {
     "schoolYearTarget": "2026-2027",
     "programme2026PublishedAsCurrent": false,
     "currentProgrammeOnly": true
-  }
+  },
+  "coverage": {
+    "status": "complete-3e-v3-2026-2027",
+    "chapters": 13,
+    "order": [
+      "arithmetique-fractions-puissances",
+      "calcul-litteral-equations-inequations",
+      "proportionnalite-taux-evolution",
+      "fonctions-lineaires-affines",
+      "statistiques-histogrammes-etendue",
+      "probabilites-deux-epreuves-simulation",
+      "grandeurs-composees-conversions",
+      "pythagore-racines-distances",
+      "triangles-semblables-demonstrations",
+      "thales-trigonometrie",
+      "transformations-rotation-homothetie",
+      "sphere-boule-reperage-espace",
+      "algorithmique-boucles-conditions"
+    ]
+  },
+  "v3CourseContract": {
+    "source": "cours.tex",
+    "courseFormat": "latex",
+    "courseFormatVersion": 3,
+    "courseQualityVersion": 3,
+    "contentQualityVersion": 3,
+    "minimumCourseCharacters": 7000,
+    "minimumPedagogicalVisualsPerChapter": 2,
+    "minimumExercises": 12,
+    "exerciseDistribution": {
+      "N1": 4,
+      "N2": 4,
+      "N3": 4
+    },
+    "minimumQuizQuestions": 10,
+    "minimumFlashcards": 12,
+    "minimumDevelopedProblemsN2N3": 4,
+    "structuredQuestions": {
+      "N1": 1,
+      "N2": 2,
+      "N3": 3
+    },
+    "markdownResidualsAllowed": false,
+    "coverage": "complete-3e-v3-2026-2027"
+  },
+  "explicitBoundaries": [
+    "Le programme 2026 n'est pas servi en 3e en 2026-2027 ; sa première application est prévue pour 2028-2029.",
+    "Les probabilités à deux épreuves restent limitées à des cas très simples et utilisent des tableaux à double entrée ; l'arbre de probabilités ne figure pas au programme.",
+    "Les racines carrées sont utilisées dans la résolution de problèmes sans exiger de calcul algébrique général sur les radicaux.",
+    "La translation peut être nommée par commodité à l'aide d'un vecteur, mais aucune connaissance sur l'objet vecteur n'est exigée au cycle 4.",
+    "Chaque chapitre V3 utilise exclusivement cours.tex comme source de cours affichée."
+  ]
 }
