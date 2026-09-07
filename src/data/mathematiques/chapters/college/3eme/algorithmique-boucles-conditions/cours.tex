@@ -1,0 +1,156 @@
+% Mathématiques 3e — V3 LaTeX
+% Algorithmique : boucles, conditions et sous-problèmes
+
+\section{Objectifs}
+\begin{itemize}
+\item Combiner boucles et conditions dans un même programme.
+\item Utiliser une boucle de type « répéter jusqu’à ».
+\item Décomposer un problème en sous-problèmes ou blocs utilisateurs.
+\item Analyser, tester et déboguer un programme complexe.
+\end{itemize}
+
+\section{Repères et vocabulaire}
+L’algorithmique de troisième dépasse la simple lecture d’une suite d’instructions. On combine variables, conditions et boucles, on décompose un problème en sous-problèmes et on construit une stratégie de test. Le but n’est pas d’apprendre un langage particulier, mais de raisonner sur l’exécution.
+
+\section{1. État d’un programme}
+À chaque instant, les variables contiennent des valeurs qui décrivent l’état courant du programme.
+
+\[
+x\leftarrow x+1
+\]
+
+\begin{exemple}
+Une table de suivi permet de reconstruire cet état après chaque instruction.
+\end{exemple}
+
+\section{2. Condition}
+Une condition produit une valeur vraie ou fausse et décide quelles instructions sont exécutées.
+
+\[
+x\ge10
+\]
+
+\begin{exemple}
+Une branche non choisie n’est pas exécutée ; il faut suivre précisément le chemin pris.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/algorithmique-boucles-conditions-1.svg}{Première représentation structurante pour Algorithmique : boucles, conditions et sous-problèmes.}{La figure sert de support visuel pour organiser les relations géométriques ou algorithmiques du chapitre.}
+
+\section{3. Boucle répétée}
+Une boucle à nombre fixé répète un bloc un nombre connu de fois.
+
+\[
+n\text{ répétitions}
+\]
+
+\begin{exemple}
+Un compteur peut suivre le numéro de l’itération ou le nombre d’événements observés.
+\end{exemple}
+
+\section{4. Boucle jusqu’à condition}
+Une boucle « répéter jusqu’à » continue tant qu’une condition d’arrêt n’est pas satisfaite.
+
+\[
+\text{répéter jusqu’à }x\ge100
+\]
+
+\begin{exemple}
+Il faut vérifier que l’état évolue vers la condition d’arrêt afin d’éviter une boucle infinie.
+\end{exemple}
+
+\section{5. Conditions dans une boucle}
+Une condition placée dans une boucle permet de compter ou traiter certains cas seulement.
+
+\[
+\text{si succès alors }s\leftarrow s+1
+\]
+
+\begin{exemple}
+Ce schéma est courant dans les simulations probabilistes.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/algorithmique-boucles-conditions-2.svg}{Deuxième représentation pédagogique pour Algorithmique : boucles, conditions et sous-problèmes.}{La seconde figure permet de comparer des configurations, des états ou des transformations dans les problèmes du chapitre.}
+
+\section{6. Décomposer un problème}
+Un problème complexe peut être séparé en sous-problèmes indépendants : saisir, calculer, tester, afficher.
+
+\[
+P=P_1+P_2+P_3$ comme organisation, non comme égalité numérique
+\]
+
+\begin{exemple}
+Créer un bloc utilisateur permet de nommer et réutiliser une tâche précise.
+\end{exemple}
+
+\section{7. Simulation}
+Un programme peut générer des expériences aléatoires répétées et calculer une fréquence.
+
+\[
+f=\dfrac{s}{n}
+\]
+
+\begin{exemple}
+L’algorithme doit distinguer le nombre d’essais, le nombre de succès et la valeur aléatoire produite.
+\end{exemple}
+
+\section{8. Débogage}
+Déboguer consiste à comparer le résultat attendu au résultat observé et à chercher la première étape où les états divergent.
+
+\[
+\text{prévoir}\rightarrow\text{tester}\rightarrow\text{localiser}\rightarrow\text{corriger}
+\]
+
+\begin{exemple}
+On construit des cas de test simples, des cas limites et des cas ordinaires plutôt que d’essayer au hasard.
+\end{exemple}
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Lister les variables et leur rôle.
+\item Écrire ou lire les instructions dans l’ordre d’exécution.
+\item Repérer les conditions et les boucles, puis déterminer leur portée.
+\item Construire une table de suivi sur un cas simple.
+\item Décomposer le programme en sous-problèmes si nécessaire.
+\item Tester les cas limites et vérifier la condition d’arrêt.
+\end{enumerate}
+\end{methode}
+
+\section{Problème guidé et stratégie}
+Un exercice de troisième peut demander plusieurs décisions successives : reconnaître une configuration, sélectionner une propriété, produire une valeur exacte ou approchée, puis interpréter. On commence par écrire les hypothèses et la grandeur recherchée. On ne remplace par des nombres qu’après avoir écrit la relation mathématique ou logique adaptée. La conclusion reprend le vocabulaire de l’énoncé et précise l’unité ou la propriété démontrée.
+
+\begin{attention}
+Une construction visuelle ou un résultat de calculatrice peut suggérer une réponse, mais une preuve géométrique, un raisonnement algébrique ou une analyse d’algorithme doit expliciter pourquoi la conclusion est valide.
+\end{attention}
+
+\section{Contrôler un résultat}
+Le contrôle dépend du chapitre : comparer les longueurs dans une figure, vérifier qu’un angle reste dans l’intervalle attendu, tester une valeur dans une équation, suivre l’état d’un programme ou convertir l’unité finale. Une deuxième méthode ou un cas simple permet souvent de détecter une erreur avant la réponse définitive.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Confondre affectation et égalité mathématique.
+\item Exécuter les deux branches d’une condition.
+\item Oublier d’initialiser un compteur ou un accumulateur.
+\item Créer une boucle dont l’état ne peut jamais atteindre la condition d’arrêt.
+\item Modifier une variable avant d’avoir utilisé sa valeur précédente.
+\item Déboguer en changeant plusieurs choses à la fois sans identifier l’erreur.
+\end{itemize}
+
+\section{À retenir}
+\begin{aretenir}
+\begin{itemize}
+\item Une variable décrit l’état courant d’un programme.
+\item Boucles et conditions peuvent être combinées.
+\item Une boucle jusqu’à condition doit progresser vers son arrêt.
+\item Décomposer et tester méthodiquement rend les programmes plus fiables.
+\end{itemize}
+\end{aretenir}
+
+\section{Réinvestissement : Débogage}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Déboguer consiste à comparer le résultat attendu au résultat observé et à chercher la première étape où les états divergent. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. On construit des cas de test simples, des cas limites et des cas ordinaires plutôt que d’essayer au hasard. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
+
+\section{Réinvestissement : Simulation}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Un programme peut générer des expériences aléatoires répétées et calculer une fréquence. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. L’algorithme doit distinguer le nombre d’essais, le nombre de succès et la valeur aléatoire produite. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
+
+\section{Réinvestissement : Décomposer un problème}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Un problème complexe peut être séparé en sous-problèmes indépendants : saisir, calculer, tester, afficher. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Créer un bloc utilisateur permet de nommer et réutiliser une tâche précise. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.

@@ -1,67 +1,156 @@
+% Mathématiques 3e — V3 LaTeX
+% Thalès et trigonométrie
+
 \section{Objectifs}
 \begin{itemize}
-\item Utiliser le théorème de Thalès.
-\item Reconnaître une configuration de parallélisme.
-\item Utiliser les rapports trigonométriques dans un triangle rectangle.
+\item Utiliser Thalès dans les configurations emboîtée et papillon.
+\item Utiliser la réciproque pour prouver un parallélisme.
+\item Choisir sinus, cosinus ou tangente dans un triangle rectangle.
+\item Calculer des longueurs ou des angles dans des problèmes contextualisés.
 \end{itemize}
 
-\section{1. Théorème de Thalès}
-Dans une configuration où les droites correspondantes sont parallèles, les longueurs sont proportionnelles.
+\section{Repères et vocabulaire}
+En troisième, le théorème de Thalès est étendu à la configuration dite « papillon » et la trigonométrie utilise les trois rapports usuels : cosinus, sinus et tangente. L’objectif n’est pas de choisir une formule au hasard, mais de lire la configuration et d’identifier les données pertinentes.
 
-Si $A,M,B$ sont alignés, $A,N,C$ sont alignés et $(MN)\parallel(BC)$ :
-\[
-\frac{AM}{AB}=\frac{AN}{AC}=\frac{MN}{BC}.
-\]
+\section{1. Thalès emboîté}
+Dans un triangle, une droite parallèle à un côté crée deux triangles semblables et des rapports de longueurs égaux.
 
-\section{2. Calculer une longueur}
-Si
 \[
-AM=3,quad AB=5,quad AC=10,
-\]
-alors
-\[
-\frac{3}{5}=\frac{AN}{10},
-\]
-donc
-\[
-AN=6.
+\dfrac{AM}{AB}=\dfrac{AN}{AC}=\dfrac{MN}{BC}
 \]
 
-\section{3. Réciproque}
-Si les points sont alignés dans le même ordre et si les rapports correspondants sont égaux, on peut conclure au parallélisme.
+\begin{exemple}
+Les points doivent être alignés dans le bon ordre et le parallélisme doit être donné ou démontré.
+\end{exemple}
 
-\section{4. Trigonométrie}
-Dans un triangle rectangle, pour un angle aigu $\alpha$ :
+\section{2. Configuration papillon}
+Lorsque deux droites sécantes sont coupées par deux droites parallèles, les triangles opposés partagent la même structure de proportionnalité.
+
 \[
-\cos\alpha=\frac{\text{adjacent}}{\text{hypoténuse}},
-\]
-\[
-\sin\alpha=\frac{\text{opposé}}{\text{hypoténuse}},
-\]
-\[
-\tan\alpha=\frac{\text{opposé}}{\text{adjacent}}.
+\dfrac{OA}{OB}=\dfrac{OC}{OD}=\dfrac{AC}{BD}
 \]
 
-\section{5. Choisir le bon rapport}
-On identifie :
+\begin{exemple}
+Il faut identifier les sommets correspondants avant d’écrire les rapports.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/thales-trigonometrie-1.svg}{Première représentation structurante pour Thalès et trigonométrie.}{La figure sert de support visuel pour organiser les relations géométriques ou algorithmiques du chapitre.}
+
+\section{3. Réciproque de Thalès}
+Des rapports égaux associés aux alignements requis permettent de conclure à un parallélisme.
+
+\[
+\dfrac{AM}{AB}=\dfrac{AN}{AC}\Rightarrow(MN)\parallel(BC)
+\]
+
+\begin{exemple}
+Une simple égalité numérique de rapports sans configuration d’alignement ne suffit pas.
+\end{exemple}
+
+\section{4. Cosinus}
+Dans un triangle rectangle, le cosinus d’un angle aigu compare le côté adjacent à l’hypoténuse.
+
+\[
+\cos\alpha=\dfrac{\text{adjacent}}{\text{hypoténuse}}
+\]
+
+\begin{exemple}
+Le résultat est compris entre $0$ et $1$ pour un angle aigu.
+\end{exemple}
+
+\section{5. Sinus}
+Le sinus compare le côté opposé à l’hypoténuse.
+
+\[
+\sin\alpha=\dfrac{\text{opposé}}{\text{hypoténuse}}
+\]
+
+\begin{exemple}
+On choisit le sinus lorsque les données ou la longueur recherchée concernent ces deux côtés.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/thales-trigonometrie-2.svg}{Deuxième représentation pédagogique pour Thalès et trigonométrie.}{La seconde figure permet de comparer des configurations, des états ou des transformations dans les problèmes du chapitre.}
+
+\section{6. Tangente}
+La tangente compare le côté opposé au côté adjacent.
+
+\[
+\tan\alpha=\dfrac{\text{opposé}}{\text{adjacent}}
+\]
+
+\begin{exemple}
+Elle est utile lorsque l’hypoténuse n’intervient pas dans les données.
+\end{exemple}
+
+\section{7. Calculer un angle}
+Lorsque le rapport trigonométrique est connu, on utilise la fonction réciproque de la calculatrice en mode degré.
+
+\[
+\alpha=\arctan\!\left(\dfrac{h}{d}\right)
+\]
+
+\begin{exemple}
+Une estimation géométrique permet de contrôler qu’un angle aigu reste compris entre $0^\circ$ et $90^\circ$.
+\end{exemple}
+
+\section{8. Choisir entre les théorèmes}
+Pythagore relie des longueurs sans angle aigu ; Thalès exploite le parallélisme ; trigonométrie relie un angle aigu et des longueurs dans un triangle rectangle.
+
+\[
+\text{données}\rightarrow\text{outil adapté}
+\]
+
+\begin{exemple}
+Un bon raisonnement commence par identifier les hypothèses, puis seulement la formule.
+\end{exemple}
+
+\section{Méthode générale de résolution}
+\begin{methode}
 \begin{enumerate}
-\item l'hypoténuse ;
-\item le côté opposé à l'angle ;
-\item le côté adjacent.
+\item Faire un schéma codé et identifier les alignements, parallélismes ou l’angle droit.
+\item Pour Thalès, écrire les côtés correspondants dans le même ordre.
+\item Pour trigonométrie, nommer opposé, adjacent et hypoténuse par rapport à l’angle.
+\item Choisir le rapport contenant les données et l’inconnue.
+\item Effectuer le calcul en mode degré si un angle est recherché.
+\item Conclure avec l’unité et un contrôle géométrique.
 \end{enumerate}
+\end{methode}
 
-Puis on choisit le rapport qui contient les deux grandeurs utiles.
+\section{Problème guidé et stratégie}
+Un exercice de troisième peut demander plusieurs décisions successives : reconnaître une configuration, sélectionner une propriété, produire une valeur exacte ou approchée, puis interpréter. On commence par écrire les hypothèses et la grandeur recherchée. On ne remplace par des nombres qu’après avoir écrit la relation mathématique ou logique adaptée. La conclusion reprend le vocabulaire de l’énoncé et précise l’unité ou la propriété démontrée.
 
-\section{6. Calculatrice}
-Pour déterminer un angle, on utilise les fonctions inverses de la calculatrice après avoir vérifié qu'elle est en degrés.
+\begin{attention}
+Une construction visuelle ou un résultat de calculatrice peut suggérer une réponse, mais une preuve géométrique, un raisonnement algébrique ou une analyse d’algorithme doit expliciter pourquoi la conclusion est valide.
+\end{attention}
+
+\section{Contrôler un résultat}
+Le contrôle dépend du chapitre : comparer les longueurs dans une figure, vérifier qu’un angle reste dans l’intervalle attendu, tester une valeur dans une équation, suivre l’état d’un programme ou convertir l’unité finale. Une deuxième méthode ou un cas simple permet souvent de détecter une erreur avant la réponse définitive.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Appliquer Thalès sans parallélisme.
-\item Mélanger des côtés non correspondants.
-\item Confondre opposé et adjacent.
-\item Utiliser la calculatrice en radians.
+\item Utiliser Thalès sans parallélisme.
+\item Mélanger les rapports entre configuration emboîtée et papillon.
+\item Confondre côté adjacent et hypoténuse.
+\item Utiliser le sinus ou le cosinus hors d’un triangle rectangle.
+\item Laisser la calculatrice en mode radian.
+\item Arrondir un rapport intermédiaire trop tôt.
 \end{itemize}
 
 \section{À retenir}
-Thalès exploite une proportionnalité géométrique ; la trigonométrie relie angles et longueurs dans un triangle rectangle.
+\begin{aretenir}
+\begin{itemize}
+\item Thalès utilise des rapports de longueurs dans une configuration de parallélisme.
+\item La réciproque prouve un parallélisme sous des hypothèses précises.
+\item Cosinus, sinus et tangente relient angles et longueurs d’un triangle rectangle.
+\item Le choix de l’outil dépend des données géométriques.
+\end{itemize}
+\end{aretenir}
+
+\section{Réinvestissement : Configuration papillon}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Lorsque deux droites sécantes sont coupées par deux droites parallèles, les triangles opposés partagent la même structure de proportionnalité. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Il faut identifier les sommets correspondants avant d’écrire les rapports. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
+
+\section{Réinvestissement : Choisir entre les théorèmes}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Pythagore relie des longueurs sans angle aigu ; Thalès exploite le parallélisme ; trigonométrie relie un angle aigu et des longueurs dans un triangle rectangle. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Un bon raisonnement commence par identifier les hypothèses, puis seulement la formule. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
+
+\section{Réinvestissement : Thalès emboîté}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Dans un triangle, une droite parallèle à un côté crée deux triangles semblables et des rapports de longueurs égaux. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Les points doivent être alignés dans le bon ordre et le parallélisme doit être donné ou démontré. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.

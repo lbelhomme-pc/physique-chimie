@@ -1,0 +1,163 @@
+% Mathématiques 3e — V3 LaTeX
+% Sphère, boule et repérage dans l’espace
+
+\section{Objectifs}
+\begin{itemize}
+\item Distinguer sphère et boule.
+\item Utiliser la formule du volume d’une boule.
+\item Se repérer sur une sphère par latitude et longitude.
+\item Lire différentes représentations et sections d’un solide.
+\end{itemize}
+
+\section{Repères et vocabulaire}
+La sphère est la surface formée des points situés à une distance donnée d’un centre ; la boule contient aussi les points intérieurs. En troisième, on utilise le volume de la boule et on étend le repérage à la Terre ou à un globe par latitude et longitude.
+
+\section{1. Sphère et boule}
+La sphère de centre $O$ et de rayon $R$ regroupe les points situés exactement à la distance $R$ de $O$. La boule regroupe ceux dont la distance au centre est inférieure ou égale à $R$.
+
+\[
+OM=R$ pour la sphère
+\]
+
+\[
+OM\le R$ pour la boule
+\]
+
+\begin{exemple}
+La distinction est analogue à celle entre cercle et disque dans le plan.
+\end{exemple}
+
+\section{2. Volume de la boule}
+Le volume d’une boule de rayon $R$ est donné par une formule à utiliser et à interpréter.
+
+\[
+V=\dfrac43\pi R^3
+\]
+
+\begin{exemple}
+Le rayon doit être exprimé dans l’unité de longueur compatible avec l’unité de volume attendue.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/sphere-boule-reperage-espace-1.svg}{Première représentation structurante pour Sphère, boule et repérage dans l’espace.}{La figure sert de support visuel pour organiser les relations géométriques ou algorithmiques du chapitre.}
+
+\section{3. Effet d’un changement d’échelle}
+Si le rayon est multiplié par $k$, le volume est multiplié par $k^3$.
+
+\[
+V'=k^3V
+\]
+
+\begin{exemple}
+Doubler le rayon multiplie le volume par $8$, pas par $2$.
+\end{exemple}
+
+\section{4. Section par un plan}
+Une section plane d’une sphère est un cercle, sauf dans le cas limite d’un plan tangent où la section se réduit à un point.
+
+\[
+\text{plan}\cap\text{sphère}\rightarrow\text{cercle}
+\]
+
+\begin{exemple}
+Plus le plan est proche du centre, plus le rayon du cercle de section est grand.
+\end{exemple}
+
+\section{5. Latitude}
+La latitude repère la position au nord ou au sud de l’équateur et s’exprime par un angle.
+
+\[
+-90^\circ\le\varphi\le90^\circ
+\]
+
+\begin{exemple}
+L’équateur correspond à une latitude nulle.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/sphere-boule-reperage-espace-2.svg}{Deuxième représentation pédagogique pour Sphère, boule et repérage dans l’espace.}{La seconde figure permet de comparer des configurations, des états ou des transformations dans les problèmes du chapitre.}
+
+\section{6. Longitude}
+La longitude repère la position à l’est ou à l’ouest d’un méridien de référence.
+
+\[
+-180^\circ<\lambda\le180^\circ
+\]
+
+\begin{exemple}
+Latitude et longitude forment ensemble un repérage sur la surface d’un globe.
+\end{exemple}
+
+\section{7. Représentations d’un solide}
+Perspective cavalière, vue de face, vue de dessus et coupe donnent des informations différentes sur le même objet.
+
+\[
+\text{solide}\rightarrow\text{plusieurs vues}
+\]
+
+\begin{exemple}
+Une représentation plane ne montre pas toutes les longueurs en vraie grandeur.
+\end{exemple}
+
+\section{8. Conversions de volume}
+Les puissances de dix permettent de justifier les conversions cubiques.
+
+\[
+1\,\text{m}^3=10^6\,\text{cm}^3
+\]
+
+\begin{exemple}
+Une conversion de volume élève au cube le facteur de conversion de longueur.
+\end{exemple}
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Identifier si la question concerne une surface, un volume ou un repérage.
+\item Repérer centre et rayon avant d’utiliser une formule.
+\item Mettre toutes les longueurs dans une même unité.
+\item Pour un volume, appliquer le cube à la longueur ou au facteur d’échelle.
+\item Pour latitude-longitude, préciser le sens nord/sud et est/ouest.
+\item Contrôler l’unité et l’ordre de grandeur du résultat.
+\end{enumerate}
+\end{methode}
+
+\section{Problème guidé et stratégie}
+Un exercice de troisième peut demander plusieurs décisions successives : reconnaître une configuration, sélectionner une propriété, produire une valeur exacte ou approchée, puis interpréter. On commence par écrire les hypothèses et la grandeur recherchée. On ne remplace par des nombres qu’après avoir écrit la relation mathématique ou logique adaptée. La conclusion reprend le vocabulaire de l’énoncé et précise l’unité ou la propriété démontrée.
+
+\begin{attention}
+Une construction visuelle ou un résultat de calculatrice peut suggérer une réponse, mais une preuve géométrique, un raisonnement algébrique ou une analyse d’algorithme doit expliciter pourquoi la conclusion est valide.
+\end{attention}
+
+\section{Contrôler un résultat}
+Le contrôle dépend du chapitre : comparer les longueurs dans une figure, vérifier qu’un angle reste dans l’intervalle attendu, tester une valeur dans une équation, suivre l’état d’un programme ou convertir l’unité finale. Une deuxième méthode ou un cas simple permet souvent de détecter une erreur avant la réponse définitive.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Confondre sphère et boule.
+\item Utiliser le diamètre à la place du rayon.
+\item Oublier le cube dans la formule de volume.
+\item Convertir un volume comme une longueur.
+\item Confondre latitude et longitude.
+\item Interpréter une perspective comme un dessin en vraie grandeur.
+\end{itemize}
+
+\section{À retenir}
+\begin{aretenir}
+\begin{itemize}
+\item La sphère est une surface ; la boule est le solide qu’elle délimite.
+\item Le volume de la boule vaut $\frac43\pi R^3$.
+\item Latitude et longitude permettent de repérer un point sur une sphère.
+\item Les représentations planes d’un solide doivent être mises en relation avec sa géométrie réelle.
+\end{itemize}
+\end{aretenir}
+
+\section{Réinvestissement : Représentations d’un solide}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Perspective cavalière, vue de face, vue de dessus et coupe donnent des informations différentes sur le même objet. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Une représentation plane ne montre pas toutes les longueurs en vraie grandeur. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
+
+\section{Réinvestissement : Volume de la boule}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Le volume d’une boule de rayon $R$ est donné par une formule à utiliser et à interpréter. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Le rayon doit être exprimé dans l’unité de longueur compatible avec l’unité de volume attendue. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
+
+\section{Réinvestissement : Section par un plan}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Une section plane d’une sphère est un cercle, sauf dans le cas limite d’un plan tangent où la section se réduit à un point. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Plus le plan est proche du centre, plus le rayon du cercle de section est grand. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
+
+\section{Réinvestissement : Volume de la boule}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Le volume d’une boule de rayon $R$ est donné par une formule à utiliser et à interpréter. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Le rayon doit être exprimé dans l’unité de longueur compatible avec l’unité de volume attendue. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.

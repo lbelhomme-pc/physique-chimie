@@ -1,0 +1,160 @@
+% Mathématiques 3e — V3 LaTeX
+% Pythagore, racines et distances
+
+\section{Objectifs}
+\begin{itemize}
+\item Utiliser Pythagore et sa réciproque dans des problèmes complexes.
+\item Conserver une racine carrée exacte puis produire un arrondi contrôlé.
+\item Calculer une distance dans un repère orthonormé.
+\item Choisir entre preuve géométrique et calcul numérique.
+\end{itemize}
+
+\section{Repères et vocabulaire}
+En troisième, Pythagore n’est plus une nouveauté mais un outil de décision : calculer une longueur, tester un angle droit, contrôler une figure ou relier géométrie et coordonnées. La racine carrée intervient comme opération inverse du carré et doit être manipulée avec prudence.
+
+\section{1. Hypoténuse et configuration}
+Le théorème de Pythagore s’applique uniquement dans un triangle rectangle. L’hypoténuse est le côté opposé à l’angle droit et le plus long du triangle.
+
+\[
+c^2=a^2+b^2
+\]
+
+\begin{exemple}
+Avant tout calcul, on identifie explicitement l’angle droit et l’hypoténuse.
+\end{exemple}
+
+\section{2. Calculer une longueur}
+Si l’hypoténuse est inconnue, on additionne les carrés des deux côtés de l’angle droit. Si un côté est inconnu, on soustrait son carré à celui de l’hypoténuse.
+
+\[
+x^2=17^2-8^2=225\Rightarrow x=15
+\]
+
+\begin{exemple}
+La racine positive est retenue car une longueur est positive.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/pythagore-racines-distances-1.svg}{Première représentation structurante pour Pythagore, racines et distances.}{La figure sert de support visuel pour organiser les relations géométriques ou algorithmiques du chapitre.}
+
+\section{3. Réciproque de Pythagore}
+Pour prouver qu’un triangle est rectangle, on compare le carré du plus grand côté à la somme des carrés des deux autres.
+
+\[
+7^2+24^2=25^2
+\]
+
+\begin{exemple}
+L’égalité permet de conclure par la réciproque ; une simple apparence graphique ne constitue pas une preuve.
+\end{exemple}
+
+\section{4. Contraposée pratique}
+Si le carré du plus grand côté n’est pas égal à la somme des carrés des deux autres, le triangle n’est pas rectangle.
+
+\[
+8^2+10^2\neq13^2
+\]
+
+\begin{exemple}
+Cette comparaison permet d’écarter rapidement une hypothèse d’angle droit.
+\end{exemple}
+
+\section{5. Racine carrée}
+Pour $a\ge0$, $\sqrt a$ désigne le nombre positif dont le carré vaut $a$.
+
+\[
+\sqrt{81}=9
+\]
+
+\[
+8<\sqrt{70}<9
+\]
+
+\begin{exemple}
+On conserve $\sqrt a$ comme valeur exacte tant qu’aucun arrondi n’est nécessaire.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/pythagore-racines-distances-2.svg}{Deuxième représentation pédagogique pour Pythagore, racines et distances.}{La seconde figure permet de comparer des configurations, des états ou des transformations dans les problèmes du chapitre.}
+
+\section{6. Arrondi et contrôle}
+Une valeur approchée doit être cohérente avec un encadrement par deux carrés parfaits.
+
+\[
+64<70<81\Rightarrow8<\sqrt{70}<9
+\]
+
+\begin{exemple}
+Un affichage de calculatrice hors de cet intervalle révèle immédiatement une erreur de saisie ou de raisonnement.
+\end{exemple}
+
+\section{7. Distance dans un repère}
+Dans un repère orthonormé, les écarts horizontaux et verticaux forment les côtés d’un triangle rectangle.
+
+\[
+AB=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2}
+\]
+
+\begin{exemple}
+Cette formule se retrouve directement par Pythagore et n’a pas besoin d’être apprise isolément.
+\end{exemple}
+
+\section{8. Choisir un outil}
+Pythagore utilise des longueurs dans un triangle rectangle ; la trigonométrie introduit un angle aigu ; Thalès s’appuie sur des configurations de parallélisme.
+
+\[
+\text{configuration}\rightarrow\text{outil}
+\]
+
+\begin{exemple}
+Le choix de la propriété fait partie de la résolution : un calcul correct avec un théorème inapplicable reste faux.
+\end{exemple}
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Identifier la figure et les hypothèses réellement données.
+\item Repérer l’angle droit ou le plus grand côté selon le sens du raisonnement.
+\item Écrire la relation symbolique avant de remplacer par des nombres.
+\item Conserver une valeur exacte en racine carrée si possible.
+\item Arrondir uniquement à la précision demandée.
+\item Contrôler la longueur par comparaison avec les autres côtés ou par un encadrement.
+\end{enumerate}
+\end{methode}
+
+\section{Problème guidé et stratégie}
+Un exercice de troisième peut demander plusieurs décisions successives : reconnaître une configuration, sélectionner une propriété, produire une valeur exacte ou approchée, puis interpréter. On commence par écrire les hypothèses et la grandeur recherchée. On ne remplace par des nombres qu’après avoir écrit la relation mathématique ou logique adaptée. La conclusion reprend le vocabulaire de l’énoncé et précise l’unité ou la propriété démontrée.
+
+\begin{attention}
+Une construction visuelle ou un résultat de calculatrice peut suggérer une réponse, mais une preuve géométrique, un raisonnement algébrique ou une analyse d’algorithme doit expliciter pourquoi la conclusion est valide.
+\end{attention}
+
+\section{Contrôler un résultat}
+Le contrôle dépend du chapitre : comparer les longueurs dans une figure, vérifier qu’un angle reste dans l’intervalle attendu, tester une valeur dans une équation, suivre l’état d’un programme ou convertir l’unité finale. Une deuxième méthode ou un cas simple permet souvent de détecter une erreur avant la réponse définitive.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Utiliser Pythagore sans triangle rectangle.
+\item Choisir un mauvais côté comme hypoténuse.
+\item Oublier de prendre la racine carrée après un calcul de carré.
+\item Appliquer la réciproque sans identifier le plus grand côté.
+\item Arrondir trop tôt.
+\item Inventer des règles algébriques sur les racines carrées hors programme.
+\end{itemize}
+
+\section{À retenir}
+\begin{aretenir}
+\begin{itemize}
+\item Pythagore relie les trois longueurs d’un triangle rectangle.
+\item La réciproque sert à prouver qu’un triangle est rectangle.
+\item Une racine carrée est conservée exacte aussi longtemps que possible.
+\item La distance dans un repère orthonormé découle directement de Pythagore.
+\end{itemize}
+\end{aretenir}
+
+\section{Réinvestissement : Arrondi et contrôle}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Une valeur approchée doit être cohérente avec un encadrement par deux carrés parfaits. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Un affichage de calculatrice hors de cet intervalle révèle immédiatement une erreur de saisie ou de raisonnement. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
+
+\section{Réinvestissement : Choisir un outil}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Pythagore utilise des longueurs dans un triangle rectangle ; la trigonométrie introduit un angle aigu ; Thalès s’appuie sur des configurations de parallélisme. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Le choix de la propriété fait partie de la résolution : un calcul correct avec un théorème inapplicable reste faux. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
+
+\section{Réinvestissement : Calculer une longueur}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Si l’hypoténuse est inconnue, on additionne les carrés des deux côtés de l’angle droit. Si un côté est inconnu, on soustrait son carré à celui de l’hypoténuse. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. La racine positive est retenue car une longueur est positive. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.

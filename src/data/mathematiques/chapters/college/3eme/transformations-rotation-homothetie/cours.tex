@@ -1,0 +1,167 @@
+% Mathématiques 3e — V3 LaTeX
+% Rotations, homothéties et transformations
+
+\section{Objectifs}
+\begin{itemize}
+\item Construire et reconnaître l’image d’une figure par rotation.
+\item Comprendre une homothétie de rapport positif ou négatif.
+\item Prévoir les effets des transformations sur longueurs, angles, aires et volumes.
+\item Relier homothéties, triangles semblables et Thalès.
+\end{itemize}
+
+\section{Repères et vocabulaire}
+La troisième complète la famille des transformations du cycle 4 avec rotations et homothéties. Une rotation conserve la taille ; une homothétie peut agrandir, réduire et, lorsque son rapport est négatif, placer l’image de l’autre côté du centre.
+
+\section{1. Rotation}
+Une rotation est déterminée par un centre, un angle et un sens. Elle conserve les longueurs et les angles.
+
+\[
+OA=OA'
+\]
+
+\[
+\widehat{AOA'}=\theta
+\]
+
+\begin{exemple}
+Tous les points tournent autour du même centre du même angle.
+\end{exemple}
+
+\section{2. Conservation par rotation}
+Une rotation conserve alignement, longueurs, angles, aires et forme générale.
+
+\[
+A'=\mathcal R(A)
+\]
+
+\begin{exemple}
+Une figure et son image par rotation sont superposables.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/transformations-rotation-homothetie-1.svg}{Première représentation structurante pour Rotations, homothéties et transformations.}{La figure sert de support visuel pour organiser les relations géométriques ou algorithmiques du chapitre.}
+
+\section{3. Homothétie positive}
+Une homothétie de centre $O$ et de rapport $k>0$ place $A$ et $A'$ sur la même demi-droite issue de $O$.
+
+\[
+OA'=k\,OA
+\]
+
+\begin{exemple}
+Si $k>1$, il s’agit d’un agrandissement ; si $0<k<1$, d’une réduction.
+\end{exemple}
+
+\section{4. Homothétie négative}
+Pour $k<0$, l’image se trouve sur la demi-droite opposée, et la distance au centre est multipliée par $|k|$.
+
+\[
+OA'=|k|\,OA
+\]
+
+\begin{exemple}
+Le signe du rapport modifie l’orientation par rapport au centre mais pas le facteur de longueur, qui est $|k|$.
+\end{exemple}
+
+\section{5. Effet sur les longueurs}
+Sous une homothétie de rapport $k$, les longueurs sont multipliées par $|k|$.
+
+\[
+L'=|k|L
+\]
+
+\begin{exemple}
+Les angles sont conservés, ce qui explique pourquoi l’image reste semblable à la figure initiale.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/transformations-rotation-homothetie-2.svg}{Deuxième représentation pédagogique pour Rotations, homothéties et transformations.}{La seconde figure permet de comparer des configurations, des états ou des transformations dans les problèmes du chapitre.}
+
+\section{6. Effet sur aires et volumes}
+Les aires sont multipliées par $k^2$ et les volumes par $|k|^3$.
+
+\[
+A'=k^2A
+\]
+
+\[
+V'=|k|^3V
+\]
+
+\begin{exemple}
+Le signe disparaît dans les facteurs de mesure car une aire ou un volume est positif.
+\end{exemple}
+
+\section{7. Homothétie et Thalès}
+Une homothétie met en correspondance des points alignés avec le centre et crée des rapports de longueurs constants.
+
+\[
+\dfrac{OA'}{OA}=k
+\]
+
+\begin{exemple}
+Cette structure permet de relier la transformation aux configurations de Thalès et aux triangles semblables.
+\end{exemple}
+
+\section{8. Composer des transformations}
+Une figure peut être obtenue par plusieurs transformations successives : translation, rotation, homothétie ou symétrie.
+
+\[
+F\xrightarrow{T_1}F_1\xrightarrow{T_2}F_2
+\]
+
+\begin{exemple}
+Pour analyser une composition, on décrit l’effet de chaque étape au lieu d’inventer une transformation globale sans justification.
+\end{exemple}
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Identifier les points correspondants et le centre éventuel.
+\item Pour une rotation, repérer l’angle et le sens.
+\item Pour une homothétie, déterminer le signe et la valeur absolue du rapport.
+\item Appliquer le bon facteur aux longueurs, aires ou volumes.
+\item Contrôler les alignements avec le centre et la conservation des angles.
+\item Décrire la transformation avec un vocabulaire précis.
+\end{enumerate}
+\end{methode}
+
+\section{Problème guidé et stratégie}
+Un exercice de troisième peut demander plusieurs décisions successives : reconnaître une configuration, sélectionner une propriété, produire une valeur exacte ou approchée, puis interpréter. On commence par écrire les hypothèses et la grandeur recherchée. On ne remplace par des nombres qu’après avoir écrit la relation mathématique ou logique adaptée. La conclusion reprend le vocabulaire de l’énoncé et précise l’unité ou la propriété démontrée.
+
+\begin{attention}
+Une construction visuelle ou un résultat de calculatrice peut suggérer une réponse, mais une preuve géométrique, un raisonnement algébrique ou une analyse d’algorithme doit expliciter pourquoi la conclusion est valide.
+\end{attention}
+
+\section{Contrôler un résultat}
+Le contrôle dépend du chapitre : comparer les longueurs dans une figure, vérifier qu’un angle reste dans l’intervalle attendu, tester une valeur dans une équation, suivre l’état d’un programme ou convertir l’unité finale. Une deuxième méthode ou un cas simple permet souvent de détecter une erreur avant la réponse définitive.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Confondre rotation et translation.
+\item Oublier le centre d’une rotation ou d’une homothétie.
+\item Utiliser $k$ au lieu de $|k|$ pour une longueur lorsque $k<0$.
+\item Appliquer $k$ aux aires au lieu de $k^2$.
+\item Croire qu’une homothétie négative produit des longueurs négatives.
+\item Déduire une transformation exacte d’une simple ressemblance visuelle.
+\end{itemize}
+
+\section{À retenir}
+\begin{aretenir}
+\begin{itemize}
+\item Une rotation conserve longueurs, angles et aires.
+\item Une homothétie multiplie les longueurs par $|k|$.
+\item Les aires sont multipliées par $k^2$ et les volumes par $|k|^3$.
+\item Homothéties, Thalès et triangles semblables expriment une même structure de proportionnalité géométrique.
+\end{itemize}
+\end{aretenir}
+
+\section{Réinvestissement : Homothétie positive}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Une homothétie de centre $O$ et de rapport $k>0$ place $A$ et $A'$ sur la même demi-droite issue de $O$. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Si $k>1$, il s’agit d’un agrandissement ; si $0<k<1$, d’une réduction. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
+
+\section{Réinvestissement : Homothétie négative}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Pour $k<0$, l’image se trouve sur la demi-droite opposée, et la distance au centre est multipliée par $|k|$. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Le signe du rapport modifie l’orientation par rapport au centre mais pas le facteur de longueur, qui est $|k|$. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
+
+\section{Réinvestissement : Conservation par rotation}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Une rotation conserve alignement, longueurs, angles, aires et forme générale. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Une figure et son image par rotation sont superposables. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
+
+\section{Réinvestissement : Composer des transformations}
+Cette notion peut être réinvestie dans un problème où plusieurs informations doivent être reliées. Une figure peut être obtenue par plusieurs transformations successives : translation, rotation, homothétie ou symétrie. L’élève commence par expliciter les données pertinentes, puis choisit une propriété et contrôle sa conclusion. Pour analyser une composition, on décrit l’effet de chaque étape au lieu d’inventer une transformation globale sans justification. Cette étape de réinvestissement prépare les problèmes de brevet où la stratégie compte autant que le calcul.
