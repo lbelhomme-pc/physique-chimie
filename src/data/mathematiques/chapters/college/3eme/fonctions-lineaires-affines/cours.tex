@@ -1,70 +1,160 @@
+% Mathématiques 3e — V3 LaTeX
+% Fonctions linéaires et affines
+
 \section{Objectifs}
 \begin{itemize}
-\item Comprendre la notation $f(x)$.
-\item Calculer images et antécédents.
-\item Étudier les fonctions linéaires et affines.
-\item Lire et utiliser leurs représentations graphiques.
+\item Formaliser les notions de fonction, image et antécédent.
+\item Passer d’une formule à un tableau ou à un graphique et réciproquement.
+\item Reconnaître une fonction linéaire ou affine.
+\item Résoudre des problèmes en comparant des fonctions.
 \end{itemize}
 
-\section{1. Fonction}
-Une fonction associe à un nombre $x$ un unique nombre noté $f(x)$.
+\section{Repères et vocabulaire}
+La notion de fonction est stabilisée en troisième. Une fonction associe à une valeur d’entrée une unique valeur de sortie. La même dépendance peut être décrite par une formule, un tableau ou un graphique ; savoir changer de représentation est une compétence centrale.
 
-Si
+\section{1. Fonction et variable}
+Une fonction $f$ associe à chaque valeur $x$ admissible un unique nombre noté $f(x)$.
+
 \[
-f(x)=2x+3,
-\]
-alors
-\[
-f(4)=11.
+f:x\mapsto2x+3
 \]
 
-11 est l'image de 4.
-
-\section{2. Antécédent}
-Chercher un antécédent de 11 par $f(x)=2x+3$ revient à résoudre
 \[
-2x+3=11,
-\]
-donc
-\[
-x=4.
+f(4)=11
 \]
 
-\section{3. Fonction linéaire}
-Une fonction linéaire a la forme
+\begin{exemple}
+La lettre $x$ joue le rôle de variable d’entrée et $f(x)$ celui de valeur de sortie.
+\end{exemple}
+
+\section{2. Image}
+L’image de $x$ par $f$ est la valeur obtenue en remplaçant $x$ dans la formule ou en lisant le graphique.
+
 \[
-f(x)=ax.
+f(-2)=2(-2)+3=-1
 \]
 
-Elle modélise une situation de proportionnalité. Sa représentation graphique est une droite passant par l'origine.
+\begin{exemple}
+Un nombre a une seule image par une fonction.
+\end{exemple}
 
-\section{4. Fonction affine}
-Une fonction affine a la forme
+\coursefigure{/images/mathematiques/3eme/fonctions-lineaires-affines-1.svg}{Représentation structurante pour le chapitre Fonctions linéaires et affines.}{Cette figure organise visuellement les relations utilisées dans les premières notions du chapitre.}
+
+\section{3. Antécédent}
+Un antécédent de $y$ est une valeur $x$ telle que $f(x)=y$. Selon la fonction, une valeur peut avoir zéro, un ou plusieurs antécédents.
+
 \[
-f(x)=ax+b.
+2x+3=15\Rightarrow x=6
 \]
 
-Sa représentation graphique est une droite.
-\begin{itemize}
-\item $a$ est le coefficient directeur ;
-\item $b$ est l'ordonnée à l'origine.
-\end{itemize}
+\begin{exemple}
+La recherche d’un antécédent peut se faire graphiquement ou par résolution d’une équation.
+\end{exemple}
 
-\section{5. Variation}
-Lorsque $x$ augmente de 1, une fonction affine $ax+b$ varie de $a$.
+\section{4. Fonction linéaire}
+Une fonction linéaire est de la forme $f(x)=ax$. Elle modélise une situation de proportionnalité.
 
-Si $a>0$, la fonction est croissante.
-Si $a<0$, elle est décroissante.
+\[
+f(x)=4x
+\]
 
-\section{6. Comparer deux modèles}
-Pour déterminer quand deux tarifs sont égaux, on résout l'équation obtenue en égalant leurs expressions.
+\begin{exemple}
+Sa représentation graphique est une droite passant par l’origine.
+\end{exemple}
+
+\section{5. Fonction affine}
+Une fonction affine est de la forme $f(x)=ax+b$. Le nombre $a$ décrit la variation et $b=f(0)$ est l’ordonnée à l’origine.
+
+\[
+g(x)=3x-5
+\]
+
+\begin{exemple}
+Si $b\neq0$, la situation n’est pas proportionnelle.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/fonctions-lineaires-affines-2.svg}{Deuxième représentation pédagogique pour le chapitre Fonctions linéaires et affines.}{Cette représentation sert de support de lecture, de comparaison ou de contrôle dans les problèmes du chapitre.}
+
+\section{6. Lire un graphique}
+Sur un graphique, l’image se lit verticalement à partir d’une abscisse ; l’antécédent se cherche horizontalement à partir d’une ordonnée.
+
+\[
+f(2)\approx7
+\]
+
+\begin{exemple}
+Une lecture graphique est souvent approchée : la précision dépend de l’échelle du dessin.
+\end{exemple}
+
+\section{7. Comparer deux fonctions}
+Comparer deux tarifs ou deux phénomènes peut conduire à résoudre $f(x)=g(x)$ puis à identifier de quel côté du point d’intersection chaque courbe est la plus basse ou la plus haute.
+
+\[
+4x+10=6x\Rightarrow x=5
+\]
+
+\begin{exemple}
+Un point d’intersection représente une même valeur de sortie pour la même entrée.
+\end{exemple}
+
+\section{8. Modéliser un phénomène}
+Une formule de fonction permet de prévoir des valeurs et de discuter la cohérence du modèle. La modélisation reste limitée au domaine où la situation a du sens.
+
+\[
+h(t)=-2t^2+12t$ pour $0\le t\le6
+\]
+
+\begin{exemple}
+Même si une formule peut être calculée au-delà, le contexte peut interdire certaines valeurs de $t$.
+\end{exemple}
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Identifier la variable d’entrée et la grandeur de sortie.
+\item Choisir la représentation la plus utile : formule, tableau ou graphique.
+\item Calculer une image par substitution ou un antécédent par équation.
+\item Repérer si le modèle est linéaire ou affine.
+\item Comparer les modèles par une égalité ou une lecture graphique.
+\item Interpréter les résultats dans le domaine de validité du contexte.
+\end{enumerate}
+\end{methode}
+
+\section{Problème guidé et stratégie}
+Dans un problème de troisième, la difficulté ne vient pas seulement du calcul. Il faut reconnaître la notion utile, choisir une représentation, enchaîner plusieurs étapes et expliquer pourquoi la méthode est valide. On commence donc par isoler les données, puis on écrit la relation mathématique avant de remplacer par des nombres. Une réponse est considérée comme complète lorsqu’elle comporte une justification, un calcul lisible, un contrôle et une interprétation.
+
+\begin{attention}
+Une figure, un graphique, un tableau ou une calculatrice fournit des informations, mais ne remplace pas une justification lorsque le problème demande une preuve. Inversement, un calcul exact sans interprétation peut rester incomplet dans un contexte concret.
+\end{attention}
+
+\section{Contrôler un résultat}
+Avant de valider une réponse, on vérifie le signe, l’ordre de grandeur, les unités et la compatibilité avec les hypothèses. On peut aussi refaire le calcul par une autre représentation : formule et graphique, valeur exacte et approximation, calcul direct et vérification dans l’énoncé. Cette habitude permet de repérer une erreur de saisie ou une mauvaise modélisation avant la conclusion.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Confondre $f(x)$ et $f\times x$.
-\item Penser que toute droite passe par l'origine.
-\item Confondre image et antécédent.
+\item Confondre $f(x)$ avec $f\times x$.
+\item Échanger image et antécédent.
+\item Croire qu’une droite affine est toujours proportionnelle.
+\item Lire un graphique sans tenir compte de son échelle.
+\item Oublier le domaine de validité d’un modèle.
+\item Donner une lecture graphique comme valeur exacte sans justification.
 \end{itemize}
 
 \section{À retenir}
-Les fonctions linéaires décrivent la proportionnalité ; les fonctions affines ajoutent une valeur initiale.
+\begin{aretenir}
+\begin{itemize}
+\item Une fonction associe une unique image à chaque entrée.
+\item Une fonction linéaire a la forme $ax$ et passe par l’origine.
+\item Une fonction affine a la forme $ax+b$.
+\item Formule, tableau et graphique décrivent la même dépendance sous des formes différentes.
+\end{itemize}
+\end{aretenir}
+
+\section{Réinvestissement : Fonction linéaire}
+Pour réinvestir cette notion, on part d’une situation où plusieurs représentations sont possibles. Une fonction linéaire est de la forme $f(x)=ax$. Elle modélise une situation de proportionnalité. L’élève doit expliciter son choix, effectuer le calcul et revenir au contexte. Sa représentation graphique est une droite passant par l’origine. Le contrôle final consiste à vérifier que la réponse respecte les hypothèses et que son ordre de grandeur est compatible avec les données.
+
+\section{Réinvestissement : Fonction affine}
+Pour réinvestir cette notion, on part d’une situation où plusieurs représentations sont possibles. Une fonction affine est de la forme $f(x)=ax+b$. Le nombre $a$ décrit la variation et $b=f(0)$ est l’ordonnée à l’origine. L’élève doit expliciter son choix, effectuer le calcul et revenir au contexte. Si $b\neq0$, la situation n’est pas proportionnelle. Le contrôle final consiste à vérifier que la réponse respecte les hypothèses et que son ordre de grandeur est compatible avec les données.
+
+\section{Réinvestissement : Modéliser un phénomène}
+Pour réinvestir cette notion, on part d’une situation où plusieurs représentations sont possibles. Une formule de fonction permet de prévoir des valeurs et de discuter la cohérence du modèle. La modélisation reste limitée au domaine où la situation a du sens. L’élève doit expliciter son choix, effectuer le calcul et revenir au contexte. Même si une formule peut être calculée au-delà, le contexte peut interdire certaines valeurs de $t$. Le contrôle final consiste à vérifier que la réponse respecte les hypothèses et que son ordre de grandeur est compatible avec les données.

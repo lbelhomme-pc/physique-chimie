@@ -1,0 +1,156 @@
+% Mathématiques 3e — V3 LaTeX
+% Probabilités, deux épreuves et simulation
+
+\section{Objectifs}
+\begin{itemize}
+\item Calculer des probabilités dans des situations équiprobables ou non.
+\item Utiliser un tableau à double entrée pour une expérience très simple à deux épreuves.
+\item Relier fréquence observée et probabilité d’un modèle.
+\item Simuler une expérience aléatoire et interpréter les résultats.
+\end{itemize}
+
+\section{Repères et vocabulaire}
+La troisième consolide le langage des probabilités et introduit, dans des cas très simples, des expériences à deux épreuves. Le dénombrement se fait alors par tableau à double entrée : la notion d’arbre de probabilités n’est pas un attendu du programme de cycle 4.
+
+\section{1. Univers et événement}
+L’univers regroupe les issues possibles. Un événement est un ensemble d’issues correspondant à une condition donnée.
+
+\[
+A\subset\Omega
+\]
+
+\begin{exemple}
+La probabilité d’un événement est comprise entre $0$ et $1$.
+\end{exemple}
+
+\section{2. Événement contraire}
+L’événement contraire de $A$ se réalise exactement lorsque $A$ ne se réalise pas.
+
+\[
+P(\overline A)=1-P(A)
+\]
+
+\begin{exemple}
+Cette relation permet souvent d’éviter un dénombrement plus long.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/probabilites-deux-epreuves-simulation-1.svg}{Représentation structurante pour le chapitre Probabilités, deux épreuves et simulation.}{Cette figure organise visuellement les relations utilisées dans les premières notions du chapitre.}
+
+\section{3. Équiprobabilité}
+Lorsque toutes les issues ont la même probabilité, on divise le nombre de cas favorables par le nombre de cas possibles.
+
+\[
+P(A)=\dfrac{\text{cas favorables}}{\text{cas possibles}}
+\]
+
+\begin{exemple}
+L’équiprobabilité doit être justifiée par le modèle : elle n’est pas automatique.
+\end{exemple}
+
+\section{4. Modèle non équiprobable}
+Certaines roues, urnes ou dispositifs ont des issues de probabilités différentes. On utilise alors les probabilités données ou déduites du contexte.
+
+\[
+P(A)+P(B)+P(C)=1
+\]
+
+\begin{exemple}
+Le nombre d’issues ne suffit pas à déterminer leur probabilité si elles ne sont pas équiprobables.
+\end{exemple}
+
+\section{5. Deux épreuves très simples}
+Pour deux expériences successives simples, on peut lister les couples d’issues dans un tableau à double entrée.
+
+\[
+2\times6=12\text{ couples pour une pièce et un dé}
+\]
+
+\begin{exemple}
+Chaque case du tableau représente un couple d’issues ; on compte les cases favorables lorsque les couples sont équiprobables.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/probabilites-deux-epreuves-simulation-2.svg}{Deuxième représentation pédagogique pour le chapitre Probabilités, deux épreuves et simulation.}{Cette représentation sert de support de lecture, de comparaison ou de contrôle dans les problèmes du chapitre.}
+
+\section{6. Tableau à double entrée}
+Les lignes peuvent représenter les issues de la première épreuve et les colonnes celles de la seconde.
+
+\[
+\text{ligne}\times\text{colonne}\rightarrow\text{couple}
+\]
+
+\begin{exemple}
+Le tableau doit couvrir tous les couples possibles sans doublon.
+\end{exemple}
+
+\section{7. Simulation}
+Un programme ou un tableur peut répéter une expérience et calculer une fréquence observée.
+
+\[
+f_n=\dfrac{s_n}{n}
+\]
+
+\begin{exemple}
+La fréquence fluctue pour un nombre fini d’essais ; elle tend à se stabiliser lorsque le nombre d’essais augmente.
+\end{exemple}
+
+\section{8. Interpréter une fréquence}
+Une fréquence proche de $0{,}55$ sur un grand nombre d’essais rend plausible un modèle de probabilité proche de $0{,}55$, sans prouver une égalité exacte.
+
+\[
+f_{20\,000}=0{,}549
+\]
+
+\begin{exemple}
+La simulation sert à confronter un modèle et des observations, pas à supprimer l’aléa.
+\end{exemple}
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Décrire clairement l’expérience et les issues possibles.
+\item Identifier l’événement recherché et son contraire éventuel.
+\item Vérifier si le modèle est équiprobable.
+\item Pour deux épreuves simples, construire un tableau à double entrée complet.
+\item Compter les cas favorables et possibles ou utiliser les probabilités données.
+\item Contrôler le résultat entre $0$ et $1$ et l’interpréter.
+\end{enumerate}
+\end{methode}
+
+\section{Problème guidé et stratégie}
+Dans un problème de troisième, la difficulté ne vient pas seulement du calcul. Il faut reconnaître la notion utile, choisir une représentation, enchaîner plusieurs étapes et expliquer pourquoi la méthode est valide. On commence donc par isoler les données, puis on écrit la relation mathématique avant de remplacer par des nombres. Une réponse est considérée comme complète lorsqu’elle comporte une justification, un calcul lisible, un contrôle et une interprétation.
+
+\begin{attention}
+Une figure, un graphique, un tableau ou une calculatrice fournit des informations, mais ne remplace pas une justification lorsque le problème demande une preuve. Inversement, un calcul exact sans interprétation peut rester incomplet dans un contexte concret.
+\end{attention}
+
+\section{Contrôler un résultat}
+Avant de valider une réponse, on vérifie le signe, l’ordre de grandeur, les unités et la compatibilité avec les hypothèses. On peut aussi refaire le calcul par une autre représentation : formule et graphique, valeur exacte et approximation, calcul direct et vérification dans l’énoncé. Cette habitude permet de repérer une erreur de saisie ou une mauvaise modélisation avant la conclusion.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Supposer l’équiprobabilité sans justification.
+\item Confondre événement contraire et événement incompatible.
+\item Oublier des couples dans un tableau à double entrée.
+\item Introduire un arbre de probabilités comme outil obligatoire alors qu’il n’est pas au programme.
+\item Croire qu’une fréquence expérimentale est exactement la probabilité.
+\item Obtenir une probabilité négative ou supérieure à $1$ sans détecter l’erreur.
+\end{itemize}
+
+\section{À retenir}
+\begin{aretenir}
+\begin{itemize}
+\item Une probabilité est comprise entre $0$ et $1$.
+\item Le contraire vérifie $P(\overline A)=1-P(A)$.
+\item Les expériences très simples à deux épreuves se dénombrent avec un tableau à double entrée.
+\item La simulation met en évidence la stabilisation progressive des fréquences.
+\end{itemize}
+\end{aretenir}
+
+\section{Réinvestissement : Tableau à double entrée}
+Pour réinvestir cette notion, on part d’une situation où plusieurs représentations sont possibles. Les lignes peuvent représenter les issues de la première épreuve et les colonnes celles de la seconde. L’élève doit expliciter son choix, effectuer le calcul et revenir au contexte. Le tableau doit couvrir tous les couples possibles sans doublon. Le contrôle final consiste à vérifier que la réponse respecte les hypothèses et que son ordre de grandeur est compatible avec les données.
+
+\section{Réinvestissement : Univers et événement}
+Pour réinvestir cette notion, on part d’une situation où plusieurs représentations sont possibles. L’univers regroupe les issues possibles. Un événement est un ensemble d’issues correspondant à une condition donnée. L’élève doit expliciter son choix, effectuer le calcul et revenir au contexte. La probabilité d’un événement est comprise entre $0$ et $1$. Le contrôle final consiste à vérifier que la réponse respecte les hypothèses et que son ordre de grandeur est compatible avec les données.
+
+\section{Réinvestissement : Équiprobabilité}
+Pour réinvestir cette notion, on part d’une situation où plusieurs représentations sont possibles. Lorsque toutes les issues ont la même probabilité, on divise le nombre de cas favorables par le nombre de cas possibles. L’élève doit expliciter son choix, effectuer le calcul et revenir au contexte. L’équiprobabilité doit être justifiée par le modèle : elle n’est pas automatique. Le contrôle final consiste à vérifier que la réponse respecte les hypothèses et que son ordre de grandeur est compatible avec les données.

@@ -1,0 +1,160 @@
+% Mathématiques 3e — V3 LaTeX
+% Statistiques, histogrammes et étendue
+
+\section{Objectifs}
+\begin{itemize}
+\item Consolider moyenne, médiane, effectifs et fréquences.
+\item Calculer et interpréter l’étendue.
+\item Lire et construire un histogramme à classes de même amplitude.
+\item Comparer des séries à l’aide de plusieurs indicateurs.
+\end{itemize}
+
+\section{Repères et vocabulaire}
+En troisième, la statistique ne se réduit pas à calculer une moyenne. Les élèves croisent indicateurs de position, dispersion et représentations. L’étendue mesure l’écart entre les valeurs extrêmes et l’histogramme permet de représenter des données regroupées par classes de même amplitude.
+
+\section{1. Effectif et fréquence}
+L’effectif indique combien d’observations appartiennent à une valeur ou une classe. La fréquence est le quotient de cet effectif par l’effectif total.
+
+\[
+f_i=\dfrac{n_i}{N}
+\]
+
+\begin{exemple}
+La somme des fréquences vaut $1$ ou $100\,\%$ selon l’écriture choisie.
+\end{exemple}
+
+\section{2. Moyenne pondérée}
+Lorsque des valeurs apparaissent plusieurs fois, on pondère chaque valeur par son effectif.
+
+\[
+\overline x=\dfrac{\sum n_ix_i}{\sum n_i}
+\]
+
+\begin{exemple}
+La moyenne dépend de toutes les valeurs et peut être fortement influencée par une valeur extrême.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/statistiques-histogrammes-etendue-1.svg}{Représentation structurante pour le chapitre Statistiques, histogrammes et étendue.}{Cette figure organise visuellement les relations utilisées dans les premières notions du chapitre.}
+
+\section{3. Médiane}
+La médiane partage une série ordonnée en deux groupes contenant chacun au moins la moitié des observations.
+
+\[
+N=7\Rightarrow\text{4e valeur centrale}
+\]
+
+\begin{exemple}
+Elle est moins sensible aux valeurs extrêmes que la moyenne.
+\end{exemple}
+
+\section{4. Étendue}
+L’étendue est la différence entre la plus grande et la plus petite valeur.
+
+\[
+E=x_{\max}-x_{\min}
+\]
+
+\begin{exemple}
+Deux séries peuvent avoir la même moyenne et la même médiane mais des étendues très différentes.
+\end{exemple}
+
+\section{5. Classes de même amplitude}
+Des données quantitatives peuvent être regroupées dans des intervalles de même largeur. Chaque observation doit appartenir à une seule classe.
+
+\[
+[0;10[
+\]
+
+\[
+[10;20[
+\]
+
+\begin{exemple}
+La convention des bornes doit être annoncée pour éviter de compter deux fois une valeur située sur une frontière.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/statistiques-histogrammes-etendue-2.svg}{Deuxième représentation pédagogique pour le chapitre Statistiques, histogrammes et étendue.}{Cette représentation sert de support de lecture, de comparaison ou de contrôle dans les problèmes du chapitre.}
+
+\section{6. Histogramme}
+Pour des classes de même amplitude, la hauteur ou l’aire des rectangles permet de comparer les effectifs ou fréquences de chaque classe.
+
+\[
+\text{classe}\rightarrow\text{rectangle contigu}
+\]
+
+\begin{exemple}
+Contrairement à un diagramme en barres, les rectangles d’un histogramme sont accolés car l’axe représente une grandeur continue.
+\end{exemple}
+
+\section{7. Comparer des séries}
+Une comparaison pertinente utilise plusieurs indicateurs : moyenne ou médiane pour la position, étendue pour la dispersion, et graphique pour la forme de la distribution.
+
+\[
+\overline x_A=\overline x_B$ mais $E_A\neq E_B
+\]
+
+\begin{exemple}
+Dire qu’une série est « meilleure » exige de préciser le critère utilisé.
+\end{exemple}
+
+\section{8. Interpréter dans un contexte}
+Une statistique doit être reliée à la question posée. Dans une série de temps de trajet avec une valeur exceptionnellement élevée, la médiane peut mieux décrire un trajet typique.
+
+\[
+12;13;14;15;16;17;55
+\]
+
+\begin{exemple}
+Le choix d’un indicateur fait partie du raisonnement et doit être justifié.
+\end{exemple}
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Identifier la population, le caractère et l’effectif total.
+\item Ordonner ou regrouper les données selon la question.
+\item Calculer les indicateurs nécessaires, sans multiplier les calculs inutiles.
+\item Construire ou lire la représentation avec une échelle correcte.
+\item Comparer position et dispersion.
+\item Formuler une conclusion contextualisée.
+\end{enumerate}
+\end{methode}
+
+\section{Problème guidé et stratégie}
+Dans un problème de troisième, la difficulté ne vient pas seulement du calcul. Il faut reconnaître la notion utile, choisir une représentation, enchaîner plusieurs étapes et expliquer pourquoi la méthode est valide. On commence donc par isoler les données, puis on écrit la relation mathématique avant de remplacer par des nombres. Une réponse est considérée comme complète lorsqu’elle comporte une justification, un calcul lisible, un contrôle et une interprétation.
+
+\begin{attention}
+Une figure, un graphique, un tableau ou une calculatrice fournit des informations, mais ne remplace pas une justification lorsque le problème demande une preuve. Inversement, un calcul exact sans interprétation peut rester incomplet dans un contexte concret.
+\end{attention}
+
+\section{Contrôler un résultat}
+Avant de valider une réponse, on vérifie le signe, l’ordre de grandeur, les unités et la compatibilité avec les hypothèses. On peut aussi refaire le calcul par une autre représentation : formule et graphique, valeur exacte et approximation, calcul direct et vérification dans l’énoncé. Cette habitude permet de repérer une erreur de saisie ou une mauvaise modélisation avant la conclusion.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Calculer une médiane sans ordonner la série.
+\item Confondre effectif et fréquence.
+\item Oublier de pondérer la moyenne.
+\item Confondre étendue et moyenne des extrêmes.
+\item Tracer des espaces entre classes d’un histogramme continu.
+\item Conclure à partir d’un seul indicateur quand plusieurs sont nécessaires.
+\end{itemize}
+
+\section{À retenir}
+\begin{aretenir}
+\begin{itemize}
+\item La fréquence est un effectif rapporté à l’effectif total.
+\item Moyenne et médiane sont des indicateurs de position.
+\item L’étendue mesure la dispersion entre valeurs extrêmes.
+\item L’histogramme représente des données regroupées en classes continues.
+\end{itemize}
+\end{aretenir}
+
+\section{Réinvestissement : Médiane}
+Pour réinvestir cette notion, on part d’une situation où plusieurs représentations sont possibles. La médiane partage une série ordonnée en deux groupes contenant chacun au moins la moitié des observations. L’élève doit expliciter son choix, effectuer le calcul et revenir au contexte. Elle est moins sensible aux valeurs extrêmes que la moyenne. Le contrôle final consiste à vérifier que la réponse respecte les hypothèses et que son ordre de grandeur est compatible avec les données.
+
+\section{Réinvestissement : Comparer des séries}
+Pour réinvestir cette notion, on part d’une situation où plusieurs représentations sont possibles. Une comparaison pertinente utilise plusieurs indicateurs : moyenne ou médiane pour la position, étendue pour la dispersion, et graphique pour la forme de la distribution. L’élève doit expliciter son choix, effectuer le calcul et revenir au contexte. Dire qu’une série est « meilleure » exige de préciser le critère utilisé. Le contrôle final consiste à vérifier que la réponse respecte les hypothèses et que son ordre de grandeur est compatible avec les données.
+
+\section{Réinvestissement : Médiane}
+Pour réinvestir cette notion, on part d’une situation où plusieurs représentations sont possibles. La médiane partage une série ordonnée en deux groupes contenant chacun au moins la moitié des observations. L’élève doit expliciter son choix, effectuer le calcul et revenir au contexte. Elle est moins sensible aux valeurs extrêmes que la moyenne. Le contrôle final consiste à vérifier que la réponse respecte les hypothèses et que son ordre de grandeur est compatible avec les données.

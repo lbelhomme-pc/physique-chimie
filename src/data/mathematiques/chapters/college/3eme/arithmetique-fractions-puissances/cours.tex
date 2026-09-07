@@ -1,69 +1,166 @@
+% Mathématiques 3e — V3 LaTeX
+% Arithmétique, fractions et puissances
+
 \section{Objectifs}
 \begin{itemize}
-\item Utiliser la divisibilité et les nombres premiers.
-\item Décomposer un entier en facteurs premiers.
-\item Produire une fraction irréductible.
-\item Utiliser des puissances d'exposants positifs ou négatifs.
+\item Décomposer des entiers en facteurs premiers et résoudre des problèmes de divisibilité.
+\item Calculer avec des fractions rationnelles et justifier certaines propriétés.
+\item Utiliser des puissances d’exposants positifs ou négatifs.
+\item Comparer des ordres de grandeur en notation scientifique.
 \end{itemize}
 
-\section{1. Divisibilité}
-Un entier $a$ est divisible par un entier non nul $b$ lorsqu'il existe un entier $k$ tel que
+\section{Repères et vocabulaire}
+En troisième, les nombres rationnels, la divisibilité et les puissances ne sont plus étudiés séparément : ils deviennent des outils pour simplifier, comparer, démontrer et contrôler un résultat. La priorité est de comprendre les structures de calcul plutôt que de réciter un catalogue de règles.
+
+\section{1. Divisibilité et facteurs premiers}
+La décomposition en facteurs premiers permet d’expliquer pourquoi un entier en divise un autre, de simplifier une fraction et de résoudre des problèmes de partage ou de périodicité.
+
 \[
-a=bk.
+756=2^2\times3^3\times7
 \]
 
-Exemple : $84$ est divisible par $7$ car
+\begin{exemple}
+Pour reconnaître les facteurs communs de deux nombres, on compare leurs décompositions et on ne conserve que les facteurs présents dans les deux.
+\end{exemple}
+
+\section{2. Fraction irréductible}
+Une fraction est irréductible lorsque son numérateur et son dénominateur n’ont plus de diviseur commun supérieur à $1$. La décomposition en facteurs premiers donne une justification fiable de la simplification.
+
 \[
-84=7\times12.
+\dfrac{924}{1386}=\dfrac23
 \]
 
-\section{2. Nombres premiers}
-Un nombre premier possède exactement deux diviseurs positifs : 1 et lui-même.
+\begin{exemple}
+On peut simplifier par le produit des facteurs communs, mais jamais supprimer des termes séparés par une addition ou une soustraction.
+\end{exemple}
 
-Exemples : 2, 3, 5, 7, 11, 13...
+\coursefigure{/images/mathematiques/3eme/arithmetique-fractions-puissances-1.svg}{Représentation structurante pour le chapitre Arithmétique, fractions et puissances.}{Cette figure organise visuellement les relations utilisées dans les premières notions du chapitre.}
 
-\section{3. Décomposition en facteurs premiers}
+\section{3. Calculs fractionnaires justifiés}
+Les règles de calcul sur les fractions peuvent être reliées à la définition du quotient. En troisième, au moins une propriété de calcul fractionnaire peut être expliquée ou démontrée sur une écriture générale.
+
 \[
-180=2^2\times3^2\times5.
+\dfrac ac+\dfrac bc=\dfrac{a+b}{c}
 \]
 
-Cette décomposition aide à simplifier une fraction.
-
-Exemple :
-$$\frac{84}{126}
-=\frac{2^2\times3\times7}{2\times3^2\times7}
-=\frac23.$$
-
-La fraction $\frac23$ est irréductible.
-
-\section{4. Puissances d'exposants négatifs}
-Pour $a\ne0$ :
 \[
-a^{-n}=\frac1{a^n}.
+\dfrac ab\div\dfrac cd=\dfrac ab\times\dfrac dc
 \]
 
-Exemple :
+\begin{exemple}
+Avant de calculer, on vérifie les conditions : les dénominateurs doivent être non nuls et le diviseur d’une division doit lui-même être non nul.
+\end{exemple}
+
+\section{4. Puissances d’exposants négatifs}
+Pour une base non nulle, un exposant négatif traduit un inverse. Les calculs se comprennent à partir de la définition et non par une formule apprise sans justification.
+
 \[
-2^{-3}=\frac1{2^3}=\frac18.
+a^{-n}=\dfrac1{a^n}$ pour $a\neq0
 \]
 
-\section{5. Notation scientifique}
-La notation scientifique garde la forme
-$$a\times10^n
 \[
-avec $1\le|a|<10$.
-
-Elle facilite les comparaisons et les calculs d'ordres de grandeur.
-
-## 6. Résolution de problèmes
-L'arithmétique intervient dans des problèmes de partage, de périodicité, de codage ou de regroupement.
-
-## Erreurs fréquentes
-- Déclarer 1 comme nombre premier.
-- Simplifier une fraction en divisant seulement un terme.
-- Confondre $a^{-n}$ avec $-a^n$.
-
-## À retenir
-La décomposition en facteurs premiers donne une structure commune aux problèmes de divisibilité, de simplification et de calcul exact.
-
+2^{-3}=\dfrac18
 \]
+
+\begin{exemple}
+Le signe d’une puissance de base négative dépend des parenthèses et de la parité de l’exposant.
+\end{exemple}
+
+\section{5. Puissances et quotients}
+Les produits et quotients de puissances peuvent être retrouvés en écrivant les facteurs puis en simplifiant. Cette démarche permet de contrôler les exposants obtenus.
+
+\[
+\dfrac{10^7}{10^3}=10^4
+\]
+
+\[
+10^{-2}\times10^5=10^3
+\]
+
+\begin{exemple}
+On évite de transférer mécaniquement les règles des produits aux additions : $10^2+10^3$ n’est pas égal à $10^5$.
+\end{exemple}
+
+\coursefigure{/images/mathematiques/3eme/arithmetique-fractions-puissances-2.svg}{Deuxième représentation pédagogique pour le chapitre Arithmétique, fractions et puissances.}{Cette représentation sert de support de lecture, de comparaison ou de contrôle dans les problèmes du chapitre.}
+
+\section{6. Notation scientifique}
+La notation scientifique écrit un nombre sous la forme d’un coefficient dont la valeur absolue est comprise entre $1$ et $10$, multiplié par une puissance de $10$.
+
+\[
+0{,}000034=3{,}4\times10^{-5}
+\]
+
+\[
+6\,700\,000=6{,}7\times10^6
+\]
+
+\begin{exemple}
+Cette écriture facilite la comparaison de grandeurs très petites ou très grandes et le contrôle des unités scientifiques.
+\end{exemple}
+
+\section{7. Ordres de grandeur}
+Un ordre de grandeur sert à estimer la taille d’un résultat avant ou après un calcul. Il permet de détecter un facteur $10$, une virgule mal placée ou une unité incohérente.
+
+\[
+(3{,}2\times10^{-8})(4\times10^5)\approx10^{-2}
+\]
+
+\begin{exemple}
+Un résultat de l’ordre de $10^3$ serait ici impossible : le contrôle des exposants suffit à le voir avant le calcul exact.
+\end{exemple}
+
+\section{8. Résoudre un problème numérique}
+Dans un problème, on traduit d’abord les données en nombres ou fractions, on choisit une opération, puis on interprète le résultat. La valeur exacte est conservée aussi longtemps que possible.
+
+\[
+\dfrac56-\dfrac3{10}+\dfrac14=\dfrac{47}{60}
+\]
+
+\begin{exemple}
+Le calcul final n’est qu’une étape : une réponse complète précise ce que représente le nombre obtenu et contrôle qu’il est plausible.
+\end{exemple}
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Identifier la nature des nombres et les contraintes de non-nullité.
+\item Décomposer si la divisibilité ou la simplification est centrale.
+\item Conserver les fractions exactes avant tout arrondi.
+\item Retrouver les règles de puissances à partir de la définition si nécessaire.
+\item Contrôler le signe, l’ordre de grandeur et l’unité.
+\item Interpréter la réponse dans le contexte.
+\end{enumerate}
+\end{methode}
+
+\section{Problème guidé et stratégie}
+Dans un problème de troisième, la difficulté ne vient pas seulement du calcul. Il faut reconnaître la notion utile, choisir une représentation, enchaîner plusieurs étapes et expliquer pourquoi la méthode est valide. On commence donc par isoler les données, puis on écrit la relation mathématique avant de remplacer par des nombres. Une réponse est considérée comme complète lorsqu’elle comporte une justification, un calcul lisible, un contrôle et une interprétation.
+
+\begin{attention}
+Une figure, un graphique, un tableau ou une calculatrice fournit des informations, mais ne remplace pas une justification lorsque le problème demande une preuve. Inversement, un calcul exact sans interprétation peut rester incomplet dans un contexte concret.
+\end{attention}
+
+\section{Contrôler un résultat}
+Avant de valider une réponse, on vérifie le signe, l’ordre de grandeur, les unités et la compatibilité avec les hypothèses. On peut aussi refaire le calcul par une autre représentation : formule et graphique, valeur exacte et approximation, calcul direct et vérification dans l’énoncé. Cette habitude permet de repérer une erreur de saisie ou une mauvaise modélisation avant la conclusion.
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Confondre $a^{-n}$ et $-a^n$.
+\item Simplifier des termes au lieu de facteurs.
+\item Oublier qu’un diviseur doit être non nul.
+\item Additionner les exposants lors d’une addition ordinaire.
+\item Arrondir trop tôt et perdre une valeur exacte.
+\item Ne pas contrôler l’ordre de grandeur.
+\end{itemize}
+
+\section{À retenir}
+\begin{aretenir}
+\begin{itemize}
+\item Une décomposition en facteurs premiers explique divisibilité et simplification.
+\item Une fraction irréductible n’a plus de facteur commun non trivial.
+\item Les puissances négatives décrivent des inverses.
+\item La notation scientifique et les ordres de grandeur servent à comparer et contrôler.
+\end{itemize}
+\end{aretenir}
+
+\section{Réinvestissement : Calculs fractionnaires justifiés}
+Pour réinvestir cette notion, on part d’une situation où plusieurs représentations sont possibles. Les règles de calcul sur les fractions peuvent être reliées à la définition du quotient. En troisième, au moins une propriété de calcul fractionnaire peut être expliquée ou démontrée sur une écriture générale. L’élève doit expliciter son choix, effectuer le calcul et revenir au contexte. Avant de calculer, on vérifie les conditions : les dénominateurs doivent être non nuls et le diviseur d’une division doit lui-même être non nul. Le contrôle final consiste à vérifier que la réponse respecte les hypothèses et que son ordre de grandeur est compatible avec les données.
