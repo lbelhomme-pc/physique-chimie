@@ -1,8 +1,8 @@
 # C25 — Mathématiques 4e / 3e versionnées
 
-**Date :** 4 septembre 2026  
-**Base prévue :** C24  
-**Déploiement Vercel :** non exécuté.
+**Mise à jour :** 7 septembre 2026  
+**Branche :** `refonte-maths-v2-corpus-complet`  
+**Déploiement Vercel après finalisation 4e :** non exécuté.
 
 ## Règle réglementaire
 
@@ -14,70 +14,133 @@ Le nouveau programme de mathématiques du cycle 4 publié au BO n° 10 du 5 mars
 
 En 2026-2027, les contenus publics de 4e et de 3e restent donc rattachés au programme publié au BO n° 31 du 30 juillet 2020 et aux repères/attendus Éduscol encore applicables.
 
-## Architecture
+## Architecture réglementaire
 
-Quatre mappings :
-- `cycle4-4e-2020.mapping.json` : courant ;
-- `cycle4-3e-2020.mapping.json` : courant ;
-- `cycle4-4e-2026.future.mapping.json` : futur, aucune route ;
-- `cycle4-3e-2026.future.mapping.json` : futur, aucune route.
+Quatre mappings restent versionnés :
 
-Le registre C09 reste l'unique source de vérité pour les fenêtres d'application.
+- `cycle4-4e-2020.mapping.json` : courant en 2026-2027 ;
+- `cycle4-3e-2020.mapping.json` : courant en 2026-2027 ;
+- `cycle4-4e-2026.future.mapping.json` : futur, aucune route active en 2026-2027 ;
+- `cycle4-3e-2026.future.mapping.json` : futur, aucune route active en 2026-2027.
 
-## Premier lot 4e
+Le registre de versions reste la source de vérité pour les fenêtres d'application.
+
+# 4e — couverture annuelle V3 complète
+
+La 4e n'est plus un premier lot. Elle comprend **13 chapitres** :
 
 1. Nombres rationnels et calcul
 2. Puissances et notation scientifique
-3. Calcul littéral et équations
-4. Pythagore et racine carrée
+3. Arithmétique et nombres premiers
+4. Calcul littéral et équations
+5. Statistiques et médiane
+6. Probabilités et simulation
+7. Proportionnalité et quatrième proportionnelle
+8. Dépendance entre grandeurs : tableaux et graphiques
+9. Grandeurs, espace et volumes
+10. Pythagore et racine carrée
+11. Triangles, Thalès et cosinus
+12. Translation, agrandissement et réduction
+13. Algorithmique : conditions et variables
 
-## Premier lot 3e
+## Contrat V3 4e
+
+Chaque chapitre doit posséder :
+
+- un `meta.json` avec `contentQualityVersion: 3` ;
+- un `cours.tex` comme source de vérité ;
+- au moins **7 000 caractères** de cours ;
+- au moins **2 visuels pédagogiques** exploités dans le cours ;
+- **12 exercices** exactement :
+  - 4 N1 ;
+  - 4 N2 ;
+  - 4 N3 ;
+- au moins **4 problèmes N2/N3 développés** par chapitre ;
+- des corrections dont la longueur minimale augmente avec le niveau ;
+- **10 QCM minimum**, chacun avec explication ;
+- **12 flashcards minimum**.
+
+Totaux 4e :
+
+- **13 cours LaTeX V3** ;
+- **156 exercices** ;
+- **130 questions de quiz** ;
+- **156 flashcards** ;
+- au moins **26 visuels pédagogiques**.
+
+## Garde-fou « vrais exercices »
+
+Le nombre d'exercices ne suffit pas.
+
+L'audit `scripts/audit-maths-v3-4e-latex.mjs` contrôle notamment :
+
+- la répartition 4/4/4 ;
+- une longueur minimale des énoncés selon N1/N2/N3 ;
+- une longueur minimale des corrections selon N1/N2/N3 ;
+- au moins quatre exercices N2/N3 réellement développés par chapitre ;
+- les identifiants uniques ;
+- les explications des QCM ;
+- les 12 flashcards.
+
+Les anciens exercices télégraphiques de la 4e ont été renforcés plutôt que de réduire les seuils.
+
+# 3e — état actuel
+
+La 3e reste pour l'instant au premier lot historique :
 
 1. Arithmétique, fractions et puissances
 2. Calcul littéral, équations et inéquations
 3. Fonctions linéaires et affines
 4. Thalès et trigonométrie
 
-## Ressources
+Les quatre cours disposent désormais d'une source `cours.tex` à la suite de la migration LaTeX globale, mais leur refonte pédagogique V3 complète reste à effectuer.
 
-Par chapitre :
-- 1 cours MDX ;
-- 6 exercices, avec 2 N1, 2 N2, 2 N3 ;
-- 5 questions de quiz ;
-- 6 flashcards.
+Ressources actuelles 3e :
 
-Total C25 :
-- 8 chapitres ;
-- 48 exercices ;
-- 40 questions de quiz ;
-- 48 flashcards ;
-- 10 routes HTML nouvelles (2 niveaux + 8 chapitres).
+- 4 chapitres ;
+- 24 exercices ;
+- 20 questions de quiz ;
+- 24 flashcards.
 
-## Garde-fous
+# Contrat LaTeX global
 
-- aucun contenu futur 2026 n'est servi en 4e ou 3e en 2026-2027 ;
-- aucune route future parallèle ;
-- aucune modification du stockage de progression ;
-- aucun changement de canonique existant ;
-- aucun déploiement Vercel ;
-- les figures statiques complexes restent différées au lot LaTeX/TikZ prévu ultérieurement.
+Les routes de mathématiques collège et lycée utilisent `cours.tex` comme source de cours affichée.
 
-## Validation
+Le contrat de contenu central accepte désormais explicitement :
 
-Test dédié : `tests/c25-mathematiques-4e-3e.test.mjs`.
+```text
+courseFormat: "latex"
+```
 
-Le GO final exige :
-- `quality` vert ;
-- `dist-fast` vert ;
-- `dist-a11y` vert ;
-- aucune route 2026 future exposée pour 4e/3e.
+L'absence de `cours.tex` pour un chapitre déclaré est bloquante.
 
+# Tests et audits
 
-## Résilience du contrôle de sécurité
+Contrôles concernés :
 
-Le contrôle `npm audit --audit-level=high` reste bloquant lorsqu'il signale une vulnérabilité élevée/critique ou une erreur locale inattendue. En revanche, une indisponibilité explicite du registre npm (503, timeout, erreur réseau transitoire) est journalisée comme incident externe et ne transforme plus à elle seule une branche saine en échec CI.
+- `tests/c25-mathematiques-4e-3e.test.mjs` ;
+- `tests/mathematics-v2-quality.test.mjs` ;
+- `scripts/audit-maths-v3-4e-latex.mjs` ;
+- `scripts/audit-maths-latex-all.mjs`.
 
+La commande `npm run audit:maths-v3` exécute maintenant les audits 6e, 5e, 4e puis l'audit LaTeX global.
 
-## Installation CI sans audit implicite
+## État de certification
 
-Les jobs CI utilisent `npm ci --no-audit --fund=false`. L'audit implicite de l'installation est désactivé afin d'éviter un second appel réseau non maîtrisé au registre npm. Le contrôle de sécurité reste exécuté explicitement ensuite par `npm run audit:security`.
+### 4e
+
+Le contenu statique satisfait le contrat éditorial V3 prévu :
+
+- 13/13 chapitres structurés ;
+- 13/13 cours en LaTeX ;
+- 2 visuels minimum par cours ;
+- 12 exercices 4/4/4 par chapitre ;
+- 10 QCM par chapitre ;
+- 12 flashcards par chapitre ;
+- mapping annuel complet.
+
+La certification CI réelle reste distincte du contrôle statique : elle nécessite l'exécution effective de `ci:quality` et du build dans un environnement disposant des dépendances.
+
+### 3e
+
+Non certifiée V3 complète. C'est la prochaine refonte de niveau après validation finale de la 4e.
