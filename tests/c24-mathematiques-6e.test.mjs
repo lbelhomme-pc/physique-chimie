@@ -11,15 +11,22 @@ const levelDir = path.join(root, "src/data/mathematiques/chapters/college", leve
 const mapping = JSON.parse(
   readFileSync(path.join(root, "src/data/mathematiques/programmes/cycle3-6e-2025.mapping.json"), "utf8"),
 );
-const enrichedQuizFlashcards = new Set([
-  "nombres-entiers-decimaux",
-  "fractions-quotients-pourcentages",
-  "algebre-programmes-calcul",
-  "longueurs-perimetres",
-  "aires-volumes",
-  "temps-durees",
-  "configurations-planes",
-]);
+const expectedQuizFlashcards = {
+  "nombres-entiers-decimaux": [10, 12],
+  "fractions-quotients-pourcentages": [10, 12],
+  "algebre-programmes-calcul": [10, 12],
+  "longueurs-perimetres": [10, 12],
+  "aires-volumes": [10, 12],
+  "temps-durees": [10, 12],
+  "configurations-planes": [10, 12],
+  "angles-triangles-symetrie": [5, 6],
+  "vision-espace-solides": [5, 6],
+  "donnees-tableaux-graphiques": [5, 6],
+  "probabilites": [5, 6],
+  "proportionnalite-echelles": [5, 6],
+  "pensee-informatique": [5, 6],
+};
+
 
 function readJson(file) {
   return JSON.parse(readFileSync(file, "utf8"));
@@ -79,9 +86,9 @@ describe("C24 — mathématiques 6e programme 2025", () => {
       assert.equal(meta.seo.noindex, false);
       assert.equal(exercices.length, 12);
       assert.deepEqual([...new Set(exercices.map((item) => item.level))].sort(), ["N1", "N2", "N3"]);
-      const enriched = enrichedQuizFlashcards.has(slug);
-      assert.equal(questions.length, enriched ? 10 : 5);
-      assert.equal(cards.length, enriched ? 12 : 6);
+      const [expectedQuiz, expectedFlashcards] = expectedQuizFlashcards[slug];
+      assert.equal(questions.length, expectedQuiz, `${slug}: quiz`);
+      assert.equal(cards.length, expectedFlashcards, `${slug}: flashcards`);
       assert.ok(exercices.every((item) => Array.isArray(item.correction) && item.correction.length > 0));
 
       const result = normalizeChapterPackage({
