@@ -1,59 +1,98 @@
+% Mathématiques complémentaires — Terminale — V3 LaTeX
+% Temps d'attente
 \section{Objectifs}
 \begin{itemize}
-\item Distinguer attente discrète et continue.
-\item Utiliser lois géométrique et exponentielle.
-\item Comprendre l'absence de mémoire.
+\item Modéliser un temps d'attente discret par une loi géométrique.
+\item Modéliser un temps d'attente continu par une loi exponentielle.
+\item Utiliser la propriété d'absence de mémoire.
+\item Calculer et interpréter des probabilités de durée.
 \end{itemize}
-
+\section{Repères et enjeux du thème}
+Un temps d'attente peut être compté en nombre d'essais ou mesuré continûment. La loi géométrique décrit le rang du premier succès dans une répétition indépendante d'épreuves de Bernoulli. La loi exponentielle modélise certaines durées continues lorsque l'intensité instantanée reste constante. Les deux modèles possèdent une forme d'absence de mémoire.
 \section{1. Loi géométrique}
-On répète des Bernoulli indépendantes de paramètre $p$ jusqu'au premier succès.
-
-Si $X$ est le rang du premier succès :
+On répète des épreuves de Bernoulli indépendantes de paramètre $p$ jusqu'au premier succès. Si $X$ désigne le rang du premier succès, alors pour $k\geq1$,
 \[
-P(X=k)=(1-p)^{k-1}p,\qquad k\ge1.
+P(X=k)=(1-p)^{k-1}p.
 \]
-
-Et
+Il faut donc obtenir $k-1$ échecs puis un succès. L'espérance vaut
 \[
 E(X)=\frac1p.
 \]
-
-\section{2. Absence de mémoire discrète}
-La loi géométrique vérifie :
+Cette moyenne s'exprime en nombre d'essais.
+\section{2. Probabilité de dépasser un rang}
+L'événement $X>n$ signifie qu'aucun succès n'a été obtenu au cours des $n$ premiers essais. Ainsi
+\[
+P(X>n)=(1-p)^n.
+\]
+On en déduit
+\[
+P(X\leq n)=1-(1-p)^n.
+\]
+Ces formules sont utiles pour chercher un nombre minimal d'essais garantissant une probabilité de succès cumulée donnée.
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/temps-attente-1.svg}{Distribution géométrique.}{Des bâtons décroissants représentent la probabilité que le premier succès apparaisse aux rangs successifs.}
+\section{3. Absence de mémoire discrète}
+La loi géométrique vérifie
 \[
 P(X>m+n\mid X>m)=P(X>n).
 \]
-
-\section{3. Loi exponentielle}
-Pour $\lambda>0$, une variable $T$ suit une loi exponentielle de paramètre $\lambda$ si
+Savoir qu'aucun succès n'a eu lieu pendant les $m$ premiers essais ne modifie pas la loi du nombre d'essais supplémentaires à attendre. Cette propriété repose directement sur l'indépendance des épreuves.
+Elle ne doit pas être utilisée lorsque la probabilité de succès évolue avec le nombre d'essais.
+\section{4. Loi exponentielle}
+Une variable aléatoire continue $T$ suit une loi exponentielle de paramètre $\lambda>0$ lorsque sa densité est
 \[
-P(T>t)=e^{-\lambda t},\qquad t\ge0.
+f(t)=\lambda e^{-\lambda t},\qquad t\geq0,
 \]
-
-Sa densité est
+et nulle pour $t<0$. La fonction de survie vaut
 \[
-f(t)=\lambda e^{-\lambda t}.
+P(T>t)=e^{-\lambda t}.
 \]
-
-\section{4. Espérance}
+La probabilité d'une attente entre $a$ et $b$ s'écrit
+\[
+P(a\leq T\leq b)=e^{-\lambda a}-e^{-\lambda b}.
+\]
+\section{5. Espérance et paramètre}
+Pour une loi exponentielle,
 \[
 E(T)=\frac1\lambda.
 \]
-
-\section{5. Absence de mémoire continue}
+Le paramètre $\lambda$ représente une intensité et possède l'unité inverse de celle du temps. Si le temps est mesuré en heures, $\lambda$ s'exprime en heure inverse.
+Augmenter $\lambda$ raccourcit les temps moyens et accélère la décroissance de la fonction de survie.
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/temps-attente-2.svg}{Densité et fonction de survie exponentielles.}{Deux courbes décroissantes illustrent la densité et la probabilité de dépasser un temps donné.}
+\section{6. Absence de mémoire continue}
+Pour $s\geq0$ et $t\geq0$,
 \[
 P(T>s+t\mid T>s)=P(T>t).
 \]
-
-\section{6. Interprétation}
-Ces lois modélisent des phénomènes dont le risque instantané reste constant dans le modèle.
-
+Le temps déjà attendu n'influence pas la distribution du temps restant dans le modèle. Cette propriété caractérise la loi exponentielle parmi les lois continues usuelles.
+Dans une situation réelle, elle suppose que le mécanisme ne vieillit pas et que le risque instantané reste constant. Un composant mécanique soumis à l'usure peut donc ne pas suivre ce modèle.
+\section{7. Médiane et quantiles}
+La médiane $m$ vérifie $P(T>m)=1/2$. On obtient
+\[
+e^{-\lambda m}=\frac12,
+\qquad
+m=\frac{\ln2}{\lambda}.
+\]
+La médiane diffère de la moyenne $1/\lambda$. Cette différence montre qu'une distribution exponentielle est dissymétrique avec une longue traîne vers les grandes valeurs.
+\section{8. Choisir le bon modèle}
+La loi géométrique convient lorsque l'on compte des essais distincts jusqu'au premier succès. La loi exponentielle convient lorsque la durée est continue et que l'absence de mémoire est plausible.
+Une durée d'attente mesurée à la seconde peut être continue dans le modèle même si l'appareil arrondit l'affichage. Le choix du modèle dépend du mécanisme, pas seulement du format des données.
+\section{9. Algorithmique et simulation}
+Une simulation géométrique répète des Bernoulli jusqu'au premier succès. Pour une loi exponentielle, un logiciel peut générer directement des durées ou utiliser une transformation adaptée d'une variable uniforme.
+Un histogramme de nombreuses durées exponentielles montre une forte concentration près de $0$ et une traîne à droite. La simulation permet de vérifier une moyenne empirique ou une probabilité, sans remplacer la formule théorique.
+\section{10. Méthode de résolution}
+On commence par identifier si l'attente est discrète ou continue. Pour une loi géométrique, on écrit clairement le nombre d'échecs avant le premier succès. Pour une loi exponentielle, on utilise de préférence la fonction de survie lorsque la question porte sur un dépassement.
+Une équation de seuil exponentielle conduit naturellement au logarithme. Les unités doivent être contrôlées et une probabilité finale doit rester comprise entre $0$ et $1$.
+\section{11. Lecture critique}
+L'absence de mémoire est une hypothèse forte. Elle peut convenir pour certaines arrivées ou certains événements indépendants, mais elle n'est pas une vérité générale sur les durées de vie.
+La moyenne seule ne suffit pas à décrire une attente. La médiane, les quantiles et la probabilité de dépasser un seuil apportent des informations complémentaires.
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Confondre rang du premier succès et nombre d'échecs.
-\item Oublier que la géométrique est discrète et l'exponentielle continue.
-\item Interpréter l'absence de mémoire comme une vérité physique universelle.
+\item Oublier que la loi géométrique est discrète et la loi exponentielle continue.
+\item Utiliser l'absence de mémoire lorsque le risque évolue avec le temps.
+\item Confondre moyenne et médiane.
 \end{itemize}
-
 \section{À retenir}
-La géométrique et l'exponentielle sont les modèles de référence de temps d'attente sans mémoire.
+\begin{aretenir}
+La loi géométrique modélise une attente discrète jusqu'au premier succès ; la loi exponentielle modélise certaines attentes continues. Toutes deux possèdent une propriété d'absence de mémoire sous des hypothèses précises.
+\end{aretenir}

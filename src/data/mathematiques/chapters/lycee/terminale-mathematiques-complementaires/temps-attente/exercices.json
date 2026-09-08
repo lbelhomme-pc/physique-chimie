@@ -3,27 +3,35 @@
     {
       "id": "mc-att-n1-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente",
-      "title": "Géométrique",
-      "statement": "p=0,25. Calculer P(X=3).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Probabilité géométrique",
+      "statement": "Une épreuve a une probabilité de succès $p=0.25$. Calculer $P(X=3)$ pour le rang du premier succès. On attend une application directe et une interprétation courte.",
+      "questions": [
+        "Calculer la probabilité exacte."
+      ],
+      "consigne": "Rédiger les probabilités en LaTeX et interpréter le temps d'attente.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser une loi géométrique pour un temps d’attente discret."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Identifier si l'attente est discrète ou continue.",
+        "method": "Utiliser la survie pour un dépassement.",
+        "reminder": "L'espérance exponentielle vaut $1/\\lambda$.",
+        "commonMistake": "Confondre nombre d'échecs et rang du premier succès."
       },
       "correction": [
-        "P(X=3)=0,75²×0,25=0,140625."
+        "On doit obtenir deux échecs puis un succès : $P(X=3)=(0.75)^2\\times0.25$.",
+        "Contrôle : vérifier que la probabilité appartient à $[0,1]$ et que les unités du temps sont cohérentes."
       ],
       "commonMistakes": [],
       "access": {
@@ -38,33 +46,42 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28"
       ]
     },
     {
       "id": "mc-att-n1-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente",
-      "title": "Espérance",
-      "statement": "X géométrique de paramètre 0,2. Calculer E(X).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Dépassement géométrique",
+      "statement": "Pour $p=0.2$, calculer $P(X>4)$. On attend une application directe et une interprétation courte.",
+      "questions": [
+        "Utiliser la formule de survie discrète."
+      ],
+      "consigne": "Rédiger les probabilités en LaTeX et interpréter le temps d'attente.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser une loi exponentielle pour un temps d’attente continu."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Identifier si l'attente est discrète ou continue.",
+        "method": "Utiliser la survie pour un dépassement.",
+        "reminder": "L'espérance exponentielle vaut $1/\\lambda$.",
+        "commonMistake": "Confondre nombre d'échecs et rang du premier succès."
       },
       "correction": [
-        "E(X)=1/0,2=5."
+        "On a $P(X>4)=(1-0.2)^4=(0.8)^4$.",
+        "Contrôle : vérifier que la probabilité appartient à $[0,1]$ et que les unités du temps sont cohérentes."
       ],
       "commonMistakes": [],
       "access": {
@@ -79,33 +96,145 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-att-n1-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente",
+      "title": "Espérance géométrique",
+      "statement": "Une loi géométrique a pour paramètre $p=0.1$. Calculer son espérance. On attend une application directe et une interprétation courte.",
+      "questions": [
+        "Calculer $E(X)$."
+      ],
+      "consigne": "Rédiger les probabilités en LaTeX et interpréter le temps d'attente.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Calculer des probabilités à partir d’une densité exponentielle."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l'attente est discrète ou continue.",
+        "method": "Utiliser la survie pour un dépassement.",
+        "reminder": "L'espérance exponentielle vaut $1/\\lambda$.",
+        "commonMistake": "Confondre nombre d'échecs et rang du premier succès."
+      },
+      "correction": [
+        "On a $E(X)=1/p=10$. On attend en moyenne $10$ essais jusqu'au premier succès.",
+        "Contrôle : vérifier que la probabilité appartient à $[0,1]$ et que les unités du temps sont cohérentes."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-att-n1-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente",
+      "title": "Survie exponentielle",
+      "statement": "Une durée suit une loi exponentielle de paramètre $\\lambda=0.5$. Calculer $P(T>2)$. On attend une application directe et une interprétation courte.",
+      "questions": [
+        "Donner la valeur exacte."
+      ],
+      "consigne": "Rédiger les probabilités en LaTeX et interpréter le temps d'attente.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Exploiter la propriété d’absence de mémoire."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "calculer",
+        "raisonner"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l'attente est discrète ou continue.",
+        "method": "Utiliser la survie pour un dépassement.",
+        "reminder": "L'espérance exponentielle vaut $1/\\lambda$.",
+        "commonMistake": "Confondre nombre d'échecs et rang du premier succès."
+      },
+      "correction": [
+        "On a $P(T>2)=e^{-0.5\\times2}=e^{-1}$.",
+        "Contrôle : vérifier que la probabilité appartient à $[0,1]$ et que les unités du temps sont cohérentes."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "raisonner"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28"
       ]
     },
     {
       "id": "mc-att-n2-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente",
-      "title": "Exponentielle",
-      "statement": "T∼Exp(0,5). Calculer P(T>4).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Succès avant un rang",
+      "statement": "Une tentative réussit avec probabilité $p=0.15$ indépendamment à chaque essai. On veut la probabilité d'obtenir un premier succès au plus tard au rang $5$. On attend une démarche structurée avec choix de la bonne loi.",
+      "questions": [
+        "Exprimer l'événement par complément.",
+        "Calculer la probabilité."
+      ],
+      "consigne": "Rédiger les probabilités en LaTeX et interpréter le temps d'attente.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Interpréter espérance et paramètre d’intensité."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 16,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Identifier si l'attente est discrète ou continue.",
+        "method": "Utiliser la survie pour un dépassement.",
+        "reminder": "L'espérance exponentielle vaut $1/\\lambda$.",
+        "commonMistake": "Confondre nombre d'échecs et rang du premier succès."
       },
       "correction": [
-        "P(T>4)=e^{-0,5×4}=e^{-2}≈0,1353."
+        "On utilise $P(X\\leq5)=1-P(X>5)$.",
+        "Ainsi $P(X\\leq5)=1-(0.85)^5$.",
+        "Contrôle : vérifier que la probabilité appartient à $[0,1]$ et que les unités du temps sont cohérentes."
       ],
       "commonMistakes": [],
       "access": {
@@ -114,39 +243,52 @@
         "requiresAccount": false
       },
       "competences": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N2"
+        "N2",
+        "c28"
       ]
     },
     {
       "id": "mc-att-n2-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente",
-      "title": "Avant un temps",
-      "statement": "T∼Exp(0,2). Calculer P(T≤5).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Attente entre deux temps",
+      "statement": "Une attente suit une loi exponentielle de paramètre $\\lambda=0.2$ par minute. Calculer la probabilité d'attendre entre $3$ et $8$ minutes. On attend une démarche structurée avec choix de la bonne loi.",
+      "questions": [
+        "Écrire la probabilité avec la survie.",
+        "Calculer la forme exacte."
+      ],
+      "consigne": "Rédiger les probabilités en LaTeX et interpréter le temps d'attente.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Utiliser une loi géométrique pour un temps d’attente discret."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
         "calculer",
-        "raisonner"
+        "raisonner",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 16,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Identifier si l'attente est discrète ou continue.",
+        "method": "Utiliser la survie pour un dépassement.",
+        "reminder": "L'espérance exponentielle vaut $1/\\lambda$.",
+        "commonMistake": "Confondre nombre d'échecs et rang du premier succès."
       },
       "correction": [
-        "1-P(T>5)=1-e^{-1}≈0,6321."
+        "On a $P(3\\leq T\\leq8)=P(T>3)-P(T>8)$.",
+        "Donc la probabilité vaut $e^{-0.6}-e^{-1.6}$.",
+        "Contrôle : vérifier que la probabilité appartient à $[0,1]$ et que les unités du temps sont cohérentes."
       ],
       "commonMistakes": [],
       "access": {
@@ -156,38 +298,162 @@
       },
       "competences": [
         "calculer",
-        "raisonner"
+        "raisonner",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N2"
+        "N2",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-att-n2-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente",
+      "title": "Médiane exponentielle",
+      "statement": "Pour $T\\sim\\mathcal{E}(\\lambda)$, déterminer la médiane $m$. On attend une démarche structurée avec choix de la bonne loi.",
+      "questions": [
+        "Écrire l'équation définissant $m$.",
+        "Résoudre cette équation."
+      ],
+      "consigne": "Rédiger les probabilités en LaTeX et interpréter le temps d'attente.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Utiliser une loi exponentielle pour un temps d’attente continu."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 16,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l'attente est discrète ou continue.",
+        "method": "Utiliser la survie pour un dépassement.",
+        "reminder": "L'espérance exponentielle vaut $1/\\lambda$.",
+        "commonMistake": "Confondre nombre d'échecs et rang du premier succès."
+      },
+      "correction": [
+        "La médiane vérifie $P(T>m)=1/2$, donc $e^{-\\lambda m}=1/2$.",
+        "Ainsi $m=\\ln2/\\lambda$.",
+        "Contrôle : vérifier que la probabilité appartient à $[0,1]$ et que les unités du temps sont cohérentes."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-att-n2-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente",
+      "title": "Absence de mémoire",
+      "statement": "Une durée exponentielle vérifie $P(T>10)=0.3$. Une personne a déjà attendu $6$ unités de temps. Calculer $P(T>16\\mid T>6)$. On attend une démarche structurée avec choix de la bonne loi.",
+      "questions": [
+        "Utiliser l'absence de mémoire.",
+        "Interpréter le résultat."
+      ],
+      "consigne": "Rédiger les probabilités en LaTeX et interpréter le temps d'attente.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Calculer des probabilités à partir d’une densité exponentielle."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 16,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l'attente est discrète ou continue.",
+        "method": "Utiliser la survie pour un dépassement.",
+        "reminder": "L'espérance exponentielle vaut $1/\\lambda$.",
+        "commonMistake": "Confondre nombre d'échecs et rang du premier succès."
+      },
+      "correction": [
+        "L'absence de mémoire donne $P(T>16\\mid T>6)=P(T>10)$.",
+        "La probabilité vaut donc $0.3$ : le temps déjà attendu ne modifie pas la loi du temps restant dans ce modèle.",
+        "Contrôle : vérifier que la probabilité appartient à $[0,1]$ et que les unités du temps sont cohérentes."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28"
       ]
     },
     {
       "id": "mc-att-n3-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente",
-      "title": "Mémoire",
-      "statement": "T est exponentielle. On sait T>10. Exprimer P(T>15|T>10).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Calibrer une exponentielle",
+      "statement": "On observe que $P(T>4)=0.6$ pour une durée supposée exponentielle. On veut déterminer le modèle et prévoir une autre probabilité. On attend une analyse complète du modèle et de ses hypothèses.",
+      "questions": [
+        "Déterminer $\\lambda$.",
+        "Calculer $E(T)$.",
+        "Exprimer $P(T>10)$ et interpréter."
+      ],
+      "consigne": "Rédiger les probabilités en LaTeX et interpréter le temps d'attente.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Exploiter la propriété d’absence de mémoire."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 25,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Identifier si l'attente est discrète ou continue.",
+        "method": "Utiliser la survie pour un dépassement.",
+        "reminder": "L'espérance exponentielle vaut $1/\\lambda$.",
+        "commonMistake": "Confondre nombre d'échecs et rang du premier succès."
       },
       "correction": [
-        "Par absence de mémoire : P(T>15|T>10)=P(T>5)."
+        "L'équation $e^{-4\\lambda}=0.6$ donne $\\lambda=-\\ln(0.6)/4$.",
+        "L'espérance vaut $1/\\lambda=-4/\\ln(0.6)$.",
+        "On a $P(T>10)=e^{-10\\lambda}$. Cette prévision dépend de la validité de l'hypothèse exponentielle.",
+        "Contrôle : vérifier que la probabilité appartient à $[0,1]$ et que les unités du temps sont cohérentes."
       ],
       "commonMistakes": [],
       "access": {
@@ -196,39 +462,60 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N3",
+        "c28"
       ]
     },
     {
       "id": "mc-att-n3-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente",
-      "title": "Paramètre",
-      "statement": "Une durée exponentielle a une espérance de 8 h. Déterminer λ.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Comparer géométrique et exponentielle",
+      "statement": "On modélise une même attente par essais discrets de durée $1$ avec probabilité de succès $p=0.1$, puis par une loi exponentielle dont la moyenne est identique. On attend une analyse complète du modèle et de ses hypothèses.",
+      "questions": [
+        "Déterminer la moyenne géométrique.",
+        "Choisir $\\lambda$ pour la loi exponentielle.",
+        "Comparer $P(X>10)$ et $P(T>10)$."
+      ],
+      "consigne": "Rédiger les probabilités en LaTeX et interpréter le temps d'attente.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Interpréter espérance et paramètre d’intensité."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 25,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Identifier si l'attente est discrète ou continue.",
+        "method": "Utiliser la survie pour un dépassement.",
+        "reminder": "L'espérance exponentielle vaut $1/\\lambda$.",
+        "commonMistake": "Confondre nombre d'échecs et rang du premier succès."
       },
       "correction": [
-        "1/λ=8 donc λ=1/8 h^{-1}."
+        "La moyenne géométrique vaut $1/p=10$.",
+        "On impose $1/\\lambda=10$, donc $\\lambda=0.1$.",
+        "On compare $(0.9)^{10}$ à $e^{-1}$. Les valeurs sont proches mais pas égales, car les modèles discret et continu ne coïncident pas exactement.",
+        "Contrôle : vérifier que la probabilité appartient à $[0,1]$ et que les unités du temps sont cohérentes."
       ],
       "commonMistakes": [],
       "access": {
@@ -237,13 +524,142 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N3",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-att-n3-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente",
+      "title": "Seuil de fiabilité",
+      "statement": "Un composant suit une loi exponentielle de paramètre $\\lambda=0.004$ par heure. On cherche la durée $t$ telle que la probabilité de survivre au-delà de $t$ soit $0.95$. On attend une analyse complète du modèle et de ses hypothèses.",
+      "questions": [
+        "Écrire l'équation.",
+        "Résoudre exactement.",
+        "Discuter si un modèle sans mémoire est plausible pour un composant soumis à l'usure."
+      ],
+      "consigne": "Rédiger les probabilités en LaTeX et interpréter le temps d'attente.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Utiliser une loi géométrique pour un temps d’attente discret."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 25,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l'attente est discrète ou continue.",
+        "method": "Utiliser la survie pour un dépassement.",
+        "reminder": "L'espérance exponentielle vaut $1/\\lambda$.",
+        "commonMistake": "Confondre nombre d'échecs et rang du premier succès."
+      },
+      "correction": [
+        "On résout $e^{-0.004t}=0.95$.",
+        "On obtient $t=-\\ln(0.95)/0.004$.",
+        "Le calcul est correct dans le modèle, mais une usure croissante peut rendre l'hypothèse de risque constant discutable.",
+        "Contrôle : vérifier que la probabilité appartient à $[0,1]$ et que les unités du temps sont cohérentes."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-att-n3-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente",
+      "title": "Simulation et validation",
+      "statement": "On simule $10000$ durées exponentielles de paramètre $\\lambda=0.25$ et on obtient une moyenne empirique proche de $4.1$. On attend une analyse complète du modèle et de ses hypothèses.",
+      "questions": [
+        "Calculer l'espérance théorique.",
+        "Comparer à la moyenne simulée.",
+        "Proposer deux contrôles supplémentaires du simulateur."
+      ],
+      "consigne": "Rédiger les probabilités en LaTeX et interpréter le temps d'attente.",
+      "pedagogicalType": "data-analysis",
+      "curriculumItems": [
+        "Utiliser une loi exponentielle pour un temps d’attente continu."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 25,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l'attente est discrète ou continue.",
+        "method": "Utiliser la survie pour un dépassement.",
+        "reminder": "L'espérance exponentielle vaut $1/\\lambda$.",
+        "commonMistake": "Confondre nombre d'échecs et rang du premier succès."
+      },
+      "correction": [
+        "L'espérance théorique vaut $1/0.25=4$.",
+        "La moyenne $4.1$ est proche de la valeur théorique et compatible avec des fluctuations de simulation.",
+        "On peut comparer la proportion de durées supérieures à un seuil à $e^{-\\lambda t}$ et vérifier la forme décroissante de l'histogramme.",
+        "Contrôle : vérifier que la probabilité appartient à $[0,1]$ et que les unités du temps sont cohérentes."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28"
       ]
     }
   ]

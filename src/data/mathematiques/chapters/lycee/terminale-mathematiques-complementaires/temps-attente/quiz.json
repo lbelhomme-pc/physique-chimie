@@ -4,60 +4,120 @@
       "id": "mc-att-q1",
       "question": "La loi géométrique modélise :",
       "choices": [
-        "le rang du premier succès",
-        "une aire",
-        "une corrélation"
+        "Le rang du premier succès",
+        "Une aire",
+        "Une corrélation"
       ],
       "answer": 0,
-      "explanation": "Elle compte des essais jusqu'au succès.",
+      "explanation": "Elle décrit le nombre d'essais nécessaires jusqu'au premier succès dans des Bernoulli indépendantes.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente"
     },
     {
       "id": "mc-att-q2",
-      "question": "E(X) pour une géométrique de paramètre p vaut :",
+      "question": "Pour une géométrique de paramètre $p$, $P(X=k)$ vaut :",
       "choices": [
-        "1/p",
-        "p",
-        "1-p"
+        "$(1-p)^{k-1}p$",
+        "$p^k$",
+        "$e^{-pk}$"
       ],
       "answer": 0,
-      "explanation": "Espérance du rang du premier succès.",
+      "explanation": "Il faut $k-1$ échecs suivis d'un succès.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente"
     },
     {
       "id": "mc-att-q3",
-      "question": "Pour T exponentielle de paramètre λ :",
+      "question": "L'espérance géométrique vaut :",
       "choices": [
-        "P(T>t)=e^{-λt}",
-        "P(T>t)=λt",
-        "P(T>t)=1"
+        "$1/p$",
+        "$p$",
+        "$1-p$"
       ],
       "answer": 0,
-      "explanation": "Fonction de survie exponentielle.",
+      "explanation": "Le rang moyen du premier succès est l'inverse de la probabilité de succès.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente"
     },
     {
       "id": "mc-att-q4",
-      "question": "Une loi exponentielle est :",
+      "question": "Pour une exponentielle, $P(T>t)$ vaut :",
       "choices": [
-        "continue",
-        "discrète",
-        "toujours binomiale"
+        "$e^{-\\lambda t}$",
+        "$\\lambda t$",
+        "$1-e^{\\lambda t}$"
       ],
       "answer": 0,
-      "explanation": "Elle possède une densité.",
+      "explanation": "La fonction de survie d'une loi exponentielle décroît comme $e^{-\\lambda t}$.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente"
     },
     {
       "id": "mc-att-q5",
-      "question": "Absence de mémoire signifie :",
+      "question": "L'espérance exponentielle vaut :",
       "choices": [
-        "le temps déjà attendu ne change pas la loi du temps restant",
-        "la variable n'a pas d'espérance",
-        "le passé est inconnu"
+        "$1/\\lambda$",
+        "$\\lambda$",
+        "$\\ln\\lambda$"
       ],
       "answer": 0,
-      "explanation": "Propriété probabiliste précise.",
+      "explanation": "Le paramètre d'intensité est l'inverse du temps moyen.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente"
+    },
+    {
+      "id": "mc-att-q6",
+      "question": "Une loi exponentielle est :",
+      "choices": [
+        "Continue",
+        "Discrète",
+        "Toujours uniforme"
+      ],
+      "answer": 0,
+      "explanation": "Elle possède une densité sur $[0,+\\infty[$.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente"
+    },
+    {
+      "id": "mc-att-q7",
+      "question": "L'absence de mémoire signifie :",
+      "choices": [
+        "Le temps déjà attendu ne change pas la loi du temps restant",
+        "La durée est toujours nulle",
+        "La moyenne change à chaque instant"
+      ],
+      "answer": 0,
+      "explanation": "Conditionnellement à une attente déjà écoulée, le temps supplémentaire possède la même loi dans le modèle.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente"
+    },
+    {
+      "id": "mc-att-q8",
+      "question": "La médiane exponentielle vaut :",
+      "choices": [
+        "$\\ln2/\\lambda$",
+        "$1/\\lambda$",
+        "$2\\lambda$"
+      ],
+      "answer": 0,
+      "explanation": "Elle résout $e^{-\\lambda m}=1/2$.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente"
+    },
+    {
+      "id": "mc-att-q9",
+      "question": "Une grande valeur de $\\lambda$ produit en moyenne :",
+      "choices": [
+        "Des attentes plus courtes",
+        "Des attentes plus longues",
+        "Aucun changement"
+      ],
+      "answer": 0,
+      "explanation": "Comme $E(T)=1/\\lambda$, l'espérance diminue lorsque l'intensité augmente.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente"
+    },
+    {
+      "id": "mc-att-q10",
+      "question": "L'absence de mémoire convient-elle toujours à l'usure mécanique ?",
+      "choices": [
+        "Non",
+        "Oui toujours",
+        "Seulement si $\\lambda=0$"
+      ],
+      "answer": 0,
+      "explanation": "Un risque qui augmente avec l'âge viole l'hypothèse d'intensité constante.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/temps-attente"
     }
   ]
