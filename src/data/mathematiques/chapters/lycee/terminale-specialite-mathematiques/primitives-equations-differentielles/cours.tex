@@ -95,6 +95,17 @@ Dans un exercice de type baccalauréat, il faut également expliquer le sens des
 Les solutions de $y'=ay$ reposent sur l’exponentielle. Le logarithme intervient pour déterminer un temps de seuil. Les primitives servent ensuite au calcul intégral, tandis que l’algorithmique permet d’approcher ou de visualiser des trajectoires lorsque la résolution exacte n’est pas disponible.
 Les outils de ce chapitre se combinent avec les fonctions usuelles, l’exponentielle, le logarithme, les probabilités et l’algorithmique. Une question peut demander une première étape de calcul exact, une étude qualitative puis une approximation numérique.
 
+\section{Approfondissement : stabilité et lecture qualitative}
+Une équation différentielle affine $y'=ay+b$ possède, lorsque $a\neq0$, une valeur d’équilibre $y_e=-b/a$. En écrivant $z=y-y_e$, on obtient $z'=az$. Toute la dynamique dépend donc du signe de $a$. Si $a<0$, l’écart à l’équilibre décroît exponentiellement : l’équilibre est stable. Si $a>0$, l’écart est amplifié : l’équilibre est instable.
+
+Cette lecture qualitative doit précéder les calculs numériques dans un problème de modélisation. Elle permet de prévoir le sens de variation et la limite attendue, puis de vérifier que la formule obtenue les respecte. Par exemple, une température modélisée par un refroidissement vers une température ambiante ne doit pas diverger vers $+\infty$ si le coefficient de rappel est négatif.
+
+On peut aussi exploiter la condition initiale sans développer inutilement les calculs. Pour $y'=a(y-y_e)$ et $y(0)=y_0$, la solution s’écrit directement
+\[
+y(t)=y_e+(y_0-y_e)e^{at}.
+\]
+Cette écriture met en évidence la distance initiale à l’équilibre et facilite l’interprétation des paramètres.
+
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Oublier la constante additive dans une famille de primitives.
