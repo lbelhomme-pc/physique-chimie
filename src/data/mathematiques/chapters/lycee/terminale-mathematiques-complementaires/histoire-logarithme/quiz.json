@@ -1,63 +1,123 @@
 {
   "questions": [
     {
-      "id": "mc-ln-q1",
-      "question": "ln(ab) vaut :",
+      "id": "mc-log-q1",
+      "question": "Quelle est la condition de définition de $\\ln u$ ?",
       "choices": [
-        "ln a+ln b",
-        "ln a×ln b",
-        "ln(a+b)"
+        "$u>0$",
+        "$u\\geq0$",
+        "$u\\neq0$"
       ],
       "answer": 0,
-      "explanation": "Propriété fondamentale.",
+      "explanation": "Le logarithme népérien est défini uniquement lorsque son argument est strictement positif.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme"
     },
     {
-      "id": "mc-ln-q2",
-      "question": "ln est défini sur :",
+      "id": "mc-log-q2",
+      "question": "Que vaut $\\ln(e^3)$ ?",
       "choices": [
-        "]0,+∞[",
-        "R",
-        "[0,+∞["
+        "$3$",
+        "$e^3$",
+        "$1/3$"
       ],
       "answer": 0,
-      "explanation": "Argument strictement positif.",
+      "explanation": "Le logarithme et l’exponentielle sont réciproques, donc $\\ln(e^3)=3$.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme"
     },
     {
-      "id": "mc-ln-q3",
-      "question": "ln(e^x) vaut :",
+      "id": "mc-log-q3",
+      "question": "Quelle identité est correcte ?",
       "choices": [
-        "x",
-        "e^x",
-        "ln x"
+        "$\\ln(ab)=\\ln a+\\ln b$",
+        "$\\ln(a+b)=\\ln a+\\ln b$",
+        "$\\ln(a/b)=\\ln a\\,\\ln b$"
       ],
       "answer": 0,
-      "explanation": "Fonctions réciproques.",
+      "explanation": "Pour $a>0$ et $b>0$, le logarithme transforme un produit en somme.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme"
     },
     {
-      "id": "mc-ln-q4",
-      "question": "La dérivée de ln x est :",
+      "id": "mc-log-q4",
+      "question": "Quelle est la dérivée de $\\ln x$ ?",
       "choices": [
-        "1/x",
-        "x",
-        "e^x"
+        "$1/x$",
+        "$x$",
+        "$e^x$"
       ],
       "answer": 0,
-      "explanation": "Sur ]0,+∞[.",
+      "explanation": "Sur $]0,+\\infty[$, la dérivée de la fonction logarithme est $1/x$.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme"
     },
     {
-      "id": "mc-ln-q5",
-      "question": "Historiquement, les logarithmes transforment notamment :",
+      "id": "mc-log-q5",
+      "question": "La fonction $\\ln$ est :",
       "choices": [
-        "des produits en sommes",
-        "des sommes en produits toujours",
-        "des dérivées en intégrales"
+        "strictement croissante",
+        "strictement décroissante",
+        "constante"
       ],
       "answer": 0,
-      "explanation": "C'était l'intérêt calculatoire principal.",
+      "explanation": "Comme $1/x>0$ sur le domaine, la fonction logarithme est strictement croissante.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme"
+    },
+    {
+      "id": "mc-log-q6",
+      "question": "Que vaut $\\lim_{x\\to0^+}\\ln x$ ?",
+      "choices": [
+        "$-\\infty$",
+        "$0$",
+        "$+\\infty$"
+      ],
+      "answer": 0,
+      "explanation": "Lorsque $x$ tend vers zéro par valeurs positives, le logarithme tend vers $-\\infty$.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme"
+    },
+    {
+      "id": "mc-log-q7",
+      "question": "Résoudre $\\ln x=0$ donne :",
+      "choices": [
+        "$x=1$",
+        "$x=0$",
+        "$x=e$"
+      ],
+      "answer": 0,
+      "explanation": "Par définition de la fonction réciproque, $\\ln 1=0$ et l’unicité vient de la stricte croissance.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme"
+    },
+    {
+      "id": "mc-log-q8",
+      "question": "Pour $u>0$, quelle dérivée convient à $\\ln u$ ?",
+      "choices": [
+        "$u'/u$",
+        "$u/u'$",
+        "$u'$"
+      ],
+      "answer": 0,
+      "explanation": "La dérivée d’une composée logarithmique est le quotient $u'/u$ lorsque $u$ reste strictement positif.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme"
+    },
+    {
+      "id": "mc-log-q9",
+      "question": "Quelle comparaison est vraie pour $x>0$ ?",
+      "choices": [
+        "$\\ln x\\leq x-1$",
+        "$\\ln x\\geq x$",
+        "$\\ln x=x-1$"
+      ],
+      "answer": 0,
+      "explanation": "L’étude de $x-\\ln x$ montre que son minimum vaut $1$, ce qui donne $\\ln x\\leq x-1$.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme"
+    },
+    {
+      "id": "mc-log-q10",
+      "question": "Dans $N(t)=N_0e^{kt}$, pourquoi utiliser $\\ln$ pour isoler $t$ ?",
+      "choices": [
+        "pour faire descendre l’exposant",
+        "pour supprimer le domaine",
+        "pour rendre $k$ positif"
+      ],
+      "answer": 0,
+      "explanation": "Le logarithme transforme l’exponentielle et permet d’écrire une équation linéaire en $t$.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme"
     }
   ]

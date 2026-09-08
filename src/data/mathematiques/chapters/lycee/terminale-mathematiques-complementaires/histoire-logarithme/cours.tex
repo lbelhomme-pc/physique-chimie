@@ -1,68 +1,119 @@
+% Mathématiques complémentaires — Terminale — V3 LaTeX
+% Approche historique de la fonction logarithme
+
 \section{Objectifs}
 \begin{itemize}
-\item Comprendre pourquoi les logarithmes ont simplifié les calculs.
 \item Relier logarithme et exponentielle.
-\item Utiliser les propriétés algébriques et analytiques de $\ln$.
+\item Utiliser les propriétés algébriques du logarithme.
+\item Dériver et étudier des fonctions comportant le logarithme.
+\item Résoudre des équations et inéquations logarithmiques.
 \end{itemize}
 
-\section{1. Idée historique}
-Avant les calculatrices, transformer un produit en somme était un gain majeur.
+\section{Repères historiques et enjeux du thème}
+Historiquement, le logarithme a été introduit pour transformer les produits en sommes et simplifier les calculs numériques. Aujourd’hui, il permet aussi d’inverser la fonction exponentielle. Son usage exige une vigilance permanente sur le domaine de définition : toute expression placée dans un logarithme doit être strictement positive. Ce chapitre articule calcul algébrique, dérivation, limites et résolution d’équations.
 
-Le logarithme vérifie :
+\section{1. De l'histoire des tables à la fonction réciproque}
+Les premières tables logarithmiques répondaient à un besoin de calcul : remplacer une multiplication difficile par une addition, puis revenir au résultat à l'aide d'une table inverse. Cette idée historique se retrouve exactement dans l'identité $\ln(ab)=\ln a+\ln b$.
+
+La vision moderne est fonctionnelle : la fonction exponentielle est continue, strictement croissante sur $\mathbb{R}$ et prend toutes les valeurs strictement positives. Sa réciproque est la fonction logarithme népérien.
+
+\section{2. Définition comme fonction réciproque}
+La fonction exponentielle est continue, strictement croissante sur $\mathbb{R}$ et prend toutes les valeurs strictement positives. Elle réalise donc une bijection de $\mathbb{R}$ sur $]0,+\infty[$. Sa fonction réciproque est le logarithme népérien. Pour $x>0$ et pour tout réel $y$, les deux équivalences suivantes résument la relation fondamentale :
 \[
-\ln(ab)=\ln a+\ln b.
+\ln x=y\quad\Longleftrightarrow\quad e^y=x.
 \]
+On en déduit immédiatement $\ln 1=0$, $\ln e=1$, $\ln(e^x)=x$ pour tout réel $x$ et $e^{\ln x}=x$ pour $x>0$. Le domaine n’est pas un détail technique : une équation contenant $\ln(u(x))$ impose d’abord $u(x)>0$.
 
-Les tables de logarithmes permettaient donc de remplacer des multiplications difficiles par des additions.
+\begin{exemple}
+Pour résoudre $\ln(2x-3)=1$, on impose $2x-3>0$, puis on utilise la définition : $2x-3=e$, d’où $x=(e+3)/2$, valeur qui satisfait bien le domaine.
+\end{exemple}
 
-\section{2. Fonction réciproque}
-Pour $x>0$ :
+\section{2. Propriétés algébriques}
+Pour tous réels strictement positifs $a$ et $b$, le logarithme vérifie
 \[
-\ln x=y\iff e^y=x.
+\ln(ab)=\ln a+\ln b,\qquad \ln\!\left(\frac{a}{b}\right)=\ln a-\ln b.
 \]
-
-Donc :
+Pour tout entier $n$ et tout $a>0$,
 \[
-\ln(e^x)=x,\qquad e^{\ln x}=x.
+\ln(a^n)=n\ln a.
 \]
+Ces identités permettent de simplifier une expression ou de transformer une équation multiplicative en équation additive. Elles ne s’étendent pas aux sommes : aucune formule analogue n’existe pour $\ln(a+b)$.
 
-\section{3. Propriétés}
-Pour $a,b>0$ :
-\[
-\ln(ab)=\ln a+\ln b,
-\]
-\[
-\ln(a/b)=\ln a-\ln b.
-\]
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/histoire-logarithme-1.svg}{Courbe de la fonction logarithme népérien.}{La courbe croissante passe par le point de coordonnées un zéro et met en évidence l’asymptote verticale d’équation x égale zéro.}
 
-\section{4. Dérivée}
+\section{3. Dérivée, variations et tangente}
+La fonction logarithme est dérivable sur $]0,+\infty[$ et
 \[
- (\ln x)'=\frac1x.
+(\ln x)'=\frac1x.
 \]
-
-La fonction est strictement croissante sur $]0,+\infty[$.
-
-\section{5. Limites}
+Comme $1/x>0$ sur son domaine, $\ln$ est strictement croissante. Pour une composée, si $u$ est dérivable et strictement positive,
 \[
-\ln x\to-\infty\quad(x\to0^+),
+(\ln u)'=\frac{u'}{u}.
 \]
-\[
-\ln x\to+\infty\quad(x\to+\infty).
-\]
+Cette forme est essentielle : avant de dériver, on vérifie $u>0$. La tangente à la courbe de $\ln$ au point d’abscisse $1$ a pour équation $y=x-1$, car $\ln 1=0$ et $(\ln)'(1)=1$.
 
-\section{6. Équations}
+\section{4. Limites et comportements asymptotiques}
+Aux bornes de son domaine,
 \[
-\ln x=a\iff x=e^a.
+\lim_{x\to0^+}\ln x=-\infty,\qquad \lim_{x\to+\infty}\ln x=+\infty.
 \]
+La croissance de $\ln x$ est cependant beaucoup plus lente que celle de $x$. On dispose notamment de
+\[
+\lim_{x\to+\infty}\frac{\ln x}{x}=0.
+\]
+Par changement de variable, cette propriété permet de traiter de nombreuses formes où logarithme et puissance se confrontent. Près de zéro, on peut également transformer $\ln x$ en posant $x=1/t$ afin de revenir à une limite en $+\infty$.
 
-Les logarithmes permettent aussi d'isoler un exposant dans une équation exponentielle.
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/histoire-logarithme-2.svg}{Comparaison qualitative entre logarithme et fonction affine.}{Le schéma montre que le logarithme croît de plus en plus lentement et reste sous sa tangente d’équation y égale x moins un.}
+
+\section{5. Équations et inéquations logarithmiques}
+Pour résoudre une équation, on commence par écrire les conditions de positivité. Lorsque les deux membres sont des logarithmes,
+\[
+\ln u=\ln v\quad\Longleftrightarrow\quad u=v
+\]
+à condition que $u>0$ et $v>0$. Pour une inéquation, la stricte croissance donne
+\[
+\ln u\leq \ln v\quad\Longleftrightarrow\quad u\leq v
+\]
+sous les mêmes conditions de domaine. Une équation telle que $\ln u=k$ se transforme en $u=e^k$.
+
+\section{6. Étude de fonctions comportant un logarithme}
+Une fonction comme $f(x)=x-\ln x$ combine plusieurs outils. Son domaine est $]0,+\infty[$, sa dérivée vaut
+\[
+f'(x)=1-\frac1x=\frac{x-1}{x}.
+\]
+Le dénominateur étant positif, le signe de $f'$ est celui de $x-1$. La fonction décroît donc sur $]0,1]$ puis croît sur $[1,+\infty[$. Son minimum vaut $f(1)=1$. Ce raisonnement conduit à l’inégalité classique
+\[
+\ln x\leq x-1\qquad (x>0).
+\]
+Le chapitre devient ainsi un terrain privilégié pour produire des preuves par étude de fonction.
+
+\section{7. Logarithme et modélisation exponentielle}
+Dans un modèle $N(t)=N_0e^{kt}$, chercher l’instant où la grandeur atteint un seuil $S$ conduit à
+\[
+N_0e^{kt}=S,\qquad kt=\ln\!\left(\frac{S}{N_0}\right).
+\]
+Le logarithme permet donc de faire apparaître l’inconnue située dans l’exposant. L’interprétation du signe de $k$ est essentielle : $k>0$ décrit une croissance et $k<0$ une décroissance. La valeur du temps calculée doit enfin être replacée dans les unités du problème.
+
+\section{Méthode de résolution et rédaction}
+Dans ce chapitre, une résolution solide commence par l’identification du domaine de travail et des hypothèses. Il faut ensuite choisir l’outil adapté, annoncer ce choix, conduire les transformations sans perdre les conditions de validité puis conclure dans le langage de la question. Pour une expression logarithmique, la première ligne utile est souvent le domaine. Pour une équation, on simplifie ensuite les logarithmes avant d’utiliser l’injectivité ; pour une étude de fonction, on dérive seulement après avoir établi le domaine.
+
+Lorsqu’un résultat dépend d’une lecture graphique ou numérique, on distingue clairement ce qui est exact de ce qui est approché. Une valeur obtenue à la calculatrice sert à conjecturer ou contrôler ; elle ne remplace pas une propriété lorsque la question demande une justification. Les contrôles naturels sont le signe de l’argument du logarithme, la cohérence avec la croissance de $\ln$ et, dans les modèles exponentiels, le retour à l’unité ou au seuil demandé.
+
+En situation de type baccalauréat, une copie efficace n’empile pas les calculs. Elle fait apparaître la propriété utilisée, les objets auxquels elle s’applique, les étapes intermédiaires utiles et une conclusion explicite. Un raisonnement court mais complet vaut mieux qu’une longue suite de symboles non commentés.
+
+\section{Connexions avec les autres chapitres}
+Le logarithme est inséparable de l’exponentielle : $\ln(e^x)=x$ et $e^{\ln x}=x$ pour $x>0$. Il intervient également dans les primitives de type $u'/u$, dans les équations différentielles lorsque l’on cherche un instant de franchissement et dans de nombreux modèles de croissance ou décroissance.
+Les liens avec la dérivation, les limites, les équations, la modélisation et l’algorithmique doivent être mobilisés consciemment. Une même question peut demander successivement de transformer une expression, d’étudier une fonction, de résoudre une équation puis d’interpréter la solution obtenue.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Écrire $\ln(a+b)=\ln a+\ln b$.
-\item Oublier $x>0$.
-\item Confondre logarithme et puissance.
+\item Oublier que $\ln x$ n’est défini que pour $x>0$.
+\item Écrire $\ln(a+b)=\ln a+\ln b$, identité fausse.
+\item Multiplier une inégalité par une expression dont le signe n’est pas connu.
+\item Utiliser une valeur approchée sans contrôler qu’elle appartient au domaine.
 \end{itemize}
 
 \section{À retenir}
-Le logarithme est à la fois un outil historique de calcul et une fonction essentielle de l'analyse moderne.
+\begin{aretenir}
+Toujours commencer par le domaine. Sur $]0,+\infty[$, $\ln$ est strictement croissante, $\ln(ab)=\ln a+\ln b$, $\ln(a/b)=\ln a-\ln b$ et $(\ln x)'=1/x$.
+\end{aretenir}

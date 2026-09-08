@@ -1,30 +1,37 @@
 {
   "exercices": [
     {
-      "id": "mc-ln-n1-1",
+      "id": "mc-log-n1-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
-      "title": "Valeurs",
-      "statement": "Calculer ln(1) et ln(e²).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Valeurs exactes",
+      "statement": "Calculer exactement $\\ln 1$, $\\ln(e^4)$, $e^{\\ln 7}$ et $\\ln(1/e^2)$ sans utiliser de valeur approchée. On attend une justification courte qui nomme la propriété utilisée avant le calcul.",
+      "questions": [
+        "Donner les quatre valeurs exactes."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Définir la fonction logarithme népérien comme réciproque de la fonction exponentielle."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Commencer par le domaine de définition.",
+        "method": "Transformer les logarithmes avant de résoudre.",
+        "reminder": "La fonction $\\ln$ est strictement croissante sur $]0,+\\infty[$.",
+        "commonMistake": "Ne jamais manipuler un logarithme sans contrôler la positivité de son argument."
       },
       "correction": [
-        "ln(1)=0.",
-        "ln(e²)=2."
+        "On utilise les relations de réciprocité : $\\ln1=0$, $\\ln(e^4)=4$, $e^{\\ln7}=7$ et $\\ln(e^{-2})=-2$.",
+        "Contrôle : vérifier le domaine, puis réinjecter la solution ou contrôler le signe avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -39,33 +46,145 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28",
+        "logarithme"
       ]
     },
     {
-      "id": "mc-ln-n1-2",
+      "id": "mc-log-n1-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
-      "title": "Produit",
-      "statement": "Simplifier ln(5)+ln(2).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Réduire une expression",
+      "statement": "Simplifier l’expression $A=\\ln 12-\\ln 3+2\\ln 5$ en un seul logarithme, en précisant pourquoi chaque propriété est applicable. On attend une justification courte qui nomme la propriété utilisée avant le calcul.",
+      "questions": [
+        "Écrire $A$ sous la forme $\\ln k$ avec $k>0$."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser les relations algébriques du logarithme sur les réels strictement positifs."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Commencer par le domaine de définition.",
+        "method": "Transformer les logarithmes avant de résoudre.",
+        "reminder": "La fonction $\\ln$ est strictement croissante sur $]0,+\\infty[$.",
+        "commonMistake": "Ne jamais manipuler un logarithme sans contrôler la positivité de son argument."
+      },
+      "correction": [
+        "On obtient $A=\\ln(12/3)+\\ln(5^2)=\\ln4+\\ln25=\\ln100$. Tous les arguments manipulés sont strictement positifs.",
+        "Contrôle : vérifier le domaine, puis réinjecter la solution ou contrôler le signe avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28",
+        "logarithme"
+      ]
+    },
+    {
+      "id": "mc-log-n1-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
+      "title": "Équation élémentaire",
+      "statement": "Résoudre sur $]0,+\\infty[$ l’équation $\\ln x=2$ puis donner une valeur approchée de la solution au centième seulement après la forme exacte. On attend une justification courte qui nomme la propriété utilisée avant le calcul.",
+      "questions": [
+        "Résoudre exactement l’équation."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Dériver et étudier des fonctions faisant intervenir le logarithme."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Commencer par le domaine de définition.",
+        "method": "Transformer les logarithmes avant de résoudre.",
+        "reminder": "La fonction $\\ln$ est strictement croissante sur $]0,+\\infty[$.",
+        "commonMistake": "Ne jamais manipuler un logarithme sans contrôler la positivité de son argument."
+      },
+      "correction": [
+        "La réciprocité de $\\ln$ et de l’exponentielle donne directement $x=e^2$. Cette valeur appartient bien au domaine $]0,+\\infty[$.",
+        "Contrôle : vérifier le domaine, puis réinjecter la solution ou contrôler le signe avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28",
+        "logarithme"
+      ]
+    },
+    {
+      "id": "mc-log-n1-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
+      "title": "Dérivée d’une composée",
+      "statement": "On considère $f(x)=\\ln(2x+1)$. Déterminer son domaine de définition puis calculer $f'(x)$ sur ce domaine. On attend une justification courte qui nomme la propriété utilisée avant le calcul.",
+      "questions": [
+        "Déterminer le domaine et la dérivée."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Résoudre des équations ou inéquations faisant intervenir exponentielle et logarithme."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Commencer par le domaine de définition.",
+        "method": "Transformer les logarithmes avant de résoudre.",
+        "reminder": "La fonction $\\ln$ est strictement croissante sur $]0,+\\infty[$.",
+        "commonMistake": "Ne jamais manipuler un logarithme sans contrôler la positivité de son argument."
       },
       "correction": [
-        "ln(5)+ln(2)=ln(10)."
+        "Il faut $2x+1>0$, soit $x>-1/2$. Avec $u(x)=2x+1$, on a $f'(x)=u'(x)/u(x)=2/(2x+1)$.",
+        "Contrôle : vérifier le domaine, puis réinjecter la solution ou contrôler le signe avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -80,118 +199,46 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28",
+        "logarithme"
       ]
     },
     {
-      "id": "mc-ln-n2-1",
+      "id": "mc-log-n2-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
-      "title": "Équation",
-      "statement": "Résoudre ln x=3.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Produit caché dans une équation",
+      "statement": "Résoudre l’équation $\\ln(x-1)+\\ln(x+1)=\\ln8$. La somme de logarithmes ne peut être regroupée qu’après avoir déterminé précisément le domaine commun des deux termes. On attend une démarche structurée : préciser les conditions de validité, choisir une méthode, effectuer les calculs puis interpréter le résultat obtenu.",
+      "questions": [
+        "Déterminer le domaine.",
+        "Résoudre l’équation sur ce domaine."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Mobiliser limites et comparaison asymptotique avec le logarithme."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
-        "calculer",
-        "raisonner"
-      ],
-      "prerequisites": [],
-      "estimatedTime": 10,
-      "answerType": "text",
-      "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
-      },
-      "correction": [
-        "x=e³."
-      ],
-      "commonMistakes": [],
-      "access": {
-        "tier": "free",
-        "preview": true,
-        "requiresAccount": false
-      },
-      "competences": [
-        "calculer",
-        "raisonner"
-      ],
-      "accessibility": {},
-      "tags": [
-        "maths-complementaires",
-        "N2"
-      ]
-    },
-    {
-      "id": "mc-ln-n2-2",
-      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
-      "title": "Exponentielle",
-      "statement": "Résoudre e^{2x}=7.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
-      "skills": [
-        "calculer",
-        "raisonner"
-      ],
-      "prerequisites": [],
-      "estimatedTime": 10,
-      "answerType": "text",
-      "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
-      },
-      "correction": [
-        "2x=ln 7.",
-        "x=(ln 7)/2."
-      ],
-      "commonMistakes": [],
-      "access": {
-        "tier": "free",
-        "preview": true,
-        "requiresAccount": false
-      },
-      "competences": [
-        "calculer",
-        "raisonner"
-      ],
-      "accessibility": {},
-      "tags": [
-        "maths-complementaires",
-        "N2"
-      ]
-    },
-    {
-      "id": "mc-ln-n3-1",
-      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
-      "title": "Durée de doublement",
-      "statement": "Une population suit P(t)=P0e^{0,04t}. Déterminer le temps de doublement.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
-      "skills": [
-        "calculer",
-        "raisonner"
+        "chercher",
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
       "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Commencer par le domaine de définition.",
+        "method": "Transformer les logarithmes avant de résoudre.",
+        "reminder": "La fonction $\\ln$ est strictement croissante sur $]0,+\\infty[$.",
+        "commonMistake": "Ne jamais manipuler un logarithme sans contrôler la positivité de son argument."
       },
       "correction": [
-        "2=e^{0,04t}.",
-        "ln2=0,04t.",
-        "t=ln2/0,04≈17,3."
+        "Les deux arguments doivent être positifs : $x-1>0$ et $x+1>0$, donc $x>1$.",
+        "Sur ce domaine, $\\ln((x-1)(x+1))=\\ln8$, donc $x^2-1=8$. Les solutions algébriques sont $x=3$ et $x=-3$, mais seule $x=3$ appartient au domaine.",
+        "Contrôle : vérifier le domaine, puis réinjecter la solution ou contrôler le signe avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -200,40 +247,53 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "chercher",
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N2",
+        "c28",
+        "logarithme"
       ]
     },
     {
-      "id": "mc-ln-n3-2",
+      "id": "mc-log-n2-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
-      "title": "Dérivée composée",
-      "statement": "Dériver f(x)=ln(3x+2).",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
+      "title": "Inéquation logarithmique",
+      "statement": "Résoudre l’inéquation $\\ln(2x-1)\\leq0$. Il faut distinguer la condition d’existence du logarithme et l’utilisation de la croissance de $\\ln$. On attend une démarche structurée : préciser les conditions de validité, choisir une méthode, effectuer les calculs puis interpréter le résultat obtenu.",
+      "questions": [
+        "Déterminer le domaine.",
+        "Résoudre l’inéquation et écrire l’ensemble solution."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Définir la fonction logarithme népérien comme réciproque de la fonction exponentielle."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
       "skills": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
       "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Commencer par le domaine de définition.",
+        "method": "Transformer les logarithmes avant de résoudre.",
+        "reminder": "La fonction $\\ln$ est strictement croissante sur $]0,+\\infty[$.",
+        "commonMistake": "Ne jamais manipuler un logarithme sans contrôler la positivité de son argument."
       },
       "correction": [
-        "Domaine : x>-2/3.",
-        "f'(x)=3/(3x+2)."
+        "Le domaine est donné par $2x-1>0$, donc $x>1/2$.",
+        "Comme $\\ln$ est croissante et $0=\\ln1$, on a $\\ln(2x-1)\\leq0\\Longleftrightarrow2x-1\\leq1$. Avec le domaine, on obtient $x\\in]1/2,1]$.",
+        "Contrôle : vérifier le domaine, puis réinjecter la solution ou contrôler le signe avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -242,13 +302,378 @@
         "requiresAccount": false
       },
       "competences": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N2",
+        "c28",
+        "logarithme"
+      ]
+    },
+    {
+      "id": "mc-log-n2-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
+      "title": "Minimum de $x-\\ln x$",
+      "statement": "On étudie $f(x)=x-\\ln x$ sur $]0,+\\infty[$. Cette étude doit conduire à une inégalité valable pour tout réel strictement positif. On attend une démarche structurée : préciser les conditions de validité, choisir une méthode, effectuer les calculs puis interpréter le résultat obtenu.",
+      "questions": [
+        "Étudier le signe de $f'(x)$.",
+        "En déduire le minimum de $f$ et une inégalité sur $\\ln x$."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Utiliser les relations algébriques du logarithme sur les réels strictement positifs."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 15,
+      "answerType": "text",
+      "hints": {
+        "clue": "Commencer par le domaine de définition.",
+        "method": "Transformer les logarithmes avant de résoudre.",
+        "reminder": "La fonction $\\ln$ est strictement croissante sur $]0,+\\infty[$.",
+        "commonMistake": "Ne jamais manipuler un logarithme sans contrôler la positivité de son argument."
+      },
+      "correction": [
+        "On a $f'(x)=1-1/x=(x-1)/x$. Comme $x>0$, $f'$ est négative sur $]0,1[$, nulle en $1$ puis positive sur $]1,+\\infty[$.",
+        "Le minimum vaut $f(1)=1$. Ainsi $x-\\ln x\\geq1$, donc $\\ln x\\leq x-1$ pour tout $x>0$.",
+        "Contrôle : vérifier le domaine, puis réinjecter la solution ou contrôler le signe avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28",
+        "logarithme"
+      ]
+    },
+    {
+      "id": "mc-log-n2-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
+      "title": "Seuil d’un modèle exponentiel",
+      "statement": "Une concentration suit le modèle $C(t)=80e^{-0.18t}$, où $t$ est exprimé en heures. On cherche l’instant où la concentration devient égale à $20$. On attend une démarche structurée : préciser les conditions de validité, choisir une méthode, effectuer les calculs puis interpréter le résultat obtenu.",
+      "questions": [
+        "Écrire l’équation vérifiée par $t$.",
+        "Isoler $t$ à l’aide du logarithme et interpréter le résultat."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Dériver et étudier des fonctions faisant intervenir le logarithme."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "modéliser",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 15,
+      "answerType": "text",
+      "hints": {
+        "clue": "Commencer par le domaine de définition.",
+        "method": "Transformer les logarithmes avant de résoudre.",
+        "reminder": "La fonction $\\ln$ est strictement croissante sur $]0,+\\infty[$.",
+        "commonMistake": "Ne jamais manipuler un logarithme sans contrôler la positivité de son argument."
+      },
+      "correction": [
+        "L’instant recherché vérifie $80e^{-0.18t}=20$, soit $e^{-0.18t}=1/4$.",
+        "En prenant le logarithme, $-0.18t=\\ln(1/4)=-\\ln4$, donc $t=\\ln4/0.18$. Cette durée est positive, ce qui est cohérent avec une décroissance.",
+        "Contrôle : vérifier le domaine, puis réinjecter la solution ou contrôler le signe avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "modéliser",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28",
+        "logarithme"
+      ]
+    },
+    {
+      "id": "mc-log-n3-1",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
+      "title": "Optimiser $\\ln x/x$",
+      "statement": "On considère $g(x)=\\ln x/x$ sur $]0,+\\infty[$. On veut déterminer sa valeur maximale et comprendre le rôle du nombre $e$ dans cette optimisation, sans se contenter d’une lecture graphique. On attend une résolution complète de niveau baccalauréat : analyser la situation, justifier chaque outil, articuler les différentes étapes et contrôler la cohérence de la conclusion.",
+      "questions": [
+        "Calculer $g'(x)$ et étudier son signe.",
+        "Dresser les variations de $g$.",
+        "Déterminer le maximum exact et l’abscisse où il est atteint."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Résoudre des équations ou inéquations faisant intervenir exponentielle et logarithme."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Commencer par le domaine de définition.",
+        "method": "Transformer les logarithmes avant de résoudre.",
+        "reminder": "La fonction $\\ln$ est strictement croissante sur $]0,+\\infty[$.",
+        "commonMistake": "Ne jamais manipuler un logarithme sans contrôler la positivité de son argument."
+      },
+      "correction": [
+        "Par quotient, $g'(x)=(1-\\ln x)/x^2$. Le dénominateur est positif, donc le signe dépend de $1-\\ln x$.",
+        "L’égalité $1-\\ln x=0$ donne $x=e$. Comme $\\ln$ est croissante, $g'$ est positive sur $]0,e[$ puis négative sur $]e,+\\infty[$.",
+        "La fonction atteint donc son maximum en $x=e$, avec $g(e)=1/e$. La conclusion résulte du changement de signe de la dérivée et non d’une simple observation graphique.",
+        "Contrôle : vérifier le domaine, puis réinjecter la solution ou contrôler le signe avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28",
+        "logarithme"
+      ]
+    },
+    {
+      "id": "mc-log-n3-2",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
+      "title": "Deux racines d’une équation",
+      "statement": "Pour un réel $a$, on étudie l’équation $\\ln x=ax$ sur $]0,+\\infty[$. On se limite au cas $a=1/(2e)$ et l’on veut justifier l’existence de deux solutions sans utiliser une résolution symbolique de calculatrice. On attend une résolution complète de niveau baccalauréat : analyser la situation, justifier chaque outil, articuler les différentes étapes et contrôler la cohérence de la conclusion.",
+      "questions": [
+        "Étudier la fonction $h(x)=\\ln x-x/(2e)$.",
+        "Montrer qu’elle possède un maximum strictement positif.",
+        "En utilisant les limites et la continuité, justifier l’existence de deux solutions."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Mobiliser limites et comparaison asymptotique avec le logarithme."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Commencer par le domaine de définition.",
+        "method": "Transformer les logarithmes avant de résoudre.",
+        "reminder": "La fonction $\\ln$ est strictement croissante sur $]0,+\\infty[$.",
+        "commonMistake": "Ne jamais manipuler un logarithme sans contrôler la positivité de son argument."
+      },
+      "correction": [
+        "On a $h'(x)=1/x-1/(2e)=(2e-x)/(2ex)$. Ainsi $h$ croît sur $]0,2e]$ puis décroît sur $[2e,+\\infty[$.",
+        "Le maximum vaut $h(2e)=\\ln(2e)-1=\\ln2>0$. De plus $h(x)\\to-\\infty$ lorsque $x\\to0^+$ et aussi lorsque $x\\to+\\infty$ puisque le terme linéaire domine le logarithme.",
+        "Par continuité, $h$ coupe l’axe une fois avant $2e$ et une fois après $2e$. La stricte monotonie sur chacun des deux intervalles assure qu’il n’y a pas d’autre solution.",
+        "Contrôle : vérifier le domaine, puis réinjecter la solution ou contrôler le signe avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28",
+        "logarithme"
+      ]
+    },
+    {
+      "id": "mc-log-n3-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
+      "title": "Tangente et inégalité",
+      "statement": "On veut démontrer géométriquement puis analytiquement que la courbe de $\\ln$ reste sous sa tangente au point d’abscisse $1$. On introduit $p(x)=x-1-\\ln x$ sur $]0,+\\infty[$. On attend une résolution complète de niveau baccalauréat : analyser la situation, justifier chaque outil, articuler les différentes étapes et contrôler la cohérence de la conclusion.",
+      "questions": [
+        "Déterminer l’équation de la tangente à $\\ln$ en $1$.",
+        "Étudier les variations de $p$.",
+        "Conclure sur la position relative de la courbe et de la tangente."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Définir la fonction logarithme népérien comme réciproque de la fonction exponentielle."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Commencer par le domaine de définition.",
+        "method": "Transformer les logarithmes avant de résoudre.",
+        "reminder": "La fonction $\\ln$ est strictement croissante sur $]0,+\\infty[$.",
+        "commonMistake": "Ne jamais manipuler un logarithme sans contrôler la positivité de son argument."
+      },
+      "correction": [
+        "La tangente a pour pente $(\\ln)'(1)=1$ et passe par $(1,0)$, donc son équation est $y=x-1$.",
+        "On a $p'(x)=1-1/x=(x-1)/x$. La fonction $p$ décroît jusqu’à $1$ puis croît, avec $p(1)=0$.",
+        "Ainsi $p(x)\\geq0$ pour tout $x>0$, soit $\\ln x\\leq x-1$. La courbe de $\\ln$ est donc située sous cette tangente, avec égalité uniquement en $x=1$.",
+        "Contrôle : vérifier le domaine, puis réinjecter la solution ou contrôler le signe avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28",
+        "logarithme"
+      ]
+    },
+    {
+      "id": "mc-log-n3-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/histoire-logarithme",
+      "title": "Datation par décroissance exponentielle",
+      "statement": "Une quantité radioactive suit $Q(t)=Q_0e^{-kt}$ avec $k>0$. Un échantillon ne contient plus que $35\\%$ de la quantité initiale. On veut exprimer son âge en fonction de $k$, puis analyser l’influence d’une petite erreur sur le pourcentage mesuré. On attend une résolution complète de niveau baccalauréat : analyser la situation, justifier chaque outil, articuler les différentes étapes et contrôler la cohérence de la conclusion.",
+      "questions": [
+        "Établir une expression exacte de $t$.",
+        "Calculer $dt/dr$ si l’on écrit $r=Q(t)/Q_0$.",
+        "Expliquer qualitativement pourquoi une mesure très faible de $r$ rend la datation plus sensible."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Utiliser les relations algébriques du logarithme sur les réels strictement positifs."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Commencer par le domaine de définition.",
+        "method": "Transformer les logarithmes avant de résoudre.",
+        "reminder": "La fonction $\\ln$ est strictement croissante sur $]0,+\\infty[$.",
+        "commonMistake": "Ne jamais manipuler un logarithme sans contrôler la positivité de son argument."
+      },
+      "correction": [
+        "L’équation $Q(t)/Q_0=0.35$ donne $e^{-kt}=0.35$, donc $-kt=\\ln(0.35)$ et $t=-\\ln(0.35)/k$.",
+        "En posant $t(r)=-\\ln r/k$, on obtient $t'(r)=-1/(kr)$. La valeur absolue de cette dérivée mesure la sensibilité locale de l’âge au rapport mesuré.",
+        "Lorsque $r$ devient petit, $1/(kr)$ augmente. Une même petite erreur absolue sur $r$ produit donc une variation plus grande sur $t$, ce qui justifie une prudence accrue dans l’interprétation.",
+        "Contrôle : vérifier le domaine, puis réinjecter la solution ou contrôler le signe avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28",
+        "logarithme"
       ]
     }
   ]
