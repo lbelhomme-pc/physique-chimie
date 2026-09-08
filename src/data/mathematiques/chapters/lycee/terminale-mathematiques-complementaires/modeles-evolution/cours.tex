@@ -1,71 +1,76 @@
+% Mathématiques complémentaires — Terminale — V3 LaTeX
+% Modèles d'évolution
 \section{Objectifs}
 \begin{itemize}
-\item Décrire une évolution par une suite ou une fonction.
-\item Distinguer modèle discret et modèle continu.
-\item Utiliser exponentielle et équations différentielles.
-\item Interpréter paramètres et limites.
+\item Modéliser une évolution discrète par une suite.
+\item Modéliser une évolution continue par une fonction.
+\item Résoudre des équations différentielles simples.
+\item Comparer modèles discret et continu.
 \end{itemize}
-
-\section{1. Modèle discret}
-Une évolution par étapes peut être modélisée par une suite.
-
-Croissance proportionnelle :
+\section{Repères et enjeux du thème}
+Une évolution peut être observée à dates séparées ou considérée comme continue. Dans le premier cas, une suite décrit les valeurs successives ; dans le second, une fonction et parfois une équation différentielle décrivent la dynamique instantanée. La comparaison entre ces deux visions est centrale : un taux par période et un coefficient exponentiel continu ne se confondent pas.
+\section{1. Évolutions discrètes}
+Une suite arithmétique modélise une évolution par ajout constant : $u_{n+1}=u_n+r$. Une suite géométrique modélise une évolution proportionnelle : $u_{n+1}=qu_n$ et $u_n=u_0q^n$. Si un taux par période vaut $t$, alors $q=1+t$.
+Pour $q>1$ et $u_0>0$, la suite croît ; pour $0<q<1$, elle décroît vers $0$. La forme explicite permet de calculer une valeur éloignée et de résoudre des questions de seuil. La récurrence reste utile lorsque l'on veut décrire le mécanisme de passage d'une période à la suivante.
+\section{2. Évolution continue exponentielle}
+Une croissance continue proportionnelle à la grandeur s'écrit
 \[
-u_{n+1}=(1+t)u_n.
+y'=ay.
 \]
-
-Alors
+Les solutions sont $y(t)=Ce^{at}$. Si $y(0)=y_0$, alors $y(t)=y_0e^{at}$. Le signe de $a$ détermine la croissance ou la décroissance et l'unité de $a$ est l'inverse de l'unité de temps.
+Le modèle exponentiel suppose que le taux instantané reste proportionnel à la grandeur elle-même. Cette hypothèse peut être pertinente sur une phase limitée mais devenir irréaliste à long terme lorsque des ressources ou des contraintes apparaissent.
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/modeles-evolution-1.svg}{Comparaison entre une suite géométrique et une exponentielle.}{Des points discrets et une courbe continue représentent deux descriptions d'une même évolution.}
+\section{3. Relier taux discret et continu}
+Une hausse de taux $r$ par période donne $u_n=u_0(1+r)^n$. Pour construire un modèle continu qui coïncide aux dates entières, on écrit $y(t)=u_0e^{kt}$ avec
 \[
-u_n=u_0(1+t)^n.
+e^k=1+r,qquad k=\ln(1+r).
 \]
-
-\section{2. Modèle affine récurrent}
-Un modèle
+Le paramètre continu n'est donc pas simplement égal au taux discret. Cette distinction devient importante lorsque les taux sont élevés ou lorsque l'on compare plusieurs unités de temps.
+\section{4. Équation différentielle affine}
+Pour $a\neq0$, l'équation
 \[
-u_{n+1}=au_n+b
+y'=ay+b
 \]
-peut représenter une évolution avec croissance ou décroissance et apport constant.
-
-Une valeur d'équilibre $\ell$ vérifie
+possède une valeur d'équilibre $L=-b/a$. En posant $z=y-L$, on obtient $z'=az$. Les solutions s'écrivent
 \[
-\ell=a\ell+b.
+y(t)=Ce^{at}-\frac ba.
 \]
-
-\section{3. Modèle continu}
-Une croissance proportionnelle à l'état conduit à
+Si $a<0$, l'écart à l'équilibre décroît exponentiellement. Si $a>0$, l'équilibre est instable : un écart initial est amplifié.
+\section{5. Condition initiale}
+Une condition comme $y(0)=y_0$ sélectionne une seule trajectoire. Elle doit être utilisée après l'écriture de la solution générale. La vérification finale consiste à dériver la solution puis à contrôler la condition initiale.
+Dans un problème physique ou économique, la valeur initiale est également un point de calibration. Une formule qui ne la reproduit pas est nécessairement incorrecte. Les paramètres doivent conserver des unités compatibles avec l'équation.
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/modeles-evolution-2.svg}{Approche exponentielle d'un équilibre.}{Plusieurs trajectoires convergent vers une même droite horizontale représentant la valeur d'équilibre.}
+\section{6. Temps de seuil}
+Dans $y(t)=y_0e^{at}$, le franchissement d'un seuil $S>0$ conduit à
 \[
-y'=ay,
+t=\frac{\ln(S/y_0)}{a}.
 \]
-dont les solutions sont
-\[
-y(t)=Ce^{at}.
-\]
-
-\section{4. Évolution vers un équilibre}
-Pour
-\[
-y'=ay+b,
-\]
-une valeur d'équilibre est
-\[
--\frac ba
-\]
-si $a\ne0$.
-
-\section{5. Comparaison de modèles}
-Un modèle discret observe des instants séparés ; un modèle continu décrit tous les instants.
-
-Les paramètres n'ont pas toujours la même interprétation.
-
-\section{6. Ajustement}
-Des données expérimentales peuvent conduire à un ajustement affine ou exponentiel. L'extrapolation doit rester prudente.
-
+Le signe obtenu doit être cohérent avec la dynamique. Une durée négative peut signifier que le seuil avait déjà été franchi avant l'instant choisi comme origine.
+Pour une suite géométrique, le problème analogue consiste à déterminer le plus petit entier $n$ tel que $u_0q^n\geq S$ ou $u_0q^n\leq S$. La nature discrète impose alors un arrondi interprété correctement.
+\section{7. Comparer des modèles}
+Deux modèles peuvent être proches sur une courte période et diverger ensuite. On compare la valeur initiale, le taux instantané, le comportement à long terme et l'erreur sur les données. Un modèle plus complexe n'est pas automatiquement meilleur.
+Un modèle discret est naturel lorsque les changements ont lieu par étapes clairement séparées. Un modèle continu est plus adapté lorsque la grandeur varie en permanence. Le choix dépend du phénomène et de la précision recherchée.
+\section{8. Algorithmique}
+Pour une suite, une boucle conditionnelle peut rechercher le premier indice où un seuil est franchi. Pour une fonction continue, une dichotomie peut localiser le premier instant où $f(t)=S$. Le programme doit conserver les unités et préciser la précision obtenue.
+Une simulation ou un balayage numérique peut comparer plusieurs scénarios de paramètres. Il faut toutefois distinguer exploration numérique et justification mathématique. Un code qui produit une valeur ne garantit pas que le modèle est pertinent.
+\section{9. Méthode de résolution et rédaction}
+On identifie d'abord si le temps est discret ou continu. Pour une suite, on écrit la récurrence puis la formule explicite lorsqu'elle existe. Pour une équation différentielle, on écrit la famille générale, on utilise la condition initiale, puis on vérifie par dérivation.
+Une question de seuil doit conserver la forme exacte avant l'approximation. Le logarithme apparaît naturellement lorsqu'une inconnue est dans un exposant. Une conclusion contextualisée précise le temps, l'unité et la signification du seuil.
+Lorsque plusieurs modèles sont proposés, on ne se contente pas de comparer quelques valeurs numériques. On examine également la vitesse d'évolution, le domaine de calibration et les limites éventuelles.
+\section{10. Lecture critique}
+Un taux estimé sur quelques observations peut évoluer dans le temps. Un modèle exponentiel illimité peut devenir irréaliste lorsque des ressources sont limitées. Un équilibre affine peut mieux représenter une saturation. Le comportement asymptotique constitue donc un critère essentiel de choix du modèle.
+Les erreurs de prévision augmentent souvent avec l'horizon. Une extrapolation doit être accompagnée d'une réserve explicite et, si possible, d'une comparaison avec de nouvelles données.
+\section{11. Connexions avec le programme}
+Ce thème relie les suites, l'exponentielle, le logarithme, les équations différentielles et l'algorithmique. Les modèles d'évolution apparaissent également dans les temps d'attente, les problèmes de croissance et les situations de seuil.
+Les six compétences sont mobilisées : chercher un modèle, représenter les trajectoires, raisonner sur leurs propriétés, calculer les paramètres, modéliser le phénomène et communiquer la portée des résultats.
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Confondre taux $t$ et coefficient $1+t$.
-\item Déduire une limite sans justifier convergence.
-\item Extrapoler un modèle loin de la zone observée.
+\item Confondre taux d'évolution et coefficient multiplicateur.
+\item Utiliser une suite géométrique pour une évolution non proportionnelle.
+\item Oublier la condition initiale d'une équation différentielle.
+\item Comparer des modèles sans tenir compte de leur domaine de validité.
 \end{itemize}
-
 \section{À retenir}
-Le choix entre suite et fonction dépend de la nature du temps et du phénomène étudié.
+\begin{aretenir}
+Les modèles discrets utilisent des suites ; les modèles continus utilisent des fonctions et parfois des équations différentielles. Les paramètres doivent être interprétés et contrôlés par les unités, les valeurs initiales et le comportement à long terme.
+\end{aretenir}

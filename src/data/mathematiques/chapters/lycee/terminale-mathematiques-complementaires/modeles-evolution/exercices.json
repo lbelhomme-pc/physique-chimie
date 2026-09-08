@@ -3,27 +3,35 @@
     {
       "id": "mc-evo-n1-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution",
-      "title": "Croissance géométrique",
-      "statement": "u0=100 et u_{n+1}=1,03u_n. Donner u_n.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Suite géométrique",
+      "statement": "Une population vaut $u_0=500$ et augmente de $4\\,\\%$ par an. Écrire $u_n$. On attend une application directe correctement justifiée.",
+      "questions": [
+        "Donner la formule explicite."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les paramètres.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Modéliser une évolution discrète par une suite arithmétique ou géométrique."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Identifier si l'évolution est discrète ou continue.",
+        "method": "Écrire le modèle avant de résoudre le seuil.",
+        "reminder": "Une condition initiale fixe la constante.",
+        "commonMistake": "Confondre taux et coefficient multiplicateur."
       },
       "correction": [
-        "u_n=100×1,03^n."
+        "Le coefficient multiplicateur est $1.04$, donc $u_n=500(1.04)^n$.",
+        "Contrôle : vérifier la valeur initiale, le signe du taux et le comportement à long terme."
       ],
       "commonMistakes": [],
       "access": {
@@ -38,34 +46,42 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28"
       ]
     },
     {
       "id": "mc-evo-n1-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution",
-      "title": "Équilibre",
-      "statement": "u_{n+1}=0,8u_n+10. Déterminer la valeur d'équilibre.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Taux d’évolution",
+      "statement": "Une grandeur est multipliée par $0.92$ chaque mois. Donner le taux d'évolution mensuel. On attend une application directe correctement justifiée.",
+      "questions": [
+        "Exprimer le taux."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les paramètres.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Étudier un modèle exponentiel continu."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Identifier si l'évolution est discrète ou continue.",
+        "method": "Écrire le modèle avant de résoudre le seuil.",
+        "reminder": "Une condition initiale fixe la constante.",
+        "commonMistake": "Confondre taux et coefficient multiplicateur."
       },
       "correction": [
-        "ℓ=0,8ℓ+10.",
-        "0,2ℓ=10, donc ℓ=50."
+        "On a $1+t=0.92$, donc $t=-0.08$, soit une baisse de $8\\,\\%$.",
+        "Contrôle : vérifier la valeur initiale, le signe du taux et le comportement à long terme."
       ],
       "commonMistakes": [],
       "access": {
@@ -80,35 +96,42 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28"
       ]
     },
     {
-      "id": "mc-evo-n2-1",
+      "id": "mc-evo-n1-3",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution",
-      "title": "Équation différentielle",
-      "statement": "Résoudre y'=0,4y avec y(0)=3.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
+      "title": "Équation homogène",
+      "statement": "Résoudre $y'=0.3y$ avec $y(0)=10$. On attend une application directe correctement justifiée.",
+      "questions": [
+        "Déterminer la solution."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les paramètres.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Résoudre une équation différentielle simple de type $y'=ay+b$."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Identifier si l'évolution est discrète ou continue.",
+        "method": "Écrire le modèle avant de résoudre le seuil.",
+        "reminder": "Une condition initiale fixe la constante.",
+        "commonMistake": "Confondre taux et coefficient multiplicateur."
       },
       "correction": [
-        "y=Ce^{0,4t}.",
-        "y(0)=3 donc C=3.",
-        "y=3e^{0,4t}."
+        "La solution générale est $Ce^{0.3t}$. La condition initiale donne $C=10$, donc $y(t)=10e^{0.3t}$.",
+        "Contrôle : vérifier la valeur initiale, le signe du taux et le comportement à long terme."
       ],
       "commonMistakes": [],
       "access": {
@@ -123,34 +146,149 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N2"
+        "N1",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-evo-n1-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution",
+      "title": "Équilibre",
+      "statement": "Déterminer la solution constante de $y'=-0.5y+6$. On attend une application directe correctement justifiée.",
+      "questions": [
+        "Calculer la valeur d'équilibre."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les paramètres.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Comparer modèles discret et continu et interpréter leurs paramètres."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "calculer",
+        "raisonner"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l'évolution est discrète ou continue.",
+        "method": "Écrire le modèle avant de résoudre le seuil.",
+        "reminder": "Une condition initiale fixe la constante.",
+        "commonMistake": "Confondre taux et coefficient multiplicateur."
+      },
+      "correction": [
+        "Une solution constante vérifie $0=-0.5y+6$, donc $y=12$.",
+        "Contrôle : vérifier la valeur initiale, le signe du taux et le comportement à long terme."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "raisonner"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-evo-n2-1",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution",
+      "title": "Temps de doublement",
+      "statement": "Une population suit $P(t)=1200e^{0.025t}$. Déterminer le temps de doublement. On attend une démarche structurée avec interprétation.",
+      "questions": [
+        "Écrire l'équation du doublement.",
+        "Donner la durée exacte."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les paramètres.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Déterminer un seuil ou un temps de franchissement."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "modéliser",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 16,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l'évolution est discrète ou continue.",
+        "method": "Écrire le modèle avant de résoudre le seuil.",
+        "reminder": "Une condition initiale fixe la constante.",
+        "commonMistake": "Confondre taux et coefficient multiplicateur."
+      },
+      "correction": [
+        "Le doublement vérifie $e^{0.025t}=2$.",
+        "On obtient $t=\\ln2/0.025$, durée positive cohérente avec une croissance.",
+        "Contrôle : vérifier la valeur initiale, le signe du taux et le comportement à long terme."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "modéliser",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28"
       ]
     },
     {
       "id": "mc-evo-n2-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution",
       "title": "Refroidissement",
-      "statement": "T'=-0,2T+4. Déterminer la température d'équilibre.",
-      "consigne": "Justifier les étapes utiles.",
+      "statement": "Une température suit $T'=-0.2(T-18)$ avec $T(0)=78$. Déterminer $T(t)$ puis l'instant où $T=30$. On attend une démarche structurée avec interprétation.",
+      "questions": [
+        "Résoudre l'équation différentielle.",
+        "Résoudre l'équation de seuil."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les paramètres.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Modéliser une évolution discrète par une suite arithmétique ou géométrique."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
-        "calculer",
-        "raisonner"
+        "modéliser",
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 16,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Identifier si l'évolution est discrète ou continue.",
+        "method": "Écrire le modèle avant de résoudre le seuil.",
+        "reminder": "Une condition initiale fixe la constante.",
+        "commonMistake": "Confondre taux et coefficient multiplicateur."
       },
       "correction": [
-        "0=-0,2T+4.",
-        "T=20."
+        "En posant $u=T-18$, on a $u'=-0.2u$, donc $T(t)=18+60e^{-0.2t}$.",
+        "Pour $T=30$, on obtient $e^{-0.2t}=0.2$, donc $t=\\ln5/0.2$.",
+        "Contrôle : vérifier la valeur initiale, le signe du taux et le comportement à long terme."
       ],
       "commonMistakes": [],
       "access": {
@@ -159,39 +297,165 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "modéliser",
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N2"
+        "N2",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-evo-n2-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution",
+      "title": "Discret contre continu",
+      "statement": "Un capital vaut $1000$ et augmente de $5\\,\\%$ par an. Construire un modèle discret puis un modèle continu coïncidant aux années entières. On attend une démarche structurée avec interprétation.",
+      "questions": [
+        "Donner le modèle discret.",
+        "Déterminer le paramètre continu."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les paramètres.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Étudier un modèle exponentiel continu."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 16,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l'évolution est discrète ou continue.",
+        "method": "Écrire le modèle avant de résoudre le seuil.",
+        "reminder": "Une condition initiale fixe la constante.",
+        "commonMistake": "Confondre taux et coefficient multiplicateur."
+      },
+      "correction": [
+        "Le modèle discret est $u_n=1000(1.05)^n$.",
+        "On cherche $C(t)=1000e^{kt}$ avec $e^k=1.05$, donc $k=\\ln(1.05)$.",
+        "Contrôle : vérifier la valeur initiale, le signe du taux et le comportement à long terme."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-evo-n2-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution",
+      "title": "Seuil algorithmique",
+      "statement": "La suite est définie par $u_0=20$ et $u_{n+1}=1.06u_n$. On veut le premier $n$ tel que $u_n\\geq50$. On attend une démarche structurée avec interprétation.",
+      "questions": [
+        "Décrire l'algorithme de recherche.",
+        "Expliquer pourquoi il termine."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les paramètres.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Résoudre une équation différentielle simple de type $y'=ay+b$."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "chercher",
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 16,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l'évolution est discrète ou continue.",
+        "method": "Écrire le modèle avant de résoudre le seuil.",
+        "reminder": "Une condition initiale fixe la constante.",
+        "commonMistake": "Confondre taux et coefficient multiplicateur."
+      },
+      "correction": [
+        "On initialise $n=0$ et $u=20$, puis tant que $u<50$, on remplace $u$ par $1.06u$ et on augmente $n$ de $1$.",
+        "Comme $1.06>1$, la suite positive croît vers $+\\infty$, donc le seuil est atteint.",
+        "Contrôle : vérifier la valeur initiale, le signe du taux et le comportement à long terme."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28"
       ]
     },
     {
       "id": "mc-evo-n3-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution",
-      "title": "Capital",
-      "statement": "Un capital de 5000 € augmente de 2 % par an. Estimer sa valeur après 8 ans.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Comparer deux croissances",
+      "statement": "Deux populations suivent $A(t)=500e^{0.04t}$ et $B(t)=800e^{0.02t}$. On veut déterminer si la première finit par dépasser la seconde. On attend une résolution complète comparant les étapes du modèle.",
+      "questions": [
+        "Résoudre $A(t)=B(t)$.",
+        "Étudier le rapport $A/B$.",
+        "Interpréter le résultat."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les paramètres.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Comparer modèles discret et continu et interpréter leurs paramètres."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
         "modéliser",
-        "calculer"
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 25,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Identifier si l'évolution est discrète ou continue.",
+        "method": "Écrire le modèle avant de résoudre le seuil.",
+        "reminder": "Une condition initiale fixe la constante.",
+        "commonMistake": "Confondre taux et coefficient multiplicateur."
       },
       "correction": [
-        "C_8=5000×1,02^8≈5858,30 €."
+        "L'égalité donne $e^{0.02t}=1.6$, donc $t=\\ln(1.6)/0.02$.",
+        "Le rapport vaut $(5/8)e^{0.02t}$ et est strictement croissant.",
+        "La population $A$ part plus bas mais possède un taux exponentiel plus élevé ; elle dépasse donc $B$ après l'instant calculé.",
+        "Contrôle : vérifier la valeur initiale, le signe du taux et le comportement à long terme."
       ],
       "commonMistakes": [],
       "access": {
@@ -200,41 +464,60 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
         "modéliser",
-        "calculer"
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N3",
+        "c28"
       ]
     },
     {
       "id": "mc-evo-n3-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution",
-      "title": "Comparer deux modèles",
-      "statement": "Une population suit soit P_n=1000×1,05^n, soit P(t)=1000e^{0,05t}. Comparer à t=n=10.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Modèle avec équilibre",
+      "statement": "Une quantité vérifie $y'=-0.4y+20$ et $y(0)=10$. On veut déterminer sa trajectoire et caractériser l'approche de l'équilibre. On attend une résolution complète comparant les étapes du modèle.",
+      "questions": [
+        "Résoudre l'équation différentielle.",
+        "Étudier le sens de variation.",
+        "Déterminer la limite et interpréter."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les paramètres.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Déterminer un seuil ou un temps de franchissement."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 25,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Identifier si l'évolution est discrète ou continue.",
+        "method": "Écrire le modèle avant de résoudre le seuil.",
+        "reminder": "Une condition initiale fixe la constante.",
+        "commonMistake": "Confondre taux et coefficient multiplicateur."
       },
       "correction": [
-        "Modèle discret : ≈1628,9.",
-        "Modèle continu : ≈1648,7.",
-        "Ils sont proches mais non identiques car 1,05≠e^{0,05}."
+        "L'équilibre vaut $50$ et $y(t)=Ce^{-0.4t}+50$. La condition initiale donne $C=-40$.",
+        "On a $y'(t)=16e^{-0.4t}>0$, donc la trajectoire est croissante.",
+        "La limite vaut $50$, valeur d'équilibre stable du modèle.",
+        "Contrôle : vérifier la valeur initiale, le signe du taux et le comportement à long terme."
       ],
       "commonMistakes": [],
       "access": {
@@ -243,13 +526,142 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N3",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-evo-n3-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution",
+      "title": "Calibrer un modèle",
+      "statement": "Une grandeur est modélisée par $N(t)=N_0e^{kt}$. On mesure $N(0)=200$ et $N(5)=300$. Déterminer le modèle puis prévoir $N(12)$. On attend une résolution complète comparant les étapes du modèle.",
+      "questions": [
+        "Déterminer $N_0$ et $k$.",
+        "Écrire le modèle complet.",
+        "Calculer la prévision et discuter l'extrapolation."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les paramètres.",
+      "pedagogicalType": "data-analysis",
+      "curriculumItems": [
+        "Modéliser une évolution discrète par une suite arithmétique ou géométrique."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 25,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l'évolution est discrète ou continue.",
+        "method": "Écrire le modèle avant de résoudre le seuil.",
+        "reminder": "Une condition initiale fixe la constante.",
+        "commonMistake": "Confondre taux et coefficient multiplicateur."
+      },
+      "correction": [
+        "On a $N_0=200$ et $e^{5k}=1.5$, donc $k=\\ln(1.5)/5$.",
+        "Le modèle est $N(t)=200e^{t\\ln(1.5)/5}$.",
+        "La valeur en $12$ est une extrapolation au-delà de la deuxième date de calibration et doit être interprétée avec prudence.",
+        "Contrôle : vérifier la valeur initiale, le signe du taux et le comportement à long terme."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-evo-n3-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution",
+      "title": "Évolution affine discrète",
+      "statement": "Une suite vérifie $u_{n+1}=0.8u_n+12$ avec $u_0=20$. On veut montrer qu'elle converge et déterminer sa limite. On attend une résolution complète comparant les étapes du modèle.",
+      "questions": [
+        "Trouver la valeur d'équilibre $L$.",
+        "Étudier $v_n=u_n-L$.",
+        "Conclure sur $u_n$ et sa limite."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les paramètres.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Étudier un modèle exponentiel continu."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 25,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l'évolution est discrète ou continue.",
+        "method": "Écrire le modèle avant de résoudre le seuil.",
+        "reminder": "Une condition initiale fixe la constante.",
+        "commonMistake": "Confondre taux et coefficient multiplicateur."
+      },
+      "correction": [
+        "L'équilibre vérifie $L=0.8L+12$, donc $L=60$.",
+        "Alors $v_{n+1}=0.8v_n$, donc $v_n=-40(0.8)^n$.",
+        "Ainsi $u_n=60-40(0.8)^n$ et $u_n\\to60$.",
+        "Contrôle : vérifier la valeur initiale, le signe du taux et le comportement à long terme."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28"
       ]
     }
   ]

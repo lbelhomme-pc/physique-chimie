@@ -2,62 +2,122 @@
   "questions": [
     {
       "id": "mc-evo-q1",
-      "question": "Une hausse de 5 % correspond au coefficient :",
+      "question": "Une hausse de $4\\,\\%$ correspond au coefficient :",
       "choices": [
-        "1,05",
-        "0,05",
-        "5"
+        "$1.04$",
+        "$0.04$",
+        "$4$"
       ],
       "answer": 0,
-      "explanation": "Coefficient multiplicateur = 1+t.",
+      "explanation": "Un taux de $4\\,\\%$ donne le coefficient multiplicateur $1+0.04=1.04$.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution"
     },
     {
       "id": "mc-evo-q2",
-      "question": "Les solutions de y'=ay sont :",
+      "question": "Une suite géométrique vérifie :",
       "choices": [
-        "Ce^{ax}",
-        "ax+C",
-        "C+a"
+        "$u_{n+1}=qu_n$",
+        "$u_{n+1}=u_n+q$",
+        "$u_n=nq$"
       ],
       "answer": 0,
-      "explanation": "Forme exponentielle.",
+      "explanation": "Une évolution proportionnelle discrète se traduit par une multiplication constante par $q$.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution"
     },
     {
       "id": "mc-evo-q3",
-      "question": "Une valeur d'équilibre de u_{n+1}=au_n+b vérifie :",
+      "question": "Les solutions de $y'=ay$ sont :",
       "choices": [
-        "ℓ=aℓ+b",
-        "ℓ=a+b",
-        "ℓ=0"
+        "$Ce^{at}$",
+        "$at+C$",
+        "$Ce^t+a$"
       ],
       "answer": 0,
-      "explanation": "Une valeur stable est inchangée par la relation.",
+      "explanation": "La dérivée de $Ce^{at}$ vaut $aCe^{at}$, ce qui vérifie l'équation.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution"
     },
     {
       "id": "mc-evo-q4",
-      "question": "Un modèle discret utilise principalement :",
+      "question": "Pour $y'=ay+b$, l'équilibre vaut :",
       "choices": [
-        "une suite",
-        "une intégrale seulement",
-        "une droite uniquement"
+        "$-b/a$",
+        "$b/a$",
+        "$a/b$"
       ],
       "answer": 0,
-      "explanation": "Les instants sont indexés.",
+      "explanation": "Une solution constante vérifie $0=ay+b$, donc $y=-b/a$.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution"
     },
     {
       "id": "mc-evo-q5",
-      "question": "Une extrapolation lointaine :",
+      "question": "Une condition initiale sert à :",
       "choices": [
-        "doit être interprétée avec prudence",
-        "est toujours exacte",
-        "annule le modèle"
+        "Déterminer la constante",
+        "Changer le domaine",
+        "Supprimer l'exponentielle"
       ],
       "answer": 0,
-      "explanation": "Un modèle n'est validé que dans un domaine.",
+      "explanation": "La famille générale possède une constante que la donnée initiale permet de fixer.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution"
+    },
+    {
+      "id": "mc-evo-q6",
+      "question": "Un temps de seuil exponentiel utilise souvent :",
+      "choices": [
+        "Le logarithme",
+        "Une factorielle",
+        "Un angle"
+      ],
+      "answer": 0,
+      "explanation": "Le logarithme permet d'isoler une inconnue située dans l'exposant.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution"
+    },
+    {
+      "id": "mc-evo-q7",
+      "question": "Si $a<0$ dans $y'=a(y-L)$, $L$ est souvent :",
+      "choices": [
+        "Un équilibre stable",
+        "Une divergence",
+        "Une période"
+      ],
+      "answer": 0,
+      "explanation": "L'écart à $L$ est multiplié par une exponentielle décroissante.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution"
+    },
+    {
+      "id": "mc-evo-q8",
+      "question": "Pourquoi comparer les comportements à long terme ?",
+      "choices": [
+        "Pour juger la pertinence des modèles",
+        "Pour éviter tout calcul",
+        "Pour rendre les modèles identiques"
+      ],
+      "answer": 0,
+      "explanation": "Deux modèles proches à court terme peuvent avoir des limites très différentes.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution"
+    },
+    {
+      "id": "mc-evo-q9",
+      "question": "Une recherche algorithmique de seuil sert à :",
+      "choices": [
+        "Trouver un premier indice",
+        "Prouver une dérivée",
+        "Calculer une aire exacte"
+      ],
+      "answer": 0,
+      "explanation": "Une boucle conditionnelle est adaptée lorsque le nombre d'itérations nécessaire n'est pas connu à l'avance.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution"
+    },
+    {
+      "id": "mc-evo-q10",
+      "question": "Une extrapolation exponentielle est :",
+      "choices": [
+        "À interpréter avec prudence",
+        "Toujours exacte",
+        "Toujours décroissante"
+      ],
+      "answer": 0,
+      "explanation": "Une croissance exponentielle peut devenir irréaliste loin de la zone où le modèle a été calibré.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-evolution"
     }
   ]
