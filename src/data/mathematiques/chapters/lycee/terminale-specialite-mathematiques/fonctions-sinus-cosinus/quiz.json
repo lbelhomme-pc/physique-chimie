@@ -1,63 +1,123 @@
 {
   "questions": [
     {
-      "id": "tle-tri-q1",
-      "question": "2π radians correspondent à :",
+      "id": "tle-trig-q1",
+      "question": "Combien vaut $180^\\circ$ en radians ?",
       "choices": [
-        "360°",
-        "180°",
-        "90°"
+        "$\\pi$",
+        "$2\\pi$",
+        "$\\pi/2$"
       ],
       "answer": 0,
-      "explanation": "Un tour complet vaut 2π radians.",
+      "explanation": "Un demi-tour correspond à $180^\\circ$, soit exactement $\\pi$ radians.",
       "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus"
     },
     {
-      "id": "tle-tri-q2",
-      "question": "La dérivée de cos x est :",
+      "id": "tle-trig-q2",
+      "question": "La période de $\\sin$ est :",
       "choices": [
-        "-sin x",
-        "sin x",
-        "cos x"
+        "$2\\pi$",
+        "$\\pi$",
+        "$1$"
       ],
       "answer": 0,
-      "explanation": "Le signe moins est essentiel.",
+      "explanation": "La fonction sinus retrouve la même valeur après un tour complet, soit une translation de $2\\pi$.",
       "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus"
     },
     {
-      "id": "tle-tri-q3",
-      "question": "sin²x+cos²x vaut :",
-      "choices": [
-        "1",
-        "0",
-        "2"
-      ],
-      "answer": 0,
-      "explanation": "C'est l'identité trigonométrique fondamentale.",
-      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus"
-    },
-    {
-      "id": "tle-tri-q4",
-      "question": "La période de sin et cos est :",
-      "choices": [
-        "2π",
-        "π/2",
-        "1"
-      ],
-      "answer": 0,
-      "explanation": "Les fonctions reprennent leurs valeurs après 2π.",
-      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus"
-    },
-    {
-      "id": "tle-tri-q5",
-      "question": "cos est une fonction :",
+      "id": "tle-trig-q3",
+      "question": "Quelle parité possède $\\cos$ ?",
       "choices": [
         "paire",
         "impaire",
-        "ni paire ni impaire"
+        "aucune"
       ],
       "answer": 0,
-      "explanation": "cos(-x)=cos x.",
+      "explanation": "On a $\\cos(-x)=\\cos x$, ce qui caractérise une fonction paire.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus"
+    },
+    {
+      "id": "tle-trig-q4",
+      "question": "Quelle est la dérivée de $\\sin x$ ?",
+      "choices": [
+        "$\\cos x$",
+        "$-\\cos x$",
+        "$\\sin x$"
+      ],
+      "answer": 0,
+      "explanation": "La dérivée de la fonction sinus est la fonction cosinus sur tout $\\mathbb{R}$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus"
+    },
+    {
+      "id": "tle-trig-q5",
+      "question": "Quelle est la dérivée de $\\cos x$ ?",
+      "choices": [
+        "$-\\sin x$",
+        "$\\sin x$",
+        "$\\cos x$"
+      ],
+      "answer": 0,
+      "explanation": "La dérivée de la fonction cosinus est l’opposé de la fonction sinus.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus"
+    },
+    {
+      "id": "tle-trig-q6",
+      "question": "Quelle identité est toujours vraie ?",
+      "choices": [
+        "$\\cos^2x+\\sin^2x=1$",
+        "$\\cos x+\\sin x=1$",
+        "$\\cos^2x-\\sin^2x=1$"
+      ],
+      "answer": 0,
+      "explanation": "L’identité fondamentale provient des coordonnées d’un point du cercle unité.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus"
+    },
+    {
+      "id": "tle-trig-q7",
+      "question": "La période de $m+A\\cos(\\omega t)$ vaut :",
+      "choices": [
+        "$2\\pi/|\\omega|$",
+        "$|\\omega|/(2\\pi)$",
+        "$2\\pi|\\omega|$"
+      ],
+      "answer": 0,
+      "explanation": "La période est la durée nécessaire pour que l’argument augmente de $2\\pi$, d’où $2\\pi/|\\omega|$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus"
+    },
+    {
+      "id": "tle-trig-q8",
+      "question": "Résoudre $\\cos x=1$ donne :",
+      "choices": [
+        "$x=2k\\pi$",
+        "$x=k\\pi$",
+        "$x=\\pi/2+2k\\pi$"
+      ],
+      "answer": 0,
+      "explanation": "Le cosinus vaut $1$ au point de coordonnées $(1,0)$, retrouvé tous les $2\\pi$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus"
+    },
+    {
+      "id": "tle-trig-q9",
+      "question": "Pour dériver $\\sin(u(x))$, il faut écrire :",
+      "choices": [
+        "$u'(x)\\cos(u(x))$",
+        "$\\cos(u(x))$",
+        "$-u'(x)\\sin(u(x))$"
+      ],
+      "answer": 0,
+      "explanation": "La dérivation d’une composée ajoute le facteur $u'(x)$ devant le cosinus de l’argument.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus"
+    },
+    {
+      "id": "tle-trig-q10",
+      "question": "Dans un modèle sinusoïdal, $|A|$ représente :",
+      "choices": [
+        "l’amplitude",
+        "la période",
+        "la phase"
+      ],
+      "answer": 0,
+      "explanation": "Le coefficient placé devant le sinus ou le cosinus fixe l’écart maximal à la valeur moyenne.",
       "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus"
     }
   ]

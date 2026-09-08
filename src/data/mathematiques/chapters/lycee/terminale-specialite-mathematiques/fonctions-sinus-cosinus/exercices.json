@@ -1,29 +1,137 @@
 {
   "exercices": [
     {
-      "id": "tle-tri-n1-1",
+      "id": "tle-trig-n1-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus",
-      "title": "Conversion",
-      "statement": "Convertir 150° en radians.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Convertir en radians",
+      "statement": "Convertir exactement les angles $150^\\circ$, $225^\\circ$ et $330^\\circ$ en radians, sans utiliser de valeur décimale. On attend une justification courte qui nomme la propriété utilisée avant le calcul.",
+      "questions": [
+        "Donner les trois mesures en radians."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser le cercle trigonométrique, le radian et les valeurs remarquables."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Revenir au cercle trigonométrique.",
+        "method": "Écrire d’abord les solutions générales puis filtrer l’intervalle.",
+        "reminder": "Contrôler la période et les symétries.",
+        "commonMistake": "Ne pas confondre degrés et radians."
+      },
+      "correction": [
+        "On multiplie chaque mesure en degrés par $\\pi/180$. On obtient $5\\pi/6$, $5\\pi/4$ et $11\\pi/6$.",
+        "Contrôle : contrôler la solution sur le cercle trigonométrique ou dans le modèle périodique avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N1",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-trig-n1-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus",
+      "title": "Valeurs remarquables",
+      "statement": "À l’aide du cercle trigonométrique, déterminer exactement $\\sin(\\pi/6)$, $\\cos(3\\pi/4)$ et $\\sin(5\\pi/3)$. On attend une justification courte qui nomme la propriété utilisée avant le calcul.",
+      "questions": [
+        "Donner les trois valeurs exactes et préciser les signes."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Connaître la périodicité, la parité et les variations des fonctions sinus et cosinus."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "représenter",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Revenir au cercle trigonométrique.",
+        "method": "Écrire d’abord les solutions générales puis filtrer l’intervalle.",
+        "reminder": "Contrôler la période et les symétries.",
+        "commonMistake": "Ne pas confondre degrés et radians."
+      },
+      "correction": [
+        "On lit les valeurs remarquables et les quadrants : $\\sin(\\pi/6)=1/2$, $\\cos(3\\pi/4)=-\\sqrt2/2$ et $\\sin(5\\pi/3)=-\\sqrt3/2$.",
+        "Contrôle : contrôler la solution sur le cercle trigonométrique ou dans le modèle périodique avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N1",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-trig-n1-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus",
+      "title": "Dériver une fonction trigonométrique",
+      "statement": "On considère $f(x)=3\\sin x-2\\cos x$. Calculer $f'(x)$ puis $f''(x)$ sur $\\mathbb{R}$. On attend une justification courte qui nomme la propriété utilisée avant le calcul.",
+      "questions": [
+        "Déterminer les deux dérivées."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Dériver les fonctions sinus et cosinus et des compositions simples."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la notion principale.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier le domaine de définition et les hypothèses.",
-        "commonMistake": "Appliquer une formule hors de son domaine."
+        "clue": "Revenir au cercle trigonométrique.",
+        "method": "Écrire d’abord les solutions générales puis filtrer l’intervalle.",
+        "reminder": "Contrôler la période et les symétries.",
+        "commonMistake": "Ne pas confondre degrés et radians."
       },
       "correction": [
-        "150×π/180=5π/6."
+        "On obtient $f'(x)=3\\cos x+2\\sin x$, puis $f''(x)=-3\\sin x+2\\cos x$.",
+        "Contrôle : contrôler la solution sur le cercle trigonométrique ou dans le modèle périodique avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -38,33 +146,42 @@
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c27"
       ]
     },
     {
-      "id": "tle-tri-n1-2",
+      "id": "tle-trig-n1-4",
       "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus",
-      "title": "Dérivée",
-      "statement": "Dériver f(x)=3 sin x-2 cos x.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Équation sur un intervalle",
+      "statement": "Résoudre l’équation $\\cos x=1/2$ sur l’intervalle $[0,2\\pi]$ en s’appuyant sur le cercle trigonométrique. On attend une justification courte qui nomme la propriété utilisée avant le calcul.",
+      "questions": [
+        "Donner toutes les solutions de l’intervalle."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Résoudre des équations trigonométriques sur un intervalle donné."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la notion principale.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier le domaine de définition et les hypothèses.",
-        "commonMistake": "Appliquer une formule hors de son domaine."
+        "clue": "Revenir au cercle trigonométrique.",
+        "method": "Écrire d’abord les solutions générales puis filtrer l’intervalle.",
+        "reminder": "Contrôler la période et les symétries.",
+        "commonMistake": "Ne pas confondre degrés et radians."
       },
       "correction": [
-        "f'(x)=3 cos x+2 sin x."
+        "Sur le cercle, le cosinus vaut $1/2$ pour les angles $\\pi/3$ et $5\\pi/3$. Ce sont les deux solutions dans $[0,2\\pi]$.",
+        "Contrôle : contrôler la solution sur le cercle trigonométrique ou dans le modèle périodique avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -73,40 +190,51 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c27"
       ]
     },
     {
-      "id": "tle-tri-n2-1",
+      "id": "tle-trig-n2-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus",
-      "title": "Équation cosinus",
-      "statement": "Résoudre cos x=1/2 sur [0,2π].",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Résoudre une équation sinus",
+      "statement": "Résoudre $2\\sin x-1=0$ sur $[-\\pi,2\\pi]$. Il faut d’abord écrire les familles générales puis sélectionner les représentants appartenant à l’intervalle. On attend une démarche structurée : préciser les conditions de validité, choisir une méthode, effectuer les calculs puis interpréter le résultat obtenu.",
+      "questions": [
+        "Écrire les familles générales de solutions.",
+        "Lister les solutions appartenant à $[-\\pi,2\\pi]$."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Modéliser et interpréter un phénomène périodique."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la notion principale.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier le domaine de définition et les hypothèses.",
-        "commonMistake": "Appliquer une formule hors de son domaine."
+        "clue": "Revenir au cercle trigonométrique.",
+        "method": "Écrire d’abord les solutions générales puis filtrer l’intervalle.",
+        "reminder": "Contrôler la période et les symétries.",
+        "commonMistake": "Ne pas confondre degrés et radians."
       },
       "correction": [
-        "Les angles de référence sont π/3.",
-        "Sur [0,2π], x=π/3 ou x=5π/3."
+        "L’équation équivaut à $\\sin x=1/2$. Les solutions générales sont $x=\\pi/6+2k\\pi$ ou $x=5\\pi/6+2k\\pi$.",
+        "En filtrant l’intervalle, on obtient $-7\\pi/6$ exclu car inférieur à $-\\pi$, puis $\\pi/6$, $5\\pi/6$ et aucune autre valeur avant $2\\pi$.",
+        "Contrôle : contrôler la solution sur le cercle trigonométrique ou dans le modèle périodique avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -115,40 +243,52 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N2",
+        "c27"
       ]
     },
     {
-      "id": "tle-tri-n2-2",
+      "id": "tle-trig-n2-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus",
-      "title": "Composée",
-      "statement": "Dériver g(x)=cos(3x-1).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Variations de $\\sin x+\\cos x$",
+      "statement": "On considère $f(x)=\\sin x+\\cos x$ sur $[0,2\\pi]$. Étudier ses variations en utilisant la dérivée et les valeurs remarquables nécessaires. On attend une démarche structurée : préciser les conditions de validité, choisir une méthode, effectuer les calculs puis interpréter le résultat obtenu.",
+      "questions": [
+        "Calculer $f'(x)$ et résoudre $f'(x)=0$.",
+        "Dresser les variations et déterminer les extrema."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Utiliser le cercle trigonométrique, le radian et les valeurs remarquables."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "représenter"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la notion principale.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier le domaine de définition et les hypothèses.",
-        "commonMistake": "Appliquer une formule hors de son domaine."
+        "clue": "Revenir au cercle trigonométrique.",
+        "method": "Écrire d’abord les solutions générales puis filtrer l’intervalle.",
+        "reminder": "Contrôler la période et les symétries.",
+        "commonMistake": "Ne pas confondre degrés et radians."
       },
       "correction": [
-        "u(x)=3x-1, u'=3.",
-        "g'(x)=-3 sin(3x-1)."
+        "On a $f'(x)=\\cos x-\\sin x$. L’égalité $f'(x)=0$ équivaut à $\\tan x=1$ lorsque le quotient est défini, soit $x=\\pi/4$ ou $x=5\\pi/4$ dans l’intervalle.",
+        "Le signe de $\\cos x-\\sin x$ donne un maximum $f(\\pi/4)=\\sqrt2$ et un minimum $f(5\\pi/4)=-\\sqrt2$.",
+        "Contrôle : contrôler la solution sur le cercle trigonométrique ou dans le modèle périodique avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -157,24 +297,88 @@
         "requiresAccount": false
       },
       "competences": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "représenter"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N2",
+        "c27"
       ]
     },
     {
-      "id": "tle-tri-n3-1",
+      "id": "tle-trig-n2-3",
       "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus",
-      "title": "Variations",
-      "statement": "Étudier les variations de f(x)=sin x sur [0,2π].",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
+      "title": "Période d’un mouvement",
+      "statement": "La hauteur d’un point d’une roue est modélisée par $h(t)=1.8+1.2\\cos(\\pi t/3)$, avec $t$ en secondes et $h$ en mètres. On veut caractériser le mouvement. On attend une démarche structurée : préciser les conditions de validité, choisir une méthode, effectuer les calculs puis interpréter le résultat obtenu.",
+      "questions": [
+        "Déterminer la valeur moyenne, l’amplitude et la période.",
+        "Donner les hauteurs maximale et minimale."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Connaître la périodicité, la parité et les variations des fonctions sinus et cosinus."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "modéliser",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 15,
+      "answerType": "text",
+      "hints": {
+        "clue": "Revenir au cercle trigonométrique.",
+        "method": "Écrire d’abord les solutions générales puis filtrer l’intervalle.",
+        "reminder": "Contrôler la période et les symétries.",
+        "commonMistake": "Ne pas confondre degrés et radians."
+      },
+      "correction": [
+        "La valeur moyenne vaut $1.8$ et l’amplitude $1.2$. Ici $\\omega=\\pi/3$, donc la période vaut $T=2\\pi/(\\pi/3)=6$ secondes.",
+        "Les valeurs extrêmes sont $1.8+1.2=3$ et $1.8-1.2=0.6$ mètres. Elles sont cohérentes avec une roue de rayon $1.2$.",
+        "Contrôle : contrôler la solution sur le cercle trigonométrique ou dans le modèle périodique avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "modéliser",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-trig-n2-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus",
+      "title": "Composée trigonométrique",
+      "statement": "On considère $g(x)=\\cos(2x-\\pi/3)$ sur $\\mathbb{R}$. Calculer sa dérivée puis déterminer les abscisses où cette dérivée s’annule. On attend une démarche structurée : préciser les conditions de validité, choisir une méthode, effectuer les calculs puis interpréter le résultat obtenu.",
+      "questions": [
+        "Calculer $g'(x)$.",
+        "Résoudre $g'(x)=0$ sous forme générale."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Dériver les fonctions sinus et cosinus et des compositions simples."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
       "skills": [
         "calculer",
         "raisonner"
@@ -183,15 +387,15 @@
       "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la notion principale.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier le domaine de définition et les hypothèses.",
-        "commonMistake": "Appliquer une formule hors de son domaine."
+        "clue": "Revenir au cercle trigonométrique.",
+        "method": "Écrire d’abord les solutions générales puis filtrer l’intervalle.",
+        "reminder": "Contrôler la période et les symétries.",
+        "commonMistake": "Ne pas confondre degrés et radians."
       },
       "correction": [
-        "f'(x)=cos x.",
-        "cos x>0 sur [0,π/2[ et ]3π/2,2π], cos x<0 sur ]π/2,3π/2[.",
-        "f croît de 0 à 1, décroît de 1 à -1, puis croît de -1 à 0."
+        "Avec $u(x)=2x-\\pi/3$, on a $g'(x)=-2\\sin(2x-\\pi/3)$.",
+        "La dérivée est nulle lorsque $2x-\\pi/3=k\\pi$, donc $x=\\pi/6+k\\pi/2$ avec $k\\in\\mathbb{Z}$.",
+        "Contrôle : contrôler la solution sur le cercle trigonométrique ou dans le modèle périodique avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -206,35 +410,50 @@
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N2",
+        "c27"
       ]
     },
     {
-      "id": "tle-tri-n3-2",
+      "id": "tle-trig-n3-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus",
-      "title": "Modèle périodique",
-      "statement": "T(t)=15+5 cos(πt/12). Déterminer la période.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Optimisation d’une somme trigonométrique",
+      "statement": "On veut déterminer exactement le maximum de $f(x)=3\\sin x+4\\cos x$ sur $\\mathbb{R}$. On cherche une écriture sous la forme $R\\sin(x+\\varphi)$ afin d’éviter une étude de signe trop longue. On attend une résolution complète de niveau baccalauréat : analyser la situation, justifier chaque outil, articuler les différentes étapes et contrôler la cohérence de la conclusion.",
+      "questions": [
+        "Déterminer $R$ à partir des coefficients.",
+        "Choisir $\\varphi$ tel que $R\\cos\\varphi=3$ et $R\\sin\\varphi=4$.",
+        "En déduire les extrema de $f$ et les conditions d’égalité."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Résoudre des équations trigonométriques sur un intervalle donné."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
         "modéliser",
-        "calculer"
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 24,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la notion principale.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier le domaine de définition et les hypothèses.",
-        "commonMistake": "Appliquer une formule hors de son domaine."
+        "clue": "Revenir au cercle trigonométrique.",
+        "method": "Écrire d’abord les solutions générales puis filtrer l’intervalle.",
+        "reminder": "Contrôler la période et les symétries.",
+        "commonMistake": "Ne pas confondre degrés et radians."
       },
       "correction": [
-        "Pour cos(ωt), la période vaut 2π/ω.",
-        "Ici ω=π/12, donc période=2π/(π/12)=24.",
-        "La période est 24 unités de temps."
+        "L’identité $R^2=3^2+4^2$ donne $R=5$.",
+        "On choisit $\\varphi$ tel que $\\cos\\varphi=3/5$ et $\\sin\\varphi=4/5$. Alors $5\\sin(x+\\varphi)=3\\sin x+4\\cos x$.",
+        "Comme le sinus est compris entre $-1$ et $1$, le maximum vaut $5$ et le minimum $-5$. Ils sont atteints lorsque $x+\\varphi=\\pi/2+2k\\pi$ ou $x+\\varphi=3\\pi/2+2k\\pi$.",
+        "Contrôle : contrôler la solution sur le cercle trigonométrique ou dans le modèle périodique avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -243,13 +462,204 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
         "modéliser",
-        "calculer"
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N3",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-trig-n3-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus",
+      "title": "Marée périodique",
+      "statement": "Dans un port, une hauteur d’eau est approximée par $H(t)=4.5+2.1\\cos(\\pi(t-2)/6)$ pour $t\\in[0,24]$, en heures. On veut déterminer les instants où la hauteur dépasse $5.5$ mètres. On attend une résolution complète de niveau baccalauréat : analyser la situation, justifier chaque outil, articuler les différentes étapes et contrôler la cohérence de la conclusion.",
+      "questions": [
+        "Déterminer la période et l’instant d’un maximum.",
+        "Transformer l’inéquation $H(t)>5.5$ en une inéquation sur le cosinus.",
+        "Déterminer les intervalles horaires correspondants sur $[0,24]$."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Modéliser et interpréter un phénomène périodique."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Revenir au cercle trigonométrique.",
+        "method": "Écrire d’abord les solutions générales puis filtrer l’intervalle.",
+        "reminder": "Contrôler la période et les symétries.",
+        "commonMistake": "Ne pas confondre degrés et radians."
+      },
+      "correction": [
+        "La pulsation vaut $\\pi/6$, donc la période vaut $12$ heures. Un maximum se produit lorsque l’argument vaut $2k\\pi$, soit notamment à $t=2$.",
+        "L’inéquation devient $\\cos(\\pi(t-2)/6)>10/21$. Si l’on note $\\alpha=\\arccos(10/21)$, elle équivaut à un argument compris entre $-\\alpha$ et $\\alpha$ modulo $2\\pi$.",
+        "On traduit alors chaque intervalle d’argument en temps par $t=2+6u/\\pi$ et on conserve seulement les portions contenues dans $[0,24]$. La réponse doit être donnée sous forme d’intervalles horaires avec une valeur approchée seulement à la fin.",
+        "Contrôle : contrôler la solution sur le cercle trigonométrique ou dans le modèle périodique avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-trig-n3-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus",
+      "title": "Démontrer une identité et l’exploiter",
+      "statement": "On veut établir puis utiliser l’identité $1-\\cos(2x)=2\\sin^2x$ à partir des formules usuelles, afin de résoudre une équation qui combine plusieurs angles. On attend une résolution complète de niveau baccalauréat : analyser la situation, justifier chaque outil, articuler les différentes étapes et contrôler la cohérence de la conclusion.",
+      "questions": [
+        "Démontrer l’identité à partir de $\\cos(2x)=\\cos^2x-\\sin^2x$.",
+        "Résoudre $1-\\cos(2x)=1$ sur $[0,2\\pi]$.",
+        "Interpréter les solutions sur le cercle trigonométrique."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Utiliser le cercle trigonométrique, le radian et les valeurs remarquables."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Revenir au cercle trigonométrique.",
+        "method": "Écrire d’abord les solutions générales puis filtrer l’intervalle.",
+        "reminder": "Contrôler la période et les symétries.",
+        "commonMistake": "Ne pas confondre degrés et radians."
+      },
+      "correction": [
+        "Avec $\\cos^2x=1-\\sin^2x$, on obtient $\\cos(2x)=1-2\\sin^2x$, donc $1-\\cos(2x)=2\\sin^2x$.",
+        "L’équation devient $2\\sin^2x=1$, soit $|\\sin x|=\\sqrt2/2$. Dans $[0,2\\pi]$, cela donne $x=\\pi/4$, $3\\pi/4$, $5\\pi/4$ et $7\\pi/4$.",
+        "Ces quatre angles correspondent aux points du cercle dont l’ordonnée a pour valeur absolue $\\sqrt2/2$, dans les quatre quadrants.",
+        "Contrôle : contrôler la solution sur le cercle trigonométrique ou dans le modèle périodique avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-trig-n3-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/fonctions-sinus-cosinus",
+      "title": "Phase d’un signal",
+      "statement": "Un signal est modélisé par $s(t)=2+3\\cos(4t+\\varphi)$. On sait que $s(0)=2$ et que $s'(0)>0$. On veut déterminer une phase compatible puis prévoir le premier maximum après $t=0$. On attend une résolution complète de niveau baccalauréat : analyser la situation, justifier chaque outil, articuler les différentes étapes et contrôler la cohérence de la conclusion.",
+      "questions": [
+        "Utiliser $s(0)=2$ pour déterminer les valeurs possibles de $\\varphi$ modulo $2\\pi$.",
+        "Exploiter le signe de $s'(0)$ pour choisir la phase.",
+        "Déterminer le premier instant strictement positif où le signal atteint son maximum."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire toutes les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Connaître la périodicité, la parité et les variations des fonctions sinus et cosinus."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Revenir au cercle trigonométrique.",
+        "method": "Écrire d’abord les solutions générales puis filtrer l’intervalle.",
+        "reminder": "Contrôler la période et les symétries.",
+        "commonMistake": "Ne pas confondre degrés et radians."
+      },
+      "correction": [
+        "La condition $s(0)=2$ donne $3\\cos\\varphi=0$, donc $\\varphi=\\pi/2$ ou $3\\pi/2$ modulo $2\\pi$.",
+        "On a $s'(t)=-12\\sin(4t+\\varphi)$. Pour avoir $s'(0)>0$, il faut $-\\sin\\varphi>0$, donc on choisit $\\varphi=3\\pi/2$ modulo $2\\pi$.",
+        "Un maximum correspond à $\\cos(4t+3\\pi/2)=1$, donc $4t+3\\pi/2=2k\\pi$. Le premier $t>0$ est obtenu avec $k=1$, soit $t=\\pi/8$.",
+        "Contrôle : contrôler la solution sur le cercle trigonométrique ou dans le modèle périodique avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c27"
       ]
     }
   ]

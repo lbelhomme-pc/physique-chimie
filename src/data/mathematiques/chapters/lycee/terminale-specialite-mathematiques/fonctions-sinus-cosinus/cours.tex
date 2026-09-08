@@ -1,103 +1,106 @@
+% Mathématiques Terminale spécialité — V3 LaTeX
+% Fonctions sinus et cosinus
+
 \section{Objectifs}
 \begin{itemize}
-\item Maîtriser les fonctions sinus et cosinus sur $\mathbb R$.
-\item Utiliser leurs dérivées.
-\item Exploiter périodicité, parité et variations.
-\item Résoudre des équations simples.
+\item Utiliser le radian et le cercle trigonométrique.
+\item Exploiter périodicité et symétries de sinus et cosinus.
+\item Dériver et étudier des fonctions trigonométriques.
+\item Résoudre des équations et modéliser des phénomènes périodiques.
 \end{itemize}
 
-\section{1. Radian}
-Un tour complet correspond à
-\[
-2\pi\text{ radians}=360^\circ.
-\]
+\section{Repères et enjeux du chapitre}
+Les fonctions sinus et cosinus prolongent la trigonométrie du triangle en deux fonctions définies sur tout $mathbb{R}$. Leur caractère périodique permet de modéliser des mouvements, des signaux et des grandeurs répétitives. La difficulté principale consiste à articuler cercle trigonométrique, lecture graphique, dérivation et résolution d’équations.
 
-Ainsi :
+\section{1. Mesure en radians et cercle trigonométrique}
+Le radian est l’unité naturelle pour l’analyse des fonctions trigonométriques. Sur un cercle de rayon $1$, un angle de mesure $\theta$ radians intercepte un arc de longueur $|\theta|$. La conversion repose sur
 \[
-\pi\text{ rad}=180^\circ,\qquad \frac\pi2=90^\circ.
+180^\circ=\pi\text{ radians}.
 \]
+Le point associé à un réel $x$ sur le cercle trigonométrique possède pour coordonnées $(\cos x,\sin x)$. Cette interprétation donne immédiatement les signes et les valeurs remarquables.
 
-\section{2. Périodicité}
-Pour tout réel $x$ :
+\section{2. Périodicité et symétries}
+Un tour complet correspond à $2\pi$, donc
 \[
-\sin(x+2\pi)=\sin x,
+\sin(x+2\pi)=\sin x,\qquad \cos(x+2\pi)=\cos x.
 \]
+La fonction sinus est impaire et la fonction cosinus est paire :
 \[
-\cos(x+2\pi)=\cos x.
+\sin(-x)=-\sin x,\qquad \cos(-x)=\cos x.
 \]
+Ces propriétés permettent de réduire l’étude à un intervalle de longueur $2\pi$ puis de prolonger les résultats par périodicité.
 
-Les deux fonctions sont $2\pi$-périodiques.
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/fonctions-sinus-cosinus-1.svg}{Cercle trigonométrique et projection sur les axes.}{Le schéma relie un angle en radians aux coordonnées cosinus et sinus d’un point du cercle unité.}
 
-Parité :
+\section{3. Dérivées et variations}
+Sur $\mathbb{R}$,
 \[
-\cos(-x)=\cos x,
+(\sin x)'=\cos x,\qquad (\cos x)'=-\sin x.
 \]
+Les signes de $\cos x$ et de $-\sin x$ déterminent les variations. Par exemple, $\sin$ est croissante sur $[-\pi/2,\pi/2]$ puis décroissante sur $[\pi/2,3\pi/2]$. Pour une composée, la règle de dérivation donne
 \[
-\sin(-x)=-\sin x.
+(\sin u)'=u'\cos u,\qquad (\cos u)'=-u'\sin u.
 \]
+Le facteur $u'$ ne doit pas être oublié.
 
-\section{3. Identité fondamentale}
+\section{4. Valeurs remarquables et identité fondamentale}
+Le cercle trigonométrique fournit notamment
 \[
-\cos^2x+\sin^2x=1.
+\cos^2 x+\sin^2 x=1.
 \]
+Cette identité permet de passer d’une information sur le sinus à une information sur le cosinus, à condition de choisir le signe compatible avec le quadrant. Les angles $0$, $\pi/6$, $\pi/4$, $\pi/3$, $\pi/2$ et leurs symétriques constituent les repères usuels.
 
-Elle permet de relier sinus et cosinus d'un même angle.
+\section{5. Résolution d’équations trigonométriques}
+Pour $\cos x=\cos a$, les solutions sont
+\[
+x=2k\pi+a\quad\text{ou}\quad x=2k\pi-a,\qquad k\in\mathbb{Z}.
+\]
+Pour $\sin x=\sin a$,
+\[
+x=2k\pi+a\quad\text{ou}\quad x=(2k+1)\pi-a,\qquad k\in\mathbb{Z}.
+\]
+Dans un exercice, on doit ensuite conserver seulement les valeurs appartenant à l’intervalle demandé. Une liste sans justification par le cercle ou par les formules générales est fragile.
 
-\section{4. Dérivées}
-\[
- (\sin x)'=\cos x,
-\]
-\[
- (\cos x)'=-\sin x.
-\]
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/fonctions-sinus-cosinus-2.svg}{Courbes périodiques de sinus et cosinus.}{Le schéma compare la phase, les extrema et la période commune des deux fonctions sur plusieurs radians.}
 
-Pour une composée :
+\section{6. Étudier une combinaison trigonométrique}
+Une fonction telle que $f(x)=a\sin x+b\cos x$ peut être étudiée par dérivation :
 \[
- (\sin u)'=u'\cos u,
+f'(x)=a\cos x-b\sin x.
 \]
-\[
- (\cos u)'=-u'\sin u.
-\]
+Dans certains problèmes, on peut aussi rechercher une écriture de la forme $R\sin(x+\varphi)$, où $R=\sqrt{a^2+b^2}$. Cette écriture met en évidence l’amplitude $R$ et un déphasage $\varphi$. Elle n’est utile que si elle simplifie réellement l’analyse.
 
-\section{5. Variations}
-Les variations de $\sin$ sont gouvernées par le signe de $\cos$ ; celles de $\cos$ par le signe de $-\sin$.
-
-Sur une période, on peut déterminer tous les extremums puis prolonger par périodicité.
-
-\section{6. Équations simples}
+\section{7. Modéliser un phénomène périodique}
+Un modèle de la forme
 \[
-\cos x=\cos a
+y(t)=m+A\cos(\omega t+\varphi)
 \]
-équivaut à
+possède pour valeur moyenne $m$, amplitude $|A|$ et période
 \[
-x=2k\pi\pm a,\qquad k\in\mathbb Z.
+T=\frac{2\pi}{|\omega|}.
 \]
+Le paramètre $\varphi$ règle la phase. Dans un problème concret, on détermine ces paramètres à partir d’un maximum, d’un minimum, d’une période observée et d’une condition initiale. Une formule correcte doit ensuite être interprétée dans les unités de la situation.
 
-Et
-\[
-\sin x=\sin a
-\]
-équivaut à
-\[
-x=a+2k\pi\quad\text{ou}\quad x=\pi-a+2k\pi.
-\]
+\section{Méthode de résolution et rédaction}
+Dans ce chapitre, une résolution solide commence par l’identification du domaine de travail et des hypothèses. Il faut ensuite choisir l’outil adapté, annoncer ce choix, conduire les transformations sans perdre les conditions de validité puis conclure dans le langage de la question. Une équation trigonométrique se traite d’abord sur le cercle ou à l’aide d’une valeur remarquable, puis on écrit la famille générale des solutions avant de la restreindre à l’intervalle demandé.
 
-\section{7. Modélisation périodique}
-Sinus et cosinus modélisent des phénomènes périodiques : oscillations, saisons idéalisées, signaux.
+Lorsqu’un résultat dépend d’une lecture graphique ou numérique, on distingue clairement ce qui est exact de ce qui est approché. Une valeur obtenue à la calculatrice sert à conjecturer ou contrôler ; elle ne remplace pas une propriété lorsque la question demande une justification. Un résultat se contrôle par périodicité, par signe sur le cercle trigonométrique et par substitution dans l’équation initiale. Dans un modèle, l’amplitude, la période et la valeur moyenne doivent rester cohérentes avec le contexte.
 
-Une forme
-\[
-A\cos(\omega t+\varphi)+m
-\]
-combine amplitude $A$, pulsation $\omega$, phase $\varphi$ et valeur moyenne $m$.
+En situation de type baccalauréat, une copie efficace n’empile pas les calculs. Elle fait apparaître la propriété utilisée, les objets auxquels elle s’applique, les étapes intermédiaires utiles et une conclusion explicite. Un raisonnement court mais complet vaut mieux qu’une longue suite de symboles non commentés.
+
+\section{Connexions avec les autres chapitres}
+La dérivation relie directement les deux fonctions : $(\sin x)'=\cos x$ et $(\cos x)'=-\sin x$. Les fonctions trigonométriques interviennent ensuite dans le calcul intégral, les équations différentielles, les nombres complexes et la modélisation périodique.
+Les liens avec la dérivation, les limites, les équations, la modélisation et l’algorithmique doivent être mobilisés consciemment. Une même question peut demander successivement de transformer une expression, d’étudier une fonction, de résoudre une équation puis d’interpréter la solution obtenue.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Confondre degrés et radians.
-\item Oublier le signe moins dans $(\cos x)'$.
-\item Donner une seule solution à une équation trigonométrique sur $\mathbb R$.
-\item Oublier la périodicité.
+\item Mélanger degrés et radians dans une même formule.
+\item Oublier les solutions périodiques d’une équation.
+\item Confondre la parité de sinus et celle de cosinus.
+\item Lire une période comme une amplitude ou inversement.
 \end{itemize}
 
 \section{À retenir}
-Les fonctions sinus et cosinus sont périodiques, dérivables sur $\mathbb R$ et liées par l'identité $\cos^2x+\sin^2x=1$.
+\begin{aretenir}
+Sur $\mathbb{R}$, $\sin$ et $\cos$ sont de période $2\pi$, avec $(\sin x)'=\cos x$ et $(\cos x)'=-\sin x$. Le cercle trigonométrique reste l’outil central pour les signes et les équations.
+\end{aretenir}
