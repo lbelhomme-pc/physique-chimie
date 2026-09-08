@@ -3,27 +3,35 @@
     {
       "id": "mc-gin-n1-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites",
-      "title": "Lecture Lorenz",
-      "statement": "Si les 50 % les plus modestes détiennent 20 % de la richesse, quel point appartient à la courbe ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Lire un point de Lorenz",
+      "statement": "Une courbe vérifie $L(0.4)=0.15$. Interpréter cette information. On attend une lecture ou un calcul direct correctement interprété.",
+      "questions": [
+        "Traduire le point en phrase."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les indicateurs sans dépasser leur portée.",
+      "pedagogicalType": "representation",
+      "curriculumItems": [
+        "Lire et construire une courbe de Lorenz."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Repérer ce qui est cumulé : population ou richesse.",
+        "method": "Construire les proportions avant de calculer l'aire.",
+        "reminder": "Le Gini mesure une concentration, pas un niveau moyen.",
+        "commonMistake": "Confondre part de population et part de richesse."
       },
       "correction": [
-        "Le point (0,5 ; 0,2)."
+        "Les $40\\,\\%$ les moins riches détiennent $15\\,\\%$ de la richesse totale.",
+        "Contrôle : vérifier que les proportions et l'indice restent dans $[0,1]$."
       ],
       "commonMistakes": [],
       "access": {
@@ -32,39 +40,148 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28"
       ]
     },
     {
       "id": "mc-gin-n1-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites",
-      "title": "Égalité parfaite",
-      "statement": "Quelle courbe représente l'égalité parfaite ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Diagonale d'égalité",
+      "statement": "Sur la diagonale d'égalité parfaite, déterminer la part de richesse détenue par les $30\\,\\%$ les moins riches. On attend une lecture ou un calcul direct correctement interprété.",
+      "questions": [
+        "Donner la valeur correspondante."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les indicateurs sans dépasser leur portée.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Interpréter des quantiles et des parts cumulées."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer ce qui est cumulé : population ou richesse.",
+        "method": "Construire les proportions avant de calculer l'aire.",
+        "reminder": "Le Gini mesure une concentration, pas un niveau moyen.",
+        "commonMistake": "Confondre part de population et part de richesse."
+      },
+      "correction": [
+        "Sur $y=x$, la part vaut $0.30$, soit $30\\,\\%$.",
+        "Contrôle : vérifier que les proportions et l'indice restent dans $[0,1]$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-gin-n1-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites",
+      "title": "Médiane",
+      "statement": "Dans une série ordonnée de $101$ valeurs, déterminer le rang de la médiane. On attend une lecture ou un calcul direct correctement interprété.",
+      "questions": [
+        "Donner le rang."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les indicateurs sans dépasser leur portée.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Calculer ou estimer un indice de Gini à partir d’une courbe de Lorenz."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer ce qui est cumulé : population ou richesse.",
+        "method": "Construire les proportions avant de calculer l'aire.",
+        "reminder": "Le Gini mesure une concentration, pas un niveau moyen.",
+        "commonMistake": "Confondre part de population et part de richesse."
+      },
+      "correction": [
+        "Le rang médian est $(101+1)/2=51$.",
+        "Contrôle : vérifier que les proportions et l'indice restent dans $[0,1]$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-gin-n1-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites",
+      "title": "Gini d'égalité parfaite",
+      "statement": "On suppose $L(x)=x$ sur $[0,1]$. Calculer l'indice de Gini. On attend une lecture ou un calcul direct correctement interprété.",
+      "questions": [
+        "Calculer l'intégrale puis $G$."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les indicateurs sans dépasser leur portée.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Comparer des répartitions et analyser la concentration."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Repérer ce qui est cumulé : population ou richesse.",
+        "method": "Construire les proportions avant de calculer l'aire.",
+        "reminder": "Le Gini mesure une concentration, pas un niveau moyen.",
+        "commonMistake": "Confondre part de population et part de richesse."
       },
       "correction": [
-        "La droite y=x."
+        "On a $\\int_0^1x\\,dx=1/2$, donc $G=1-2\\times1/2=0$.",
+        "Contrôle : vérifier que les proportions et l'indice restent dans $[0,1]$."
       ],
       "commonMistakes": [],
       "access": {
@@ -79,34 +196,45 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28"
       ]
     },
     {
       "id": "mc-gin-n2-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites",
-      "title": "Comparer",
-      "statement": "Deux pays ont des indices de Gini 0,25 et 0,42. Lequel présente la plus forte concentration selon cet indice ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Lorenz quadratique",
+      "statement": "On modélise une courbe de Lorenz par $L(x)=x^2$ sur $[0,1]$. On attend une démarche structurée avec calcul et comparaison.",
+      "questions": [
+        "Calculer $L(0.5)$.",
+        "Calculer l'indice de Gini."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les indicateurs sans dépasser leur portée.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Discuter les limites d’un indicateur synthétique d’inégalité."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "représenter"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 16,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Repérer ce qui est cumulé : population ou richesse.",
+        "method": "Construire les proportions avant de calculer l'aire.",
+        "reminder": "Le Gini mesure une concentration, pas un niveau moyen.",
+        "commonMistake": "Confondre part de population et part de richesse."
       },
       "correction": [
-        "0,42 est plus élevé.",
-        "Le second pays présente une concentration plus forte selon l'indice de Gini."
+        "On obtient $L(0.5)=0.25$.",
+        "Comme $\\int_0^1x^2\\,dx=1/3$, on a $G=1-2/3=1/3$.",
+        "Contrôle : vérifier que les proportions et l'indice restent dans $[0,1]$."
       ],
       "commonMistakes": [],
       "access": {
@@ -115,40 +243,52 @@
         "requiresAccount": false
       },
       "competences": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "représenter"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N2"
+        "N2",
+        "c28"
       ]
     },
     {
       "id": "mc-gin-n2-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites",
-      "title": "Quantile",
-      "statement": "Le neuvième décile D9 d'un revenu vaut 4000 €. Interpréter.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Trapèzes",
+      "statement": "Une courbe de Lorenz passe par $(0,0)$, $(0.5,0.2)$ et $(1,1)$. Estimer son aire par trapèzes. On attend une démarche structurée avec calcul et comparaison.",
+      "questions": [
+        "Calculer les deux aires.",
+        "En déduire une estimation du Gini."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les indicateurs sans dépasser leur portée.",
+      "pedagogicalType": "data-analysis",
+      "curriculumItems": [
+        "Lire et construire une courbe de Lorenz."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
         "calculer",
+        "représenter",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 16,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Repérer ce qui est cumulé : population ou richesse.",
+        "method": "Construire les proportions avant de calculer l'aire.",
+        "reminder": "Le Gini mesure une concentration, pas un niveau moyen.",
+        "commonMistake": "Confondre part de population et part de richesse."
       },
       "correction": [
-        "Au moins 90 % des valeurs sont inférieures ou égales à 4000 € selon la convention usuelle de quantile.",
-        "Environ 10 % sont au-dessus."
+        "Les aires valent $0.5(0+0.2)/2=0.05$ et $0.5(0.2+1)/2=0.30$.",
+        "L'aire totale vaut $0.35$, donc $G\\approx1-2\\times0.35=0.30$.",
+        "Contrôle : vérifier que les proportions et l'indice restent dans $[0,1]$."
       ],
       "commonMistakes": [],
       "access": {
@@ -158,38 +298,164 @@
       },
       "competences": [
         "calculer",
+        "représenter",
         "raisonner"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N2"
+        "N2",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-gin-n2-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites",
+      "title": "Comparer deux courbes",
+      "statement": "Deux courbes de Lorenz $L_A$ et $L_B$ vérifient $L_A(x)\\geq L_B(x)$ pour tout $x\\in[0,1]$. On attend une démarche structurée avec calcul et comparaison.",
+      "questions": [
+        "Comparer les répartitions.",
+        "Comparer qualitativement les indices de Gini."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les indicateurs sans dépasser leur portée.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Interpréter des quantiles et des parts cumulées."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 16,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer ce qui est cumulé : population ou richesse.",
+        "method": "Construire les proportions avant de calculer l'aire.",
+        "reminder": "Le Gini mesure une concentration, pas un niveau moyen.",
+        "commonMistake": "Confondre part de population et part de richesse."
+      },
+      "correction": [
+        "La courbe $A$ est plus proche de la diagonale et correspond à une répartition plus égalitaire.",
+        "L'aire entre diagonale et $L_A$ est plus petite, donc le Gini de $A$ est inférieur ou égal à celui de $B$.",
+        "Contrôle : vérifier que les proportions et l'indice restent dans $[0,1]$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-gin-n2-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites",
+      "title": "Quantiles et moyenne",
+      "statement": "Deux populations ont la même moyenne mais des écarts interdéciles très différents. On attend une démarche structurée avec calcul et comparaison.",
+      "questions": [
+        "Expliquer ce que cela signifie.",
+        "Dire pourquoi la moyenne ne suffit pas."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les indicateurs sans dépasser leur portée.",
+      "pedagogicalType": "data-analysis",
+      "curriculumItems": [
+        "Calculer ou estimer un indice de Gini à partir d’une courbe de Lorenz."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "raisonner",
+        "communiquer",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 16,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer ce qui est cumulé : population ou richesse.",
+        "method": "Construire les proportions avant de calculer l'aire.",
+        "reminder": "Le Gini mesure une concentration, pas un niveau moyen.",
+        "commonMistake": "Confondre part de population et part de richesse."
+      },
+      "correction": [
+        "La population dont l'écart interdécile est plus grand présente une dispersion plus forte entre les groupes centraux et extrêmes.",
+        "La moyenne agrège toutes les valeurs et ne décrit ni la dispersion ni la concentration.",
+        "Contrôle : vérifier que les proportions et l'indice restent dans $[0,1]$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "communiquer",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28"
       ]
     },
     {
       "id": "mc-gin-n3-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites",
-      "title": "Aire",
-      "statement": "Une courbe de Lorenz est modélisée par L(x)=x² sur [0,1]. Calculer l'aire sous L.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Courbe paramétrée",
+      "statement": "Pour $a>1$, on considère $L_a(x)=x^a$ sur $[0,1]$ comme famille de courbes de Lorenz. On attend une analyse complète combinant représentation, calcul et esprit critique.",
+      "questions": [
+        "Montrer que $L_a(x)\\leq x$.",
+        "Calculer $G(a)$.",
+        "Étudier l'effet de $a$ sur l'inégalité."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les indicateurs sans dépasser leur portée.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Comparer des répartitions et analyser la concentration."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 25,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Repérer ce qui est cumulé : population ou richesse.",
+        "method": "Construire les proportions avant de calculer l'aire.",
+        "reminder": "Le Gini mesure une concentration, pas un niveau moyen.",
+        "commonMistake": "Confondre part de population et part de richesse."
       },
       "correction": [
-        "∫_0^1x²dx=1/3."
+        "Pour $x\\in[0,1]$ et $a>1$, on a $x^a\\leq x$.",
+        "On a $\\int_0^1x^a\\,dx=1/(a+1)$, donc $G(a)=1-2/(a+1)=(a-1)/(a+1)$.",
+        "La fonction $G(a)$ croît avec $a$, donc la concentration augmente lorsque la courbe s'abaisse.",
+        "Contrôle : vérifier que les proportions et l'indice restent dans $[0,1]$."
       ],
       "commonMistakes": [],
       "access": {
@@ -198,39 +464,60 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N3",
+        "c28"
       ]
     },
     {
       "id": "mc-gin-n3-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites",
-      "title": "Gini modèle",
-      "statement": "Avec L(x)=x², calculer G=1-2∫_0^1L(x)dx.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Redistribution stylisée",
+      "statement": "Une distribution possède une courbe $L(x)=x^2$. Après redistribution, on propose $M(x)=0.2x+0.8x^2$. On attend une analyse complète combinant représentation, calcul et esprit critique.",
+      "questions": [
+        "Vérifier les extrémités et comparer $M$ à $L$.",
+        "Calculer les deux Gini.",
+        "Interpréter l'effet de la redistribution."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les indicateurs sans dépasser leur portée.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Discuter les limites d’un indicateur synthétique d’inégalité."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
         "modéliser",
-        "calculer"
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 25,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Repérer ce qui est cumulé : population ou richesse.",
+        "method": "Construire les proportions avant de calculer l'aire.",
+        "reminder": "Le Gini mesure une concentration, pas un niveau moyen.",
+        "commonMistake": "Confondre part de population et part de richesse."
       },
       "correction": [
-        "G=1-2/3=1/3."
+        "On a $M(0)=0$, $M(1)=1$ et $M(x)-L(x)=0.2x(1-x)\\geq0$.",
+        "Le Gini initial vaut $1/3$. Pour $M$, l'intégrale vaut $0.1+0.8/3=11/30$, donc $G=1-22/30=4/15$.",
+        "Le Gini diminue, ce qui traduit une répartition plus égalitaire dans ce modèle.",
+        "Contrôle : vérifier que les proportions et l'indice restent dans $[0,1]$."
       ],
       "commonMistakes": [],
       "access": {
@@ -239,13 +526,142 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
         "modéliser",
-        "calculer"
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N3",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-gin-n3-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites",
+      "title": "Courbes qui se croisent",
+      "statement": "Deux courbes de Lorenz se croisent sur $[0,1]$. On veut comparer les inégalités sans conclusion abusive. On attend une analyse complète combinant représentation, calcul et esprit critique.",
+      "questions": [
+        "Expliquer pourquoi la dominance simple échoue.",
+        "Proposer deux indicateurs complémentaires.",
+        "Décrire la prudence d'interprétation nécessaire."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les indicateurs sans dépasser leur portée.",
+      "pedagogicalType": "data-analysis",
+      "curriculumItems": [
+        "Lire et construire une courbe de Lorenz."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 25,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer ce qui est cumulé : population ou richesse.",
+        "method": "Construire les proportions avant de calculer l'aire.",
+        "reminder": "Le Gini mesure une concentration, pas un niveau moyen.",
+        "commonMistake": "Confondre part de population et part de richesse."
+      },
+      "correction": [
+        "Aucune courbe n'est partout au-dessus de l'autre, donc on ne peut pas établir une dominance de Lorenz globale.",
+        "On peut comparer les Gini, des quantiles ou des parts détenues par différents groupes.",
+        "Un indicateur synthétique peut privilégier certaines zones de la distribution ; la conclusion doit donc mentionner le croisement.",
+        "Contrôle : vérifier que les proportions et l'indice restent dans $[0,1]$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-gin-n3-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites",
+      "title": "Données par déciles",
+      "statement": "On dispose des parts cumulées de richesse par décile et l'on souhaite produire un indicateur reproductible. On attend une analyse complète combinant représentation, calcul et esprit critique.",
+      "questions": [
+        "Décrire la construction des points de Lorenz.",
+        "Écrire l'algorithme trapézoïdal.",
+        "Indiquer deux contrôles de cohérence."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et interpréter les indicateurs sans dépasser leur portée.",
+      "pedagogicalType": "data-analysis",
+      "curriculumItems": [
+        "Interpréter des quantiles et des parts cumulées."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 25,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer ce qui est cumulé : population ou richesse.",
+        "method": "Construire les proportions avant de calculer l'aire.",
+        "reminder": "Le Gini mesure une concentration, pas un niveau moyen.",
+        "commonMistake": "Confondre part de population et part de richesse."
+      },
+      "correction": [
+        "On associe aux abscisses $0,0.1,\\ldots,1$ les parts cumulées correspondantes, en ajoutant $(0,0)$ et $(1,1)$.",
+        "Pour chaque intervalle, on ajoute $(x_{i+1}-x_i)(y_i+y_{i+1})/2$, puis on calcule $G=1-2A$.",
+        "Les cumuls doivent être croissants et compris entre $0$ et $1$ ; le Gini final doit appartenir à $[0,1]$.",
+        "Contrôle : vérifier que les proportions et l'indice restent dans $[0,1]$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28"
       ]
     }
   ]

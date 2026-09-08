@@ -2,62 +2,122 @@
   "questions": [
     {
       "id": "mc-gin-q1",
-      "question": "La diagonale de Lorenz représente :",
+      "question": "La diagonale $y=x$ représente :",
       "choices": [
-        "l'égalité parfaite",
-        "l'inégalité maximale",
-        "la médiane"
+        "L'égalité parfaite",
+        "La concentration maximale",
+        "La moyenne"
       ],
       "answer": 0,
-      "explanation": "Chaque proportion de population détient la même proportion de richesse.",
+      "explanation": "Sur cette diagonale, chaque proportion de population détient la même proportion de richesse.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites"
     },
     {
       "id": "mc-gin-q2",
-      "question": "Un Gini proche de 0 indique :",
+      "question": "Une courbe de Lorenz utilise en abscisse :",
       "choices": [
-        "faible concentration",
-        "forte concentration",
-        "absence de données"
+        "Une proportion cumulée de population",
+        "Le revenu moyen",
+        "Le Gini"
       ],
       "answer": 0,
-      "explanation": "0 correspond à l'égalité parfaite.",
+      "explanation": "L'abscisse est la part cumulée de population ordonnée par richesse croissante.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites"
     },
     {
       "id": "mc-gin-q3",
-      "question": "Une courbe de Lorenz utilise des proportions :",
+      "question": "Si $L(0.5)=0.2$, cela signifie :",
       "choices": [
-        "cumulées",
-        "non ordonnées",
-        "temporelles uniquement"
+        "Les $50\\,\\%$ les moins riches détiennent $20\\,\\%$",
+        "Le Gini vaut $0.2$",
+        "La médiane vaut $0.5$"
       ],
       "answer": 0,
-      "explanation": "Population et richesse sont cumulées.",
+      "explanation": "Un point de Lorenz associe une part cumulée de population à une part cumulée de richesse.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites"
     },
     {
       "id": "mc-gin-q4",
-      "question": "D9 est :",
+      "question": "Le Gini d'une égalité parfaite vaut :",
       "choices": [
-        "un décile",
-        "une moyenne",
-        "une variance"
+        "$0$",
+        "$1$",
+        "$1/2$"
       ],
       "answer": 0,
-      "explanation": "Il s'agit du neuvième décile.",
+      "explanation": "La courbe coïncide avec la diagonale, donc l'aire d'écart est nulle.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites"
     },
     {
       "id": "mc-gin-q5",
-      "question": "Un indicateur d'inégalité :",
+      "question": "Pour une courbe $L$, le Gini peut s'écrire :",
       "choices": [
-        "doit être interprété avec le contexte",
-        "suffit toujours seul",
-        "est une causalité"
+        "$1-2\\int_0^1L(x)\\,dx$",
+        "$\\int_0^1L(x)\\,dx$",
+        "$L(1)-L(0)$"
       ],
       "answer": 0,
-      "explanation": "Il résume une dimension des données.",
+      "explanation": "La formule compare l'aire sous la diagonale à l'aire sous la courbe de Lorenz.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites"
+    },
+    {
+      "id": "mc-gin-q6",
+      "question": "Une approximation par trapèzes sert à :",
+      "choices": [
+        "Estimer l'aire sous une courbe discrétisée",
+        "Calculer une médiane",
+        "Prouver une causalité"
+      ],
+      "answer": 0,
+      "explanation": "Les trapèzes approchent l'intégrale lorsque la courbe est connue par points.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites"
+    },
+    {
+      "id": "mc-gin-q7",
+      "question": "Deux courbes qui se croisent :",
+      "choices": [
+        "Ne permettent pas une dominance simple",
+        "Ont forcément le même Gini",
+        "Sont identiques"
+      ],
+      "answer": 0,
+      "explanation": "Le croisement empêche de dire qu'une courbe est partout plus proche de la diagonale.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites"
+    },
+    {
+      "id": "mc-gin-q8",
+      "question": "Une moyenne identique implique-t-elle les mêmes inégalités ?",
+      "choices": [
+        "Non",
+        "Oui",
+        "Seulement si le Gini vaut $1$"
+      ],
+      "answer": 0,
+      "explanation": "La moyenne ne décrit pas la dispersion ni la concentration de la distribution.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites"
+    },
+    {
+      "id": "mc-gin-q9",
+      "question": "Un Gini plus faible indique en général :",
+      "choices": [
+        "Une répartition plus égalitaire",
+        "Une richesse moyenne plus élevée",
+        "Une population plus grande"
+      ],
+      "answer": 0,
+      "explanation": "Le Gini mesure l'écart à l'égalité, pas le niveau absolu de richesse.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites"
+    },
+    {
+      "id": "mc-gin-q10",
+      "question": "Pourquoi conserver le contexte ?",
+      "choices": [
+        "Les définitions de revenu et d'unité statistique influencent l'interprétation",
+        "Le contexte ne sert jamais",
+        "Il remplace le calcul"
+      ],
+      "answer": 0,
+      "explanation": "Comparer des Gini exige des définitions compatibles de population et de revenu.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/richesses-inegalites"
     }
   ]

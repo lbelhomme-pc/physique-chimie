@@ -1,43 +1,60 @@
+% Mathématiques complémentaires — Terminale — V3 LaTeX
+% Répartition des richesses et inégalités
 \section{Objectifs}
 \begin{itemize}
-\item Mesurer et représenter des inégalités.
-\item Utiliser courbe de Lorenz et indice de Gini.
-\item Relier statistique descriptive, fonctions et intégrales.
+\item Construire et lire une courbe de Lorenz.
+\item Interpréter quantiles et concentration.
+\item Calculer ou estimer un indice de Gini.
+\item Comparer des distributions avec esprit critique.
 \end{itemize}
-
-\section{1. Quantiles}
-Les quantiles découpent une population ordonnée en groupes de même effectif.
-
-Médiane, quartiles et déciles décrivent la répartition.
-
-\section{2. Courbe de Lorenz}
-La courbe de Lorenz associe à une proportion cumulée de population la proportion cumulée de richesse détenue.
-
-La diagonale $y=x$ représente l'égalité parfaite.
-
-Plus la courbe s'éloigne de la diagonale, plus la concentration est forte.
-
-\section{3. Aire et indice de Gini}
-L'indice de Gini peut être relié à l'aire comprise entre la diagonale d'égalité et la courbe de Lorenz.
-
-Il varie entre 0 et 1 :
-\begin{itemize}
-\item 0 : égalité parfaite ;
-\item proche de 1 : forte concentration.
-\end{itemize}
-
-\section{4. Fonction de répartition}
-Une fonction de répartition décrit la proportion d'individus dont la valeur est inférieure ou égale à un seuil.
-
-\section{5. Comparaison}
-Deux distributions ne se résument pas à un seul indicateur. Il faut confronter moyenne, médiane, quantiles, Lorenz et contexte.
-
+\section{Repères et enjeux du thème}
+Une moyenne ne suffit pas à décrire une répartition. Deux populations peuvent avoir le même revenu moyen et pourtant présenter des écarts très différents. Les quantiles, les parts cumulées, la courbe de Lorenz et l'indice de Gini permettent d'étudier la concentration d'une grandeur et de comparer plusieurs distributions.
+\section{1. Quantiles et ordre des données}
+On commence par ordonner les valeurs. La médiane partage la population en deux groupes de même effectif, les quartiles en quatre groupes et les déciles en dix groupes. Ces indicateurs donnent des seuils de position, pas des parts de richesse.
+Une forte distance entre les quartiles ou entre les déciles extrêmes signale une dispersion importante, mais elle ne décrit pas toute la forme de la distribution.
+\section{2. Parts cumulées}
+Pour construire une courbe de Lorenz, on classe les individus ou les classes par valeur croissante. À chaque proportion cumulée de population $x$, on associe la proportion cumulée de richesse $L(x)$. On a toujours $L(0)=0$ et $L(1)=1$.
+La diagonale $y=x$ représente l'égalité parfaite : une proportion $x$ de la population détient exactement la même proportion $x$ de la richesse.
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/richesses-inegalites-1.svg}{Courbe de Lorenz et diagonale d'égalité.}{La courbe de Lorenz se situe sous la diagonale et met en évidence la concentration des richesses.}
+\section{3. Lire une courbe de Lorenz}
+Si $L(0.5)=0.2$, les $50\,\%$ les moins riches détiennent $20\,\%$ de la richesse totale. La lecture doit toujours préciser la population cumulée et la richesse cumulée.
+Plus la courbe est éloignée de la diagonale, plus la concentration est forte. Une comparaison ponctuelle ne suffit pas toujours : deux courbes peuvent se croiser.
+\section{4. Aire et indice de Gini}
+L'indice de Gini mesure l'aire relative entre la diagonale d'égalité et la courbe de Lorenz. Lorsque la courbe est modélisée par une fonction $L$ sur $[0,1]$, on peut écrire
+\[
+G=1-2\int_0^1L(x)\,dx.
+\]
+Si $L(x)=x$, l'intégrale vaut $1/2$ et $G=0$, ce qui correspond à l'égalité parfaite. Un indice proche de $1$ traduit une forte concentration.
+\section{5. Approximation à partir de données}
+Lorsque l'on dispose seulement de points de la courbe, l'aire sous Lorenz peut être estimée par des trapèzes. Pour deux points consécutifs $(x_i,y_i)$ et $(x_{i+1},y_{i+1})$, l'aire du trapèze vaut
+\[
+\frac{y_i+y_{i+1}}{2}(x_{i+1}-x_i).
+\]
+On additionne les aires puis on utilise la formule du Gini.
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/richesses-inegalites-2.svg}{Approximation trapézoïdale sous une courbe de Lorenz.}{Des trapèzes successifs approchent l'aire sous la courbe afin d'estimer l'indice de Gini.}
+\section{6. Comparer des distributions}
+Un indice de Gini unique résume une distribution mais ne la décrit pas complètement. Deux distributions peuvent partager le même Gini avec des profils très différents. On complète donc l'analyse par médiane, quantiles, rapports interdéciles et lecture de la courbe de Lorenz.
+Lorsque deux courbes de Lorenz ne se croisent pas, celle qui est la plus proche de la diagonale correspond à une répartition plus égalitaire. Si elles se croisent, l'ordre global devient plus délicat.
+\section{7. Fonction de répartition}
+Une fonction de répartition $F(x)$ donne la proportion d'individus dont la valeur est inférieure ou égale à $x$. Elle répond à une question différente de Lorenz : elle cumule des effectifs selon un seuil de valeur, tandis que Lorenz cumule une part de richesse selon une part de population.
+Cette distinction évite de confondre un quantile avec une part cumulée de richesse.
+\section{8. Lecture économique et esprit critique}
+Une mesure d'inégalité ne dit rien directement sur le niveau moyen. Une population peut devenir plus égalitaire tout en s'appauvrissant, ou plus riche en moyenne tout en devenant plus inégalitaire. Les indicateurs doivent donc être lus ensemble.
+Le choix de l'unité d'observation compte également : individu, ménage, revenu avant ou après redistribution. Une comparaison dans le temps ou entre pays doit conserver des définitions cohérentes.
+\section{9. Méthode de résolution}
+On ordonne d'abord les données, puis on calcule les proportions cumulées. On vérifie que les deux suites commencent à $0$, finissent à $1$ et sont croissantes. On trace ensuite la courbe de Lorenz et la diagonale.
+Pour un indice de Gini, on choisit un calcul exact si une fonction $L$ est donnée, ou une approximation trapézoïdale si l'on travaille à partir de points. La conclusion doit préciser que le Gini mesure la concentration et non le niveau de richesse.
+\section{10. Algorithmique et tableur}
+Un tableur peut calculer les cumuls et tracer automatiquement la courbe. Un script peut additionner les aires de trapèzes. Le résultat doit être contrôlé : l'aire sous Lorenz est comprise entre $0$ et $1/2$ dans le cadre usuel et l'indice de Gini entre $0$ et $1$.
+Un calcul numérique facilite les comparaisons, mais la qualité de l'interprétation dépend des données et de leur définition.
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Confondre proportion de population et proportion de richesse.
-\item Penser qu'un indice résume toute la réalité sociale.
-\item Lire une courbe de Lorenz comme une courbe temporelle.
+\item Tracer les groupes dans un ordre non croissant de richesse.
+\item Conclure à partir d'un seul quantile.
+\item Interpréter l'indice de Gini comme un niveau de richesse.
 \end{itemize}
-
 \section{À retenir}
-Les outils mathématiques mesurent la concentration mais leur interprétation nécessite le contexte des données.
+\begin{aretenir}
+La courbe de Lorenz décrit des parts cumulées et la diagonale représente l'égalité parfaite. L'indice de Gini résume l'écart global à cette diagonale, mais doit être interprété avec d'autres informations sur la distribution.
+\end{aretenir}
