@@ -19,7 +19,7 @@ const expectedResources = {
   "aires-volumes": [12, 10, 12],
   "temps-durees": [12, 10, 12],
   "configurations-planes": [12, 10, 12],
-  "angles-triangles-symetrie": [6, 5, 6],
+  "angles-triangles-symetrie": [12, 5, 6],
   "vision-espace-solides": [6, 5, 6],
   "donnees-tableaux-graphiques": [6, 5, 6],
   "probabilites": [6, 5, 6],
