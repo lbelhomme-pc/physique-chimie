@@ -6,7 +6,7 @@ on:
       - c26-v3-latex-certification
     paths:
       - '.c26_payload.part-*'
-      - '.c26_apply.js'
+      - '.c26_apply.cjs'
       - '.github/workflows/c26-apply.yml'
 
 permissions:
@@ -38,7 +38,7 @@ jobs:
           echo "71b1c74220d91e1ab8e3ce3ede60474d2d40cfff795f408398b0dd96471e892a  /tmp/c26-v3-payload.tar.gz" | sha256sum -c -
           tar -xzf /tmp/c26-v3-payload.tar.gz -C .
       - name: Apply permanent guards
-        run: node .c26_apply.js
+        run: node .c26_apply.cjs
       - name: Validate C26
         shell: bash
         run: |
