@@ -3,28 +3,35 @@
     {
       "id": "mc-air-n1-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires",
-      "title": "Intégrale",
-      "statement": "Calculer ∫_0^2 x dx.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Intégrale polynomiale",
+      "statement": "Calculer exactement $\\int_0^2 3x^2\\,dx$ en donnant une primitive et en évaluant correctement les bornes. On attend une application directe, correctement justifiée, avec un contrôle final.",
+      "questions": [
+        "Effectuer le calcul exact."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Définir et calculer l’intégrale d’une fonction continue à l’aide de primitives."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Chercher une primitive avant de calculer.",
+        "method": "Étudier le signe pour une aire.",
+        "reminder": "Utiliser Chasles lorsque l’intervalle se découpe naturellement.",
+        "commonMistake": "Toujours évaluer la primitive en borne supérieure moins borne inférieure."
       },
       "correction": [
-        "Une primitive est x²/2.",
-        "Résultat : 2."
+        "Une primitive de $3x^2$ est $x^3$. Ainsi $\\int_0^2 3x^2\\,dx=[x^3]_0^2=8-0=8$.",
+        "Contrôle : vérifier le signe, les bornes et l’ordre $F(b)-F(a)$, puis distinguer intégrale et aire géométrique."
       ],
       "commonMistakes": [],
       "access": {
@@ -39,33 +46,145 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28",
+        "aires"
       ]
     },
     {
       "id": "mc-air-n1-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires",
-      "title": "Primitive",
-      "statement": "Donner une primitive de 4x³.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Exponentielle",
+      "statement": "Calculer $\\int_0^1 e^{2x}\\,dx$ en faisant apparaître le facteur nécessaire dans une primitive. On attend une application directe, correctement justifiée, avec un contrôle final.",
+      "questions": [
+        "Donner la valeur exacte de l’intégrale."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser la linéarité, la positivité et la relation de Chasles."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher une primitive avant de calculer.",
+        "method": "Étudier le signe pour une aire.",
+        "reminder": "Utiliser Chasles lorsque l’intervalle se découpe naturellement.",
+        "commonMistake": "Toujours évaluer la primitive en borne supérieure moins borne inférieure."
+      },
+      "correction": [
+        "Une primitive de $e^{2x}$ est $\\frac12e^{2x}$. L’intégrale vaut donc $\\frac12(e^2-1)$.",
+        "Contrôle : vérifier le signe, les bornes et l’ordre $F(b)-F(a)$, puis distinguer intégrale et aire géométrique."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28",
+        "aires"
+      ]
+    },
+    {
+      "id": "mc-air-n1-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires",
+      "title": "Chasles",
+      "statement": "On sait que $\\int_0^3 f(x)\\,dx=7$ et $\\int_0^1 f(x)\\,dx=2$. Déterminer $\\int_1^3 f(x)\\,dx$. On attend une application directe, correctement justifiée, avec un contrôle final.",
+      "questions": [
+        "Utiliser la relation de Chasles."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Interpréter une intégrale comme aire ou aire algébrique."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher une primitive avant de calculer.",
+        "method": "Étudier le signe pour une aire.",
+        "reminder": "Utiliser Chasles lorsque l’intervalle se découpe naturellement.",
+        "commonMistake": "Toujours évaluer la primitive en borne supérieure moins borne inférieure."
+      },
+      "correction": [
+        "Par Chasles, $\\int_0^3 f=\\int_0^1 f+\\int_1^3 f$. Ainsi $7=2+\\int_1^3 f$, donc $\\int_1^3 f=5$.",
+        "Contrôle : vérifier le signe, les bornes et l’ordre $F(b)-F(a)$, puis distinguer intégrale et aire géométrique."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28",
+        "aires"
+      ]
+    },
+    {
+      "id": "mc-air-n1-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires",
+      "title": "Valeur moyenne",
+      "statement": "Déterminer la valeur moyenne de $f(x)=2x+1$ sur l’intervalle $[0,4]$. On attend une application directe, correctement justifiée, avec un contrôle final.",
+      "questions": [
+        "Calculer l’intégrale puis la valeur moyenne."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Calculer la valeur moyenne d’une fonction sur un intervalle."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Chercher une primitive avant de calculer.",
+        "method": "Étudier le signe pour une aire.",
+        "reminder": "Utiliser Chasles lorsque l’intervalle se découpe naturellement.",
+        "commonMistake": "Toujours évaluer la primitive en borne supérieure moins borne inférieure."
       },
       "correction": [
-        "x⁴ est une primitive."
+        "Une primitive est $x^2+x$. L’intégrale vaut $20$. Comme la longueur de l’intervalle vaut $4$, la valeur moyenne est $20/4=5$.",
+        "Contrôle : vérifier le signe, les bornes et l’ordre $F(b)-F(a)$, puis distinguer intégrale et aire géométrique."
       ],
       "commonMistakes": [],
       "access": {
@@ -80,33 +199,46 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28",
+        "aires"
       ]
     },
     {
       "id": "mc-air-n2-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires",
-      "title": "Aire",
-      "statement": "Calculer l'aire sous y=2x sur [0,3].",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Aire sous une parabole",
+      "statement": "On considère $f(x)=4-x^2$ sur $[0,2]$. On veut déterminer l’aire comprise entre la courbe, l’axe des abscisses et les droites verticales d’abscisses $0$ et $2$. On attend une démarche structurée qui explicite les hypothèses, les transformations et l’interprétation du résultat.",
+      "questions": [
+        "Justifier que $f$ est positive sur l’intervalle.",
+        "Calculer l’aire exacte."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Mobiliser le calcul intégral dans un problème de variation ou d’accumulation."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Chercher une primitive avant de calculer.",
+        "method": "Étudier le signe pour une aire.",
+        "reminder": "Utiliser Chasles lorsque l’intervalle se découpe naturellement.",
+        "commonMistake": "Toujours évaluer la primitive en borne supérieure moins borne inférieure."
       },
       "correction": [
-        "∫_0^3 2x dx=[x²]_0^3=9."
+        "Sur $[0,2]$, on a $x^2\\leq4$, donc $f(x)\\geq0$. L’intégrale représente donc directement l’aire.",
+        "Une primitive est $4x-x^3/3$. L’aire vaut $8-8/3=16/3$ unités d’aire.",
+        "Contrôle : vérifier le signe, les bornes et l’ordre $F(b)-F(a)$, puis distinguer intégrale et aire géométrique."
       ],
       "commonMistakes": [],
       "access": {
@@ -115,40 +247,53 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N2"
+        "N2",
+        "c28",
+        "aires"
       ]
     },
     {
       "id": "mc-air-n2-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires",
-      "title": "Aire entre courbes",
-      "statement": "Sur [0,1], calculer l'aire entre y=x et y=x².",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Fonction qui change de signe",
+      "statement": "On considère $f(x)=x-1$ sur $[0,3]$. On veut comparer l’intégrale algébrique et l’aire géométrique entre la droite et l’axe des abscisses. On attend une démarche structurée qui explicite les hypothèses, les transformations et l’interprétation du résultat.",
+      "questions": [
+        "Calculer $\\int_0^3(x-1)\\,dx$.",
+        "Calculer l’aire géométrique totale en découpant à l’abscisse où le signe change."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Définir et calculer l’intégrale d’une fonction continue à l’aide de primitives."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
-        "calculer",
-        "raisonner"
+        "chercher",
+        "représenter",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Chercher une primitive avant de calculer.",
+        "method": "Étudier le signe pour une aire.",
+        "reminder": "Utiliser Chasles lorsque l’intervalle se découpe naturellement.",
+        "commonMistake": "Toujours évaluer la primitive en borne supérieure moins borne inférieure."
       },
       "correction": [
-        "x≥x².",
-        "A=∫_0^1(x-x²)dx=1/2-1/3=1/6."
+        "Une primitive est $x^2/2-x$, donc l’intégrale vaut $9/2-3=3/2$.",
+        "La fonction change de signe en $x=1$. L’aire vaut $-\\int_0^1(x-1)\\,dx+\\int_1^3(x-1)\\,dx=1/2+2=5/2$. L’aire diffère donc de l’intégrale algébrique.",
+        "Contrôle : vérifier le signe, les bornes et l’ordre $F(b)-F(a)$, puis distinguer intégrale et aire géométrique."
       ],
       "commonMistakes": [],
       "access": {
@@ -157,40 +302,168 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "chercher",
+        "représenter",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N2"
+        "N2",
+        "c28",
+        "aires"
+      ]
+    },
+    {
+      "id": "mc-air-n2-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires",
+      "title": "Aire entre deux courbes",
+      "statement": "Sur $[0,2]$, on considère $f(x)=2x$ et $g(x)=x^2$. On veut calculer l’aire comprise entre les deux courbes. On attend une démarche structurée qui explicite les hypothèses, les transformations et l’interprétation du résultat.",
+      "questions": [
+        "Comparer $f$ et $g$ sur $[0,2]$.",
+        "Calculer l’aire exacte."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Utiliser la linéarité, la positivité et la relation de Chasles."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 15,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher une primitive avant de calculer.",
+        "method": "Étudier le signe pour une aire.",
+        "reminder": "Utiliser Chasles lorsque l’intervalle se découpe naturellement.",
+        "commonMistake": "Toujours évaluer la primitive en borne supérieure moins borne inférieure."
+      },
+      "correction": [
+        "La différence vaut $f-g=2x-x^2=x(2-x)\\geq0$ sur $[0,2]$, donc $f$ est au-dessus de $g$.",
+        "L’aire vaut $\\int_0^2(2x-x^2)\\,dx=[x^2-x^3/3]_0^2=4-8/3=4/3$.",
+        "Contrôle : vérifier le signe, les bornes et l’ordre $F(b)-F(a)$, puis distinguer intégrale et aire géométrique."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28",
+        "aires"
+      ]
+    },
+    {
+      "id": "mc-air-n2-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires",
+      "title": "Volume à partir d’un débit",
+      "statement": "Un débit est donné par $q(t)=5+2t$ litres par minute pour $t\\in[0,10]$. On veut déterminer le volume total écoulé et le débit moyen sur cette durée. On attend une démarche structurée qui explicite les hypothèses, les transformations et l’interprétation du résultat.",
+      "questions": [
+        "Calculer le volume accumulé.",
+        "Calculer le débit moyen."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Interpréter une intégrale comme aire ou aire algébrique."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "modéliser",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 15,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher une primitive avant de calculer.",
+        "method": "Étudier le signe pour une aire.",
+        "reminder": "Utiliser Chasles lorsque l’intervalle se découpe naturellement.",
+        "commonMistake": "Toujours évaluer la primitive en borne supérieure moins borne inférieure."
+      },
+      "correction": [
+        "Le volume vaut $\\int_0^{10}(5+2t)\\,dt=[5t+t^2]_0^{10}=150$ litres.",
+        "Le débit moyen vaut $150/10=15$ litres par minute. Les unités confirment que l’intégrale d’un débit donne un volume.",
+        "Contrôle : vérifier le signe, les bornes et l’ordre $F(b)-F(a)$, puis distinguer intégrale et aire géométrique."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "modéliser",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28",
+        "aires"
       ]
     },
     {
       "id": "mc-air-n3-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires",
-      "title": "Valeur moyenne",
-      "statement": "Calculer la valeur moyenne de f(x)=x² sur [0,3].",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Aire avec deux changements de signe",
+      "statement": "On considère $f(x)=x(x-1)(x-3)$ sur $[0,4]$. On veut calculer l’aire géométrique entre la courbe et l’axe des abscisses en tenant compte de tous les changements de signe. On attend une résolution complète de niveau baccalauréat, articulant plusieurs outils et justifiant la cohérence de chaque étape.",
+      "questions": [
+        "Établir le tableau de signe de $f$ sur $[0,4]$.",
+        "Déterminer une primitive de $f$.",
+        "Écrire puis calculer l’aire géométrique sous forme d’une somme d’intégrales orientées correctement."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Calculer la valeur moyenne d’une fonction sur un intervalle."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 24,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Chercher une primitive avant de calculer.",
+        "method": "Étudier le signe pour une aire.",
+        "reminder": "Utiliser Chasles lorsque l’intervalle se découpe naturellement.",
+        "commonMistake": "Toujours évaluer la primitive en borne supérieure moins borne inférieure."
       },
       "correction": [
-        "∫_0^3x²dx=9.",
-        "Moyenne=9/3=3."
+        "Les zéros sont $0$, $1$ et $3$. Sur $]0,1[$, $f>0$ ; sur $]1,3[$, $f<0$ ; sur $]3,4]$, $f>0$.",
+        "En développant, $f(x)=x^3-4x^2+3x$. Une primitive est $F(x)=x^4/4-4x^3/3+3x^2/2$.",
+        "L’aire vaut $\\int_0^1 f-\\int_1^3 f+\\int_3^4 f$. On évalue chaque terme avec $F$ puis on additionne des quantités positives. Le découpage est indispensable car une intégrale unique donnerait seulement l’aire algébrique.",
+        "Contrôle : vérifier le signe, les bornes et l’ordre $F(b)-F(a)$, puis distinguer intégrale et aire géométrique."
       ],
       "commonMistakes": [],
       "access": {
@@ -199,39 +472,61 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N3",
+        "c28",
+        "aires"
       ]
     },
     {
       "id": "mc-air-n3-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires",
-      "title": "Rectangles",
-      "statement": "Sur [0,1], on utilise 10 rectangles de même largeur. Quelle est leur largeur ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Paramètre et valeur moyenne",
+      "statement": "Pour $a>0$, on considère $f_a(x)=x^2$ sur $[0,a]$. On cherche la valeur moyenne de $f_a$ puis le point où la fonction prend cette valeur. On attend une résolution complète de niveau baccalauréat, articulant plusieurs outils et justifiant la cohérence de chaque étape.",
+      "questions": [
+        "Exprimer la valeur moyenne en fonction de $a$.",
+        "Résoudre $x^2=\\mu_a$ sur $[0,a]$.",
+        "Comparer la position du point obtenu au milieu géométrique de l’intervalle."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Mobiliser le calcul intégral dans un problème de variation ou d’accumulation."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 24,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Chercher une primitive avant de calculer.",
+        "method": "Étudier le signe pour une aire.",
+        "reminder": "Utiliser Chasles lorsque l’intervalle se découpe naturellement.",
+        "commonMistake": "Toujours évaluer la primitive en borne supérieure moins borne inférieure."
       },
       "correction": [
-        "Largeur=(1-0)/10=0,1."
+        "On a $\\mu_a=\\frac1a\\int_0^a x^2\\,dx=\\frac1a\\times a^3/3=a^2/3$.",
+        "Sur $[0,a]$, l’équation $x^2=a^2/3$ donne $x=a/\\sqrt3$.",
+        "Comme $1/\\sqrt3>1/2$, le point est situé à droite du milieu $a/2$. Cela reflète la croissance de la fonction quadratique : les grandes valeurs proches de $a$ tirent la moyenne vers le haut.",
+        "Contrôle : vérifier le signe, les bornes et l’ordre $F(b)-F(a)$, puis distinguer intégrale et aire géométrique."
       ],
       "commonMistakes": [],
       "access": {
@@ -240,13 +535,145 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N3",
+        "c28",
+        "aires"
+      ]
+    },
+    {
+      "id": "mc-air-n3-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires",
+      "title": "Énergie accumulée",
+      "statement": "La puissance fournie par un dispositif est modélisée par $P(t)=120e^{-0.2t}+30$ watts pour $t\\in[0,10]$ secondes. On veut calculer l’énergie fournie et comparer la contribution du terme exponentiel à celle du terme constant. On attend une résolution complète de niveau baccalauréat, articulant plusieurs outils et justifiant la cohérence de chaque étape.",
+      "questions": [
+        "Calculer exactement $E=\\int_0^{10}P(t)\\,dt$.",
+        "Séparer les deux contributions à l’énergie.",
+        "Interpréter la limite de l’énergie moyenne si la durée d’observation devient très grande."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Définir et calculer l’intégrale d’une fonction continue à l’aide de primitives."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher une primitive avant de calculer.",
+        "method": "Étudier le signe pour une aire.",
+        "reminder": "Utiliser Chasles lorsque l’intervalle se découpe naturellement.",
+        "commonMistake": "Toujours évaluer la primitive en borne supérieure moins borne inférieure."
+      },
+      "correction": [
+        "Une primitive est $-600e^{-0.2t}+30t$. Ainsi $E=600(1-e^{-2})+300$ joules.",
+        "La contribution exponentielle vaut $600(1-e^{-2})$ et la contribution constante vaut $300$. Cette séparation vient de la linéarité de l’intégrale.",
+        "Sur une longue durée, la contribution moyenne du terme exponentiel devient négligeable alors que le terme constant reste $30$ watts. La puissance moyenne tend donc vers $30$.",
+        "Contrôle : vérifier le signe, les bornes et l’ordre $F(b)-F(a)$, puis distinguer intégrale et aire géométrique."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28",
+        "aires"
+      ]
+    },
+    {
+      "id": "mc-air-n3-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires",
+      "title": "Encadrement d’une intégrale",
+      "statement": "On sait que $f$ est continue et vérifie $2\\leq f(x)\\leq5$ pour tout $x\\in[1,4]$. On veut obtenir un encadrement de son intégrale puis discuter ce que cet encadrement permet d’affirmer sur sa valeur moyenne. On attend une résolution complète de niveau baccalauréat, articulant plusieurs outils et justifiant la cohérence de chaque étape.",
+      "questions": [
+        "Intégrer les deux inégalités sur $[1,4]$.",
+        "Encadrer $\\int_1^4 f(x)\\,dx$.",
+        "En déduire un encadrement de la valeur moyenne de $f$."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Utiliser la linéarité, la positivité et la relation de Chasles."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher une primitive avant de calculer.",
+        "method": "Étudier le signe pour une aire.",
+        "reminder": "Utiliser Chasles lorsque l’intervalle se découpe naturellement.",
+        "commonMistake": "Toujours évaluer la primitive en borne supérieure moins borne inférieure."
+      },
+      "correction": [
+        "La monotonie de l’intégrale donne $\\int_1^4 2\\,dx\\leq\\int_1^4 f(x)\\,dx\\leq\\int_1^4 5\\,dx$.",
+        "Comme l’intervalle a longueur $3$, on obtient $6\\leq\\int_1^4 f(x)\\,dx\\leq15$.",
+        "La valeur moyenne vaut un tiers de l’intégrale, donc $2\\leq\\mu\\leq5$. Ce résultat est cohérent : une moyenne d’une fonction comprise entre $2$ et $5$ reste dans le même intervalle.",
+        "Contrôle : vérifier le signe, les bornes et l’ordre $F(b)-F(a)$, puis distinguer intégrale et aire géométrique."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28",
+        "aires"
       ]
     }
   ]

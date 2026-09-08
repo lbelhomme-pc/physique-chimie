@@ -2,62 +2,122 @@
   "questions": [
     {
       "id": "mc-air-q1",
-      "question": "∫_a^b f vaut, si F'=f :",
+      "question": "Si $F'=f$, alors $\\int_a^b f$ vaut :",
       "choices": [
-        "F(b)-F(a)",
-        "F(a)-F(b)",
-        "f(b)-f(a)"
+        "$F(b)-F(a)$",
+        "$F(a)-F(b)$",
+        "$F(a)+F(b)$"
       ],
       "answer": 0,
-      "explanation": "Formule fondamentale.",
+      "explanation": "Le théorème fondamental donne la primitive évaluée en borne supérieure moins la borne inférieure.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires"
     },
     {
       "id": "mc-air-q2",
-      "question": "Si f≥0, l'intégrale représente :",
+      "question": "Que vaut $\\int_a^a f$ ?",
       "choices": [
-        "une aire",
-        "une dérivée",
-        "une variance"
+        "$0$",
+        "$1$",
+        "$f(a)$"
       ],
       "answer": 0,
-      "explanation": "Aire sous la courbe.",
+      "explanation": "Un intervalle de longueur nulle produit une intégrale nulle, conformément à la définition orientée.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires"
     },
     {
       "id": "mc-air-q3",
-      "question": "Une primitive de x² est :",
+      "question": "Inverser les bornes :",
       "choices": [
-        "x³/3",
-        "2x",
-        "x²/2"
+        "change le signe",
+        "ne change rien",
+        "double l’intégrale"
       ],
       "answer": 0,
-      "explanation": "La dérivée de x³/3 vaut x².",
+      "explanation": "On a toujours $\\int_b^a f=-\\int_a^b f$.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires"
     },
     {
       "id": "mc-air-q4",
-      "question": "Augmenter le nombre de rectangles :",
+      "question": "La relation de Chasles écrit :",
       "choices": [
-        "raffine l'approximation",
-        "change forcément l'aire exacte",
-        "supprime les bornes"
+        "$\\int_a^b f=\\int_a^c f+\\int_c^b f$",
+        "$\\int_a^b f=\\int_a^c f\\int_c^b f$",
+        "$\\int_a^b f=f(b)-f(a)$"
       ],
       "answer": 0,
-      "explanation": "Le maillage devient plus fin.",
+      "explanation": "L’intégrale s’additionne lorsque l’on découpe l’intervalle en deux parties orientées.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires"
     },
     {
       "id": "mc-air-q5",
-      "question": "La valeur moyenne sur [a,b] est :",
+      "question": "Si $f\\geq0$ sur $[a,b]$ avec $a<b$, alors :",
       "choices": [
-        "1/(b-a) fois l'intégrale",
-        "l'intégrale seule",
-        "f(a)+f(b)"
+        "$\\int_a^b f\\geq0$",
+        "$\\int_a^b f<0$",
+        "l’intégrale est toujours nulle"
       ],
       "answer": 0,
-      "explanation": "On divise par la longueur de l'intervalle.",
+      "explanation": "La positivité de l’intégrale respecte la positivité de la fonction sur un intervalle orienté positivement.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires"
+    },
+    {
+      "id": "mc-air-q6",
+      "question": "Une aire entre $f$ et $g$ avec $f\\geq g$ vaut :",
+      "choices": [
+        "$\\int_a^b(f-g)$",
+        "$\\int_a^b(f+g)$",
+        "$\\int_a^b fg$"
+      ],
+      "answer": 0,
+      "explanation": "L’épaisseur verticale de la zone est $f-g$, que l’on accumule sur tout l’intervalle.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires"
+    },
+    {
+      "id": "mc-air-q7",
+      "question": "La valeur moyenne de $f$ sur $[a,b]$ vaut :",
+      "choices": [
+        "$\\frac1{b-a}\\int_a^b f$",
+        "$\\int_a^b f$",
+        "$(f(a)+f(b))/2$ toujours"
+      ],
+      "answer": 0,
+      "explanation": "On divise l’accumulation totale par la longueur de l’intervalle.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires"
+    },
+    {
+      "id": "mc-air-q8",
+      "question": "Une intégrale négative peut-elle représenter directement une aire géométrique ?",
+      "choices": [
+        "non",
+        "oui toujours",
+        "seulement si $a=b$"
+      ],
+      "answer": 0,
+      "explanation": "Une aire géométrique est positive ; l’intégrale négative traduit une aire algébrique orientée.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires"
+    },
+    {
+      "id": "mc-air-q9",
+      "question": "Intégrer une vitesse donne :",
+      "choices": [
+        "un déplacement",
+        "une accélération",
+        "une fréquence"
+      ],
+      "answer": 0,
+      "explanation": "L’intégrale d’un taux de variation redonne la variation de la grandeur associée.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires"
+    },
+    {
+      "id": "mc-air-q10",
+      "question": "Une méthode des trapèzes fournit :",
+      "choices": [
+        "une approximation",
+        "toujours une valeur exacte",
+        "une dérivée"
+      ],
+      "answer": 0,
+      "explanation": "La méthode des trapèzes remplace la courbe par des segments et produit en général une approximation numérique.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/calculs-aires"
     }
   ]
