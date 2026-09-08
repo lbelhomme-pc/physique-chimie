@@ -2,33 +2,63 @@
   "cards": [
     {
       "id": "mc-ech-f1",
-      "front": "Bernoulli",
-      "back": "Succès p, échec 1-p."
+      "front": "Schéma de Bernoulli",
+      "back": "$n$ épreuves indépendantes avec une même probabilité de succès $p$."
     },
     {
       "id": "mc-ech-f2",
-      "front": "Binomiale",
-      "back": "Nombre de succès sur n Bernoulli indépendantes."
+      "front": "Loi binomiale",
+      "back": "$X\\sim\\mathcal{B}(n,p)$ si $X$ compte les succès d’un schéma de Bernoulli."
     },
     {
       "id": "mc-ech-f3",
-      "front": "Probabilité",
-      "back": "C(n,k)p^k(1-p)^(n-k)."
+      "front": "Probabilité exacte",
+      "back": "$P(X=k)=\\binom nkp^k(1-p)^{n-k}$."
     },
     {
       "id": "mc-ech-f4",
-      "front": "Espérance",
-      "back": "np."
+      "front": "Espérance binomiale",
+      "back": "$E(X)=np$."
     },
     {
       "id": "mc-ech-f5",
-      "front": "Échantillonnage",
-      "back": "Observation d'une partie d'une population."
+      "front": "Variance binomiale",
+      "back": "$V(X)=np(1-p)$."
     },
     {
       "id": "mc-ech-f6",
-      "front": "Biais",
-      "back": "Déformation systématique liée à la collecte ou sélection."
+      "front": "Écart-type binomial",
+      "back": "$\\sigma(X)=\\sqrt{np(1-p)}$."
+    },
+    {
+      "id": "mc-ech-f7",
+      "front": "Complément utile",
+      "back": "$P(X\\geq r)=1-P(X\\leq r-1)$."
+    },
+    {
+      "id": "mc-ech-f8",
+      "front": "Espérance d’une somme",
+      "back": "$E(X+Y)=E(X)+E(Y)$."
+    },
+    {
+      "id": "mc-ech-f9",
+      "front": "Variance sous indépendance",
+      "back": "$V(X+Y)=V(X)+V(Y)$ si $X$ et $Y$ sont indépendantes."
+    },
+    {
+      "id": "mc-ech-f10",
+      "front": "Tchebychev",
+      "back": "$P(|X-E(X)|\\geq a)\\leq V(X)/a^2$."
+    },
+    {
+      "id": "mc-ech-f11",
+      "front": "Fréquence binomiale",
+      "back": "Si $F_n=X_n/n$, alors $E(F_n)=p$."
+    },
+    {
+      "id": "mc-ech-f12",
+      "front": "Concentration",
+      "back": "$V(F_n)=p(1-p)/n$, donc les fluctuations diminuent quand $n$ augmente."
     }
   ]
 }
