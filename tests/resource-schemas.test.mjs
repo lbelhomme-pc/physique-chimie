@@ -68,7 +68,7 @@ test("all chapter resource families keep their required schema files", () => {
       assert.ok(fs.existsSync(path.join(root, dir, name)), `${dir}: ${name}`);
     }
     assert.ok(
-      fs.existsSync(path.join(root, dir, "cours.mdx")) || fs.existsSync(path.join(root, dir, "cours.fragment.html")),
+      fs.existsSync(path.join(root, dir, "cours.tex")) || fs.existsSync(path.join(root, dir, "cours.mdx")) || fs.existsSync(path.join(root, dir, "cours.fragment.html")),
       `${dir}: course body`,
     );
   }
