@@ -1,93 +1,116 @@
+% Mathématiques Terminale spécialité — V3 LaTeX
+% Continuité, théorème des valeurs intermédiaires et dichotomie
+
 \section{Objectifs}
 \begin{itemize}
-\item Comprendre la continuité comme absence de rupture locale.
-\item Utiliser le théorème des valeurs intermédiaires.
-\item Justifier existence et unicité d'une solution.
-\item Encadrer une solution par dichotomie.
+\item Reconnaître et utiliser la continuité sur un intervalle.
+\item Appliquer le théorème des valeurs intermédiaires.
+\item Établir existence et unicité d’une solution.
+\item Encadrer numériquement une solution par dichotomie et exploiter une suite itérée.
 \end{itemize}
 
-\section{1. Continuité}
+\section{Repères et enjeux du chapitre}
+La continuité formalise l'idée qu'une fonction ne présente pas de rupture sur un intervalle. Cette propriété permet de passer d'informations sur les valeurs aux extrémités à l'existence de valeurs intermédiaires. Associée à la monotonie, elle donne un outil puissant pour prouver qu'une équation possède une unique solution. La dichotomie transforme ensuite cette preuve d'existence en approximation numérique contrôlée.
+
+\section{1. Continuité en un point et sur un intervalle}
 Une fonction $f$ est continue en $a$ lorsque
 \[
 \lim_{x\to a}f(x)=f(a).
 \]
+Elle est continue sur un intervalle lorsqu'elle est continue en chacun de ses points. Les fonctions usuelles sont continues sur leur domaine de définition, et les opérations usuelles conservent la continuité lorsque leurs expressions sont définies. Toute fonction dérivable sur un intervalle y est continue, mais la réciproque est fausse.
 
-Une fonction dérivable sur un intervalle y est continue.
-
-Les fonctions usuelles sont continues sur leurs domaines de définition.
-
-\section{2. Image d'une suite convergente}
-Si
-\[
-u_n\to\ell
-\]
-et si $f$ est continue en $\ell$, alors
+\section{2. Image d’une suite convergente}
+Si $u_n\to\ell$ et si $f$ est continue en $\ell$, alors
 \[
 f(u_n)\to f(\ell).
 \]
-
-\section{3. Théorème des valeurs intermédiaires}
-Si $f$ est continue sur $[a,b]$, alors toute valeur comprise entre $f(a)$ et $f(b)$ est atteinte au moins une fois.
-
-En particulier, si
-\[
-f(a)f(b)<0,
-\]
-il existe au moins un réel
-\[
-c\in]a,b[
-\]
-tel que
-\[
-f(c)=0.
-\]
-
-\section{4. Unicité}
-Le TVI garantit l'existence, pas l'unicité.
-
-Si, en plus, $f$ est strictement monotone sur $[a,b]$, l'équation
-\[
-f(x)=k
-\]
-admet au plus une solution.
-
-Existence + stricte monotonie donnent donc une solution unique.
-
-\section{5. Dichotomie}
-Pour encadrer une racine d'une fonction continue :
-\begin{enumerate}
-\item partir d'un intervalle $[a,b]$ où les valeurs aux extrémités sont de signes opposés ;
-\item calculer le milieu
-\end{enumerate}
-\[
-m=\frac{a+b}{2};
-\]
-\begin{enumerate}
-\item conserver la moitié où le changement de signe subsiste ;
-\item répéter.
-\end{enumerate}
-
-La longueur de l'intervalle est divisée par 2 à chaque étape.
-
-\section{6. Suite définie par itération}
-Pour une suite
-\[
-u_{n+1}=f(u_n),
-\]
-si $u_n\to\ell$ et si $f$ est continue en $\ell$, alors
+Cette propriété est centrale pour les suites définies par itération. Si $u_{n+1}=f(u_n)$ et si la suite converge vers $\ell$, on obtient sous l'hypothèse de continuité
 \[
 \ell=f(\ell).
 \]
+Cette relation identifie une limite éventuelle, mais elle ne démontre pas la convergence de la suite.
 
-C'est une condition nécessaire pour une limite éventuelle.
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/continuite-tvi-dichotomie-1.svg}{Schéma structurant pour Continuité, théorème des valeurs intermédiaires et dichotomie.}{La figure met en évidence les objets, relations ou variations fondamentales mobilisés dans la première moitié du chapitre.}
+
+\section{3. Théorème des valeurs intermédiaires}
+Si $f$ est continue sur $[a,b]$, alors toute valeur comprise entre $f(a)$ et $f(b)$ est atteinte au moins une fois. En particulier, si
+\[
+f(a)f(b)<0,
+\]
+il existe au moins un réel $c\in(a,b)$ tel que $f(c)=0$. La continuité est une hypothèse indispensable : sans elle, une fonction peut changer de signe en sautant la valeur $0$.
+
+\section{4. Existence et unicité}
+Le théorème des valeurs intermédiaires assure l'existence mais pas l'unicité. Pour montrer qu'une équation $f(x)=k$ possède une unique solution sur $[a,b]$, on combine généralement la continuité avec la stricte monotonie. La continuité fournit au moins une solution ; la stricte monotonie garantit qu'il ne peut pas y en avoir deux. Les deux rôles doivent être distingués dans la rédaction.
+
+\section{5. Corollaire de bijection sur un intervalle}
+Si $f$ est continue et strictement monotone sur un intervalle, alors elle prend chaque valeur comprise entre ses valeurs aux bornes une seule fois. Cette propriété permet de conclure directement à l'existence et à l'unicité d'une solution de $f(x)=k$. Dans une copie, il faut préciser l'intervalle, la continuité, le sens de variation et la position de $k$ par rapport aux images des bornes.
+
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/continuite-tvi-dichotomie-2.svg}{Deuxième représentation pédagogique pour Continuité, théorème des valeurs intermédiaires et dichotomie.}{La figure sert de support de lecture, de comparaison ou de contrôle pour les méthodes centrales du chapitre.}
+
+\section{6. Méthode de dichotomie}
+Supposons $f$ continue sur $[a,b]$ avec des valeurs de signes opposés. On calcule le milieu
+\[
+m=\frac{a+b}{2}.
+\]
+On conserve la moitié de l'intervalle où subsiste le changement de signe, puis on recommence. Après $n$ étapes, la longueur de l'intervalle est
+\[
+\frac{b-a}{2^n}.
+\]
+La méthode fournit donc un contrôle explicite de la précision de l'encadrement.
+
+\section{7. Algorithme et critère d’arrêt}
+Une dichotomie peut être programmée par une boucle. Le critère d'arrêt peut porter sur la longueur de l'intervalle, par exemple continuer tant que $b-a$ dépasse la précision souhaitée. À chaque étape, on doit mettre à jour exactement une borne de façon à conserver le changement de signe. Un programme qui ne maintient pas cet invariant peut produire un intervalle ne contenant plus la racine.
+
+\section{8. Résoudre une équation par étude de fonction}
+Une démarche complète peut commencer par définir $g(x)=f(x)-k$, étudier sa continuité et ses variations, puis appliquer le théorème des valeurs intermédiaires à $g$. Si l'unicité est obtenue, une dichotomie permet ensuite d'approcher la solution. Cette chaîne logique distingue trois niveaux : preuve d'existence, preuve d'unicité, approximation numérique.
+
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Identifier précisément l'objet mathématique demandé et les hypothèses disponibles.
+\item Traduire l'énoncé dans une écriture adaptée : égalité, système, représentation paramétrique, inégalité, suite ou fonction selon le contexte.
+\item Choisir le théorème ou la propriété en vérifiant explicitement ses conditions d'application.
+\item Effectuer les calculs en conservant les formes exactes aussi longtemps que possible.
+\item Contrôler la cohérence du résultat par une seconde méthode, un ordre de grandeur, un signe, une substitution ou une lecture graphique.
+\item Conclure dans le langage du problème, en distinguant clairement ce qui est démontré de ce qui est conjecturé ou approché numériquement.
+\end{enumerate}
+\end{methode}
+
+\section{Rédaction attendue en Terminale}
+En spécialité, une réponse correcte ne se réduit pas à une ligne de calcul. Lorsqu'un résultat dépend d'un théorème, les hypothèses doivent apparaître dans la copie. Lorsqu'une valeur est approchée, la précision doit être annoncée. Lorsqu'une équation est résolue, il faut revenir à la question posée et vérifier que la solution appartient au domaine considéré. Cette discipline de rédaction évite les raisonnements implicites et prépare aux attendus de l'épreuve écrite.
+
+\begin{attention}
+Une calculatrice ou un logiciel peut suggérer une réponse, produire un tableau ou une représentation, mais il ne remplace pas la justification. Un résultat numérique devient exploitable seulement après avoir été relié à une propriété mathématique et interprété dans le contexte.
+\end{attention}
+
+\section{Contrôler une solution}
+Le contrôle dépend du chapitre : recompter par le complément en combinatoire, vérifier l'appartenance d'un point à une droite ou à un plan, substituer une solution dans une équation, comparer deux expressions de limite, vérifier un signe de dérivée, ou encore contrôler qu'un encadrement de dichotomie conserve bien le changement de signe. Dans tous les cas, l'objectif est d'obtenir une preuve locale que le résultat final n'est pas seulement plausible mais compatible avec les données et les hypothèses.
+
+\section{Problème de synthèse et stratégie}
+
+Dans ce chapitre, la difficulté d'un problème complet consiste à articuler plusieurs résultats plutôt qu'à appliquer une formule isolée. Pour continuité, théorème des valeurs intermédiaires et dichotomie, on commence par identifier les objets et les hypothèses, puis on construit une chaîne de décisions vérifiables. Les résultats intermédiaires doivent être réutilisés explicitement : une relation obtenue peut justifier une appartenance, une monotonie, un comptage, une limite ou un encadrement. Cette organisation est particulièrement importante lorsque l'énoncé introduit une notation nouvelle ou demande une interprétation finale.
+
+
+\section{Réinvestissement type baccalauréat}
+Un exercice de baccalauréat combine souvent plusieurs compétences : lecture d'une situation, choix d'une stratégie, calcul exact, justification et interprétation. Il faut donc savoir passer d'une question technique courte à une question de synthèse. Une bonne stratégie consiste à repérer les résultats intermédiaires qui seront réutilisés, à annoncer les théorèmes avant leur emploi et à conserver une trace claire des dépendances entre les questions. Lorsqu'une question paraît isolée, elle prépare souvent une propriété utile pour la suite de l'exercice.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Utiliser le TVI sans vérifier la continuité.
 \item Confondre existence et unicité.
-\item Affirmer que toute solution de $\ell=f(\ell)$ est automatiquement la limite de la suite.
+\item Conclure qu’une solution de $\ell=f(\ell)$ est automatiquement la limite d’une suite.
 \item Choisir une moitié en dichotomie sans conserver le changement de signe.
+\item Donner une valeur approchée sans préciser l’encadrement ou la précision.
 \end{itemize}
 
 \section{À retenir}
-La continuité permet de passer d'informations sur les valeurs aux extrémités à l'existence de valeurs intermédiaires ; la monotonie apporte l'unicité.
+\begin{aretenir}
+\begin{itemize}
+\item La continuité permet d’atteindre toutes les valeurs intermédiaires.
+\item Le TVI donne l’existence, pas l’unicité.
+\item La stricte monotonie apporte l’unicité.
+\item La dichotomie fournit un encadrement de précision contrôlée.
+\item Pour une suite itérée convergente, la continuité permet d’identifier la limite par une équation de point fixe.
+\end{itemize}
+\end{aretenir}

@@ -1,63 +1,123 @@
 {
   "questions": [
     {
-      "id": "tle-lim-q1",
-      "question": "Si f(x)→ℓ quand x→+∞, alors y=ℓ est :",
+      "id": "tle-limites-fonctions-asymptotes-q1",
+      "question": "Une limite finie $\\ell$ à $+\\infty$ peut donner l’asymptote :",
       "choices": [
-        "une asymptote horizontale",
-        "une asymptote verticale",
-        "une tangente obligatoire"
+        "$y=\\ell$",
+        "$x=\\ell$",
+        "$y=x+\\ell$ toujours"
       ],
       "answer": 0,
-      "explanation": "C'est le lien entre limite finie à l'infini et asymptote horizontale.",
+      "explanation": "Une limite finie à l’infini correspond à une asymptote horizontale d’équation $y=\\ell$.",
       "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes"
     },
     {
-      "id": "tle-lim-q2",
-      "question": "∞/∞ est :",
+      "id": "tle-limites-fonctions-asymptotes-q2",
+      "question": "Une limite infinie lorsque $x\\to a$ peut donner :",
       "choices": [
-        "une forme indéterminée",
-        "toujours 1",
-        "toujours +∞"
+        "l’asymptote verticale $x=a$",
+        "l’asymptote horizontale $y=a$",
+        "aucune information graphique"
       ],
       "answer": 0,
-      "explanation": "Il faut transformer l'expression.",
+      "explanation": "Une divergence vers l’infini au voisinage de $a$ caractérise une asymptote verticale $x=a$.",
       "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes"
     },
     {
-      "id": "tle-lim-q3",
-      "question": "À +∞, e^x par rapport à x^n :",
+      "id": "tle-limites-fonctions-asymptotes-q3",
+      "question": "La forme $0/0$ est :",
       "choices": [
-        "croît plus vite pour tout entier n",
-        "croît moins vite",
-        "a toujours le même ordre"
+        "indéterminée",
+        "toujours égale à $1$",
+        "toujours égale à $0$"
       ],
       "answer": 0,
-      "explanation": "C'est la croissance comparée exponentielle-puissance.",
+      "explanation": "Une forme $0/0$ exige une transformation avant de pouvoir conclure sur la limite.",
       "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes"
     },
     {
-      "id": "tle-lim-q4",
-      "question": "Pour un polynôme à +∞, le comportement est gouverné par :",
+      "id": "tle-limites-fonctions-asymptotes-q4",
+      "question": "Pour un polynôme à l’infini, le comportement est gouverné par :",
       "choices": [
         "le terme de plus haut degré",
         "le terme constant",
-        "le nombre de termes"
+        "le nombre de termes uniquement"
       ],
       "answer": 0,
-      "explanation": "Le terme dominant fixe le comportement asymptotique.",
+      "explanation": "Après factorisation par la plus grande puissance de $x$, les termes de degré inférieur deviennent négligeables.",
       "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes"
     },
     {
-      "id": "tle-lim-q5",
-      "question": "Une asymptote verticale x=a correspond à :",
+      "id": "tle-limites-fonctions-asymptotes-q5",
+      "question": "À $+\\infty$, $x^n/e^x$ tend vers :",
       "choices": [
-        "une limite infinie en a d'un côté au moins",
-        "une limite finie à +∞",
-        "une dérivée nulle"
+        "$0$",
+        "+$\\infty$",
+        "$1$"
       ],
       "answer": 0,
-      "explanation": "Une divergence infinie près de a produit l'asymptote verticale.",
+      "explanation": "La croissance exponentielle domine toute puissance polynomiale positive.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes"
+    },
+    {
+      "id": "tle-limites-fonctions-asymptotes-q6",
+      "question": "Une courbe peut-elle couper une asymptote horizontale ?",
+      "choices": [
+        "Oui",
+        "Non, jamais",
+        "Seulement si elle est une droite"
+      ],
+      "answer": 0,
+      "explanation": "Une asymptote décrit le comportement à l’infini et n’interdit pas des intersections à distance finie.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes"
+    },
+    {
+      "id": "tle-limites-fonctions-asymptotes-q7",
+      "question": "Pour étudier la position par rapport à $y=\\ell$, on étudie :",
+      "choices": [
+        "le signe de $f(x)-\\ell$",
+        "seulement $f^{\\prime}(x)$",
+        "la norme de $x$"
+      ],
+      "answer": 0,
+      "explanation": "La différence $f(x)-\\ell$ indique directement si la courbe est au-dessus ou au-dessous de l’asymptote.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes"
+    },
+    {
+      "id": "tle-limites-fonctions-asymptotes-q8",
+      "question": "Les limites à gauche et à droite d’un point :",
+      "choices": [
+        "peuvent être différentes",
+        "sont toujours égales",
+        "n’existent jamais"
+      ],
+      "answer": 0,
+      "explanation": "Une fonction peut avoir des comportements distincts de chaque côté, notamment près d’une asymptote verticale.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes"
+    },
+    {
+      "id": "tle-limites-fonctions-asymptotes-q9",
+      "question": "Une comparaison $f(x)\\ge g(x)$ avec $g(x)\\to+\\infty$ permet de conclure :",
+      "choices": [
+        "$f(x)\\to+\\infty$",
+        "$f(x)\\to0$",
+        "$f$ est constante"
+      ],
+      "answer": 0,
+      "explanation": "Une fonction située au-dessus d’une fonction qui dépasse tout seuil doit elle aussi tendre vers $+\\infty$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes"
+    },
+    {
+      "id": "tle-limites-fonctions-asymptotes-q10",
+      "question": "Rationaliser est utile notamment pour :",
+      "choices": [
+        "une différence avec une racine",
+        "toute fonction polynomiale sans racine",
+        "une permutation"
+      ],
+      "answer": 0,
+      "explanation": "Le produit par le conjugué peut transformer une forme $\\infty-\\infty$ ou $0/0$ contenant une racine.",
       "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes"
     }
   ]

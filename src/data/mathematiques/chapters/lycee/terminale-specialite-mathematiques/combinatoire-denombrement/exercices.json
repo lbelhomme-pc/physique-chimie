@@ -1,30 +1,37 @@
 {
   "exercices": [
     {
-      "id": "tle-comb-n1-1",
+      "id": "tle-combinatoire-denombrement-n1-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
-      "title": "Principe multiplicatif",
-      "statement": "Un code contient 3 lettres parmi 26, avec répétition autorisée, puis 2 chiffres parmi 10. Combien de codes ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Code avec répétitions",
+      "statement": "Un identifiant comporte deux lettres choisies parmi $26$ puis trois chiffres choisis parmi $10$. Les répétitions sont autorisées à toutes les positions.",
+      "questions": [
+        "Déterminer le nombre total d’identifiants possibles."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Dénombrer des listes ordonnées et utiliser le principe multiplicatif."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Identifier si l’ordre compte, si la répétition est autorisée et si les cas sont disjoints.",
+        "method": "Décider d’abord entre principe additif, principe multiplicatif, permutation, combinaison ou complément.",
+        "reminder": "Un dénombrement doit préciser exactement l’objet compté.",
+        "commonMistake": "Appliquer une formule sans vérifier si l’ordre intervient."
       },
       "correction": [
-        "Il y a 26 choix pour chacune des 3 lettres et 10 pour chacun des 2 chiffres.",
-        "Nombre total : 26^3×10^2 = 1 757 600."
+        "Chaque position est choisie indépendamment : il y a $26^2\\times10^3=676\\,000$ identifiants. Le principe multiplicatif s’applique car les cinq choix sont successifs."
       ],
       "commonMistakes": [],
       "access": {
@@ -33,40 +40,49 @@
         "requiresAccount": false
       },
       "competences": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-comb-n1-2",
+      "id": "tle-combinatoire-denombrement-n1-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
-      "title": "Combinaisons",
-      "statement": "Calculer le nombre de groupes de 4 élèves que l'on peut former parmi 9 élèves.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Ordres d’arrivée",
+      "statement": "Huit finalistes terminent une course sans ex æquo. On considère uniquement l’ordre d’arrivée des huit personnes.",
+      "questions": [
+        "Calculer le nombre d’ordres d’arrivée possibles."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Dénombrer des permutations d’un ensemble fini."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Identifier si l’ordre compte, si la répétition est autorisée et si les cas sont disjoints.",
+        "method": "Décider d’abord entre principe additif, principe multiplicatif, permutation, combinaison ou complément.",
+        "reminder": "Un dénombrement doit préciser exactement l’objet compté.",
+        "commonMistake": "Appliquer une formule sans vérifier si l’ordre intervient."
       },
       "correction": [
-        "L'ordre ne compte pas.",
-        "Il y a C(9,4)=9!/(4!5!)=126 groupes."
+        "Il s’agit d’une permutation des $8$ finalistes : le nombre d’ordres vaut $8!=40\\,320$. Tous les concurrents sont utilisés exactement une fois et l’ordre compte."
       ],
       "commonMistakes": [],
       "access": {
@@ -75,40 +91,49 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-comb-n2-1",
+      "id": "tle-combinatoire-denombrement-n1-3",
       "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
-      "title": "Permutations",
-      "statement": "Combien d'ordres d'arrivée différents sont possibles pour 7 coureurs, sans ex æquo ?",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
+      "title": "Former un groupe",
+      "statement": "Une classe compte $12$ élèves volontaires et l’on souhaite désigner un groupe de $5$ élèves sans attribuer de rôle particulier.",
+      "questions": [
+        "Calculer le nombre de groupes distincts."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Dénombrer des parties de taille donnée à l’aide des coefficients binomiaux."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
       "skills": [
+        "modéliser",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Identifier si l’ordre compte, si la répétition est autorisée et si les cas sont disjoints.",
+        "method": "Décider d’abord entre principe additif, principe multiplicatif, permutation, combinaison ou complément.",
+        "reminder": "Un dénombrement doit préciser exactement l’objet compté.",
+        "commonMistake": "Appliquer une formule sans vérifier si l’ordre intervient."
       },
       "correction": [
-        "Tous les coureurs sont ordonnés.",
-        "Il y a 7!=5040 ordres."
+        "L’ordre ne compte pas : on choisit $5$ élèves parmi $12$. Le nombre de groupes est $\\binom{12}{5}=792$."
       ],
       "commonMistakes": [],
       "access": {
@@ -117,84 +142,103 @@
         "requiresAccount": false
       },
       "competences": [
+        "modéliser",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-comb-n2-2",
+      "id": "tle-combinatoire-denombrement-n1-4",
       "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
       "title": "Relation de Pascal",
-      "statement": "Calculer C(8,3) en utilisant C(7,2)=21 et C(7,3)=35.",
-      "consigne": "Justifier les étapes utiles.",
+      "statement": "On connaît $\\binom{9}{3}=84$ et $\\binom{9}{4}=126$. On veut obtenir le coefficient voisin de la ligne suivante sans développer de factorielles.",
+      "questions": [
+        "Calculer $\\binom{10}{4}$ avec la relation de Pascal."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser les propriétés des coefficients binomiaux, notamment symétrie et relation de Pascal."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l’ordre compte, si la répétition est autorisée et si les cas sont disjoints.",
+        "method": "Décider d’abord entre principe additif, principe multiplicatif, permutation, combinaison ou complément.",
+        "reminder": "Un dénombrement doit préciser exactement l’objet compté.",
+        "commonMistake": "Appliquer une formule sans vérifier si l’ordre intervient."
+      },
+      "correction": [
+        "La relation de Pascal donne $\\binom{10}{4}=\\binom{9}{3}+\\binom{9}{4}=84+126=210$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N1",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-combinatoire-denombrement-n2-1",
+      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
+      "title": "Codes sans répétition et premier chiffre non nul",
+      "statement": "On forme un code de quatre chiffres tous distincts. Le premier chiffre ne peut pas être $0$, tandis que les trois suivants peuvent contenir $0$ s’il n’a pas déjà été utilisé.",
+      "questions": [
+        "Compter les choix possibles pour la première position.",
+        "En déduire le nombre total de codes."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Dénombrer des listes ordonnées et utiliser le principe multiplicatif."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
-        "calculer",
-        "raisonner"
-      ],
-      "prerequisites": [],
-      "estimatedTime": 10,
-      "answerType": "text",
-      "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
-      },
-      "correction": [
-        "Relation de Pascal : C(8,3)=C(7,2)+C(7,3).",
-        "Donc C(8,3)=21+35=56."
-      ],
-      "commonMistakes": [],
-      "access": {
-        "tier": "free",
-        "preview": true,
-        "requiresAccount": false
-      },
-      "competences": [
-        "calculer",
-        "raisonner"
-      ],
-      "accessibility": {},
-      "tags": [
-        "terminale-specialite",
-        "N2"
-      ]
-    },
-    {
-      "id": "tle-comb-n3-1",
-      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
-      "title": "Comité avec contrainte",
-      "statement": "Un groupe contient 6 filles et 5 garçons. Combien de comités de 4 personnes contiennent exactement 2 filles ?",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
-      "skills": [
+        "chercher",
         "modéliser",
         "raisonner",
         "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 14,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Identifier si l’ordre compte, si la répétition est autorisée et si les cas sont disjoints.",
+        "method": "Décider d’abord entre principe additif, principe multiplicatif, permutation, combinaison ou complément.",
+        "reminder": "Un dénombrement doit préciser exactement l’objet compté.",
+        "commonMistake": "Appliquer une formule sans vérifier si l’ordre intervient."
       },
       "correction": [
-        "Choisir 2 filles parmi 6 : C(6,2)=15.",
-        "Choisir 2 garçons parmi 5 : C(5,2)=10.",
-        "Total : 15×10=150."
+        "La première position possède $9$ choix, de $1$ à $9$.",
+        "Après ce choix, il reste $9$, puis $8$, puis $7$ chiffres disponibles. Le total vaut $9\\times9\\times8\\times7=4\\,536$."
       ],
       "commonMistakes": [],
       "access": {
@@ -203,6 +247,7 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
         "modéliser",
         "raisonner",
         "calculer"
@@ -210,35 +255,46 @@
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N2",
+        "c26"
       ]
     },
     {
-      "id": "tle-comb-n3-2",
+      "id": "tle-combinatoire-denombrement-n2-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
-      "title": "Au moins un succès",
-      "statement": "On forme des mots de 6 bits. Combien contiennent au moins un 1 ?",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
+      "title": "Comité avec répartition imposée",
+      "statement": "Une association comprend $7$ femmes et $6$ hommes. Un comité de $5$ personnes doit contenir exactement $2$ femmes et $3$ hommes, sans fonction particulière dans le comité.",
+      "questions": [
+        "Compter les choix possibles de femmes.",
+        "Combiner avec les choix d’hommes et calculer le total."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Dénombrer des parties de taille donnée à l’aide des coefficients binomiaux."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
       "skills": [
+        "modéliser",
+        "représenter",
         "raisonner",
-        "calculer"
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 14,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Identifier si l’ordre compte, si la répétition est autorisée et si les cas sont disjoints.",
+        "method": "Décider d’abord entre principe additif, principe multiplicatif, permutation, combinaison ou complément.",
+        "reminder": "Un dénombrement doit préciser exactement l’objet compté.",
+        "commonMistake": "Appliquer une formule sans vérifier si l’ordre intervient."
       },
       "correction": [
-        "Il y a 2^6=64 mots binaires.",
-        "Un seul mot ne contient aucun 1 : 000000.",
-        "Il y en a donc 64-1=63."
+        "On choisit $2$ femmes parmi $7$, soit $\\binom{7}{2}=21$ possibilités.",
+        "On choisit indépendamment $3$ hommes parmi $6$, soit $\\binom{6}{3}=20$. Le total vaut $21\\times20=420$ comités."
       ],
       "commonMistakes": [],
       "access": {
@@ -247,13 +303,365 @@
         "requiresAccount": false
       },
       "competences": [
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-combinatoire-denombrement-n2-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
+      "title": "Au moins une voyelle",
+      "statement": "On forme des chaînes de longueur $5$ avec les $26$ lettres de l’alphabet, avec répétition autorisée. On considère les $5$ voyelles $A,E,I,O,U$.",
+      "questions": [
+        "Compter toutes les chaînes possibles.",
+        "Compter par complément celles qui contiennent au moins une voyelle."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Dénombrer des listes ordonnées et utiliser le principe multiplicatif."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l’ordre compte, si la répétition est autorisée et si les cas sont disjoints.",
+        "method": "Décider d’abord entre principe additif, principe multiplicatif, permutation, combinaison ou complément.",
+        "reminder": "Un dénombrement doit préciser exactement l’objet compté.",
+        "commonMistake": "Appliquer une formule sans vérifier si l’ordre intervient."
+      },
+      "correction": [
+        "Il existe $26^5$ chaînes de longueur $5$.",
+        "Les chaînes sans voyelle utilisent uniquement $21$ consonnes, soit $21^5$ chaînes. Le nombre recherché est donc $26^5-21^5=7\\,034\\,005$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
         "raisonner",
         "calculer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-combinatoire-denombrement-n2-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
+      "title": "Somme d’une ligne de Pascal",
+      "statement": "On considère un ensemble $E$ de cardinal $n$. On souhaite retrouver l’identité reliant le nombre total de parties de $E$ aux coefficients binomiaux.",
+      "questions": [
+        "Compter les parties de $E$ en décidant pour chaque élément s’il est choisi.",
+        "Recompter les mêmes parties en les classant selon leur cardinal."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Utiliser les propriétés des coefficients binomiaux, notamment symétrie et relation de Pascal."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l’ordre compte, si la répétition est autorisée et si les cas sont disjoints.",
+        "method": "Décider d’abord entre principe additif, principe multiplicatif, permutation, combinaison ou complément.",
+        "reminder": "Un dénombrement doit préciser exactement l’objet compté.",
+        "commonMistake": "Appliquer une formule sans vérifier si l’ordre intervient."
+      },
+      "correction": [
+        "Chaque élément a deux statuts, choisi ou non choisi, donc $E$ possède $2^n$ parties.",
+        "Les parties de cardinal $k$ sont au nombre de $\\binom{n}{k}$. En additionnant pour $k$ de $0$ à $n$, on obtient $\\sum_{k=0}^{n}\\binom{n}{k}=2^n$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-combinatoire-denombrement-n3-1",
+      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
+      "title": "Placement autour d’une table avec contrainte",
+      "statement": "Huit personnes distinctes, dont Alice et Benoît, s’installent sur huit places numérotées autour d’une table. Les places sont donc distinguées. On veut compter les placements dans lesquels Alice et Benoît sont côte à côte, en considérant aussi l’adjacence entre les places $8$ et $1$.",
+      "questions": [
+        "Choisir la place d’Alice puis compter les places possibles de Benoît.",
+        "Placer les six autres personnes.",
+        "Calculer le nombre total de placements et expliquer pourquoi il n’y a pas de double comptage."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Dénombrer des listes ordonnées et utiliser le principe multiplicatif."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l’ordre compte, si la répétition est autorisée et si les cas sont disjoints.",
+        "method": "Décider d’abord entre principe additif, principe multiplicatif, permutation, combinaison ou complément.",
+        "reminder": "Un dénombrement doit préciser exactement l’objet compté.",
+        "commonMistake": "Appliquer une formule sans vérifier si l’ordre intervient."
+      },
+      "correction": [
+        "Alice a $8$ choix et, pour chaque place, Benoît possède exactement $2$ places adjacentes. On obtient donc $8\\times2$ couples de places ordonnés pour eux.",
+        "Les six autres personnes se placent sur les six places restantes de $6!$ façons.",
+        "Le total vaut $8\\times2\\times6!=11\\,520$. Chaque placement possède une place unique pour Alice, donc il est compté une seule fois."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-combinatoire-denombrement-n3-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
+      "title": "Mot de passe avec exactement deux chiffres",
+      "statement": "Un mot de passe comporte $6$ caractères. On utilise les $26$ lettres majuscules et les $10$ chiffres. Les répétitions sont autorisées. On impose exactement deux positions numériques parmi les six.",
+      "questions": [
+        "Choisir les positions occupées par les chiffres.",
+        "Compter les remplissages possibles de ces positions et des positions restantes.",
+        "Donner le nombre total de mots de passe satisfaisant la contrainte."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Dénombrer des listes ordonnées et utiliser le principe multiplicatif."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l’ordre compte, si la répétition est autorisée et si les cas sont disjoints.",
+        "method": "Décider d’abord entre principe additif, principe multiplicatif, permutation, combinaison ou complément.",
+        "reminder": "Un dénombrement doit préciser exactement l’objet compté.",
+        "commonMistake": "Appliquer une formule sans vérifier si l’ordre intervient."
+      },
+      "correction": [
+        "On choisit les $2$ positions numériques parmi $6$, soit $\\binom{6}{2}=15$ choix.",
+        "Les deux positions numériques donnent $10^2$ possibilités et les quatre autres donnent $26^4$ possibilités.",
+        "Le total vaut $\\binom{6}{2}\\times10^2\\times26^4=685\\,464\\,000$. Les étapes sont indépendantes une fois les positions choisies."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-combinatoire-denombrement-n3-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
+      "title": "Double comptage d’une identité",
+      "statement": "Soit $E$ un ensemble de cardinal $n$ et $k$ un entier avec $1\\le k\\le n$. On compte les couples $(A,a)$ où $A$ est une partie de $E$ de cardinal $k$ et où $a$ est un élément distingué de $A$.",
+      "questions": [
+        "Compter les couples en choisissant d’abord la partie $A$.",
+        "Compter les mêmes couples en choisissant d’abord l’élément distingué $a$.",
+        "En déduire une identité entre coefficients binomiaux."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Utiliser les propriétés des coefficients binomiaux, notamment symétrie et relation de Pascal."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l’ordre compte, si la répétition est autorisée et si les cas sont disjoints.",
+        "method": "Décider d’abord entre principe additif, principe multiplicatif, permutation, combinaison ou complément.",
+        "reminder": "Un dénombrement doit préciser exactement l’objet compté.",
+        "commonMistake": "Appliquer une formule sans vérifier si l’ordre intervient."
+      },
+      "correction": [
+        "On choisit $A$ de $\\binom{n}{k}$ façons puis l’élément distingué parmi ses $k$ éléments, soit $k\\binom{n}{k}$ couples.",
+        "On choisit d’abord $a$ parmi $n$ éléments, puis les $k-1$ autres éléments de $A$ parmi les $n-1$ restants, soit $n\\binom{n-1}{k-1}$ couples.",
+        "Les deux méthodes comptent exactement le même ensemble, donc $k\\binom{n}{k}=n\\binom{n-1}{k-1}$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-combinatoire-denombrement-n3-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement",
+      "title": "Sélection avec plusieurs contraintes",
+      "statement": "Un jury doit choisir $4$ dossiers parmi $10$. Trois dossiers sont scientifiques et sept sont littéraires. Le jury veut sélectionner au moins un dossier scientifique mais pas les trois à la fois.",
+      "questions": [
+        "Compter les sélections contenant exactement un dossier scientifique.",
+        "Compter celles contenant exactement deux dossiers scientifiques.",
+        "Additionner les cas et vérifier le résultat par complément dans l’ensemble des sélections de quatre dossiers."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Dénombrer des parties de taille donnée à l’aide des coefficients binomiaux."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier si l’ordre compte, si la répétition est autorisée et si les cas sont disjoints.",
+        "method": "Décider d’abord entre principe additif, principe multiplicatif, permutation, combinaison ou complément.",
+        "reminder": "Un dénombrement doit préciser exactement l’objet compté.",
+        "commonMistake": "Appliquer une formule sans vérifier si l’ordre intervient."
+      },
+      "correction": [
+        "Avec exactement un scientifique, on obtient $\\binom{3}{1}\\binom{7}{3}=105$ sélections.",
+        "Avec exactement deux scientifiques, on obtient $\\binom{3}{2}\\binom{7}{2}=63$ sélections.",
+        "Le total vaut $168$. Par complément, $\\binom{10}{4}-\\binom{7}{4}-\\binom{3}{3}\\binom{7}{1}=210-35-7=168$, ce qui confirme le dénombrement."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
       ]
     }
   ]

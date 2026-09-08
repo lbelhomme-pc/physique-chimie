@@ -1,30 +1,36 @@
 {
   "exercices": [
     {
-      "id": "tle-lim-n1-1",
+      "id": "tle-limites-fonctions-asymptotes-n1-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
-      "title": "Polynôme",
-      "statement": "Déterminer lim_{x→+∞}(4x^3-2x+1).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Limite d’un polynôme",
+      "statement": "On considère $f(x)=3x^4-2x+1$ et on étudie son comportement lorsque $x$ tend vers $+\\infty$.",
+      "questions": [
+        "Déterminer la limite de $f(x)$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Déterminer des limites de fonctions usuelles en un point ou à l’infini."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Identifier la forme de l’expression et le voisinage étudié avant de calculer.",
+        "method": "Lever les formes indéterminées par factorisation, simplification ou croissance comparée.",
+        "reminder": "Une asymptote décrit un comportement limite et peut être coupée par la courbe.",
+        "commonMistake": "Traiter une forme indéterminée comme une valeur."
       },
       "correction": [
-        "Le terme dominant est 4x^3.",
-        "La limite vaut +∞."
+        "Le terme dominant est $3x^4$, qui tend vers $+\\infty$. Les termes de degré inférieur sont négligeables à cette échelle, donc $f(x)\\to+\\infty$."
       ],
       "commonMistakes": [],
       "access": {
@@ -33,41 +39,47 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-lim-n1-2",
+      "id": "tle-limites-fonctions-asymptotes-n1-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
       "title": "Asymptote horizontale",
-      "statement": "f(x)=3+1/x. Déterminer sa limite en +∞ et l'asymptote correspondante.",
-      "consigne": "Justifier les étapes utiles.",
+      "statement": "On sait que $\\lim_{x\\to+\\infty}f(x)=2$. On souhaite traduire cette information sur la représentation graphique.",
+      "questions": [
+        "Donner l’équation de l’asymptote horizontale correspondante."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Interpréter graphiquement des limites à l’aide d’asymptotes verticales ou horizontales."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Identifier la forme de l’expression et le voisinage étudié avant de calculer.",
+        "method": "Lever les formes indéterminées par factorisation, simplification ou croissance comparée.",
+        "reminder": "Une asymptote décrit un comportement limite et peut être coupée par la courbe.",
+        "commonMistake": "Traiter une forme indéterminée comme une valeur."
       },
       "correction": [
-        "1/x tend vers 0.",
-        "f(x) tend vers 3.",
-        "La droite y=3 est une asymptote horizontale."
+        "La limite finie vaut $2$, donc la droite d’équation $y=2$ est asymptote horizontale à la courbe au voisinage de $+\\infty$."
       ],
       "commonMistakes": [],
       "access": {
@@ -76,40 +88,47 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-lim-n2-1",
+      "id": "tle-limites-fonctions-asymptotes-n1-3",
       "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
-      "title": "Quotient de polynômes",
-      "statement": "Déterminer lim_{x→+∞}(2x²+1)/(x²-3x).",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
+      "title": "Limite d’un quotient simple",
+      "statement": "On considère $f(x)=(5x^2+1)/(2x^2-3)$ pour $x$ suffisamment grand.",
+      "questions": [
+        "Déterminer $\\lim_{x\\to+\\infty}f(x)$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Effectuer des opérations sur les limites et lever des formes indéterminées par transformation."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Identifier la forme de l’expression et le voisinage étudié avant de calculer.",
+        "method": "Lever les formes indéterminées par factorisation, simplification ou croissance comparée.",
+        "reminder": "Une asymptote décrit un comportement limite et peut être coupée par la courbe.",
+        "commonMistake": "Traiter une forme indéterminée comme une valeur."
       },
       "correction": [
-        "On divise numérateur et dénominateur par x².",
-        "Le quotient tend vers 2/1=2."
+        "On divise par $x^2$ : $f(x)=(5+1/x^2)/(2-3/x^2)$. Les termes en $1/x^2$ tendent vers $0$, donc la limite vaut $5/2$."
       ],
       "commonMistakes": [],
       "access": {
@@ -118,84 +137,48 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-lim-n2-2",
-      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
-      "title": "Asymptote verticale",
-      "statement": "Étudier la limite de f(x)=1/(x-2) lorsque x tend vers 2 à droite.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
-      "skills": [
-        "calculer",
-        "raisonner"
-      ],
-      "prerequisites": [],
-      "estimatedTime": 10,
-      "answerType": "text",
-      "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
-      },
-      "correction": [
-        "Pour x>2 proche de 2, x-2 est positif et tend vers 0.",
-        "1/(x-2) tend vers +∞.",
-        "x=2 est une asymptote verticale."
-      ],
-      "commonMistakes": [],
-      "access": {
-        "tier": "free",
-        "preview": true,
-        "requiresAccount": false
-      },
-      "competences": [
-        "calculer",
-        "raisonner"
-      ],
-      "accessibility": {},
-      "tags": [
-        "terminale-specialite",
-        "N2"
-      ]
-    },
-    {
-      "id": "tle-lim-n3-1",
+      "id": "tle-limites-fonctions-asymptotes-n1-4",
       "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
       "title": "Croissance comparée",
-      "statement": "Déterminer lim_{x→+∞} x^4 e^{-x}.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
+      "statement": "On considère $f(x)=x^3e^{-x}$ pour $x>0$. La réponse doit être obtenue par un raisonnement explicite et non par une simple affirmation.",
+      "questions": [
+        "Déterminer la limite de $f(x)$ lorsque $x\\to+\\infty$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser comparaison et croissance comparée, notamment avec l’exponentielle."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
       "skills": [
         "raisonner",
-        "calculer"
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Identifier la forme de l’expression et le voisinage étudié avant de calculer.",
+        "method": "Lever les formes indéterminées par factorisation, simplification ou croissance comparée.",
+        "reminder": "Une asymptote décrit un comportement limite et peut être coupée par la courbe.",
+        "commonMistake": "Traiter une forme indéterminée comme une valeur."
       },
       "correction": [
-        "x^4 e^{-x}=x^4/e^x.",
-        "L'exponentielle domine toute puissance : x^4/e^x tend vers 0.",
-        "La limite vaut 0."
+        "On écrit $f(x)=x^3/e^x$. L’exponentielle domine toute puissance positive à $+\\infty$, donc $x^3/e^x\\to0$."
       ],
       "commonMistakes": [],
       "access": {
@@ -205,40 +188,51 @@
       },
       "competences": [
         "raisonner",
-        "calculer"
+        "calculer",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-lim-n3-2",
+      "id": "tle-limites-fonctions-asymptotes-n2-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
-      "title": "Forme indéterminée",
-      "statement": "Déterminer lim_{x→+∞}(3x²-5x)/(2x²+x+1).",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
+      "title": "Lever une différence indéterminée",
+      "statement": "On considère $f(x)=\\sqrt{x^2+x}-x$ pour $x>0$. La substitution asymptotique directe conduit à une forme de type $\\infty-\\infty$.",
+      "questions": [
+        "Multiplier par l’expression conjuguée et simplifier.",
+        "Déterminer la limite lorsque $x\\to+\\infty$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Effectuer des opérations sur les limites et lever des formes indéterminées par transformation."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
       "skills": [
-        "calculer",
-        "raisonner"
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 14,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Identifier la forme de l’expression et le voisinage étudié avant de calculer.",
+        "method": "Lever les formes indéterminées par factorisation, simplification ou croissance comparée.",
+        "reminder": "Une asymptote décrit un comportement limite et peut être coupée par la courbe.",
+        "commonMistake": "Traiter une forme indéterminée comme une valeur."
       },
       "correction": [
-        "La forme brute est ∞/∞.",
-        "On divise par x² : (3-5/x)/(2+1/x+1/x²).",
-        "La limite vaut 3/2."
+        "$f(x)=((x^2+x)-x^2)/(\\sqrt{x^2+x}+x)=x/(\\sqrt{x^2+x}+x)$.",
+        "En divisant numérateur et dénominateur par $x>0$, on obtient $1/(\\sqrt{1+1/x}+1)$, qui tend vers $1/2$."
       ],
       "commonMistakes": [],
       "access": {
@@ -247,13 +241,413 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-limites-fonctions-asymptotes-n2-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
+      "title": "Limites latérales et asymptote verticale",
+      "statement": "On considère $f(x)=1/(x-2)$. Il faut décrire précisément le comportement de la courbe au voisinage de $x=2$.",
+      "questions": [
+        "Déterminer la limite à gauche de $2$.",
+        "Déterminer la limite à droite et conclure sur l’asymptote."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Interpréter graphiquement des limites à l’aide d’asymptotes verticales ou horizontales."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la forme de l’expression et le voisinage étudié avant de calculer.",
+        "method": "Lever les formes indéterminées par factorisation, simplification ou croissance comparée.",
+        "reminder": "Une asymptote décrit un comportement limite et peut être coupée par la courbe.",
+        "commonMistake": "Traiter une forme indéterminée comme une valeur."
+      },
+      "correction": [
+        "Quand $x\\to2^-$, $x-2$ est négatif et tend vers $0$, donc $f(x)\\to-\\infty$.",
+        "Quand $x\\to2^+$, $x-2$ est positif et tend vers $0$, donc $f(x)\\to+\\infty$. La droite $x=2$ est une asymptote verticale."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-limites-fonctions-asymptotes-n2-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
+      "title": "Position par rapport à une asymptote",
+      "statement": "On considère $f(x)=2+3/(x+1)$ sur $]-1,+\\infty[$. On sait déjà que $y=2$ est une asymptote horizontale à $+\\infty$.",
+      "questions": [
+        "Étudier le signe de $f(x)-2$ sur l’intervalle.",
+        "En déduire la position de la courbe par rapport à l’asymptote."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Interpréter graphiquement des limites à l’aide d’asymptotes verticales ou horizontales."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la forme de l’expression et le voisinage étudié avant de calculer.",
+        "method": "Lever les formes indéterminées par factorisation, simplification ou croissance comparée.",
+        "reminder": "Une asymptote décrit un comportement limite et peut être coupée par la courbe.",
+        "commonMistake": "Traiter une forme indéterminée comme une valeur."
+      },
+      "correction": [
+        "$f(x)-2=3/(x+1)$. Sur $]-1,+\\infty[$, le dénominateur est positif, donc la différence est positive.",
+        "La courbe est donc située au-dessus de la droite $y=2$ sur tout cet intervalle, tout en s’en rapprochant à l’infini."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-limites-fonctions-asymptotes-n2-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
+      "title": "Comparaison vers l’infini",
+      "statement": "Pour $x\\ge1$, une fonction $f$ vérifie $x^2\\le f(x)\\le x^2+x$. On veut déterminer son comportement à $+\\infty$.",
+      "questions": [
+        "Étudier les limites des deux fonctions d’encadrement.",
+        "Conclure sur la limite de $f$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Utiliser comparaison et croissance comparée, notamment avec l’exponentielle."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la forme de l’expression et le voisinage étudié avant de calculer.",
+        "method": "Lever les formes indéterminées par factorisation, simplification ou croissance comparée.",
+        "reminder": "Une asymptote décrit un comportement limite et peut être coupée par la courbe.",
+        "commonMistake": "Traiter une forme indéterminée comme une valeur."
+      },
+      "correction": [
+        "$x^2\\to+\\infty$ et $x^2+x\\to+\\infty$.",
+        "$f(x)\\ge x^2$ suffit déjà : comme la minoration tend vers $+\\infty$, le théorème de comparaison donne $f(x)\\to+\\infty$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-limites-fonctions-asymptotes-n3-1",
+      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
+      "title": "Étude asymptotique d’une fonction rationnelle",
+      "statement": "On considère $f(x)=(2x^2+3x-1)/(x^2-x+2)$. On veut déterminer son comportement à l’infini puis la position de la courbe par rapport à son asymptote horizontale.",
+      "questions": [
+        "Déterminer la limite de $f$ à $+\\infty$ et à $-\\infty$.",
+        "Calculer et simplifier $f(x)-2$.",
+        "Étudier le signe de cette différence pour les grandes valeurs de $|x|$ et interpréter."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Interpréter graphiquement des limites à l’aide d’asymptotes verticales ou horizontales."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la forme de l’expression et le voisinage étudié avant de calculer.",
+        "method": "Lever les formes indéterminées par factorisation, simplification ou croissance comparée.",
+        "reminder": "Une asymptote décrit un comportement limite et peut être coupée par la courbe.",
+        "commonMistake": "Traiter une forme indéterminée comme une valeur."
+      },
+      "correction": [
+        "En divisant par $x^2$, les deux limites valent $2$. La droite $y=2$ est donc asymptote horizontale aux deux infinis.",
+        "$f(x)-2=(2x^2+3x-1-2x^2+2x-4)/(x^2-x+2)=(5x-5)/(x^2-x+2)=5(x-1)/(x^2-x+2)$.",
+        "Le dénominateur est toujours positif car son discriminant vaut $-7$. Ainsi le signe est celui de $x-1$ : la courbe est sous l’asymptote pour $x<1$ et au-dessus pour $x>1$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-limites-fonctions-asymptotes-n3-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
+      "title": "Exponentielle contre polynôme",
+      "statement": "On considère $f(x)=(x^2+2x)e^{-x}$ sur $[0,+\\infty[$. Il faut établir la limite sans se contenter d’une lecture graphique.",
+      "questions": [
+        "Décomposer l’expression en deux termes adaptés à la croissance comparée.",
+        "Déterminer la limite de chaque terme.",
+        "Conclure et interpréter le comportement de la courbe à l’infini."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Utiliser comparaison et croissance comparée, notamment avec l’exponentielle."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la forme de l’expression et le voisinage étudié avant de calculer.",
+        "method": "Lever les formes indéterminées par factorisation, simplification ou croissance comparée.",
+        "reminder": "Une asymptote décrit un comportement limite et peut être coupée par la courbe.",
+        "commonMistake": "Traiter une forme indéterminée comme une valeur."
+      },
+      "correction": [
+        "On écrit $f(x)=x^2/e^x+2x/e^x$.",
+        "Par croissance comparée, $x^2/e^x\\to0$ et $x/e^x\\to0$, donc aussi $2x/e^x\\to0$.",
+        "La somme tend vers $0$. La droite $y=0$ est donc une asymptote horizontale au voisinage de $+\\infty$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-limites-fonctions-asymptotes-n3-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
+      "title": "Fonction avec asymptote verticale et horizontale",
+      "statement": "On étudie $f(x)=(3x+1)/(x-2)$ sur $\\mathbb R\\setminus\\{2\\}$. On souhaite décrire les quatre comportements essentiels de la courbe.",
+      "questions": [
+        "Déterminer les limites à gauche et à droite de $2$.",
+        "Déterminer les limites à $+\\infty$ et à $-\\infty$.",
+        "Donner les asymptotes et réécrire $f$ sous la forme $a+b/(x-2)$ pour contrôler les résultats."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Interpréter graphiquement des limites à l’aide d’asymptotes verticales ou horizontales."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la forme de l’expression et le voisinage étudié avant de calculer.",
+        "method": "Lever les formes indéterminées par factorisation, simplification ou croissance comparée.",
+        "reminder": "Une asymptote décrit un comportement limite et peut être coupée par la courbe.",
+        "commonMistake": "Traiter une forme indéterminée comme une valeur."
+      },
+      "correction": [
+        "Au voisinage de $2$, le numérateur tend vers $7>0$. Ainsi $f(x)\\to-\\infty$ quand $x\\to2^-$ et $f(x)\\to+\\infty$ quand $x\\to2^+$.",
+        "À l’infini, le quotient des coefficients dominants donne $3$ aux deux extrémités.",
+        "$f(x)=3+7/(x-2)$. Cette écriture confirme l’asymptote verticale $x=2$ et l’asymptote horizontale $y=3$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-limites-fonctions-asymptotes-n3-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/limites-fonctions-asymptotes",
+      "title": "Choisir la bonne transformation",
+      "statement": "On considère $f(x)=x(\\sqrt{1+1/x}-1)$ pour $x>0$. La forme obtenue à l’infini est indéterminée. On veut déterminer la limite par une transformation algébrique contrôlée.",
+      "questions": [
+        "Identifier la forme indéterminée.",
+        "Rationaliser l’expression avec le conjugué.",
+        "Déterminer la limite et expliquer pourquoi la transformation est valide pour $x>0$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Effectuer des opérations sur les limites et lever des formes indéterminées par transformation."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la forme de l’expression et le voisinage étudié avant de calculer.",
+        "method": "Lever les formes indéterminées par factorisation, simplification ou croissance comparée.",
+        "reminder": "Une asymptote décrit un comportement limite et peut être coupée par la courbe.",
+        "commonMistake": "Traiter une forme indéterminée comme une valeur."
+      },
+      "correction": [
+        "Comme $\\sqrt{1+1/x}-1\\to0$ et $x\\to+\\infty$, la forme est $\\infty\\times0$.",
+        "On multiplie par le conjugué : $f(x)=x((1+1/x)-1)/(\\sqrt{1+1/x}+1)=1/(\\sqrt{1+1/x}+1)$.",
+        "Le dénominateur tend vers $2$, donc $f(x)\\to1/2$. Pour $x>0$, toutes les expressions sont définies et le conjugué n’est jamais nul."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
       ]
     }
   ]

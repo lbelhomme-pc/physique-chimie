@@ -1,102 +1,118 @@
+% Mathématiques Terminale spécialité — V3 LaTeX
+% Suites : limites, comparaison et récurrence
+
 \section{Objectifs}
 \begin{itemize}
-\item Donner un sens précis à la convergence et à la divergence.
-\item Calculer des limites de suites.
-\item Utiliser comparaison, encadrement et monotonie.
-\item Consolider le raisonnement par récurrence.
+\item Déterminer ou justifier la limite d’une suite.
+\item Utiliser comparaison et théorème des gendarmes.
+\item Exploiter monotonie et bornes pour établir une convergence.
+\item Raisonner par récurrence et déterminer des seuils.
 \end{itemize}
 
-\section{1. Convergence}
-Une suite $(u_n)$ converge vers un réel $\ell$ lorsque ses termes deviennent arbitrairement proches de $\ell$ à partir d'un certain rang.
+\section{Repères et enjeux du chapitre}
+L'étude des suites décrit l'évolution d'une quantité indexée par un entier. En Terminale, l'objectif est de dépasser le calcul de quelques termes pour raisonner sur le comportement à long terme. Les limites, la monotonie, les comparaisons et la récurrence permettent de transformer des observations numériques en démonstrations portant sur tous les rangs suffisamment grands.
 
-On note
+\section{1. Convergence d’une suite}
+Dire que la suite $(u_n)$ converge vers un réel $\ell$ signifie que ses termes deviennent aussi proches que l'on veut de $\ell$ à partir d'un certain rang. On note
 \[
 \lim_{n\to+\infty}u_n=\ell.
 \]
+Cette définition exprime un comportement asymptotique et ne signifie pas que la suite atteint nécessairement sa limite. Par exemple, $u_n=1/n$ reste strictement positif mais converge vers $0$.
 
-Exemple :
-\[
-u_n=\frac1n\longrightarrow0.
-\]
+\section{2. Divergence vers l’infini}
+On écrit $u_n\to+\infty$ lorsque les termes dépassent tout seuil réel à partir d'un certain rang. Une suite croissante et non majorée tend vers $+\infty$. De même, une suite décroissante et non minorée tend vers $-\infty$. La monotonie seule n'impose donc pas une limite finie : il faut aussi contrôler l'existence d'une borne.
 
-\section{2. Divergence vers l'infini}
-On écrit
-\[
-u_n\longrightarrow+\infty
-\]
-lorsque, pour tout réel $A$, les termes sont supérieurs à $A$ à partir d'un certain rang.
-
-Une suite croissante et non majorée tend vers $+\infty$.
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/suites-limites-recurrence-1.svg}{Schéma structurant pour Suites : limites, comparaison et récurrence.}{La figure met en évidence les objets, relations ou variations fondamentales mobilisés dans la première moitié du chapitre.}
 
 \section{3. Suites géométriques}
-Pour $q^n$ :
-\begin{itemize}
-\item si $|q|<1$, alors $q^n\to0$ ;
-\item si $q>1$, alors $q^n\to+\infty$ ;
-\item si $q=1$, la suite vaut 1 ;
-\item pour $q\le -1$, il n'y a pas de limite finie en général.
-\end{itemize}
-
-\section{4. Comparaison}
-Si
+Pour une suite géométrique de raison $q$, le comportement de $q^n$ est fondamental :
 \[
-u_n\le v_n
+|q|<1\Longrightarrow q^n\to0,
 \]
-à partir d'un certain rang et si $u_n\to+\infty$, alors
 \[
-v_n\to+\infty.
+q>1\Longrightarrow q^n\to+\infty.
 \]
+Si $q=-1$, la suite alterne entre deux valeurs et ne converge pas. Lorsque $q<-1$, les valeurs absolues croissent tandis que les signes alternent. Ces résultats servent de référence pour de nombreuses comparaisons.
 
-Théorème des gendarmes : si
+\section{4. Opérations et formes indéterminées}
+Les règles sur les sommes, produits et quotients de suites permettent de combiner des limites connues. Certaines écritures ne donnent cependant aucune conclusion directe :
+\[
++\infty-\infty,\qquad 0\times\infty,\qquad \frac{\infty}{\infty},\qquad \frac00.
+\]
+Ce sont des formes indéterminées. Il faut transformer l'expression, factoriser le terme dominant ou utiliser une comparaison. Une forme indéterminée est un signal de travail, jamais une réponse.
+
+\section{5. Comparaison et gendarmes}
+Si $u_n\le v_n$ à partir d'un certain rang et si $u_n\to+\infty$, alors $v_n\to+\infty$. Le théorème des gendarmes affirme que si
 \[
 u_n\le v_n\le w_n
 \]
-et si $u_n$ et $w_n$ tendent vers la même limite $\ell$, alors
+et si $u_n$ et $w_n$ convergent vers la même limite $\ell$, alors $v_n\to\ell$. La comparaison permet ainsi d'étudier une suite difficile en l'encadrant par des suites de référence.
+
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/suites-limites-recurrence-2.svg}{Deuxième représentation pédagogique pour Suites : limites, comparaison et récurrence.}{La figure sert de support de lecture, de comparaison ou de contrôle pour les méthodes centrales du chapitre.}
+
+\section{6. Suites monotones et bornées}
+Une suite croissante et majorée converge ; une suite décroissante et minorée converge. Le théorème garantit l'existence d'une limite mais ne fournit pas automatiquement sa valeur. Pour une suite définie par récurrence, on établit souvent d'abord une borne par récurrence, puis la monotonie en étudiant $u_{n+1}-u_n$ ou une fonction associée.
+
+\section{7. Récurrence et stabilité d’un intervalle}
+Pour démontrer une propriété $P_n$ à tout rang à partir d'un rang initial, on vérifie l'initialisation puis l'hérédité. Dans les suites définies par $u_{n+1}=f(u_n)$, une stratégie classique consiste à montrer qu'un intervalle est stable : si $u_n$ appartient à l'intervalle, alors $u_{n+1}$ aussi. Cette propriété peut fournir une majoration ou une minoration nécessaire au théorème de convergence.
+
+\section{8. Limite éventuelle et équation de point fixe}
+Si $u_{n+1}=f(u_n)$, si la suite converge vers $\ell$ et si $f$ est continue en $\ell$, alors
 \[
-v_n\to\ell.
+\ell=f(\ell).
 \]
+Cette équation fournit une condition nécessaire pour une limite éventuelle. Elle ne prouve pas à elle seule la convergence : il faut d'abord établir l'existence de la limite. La logique correcte est donc « convergence prouvée, puis identification », et non l'inverse.
 
-\section{5. Opérations sur les limites}
-Les règles usuelles permettent de traiter somme, produit et quotient lorsque les limites sont compatibles.
+\section{9. Recherche d’un seuil}
+Une question peut demander le premier rang $n$ pour lequel $u_n$ dépasse un seuil. On peut parfois résoudre une inégalité explicitement ; dans d'autres cas, un algorithme itératif convient. La boucle doit mettre à jour simultanément le rang et le terme, puis s'arrêter lorsque la condition devient vraie. La réponse doit préciser qu'il s'agit du premier rang et non seulement d'un rang convenable.
 
-Une forme comme
-\[
-+\infty-\infty
-\]
-ou
-\[
-0\times\infty
-\]
-est indéterminée : il faut transformer l'expression.
 
-\section{6. Monotonie et convergence}
-Théorème admis :
-\begin{itemize}
-\item toute suite croissante majorée converge ;
-\item toute suite décroissante minorée converge.
-\end{itemize}
-
-Ce théorème garantit l'existence d'une limite sans toujours donner sa valeur.
-
-\section{7. Récurrence}
-Pour démontrer une propriété $P_n$ :
+\section{Méthode générale de résolution}
+\begin{methode}
 \begin{enumerate}
-\item initialisation ;
-\item hérédité : $P_n\Rightarrow P_{n+1}$ ;
-\item conclusion.
+\item Identifier précisément l'objet mathématique demandé et les hypothèses disponibles.
+\item Traduire l'énoncé dans une écriture adaptée : égalité, système, représentation paramétrique, inégalité, suite ou fonction selon le contexte.
+\item Choisir le théorème ou la propriété en vérifiant explicitement ses conditions d'application.
+\item Effectuer les calculs en conservant les formes exactes aussi longtemps que possible.
+\item Contrôler la cohérence du résultat par une seconde méthode, un ordre de grandeur, un signe, une substitution ou une lecture graphique.
+\item Conclure dans le langage du problème, en distinguant clairement ce qui est démontré de ce qui est conjecturé ou approché numériquement.
 \end{enumerate}
+\end{methode}
 
-La récurrence sert notamment à établir une majoration ou la monotonie avant d'utiliser un théorème de convergence.
+\section{Rédaction attendue en Terminale}
+En spécialité, une réponse correcte ne se réduit pas à une ligne de calcul. Lorsqu'un résultat dépend d'un théorème, les hypothèses doivent apparaître dans la copie. Lorsqu'une valeur est approchée, la précision doit être annoncée. Lorsqu'une équation est résolue, il faut revenir à la question posée et vérifier que la solution appartient au domaine considéré. Cette discipline de rédaction évite les raisonnements implicites et prépare aux attendus de l'épreuve écrite.
 
-\section{8. Recherche de seuil}
-Si une suite converge ou diverge de façon monotone, un algorithme peut déterminer le premier rang où une condition est satisfaite.
+\begin{attention}
+Une calculatrice ou un logiciel peut suggérer une réponse, produire un tableau ou une représentation, mais il ne remplace pas la justification. Un résultat numérique devient exploitable seulement après avoir été relié à une propriété mathématique et interprété dans le contexte.
+\end{attention}
+
+\section{Contrôler une solution}
+Le contrôle dépend du chapitre : recompter par le complément en combinatoire, vérifier l'appartenance d'un point à une droite ou à un plan, substituer une solution dans une équation, comparer deux expressions de limite, vérifier un signe de dérivée, ou encore contrôler qu'un encadrement de dichotomie conserve bien le changement de signe. Dans tous les cas, l'objectif est d'obtenir une preuve locale que le résultat final n'est pas seulement plausible mais compatible avec les données et les hypothèses.
+
+\section{Problème de synthèse et stratégie}
+
+Dans ce chapitre, la difficulté d'un problème complet consiste à articuler plusieurs résultats plutôt qu'à appliquer une formule isolée. Pour suites : limites, comparaison et récurrence, on commence par identifier les objets et les hypothèses, puis on construit une chaîne de décisions vérifiables. Les résultats intermédiaires doivent être réutilisés explicitement : une relation obtenue peut justifier une appartenance, une monotonie, un comptage, une limite ou un encadrement. Cette organisation est particulièrement importante lorsque l'énoncé introduit une notation nouvelle ou demande une interprétation finale.
+
+
+\section{Réinvestissement type baccalauréat}
+Un exercice de baccalauréat combine souvent plusieurs compétences : lecture d'une situation, choix d'une stratégie, calcul exact, justification et interprétation. Il faut donc savoir passer d'une question technique courte à une question de synthèse. Une bonne stratégie consiste à repérer les résultats intermédiaires qui seront réutilisés, à annoncer les théorèmes avant leur emploi et à conserver une trace claire des dépendances entre les questions. Lorsqu'une question paraît isolée, elle prépare souvent une propriété utile pour la suite de l'exercice.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Confondre suite bornée et suite convergente.
-\item Déduire la limite d'une suite uniquement à partir de quelques termes.
-\item Utiliser le théorème « croissante majorée » sans avoir prouvé les deux propriétés.
+\item Identifier une limite par l’équation $\ell=f(\ell)$ sans avoir prouvé la convergence.
+\item Traiter une forme indéterminée comme une valeur.
+\item Appliquer le théorème « croissante majorée » sans démontrer les deux propriétés.
+\item Déduire un comportement asymptotique de quelques valeurs numériques.
 \end{itemize}
 
 \section{À retenir}
-Une limite est une propriété asymptotique. La comparaison, l'encadrement, la monotonie et la récurrence sont les outils centraux pour la justifier.
+\begin{aretenir}
+\begin{itemize}
+\item Une limite décrit le comportement des termes pour les grands rangs.
+\item Les suites géométriques fournissent des limites de référence.
+\item Comparaison et gendarmes permettent de transférer une limite.
+\item Une suite monotone et bornée dans le bon sens converge.
+\item La récurrence prouve des propriétés valables pour tous les rangs concernés.
+\end{itemize}
+\end{aretenir}

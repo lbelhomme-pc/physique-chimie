@@ -88,7 +88,7 @@ describe("C26 — Terminale spécialité mathématiques, partie A", () => {
   it("fournit huit paquets pédagogiques complets rattachés au BO 2019", () => {
     for (const slug of currentMapping.chapters) {
       const dir = path.join(chapterRoot, slug);
-      for (const file of ["meta.json", "cours.mdx", "exercices.json", "quiz.json", "flashcards.json"]) {
+      for (const file of ["meta.json", "cours.tex", "exercices.json", "quiz.json", "flashcards.json"]) {
         assert.equal(existsSync(path.join(dir, file)), true, `${slug}/${file}`);
       }
 
@@ -101,14 +101,20 @@ describe("C26 — Terminale spécialité mathématiques, partie A", () => {
       assert.equal(meta.niveau, niveau);
       assert.equal(meta.officialSource, "bo-2019-mathematiques-terminale-specialite");
       assert.equal(meta.programmeVersion, "mathematiques-terminale-specialite-2019");
+      assert.equal(meta.courseFormat, "latex");
+      assert.equal(meta.courseSource, "cours.tex");
+      assert.equal(meta.courseFormatVersion, 3);
+      assert.equal(meta.courseQualityVersion, 3);
+      assert.equal(meta.contentQualityVersion, 3);
+      assert.ok(Array.isArray(meta.curriculumItems) && meta.curriculumItems.length >= 4);
       assert.equal(meta.seo.noindex, false);
-      assert.equal(exercices.length, 6);
+      assert.equal(exercices.length, 12);
       assert.deepEqual(
         Object.fromEntries(["N1","N2","N3"].map(level => [level, exercices.filter(item => item.level === level).length])),
-        { N1:2, N2:2, N3:2 },
+        { N1:4, N2:4, N3:4 },
       );
-      assert.equal(quizPayload.questions.length, 5);
-      assert.equal(flashcardsPayload.cards.length, 6);
+      assert.equal(quizPayload.questions.length, 10);
+      assert.equal(flashcardsPayload.cards.length, 12);
       assert.ok(exercices.every(item => Array.isArray(item.correction) && item.correction.length > 0));
 
       const result = normalizeChapterPackage({
@@ -118,9 +124,9 @@ describe("C26 — Terminale spécialité mathématiques, partie A", () => {
         niveau,
         slug,
         meta,
-        coursePath: path.relative(root, path.join(dir, "cours.mdx")).replaceAll("\\", "/"),
+        coursePath: path.relative(root, path.join(dir, "cours.tex")).replaceAll("\\", "/"),
         coursePresent: true,
-        courseFormat: "mdx",
+        courseFormat: "latex",
         exercices: exercicesPayload,
         quiz: quizPayload,
         flashcards: flashcardsPayload,
@@ -140,7 +146,7 @@ describe("C26 — Terminale spécialité mathématiques, partie A", () => {
       "calcul intégral",
       "probabilités",
       "algorithmique et programmation transversales",
-      "préparation à l'épreuve du baccalauréat",
+      "préparation à l’épreuve du baccalauréat",
     ]);
   });
 });

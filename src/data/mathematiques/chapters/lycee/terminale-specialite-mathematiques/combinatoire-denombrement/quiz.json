@@ -1,63 +1,123 @@
 {
   "questions": [
     {
-      "id": "tle-comb-q1",
-      "question": "Le nombre de permutations de 5 objets distincts vaut :",
+      "id": "tle-combinatoire-denombrement-q1",
+      "question": "Le principe multiplicatif s’utilise lorsque :",
       "choices": [
-        "120",
-        "25",
-        "10"
+        "on enchaîne plusieurs choix successifs",
+        "on réunit seulement des cas incompatibles",
+        "on cherche une limite"
       ],
       "answer": 0,
-      "explanation": "5!=120.",
+      "explanation": "On multiplie les nombres de choix lorsque la construction comporte des étapes successives indépendamment comptées.",
       "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement"
     },
     {
-      "id": "tle-comb-q2",
-      "question": "C(8,2) compte :",
+      "id": "tle-combinatoire-denombrement-q2",
+      "question": "Le nombre de permutations de $n$ éléments distincts vaut :",
       "choices": [
-        "les choix non ordonnés de 2 éléments parmi 8",
-        "les couples ordonnés parmi 8",
-        "les permutations de 8 objets"
+        "$n!$",
+        "$n^2$",
+        "$2^n$"
       ],
       "answer": 0,
-      "explanation": "Une combinaison ne tient pas compte de l'ordre.",
+      "explanation": "Une permutation ordonne tous les $n$ éléments, ce qui donne $n(n-1)\\cdots1=n!$.",
       "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement"
     },
     {
-      "id": "tle-comb-q3",
-      "question": "La relation de Pascal est :",
+      "id": "tle-combinatoire-denombrement-q3",
+      "question": "Un groupe de $k$ personnes choisi parmi $n$ sans rôle particulier se compte avec :",
       "choices": [
-        "C(n,k)=C(n-1,k-1)+C(n-1,k)",
-        "C(n,k)=n^k",
-        "C(n,k)=n!"
+        "$\\binom{n}{k}$",
+        "$n^k$",
+        "$k!$"
       ],
       "answer": 0,
-      "explanation": "Elle décompose selon la présence ou l'absence d'un élément fixé.",
+      "explanation": "L’ordre ne compte pas et aucune répétition n’est possible : il s’agit d’une combinaison.",
       "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement"
     },
     {
-      "id": "tle-comb-q4",
-      "question": "Le nombre de parties d'un ensemble à n éléments vaut :",
+      "id": "tle-combinatoire-denombrement-q4",
+      "question": "La symétrie des coefficients binomiaux est :",
       "choices": [
-        "2^n",
-        "n!",
-        "n^2"
+        "$\\binom{n}{k}=\\binom{n}{n-k}$",
+        "$\\binom{n}{k}=n^k$",
+        "$\\binom{n}{k}=k^n$"
       ],
       "answer": 0,
-      "explanation": "Chaque élément est soit présent, soit absent.",
+      "explanation": "Choisir les $k$ éléments retenus revient à choisir les $n-k$ éléments écartés.",
       "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement"
     },
     {
-      "id": "tle-comb-q5",
-      "question": "Si deux cas sont disjoints, on utilise en priorité :",
+      "id": "tle-combinatoire-denombrement-q5",
+      "question": "La relation de Pascal s’écrit :",
       "choices": [
-        "le principe additif",
-        "le principe multiplicatif",
-        "une dérivée"
+        "$\\binom{n}{k}=\\binom{n-1}{k-1}+\\binom{n-1}{k}$",
+        "$\\binom{n}{k}=\\binom{n-1}{k}$",
+        "$\\binom{n}{k}=2^n$"
       ],
       "answer": 0,
-      "explanation": "On additionne les nombres de possibilités des cas disjoints.",
+      "explanation": "On partitionne les choix selon qu’ils contiennent ou non un élément fixé.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement"
+    },
+    {
+      "id": "tle-combinatoire-denombrement-q6",
+      "question": "Pour compter « au moins un succès », une stratégie efficace est souvent :",
+      "choices": [
+        "compter le complément",
+        "multiplier par $0$",
+        "ordonner tous les cas"
+      ],
+      "answer": 0,
+      "explanation": "Le complément correspond à « aucun succès » et est souvent beaucoup plus simple à dénombrer.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement"
+    },
+    {
+      "id": "tle-combinatoire-denombrement-q7",
+      "question": "Le nombre de parties d’un ensemble à $n$ éléments vaut :",
+      "choices": [
+        "$2^n$",
+        "$n!$",
+        "$n^2$"
+      ],
+      "answer": 0,
+      "explanation": "Chaque élément possède deux statuts indépendants : présent ou absent de la partie.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement"
+    },
+    {
+      "id": "tle-combinatoire-denombrement-q8",
+      "question": "Additionner deux dénombrements exige que les cas soient :",
+      "choices": [
+        "disjoints",
+        "identiques",
+        "ordonnés"
+      ],
+      "answer": 0,
+      "explanation": "Le principe additif ne doit pas provoquer de double comptage ; les cas additionnés doivent être incompatibles.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement"
+    },
+    {
+      "id": "tle-combinatoire-denombrement-q9",
+      "question": "Dans une liste de longueur $k$ avec répétition parmi $n$ symboles, le nombre de listes est :",
+      "choices": [
+        "$n^k$",
+        "$\\binom{n}{k}$",
+        "$n!$"
+      ],
+      "answer": 0,
+      "explanation": "Chaque position possède $n$ choix et les répétitions sont autorisées, donc le principe multiplicatif donne $n^k$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement"
+    },
+    {
+      "id": "tle-combinatoire-denombrement-q10",
+      "question": "Une preuve par double comptage consiste à :",
+      "choices": [
+        "compter le même ensemble de deux façons",
+        "faire deux calculs sans lien",
+        "utiliser toujours une récurrence"
+      ],
+      "answer": 0,
+      "explanation": "L’égalité provient du fait que deux méthodes différentes comptent exactement les mêmes objets.",
       "chapterId": "lycee/terminale-specialite-mathematiques/combinatoire-denombrement"
     }
   ]

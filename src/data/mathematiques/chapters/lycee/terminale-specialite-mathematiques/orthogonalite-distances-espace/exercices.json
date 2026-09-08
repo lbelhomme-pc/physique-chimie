@@ -1,30 +1,36 @@
 {
   "exercices": [
     {
-      "id": "tle-ort-n1-1",
+      "id": "tle-orthogonalite-distances-espace-n1-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
-      "title": "Produit scalaire",
-      "statement": "Calculer u·v avec u=(1,2,-1) et v=(3,-1,1).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Produit scalaire en coordonnées",
+      "statement": "Dans un repère orthonormé, on considère $\\vec u=(2;-1;3)$ et $\\vec v=(1;4;-2)$.",
+      "questions": [
+        "Calculer $\\vec u\\cdot\\vec v$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Calculer le produit scalaire de vecteurs de l’espace dans un repère orthonormé."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Chercher un produit scalaire nul, un vecteur normal ou une projection orthogonale selon la question.",
+        "method": "Passer aux coordonnées dans un repère orthonormé puis revenir à l’interprétation géométrique.",
+        "reminder": "La formule coordonnée du produit scalaire suppose un repère orthonormé.",
+        "commonMistake": "Confondre direction d’un plan et vecteur normal."
       },
       "correction": [
-        "u·v=1×3+2×(-1)+(-1)×1=3-2-1=0.",
-        "Les vecteurs sont orthogonaux."
+        "On calcule $\\vec u\\cdot\\vec v=2\\times1+(-1)\\times4+3\\times(-2)=2-4-6=-8$."
       ],
       "commonMistakes": [],
       "access": {
@@ -34,38 +40,46 @@
       },
       "competences": [
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-ort-n1-2",
+      "id": "tle-orthogonalite-distances-espace-n1-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
-      "title": "Norme",
-      "statement": "Calculer la norme de u=(2,-1,2).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Norme d’un vecteur",
+      "statement": "Dans un repère orthonormé, on considère $\\vec u=(2;-3;6)$. On souhaite déterminer sa longueur.",
+      "questions": [
+        "Calculer $\\|\\vec u\\|$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Calculer le produit scalaire de vecteurs de l’espace dans un repère orthonormé."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Chercher un produit scalaire nul, un vecteur normal ou une projection orthogonale selon la question.",
+        "method": "Passer aux coordonnées dans un repère orthonormé puis revenir à l’interprétation géométrique.",
+        "reminder": "La formule coordonnée du produit scalaire suppose un repère orthonormé.",
+        "commonMistake": "Confondre direction d’un plan et vecteur normal."
       },
       "correction": [
-        "||u||=√(4+1+4)=3."
+        "$\\|\\vec u\\|=\\sqrt{2^2+(-3)^2+6^2}=\\sqrt{49}=7$. La formule est valable car le repère est orthonormé."
       ],
       "commonMistakes": [],
       "access": {
@@ -75,38 +89,47 @@
       },
       "competences": [
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-ort-n2-1",
+      "id": "tle-orthogonalite-distances-espace-n1-3",
       "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
-      "title": "Distance",
-      "statement": "Calculer la distance entre A(1,2,0) et B(4,-2,12).",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
+      "title": "Orthogonalité",
+      "statement": "Dans un repère orthonormé, on considère $\\vec u=(1;2;-1)$ et $\\vec v=(3;-1;1)$.",
+      "questions": [
+        "Vérifier que les deux vecteurs sont orthogonaux."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Caractériser l’orthogonalité de directions à l’aide du produit scalaire."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
       "skills": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Chercher un produit scalaire nul, un vecteur normal ou une projection orthogonale selon la question.",
+        "method": "Passer aux coordonnées dans un repère orthonormé puis revenir à l’interprétation géométrique.",
+        "reminder": "La formule coordonnée du produit scalaire suppose un repère orthonormé.",
+        "commonMistake": "Confondre direction d’un plan et vecteur normal."
       },
       "correction": [
-        "AB=√(3²+(-4)²+12²)=√169=13."
+        "$\\vec u\\cdot\\vec v=1\\times3+2\\times(-1)+(-1)\\times1=3-2-1=0$. Leur produit scalaire est nul, donc $\\vec u\\perp\\vec v$."
       ],
       "commonMistakes": [],
       "access": {
@@ -115,84 +138,103 @@
         "requiresAccount": false
       },
       "competences": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-ort-n2-2",
+      "id": "tle-orthogonalite-distances-espace-n1-4",
       "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
       "title": "Vecteur normal",
-      "statement": "Le plan P a pour directions u=(1,1,0) et v=(0,1,1). Vérifier que n=(1,-1,1) est normal à P.",
-      "consigne": "Justifier les étapes utiles.",
+      "statement": "Un plan possède deux vecteurs directeurs $\\vec u=(1;1;0)$ et $\\vec v=(0;1;1)$. On propose $\\vec n=(1;-1;1)$.",
+      "questions": [
+        "Vérifier que $\\vec n$ est normal au plan."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser un vecteur normal pour étudier un plan et une droite orthogonale."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher un produit scalaire nul, un vecteur normal ou une projection orthogonale selon la question.",
+        "method": "Passer aux coordonnées dans un repère orthonormé puis revenir à l’interprétation géométrique.",
+        "reminder": "La formule coordonnée du produit scalaire suppose un repère orthonormé.",
+        "commonMistake": "Confondre direction d’un plan et vecteur normal."
+      },
+      "correction": [
+        "On a $\\vec n\\cdot\\vec u=1-1+0=0$ et $\\vec n\\cdot\\vec v=0-1+1=0$. Comme $\\vec u$ et $\\vec v$ ne sont pas colinéaires, $\\vec n$ est orthogonal à toutes les directions du plan."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N1",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-orthogonalite-distances-espace-n2-1",
+      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
+      "title": "Distance entre deux points",
+      "statement": "Dans un repère orthonormé, on donne $A(1;-2;3)$ et $B(4;2;-1)$. Il faut calculer la distance exacte puis une valeur approchée au dixième.",
+      "questions": [
+        "Calculer $\\overrightarrow{AB}$ puis $AB$ sous forme exacte.",
+        "Donner une valeur approchée de $AB$ au dixième."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Calculer le produit scalaire de vecteurs de l’espace dans un repère orthonormé."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
-        "calculer",
-        "raisonner"
-      ],
-      "prerequisites": [],
-      "estimatedTime": 10,
-      "answerType": "text",
-      "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
-      },
-      "correction": [
-        "n·u=1-1+0=0.",
-        "n·v=0-1+1=0.",
-        "n est orthogonal aux deux directions non colinéaires du plan : il est normal à P."
-      ],
-      "commonMistakes": [],
-      "access": {
-        "tier": "free",
-        "preview": true,
-        "requiresAccount": false
-      },
-      "competences": [
-        "calculer",
-        "raisonner"
-      ],
-      "accessibility": {},
-      "tags": [
-        "terminale-specialite",
-        "N2"
-      ]
-    },
-    {
-      "id": "tle-ort-n3-1",
-      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
-      "title": "Projection sur un plan",
-      "statement": "P est le plan z=0 et M(2,-3,5). Déterminer le projeté orthogonal H et la distance de M à P.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
-      "skills": [
         "représenter",
-        "calculer"
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 14,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Chercher un produit scalaire nul, un vecteur normal ou une projection orthogonale selon la question.",
+        "method": "Passer aux coordonnées dans un repère orthonormé puis revenir à l’interprétation géométrique.",
+        "reminder": "La formule coordonnée du produit scalaire suppose un repère orthonormé.",
+        "commonMistake": "Confondre direction d’un plan et vecteur normal."
       },
       "correction": [
-        "La normale à P est verticale.",
-        "H=(2,-3,0).",
-        "MH=5, donc la distance vaut 5."
+        "$\\overrightarrow{AB}=(3;4;-4)$, donc $AB=\\sqrt{3^2+4^2+(-4)^2}=\\sqrt{41}$.",
+        "$\\sqrt{41}\\approx6{,}4$. La valeur exacte reste $\\sqrt{41}$ et l’approximation est seulement utilisée pour l’interprétation numérique."
       ],
       "commonMistakes": [],
       "access": {
@@ -202,41 +244,52 @@
       },
       "competences": [
         "représenter",
-        "calculer"
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N2",
+        "c26"
       ]
     },
     {
-      "id": "tle-ort-n3-2",
+      "id": "tle-orthogonalite-distances-espace-n2-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
-      "title": "Angle entre vecteurs",
-      "statement": "u=(1,0,1), v=(1,1,0). Déterminer cos(θ), puis θ au degré près.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
+      "title": "Angle entre deux directions",
+      "statement": "Dans un repère orthonormé, on considère $\\vec u=(1;1;0)$ et $\\vec v=(1;0;1)$. On cherche l’angle géométrique $\\theta$ entre ces directions.",
+      "questions": [
+        "Calculer le produit scalaire et les deux normes.",
+        "Déterminer $\\cos\\theta$ puis l’angle $\\theta$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Déterminer des projections orthogonales, des angles et des distances dans l’espace."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
       "skills": [
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 14,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Chercher un produit scalaire nul, un vecteur normal ou une projection orthogonale selon la question.",
+        "method": "Passer aux coordonnées dans un repère orthonormé puis revenir à l’interprétation géométrique.",
+        "reminder": "La formule coordonnée du produit scalaire suppose un repère orthonormé.",
+        "commonMistake": "Confondre direction d’un plan et vecteur normal."
       },
       "correction": [
-        "u·v=1.",
-        "||u||=||v||=√2.",
-        "cos(θ)=1/2.",
-        "θ=60°."
+        "$\\vec u\\cdot\\vec v=1$ et $\\|\\vec u\\|=\\|\\vec v\\|=\\sqrt2$.",
+        "Ainsi $\\cos\\theta=1/(\\sqrt2\\sqrt2)=1/2$, donc $\\theta=60^\\circ$."
       ],
       "commonMistakes": [],
       "access": {
@@ -245,13 +298,360 @@
         "requiresAccount": false
       },
       "competences": [
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-orthogonalite-distances-espace-n2-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
+      "title": "Projection sur un plan horizontal",
+      "statement": "Dans un repère orthonormé, le plan $\\mathcal P$ est le plan d’équation $z=2$ et le point $M$ a pour coordonnées $(3;-1;7)$.",
+      "questions": [
+        "Donner un vecteur normal à $\\mathcal P$ et les coordonnées du projeté orthogonal $H$ de $M$.",
+        "Calculer la distance de $M$ au plan."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Utiliser un vecteur normal pour étudier un plan et une droite orthogonale."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher un produit scalaire nul, un vecteur normal ou une projection orthogonale selon la question.",
+        "method": "Passer aux coordonnées dans un repère orthonormé puis revenir à l’interprétation géométrique.",
+        "reminder": "La formule coordonnée du produit scalaire suppose un repère orthonormé.",
+        "commonMistake": "Confondre direction d’un plan et vecteur normal."
+      },
+      "correction": [
+        "Le vecteur $\\vec n=(0;0;1)$ est normal au plan. La projection conserve $x$ et $y$ et remplace $z$ par $2$, donc $H(3;-1;2)$.",
+        "$MH=|7-2|=5$. Cette longueur est minimale car $MH$ est orthogonale au plan."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-orthogonalite-distances-espace-n2-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
+      "title": "Droite orthogonale à un plan",
+      "statement": "Un plan admet $\\vec n=(2;-1;3)$ comme vecteur normal. Une droite $d$ a pour vecteur directeur $\\vec u=(4;-2;6)$.",
+      "questions": [
+        "Comparer $\\vec u$ et $\\vec n$.",
+        "Conclure sur la position de la droite par rapport au plan."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Utiliser un vecteur normal pour étudier un plan et une droite orthogonale."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher un produit scalaire nul, un vecteur normal ou une projection orthogonale selon la question.",
+        "method": "Passer aux coordonnées dans un repère orthonormé puis revenir à l’interprétation géométrique.",
+        "reminder": "La formule coordonnée du produit scalaire suppose un repère orthonormé.",
+        "commonMistake": "Confondre direction d’un plan et vecteur normal."
+      },
+      "correction": [
+        "On a $\\vec u=2\\vec n$, donc le vecteur directeur de la droite est colinéaire au vecteur normal du plan.",
+        "La droite $d$ est donc orthogonale au plan. Selon son point de passage, elle le coupe en un point unique, mais la conclusion d’orthogonalité dépend seulement de la direction."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-orthogonalite-distances-espace-n3-1",
+      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
+      "title": "Projection orthogonale et distance à un plan",
+      "statement": "Dans un repère orthonormé, on considère le plan $\\mathcal P$ d’équation $x+2y+2z-9=0$ et le point $M(1;0;0)$. On souhaite construire le projeté orthogonal de $M$ sans utiliser une formule de distance toute faite.",
+      "questions": [
+        "Écrire une représentation paramétrique de la droite passant par $M$ et dirigée par un vecteur normal à $\\mathcal P$.",
+        "Calculer son intersection $H$ avec $\\mathcal P$.",
+        "En déduire la distance $d(M,\\mathcal P)$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Utiliser un vecteur normal pour étudier un plan et une droite orthogonale."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher un produit scalaire nul, un vecteur normal ou une projection orthogonale selon la question.",
+        "method": "Passer aux coordonnées dans un repère orthonormé puis revenir à l’interprétation géométrique.",
+        "reminder": "La formule coordonnée du produit scalaire suppose un repère orthonormé.",
+        "commonMistake": "Confondre direction d’un plan et vecteur normal."
+      },
+      "correction": [
+        "Un vecteur normal est $\\vec n=(1;2;2)$. La droite orthogonale issue de $M$ est $(x,y,z)=(1+t,2t,2t)$.",
+        "Dans le plan : $1+t+4t+4t-9=0$, donc $9t=8$ et $t=8/9$. Ainsi $H(17/9;16/9;16/9)$.",
+        "$\\overrightarrow{MH}=(8/9;16/9;16/9)=(8/9)\\vec n$, donc $MH=(8/9)\\|\\vec n\\|=(8/9)\\times3=8/3$. La distance vaut $8/3$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-orthogonalite-distances-espace-n3-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
+      "title": "Triangle de l’espace et angle",
+      "statement": "Dans un repère orthonormé, $A(0;0;0)$, $B(2;1;2)$ et $C(1;3;0)$. On veut déterminer la nature de l’angle $\\widehat{BAC}$ puis sa mesure approchée.",
+      "questions": [
+        "Calculer $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}$ et les normes correspondantes.",
+        "Déterminer le signe du cosinus et qualifier l’angle.",
+        "Calculer une valeur approchée de l’angle au degré près."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Déterminer des projections orthogonales, des angles et des distances dans l’espace."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher un produit scalaire nul, un vecteur normal ou une projection orthogonale selon la question.",
+        "method": "Passer aux coordonnées dans un repère orthonormé puis revenir à l’interprétation géométrique.",
+        "reminder": "La formule coordonnée du produit scalaire suppose un repère orthonormé.",
+        "commonMistake": "Confondre direction d’un plan et vecteur normal."
+      },
+      "correction": [
+        "$\\overrightarrow{AB}=(2;1;2)$, $\\overrightarrow{AC}=(1;3;0)$, donc le produit scalaire vaut $5$. Les normes sont $3$ et $\\sqrt{10}$.",
+        "$\\cos\\widehat{BAC}=5/(3\\sqrt{10})>0$, donc l’angle est aigu.",
+        "Numériquement, $5/(3\\sqrt{10})\\approx0{,}527$, donc $\\widehat{BAC}\\approx58^\\circ$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-orthogonalite-distances-espace-n3-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
+      "title": "Prouver une distance minimale",
+      "statement": "Soit $H$ le projeté orthogonal d’un point $M$ sur un plan $\\mathcal P$. On considère un point quelconque $P$ du plan distinct de $H$. Il faut démontrer que $H$ réalise bien la plus courte distance de $M$ au plan.",
+      "questions": [
+        "Justifier que le triangle $MHP$ est rectangle en $H$.",
+        "Écrire la relation de Pythagore dans ce triangle.",
+        "En déduire que $MP\\ge MH$ pour tout $P\\in\\mathcal P$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Déterminer des projections orthogonales, des angles et des distances dans l’espace."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher un produit scalaire nul, un vecteur normal ou une projection orthogonale selon la question.",
+        "method": "Passer aux coordonnées dans un repère orthonormé puis revenir à l’interprétation géométrique.",
+        "reminder": "La formule coordonnée du produit scalaire suppose un repère orthonormé.",
+        "commonMistake": "Confondre direction d’un plan et vecteur normal."
+      },
+      "correction": [
+        "Comme $MH\\perp\\mathcal P$ et que $HP$ est une direction du plan, on a $MH\\perp HP$ : le triangle $MHP$ est rectangle en $H$.",
+        "Le théorème de Pythagore donne $MP^2=MH^2+HP^2$.",
+        "$HP^2\\ge0$, donc $MP^2\\ge MH^2$. Les longueurs étant positives, $MP\\ge MH$. Ainsi $H$ réalise la distance minimale."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-orthogonalite-distances-espace-n3-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace",
+      "title": "Plan, normale et orthogonalité de deux plans",
+      "statement": "Deux plans $\\mathcal P_1$ et $\\mathcal P_2$ ont pour vecteurs normaux respectifs $\\vec n_1=(1;2;-1)$ et $\\vec n_2=(2;-1;0)$. On étudie leur angle à partir de leurs normales.",
+      "questions": [
+        "Calculer $\\vec n_1\\cdot\\vec n_2$.",
+        "Conclure sur l’orthogonalité éventuelle des deux plans.",
+        "Expliquer pourquoi le calcul sur les normales suffit pour comparer leurs directions orthogonales."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Caractériser l’orthogonalité de directions à l’aide du produit scalaire."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Chercher un produit scalaire nul, un vecteur normal ou une projection orthogonale selon la question.",
+        "method": "Passer aux coordonnées dans un repère orthonormé puis revenir à l’interprétation géométrique.",
+        "reminder": "La formule coordonnée du produit scalaire suppose un repère orthonormé.",
+        "commonMistake": "Confondre direction d’un plan et vecteur normal."
+      },
+      "correction": [
+        "$\\vec n_1\\cdot\\vec n_2=1\\times2+2\\times(-1)+(-1)\\times0=0$.",
+        "Les vecteurs normaux sont orthogonaux, donc les plans sont orthogonaux.",
+        "Chaque normale représente une direction orthogonale à son plan. Lorsque les normales sont orthogonales, les directions perpendiculaires aux deux plans forment un angle droit, ce qui caractérise ici deux plans orthogonaux."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
       ]
     }
   ]

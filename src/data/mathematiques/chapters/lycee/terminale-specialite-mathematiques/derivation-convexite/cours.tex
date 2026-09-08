@@ -1,84 +1,120 @@
+% Mathématiques Terminale spécialité — V3 LaTeX
+% Dérivation, dérivée seconde et convexité
+
 \section{Objectifs}
 \begin{itemize}
-\item Étendre les règles de dérivation aux fonctions composées.
-\item Utiliser la dérivée seconde.
-\item Comprendre convexité et concavité.
-\item Relier dérivées, tangentes et forme de la courbe.
+\item Dériver des fonctions composées simples.
+\item Utiliser la dérivée seconde pour étudier la convexité.
+\item Caractériser un point d’inflexion.
+\item Utiliser dérivées et convexité pour démontrer des inégalités et étudier une courbe.
 \end{itemize}
 
-\section{1. Fonction composée}
-Si
-\[
-f=v\circ u,
-\]
-alors, lorsque les fonctions sont dérivables,
+\section{Repères et enjeux du chapitre}
+La dérivée mesure une variation locale ; la dérivée seconde mesure la variation de cette pente. Cette seconde information permet de décrire la courbure d'une fonction, de distinguer convexité et concavité et de produire des inégalités à partir des tangentes. Le chapitre relie donc calcul différentiel, lecture graphique et raisonnement global sur une courbe.
+
+\section{1. Règles de dérivation et composée}
+Les règles de somme, produit et quotient restent valables. Pour une composée $f=v\circ u$, on utilise
 \[
 (v\circ u)'=(v'\circ u)\times u'.
 \]
-
-Exemple :
-\[
-f(x)=e^{3x-1}
-\]
-donne
+Ainsi, si $f(x)=e^{3x-1}$,
 \[
 f'(x)=3e^{3x-1}.
 \]
+Le facteur $u'$ est essentiel : il traduit la variation de la fonction intérieure. L'oublier est l'une des erreurs les plus fréquentes en Terminale.
 
-\section{2. Dérivée seconde}
-La dérivée seconde est
+\section{2. Dérivée et variations}
+Sur un intervalle où $f$ est dérivable, le signe de $f'$ permet d'étudier les variations : $f'>0$ entraîne que $f$ est strictement croissante, tandis que $f'<0$ entraîne qu'elle est strictement décroissante. Les zéros de $f'$ sont des candidats pour des extremums, mais il faut regarder le changement de signe. Un tableau de variations doit donc être construit à partir d'une étude de signe justifiée.
+
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/derivation-convexite-1.svg}{Schéma structurant pour Dérivation, dérivée seconde et convexité.}{La figure met en évidence les objets, relations ou variations fondamentales mobilisés dans la première moitié du chapitre.}
+
+\section{3. Dérivée seconde}
+La dérivée seconde est définie par
 \[
 f''=(f')'.
 \]
+Elle renseigne sur la variation de $f'$. Si $f''>0$, la pente augmente ; si $f''<0$, la pente diminue. Cette interprétation dynamique aide à comprendre la convexité avant de mémoriser un critère algébrique.
 
-Elle renseigne sur la variation de $f'$ et donc sur la courbure de la courbe.
-
-\section{3. Convexité}
-Une fonction deux fois dérivable est convexe sur un intervalle lorsque
+\section{4. Convexité et concavité}
+Si $f$ est deux fois dérivable sur un intervalle, alors $f$ est convexe lorsque
 \[
 f''(x)\ge0
 \]
-sur cet intervalle.
+sur cet intervalle, et concave lorsque $f''(x)\le0$. Une fonction convexe a sa courbe au-dessus de chacune de ses tangentes ; une fonction concave a sa courbe au-dessous. Cette propriété géométrique est très utile pour construire des inégalités.
 
-Elle est concave lorsque
+\section{5. Point d’inflexion}
+Un point d'inflexion correspond à un changement de convexité. Si $f''$ change de signe en $a$, alors le point de la courbe d'abscisse $a$ est un point d'inflexion. L'égalité $f''(a)=0$ seule ne suffit pas : il faut vérifier le changement de signe ou disposer d'un argument équivalent. Ce contrôle évite de confondre annulation de la dérivée seconde et changement réel de courbure.
+
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/derivation-convexite-2.svg}{Deuxième représentation pédagogique pour Dérivation, dérivée seconde et convexité.}{La figure sert de support de lecture, de comparaison ou de contrôle pour les méthodes centrales du chapitre.}
+
+\section{6. Tangente et inégalités}
+L'équation de la tangente à la courbe de $f$ au point d'abscisse $a$ est
 \[
-f''(x)\le0.
+y=f(a)+f'(a)(x-a).
 \]
-
-Pour une fonction convexe, la courbe est au-dessus de ses tangentes.
-
-\section{4. Point d'inflexion}
-Un point d'inflexion correspond à un changement de convexité.
-
-Dans les cas usuels, on repère un changement de signe de $f''$.
-
-L'annulation de $f''$ seule ne suffit pas : il faut vérifier le changement de convexité.
-
-\section{5. Variations et convexité}
-\begin{itemize}
-\item le signe de $f'$ donne les variations de $f$ ;
-\item le signe de $f''$ donne les variations de $f'$ et la convexité de $f$.
-\end{itemize}
-
-Ces informations peuvent être combinées pour esquisser une courbe.
-
-\section{6. Inégalités par convexité}
-La fonction exponentielle est convexe et sa tangente en 0 a pour équation
+Si $f$ est convexe, alors pour tout $x$ de l'intervalle,
 \[
-y=x+1.
+f(x)\ge f(a)+f'(a)(x-a).
 \]
-
-Donc, pour tout réel $x$,
+Par exemple, l'exponentielle est convexe et sa tangente en $0$ donne
 \[
-e^x\ge x+1.
+e^x\ge1+x.
 \]
+On obtient ainsi une inégalité globale à partir d'une information locale.
+
+\section{7. Étude complète d’une fonction}
+Une étude de fonction peut combiner limites, signe de $f'$, convexité via $f''$, équations de tangentes et éventuelles asymptotes. Il faut organiser les informations : d'abord le domaine, puis les limites, les variations, enfin la convexité et les éléments géométriques. Une représentation graphique devient alors la synthèse de propriétés démontrées et non un simple dessin produit par la calculatrice.
+
+\section{8. Optimisation et lecture critique}
+Dans une situation d'optimisation, on traduit la grandeur à optimiser par une fonction sur un intervalle pertinent, puis on cherche ses extremums avec $f'$. La convexité peut renforcer le raisonnement : si une fonction est convexe et possède un point critique intérieur, ce point est un minimum global sur l'intervalle. Il faut cependant toujours revenir au domaine imposé par le contexte et comparer avec les bornes lorsque l'intervalle est fermé.
+
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Identifier précisément l'objet mathématique demandé et les hypothèses disponibles.
+\item Traduire l'énoncé dans une écriture adaptée : égalité, système, représentation paramétrique, inégalité, suite ou fonction selon le contexte.
+\item Choisir le théorème ou la propriété en vérifiant explicitement ses conditions d'application.
+\item Effectuer les calculs en conservant les formes exactes aussi longtemps que possible.
+\item Contrôler la cohérence du résultat par une seconde méthode, un ordre de grandeur, un signe, une substitution ou une lecture graphique.
+\item Conclure dans le langage du problème, en distinguant clairement ce qui est démontré de ce qui est conjecturé ou approché numériquement.
+\end{enumerate}
+\end{methode}
+
+\section{Rédaction attendue en Terminale}
+En spécialité, une réponse correcte ne se réduit pas à une ligne de calcul. Lorsqu'un résultat dépend d'un théorème, les hypothèses doivent apparaître dans la copie. Lorsqu'une valeur est approchée, la précision doit être annoncée. Lorsqu'une équation est résolue, il faut revenir à la question posée et vérifier que la solution appartient au domaine considéré. Cette discipline de rédaction évite les raisonnements implicites et prépare aux attendus de l'épreuve écrite.
+
+\begin{attention}
+Une calculatrice ou un logiciel peut suggérer une réponse, produire un tableau ou une représentation, mais il ne remplace pas la justification. Un résultat numérique devient exploitable seulement après avoir été relié à une propriété mathématique et interprété dans le contexte.
+\end{attention}
+
+\section{Contrôler une solution}
+Le contrôle dépend du chapitre : recompter par le complément en combinatoire, vérifier l'appartenance d'un point à une droite ou à un plan, substituer une solution dans une équation, comparer deux expressions de limite, vérifier un signe de dérivée, ou encore contrôler qu'un encadrement de dichotomie conserve bien le changement de signe. Dans tous les cas, l'objectif est d'obtenir une preuve locale que le résultat final n'est pas seulement plausible mais compatible avec les données et les hypothèses.
+
+\section{Problème de synthèse et stratégie}
+
+Dans ce chapitre, la difficulté d'un problème complet consiste à articuler plusieurs résultats plutôt qu'à appliquer une formule isolée. Pour dérivation, dérivée seconde et convexité, on commence par identifier les objets et les hypothèses, puis on construit une chaîne de décisions vérifiables. Les résultats intermédiaires doivent être réutilisés explicitement : une relation obtenue peut justifier une appartenance, une monotonie, un comptage, une limite ou un encadrement. Cette organisation est particulièrement importante lorsque l'énoncé introduit une notation nouvelle ou demande une interprétation finale.
+
+
+\section{Réinvestissement type baccalauréat}
+Un exercice de baccalauréat combine souvent plusieurs compétences : lecture d'une situation, choix d'une stratégie, calcul exact, justification et interprétation. Il faut donc savoir passer d'une question technique courte à une question de synthèse. Une bonne stratégie consiste à repérer les résultats intermédiaires qui seront réutilisés, à annoncer les théorèmes avant leur emploi et à conserver une trace claire des dépendances entre les questions. Lorsqu'une question paraît isolée, elle prépare souvent une propriété utile pour la suite de l'exercice.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Oublier le facteur $u'$ dans la dérivée d'une composée.
-\item Confondre signe de $f'$ et signe de $f''$.
-\item Déclarer un point d'inflexion dès que $f''(a)=0$ sans vérifier le changement de convexité.
+\item Oublier le facteur intérieur dans la dérivée d’une composée.
+\item Confondre le signe de $f’$ avec celui de $f’’$.
+\item Déclarer un point d’inflexion dès que $f’’(a)=0$.
+\item Utiliser la propriété des tangentes sans vérifier la convexité ou la concavité.
+\item Oublier le domaine de définition lors d’une optimisation.
 \end{itemize}
 
 \section{À retenir}
-La première dérivée décrit les variations ; la seconde dérivée décrit la courbure et fournit un outil puissant pour les inégalités.
+\begin{aretenir}
+\begin{itemize}
+\item Le signe de $f’$ décrit les variations.
+\item Le signe de $f’’$ décrit la convexité ou la concavité.
+\item Un point d’inflexion correspond à un changement de convexité.
+\item Une fonction convexe est au-dessus de ses tangentes.
+\item L’étude complète combine calcul différentiel et interprétation graphique.
+\end{itemize}
+\end{aretenir}

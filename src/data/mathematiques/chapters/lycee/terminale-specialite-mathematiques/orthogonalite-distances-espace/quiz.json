@@ -1,63 +1,123 @@
 {
   "questions": [
     {
-      "id": "tle-ort-q1",
-      "question": "Dans un repère orthonormé, (x,y,z)·(x',y',z') vaut :",
+      "id": "tle-orthogonalite-distances-espace-q1",
+      "question": "Dans un repère orthonormé, $\\vec u\\cdot\\vec v$ se calcule par :",
       "choices": [
-        "xx'+yy'+zz'",
-        "xx' seulement",
-        "x+y+z"
+        "$xx^{\\prime}+yy^{\\prime}+zz^{\\prime}$",
+        "la somme des normes",
+        "le produit des trois normes"
       ],
       "answer": 0,
-      "explanation": "C'est la formule coordonnée.",
+      "explanation": "Le produit scalaire est la somme des produits coordonnée par coordonnée dans un repère orthonormé.",
       "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace"
     },
     {
-      "id": "tle-ort-q2",
+      "id": "tle-orthogonalite-distances-espace-q2",
       "question": "Deux vecteurs sont orthogonaux si :",
       "choices": [
         "leur produit scalaire est nul",
-        "ils sont colinéaires",
-        "leurs normes sont égales"
+        "leurs normes sont égales",
+        "ils sont colinéaires"
       ],
       "answer": 0,
-      "explanation": "C'est la caractérisation par produit scalaire.",
+      "explanation": "L’annulation du produit scalaire caractérise l’orthogonalité de deux vecteurs.",
       "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace"
     },
     {
-      "id": "tle-ort-q3",
+      "id": "tle-orthogonalite-distances-espace-q3",
       "question": "Un vecteur normal à un plan est :",
       "choices": [
-        "orthogonal aux directions du plan",
-        "contenu dans le plan nécessairement",
-        "parallèle à toutes les droites du plan"
+        "orthogonal à toutes ses directions",
+        "contenu dans toutes les droites du plan",
+        "nécessairement unitaire"
       ],
       "answer": 0,
-      "explanation": "Il porte une direction perpendiculaire au plan.",
+      "explanation": "La normalité signifie être orthogonal à chaque direction du plan ; la norme du vecteur n’a pas besoin de valoir $1$.",
       "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace"
     },
     {
-      "id": "tle-ort-q4",
-      "question": "La distance d'un point M à un plan P est :",
+      "id": "tle-orthogonalite-distances-espace-q4",
+      "question": "La distance d’un point $M$ à un plan est :",
       "choices": [
-        "la longueur jusqu'à son projeté orthogonal",
-        "la distance à n'importe quel point de P",
+        "la longueur jusqu’à son projeté orthogonal",
+        "la distance à n’importe quel point du plan",
         "toujours nulle"
       ],
       "answer": 0,
-      "explanation": "Le projeté orthogonal réalise la distance minimale.",
+      "explanation": "Le projeté orthogonal réalise la plus courte distance entre le point et le plan.",
       "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace"
     },
     {
-      "id": "tle-ort-q5",
-      "question": "||u||² vaut :",
+      "id": "tle-orthogonalite-distances-espace-q5",
+      "question": "Deux droites orthogonales de l’espace sont :",
       "choices": [
-        "u·u",
-        "2u",
-        "u·v"
+        "pas nécessairement sécantes",
+        "toujours perpendiculaires",
+        "toujours parallèles"
       ],
       "answer": 0,
-      "explanation": "C'est l'identité définissant la norme par le produit scalaire.",
+      "explanation": "Orthogonalité décrit les directions ; la perpendicularité exige en plus un point d’intersection.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace"
+    },
+    {
+      "id": "tle-orthogonalite-distances-espace-q6",
+      "question": "La norme de $\\vec u$ vérifie :",
+      "choices": [
+        "$\\|\\vec u\\|=\\sqrt{\\vec u\\cdot\\vec u}$",
+        "$\\|\\vec u\\|=\\vec u\\cdot\\vec u$",
+        "$\\|\\vec u\\|=0$ toujours"
+      ],
+      "answer": 0,
+      "explanation": "Le produit scalaire d’un vecteur par lui-même est le carré de sa norme.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace"
+    },
+    {
+      "id": "tle-orthogonalite-distances-espace-q7",
+      "question": "Pour calculer un angle, on utilise :",
+      "choices": [
+        "$\\vec u\\cdot\\vec v=\\|\\vec u\\|\\|\\vec v\\|\\cos\\theta$",
+        "$\\vec u+\\vec v=0$",
+        "$\\|\\vec u\\|=\\|\\vec v\\|$"
+      ],
+      "answer": 0,
+      "explanation": "Cette identité relie directement le produit scalaire au cosinus de l’angle entre deux vecteurs non nuls.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace"
+    },
+    {
+      "id": "tle-orthogonalite-distances-espace-q8",
+      "question": "La formule coordonnée du produit scalaire exige :",
+      "choices": [
+        "un repère orthonormé",
+        "n’importe quelle base",
+        "un plan horizontal"
+      ],
+      "answer": 0,
+      "explanation": "Sans orthonormalité, les coordonnées seules ne permettent pas d’utiliser la somme simple des produits.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace"
+    },
+    {
+      "id": "tle-orthogonalite-distances-espace-q9",
+      "question": "Une droite dirigée par un vecteur normal à un plan est :",
+      "choices": [
+        "orthogonale au plan",
+        "incluse dans le plan",
+        "parallèle à toutes ses droites"
+      ],
+      "answer": 0,
+      "explanation": "Une direction colinéaire à la normale est orthogonale à toutes les directions du plan.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace"
+    },
+    {
+      "id": "tle-orthogonalite-distances-espace-q10",
+      "question": "Le projeté orthogonal $H$ de $M$ sur un plan vérifie :",
+      "choices": [
+        "$MH\\perp\\mathcal P$ et $H\\in\\mathcal P$",
+        "$M\\in\\mathcal P$ nécessairement",
+        "$MH=0$ toujours"
+      ],
+      "answer": 0,
+      "explanation": "La définition combine l’appartenance de $H$ au plan et l’orthogonalité de la droite $MH$ au plan.",
       "chapterId": "lycee/terminale-specialite-mathematiques/orthogonalite-distances-espace"
     }
   ]

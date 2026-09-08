@@ -1,71 +1,113 @@
+% Mathématiques Terminale spécialité — V3 LaTeX
+% Vecteurs, droites et plans de l’espace
+
 \section{Objectifs}
 \begin{itemize}
-\item Étendre le calcul vectoriel à l'espace.
-\item Décrire droites et plans par leurs directions.
-\item Utiliser une base de l'espace.
-\item Raisonner sur la position relative d'objets géométriques.
+\item Manipuler des vecteurs et des combinaisons linéaires dans l’espace.
+\item Caractériser une droite par un point et un vecteur directeur.
+\item Caractériser un plan par un point et deux vecteurs non colinéaires.
+\item Étudier alignement, parallélisme, coplanarité et positions relatives.
 \end{itemize}
 
-\section{1. Vecteurs de l'espace}
-Les opérations sur les vecteurs du plan restent valables dans l'espace :
-\[
-\vec u+\vec v,\qquad \lambda\vec u.
-\]
+\section{Repères et enjeux du chapitre}
+La géométrie dans l'espace reprend les opérations vectorielles du plan mais ajoute une difficulté fondamentale : deux droites non parallèles ne sont pas nécessairement sécantes. Il faut donc raisonner avec les directions, la coplanarité et les coordonnées. Les vecteurs donnent un langage commun pour traduire des configurations tridimensionnelles en relations algébriques.
 
-Une combinaison linéaire de $\vec u,\vec v,\vec w$ est une expression
+\section{1. Vecteurs et combinaisons linéaires}
+Les opérations vectorielles restent les mêmes que dans le plan. Si $\vec u$, $\vec v$ et $\vec w$ sont des vecteurs de l'espace et si $a$, $b$, $c$ sont réels, l'expression
 \[
-a\vec u+b\vec v+c\vec w.
+a\vec u+b\vec v+c\vec w
 \]
+est une combinaison linéaire. Elle permet de décrire une direction à partir de directions de référence. Dans un repère, les opérations se font coordonnée par coordonnée, ce qui rend possible un passage systématique entre géométrie et calcul.
 
-\section{2. Colinéarité}
-Deux vecteurs non nuls sont colinéaires si l'un est un multiple de l'autre :
+\section{2. Colinéarité et alignement}
+Deux vecteurs non nuls sont colinéaires lorsqu'il existe un réel $\lambda$ tel que
 \[
 \vec v=\lambda\vec u.
 \]
+Trois points $A$, $B$, $C$ sont alignés si et seulement si $\overrightarrow{AB}$ et $\overrightarrow{AC}$ sont colinéaires. En coordonnées, on cherche donc un même coefficient de proportionnalité pour les trois composantes. Vérifier seulement deux coordonnées n'est pas suffisant dans l'espace.
 
-Deux droites ayant des vecteurs directeurs colinéaires sont parallèles ou confondues.
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/vecteurs-droites-plans-espace-1.svg}{Schéma structurant pour Vecteurs, droites et plans de l’espace.}{La figure met en évidence les objets, relations ou variations fondamentales mobilisés dans la première moitié du chapitre.}
 
-\section{3. Droite de l'espace}
-Une droite est déterminée par un point $A$ et un vecteur directeur non nul $\vec u$.
-
-Un point $M$ appartient à la droite si
+\section{3. Droite de l’espace}
+Une droite est déterminée par un point $A$ et un vecteur directeur non nul $\vec u$. Un point $M$ appartient à cette droite si et seulement si
 \[
 \overrightarrow{AM}=t\vec u
 \]
-pour un réel $t$.
+pour un certain réel $t$. Deux droites ayant des vecteurs directeurs colinéaires sont parallèles ou confondues. Si leurs directions ne sont pas colinéaires, elles peuvent être sécantes ou non coplanaires : il faut donc encore vérifier l'existence d'un point commun.
 
-\section{4. Plan de l'espace}
-Un plan est déterminé par un point $A$ et deux vecteurs non colinéaires $\vec u,\vec v$.
-
-Un point $M$ appartient au plan si
+\section{4. Plan et directions du plan}
+Un plan est déterminé par un point $A$ et deux vecteurs non colinéaires $\vec u$ et $\vec v$. Un point $M$ appartient au plan si et seulement si
 \[
 \overrightarrow{AM}=s\vec u+t\vec v
 \]
-pour des réels $s,t$.
+pour deux réels $s$ et $t$. Les deux vecteurs engendrent toutes les directions du plan. La non-colinéarité est indispensable : deux vecteurs colinéaires ne déterminent qu'une seule direction et ne suffisent donc pas à définir un plan.
 
-\section{5. Base de l'espace}
-Trois vecteurs non coplanaires forment une base de l'espace. Tout vecteur peut alors s'écrire de manière unique
+\section{5. Coplanarité de vecteurs}
+Trois vecteurs $\vec u$, $\vec v$, $\vec w$ sont coplanaires lorsqu'ils peuvent être placés dans un même plan vectoriel. Si $\vec u$ et $\vec v$ ne sont pas colinéaires, cela revient à pouvoir écrire
 \[
-\vec x=a\vec u+b\vec v+c\vec w.
+\vec w=a\vec u+b\vec v.
 \]
+Cette relation est l'outil algébrique central pour tester la coplanarité. Elle se traduit en coordonnées par un système de trois équations portant sur deux inconnues $a$ et $b$.
 
-\section{6. Positions relatives}
-Deux droites de l'espace peuvent être :
-\begin{itemize}
-\item sécantes ;
-\item parallèles ;
-\item confondues ;
-\item non coplanaires.
-\end{itemize}
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/vecteurs-droites-plans-espace-2.svg}{Deuxième représentation pédagogique pour Vecteurs, droites et plans de l’espace.}{La figure sert de support de lecture, de comparaison ou de contrôle pour les méthodes centrales du chapitre.}
 
-Une droite et un plan peuvent être parallèles, inclus l'un dans l'autre ou sécants.
+\section{6. Base de l’espace et coordonnées}
+Trois vecteurs non coplanaires forment une base de l'espace. Dans une base $(\vec i,\vec j,\vec k)$, tout vecteur possède une écriture unique
+\[
+\vec u=x\vec i+y\vec j+z\vec k.
+\]
+L'unicité des coordonnées permet de comparer des vecteurs par leurs composantes et de résoudre des relations vectorielles avec des systèmes linéaires. Une base n'a pas besoin d'être orthonormée pour exister ; l'orthonormalité devient importante plus tard pour les distances et le produit scalaire.
+
+\section{7. Positions relatives}
+Deux plans peuvent être parallèles ou sécants suivant une droite. Une droite et un plan peuvent être sécants, parallèles ou la droite peut être incluse dans le plan. Deux droites peuvent être sécantes, parallèles, confondues ou non coplanaires. La démarche robuste consiste à séparer l'étude des directions de l'étude des points communs : les directions donnent les cas possibles, puis une condition d'appartenance tranche entre les possibilités restantes.
+
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Identifier précisément l'objet mathématique demandé et les hypothèses disponibles.
+\item Traduire l'énoncé dans une écriture adaptée : égalité, système, représentation paramétrique, inégalité, suite ou fonction selon le contexte.
+\item Choisir le théorème ou la propriété en vérifiant explicitement ses conditions d'application.
+\item Effectuer les calculs en conservant les formes exactes aussi longtemps que possible.
+\item Contrôler la cohérence du résultat par une seconde méthode, un ordre de grandeur, un signe, une substitution ou une lecture graphique.
+\item Conclure dans le langage du problème, en distinguant clairement ce qui est démontré de ce qui est conjecturé ou approché numériquement.
+\end{enumerate}
+\end{methode}
+
+\section{Rédaction attendue en Terminale}
+En spécialité, une réponse correcte ne se réduit pas à une ligne de calcul. Lorsqu'un résultat dépend d'un théorème, les hypothèses doivent apparaître dans la copie. Lorsqu'une valeur est approchée, la précision doit être annoncée. Lorsqu'une équation est résolue, il faut revenir à la question posée et vérifier que la solution appartient au domaine considéré. Cette discipline de rédaction évite les raisonnements implicites et prépare aux attendus de l'épreuve écrite.
+
+\begin{attention}
+Une calculatrice ou un logiciel peut suggérer une réponse, produire un tableau ou une représentation, mais il ne remplace pas la justification. Un résultat numérique devient exploitable seulement après avoir été relié à une propriété mathématique et interprété dans le contexte.
+\end{attention}
+
+\section{Contrôler une solution}
+Le contrôle dépend du chapitre : recompter par le complément en combinatoire, vérifier l'appartenance d'un point à une droite ou à un plan, substituer une solution dans une équation, comparer deux expressions de limite, vérifier un signe de dérivée, ou encore contrôler qu'un encadrement de dichotomie conserve bien le changement de signe. Dans tous les cas, l'objectif est d'obtenir une preuve locale que le résultat final n'est pas seulement plausible mais compatible avec les données et les hypothèses.
+
+\section{Problème de synthèse et stratégie}
+
+Dans ce chapitre, la difficulté d'un problème complet consiste à articuler plusieurs résultats plutôt qu'à appliquer une formule isolée. Pour vecteurs, droites et plans de l’espace, on commence par identifier les objets et les hypothèses, puis on construit une chaîne de décisions vérifiables. Les résultats intermédiaires doivent être réutilisés explicitement : une relation obtenue peut justifier une appartenance, une monotonie, un comptage, une limite ou un encadrement. Cette organisation est particulièrement importante lorsque l'énoncé introduit une notation nouvelle ou demande une interprétation finale.
+
+
+\section{Réinvestissement type baccalauréat}
+Un exercice de baccalauréat combine souvent plusieurs compétences : lecture d'une situation, choix d'une stratégie, calcul exact, justification et interprétation. Il faut donc savoir passer d'une question technique courte à une question de synthèse. Une bonne stratégie consiste à repérer les résultats intermédiaires qui seront réutilisés, à annoncer les théorèmes avant leur emploi et à conserver une trace claire des dépendances entre les questions. Lorsqu'une question paraît isolée, elle prépare souvent une propriété utile pour la suite de l'exercice.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Penser que deux droites non parallèles de l'espace sont forcément sécantes.
+\item Croire que deux droites non parallèles sont forcément sécantes.
 \item Confondre colinéarité de deux vecteurs et coplanarité de trois vecteurs.
-\item Oublier qu'un plan nécessite deux directions non colinéaires.
+\item Oublier qu’un plan exige deux directions non colinéaires.
+\item Vérifier une relation de proportionnalité sur seulement deux coordonnées.
+\item Confondre une base quelconque avec une base orthonormée.
 \end{itemize}
 
 \section{À retenir}
-La direction d'une droite est portée par un vecteur non nul ; la direction d'un plan est engendrée par deux vecteurs non colinéaires.
+\begin{aretenir}
+\begin{itemize}
+\item Une droite est définie par un point et une direction non nulle.
+\item Un plan est défini par un point et deux directions non colinéaires.
+\item Trois vecteurs sont coplanaires si l’un s’écrit comme combinaison linéaire de deux autres non colinéaires.
+\item Deux droites non parallèles de l’espace peuvent ne pas être sécantes.
+\item Les coordonnées traduisent les relations vectorielles en systèmes algébriques.
+\end{itemize}
+\end{aretenir}

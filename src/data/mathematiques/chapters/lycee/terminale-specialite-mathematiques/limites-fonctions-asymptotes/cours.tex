@@ -1,91 +1,116 @@
+% Mathématiques Terminale spécialité — V3 LaTeX
+% Limites de fonctions et asymptotes
+
 \section{Objectifs}
 \begin{itemize}
-\item Calculer des limites de fonctions.
-\item Interpréter graphiquement une limite.
-\item Repérer les formes indéterminées.
-\item Utiliser les fonctions de référence et les croissances comparées.
+\item Déterminer des limites de fonctions en un point ou à l’infini.
+\item Lever des formes indéterminées simples.
+\item Utiliser comparaison et croissance comparée.
+\item Relier les limites aux asymptotes et à la lecture graphique.
 \end{itemize}
 
-\section{1. Limite à l'infini}
-Dire que
-\[
-f(x)\to\ell\quad\text{quand }x\to+\infty
-\]
-signifie que $f(x)$ se rapproche de $\ell$ pour $x$ suffisamment grand.
+\section{Repères et enjeux du chapitre}
+Les limites de fonctions décrivent le comportement d'une courbe lorsque la variable se rapproche d'une valeur ou devient très grande en valeur absolue. Elles sont à la fois un outil de calcul et un outil géométrique : une limite finie à l'infini peut révéler une asymptote horizontale, tandis qu'une limite infinie au voisinage d'une valeur peut révéler une asymptote verticale.
 
-Si
+\section{1. Limite finie à l’infini}
+Dire que $f(x)$ tend vers $\ell$ lorsque $x\to+\infty$ signifie que les valeurs de $f(x)$ se rapprochent de $\ell$ lorsque $x$ devient suffisamment grand. Si
 \[
 \lim_{x\to+\infty}f(x)=\ell,
 \]
-la droite
+alors la droite $y=\ell$ est une asymptote horizontale au voisinage de $+\infty$. La courbe peut couper cette droite : la notion d'asymptote décrit un comportement à l'infini, pas une barrière géométrique.
+
+\section{2. Limite infinie au voisinage d’un point}
+Si $f(x)\to+\infty$ ou $f(x)\to-\infty$ lorsque $x\to a$, la droite $x=a$ est une asymptote verticale. Il faut souvent distinguer les limites à gauche et à droite :
 \[
-y=\ell
+\lim_{x\to a^-}f(x)\quad\text{et}\quad\lim_{x\to a^+}f(x).
 \]
-est une asymptote horizontale à la courbe au voisinage de $+\infty$.
+Elles peuvent être différentes, notamment pour les fonctions rationnelles ou logarithmiques étudiées ensuite.
 
-\section{2. Limite infinie en un point}
-Si
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/limites-fonctions-asymptotes-1.svg}{Schéma structurant pour Limites de fonctions et asymptotes.}{La figure met en évidence les objets, relations ou variations fondamentales mobilisés dans la première moitié du chapitre.}
+
+\section{3. Opérations sur les limites}
+Les règles de somme, produit et quotient s'appliquent lorsque les limites obtenues ne sont pas indéterminées. Les formes
 \[
-f(x)\to+\infty\quad\text{quand }x\to a,
+\frac{\infty}{\infty},\qquad \frac00,\qquad \infty-\infty,\qquad 0\times\infty
 \]
-la droite
+ne fournissent aucune valeur. On doit alors transformer l'expression : factoriser, mettre au même dénominateur, rationaliser ou isoler un terme dominant selon la structure du problème.
+
+\section{4. Polynômes et quotients de polynômes}
+À l'infini, le terme de plus haut degré d'un polynôme gouverne son comportement. Pour
 \[
-x=a
+P(x)=a_nx^n+\cdots+a_0,
 \]
-est une asymptote verticale.
+on compare $P(x)$ à $a_nx^n$. Pour un quotient, on factorise au numérateur et au dénominateur par les puissances dominantes. Cette méthode transforme une forme $\infty/\infty$ en produit d'un facteur simple et d'expressions tendant vers des constantes.
 
-Les limites à gauche et à droite peuvent être différentes.
+\section{5. Comparaison et encadrement}
+Une limite peut être établie sans calcul exact. Si $f(x)\ge g(x)$ pour $x$ suffisamment grand et si $g(x)\to+\infty$, alors $f(x)\to+\infty$. De même, un encadrement entre deux fonctions de même limite permet d'appliquer un théorème des gendarmes adapté aux fonctions. La difficulté consiste à produire une inégalité valable dans le voisinage étudié.
 
-\section{3. Opérations}
-On combine les limites connues pour les sommes, produits et quotients lorsque les règles s'appliquent.
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/limites-fonctions-asymptotes-2.svg}{Deuxième représentation pédagogique pour Limites de fonctions et asymptotes.}{La figure sert de support de lecture, de comparaison ou de contrôle pour les méthodes centrales du chapitre.}
 
-Les formes
-\[
-\frac{\infty}{\infty},\qquad\frac00,\qquad\infty-\infty,\qquad0\times\infty
-\]
-sont indéterminées : elles nécessitent une transformation.
-
-\section{4. Terme prépondérant}
-Pour un polynôme à l'infini, le terme de plus haut degré gouverne le comportement.
-
-Exemple :
-\[
-3x^4-2x+1\sim3x^4
-\]
-au voisinage de $+\infty$.
-
-Pour un quotient de polynômes, on peut factoriser par la plus grande puissance pertinente.
-
-\section{5. Comparaison}
-Une majoration ou minoration peut suffire à déterminer une limite.
-
-Exemple : si $f(x)\ge x^2$ pour $x$ grand, alors
-\[
-f(x)\to+\infty.
-\]
-
-\section{6. Croissance comparée}
-L'exponentielle domine toute puissance positive à $+\infty$ :
+\section{6. Croissance comparée avec l’exponentielle}
+À $+\infty$, la fonction exponentielle domine toute puissance positive : pour tout entier naturel $n$,
 \[
 \frac{x^n}{e^x}\to0.
 \]
+On en déduit aussi
+\[
+x^ne^{-x}\to0.
+\]
+Ces résultats permettent de traiter des expressions où une puissance de $x$ et une exponentielle sont mêlées. Il faut reconnaître la forme avant de transformer l'expression.
 
-Cette propriété aide à lever des formes indéterminées.
+\section{7. Lire une asymptote et la position relative}
+Connaître une asymptote ne suffit pas pour connaître la position de la courbe par rapport à elle. Si l'asymptote horizontale est $y=\ell$, on étudie le signe de $f(x)-\ell$. Pour une asymptote verticale $x=a$, les limites latérales décrivent la branche de courbe de chaque côté. Cette lecture combine donc limite et étude de signe.
 
-\section{7. Interpréter une asymptote}
-\begin{itemize}
-\item limite finie à l'infini : asymptote horizontale ;
-\item limite infinie en $a$ : asymptote verticale.
-\end{itemize}
+\section{8. Stratégie face à une forme indéterminée}
+La première étape est d'identifier la structure : polynôme, quotient, exponentielle, différence de deux termes de même ordre ou produit. On choisit ensuite une transformation adaptée au lieu d'enchaîner des manipulations au hasard. Par exemple, pour une différence de quotients, la mise au même dénominateur peut faire apparaître une simplification ; pour un polynôme, la factorisation par le terme dominant est souvent la voie la plus courte.
 
-Une asymptote décrit un comportement local ou asymptotique ; elle ne dit pas que la courbe ne la coupe jamais.
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Identifier précisément l'objet mathématique demandé et les hypothèses disponibles.
+\item Traduire l'énoncé dans une écriture adaptée : égalité, système, représentation paramétrique, inégalité, suite ou fonction selon le contexte.
+\item Choisir le théorème ou la propriété en vérifiant explicitement ses conditions d'application.
+\item Effectuer les calculs en conservant les formes exactes aussi longtemps que possible.
+\item Contrôler la cohérence du résultat par une seconde méthode, un ordre de grandeur, un signe, une substitution ou une lecture graphique.
+\item Conclure dans le langage du problème, en distinguant clairement ce qui est démontré de ce qui est conjecturé ou approché numériquement.
+\end{enumerate}
+\end{methode}
+
+\section{Rédaction attendue en Terminale}
+En spécialité, une réponse correcte ne se réduit pas à une ligne de calcul. Lorsqu'un résultat dépend d'un théorème, les hypothèses doivent apparaître dans la copie. Lorsqu'une valeur est approchée, la précision doit être annoncée. Lorsqu'une équation est résolue, il faut revenir à la question posée et vérifier que la solution appartient au domaine considéré. Cette discipline de rédaction évite les raisonnements implicites et prépare aux attendus de l'épreuve écrite.
+
+\begin{attention}
+Une calculatrice ou un logiciel peut suggérer une réponse, produire un tableau ou une représentation, mais il ne remplace pas la justification. Un résultat numérique devient exploitable seulement après avoir été relié à une propriété mathématique et interprété dans le contexte.
+\end{attention}
+
+\section{Contrôler une solution}
+Le contrôle dépend du chapitre : recompter par le complément en combinatoire, vérifier l'appartenance d'un point à une droite ou à un plan, substituer une solution dans une équation, comparer deux expressions de limite, vérifier un signe de dérivée, ou encore contrôler qu'un encadrement de dichotomie conserve bien le changement de signe. Dans tous les cas, l'objectif est d'obtenir une preuve locale que le résultat final n'est pas seulement plausible mais compatible avec les données et les hypothèses.
+
+\section{Problème de synthèse et stratégie}
+
+Dans ce chapitre, la difficulté d'un problème complet consiste à articuler plusieurs résultats plutôt qu'à appliquer une formule isolée. Pour limites de fonctions et asymptotes, on commence par identifier les objets et les hypothèses, puis on construit une chaîne de décisions vérifiables. Les résultats intermédiaires doivent être réutilisés explicitement : une relation obtenue peut justifier une appartenance, une monotonie, un comptage, une limite ou un encadrement. Cette organisation est particulièrement importante lorsque l'énoncé introduit une notation nouvelle ou demande une interprétation finale.
+
+
+\section{Réinvestissement type baccalauréat}
+Un exercice de baccalauréat combine souvent plusieurs compétences : lecture d'une situation, choix d'une stratégie, calcul exact, justification et interprétation. Il faut donc savoir passer d'une question technique courte à une question de synthèse. Une bonne stratégie consiste à repérer les résultats intermédiaires qui seront réutilisés, à annoncer les théorèmes avant leur emploi et à conserver une trace claire des dépendances entre les questions. Lorsqu'une question paraît isolée, elle prépare souvent une propriété utile pour la suite de l'exercice.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Traiter une forme indéterminée comme un résultat.
-\item Oublier de distinguer limite à gauche et à droite.
+\item Oublier de distinguer limite à gauche et limite à droite.
 \item Conclure à une asymptote verticale sans limite infinie.
+\item Affirmer qu’une courbe ne peut jamais couper son asymptote horizontale.
+\item Utiliser une croissance comparée sans avoir transformé l’expression dans la bonne forme.
 \end{itemize}
 
 \section{À retenir}
-Le calcul de limite combine fonctions de référence, transformations algébriques, comparaison et lecture graphique.
+\begin{aretenir}
+\begin{itemize}
+\item Une limite se lit dans un voisinage ou à l’infini.
+\item Une forme indéterminée impose une transformation.
+\item Le terme dominant simplifie l’étude des polynômes et quotients.
+\item L’exponentielle domine les puissances à $+\infty$.
+\item Les asymptotes traduisent géométriquement certaines limites.
+\end{itemize}
+\end{aretenir}

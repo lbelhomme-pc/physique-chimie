@@ -1,63 +1,123 @@
 {
   "questions": [
     {
-      "id": "tle-sui-q1",
-      "question": "Si |q|<1, la limite de q^n est :",
+      "id": "tle-suites-limites-recurrence-q1",
+      "question": "Si $|q|<1$, alors $q^n$ :",
       "choices": [
-        "0",
-        "+∞",
-        "1"
+        "tend vers $0$",
+        "tend toujours vers $+\\infty$",
+        "reste toujours égal à $1$"
       ],
       "answer": 0,
-      "explanation": "C'est le comportement fondamental des suites géométriques.",
+      "explanation": "Les puissances d’un réel de valeur absolue strictement inférieure à $1$ convergent vers $0$.",
       "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence"
     },
     {
-      "id": "tle-sui-q2",
-      "question": "Une suite croissante majorée :",
+      "id": "tle-suites-limites-recurrence-q2",
+      "question": "Une suite croissante et majorée :",
       "choices": [
         "converge",
-        "tend toujours vers +∞",
-        "est constante"
+        "diverge toujours vers $+\\infty$",
+        "est nécessairement constante"
       ],
       "answer": 0,
-      "explanation": "C'est un théorème de convergence admis.",
+      "explanation": "Le théorème de convergence monotone garantit une limite finie pour une suite croissante et majorée.",
       "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence"
     },
     {
-      "id": "tle-sui-q3",
-      "question": "Une suite bornée :",
+      "id": "tle-suites-limites-recurrence-q3",
+      "question": "La forme $+\\infty-\\infty$ est :",
       "choices": [
-        "n'est pas nécessairement convergente",
-        "converge toujours",
-        "est toujours monotone"
+        "indéterminée",
+        "égale à $0$",
+        "égale à $+\\infty$"
       ],
       "answer": 0,
-      "explanation": "Par exemple (-1)^n est bornée mais ne converge pas.",
+      "explanation": "Cette forme ne détermine aucune limite sans transformation supplémentaire de l’expression.",
       "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence"
     },
     {
-      "id": "tle-sui-q4",
-      "question": "Le théorème des gendarmes s'applique lorsque :",
+      "id": "tle-suites-limites-recurrence-q4",
+      "question": "Le théorème des gendarmes nécessite :",
       "choices": [
-        "deux bornes ont la même limite",
-        "la suite est seulement croissante",
-        "la suite est géométrique"
+        "deux bornes de même limite",
+        "une seule borne quelconque",
+        "une suite géométrique uniquement"
       ],
       "answer": 0,
-      "explanation": "L'encadrement par deux suites de même limite impose la limite intermédiaire.",
+      "explanation": "La suite encadrée hérite de la limite commune de ses deux bornes.",
       "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence"
     },
     {
-      "id": "tle-sui-q5",
+      "id": "tle-suites-limites-recurrence-q5",
+      "question": "Pour identifier la limite d’une suite $u_{n+1}=f(u_n)$, l’équation $\\ell=f(\\ell)$ :",
+      "choices": [
+        "nécessite d’avoir d’abord établi la convergence",
+        "prouve toujours la convergence",
+        "est inutile dans tous les cas"
+      ],
+      "answer": 0,
+      "explanation": "Le point fixe donne une condition sur une limite éventuelle, mais pas l’existence de cette limite.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence"
+    },
+    {
+      "id": "tle-suites-limites-recurrence-q6",
       "question": "Une récurrence comporte :",
       "choices": [
-        "initialisation, hérédité, conclusion",
-        "seulement un calcul de limite",
-        "une dérivée"
+        "initialisation, hérédité et conclusion",
+        "seulement un calcul numérique",
+        "uniquement une limite"
       ],
       "answer": 0,
-      "explanation": "Ce sont les trois étapes logiques.",
+      "explanation": "Ces trois étapes établissent une propriété pour tous les rangs visés à partir du rang initial.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence"
+    },
+    {
+      "id": "tle-suites-limites-recurrence-q7",
+      "question": "Une suite bornée est :",
+      "choices": [
+        "pas nécessairement convergente",
+        "toujours convergente",
+        "toujours croissante"
+      ],
+      "answer": 0,
+      "explanation": "Par exemple une suite alternée peut rester bornée tout en n’ayant aucune limite.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence"
+    },
+    {
+      "id": "tle-suites-limites-recurrence-q8",
+      "question": "Une suite croissante non majorée :",
+      "choices": [
+        "tend vers $+\\infty$",
+        "converge vers $0$",
+        "est périodique"
+      ],
+      "answer": 0,
+      "explanation": "La croissance et l’absence de majorant impliquent que tout seuil finit par être dépassé.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence"
+    },
+    {
+      "id": "tle-suites-limites-recurrence-q9",
+      "question": "Pour une suite géométrique $v_{n+1}=qv_n$, on a :",
+      "choices": [
+        "$v_n=v_0q^n$",
+        "$v_n=v_0+nq$",
+        "$v_n=q+n$"
+      ],
+      "answer": 0,
+      "explanation": "La relation de récurrence multiplicative se résout par la puissance $q^n$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence"
+    },
+    {
+      "id": "tle-suites-limites-recurrence-q10",
+      "question": "Un algorithme de seuil doit renvoyer :",
+      "choices": [
+        "le premier rang satisfaisant la condition",
+        "n’importe quel rang convenable",
+        "toujours le rang $0$"
+      ],
+      "answer": 0,
+      "explanation": "La boucle doit être conçue pour s’arrêter dès que la condition devient vraie afin d’obtenir le premier rang.",
       "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence"
     }
   ]

@@ -1,30 +1,36 @@
 {
   "exercices": [
     {
-      "id": "tle-der-n1-1",
+      "id": "tle-derivation-convexite-n1-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
-      "title": "Dérivée d'une composée",
-      "statement": "Dériver f(x)=e^{2x+3}.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Dérivée d’une exponentielle composée",
+      "statement": "On considère $f(x)=e^{4x-3}$ sur $\\mathbb R$. On souhaite dériver en faisant apparaître le facteur provenant de la fonction intérieure.",
+      "questions": [
+        "Calculer $f^{\\prime}(x)$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Calculer la dérivée de fonctions composées usuelles."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Séparer le rôle de la première dérivée et celui de la seconde dérivée.",
+        "method": "Calculer les dérivées, étudier leurs signes puis traduire les résultats sur la courbe.",
+        "reminder": "Un point d’inflexion exige un changement de convexité.",
+        "commonMistake": "Conclure à partir de l’annulation de la dérivée seconde sans étudier son signe."
       },
       "correction": [
-        "Avec u(x)=2x+3, u'(x)=2.",
-        "f'(x)=2e^{2x+3}."
+        "Avec $u(x)=4x-3$, on a $u^{\\prime}(x)=4$. La règle de dérivation de $e^{u(x)}$ donne $f^{\\prime}(x)=4e^{4x-3}$."
       ],
       "commonMistakes": [],
       "access": {
@@ -34,39 +40,46 @@
       },
       "competences": [
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-der-n1-2",
+      "id": "tle-derivation-convexite-n1-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
       "title": "Dérivée seconde",
-      "statement": "Pour f(x)=x^3-3x²+1, calculer f''(x).",
-      "consigne": "Justifier les étapes utiles.",
+      "statement": "On considère $f(x)=x^3-3x^2+2$. On veut préparer l’étude de sa convexité.",
+      "questions": [
+        "Calculer $f^{\\prime}(x)$ puis $f^{\\prime\\prime}(x)$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser la dérivée seconde pour déterminer convexité et concavité."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Séparer le rôle de la première dérivée et celui de la seconde dérivée.",
+        "method": "Calculer les dérivées, étudier leurs signes puis traduire les résultats sur la courbe.",
+        "reminder": "Un point d’inflexion exige un changement de convexité.",
+        "commonMistake": "Conclure à partir de l’annulation de la dérivée seconde sans étudier son signe."
       },
       "correction": [
-        "f'(x)=3x²-6x.",
-        "f''(x)=6x-6."
+        "$f^{\\prime}(x)=3x^2-6x$ puis $f^{\\prime\\prime}(x)=6x-6$. La dérivée seconde est la dérivée de la première dérivée."
       ],
       "commonMistakes": [],
       "access": {
@@ -76,125 +89,47 @@
       },
       "competences": [
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-der-n2-1",
+      "id": "tle-derivation-convexite-n1-3",
       "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
-      "title": "Convexité",
-      "statement": "Étudier la convexité de f(x)=x^4.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
+      "title": "Convexité à partir de $f^{\\prime\\prime}$",
+      "statement": "Une fonction deux fois dérivable vérifie $f^{\\prime\\prime}(x)>0$ sur un intervalle $I$.",
+      "questions": [
+        "Conclure sur la convexité de $f$ sur $I$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser la dérivée seconde pour déterminer convexité et concavité."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
-      ],
-      "prerequisites": [],
-      "estimatedTime": 10,
-      "answerType": "text",
-      "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
-      },
-      "correction": [
-        "f''(x)=12x²≥0 pour tout x.",
-        "f est convexe sur R."
-      ],
-      "commonMistakes": [],
-      "access": {
-        "tier": "free",
-        "preview": true,
-        "requiresAccount": false
-      },
-      "competences": [
-        "calculer",
-        "raisonner"
-      ],
-      "accessibility": {},
-      "tags": [
-        "terminale-specialite",
-        "N2"
-      ]
-    },
-    {
-      "id": "tle-der-n2-2",
-      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
-      "title": "Point d'inflexion",
-      "statement": "Pour f(x)=x^3, montrer que O est un point d'inflexion.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
-      "skills": [
-        "calculer",
-        "raisonner"
-      ],
-      "prerequisites": [],
-      "estimatedTime": 10,
-      "answerType": "text",
-      "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
-      },
-      "correction": [
-        "f''(x)=6x.",
-        "f'' est négative pour x<0 et positive pour x>0.",
-        "La convexité change en 0 : O est un point d'inflexion."
-      ],
-      "commonMistakes": [],
-      "access": {
-        "tier": "free",
-        "preview": true,
-        "requiresAccount": false
-      },
-      "competences": [
-        "calculer",
-        "raisonner"
-      ],
-      "accessibility": {},
-      "tags": [
-        "terminale-specialite",
-        "N2"
-      ]
-    },
-    {
-      "id": "tle-der-n3-1",
-      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
-      "title": "Inégalité exponentielle",
-      "statement": "Justifier e^x≥x+1 pour tout réel x à l'aide de la convexité.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
-      "skills": [
+        "représenter",
         "raisonner",
         "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Séparer le rôle de la première dérivée et celui de la seconde dérivée.",
+        "method": "Calculer les dérivées, étudier leurs signes puis traduire les résultats sur la courbe.",
+        "reminder": "Un point d’inflexion exige un changement de convexité.",
+        "commonMistake": "Conclure à partir de l’annulation de la dérivée seconde sans étudier son signe."
       },
       "correction": [
-        "La fonction exp est convexe car exp''=exp>0.",
-        "Sa tangente en 0 est y=1+x.",
-        "La courbe d'une fonction convexe est au-dessus de ses tangentes : e^x≥x+1."
+        "Comme $f^{\\prime\\prime}$ est positive sur $I$, la fonction $f$ est convexe sur cet intervalle. Sa courbe est alors située au-dessus de ses tangentes."
       ],
       "commonMistakes": [],
       "access": {
@@ -203,42 +138,49 @@
         "requiresAccount": false
       },
       "competences": [
+        "représenter",
         "raisonner",
         "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-der-n3-2",
+      "id": "tle-derivation-convexite-n1-4",
       "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
-      "title": "Étude complète",
-      "statement": "Soit f(x)=x^3-3x. Déterminer ses intervalles de convexité et son point d'inflexion.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
+      "title": "Équation d’une tangente",
+      "statement": "On sait que $f(2)=5$ et $f^{\\prime}(2)=-3$. On veut écrire la tangente à la courbe au point d’abscisse $2$.",
+      "questions": [
+        "Déterminer une équation de la tangente."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Identifier des points d’inflexion et exploiter les tangentes pour établir des inégalités."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
       "skills": [
+        "représenter",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Séparer le rôle de la première dérivée et celui de la seconde dérivée.",
+        "method": "Calculer les dérivées, étudier leurs signes puis traduire les résultats sur la courbe.",
+        "reminder": "Un point d’inflexion exige un changement de convexité.",
+        "commonMistake": "Conclure à partir de l’annulation de la dérivée seconde sans étudier son signe."
       },
       "correction": [
-        "f'(x)=3x²-3 et f''(x)=6x.",
-        "f''<0 sur ]-∞,0[ : f est concave.",
-        "f''>0 sur ]0,+∞[ : f est convexe.",
-        "La convexité change en x=0 ; f(0)=0, donc O est un point d'inflexion."
+        "La tangente vaut $y=f(2)+f^{\\prime}(2)(x-2)=5-3(x-2)=-3x+11$."
       ],
       "commonMistakes": [],
       "access": {
@@ -247,13 +189,473 @@
         "requiresAccount": false
       },
       "competences": [
+        "représenter",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N1",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-derivation-convexite-n2-1",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
+      "title": "Convexité d’une fonction polynomiale",
+      "statement": "On considère $f(x)=x^4-4x^2$ sur $\\mathbb R$. Il faut déterminer les intervalles de convexité et de concavité.",
+      "questions": [
+        "Calculer $f^{\\prime\\prime}(x)$ et résoudre $f^{\\prime\\prime}(x)=0$.",
+        "Étudier le signe de $f^{\\prime\\prime}$ et conclure."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Utiliser la dérivée seconde pour déterminer convexité et concavité."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Séparer le rôle de la première dérivée et celui de la seconde dérivée.",
+        "method": "Calculer les dérivées, étudier leurs signes puis traduire les résultats sur la courbe.",
+        "reminder": "Un point d’inflexion exige un changement de convexité.",
+        "commonMistake": "Conclure à partir de l’annulation de la dérivée seconde sans étudier son signe."
+      },
+      "correction": [
+        "$f^{\\prime}(x)=4x^3-8x$ puis $f^{\\prime\\prime}(x)=12x^2-8=4(3x^2-2)$. Les zéros sont $x=\\pm\\sqrt{2/3}$.",
+        "$f^{\\prime\\prime}>0$ pour $|x|>\\sqrt{2/3}$ et $f^{\\prime\\prime}<0$ pour $|x|<\\sqrt{2/3}$. La fonction est donc convexe sur les intervalles extérieurs et concave entre les deux valeurs."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-derivation-convexite-n2-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
+      "title": "Point d’inflexion",
+      "statement": "On considère $f(x)=x^3-3x$. On cherche à déterminer si la courbe possède un point d’inflexion.",
+      "questions": [
+        "Calculer $f^{\\prime\\prime}(x)$ et étudier son signe autour de $0$.",
+        "Conclure et donner les coordonnées du point d’inflexion."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Utiliser la dérivée seconde pour déterminer convexité et concavité."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Séparer le rôle de la première dérivée et celui de la seconde dérivée.",
+        "method": "Calculer les dérivées, étudier leurs signes puis traduire les résultats sur la courbe.",
+        "reminder": "Un point d’inflexion exige un changement de convexité.",
+        "commonMistake": "Conclure à partir de l’annulation de la dérivée seconde sans étudier son signe."
+      },
+      "correction": [
+        "$f^{\\prime}(x)=3x^2-3$ et $f^{\\prime\\prime}(x)=6x$. La dérivée seconde est négative pour $x<0$ et positive pour $x>0$.",
+        "La convexité change en $0$, donc il y a un point d’inflexion d’abscisse $0$. Comme $f(0)=0$, le point est $(0;0)$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-derivation-convexite-n2-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
+      "title": "Inégalité issue d’une tangente",
+      "statement": "On veut démontrer $e^x\\ge1+x$ pour tout réel $x$ à partir de la convexité de l’exponentielle.",
+      "questions": [
+        "Justifier la convexité de $x\\mapsto e^x$.",
+        "Écrire la tangente en $0$ et conclure."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Identifier des points d’inflexion et exploiter les tangentes pour établir des inégalités."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Séparer le rôle de la première dérivée et celui de la seconde dérivée.",
+        "method": "Calculer les dérivées, étudier leurs signes puis traduire les résultats sur la courbe.",
+        "reminder": "Un point d’inflexion exige un changement de convexité.",
+        "commonMistake": "Conclure à partir de l’annulation de la dérivée seconde sans étudier son signe."
+      },
+      "correction": [
+        "Pour $f(x)=e^x$, on a $f^{\\prime\\prime}(x)=e^x>0$, donc $f$ est strictement convexe sur $\\mathbb R$.",
+        "La tangente en $0$ est $y=f(0)+f^{\\prime}(0)x=1+x$. Une fonction convexe est au-dessus de ses tangentes, donc $e^x\\ge1+x$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-derivation-convexite-n2-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
+      "title": "Variation d’une composée",
+      "statement": "On considère $f(x)=e^{-x^2}$ sur $[0,+\\infty[$. Il faut déterminer son sens de variation. La réponse doit être obtenue par un raisonnement explicite et non par une simple affirmation.",
+      "questions": [
+        "Calculer $f^{\\prime}(x)$.",
+        "Étudier son signe sur $[0,+\\infty[$ et conclure."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Calculer la dérivée de fonctions composées usuelles."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Séparer le rôle de la première dérivée et celui de la seconde dérivée.",
+        "method": "Calculer les dérivées, étudier leurs signes puis traduire les résultats sur la courbe.",
+        "reminder": "Un point d’inflexion exige un changement de convexité.",
+        "commonMistake": "Conclure à partir de l’annulation de la dérivée seconde sans étudier son signe."
+      },
+      "correction": [
+        "Avec $u(x)=-x^2$, on a $u^{\\prime}(x)=-2x$, donc $f^{\\prime}(x)=-2xe^{-x^2}$.",
+        "Sur $[0,+\\infty[$, $e^{-x^2}>0$ et $-2x\\le0$, donc $f^{\\prime}(x)\\le0$. La fonction est décroissante."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-derivation-convexite-n3-1",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
+      "title": "Étude complète d’une fonction exponentielle",
+      "statement": "On considère $f(x)=(x+1)e^{-x}$ sur $\\mathbb R$. On souhaite étudier ses variations puis sa convexité afin de décrire qualitativement sa courbe.",
+      "questions": [
+        "Calculer $f^{\\prime}(x)$ et dresser le tableau de variations.",
+        "Calculer $f^{\\prime\\prime}(x)$ et déterminer les intervalles de convexité.",
+        "Identifier l’éventuel point d’inflexion et donner ses coordonnées."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Utiliser la dérivée seconde pour déterminer convexité et concavité."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Séparer le rôle de la première dérivée et celui de la seconde dérivée.",
+        "method": "Calculer les dérivées, étudier leurs signes puis traduire les résultats sur la courbe.",
+        "reminder": "Un point d’inflexion exige un changement de convexité.",
+        "commonMistake": "Conclure à partir de l’annulation de la dérivée seconde sans étudier son signe."
+      },
+      "correction": [
+        "Par produit, $f^{\\prime}(x)=e^{-x}-(x+1)e^{-x}=-xe^{-x}$. Comme l’exponentielle est positive, $f^{\\prime}>0$ pour $x<0$ et $f^{\\prime}<0$ pour $x>0$ : maximum en $0$ avec $f(0)=1$.",
+        "$f^{\\prime\\prime}(x)=(x-1)e^{-x}$. Son signe est celui de $x-1$, donc $f$ est concave sur $]-\\infty,1[$ et convexe sur $]1,+\\infty[$.",
+        "Le signe de $f^{\\prime\\prime}$ change en $1$, donc le point d’inflexion est $(1;2/e)$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-derivation-convexite-n3-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
+      "title": "Optimisation avec convexité",
+      "statement": "On considère le coût $C(x)=x^2-6x+13$ pour $x\\in[0,8]$. On veut déterminer le niveau $x$ qui minimise le coût et justifier qu’il s’agit bien d’un minimum global.",
+      "questions": [
+        "Calculer $C^{\\prime}(x)$ et trouver le point critique.",
+        "Étudier $C^{\\prime\\prime}(x)$ et utiliser la convexité.",
+        "Comparer si nécessaire avec les bornes et donner la valeur minimale."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "modeling",
+      "curriculumItems": [
+        "Utiliser le signe de la dérivée pour étudier les variations."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Séparer le rôle de la première dérivée et celui de la seconde dérivée.",
+        "method": "Calculer les dérivées, étudier leurs signes puis traduire les résultats sur la courbe.",
+        "reminder": "Un point d’inflexion exige un changement de convexité.",
+        "commonMistake": "Conclure à partir de l’annulation de la dérivée seconde sans étudier son signe."
+      },
+      "correction": [
+        "$C^{\\prime}(x)=2x-6$, donc le seul point critique est $x=3$.",
+        "$C^{\\prime\\prime}(x)=2>0$ sur tout l’intervalle : $C$ est strictement convexe, donc le point critique intérieur réalise l’unique minimum global.",
+        "$C(3)=9-18+13=4$. Aux bornes, $C(0)=13$ et $C(8)=29$, ce qui confirme le minimum $4$ atteint pour $x=3$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-derivation-convexite-n3-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
+      "title": "Convexité et comparaison à une tangente",
+      "statement": "On considère $f(x)=e^{-x}$ sur $\\mathbb R$. On veut exploiter la convexité pour comparer la courbe à sa tangente en $0$, puis traduire géométriquement le résultat.",
+      "questions": [
+        "Calculer $f^{\\prime}(x)$ et $f^{\\prime\\prime}(x)$ puis déterminer la convexité de $f$.",
+        "Écrire l’équation de la tangente à la courbe en $0$.",
+        "En déduire une inégalité valable pour tout réel $x$ et préciser le cas d’égalité."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Identifier des points d’inflexion et exploiter les tangentes pour établir des inégalités."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Séparer le rôle de la première dérivée et celui de la seconde dérivée.",
+        "method": "Calculer les dérivées, étudier leurs signes puis traduire les résultats sur la courbe.",
+        "reminder": "Un point d’inflexion exige un changement de convexité.",
+        "commonMistake": "Conclure à partir de l’annulation de la dérivée seconde sans étudier son signe."
+      },
+      "correction": [
+        "On a $f^{\\prime}(x)=-e^{-x}$ puis $f^{\\prime\\prime}(x)=e^{-x}>0$. La fonction $f$ est donc strictement convexe sur $\\mathbb R$.",
+        "$f(0)=1$ et $f^{\\prime}(0)=-1$, donc la tangente en $0$ a pour équation $y=1-x$.",
+        "Une fonction convexe est située au-dessus de ses tangentes : $e^{-x}\\ge 1-x$ pour tout réel $x$. La stricte convexité donne l’égalité uniquement pour $x=0$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-derivation-convexite-n3-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite",
+      "title": "Point d’inflexion sans simple annulation",
+      "statement": "On considère une fonction deux fois dérivable telle que $f^{\\prime\\prime}(x)=(x-2)^2(x+1)$. Il faut déterminer les abscisses où la convexité change réellement, sans conclure à partir des seuls zéros de $f^{\\prime\\prime}$.",
+      "questions": [
+        "Déterminer les zéros de $f^{\\prime\\prime}$.",
+        "Étudier le signe de $f^{\\prime\\prime}$ autour de $-1$ et de $2$.",
+        "Identifier les abscisses des points d’inflexion et expliquer pourquoi l’autre zéro n’en fournit pas."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Utiliser la dérivée seconde pour déterminer convexité et concavité."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Séparer le rôle de la première dérivée et celui de la seconde dérivée.",
+        "method": "Calculer les dérivées, étudier leurs signes puis traduire les résultats sur la courbe.",
+        "reminder": "Un point d’inflexion exige un changement de convexité.",
+        "commonMistake": "Conclure à partir de l’annulation de la dérivée seconde sans étudier son signe."
+      },
+      "correction": [
+        "Les zéros sont $x=-1$ et $x=2$, ce dernier étant de multiplicité paire à cause du facteur $(x-2)^2$.",
+        "Le facteur carré est toujours positif ou nul, donc le signe de $f^{\\prime\\prime}$ est celui de $x+1$. Il change en $-1$ mais pas en $2$.",
+        "La convexité change seulement en $x=-1$ : il y a un point d’inflexion d’abscisse $-1$. En $2$, $f^{\\prime\\prime}$ s’annule sans changer de signe, donc il n’y a pas de point d’inflexion."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
       ]
     }
   ]

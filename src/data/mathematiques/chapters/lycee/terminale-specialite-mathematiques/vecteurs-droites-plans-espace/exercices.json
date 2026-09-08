@@ -1,30 +1,36 @@
 {
   "exercices": [
     {
-      "id": "tle-vec-n1-1",
+      "id": "tle-vecteurs-droites-plans-espace-n1-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
-      "title": "Colinéarité",
-      "statement": "Les vecteurs u=(1,2,-1) et v=(3,6,-3) sont-ils colinéaires ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Coordonnées d’un vecteur",
+      "statement": "Dans un repère de l’espace, on donne $A(1;-2;3)$ et $B(5;1;-1)$. On souhaite traduire le déplacement de $A$ vers $B$ par un vecteur.",
+      "questions": [
+        "Calculer les coordonnées de $\\overrightarrow{AB}$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser des vecteurs de l’espace et des combinaisons linéaires."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Traduire la configuration par des vecteurs et distinguer direction, point et plan.",
+        "method": "Écrire une relation vectorielle puis la traduire coordonnée par coordonnée.",
+        "reminder": "Dans l’espace, deux droites non parallèles ne sont pas forcément sécantes.",
+        "commonMistake": "Conclure sur la position relative sans vérifier les points communs."
       },
       "correction": [
-        "v=3u.",
-        "Ils sont colinéaires."
+        "On soustrait les coordonnées de $A$ à celles de $B$ : $\\overrightarrow{AB}=(5-1;1-(-2);-1-3)=(4;3;-4)$."
       ],
       "commonMistakes": [],
       "access": {
@@ -34,39 +40,47 @@
       },
       "competences": [
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-vec-n1-2",
+      "id": "tle-vecteurs-droites-plans-espace-n1-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
-      "title": "Combinaison linéaire",
-      "statement": "Avec u=(1,0,2) et v=(0,1,-1), calculer 2u-3v.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Tester une colinéarité",
+      "statement": "On considère $\\vec u=(2;-1;3)$ et $\\vec v=(-6;3;-9)$ dans une base de l’espace.",
+      "questions": [
+        "Déterminer si $\\vec u$ et $\\vec v$ sont colinéaires."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Caractériser l’alignement et la coplanarité par des relations vectorielles."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Traduire la configuration par des vecteurs et distinguer direction, point et plan.",
+        "method": "Écrire une relation vectorielle puis la traduire coordonnée par coordonnée.",
+        "reminder": "Dans l’espace, deux droites non parallèles ne sont pas forcément sécantes.",
+        "commonMistake": "Conclure sur la position relative sans vérifier les points communs."
       },
       "correction": [
-        "2u=(2,0,4) et -3v=(0,-3,3).",
-        "2u-3v=(2,-3,7)."
+        "On a $\\vec v=-3\\vec u$ car les trois coordonnées sont multipliées par le même réel $-3$. Les deux vecteurs sont donc colinéaires."
       ],
       "commonMistakes": [],
       "access": {
@@ -75,40 +89,50 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-vec-n2-1",
+      "id": "tle-vecteurs-droites-plans-espace-n1-3",
       "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
-      "title": "Appartenance à une droite",
-      "statement": "La droite passe par A(1,0,2) et a pour vecteur directeur u=(2,-1,3). Le point M(5,-2,8) appartient-il à la droite ?",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
+      "title": "Point d’une droite vectorielle",
+      "statement": "La droite $d$ passe par $A(2;0;-1)$ et a pour vecteur directeur $\\vec u=(1;2;3)$. On considère le point $M(5;6;8)$.",
+      "questions": [
+        "Vérifier que $M$ appartient à $d$ à l’aide d’une relation vectorielle."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Décrire une droite par un point et un vecteur directeur."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
       "skills": [
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Traduire la configuration par des vecteurs et distinguer direction, point et plan.",
+        "method": "Écrire une relation vectorielle puis la traduire coordonnée par coordonnée.",
+        "reminder": "Dans l’espace, deux droites non parallèles ne sont pas forcément sécantes.",
+        "commonMistake": "Conclure sur la position relative sans vérifier les points communs."
       },
       "correction": [
-        "AM=(4,-2,6)=2u.",
-        "Oui, M appartient à la droite."
+        "On calcule $\\overrightarrow{AM}=(3;6;9)=3(1;2;3)=3\\vec u$. Il existe donc un réel $3$ tel que $\\overrightarrow{AM}=3\\vec u$, donc $M\\in d$."
       ],
       "commonMistakes": [],
       "access": {
@@ -117,83 +141,49 @@
         "requiresAccount": false
       },
       "competences": [
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-vec-n2-2",
+      "id": "tle-vecteurs-droites-plans-espace-n1-4",
       "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
-      "title": "Appartenance à un plan",
-      "statement": "Le plan passe par O et est dirigé par u=(1,0,1), v=(0,1,1). Le point M(2,3,5) appartient-il au plan ?",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
-      "skills": [
-        "calculer",
-        "raisonner"
+      "title": "Point d’un plan engendré",
+      "statement": "Le plan $\\mathcal P$ passe par $A$ et a pour directions $\\vec u$ et $\\vec v$ non colinéaires. On sait que $\\overrightarrow{AM}=2\\vec u-3\\vec v$.",
+      "questions": [
+        "Justifier l’appartenance de $M$ au plan $\\mathcal P$."
       ],
-      "prerequisites": [],
-      "estimatedTime": 10,
-      "answerType": "text",
-      "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
-      },
-      "correction": [
-        "2u+3v=(2,3,5).",
-        "Donc M appartient au plan."
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Décrire un plan par un point et deux vecteurs non colinéaires et étudier des positions relatives."
       ],
-      "commonMistakes": [],
-      "access": {
-        "tier": "free",
-        "preview": true,
-        "requiresAccount": false
-      },
-      "competences": [
-        "calculer",
-        "raisonner"
-      ],
-      "accessibility": {},
-      "tags": [
-        "terminale-specialite",
-        "N2"
-      ]
-    },
-    {
-      "id": "tle-vec-n3-1",
-      "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
-      "title": "Base de l'espace",
-      "statement": "Les vecteurs i=(1,0,0), u=(1,1,0), v=(1,1,1) forment-ils une base de l'espace ?",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
       "skills": [
         "raisonner",
         "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Traduire la configuration par des vecteurs et distinguer direction, point et plan.",
+        "method": "Écrire une relation vectorielle puis la traduire coordonnée par coordonnée.",
+        "reminder": "Dans l’espace, deux droites non parallèles ne sont pas forcément sécantes.",
+        "commonMistake": "Conclure sur la position relative sans vérifier les points communs."
       },
       "correction": [
-        "Supposons ai+bu+cv=0.",
-        "La troisième coordonnée donne c=0, la deuxième b=0, puis la première a=0.",
-        "Ils sont linéairement indépendants et forment une base."
+        "La relation $\\overrightarrow{AM}=2\\vec u-3\\vec v$ exprime $\\overrightarrow{AM}$ comme combinaison linéaire des deux directions du plan. Par caractérisation vectorielle, $M$ appartient donc à $\\mathcal P$."
       ],
       "commonMistakes": [],
       "access": {
@@ -208,35 +198,45 @@
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-vec-n3-2",
+      "id": "tle-vecteurs-droites-plans-espace-n2-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
-      "title": "Droites gauches",
-      "statement": "D1 passe par O et est dirigée par (1,0,0). D2 passe par A(0,1,1) et est dirigée par (0,1,0). Montrer qu'elles ne sont ni parallèles ni sécantes.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
+      "title": "Alignement de trois points",
+      "statement": "On donne $A(1;2;-1)$, $B(3;5;2)$ et $C(7;11;8)$. Il faut décider si les trois points sont alignés sans se fier à une représentation graphique.",
+      "questions": [
+        "Calculer $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$.",
+        "Comparer ces deux vecteurs et conclure."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Caractériser l’alignement et la coplanarité par des relations vectorielles."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
       "skills": [
+        "représenter",
         "raisonner",
-        "représenter"
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 14,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier l'objet mathématique pertinent.",
-        "method": "Écrire une démarche structurée.",
-        "reminder": "Vérifier les hypothèses avant d'appliquer une propriété.",
-        "commonMistake": "Appliquer une formule sans identifier correctement les objets."
+        "clue": "Traduire la configuration par des vecteurs et distinguer direction, point et plan.",
+        "method": "Écrire une relation vectorielle puis la traduire coordonnée par coordonnée.",
+        "reminder": "Dans l’espace, deux droites non parallèles ne sont pas forcément sécantes.",
+        "commonMistake": "Conclure sur la position relative sans vérifier les points communs."
       },
       "correction": [
-        "Les vecteurs directeurs ne sont pas colinéaires : elles ne sont pas parallèles.",
-        "Sur D1, z=0 ; sur D2, z=1. Elles ne peuvent donc pas avoir de point commun.",
-        "Elles sont non coplanaires (gauches)."
+        "$\\overrightarrow{AB}=(2;3;3)$ et $\\overrightarrow{AC}=(6;9;9)$.",
+        "$\\overrightarrow{AC}=3\\overrightarrow{AB}$, donc les deux vecteurs sont colinéaires. Les points $A$, $B$ et $C$ sont alignés."
       ],
       "commonMistakes": [],
       "access": {
@@ -245,13 +245,419 @@
         "requiresAccount": false
       },
       "competences": [
+        "représenter",
         "raisonner",
-        "représenter"
+        "calculer",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-vecteurs-droites-plans-espace-n2-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
+      "title": "Coplanarité par combinaison linéaire",
+      "statement": "On considère $\\vec u=(1;0;2)$, $\\vec v=(0;1;-1)$ et $\\vec w=(3;-2;8)$. On veut savoir si les trois vecteurs sont coplanaires.",
+      "questions": [
+        "Chercher des réels $a$ et $b$ tels que $\\vec w=a\\vec u+b\\vec v$.",
+        "Conclure sur la coplanarité."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Caractériser l’alignement et la coplanarité par des relations vectorielles."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "chercher",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Traduire la configuration par des vecteurs et distinguer direction, point et plan.",
+        "method": "Écrire une relation vectorielle puis la traduire coordonnée par coordonnée.",
+        "reminder": "Dans l’espace, deux droites non parallèles ne sont pas forcément sécantes.",
+        "commonMistake": "Conclure sur la position relative sans vérifier les points communs."
+      },
+      "correction": [
+        "Les deux premières coordonnées imposent $a=3$ et $b=-2$. La troisième donne alors $2a-b=6+2=8$, ce qui convient.",
+        "Ainsi $\\vec w=3\\vec u-2\\vec v$. Les vecteurs $\\vec u$, $\\vec v$ et $\\vec w$ sont coplanaires."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-vecteurs-droites-plans-espace-n2-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
+      "title": "Deux droites parallèles ou confondues",
+      "statement": "La droite $d_1$ passe par $A(1;0;2)$ et a pour direction $\\vec u=(2;-1;3)$. La droite $d_2$ passe par $B(5;-2;8)$ et a pour direction $\\vec v=(-4;2;-6)$.",
+      "questions": [
+        "Comparer les vecteurs directeurs.",
+        "Étudier $\\overrightarrow{AB}$ et conclure sur les deux droites."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Décrire une droite par un point et un vecteur directeur."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Traduire la configuration par des vecteurs et distinguer direction, point et plan.",
+        "method": "Écrire une relation vectorielle puis la traduire coordonnée par coordonnée.",
+        "reminder": "Dans l’espace, deux droites non parallèles ne sont pas forcément sécantes.",
+        "commonMistake": "Conclure sur la position relative sans vérifier les points communs."
+      },
+      "correction": [
+        "On a $\\vec v=-2\\vec u$, donc les droites sont parallèles ou confondues.",
+        "$\\overrightarrow{AB}=(4;-2;6)=2\\vec u$, donc $B$ appartient à $d_1$. Les deux droites ont un point commun et des directions colinéaires : elles sont confondues."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-vecteurs-droites-plans-espace-n2-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
+      "title": "Plan défini par trois points",
+      "statement": "On donne $A(0;0;0)$, $B(1;2;0)$ et $C(0;1;3)$. On souhaite vérifier que ces trois points déterminent bien un plan.",
+      "questions": [
+        "Calculer $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$.",
+        "Montrer qu’ils ne sont pas colinéaires et conclure."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Décrire un plan par un point et deux vecteurs non colinéaires et étudier des positions relatives."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Traduire la configuration par des vecteurs et distinguer direction, point et plan.",
+        "method": "Écrire une relation vectorielle puis la traduire coordonnée par coordonnée.",
+        "reminder": "Dans l’espace, deux droites non parallèles ne sont pas forcément sécantes.",
+        "commonMistake": "Conclure sur la position relative sans vérifier les points communs."
+      },
+      "correction": [
+        "$\\overrightarrow{AB}=(1;2;0)$ et $\\overrightarrow{AC}=(0;1;3)$.",
+        "Ils ne sont pas colinéaires car la première coordonnée de $\\overrightarrow{AB}$ est non nulle alors que celle de $\\overrightarrow{AC}$ est nulle. Les points ne sont pas alignés et déterminent donc un plan unique."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-vecteurs-droites-plans-espace-n3-1",
+      "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
+      "title": "Droites gauches dans l’espace",
+      "statement": "On considère $d_1$ passant par $A(0;0;0)$ de direction $\\vec u=(1;0;0)$ et $d_2$ passant par $B(0;1;1)$ de direction $\\vec v=(0;1;0)$. Il faut déterminer leur position relative avec un raisonnement complet.",
+      "questions": [
+        "Montrer que les vecteurs directeurs ne sont pas colinéaires.",
+        "Montrer que les droites n’ont aucun point commun.",
+        "Conclure sur leur position relative dans l’espace."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Décrire une droite par un point et un vecteur directeur."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Traduire la configuration par des vecteurs et distinguer direction, point et plan.",
+        "method": "Écrire une relation vectorielle puis la traduire coordonnée par coordonnée.",
+        "reminder": "Dans l’espace, deux droites non parallèles ne sont pas forcément sécantes.",
+        "commonMistake": "Conclure sur la position relative sans vérifier les points communs."
+      },
+      "correction": [
+        "Les directions $\\vec u=(1;0;0)$ et $\\vec v=(0;1;0)$ ne sont pas colinéaires.",
+        "Un point de $d_1$ a des coordonnées $(t;0;0)$ tandis qu’un point de $d_2$ a la forme $(0;1+s;1)$. L’égalité des troisièmes coordonnées imposerait $0=1$, impossible.",
+        "Les droites ne sont ni parallèles ni sécantes : elles sont non coplanaires, souvent appelées droites gauches."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-vecteurs-droites-plans-espace-n3-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
+      "title": "Tétraèdre et coplanarité",
+      "statement": "Dans un repère, $A(0;0;0)$, $B(2;0;0)$, $C(0;3;0)$ et $D(1;1;4)$. On étudie la géométrie du tétraèdre $ABCD$ en utilisant les vecteurs issus de $A$.",
+      "questions": [
+        "Calculer $\\overrightarrow{AB}$, $\\overrightarrow{AC}$ et $\\overrightarrow{AD}$.",
+        "Montrer que $\\overrightarrow{AD}$ n’est pas combinaison linéaire de $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$.",
+        "En déduire que les quatre points ne sont pas coplanaires."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Caractériser l’alignement et la coplanarité par des relations vectorielles."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Traduire la configuration par des vecteurs et distinguer direction, point et plan.",
+        "method": "Écrire une relation vectorielle puis la traduire coordonnée par coordonnée.",
+        "reminder": "Dans l’espace, deux droites non parallèles ne sont pas forcément sécantes.",
+        "commonMistake": "Conclure sur la position relative sans vérifier les points communs."
+      },
+      "correction": [
+        "On obtient $\\overrightarrow{AB}=(2;0;0)$, $\\overrightarrow{AC}=(0;3;0)$ et $\\overrightarrow{AD}=(1;1;4)$.",
+        "Toute combinaison $a\\overrightarrow{AB}+b\\overrightarrow{AC}$ a une troisième coordonnée nulle, alors que $\\overrightarrow{AD}$ a pour troisième coordonnée $4$. La relation est impossible.",
+        "$\\overrightarrow{AB}$, $\\overrightarrow{AC}$ et $\\overrightarrow{AD}$ ne sont pas coplanaires ; les points $A$, $B$, $C$, $D$ forment donc bien un tétraèdre non aplati."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-vecteurs-droites-plans-espace-n3-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
+      "title": "Intersection d’une droite avec un plan vectoriel",
+      "statement": "Le plan $\\mathcal P$ passe par $A(1;0;0)$ et a pour directions $\\vec u=(1;1;0)$ et $\\vec v=(0;1;1)$. La droite $d$ passe par $B(0;0;1)$ et a pour direction $\\vec w=(1;1;1)$.",
+      "questions": [
+        "Traduire l’appartenance d’un point de $d$ à $\\mathcal P$ par une relation vectorielle.",
+        "Résoudre le système sur les coefficients et le paramètre.",
+        "Donner le point d’intersection."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Décrire un plan par un point et deux vecteurs non colinéaires et étudier des positions relatives."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Traduire la configuration par des vecteurs et distinguer direction, point et plan.",
+        "method": "Écrire une relation vectorielle puis la traduire coordonnée par coordonnée.",
+        "reminder": "Dans l’espace, deux droites non parallèles ne sont pas forcément sécantes.",
+        "commonMistake": "Conclure sur la position relative sans vérifier les points communs."
+      },
+      "correction": [
+        "Un point de $d$ a la forme $M=B+t\\vec w=(t;t;1+t)$. L’appartenance à $\\mathcal P$ impose $\\overrightarrow{AM}=a\\vec u+b\\vec v$.",
+        "On obtient $(t-1;t;1+t)=(a;a+b;b)$. Ainsi $a=t-1$, $b=1+t$ et $a+b=t$, d’où $(t-1)+(1+t)=t$, donc $t=0$.",
+        "Pour $t=0$, le point est $B(0;0;1)$. On vérifie $\\overrightarrow{AB}=(-1;0;1)=-\\vec u+\\vec v$, donc $B\\in\\mathcal P$ et $d\\cap\\mathcal P=\\{B\\}$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-vecteurs-droites-plans-espace-n3-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/vecteurs-droites-plans-espace",
+      "title": "Base et coordonnées dans une nouvelle base",
+      "statement": "On considère $\\vec u=(1;1;0)$, $\\vec v=(0;1;1)$ et $\\vec w=(1;0;1)$. On veut d’abord vérifier qu’ils forment une base de l’espace, puis décomposer $\\vec x=(5;4;3)$ dans cette base.",
+      "questions": [
+        "Montrer que $\\vec w$ n’est pas combinaison linéaire de $\\vec u$ et $\\vec v$.",
+        "Écrire $\\vec x=a\\vec u+b\\vec v+c\\vec w$ et résoudre le système.",
+        "Donner les coordonnées de $\\vec x$ dans la base $(\\vec u,\\vec v,\\vec w)$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Utiliser des vecteurs de l’espace et des combinaisons linéaires."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Traduire la configuration par des vecteurs et distinguer direction, point et plan.",
+        "method": "Écrire une relation vectorielle puis la traduire coordonnée par coordonnée.",
+        "reminder": "Dans l’espace, deux droites non parallèles ne sont pas forcément sécantes.",
+        "commonMistake": "Conclure sur la position relative sans vérifier les points communs."
+      },
+      "correction": [
+        "Si $\\vec w=a\\vec u+b\\vec v$, la première coordonnée impose $a=1$, la troisième $b=1$, mais la deuxième donnerait $a+b=2$ au lieu de $0$ : impossible. Les trois vecteurs ne sont pas coplanaires.",
+        "Le système est $a+c=5$, $a+b=4$, $b+c=3$. On obtient $a=3$, $b=1$ et $c=2$.",
+        "Dans la base $(\\vec u,\\vec v,\\vec w)$, le vecteur $\\vec x$ a donc pour coordonnées $(3;1;2)$. Une substitution redonne bien $(5;4;3)$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
       ]
     }
   ]

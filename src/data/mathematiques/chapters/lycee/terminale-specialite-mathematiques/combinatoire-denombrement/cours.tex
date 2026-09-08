@@ -1,89 +1,128 @@
+% Mathématiques Terminale spécialité — V3 LaTeX
+% Combinatoire et dénombrement
+
 \section{Objectifs}
 \begin{itemize}
-\item Structurer un dénombrement avant de calculer.
-\item Distinguer listes ordonnées, permutations et choix non ordonnés.
-\item Utiliser les coefficients binomiaux.
-\item Relier dénombrement, arbres et triangle de Pascal.
+\item Structurer un dénombrement avant tout calcul.
+\item Distinguer listes ordonnées, permutations et combinaisons.
+\item Utiliser les coefficients binomiaux et la relation de Pascal.
+\item Construire des raisonnements par cas, complément ou bijection.
 \end{itemize}
 
-\section{1. Principe additif}
-Si une situation se décompose en cas \textbf{disjoints}, le nombre total de possibilités est la somme des nombres de possibilités de chaque cas.
+\section{Repères et enjeux du chapitre}
+Le dénombrement consiste à compter sans énumérer un à un tous les cas. La difficulté est donc moins calculatoire que conceptuelle : il faut décider ce qui constitue un résultat distinct, savoir si l'ordre intervient, si une répétition est autorisée et si les cas étudiés sont disjoints. Les formules ne sont que la traduction finale d'une organisation préalable du raisonnement.
 
-Exemple : 7 choix rouges ou 5 choix bleus, sans recouvrement, donnent
+\section{1. Principes additif et multiplicatif}
+Si une situation se décompose en cas incompatibles, le nombre total de possibilités est la somme des effectifs de chaque cas. Si une procédure comporte plusieurs étapes successives et que chaque choix d'une étape peut être prolongé par un nombre déterminé de choix à l'étape suivante, on multiplie les nombres de choix. Ces deux principes doivent être distingués : additionner correspond à choisir entre des cas, multiplier correspond à enchaîner des choix.
 \[
-7+5=12
+N=N_1+N_2+\cdots+N_p
 \]
-possibilités.
-
-\section{2. Principe multiplicatif}
-Si une procédure comporte plusieurs étapes successives, on multiplie les nombres de choix.
-
-Avec 4 choix à la première étape puis 3 à la seconde :
 \[
-4\times3=12.
+N=n_1\times n_2\times\cdots\times n_k
 \]
+\begin{exemple}
+Pour former un identifiant avec une lettre choisie parmi $26$ puis trois chiffres choisis parmi $10$, avec répétition autorisée, on obtient $26\times10^3$ identifiants.
+\end{exemple}
 
-Pour un ensemble à $n$ éléments, le nombre de $k$-uplets est
+\section{2. Listes ordonnées et répétitions}
+Une liste ordonnée de longueur $k$ formée avec des éléments d'un ensemble à $n$ éléments peut être vue comme un $k$-uplet. Lorsque la répétition est autorisée, chaque position offre $n$ choix indépendants, donc le nombre de listes vaut $n^k$. Lorsque la répétition est interdite, le nombre de choix diminue à chaque étape : $n$, puis $n-1$, jusqu'à $n-k+1$.
 \[
-n^k.
+n(n-1)\cdots(n-k+1)=\frac{n!}{(n-k)!}
 \]
+Le vocabulaire doit rester précis : une liste ordonnée n'est pas un sous-ensemble, car échanger deux positions peut créer un résultat différent.
 
-\section{3. Listes sans répétition et permutations}
-Le nombre de listes ordonnées de longueur $k$ formées d'éléments distincts parmi $n$ éléments est
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/combinatoire-denombrement-1.svg}{Schéma structurant pour Combinatoire et dénombrement.}{La figure met en évidence les objets, relations ou variations fondamentales mobilisés dans la première moitié du chapitre.}
+
+\section{3. Permutations}
+Une permutation d'un ensemble fini à $n$ éléments est un ordre possible de tous ses éléments. Le premier emplacement offre $n$ choix, le deuxième $n-1$, et ainsi de suite. On obtient donc $n!$. Cette notion intervient dans les classements sans ex æquo, les ordres de passage ou les arrangements où tous les objets sont utilisés exactement une fois.
 \[
-n(n-1)\cdots(n-k+1).
+n!=n(n-1)(n-2)\cdots2\times1
 \]
+\begin{attention}
+Une permutation utilise tous les éléments. Si seulement $k$ éléments sont choisis parmi $n$, on ne doit pas écrire automatiquement $n!$.
+\end{attention}
 
-Une permutation utilise tous les éléments :
+\section{4. Combinaisons et choix sans ordre}
+Une combinaison de $k$ éléments parmi $n$ est un choix de $k$ éléments sans tenir compte de l'ordre. Pour passer des listes ordonnées sans répétition aux combinaisons, on remarque que chaque groupe de $k$ éléments peut être ordonné de $k!$ façons. Il faut donc diviser par $k!$.
 \[
-n!=n(n-1)\cdots2\times1.
+\binom{n}{k}=\frac{n!}{k!(n-k)!}
 \]
-
-\section{4. Combinaisons}
-Une combinaison de $k$ éléments parmi $n$ est un choix \textbf{sans ordre} de $k$ éléments.
-
-Son nombre est
+Par symétrie, choisir $k$ éléments revient à choisir les $n-k$ éléments que l'on écarte :
 \[
-\binom nk=\frac{n!}{k!(n-k)!}.
+\binom{n}{k}=\binom{n}{n-k}.
 \]
+Cette interprétation est souvent plus sûre qu'une mémorisation isolée de la formule.
 
-Exemple :
+\section{5. Relation de Pascal et triangle de Pascal}
+La relation de Pascal se démontre en distinguant les parties qui contiennent un élément fixé et celles qui ne le contiennent pas. Si un ensemble possède $n$ éléments et si l'on fixe un élément $a$, une partie de taille $k$ soit contient $a$ et choisit alors $k-1$ éléments parmi les $n-1$ restants, soit ne contient pas $a$ et choisit $k$ éléments parmi les $n-1$ restants.
 \[
-\binom{10}{3}=120.
+\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}
 \]
+Cette relation construit le triangle de Pascal et fournit un modèle de preuve par partition d'un ensemble de cas.
 
-\section{5. Propriétés des coefficients binomiaux}
-Symétrie :
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/combinatoire-denombrement-2.svg}{Deuxième représentation pédagogique pour Combinatoire et dénombrement.}{La figure sert de support de lecture, de comparaison ou de contrôle pour les méthodes centrales du chapitre.}
+
+\section{6. Compter par complément ou par disjonction de cas}
+Les contraintes « au moins », « au plus », « exactement » orientent la stratégie. Pour « au moins un », il est souvent plus efficace de compter tous les cas puis de retrancher ceux qui n'en contiennent aucun. Pour « exactement », une décomposition en cas ou un produit de combinaisons convient souvent. Il faut vérifier que les cas additionnés sont disjoints, sinon certains résultats seraient comptés plusieurs fois.
 \[
-\binom nk=\binom n{n-k}.
+\#(A)=\#(\Omega)-\#(A^c)
 \]
+Cette écriture de complément est une identité de dénombrement avant d'être une formule de probabilité.
 
-Relation de Pascal :
+\section{7. Identités combinatoires par double comptage}
+Certaines identités peuvent être prouvées en comptant le même ensemble de deux façons différentes. Par exemple, le nombre total de parties d'un ensemble à $n$ éléments vaut $2^n$, car chaque élément possède deux statuts : choisi ou non choisi. En classant ensuite les parties selon leur taille, on obtient
 \[
-\binom nk=\binom{n-1}{k-1}+\binom{n-1}{k}.
+\sum_{k=0}^{n}\binom{n}{k}=2^n.
 \]
+Cette méthode de double comptage est importante car elle transforme une identité algébrique en argument de structure, souvent plus transparent et réutilisable.
 
-La somme d'une ligne du triangle de Pascal vaut
-\[
-\sum_{k=0}^{n}\binom nk=2^n,
-\]
-ce qui correspond au nombre de parties d'un ensemble à $n$ éléments.
 
-\section{6. Choisir le bon modèle}
-Avant de calculer, demander :
+\section{Méthode générale de résolution}
+\begin{methode}
 \begin{enumerate}
-\item l'ordre compte-t-il ?
-\item les répétitions sont-elles autorisées ?
-\item choisit-on tous les éléments ou seulement $k$ ?
-\item les cas traités sont-ils disjoints ?
+\item Identifier précisément l'objet mathématique demandé et les hypothèses disponibles.
+\item Traduire l'énoncé dans une écriture adaptée : égalité, système, représentation paramétrique, inégalité, suite ou fonction selon le contexte.
+\item Choisir le théorème ou la propriété en vérifiant explicitement ses conditions d'application.
+\item Effectuer les calculs en conservant les formes exactes aussi longtemps que possible.
+\item Contrôler la cohérence du résultat par une seconde méthode, un ordre de grandeur, un signe, une substitution ou une lecture graphique.
+\item Conclure dans le langage du problème, en distinguant clairement ce qui est démontré de ce qui est conjecturé ou approché numériquement.
 \end{enumerate}
+\end{methode}
+
+\section{Rédaction attendue en Terminale}
+En spécialité, une réponse correcte ne se réduit pas à une ligne de calcul. Lorsqu'un résultat dépend d'un théorème, les hypothèses doivent apparaître dans la copie. Lorsqu'une valeur est approchée, la précision doit être annoncée. Lorsqu'une équation est résolue, il faut revenir à la question posée et vérifier que la solution appartient au domaine considéré. Cette discipline de rédaction évite les raisonnements implicites et prépare aux attendus de l'épreuve écrite.
+
+\begin{attention}
+Une calculatrice ou un logiciel peut suggérer une réponse, produire un tableau ou une représentation, mais il ne remplace pas la justification. Un résultat numérique devient exploitable seulement après avoir été relié à une propriété mathématique et interprété dans le contexte.
+\end{attention}
+
+\section{Contrôler une solution}
+Le contrôle dépend du chapitre : recompter par le complément en combinatoire, vérifier l'appartenance d'un point à une droite ou à un plan, substituer une solution dans une équation, comparer deux expressions de limite, vérifier un signe de dérivée, ou encore contrôler qu'un encadrement de dichotomie conserve bien le changement de signe. Dans tous les cas, l'objectif est d'obtenir une preuve locale que le résultat final n'est pas seulement plausible mais compatible avec les données et les hypothèses.
+
+\section{Problème de synthèse et stratégie}
+
+Dans ce chapitre, la difficulté d'un problème complet consiste à articuler plusieurs résultats plutôt qu'à appliquer une formule isolée. Pour combinatoire et dénombrement, on commence par identifier les objets et les hypothèses, puis on construit une chaîne de décisions vérifiables. Les résultats intermédiaires doivent être réutilisés explicitement : une relation obtenue peut justifier une appartenance, une monotonie, un comptage, une limite ou un encadrement. Cette organisation est particulièrement importante lorsque l'énoncé introduit une notation nouvelle ou demande une interprétation finale.
+
+
+\section{Réinvestissement type baccalauréat}
+Un exercice de baccalauréat combine souvent plusieurs compétences : lecture d'une situation, choix d'une stratégie, calcul exact, justification et interprétation. Il faut donc savoir passer d'une question technique courte à une question de synthèse. Une bonne stratégie consiste à repérer les résultats intermédiaires qui seront réutilisés, à annoncer les théorèmes avant leur emploi et à conserver une trace claire des dépendances entre les questions. Lorsqu'une question paraît isolée, elle prépare souvent une propriété utile pour la suite de l'exercice.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Utiliser une combinaison alors que l'ordre compte.
-\item Multiplier des nombres de cas qui devraient être additionnés.
-\item Oublier que $\binom nk$ compte des choix non ordonnés.
+\item Confondre choix ordonné et choix non ordonné.
+\item Multiplier des cas qui doivent être additionnés, ou inversement.
+\item Oublier qu’une contrainte peut être traitée plus simplement par complément.
+\item Appliquer une formule sans identifier l’objet réellement compté.
+\item Additionner des cas qui ne sont pas disjoints.
 \end{itemize}
 
 \section{À retenir}
-Le dénombrement est d'abord un problème de modélisation. Une formule n'est correcte que si l'objet compté est correctement identifié.
+\begin{aretenir}
+\begin{itemize}
+\item Le principe additif traite des cas disjoints ; le principe multiplicatif traite des étapes successives.
+\item $n!$ compte les permutations de $n$ éléments.
+\item $\binom{n}{k}$ compte les choix de $k$ éléments parmi $n$ sans ordre.
+\item La relation de Pascal se comprend par une partition des cas.
+\item Un bon dénombrement commence par une modélisation explicite.
+\end{itemize}
+\end{aretenir}

@@ -1,63 +1,123 @@
 {
   "questions": [
     {
-      "id": "tle-con-q1",
-      "question": "Toute fonction dérivable sur un intervalle est :",
+      "id": "tle-continuite-tvi-dichotomie-q1",
+      "question": "Une fonction dérivable sur un intervalle est :",
       "choices": [
         "continue sur cet intervalle",
-        "constante",
-        "convexe"
+        "toujours constante",
+        "nécessairement affine"
       ],
       "answer": 0,
-      "explanation": "La dérivabilité implique la continuité.",
+      "explanation": "La dérivabilité implique la continuité sur l’intervalle considéré.",
       "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie"
     },
     {
-      "id": "tle-con-q2",
-      "question": "Le TVI garantit principalement :",
+      "id": "tle-continuite-tvi-dichotomie-q2",
+      "question": "Le TVI exige notamment :",
       "choices": [
-        "l'existence de valeurs intermédiaires",
-        "l'unicité systématique",
-        "la dérivabilité"
+        "la continuité sur l’intervalle",
+        "la dérivée seconde positive",
+        "une fonction polynomiale uniquement"
       ],
       "answer": 0,
-      "explanation": "L'unicité demande une hypothèse supplémentaire.",
+      "explanation": "Le théorème des valeurs intermédiaires repose sur la continuité entre les deux bornes.",
       "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie"
     },
     {
-      "id": "tle-con-q3",
-      "question": "Pour obtenir l'unicité d'une solution de f(x)=k, on peut ajouter :",
+      "id": "tle-continuite-tvi-dichotomie-q3",
+      "question": "Si $f(a)f(b)<0$ et $f$ est continue sur $[a,b]$, alors :",
+      "choices": [
+        "une racine existe entre $a$ et $b$",
+        "la racine est forcément unique",
+        "aucune racine n’existe"
+      ],
+      "answer": 0,
+      "explanation": "Le changement de signe et la continuité garantissent qu’une valeur nulle est atteinte au moins une fois.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie"
+    },
+    {
+      "id": "tle-continuite-tvi-dichotomie-q4",
+      "question": "Pour obtenir l’unicité avec le TVI, on ajoute souvent :",
       "choices": [
         "la stricte monotonie",
-        "la périodicité",
-        "une asymptote"
+        "une seconde racine",
+        "une discontinuité"
       ],
       "answer": 0,
-      "explanation": "Une fonction strictement monotone prend une valeur au plus une fois.",
+      "explanation": "Une fonction strictement monotone ne peut prendre une même valeur qu’une seule fois.",
       "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie"
     },
     {
-      "id": "tle-con-q4",
-      "question": "La dichotomie :",
+      "id": "tle-continuite-tvi-dichotomie-q5",
+      "question": "Une étape de dichotomie :",
       "choices": [
-        "divise l'intervalle de recherche par deux à chaque étape",
-        "double l'intervalle",
-        "donne toujours une valeur exacte en une étape"
+        "divise la longueur de l’intervalle par $2$",
+        "double la longueur",
+        "ne change jamais les bornes"
       ],
       "answer": 0,
-      "explanation": "C'est une méthode d'encadrement itératif.",
+      "explanation": "Le milieu partage l’intervalle en deux moitiés et on conserve celle qui contient encore le changement de signe.",
       "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie"
     },
     {
-      "id": "tle-con-q5",
-      "question": "Si u_n→ℓ et u_{n+1}=f(u_n), avec f continue en ℓ, alors :",
+      "id": "tle-continuite-tvi-dichotomie-q6",
+      "question": "Après $n$ dichotomies, une longueur initiale $L$ devient :",
       "choices": [
-        "ℓ=f(ℓ)",
-        "ℓ=0 nécessairement",
-        "f'(ℓ)=0 nécessairement"
+        "$L/2^n$",
+        "$nL$",
+        "$L-n$"
       ],
       "answer": 0,
-      "explanation": "Le passage à la limite fournit l'équation de point fixe.",
+      "explanation": "Chaque étape divise la longueur précédente par $2$, d’où le facteur $2^n$ au dénominateur.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie"
+    },
+    {
+      "id": "tle-continuite-tvi-dichotomie-q7",
+      "question": "Pour une suite $u_{n+1}=f(u_n)$ convergente vers $\\ell$, si $f$ est continue :",
+      "choices": [
+        "$\\ell=f(\\ell)$",
+        "$\\ell=0$ toujours",
+        "$f$ est constante"
+      ],
+      "answer": 0,
+      "explanation": "Le passage à la limite dans la relation de récurrence donne l’équation de point fixe.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie"
+    },
+    {
+      "id": "tle-continuite-tvi-dichotomie-q8",
+      "question": "L’équation $\\ell=f(\\ell)$ :",
+      "choices": [
+        "n’établit pas seule la convergence",
+        "prouve toujours la convergence",
+        "interdit toute limite"
+      ],
+      "answer": 0,
+      "explanation": "Elle identifie une limite éventuelle mais il faut une preuve séparée de convergence.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie"
+    },
+    {
+      "id": "tle-continuite-tvi-dichotomie-q9",
+      "question": "Un critère d’arrêt naturel en dichotomie est :",
+      "choices": [
+        "$b-a\\le\\varepsilon$",
+        "$a=b=0$ toujours",
+        "$f^{\\prime}(a)=0$"
+      ],
+      "answer": 0,
+      "explanation": "Contrôler la longueur de l’intervalle garantit directement la précision de l’encadrement final.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie"
+    },
+    {
+      "id": "tle-continuite-tvi-dichotomie-q10",
+      "question": "Une fonction continue et strictement monotone sur un intervalle :",
+      "choices": [
+        "prend chaque valeur intermédiaire une seule fois",
+        "est nécessairement linéaire",
+        "ne peut avoir aucune image"
+      ],
+      "answer": 0,
+      "explanation": "La continuité donne l’existence des valeurs intermédiaires et la stricte monotonie leur unicité.",
       "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie"
     }
   ]

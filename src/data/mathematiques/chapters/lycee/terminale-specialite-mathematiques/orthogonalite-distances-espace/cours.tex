@@ -1,69 +1,121 @@
+% Mathématiques Terminale spécialité — V3 LaTeX
+% Orthogonalité et distances dans l’espace
+
 \section{Objectifs}
 \begin{itemize}
-\item Étendre le produit scalaire à l'espace.
-\item Caractériser l'orthogonalité.
-\item Utiliser des vecteurs normaux et des projections.
-\item Calculer des distances.
+\item Calculer un produit scalaire et une norme dans l’espace.
+\item Caractériser une orthogonalité par le produit scalaire.
+\item Utiliser un vecteur normal à un plan.
+\item Déterminer projections, angles et distances dans l’espace.
 \end{itemize}
 
-\section{1. Produit scalaire}
-Dans un repère orthonormé, pour
-\[
-\vec u=(x,y,z),\qquad \vec v=(x',y',z'),
-\]
-on a
+\section{Repères et enjeux du chapitre}
+Le produit scalaire fournit un outil algébrique pour traiter des questions géométriques d'angle et d'orthogonalité. Dans l'espace, il permet notamment de décrire une direction normale à un plan, de construire une projection orthogonale et de ramener un problème de distance à un calcul de coordonnées. La condition essentielle est de savoir dans quel repère les formules coordonnées sont utilisées.
+
+\section{1. Produit scalaire dans un repère orthonormé}
+Pour $\vec u=(x,y,z)$ et $\vec v=(x',y',z')$ dans un repère orthonormé,
 \[
 \vec u\cdot\vec v=xx'+yy'+zz'.
 \]
+Cette formule prolonge celle du plan. Elle dépend du caractère orthonormé du repère : dans une base quelconque, les coordonnées seules ne suffisent pas à calculer ainsi le produit scalaire. La bilinéarité et la symétrie restent valables et permettent de transformer les expressions.
 
-La norme vérifie
+\section{2. Norme et distance entre deux points}
+La norme d'un vecteur est reliée au produit scalaire par
 \[
 \|\vec u\|=\sqrt{\vec u\cdot\vec u}.
 \]
-
-\section{2. Orthogonalité}
-Deux vecteurs sont orthogonaux si et seulement si
-\[
-\vec u\cdot\vec v=0.
-\]
-
-Deux droites sont orthogonales lorsque leurs vecteurs directeurs sont orthogonaux.
-
-\section{3. Vecteur normal à un plan}
-Un vecteur non nul $\vec n$ est normal à un plan $\mathcal P$ s'il est orthogonal à toutes les directions du plan.
-
-Une droite de vecteur directeur colinéaire à $\vec n$ est orthogonale au plan.
-
-\section{4. Distance entre deux points}
-Pour $A(x_A,y_A,z_A)$ et $B(x_B,y_B,z_B)$ :
+Ainsi, pour $A(x_A,y_A,z_A)$ et $B(x_B,y_B,z_B)$,
 \[
 AB=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2+(z_B-z_A)^2}.
 \]
+Cette formule doit être interprétée comme la norme du vecteur $\overrightarrow{AB}$ et non comme une règle isolée de coordonnées.
+
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/orthogonalite-distances-espace-1.svg}{Schéma structurant pour Orthogonalité et distances dans l’espace.}{La figure met en évidence les objets, relations ou variations fondamentales mobilisés dans la première moitié du chapitre.}
+
+\section{3. Orthogonalité de vecteurs et de droites}
+Deux vecteurs sont orthogonaux si et seulement si leur produit scalaire est nul :
+\[
+\vec u\perp\vec v\Longleftrightarrow \vec u\cdot\vec v=0.
+\]
+Deux droites sont dites orthogonales lorsque leurs vecteurs directeurs sont orthogonaux. Elles ne sont pas nécessairement sécantes. Si elles sont sécantes et orthogonales, on parle de droites perpendiculaires. Cette distinction de vocabulaire est propre à la géométrie de l'espace.
+
+\section{4. Vecteur normal à un plan}
+Un vecteur non nul $\vec n$ est normal à un plan $\mathcal P$ s'il est orthogonal à toutes les directions du plan. Il suffit de vérifier son orthogonalité avec deux vecteurs directeurs non colinéaires du plan. Une droite de vecteur directeur colinéaire à $\vec n$ est alors orthogonale au plan.
+\[
+\vec n\cdot\vec u=0\quad\text{et}\quad\vec n\cdot\vec v=0.
+\]
+Le vecteur normal relie directement la géométrie du plan à son équation cartésienne.
 
 \section{5. Projection orthogonale}
-Le projeté orthogonal $H$ d'un point $M$ sur un plan $\mathcal P$ est le point de $\mathcal P$ tel que
+Le projeté orthogonal $H$ d'un point $M$ sur un plan $\mathcal P$ est l'unique point du plan tel que la droite $(MH)$ soit orthogonale au plan. On construit donc la droite passant par $M$ et dirigée par un vecteur normal au plan, puis on calcule son intersection avec $\mathcal P$. La distance de $M$ au plan est alors $MH$.
 \[
-MH\perp\mathcal P.
+d(M,\mathcal P)=MH.
 \]
+Cette démarche justifie la distance par une construction géométrique avant tout calcul.
 
-La distance de $M$ au plan vaut $MH$.
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/orthogonalite-distances-espace-2.svg}{Deuxième représentation pédagogique pour Orthogonalité et distances dans l’espace.}{La figure sert de support de lecture, de comparaison ou de contrôle pour les méthodes centrales du chapitre.}
 
-Même principe pour la projection sur une droite.
-
-\section{6. Angles}
-Pour deux vecteurs non nuls :
+\section{6. Angle entre deux vecteurs}
+Pour deux vecteurs non nuls, on dispose de
 \[
 \vec u\cdot\vec v=\|\vec u\|\,\|\vec v\|\cos\theta.
 \]
+Après calcul du produit scalaire et des normes, on peut déterminer le cosinus de l'angle puis l'angle lui-même. Il faut contrôler que la valeur obtenue pour le cosinus appartient à $[-1,1]$. Le signe du produit scalaire donne déjà une information qualitative : angle aigu si le produit est positif, obtus s'il est négatif.
 
-Cette relation permet de déterminer un angle géométrique.
+\section{7. Distance et minimum}
+La projection orthogonale réalise la plus courte distance entre un point et un plan. Si $H$ est le projeté de $M$ sur $\mathcal P$ et si $P$ est un autre point du plan, le triangle $MHP$ est rectangle en $H$, donc
+\[
+MP^2=MH^2+HP^2\ge MH^2.
+\]
+Ainsi $MP\ge MH$. Cette preuve relie la notion de distance à un argument géométrique élémentaire et explique pourquoi on cherche systématiquement une projection orthogonale.
+
+
+\section{Méthode générale de résolution}
+\begin{methode}
+\begin{enumerate}
+\item Identifier précisément l'objet mathématique demandé et les hypothèses disponibles.
+\item Traduire l'énoncé dans une écriture adaptée : égalité, système, représentation paramétrique, inégalité, suite ou fonction selon le contexte.
+\item Choisir le théorème ou la propriété en vérifiant explicitement ses conditions d'application.
+\item Effectuer les calculs en conservant les formes exactes aussi longtemps que possible.
+\item Contrôler la cohérence du résultat par une seconde méthode, un ordre de grandeur, un signe, une substitution ou une lecture graphique.
+\item Conclure dans le langage du problème, en distinguant clairement ce qui est démontré de ce qui est conjecturé ou approché numériquement.
+\end{enumerate}
+\end{methode}
+
+\section{Rédaction attendue en Terminale}
+En spécialité, une réponse correcte ne se réduit pas à une ligne de calcul. Lorsqu'un résultat dépend d'un théorème, les hypothèses doivent apparaître dans la copie. Lorsqu'une valeur est approchée, la précision doit être annoncée. Lorsqu'une équation est résolue, il faut revenir à la question posée et vérifier que la solution appartient au domaine considéré. Cette discipline de rédaction évite les raisonnements implicites et prépare aux attendus de l'épreuve écrite.
+
+\begin{attention}
+Une calculatrice ou un logiciel peut suggérer une réponse, produire un tableau ou une représentation, mais il ne remplace pas la justification. Un résultat numérique devient exploitable seulement après avoir été relié à une propriété mathématique et interprété dans le contexte.
+\end{attention}
+
+\section{Contrôler une solution}
+Le contrôle dépend du chapitre : recompter par le complément en combinatoire, vérifier l'appartenance d'un point à une droite ou à un plan, substituer une solution dans une équation, comparer deux expressions de limite, vérifier un signe de dérivée, ou encore contrôler qu'un encadrement de dichotomie conserve bien le changement de signe. Dans tous les cas, l'objectif est d'obtenir une preuve locale que le résultat final n'est pas seulement plausible mais compatible avec les données et les hypothèses.
+
+\section{Problème de synthèse et stratégie}
+
+Dans ce chapitre, la difficulté d'un problème complet consiste à articuler plusieurs résultats plutôt qu'à appliquer une formule isolée. Pour orthogonalité et distances dans l’espace, on commence par identifier les objets et les hypothèses, puis on construit une chaîne de décisions vérifiables. Les résultats intermédiaires doivent être réutilisés explicitement : une relation obtenue peut justifier une appartenance, une monotonie, un comptage, une limite ou un encadrement. Cette organisation est particulièrement importante lorsque l'énoncé introduit une notation nouvelle ou demande une interprétation finale.
+
+
+\section{Réinvestissement type baccalauréat}
+Un exercice de baccalauréat combine souvent plusieurs compétences : lecture d'une situation, choix d'une stratégie, calcul exact, justification et interprétation. Il faut donc savoir passer d'une question technique courte à une question de synthèse. Une bonne stratégie consiste à repérer les résultats intermédiaires qui seront réutilisés, à annoncer les théorèmes avant leur emploi et à conserver une trace claire des dépendances entre les questions. Lorsqu'une question paraît isolée, elle prépare souvent une propriété utile pour la suite de l'exercice.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Confondre vecteur directeur d'un plan et vecteur normal.
-\item Oublier que la formule coordonnée du produit scalaire suppose un repère orthonormé.
-\item Calculer une distance à un plan avec un point quelconque du plan au lieu du projeté orthogonal.
+\item Utiliser la formule coordonnée du produit scalaire dans un repère non orthonormé.
+\item Confondre vecteur directeur d’un plan et vecteur normal.
+\item Confondre droites orthogonales et droites perpendiculaires.
+\item Calculer une distance à un plan avec un point quelconque du plan.
+\item Oublier de vérifier que le vecteur normal est non nul.
 \end{itemize}
 
 \section{À retenir}
-Le produit scalaire transforme les problèmes d'angle, d'orthogonalité et de distance en calculs algébriques.
+\begin{aretenir}
+\begin{itemize}
+\item Dans un repère orthonormé, le produit scalaire se calcule coordonnée par coordonnée.
+\item $\vec u\cdot\vec v=0$ caractérise l’orthogonalité.
+\item Un vecteur normal est orthogonal à toutes les directions du plan.
+\item La projection orthogonale donne la distance minimale.
+\item Le produit scalaire permet aussi de calculer un angle.
+\end{itemize}
+\end{aretenir}

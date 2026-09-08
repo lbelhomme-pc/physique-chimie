@@ -1,30 +1,37 @@
 {
   "exercices": [
     {
-      "id": "tle-sui-n1-1",
+      "id": "tle-suites-limites-recurrence-n1-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
-      "title": "Suite géométrique",
-      "statement": "Déterminer la limite de u_n=3×(0,8)^n.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Limite géométrique",
+      "statement": "On considère la suite définie par $u_n=5(0{,}7)^n$ pour tout entier naturel $n$.",
+      "questions": [
+        "Déterminer la limite de $(u_n)$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Déterminer des limites de suites usuelles et exploiter les suites géométriques."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Distinguer calcul de limite, preuve de monotonie, majoration et identification d’une limite éventuelle.",
+        "method": "Établir les propriétés dans l’ordre logique avant d’utiliser un théorème de convergence.",
+        "reminder": "Une équation de point fixe n’établit pas à elle seule la convergence.",
+        "commonMistake": "Déduire une limite de quelques valeurs numériques."
       },
       "correction": [
-        "Comme |0,8|<1, (0,8)^n tend vers 0.",
-        "Donc u_n tend vers 0."
+        "Comme $|0{,}7|<1$, on a $(0{,}7)^n\\to0$. Par multiplication par la constante $5$, $u_n\\to0$."
       ],
       "commonMistakes": [],
       "access": {
@@ -33,40 +40,48 @@
         "requiresAccount": false
       },
       "competences": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-sui-n1-2",
+      "id": "tle-suites-limites-recurrence-n1-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
-      "title": "Divergence",
-      "statement": "Déterminer la limite de v_n=2^n+5.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Suite vers l’infini",
+      "statement": "On considère $u_n=n^2+3n-1$. On cherche son comportement lorsque $n$ devient grand.",
+      "questions": [
+        "Déterminer $\\lim_{n\\to+\\infty}u_n$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Déterminer des limites de suites usuelles et exploiter les suites géométriques."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Distinguer calcul de limite, preuve de monotonie, majoration et identification d’une limite éventuelle.",
+        "method": "Établir les propriétés dans l’ordre logique avant d’utiliser un théorème de convergence.",
+        "reminder": "Une équation de point fixe n’établit pas à elle seule la convergence.",
+        "commonMistake": "Déduire une limite de quelques valeurs numériques."
       },
       "correction": [
-        "2^n tend vers +∞ car 2>1.",
-        "Donc v_n tend vers +∞."
+        "Le terme dominant est $n^2$, qui tend vers $+\\infty$. Les termes de degré inférieur ne modifient pas ce comportement, donc $u_n\\to+\\infty$."
       ],
       "commonMistakes": [],
       "access": {
@@ -75,126 +90,97 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-sui-n2-1",
+      "id": "tle-suites-limites-recurrence-n1-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
+      "title": "Première étape d’une récurrence",
+      "statement": "On veut démontrer pour tout $n\\ge0$ la propriété $u_n\\le3$. On sait que $u_0=2$.",
+      "questions": [
+        "Rédiger l’initialisation de la récurrence."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Utiliser la récurrence et des algorithmes pour démontrer des propriétés ou déterminer des seuils."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Distinguer calcul de limite, preuve de monotonie, majoration et identification d’une limite éventuelle.",
+        "method": "Établir les propriétés dans l’ordre logique avant d’utiliser un théorème de convergence.",
+        "reminder": "Une équation de point fixe n’établit pas à elle seule la convergence.",
+        "commonMistake": "Déduire une limite de quelques valeurs numériques."
+      },
+      "correction": [
+        "Au rang $0$, on a $u_0=2$ et $2\\le3$. La propriété est donc vraie au rang initial $0$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N1",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-suites-limites-recurrence-n1-4",
       "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
       "title": "Gendarmes",
-      "statement": "On sait que -1/n ≤ u_n ≤ 2/n pour tout n≥1. Déterminer la limite de u_n.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
+      "statement": "On sait que pour tout $n\\ge1$, $0\\le u_n\\le1/n$.",
+      "questions": [
+        "Déterminer la limite de $(u_n)$ en citant le théorème utilisé."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser les théorèmes de comparaison et le théorème des gendarmes."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
-      ],
-      "prerequisites": [],
-      "estimatedTime": 10,
-      "answerType": "text",
-      "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
-      },
-      "correction": [
-        "Les deux bornes tendent vers 0.",
-        "Par le théorème des gendarmes, u_n tend vers 0."
-      ],
-      "commonMistakes": [],
-      "access": {
-        "tier": "free",
-        "preview": true,
-        "requiresAccount": false
-      },
-      "competences": [
-        "calculer",
-        "raisonner"
-      ],
-      "accessibility": {},
-      "tags": [
-        "terminale-specialite",
-        "N2"
-      ]
-    },
-    {
-      "id": "tle-sui-n2-2",
-      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
-      "title": "Croissante majorée",
-      "statement": "Une suite est croissante et vérifie u_n≤7 pour tout n. Que peut-on conclure ?",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
-      "skills": [
-        "calculer",
-        "raisonner"
-      ],
-      "prerequisites": [],
-      "estimatedTime": 10,
-      "answerType": "text",
-      "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
-      },
-      "correction": [
-        "La suite est croissante et majorée.",
-        "Le théorème de convergence monotone garantit qu'elle converge vers un réel ℓ≤7.",
-        "Les données ne suffisent pas à déterminer ℓ."
-      ],
-      "commonMistakes": [],
-      "access": {
-        "tier": "free",
-        "preview": true,
-        "requiresAccount": false
-      },
-      "competences": [
-        "calculer",
-        "raisonner"
-      ],
-      "accessibility": {},
-      "tags": [
-        "terminale-specialite",
-        "N2"
-      ]
-    },
-    {
-      "id": "tle-sui-n3-1",
-      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
-      "title": "Récurrence et borne",
-      "statement": "u_0=1 et u_{n+1}=(u_n+4)/3. Montrer par récurrence que u_n≤2 pour tout n.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
-      "skills": [
+        "représenter",
         "raisonner",
         "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Distinguer calcul de limite, preuve de monotonie, majoration et identification d’une limite éventuelle.",
+        "method": "Établir les propriétés dans l’ordre logique avant d’utiliser un théorème de convergence.",
+        "reminder": "Une équation de point fixe n’établit pas à elle seule la convergence.",
+        "commonMistake": "Déduire une limite de quelques valeurs numériques."
       },
       "correction": [
-        "Initialisation : u_0=1≤2.",
-        "Supposons u_n≤2. Alors u_{n+1}=(u_n+4)/3≤6/3=2.",
-        "La propriété est héréditaire, donc u_n≤2 pour tout n."
+        "On a $0\\to0$ et $1/n\\to0$. Comme $0\\le u_n\\le1/n$, le théorème des gendarmes donne $u_n\\to0$."
       ],
       "commonMistakes": [],
       "access": {
@@ -203,41 +189,52 @@
         "requiresAccount": false
       },
       "competences": [
+        "représenter",
         "raisonner",
         "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-sui-n3-2",
+      "id": "tle-suites-limites-recurrence-n2-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
-      "title": "Seuil exponentiel",
-      "statement": "Déterminer le plus petit entier n tel que 1-(0,7)^n≥0,99.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
+      "title": "Suite récurrente croissante et majorée",
+      "statement": "La suite est définie par $u_0=0$ et $u_{n+1}=(u_n+2)/3$. On admet provisoirement que $0\\le u_n\\le1$ pour tout $n$.",
+      "questions": [
+        "Étudier le signe de $u_{n+1}-u_n$ en utilisant la borne donnée.",
+        "En déduire la monotonie et l’existence d’une limite."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Établir la convergence d’une suite monotone et bornée."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
       "skills": [
+        "chercher",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 14,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Distinguer calcul de limite, preuve de monotonie, majoration et identification d’une limite éventuelle.",
+        "method": "Établir les propriétés dans l’ordre logique avant d’utiliser un théorème de convergence.",
+        "reminder": "Une équation de point fixe n’établit pas à elle seule la convergence.",
+        "commonMistake": "Déduire une limite de quelques valeurs numériques."
       },
       "correction": [
-        "Il faut (0,7)^n≤0,01.",
-        "Par essais ou calculatrice : 0,7^12≈0,0138 et 0,7^13≈0,00969.",
-        "Le plus petit rang est n=13."
+        "$u_{n+1}-u_n=(u_n+2-3u_n)/3=2(1-u_n)/3\\ge0$ puisque $u_n\\le1$. La suite est croissante.",
+        "Elle est croissante et majorée par $1$, donc elle converge d’après le théorème de convergence monotone."
       ],
       "commonMistakes": [],
       "access": {
@@ -246,13 +243,419 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-suites-limites-recurrence-n2-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
+      "title": "Lever une forme indéterminée",
+      "statement": "On considère $u_n=(3n^2-n)/(2n^2+5)$. La lecture directe conduit à une forme de type $\\infty/\\infty$.",
+      "questions": [
+        "Diviser numérateur et dénominateur par $n^2$.",
+        "Déterminer la limite."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Déterminer des limites de suites usuelles et exploiter les suites géométriques."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Distinguer calcul de limite, preuve de monotonie, majoration et identification d’une limite éventuelle.",
+        "method": "Établir les propriétés dans l’ordre logique avant d’utiliser un théorème de convergence.",
+        "reminder": "Une équation de point fixe n’établit pas à elle seule la convergence.",
+        "commonMistake": "Déduire une limite de quelques valeurs numériques."
+      },
+      "correction": [
+        "On écrit $u_n=(3-1/n)/(2+5/n^2)$.",
+        "$1/n\\to0$ et $1/n^2\\to0$, donc $u_n\\to3/2$. La transformation a supprimé la forme indéterminée."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-suites-limites-recurrence-n2-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
+      "title": "Encadrement avec une valeur absolue",
+      "statement": "Pour tout $n\\ge1$, on a $|u_n-4|\\le2/n$. On souhaite en déduire une information asymptotique précise sur $(u_n)$.",
+      "questions": [
+        "Transformer l’inégalité en un encadrement de $u_n$.",
+        "Déterminer la limite de $(u_n)$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Utiliser les théorèmes de comparaison et le théorème des gendarmes."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Distinguer calcul de limite, preuve de monotonie, majoration et identification d’une limite éventuelle.",
+        "method": "Établir les propriétés dans l’ordre logique avant d’utiliser un théorème de convergence.",
+        "reminder": "Une équation de point fixe n’établit pas à elle seule la convergence.",
+        "commonMistake": "Déduire une limite de quelques valeurs numériques."
+      },
+      "correction": [
+        "L’inégalité équivaut à $-2/n\\le u_n-4\\le2/n$, donc $4-2/n\\le u_n\\le4+2/n$.",
+        "Les deux bornes tendent vers $4$. Par le théorème des gendarmes, $u_n\\to4$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-suites-limites-recurrence-n2-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
+      "title": "Recherche d’un seuil",
+      "statement": "La suite $u_n=1-(0{,}8)^n$ modélise une proportion cumulée. On cherche le premier rang où la proportion dépasse $0{,}95$.",
+      "questions": [
+        "Traduire la condition $u_n>0{,}95$ par une inégalité sur $(0{,}8)^n$.",
+        "Déterminer le premier entier convenable par essais successifs contrôlés."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "modeling",
+      "curriculumItems": [
+        "Utiliser la récurrence et des algorithmes pour démontrer des propriétés ou déterminer des seuils."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Distinguer calcul de limite, preuve de monotonie, majoration et identification d’une limite éventuelle.",
+        "method": "Établir les propriétés dans l’ordre logique avant d’utiliser un théorème de convergence.",
+        "reminder": "Une équation de point fixe n’établit pas à elle seule la convergence.",
+        "commonMistake": "Déduire une limite de quelques valeurs numériques."
+      },
+      "correction": [
+        "$1-(0{,}8)^n>0{,}95$ équivaut à $(0{,}8)^n<0{,}05$.",
+        "On vérifie $(0{,}8)^{13}\\approx0{,}055$ et $(0{,}8)^{14}\\approx0{,}044$. Le premier rang est donc $n=14$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-suites-limites-recurrence-n3-1",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
+      "title": "Convergence complète d’une suite récurrente",
+      "statement": "La suite est définie par $u_0=0$ et $u_{n+1}=(u_n+2)/3$. On veut établir rigoureusement sa convergence puis identifier sa limite, sans supposer à l’avance le résultat.",
+      "questions": [
+        "Montrer par récurrence que $0\\le u_n\\le1$ pour tout $n$.",
+        "Montrer que la suite est croissante et en déduire qu’elle converge.",
+        "Si $\\ell$ est sa limite, déterminer $\\ell$ en passant à la limite dans la relation de récurrence."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Établir la convergence d’une suite monotone et bornée."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Distinguer calcul de limite, preuve de monotonie, majoration et identification d’une limite éventuelle.",
+        "method": "Établir les propriétés dans l’ordre logique avant d’utiliser un théorème de convergence.",
+        "reminder": "Une équation de point fixe n’établit pas à elle seule la convergence.",
+        "commonMistake": "Déduire une limite de quelques valeurs numériques."
+      },
+      "correction": [
+        "Initialisation : $u_0=0\\in[0,1]$. Si $0\\le u_n\\le1$, alors $2/3\\le(u_n+2)/3\\le1$, donc $u_{n+1}\\in[0,1]$. La propriété est héréditaire.",
+        "$u_{n+1}-u_n=2(1-u_n)/3\\ge0$, donc la suite est croissante et majorée par $1$ ; elle converge.",
+        "La fonction $x\\mapsto(x+2)/3$ est continue, donc $\\ell=(\\ell+2)/3$. Ainsi $3\\ell=\\ell+2$ et $\\ell=1$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-suites-limites-recurrence-n3-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
+      "title": "Suite transformée en géométrique",
+      "statement": "La suite vérifie $u_{n+1}=0{,}6u_n+8$ avec $u_0=5$. On cherche à décrire exactement son comportement en introduisant une suite auxiliaire.",
+      "questions": [
+        "Déterminer le point fixe $\\ell$ de la transformation $x\\mapsto0{,}6x+8$.",
+        "Poser $v_n=u_n-\\ell$ et montrer que $(v_n)$ est géométrique.",
+        "Exprimer $u_n$ puis donner sa limite."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Déterminer des limites de suites usuelles et exploiter les suites géométriques."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Distinguer calcul de limite, preuve de monotonie, majoration et identification d’une limite éventuelle.",
+        "method": "Établir les propriétés dans l’ordre logique avant d’utiliser un théorème de convergence.",
+        "reminder": "Une équation de point fixe n’établit pas à elle seule la convergence.",
+        "commonMistake": "Déduire une limite de quelques valeurs numériques."
+      },
+      "correction": [
+        "Le point fixe satisfait $\\ell=0{,}6\\ell+8$, donc $0{,}4\\ell=8$ et $\\ell=20$.",
+        "$v_{n+1}=u_{n+1}-20=0{,}6u_n+8-20=0{,}6(u_n-20)=0{,}6v_n$. Ainsi $v_n=v_0(0{,}6)^n=-15(0{,}6)^n$.",
+        "Donc $u_n=20-15(0{,}6)^n$. Comme $(0{,}6)^n\\to0$, on obtient $u_n\\to20$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-suites-limites-recurrence-n3-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
+      "title": "Comparaison d’une croissance exponentielle et polynomiale",
+      "statement": "On considère $u_n=n^2/2^n$ pour $n\\ge1$. On admet que pour $n$ assez grand, le quotient $u_{n+1}/u_n$ est inférieur ou égal à $3/4$.",
+      "questions": [
+        "Calculer $u_{n+1}/u_n$ et expliquer pourquoi ce quotient tend vers $1/2$.",
+        "Justifier qu’à partir d’un certain rang, $u_{n+1}\\le(3/4)u_n$.",
+        "En déduire par comparaison avec une suite géométrique que $u_n\\to0$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Utiliser les théorèmes de comparaison et le théorème des gendarmes."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Distinguer calcul de limite, preuve de monotonie, majoration et identification d’une limite éventuelle.",
+        "method": "Établir les propriétés dans l’ordre logique avant d’utiliser un théorème de convergence.",
+        "reminder": "Une équation de point fixe n’établit pas à elle seule la convergence.",
+        "commonMistake": "Déduire une limite de quelques valeurs numériques."
+      },
+      "correction": [
+        "$u_{n+1}/u_n=((n+1)^2/2^{n+1})/(n^2/2^n)=((n+1)/n)^2/2$, qui tend vers $1/2$.",
+        "Comme ce quotient tend vers $1/2<3/4$, il existe un rang $N$ à partir duquel il est inférieur ou égal à $3/4$. On a alors $u_{N+k}\\le u_N(3/4)^k$.",
+        "La suite géométrique $u_N(3/4)^k$ tend vers $0$ et $u_n\\ge0$. Par comparaison, $u_n\\to0$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-suites-limites-recurrence-n3-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/suites-limites-recurrence",
+      "title": "Modèle d’apprentissage et seuil",
+      "statement": "Un modèle attribue à un étudiant un score $u_n$ après $n$ séances, avec $u_0=20$ et $u_{n+1}=0{,}75u_n+25$. Le score est exprimé sur $100$.",
+      "questions": [
+        "Déterminer la valeur d’équilibre du modèle puis exprimer $u_n$ sous forme explicite.",
+        "Justifier la convergence et donner la limite.",
+        "Déterminer le premier rang pour lequel $u_n>90$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "modeling",
+      "curriculumItems": [
+        "Utiliser la récurrence et des algorithmes pour démontrer des propriétés ou déterminer des seuils."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Distinguer calcul de limite, preuve de monotonie, majoration et identification d’une limite éventuelle.",
+        "method": "Établir les propriétés dans l’ordre logique avant d’utiliser un théorème de convergence.",
+        "reminder": "Une équation de point fixe n’établit pas à elle seule la convergence.",
+        "commonMistake": "Déduire une limite de quelques valeurs numériques."
+      },
+      "correction": [
+        "Le point fixe vérifie $\\ell=0{,}75\\ell+25$, donc $\\ell=100$. Avec $v_n=u_n-100$, on obtient $v_{n+1}=0{,}75v_n$ et $v_0=-80$, donc $u_n=100-80(0{,}75)^n$.",
+        "Comme $(0{,}75)^n\\to0$, le score converge vers $100$.",
+        "La condition $100-80(0{,}75)^n>90$ équivaut à $(0{,}75)^n<1/8$. On vérifie $(0{,}75)^7\\approx0{,}133$ et $(0{,}75)^8\\approx0{,}100$, donc le premier rang est $8$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
       ]
     }
   ]

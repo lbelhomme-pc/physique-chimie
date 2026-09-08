@@ -1,63 +1,123 @@
 {
   "questions": [
     {
-      "id": "tle-der-q1",
-      "question": "La dérivée de e^{u(x)} est :",
+      "id": "tle-derivation-convexite-q1",
+      "question": "Pour $f=e^u$, la dérivée est :",
       "choices": [
-        "u'(x)e^{u(x)}",
-        "e^{u'(x)}",
-        "u(x)e^x"
+        "$f^{\\prime}=u^{\\prime}e^u$",
+        "$f^{\\prime}=e^u$ toujours",
+        "$f^{\\prime}=u$"
       ],
       "answer": 0,
-      "explanation": "C'est la dérivée d'une composée.",
+      "explanation": "La dérivation d’une composée fait apparaître le facteur $u^{\\prime}$ de la fonction intérieure.",
       "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite"
     },
     {
-      "id": "tle-der-q2",
-      "question": "Si f''≥0 sur un intervalle, f est :",
+      "id": "tle-derivation-convexite-q2",
+      "question": "Le signe de $f^{\\prime}$ donne :",
       "choices": [
-        "convexe",
-        "décroissante nécessairement",
-        "constante"
+        "les variations de $f$",
+        "directement la convexité",
+        "le domaine de définition"
       ],
       "answer": 0,
-      "explanation": "Le signe de la seconde dérivée caractérise la convexité pour une fonction deux fois dérivable.",
+      "explanation": "Une dérivée positive correspond à une fonction croissante et une dérivée négative à une fonction décroissante.",
       "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite"
     },
     {
-      "id": "tle-der-q3",
-      "question": "Pour une fonction convexe, la courbe est :",
+      "id": "tle-derivation-convexite-q3",
+      "question": "Le signe de $f^{\\prime\\prime}$ donne :",
+      "choices": [
+        "la convexité ou la concavité",
+        "la valeur de $f(0)$",
+        "le nombre de racines exactement"
+      ],
+      "answer": 0,
+      "explanation": "Une dérivée seconde positive caractérise la convexité et une dérivée seconde négative la concavité.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite"
+    },
+    {
+      "id": "tle-derivation-convexite-q4",
+      "question": "Si $f$ est convexe, sa courbe est :",
       "choices": [
         "au-dessus de ses tangentes",
-        "toujours décroissante",
-        "sous toutes ses tangentes"
+        "toujours sous l’axe des abscisses",
+        "une droite"
       ],
       "answer": 0,
-      "explanation": "C'est une propriété caractéristique.",
+      "explanation": "La propriété géométrique fondamentale d’une fonction convexe est d’être située au-dessus de chaque tangente.",
       "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite"
     },
     {
-      "id": "tle-der-q4",
-      "question": "Un point d'inflexion nécessite :",
+      "id": "tle-derivation-convexite-q5",
+      "question": "Pour avoir un point d’inflexion en $a$, il faut notamment :",
       "choices": [
         "un changement de convexité",
-        "seulement f'=0",
-        "seulement f''=0"
+        "seulement $f^{\\prime\\prime}(a)=0$",
+        "$f(a)=0$ obligatoirement"
       ],
       "answer": 0,
-      "explanation": "L'annulation de f'' sans changement de signe ne suffit pas.",
+      "explanation": "L’annulation de la dérivée seconde ne suffit pas ; le signe doit changer ou un argument équivalent doit établir le changement de convexité.",
       "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite"
     },
     {
-      "id": "tle-der-q5",
-      "question": "Le signe de f' renseigne principalement sur :",
+      "id": "tle-derivation-convexite-q6",
+      "question": "La tangente en $a$ a pour équation :",
       "choices": [
-        "les variations de f",
-        "la convexité de f",
-        "les asymptotes verticales"
+        "$y=f(a)+f^{\\prime}(a)(x-a)$",
+        "$y=f^{\\prime}(a)$",
+        "$y=ax+f(a)$ toujours"
       ],
       "answer": 0,
-      "explanation": "La dérivée première contrôle croissance et décroissance.",
+      "explanation": "La tangente passe par $(a,f(a))$ et possède pour coefficient directeur $f^{\\prime}(a)$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite"
+    },
+    {
+      "id": "tle-derivation-convexite-q7",
+      "question": "Si $f^{\\prime\\prime}>0$ sur un intervalle, alors $f^{\\prime}$ est :",
+      "choices": [
+        "croissante",
+        "constante",
+        "toujours négative"
+      ],
+      "answer": 0,
+      "explanation": "La positivité de la dérivée de $f^{\\prime}$ signifie que la pente $f^{\\prime}$ augmente sur l’intervalle.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite"
+    },
+    {
+      "id": "tle-derivation-convexite-q8",
+      "question": "Un point critique intérieur d’une fonction strictement convexe est :",
+      "choices": [
+        "un minimum global s’il existe",
+        "toujours un maximum",
+        "jamais un extremum"
+      ],
+      "answer": 0,
+      "explanation": "La strict convexité empêche plusieurs minima et un point où la dérivée s’annule réalise le minimum.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite"
+    },
+    {
+      "id": "tle-derivation-convexite-q9",
+      "question": "L’inégalité $e^x\\ge1+x$ vient de :",
+      "choices": [
+        "la tangente en $0$ et la convexité",
+        "la concavité de l’exponentielle",
+        "une permutation"
+      ],
+      "answer": 0,
+      "explanation": "L’exponentielle est convexe et reste au-dessus de sa tangente en $0$, d’équation $y=1+x$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite"
+    },
+    {
+      "id": "tle-derivation-convexite-q10",
+      "question": "Pour étudier complètement une courbe, on peut combiner :",
+      "choices": [
+        "limites, $f^{\\prime}$, $f^{\\prime\\prime}$ et tangentes",
+        "seulement $f(0)$",
+        "uniquement un tableau de valeurs"
+      ],
+      "answer": 0,
+      "explanation": "Ces outils décrivent successivement le comportement asymptotique, les variations, la courbure et des informations locales.",
       "chapterId": "lycee/terminale-specialite-mathematiques/derivation-convexite"
     }
   ]

@@ -1,30 +1,36 @@
 {
   "exercices": [
     {
-      "id": "tle-con-n1-1",
+      "id": "tle-continuite-tvi-dichotomie-n1-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
-      "title": "Continuité polynomiale",
-      "statement": "La fonction f(x)=x^3-2x+1 est-elle continue sur R ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Continuité d’un polynôme",
+      "statement": "On considère $f(x)=x^3-2x+1$ sur $\\mathbb R$. On souhaite justifier une propriété de régularité avant d’utiliser le TVI.",
+      "questions": [
+        "Justifier que $f$ est continue sur $\\mathbb R$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser la continuité des fonctions usuelles et de leurs combinaisons sur leur domaine."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Repérer les rôles distincts de la continuité, de la monotonie et de l’encadrement numérique.",
+        "method": "Prouver d’abord l’existence, puis l’unicité, puis seulement l’approximation.",
+        "reminder": "Le TVI fournit une existence mais pas une unicité.",
+        "commonMistake": "Utiliser une dichotomie sans conserver le changement de signe."
       },
       "correction": [
-        "Une fonction polynomiale est continue sur R.",
-        "Donc f est continue sur R."
+        "Une fonction polynomiale est continue sur $\\mathbb R$. Ainsi $f(x)=x^3-2x+1$ est continue sur tout intervalle réel."
       ],
       "commonMistakes": [],
       "access": {
@@ -33,40 +39,47 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-con-n1-2",
+      "id": "tle-continuite-tvi-dichotomie-n1-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
-      "title": "Image d'une suite",
-      "statement": "u_n→2 et f(x)=x²+1. Déterminer la limite de f(u_n).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Existence d’une racine",
+      "statement": "Une fonction $f$ est continue sur $[1,2]$ avec $f(1)=-3$ et $f(2)=5$.",
+      "questions": [
+        "Justifier qu’il existe au moins un $c\\in]1,2[$ tel que $f(c)=0$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Appliquer le théorème des valeurs intermédiaires pour établir l’existence d’une solution."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Repérer les rôles distincts de la continuité, de la monotonie et de l’encadrement numérique.",
+        "method": "Prouver d’abord l’existence, puis l’unicité, puis seulement l’approximation.",
+        "reminder": "Le TVI fournit une existence mais pas une unicité.",
+        "commonMistake": "Utiliser une dichotomie sans conserver le changement de signe."
       },
       "correction": [
-        "f est continue en 2.",
-        "f(u_n)→f(2)=5."
+        "La fonction est continue sur $[1,2]$ et $0$ est compris entre $-3$ et $5$. Par le théorème des valeurs intermédiaires, il existe au moins un $c\\in]1,2[$ tel que $f(c)=0$."
       ],
       "commonMistakes": [],
       "access": {
@@ -75,41 +88,48 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-con-n2-1",
+      "id": "tle-continuite-tvi-dichotomie-n1-3",
       "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
-      "title": "Existence d'une racine",
-      "statement": "f(x)=x^3+x-1. Montrer que f(x)=0 admet une solution dans ]0,1[.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
+      "title": "Unicité par monotonie",
+      "statement": "Une fonction $f$ est strictement croissante sur un intervalle $I$. On sait qu’une équation $f(x)=4$ possède au moins une solution dans $I$.",
+      "questions": [
+        "Expliquer pourquoi cette solution est unique."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Combiner continuité et stricte monotonie pour établir l’unicité."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "raisonner",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Repérer les rôles distincts de la continuité, de la monotonie et de l’encadrement numérique.",
+        "method": "Prouver d’abord l’existence, puis l’unicité, puis seulement l’approximation.",
+        "reminder": "Le TVI fournit une existence mais pas une unicité.",
+        "commonMistake": "Utiliser une dichotomie sans conserver le changement de signe."
       },
       "correction": [
-        "f est continue sur [0,1].",
-        "f(0)=-1 et f(1)=1.",
-        "Les valeurs sont de signes opposés ; le TVI donne au moins une racine dans ]0,1[."
+        "Une fonction strictement croissante ne peut pas prendre deux fois la même valeur sur $I$. Comme l’existence est déjà acquise, la solution de $f(x)=4$ est unique."
       ],
       "commonMistakes": [],
       "access": {
@@ -118,86 +138,49 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "raisonner",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-con-n2-2",
-      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
-      "title": "Unicité",
-      "statement": "Pour f(x)=x^3+x-1, montrer que la racine réelle est unique.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
-      "level": "N2",
-      "skills": [
-        "calculer",
-        "raisonner"
-      ],
-      "prerequisites": [],
-      "estimatedTime": 10,
-      "answerType": "text",
-      "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
-      },
-      "correction": [
-        "f'(x)=3x²+1>0 pour tout x.",
-        "f est strictement croissante sur R.",
-        "Une fonction strictement croissante ne peut prendre la valeur 0 qu'une seule fois.",
-        "Avec l'existence précédente, la racine est unique."
-      ],
-      "commonMistakes": [],
-      "access": {
-        "tier": "free",
-        "preview": true,
-        "requiresAccount": false
-      },
-      "competences": [
-        "calculer",
-        "raisonner"
-      ],
-      "accessibility": {},
-      "tags": [
-        "terminale-specialite",
-        "N2"
-      ]
-    },
-    {
-      "id": "tle-con-n3-1",
+      "id": "tle-continuite-tvi-dichotomie-n1-4",
       "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
       "title": "Une étape de dichotomie",
-      "statement": "Pour f(x)=x^3+x-1, on sait que la racine est dans [0,1]. Faire une étape de dichotomie.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
+      "statement": "On sait qu’une fonction continue vérifie $f(1)<0$ et $f(2)>0$. On commence une dichotomie sur $[1,2]$ et on calcule $f(1{,}5)>0$.",
+      "questions": [
+        "Donner le nouvel intervalle qui contient une racine."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Mettre en œuvre une dichotomie pour encadrer une solution et exploiter la continuité dans les suites itérées."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "raisonner",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Repérer les rôles distincts de la continuité, de la monotonie et de l’encadrement numérique.",
+        "method": "Prouver d’abord l’existence, puis l’unicité, puis seulement l’approximation.",
+        "reminder": "Le TVI fournit une existence mais pas une unicité.",
+        "commonMistake": "Utiliser une dichotomie sans conserver le changement de signe."
       },
       "correction": [
-        "Milieu m=0,5.",
-        "f(0)=-1 et f(0,5)=0,125+0,5-1=-0,375 : même signe.",
-        "f(1)=1 de signe opposé.",
-        "Le nouvel intervalle est [0,5 ; 1]."
+        "Le changement de signe subsiste entre $1$ et $1{,}5$ : $f(1)<0$ et $f(1{,}5)>0$. Le nouvel intervalle est donc $[1;1{,}5]$."
       ],
       "commonMistakes": [],
       "access": {
@@ -206,42 +189,53 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "représenter",
+        "raisonner",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N1",
+        "c26"
       ]
     },
     {
-      "id": "tle-con-n3-2",
+      "id": "tle-continuite-tvi-dichotomie-n2-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
-      "title": "Point fixe d'une limite",
-      "statement": "u_{n+1}=√(2+u_n). On admet que u_n converge vers ℓ≥0. Déterminer ℓ.",
-      "consigne": "Justifier les étapes utiles.",
-      "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
-      "level": "N3",
+      "title": "Existence et unicité d’une racine cubique",
+      "statement": "On considère $f(x)=x^3+x-1$ sur $[0,1]$. On veut établir que l’équation $f(x)=0$ possède une unique solution sur cet intervalle.",
+      "questions": [
+        "Justifier l’existence d’au moins une solution avec le TVI.",
+        "Étudier $f^{\\prime}(x)$ et conclure à l’unicité."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Appliquer le théorème des valeurs intermédiaires pour établir l’existence d’une solution."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
       "skills": [
+        "chercher",
+        "représenter",
         "raisonner",
-        "calculer"
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 14,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le théorème ou la limite de référence.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier les hypothèses avant de conclure.",
-        "commonMistake": "Confondre observation numérique et démonstration."
+        "clue": "Repérer les rôles distincts de la continuité, de la monotonie et de l’encadrement numérique.",
+        "method": "Prouver d’abord l’existence, puis l’unicité, puis seulement l’approximation.",
+        "reminder": "Le TVI fournit une existence mais pas une unicité.",
+        "commonMistake": "Utiliser une dichotomie sans conserver le changement de signe."
       },
       "correction": [
-        "La fonction x↦√(2+x) est continue sur le domaine considéré.",
-        "En passant à la limite : ℓ=√(2+ℓ).",
-        "Donc ℓ²-ℓ-2=0, soit (ℓ-2)(ℓ+1)=0.",
-        "Comme ℓ≥0, ℓ=2."
+        "$f$ est un polynôme donc continue. $f(0)=-1$ et $f(1)=1$, donc le TVI assure l’existence d’au moins une racine dans $]0,1[$.",
+        "$f^{\\prime}(x)=3x^2+1>0$ sur $[0,1]$, donc $f$ est strictement croissante. Elle ne peut avoir qu’une racine ; la solution est unique."
       ],
       "commonMistakes": [],
       "access": {
@@ -250,13 +244,416 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-continuite-tvi-dichotomie-n2-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
+      "title": "Nombre d’étapes de dichotomie",
+      "statement": "On part d’un intervalle de longueur $4$ contenant une unique racine. On veut obtenir, par dichotomie, un intervalle final de longueur inférieure ou égale à $10^{-3}$.",
+      "questions": [
+        "Écrire la longueur après $n$ étapes.",
+        "Déterminer le plus petit entier $n$ convenable."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Mettre en œuvre une dichotomie pour encadrer une solution et exploiter la continuité dans les suites itérées."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer les rôles distincts de la continuité, de la monotonie et de l’encadrement numérique.",
+        "method": "Prouver d’abord l’existence, puis l’unicité, puis seulement l’approximation.",
+        "reminder": "Le TVI fournit une existence mais pas une unicité.",
+        "commonMistake": "Utiliser une dichotomie sans conserver le changement de signe."
+      },
+      "correction": [
+        "Après $n$ étapes, la longueur vaut $4/2^n$.",
+        "On veut $4/2^n\\le10^{-3}$, soit $2^n\\ge4000$. Or $2^{11}=2048$ et $2^{12}=4096$, donc il faut $12$ étapes."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
         "raisonner",
         "calculer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-continuite-tvi-dichotomie-n2-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
+      "title": "Suite itérée et point fixe",
+      "statement": "Une suite vérifie $u_{n+1}=\\sqrt{2+u_n}$. On suppose qu’elle converge vers une limite $\\ell\\ge0$.",
+      "questions": [
+        "Utiliser la continuité de la fonction racine pour obtenir une équation sur $\\ell$.",
+        "Résoudre cette équation en tenant compte de $\\ell\\ge0$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Mettre en œuvre une dichotomie pour encadrer une solution et exploiter la continuité dans les suites itérées."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer les rôles distincts de la continuité, de la monotonie et de l’encadrement numérique.",
+        "method": "Prouver d’abord l’existence, puis l’unicité, puis seulement l’approximation.",
+        "reminder": "Le TVI fournit une existence mais pas une unicité.",
+        "commonMistake": "Utiliser une dichotomie sans conserver le changement de signe."
+      },
+      "correction": [
+        "La fonction $x\\mapsto\\sqrt{2+x}$ est continue sur le domaine considéré. En passant à la limite, $\\ell=\\sqrt{2+\\ell}$.",
+        "En élevant au carré, $\\ell^2=\\ell+2$, soit $(\\ell-2)(\\ell+1)=0$. Comme $\\ell\\ge0$, la seule possibilité est $\\ell=2$. Cette étape identifie la limite mais ne prouve pas la convergence."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-continuite-tvi-dichotomie-n2-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
+      "title": "TVI pour une valeur non nulle",
+      "statement": "Une fonction $f$ est continue et strictement décroissante sur $[2,5]$, avec $f(2)=9$ et $f(5)=1$.",
+      "questions": [
+        "Justifier que l’équation $f(x)=4$ possède une solution.",
+        "Justifier qu’elle est unique."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Combiner continuité et stricte monotonie pour établir l’unicité."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 14,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer les rôles distincts de la continuité, de la monotonie et de l’encadrement numérique.",
+        "method": "Prouver d’abord l’existence, puis l’unicité, puis seulement l’approximation.",
+        "reminder": "Le TVI fournit une existence mais pas une unicité.",
+        "commonMistake": "Utiliser une dichotomie sans conserver le changement de signe."
+      },
+      "correction": [
+        "La valeur $4$ est comprise entre $1$ et $9$. Par continuité sur $[2,5]$, le TVI assure qu’elle est atteinte.",
+        "La fonction est strictement décroissante, donc elle ne peut prendre la valeur $4$ qu’une seule fois. La solution est unique."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-continuite-tvi-dichotomie-n3-1",
+      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
+      "title": "Résolution complète puis dichotomie",
+      "statement": "On considère $f(x)=x^3+x-1$ sur $[0,1]$. Après avoir établi l’existence et l’unicité de la racine $\\alpha$, on souhaite l’encadrer à $10^{-2}$ près par dichotomie.",
+      "questions": [
+        "Démontrer l’existence et l’unicité de $\\alpha$.",
+        "Effectuer des étapes de dichotomie jusqu’à obtenir un intervalle de longueur inférieure à $10^{-2}$.",
+        "Donner un encadrement décimal de $\\alpha$ et expliquer la précision obtenue."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Appliquer le théorème des valeurs intermédiaires pour établir l’existence d’une solution."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer les rôles distincts de la continuité, de la monotonie et de l’encadrement numérique.",
+        "method": "Prouver d’abord l’existence, puis l’unicité, puis seulement l’approximation.",
+        "reminder": "Le TVI fournit une existence mais pas une unicité.",
+        "commonMistake": "Utiliser une dichotomie sans conserver le changement de signe."
+      },
+      "correction": [
+        "$f$ est continue, $f(0)=-1$, $f(1)=1$, donc une racine existe. De plus $f^{\\prime}(x)=3x^2+1>0$, donc elle est unique.",
+        "En dichotomie : $f(0{,}5)<0$, $f(0{,}75)>0$, puis on poursuit. On obtient par exemple $f(0{,}68)<0$ et $f(0{,}69)>0$.",
+        "Ainsi $0{,}68<\\alpha<0{,}69$. L’intervalle a une longueur $0{,}01$, ce qui fournit un encadrement au centième."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-continuite-tvi-dichotomie-n3-2",
+      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
+      "title": "Paramètre et existence d’une solution",
+      "statement": "Pour un réel $m$, on considère l’équation $x^3+x=m$ sur $\\mathbb R$. On veut déterminer pour quelles valeurs de $m$ l’équation possède une solution et si cette solution peut être multiple.",
+      "questions": [
+        "Étudier la continuité et les variations de $g(x)=x^3+x$.",
+        "Déterminer les limites de $g$ aux deux infinis.",
+        "Conclure sur le nombre de solutions de $g(x)=m$ pour tout réel $m$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Combiner continuité et stricte monotonie pour établir l’unicité."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer les rôles distincts de la continuité, de la monotonie et de l’encadrement numérique.",
+        "method": "Prouver d’abord l’existence, puis l’unicité, puis seulement l’approximation.",
+        "reminder": "Le TVI fournit une existence mais pas une unicité.",
+        "commonMistake": "Utiliser une dichotomie sans conserver le changement de signe."
+      },
+      "correction": [
+        "$g$ est polynomiale donc continue, et $g^{\\prime}(x)=3x^2+1>0$ sur $\\mathbb R$ : elle est strictement croissante.",
+        "$g(x)\\to-\\infty$ quand $x\\to-\\infty$ et $g(x)\\to+\\infty$ quand $x\\to+\\infty$.",
+        "Par continuité et stricte croissance, $g$ réalise une bijection de $\\mathbb R$ sur $\\mathbb R$. Pour tout réel $m$, l’équation $x^3+x=m$ possède donc une unique solution."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-continuite-tvi-dichotomie-n3-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
+      "title": "Algorithme de dichotomie et invariant",
+      "statement": "On souhaite programmer une dichotomie pour une fonction continue $f$ avec $f(a)f(b)<0$. À chaque boucle, on calcule $m=(a+b)/2$. On veut justifier mathématiquement la mise à jour des bornes.",
+      "questions": [
+        "Expliquer quel test de signe permet de choisir entre $[a,m]$ et $[m,b]$.",
+        "Justifier que le nouvel intervalle contient encore au moins une racine.",
+        "Proposer un critère d’arrêt donnant une précision $\\varepsilon>0$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Mettre en œuvre une dichotomie pour encadrer une solution et exploiter la continuité dans les suites itérées."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer les rôles distincts de la continuité, de la monotonie et de l’encadrement numérique.",
+        "method": "Prouver d’abord l’existence, puis l’unicité, puis seulement l’approximation.",
+        "reminder": "Le TVI fournit une existence mais pas une unicité.",
+        "commonMistake": "Utiliser une dichotomie sans conserver le changement de signe."
+      },
+      "correction": [
+        "Si $f(a)f(m)\\le0$, on remplace $b$ par $m$ ; sinon on remplace $a$ par $m$. Dans le second cas, le changement de signe se trouve entre $m$ et l’ancienne borne $b$.",
+        "À chaque étape, les valeurs aux nouvelles bornes ont des signes opposés ou l’une est nulle. La continuité permet donc de réappliquer le TVI : une racine reste dans l’intervalle.",
+        "On peut poursuivre tant que $b-a>\\varepsilon$. À l’arrêt, l’intervalle de sortie contient une racine et sa longueur est au plus $\\varepsilon$."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
+      ]
+    },
+    {
+      "id": "tle-continuite-tvi-dichotomie-n3-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/continuite-tvi-dichotomie",
+      "title": "Suite itérée : de la convergence à l’identification",
+      "statement": "La suite est définie par $u_{n+1}=\\cos(u_n)$ avec $u_0\\in[0,1]$. On admet qu’elle converge vers une limite $\\ell\\in[0,1]$. L’objectif est seulement d’identifier ce que doit vérifier cette limite puis de justifier l’unicité du point fixe sur $[0,1]$.",
+      "questions": [
+        "Utiliser la continuité du cosinus pour écrire l’équation vérifiée par $\\ell$.",
+        "Étudier $h(x)=\\cos x-x$ sur $[0,1]$ et montrer qu’elle est strictement décroissante.",
+        "Montrer qu’il existe une unique solution de $\\cos x=x$ sur $[0,1]$."
+      ],
+      "consigne": "Présenter une démarche structurée, justifier les propriétés utilisées et conclure explicitement dans le langage de la question.",
+      "pedagogicalType": "reasoning",
+      "curriculumItems": [
+        "Utiliser la continuité des fonctions usuelles et de leurs combinaisons sur leur domaine."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 22,
+      "answerType": "text",
+      "hints": {
+        "clue": "Repérer les rôles distincts de la continuité, de la monotonie et de l’encadrement numérique.",
+        "method": "Prouver d’abord l’existence, puis l’unicité, puis seulement l’approximation.",
+        "reminder": "Le TVI fournit une existence mais pas une unicité.",
+        "commonMistake": "Utiliser une dichotomie sans conserver le changement de signe."
+      },
+      "correction": [
+        "Par continuité de $\\cos$, le passage à la limite donne $\\ell=\\cos\\ell$.",
+        "On a $h^{\\prime}(x)=-\\sin x-1<0$ sur $[0,1]$, donc $h$ est strictement décroissante.",
+        "$h(0)=1>0$ et $h(1)=\\cos1-1<0$. Par TVI, une racine existe ; par stricte décroissance, elle est unique. La limite admise est donc cette unique solution."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c26"
       ]
     }
   ]
