@@ -5,7 +5,7 @@ import { auditMathsV2 } from "../scripts/audit-maths-v2.mjs";
 
 test("Maths V2 tracks the complete published mathematics corpus", () => {
   const audit = auditMathsV2();
-  assert.equal(audit.summary.total, 95);
+  assert.equal(audit.summary.total, 104);
 });
 
 test("every chapter explicitly migrated to Maths V2 satisfies the V2 editorial contract", () => {
