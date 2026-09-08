@@ -2,62 +2,122 @@
   "questions": [
     {
       "id": "tle-ed-q1",
-      "question": "Si F'=f, alors F est :",
+      "question": "Une primitive $F$ de $f$ vérifie :",
       "choices": [
-        "une primitive de f",
-        "la dérivée seconde de f",
-        "une limite de f"
+        "$F'=f$",
+        "$F=f'$",
+        "$F'=F$"
       ],
       "answer": 0,
-      "explanation": "C'est la définition d'une primitive.",
+      "explanation": "Par définition, une primitive est une fonction dont la dérivée redonne exactement la fonction étudiée.",
       "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles"
     },
     {
       "id": "tle-ed-q2",
-      "question": "Les solutions de y'=ay sont :",
+      "question": "Toutes les primitives d’une même fonction diffèrent :",
       "choices": [
-        "Ce^{ax}",
-        "ax+C",
-        "C e^x quel que soit a"
+        "d’une constante",
+        "d’un facteur",
+        "d’une dérivée"
       ],
       "answer": 0,
-      "explanation": "Le paramètre a apparaît dans l'exposant.",
+      "explanation": "Sur un intervalle, si deux fonctions ont la même dérivée, leur différence est constante.",
       "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles"
     },
     {
       "id": "tle-ed-q3",
-      "question": "Pour y'=ay+b avec a≠0, une solution constante est :",
+      "question": "Les solutions de $y'=ay$ sont :",
       "choices": [
-        "-b/a",
-        "b/a",
-        "a/b"
+        "$Ce^{ax}$",
+        "$ax+C$",
+        "$Ce^x+a$"
       ],
       "answer": 0,
-      "explanation": "Elle vérifie 0=ay+b.",
+      "explanation": "La dérivée de $Ce^{ax}$ vaut $aCe^{ax}$, ce qui satisfait exactement l’équation.",
       "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles"
     },
     {
       "id": "tle-ed-q4",
-      "question": "Deux primitives d'une même fonction diffèrent par :",
+      "question": "Une condition initiale sert à :",
       "choices": [
-        "une constante",
-        "un facteur x",
-        "une exponentielle"
+        "déterminer la constante",
+        "changer la dérivée",
+        "supprimer l’exponentielle"
       ],
       "answer": 0,
-      "explanation": "Leur différence a une dérivée nulle.",
+      "explanation": "La famille générale contient une constante libre ; une condition initiale fixe sa valeur.",
       "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles"
     },
     {
       "id": "tle-ed-q5",
-      "question": "Une condition initiale sert à :",
+      "question": "Pour $a\\neq0$, une solution constante de $y'=ay+b$ vaut :",
       "choices": [
-        "déterminer la constante de la solution",
-        "changer l'équation différentielle",
-        "calculer une dérivée seconde"
+        "$-b/a$",
+        "$b/a$",
+        "$a/b$"
       ],
       "answer": 0,
-      "explanation": "Elle sélectionne une solution particulière.",
+      "explanation": "Une solution constante vérifie $0=ay+b$, donc sa valeur est $-b/a$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles"
+    },
+    {
+      "id": "tle-ed-q6",
+      "question": "Les solutions de $y'=ay+b$ sont :",
+      "choices": [
+        "$Ce^{ax}-b/a$",
+        "$Ce^{ax}+b/a$",
+        "$ax+b$"
+      ],
+      "answer": 0,
+      "explanation": "On translate par la solution d’équilibre $-b/a$, puis on résout une équation homogène.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles"
+    },
+    {
+      "id": "tle-ed-q7",
+      "question": "Si $a<0$ dans $y'=ay$, une solution positive non nulle :",
+      "choices": [
+        "décroît vers zéro",
+        "croît vers l’infini",
+        "reste constante"
+      ],
+      "answer": 0,
+      "explanation": "L’exponentielle $e^{ax}$ tend vers zéro lorsque $a<0$ et que la variable tend vers $+infty$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles"
+    },
+    {
+      "id": "tle-ed-q8",
+      "question": "Dans un refroidissement $T'=-k(T-T_e)$, l’équilibre est :",
+      "choices": [
+        "$T_e$",
+        "$0$",
+        "$k$"
+      ],
+      "answer": 0,
+      "explanation": "Lorsque $T=T_e$, la dérivée est nulle : la température extérieure est la valeur d’équilibre du modèle.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles"
+    },
+    {
+      "id": "tle-ed-q9",
+      "question": "Comment contrôler une solution d’équation différentielle ?",
+      "choices": [
+        "la dériver et substituer",
+        "seulement tracer la courbe",
+        "calculer une moyenne"
+      ],
+      "answer": 0,
+      "explanation": "La vérification directe consiste à dériver l’expression puis à tester l’égalité différentielle.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles"
+    },
+    {
+      "id": "tle-ed-q10",
+      "question": "Pour trouver un temps dans $P_0e^{rt}=S$, on utilise :",
+      "choices": [
+        "le logarithme",
+        "une factorielle",
+        "une intégrale"
+      ],
+      "answer": 0,
+      "explanation": "Le logarithme permet d’isoler l’inconnue placée dans l’exposant.",
       "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles"
     }
   ]

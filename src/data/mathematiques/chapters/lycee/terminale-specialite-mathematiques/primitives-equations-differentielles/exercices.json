@@ -4,27 +4,34 @@
       "id": "tle-ed-n1-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles",
       "title": "Primitive polynomiale",
-      "statement": "Donner une primitive de f(x)=3x²-4.",
-      "consigne": "Justifier les étapes utiles.",
+      "statement": "Déterminer l’ensemble des primitives de $f(x)=6x^2-4x+3$ sur $\\mathbb{R}$. On attend une application directe, correctement justifiée, avec un contrôle final.",
+      "questions": [
+        "Donner la famille complète des primitives."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Déterminer des primitives de fonctions usuelles et de formes simples."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la notion principale.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier le domaine de définition et les hypothèses.",
-        "commonMistake": "Appliquer une formule hors de son domaine."
+        "clue": "Identifier le type exact d’équation différentielle.",
+        "method": "Écrire d’abord la famille générale.",
+        "reminder": "Contrôler la solution en la dérivant.",
+        "commonMistake": "Ne pas oublier d’utiliser explicitement la condition initiale."
       },
       "correction": [
-        "Une primitive est F(x)=x³-4x.",
-        "Toutes les primitives sont x³-4x+C."
+        "On primitive terme à terme : $2x^3-2x^2+3x+C$, avec $C\\in\\mathbb{R}$. La dérivée de cette expression redonne bien $6x^2-4x+3$.",
+        "Contrôle : dériver la solution proposée, la substituer dans l’équation puis vérifier la condition initiale."
       ],
       "commonMistakes": [],
       "access": {
@@ -39,33 +46,42 @@
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c27"
       ]
     },
     {
       "id": "tle-ed-n1-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles",
-      "title": "Équation y'=2y",
-      "statement": "Résoudre y'=2y.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Vérifier une solution exponentielle",
+      "statement": "Vérifier que $y(x)=5e^{-2x}$ est solution de l’équation différentielle $y'=-2y$ sur $\\mathbb{R}$. On attend une application directe, correctement justifiée, avec un contrôle final.",
+      "questions": [
+        "Calculer $y'$ puis conclure."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Résoudre l’équation différentielle y'=ay."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la notion principale.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier le domaine de définition et les hypothèses.",
-        "commonMistake": "Appliquer une formule hors de son domaine."
+        "clue": "Identifier le type exact d’équation différentielle.",
+        "method": "Écrire d’abord la famille générale.",
+        "reminder": "Contrôler la solution en la dérivant.",
+        "commonMistake": "Ne pas oublier d’utiliser explicitement la condition initiale."
       },
       "correction": [
-        "Les solutions sont y(x)=Ce^{2x}, avec C réel."
+        "On a $y'(x)=-10e^{-2x}=-2\\times5e^{-2x}=-2y(x)$. L’égalité est vraie pour tout réel, donc la fonction est bien solution.",
+        "Contrôle : dériver la solution proposée, la substituer dans l’équation puis vérifier la condition initiale."
       ],
       "commonMistakes": [],
       "access": {
@@ -80,35 +96,145 @@
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-ed-n1-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles",
+      "title": "Condition initiale",
+      "statement": "Résoudre $y'=3y$ avec la condition initiale $y(0)=7$ et écrire la solution sous forme explicite. On attend une application directe, correctement justifiée, avec un contrôle final.",
+      "questions": [
+        "Déterminer la constante et la solution."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Résoudre l’équation différentielle y'=ay+b."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier le type exact d’équation différentielle.",
+        "method": "Écrire d’abord la famille générale.",
+        "reminder": "Contrôler la solution en la dérivant.",
+        "commonMistake": "Ne pas oublier d’utiliser explicitement la condition initiale."
+      },
+      "correction": [
+        "La solution générale est $y(x)=Ce^{3x}$. La condition $y(0)=7$ donne $C=7$, donc $y(x)=7e^{3x}$.",
+        "Contrôle : dériver la solution proposée, la substituer dans l’équation puis vérifier la condition initiale."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N1",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-ed-n1-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles",
+      "title": "Équilibre d’une équation affine",
+      "statement": "Déterminer la solution constante de l’équation $y'=-4y+12$ puis vérifier directement qu’elle convient. On attend une application directe, correctement justifiée, avec un contrôle final.",
+      "questions": [
+        "Déterminer et vérifier la solution constante."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Déterminer une solution vérifiant une condition initiale."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier le type exact d’équation différentielle.",
+        "method": "Écrire d’abord la famille générale.",
+        "reminder": "Contrôler la solution en la dérivant.",
+        "commonMistake": "Ne pas oublier d’utiliser explicitement la condition initiale."
+      },
+      "correction": [
+        "Pour une solution constante, $y'=0$. On résout $0=-4y+12$, soit $y=3$. En substituant, $-4\\times3+12=0$, donc $y=3$ convient.",
+        "Contrôle : dériver la solution proposée, la substituer dans l’équation puis vérifier la condition initiale."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N1",
+        "c27"
       ]
     },
     {
       "id": "tle-ed-n2-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles",
-      "title": "Condition initiale",
-      "statement": "Résoudre y'=-3y avec y(0)=5.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Résoudre $y'=2y-6$",
+      "statement": "Résoudre l’équation différentielle $y'=2y-6$ puis déterminer la solution qui vérifie $y(0)=5$. On fera apparaître la valeur d’équilibre. On attend une démarche structurée qui explicite les hypothèses, les transformations et l’interprétation du résultat.",
+      "questions": [
+        "Écrire la famille générale des solutions.",
+        "Utiliser la condition initiale pour déterminer la solution particulière."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Modéliser une évolution par une équation différentielle et interpréter les paramètres."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la notion principale.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier le domaine de définition et les hypothèses.",
-        "commonMistake": "Appliquer une formule hors de son domaine."
+        "clue": "Identifier le type exact d’équation différentielle.",
+        "method": "Écrire d’abord la famille générale.",
+        "reminder": "Contrôler la solution en la dérivant.",
+        "commonMistake": "Ne pas oublier d’utiliser explicitement la condition initiale."
       },
       "correction": [
-        "Solution générale : y=Ce^{-3x}.",
-        "y(0)=C=5.",
-        "Donc y(x)=5e^{-3x}."
+        "L’équilibre vaut $3$. Les solutions générales sont donc $y(x)=Ce^{2x}+3$.",
+        "La condition $y(0)=5$ donne $C+3=5$, donc $C=2$ et $y(x)=2e^{2x}+3$. Une dérivation directe confirme l’équation.",
+        "Contrôle : dériver la solution proposée, la substituer dans l’équation puis vérifier la condition initiale."
       ],
       "commonMistakes": [],
       "access": {
@@ -117,41 +243,52 @@
         "requiresAccount": false
       },
       "competences": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N2",
+        "c27"
       ]
     },
     {
       "id": "tle-ed-n2-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles",
-      "title": "Équation affine",
-      "statement": "Résoudre y'=2y-6.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Refroidissement d’un liquide",
+      "statement": "Un liquide à $90$ degrés est placé dans une pièce à $20$ degrés. On modélise sa température par $T'=-0.12(T-20)$ et $T(0)=90$, avec le temps en minutes. On attend une démarche structurée qui explicite les hypothèses, les transformations et l’interprétation du résultat.",
+      "questions": [
+        "Résoudre l’équation différentielle et déterminer $T(t)$.",
+        "Exprimer l’instant où $T(t)=40$."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Déterminer des primitives de fonctions usuelles et de formes simples."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
+        "modéliser",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la notion principale.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier le domaine de définition et les hypothèses.",
-        "commonMistake": "Appliquer une formule hors de son domaine."
+        "clue": "Identifier le type exact d’équation différentielle.",
+        "method": "Écrire d’abord la famille générale.",
+        "reminder": "Contrôler la solution en la dérivant.",
+        "commonMistake": "Ne pas oublier d’utiliser explicitement la condition initiale."
       },
       "correction": [
-        "Ici a=2, b=-6.",
-        "Une solution constante est -b/a=3.",
-        "Solutions : y(x)=Ce^{2x}+3."
+        "En posant $u=T-20$, on obtient $u'=-0.12u$, donc $u(t)=Ce^{-0.12t}$. La condition initiale donne $C=70$, d’où $T(t)=20+70e^{-0.12t}$.",
+        "L’équation $40=20+70e^{-0.12t}$ donne $e^{-0.12t}=2/7$, donc $t=-\\ln(2/7)/0.12$. Cette durée est positive et cohérente avec un refroidissement.",
+        "Contrôle : dériver la solution proposée, la substituer dans l’équation puis vérifier la condition initiale."
       ],
       "commonMistakes": [],
       "access": {
@@ -160,42 +297,165 @@
         "requiresAccount": false
       },
       "competences": [
+        "modéliser",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-ed-n2-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles",
+      "title": "Primitive d’une forme composée",
+      "statement": "Sur un intervalle où $2x+3>0$, déterminer une primitive de $f(x)=2/(2x+3)$ puis contrôler le résultat par dérivation. On attend une démarche structurée qui explicite les hypothèses, les transformations et l’interprétation du résultat.",
+      "questions": [
+        "Reconnaître une forme $u'/u$.",
+        "Donner une primitive et la vérifier."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Résoudre l’équation différentielle y'=ay."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "chercher",
+        "calculer",
+        "raisonner"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 15,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier le type exact d’équation différentielle.",
+        "method": "Écrire d’abord la famille générale.",
+        "reminder": "Contrôler la solution en la dérivant.",
+        "commonMistake": "Ne pas oublier d’utiliser explicitement la condition initiale."
+      },
+      "correction": [
+        "Avec $u(x)=2x+3$, on a $u'(x)=2$, donc $f=u'/u$.",
+        "Une primitive est $F(x)=\\ln(2x+3)$. Sa dérivée vaut bien $2/(2x+3)$ sur l’intervalle où l’argument est strictement positif.",
+        "Contrôle : dériver la solution proposée, la substituer dans l’équation puis vérifier la condition initiale."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
         "calculer",
         "raisonner"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N2",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-ed-n2-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles",
+      "title": "Croissance d’une population",
+      "statement": "Une population $P$ vérifie $P'=0.035P$ et $P(0)=1200$. On cherche sa taille après un temps donné et le temps nécessaire pour doubler. On attend une démarche structurée qui explicite les hypothèses, les transformations et l’interprétation du résultat.",
+      "questions": [
+        "Déterminer $P(t)$.",
+        "Exprimer exactement le temps de doublement."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Résoudre l’équation différentielle y'=ay+b."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "modéliser",
+        "représenter",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 15,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier le type exact d’équation différentielle.",
+        "method": "Écrire d’abord la famille générale.",
+        "reminder": "Contrôler la solution en la dérivant.",
+        "commonMistake": "Ne pas oublier d’utiliser explicitement la condition initiale."
+      },
+      "correction": [
+        "Les solutions sont $P(t)=Ce^{0.035t}$ et la condition initiale impose $C=1200$, donc $P(t)=1200e^{0.035t}$.",
+        "Le doublement vérifie $e^{0.035t}=2$, donc $t=\\ln2/0.035$. Le temps obtenu est positif puisque le taux est positif.",
+        "Contrôle : dériver la solution proposée, la substituer dans l’équation puis vérifier la condition initiale."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "modéliser",
+        "représenter",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c27"
       ]
     },
     {
       "id": "tle-ed-n3-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles",
-      "title": "Équilibre",
-      "statement": "Une température vérifie T'=-0,2T+4 et T(0)=60. Déterminer T(t).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Approche d’un équilibre",
+      "statement": "On considère $y'=-0.5y+4$ avec $y(0)=1$. On veut déterminer la solution, étudier son sens de variation et justifier sa limite sans se contenter d’un graphique. On attend une résolution complète de niveau baccalauréat, articulant plusieurs outils et justifiant la cohérence de chaque étape.",
+      "questions": [
+        "Résoudre l’équation avec la condition initiale.",
+        "Étudier le signe de $y'(t)$.",
+        "Déterminer la limite et interpréter la valeur d’équilibre."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Déterminer une solution vérifiant une condition initiale."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
         "modéliser",
-        "calculer"
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 24,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la notion principale.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier le domaine de définition et les hypothèses.",
-        "commonMistake": "Appliquer une formule hors de son domaine."
+        "clue": "Identifier le type exact d’équation différentielle.",
+        "method": "Écrire d’abord la famille générale.",
+        "reminder": "Contrôler la solution en la dérivant.",
+        "commonMistake": "Ne pas oublier d’utiliser explicitement la condition initiale."
       },
       "correction": [
-        "Valeur d'équilibre : -b/a=-4/(-0,2)=20.",
-        "T(t)=Ce^{-0,2t}+20.",
-        "T(0)=60 donne C=40.",
-        "Donc T(t)=40e^{-0,2t}+20."
+        "L’équilibre vaut $8$, donc $y(t)=Ce^{-0.5t}+8$. La condition $y(0)=1$ donne $C=-7$, d’où $y(t)=8-7e^{-0.5t}$.",
+        "On a $y'(t)=3.5e^{-0.5t}>0$, donc la solution est strictement croissante.",
+        "Comme $e^{-0.5t}\\to0$, on obtient $y(t)\\to8$. La valeur $8$ est l’équilibre stable vers lequel la trajectoire converge.",
+        "Contrôle : dériver la solution proposée, la substituer dans l’équation puis vérifier la condition initiale."
       ],
       "commonMistakes": [],
       "access": {
@@ -204,41 +464,60 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
         "modéliser",
-        "calculer"
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N3",
+        "c27"
       ]
     },
     {
       "id": "tle-ed-n3-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles",
-      "title": "Vérification",
-      "statement": "Vérifier que y(x)=4e^{-x}+3 est solution de y'=-y+3.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Deux modèles à comparer",
+      "statement": "Deux grandeurs suivent $A'=0.04A$ avec $A(0)=500$ et $B'=0.02B+6$ avec $B(0)=500$. On veut comparer leurs trajectoires et déterminer si elles peuvent se recroiser après l’instant initial. On attend une résolution complète de niveau baccalauréat, articulant plusieurs outils et justifiant la cohérence de chaque étape.",
+      "questions": [
+        "Déterminer $A(t)$ et $B(t)$.",
+        "Étudier l’équation $A(t)=B(t)$.",
+        "Proposer une stratégie analytique ou numérique justifiée pour décider du nombre de croisements."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Modéliser une évolution par une équation différentielle et interpréter les paramètres."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 24,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier la notion principale.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Vérifier le domaine de définition et les hypothèses.",
-        "commonMistake": "Appliquer une formule hors de son domaine."
+        "clue": "Identifier le type exact d’équation différentielle.",
+        "method": "Écrire d’abord la famille générale.",
+        "reminder": "Contrôler la solution en la dérivant.",
+        "commonMistake": "Ne pas oublier d’utiliser explicitement la condition initiale."
       },
       "correction": [
-        "y'(x)=-4e^{-x}.",
-        "-y+3=-(4e^{-x}+3)+3=-4e^{-x}.",
-        "Les deux membres sont égaux : la fonction est solution."
+        "On obtient $A(t)=500e^{0.04t}$. Pour $B$, l’équilibre vaut $-300$, donc $B(t)=Ce^{0.02t}-300$ et $B(0)=500$ donne $C=800$, soit $B(t)=800e^{0.02t}-300$.",
+        "L’égalité devient $500e^{0.04t}=800e^{0.02t}-300$. En posant $u=e^{0.02t}>0$, on obtient $500u^2-800u+300=0$.",
+        "Le discriminant vaut $40,000$ et les racines sont $u=1$ et $u=0.6$. Comme $t\\geq0$ impose $u\\geq1$, seul $u=1$ est admissible : les deux modèles ne se recroisent donc pas après $t=0$.",
+        "Contrôle : dériver la solution proposée, la substituer dans l’équation puis vérifier la condition initiale."
       ],
       "commonMistakes": [],
       "access": {
@@ -247,13 +526,142 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N3",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-ed-n3-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles",
+      "title": "Identifier une loi à partir de données",
+      "statement": "Une grandeur $y$ est supposée vérifier $y'=ay+b$. On observe $y(0)=10$, $y'(0)=5$ et une valeur d’équilibre égale à $30$. On veut retrouver les paramètres du modèle puis prévoir l’évolution. On attend une résolution complète de niveau baccalauréat, articulant plusieurs outils et justifiant la cohérence de chaque étape.",
+      "questions": [
+        "Utiliser l’équilibre pour relier $a$ et $b$.",
+        "Utiliser $y'(0)=5$ pour déterminer $a$ puis $b$.",
+        "Résoudre l’équation différentielle avec la condition initiale et décrire l’évolution."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "data-analysis",
+      "curriculumItems": [
+        "Déterminer des primitives de fonctions usuelles et de formes simples."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier le type exact d’équation différentielle.",
+        "method": "Écrire d’abord la famille générale.",
+        "reminder": "Contrôler la solution en la dérivant.",
+        "commonMistake": "Ne pas oublier d’utiliser explicitement la condition initiale."
+      },
+      "correction": [
+        "La valeur d’équilibre $30$ vérifie $0=30a+b$, donc $b=-30a$.",
+        "À l’instant initial, $5=10a+b=10a-30a=-20a$, donc $a=-1/4$ et $b=15/2$.",
+        "La solution générale s’écrit $y(t)=Ce^{-t/4}+30$. Comme $y(0)=10$, $C=-20$. Ainsi $y(t)=30-20e^{-t/4}$, fonction croissante qui tend vers $30$.",
+        "Contrôle : dériver la solution proposée, la substituer dans l’équation puis vérifier la condition initiale."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-ed-n3-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/primitives-equations-differentielles",
+      "title": "Méthode d’Euler et contrôle",
+      "statement": "On considère $y'=y$ avec $y(0)=1$. On approche la solution par la méthode d’Euler avec un pas $h=0.25$ : $y_{n+1}=y_n+h y_n$. On veut comparer l’approximation à la solution exacte. On attend une résolution complète de niveau baccalauréat, articulant plusieurs outils et justifiant la cohérence de chaque étape.",
+      "questions": [
+        "Calculer $y_1$, $y_2$ et $y_4$.",
+        "Déterminer la solution exacte et sa valeur en $t=1$.",
+        "Comparer les deux valeurs et expliquer l’origine de l’écart."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Résoudre l’équation différentielle y'=ay."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier le type exact d’équation différentielle.",
+        "method": "Écrire d’abord la famille générale.",
+        "reminder": "Contrôler la solution en la dérivant.",
+        "commonMistake": "Ne pas oublier d’utiliser explicitement la condition initiale."
+      },
+      "correction": [
+        "La relation devient $y_{n+1}=1.25y_n$. Ainsi $y_1=1.25$, $y_2=1.5625$ et $y_4=1.25^4$.",
+        "La solution exacte est $y(t)=e^t$, donc $y(1)=e$.",
+        "La méthode d’Euler remplace localement la courbe par sa tangente. Avec un pas fini, les erreurs locales s’accumulent ; réduire $h$ améliore généralement l’approximation.",
+        "Contrôle : dériver la solution proposée, la substituer dans l’équation puis vérifier la condition initiale."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c27"
       ]
     }
   ]

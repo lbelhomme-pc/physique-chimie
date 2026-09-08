@@ -1,83 +1,109 @@
+% Mathématiques Terminale spécialité — V3 LaTeX
+% Primitives et équations différentielles
+
 \section{Objectifs}
 \begin{itemize}
-\item Reconnaître et déterminer des primitives.
-\item Résoudre les équations différentielles de référence.
-\item Utiliser une condition initiale.
-\item Interpréter une équation différentielle dans un modèle.
+\item Déterminer des primitives usuelles.
+\item Résoudre les équations différentielles $y'=ay$ et $y'=ay+b$.
+\item Déterminer une solution particulière à partir d’une condition initiale.
+\item Construire et interpréter un modèle d’évolution continue.
 \end{itemize}
 
-\section{1. Primitive}
-Une fonction $F$ est une primitive de $f$ sur un intervalle $I$ si
-\[
-F'(x)=f(x)
-\]
-pour tout $x\in I$.
+\section{Repères et enjeux du chapitre}
+Chercher une primitive consiste à inverser localement la dérivation. Les équations différentielles ajoutent une contrainte globale : on recherche des fonctions dont la dérivée est reliée à la fonction elle-même. Les modèles de croissance, décroissance, refroidissement ou charge électrique apparaissent naturellement sous cette forme.
 
-Si $F$ est une primitive de $f$, toutes les primitives sont
+\section{1. Primitive d’une fonction}
+Soit $f$ définie sur un intervalle $I$. Une fonction $F$ est une primitive de $f$ sur $I$ lorsque
 \[
-F(x)+C,\qquad C\in\mathbb R.
+F'(x)=f(x)\qquad\text{pour tout }x\in I.
 \]
+Si $F$ est une primitive, alors toutes les primitives sont de la forme $F+C$, où $C$ est une constante réelle. Deux primitives d’une même fonction sur un intervalle diffèrent donc d’une constante.
 
-\section{2. Primitives usuelles}
-Sur les domaines adaptés :
-\[
-x^n\longmapsto \frac{x^{n+1}}{n+1}\quad(n\ne-1),
-\]
-\[
-\frac1x\longmapsto\ln x\quad(x>0),
-\]
-\[
-e^x\longmapsto e^x,
-\]
-\[
-\cos x\longmapsto\sin x,
-\]
-\[
-\sin x\longmapsto-\cos x.
-\]
+\begin{exemple}
+Une primitive de $f(x)=3x^2-4$ est $F(x)=x^3-4x$. L’ensemble des primitives est $x\mapsto x^3-4x+C$.
+\end{exemple}
 
-\section{3. Équation $y'=ay$}
-Pour un réel $a$, les solutions sont
+\section{2. Primitives usuelles et reconnaissance}
+On utilise les dérivées connues dans le sens inverse :
 \[
-y(x)=Ce^{ax},\qquad C\in\mathbb R.
+x^n\longmapsto \frac{x^{n+1}}{n+1}\quad(n\neq-1),\qquad e^x\longmapsto e^x,\qquad \frac1x\longmapsto \ln x
 \]
+sur les intervalles où ces expressions sont définies. Pour une forme composée, on recherche souvent un facteur proportionnel à la dérivée de l’expression intérieure.
 
-Une condition initiale $y(x_0)=y_0$ détermine une unique valeur de $C$.
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/primitives-equations-differentielles-1.svg}{Famille de primitives d’une même fonction.}{Plusieurs courbes translatées verticalement illustrent que deux primitives d’une même fonction diffèrent d’une constante.}
 
-\section{4. Équation $y'=ay+b$}
-Si $a\ne0$, une solution constante est
+\section{3. Équation différentielle $y'=ay$}
+Lorsque $a$ est réel, les solutions de
 \[
-y_p=-\frac ba.
+y'=ay
 \]
+sont exactement
+\[
+y(x)=Ce^{ax},\qquad C\in\mathbb{R}.
+\]
+La vérification est immédiate : la dérivée vaut $aCe^{ax}=ay(x)$. La constante $C$ fixe l’échelle et le signe de la solution. Si $a>0$, une solution positive non nulle croît exponentiellement ; si $a<0$, elle décroît vers zéro.
 
-Les solutions générales sont
+\section{4. Condition initiale}
+Une donnée $y(x_0)=y_0$ sélectionne une unique solution dans la famille. Pour $y'=ay$,
+\[
+Ce^{ax_0}=y_0,\qquad C=y_0e^{-ax_0}.
+\]
+La condition initiale traduit souvent une mesure à l’instant de départ. Son rôle est donc à la fois mathématique et physique : elle fixe la trajectoire parmi toutes celles compatibles avec la loi d’évolution.
+
+\section{5. Équation différentielle $y'=ay+b$}
+Pour $a\neq0$, on cherche d’abord une solution constante $y_p=-b/a$. En posant $z=y-y_p$, on obtient $z'=az$. Les solutions générales sont donc
 \[
 y(x)=Ce^{ax}-\frac ba.
 \]
+Le terme $-b/a$ représente une valeur d’équilibre : lorsque $a<0$, les solutions tendent vers cet équilibre lorsque $x$ tend vers $+\infty$.
 
-Si $a=0$, l'équation devient $y'=b$ et
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/primitives-equations-differentielles-2.svg}{Solutions d’une équation différentielle avec équilibre.}{Plusieurs trajectoires exponentielles convergent vers une droite horizontale représentant la valeur d’équilibre.}
+
+\section{6. Modèle de refroidissement}
+Un modèle de Newton peut s’écrire
 \[
-y(x)=bx+C.
+T'(t)=-k\bigl(T(t)-T_e\bigr),\qquad k>0,
 \]
+où $T_e$ est la température extérieure. En posant $u(t)=T(t)-T_e$, on obtient $u'=-ku$, donc
+\[
+T(t)=T_e+Ce^{-kt}.
+\]
+La condition initiale fixe $C$. Le modèle montre que l’écart à l’environnement décroît exponentiellement et ne change pas de signe.
 
-\section{5. Vérification}
-Une solution proposée doit être vérifiée en calculant sa dérivée et en la remplaçant dans l'équation.
+\section{7. Modèle de croissance et temps de seuil}
+Si une population vérifie $P'=rP$ avec $r>0$, alors
+\[
+P(t)=P_0e^{rt}
+\]
+lorsque $P(0)=P_0$. Pour déterminer un instant où $P(t)=S$, on résout
+\[
+P_0e^{rt}=S,
+\]
+ce qui conduit au logarithme. Ainsi les équations différentielles, l’exponentielle et le logarithme forment une chaîne d’outils cohérente pour modéliser une évolution continue.
 
-\section{6. Modélisation}
-Les équations différentielles décrivent des phénomènes où une vitesse de variation dépend de l'état :
-\begin{itemize}
-\item croissance ou décroissance exponentielle ;
-\item refroidissement simplifié ;
-\item évolution vers une valeur d'équilibre.
-\end{itemize}
+\section{8. Vérification et interprétation}
+Une expression n’est une solution que si elle est dérivable sur l’intervalle considéré et satisfait l’équation pour tout point de cet intervalle. Dans un contexte, on vérifie en plus le signe, les unités et le comportement à long terme. Une constante d’intégration ou une constante issue de la condition initiale doit recevoir une interprétation lorsque le modèle le permet.
+
+\section{Méthode de résolution et rédaction}
+Pour une primitive, on reconnaît d’abord une dérivée usuelle ou une forme composée. Pour une équation différentielle, on identifie le type, on écrit la famille générale des solutions puis on utilise la condition initiale pour fixer la constante.
+Une solution complète distingue les données, la propriété choisie, les calculs et la conclusion. Lorsque plusieurs méthodes sont possibles, on privilégie celle qui rend visibles les hypothèses et qui permet un contrôle simple du résultat.
+
+Une solution d’équation différentielle se contrôle par dérivation et substitution dans l’équation. La condition initiale doit être vérifiée séparément ; elle ne peut pas être supposée satisfaite.
+Dans un exercice de type baccalauréat, il faut également expliquer le sens des constantes ou des bornes obtenues. Une valeur numérique isolée n’est pas une interprétation : on précise l’unité, le signe, l’intervalle de validité et le lien avec la situation.
+
+\section{Connexions avec les autres chapitres}
+Les solutions de $y'=ay$ reposent sur l’exponentielle. Le logarithme intervient pour déterminer un temps de seuil. Les primitives servent ensuite au calcul intégral, tandis que l’algorithmique permet d’approcher ou de visualiser des trajectoires lorsque la résolution exacte n’est pas disponible.
+Les outils de ce chapitre se combinent avec les fonctions usuelles, l’exponentielle, le logarithme, les probabilités et l’algorithmique. Une question peut demander une première étape de calcul exact, une étude qualitative puis une approximation numérique.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Donner une primitive unique au lieu d'une famille $F+C$.
-\item Oublier la constante $C$.
-\item Utiliser la formule de $y'=ay+b$ avec $a=0$.
-\item Appliquer la condition initiale avant d'avoir écrit la solution générale.
+\item Oublier la constante additive dans une famille de primitives.
+\item Confondre une primitive particulière et l’ensemble des primitives.
+\item Écrire la mauvaise solution générale de $y'=ay+b$.
+\item Utiliser la condition initiale avant d’avoir écrit la famille générale.
 \end{itemize}
 
 \section{À retenir}
-Dériver et primitiver sont des opérations inverses à une constante près ; les équations $y'=ay$ et $y'=ay+b$ se résolvent grâce à l'exponentielle.
+\begin{aretenir}
+Les solutions de $y'=ay$ sont $y(x)=Ce^{ax}$. Pour $a\neq0$, les solutions de $y'=ay+b$ sont $y(x)=Ce^{ax}-b/a$. Une condition initiale détermine la constante $C$.
+\end{aretenir}

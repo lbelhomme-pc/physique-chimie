@@ -1,83 +1,104 @@
+% Mathématiques Terminale spécialité — V3 LaTeX
+% Calcul intégral
+
 \section{Objectifs}
 \begin{itemize}
-\item Relier intégrale et primitive.
-\item Calculer des intégrales exactes.
-\item Utiliser les propriétés de l'intégrale.
-\item Interpréter une intégrale géométriquement.
+\item Calculer une intégrale à l’aide d’une primitive.
+\item Utiliser linéarité et relation de Chasles.
+\item Interpréter une intégrale comme aire algébrique.
+\item Calculer une valeur moyenne et résoudre des problèmes d’accumulation.
 \end{itemize}
 
-\section{1. Définition par les primitives}
-Si $f$ est continue sur $[a,b]$ et si $F$ est une primitive de $f$, alors
+\section{Repères et enjeux du chapitre}
+L’intégrale mesure une accumulation continue. Elle relie une fonction à ses primitives, permet de calculer des aires et fournit une valeur moyenne adaptée aux grandeurs variables. Le calcul exact et l’interprétation géométrique doivent rester associés : une intégrale est un nombre orienté, pas automatiquement une aire positive.
+
+\section{1. Intégrale et primitives}
+Pour une fonction continue $f$ sur un intervalle contenant $a$ et $b$, si $F$ est une primitive de $f$, on définit
 \[
 \int_a^b f(x)\,dx=F(b)-F(a).
 \]
+Le résultat ne dépend pas de la primitive choisie car deux primitives diffèrent d’une constante qui disparaît dans la différence.
 
-On note parfois
+\begin{exemple}
+Pour $f(x)=3x^2$,
 \[
-[F(x)]_a^b=F(b)-F(a).
+\int_0^2 3x^2\,dx=[x^3]_0^2=8.
 \]
+\end{exemple}
 
-\section{2. Linéarité}
-Pour des réels $\alpha,\beta$ :
-$$\int_a^b(\alpha f+\beta g)
-=\alpha\int_a^bf+\beta\int_a^bg.$$
-
-\section{3. Relation de Chasles}
-Pour tout réel $c$ :
+\section{2. Orientation et relation de Chasles}
+L’intégrale est orientée :
 \[
-\int_a^bf=\int_a^cf+\int_c^bf.
+\int_b^a f(x)\,dx=-\int_a^b f(x)\,dx,\qquad \int_a^a f(x)\,dx=0.
 \]
-
-Et
+Pour tout réel $c$ de l’intervalle,
 \[
-\int_b^af=-\int_a^bf.
+\int_a^b f=\int_a^c f+\int_c^b f.
 \]
+Cette relation de Chasles permet de découper un calcul lorsque l’expression ou le signe de la fonction change.
 
-\section{4. Positivité}
-Si $f(x)\ge0$ sur $[a,b]$, alors
+\section{3. Linéarité et comparaison}
+Pour des réels $\alpha$ et $\beta$,
 \[
-\int_a^b f(x)\,dx\ge0.
+\int_a^b(\alpha f+\beta g)=\alpha\int_a^b f+\beta\int_a^b g.
 \]
+Si $f\geq0$ sur $[a,b]$ avec $a\leq b$, alors
+\[
+\int_a^b f(x)\,dx\geq0.
+\]
+Plus généralement, si $f\leq g$ sur l’intervalle, alors l’intégrale de $f$ est inférieure ou égale à celle de $g$.
 
-Si $f\le g$ :
-\[
-\int_a^b f\le\int_a^b g.
-\]
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/calcul-integral-1.svg}{Aire sous une courbe positive.}{La zone comprise entre la courbe, l’axe horizontal et deux bornes illustre l’interprétation positive d’une intégrale.}
 
-\section{5. Aire}
-Lorsque $f\ge0$ sur $[a,b]$, l'intégrale
-\[
-\int_a^b f(x)\,dx
-\]
-est l'aire comprise entre la courbe, l'axe des abscisses et les droites $x=a$, $x=b$.
+\section{4. Aire géométrique et aire algébrique}
+Lorsque $f$ est positive sur $[a,b]$, l’intégrale représente l’aire située entre sa courbe et l’axe des abscisses, avec l’unité d’aire correspondante. Si $f$ devient négative, l’intégrale compte négativement la partie située sous l’axe. Pour obtenir une aire géométrique totale, on intègre alors $|f|$ ou on découpe l’intervalle selon les changements de signe.
 
-Pour l'aire entre deux courbes $f$ et $g$ avec $f\ge g$ :
+\section{5. Aire entre deux courbes}
+Si $f(x)\geq g(x)$ sur $[a,b]$, l’aire comprise entre leurs courbes vaut
 \[
-\mathcal A=\int_a^b(f-g).
+\mathcal{A}=\int_a^b\bigl(f(x)-g(x)\bigr)\,dx.
 \]
+Il faut donc commencer par déterminer les points d’intersection et la fonction placée au-dessus. Si l’ordre change, on découpe l’intervalle avec Chasles.
+
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/calcul-integral-2.svg}{Aire entre deux courbes.}{Une zone hachurée entre une courbe supérieure et une courbe inférieure montre l’intégration de leur différence.}
 
 \section{6. Valeur moyenne}
-La valeur moyenne de $f$ sur $[a,b]$ est
+La valeur moyenne de $f$ sur $[a,b]$, avec $a<b$, est
 \[
 \mu=\frac1{b-a}\int_a^b f(x)\,dx.
 \]
+Cette formule généralise la moyenne arithmétique à une grandeur continue. Géométriquement, le rectangle de base $b-a$ et de hauteur $\mu$ possède la même aire algébrique que la zone associée à $f$.
 
-\section{7. Exemples}
+\section{7. Accumulation et variation}
+Si une grandeur $Q$ possède un taux instantané $q(t)$, alors une variation s’écrit souvent
 \[
-\int_0^1 3x^2\,dx=[x^3]_0^1=1.
+Q(b)-Q(a)=\int_a^b q(t)\,dt.
 \]
+Ainsi, un débit intégré donne un volume, une vitesse intégrée donne un déplacement et une puissance intégrée donne une énergie. Les unités permettent un contrôle immédiat du modèle.
 
-Et
-\[
-\int_0^\pi \sin x\,dx=[-\cos x]_0^\pi=2.
-\]
+\section{8. Approximations numériques}
+Lorsque l’on ne dispose pas d’une primitive simple, on peut approcher l’intégrale par rectangles ou trapèzes. Le calcul numérique doit être présenté comme une approximation et non comme une égalité exacte. Une représentation graphique aide à prévoir le signe et l’ordre de grandeur du résultat avant tout calcul.
+
+\section{Méthode de résolution et rédaction}
+On identifie d’abord une primitive adaptée, puis on applique la formule aux bornes dans le bon ordre. Pour une aire géométrique, on étudie le signe de la fonction ou la position relative des courbes avant d’intégrer.
+Une solution complète distingue les données, la propriété choisie, les calculs et la conclusion. Lorsque plusieurs méthodes sont possibles, on privilégie celle qui rend visibles les hypothèses et qui permet un contrôle simple du résultat.
+
+Le signe d’une intégrale doit être cohérent avec celui de la fonction sur l’intervalle. Une aire géométrique est positive ; si une intégrale ressort négative, cela peut être normal pour une aire algébrique mais pas pour une aire demandée.
+Dans un exercice de type baccalauréat, il faut également expliquer le sens des constantes ou des bornes obtenues. Une valeur numérique isolée n’est pas une interprétation : on précise l’unité, le signe, l’intervalle de validité et le lien avec la situation.
+
+\section{Connexions avec les autres chapitres}
+Le calcul intégral repose sur les primitives et réutilise donc exponentielle, logarithme et trigonométrie. Il intervient aussi en probabilités pour les densités et dans les modèles physiques pour passer d’un débit à une quantité accumulée.
+Les outils de ce chapitre se combinent avec les fonctions usuelles, l’exponentielle, le logarithme, les probabilités et l’algorithmique. Une question peut demander une première étape de calcul exact, une étude qualitative puis une approximation numérique.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Oublier le « borne supérieure moins borne inférieure ».
+\item Inverser les bornes sans changer le signe.
 \item Confondre intégrale et aire géométrique lorsque la fonction change de signe.
-\item Oublier le facteur $1/(b-a)$ pour la valeur moyenne.
+\item Oublier de diviser par la longueur de l’intervalle pour une valeur moyenne.
+\item Utiliser une primitive incorrecte ou oublier d’évaluer les deux bornes.
 \end{itemize}
 
 \section{À retenir}
-Pour une fonction continue, l'intégrale se calcule grâce à une primitive et combine interprétation analytique et géométrique.
+\begin{aretenir}
+Si $F'=f$, alors $\int_a^b f(x)\,dx=F(b)-F(a)$. L’intégrale est linéaire et additive par Chasles. La valeur moyenne vaut $\frac1{b-a}\int_a^b f(x)\,dx$.
+\end{aretenir}
