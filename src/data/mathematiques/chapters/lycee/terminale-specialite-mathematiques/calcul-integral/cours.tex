@@ -90,6 +90,17 @@ Dans un exercice de type baccalauréat, il faut également expliquer le sens des
 Le calcul intégral repose sur les primitives et réutilise donc exponentielle, logarithme et trigonométrie. Il intervient aussi en probabilités pour les densités et dans les modèles physiques pour passer d’un débit à une quantité accumulée.
 Les outils de ce chapitre se combinent avec les fonctions usuelles, l’exponentielle, le logarithme, les probabilités et l’algorithmique. Une question peut demander une première étape de calcul exact, une étude qualitative puis une approximation numérique.
 
+\section{Approfondissement : encadrer avant de calculer}
+L’intégrale possède aussi un rôle d’encadrement. Si $m\leq f(x)\leq M$ sur $[a,b]$ avec $a<b$, alors
+\[
+m(b-a)\leq\int_a^b f(x)\,dx\leq M(b-a).
+\]
+Ce résultat permet de contrôler un calcul exact ou une approximation numérique. Une valeur située hors de cet intervalle signale immédiatement une erreur de primitive, de borne ou de signe.
+
+Pour une fonction monotone, les rectangles à gauche et à droite fournissent des encadrements naturels de l’aire. Lorsque la fonction est croissante et positive, la somme à gauche sous-estime l’intégrale tandis que la somme à droite la surestime. Cette lecture graphique explique pourquoi le raffinement d’un maillage améliore l’approximation.
+
+Dans les problèmes appliqués, les unités sont un outil de vérification puissant. Si $f$ est un débit en litres par minute et si la variable est un temps en minutes, l’intégrale possède une unité de volume en litres. Si le résultat final conserve une unité de débit, le modèle ou l’interprétation est incomplet.
+
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Inverser les bornes sans changer le signe.
