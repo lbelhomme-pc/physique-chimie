@@ -9,6 +9,29 @@ const SUPPORTED_ENVIRONMENTS = new Set(["itemize","enumerate","tabular","array",
 const readJson = (file) => JSON.parse(readFileSync(file, "utf8"));
 const count = (text, regexp) => [...text.matchAll(regexp)].length;
 const correctionText = (exercise) => Array.isArray(exercise.correction) ? exercise.correction.join(" ") : String(exercise.correction ?? "");
+
+function stripLatexAndCode(value) {
+  return String(value ?? "")
+    .replace(/`[^`]*`/g, " ")
+    .replace(/\$\$[\s\S]*?\$\$/g, " ")
+    .replace(/\$[^$\n]+\$/g, " ")
+    .replace(/\\\\\([\s\S]*?\\\\\)/g, " ")
+    .replace(/\\\\\[[\s\S]*?\\\\\]/g, " ");
+}
+
+function rawMathIssue(value) {
+  const remaining = stripLatexAndCode(value);
+  const suspicious = remaining.match(/(?:\d+[.,]\d+|\d+\s*%|\d+\s*[×÷=<>≈≤≥+−*/]\s*\d+|[A-Za-z]\s*[∩∪=<>≈≤≥]\s*[A-Za-z0-9]|[∩∪√∞])/u);
+  return suspicious?.[0] ?? null;
+}
+
+function validateLatexFields(label, fields) {
+  for (const [field, value] of fields) {
+    if (typeof value !== "string") continue;
+    const issue = rawMathIssue(value);
+    if (issue) errors.push(label + ": écriture mathématique hors LaTeX dans " + field + " -> " + issue);
+  }
+}
 const CANONICAL_SKILLS = ["chercher","modéliser","représenter","raisonner","calculer","communiquer"];
 
 function environmentBalance(tex) {
@@ -119,6 +142,16 @@ for (const dir of chapterDirs) {
     if (statementLength < minStatement) errors.push(slug + ": énoncé trop court -> " + exercise.id + " (" + statementLength + " < " + minStatement + ")");
     if (correctionLength < minCorrection) errors.push(slug + ": correction trop courte -> " + exercise.id + " (" + correctionLength + " < " + minCorrection + ")");
     if (Array.isArray(exercise.correction) && exercise.correction.length < questions.length) errors.push(slug + ": correction non alignée -> " + exercise.id);
+    validateLatexFields(slug + "/" + exercise.id, [
+      ["statement", exercise.statement],
+      ["consigne", exercise.consigne],
+      ...questions.map((value, index) => ["questions[" + index + "]", typeof value === "string" ? value : value?.text ?? value?.question]),
+      ["hint clue", exercise.hints?.clue],
+      ["hint method", exercise.hints?.method],
+      ["hint reminder", exercise.hints?.reminder],
+      ["hint commonMistake", exercise.hints?.commonMistake],
+      ...((Array.isArray(exercise.correction) ? exercise.correction : [exercise.correction]).map((value, index) => ["correction[" + index + "]", value])),
+    ]);
     if ((exercise.level === "N2" || exercise.level === "N3") && statementLength >= 100 && correctionLength >= 140) developed += 1;
   }
   for (const level of ["N1","N2","N3"]) if (levels[level] !== 4) errors.push(slug + ": " + level + "=" + levels[level] + " au lieu de 4");
@@ -131,12 +164,22 @@ for (const dir of chapterDirs) {
 
   const quiz = readJson(quizFile).questions ?? [];
   const quizIds = new Set();
+  const quizExplanations = new Set();
   if (quiz.length < 10) errors.push(slug + ": quiz insuffisant (" + quiz.length + " < 10)");
   for (const item of quiz) {
     if (quizIds.has(item.id)) errors.push(slug + ": id quiz dupliqué -> " + item.id);
     quizIds.add(item.id);
     if (!Array.isArray(item.choices) || item.choices.length < 2) errors.push(slug + ": choix quiz insuffisants -> " + item.id);
-    if (String(item.explanation ?? "").trim().length < 25) errors.push(slug + ": explication quiz trop courte -> " + item.id);
+    const explanation = String(item.explanation ?? "").trim();
+    if (explanation.length < 25) errors.push(slug + ": explication quiz trop courte -> " + item.id);
+    const normalizedExplanation = explanation.toLocaleLowerCase("fr").replace(/\s+/g, " ");
+    if (normalizedExplanation && quizExplanations.has(normalizedExplanation)) errors.push(slug + ": explication quiz dupliquée -> " + item.id);
+    quizExplanations.add(normalizedExplanation);
+    validateLatexFields(slug + "/" + item.id, [
+      ["question", item.question ?? item.prompt],
+      ...((item.choices ?? []).map((value, index) => ["choices[" + index + "]", value])),
+      ["explanation", item.explanation],
+    ]);
   }
 
   const cards = readJson(flashFile).cards ?? [];
@@ -146,6 +189,7 @@ for (const dir of chapterDirs) {
     if (flashIds.has(card.id)) errors.push(slug + ": id flashcard dupliqué -> " + card.id);
     flashIds.add(card.id);
     if (String(card.front ?? "").trim().length < 2 || String(card.back ?? "").trim().length < 2) errors.push(slug + ": flashcard vide -> " + card.id);
+    validateLatexFields(slug + "/" + card.id, [["front", card.front], ["back", card.back]]);
   }
 
   metrics.push({ slug, significant, sections, figures, exercises: exercises.length, levels, developed, pedagogicalTypes: types.size, skills: skills.size, curriculumCoverage: Math.round(curriculumRate * 100), quiz: quiz.length, flashcards: cards.length });
