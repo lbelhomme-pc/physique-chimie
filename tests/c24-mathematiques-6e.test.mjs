@@ -11,20 +11,20 @@ const levelDir = path.join(root, "src/data/mathematiques/chapters/college", leve
 const mapping = JSON.parse(
   readFileSync(path.join(root, "src/data/mathematiques/programmes/cycle3-6e-2025.mapping.json"), "utf8"),
 );
-const expectedQuizFlashcards = {
-  "nombres-entiers-decimaux": [10, 12],
-  "fractions-quotients-pourcentages": [10, 12],
-  "algebre-programmes-calcul": [10, 12],
-  "longueurs-perimetres": [10, 12],
-  "aires-volumes": [10, 12],
-  "temps-durees": [10, 12],
-  "configurations-planes": [10, 12],
-  "angles-triangles-symetrie": [5, 6],
-  "vision-espace-solides": [5, 6],
-  "donnees-tableaux-graphiques": [5, 6],
-  "probabilites": [5, 6],
-  "proportionnalite-echelles": [5, 6],
-  "pensee-informatique": [5, 6],
+const expectedResources = {
+  "nombres-entiers-decimaux": [12, 10, 12],
+  "fractions-quotients-pourcentages": [12, 10, 12],
+  "algebre-programmes-calcul": [12, 10, 12],
+  "longueurs-perimetres": [12, 10, 12],
+  "aires-volumes": [12, 10, 12],
+  "temps-durees": [12, 10, 12],
+  "configurations-planes": [12, 10, 12],
+  "angles-triangles-symetrie": [6, 5, 6],
+  "vision-espace-solides": [6, 5, 6],
+  "donnees-tableaux-graphiques": [6, 5, 6],
+  "probabilites": [6, 5, 6],
+  "proportionnalite-echelles": [6, 5, 6],
+  "pensee-informatique": [6, 5, 6],
 };
 
 
@@ -84,9 +84,9 @@ describe("C24 — mathématiques 6e programme 2025", () => {
       assert.equal(meta.programmeVersion, "mathematiques-cycle3-2025");
       assert.equal(meta.applicableFrom, "2025-2026");
       assert.equal(meta.seo.noindex, false);
-      assert.equal(exercices.length, 12);
+      const [expectedExercises, expectedQuiz, expectedFlashcards] = expectedResources[slug];
+      assert.equal(exercices.length, expectedExercises, `${slug}: exercices`);
       assert.deepEqual([...new Set(exercices.map((item) => item.level))].sort(), ["N1", "N2", "N3"]);
-      const [expectedQuiz, expectedFlashcards] = expectedQuizFlashcards[slug];
       assert.equal(questions.length, expectedQuiz, `${slug}: quiz`);
       assert.equal(cards.length, expectedFlashcards, `${slug}: flashcards`);
       assert.ok(exercices.every((item) => Array.isArray(item.correction) && item.correction.length > 0));
