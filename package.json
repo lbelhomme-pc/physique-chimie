@@ -28,12 +28,13 @@
     "ci:dist": "npm run build && npm run audit:dist:fast",
     "ci:a11y": "npm run build && npm run audit:dist:a11y",
     "ci": "npm run ci:quality && npm run ci:dist",
-    "audit:maths-v3": "node scripts/audit-maths-v3-latex.mjs && node scripts/audit-maths-v3-5e-latex.mjs && node scripts/audit-maths-v3-4e-latex.mjs && node scripts/audit-maths-v3-3e-latex.mjs && node scripts/audit-maths-v3-c26-latex.mjs && node scripts/audit-maths-v3-c27-latex.mjs && node scripts/audit-maths-latex-all.mjs",
+    "audit:maths-v3": "node scripts/audit-maths-v3-latex.mjs && node scripts/audit-maths-v3-5e-latex.mjs && node scripts/audit-maths-v3-4e-latex.mjs && node scripts/audit-maths-v3-3e-latex.mjs && node scripts/audit-maths-v3-c26-latex.mjs && node scripts/audit-maths-v3-c27-latex.mjs && node scripts/audit-maths-v3-c28-latex.mjs && node scripts/audit-maths-latex-all.mjs",
     "audit:maths-latex-all": "node scripts/audit-maths-latex-all.mjs",
     "audit:maths-v3-4e": "node scripts/audit-maths-v3-4e-latex.mjs",
     "audit:maths-v3-3e": "node scripts/audit-maths-v3-3e-latex.mjs",
     "audit:maths-v3-c26": "node scripts/audit-maths-v3-c26-latex.mjs",
-    "audit:maths-v3-c27": "node scripts/audit-maths-v3-c27-latex.mjs"
+    "audit:maths-v3-c27": "node scripts/audit-maths-v3-c27-latex.mjs",
+    "audit:maths-v3-c28": "node scripts/audit-maths-v3-c28-latex.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.8",
