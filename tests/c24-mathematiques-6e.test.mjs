@@ -52,7 +52,7 @@ describe("C24 — mathématiques 6e programme 2025", () => {
   it("fournit un paquet complet et publiable pour chaque chapitre", () => {
     for (const slug of mapping.chapters) {
       const dir = path.join(levelDir, slug);
-      for (const file of ["meta.json", "cours.mdx", "exercices.json", "quiz.json", "flashcards.json"]) {
+      for (const file of ["meta.json", "cours.tex", "exercices.json", "quiz.json", "flashcards.json"]) {
         assert.equal(existsSync(path.join(dir, file)), true, `${slug}/${file}`);
       }
 
@@ -68,10 +68,10 @@ describe("C24 — mathématiques 6e programme 2025", () => {
       assert.equal(meta.programmeVersion, "mathematiques-cycle3-2025");
       assert.equal(meta.applicableFrom, "2025-2026");
       assert.equal(meta.seo.noindex, false);
-      assert.equal(exercices.length, 6);
+      assert.equal(exercices.length, 12);
       assert.deepEqual([...new Set(exercices.map((item) => item.level))].sort(), ["N1", "N2", "N3"]);
-      assert.equal(questions.length, 5);
-      assert.equal(cards.length, 6);
+      assert.equal(questions.length, 10);
+      assert.equal(cards.length, 12);
       assert.ok(exercices.every((item) => Array.isArray(item.correction) && item.correction.length > 0));
 
       const result = normalizeChapterPackage({
@@ -81,9 +81,9 @@ describe("C24 — mathématiques 6e programme 2025", () => {
         niveau: level,
         slug,
         meta,
-        coursePath: path.relative(root, path.join(dir, "cours.mdx")).replaceAll("\\", "/"),
+        coursePath: path.relative(root, path.join(dir, "cours.tex")).replaceAll("\\", "/"),
         coursePresent: true,
-        courseFormat: "mdx",
+        courseFormat: "latex",
         exercices: exercicesPayload,
         quiz: quizPayload,
         flashcards: flashcardsPayload,
@@ -96,7 +96,7 @@ describe("C24 — mathématiques 6e programme 2025", () => {
   });
 
   it("respecte la borne explicite de proportionnalité en 6e", () => {
-    const course = readFileSync(path.join(levelDir, "proportionnalite-echelles/cours.mdx"), "utf8");
+    const course = readFileSync(path.join(levelDir, "proportionnalite-echelles/cours.tex"), "utf8");
     assert.match(course, /produit en croix n'est pas enseigné en 6e/i);
   });
 });
