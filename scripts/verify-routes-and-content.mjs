@@ -741,8 +741,10 @@ function validateCanonicalResourceIds() {
       chapitre: slug,
     });
     const chapterDir = parts.slice(0, -1).join("/");
+    const meta = readJson(metaFile);
+    const courseSource = typeof meta?.courseSource === "string" && meta.courseSource.trim() ? meta.courseSource : "cours.mdx";
     add(chapter, { file: metaFile, kind: "chapter" });
-    add(buildCourseContentId({ chapter }), { file: `${chapterDir}/cours.mdx`, kind: "course" });
+    add(buildCourseContentId({ chapter }), { file: `${chapterDir}/${courseSource}`, kind: "course" });
     add(buildQuizContentId({ chapter }), { file: `${chapterDir}/quiz.json`, kind: "quiz" });
     add(buildFlashcardDeckContentId({ chapter }), { file: `${chapterDir}/flashcards.json`, kind: "flashcard-deck" });
 
