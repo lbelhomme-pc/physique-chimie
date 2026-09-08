@@ -85,6 +85,19 @@ Une équation de seuil exponentielle conduit naturellement au logarithme. Les un
 \section{11. Lecture critique}
 L'absence de mémoire est une hypothèse forte. Elle peut convenir pour certaines arrivées ou certains événements indépendants, mais elle n'est pas une vérité générale sur les durées de vie.
 La moyenne seule ne suffit pas à décrire une attente. La médiane, les quantiles et la probabilité de dépasser un seuil apportent des informations complémentaires.
+\section{12. Intensité, risque instantané et validation du modèle}
+Dans une loi exponentielle, le paramètre $\lambda$ peut se lire comme une intensité constante. Sur un petit intervalle de durée $h$, la probabilité conditionnelle qu'un événement survienne pendant cet intervalle, sachant qu'il n'est pas encore survenu, est approximativement proportionnelle à $\lambda h$. Cette stabilité du risque instantané explique l'absence de mémoire.
+
+Cette interprétation fournit un critère de validation. Si les données montrent que le risque augmente avec l'âge d'un composant ou diminue avec l'expérience d'un utilisateur, une intensité constante devient discutable. La loi exponentielle peut rester une approximation locale, mais il faut éviter de présenter ses propriétés comme exactes pour le phénomène réel.
+
+La fonction de survie permet aussi de comparer deux modèles. Pour des paramètres $\lambda_1<\lambda_2$, on a
+\[
+e^{-\lambda_1 t}>e^{-\lambda_2 t}\qquad(t>0).
+\]
+Le premier modèle possède donc une probabilité plus grande de dépasser chaque durée positive et une espérance $1/\lambda_1$ plus élevée. La comparaison peut ainsi être menée sans calculer une multitude de probabilités particulières.
+
+Dans les applications, la cohérence des unités est essentielle. Convertir un paramètre donné par heure en un temps exprimé en minutes demande une conversion avant utilisation. Une erreur d'unité peut produire une valeur numérique plausible mais fausse de plusieurs ordres de grandeur.
+
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Confondre rang du premier succès et nombre d'échecs.
