@@ -66,10 +66,11 @@ describe("C28 — Terminale mathématiques complémentaires",()=>{
    assert.equal(meta.officialSource,"bo-2019-mathematiques-complementaires-terminale");
    assert.equal(meta.programmeVersion,"mathematiques-complementaires-2019");
    assert.equal(meta.seo.noindex,false);
-   assert.equal(exercices.exercices.length,6);
-   assert.deepEqual(Object.fromEntries(["N1","N2","N3"].map(level=>[level,exercices.exercices.filter(e=>e.level===level).length])),{N1:2,N2:2,N3:2});
-   assert.equal(quiz.questions.length,5);
-   assert.equal(flash.cards.length,6);
+   const hardened=Number(meta.contentQualityVersion??1)>=2;
+   assert.equal(exercices.exercices.length,hardened?12:6);
+   assert.deepEqual(Object.fromEntries(["N1","N2","N3"].map(level=>[level,exercices.exercices.filter(e=>e.level===level).length])),hardened?{N1:4,N2:4,N3:4}:{N1:2,N2:2,N3:2});
+   assert.equal(quiz.questions.length,hardened?10:5);
+   assert.equal(flash.cards.length,hardened?12:6);
    const normalized=normalizeChapterPackage({
     sourcePath:path.relative(root,path.join(dir,"meta.json")).replaceAll("\\","/"),
     discipline:"mathematiques",cycle:"lycee",niveau,slug,meta,
