@@ -37,6 +37,7 @@ test = mustReplace(test, "assert.equal(quizPayload.questions.length, 5);", "asse
 test = mustReplace(test, "assert.equal(flashcardsPayload.cards.length, 6);", "assert.equal(flashcardsPayload.cards.length, 12);", "flashcard count");
 test = mustReplace(test, 'path.join(dir, "cours.mdx")', 'path.join(dir, "cours.tex")', "course path");
 test = mustReplace(test, 'courseFormat: "mdx"', 'courseFormat: "latex"', "course format");
+test = test.replace("préparation à l'épreuve du baccalauréat", "préparation à l’épreuve du baccalauréat");
 
 const anchor = 'assert.equal(meta.programmeVersion, "mathematiques-terminale-specialite-2019");';
 if (!test.includes('assert.equal(meta.courseFormat, "latex");')) {
