@@ -260,10 +260,10 @@ function validateExercises(raw, file, expectedChapterIds) {
 }
 
 function validateCourse(file) {
-  check(exists(file), "Cours MDX manquant", { file });
+  check(exists(file), "Cours manquant", { file });
   if (!exists(file)) return;
   const content = readText(file);
-  warn(content.trim().length > 0, "Cours MDX vide", { file });
+  warn(content.trim().length > 0, "Cours vide", { file });
   const fragmentMatch = content.match(/import\s+html\s+from\s+["']\.\/cours\.fragment\.html\?raw["']/);
   if (fragmentMatch) {
     const fragmentFile = path.posix.join(path.posix.dirname(file), "cours.fragment.html");
@@ -353,7 +353,8 @@ function validateMathChapters() {
 
     const routeChapterId = `mathematiques:${cycle}:${niveau}:${slug}`;
     const contentChapterId = `${cycle}/${niveau}/${slug}`;
-    validateCourse(`${chapterDir}/cours.mdx`);
+    const courseSource = typeof meta.courseSource === "string" && meta.courseSource.trim() ? meta.courseSource : "cours.mdx";
+    validateCourse(`${chapterDir}/${courseSource}`);
     validateExercises(readJson(`${chapterDir}/exercices.json`), `${chapterDir}/exercices.json`, [routeChapterId, contentChapterId]);
     validateQuiz(readJson(`${chapterDir}/quiz.json`), `${chapterDir}/quiz.json`, [routeChapterId, contentChapterId]);
     validateFlashcards(readJson(`${chapterDir}/flashcards.json`), `${chapterDir}/flashcards.json`, [routeChapterId, contentChapterId]);
@@ -704,8 +705,10 @@ function validateCanonicalResourceIds() {
       chapitre: slug,
     });
     const chapterDir = parts.slice(0, -1).join("/");
+    const meta = readJson(metaFile);
+    const courseSource = typeof meta?.courseSource === "string" && meta.courseSource.trim() ? meta.courseSource : "cours.mdx";
     add(chapter, { file: metaFile, kind: "chapter" });
-    add(buildCourseContentId({ chapter }), { file: `${chapterDir}/cours.mdx`, kind: "course" });
+    add(buildCourseContentId({ chapter }), { file: `${chapterDir}/${courseSource}`, kind: "course" });
     add(buildQuizContentId({ chapter }), { file: `${chapterDir}/quiz.json`, kind: "quiz" });
     add(buildFlashcardDeckContentId({ chapter }), { file: `${chapterDir}/flashcards.json`, kind: "flashcard-deck" });
 
