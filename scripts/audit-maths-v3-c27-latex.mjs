@@ -22,7 +22,7 @@ function stripLatexAndCode(value){
 }
 function rawMathIssue(value){
  const remaining=stripLatexAndCode(value);
- const suspicious=remaining.match(/(?:\d+[.,]\d+|\d+\s*%|\d+\s*[×÷=<>≈≤≥+−*\/]\s*\d+|[A-Za-z]\s*[∩∪=<>≈≤≥]\s*[A-Za-z0-9]|[∩∪√∞])/u);
+ const suspicious=remaining.match(/(?:\d+[.,]\d+|\d+\s*%|\d+\s*[×÷=<>≈≤≥+−*/]\s*\d+|[A-Za-z]\s*[∩∪=<>≈≤≥]\s*[A-Za-z0-9]|[∩∪√∞])/u);
  return suspicious?.[0]??null;
 }
 const errors=[];
