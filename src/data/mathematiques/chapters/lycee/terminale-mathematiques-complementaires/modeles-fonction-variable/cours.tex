@@ -1,56 +1,59 @@
+% Mathématiques complémentaires — Terminale — V3 LaTeX
+% Modèles définis par une fonction d'une variable
 \section{Objectifs}
 \begin{itemize}
-\item Modéliser une grandeur par une fonction.
-\item Étudier variations, extremums et convexité.
-\item Utiliser la continuité et le théorème des valeurs intermédiaires.
-\item Donner une interprétation concrète aux résultats.
+\item Construire ou exploiter un modèle fonctionnel.
+\item Étudier variations et extremums.
+\item Utiliser continuité et théorème des valeurs intermédiaires.
+\item Interpréter convexité et optimisation dans un contexte.
 \end{itemize}
-
-\section{1. Construire un modèle}
-Une grandeur dépendant d'un paramètre $x$ peut être décrite par une fonction $f$.
-
-Exemples :
-\begin{itemize}
-\item coût en fonction d'une quantité produite ;
-\item aire en fonction d'une longueur ;
-\item concentration en fonction du temps ;
-\item distance en fonction d'un paramètre géométrique.
-\end{itemize}
-
-Le domaine de définition doit être déterminé à partir du contexte.
-
+\section{Repères et enjeux du thème}
+Un modèle fonctionnel associe une grandeur d'entrée à une grandeur de sortie. L'enjeu n'est pas seulement de calculer une image : il faut choisir un domaine pertinent, interpréter la dérivée comme taux de variation, repérer des extremums et discuter la validité du modèle. Les fonctions polynomiales, rationnelles, exponentielles ou logarithmiques peuvent décrire un coût, une production, une population, un rendement ou une concentration.
+\section{1. Construire un modèle fonctionnel}
+Une situation est modélisée par une fonction lorsque la grandeur étudiée dépend principalement d'une variable. On note par exemple $x$ une quantité produite et $C(x)$ un coût. Le domaine mathématique doit être intersecté avec le domaine concret : si $x$ représente un nombre d'objets, une valeur négative n'a pas de sens et une capacité maximale peut imposer une borne supérieure.
+Une formule peut être donnée ou construite à partir d'hypothèses. Les paramètres doivent être identifiés avec leurs unités. Deux formules proches peuvent conduire à des comportements très différents hors de la zone de calibration ; il faut donc distinguer interpolation et extrapolation.
 \section{2. Dérivée et variations}
-Si $f$ est dérivable sur un intervalle :
-\begin{itemize}
-\item $f'>0$ implique que $f$ est croissante ;
-\item $f'<0$ implique que $f$ est décroissante.
-\end{itemize}
-
-Un extremum local peut apparaître lorsque $f'$ change de signe.
-
-\section{3. Continuité et TVI}
-Si $f$ est continue sur $[a,b]$, toute valeur comprise entre $f(a)$ et $f(b)$ est atteinte.
-
-Si de plus $f$ est strictement monotone, l'équation $f(x)=k$ admet au plus une solution.
-
-\section{4. Convexité}
-Si $f''\ge0$, la fonction est convexe ; si $f''\le0$, elle est concave.
-
-La convexité aide à interpréter accélération d'une croissance, coût marginal ou forme d'une courbe.
-
-\section{5. Résolution numérique}
-Une équation peut être approchée par balayage ou dichotomie après justification de l'existence d'une solution.
-
-\section{6. Statistique à deux variables}
-Un nuage de points peut suggérer un modèle affine ou non linéaire. Le choix du modèle doit rester critique.
-
+Pour une fonction dérivable $f$, le signe de $f'$ donne le sens de variation. Une démarche complète consiste à calculer $f'$, résoudre $f'(x)=0$, étudier le signe puis traduire le tableau de variations. Un point où $f'$ s'annule n'est un extremum que si le signe change ou si l'étude globale le confirme.
+\begin{exemple}
+Pour $f(x)=x^2-4x+7$, on a $f'(x)=2x-4$. La dérivée est négative pour $x<2$, nulle en $2$ et positive pour $x>2$. Ainsi $f$ possède un minimum en $x=2$, égal à $f(2)=3$.
+\end{exemple}
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/modeles-fonction-variable-1.svg}{Courbe avec minimum et tangentes.}{Le schéma montre une fonction décroissante puis croissante, son minimum et l'évolution de la pente.}
+\section{3. Continuité et théorème des valeurs intermédiaires}
+Si $f$ est continue sur $[a,b]$, toute valeur comprise entre $f(a)$ et $f(b)$ est atteinte. Pour justifier l'existence d'une solution de $f(x)=k$, on vérifie la continuité et l'encadrement de $k$. L'unicité nécessite un argument supplémentaire, souvent la stricte monotonie sur l'intervalle considéré.
+Une calculatrice peut localiser la solution, mais elle ne prouve pas l'existence. Une dichotomie peut ensuite fournir un encadrement de précision choisie. Cette séparation entre preuve et approximation est essentielle : l'une établit le résultat, l'autre fournit une valeur numérique.
+\section{4. Convexité et évolution de la pente}
+Lorsque $f''$ existe, le signe de $f''$ renseigne sur la convexité. Si $f''\geq0$, la fonction est convexe et sa dérivée est croissante. Un changement de signe de $f''$ peut signaler un point d'inflexion. Dans un modèle, cette information décrit souvent un changement d'accélération de la croissance ou de la décroissance.
+La tangente à une fonction convexe reste sous la courbe. Cette propriété permet de produire des inégalités et de contrôler des approximations locales.
+\section{5. Optimisation}
+Optimiser consiste à rechercher un maximum ou un minimum sous contraintes. La dérivation donne les candidats, mais il faut aussi examiner les bornes du domaine. Dans un problème de coût, de recette ou de rendement, l'abscisse optimale et la valeur optimale ont des significations différentes.
+\begin{exemple}
+Pour $C(x)=0.02x^2-1.2x+40$ sur $[0,60]$, on a $C'(x)=0.04x-1.2$. Le minimum est atteint pour $x=30$. On calcule ensuite $C(30)$ et on interprète séparément la quantité optimale et le coût minimal.
+\end{exemple}
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/modeles-fonction-variable-2.svg}{Comparaison entre modèle et tangente.}{Le schéma illustre un optimum et le rôle d'une approximation locale par tangente.}
+\section{6. Approximation et validité}
+Un modèle peut être bon dans une zone et mauvais ailleurs. Une extrapolation lointaine peut produire une valeur mathématiquement cohérente mais irréaliste. On contrôle donc les prédictions avec les ordres de grandeur et, si possible, avec des données non utilisées pour construire le modèle.
+Une représentation graphique permet de détecter une divergence entre les données et la forme choisie. Un résidu important ou systématique peut signaler que le modèle doit être révisé.
+\section{7. Algorithmique et recherche numérique}
+Une table de valeurs aide à repérer une zone de changement de signe. La dichotomie permet ensuite de réduire un intervalle contenant une racine. Pour une optimisation, un balayage numérique peut proposer un candidat, mais l'étude de dérivée reste le moyen de justifier un extremum.
+Après $n$ étapes de dichotomie, la longueur de l'intervalle initial $L$ devient $L/2^n$. Cette propriété permet de déterminer le nombre d'itérations nécessaire pour atteindre une précision donnée.
+\section{8. Méthode de résolution et rédaction}
+La première étape consiste à identifier la variable, son unité et son domaine. La deuxième est de choisir l'outil adapté : dérivée pour les variations, continuité pour l'existence, seconde dérivée pour la convexité, calcul numérique pour l'approximation.
+On conserve les formes exactes aussi longtemps que possible et on distingue clairement résultat exact, approximation et interprétation. Lorsqu'une valeur numérique est obtenue, on vérifie qu'elle appartient au domaine et qu'elle possède un ordre de grandeur cohérent.
+Une conclusion complète revient au contexte. Dire seulement « le maximum vaut $120$ » est incomplet si l'on ne précise pas ce que représente cette valeur et pour quelle valeur de la variable elle est atteinte.
+\section{9. Connexions avec le programme}
+Ce thème réutilise la dérivation, la continuité, les fonctions usuelles et l'algorithmique. Il prépare naturellement les modèles d'évolution, les logarithmes et les calculs d'aires. Les six compétences sont mobilisées ensemble : chercher, modéliser, représenter, raisonner, calculer et communiquer.
+Une même situation peut demander plusieurs registres : construire une fonction à partir de données, étudier ses variations, résoudre une équation puis interpréter un seuil.
+\section{10. Lecture critique d'un modèle}
+Un modèle est une simplification. Sa précision dépend des données, du domaine d'utilisation et des hypothèses. Une conclusion mathématique peut être exacte dans le modèle mais inadaptée au réel si l'une de ces hypothèses est fragile.
+Il faut donc distinguer le calcul de la portée de la conclusion. Une simulation ne remplace pas une démonstration, une extrapolation est plus risquée qu'une interpolation et une très bonne adéquation graphique ne prouve pas que le mécanisme sous-jacent a été correctement identifié.
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Oublier le domaine issu du contexte.
-\item Confondre maximum local et maximum global.
-\item Utiliser le TVI sans continuité.
-\item Interpréter une corrélation graphique comme une causalité.
+\item Oublier de restreindre le domaine au contexte.
+\item Conclure à un extremum uniquement parce que $f'(a)=0$.
+\item Confondre existence d'une solution et unicité.
+\item Extrapoler sans discuter la validité du modèle.
 \end{itemize}
-
 \section{À retenir}
-Un modèle fonctionnel ne vaut que par son domaine, ses hypothèses et l'interprétation de ses résultats.
+\begin{aretenir}
+Un modèle fonctionnel se traite en quatre temps : domaine, étude mathématique, contrôle numérique éventuel, interprétation. La dérivée pilote les variations, la continuité justifie des résultats d'existence et la convexité décrit l'évolution de la pente.
+\end{aretenir}

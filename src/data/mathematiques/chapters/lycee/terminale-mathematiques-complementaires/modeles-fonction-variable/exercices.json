@@ -3,27 +3,35 @@
     {
       "id": "mc-fon-n1-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-fonction-variable",
-      "title": "Dérivée",
-      "statement": "Soit f(x)=x²-4x+7. Calculer f'(x).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Dérivée d’un polynôme",
+      "statement": "Soit $f(x)=x^2-4x+7$. Calculer $f'(x)$ sur $\\mathbb{R}$. On attend une application directe correctement justifiée.",
+      "questions": [
+        "Déterminer la dérivée."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX, justifier les propriétés utilisées et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Construire un modèle à l’aide d’une fonction d’une variable."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Identifier la variable, le domaine et l'outil utile.",
+        "method": "Établir les propriétés avant le calcul numérique.",
+        "reminder": "Une conclusion doit revenir au contexte.",
+        "commonMistake": "Appliquer une formule sans vérifier ses hypothèses."
       },
       "correction": [
-        "f'(x)=2x-4."
+        "On dérive terme à terme : $f'(x)=2x-4$.",
+        "Contrôle : vérifier le domaine, le signe et l'ordre de grandeur avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -38,35 +46,42 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28"
       ]
     },
     {
       "id": "mc-fon-n1-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-fonction-variable",
-      "title": "Extremum",
-      "statement": "Déterminer le minimum de f(x)=x²-4x+7.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Minimum simple",
+      "statement": "On considère $f(x)=x^2-6x+12$. Déterminer son minimum sur $\\mathbb{R}$. On attend une application directe correctement justifiée.",
+      "questions": [
+        "Étudier le signe de $f'$ et donner le minimum."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX, justifier les propriétés utilisées et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Étudier variations et extremums à l’aide de la dérivée."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Identifier la variable, le domaine et l'outil utile.",
+        "method": "Établir les propriétés avant le calcul numérique.",
+        "reminder": "Une conclusion doit revenir au contexte.",
+        "commonMistake": "Appliquer une formule sans vérifier ses hypothèses."
       },
       "correction": [
-        "f'(x)=2x-4 s'annule en 2.",
-        "f décroît puis croît.",
-        "Minimum : f(2)=3."
+        "On a $f'(x)=2x-6$, négative avant $3$ puis positive après $3$. Le minimum est $f(3)=3$.",
+        "Contrôle : vérifier le domaine, le signe et l'ordre de grandeur avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -81,34 +96,144 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-fon-n1-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-fonction-variable",
+      "title": "Valeur par un modèle",
+      "statement": "Un coût est modélisé par $C(x)=12+0.8x$ pour $x\\in[0,50]$. Calculer $C(25)$ et interpréter. On attend une application directe correctement justifiée.",
+      "questions": [
+        "Calculer et interpréter la valeur."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX, justifier les propriétés utilisées et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Mobiliser continuité et théorème des valeurs intermédiaires."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "modéliser",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la variable, le domaine et l'outil utile.",
+        "method": "Établir les propriétés avant le calcul numérique.",
+        "reminder": "Une conclusion doit revenir au contexte.",
+        "commonMistake": "Appliquer une formule sans vérifier ses hypothèses."
+      },
+      "correction": [
+        "On obtient $C(25)=12+0.8\\times25=32$. La valeur doit être interprétée avec l'unité du coût donnée par le contexte.",
+        "Contrôle : vérifier le domaine, le signe et l'ordre de grandeur avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "modéliser",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-fon-n1-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-fonction-variable",
+      "title": "Convexité immédiate",
+      "statement": "On considère $g(x)=x^3+3x^2$. Calculer $g''(x)$ et déterminer où la fonction est convexe. On attend une application directe correctement justifiée.",
+      "questions": [
+        "Calculer $g''$ puis étudier son signe."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX, justifier les propriétés utilisées et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Exploiter convexité, tangentes et optimisation dans un contexte."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "calculer",
+        "raisonner"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la variable, le domaine et l'outil utile.",
+        "method": "Établir les propriétés avant le calcul numérique.",
+        "reminder": "Une conclusion doit revenir au contexte.",
+        "commonMistake": "Appliquer une formule sans vérifier ses hypothèses."
+      },
+      "correction": [
+        "On a $g'(x)=3x^2+6x$ puis $g''(x)=6x+6$. La fonction est convexe lorsque $x\\geq-1$.",
+        "Contrôle : vérifier le domaine, le signe et l'ordre de grandeur avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "raisonner"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28"
       ]
     },
     {
       "id": "mc-fon-n2-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-fonction-variable",
-      "title": "TVI",
-      "statement": "f est continue sur [1,3], f(1)=-2 et f(3)=5. Que peut-on conclure pour f(x)=0 ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "TVI et unicité",
+      "statement": "Soit $f(x)=x^3+x-3$. On veut justifier l'existence et l'unicité d'une solution de $f(x)=0$ sur $[1,2]$. On attend une démarche structurée avec choix de méthode et interprétation.",
+      "questions": [
+        "Justifier l'existence par continuité.",
+        "Justifier l'unicité par les variations."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX, justifier les propriétés utilisées et conclure explicitement.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Utiliser un outil numérique pour explorer ou approcher un résultat."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 16,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Identifier la variable, le domaine et l'outil utile.",
+        "method": "Établir les propriétés avant le calcul numérique.",
+        "reminder": "Une conclusion doit revenir au contexte.",
+        "commonMistake": "Appliquer une formule sans vérifier ses hypothèses."
       },
       "correction": [
-        "0 est entre -2 et 5.",
-        "Par le TVI, il existe au moins une solution dans ]1,3[."
+        "La fonction polynomiale est continue et $f(1)=-1$, $f(2)=7$, donc le TVI donne au moins une solution.",
+        "On a $f'(x)=3x^2+1>0$, donc $f$ est strictement croissante et la solution est unique.",
+        "Contrôle : vérifier le domaine, le signe et l'ordre de grandeur avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -117,41 +242,51 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N2"
+        "N2",
+        "c28"
       ]
     },
     {
       "id": "mc-fon-n2-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-fonction-variable",
-      "title": "Convexité",
-      "statement": "f(x)=x³-3x. Étudier la convexité.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Optimisation d’un bénéfice",
+      "statement": "Un bénéfice est modélisé par $B(x)=-0.5x^2+20x-80$ sur $[0,40]$. Déterminer la quantité maximisant le bénéfice et le bénéfice maximal. On attend une démarche structurée avec choix de méthode et interprétation.",
+      "questions": [
+        "Étudier les variations de $B$.",
+        "Interpréter le maximum."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX, justifier les propriétés utilisées et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Construire un modèle à l’aide d’une fonction d’une variable."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
+        "modéliser",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 16,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Identifier la variable, le domaine et l'outil utile.",
+        "method": "Établir les propriétés avant le calcul numérique.",
+        "reminder": "Une conclusion doit revenir au contexte.",
+        "commonMistake": "Appliquer une formule sans vérifier ses hypothèses."
       },
       "correction": [
-        "f''(x)=6x.",
-        "f est concave sur ]-∞,0[ et convexe sur ]0,+∞[.",
-        "0 est un point d'inflexion."
+        "On a $B'(x)=-x+20$, positive avant $20$ puis négative après $20$.",
+        "Le maximum est atteint pour $x=20$ et vaut $B(20)=120$.",
+        "Contrôle : vérifier le domaine, le signe et l'ordre de grandeur avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -160,39 +295,165 @@
         "requiresAccount": false
       },
       "competences": [
+        "modéliser",
         "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-fon-n2-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-fonction-variable",
+      "title": "Point d’inflexion",
+      "statement": "On étudie $h(x)=x^3-3x^2+2$ sur $\\mathbb{R}$. Déterminer les intervalles de convexité et le point d'inflexion. On attend une démarche structurée avec choix de méthode et interprétation.",
+      "questions": [
+        "Calculer $h''$.",
+        "Étudier son signe et conclure."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX, justifier les propriétés utilisées et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Étudier variations et extremums à l’aide de la dérivée."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 16,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la variable, le domaine et l'outil utile.",
+        "method": "Établir les propriétés avant le calcul numérique.",
+        "reminder": "Une conclusion doit revenir au contexte.",
+        "commonMistake": "Appliquer une formule sans vérifier ses hypothèses."
+      },
+      "correction": [
+        "On a $h''(x)=6x-6$.",
+        "Le signe change en $x=1$ : la fonction est concave pour $x<1$, convexe pour $x>1$, avec point d'inflexion $(1,0)$.",
+        "Contrôle : vérifier le domaine, le signe et l'ordre de grandeur avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-fon-n2-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-fonction-variable",
+      "title": "Approximer une racine",
+      "statement": "La fonction $f(x)=x^3+x-3$ possède une unique racine dans $[1,2]$. On veut l'encadrer par dichotomie à $10^{-2}$ près. On attend une démarche structurée avec choix de méthode et interprétation.",
+      "questions": [
+        "Décrire une étape de dichotomie.",
+        "Donner le nombre d'itérations suffisant."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX, justifier les propriétés utilisées et conclure explicitement.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Mobiliser continuité et théorème des valeurs intermédiaires."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "chercher",
+        "représenter",
+        "raisonner"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 16,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la variable, le domaine et l'outil utile.",
+        "method": "Établir les propriétés avant le calcul numérique.",
+        "reminder": "Une conclusion doit revenir au contexte.",
+        "commonMistake": "Appliquer une formule sans vérifier ses hypothèses."
+      },
+      "correction": [
+        "À chaque étape, on calcule le milieu et on conserve la moitié où subsiste un changement de signe.",
+        "Après $n$ étapes la longueur vaut $1/2^n$. Il faut $1/2^n<10^{-2}$ ; $n=7$ suffit car $2^7=128$.",
+        "Contrôle : vérifier le domaine, le signe et l'ordre de grandeur avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "représenter",
         "raisonner"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N2"
+        "N2",
+        "c28"
       ]
     },
     {
       "id": "mc-fon-n3-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-fonction-variable",
-      "title": "Coût moyen",
-      "statement": "C(x)=0,02x²+10x+500 pour x>0. Exprimer le coût moyen M(x)=C(x)/x.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Tarification optimale",
+      "statement": "Une entreprise estime que la demande vaut $q(p)=120-4p$ pour un prix $p\\in[10,30]$. La recette est $R(p)=p\\,q(p)$ et le coût vaut $200+8q(p)$. On veut optimiser le bénéfice. On attend une résolution complète articulant plusieurs outils et un contrôle critique.",
+      "questions": [
+        "Exprimer le bénéfice $B(p)$.",
+        "Étudier ses variations.",
+        "Déterminer le prix optimal et contrôler la demande."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX, justifier les propriétés utilisées et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Exploiter convexité, tangentes et optimisation dans un contexte."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
         "modéliser",
-        "calculer"
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 25,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Identifier la variable, le domaine et l'outil utile.",
+        "method": "Établir les propriétés avant le calcul numérique.",
+        "reminder": "Une conclusion doit revenir au contexte.",
+        "commonMistake": "Appliquer une formule sans vérifier ses hypothèses."
       },
       "correction": [
-        "M(x)=0,02x+10+500/x."
+        "On obtient $B(p)=-4p^2+152p-1160$.",
+        "On a $B'(p)=-8p+152$, donc le maximum est atteint pour $p=19$.",
+        "La demande vaut $q(19)=44>0$, ce qui confirme la cohérence du modèle.",
+        "Contrôle : vérifier le domaine, le signe et l'ordre de grandeur avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -201,41 +462,60 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
         "modéliser",
-        "calculer"
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N3",
+        "c28"
       ]
     },
     {
       "id": "mc-fon-n3-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-fonction-variable",
-      "title": "Optimisation",
-      "statement": "Avec M(x)=0,02x+10+500/x, déterminer la valeur de x minimisant M.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Étude d’un modèle rationnel",
+      "statement": "On considère $f(x)=x/(x+2)$ sur $[0,+\\infty[$ comme modèle d'un taux de saturation. On veut décrire précisément son évolution. On attend une résolution complète articulant plusieurs outils et un contrôle critique.",
+      "questions": [
+        "Calculer $f'$ et étudier les variations.",
+        "Déterminer la limite en $+\\infty$.",
+        "Interpréter la valeur limite."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX, justifier les propriétés utilisées et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Utiliser un outil numérique pour explorer ou approcher un résultat."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 25,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle mathématique.",
-        "method": "Écrire les étapes dans l'ordre.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Appliquer une technique sans vérifier les hypothèses."
+        "clue": "Identifier la variable, le domaine et l'outil utile.",
+        "method": "Établir les propriétés avant le calcul numérique.",
+        "reminder": "Une conclusion doit revenir au contexte.",
+        "commonMistake": "Appliquer une formule sans vérifier ses hypothèses."
       },
       "correction": [
-        "M'(x)=0,02-500/x².",
-        "M'=0 donne x²=25000, donc x≈158,1.",
-        "Le signe de M' passe de négatif à positif : minimum vers x=158."
+        "On obtient $f'(x)=2/(x+2)^2>0$, donc $f$ est strictement croissante.",
+        "Comme $f(x)=1-2/(x+2)$, la limite vaut $1$.",
+        "Le modèle tend vers un taux de saturation égal à $1$ ; cette interprétation suppose que la normalisation et le domaine restent pertinents.",
+        "Contrôle : vérifier le domaine, le signe et l'ordre de grandeur avant de conclure."
       ],
       "commonMistakes": [],
       "access": {
@@ -244,13 +524,142 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N3",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-fon-n3-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-fonction-variable",
+      "title": "Existence d’un seuil",
+      "statement": "On considère $f(x)=e^{-x}+0.2x$ sur $[0,10]$. On cherche les solutions de $f(x)=0.8$ en distinguant preuve et exploration numérique. On attend une résolution complète articulant plusieurs outils et un contrôle critique.",
+      "questions": [
+        "Étudier les variations de $f$.",
+        "Discuter le nombre de solutions.",
+        "Proposer une stratégie numérique d'encadrement."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX, justifier les propriétés utilisées et conclure explicitement.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Construire un modèle à l’aide d’une fonction d’une variable."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 25,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la variable, le domaine et l'outil utile.",
+        "method": "Établir les propriétés avant le calcul numérique.",
+        "reminder": "Une conclusion doit revenir au contexte.",
+        "commonMistake": "Appliquer une formule sans vérifier ses hypothèses."
+      },
+      "correction": [
+        "On a $f'(x)=-e^{-x}+0.2$, qui s'annule pour $x=\\ln5$. La fonction décroît puis croît.",
+        "Les valeurs aux bornes sont supérieures à $0.8$ et le minimum est inférieur à $0.8$, donc il existe deux solutions.",
+        "On localise deux changements de signe pour $f(x)-0.8$ puis on applique une dichotomie sur chaque intervalle.",
+        "Contrôle : vérifier le domaine, le signe et l'ordre de grandeur avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-fon-n3-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/modeles-fonction-variable",
+      "title": "Convexité et tangente",
+      "statement": "On considère $f(x)=e^x$. On veut démontrer que la courbe reste au-dessus de sa tangente en $0$ puis exploiter cette propriété. On attend une résolution complète articulant plusieurs outils et un contrôle critique.",
+      "questions": [
+        "Écrire l'équation de la tangente.",
+        "Démontrer $e^x\\geq1+x$.",
+        "Interpréter cette inégalité près de $0$."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX, justifier les propriétés utilisées et conclure explicitement.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Étudier variations et extremums à l’aide de la dérivée."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 25,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier la variable, le domaine et l'outil utile.",
+        "method": "Établir les propriétés avant le calcul numérique.",
+        "reminder": "Une conclusion doit revenir au contexte.",
+        "commonMistake": "Appliquer une formule sans vérifier ses hypothèses."
+      },
+      "correction": [
+        "La tangente en $0$ est $y=1+x$.",
+        "Comme $f''(x)=e^x>0$, $f$ est convexe et sa courbe reste au-dessus de sa tangente, donc $e^x\\geq1+x$.",
+        "Près de $0$, $1+x$ fournit une approximation affine par défaut de $e^x$.",
+        "Contrôle : vérifier le domaine, le signe et l'ordre de grandeur avant de conclure."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28"
       ]
     }
   ]
