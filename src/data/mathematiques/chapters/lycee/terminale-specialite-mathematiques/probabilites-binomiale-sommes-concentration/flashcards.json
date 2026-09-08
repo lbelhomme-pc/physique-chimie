@@ -2,33 +2,63 @@
   "cards": [
     {
       "id": "tle-pro-f1",
-      "front": "Loi binomiale",
-      "back": "X∼B(n,p) : nombre de succès parmi n essais de Bernoulli indépendants."
+      "front": "Schéma de Bernoulli",
+      "back": "$n$ épreuves indépendantes avec une même probabilité de succès $p$."
     },
     {
       "id": "tle-pro-f2",
-      "front": "Probabilité binomiale",
-      "back": "P(X=k)=C(n,k)p^k(1-p)^(n-k)."
+      "front": "Loi binomiale",
+      "back": "$X\\sim\\mathcal{B}(n,p)$ si $X$ compte les succès d’un schéma de Bernoulli."
     },
     {
       "id": "tle-pro-f3",
-      "front": "Espérance binomiale",
-      "back": "E(X)=np."
+      "front": "Probabilité exacte",
+      "back": "$P(X=k)=\\binom nkp^k(1-p)^{n-k}$."
     },
     {
       "id": "tle-pro-f4",
-      "front": "Variance binomiale",
-      "back": "V(X)=np(1-p)."
+      "front": "Espérance binomiale",
+      "back": "$E(X)=np$."
     },
     {
       "id": "tle-pro-f5",
-      "front": "Variance d'une somme indépendante",
-      "back": "V(X+Y)=V(X)+V(Y)."
+      "front": "Variance binomiale",
+      "back": "$V(X)=np(1-p)$."
     },
     {
       "id": "tle-pro-f6",
-      "front": "Loi des grands nombres",
-      "back": "La fréquence de succès se concentre autour de p lorsque le nombre d'essais augmente."
+      "front": "Écart-type binomial",
+      "back": "$\\sigma(X)=\\sqrt{np(1-p)}$."
+    },
+    {
+      "id": "tle-pro-f7",
+      "front": "Complément utile",
+      "back": "$P(X\\geq r)=1-P(X\\leq r-1)$."
+    },
+    {
+      "id": "tle-pro-f8",
+      "front": "Espérance d’une somme",
+      "back": "$E(X+Y)=E(X)+E(Y)$."
+    },
+    {
+      "id": "tle-pro-f9",
+      "front": "Variance sous indépendance",
+      "back": "$V(X+Y)=V(X)+V(Y)$ si $X$ et $Y$ sont indépendantes."
+    },
+    {
+      "id": "tle-pro-f10",
+      "front": "Tchebychev",
+      "back": "$P(|X-E(X)|\\geq a)\\leq V(X)/a^2$."
+    },
+    {
+      "id": "tle-pro-f11",
+      "front": "Fréquence binomiale",
+      "back": "Si $F_n=X_n/n$, alors $E(F_n)=p$."
+    },
+    {
+      "id": "tle-pro-f12",
+      "front": "Concentration",
+      "back": "$V(F_n)=p(1-p)/n$, donc les fluctuations diminuent quand $n$ augmente."
     }
   ]
 }

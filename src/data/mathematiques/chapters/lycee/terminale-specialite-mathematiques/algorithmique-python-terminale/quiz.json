@@ -2,62 +2,122 @@
   "questions": [
     {
       "id": "tle-py-q1",
-      "question": "Une boucle while nécessite :",
+      "question": "Une boucle `while` est adaptée lorsque :",
       "choices": [
-        "une condition d'arrêt maîtrisée",
-        "toujours une liste",
-        "une dérivée"
+        "le nombre d’itérations dépend d’une condition",
+        "le nombre d’itérations est toujours fixé à l’avance",
+        "aucune variable ne change"
       ],
       "answer": 0,
-      "explanation": "Sinon elle peut ne jamais s'arrêter.",
+      "explanation": "Une boucle conditionnelle convient lorsque l’arrêt dépend d’un seuil ou d’une propriété vérifiée en cours d’exécution.",
       "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale"
     },
     {
       "id": "tle-py-q2",
-      "question": "La dichotomie sert à :",
+      "question": "Pour éviter une boucle infinie, il faut notamment :",
       "choices": [
-        "encadrer numériquement une solution",
-        "prouver seule la continuité",
-        "calculer une dérivée exacte"
+        "faire évoluer une variable liée à la condition",
+        "supprimer la condition",
+        "réinitialiser la variable"
       ],
       "answer": 0,
-      "explanation": "Elle affine un intervalle contenant une racine.",
+      "explanation": "La boucle doit progresser vers la situation qui rendra la condition fausse et provoquera l’arrêt.",
       "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale"
     },
     {
       "id": "tle-py-q3",
-      "question": "Une simulation probabiliste :",
+      "question": "La dichotomie repose sur :",
       "choices": [
-        "produit des réalisations aléatoires",
-        "donne toujours exactement la probabilité",
-        "remplace une démonstration"
+        "la continuité et un changement de signe",
+        "la dérivabilité seule",
+        "une loi binomiale"
       ],
       "answer": 0,
-      "explanation": "Elle observe un comportement statistique.",
+      "explanation": "Le TVI garantit une racine dans un intervalle lorsque la fonction continue prend des signes opposés aux bornes.",
       "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale"
     },
     {
       "id": "tle-py-q4",
-      "question": "Augmenter n dans une somme de rectangles :",
+      "question": "À chaque étape de dichotomie, la longueur de l’intervalle est :",
       "choices": [
-        "raffine le maillage",
-        "supprime toute erreur par définition",
-        "change les bornes"
+        "divisée par deux",
+        "multipliée par deux",
+        "inchangée"
       ],
       "answer": 0,
-      "explanation": "La largeur des sous-intervalles diminue.",
+      "explanation": "Le milieu remplace l’une des bornes, ce qui conserve seulement la moitié de l’intervalle précédent.",
       "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale"
     },
     {
       "id": "tle-py-q5",
-      "question": "Un résultat numérique doit être :",
+      "question": "Une simulation probabiliste fournit :",
       "choices": [
-        "contrôlé et interprété",
-        "accepté sans vérification",
-        "toujours entier"
+        "une estimation empirique",
+        "une preuve exacte",
+        "une primitive"
       ],
       "answer": 0,
-      "explanation": "Ordre de grandeur et cohérence restent indispensables.",
+      "explanation": "La simulation observe des fréquences sur des répétitions ; elle n’établit pas à elle seule un résultat théorique.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale"
+    },
+    {
+      "id": "tle-py-q6",
+      "question": "Dans une somme programmée, un accumulateur doit être :",
+      "choices": [
+        "initialisé avant la boucle",
+        "réinitialisé à chaque tour",
+        "toujours égal à un"
+      ],
+      "answer": 0,
+      "explanation": "L’accumulateur conserve les contributions successives ; le réinitialiser détruirait les termes déjà additionnés.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale"
+    },
+    {
+      "id": "tle-py-q7",
+      "question": "Pour une somme de rectangles, augmenter $n$ signifie :",
+      "choices": [
+        "raffiner le pas",
+        "élargir chaque rectangle",
+        "supprimer la fonction"
+      ],
+      "answer": 0,
+      "explanation": "Avec un intervalle fixé, une plus grande valeur de $n$ réduit la largeur $h=(b-a)/n$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale"
+    },
+    {
+      "id": "tle-py-q8",
+      "question": "La sortie d’un programme numérique doit être :",
+      "choices": [
+        "interprétée et contrôlée",
+        "acceptée sans vérification",
+        "toujours exacte"
+      ],
+      "answer": 0,
+      "explanation": "Un résultat informatique reste lié aux hypothèses, aux arrondis et à la correction du programme.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale"
+    },
+    {
+      "id": "tle-py-q9",
+      "question": "Un test utile consiste à :",
+      "choices": [
+        "utiliser un cas dont on connaît la réponse",
+        "tester uniquement une grande valeur",
+        "supprimer les cas limites"
+      ],
+      "answer": 0,
+      "explanation": "Un cas de référence permet de vérifier rapidement que la logique du programme correspond au calcul attendu.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale"
+    },
+    {
+      "id": "tle-py-q10",
+      "question": "Pour la dichotomie, après $n$ étapes une longueur $L$ devient :",
+      "choices": [
+        "$L/2^n$",
+        "$Ln$",
+        "$2^nL$"
+      ],
+      "answer": 0,
+      "explanation": "Chaque itération divise la longueur par deux, donc après $n$ étapes le facteur est $2^n$ au dénominateur.",
       "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale"
     }
   ]

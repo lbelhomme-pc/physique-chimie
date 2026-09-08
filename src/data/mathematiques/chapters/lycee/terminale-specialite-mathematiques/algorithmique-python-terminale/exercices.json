@@ -3,29 +3,35 @@
     {
       "id": "tle-py-n1-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale",
-      "title": "Lire une boucle",
-      "statement": "Que vaut n si on part de u=1, n=0 et que l'on double u tant que u<8 en augmentant n de 1 ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Lire une boucle de seuil",
+      "statement": "On part de `u=1` et `n=0`, puis on exécute `while u<16: u=2*u; n=n+1`. Déterminer la valeur finale de `n`. On attend une application directe et justifiée, avec un contrôle simple du résultat.",
+      "questions": [
+        "Suivre les valeurs successives et donner `n`."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Écrire et lire des fonctions Python mobilisant variables, conditions et boucles."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "calculer"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle adapté.",
-        "method": "Structurer les étapes avant de calculer.",
-        "reminder": "Vérifier les hypothèses et interpréter le résultat.",
-        "commonMistake": "Confondre formule, hypothèses et conclusion."
+        "clue": "Écrire d’abord ce que représente chaque variable.",
+        "method": "Identifier l’invariant et la condition d’arrêt.",
+        "reminder": "Tester le programme sur un cas dont on connaît la réponse.",
+        "commonMistake": "Une simulation illustre ou estime ; elle ne remplace pas une démonstration."
       },
       "correction": [
-        "Valeurs : 1,2,4,8.",
-        "La boucle s'arrête après 3 itérations.",
-        "n=3."
+        "Les valeurs de `u` sont successivement `1`, `2`, `4`, `8`, `16`. La mise à jour est effectuée quatre fois, donc la valeur finale est `n=4`.",
+        "Contrôle : tester le code sur un cas simple, vérifier la terminaison et relier la sortie numérique à la propriété mathématique recherchée."
       ],
       "commonMistakes": [],
       "access": {
@@ -34,39 +40,98 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "raisonner",
+        "calculer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c27"
       ]
     },
     {
       "id": "tle-py-n1-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale",
-      "title": "Somme",
-      "statement": "Calculer la somme des entiers de 1 à 4.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Comprendre `range`",
+      "statement": "Le code `for k in range(2,7):` est utilisé pour parcourir des indices entiers. Déterminer les valeurs prises par `k`. On attend une application directe et justifiée, avec un contrôle simple du résultat.",
+      "questions": [
+        "Lister les valeurs parcourues."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Programmer une recherche de seuil pour une suite ou une fonction."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Écrire d’abord ce que représente chaque variable.",
+        "method": "Identifier l’invariant et la condition d’arrêt.",
+        "reminder": "Tester le programme sur un cas dont on connaît la réponse.",
+        "commonMistake": "Une simulation illustre ou estime ; elle ne remplace pas une démonstration."
+      },
+      "correction": [
+        "En Python, la borne supérieure de `range` est exclue. La variable `k` prend donc les valeurs `2`, `3`, `4`, `5` et `6`.",
+        "Contrôle : tester le code sur un cas simple, vérifier la terminaison et relier la sortie numérique à la propriété mathématique recherchée."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N1",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-py-n1-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale",
+      "title": "Accumulateur de somme",
+      "statement": "On exécute `s=0` puis `for k in range(1,5): s=s+k`. Déterminer la valeur finale de `s` et identifier la somme calculée. On attend une application directe et justifiée, avec un contrôle simple du résultat.",
+      "questions": [
+        "Calculer la sortie du programme."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Mettre en œuvre une dichotomie pour approcher une solution d’équation."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle adapté.",
-        "method": "Structurer les étapes avant de calculer.",
-        "reminder": "Vérifier les hypothèses et interpréter le résultat.",
-        "commonMistake": "Confondre formule, hypothèses et conclusion."
+        "clue": "Écrire d’abord ce que représente chaque variable.",
+        "method": "Identifier l’invariant et la condition d’arrêt.",
+        "reminder": "Tester le programme sur un cas dont on connaît la réponse.",
+        "commonMistake": "Une simulation illustre ou estime ; elle ne remplace pas une démonstration."
       },
       "correction": [
-        "1+2+3+4=10."
+        "La boucle additionne `1`, `2`, `3` et `4`. La somme vaut donc $1+2+3+4=10$, et la sortie finale est `s=10`.",
+        "Contrôle : tester le code sur un cas simple, vérifier la terminaison et relier la sortie numérique à la propriété mathématique recherchée."
       ],
       "commonMistakes": [],
       "access": {
@@ -81,33 +146,95 @@
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-py-n1-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale",
+      "title": "Une étape de dichotomie",
+      "statement": "Une fonction continue vérifie $f(1)<0$ et $f(2)>0$. On calcule $m=1.5$ et on trouve $f(m)>0$. Déterminer le nouvel intervalle conservé par dichotomie. On attend une application directe et justifiée, avec un contrôle simple du résultat.",
+      "questions": [
+        "Donner les nouvelles bornes."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Simuler des expériences aléatoires et comparer fréquence et probabilité."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "représenter",
+        "raisonner"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Écrire d’abord ce que représente chaque variable.",
+        "method": "Identifier l’invariant et la condition d’arrêt.",
+        "reminder": "Tester le programme sur un cas dont on connaît la réponse.",
+        "commonMistake": "Une simulation illustre ou estime ; elle ne remplace pas une démonstration."
+      },
+      "correction": [
+        "Le changement de signe subsiste entre $1$ et $1.5$. On conserve donc l’intervalle $[1,1.5]$ et on remplace la borne droite par le milieu.",
+        "Contrôle : tester le code sur un cas simple, vérifier la terminaison et relier la sortie numérique à la propriété mathématique recherchée."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N1",
+        "c27"
       ]
     },
     {
       "id": "tle-py-n2-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale",
-      "title": "Dichotomie",
-      "statement": "Une dichotomie démarre sur [1,2]. Le changement de signe est sur [1,1,5]. Quel intervalle conserve-t-on ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Programmer un seuil de suite",
+      "statement": "Une suite est définie par $u_0=3$ et $u_{n+1}=1.08u_n+2$. On veut obtenir le premier indice $n$ tel que $u_n\\geq50$. On attend une démarche structurée : identifier les hypothèses, choisir le modèle, calculer puis interpréter.",
+      "questions": [
+        "Écrire un algorithme Python avec une boucle `while`.",
+        "Expliquer pourquoi la boucle termine si la suite est croissante et dépasse le seuil."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Programmer des sommes ou une approximation numérique d’intégrale et analyser l’erreur."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
-        "calculer",
-        "raisonner"
+        "modéliser",
+        "raisonner",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle adapté.",
-        "method": "Structurer les étapes avant de calculer.",
-        "reminder": "Vérifier les hypothèses et interpréter le résultat.",
-        "commonMistake": "Confondre formule, hypothèses et conclusion."
+        "clue": "Écrire d’abord ce que représente chaque variable.",
+        "method": "Identifier l’invariant et la condition d’arrêt.",
+        "reminder": "Tester le programme sur un cas dont on connaît la réponse.",
+        "commonMistake": "Une simulation illustre ou estime ; elle ne remplace pas une démonstration."
       },
       "correction": [
-        "On conserve [1,1,5]."
+        "Un code possible est `n=0; u=3` puis `while u<50: u=1.08*u+2; n=n+1`. À la sortie, `n` est le premier indice recherché.",
+        "Si l’étude mathématique montre que la suite est croissante et qu’elle tend vers $+\\infty$, le seuil sera nécessairement atteint ; la condition `u<50` finira donc par devenir fausse.",
+        "Contrôle : tester le code sur un cas simple, vérifier la terminaison et relier la sortie numérique à la propriété mathématique recherchée."
       ],
       "commonMistakes": [],
       "access": {
@@ -116,40 +243,52 @@
         "requiresAccount": false
       },
       "competences": [
-        "calculer",
-        "raisonner"
+        "modéliser",
+        "raisonner",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N2",
+        "c27"
       ]
     },
     {
       "id": "tle-py-n2-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale",
-      "title": "Simulation",
-      "statement": "1000 Bernoulli de paramètre 0,3 donnent une fréquence 0,287. Est-ce contradictoire ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Dichotomie avec précision",
+      "statement": "On cherche une racine de $f(x)=x^3-2$ dans $[1,2]$ par dichotomie, avec une largeur finale inférieure à $10^{-3}$. On attend une démarche structurée : identifier les hypothèses, choisir le modèle, calculer puis interpréter.",
+      "questions": [
+        "Justifier que l’intervalle initial convient.",
+        "Déterminer un nombre d’itérations suffisant."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Écrire et lire des fonctions Python mobilisant variables, conditions et boucles."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
         "raisonner",
+        "calculer",
         "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle adapté.",
-        "method": "Structurer les étapes avant de calculer.",
-        "reminder": "Vérifier les hypothèses et interpréter le résultat.",
-        "commonMistake": "Confondre formule, hypothèses et conclusion."
+        "clue": "Écrire d’abord ce que représente chaque variable.",
+        "method": "Identifier l’invariant et la condition d’arrêt.",
+        "reminder": "Tester le programme sur un cas dont on connaît la réponse.",
+        "commonMistake": "Une simulation illustre ou estime ; elle ne remplace pas une démonstration."
       },
       "correction": [
-        "Non.",
-        "Une fréquence simulée fluctue autour de 0,3 et n'a pas à être exactement égale à p."
+        "La fonction est continue, $f(1)=-1$ et $f(2)=6$, donc le TVI garantit une racine dans $[1,2]$.",
+        "Après $n$ étapes, la longueur vaut $1/2^n$. On veut $1/2^n<10^{-3}$, donc $2^n>1000$. Comme $2^{10}=1024$, dix itérations suffisent.",
+        "Contrôle : tester le code sur un cas simple, vérifier la terminaison et relier la sortie numérique à la propriété mathématique recherchée."
       ],
       "commonMistakes": [],
       "access": {
@@ -159,40 +298,164 @@
       },
       "competences": [
         "raisonner",
+        "calculer",
         "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N2",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-py-n2-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale",
+      "title": "Simulation de Bernoulli",
+      "statement": "On veut simuler $5000$ épreuves de Bernoulli de paramètre $p=0.37$ et calculer la fréquence de succès. On attend une démarche structurée : identifier les hypothèses, choisir le modèle, calculer puis interpréter.",
+      "questions": [
+        "Écrire une fonction Python qui renvoie la fréquence simulée.",
+        "Expliquer pourquoi deux exécutions peuvent donner des résultats différents."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Programmer une recherche de seuil pour une suite ou une fonction."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "modéliser",
+        "raisonner",
+        "représenter"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 15,
+      "answerType": "text",
+      "hints": {
+        "clue": "Écrire d’abord ce que représente chaque variable.",
+        "method": "Identifier l’invariant et la condition d’arrêt.",
+        "reminder": "Tester le programme sur un cas dont on connaît la réponse.",
+        "commonMistake": "Une simulation illustre ou estime ; elle ne remplace pas une démonstration."
+      },
+      "correction": [
+        "On peut initialiser `s=0`, répéter `5000` fois un test `if random()<0.37: s+=1`, puis renvoyer `s/5000`.",
+        "Les nombres pseudo-aléatoires diffèrent d’une exécution à l’autre. La fréquence fluctue donc autour de $0.37$ ; la simulation estime une probabilité sans produire exactement la même valeur à chaque fois.",
+        "Contrôle : tester le code sur un cas simple, vérifier la terminaison et relier la sortie numérique à la propriété mathématique recherchée."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "modéliser",
+        "raisonner",
+        "représenter"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-py-n2-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale",
+      "title": "Somme de Riemann",
+      "statement": "On veut approcher $\\int_0^1 x^2\\,dx$ par $n$ rectangles à gauche de largeur $h=1/n$. On attend une démarche structurée : identifier les hypothèses, choisir le modèle, calculer puis interpréter.",
+      "questions": [
+        "Écrire la somme mathématique calculée.",
+        "Proposer une fonction Python prenant `n` en argument et renvoyant l’approximation."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Mettre en œuvre une dichotomie pour approcher une solution d’équation."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "calculer",
+        "raisonner",
+        "modéliser"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 15,
+      "answerType": "text",
+      "hints": {
+        "clue": "Écrire d’abord ce que représente chaque variable.",
+        "method": "Identifier l’invariant et la condition d’arrêt.",
+        "reminder": "Tester le programme sur un cas dont on connaît la réponse.",
+        "commonMistake": "Une simulation illustre ou estime ; elle ne remplace pas une démonstration."
+      },
+      "correction": [
+        "La somme est $S_n=\\frac1n\\sum_{k=0}^{n-1}(k/n)^2$.",
+        "On initialise `s=0`, puis pour `k` dans `range(n)` on ajoute `(k/n)**2`; on renvoie ensuite `s/n`. La valeur doit se rapprocher de $1/3$ lorsque `n` augmente.",
+        "Contrôle : tester le code sur un cas simple, vérifier la terminaison et relier la sortie numérique à la propriété mathématique recherchée."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "raisonner",
+        "modéliser"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c27"
       ]
     },
     {
       "id": "tle-py-n3-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale",
-      "title": "Corriger une dichotomie",
-      "statement": "Un code remplace toujours a par le milieu m. Expliquer le défaut.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Déboguer une dichotomie",
+      "statement": "Un programme de dichotomie remplace toujours `a` par le milieu lorsque $f(a)f(m)<0$, au lieu de remplacer `b`. Le programme s’exécute mais peut perdre la racine. On attend une résolution complète de niveau baccalauréat, avec justification des hypothèses, articulation des outils et contrôle critique.",
+      "questions": [
+        "Expliquer précisément l’erreur logique.",
+        "Corriger la structure conditionnelle.",
+        "Énoncer l’invariant qui doit rester vrai après chaque itération."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "algorithmic",
+      "curriculumItems": [
+        "Simuler des expériences aléatoires et comparer fréquence et probabilité."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
         "raisonner",
+        "calculer",
         "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 24,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle adapté.",
-        "method": "Structurer les étapes avant de calculer.",
-        "reminder": "Vérifier les hypothèses et interpréter le résultat.",
-        "commonMistake": "Confondre formule, hypothèses et conclusion."
+        "clue": "Écrire d’abord ce que représente chaque variable.",
+        "method": "Identifier l’invariant et la condition d’arrêt.",
+        "reminder": "Tester le programme sur un cas dont on connaît la réponse.",
+        "commonMistake": "Une simulation illustre ou estime ; elle ne remplace pas une démonstration."
       },
       "correction": [
-        "Il faut conserver la moitié où subsiste le changement de signe.",
-        "Remplacer toujours a peut éliminer la racine.",
-        "Le choix dépend du signe de f(a)f(m)."
+        "Si $f(a)f(m)<0$, le changement de signe est entre `a` et `m`; il faut donc conserver `a` et remplacer `b` par `m`. Remplacer `a` détruit justement la moitié qui contient la racine.",
+        "La structure correcte est `if f(a)*f(m)<=0: b=m else: a=m`.",
+        "L’invariant est : la fonction est continue sur l’intervalle courant et ses valeurs aux deux bornes sont de signes opposés ou l’une est nulle. Tant que cet invariant est préservé, le TVI garantit qu’une racine reste dans l’intervalle.",
+        "Contrôle : tester le code sur un cas simple, vérifier la terminaison et relier la sortie numérique à la propriété mathématique recherchée."
       ],
       "commonMistakes": [],
       "access": {
@@ -201,40 +464,60 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
         "raisonner",
+        "calculer",
         "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N3",
+        "c27"
       ]
     },
     {
       "id": "tle-py-n3-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale",
-      "title": "Rectangles",
-      "statement": "Sur [0,1], quelle est la largeur d'un rectangle pour n=100 puis n=1000 ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Comparer convergence numérique et exacte",
+      "statement": "On approche $\\int_0^1 e^x\\,dx$ par rectangles à gauche pour $n=10$, $100$ puis $1000$. On connaît aussi la valeur exacte $e-1$. On attend une résolution complète de niveau baccalauréat, avec justification des hypothèses, articulation des outils et contrôle critique.",
+      "questions": [
+        "Écrire un programme calculant les trois approximations.",
+        "Calculer l’erreur absolue par rapport à $e-1$.",
+        "Expliquer ce que l’évolution des erreurs permet de conclure sans en faire une preuve générale de convergence."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "data-analysis",
+      "curriculumItems": [
+        "Programmer des sommes ou une approximation numérique d’intégrale et analyser l’erreur."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 24,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle adapté.",
-        "method": "Structurer les étapes avant de calculer.",
-        "reminder": "Vérifier les hypothèses et interpréter le résultat.",
-        "commonMistake": "Confondre formule, hypothèses et conclusion."
+        "clue": "Écrire d’abord ce que représente chaque variable.",
+        "method": "Identifier l’invariant et la condition d’arrêt.",
+        "reminder": "Tester le programme sur un cas dont on connaît la réponse.",
+        "commonMistake": "Une simulation illustre ou estime ; elle ne remplace pas une démonstration."
       },
       "correction": [
-        "h=1/100=0,01 puis h=1/1000=0,001.",
-        "Le maillage est dix fois plus fin."
+        "Une fonction `rect(n)` utilise $h=1/n$ et additionne `exp(k/n)` pour `k` dans `range(n)`, puis multiplie la somme par `h`.",
+        "Pour chaque valeur de `n`, on calcule `abs(rect(n)-(exp(1)-1))`. Les erreurs doivent décroître lorsque le maillage est raffiné.",
+        "Cette observation numérique est cohérente avec la convergence des sommes de Riemann pour une fonction continue, mais trois tests numériques ne constituent pas à eux seuls une démonstration générale.",
+        "Contrôle : tester le code sur un cas simple, vérifier la terminaison et relier la sortie numérique à la propriété mathématique recherchée."
       ],
       "commonMistakes": [],
       "access": {
@@ -243,13 +526,142 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N3",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-py-n3-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale",
+      "title": "Estimer une probabilité rare",
+      "statement": "On souhaite estimer par simulation une probabilité proche de $0.01$. Une première simulation utilise seulement $100$ essais et retourne parfois une fréquence nulle. On attend une résolution complète de niveau baccalauréat, avec justification des hypothèses, articulation des outils et contrôle critique.",
+      "questions": [
+        "Expliquer pourquoi $100$ essais sont insuffisants pour une estimation stable.",
+        "Proposer un protocole avec davantage d’essais et plusieurs répétitions.",
+        "Indiquer quels indicateurs empiriques comparer aux valeurs théoriques lorsque celles-ci sont disponibles."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Écrire et lire des fonctions Python mobilisant variables, conditions et boucles."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Écrire d’abord ce que représente chaque variable.",
+        "method": "Identifier l’invariant et la condition d’arrêt.",
+        "reminder": "Tester le programme sur un cas dont on connaît la réponse.",
+        "commonMistake": "Une simulation illustre ou estime ; elle ne remplace pas une démonstration."
+      },
+      "correction": [
+        "Avec une probabilité de l’ordre de $0.01$, le nombre moyen de succès sur $100$ essais n’est que $1$. Obtenir zéro, un ou deux succès provoque donc de très fortes variations relatives.",
+        "On peut utiliser par exemple plusieurs séries de grande taille, calculer la fréquence dans chacune puis examiner leur moyenne et leur dispersion. Augmenter fortement le nombre d’essais réduit les fluctuations relatives.",
+        "Si la loi théorique est connue, on compare fréquence moyenne, variance empirique et éventuellement distribution du nombre de succès aux valeurs attendues. La simulation doit servir de contrôle, pas remplacer la formule exacte.",
+        "Contrôle : tester le code sur un cas simple, vérifier la terminaison et relier la sortie numérique à la propriété mathématique recherchée."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-py-n3-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/algorithmique-python-terminale",
+      "title": "Algorithme hybride seuil puis dichotomie",
+      "statement": "On cherche la première solution positive de $e^x=10x$. On veut d’abord repérer automatiquement un intervalle de changement de signe pour $f(x)=e^x-10x$, puis appliquer une dichotomie. On attend une résolution complète de niveau baccalauréat, avec justification des hypothèses, articulation des outils et contrôle critique.",
+      "questions": [
+        "Proposer une boucle qui explore des intervalles successifs jusqu’à détecter un changement de signe.",
+        "Écrire ensuite la phase de dichotomie avec une précision donnée.",
+        "Expliquer les précautions à prendre pour ne pas manquer une racine ou conclure abusivement sur l’unicité."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Programmer une recherche de seuil pour une suite ou une fonction."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Écrire d’abord ce que représente chaque variable.",
+        "method": "Identifier l’invariant et la condition d’arrêt.",
+        "reminder": "Tester le programme sur un cas dont on connaît la réponse.",
+        "commonMistake": "Une simulation illustre ou estime ; elle ne remplace pas une démonstration."
+      },
+      "correction": [
+        "On peut évaluer $f$ sur une grille croissante et avancer tant que deux valeurs consécutives ont le même signe. Dès qu’un produit est négatif, l’intervalle correspondant est mémorisé.",
+        "Sur cet intervalle, on applique la dichotomie classique en conservant le changement de signe jusqu’à obtenir une largeur inférieure à la précision demandée.",
+        "La phase de balayage dépend du pas choisi et peut manquer un changement de signe multiple ou très localisé. De plus, trouver un intervalle contenant une racine ne prouve pas qu’il n’en existe aucune autre ; l’unicité nécessite une étude mathématique complémentaire.",
+        "Contrôle : tester le code sur un cas simple, vérifier la terminaison et relier la sortie numérique à la propriété mathématique recherchée."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c27"
       ]
     }
   ]

@@ -1,80 +1,129 @@
+% Mathématiques Terminale spécialité — V3 LaTeX
+% Algorithmique et Python en Terminale
+
 \section{Objectifs}
 \begin{itemize}
-\item Utiliser Python comme outil de recherche et de validation.
-\item Programmer des algorithmes classiques du programme.
-\item Lire un code et expliquer son résultat.
-\item Distinguer expérimentation numérique et preuve.
+\item Lire et écrire des fonctions Python liées au programme.
+\item Implémenter une recherche de seuil et une dichotomie.
+\item Simuler une expérience aléatoire et exploiter les résultats.
+\item Programmer des sommes et des approximations numériques en contrôlant leur sens.
 \end{itemize}
 
-\section{1. Recherche de seuil}
-~~~python
-def seuil(u0, cible):
-    n = 0
-    u = u0
-    while u < cible:
-        u = 1.05 * u
-        n += 1
-    return n
-~~~
+\section{Repères et enjeux du chapitre}
+L’algorithmique n’est pas un chapitre isolé : elle fournit des méthodes de calcul et d’exploration pour l’ensemble du programme. En Terminale, l’enjeu est de passer d’un raisonnement mathématique à un algorithme lisible, puis de revenir du résultat numérique vers une interprétation critique.
 
-\section{2. Dichotomie}
-~~~python
-def dichotomie(f, a, b, eps):
-    while b - a > eps:
-        m = (a + b) / 2
-        if f(a) * f(m) <= 0:
-            b = m
-        else:
-            a = m
-    return (a + b) / 2
-~~~
+\section{1. Variables, fonctions et contrats}
+Une fonction Python reçoit des entrées, effectue un traitement puis renvoie une sortie. Avant le code, on précise le contrat mathématique : domaine des entrées, signification des variables et nature du résultat attendu. Une fonction bien conçue peut ensuite être testée indépendamment.
 
-Le code ne remplace pas le théorème des valeurs intermédiaires : il affine un encadrement déjà justifié.
+\begin{verbatim}
+def carre(x):
+    return x*x
+\end{verbatim}
 
-\section{3. Simulation de Bernoulli}
-~~~python
+Le nom des variables et la structure du programme doivent aider à comprendre le raisonnement sans dépendre uniquement de commentaires.
+
+\section{2. Boucles et recherche de seuil}
+Une boucle \texttt{while} est adaptée lorsque le nombre d’itérations n’est pas connu à l’avance. Pour une suite $(u_n)$, on peut chercher le premier indice vérifiant $u_n\geq A$ en mettant à jour simultanément $u$ et $n$.
+
+\begin{verbatim}
+n = 0
+u = u0
+while u < A:
+    u = evolution(u)
+    n = n + 1
+\end{verbatim}
+
+La condition d’arrêt doit être l’opposé exact de la propriété recherchée.
+
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/algorithmique-python-terminale-1.svg}{Organigramme d’une recherche de seuil.}{Un flux part d’une initialisation, teste une condition, met à jour les variables puis s’arrête lorsque le seuil est atteint.}
+
+\section{3. Dichotomie}
+Si $f$ est continue sur $[a,b]$ et si $f(a)f(b)<0$, le TVI garantit au moins une racine. La dichotomie construit des intervalles emboîtés contenant une racine en remplaçant à chaque étape une borne par le milieu.
+
+\begin{verbatim}
+while b-a > eps:
+    m = (a+b)/2
+    if f(a)*f(m) <= 0:
+        b = m
+    else:
+        a = m
+return (a+b)/2
+\end{verbatim}
+
+Après chaque itération, la longueur de l’intervalle est divisée par deux. Cela permet de prévoir le nombre d’itérations nécessaire pour atteindre une précision donnée.
+
+\section{4. Simulation d’une expérience aléatoire}
+Pour simuler une épreuve de Bernoulli de paramètre $p$, on compare un nombre pseudo-aléatoire uniforme à $p$. Répéter l’expérience permet d’obtenir une fréquence empirique.
+
+\begin{verbatim}
 from random import random
+succes = 0
+for _ in range(n):
+    if random() < p:
+        succes += 1
+frequence = succes/n
+\end{verbatim}
 
-def bernoulli(p):
-    return 1 if random() < p else 0
-~~~
+La simulation ne prouve pas une formule probabiliste. Elle permet de contrôler un ordre de grandeur, d’explorer un comportement et d’observer la stabilisation des fréquences.
 
-\section{4. Sommes}
-~~~python
-def somme_inverse_carres(n):
-    s = 0
-    for k in range(1, n + 1):
-        s += 1 / (k * k)
-    return s
-~~~
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/algorithmique-python-terminale-2.svg}{Convergence d’une fréquence simulée.}{Une courbe de fréquence empirique oscille puis se stabilise autour d’une droite représentant la probabilité théorique.}
 
-\section{5. Intégration numérique}
-~~~python
-def rectangles(f, a, b, n):
-    h = (b - a) / n
-    s = 0
-    for k in range(n):
-        s += f(a + k * h)
-    return h * s
-~~~
+\section{5. Programmer une somme}
+Une somme
+\[
+S_n=\sum_{k=0}^{n}u_k
+\]
+se traduit par un accumulateur initialisé avant la boucle. À chaque itération, on ajoute le nouveau terme. L’erreur classique consiste à réinitialiser la somme à l’intérieur de la boucle.
 
-\section{6. Validation}
-Toujours contrôler :
-\begin{itemize}
-\item les entrées ;
-\item les domaines ;
-\item l'ordre de grandeur ;
-\item la précision ;
-\item la différence entre valeur approchée et valeur exacte.
-\end{itemize}
+\begin{verbatim}
+s = 0
+for k in range(n+1):
+    s = s + terme(k)
+\end{verbatim}
+
+Le programme doit respecter exactement les bornes de la somme mathématique.
+
+\section{6. Approximer une intégrale}
+Une somme de rectangles peut approcher
+\[
+\int_a^b f(x)\,dx.
+\]
+Avec $n$ rectangles de largeur $h=(b-a)/n$, une somme à gauche s’écrit
+\[
+S_n=h\sum_{k=0}^{n-1}f(a+kh).
+\]
+Augmenter $n$ réduit généralement l’erreur pour une fonction régulière. Le code doit conserver la différence entre valeur exacte et approximation.
+
+\section{7. Complexité et nombre d’itérations}
+Pour la dichotomie, après $n$ étapes, la longueur initiale $L$ devient
+\[
+\frac{L}{2^n}.
+\]
+On peut donc déterminer à l’avance une valeur de $n$ suffisante pour atteindre une précision $\varepsilon$. Cette analyse évite les boucles arbitrairement longues et relie performance informatique et raisonnement mathématique.
+
+\section{8. Validation critique}
+Un programme scientifique doit être validé. On choisit des cas simples, on compare à une formule exacte, on vérifie les unités ou le domaine, puis on teste des valeurs limites. Pour une simulation, on peut relancer plusieurs fois et observer la variabilité. Pour une approximation numérique, on compare plusieurs pas ou plusieurs tailles d’échantillon.
+
+\section{Méthode de résolution et rédaction}
+Avant de coder, on écrit l’invariant ou l’objectif de la boucle : que représente chaque variable, quelle condition provoque l’arrêt et quelle propriété garantit que l’algorithme progresse ? Le programme vient ensuite traduire ce raisonnement.
+Une résolution efficace distingue toujours le modèle mathématique, les paramètres, le calcul et l’interprétation. Les hypothèses ne sont pas décoratives : elles déterminent les formules que l’on a le droit d’utiliser.
+
+Un résultat numérique doit être testé sur des cas simples, comparé à un résultat exact lorsqu’il existe et accompagné d’une discussion sur l’erreur ou le nombre d’itérations. Un programme qui s’exécute n’est pas automatiquement correct.
+Une valeur approchée doit être accompagnée de son sens et, lorsque c’est pertinent, d’un ordre de grandeur ou d’un contrôle indépendant. Dans une copie de baccalauréat, les étapes structurantes doivent rester visibles même lorsqu’un calcul est effectué à la calculatrice ou par un programme.
+
+\section{Connexions avec les autres chapitres}
+La recherche de seuil s’applique aux suites et aux exponentielles, la dichotomie à la continuité et au TVI, la simulation aux probabilités et les sommes au calcul intégral ou aux suites. Python sert donc de laboratoire transversal.
+Ce chapitre mobilise plusieurs compétences transversales : raisonner, modéliser, calculer, représenter et communiquer. Il fournit aussi des situations naturelles pour l’algorithmique et pour la comparaison entre résultat théorique, simulation et observation.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Confondre simulation et preuve.
-\item Oublier une condition d'arrêt.
-\item Modifier la mauvaise borne dans une dichotomie.
-\item Interpréter une valeur approchée comme exacte.
+\item Coder avant d’avoir défini précisément les variables et la condition d’arrêt.
+\item Créer une boucle qui peut ne jamais terminer.
+\item Confondre simulation et preuve mathématique.
+\item Présenter une approximation numérique comme une égalité exacte.
 \end{itemize}
 
 \section{À retenir}
-Python sert à explorer, simuler et approcher ; le raisonnement mathématique justifie les propriétés utilisées.
+\begin{aretenir}
+Un algorithme correct doit avoir des entrées définies, une progression contrôlée, une condition d’arrêt et une sortie interprétable. Dichotomie, seuil, simulation et sommes numériques traduisent des raisonnements mathématiques précis.
+\end{aretenir}

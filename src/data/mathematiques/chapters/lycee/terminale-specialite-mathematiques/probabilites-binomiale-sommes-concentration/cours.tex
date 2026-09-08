@@ -1,84 +1,99 @@
+% Mathématiques Terminale spécialité — V3 LaTeX
+% Probabilités : loi binomiale, sommes et concentration
+
 \section{Objectifs}
 \begin{itemize}
-\item Reconnaître un schéma de Bernoulli.
-\item Utiliser la loi binomiale.
-\item Calculer espérance et variance.
-\item Comprendre concentration et loi des grands nombres.
+\item Modéliser une répétition d’épreuves indépendantes par une loi binomiale.
+\item Calculer probabilités, espérance et variance.
+\item Utiliser les propriétés des sommes de variables aléatoires indépendantes.
+\item Exploiter une inégalité de concentration et la loi des grands nombres.
 \end{itemize}
 
-\section{1. Épreuve de Bernoulli}
-Une épreuve de Bernoulli possède deux issues :
-\begin{itemize}
-\item succès, de probabilité $p$ ;
-\item échec, de probabilité $1-p$.
-\end{itemize}
+\section{Repères et enjeux du chapitre}
+La loi binomiale modélise le nombre de succès dans une répétition indépendante d’épreuves de Bernoulli. Le chapitre élargit ensuite la perspective aux sommes de variables aléatoires et aux résultats de concentration qui expliquent pourquoi une fréquence empirique se stabilise autour d’une probabilité.
 
-La variable $X$ qui vaut 1 en cas de succès et 0 sinon vérifie
+\section{1. Épreuve de Bernoulli et schéma de Bernoulli}
+Une épreuve de Bernoulli possède deux issues : succès et échec. On note $p$ la probabilité du succès et $1-p$ celle de l’échec. Un schéma de Bernoulli de paramètres $n$ et $p$ est constitué de $n$ répétitions indépendantes de la même épreuve.
+
+Si $X$ compte le nombre de succès, alors $X$ suit une loi binomiale de paramètres $n$ et $p$, ce que l’on note
 \[
-\mathbb E(X)=p,
+X\sim\mathcal{B}(n,p).
 \]
-\[
-V(X)=p(1-p).
-\]
+Les hypothèses sont essentielles : même probabilité de succès à chaque répétition et indépendance des essais.
 
-\section{2. Schéma de Bernoulli}
-On répète $n$ épreuves de Bernoulli identiques et indépendantes.
-
-Si $X$ compte le nombre de succès, alors
-\[
-X\sim\mathcal B(n,p).
-\]
-
-Pour $k\in\{0,\ldots,n\}$ :
+\section{2. Probabilité d’un nombre exact de succès}
+Pour $k\in\{0,\ldots,n\}$,
 \[
 P(X=k)=\binom nk p^k(1-p)^{n-k}.
 \]
+Le coefficient binomial compte les positions possibles des $k$ succès. Le facteur $p^k(1-p)^{n-k}$ est la probabilité d’une configuration donnée. La formule est donc la traduction d’un raisonnement combinatoire.
 
-\section{3. Espérance et variance}
-Pour $X\sim\mathcal B(n,p)$ :
-\[
-\mathbb E(X)=np,
-\]
-\[
-V(X)=np(1-p).
-\]
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration-1.svg}{Distribution binomiale discrète.}{Des bâtons de hauteurs différentes représentent les probabilités des nombres de succès autour de l’espérance.}
 
-L'écart-type vaut
+\section{3. Probabilités cumulées}
+Les événements « au plus », « au moins » et « entre » se traduisent par des sommes ou par le complément. Par exemple,
 \[
-\sigma(X)=\sqrt{np(1-p)}.
+P(X\geq r)=1-P(X\leq r-1).
 \]
+La calculatrice fournit rapidement une valeur numérique, mais la copie doit montrer l’événement traduit et la commande ou la somme utilisée. Un résultat numérique sans événement explicite est difficile à contrôler.
 
-\section{4. Sommes de variables aléatoires}
-Pour des variables admettant une espérance :
+\section{4. Espérance et variance de la loi binomiale}
+Si $X\sim\mathcal{B}(n,p)$,
 \[
-\mathbb E(X+Y)=\mathbb E(X)+\mathbb E(Y).
+E(X)=np,\qquad V(X)=np(1-p),\qquad \sigma(X)=\sqrt{np(1-p)}.
 \]
+L’espérance représente le nombre moyen de succès sur une longue série de répétitions du schéma. L’écart-type mesure l’échelle habituelle des fluctuations autour de cette valeur moyenne.
 
-Si $X$ et $Y$ sont indépendantes :
+\section{5. Sommes de variables aléatoires}
+Pour des variables aléatoires intégrables $X$ et $Y$,
 \[
-V(X+Y)=V(X)+V(Y).
+E(X+Y)=E(X)+E(Y)
 \]
+sans hypothèse d’indépendance. Pour les variances, l’additivité simple
+\[
+V(X+Y)=V(X)+V(Y)
+\]
+est valable lorsque $X$ et $Y$ sont indépendantes. Cette distinction doit être connue : l’espérance est linéaire de manière générale, la variance ne l’est pas sans condition.
 
-\section{5. Inégalité de Bienaymé-Tchebychev}
-Pour une variable $X$ d'espérance $\mu$ et de variance $V(X)$, pour tout $\delta>0$ :
-\[
-P(|X-\mu|\ge\delta)\le\frac{V(X)}{\delta^2}.
-\]
+\coursefigure{/images/mathematiques/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration-2.svg}{Concentration d’une fréquence autour de la probabilité.}{Plusieurs intervalles de plus en plus resserrés autour de p illustrent la diminution des fluctuations lorsque la taille augmente.}
 
-\section{6. Fréquence et loi des grands nombres}
-Pour des variables de Bernoulli indépendantes de même paramètre $p$, la fréquence
+\section{6. Inégalité de Bienaymé-Tchebychev}
+Pour une variable aléatoire $X$ d’espérance $\mu$ et de variance $V(X)$, et pour tout $a>0$,
 \[
-F_n=\frac{X_1+\cdots+X_n}{n}
+P(|X-\mu|\geq a)\leq \frac{V(X)}{a^2}.
 \]
-se concentre autour de $p$ lorsque $n$ augmente.
+Cette inégalité fournit une majoration générale sans connaître toute la loi de $X$. Elle est robuste mais souvent peu précise. On l’utilise pour garantir qu’un écart important est rare, pas pour calculer exactement sa probabilité.
+
+\section{7. Fréquence et loi des grands nombres}
+Si $X_n\sim\mathcal{B}(n,p)$ et si $F_n=X_n/n$ désigne la fréquence de succès, alors
+\[
+E(F_n)=p,\qquad V(F_n)=\frac{p(1-p)}{n}.
+\]
+La variance tend vers zéro lorsque $n$ augmente. Les fréquences observées se concentrent donc autour de $p$. C’est l’idée quantitative qui sous-tend la loi des grands nombres.
+
+\section{8. Modélisation et esprit critique}
+Un modèle probabiliste ne décrit pas une certitude individuelle mais une régularité dans la répétition. Avant de calculer, on doit discuter la pertinence de l’indépendance et de la stabilité de $p$. Après le calcul, on traduit le résultat en langage courant : probabilité d’un nombre de succès, risque de dépassement ou garantie de concentration.
+
+\section{Méthode de résolution et rédaction}
+On commence par vérifier les hypothèses : nombre fixé d’épreuves, indépendance et probabilité de succès constante pour un modèle binomial. Pour une somme, on distingue ce qui relève de la linéarité de l’espérance et ce qui nécessite l’indépendance pour la variance.
+Une résolution efficace distingue toujours le modèle mathématique, les paramètres, le calcul et l’interprétation. Les hypothèses ne sont pas décoratives : elles déterminent les formules que l’on a le droit d’utiliser.
+
+Une probabilité doit rester dans $[0,1]$, une variance est positive et une espérance doit être cohérente avec l’échelle de la variable. Pour une majoration de Tchebychev, on vérifie que le majorant obtenu est informatif.
+Une valeur approchée doit être accompagnée de son sens et, lorsque c’est pertinent, d’un ordre de grandeur ou d’un contrôle indépendant. Dans une copie de baccalauréat, les étapes structurantes doivent rester visibles même lorsqu’un calcul est effectué à la calculatrice ou par un programme.
+
+\section{Connexions avec les autres chapitres}
+Les coefficients binomiaux viennent directement du dénombrement. Les simulations Python permettent de confronter théorie et fréquences. Les intervalles de concentration préparent le raisonnement statistique et montrent comment la dispersion diminue quand la taille d’échantillon augmente.
+Ce chapitre mobilise plusieurs compétences transversales : raisonner, modéliser, calculer, représenter et communiquer. Il fournit aussi des situations naturelles pour l’algorithmique et pour la comparaison entre résultat théorique, simulation et observation.
 
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Utiliser une loi binomiale sans indépendance ni probabilité de succès constante.
-\item Confondre $P(X=k)$ et $P(X\le k)$.
+\item Appliquer la loi binomiale sans vérifier l’indépendance et la constance de $p$.
+\item Confondre $P(X=k)$ et $P(X\leq k)$.
 \item Additionner des variances sans indépendance.
-\item Interpréter une borne de Tchebychev comme une probabilité exacte.
+\item Interpréter une majoration de Tchebychev comme une probabilité exacte.
 \end{itemize}
 
 \section{À retenir}
-La loi binomiale modélise un nombre de succès dans des essais indépendants ; espérance, variance et concentration décrivent position et dispersion.
+\begin{aretenir}
+Si $X\sim\mathcal{B}(n,p)$, alors $E(X)=np$ et $V(X)=np(1-p)$. Pour des variables indépendantes, les variances s’additionnent. Tchebychev donne $P(|X-E(X)|\geq a)\leq V(X)/a^2$.
+\end{aretenir}

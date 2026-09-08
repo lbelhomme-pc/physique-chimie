@@ -3,28 +3,35 @@
     {
       "id": "tle-pro-n1-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration",
-      "title": "Loi binomiale",
-      "statement": "X suit B(10,0,3). Calculer P(X=2) sous forme exacte.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Probabilité binomiale exacte",
+      "statement": "Une variable $X$ suit $\\mathcal{B}(10,0.3)$. Calculer sous forme exacte $P(X=2)$ avant toute valeur approchée. On attend une application directe et justifiée, avec un contrôle simple du résultat.",
+      "questions": [
+        "Écrire et calculer la probabilité exacte."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Reconnaître un schéma de Bernoulli et utiliser la loi binomiale."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle adapté.",
-        "method": "Structurer les étapes avant de calculer.",
-        "reminder": "Vérifier les hypothèses et interpréter le résultat.",
-        "commonMistake": "Confondre formule, hypothèses et conclusion."
+        "clue": "Identifier le modèle et ses hypothèses.",
+        "method": "Écrire clairement l’événement avant de calculer.",
+        "reminder": "Distinguer espérance, variance et probabilité.",
+        "commonMistake": "Une borne de concentration n’est pas une valeur exacte."
       },
       "correction": [
-        "P(X=2)=C(10,2)×0,3²×0,7⁸.",
-        "C(10,2)=45, donc P(X=2)=45×0,09×0,7⁸."
+        "On applique la formule binomiale : $P(X=2)=\\binom{10}{2}(0.3)^2(0.7)^8=45(0.3)^2(0.7)^8$.",
+        "Contrôle : contrôler que les probabilités sont dans $[0,1]$, que la variance est positive et que l’interprétation respecte les hypothèses du modèle."
       ],
       "commonMistakes": [],
       "access": {
@@ -39,34 +46,142 @@
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c27"
       ]
     },
     {
       "id": "tle-pro-n1-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration",
-      "title": "Espérance",
-      "statement": "X suit B(80,0,25). Calculer E(X) et V(X).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Espérance et variance",
+      "statement": "On considère $Y\\sim\\mathcal{B}(80,0.25)$. Déterminer son espérance, sa variance et son écart-type. On attend une application directe et justifiée, avec un contrôle simple du résultat.",
+      "questions": [
+        "Calculer les trois indicateurs."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Calculer et interpréter espérance et variance d’une variable binomiale."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier le modèle et ses hypothèses.",
+        "method": "Écrire clairement l’événement avant de calculer.",
+        "reminder": "Distinguer espérance, variance et probabilité.",
+        "commonMistake": "Une borne de concentration n’est pas une valeur exacte."
+      },
+      "correction": [
+        "On obtient $E(Y)=80\\times0.25=20$, $V(Y)=80\\times0.25\\times0.75=15$ et $\\sigma(Y)=\\sqrt{15}$.",
+        "Contrôle : contrôler que les probabilités sont dans $[0,1]$, que la variance est positive et que l’interprétation respecte les hypothèses du modèle."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N1",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-pro-n1-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration",
+      "title": "Événement complémentaire",
+      "statement": "Pour $X\\sim\\mathcal{B}(20,0.4)$, exprimer $P(X\\geq6)$ à l’aide d’une probabilité cumulée inférieure. On attend une application directe et justifiée, avec un contrôle simple du résultat.",
+      "questions": [
+        "Écrire la relation de complément."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Utiliser l’espérance d’une somme et l’additivité des variances pour des variables indépendantes."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier le modèle et ses hypothèses.",
+        "method": "Écrire clairement l’événement avant de calculer.",
+        "reminder": "Distinguer espérance, variance et probabilité.",
+        "commonMistake": "Une borne de concentration n’est pas une valeur exacte."
+      },
+      "correction": [
+        "Le complément de $X\\geq6$ est $X\\leq5$. Ainsi $P(X\\geq6)=1-P(X\\leq5)$.",
+        "Contrôle : contrôler que les probabilités sont dans $[0,1]$, que la variance est positive et que l’interprétation respecte les hypothèses du modèle."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N1",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-pro-n1-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration",
+      "title": "Espérance d’une somme",
+      "statement": "Deux variables aléatoires $X$ et $Y$ ont pour espérances respectives $4$ et $7$. Déterminer $E(3X-2Y+5)$. On attend une application directe et justifiée, avec un contrôle simple du résultat.",
+      "questions": [
+        "Calculer l’espérance demandée."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Appliquer l’inégalité de Bienaymé-Tchebychev pour majorer une probabilité d’écart."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle adapté.",
-        "method": "Structurer les étapes avant de calculer.",
-        "reminder": "Vérifier les hypothèses et interpréter le résultat.",
-        "commonMistake": "Confondre formule, hypothèses et conclusion."
+        "clue": "Identifier le modèle et ses hypothèses.",
+        "method": "Écrire clairement l’événement avant de calculer.",
+        "reminder": "Distinguer espérance, variance et probabilité.",
+        "commonMistake": "Une borne de concentration n’est pas une valeur exacte."
       },
       "correction": [
-        "E(X)=np=80×0,25=20.",
-        "V(X)=np(1-p)=80×0,25×0,75=15."
+        "Par linéarité, $E(3X-2Y+5)=3E(X)-2E(Y)+5=12-14+5=3$. L’indépendance n’est pas nécessaire.",
+        "Contrôle : contrôler que les probabilités sont dans $[0,1]$, que la variance est positive et que l’interprétation respecte les hypothèses du modèle."
       ],
       "commonMistakes": [],
       "access": {
@@ -81,35 +196,45 @@
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N1"
+        "N1",
+        "c27"
       ]
     },
     {
       "id": "tle-pro-n2-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration",
-      "title": "Au moins un succès",
-      "statement": "Un composant réussit un test avec probabilité 0,9. On teste indépendamment 5 composants. Calculer la probabilité d'au moins 4 succès.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Contrôle qualité",
+      "statement": "Une usine produit des pièces dont la probabilité de défaut est $0.02$. On prélève indépendamment $50$ pièces et $X$ désigne le nombre de pièces défectueuses. On attend une démarche structurée : identifier les hypothèses, choisir le modèle, calculer puis interpréter.",
+      "questions": [
+        "Justifier le modèle binomial et donner ses paramètres.",
+        "Exprimer la probabilité d’avoir au plus une pièce défectueuse."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Interpréter la loi des grands nombres et relier fréquence observée et probabilité."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
+        "modéliser",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle adapté.",
-        "method": "Structurer les étapes avant de calculer.",
-        "reminder": "Vérifier les hypothèses et interpréter le résultat.",
-        "commonMistake": "Confondre formule, hypothèses et conclusion."
+        "clue": "Identifier le modèle et ses hypothèses.",
+        "method": "Écrire clairement l’événement avant de calculer.",
+        "reminder": "Distinguer espérance, variance et probabilité.",
+        "commonMistake": "Une borne de concentration n’est pas une valeur exacte."
       },
       "correction": [
-        "X∼B(5,0,9).",
-        "P(X≥4)=P(X=4)+P(X=5).",
-        "=C(5,4)0,9⁴0,1+0,9⁵≈0,91854."
+        "Chaque pièce donne succès ou échec, la probabilité de défaut est constante et les prélèvements sont supposés indépendants. Ainsi $X\\sim\\mathcal{B}(50,0.02)$.",
+        "On cherche $P(X\\leq1)=P(X=0)+P(X=1)=(0.98)^{50}+50(0.02)(0.98)^{49}$.",
+        "Contrôle : contrôler que les probabilités sont dans $[0,1]$, que la variance est positive et que l’interprétation respecte les hypothèses du modèle."
       ],
       "commonMistakes": [],
       "access": {
@@ -118,40 +243,52 @@
         "requiresAccount": false
       },
       "competences": [
+        "modéliser",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N2",
+        "c27"
       ]
     },
     {
       "id": "tle-pro-n2-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration",
-      "title": "Somme indépendante",
-      "statement": "X et Y sont indépendantes, E(X)=3, V(X)=4, E(Y)=-1, V(Y)=5. Calculer E(X+Y) et V(X+Y).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Somme de deux binomiales",
+      "statement": "On considère deux variables indépendantes $X\\sim\\mathcal{B}(30,0.4)$ et $Y\\sim\\mathcal{B}(20,0.4)$. On pose $S=X+Y$. On attend une démarche structurée : identifier les hypothèses, choisir le modèle, calculer puis interpréter.",
+      "questions": [
+        "Déterminer $E(S)$ et $V(S)$.",
+        "Expliquer pourquoi $S$ suit aussi une loi binomiale et donner ses paramètres."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Reconnaître un schéma de Bernoulli et utiliser la loi binomiale."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "modéliser"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 15,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle adapté.",
-        "method": "Structurer les étapes avant de calculer.",
-        "reminder": "Vérifier les hypothèses et interpréter le résultat.",
-        "commonMistake": "Confondre formule, hypothèses et conclusion."
+        "clue": "Identifier le modèle et ses hypothèses.",
+        "method": "Écrire clairement l’événement avant de calculer.",
+        "reminder": "Distinguer espérance, variance et probabilité.",
+        "commonMistake": "Une borne de concentration n’est pas une valeur exacte."
       },
       "correction": [
-        "E(X+Y)=3+(-1)=2.",
-        "Par indépendance, V(X+Y)=4+5=9."
+        "Par linéarité et indépendance, $E(S)=12+8=20$ et $V(S)=30(0.4)(0.6)+20(0.4)(0.6)=12$.",
+        "Les deux variables comptent des succès indépendants avec le même paramètre $p=0.4$ sur un total de $50$ essais. Ainsi $S\\sim\\mathcal{B}(50,0.4)$.",
+        "Contrôle : contrôler que les probabilités sont dans $[0,1]$, que la variance est positive et que l’interprétation respecte les hypothèses du modèle."
       ],
       "commonMistakes": [],
       "access": {
@@ -160,40 +297,165 @@
         "requiresAccount": false
       },
       "competences": [
+        "raisonner",
         "calculer",
-        "raisonner"
+        "modéliser"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N2"
+        "N2",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-pro-n2-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration",
+      "title": "Majoration de Tchebychev",
+      "statement": "Une variable $X$ vérifie $E(X)=100$ et $V(X)=25$. On veut majorer la probabilité que $X$ s’écarte de son espérance d’au moins $10$. On attend une démarche structurée : identifier les hypothèses, choisir le modèle, calculer puis interpréter.",
+      "questions": [
+        "Appliquer l’inégalité de Bienaymé-Tchebychev.",
+        "Interpréter la borne obtenue sans la présenter comme une probabilité exacte."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Calculer et interpréter espérance et variance d’une variable binomiale."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 15,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier le modèle et ses hypothèses.",
+        "method": "Écrire clairement l’événement avant de calculer.",
+        "reminder": "Distinguer espérance, variance et probabilité.",
+        "commonMistake": "Une borne de concentration n’est pas une valeur exacte."
+      },
+      "correction": [
+        "Avec $a=10$, Tchebychev donne $P(|X-100|\\geq10)\\leq25/100=0.25$.",
+        "Cela signifie que la probabilité d’un écart d’au moins $10$ est au plus $0.25$. La vraie probabilité peut être beaucoup plus petite : l’inégalité ne donne qu’une garantie.",
+        "Contrôle : contrôler que les probabilités sont dans $[0,1]$, que la variance est positive et que l’interprétation respecte les hypothèses du modèle."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-pro-n2-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration",
+      "title": "Fréquence de succès",
+      "statement": "On répète $400$ fois une épreuve de Bernoulli de paramètre $p=0.6$. La fréquence de succès est $F=X/400$ avec $X\\sim\\mathcal{B}(400,0.6)$. On attend une démarche structurée : identifier les hypothèses, choisir le modèle, calculer puis interpréter.",
+      "questions": [
+        "Calculer $E(F)$ et $V(F)$.",
+        "Majorer $P(|F-0.6|\\geq0.05)$ par Tchebychev."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "data-analysis",
+      "curriculumItems": [
+        "Utiliser l’espérance d’une somme et l’additivité des variances pour des variables indépendantes."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 15,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier le modèle et ses hypothèses.",
+        "method": "Écrire clairement l’événement avant de calculer.",
+        "reminder": "Distinguer espérance, variance et probabilité.",
+        "commonMistake": "Une borne de concentration n’est pas une valeur exacte."
+      },
+      "correction": [
+        "On a $E(F)=0.6$ et $V(F)=0.6\\times0.4/400=0.0006$.",
+        "Tchebychev donne $P(|F-0.6|\\geq0.05)\\leq0.0006/(0.05)^2=0.24$. Cette borne est générale et peut être peu serrée.",
+        "Contrôle : contrôler que les probabilités sont dans $[0,1]$, que la variance est positive et que l’interprétation respecte les hypothèses du modèle."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N2",
+        "c27"
       ]
     },
     {
       "id": "tle-pro-n3-1",
       "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration",
-      "title": "Concentration",
-      "statement": "Une variable X a E(X)=100 et V(X)=25. Majorer P(|X-100|≥10).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Choisir une taille d’échantillon",
+      "statement": "On observe une fréquence $F_n$ issue de $n$ essais de Bernoulli de paramètre inconnu $p$. On veut garantir par Tchebychev que $P(|F_n-p|\\geq0.05)\\leq0.1$ pour tout $p\\in[0,1]$. On attend une résolution complète de niveau baccalauréat, avec justification des hypothèses, articulation des outils et contrôle critique.",
+      "questions": [
+        "Exprimer $V(F_n)$ en fonction de $p$ et $n$.",
+        "Utiliser $p(1-p)\\leq1/4$ pour obtenir une borne uniforme.",
+        "Déterminer une valeur de $n$ suffisante."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Appliquer l’inégalité de Bienaymé-Tchebychev pour majorer une probabilité d’écart."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 24,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle adapté.",
-        "method": "Structurer les étapes avant de calculer.",
-        "reminder": "Vérifier les hypothèses et interpréter le résultat.",
-        "commonMistake": "Confondre formule, hypothèses et conclusion."
+        "clue": "Identifier le modèle et ses hypothèses.",
+        "method": "Écrire clairement l’événement avant de calculer.",
+        "reminder": "Distinguer espérance, variance et probabilité.",
+        "commonMistake": "Une borne de concentration n’est pas une valeur exacte."
       },
       "correction": [
-        "Par Bienaymé-Tchebychev : P(|X-100|≥10)≤25/10².",
-        "Donc la probabilité est au plus 0,25."
+        "On a $V(F_n)=p(1-p)/n$.",
+        "Comme $p(1-p)\\leq1/4$, Tchebychev donne $P(|F_n-p|\\geq0.05)\\leq\\frac{1}{4n(0.05)^2}=100/n$.",
+        "Pour obtenir une borne au plus égale à $0.1$, il suffit d’avoir $100/n\\leq0.1$, donc $n\\geq1000$. Cette taille est suffisante, sans prétendre qu’elle soit optimale.",
+        "Contrôle : contrôler que les probabilités sont dans $[0,1]$, que la variance est positive et que l’interprétation respecte les hypothèses du modèle."
       ],
       "commonMistakes": [],
       "access": {
@@ -202,41 +464,60 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N3",
+        "c27"
       ]
     },
     {
       "id": "tle-pro-n3-2",
       "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration",
-      "title": "Fréquence",
-      "statement": "On répète 400 fois une épreuve de Bernoulli de paramètre p=0,4 et F est la fréquence de succès. Donner E(F) et V(F).",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Jeu et somme de gains",
+      "statement": "Un jeu indépendant est répété $60$ fois. À chaque partie, le gain vaut $5$ euros avec probabilité $0.3$ et $-2$ euros sinon. On note $S$ le gain total. On attend une résolution complète de niveau baccalauréat, avec justification des hypothèses, articulation des outils et contrôle critique.",
+      "questions": [
+        "Définir une variable de gain élémentaire et calculer son espérance et sa variance.",
+        "En déduire $E(S)$ et $V(S)$.",
+        "Interpréter le signe de l’espérance totale et l’ordre de grandeur des fluctuations."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Interpréter la loi des grands nombres et relier fréquence observée et probabilité."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
         "modéliser",
-        "calculer"
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 24,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle adapté.",
-        "method": "Structurer les étapes avant de calculer.",
-        "reminder": "Vérifier les hypothèses et interpréter le résultat.",
-        "commonMistake": "Confondre formule, hypothèses et conclusion."
+        "clue": "Identifier le modèle et ses hypothèses.",
+        "method": "Écrire clairement l’événement avant de calculer.",
+        "reminder": "Distinguer espérance, variance et probabilité.",
+        "commonMistake": "Une borne de concentration n’est pas une valeur exacte."
       },
       "correction": [
-        "Si X∼B(400,0,4), F=X/400.",
-        "E(F)=0,4.",
-        "V(F)=[400×0,4×0,6]/400²=0,0006."
+        "Pour un gain $G$, $E(G)=5(0.3)-2(0.7)=0.1$. De plus $E(G^2)=25(0.3)+4(0.7)=10.3$, donc $V(G)=10.3-(0.1)^2=10.29$.",
+        "Pour $60$ parties indépendantes, $E(S)=60\\times0.1=6$ et $V(S)=60\\times10.29=617.4$.",
+        "L’espérance est positive mais faible au regard de l’écart-type $\\sqrt{617.4}$. Un gain moyen positif ne signifie donc pas qu’une série de $60$ parties sera nécessairement gagnante.",
+        "Contrôle : contrôler que les probabilités sont dans $[0,1]$, que la variance est positive et que l’interprétation respecte les hypothèses du modèle."
       ],
       "commonMistakes": [],
       "access": {
@@ -245,13 +526,142 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
         "modéliser",
-        "calculer"
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "terminale-specialite",
-        "N3"
+        "N3",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-pro-n3-3",
+      "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration",
+      "title": "Comparer théorie et simulation",
+      "statement": "On simule $1000$ fois une variable $X\\sim\\mathcal{B}(40,0.35)$ et on observe une moyenne empirique proche de $14$ mais des résultats variant d’une simulation à l’autre. On attend une résolution complète de niveau baccalauréat, avec justification des hypothèses, articulation des outils et contrôle critique.",
+      "questions": [
+        "Calculer l’espérance et la variance théoriques de $X$.",
+        "Expliquer pourquoi une moyenne empirique sur de nombreuses simulations doit se rapprocher de $14$.",
+        "Décrire ce qu’il faudrait comparer pour juger la qualité d’une simulation Python."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "data-analysis",
+      "curriculumItems": [
+        "Reconnaître un schéma de Bernoulli et utiliser la loi binomiale."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier le modèle et ses hypothèses.",
+        "method": "Écrire clairement l’événement avant de calculer.",
+        "reminder": "Distinguer espérance, variance et probabilité.",
+        "commonMistake": "Une borne de concentration n’est pas une valeur exacte."
+      },
+      "correction": [
+        "On a $E(X)=40\\times0.35=14$ et $V(X)=40\\times0.35\\times0.65=9.1$.",
+        "La loi des grands nombres appliquée aux répétitions indépendantes de $X$ explique que la moyenne empirique se stabilise autour de l’espérance théorique lorsque le nombre de simulations augmente.",
+        "On compare la moyenne, la dispersion, éventuellement les fréquences de quelques valeurs et on vérifie surtout que le programme respecte exactement le modèle : $40$ essais indépendants avec probabilité $0.35$ à chaque essai.",
+        "Contrôle : contrôler que les probabilités sont dans $[0,1]$, que la variance est positive et que l’interprétation respecte les hypothèses du modèle."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c27"
+      ]
+    },
+    {
+      "id": "tle-pro-n3-4",
+      "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration",
+      "title": "Risque de dépassement",
+      "statement": "Une somme $S=X_1+\\cdots+X_{100}$ est constituée de variables indépendantes ayant toutes espérance $2$ et variance $9$. On cherche une garantie sur la probabilité que $S$ s’écarte de son espérance d’au moins $60$. On attend une résolution complète de niveau baccalauréat, avec justification des hypothèses, articulation des outils et contrôle critique.",
+      "questions": [
+        "Calculer $E(S)$ et $V(S)$.",
+        "Appliquer Tchebychev à l’écart demandé.",
+        "Comparer la borne avec l’ordre de grandeur de l’écart-type et commenter sa précision."
+      ],
+      "consigne": "Présenter une démarche structurée, écrire les expressions mathématiques en LaTeX et conclure explicitement.",
+      "pedagogicalType": "proof",
+      "curriculumItems": [
+        "Calculer et interpréter espérance et variance d’une variable binomiale."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 24,
+      "answerType": "text",
+      "hints": {
+        "clue": "Identifier le modèle et ses hypothèses.",
+        "method": "Écrire clairement l’événement avant de calculer.",
+        "reminder": "Distinguer espérance, variance et probabilité.",
+        "commonMistake": "Une borne de concentration n’est pas une valeur exacte."
+      },
+      "correction": [
+        "Par linéarité, $E(S)=200$. Grâce à l’indépendance, $V(S)=100\\times9=900$, donc l’écart-type vaut $30$.",
+        "Tchebychev donne $P(|S-200|\\geq60)\\leq900/60^2=1/4$.",
+        "L’écart demandé vaut deux écarts-types. La borne $1/4$ est une garantie générale, mais elle peut être assez grossière car elle n’utilise aucune information sur la forme des lois au-delà de leur variance.",
+        "Contrôle : contrôler que les probabilités sont dans $[0,1]$, que la variance est positive et que l’interprétation respecte les hypothèses du modèle."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "terminale-specialite",
+        "N3",
+        "c27"
       ]
     }
   ]

@@ -2,62 +2,122 @@
   "questions": [
     {
       "id": "tle-pro-q1",
-      "question": "Si X∼B(n,p), E(X) vaut :",
+      "question": "Une loi binomiale suppose :",
       "choices": [
-        "np",
-        "p/n",
-        "n(1-p)"
+        "des essais indépendants de même probabilité de succès",
+        "des probabilités différentes à chaque essai",
+        "une variable continue"
       ],
       "answer": 0,
-      "explanation": "L'espérance du nombre de succès est np.",
+      "explanation": "Le schéma de Bernoulli repose sur des répétitions indépendantes d’une même épreuve avec probabilité de succès constante.",
       "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration"
     },
     {
       "id": "tle-pro-q2",
-      "question": "Pour X∼B(n,p), V(X) vaut :",
+      "question": "Si $X\\sim\\mathcal{B}(n,p)$, alors $P(X=k)$ vaut :",
       "choices": [
-        "np(1-p)",
-        "np",
-        "n²p²"
+        "$\\binom nk p^k(1-p)^{n-k}$",
+        "$np$",
+        "$p^n$"
       ],
       "answer": 0,
-      "explanation": "C'est la variance de la loi binomiale.",
+      "explanation": "Le coefficient binomial compte les choix de positions des succès et le produit donne la probabilité d’une configuration.",
       "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration"
     },
     {
       "id": "tle-pro-q3",
-      "question": "Une loi binomiale suppose :",
+      "question": "L’espérance d’une loi binomiale vaut :",
       "choices": [
-        "des essais indépendants de même probabilité de succès",
-        "des essais forcément différents",
-        "une seule épreuve"
+        "$np$",
+        "$n+p$",
+        "$p(1-p)$"
       ],
       "answer": 0,
-      "explanation": "C'est le cadre du schéma de Bernoulli.",
+      "explanation": "Pour une somme de $n$ indicatrices de Bernoulli de paramètre $p$, l’espérance vaut $np$.",
       "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration"
     },
     {
       "id": "tle-pro-q4",
-      "question": "Pour X,Y indépendantes :",
+      "question": "La variance d’une loi binomiale vaut :",
       "choices": [
-        "V(X+Y)=V(X)+V(Y)",
-        "V(X+Y)=V(X)V(Y)",
-        "V(X+Y)=0"
+        "$np(1-p)$",
+        "$np$",
+        "$n^2p$"
       ],
       "answer": 0,
-      "explanation": "Les variances s'additionnent pour des variables indépendantes.",
+      "explanation": "La variance binomiale est $np(1-p)$, ce qui prend en compte les fluctuations du succès et de l’échec.",
       "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration"
     },
     {
       "id": "tle-pro-q5",
-      "question": "L'inégalité de Tchebychev fournit :",
+      "question": "Pour calculer $P(X\\geq r)$, on peut utiliser :",
       "choices": [
-        "une borne de probabilité",
-        "toujours une probabilité exacte",
-        "la médiane"
+        "$1-P(X\\leq r-1)$",
+        "$1-P(X\\leq r)$",
+        "$P(X=r-1)$"
       ],
       "answer": 0,
-      "explanation": "Elle majore une probabilité d'écart à la moyenne.",
+      "explanation": "Le complément de l’événement $X\\geq r$ est exactement l’événement $X\\leq r-1$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration"
+    },
+    {
+      "id": "tle-pro-q6",
+      "question": "L’espérance d’une somme vérifie :",
+      "choices": [
+        "$E(X+Y)=E(X)+E(Y)$",
+        "$E(X+Y)=E(X)E(Y)$",
+        "seulement si $X$ et $Y$ sont indépendantes"
+      ],
+      "answer": 0,
+      "explanation": "La linéarité de l’espérance ne nécessite pas d’hypothèse d’indépendance.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration"
+    },
+    {
+      "id": "tle-pro-q7",
+      "question": "Pour additionner simplement des variances, on demande ici :",
+      "choices": [
+        "l’indépendance",
+        "la même espérance",
+        "la même loi"
+      ],
+      "answer": 0,
+      "explanation": "Sous indépendance, la variance d’une somme est la somme des variances.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration"
+    },
+    {
+      "id": "tle-pro-q8",
+      "question": "Tchebychev fournit :",
+      "choices": [
+        "une majoration de probabilité",
+        "une probabilité exacte",
+        "une espérance"
+      ],
+      "answer": 0,
+      "explanation": "L’inégalité borne la probabilité d’un écart important mais ne donne généralement pas sa valeur exacte.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration"
+    },
+    {
+      "id": "tle-pro-q9",
+      "question": "Pour $F_n=X_n/n$, la variance vaut :",
+      "choices": [
+        "$p(1-p)/n$",
+        "$np(1-p)$",
+        "$p/n^2$"
+      ],
+      "answer": 0,
+      "explanation": "Diviser une variable par $n$ divise sa variance par $n^2$, d’où $p(1-p)/n$.",
+      "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration"
+    },
+    {
+      "id": "tle-pro-q10",
+      "question": "Quand $n$ augmente, la fréquence empirique :",
+      "choices": [
+        "se concentre autour de $p$",
+        "s’éloigne toujours de $p$",
+        "devient uniforme"
+      ],
+      "answer": 0,
+      "explanation": "La variance de la fréquence décroît comme $1/n$, ce qui explique sa concentration autour de la probabilité.",
       "chapterId": "lycee/terminale-specialite-mathematiques/probabilites-binomiale-sommes-concentration"
     }
   ]
