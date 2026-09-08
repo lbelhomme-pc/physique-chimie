@@ -5,8 +5,8 @@ on:
     branches:
       - c26-v3-latex-certification
     paths:
-      - .c26_payload.b64
-      - .github/workflows/c26-apply.yml
+      - '.c26_payload.part-*'
+      - '.github/workflows/c26-apply.yml'
 
 permissions:
   contents: write
@@ -20,117 +20,82 @@ jobs:
         with:
           ref: c26-v3-latex-certification
           fetch-depth: 1
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Apply C26 V3 payload and guards
+
+      - name: Rebuild and verify C26 payload
+        shell: bash
+        run: |
+          cat .c26_payload.part-* > /tmp/c26-v3-payload.tar.gz
+          echo "71b1c74220d91e1ab8e3ce3ede60474d2d40cfff795f408398b0dd96471e892a  /tmp/c26-v3-payload.tar.gz" | sha256sum -c -
+          tar -xzf /tmp/c26-v3-payload.tar.gz -C .
+
+      - name: Apply permanent C26 guards
         shell: bash
         run: |
           node <<'NODE'
           const fs = require("node:fs");
           const path = require("node:path");
-          const zlib = require("node:zlib");
-
-          const payloadRaw = zlib.gunzipSync(Buffer.from(fs.readFileSync(".c26_payload.b64", "utf8").trim(), "base64")).toString("utf8");
-          const payload = JSON.parse(payloadRaw);
-          console.log("Payload top-level:", Array.isArray(payload) ? "array" : Object.keys(payload));
-
-          let files = [];
-          if (Array.isArray(payload)) {
-            files = payload;
-          } else if (Array.isArray(payload.files)) {
-            files = payload.files;
-          } else if (payload.files && typeof payload.files === "object") {
-            files = Object.entries(payload.files).map(([path, content]) => ({ path, content }));
-          } else if (payload && typeof payload === "object" && Object.values(payload).every(v => typeof v === "string")) {
-            files = Object.entries(payload).map(([path, content]) => ({ path, content }));
-          } else {
-            throw new Error("Unsupported C26 payload shape: " + JSON.stringify(Object.keys(payload ?? {})));
-          }
-
-          for (const entry of files) {
-            const filePath = entry.path ?? entry.file ?? entry.name;
-            const content = entry.content ?? entry.text ?? entry.data;
-            if (typeof filePath !== "string" || typeof content !== "string") {
-              throw new Error("Invalid payload entry: " + JSON.stringify(entry).slice(0, 400));
-            }
-            fs.mkdirSync(path.dirname(filePath), { recursive: true });
-            fs.writeFileSync(filePath, content, "utf8");
-          }
-          console.log("Payload files written:", files.length);
 
           const mappingPath = "src/data/mathematiques/programmes/terminale-specialite-2019.part-a.mapping.json";
           const mapping = JSON.parse(fs.readFileSync(mappingPath, "utf8"));
-          mapping.contract = {
-            ...mapping.contract,
-            course: true,
-            courseSource: "cours.tex",
-            courseFormat: "latex",
-            courseFormatVersion: 3,
-            courseQualityVersion: 3,
-            contentQualityVersion: 3,
-            exercisesPerChapter: 12,
-            exerciseDistribution: { N1: 4, N2: 4, N3: 4 },
-            quizQuestionsPerChapter: 10,
-            flashcardsPerChapter: 12,
-            minimumPedagogicalVisualsPerChapter: 2
-          };
-          mapping.v3CourseContract = {
-            source: "cours.tex",
-            courseFormat: "latex",
-            courseFormatVersion: 3,
-            courseQualityVersion: 3,
-            contentQualityVersion: 3,
-            minimumCourseCharacters: 7000,
-            minimumPedagogicalVisualsPerChapter: 2,
-            minimumExercises: 12,
-            exerciseDistribution: { N1: 4, N2: 4, N3: 4 },
-            minimumQuizQuestions: 10,
-            minimumFlashcards: 12,
-            minimumDevelopedProblemsN2N3: 4,
-            markdownResidualsAllowed: false,
-            coverage: "c26-part-a-v3-2026-2027"
-          };
-          fs.writeFileSync(mappingPath, JSON.stringify(mapping, null, 2) + "\n");
+          const chapterRoot = "src/data/mathematiques/chapters/lycee/terminale-specialite-mathematiques";
 
-          const root = "src/data/mathematiques/chapters/lycee/terminale-specialite-mathematiques";
           for (const slug of mapping.chapters) {
-            const mdx = path.join(root, slug, "cours.mdx");
+            const mdx = path.join(chapterRoot, slug, "cours.mdx");
             if (fs.existsSync(mdx)) fs.rmSync(mdx);
           }
 
           const testPath = "tests/c26-mathematiques-terminale-specialite-a.test.mjs";
           let test = fs.readFileSync(testPath, "utf8");
           test = test
-            .replace('["meta.json", "cours.mdx", "exercices.json", "quiz.json", "flashcards.json"]', '["meta.json", "cours.tex", "exercices.json", "quiz.json", "flashcards.json"]')
+            .replace('["meta.json", "cours.mdx", "exercices.json", "quiz.json", "flashcards.json"]',
+                     '["meta.json", "cours.tex", "exercices.json", "quiz.json", "flashcards.json"]')
             .replace("assert.equal(exercices.length, 6);", "assert.equal(exercices.length, 12);")
             .replace("{ N1:2, N2:2, N3:2 },", "{ N1:4, N2:4, N3:4 },")
             .replace("assert.equal(quizPayload.questions.length, 5);", "assert.equal(quizPayload.questions.length, 10);")
             .replace("assert.equal(flashcardsPayload.cards.length, 6);", "assert.equal(flashcardsPayload.cards.length, 12);")
             .replace('path.join(dir, "cours.mdx")', 'path.join(dir, "cours.tex")')
             .replace('courseFormat: "mdx"', 'courseFormat: "latex"');
+
           const anchor = 'assert.equal(meta.programmeVersion, "mathematiques-terminale-specialite-2019");';
           if (!test.includes('assert.equal(meta.courseFormat, "latex");')) {
-            test = test.replace(anchor, anchor + '\n      assert.equal(meta.courseFormat, "latex");\n      assert.equal(meta.courseSource, "cours.tex");\n      assert.equal(meta.courseFormatVersion, 3);\n      assert.equal(meta.courseQualityVersion, 3);\n      assert.equal(meta.contentQualityVersion, 3);\n      assert.ok(Array.isArray(meta.curriculumItems) && meta.curriculumItems.length >= 4);');
+            test = test.replace(anchor, anchor + `
+      assert.equal(meta.courseFormat, "latex");
+      assert.equal(meta.courseSource, "cours.tex");
+      assert.equal(meta.courseFormatVersion, 3);
+      assert.equal(meta.courseQualityVersion, 3);
+      assert.equal(meta.contentQualityVersion, 3);
+      assert.ok(Array.isArray(meta.curriculumItems) && meta.curriculumItems.length >= 4);`);
           }
           fs.writeFileSync(testPath, test);
 
-          const sourceAudit = "scripts/audit-maths-v3-3e-latex.mjs";
-          let audit = fs.readFileSync(sourceAudit, "utf8");
+          let audit = fs.readFileSync("scripts/audit-maths-v3-3e-latex.mjs", "utf8");
           audit = audit
-            .replace('import { existsSync, readFileSync, readdirSync } from "node:fs";', 'import { existsSync, readFileSync } from "node:fs";')
-            .replace('const LEVEL_ROOT = path.join(ROOT, "src", "data", "mathematiques", "chapters", "college", "3eme");', 'const LEVEL_ROOT = path.join(ROOT, "src", "data", "mathematiques", "chapters", "lycee", "terminale-specialite-mathematiques");\nconst MAPPING_FILE = path.join(ROOT, "src", "data", "mathematiques", "programmes", "terminale-specialite-2019.part-a.mapping.json");')
+            .replace('import { existsSync, readFileSync, readdirSync } from "node:fs";',
+                     'import { existsSync, readFileSync } from "node:fs";')
+            .replace('const LEVEL_ROOT = path.join(ROOT, "src", "data", "mathematiques", "chapters", "college", "3eme");',
+                     'const LEVEL_ROOT = path.join(ROOT, "src", "data", "mathematiques", "chapters", "lycee", "terminale-specialite-mathematiques");\nconst MAPPING_FILE = path.join(ROOT, "src", "data", "mathematiques", "programmes", "terminale-specialite-2019.part-a.mapping.json");')
             .replace("const EXPECTED_CHAPTERS = 13;", "const EXPECTED_CHAPTERS = 8;")
-            .replace('meta.officialSource !== "bo-cycle4-mathematiques-2020"', 'meta.officialSource !== "bo-2019-mathematiques-terminale-specialite"')
-            .replace('meta.programmeVersion !== "mathematiques-cycle4-2020"', 'meta.programmeVersion !== "mathematiques-terminale-specialite-2019"');
+            .replace('meta.officialSource !== "bo-cycle4-mathematiques-2020"',
+                     'meta.officialSource !== "bo-2019-mathematiques-terminale-specialite"')
+            .replace('meta.programmeVersion !== "mathematiques-cycle4-2020"',
+                     'meta.programmeVersion !== "mathematiques-terminale-specialite-2019"');
+
           audit = audit.replace(
-            /const chapterDirs = readdirSync\(LEVEL_ROOT,[\s\S]*?\.sort\(\);/,
+            /const chapterDirs = readdirSync\(LEVEL_ROOT, \{ withFileTypes: true \}\)[\s\S]*?\.sort\(\);/,
             'const mapping = readJson(MAPPING_FILE);\nconst chapterDirs = mapping.chapters.map((slug) => path.join(LEVEL_ROOT, slug));'
           );
           audit = audit
-            .replace('errors.push("3e: " + chapterDirs.length + " chapitres trouvés au lieu de " + EXPECTED_CHAPTERS);', 'errors.push("C26: " + chapterDirs.length + " chapitres trouvés au lieu de " + EXPECTED_CHAPTERS);')
-            .replace('console.log("Audit Mathématiques V3 — 3e complète");', 'console.log("Audit Mathématiques V3 — C26 Terminale spécialité partie A");')
-            .replace('console.log("\\nOK — les 13 chapitres de 3e satisfont le contrat pédagogique V3.");', 'console.log("\\nOK — les 8 chapitres C26 satisfont le contrat pédagogique V3.");');
+            .replace('errors.push("3e: " + chapterDirs.length + " chapitres trouvés au lieu de " + EXPECTED_CHAPTERS);',
+                     'errors.push("C26: " + chapterDirs.length + " chapitres trouvés au lieu de " + EXPECTED_CHAPTERS);')
+            .replace('console.log("Audit Mathématiques V3 — 3e complète");',
+                     'console.log("Audit Mathématiques V3 — C26 Terminale spécialité partie A");')
+            .replace('console.log("\\nOK — les 13 chapitres de 3e satisfont le contrat pédagogique V3.");',
+                     'console.log("\\nOK — les 8 chapitres C26 satisfont le contrat pédagogique V3.");');
+
           fs.writeFileSync("scripts/audit-maths-v3-c26-latex.mjs", audit);
 
           const pkgPath = "package.json";
@@ -138,15 +103,23 @@ jobs:
           pkg.scripts["audit:maths-v3-c26"] = "node scripts/audit-maths-v3-c26-latex.mjs";
           if (!pkg.scripts["audit:maths-v3"].includes("audit-maths-v3-c26-latex.mjs")) {
             pkg.scripts["audit:maths-v3"] = pkg.scripts["audit:maths-v3"].replace(
-              "node scripts/audit-maths-v3-3e-latex.mjs && ",
-              "node scripts/audit-maths-v3-3e-latex.mjs && node scripts/audit-maths-v3-c26-latex.mjs && "
+              "node scripts/audit-maths-latex-all.mjs",
+              "node scripts/audit-maths-v3-c26-latex.mjs && node scripts/audit-maths-latex-all.mjs"
             );
           }
           fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");
-
-          console.log("C26 V3 payload and permanent guards applied.");
           NODE
 
+      - name: Validate C26 before commit
+        shell: bash
+        run: |
+          node scripts/audit-maths-v3-c26-latex.mjs
+          npm ci --no-audit --fund=false
+          npx tsx --test tests/c26-mathematiques-terminale-specialite-a.test.mjs
+
+      - name: Commit C26 V3 migration
+        shell: bash
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
