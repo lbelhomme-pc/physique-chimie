@@ -4,27 +4,34 @@
       "id": "mc-cor-n1-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite",
       "title": "Point moyen",
-      "statement": "Points (1,2), (2,4), (3,6). Calculer le point moyen.",
-      "consigne": "Justifier les étapes utiles.",
+      "statement": "On considère les points $(1,2)$, $(2,4)$ et $(3,6)$. Calculer le point moyen. On attend une lecture ou un calcul direct correctement interprété.",
+      "questions": [
+        "Calculer $\\bar x$ et $\\bar y$."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et distinguer clairement corrélation, prévision et causalité.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Construire et interpréter un nuage de points."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Regarder le nuage avant l'indicateur.",
+        "method": "Distinguer interpolation, extrapolation et conclusion causale.",
+        "reminder": "Le coefficient $r$ mesure une liaison linéaire.",
+        "commonMistake": "Transformer une corrélation en preuve de causalité."
       },
       "correction": [
-        "x̄=2, ȳ=4.",
-        "Point moyen G(2,4)."
+        "On a $\\bar x=(1+2+3)/3=2$ et $\\bar y=(2+4+6)/3=4$, donc $G(2,4)$.",
+        "Contrôle : vérifier la zone de données, la forme du nuage et la portée de l'ajustement."
       ],
       "commonMistakes": [],
       "access": {
@@ -39,34 +46,142 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28"
       ]
     },
     {
       "id": "mc-cor-n1-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite",
-      "title": "Interpréter r",
-      "statement": "r=0,95. Que peut-on dire ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Prévision affine",
+      "statement": "La droite d'ajustement est $y=2.5x+4$. Estimer $y$ pour $x=10$. On attend une lecture ou un calcul direct correctement interprété.",
+      "questions": [
+        "Calculer la valeur ajustée."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et distinguer clairement corrélation, prévision et causalité.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Déterminer et utiliser un ajustement affine."
+      ],
       "difficulty": 1,
-      "difficultyLabel": "N1 — application directe",
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Regarder le nuage avant l'indicateur.",
+        "method": "Distinguer interpolation, extrapolation et conclusion causale.",
+        "reminder": "Le coefficient $r$ mesure une liaison linéaire.",
+        "commonMistake": "Transformer une corrélation en preuve de causalité."
+      },
+      "correction": [
+        "On obtient $y=2.5\\times10+4=29$. Il s'agit d'une valeur prédite par le modèle.",
+        "Contrôle : vérifier la zone de données, la forme du nuage et la portée de l'ajustement."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-cor-n1-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite",
+      "title": "Lire $r$",
+      "statement": "Un ajustement donne $r=0.95$. Interpréter ce nombre sans parler de causalité. On attend une lecture ou un calcul direct correctement interprété.",
+      "questions": [
+        "Décrire la liaison linéaire."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et distinguer clairement corrélation, prévision et causalité.",
+      "pedagogicalType": "representation",
+      "curriculumItems": [
+        "Interpréter le coefficient de corrélation linéaire."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
+      "level": "N1",
+      "skills": [
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 8,
+      "answerType": "text",
+      "hints": {
+        "clue": "Regarder le nuage avant l'indicateur.",
+        "method": "Distinguer interpolation, extrapolation et conclusion causale.",
+        "reminder": "Le coefficient $r$ mesure une liaison linéaire.",
+        "commonMistake": "Transformer une corrélation en preuve de causalité."
+      },
+      "correction": [
+        "La valeur est proche de $1$, ce qui indique une forte liaison linéaire positive. Cela ne prouve aucune causalité.",
+        "Contrôle : vérifier la zone de données, la forme du nuage et la portée de l'ajustement."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N1",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-cor-n1-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite",
+      "title": "Résidu",
+      "statement": "Pour $x=4$, la droite prévoit $\\hat y=12$ et l'observation vaut $y=10.5$. Calculer le résidu. On attend une lecture ou un calcul direct correctement interprété.",
+      "questions": [
+        "Calculer $e=y-\\hat y$."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et distinguer clairement corrélation, prévision et causalité.",
+      "pedagogicalType": "technique",
+      "curriculumItems": [
+        "Distinguer interpolation et extrapolation."
+      ],
+      "difficulty": 1,
+      "difficultyLabel": "N1 — application et automatisation",
       "level": "N1",
       "skills": [
         "calculer",
         "raisonner"
       ],
       "prerequisites": [],
-      "estimatedTime": 6,
+      "estimatedTime": 8,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Regarder le nuage avant l'indicateur.",
+        "method": "Distinguer interpolation, extrapolation et conclusion causale.",
+        "reminder": "Le coefficient $r$ mesure une liaison linéaire.",
+        "commonMistake": "Transformer une corrélation en preuve de causalité."
       },
       "correction": [
-        "Il existe une forte corrélation linéaire positive.",
-        "Cela ne prouve pas une causalité."
+        "On obtient $e=10.5-12=-1.5$. Le point est situé sous la droite d'ajustement.",
+        "Contrôle : vérifier la zone de données, la forme du nuage et la portée de l'ajustement."
       ],
       "commonMistakes": [],
       "access": {
@@ -81,33 +196,45 @@
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N1"
+        "N1",
+        "c28"
       ]
     },
     {
       "id": "mc-cor-n2-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite",
-      "title": "Ajustement",
-      "statement": "La droite d'ajustement est y=2,5x+4. Estimer y pour x=10.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Interpolation",
+      "statement": "Des données ont été observées pour $x\\in[2,12]$ et la droite ajustée est $y=3x+1$. On attend une analyse structurée du modèle d'ajustement.",
+      "questions": [
+        "Estimer $y$ pour $x=8$.",
+        "Qualifier cette estimation."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et distinguer clairement corrélation, prévision et causalité.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Analyser avec esprit critique le passage de corrélation à causalité."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
+        "représenter",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 16,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Regarder le nuage avant l'indicateur.",
+        "method": "Distinguer interpolation, extrapolation et conclusion causale.",
+        "reminder": "Le coefficient $r$ mesure une liaison linéaire.",
+        "commonMistake": "Transformer une corrélation en preuve de causalité."
       },
       "correction": [
-        "y=2,5×10+4=29."
+        "On obtient $y=25$.",
+        "Comme $8$ appartient à l'intervalle observé, il s'agit d'une interpolation.",
+        "Contrôle : vérifier la zone de données, la forme du nuage et la portée de l'ajustement."
       ],
       "commonMistakes": [],
       "access": {
@@ -116,40 +243,160 @@
         "requiresAccount": false
       },
       "competences": [
+        "représenter",
         "calculer",
-        "raisonner"
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N2"
+        "N2",
+        "c28"
       ]
     },
     {
       "id": "mc-cor-n2-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite",
-      "title": "Interpolation",
-      "statement": "Les données x vont de 0 à 20. Estimer à x=12 est-il interpolation ou extrapolation ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Extrapolation",
+      "statement": "Un ajustement obtenu sur $x\\in[0,20]$ donne $y=1.2x+5$. On veut utiliser $x=100$. On attend une analyse structurée du modèle d'ajustement.",
+      "questions": [
+        "Calculer la valeur prévue.",
+        "Expliquer pourquoi elle doit être interprétée avec prudence."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et distinguer clairement corrélation, prévision et causalité.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Construire et interpréter un nuage de points."
+      ],
       "difficulty": 2,
-      "difficultyLabel": "N2 — raisonnement",
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "raisonner",
+        "communiquer",
+        "calculer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 16,
+      "answerType": "text",
+      "hints": {
+        "clue": "Regarder le nuage avant l'indicateur.",
+        "method": "Distinguer interpolation, extrapolation et conclusion causale.",
+        "reminder": "Le coefficient $r$ mesure une liaison linéaire.",
+        "commonMistake": "Transformer une corrélation en preuve de causalité."
+      },
+      "correction": [
+        "Le modèle donne $y=125$.",
+        "La valeur $100$ est très éloignée de la zone observée ; c'est une extrapolation qui suppose que la tendance affine reste valable.",
+        "Contrôle : vérifier la zone de données, la forme du nuage et la portée de l'ajustement."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "raisonner",
+        "communiquer",
+        "calculer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-cor-n2-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite",
+      "title": "Relation non linéaire",
+      "statement": "Un nuage suit presque exactement une forme en U et le coefficient de corrélation linéaire est proche de $0$. On attend une analyse structurée du modèle d'ajustement.",
+      "questions": [
+        "Expliquer pourquoi $r$ peut être faible.",
+        "Conclure sur l'existence d'une relation."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et distinguer clairement corrélation, prévision et causalité.",
+      "pedagogicalType": "data-analysis",
+      "curriculumItems": [
+        "Déterminer et utiliser un ajustement affine."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
+      "level": "N2",
+      "skills": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 16,
+      "answerType": "text",
+      "hints": {
+        "clue": "Regarder le nuage avant l'indicateur.",
+        "method": "Distinguer interpolation, extrapolation et conclusion causale.",
+        "reminder": "Le coefficient $r$ mesure une liaison linéaire.",
+        "commonMistake": "Transformer une corrélation en preuve de causalité."
+      },
+      "correction": [
+        "Les contributions croissantes et décroissantes peuvent se compenser dans le calcul de la corrélation linéaire.",
+        "Une faible corrélation linéaire n'implique pas absence de relation ; le graphique montre ici une relation non linéaire forte.",
+        "Contrôle : vérifier la zone de données, la forme du nuage et la portée de l'ajustement."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "représenter",
+        "raisonner",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N2",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-cor-n2-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite",
+      "title": "Transformation logarithmique",
+      "statement": "On suppose $y=5e^{0.3x}$ avec $y>0$. On attend une analyse structurée du modèle d'ajustement.",
+      "questions": [
+        "Transformer la relation en prenant le logarithme.",
+        "Identifier pente et ordonnée à l'origine dans la relation affine obtenue."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et distinguer clairement corrélation, prévision et causalité.",
+      "pedagogicalType": "problem-solving",
+      "curriculumItems": [
+        "Interpréter le coefficient de corrélation linéaire."
+      ],
+      "difficulty": 2,
+      "difficultyLabel": "N2 — raisonnement guidé",
       "level": "N2",
       "skills": [
         "calculer",
-        "raisonner"
+        "raisonner",
+        "modéliser"
       ],
       "prerequisites": [],
-      "estimatedTime": 10,
+      "estimatedTime": 16,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Regarder le nuage avant l'indicateur.",
+        "method": "Distinguer interpolation, extrapolation et conclusion causale.",
+        "reminder": "Le coefficient $r$ mesure une liaison linéaire.",
+        "commonMistake": "Transformer une corrélation en preuve de causalité."
       },
       "correction": [
-        "12 est dans l'intervalle observé.",
-        "C'est une interpolation."
+        "On obtient $\\ln y=\\ln5+0.3x$.",
+        "La pente vaut $0.3$ et l'ordonnée à l'origine vaut $\\ln5$.",
+        "Contrôle : vérifier la zone de données, la forme du nuage et la portée de l'ajustement."
       ],
       "commonMistakes": [],
       "access": {
@@ -159,39 +406,56 @@
       },
       "competences": [
         "calculer",
-        "raisonner"
+        "raisonner",
+        "modéliser"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N2"
+        "N2",
+        "c28"
       ]
     },
     {
       "id": "mc-cor-n3-1",
       "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite",
-      "title": "Extrapolation critique",
-      "statement": "Des données de 2015 à 2025 sont ajustées linéairement. Pourquoi une prévision en 2080 doit-elle être prudente ?",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Variable de confusion",
+      "statement": "On observe une forte corrélation positive entre ventes de glaces et nombre de noyades sur plusieurs mois. On attend une analyse critique complète distinguant description statistique et causalité.",
+      "questions": [
+        "Proposer une variable de confusion plausible.",
+        "Expliquer le mécanisme possible.",
+        "Dire quel type de données supplémentaires serait utile avant toute conclusion causale."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et distinguer clairement corrélation, prévision et causalité.",
+      "pedagogicalType": "critical-analysis",
+      "curriculumItems": [
+        "Distinguer interpolation et extrapolation."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
-        "communiquer",
-        "raisonner"
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 25,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Regarder le nuage avant l'indicateur.",
+        "method": "Distinguer interpolation, extrapolation et conclusion causale.",
+        "reminder": "Le coefficient $r$ mesure une liaison linéaire.",
+        "commonMistake": "Transformer une corrélation en preuve de causalité."
       },
       "correction": [
-        "2080 est très loin de la zone observée.",
-        "La relation peut changer ; l'extrapolation suppose la stabilité du modèle."
+        "La température ou la saison constitue une variable de confusion plausible.",
+        "Quand il fait plus chaud, les achats de glaces augmentent et l'exposition à la baignade augmente également.",
+        "On peut analyser les données à température comparable, par saison, ou disposer d'informations sur la fréquentation des lieux de baignade.",
+        "Contrôle : vérifier la zone de données, la forme du nuage et la portée de l'ajustement."
       ],
       "commonMistakes": [],
       "access": {
@@ -200,40 +464,60 @@
         "requiresAccount": false
       },
       "competences": [
-        "communiquer",
-        "raisonner"
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N3",
+        "c28"
       ]
     },
     {
       "id": "mc-cor-n3-2",
       "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite",
-      "title": "Causalité",
-      "statement": "Ventes de glaces et coups de soleil sont corrélés. Proposer une cause commune.",
-      "consigne": "Justifier les étapes utiles.",
+      "title": "Point aberrant",
+      "statement": "Un nuage de $20$ points est presque aligné mais contient un point très éloigné. Le coefficient de corrélation change fortement lorsqu'on retire ce point. On attend une analyse critique complète distinguant description statistique et causalité.",
+      "questions": [
+        "Expliquer l'influence possible du point.",
+        "Dire pourquoi on ne doit pas le supprimer automatiquement.",
+        "Proposer une démarche de contrôle."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et distinguer clairement corrélation, prévision et causalité.",
+      "pedagogicalType": "data-analysis",
+      "curriculumItems": [
+        "Analyser avec esprit critique le passage de corrélation à causalité."
+      ],
       "difficulty": 3,
-      "difficultyLabel": "N3 — maîtrise",
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
       "level": "N3",
       "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
         "raisonner",
+        "calculer",
         "communiquer"
       ],
       "prerequisites": [],
-      "estimatedTime": 15,
+      "estimatedTime": 25,
       "answerType": "text",
       "hints": {
-        "clue": "Identifier le modèle probabiliste ou statistique.",
-        "method": "Écrire les probabilités et événements avant de calculer.",
-        "reminder": "Interpréter le résultat dans le contexte.",
-        "commonMistake": "Confondre probabilité conditionnelle et probabilité inverse."
+        "clue": "Regarder le nuage avant l'indicateur.",
+        "method": "Distinguer interpolation, extrapolation et conclusion causale.",
+        "reminder": "Le coefficient $r$ mesure une liaison linéaire.",
+        "commonMistake": "Transformer une corrélation en preuve de causalité."
       },
       "correction": [
-        "La température ou l'ensoleillement favorise à la fois l'achat de glaces et l'exposition solaire.",
-        "La corrélation n'implique pas que les glaces causent les coups de soleil."
+        "Un point éloigné peut avoir un fort levier et modifier la pente ainsi que $r$.",
+        "Il peut correspondre à une erreur, mais aussi à une observation réelle et informative.",
+        "On vérifie la donnée source, on compare l'ajustement avec et sans le point et on documente les deux résultats.",
+        "Contrôle : vérifier la zone de données, la forme du nuage et la portée de l'ajustement."
       ],
       "commonMistakes": [],
       "access": {
@@ -242,13 +526,142 @@
         "requiresAccount": false
       },
       "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
         "raisonner",
+        "calculer",
         "communiquer"
       ],
       "accessibility": {},
       "tags": [
         "maths-complementaires",
-        "N3"
+        "N3",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-cor-n3-3",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite",
+      "title": "Agrégation et Simpson",
+      "statement": "Dans deux sous-groupes, une méthode $A$ possède un meilleur taux de réussite que $B$, mais sur les données agrégées $B$ semble meilleure. On attend une analyse critique complète distinguant description statistique et causalité.",
+      "questions": [
+        "Expliquer comment une telle inversion est possible.",
+        "Identifier le rôle des tailles de groupes.",
+        "Conclure sur la prudence nécessaire avec une statistique agrégée."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et distinguer clairement corrélation, prévision et causalité.",
+      "pedagogicalType": "critical-analysis",
+      "curriculumItems": [
+        "Construire et interpréter un nuage de points."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 25,
+      "answerType": "text",
+      "hints": {
+        "clue": "Regarder le nuage avant l'indicateur.",
+        "method": "Distinguer interpolation, extrapolation et conclusion causale.",
+        "reminder": "Le coefficient $r$ mesure une liaison linéaire.",
+        "commonMistake": "Transformer une corrélation en preuve de causalité."
+      },
+      "correction": [
+        "Les deux méthodes peuvent être utilisées dans des groupes de difficultés très différentes ; l'agrégation mélange ces compositions.",
+        "Des poids différents attribués aux sous-groupes peuvent inverser la comparaison globale.",
+        "Il faut examiner les groupes pertinents et les mécanismes de sélection avant d'interpréter une association globale.",
+        "Contrôle : vérifier la zone de données, la forme du nuage et la portée de l'ajustement."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28"
+      ]
+    },
+    {
+      "id": "mc-cor-n3-4",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite",
+      "title": "Comparer deux modèles",
+      "statement": "Pour un même nuage, on hésite entre une droite et un modèle exponentiel rendu affine après logarithme. On attend une analyse critique complète distinguant description statistique et causalité.",
+      "questions": [
+        "Décrire les représentations à comparer.",
+        "Proposer un critère basé sur les résidus.",
+        "Expliquer pourquoi un meilleur ajustement numérique ne suffit pas toujours à choisir le modèle."
+      ],
+      "consigne": "Rédiger les calculs en LaTeX et distinguer clairement corrélation, prévision et causalité.",
+      "pedagogicalType": "modelling",
+      "curriculumItems": [
+        "Déterminer et utiliser un ajustement affine."
+      ],
+      "difficulty": 3,
+      "difficultyLabel": "N3 — maîtrise, démonstration et modélisation",
+      "level": "N3",
+      "skills": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "prerequisites": [],
+      "estimatedTime": 25,
+      "answerType": "text",
+      "hints": {
+        "clue": "Regarder le nuage avant l'indicateur.",
+        "method": "Distinguer interpolation, extrapolation et conclusion causale.",
+        "reminder": "Le coefficient $r$ mesure une liaison linéaire.",
+        "commonMistake": "Transformer une corrélation en preuve de causalité."
+      },
+      "correction": [
+        "On compare le nuage original, le nuage transformé et les deux ajustements dans leurs échelles pertinentes.",
+        "Le modèle dont les résidus ne montrent pas de structure et restent plus faibles est mieux adapté descriptivement.",
+        "Le choix doit aussi respecter le mécanisme, le domaine et l'interprétation des paramètres ; un ajustement légèrement meilleur peut être moins pertinent scientifiquement.",
+        "Contrôle : vérifier la zone de données, la forme du nuage et la portée de l'ajustement."
+      ],
+      "commonMistakes": [],
+      "access": {
+        "tier": "free",
+        "preview": true,
+        "requiresAccount": false
+      },
+      "competences": [
+        "chercher",
+        "modéliser",
+        "représenter",
+        "raisonner",
+        "calculer",
+        "communiquer"
+      ],
+      "accessibility": {},
+      "tags": [
+        "maths-complementaires",
+        "N3",
+        "c28"
       ]
     }
   ]

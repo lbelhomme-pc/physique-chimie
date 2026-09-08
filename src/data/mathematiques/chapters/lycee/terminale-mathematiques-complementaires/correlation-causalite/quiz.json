@@ -2,62 +2,122 @@
   "questions": [
     {
       "id": "mc-cor-q1",
-      "question": "Un coefficient r proche de 1 indique :",
+      "question": "Le point moyen a pour coordonnées :",
       "choices": [
-        "forte liaison linéaire positive",
-        "causalité certaine",
-        "absence de relation"
+        "$(\\bar x,\\bar y)$",
+        "$(0,0)$",
+        "$(r,r)$"
       ],
       "answer": 0,
-      "explanation": "Il décrit une corrélation linéaire.",
+      "explanation": "Le point moyen utilise les moyennes des deux variables quantitatives.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite"
     },
     {
       "id": "mc-cor-q2",
-      "question": "La droite des moindres carrés :",
+      "question": "Une droite des moindres carrés minimise :",
       "choices": [
-        "minimise une somme de carrés d'écarts",
-        "passe toujours par l'origine",
-        "prouve la causalité"
+        "La somme des carrés des résidus",
+        "La somme des abscisses",
+        "Le coefficient $r$"
       ],
       "answer": 0,
-      "explanation": "C'est un critère d'ajustement.",
+      "explanation": "La régression affine choisit les paramètres qui minimisent les écarts verticaux au carré.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite"
     },
     {
       "id": "mc-cor-q3",
-      "question": "Extrapoler signifie :",
+      "question": "Un résidu vaut :",
       "choices": [
-        "prévoir hors de la zone observée",
-        "prévoir uniquement au centre",
-        "calculer une médiane"
+        "$y_i-\\hat y_i$",
+        "$x_i+y_i$",
+        "$r^2$"
       ],
       "answer": 0,
-      "explanation": "L'extrapolation va au-delà des données.",
+      "explanation": "Le résidu compare la valeur observée à la valeur prévue par le modèle.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite"
     },
     {
       "id": "mc-cor-q4",
-      "question": "Corrélation forte :",
+      "question": "Si $r$ est proche de $1$ :",
       "choices": [
-        "ne suffit pas à établir une causalité",
-        "prouve toujours une cause",
-        "est impossible"
+        "La liaison linéaire positive est forte",
+        "La causalité est prouvée",
+        "La relation est forcément exponentielle"
       ],
       "answer": 0,
-      "explanation": "D'autres explications sont possibles.",
+      "explanation": "Le coefficient proche de $1$ décrit seulement une forte association linéaire positive.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite"
     },
     {
       "id": "mc-cor-q5",
-      "question": "Le point moyen a pour coordonnées :",
+      "question": "Si $r$ est proche de $0$ :",
       "choices": [
-        "(x̄,ȳ)",
-        "(médiane x,médiane y)",
-        "(0,0)"
+        "Une relation non linéaire peut encore exister",
+        "Aucune relation n'est possible",
+        "La causalité est nulle"
       ],
       "answer": 0,
-      "explanation": "Moyennes des deux variables.",
+      "explanation": "Le coefficient mesure seulement la composante linéaire de la relation.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite"
+    },
+    {
+      "id": "mc-cor-q6",
+      "question": "Une interpolation utilise :",
+      "choices": [
+        "Une valeur dans la zone observée",
+        "Toujours une valeur très éloignée",
+        "Seulement $x=0$"
+      ],
+      "answer": 0,
+      "explanation": "L'interpolation reste à l'intérieur de la plage des données utilisées pour l'ajustement.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite"
+    },
+    {
+      "id": "mc-cor-q7",
+      "question": "Une extrapolation est :",
+      "choices": [
+        "Plus fragile qu'une interpolation",
+        "Toujours exacte",
+        "Une preuve causale"
+      ],
+      "answer": 0,
+      "explanation": "Elle suppose que la relation continue hors de la zone observée.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite"
+    },
+    {
+      "id": "mc-cor-q8",
+      "question": "Une variable de confusion :",
+      "choices": [
+        "Peut influencer les deux variables étudiées",
+        "Supprime toute corrélation",
+        "Est toujours l'axe des abscisses"
+      ],
+      "answer": 0,
+      "explanation": "Une cause commune peut créer ou modifier une corrélation apparente.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite"
+    },
+    {
+      "id": "mc-cor-q9",
+      "question": "Corrélation implique causalité ?",
+      "choices": [
+        "Non",
+        "Oui toujours",
+        "Seulement si $r>0$"
+      ],
+      "answer": 0,
+      "explanation": "Une association statistique ne suffit pas à établir un mécanisme causal.",
+      "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite"
+    },
+    {
+      "id": "mc-cor-q10",
+      "question": "Pourquoi examiner les résidus ?",
+      "choices": [
+        "Pour vérifier si une structure reste inexpliquée",
+        "Pour remplacer le nuage",
+        "Pour calculer une médiane"
+      ],
+      "answer": 0,
+      "explanation": "Une structure dans les résidus peut signaler qu'un modèle affine est mal adapté.",
       "chapterId": "lycee/terminale-mathematiques-complementaires/correlation-causalite"
     }
   ]

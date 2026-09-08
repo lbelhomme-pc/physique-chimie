@@ -1,61 +1,77 @@
+% Mathématiques complémentaires — Terminale — V3 LaTeX
+% Corrélation et causalité
 \section{Objectifs}
 \begin{itemize}
-\item Étudier deux variables quantitatives.
-\item Ajuster un nuage de points.
-\item Interpoler et extrapoler avec esprit critique.
-\item Distinguer liaison statistique et causalité.
+\item Représenter et interpréter un nuage de points.
+\item Déterminer et utiliser un ajustement affine.
+\item Utiliser un coefficient de corrélation avec prudence.
+\item Distinguer corrélation et causalité.
 \end{itemize}
-
+\section{Repères et enjeux du thème}
+Deux variables peuvent évoluer ensemble sans que l'une cause l'autre. Le nuage de points et la droite d'ajustement décrivent une association statistique ; le coefficient de corrélation mesure la force d'une relation linéaire. L'interprétation causale exige des informations supplémentaires sur le protocole, l'ordre temporel, les variables de confusion et le mécanisme étudié.
 \section{1. Nuage de points}
-À des couples $(x_i,y_i)$ on associe un nuage de points.
-
+À une série de couples $(x_i,y_i)$ on associe un nuage de points. La première étape consiste à regarder sa forme avant de calculer quoi que ce soit : tendance croissante ou décroissante, dispersion, courbure, groupes distincts, point aberrant.
 Le point moyen a pour coordonnées
 \[
-(\bar x,\bar y).
+G(\bar x,\bar y),
+\qquad
+\bar x=\frac1n\sum_{i=1}^n x_i,
+\qquad
+\bar y=\frac1n\sum_{i=1}^n y_i.
 \]
-
+Il résume la position centrale du nuage mais pas sa forme.
 \section{2. Ajustement affine}
-Une droite
+Lorsque le nuage est approximativement aligné, une droite
 \[
 y=ax+b
 \]
-peut résumer une tendance approximativement linéaire.
-
-La droite des moindres carrés minimise la somme des carrés des écarts verticaux entre observations et valeurs ajustées.
-
-\section{3. Coefficient de corrélation}
-Le coefficient de corrélation linéaire $r$ est compris entre -1 et 1.
-
-\begin{itemize}
-\item $r$ proche de 1 : liaison linéaire positive forte ;
-\item $r$ proche de -1 : liaison linéaire négative forte ;
-\item $r$ proche de 0 : faible liaison linéaire.
-\end{itemize}
-
-\section{4. Changement de variable}
-Une relation exponentielle peut devenir affine après transformation, par exemple en utilisant un logarithme.
-
+peut résumer la tendance. La droite des moindres carrés minimise la somme des carrés des résidus verticaux entre les observations et les valeurs ajustées.
+La pente $a$ décrit la variation moyenne prévue de $y$ lorsque $x$ augmente d'une unité. L'ordonnée à l'origine $b$ doit être interprétée seulement si $x=0$ appartient à une zone pertinente.
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/correlation-causalite-1.svg}{Nuage de points et droite d'ajustement.}{Des observations sont dispersées autour d'une droite représentant une tendance linéaire positive.}
+\section{3. Résidus}
+Pour une observation $(x_i,y_i)$ et une valeur ajustée $\hat y_i=ax_i+b$, le résidu vaut
+\[
+e_i=y_i-\hat y_i.
+\]
+Un bon ajustement affine présente idéalement des résidus sans structure visible autour de $0$. Une courbure dans les résidus suggère qu'un modèle non linéaire serait plus adapté.
+Un point très éloigné peut influencer fortement la pente et le coefficient de corrélation ; il doit être examiné plutôt que supprimé automatiquement.
+\section{4. Coefficient de corrélation}
+Le coefficient de corrélation linéaire $r$ appartient à $[-1,1]$. Une valeur proche de $1$ indique une forte liaison linéaire positive ; une valeur proche de $-1$ une forte liaison linéaire négative. Une valeur proche de $0$ signifie seulement une faible liaison linéaire.
+Il est donc possible d'avoir $r\approx0$ avec une relation courbe très nette. Le nuage de points reste indispensable.
 \section{5. Interpolation et extrapolation}
-Interpolation : estimation à l'intérieur de la zone observée.
-Extrapolation : estimation au-delà ; elle est plus risquée.
-
+Utiliser l'ajustement pour une valeur de $x$ située dans la zone observée est une interpolation. Utiliser la droite très au-delà est une extrapolation.
+Une extrapolation suppose que la relation observée continue de la même manière. Cette hypothèse est souvent fragile : une tendance économique, démographique ou biologique peut se saturer, changer de régime ou rencontrer une contrainte.
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/correlation-causalite-2.svg}{Interpolation et extrapolation.}{La zone observée est distinguée de la prolongation de la droite au-delà des données.}
 \section{6. Corrélation n'est pas causalité}
-Une forte corrélation peut provenir :
-\begin{itemize}
-\item d'une cause commune ;
-\item d'un biais ;
-\item du hasard ;
-\item d'une relation causale réelle.
-\end{itemize}
-
-Le calcul seul ne tranche pas.
-
+Une forte corrélation ne suffit pas à prouver qu'une variable agit sur l'autre. Une cause commune peut influencer les deux, la causalité peut aller dans l'autre sens, ou la relation peut être due à une sélection particulière des données.
+Pour soutenir une causalité, on cherche un mécanisme plausible, un ordre temporel, un contrôle des facteurs de confusion et, si possible, un dispositif expérimental ou quasi-expérimental.
+\section{7. Variable de confusion}
+Une variable de confusion est liée à la fois à la variable explicative et à la variable étudiée. Elle peut créer ou modifier une corrélation apparente.
+Par exemple, une corrélation saisonnière entre deux consommations peut provenir de la température. Le calcul de $r$ ne permet pas, à lui seul, d'identifier ce mécanisme.
+\section{8. Transformation de variables}
+Certaines relations non linéaires deviennent approximativement affines après transformation. Une relation exponentielle $y=Ce^{kx}$ devient
+\[
+\ln y=\ln C+kx
+\]
+pour $y>0$. On peut alors ajuster $\ln y$ en fonction de $x$.
+La transformation change toutefois l'échelle des erreurs et l'interprétation ; elle doit être justifiée par le modèle.
+\section{9. Paradoxe de Simpson}
+Une tendance observée dans des données agrégées peut s'inverser lorsqu'on sépare la population en groupes. Ce phénomène montre que la structure des données et les variables cachées peuvent modifier l'interprétation d'une corrélation.
+Il ne suffit donc pas de calculer un indicateur global. Il faut examiner les sous-groupes pertinents et comprendre comment les données ont été constituées.
+\section{10. Méthode de résolution}
+On commence par tracer ou inspecter le nuage. Si une tendance affine est plausible, on calcule la droite et $r$. On vérifie les résidus et la position des valeurs utilisées pour une prévision.
+Une conclusion statistique distingue association et causalité. On précise si la prévision est une interpolation ou une extrapolation et on évite les formulations déterministes lorsque le modèle ne donne qu'une tendance moyenne.
+\section{11. Outils numériques}
+Une calculatrice ou un tableur fournit rapidement la régression et le coefficient de corrélation. Le logiciel ne décide pas si le modèle est pertinent. Il faut toujours regarder le nuage et les résidus.
+Comparer le modèle à quelques points non utilisés dans l'ajustement peut également donner une indication sur sa capacité de prévision.
 \section{Erreurs fréquentes}
 \begin{itemize}
-\item Confondre corrélation et causalité.
-\item Extrapoler très loin sans justification.
-\item Utiliser $r$ pour une relation non linéaire sans examiner le nuage.
+\item Conclure à une causalité à partir d'une forte corrélation.
+\item Utiliser une droite affine sans regarder le nuage.
+\item Extrapoler très loin de la zone observée.
+\item Croire que $r\approx0$ signifie absence de toute relation.
 \end{itemize}
-
 \section{À retenir}
-L'ajustement décrit une liaison observée ; l'établissement d'une causalité exige des arguments supplémentaires.
+\begin{aretenir}
+Corrélation et ajustement décrivent une association, pas une causalité. Le nuage de points, les résidus, le domaine des données et les variables de confusion doivent être examinés avant toute interprétation.
+\end{aretenir}
