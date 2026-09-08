@@ -24,6 +24,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Inspect payload fragments
+        shell: bash
+        run: |
+          for f in .c26_payload.part-*; do
+            wc -c "$f"
+            sha256sum "$f"
+          done
       - name: Rebuild verified payload
         shell: bash
         run: |
