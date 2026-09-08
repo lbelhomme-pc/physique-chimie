@@ -70,8 +70,8 @@ describe("C24 — mathématiques 6e programme 2025", () => {
       assert.equal(meta.seo.noindex, false);
       assert.equal(exercices.length, 12);
       assert.deepEqual([...new Set(exercices.map((item) => item.level))].sort(), ["N1", "N2", "N3"]);
-      assert.equal(questions.length, 5);
-      assert.equal(cards.length, 6);
+      assert.equal(questions.length, 10);
+      assert.equal(cards.length, 12);
       assert.ok(exercices.every((item) => Array.isArray(item.correction) && item.correction.length > 0));
 
       const result = normalizeChapterPackage({
