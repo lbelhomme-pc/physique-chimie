@@ -1,3 +1,6 @@
+% Mathématiques complémentaires — Terminale — V3 LaTeX
+% Inférence bayésienne
+
 \section{Objectifs}
 
 À la fin de ce chapitre, tu dois savoir :
@@ -12,6 +15,7 @@
 \item raisonner avec des effectifs lorsque les probabilités sont difficiles à interpréter ;
 \item expliquer pourquoi une information nouvelle modifie une estimation initiale.
 \end{itemize}
+
 
 \section{1. Situation de départ — un test positif ne signifie pas forcément « malade »}
 
@@ -55,6 +59,7 @@ La seconde signifie « probabilité d'obtenir un test positif sachant que la per
 
 Ces deux probabilités répondent à deux questions différentes.
 
+
 \section{2. Probabilité conditionnelle}
 
 Lorsque $P(B)>0$, la probabilité de $A$ sachant $B$ est définie par :
@@ -95,11 +100,12 @@ P(M\cap T^+)=P(M)\times P(T^+\mid M)
 
 Dans l'ensemble de la population, environ $1{,}9\%$ des personnes sont donc à la fois malades et testées positives.
 
+
 \section{3. L'arbre pondéré}
 
 Un arbre pondéré permet d'organiser les événements successifs.
 
-\coursefigure{/images/mathematiques/terminale-complementaires/inference-bayesienne-arbre.svg}{Arbre pondéré d}{Exemple d'arbre pondéré : prévalence 2 \%, sensibilité 95 \%, spécificité 90 \%.}
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/inference-bayesienne-1.svg}{Arbre pondéré d'un test de dépistage.}{L'arbre distingue maladie et absence de maladie puis test positif et négatif avec les probabilités conditionnelles.}
 
 Dans cet exemple :
 
@@ -137,7 +143,7 @@ P(T^+\mid\overline M)=1-0{,}90=0{,}10.
 
 Deux règles sont fondamentales.
 
-\textbf{Règle 1 — sur un chemin, on multiplie.}
+Règle 1 — sur un chemin, on multiplie.
 
 Par exemple :
 
@@ -145,7 +151,7 @@ Par exemple :
 P(M\cap T^+)=P(M)\times P(T^+\mid M).
 \]
 
-\textbf{Règle 2 — lorsque plusieurs chemins conduisent au même événement, on additionne.}
+Règle 2 — lorsque plusieurs chemins conduisent au même événement, on additionne.
 
 L'événement $T^+$ peut arriver :
 
@@ -159,6 +165,7 @@ Donc :
 \[
 P(T^+)=P(M\cap T^+)+P(\overline M\cap T^+).
 \]
+
 
 \section{4. Formule des probabilités totales}
 
@@ -197,6 +204,9 @@ P(T^+)=0{,}019+0{,}098=0{,}117.
 Environ $11{,}7\%$ de la population obtient donc un test positif.
 
 Attention : cela ne signifie pas que $11{,}7\%$ de la population est malade. Les faux positifs interviennent dans ce résultat.
+
+
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/inference-bayesienne-2.svg}{Effet de la fréquence de base sur une valeur prédictive.}{Le schéma compare vrais positifs et faux positifs lorsque l'événement recherché est rare.}
 
 \section{5. Formule de Bayes}
 
@@ -255,6 +265,7 @@ C'est souvent contre-intuitif : le test détecte pourtant $95\%$ des malades.
 
 La raison est la faible prévalence de la maladie et le nombre relativement important de faux positifs.
 
+
 \section{6. Exemple développé 1 — raisonner sur 10 000 personnes}
 
 Le raisonnement en effectifs aide à comprendre le résultat précédent.
@@ -311,12 +322,6 @@ Faux positifs :
 
 \subsection{Tableau d'effectifs}
 
-\begin{tabular}{c|c|c|c}
-Situation & Test positif & Test négatif & Total \\
-Malade & 190 & 10 & 200 \\
-Non malade & 980 & 8 820 & 9 800 \\
-Total & 1 170 & 8 830 & 10 000 \\
-\end{tabular}
 
 Parmi les 1 170 tests positifs, seulement 190 correspondent à des personnes malades.
 
@@ -336,6 +341,7 @@ On retrouve le résultat obtenu avec Bayes.
 Le nombre de faux positifs peut dépasser largement le nombre de vrais positifs lorsque l'événement recherché est rare.
 
 La qualité intrinsèque d'un test ne suffit donc pas à déterminer sa valeur prédictive.
+
 
 \section{7. Sensibilité, spécificité et valeurs prédictives}
 
@@ -383,16 +389,10 @@ Elle répond à la question : « sachant que le test est négatif, quelle est la
 
 \subsection{Tableau de comparaison}
 
-\begin{tabular}{c|c|c}
-Indicateur & Probabilité & Question \\
-Sensibilité & $P(T^+\mid M)$ & Le test repère-t-il bien les malades ? \\
-Spécificité & $P(T^-\mid\overline M)$ & Le test repère-t-il bien les non-malades ? \\
-VPP & $P(M\mid T^+)$ & Un positif est-il réellement malade ? \\
-VPN & $P(\overline M\mid T^-)$ & Un négatif est-il réellement non malade ? \\
-\end{tabular}
 
 Les deux premières grandeurs caractérisent le comportement du test dans des groupes connus.  
 Les deux dernières dépendent fortement de la prévalence.
+
 
 \section{8. A priori et a posteriori}
 
@@ -431,6 +431,7 @@ On peut résumer le mécanisme ainsi :
 \]
 
 Bayes ne « crée » pas de certitude. Il met à jour une probabilité à partir d'une information nouvelle.
+
 
 \section{9. Exemple développé 2 — contrôle qualité en industrie}
 
@@ -503,13 +504,14 @@ Il y a donc $62{,}5\%$ de chances que la pièce défectueuse provienne de la mac
 
 La machine $B$ ne fabrique que $40\%$ des pièces, mais son taux de défaut est plus élevé. Une pièce défectueuse est donc plus probablement issue de $B$ que de $A$.
 
+
 \section{10. Effet de la prévalence}
 
 La prévalence joue un rôle majeur dans les valeurs prédictives.
 
 Supposons un test de sensibilité $99\%$ et de spécificité $99\%$.
 
-\subsection{Cas 1 — prévalence 1 \%}
+\subsection{Cas 1 — prévalence 1 %}
 
 \[
 P(M)=0{,}01.
@@ -541,7 +543,7 @@ P(M\mid T^+)
 
 Malgré un test très performant, la valeur prédictive positive n'est que de $50\%$.
 
-\subsection{Cas 2 — prévalence 20 \%}
+\subsection{Cas 2 — prévalence 20 %}
 
 \[
 P(M)=0{,}20.
@@ -572,9 +574,10 @@ La VPP est cette fois d'environ $96{,}1\%$.
 
 Le même test peut donc donner des interprétations très différentes selon la population étudiée.
 
-\coursefigure{/images/mathematiques/terminale-complementaires/inference-bayesienne-prevalence-vpp.svg}{Courbe montrant l}{À performances de test constantes, la valeur prédictive positive augmente fortement avec la prévalence.}
+\coursefigure{/images/mathematiques/terminale-mathematiques-complementaires/inference-bayesienne-1.svg}{Arbre pondéré d'un test de dépistage.}{L'arbre distingue maladie et absence de maladie puis test positif et négatif avec les probabilités conditionnelles.}
 
 Cette courbe permet de visualiser un point essentiel : la qualité du test reste identique, mais l'interprétation d'un résultat positif change avec la fréquence de base de l'événement recherché.
+
 
 \section{11. Méthode — résoudre un problème de Bayes}
 
@@ -628,6 +631,7 @@ Une réponse comme $0{,}37$ doit être traduite :
 
 Lorsque les pourcentages sont peu intuitifs, choisis une population fictive de 1 000, 10 000 ou 100 000 individus. Le tableau d'effectifs rend souvent le raisonnement beaucoup plus lisible.
 
+
 \section{12. Indépendance et Bayes}
 
 Deux événements $A$ et $B$ sont indépendants si :
@@ -654,18 +658,14 @@ P(A\mid B)\neq P(A),
 
 alors l'observation de $B$ modifie notre estimation de $A$.
 
+
 \section{13. Arbre, tableau ou formule ?}
 
 Les trois outils sont complémentaires.
 
-\begin{tabular}{c|c|c}
-Outil & Point fort & À privilégier quand… \\
-Arbre pondéré & Visualise les conditionnements successifs & les événements sont organisés en étapes \\
-Tableau d'effectifs & Rend les proportions concrètes & les probabilités sont contre-intuitives \\
-Formule de Bayes & Donne un calcul compact & les probabilités sont déjà identifiées \\
-\end{tabular}
 
 Un bon raisonnement peut utiliser les trois successivement.
+
 
 \section{14. Erreurs fréquentes}
 
@@ -713,6 +713,7 @@ Le complément s'effectue en gardant la même condition.
 
 Une probabilité conditionnelle est une proportion dans une sous-population. La phrase finale est indispensable.
 
+
 \section{15. À retenir}
 
 Les quatre relations essentielles sont :
@@ -750,3 +751,17 @@ Le point central du chapitre est conceptuel :
 \]
 
 La formule de Bayes permet de mettre à jour une probabilité lorsque cette information change.
+
+
+\section{Erreurs fréquentes}
+\begin{itemize}
+\item Confondre $P(A\mid B)$ et $P(B\mid A)$.
+\item Oublier la fréquence de base avant d'interpréter un résultat positif.
+\item Additionner les probabilités le long d'un chemin au lieu de les multiplier.
+\item Confondre sensibilité, spécificité et valeurs prédictives.
+\end{itemize}
+
+\section{À retenir}
+\begin{aretenir}
+La formule de Bayes inverse un conditionnement en combinant la vraisemblance d'une information et la probabilité a priori. Un arbre pondéré ou un tableau d'effectifs sécurise les calculs. Une valeur prédictive dépend toujours de la fréquence de base.
+\end{aretenir}
