@@ -92,6 +92,13 @@ En situation de type baccalauréat, une copie efficace n’empile pas les calcul
 La dérivation relie directement les deux fonctions : $(\sin x)'=\cos x$ et $(\cos x)'=-\sin x$. Les fonctions trigonométriques interviennent ensuite dans le calcul intégral, les équations différentielles, les nombres complexes et la modélisation périodique.
 Les liens avec la dérivation, les limites, les équations, la modélisation et l’algorithmique doivent être mobilisés consciemment. Une même question peut demander successivement de transformer une expression, d’étudier une fonction, de résoudre une équation puis d’interpréter la solution obtenue.
 
+\section{Approfondissement : amplitude, phase et lecture de paramètres}
+Dans un modèle $f(t)=m+A\cos(\omega t+\varphi)$, les quatre paramètres jouent des rôles distincts. La valeur $m$ translate verticalement la courbe et représente la valeur moyenne. Le nombre $|A|$ est l’amplitude, donc l’écart maximal à cette moyenne. La pulsation $\omega$ fixe la période par $T=2\pi/|\omega|$, tandis que $\varphi$ décale les événements caractéristiques dans le temps.
+
+Pour identifier un modèle à partir de données, on commence par lire le maximum et le minimum afin d’obtenir $m$ et $|A|$. On utilise ensuite l’écart temporel entre deux maxima pour déterminer $T$, donc $|\omega|$. Une condition comme une valeur initiale ou un instant de maximum permet enfin de fixer la phase. Cette démarche sépare les rôles des paramètres et évite d’ajuster une formule au hasard.
+
+Une fois le modèle construit, on contrôle systématiquement les unités. Si $t$ est exprimé en secondes, l’argument $\omega t+\varphi$ doit être sans unité. La période doit avoir la même unité que $t$. Enfin, les valeurs extrêmes calculées $m-|A|$ et $m+|A|$ doivent être compatibles avec le phénomène modélisé.
+
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Mélanger degrés et radians dans une même formule.
