@@ -115,6 +115,13 @@ Une valeur approchée doit être accompagnée de son sens et, lorsque c’est pe
 La recherche de seuil s’applique aux suites et aux exponentielles, la dichotomie à la continuité et au TVI, la simulation aux probabilités et les sommes au calcul intégral ou aux suites. Python sert donc de laboratoire transversal.
 Ce chapitre mobilise plusieurs compétences transversales : raisonner, modéliser, calculer, représenter et communiquer. Il fournit aussi des situations naturelles pour l’algorithmique et pour la comparaison entre résultat théorique, simulation et observation.
 
+\section{Approfondissement : preuve de correction et coût d’un algorithme}
+Pour analyser un algorithme, deux questions dépassent la simple exécution : termine-t-il et renvoie-t-il bien ce qui est annoncé ? Une preuve de terminaison identifie souvent une quantité qui évolue dans un sens imposé et ne peut pas évoluer indéfiniment. Pour une recherche de seuil, l’indice augmente tandis que la propriété mathématique garantit que le seuil sera finalement franchi.
+
+La correction s’appuie sur un invariant. Dans la dichotomie, l’intervalle courant conserve une racine grâce au changement de signe et à la continuité. Dans une somme, l’accumulateur contient après chaque itération la somme des termes déjà parcourus. Énoncer cet invariant clarifie le code et permet de détecter une mise à jour incorrecte.
+
+Le coût peut aussi être estimé. Pour la dichotomie, la longueur est divisée par $2$ à chaque étape, donc le nombre d’itérations nécessaire pour une précision donnée croît seulement de manière logarithmique avec l’inverse de cette précision. Cette propriété explique l’efficacité de la méthode et permet de choisir une condition d’arrêt raisonnable plutôt qu’un nombre arbitraire de répétitions.
+
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Coder avant d’avoir défini précisément les variables et la condition d’arrêt.
