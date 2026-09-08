@@ -85,6 +85,17 @@ Une valeur approchée doit être accompagnée de son sens et, lorsque c’est pe
 Les coefficients binomiaux viennent directement du dénombrement. Les simulations Python permettent de confronter théorie et fréquences. Les intervalles de concentration préparent le raisonnement statistique et montrent comment la dispersion diminue quand la taille d’échantillon augmente.
 Ce chapitre mobilise plusieurs compétences transversales : raisonner, modéliser, calculer, représenter et communiquer. Il fournit aussi des situations naturelles pour l’algorithmique et pour la comparaison entre résultat théorique, simulation et observation.
 
+\section{Approfondissement : fréquence, précision et taille d’échantillon}
+Pour une fréquence $F_n=X_n/n$ avec $X_n\sim\mathcal{B}(n,p)$,
+\[
+E(F_n)=p,\qquad V(F_n)=\frac{p(1-p)}{n}.
+\]
+La diminution en $1/n$ de la variance explique quantitativement la stabilisation des fréquences. L’écart-type de $F_n$ décroît comme $1/\sqrt n$ : multiplier la taille de l’échantillon par $4$ divise donc l’échelle typique des fluctuations par $2$.
+
+L’inégalité $p(1-p)\leq1/4$ fournit une borne indépendante de la valeur inconnue de $p$. Elle permet de choisir une taille d’échantillon garantissant une précision minimale avec Tchebychev. Cette garantie est volontairement prudente : elle fonctionne sans connaître la forme détaillée de la distribution, mais elle est souvent moins précise qu’un calcul spécifique.
+
+Dans une étude expérimentale, on distingue enfin trois objets : la probabilité théorique $p$, la fréquence observée sur un échantillon et la distribution des fréquences que l’on obtiendrait en répétant l’échantillonnage. Confondre ces niveaux conduit à des interprétations excessives d’une seule observation.
+
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Appliquer la loi binomiale sans vérifier l’indépendance et la constance de $p$.
