@@ -64,6 +64,15 @@ Une conclusion statistique distingue association et causalité. On précise si l
 \section{11. Outils numériques}
 Une calculatrice ou un tableur fournit rapidement la régression et le coefficient de corrélation. Le logiciel ne décide pas si le modèle est pertinent. Il faut toujours regarder le nuage et les résidus.
 Comparer le modèle à quelques points non utilisés dans l'ajustement peut également donner une indication sur sa capacité de prévision.
+\section{12. Standardisation, influence et robustesse}
+Lorsque deux variables n'ont pas les mêmes unités, la corrélation reste sans unité : elle dépend des positions relatives des valeurs par rapport à leurs moyennes et de leurs dispersions. Changer l'unité de mètres en centimètres ne modifie donc pas le coefficient de corrélation, même si la pente de la droite d'ajustement change.
+
+La pente, elle, possède une unité. Dans $y=ax+b$, l'unité de $a$ est l'unité de $y$ divisée par celle de $x$. Cette lecture aide à interpréter correctement une variation moyenne et à repérer une formule incohérente. Une pente élevée n'implique pas une corrélation élevée : ces deux nombres décrivent des propriétés différentes.
+
+Un ajustement doit aussi être examiné pour sa robustesse. Un point à forte influence peut modifier fortement la pente, l'ordonnée à l'origine et $r$. On compare alors l'analyse avec et sans ce point, après avoir vérifié s'il s'agit d'une erreur de mesure, d'un cas particulier ou d'une observation parfaitement valide. Supprimer automatiquement une observation gênante serait une mauvaise pratique.
+
+Avant une conclusion causale, une grille simple peut être utilisée : l'association est-elle reproductible, la cause supposée précède-t-elle l'effet, existe-t-il un mécanisme plausible, les principales variables de confusion ont-elles été examinées, et le protocole permet-il réellement d'isoler l'effet ? Cette grille ne constitue pas une preuve automatique, mais elle empêche de transformer trop vite une relation descriptive en affirmation causale.
+
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Conclure à une causalité à partir d'une forte corrélation.
