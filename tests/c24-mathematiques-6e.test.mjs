@@ -11,6 +11,15 @@ const levelDir = path.join(root, "src/data/mathematiques/chapters/college", leve
 const mapping = JSON.parse(
   readFileSync(path.join(root, "src/data/mathematiques/programmes/cycle3-6e-2025.mapping.json"), "utf8"),
 );
+const enrichedQuizFlashcards = new Set([
+  "nombres-entiers-decimaux",
+  "fractions-quotients-pourcentages",
+  "algebre-programmes-calcul",
+  "longueurs-perimetres",
+  "aires-volumes",
+  "temps-durees",
+  "configurations-planes",
+]);
 
 function readJson(file) {
   return JSON.parse(readFileSync(file, "utf8"));
@@ -70,8 +79,9 @@ describe("C24 — mathématiques 6e programme 2025", () => {
       assert.equal(meta.seo.noindex, false);
       assert.equal(exercices.length, 12);
       assert.deepEqual([...new Set(exercices.map((item) => item.level))].sort(), ["N1", "N2", "N3"]);
-      assert.equal(questions.length, 10);
-      assert.equal(cards.length, 12);
+      const enriched = enrichedQuizFlashcards.has(slug);
+      assert.equal(questions.length, enriched ? 10 : 5);
+      assert.equal(cards.length, enriched ? 12 : 6);
       assert.ok(exercices.every((item) => Array.isArray(item.correction) && item.correction.length > 0));
 
       const result = normalizeChapterPackage({
