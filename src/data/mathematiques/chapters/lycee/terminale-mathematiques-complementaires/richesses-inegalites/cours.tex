@@ -47,6 +47,15 @@ Pour un indice de Gini, on choisit un calcul exact si une fonction $L$ est donn�
 \section{10. Algorithmique et tableur}
 Un tableur peut calculer les cumuls et tracer automatiquement la courbe. Un script peut additionner les aires de trapèzes. Le résultat doit être contrôlé : l'aire sous Lorenz est comprise entre $0$ et $1/2$ dans le cadre usuel et l'indice de Gini entre $0$ et $1$.
 Un calcul numérique facilite les comparaisons, mais la qualité de l'interprétation dépend des données et de leur définition.
+\section{11. Déciles, rapports et comparaison de concentration}
+Les déciles permettent de compléter la lecture de Lorenz par des seuils concrets. Le premier décile $D_1$ est une valeur telle qu'environ $10\,\%$ de la population se situe en dessous, tandis que $D_9$ repère le seuil au-dessous duquel se trouvent environ $90\,\%$ des individus. Le rapport $D_9/D_1$ compare ainsi deux positions éloignées de la distribution, mais il ne tient pas compte de toutes les valeurs intermédiaires.
+
+Il faut distinguer un rapport de quantiles d'un indicateur de concentration globale. Un rapport interdécile peut augmenter alors que certaines parties centrales de la distribution se rapprochent. À l'inverse, deux distributions peuvent avoir des rapports interdéciles voisins et des courbes de Lorenz assez différentes. La comparaison pertinente associe donc plusieurs indicateurs plutôt que d'en privilégier un seul.
+
+Dans une étude temporelle, on vérifie aussi la comparabilité des montants. Des revenus exprimés en euros courants ne peuvent pas être comparés directement sur une longue période sans tenir compte de l'évolution générale des prix. Mathématiquement, l'indicateur peut être calculé correctement tout en donnant une interprétation économique trompeuse si les données ne sont pas homogènes.
+
+Enfin, un indice de Gini calculé sur un échantillon est lui-même soumis à la variabilité des données observées. Lorsque l'effectif est faible, deux échantillons d'une même population peuvent produire des indices différents. Le résultat doit donc être présenté comme une mesure issue des données disponibles et non comme une propriété absolue indépendante du protocole.
+
 \section{Erreurs fréquentes}
 \begin{itemize}
 \item Confondre proportion de population et proportion de richesse.
