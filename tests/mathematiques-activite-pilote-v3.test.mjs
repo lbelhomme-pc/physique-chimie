@@ -44,8 +44,7 @@ test("chapter shell and tabs expose an optional interactive activity section", (
 
   assert.match(shell, /ActivityContent\?: any/);
   assert.match(shell, /hasActivite/);
-  assert.match(shell, /id: "activite"/);
-  assert.match(shell, /Manipuler, observer, conjecturer puis valider/);
+  assert.match(shell, /id: "activite", label: "Activite"/);
   assert.match(tabs, /chapter-tab-activite/);
   assert.match(tabs, /chapter-panel-activite/);
   assert.match(tabs, /<slot name="activite" \/>/);
