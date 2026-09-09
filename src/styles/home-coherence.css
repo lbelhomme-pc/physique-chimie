@@ -1,4 +1,4 @@
-/* Global coherence layer — align internal UI with the public landing-page charter. */
+/* Minimal cross-page coherence layer using the homepage visual charter. */
 :root {
   --ui-home-navy: #00184d;
   --ui-home-blue: #0f5bff;
@@ -6,187 +6,12 @@
   --ui-home-muted: #52617c;
   --ui-home-border: #d9e6fb;
   --ui-home-soft: #f4f8ff;
-  --ui-home-white: #ffffff;
   --ui-home-radius: 8px;
   --ui-home-radius-sm: 6px;
   --ui-home-shadow: 0 8px 24px rgba(15, 72, 160, 0.08);
-  --ui-home-shadow-hover: 0 16px 34px rgba(15, 72, 160, 0.11);
 }
 
-/* Legacy navigation, tabs and breadcrumbs now use the landing visual grammar. */
-.main-nav,
-.tabs-bar,
-.breadcrumb-bar,
-.search-bar,
-.section-card,
-.card,
-.lab-filter-panel,
-.lab-search-box {
-  background: var(--ui-home-white);
-  border: 1px solid var(--ui-home-border);
-  border-radius: var(--ui-home-radius);
-  box-shadow: var(--ui-home-shadow);
-}
-
-.main-nav {
-  max-width: 1120px;
-}
-
-.nav-pill,
-.tab-pill {
-  border: 1px solid transparent;
-  border-radius: var(--ui-home-radius-sm);
-  color: var(--ui-home-muted);
-  font-weight: 800;
-}
-
-.nav-pill:hover,
-.tab-pill:hover {
-  background: var(--ui-home-soft);
-  color: var(--ui-home-navy);
-}
-
-.nav-pill.active,
-.nav-pill[aria-current="page"],
-.tab-pill.active {
-  background: var(--ui-home-blue);
-  border-color: var(--ui-home-blue);
-  color: #fff;
-  box-shadow: none;
-}
-
-.breadcrumb-bar {
-  max-width: 1120px;
-  color: var(--ui-home-muted);
-}
-
-.breadcrumb-bar strong {
-  background: var(--ui-home-soft);
-  border-radius: var(--ui-home-radius-sm);
-  color: var(--ui-home-navy);
-}
-
-.stat-pill,
-.rang-pill {
-  border-radius: var(--ui-home-radius-sm);
-  box-shadow: none;
-}
-
-.card,
-.section-card {
-  border-color: var(--ui-home-border);
-  border-radius: var(--ui-home-radius);
-}
-
-.card:hover {
-  border-color: color-mix(in srgb, var(--ui-home-blue) 45%, #fff);
-  box-shadow: var(--ui-home-shadow-hover);
-}
-
-.card-chapitre {
-  border: 1px solid var(--ui-home-border);
-  border-left: 4px solid var(--accent-primary);
-  border-radius: var(--ui-home-radius);
-  box-shadow: none;
-}
-
-.card-chapitre:hover {
-  box-shadow: var(--ui-home-shadow);
-  transform: translateY(-1px);
-}
-
-/* Form controls: same compact geometry as search and action controls on landing pages. */
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
-textarea,
-select {
-  border-radius: var(--ui-home-radius);
-}
-
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus,
-textarea:focus,
-select:focus {
-  border-color: var(--ui-home-blue);
-  box-shadow: 0 0 0 4px rgba(15, 91, 255, 0.12);
-}
-
-/* Labs and filter surfaces */
-.lab-filter-panel,
-.lab-search-box {
-  border-radius: var(--ui-home-radius) !important;
-  box-shadow: var(--ui-home-shadow) !important;
-}
-
-.lab-button,
-.lab-control select,
-.lab-control input,
-.lab-clear-button {
-  border-radius: var(--ui-home-radius-sm) !important;
-}
-
-/* Shared learning workspace inherits the landing geometry. */
-.learning-question-card,
-.learning-flashcard-card,
-.learning-result-card,
-[data-exercices-player-v3] > section,
-[data-quiz-result-v3],
-[data-flashcards-result-v3] {
-  border-color: var(--ui-home-border) !important;
-  border-radius: var(--ui-home-radius) !important;
-  box-shadow: var(--ui-home-shadow) !important;
-}
-
-.learning-choice,
-.learning-session-option,
-.learning-player button,
-[data-exercices-player-v3] button,
-[data-quiz-player-v3] button,
-[data-quiz-result-v3] button,
-[data-flashcards-player-v3] button,
-[data-flashcards-result-v3] button {
-  border-radius: var(--ui-home-radius-sm) !important;
-}
-
-.learning-choice:hover:not(:disabled) {
-  box-shadow: 0 8px 18px rgba(15, 72, 160, 0.08);
-}
-
-/* Reusable V3 surfaces */
-.v3-card,
-.v3-panel,
-.v3-toolbar,
-.v3-empty-state {
-  border-radius: var(--ui-home-radius);
-}
-
-/* Keep focus language identical to the public homepage. */
-:where(
-  .main-nav,
-  .tabs-bar,
-  .breadcrumb-bar,
-  .search-bar,
-  .learning-player,
-  .lab-filter-panel,
-  .lab-search-box
-) :focus-visible {
-  outline: 3px solid rgba(15, 91, 255, 0.22);
-  outline-offset: 3px;
-}
-
-@media (max-width: 700px) {
-  .main-nav,
-  .tabs-bar,
-  .breadcrumb-bar,
-  .section-card,
-  .card,
-  .learning-question-card,
-  .learning-flashcard-card,
-  .learning-result-card {
-    border-radius: var(--ui-home-radius);
-  }
-}
-
-
-/* Legacy React search — same visual language as homepage GlobalSearch. */
+/* Legacy React search: same language as the homepage global search. */
 .legacy-search {
   position: relative;
   width: min(100%, 1120px);
@@ -199,16 +24,13 @@ select:focus {
   gap: 0.75rem;
   min-height: 54px;
   padding: 0.65rem 0.9rem;
-  background: #ffffff;
+  background: #fff;
   border: 1px solid var(--ui-home-border);
   border-radius: var(--ui-home-radius);
   box-shadow: var(--ui-home-shadow);
-  transition: border-color 120ms ease, box-shadow 120ms ease;
 }
 
-.legacy-search__field.is-open {
-  border-radius: 8px 8px 0 0;
-}
+.legacy-search__field.is-open { border-radius: 8px 8px 0 0; }
 
 .legacy-search__field:focus-within {
   border-color: var(--ui-home-blue);
@@ -234,7 +56,6 @@ select:focus {
   border-radius: 2px;
   background: var(--ui-home-blue);
   transform: rotate(45deg);
-  transform-origin: center;
 }
 
 .legacy-search__field input {
@@ -249,9 +70,7 @@ select:focus {
   outline: 0;
 }
 
-.legacy-search__field input::placeholder {
-  color: #71809a;
-}
+.legacy-search__field input::placeholder { color: #71809a; }
 
 .legacy-search__clear {
   display: inline-flex;
@@ -274,7 +93,7 @@ select:focus {
   inset: 100% 0 auto;
   z-index: 100;
   overflow: hidden;
-  background: #ffffff;
+  background: #fff;
   border: 1px solid var(--ui-home-border);
   border-top: 0;
   border-radius: 0 0 8px 8px;
@@ -298,9 +117,7 @@ select:focus {
   border-bottom: 1px solid #e8eef8;
 }
 
-.legacy-search__result:last-child {
-  border-bottom: 0;
-}
+.legacy-search__result:last-child { border-bottom: 0; }
 
 .legacy-search__result:hover,
 .legacy-search__result:focus-visible {
@@ -354,72 +171,11 @@ select:focus {
   text-align: center;
 }
 
-/* Maths internal surfaces, not only landing wrappers. */
-.math-hero,
-.math-panel,
-.math-empty-state,
-.math-chapter-header,
-.math-card,
-.math-resource-card,
-.math-tool-card,
-.math-catalog-summary div,
-.math-progress-placeholder,
-.math-figure {
-  border-color: var(--ui-home-border) !important;
-  border-radius: var(--ui-home-radius) !important;
-  box-shadow: var(--ui-home-shadow) !important;
-}
-
-.math-card[href]:hover,
-.math-resource-card[href]:hover,
-.math-tool-card[href]:hover {
-  border-color: color-mix(in srgb, var(--ui-home-blue) 52%, #ffffff) !important;
-  box-shadow: var(--ui-home-shadow-hover) !important;
-}
-
-.discipline-badge,
-.math-badge {
-  border-radius: var(--ui-home-radius-sm) !important;
-}
-
-/* Subject switcher and generic segmented controls */
-.subject-switcher {
-  background: var(--ui-home-soft) !important;
-  border-color: var(--ui-home-border) !important;
-  border-radius: var(--ui-home-radius) !important;
-}
-
-.subject-switcher__link {
-  border-radius: var(--ui-home-radius-sm) !important;
-}
-
-.subject-switcher__mark {
-  border-radius: var(--ui-home-radius-sm) !important;
-}
-
-@media (max-width: 620px) {
-  .legacy-search {
-    width: 100%;
-  }
-
-  .legacy-search__result {
-    grid-template-columns: 1fr auto;
-  }
-
-  .legacy-search__badge {
-    grid-column: 1 / -1;
-    justify-self: start;
-  }
-}
-
-
-/* Chapter editorial surfaces use the same navy/blue hierarchy as landing sections. */
+/* Editorial hierarchy shared by chapter pages. */
 .chapter-header,
 .math-chapter-header,
 .chapter-overview {
   border-color: var(--ui-home-border) !important;
-  background: #ffffff !important;
-  box-shadow: var(--ui-home-shadow) !important;
 }
 
 .chapter-header h1,
@@ -435,17 +191,18 @@ select:focus {
   color: var(--ui-home-blue) !important;
 }
 
-.chapter-overview-side {
-  background: var(--ui-home-soft) !important;
-  border-color: var(--ui-home-border) !important;
-}
-
 .chapter-pagination,
 .math-chapter-pagination {
   max-width: 1120px !important;
 }
 
-.chapter-pagination-link,
-.math-pagination-link {
-  border-radius: 6px !important;
+@media (max-width: 620px) {
+  .legacy-search__result {
+    grid-template-columns: 1fr auto;
+  }
+
+  .legacy-search__badge {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
 }
