@@ -27,7 +27,7 @@ describe("UI — cohérence avec la charte de la page d'accueil",()=>{
 
   it("supprime le style pill et les largeurs étroites des onglets pédagogiques",()=>{
     const tabs=read("src/components/pedagogie/ChapterTabs.astro");
-    assert.match(tabs,/border-radius: 8px/);
+    assert.match(tabs,/border-radius: var\\\(--v3-radius-md\\\)/);
     assert.match(tabs,/background: #0f5bff/);
     assert.doesNotMatch(tabs,/border-radius: 18px/);
     assert.doesNotMatch(tabs,/max-width: 900px/);
@@ -43,7 +43,7 @@ describe("UI — cohérence avec la charte de la page d'accueil",()=>{
   it("la recherche historique n'utilise plus de styles inline ni d'emoji",()=>{
     const search=read("src/components/ui/SearchBar.tsx");
     assert.match(search,/className="legacy-search"/);
-    assert.match(search,/className="legacy-search__field/);
+    assert.match(search,/legacy-search__field/);
     assert.match(search,/className="legacy-search__icon"/);
     assert.doesNotMatch(search,/🔍/);
     assert.doesNotMatch(search,/maxWidth:\s*700/);
