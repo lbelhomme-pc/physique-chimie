@@ -142,7 +142,7 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
     const pct=Math.round((score/total)*100);
     const missedCount=questions.filter((q,i)=>answers[i]!==q.correctIndex).length;
     let emoji="🎉",msg="Excellent !";if(pct<40){emoji="💪";msg="Continue tes efforts !"}else if(pct<70){emoji="👍";msg="Pas mal, tu progresses !"}else if(pct<100){emoji="🌟";msg="Très bien !"}
-    return(<div data-quiz-result-v3="true" style={{maxWidth:600,margin:"0 auto",textAlign:"center"}}>
+    return(<div data-quiz-result-v3="true" className="learning-player learning-result-card" style={{textAlign:"center"}}>
       <div style={{fontSize:"3rem",marginBottom:"0.5rem"}}>{emoji}</div>
       <h3 style={{fontSize:"1.4rem",fontWeight:700,color:V.text,marginBottom:"1rem"}}>{msg}</h3>
       <div style={{display:"flex",alignItems:"baseline",justifyContent:"center",gap:"0.25rem",marginBottom:"0.5rem"}}>
@@ -165,14 +165,14 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
   }
 
   // ─── Écran de question ────────────────────────────────
-  return(<div data-quiz-player-v3="true" data-retry-mode={retryMode ? "true" : "false"} style={{maxWidth:700,margin:"0 auto"}}>
-    {title&&<h3 style={{fontSize:"1.1rem",fontWeight:600,marginBottom:"0.75rem",color:V.text}}>{title}</h3>}
+  return(<div data-quiz-player-v3="true" data-retry-mode={retryMode ? "true" : "false"} className="learning-player learning-player--quiz">
+    {title&&<h3 className="learning-player__title">{title}</h3>}
     {alreadyToday&&<p style={{fontSize:"0.85rem",color:V.textSec,background:V.bgSec,border:`1px solid ${V.border}`,borderRadius:8,padding:"0.5rem 0.75rem",marginBottom:"0.75rem",textAlign:"center"}}>ℹ️ Tu as déjà gagné des XP sur ce quiz aujourd'hui. Les XP seront disponibles demain.</p>}
     <div style={{display:"flex",alignItems:"center",gap:"0.75rem",marginBottom:"1.25rem"}}>
       <div style={{flex:1,height:8,background:V.bgTer,borderRadius:99,overflow:"hidden"}}><div style={{height:"100%",background:V.primary,borderRadius:99,transition:"width 0.4s",width:`${((ci+(answered?1:0))/total)*100}%`}}/></div>
       <span style={{fontSize:"0.85rem",color:V.textMut,fontWeight:500,whiteSpace:"nowrap"}}>Question {ci+1}/{total}</span>
     </div>
-    <div style={{background:V.bg,border:`1px solid ${V.border}`,borderRadius:12,padding:"1.5rem"}}>
+    <div className="learning-question-card" style={{background:V.bg,border:`1px solid ${V.border}`,borderRadius:12,padding:"1.5rem"}}>
       {/* Question + TTS tout lire */}
       <p style={{fontSize:"1.1rem",fontWeight:600,color:V.text,marginBottom:"0.5rem",lineHeight:1.5}}><MathText text={cur.original.question} /></p>
       <div style={{marginBottom:"1rem"}}><TextToSpeech compact text={fullQuestionText} label="Tout lire" /></div>
@@ -184,7 +184,7 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
           if(answered){if(i===cur.correctIndex){bg=V.successLt;bc="var(--accent-success)";col="var(--accent-success)"}else if(i===sel&&!isC){bg=V.dangerLt;bc="var(--accent-danger)";col="var(--accent-danger)"}else{col=V.textDis}}
           else if(i===sel){bg=V.primaryLt;bc=V.primary;col=V.primary}
           return(<div key={i} style={{display:"flex",alignItems:"center",gap:"0.4rem"}}>
-            <button onClick={()=>ready&&!answered&&setSel(i)} disabled={!ready||answered} style={{display:"flex",alignItems:"center",gap:"0.75rem",padding:"0.75rem 1rem",border:`2px solid ${bc}`,borderRadius:8,background:bg,cursor:(!ready||answered)?"default":"pointer",textAlign:"left",fontSize:"0.95rem",color:col,flex:1,transition:"all 0.15s"}}>
+            <button className="learning-choice" onClick={()=>ready&&!answered&&setSel(i)} disabled={!ready||answered} style={{display:"flex",alignItems:"center",gap:"0.75rem",padding:"0.75rem 1rem",border:`2px solid ${bc}`,borderRadius:8,background:bg,cursor:(!ready||answered)?"default":"pointer",textAlign:"left",fontSize:"0.95rem",color:col,flex:1,transition:"all 0.15s"}}>
               <span style={{display:"flex",alignItems:"center",justifyContent:"center",width:28,height:28,borderRadius:"50%",background:V.bgTer,fontSize:"0.8rem",fontWeight:700,flexShrink:0}}>{String.fromCharCode(65+i)}</span>
               <span style={{flex:1}}><MathText text={ch} /></span>
             </button>
@@ -193,7 +193,7 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
       </div>
 
       {/* Feedback + TTS sur l'explication */}
-      {answered&&<div style={{marginTop:"1rem",padding:"0.75rem 1rem",borderRadius:8,background:isC?V.successLt:V.dangerLt,border:`1px solid ${isC?"var(--accent-success)":"var(--accent-danger)"}`}}>
+      {answered&&<div className="learning-feedback" style={{marginTop:"1rem",padding:"0.75rem 1rem",borderRadius:8,background:isC?V.successLt:V.dangerLt,border:`1px solid ${isC?"var(--accent-success)":"var(--accent-danger)"}`}}>
         <p style={{fontWeight:600,fontSize:"0.95rem",marginBottom:"0.3rem"}}>{isC?"✅ Bonne réponse !":"❌ Mauvaise réponse"}</p>
         {cur.original.explanation&&<>
           <p style={{fontSize:"0.9rem",color:V.textSec,lineHeight:1.5,marginBottom:"0.5rem"}}><MathText text={cur.original.explanation} /></p>
