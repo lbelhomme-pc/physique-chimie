@@ -412,8 +412,8 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
   }
 
   return (
-    <div data-exercices-player-v3 style={{ maxWidth: 760, margin: "0 auto" }}>
-      {title && <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: "0.75rem", color: V.text }}>{title}</h3>}
+    <div data-exercices-player-v3 className="learning-player learning-player--exercises">
+      {title && <h3 className="learning-player__title">{title}</h3>}
 
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.65rem", marginBottom: "0.85rem" }}>
         <div aria-label="Filtrer par niveau" style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap" }}>
@@ -460,7 +460,7 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
         <span style={{ fontSize: "0.86rem", color: V.textMut, fontWeight: 600, whiteSpace: "nowrap" }}>{ci + 1}/{filtered.length}</span>
       </div>
 
-      <section aria-labelledby={`${safeDomId(cur.id)}-title`} style={{ ...cardStyle, borderLeft: `5px solid ${ds.color}`, padding: "1.35rem", marginBottom: "1rem" }}>
+      <section className="learning-question-card learning-exercise-card" aria-labelledby={`${safeDomId(cur.id)}-title`} style={{ ...cardStyle, borderLeft: `5px solid ${ds.color}`, padding: "1.35rem", marginBottom: "1rem" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem", gap: "0.75rem" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
             <span style={{ fontSize: "0.8rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: 0, color: V.textMut }}>
