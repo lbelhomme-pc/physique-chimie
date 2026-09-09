@@ -9,6 +9,10 @@ const files = {
   tabs: path.join(root, "src/components/pedagogie/ChapterTabs.astro"),
   courseReader: path.join(root, "src/components/pedagogie/CourseReader.astro"),
   latexCourse: path.join(root, "src/components/mathematiques/LatexCourse.astro"),
+  exercises: path.join(root, "src/components/pedagogie/ExercicesPlayer.tsx"),
+  quiz: path.join(root, "src/components/pedagogie/QuizPlayer.tsx"),
+  flashcards: path.join(root, "src/components/pedagogie/FlashcardsPlayer.tsx"),
+  learningStyles: path.join(root, "src/styles/learning-workspace.css"),
   explicitPcChapter: path.join(root, "src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro"),
   mathCollegeChapter: path.join(root, "src/pages/mathematiques/college/[niveau]/[chapitre].astro"),
   mathLyceeChapter: path.join(root, "src/pages/mathematiques/lycee/[niveau]/[chapitre].astro"),
@@ -43,6 +47,26 @@ describe("chapter shell V3", () => {
     assert.doesNotMatch(tabs, /max-width: 900px;/);
     assert.doesNotMatch(reader, /max-width: 1040px;/);
     assert.doesNotMatch(latex, /width: min\(100%, 920px\);/);
+  });
+
+  it("uses one shared visual workspace for course, exercises, quiz and flashcards", () => {
+    const shell = source("shell");
+    const exercises = source("exercises");
+    const quiz = source("quiz");
+    const flashcards = source("flashcards");
+    const styles = source("learningStyles");
+
+    assert.match(shell, /--chapter-shell-max: 1120px/);
+    assert.match(styles, /--learning-max: 1120px/);
+    assert.match(exercises, /learning-player--exercises/);
+    assert.match(quiz, /learning-player--quiz/);
+    assert.match(quiz, /learning-question-card/);
+    assert.match(flashcards, /learning-player--flashcards/);
+    assert.match(flashcards, /learning-session-grid/);
+    assert.match(flashcards, /learning-flashcard-card/);
+    assert.doesNotMatch(exercises, /maxWidth:\s*760/);
+    assert.doesNotMatch(quiz, /maxWidth:\s*(600|700)/);
+    assert.doesNotMatch(flashcards, /maxWidth:\s*(500|600)/);
   });
 
   it("keeps the same activity inputs and player slots", () => {
