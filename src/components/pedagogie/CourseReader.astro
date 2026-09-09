@@ -17,12 +17,13 @@ const readerTitleId = `${chapterId.replace(/[^a-zA-Z0-9_-]/g, "-")}-course-reade
 
 <style is:global>
   .course-reader-v3 {
-    max-width: var(--max-line-width);
+    width: 100%;
+    max-width: var(--chapter-shell-max, 1120px);
     margin: 0 auto;
   }
 
   .course-reader-v3:has(.latex-course-document) {
-    max-width: 1040px;
+    max-width: var(--chapter-shell-max, 1120px);
   }
 
   .course-reader-v3__title {
