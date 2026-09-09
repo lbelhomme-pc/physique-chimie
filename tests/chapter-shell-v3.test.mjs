@@ -7,6 +7,8 @@ const root = process.cwd();
 const files = {
   shell: path.join(root, "src/components/pedagogie/ChapterPageShell.astro"),
   tabs: path.join(root, "src/components/pedagogie/ChapterTabs.astro"),
+  courseReader: path.join(root, "src/components/pedagogie/CourseReader.astro"),
+  latexCourse: path.join(root, "src/components/mathematiques/LatexCourse.astro"),
   explicitPcChapter: path.join(root, "src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro"),
   mathCollegeChapter: path.join(root, "src/pages/mathematiques/college/[niveau]/[chapitre].astro"),
   mathLyceeChapter: path.join(root, "src/pages/mathematiques/lycee/[niveau]/[chapitre].astro"),
@@ -17,16 +19,30 @@ function source(name) {
 }
 
 describe("chapter shell V3", () => {
-  it("renders the overview, summary and recommended path before activities", () => {
+  it("renders the overview and summary without a duplicate recommended path", () => {
     const shell = source("shell");
 
     assert.match(shell, /Vue d'ensemble/);
     assert.match(shell, /Avant de commencer/);
     assert.match(shell, /Sommaire/);
-    assert.match(shell, /Parcours recommandé/);
+    assert.doesNotMatch(shell, /Parcours recommandé/);
+    assert.doesNotMatch(shell, /chapter-recommended/);
     assert.match(shell, /Objectif/);
     assert.match(shell, /Prérequis/);
     assert.match(shell, /Compétences/);
+  });
+
+  it("keeps the course area aligned with the 1120px chapter hero width", () => {
+    const tabs = source("tabs");
+    const reader = source("courseReader");
+    const latex = source("latexCourse");
+
+    assert.match(tabs, /max-width: var\(--chapter-shell-max, 1120px\)/);
+    assert.match(reader, /max-width: var\(--chapter-shell-max, 1120px\)/);
+    assert.match(latex, /max-width: var\(--chapter-shell-max, 1120px\)/);
+    assert.doesNotMatch(tabs, /max-width: 900px;/);
+    assert.doesNotMatch(reader, /max-width: 1040px;/);
+    assert.doesNotMatch(latex, /width: min\(100%, 920px\);/);
   });
 
   it("keeps the same activity inputs and player slots", () => {
