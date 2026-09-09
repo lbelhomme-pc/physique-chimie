@@ -1,0 +1,157 @@
+/* Learning workspace — shared chapter/course/exercise/quiz/flashcard UI */
+
+:root {
+  --learning-max: 1120px;
+  --learning-radius-lg: 20px;
+  --learning-radius-md: 14px;
+  --learning-surface: var(--bg-card);
+  --learning-surface-soft: var(--bg-secondary);
+  --learning-border: var(--border-color);
+  --learning-shadow: 0 10px 28px rgb(15 23 42 / 0.06);
+}
+
+[data-exercices-player-v3],
+[data-quiz-player-v3],
+[data-quiz-result-v3],
+[data-flashcards-player-v3],
+[data-flashcards-result-v3] {
+  width: 100% !important;
+  max-width: var(--learning-max) !important;
+  margin-inline: auto !important;
+}
+
+[data-exercices-player-v3] > h3,
+[data-quiz-player-v3] > h3,
+[data-flashcards-player-v3] > h3 {
+  margin: 0 0 1.1rem !important;
+  color: var(--text-primary) !important;
+  font-size: clamp(1.25rem, 2vw, 1.5rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+}
+
+.learning-player {
+  width: 100%;
+  max-width: var(--learning-max);
+  margin-inline: auto;
+}
+
+.learning-player button,
+[data-exercices-player-v3] button,
+[data-quiz-player-v3] button,
+[data-quiz-result-v3] button,
+[data-flashcards-player-v3] button,
+[data-flashcards-result-v3] button {
+  min-height: 42px;
+  border-radius: 12px !important;
+  font-family: inherit;
+}
+
+.learning-question-card,
+.learning-flashcard-card,
+[data-exercices-player-v3] > section {
+  border: 1px solid var(--learning-border) !important;
+  border-radius: var(--learning-radius-lg) !important;
+  background: var(--learning-surface) !important;
+  box-shadow: var(--learning-shadow) !important;
+}
+
+[data-exercices-player-v3] > section {
+  padding: clamp(1.25rem, 3vw, 2rem) !important;
+  border-left-width: 1px !important;
+}
+
+[data-exercices-player-v3] textarea,
+[data-exercices-player-v3] input[type="text"],
+[data-exercices-player-v3] input[type="number"],
+[data-quiz-player-v3] textarea,
+[data-flashcards-player-v3] textarea {
+  border-radius: 12px !important;
+  background: var(--bg-primary) !important;
+}
+
+[data-exercices-player-v3] details,
+[data-exercices-player-v3] fieldset {
+  border-radius: var(--learning-radius-md) !important;
+}
+
+.learning-question-card {
+  padding: clamp(1.25rem, 3vw, 2rem) !important;
+}
+
+.learning-choice {
+  min-height: 54px !important;
+  border-width: 1px !important;
+  border-radius: 14px !important;
+  padding: 0.85rem 1rem !important;
+}
+
+.learning-choice:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgb(15 23 42 / 0.06);
+}
+
+.learning-feedback {
+  border-radius: 14px !important;
+  padding: 1rem 1.1rem !important;
+}
+
+.learning-session-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  gap: 0.8rem !important;
+  margin-bottom: 1.2rem !important;
+}
+
+.learning-session-option {
+  min-height: 132px !important;
+  justify-content: center !important;
+  border-width: 1px !important;
+  border-radius: var(--learning-radius-lg) !important;
+  box-shadow: none !important;
+}
+
+.learning-flashcard-card {
+  min-height: 180px !important;
+  padding: clamp(1.4rem, 4vw, 2.2rem) !important;
+}
+
+.learning-result-card {
+  padding: clamp(1.25rem, 3vw, 2rem) !important;
+  border: 1px solid var(--learning-border);
+  border-radius: var(--learning-radius-lg);
+  background: var(--learning-surface);
+  box-shadow: var(--learning-shadow);
+}
+
+[data-quiz-result-v3],
+[data-flashcards-result-v3] {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--learning-border);
+  border-radius: var(--learning-radius-lg);
+  background: var(--learning-surface);
+  box-shadow: var(--learning-shadow);
+}
+
+@media (max-width: 700px) {
+  [data-exercices-player-v3],
+  [data-quiz-player-v3],
+  [data-quiz-result-v3],
+  [data-flashcards-player-v3],
+  [data-flashcards-result-v3] {
+    max-width: 100% !important;
+  }
+
+  .learning-session-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .learning-question-card,
+  .learning-flashcard-card,
+  [data-exercices-player-v3] > section,
+  [data-quiz-result-v3],
+  [data-flashcards-result-v3] {
+    border-radius: 16px !important;
+    padding: 1rem !important;
+  }
+}
