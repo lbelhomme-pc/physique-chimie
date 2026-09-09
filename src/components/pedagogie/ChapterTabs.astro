@@ -200,87 +200,98 @@ const activeTab = hasCours
   .chapter-tabs {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.5rem;
-    background: var(--bg-card);
+    gap: 0.65rem;
+    padding: 0.4rem;
+    margin-bottom: 1.25rem;
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    border-radius: 18px;
+    background: var(--bg-secondary);
+    box-shadow: 0 5px 18px rgb(15 23 42 / 0.04);
   }
 
   .chapter-tablist {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 0.25rem;
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .tab-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    min-height: 44px;
-    padding: 0.55rem 1.1rem;
-    border-radius: var(--radius-md);
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 46px;
+    padding: 0.6rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 13px;
     background: transparent;
     color: var(--text-muted);
-    font-weight: 700;
+    font: inherit;
     font-size: 0.9rem;
-    border: 1px solid transparent;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background 0.2s, border-color 0.2s, color 0.2s, outline-color 0.2s;
-    font-family: inherit;
+    font-weight: 750;
     text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .chapter-tablist .tab-pill {
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   .tab-pill:hover {
-    background: var(--bg-tertiary);
+    background: var(--bg-card);
     color: var(--text-primary);
   }
 
   .tab-pill:focus-visible {
     outline: 3px solid var(--accent-primary);
-    outline-offset: 3px;
+    outline-offset: 2px;
   }
 
   .tab-pill.active {
-    background: var(--accent-primary-light);
-    border-color: var(--accent-primary);
+    border-color: var(--border-color);
+    background: var(--bg-card);
     color: var(--accent-primary);
+    box-shadow: 0 4px 12px rgb(15 23 42 / 0.06);
   }
 
   .tab-back {
+    flex: 0 0 auto;
+    padding-inline: 0.9rem;
     color: var(--text-secondary);
   }
 
+  .tab-back::before {
+    content: "←";
+    font-size: 1rem;
+  }
+
   .tab-back:hover {
-    background: var(--bg-tertiary);
+    background: var(--bg-card);
     color: var(--text-primary);
-    text-decoration: none;
   }
 
   .tab-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 20px;
-    height: 20px;
-    padding: 0 5px;
-    border-radius: 99px;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 0.38rem;
+    border-radius: 999px;
     background: var(--bg-tertiary);
     color: var(--text-muted);
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 800;
   }
 
   .tab-pill.active .tab-badge {
-    background: var(--accent-primary);
-    color: #ffffff;
+    background: var(--accent-primary-light);
+    color: var(--accent-primary);
   }
 
   .tab-panel,
@@ -290,39 +301,40 @@ const activeTab = hasCours
 
   .tab-panel.active {
     display: block;
-    animation: fadeIn 0.2s ease;
+    animation: fadeIn 0.18s ease;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
+    from { opacity: 0; transform: translateY(3px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     .chapter-tabs {
-      justify-content: center;
-      overflow-x: visible;
+      align-items: stretch;
+      gap: 0.35rem;
+      padding: 0.35rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .chapter-tablist {
-      flex-wrap: wrap;
-      justify-content: center;
-      width: 100%;
+      flex: 0 0 auto;
+      gap: 0.2rem;
     }
 
-    .tab-pill {
-      flex: 1 1 calc(50% - 0.4rem);
-      justify-content: center;
-      min-width: 0;
-      padding: 0.45rem 0.8rem;
-      font-size: 0.8rem;
-      text-align: center;
-      white-space: normal;
+    .chapter-tablist .tab-pill {
+      flex: 0 0 auto;
+      min-width: max-content;
+      padding-inline: 0.8rem;
+      font-size: 0.82rem;
     }
 
     .tab-back {
-      flex: 0 0 auto;
-      white-space: nowrap;
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      background: var(--bg-secondary);
     }
   }
 </style>
