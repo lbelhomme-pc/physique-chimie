@@ -69,8 +69,8 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
     const due = srsStats?.due ?? 0, newC = srsStats?.newCards ?? allCards.length;
     const learning = srsStats?.learning ?? 0, mature = srsStats?.mature ?? 0;
     return (
-      <div data-flashcards-player-v3="true" style={{maxWidth:600,margin:"0 auto"}}>
-        {title && <h3 style={{fontSize:"1.1rem",fontWeight:600,marginBottom:"0.75rem",color:V.text}}>{title}</h3>}
+      <div data-flashcards-player-v3="true" className="learning-player learning-player--flashcards">
+        {title && <h3 className="learning-player__title">{title}</h3>}
         {srsStats && (
           <div style={{display:"flex",justifyContent:"center",gap:"0.5rem",fontSize:"0.8rem",marginBottom:"1rem",padding:"0.5rem",background:V.bgSec,borderRadius:8,flexWrap:"wrap"}}>
             <span style={{color:V.danger}}>🔴 {due} à revoir</span><span style={{color:V.textMut}}>•</span>
@@ -79,10 +79,10 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
             <span style={{color:V.success}}>🟢 {mature} maîtrisées</span>
           </div>
         )}
-        <div style={{display:"flex",flexDirection:"column",gap:"0.5rem",marginBottom:"1rem"}}>
-          {due > 0 && <button onClick={() => startSession("review")} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem",padding:"1rem",border:`2px solid ${V.primary}`,borderRadius:12,background:V.primaryLt,cursor:"pointer",width:"100%",position:"relative"}}><span style={{fontSize:"1.5rem"}}>🔄</span><span style={{fontSize:"1rem",fontWeight:700,color:V.text}}>Révision du jour</span><span style={{fontSize:"0.85rem",color:V.textSec}}>{due} carte(s) à revoir</span><span style={{position:"absolute",top:8,right:10,fontSize:"0.65rem",fontWeight:700,background:V.primary,color:"#fff",padding:"0.15rem 0.5rem",borderRadius:99}}>Recommandé</span></button>}
-          {newC > 0 && <button onClick={() => startSession("new")} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem",padding:"1rem",border:`2px solid ${V.border}`,borderRadius:12,background:V.bg,cursor:"pointer",width:"100%"}}><span style={{fontSize:"1.5rem"}}>✨</span><span style={{fontSize:"1rem",fontWeight:700,color:V.text}}>Nouvelles cartes</span><span style={{fontSize:"0.85rem",color:V.textSec}}>{Math.min(newC,20)} carte(s)</span></button>}
-          <button onClick={() => startSession("all")} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem",padding:"1rem",border:`2px solid ${V.border}`,borderRadius:12,background:V.bg,cursor:"pointer",width:"100%"}}><span style={{fontSize:"1.5rem"}}>📚</span><span style={{fontSize:"1rem",fontWeight:700,color:V.text}}>Toutes les cartes</span><span style={{fontSize:"0.85rem",color:V.textSec}}>{allCards.length} carte(s)</span></button>
+        <div className="learning-session-grid" style={{display:"flex",flexDirection:"column",gap:"0.5rem",marginBottom:"1rem"}}>
+          {due > 0 && <button className="learning-session-option" onClick={() => startSession("review")} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem",padding:"1rem",border:`2px solid ${V.primary}`,borderRadius:12,background:V.primaryLt,cursor:"pointer",width:"100%",position:"relative"}}><span style={{fontSize:"1.5rem"}}>🔄</span><span style={{fontSize:"1rem",fontWeight:700,color:V.text}}>Révision du jour</span><span style={{fontSize:"0.85rem",color:V.textSec}}>{due} carte(s) à revoir</span><span style={{position:"absolute",top:8,right:10,fontSize:"0.65rem",fontWeight:700,background:V.primary,color:"#fff",padding:"0.15rem 0.5rem",borderRadius:99}}>Recommandé</span></button>}
+          {newC > 0 && <button className="learning-session-option" onClick={() => startSession("new")} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem",padding:"1rem",border:`2px solid ${V.border}`,borderRadius:12,background:V.bg,cursor:"pointer",width:"100%"}}><span style={{fontSize:"1.5rem"}}>✨</span><span style={{fontSize:"1rem",fontWeight:700,color:V.text}}>Nouvelles cartes</span><span style={{fontSize:"0.85rem",color:V.textSec}}>{Math.min(newC,20)} carte(s)</span></button>}
+          <button className="learning-session-option" onClick={() => startSession("all")} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem",padding:"1rem",border:`2px solid ${V.border}`,borderRadius:12,background:V.bg,cursor:"pointer",width:"100%"}}><span style={{fontSize:"1.5rem"}}>📚</span><span style={{fontSize:"1rem",fontWeight:700,color:V.text}}>Toutes les cartes</span><span style={{fontSize:"0.85rem",color:V.textSec}}>{allCards.length} carte(s)</span></button>
         </div>
         {(learning > 0 || mature > 0) && (
           <div style={{textAlign:"center"}}>
@@ -105,7 +105,7 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
     const go = results.filter(r=>r.rating==="good").length;
     const ea = results.filter(r=>r.rating==="easy").length;
     return (
-      <div data-flashcards-result-v3="true" style={{maxWidth:500,margin:"0 auto",textAlign:"center"}}>
+      <div data-flashcards-result-v3="true" className="learning-player learning-result-card" style={{textAlign:"center"}}>
         <div style={{fontSize:"3rem",marginBottom:"0.5rem"}}>{total===0?"🎉":go+ea>ha+ag?"🌟":"💪"}</div>
         <h3 style={{fontSize:"1.4rem",fontWeight:700,color:V.text,marginBottom:"1.25rem"}}>{total===0?"Rien à revoir !":"Session terminée !"}</h3>
         {total===0?<p style={{fontSize:"1rem",color:V.textSec,marginBottom:"1.5rem"}}>Toutes tes cartes sont à jour. Reviens demain !</p>:(
@@ -151,8 +151,8 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
   const diffInfo = !diff?null:diff<=1?{text:"Facile",color:V.success,bg:V.successLt}:diff<=2?{text:"Moyen",color:V.warning,bg:V.warningLt}:{text:"Difficile",color:V.danger,bg:V.dangerLt};
 
   return (
-    <div data-flashcards-player-v3="true" style={{maxWidth:600,margin:"0 auto"}}>
-      {title&&<h3 style={{fontSize:"1.1rem",fontWeight:600,marginBottom:"0.75rem",color:V.text}}>{title}</h3>}
+    <div data-flashcards-player-v3="true" className="learning-player learning-player--flashcards">
+      {title&&<h3 className="learning-player__title">{title}</h3>}
 
       <div style={{display:"flex",alignItems:"center",gap:"0.75rem",marginBottom:"0.75rem"}}>
         <div style={{flex:1,height:8,background:V.bgTer,borderRadius:99,overflow:"hidden"}}><div style={{height:"100%",background:V.purple,borderRadius:99,transition:"width 0.4s",width:`${((ci+1)/total)*100}%`}}/></div>
@@ -167,7 +167,7 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
       )}
 
       {/* Question + TTS */}
-      <div style={{position:"relative",padding:"1.5rem",background:V.bg,border:`2px solid ${V.border}`,borderRadius:16,marginBottom:"1rem",minHeight:80}}>
+      <div className="learning-flashcard-card" style={{position:"relative",padding:"1.5rem",background:V.bg,border:`2px solid ${V.border}`,borderRadius:16,marginBottom:"1rem",minHeight:80}}>
         <span style={{position:"absolute",top:10,left:14,fontSize:"0.7rem",fontWeight:700,textTransform:"uppercase",letterSpacing:"0.05em",color:V.textMut}}>Question</span>
         <p style={{fontSize:"1.15rem",fontWeight:500,color:V.text,textAlign:"center",lineHeight:1.6,margin:"0.5rem 0 0"}}><MathText text={cur.front} /></p>
         <div style={{marginTop:"0.5rem",display:"flex",justifyContent:"center"}}><TextToSpeech compact text={cur.front} label="Lire" /></div>
