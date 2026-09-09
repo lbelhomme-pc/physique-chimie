@@ -9,9 +9,10 @@
   gap: 0.5rem;
   padding: 0.75rem 1rem;
   background: var(--bg-nav);
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-card);
-  max-width: 800px;
+  border: 1px solid #d9e6fb;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(15, 72, 160, 0.08);
+  max-width: 1120px;
   margin: 1rem auto;
   flex-wrap: wrap;
 }
@@ -22,7 +23,7 @@
   gap: 0.4rem;
   min-height: 44px;
   padding: 0.5rem 1rem;
-  border-radius: var(--radius-pill);
+  border-radius: 6px;
   background: transparent;
   color: var(--text-secondary);
   font-weight: 600;
@@ -64,13 +65,13 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  max-width: 700px;
+  max-width: 1120px;
   margin: 1rem auto;
   padding: 0.75rem 1.25rem;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-xs);
+  border-radius: 6px;
+  box-shadow: none;
 }
 
 .search-bar input {
@@ -87,6 +88,11 @@
   color: var(--text-muted);
 }
 
+.search-bar:focus-within {
+  border-color: #0f5bff;
+  box-shadow: 0 0 0 4px rgba(15, 91, 255, 0.12);
+}
+
 /* ═══════════════════════════════════════════════════════════
    FIL D'ARIANE
    ═══════════════════════════════════════════════════════════ */
@@ -95,12 +101,12 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  max-width: 900px;
+  max-width: 1120px;
   margin: 0 auto 1rem;
   padding: 0.6rem 1.25rem;
   background: var(--bg-card);
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-xs);
+  border-radius: 6px;
+  box-shadow: none;
   font-size: 0.85rem;
   color: var(--text-muted);
   flex-wrap: wrap;
@@ -137,7 +143,7 @@
   color: var(--text-primary);
   background: var(--bg-tertiary);
   padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-pill);
+  border-radius: 6px;
   font-size: 0.8rem;
 }
 
@@ -161,11 +167,11 @@
   padding: 0.45rem 1rem;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-pill);
+  border-radius: 6px;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-secondary);
-  box-shadow: var(--shadow-xs);
+  box-shadow: none;
 }
 
 .stat-pill .pill-emoji { font-size: 1rem; }
@@ -179,7 +185,7 @@
   gap: 0.5rem;
   padding: 0.45rem 1rem;
   border: 2px solid #d4af37;
-  border-radius: var(--radius-pill);
+  border-radius: 6px;
   background: var(--bg-card);
   font-weight: 700;
   font-size: 0.85rem;
@@ -207,8 +213,8 @@
 
 .card {
   background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(15, 72, 160, 0.08);
   padding: 1.25rem;
   border: 1px solid var(--border-light);
   transition: box-shadow 0.2s, transform 0.2s;
@@ -233,7 +239,7 @@
   justify-content: center;
   gap: 0.6rem;
   padding: 1.25rem 2rem;
-  border-radius: var(--radius-lg);
+  border-radius: 8px;
   color: #ffffff;
   font-size: 1.15rem;
   font-weight: 800;
@@ -260,8 +266,8 @@
   padding: 1rem 1.25rem;
   background: var(--bg-card);
   border-left: 4px solid var(--accent-primary);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-xs);
+  border-radius: 8px;
+  box-shadow: none;
   text-decoration: none;
   color: inherit;
   transition: all 0.2s;
@@ -285,7 +291,7 @@
   gap: 0.5rem;
   padding: 0.5rem;
   background: var(--bg-card);
-  border-radius: var(--radius-lg);
+  border-radius: 8px;
   box-shadow: var(--shadow-card);
   margin-bottom: 1.5rem;
   overflow-x: auto;
@@ -296,7 +302,7 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.6rem 1.2rem;
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   background: transparent;
   color: var(--text-muted);
   font-weight: 600;
@@ -313,8 +319,9 @@
 }
 
 .tab-pill.active {
-  background: var(--accent-primary-light);
-  color: var(--accent-primary);
+  background: #0f5bff;
+  border-color: #0f5bff;
+  color: #ffffff;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -323,7 +330,7 @@
 
 .section-card {
   background: var(--bg-card);
-  border-radius: var(--radius-lg);
+  border-radius: 8px;
   box-shadow: var(--shadow-card);
   padding: 1.5rem;
   margin-bottom: 1.5rem;
@@ -343,7 +350,7 @@
 .definition-box {
   background: var(--accent-primary-light);
   border-left: 5px solid var(--accent-primary);
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   padding: 1.1rem 1.25rem;
   margin: 1.5rem 0;
   text-align: left;
@@ -367,7 +374,7 @@
 .example-box {
   background: var(--accent-success-light);
   border-left: 5px solid var(--accent-success);
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   padding: 1.1rem 1.25rem;
   margin: 1.5rem 0;
   text-align: left;
@@ -383,7 +390,7 @@
 .info-box {
   background: var(--accent-warning-light);
   border-left: 5px solid var(--accent-warning);
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   padding: 1.1rem 1.25rem;
   margin: 1.5rem 0;
   text-align: left;
@@ -399,7 +406,7 @@
 .box-regle-or {
   background: var(--accent-danger-light);
   border-left: 5px solid var(--accent-danger);
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   padding: 1.1rem 1.25rem;
   margin: 1.5rem 0;
   text-align: left;
@@ -487,7 +494,7 @@ footer a {
   padding: 0.4rem 1rem;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-pill);
+  border-radius: 6px;
   color: var(--text-secondary);
   font-weight: 500;
   font-size: 0.85rem;
@@ -504,7 +511,7 @@ footer a {
   gap: 0.4rem;
   padding: 0.6rem 1.25rem;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
@@ -558,7 +565,7 @@ input, textarea, select {
   background: var(--bg-input);
   color: var(--text-primary);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   padding: 0.6rem 0.75rem;
   transition: border-color 0.2s;
 }
@@ -611,9 +618,9 @@ input:focus, textarea:focus {
 }
 
 @media (max-width: 480px) {
-  .main-nav { border-radius: var(--radius-lg); }
+  .main-nav { border-radius: 8px; }
   .nav-pill { padding: 0.35rem 0.6rem; font-size: 0.75rem; }
   .grid-3 { grid-template-columns: 1fr; }
-  .breadcrumb-bar { border-radius: var(--radius-md); padding: 0.5rem 0.75rem; }
+  .breadcrumb-bar { border-radius: 8px; padding: 0.5rem 0.75rem; }
 }
 
