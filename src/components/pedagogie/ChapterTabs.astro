@@ -11,6 +11,9 @@ interface Props {
   exercicesCount?: number;
   quizCount?: number;
   flashcardsCount?: number;
+  /** Compatibilité des anciens appels : le retour est désormais porté par le breadcrumb. */
+  backUrl?: string;
+  backLabel?: string;
 }
 
 const {
