@@ -620,3 +620,67 @@ body {
   }
   .ui5-chapter-pagination > span:empty { display: none; }
 }
+
+
+/* Shared landing hero */
+.ui5-landing-hero {
+  --ui5-subject: var(--ui5-action);
+  width: min(100%, var(--ui5-content));
+  margin: 1rem auto 1.5rem;
+  padding: clamp(1.15rem, 2.5vw, 1.6rem) 0 1.5rem;
+  border-bottom: 1px solid var(--ui5-border);
+}
+.ui5-landing-hero--maths { --ui5-subject: var(--ui5-maths); }
+.ui5-landing-hero--pc { --ui5-subject: var(--ui5-pc); }
+.ui5-landing-hero--science { --ui5-subject: #a06008; }
+.ui5-landing-hero--memory { --ui5-subject: var(--ui5-action); }
+.ui5-landing-hero--kit { --ui5-subject: var(--ui5-chem); }
+.ui5-landing-hero--mixed { --ui5-subject: var(--ui5-action); }
+.ui5-landing-hero--contained { margin-top: 0.75rem; }
+
+.ui5-landing-hero__copy { max-width: 82ch; }
+.ui5-landing-hero__identity {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.ui5-landing-hero__mark {
+  display: inline-grid;
+  place-items: center;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid color-mix(in srgb, var(--ui5-subject) 28%, var(--ui5-border));
+  border-radius: var(--ui5-radius-sm);
+  background: color-mix(in srgb, var(--ui5-subject) 8%, white);
+  color: var(--ui5-subject);
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+.ui5-landing-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+.ui5-landing-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 1rem 0 0;
+}
+.ui5-landing-hero__stats div {
+  display: grid;
+  gap: 0.1rem;
+}
+.ui5-landing-hero__stats dt {
+  color: var(--ui5-subject);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+.ui5-landing-hero__stats dd {
+  margin: 0;
+  color: var(--ui5-text-3);
+  font-size: 0.76rem;
+  font-weight: 750;
+}
