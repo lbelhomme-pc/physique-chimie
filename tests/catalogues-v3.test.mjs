@@ -41,7 +41,7 @@ test("catalogues are ordered by programme metadata and do not cap chapter counts
   assert.match(source("catalogueList"), /sort\(\(a, b\) => \(a\.order \?\? 99\) - \(b\.order \?\? 99\)/);
 });
 
-test("catalogues expose filters, focus states and empty states without client search", () => {
+test("catalogues expose filters, focus states, empty states and V4 local search", () => {
   for (const name of ["collegeLevel", "lyceeLevel"]) {
     const page = source(name);
     assert.match(page, /catalogue-filters/);
@@ -53,7 +53,9 @@ test("catalogues expose filters, focus states and empty states without client se
   const component = source("catalogueList");
   assert.match(component, /:focus-visible/);
   assert.match(component, /aria-live="polite"/);
-  assert.doesNotMatch(component, /<script/);
+  assert.match(component, /data-catalogue-search/);
+  assert.match(component, /data-catalogue-item/);
+  assert.match(component, /addEventListener\("input", update\)/);
 });
 
 test("mathematics cycle catalogues show planned levels without creating planned routes", () => {
@@ -74,7 +76,7 @@ test("mathematics cycle catalogues show planned levels without creating planned 
 
 test("shared catalogue component keeps semantic chapter lists", () => {
   assert.match(source("catalogueTypes"), /CatalogueChapterItem/);
-  assert.match(source("catalogueList"), /<ol class="catalogue-list">/);
+  assert.match(source("catalogueList"), /<ol class="catalogue-list" data-catalogue-list>/);
   assert.match(source("catalogueList"), /<h2 id=\{`\$\{id\}-title`\}/);
-  assert.match(source("catalogueList"), /Ouvrir/);
+  assert.doesNotMatch(source("catalogueList"), /catalogue-card__action/);
 });
