@@ -1407,3 +1407,48 @@ body {
 @media (max-width:560px) {
   .ui5-lab-grid { grid-template-columns:1fr; }
 }
+
+
+.ui5-lab-page__mark {
+  display:grid;
+  place-items:center;
+  width:54px;
+  height:54px;
+  border:1px solid color-mix(in srgb,var(--ui5-subject) 25%,var(--ui5-border));
+  border-radius:var(--ui5-radius-md);
+  background:color-mix(in srgb,var(--ui5-subject) 8%,white);
+  color:var(--ui5-subject);
+  font-size:1.35rem;
+  font-weight:900;
+}
+.ui5-lab-guide { margin-top:1rem; }
+.ui5-lab-guide__summary {
+  padding:0 .85rem .75rem;
+  color:var(--ui5-text-2);
+  font-size:.86rem;
+  line-height:1.55;
+}
+.ui5-lab-guide__summary p { margin:0; }
+.ui5-lab-guide__questions {
+  margin:0 .85rem .85rem;
+  padding:.65rem .75rem;
+  border:1px solid var(--ui5-border);
+  border-radius:var(--ui5-radius-sm);
+  background:var(--ui5-surface-soft);
+}
+.ui5-lab-guide__questions summary {
+  color:var(--ui5-text);
+  font-size:.82rem;
+  font-weight:850;
+  cursor:pointer;
+}
+.ui5-lab-guide__questions ol {
+  margin:.6rem 0 0;
+  padding-left:1.15rem;
+  color:var(--ui5-text-2);
+  font-size:.84rem;
+  line-height:1.5;
+}
+.ui5-lab-simulation {
+  margin-top:1rem;
+}
