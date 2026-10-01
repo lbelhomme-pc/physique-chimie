@@ -1,56 +1,47 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import V3LandingHero from "../../components/home/V3LandingHero.astro";
 import MathResourceCard from "../../components/mathematiques/MathResourceCard.astro";
 import { mathematicsMainNavigation } from "../../data/mathematiques/navigation";
-import "../../styles/mathematiques/mathematics.css";
 ---
 
 <BaseLayout
   title="Mathématiques - Espace pédagogique"
-  description="Espace mathématiques du site : une arborescence dédiée pour le collège et le lycée."
+  description="Espace mathématiques du site : collège, lycée, cours, exercices, quiz et flashcards."
   canonical="/mathematiques"
   subject="mathematiques"
 >
-  <div class="v3-landing-page v3-landing-page--maths">
-    <V3LandingHero
-      tone="maths"
-      eyebrow="Mathématiques"
-      mark="∑"
-      markLabel="Symbole somme"
-      title="Comprendre les mathématiques"
-      description="Des cours structurés, des exercices progressifs et des outils pour calculer, raisonner et modéliser du collège au lycée."
-      actions={[
-        { label: "Accéder au collège", href: "/mathematiques/college" },
-        { label: "Accéder au lycée", href: "/mathematiques/lycee", variant: "secondary" },
-      ]}
-      stats={[
-        { value: mathematicsMainNavigation.length, label: "parcours scolaires" },
-      ]}
-      imageAlt="Bureau d'étude associant schémas mathématiques, outils numériques et matériel scientifique."
-    />
+  <div class="ui5-page" data-subject="mathematiques">
+    <nav class="ui5-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span><strong>Mathématiques</strong>
+    </nav>
 
-    <div class="v3-landing-content math-shell">
-      <section class="v3-landing-section math-section" aria-labelledby="math-main-access">
-        <div class="v3-landing-section-header">
-          <div>
-            <p>Choisir son parcours</p>
-            <h2 id="math-main-access">Collège ou lycée</h2>
-          </div>
-          <span>Retrouve les niveaux puis les chapitres dans l’ordre du programme.</span>
-        </div>
-        <div class="math-grid">
-          {mathematicsMainNavigation.map((resource) => <MathResourceCard resource={resource} />)}
-        </div>
-      </section>
+    <header class="ui5-page-header">
+      <div class="ui5-page-header__copy">
+        <p class="ui5-kicker">Mathématiques</p>
+        <h1 class="ui5-title">Comprendre les mathématiques</h1>
+        <p class="ui5-lead">Des cours structurés, des exercices progressifs et des outils pour calculer, raisonner et modéliser du collège au lycée.</p>
+      </div>
+      <p class="ui5-page-header__aside">Choisis d’abord ton cycle, puis ton niveau et ton chapitre.</p>
+    </header>
 
-      <section class="v3-landing-callout" aria-labelledby="math-methods-title">
+    <section class="ui5-section" aria-labelledby="math-main-access">
+      <div class="ui5-section-head">
+        <h2 id="math-main-access">Collège ou lycée</h2>
+        <p>Une même interface pour tous les parcours.</p>
+      </div>
+      <div class="ui5-grid ui5-grid--2">
+        {mathematicsMainNavigation.map((resource) => <MathResourceCard resource={resource} />)}
+      </div>
+    </section>
+
+    <section class="ui5-section">
+      <div class="ui5-card ui5-tools-row">
         <div>
-          <h2 id="math-methods-title">Méthodes de mathématiques</h2>
-          <p>Des fiches pour rédiger, calculer, utiliser les outils numériques et gagner en autonomie.</p>
+          <h2>Méthodes de mathématiques</h2>
+          <p>Rédiger, calculer, utiliser les outils numériques et gagner en autonomie.</p>
         </div>
-        <a href="/outils-methodes/methodes-maths-lycee">Voir les méthodes</a>
-      </section>
-    </div>
+        <a class="ui5-button" href="/outils-methodes/methodes-maths-lycee">Voir les méthodes</a>
+      </div>
+    </section>
   </div>
 </BaseLayout>
