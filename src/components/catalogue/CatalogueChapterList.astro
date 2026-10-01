@@ -24,23 +24,17 @@ const {
 const sortedChapters = [...chapters].sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || a.title.localeCompare(b.title));
 ---
 
-<section id={id} class:list={["catalogue-section", `catalogue-section--${accent}`]} aria-labelledby={`${id}-title`}>
-  <div class="catalogue-section__head">
-    <div>
-      <h2 id={`${id}-title`}>{title}</h2>
-      <p>{sortedChapters.length} chapitre{sortedChapters.length > 1 ? "s" : ""} dans l'ordre du programme</p>
-    </div>
-    <span class="catalogue-count" aria-label={`${sortedChapters.length} chapitre${sortedChapters.length > 1 ? "s" : ""}`}>
-      {sortedChapters.length}
-    </span>
+<section id={id} class="ui5-catalogue-section ui5-section" data-accent={accent} aria-labelledby={`${id}-title`}>
+  <div class="ui5-section-head">
+    <h2 id={`${id}-title`}>{title}</h2>
+    <p>{sortedChapters.length} chapitre{sortedChapters.length > 1 ? "s" : ""} dans l’ordre du programme</p>
   </div>
 
   {sortedChapters.length > 0 ? (
     <>
-      <div class="catalogue-toolbar" data-catalogue-toolbar>
-        <label for={`${id}-search`}>Rechercher dans ce niveau</label>
-        <div class="catalogue-search">
-          <span aria-hidden="true"></span>
+      <div class="ui5-toolbar" data-catalogue-toolbar>
+        <label for={`${id}-search`}>Rechercher dans cette liste</label>
+        <div class="ui5-search">
           <input
             id={`${id}-search`}
             type="search"
@@ -49,38 +43,40 @@ const sortedChapters = [...chapters].sort((a, b) => (a.order ?? 99) - (b.order ?
             autocomplete="off"
           />
         </div>
-        <p aria-live="polite" data-catalogue-summary>{sortedChapters.length} chapitre{sortedChapters.length > 1 ? "s" : ""}</p>
+        <p class="ui5-toolbar__summary" aria-live="polite" data-catalogue-summary>
+          {sortedChapters.length} chapitre{sortedChapters.length > 1 ? "s" : ""}
+        </p>
       </div>
-      <ol class="catalogue-list" data-catalogue-list>
-      {sortedChapters.map((chapter, index) => (
-        <li data-catalogue-item data-search-text={[chapter.title, chapter.description ?? "", ...(chapter.badges ?? [])].join(" ").toLocaleLowerCase("fr-FR")}>
-          <a class="catalogue-card" href={chapter.href}>
-            <span class="catalogue-card__index" aria-label={`Chapitre ${index + 1}`}>{String(index + 1).padStart(2, "0")}</span>
-            <span class="catalogue-card__body">
-              <strong>{chapter.title}</strong>
-              {chapter.description && <span>{chapter.description}</span>}
-              {chapter.badges && chapter.badges.length > 0 && (
-                <span class="catalogue-card__badges" aria-label="Repères du chapitre">
-                  {chapter.badges.slice(0, 2).map((badge) => <em>{badge}</em>)}
-                </span>
-              )}
-            </span>
-          </a>
-        </li>
-      ))}
+
+      <ol class="ui5-chapter-list" data-catalogue-list>
+        {sortedChapters.map((chapter, index) => (
+          <li data-catalogue-item data-search-text={[chapter.title, chapter.description ?? "", ...(chapter.badges ?? [])].join(" ").toLocaleLowerCase("fr-FR")}>
+            <a class="ui5-card ui5-chapter-card" href={chapter.href}>
+              <span class="ui5-chapter-card__index" aria-label={`Chapitre ${index + 1}`}>{String(index + 1).padStart(2, "0")}</span>
+              <span class="ui5-chapter-card__body">
+                <strong>{chapter.title}</strong>
+                {chapter.description && <span>{chapter.description}</span>}
+                {chapter.badges && chapter.badges.length > 0 && (
+                  <span class="ui5-chapter-card__meta" aria-label="Repères du chapitre">
+                    {chapter.badges.slice(0, 2).map((badge) => <em class="ui5-chip">{badge}</em>)}
+                  </span>
+                )}
+              </span>
+            </a>
+          </li>
+        ))}
       </ol>
-      <p class="catalogue-no-results" data-catalogue-no-results hidden>Aucun chapitre ne correspond à cette recherche.</p>
+
+      <p class="ui5-no-results" data-catalogue-no-results hidden>Aucun chapitre ne correspond à cette recherche.</p>
     </>
   ) : (
-    <div class="catalogue-empty" aria-live="polite">
+    <div class="ui5-card ui5-empty" aria-live="polite">
       <h3>{emptyTitle}</h3>
       <p>{emptyMessage}</p>
       {emptyActions.length > 0 && (
-        <div class="catalogue-empty__actions">
+        <div class="ui5-filter-row">
           {emptyActions.map((action) => (
-            <a class:list={["catalogue-empty__action", { primary: action.primary }]} href={action.href}>
-              {action.label}
-            </a>
+            <a class:list={["ui5-button", { "ui5-button--primary": action.primary }]} href={action.href}>{action.label}</a>
           ))}
         </div>
       )}
@@ -88,290 +84,8 @@ const sortedChapters = [...chapters].sort((a, b) => (a.order ?? 99) - (b.order ?
   )}
 </section>
 
-<style>
-  .catalogue-section {
-    --catalogue-accent: var(--v3-color-discipline-pc);
-    --catalogue-surface: var(--v3-color-discipline-pc-bg);
-    --catalogue-border: var(--v3-color-discipline-pc-border);
-    display: grid;
-    gap: var(--v3-space-3);
-  }
-
-  .catalogue-section--chemistry {
-    --catalogue-accent: var(--v3-color-discipline-chemistry);
-    --catalogue-surface: var(--v3-color-success-subtle);
-    --catalogue-border: color-mix(in srgb, var(--v3-color-discipline-chemistry) 35%, var(--v3-color-border-default));
-  }
-
-  .catalogue-section--maths {
-    --catalogue-accent: var(--v3-color-discipline-maths);
-    --catalogue-surface: var(--v3-color-discipline-maths-bg);
-    --catalogue-border: var(--v3-color-discipline-maths-border);
-  }
-
-  .catalogue-section--science {
-    --catalogue-accent: var(--v3-color-discipline-science);
-    --catalogue-surface: var(--v3-color-discipline-science-bg);
-    --catalogue-border: var(--v3-color-discipline-science-border);
-  }
-
-  .catalogue-section__head {
-    align-items: center;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-left: 5px solid var(--catalogue-accent);
-    border-radius: var(--radius-md);
-    display: flex;
-    gap: var(--v3-space-3);
-    justify-content: space-between;
-    padding: var(--v3-space-4);
-  }
-
-  .catalogue-section__head h2,
-  .catalogue-empty h3 {
-    color: var(--text-primary);
-    font-size: 1.18rem;
-    letter-spacing: 0;
-    margin: 0;
-  }
-
-  .catalogue-section__head p,
-  .catalogue-card__body > span,
-  .catalogue-empty p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .catalogue-count {
-    align-items: center;
-    background: var(--catalogue-surface);
-    border: 1px solid var(--catalogue-border);
-    border-radius: var(--radius-pill);
-    color: var(--catalogue-accent);
-    display: inline-flex;
-    font-weight: 950;
-    justify-content: center;
-    min-height: 38px;
-    min-width: 44px;
-    padding: 0 var(--v3-space-2);
-  }
-
-  .catalogue-toolbar {
-    display: grid;
-    gap: 0.45rem;
-  }
-
-  .catalogue-toolbar > label {
-    color: var(--text-secondary);
-    font-size: 0.82rem;
-    font-weight: 800;
-  }
-
-  .catalogue-search {
-    align-items: center;
-    display: flex;
-    gap: 0.65rem;
-    min-height: 48px;
-    padding: 0 0.85rem;
-    border: 1px solid var(--border-color);
-    border-radius: var(--v3-radius-md);
-    background: var(--bg-card);
-  }
-
-  .catalogue-search:focus-within {
-    border-color: var(--accent-primary);
-    box-shadow: var(--v3-shadow-focus);
-  }
-
-  .catalogue-search > span {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    flex: 0 0 16px;
-    border: 2px solid var(--accent-primary);
-    border-radius: 50%;
-  }
-
-  .catalogue-search > span::after {
-    content: "";
-    position: absolute;
-    right: -5px;
-    bottom: -3px;
-    width: 6px;
-    height: 2px;
-    border-radius: 2px;
-    background: var(--accent-primary);
-    transform: rotate(45deg);
-  }
-
-  .catalogue-search input {
-    width: 100%;
-    min-width: 0;
-    min-height: 44px;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    background: transparent;
-    color: var(--text-primary);
-    font: inherit;
-  }
-
-  .catalogue-toolbar > p {
-    margin: 0;
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    font-weight: 700;
-  }
-
-  .catalogue-list {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--v3-space-3);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .catalogue-card {
-    align-items: center;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    color: inherit;
-    display: grid;
-    gap: var(--v3-space-3);
-    align-content: start;
-    grid-template-columns: auto minmax(0, 1fr);
-    min-height: 100%;
-
-    padding: var(--v3-space-3);
-    text-decoration: none;
-  }
-
-  .catalogue-card__index {
-    align-items: center;
-    background: var(--catalogue-surface);
-    border: 1px solid var(--catalogue-border);
-    border-radius: var(--v3-radius-md);
-    color: var(--catalogue-accent);
-    display: inline-flex;
-    font-weight: 950;
-    height: 42px;
-    justify-content: center;
-    width: 42px;
-  }
-
-  .catalogue-card__body {
-    display: grid;
-    gap: 0.28rem;
-    min-width: 0;
-  }
-
-  .catalogue-card__body strong {
-    color: var(--text-primary);
-    line-height: 1.25;
-  }
-
-  .catalogue-card__badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--v3-space-2);
-  }
-
-  .catalogue-card__badges em {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-pill);
-    color: var(--text-secondary);
-    font-size: 0.78rem;
-    font-style: normal;
-    font-weight: 800;
-    padding: 0.18rem 0.5rem;
-  }
-
-  .catalogue-empty__action {
-    align-items: center;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-pill);
-    color: var(--catalogue-accent);
-    display: inline-flex;
-    font-weight: 900;
-    justify-content: center;
-    min-height: 42px;
-    padding: 0.45rem 0.75rem;
-  }
-
-  .catalogue-card:hover,
-  .catalogue-card:focus-visible {
-    border-color: var(--catalogue-accent);
-    box-shadow: var(--v3-shadow-focus);
-    outline: none;
-  }
-
-  .catalogue-empty {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-left: 5px solid var(--accent-warning);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
-    display: grid;
-    gap: var(--v3-space-2);
-    padding: var(--v3-space-4);
-  }
-
-  .catalogue-empty__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--v3-space-2);
-    margin-top: var(--v3-space-2);
-  }
-
-  .catalogue-empty__action {
-    text-decoration: none;
-  }
-
-  .catalogue-empty__action.primary {
-    background: var(--catalogue-accent);
-    border-color: var(--catalogue-accent);
-    color: #fff;
-  }
-
-  .catalogue-no-results {
-    margin: 0;
-    padding: 1rem;
-    border: 1px dashed var(--border-color);
-    border-radius: var(--v3-radius-md);
-    color: var(--text-secondary);
-    text-align: center;
-  }
-
-  @media (max-width: 1279px) {
-    .catalogue-list {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 719px) {
-    .catalogue-list {
-      grid-template-columns: 1fr;
-    }
-
-    .catalogue-section__head,
-    .catalogue-card {
-      align-items: start;
-      grid-template-columns: 1fr;
-    }
-
-    .catalogue-section__head {
-      display: grid;
-    }
-
-  }
-</style>
-
 <script>
-  document.querySelectorAll<HTMLElement>(".catalogue-section").forEach((section) => {
+  document.querySelectorAll<HTMLElement>(".ui5-catalogue-section").forEach((section) => {
     const input = section.querySelector<HTMLInputElement>("[data-catalogue-search]");
     const items = Array.from(section.querySelectorAll<HTMLElement>("[data-catalogue-item]"));
     const summary = section.querySelector<HTMLElement>("[data-catalogue-summary]");
