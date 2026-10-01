@@ -11,6 +11,7 @@ import TextToSpeech from "./TextToSpeech";
 interface Flashcard { id: string; front: string; back: string; difficulty?: number; tags?: string[]; recto?: string; verso?: string; question?: string; answer?: string; }
 interface FlashcardsPlayerProps { data: Flashcard[] | { cards: Flashcard[] }; title?: string; chapterId?: string; xpConfig?: { flashcards_base?: number; flashcard_known?: number }; }
 type SessionMode = "review" | "new" | "all";
+type AnswerMode = "quick" | "active";
 
 const V = {
   bg: "var(--bg-card)", bgSec: "var(--bg-secondary)", bgTer: "var(--bg-tertiary)", bgPri: "var(--bg-primary)",
@@ -35,6 +36,7 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
   const srsStats = useMemo(() => chapterId ? srs.getChapterStats(chapterId, allCards.map(c => c.id)) : null, [chapterId, allCards, srs]);
 
   const [mode, setMode] = useState<SessionMode|null>(null);
+  const [answerMode, setAnswerMode] = useState<AnswerMode>("quick");
   const [sessionCards, setSessionCards] = useState<Flashcard[]>([]);
   const [ci, setCi] = useState(0);
   const [revealed, setRevealed] = useState(false);
@@ -61,7 +63,7 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
       cards = allCards.filter(c => newIdSet.has(c.id)).slice(0, 20);
     } else { cards = allCards; }
     setSessionCards(shuffleArray(cards)); setCi(0); setRevealed(false); setInput(""); setResults([]); setFin(false);
-    setTimeout(() => inputRef.current?.focus(), 100);
+    if (answerMode === "active") setTimeout(() => inputRef.current?.focus(), 100);
   }
 
   // ─── Écran de choix ───────────────────────────────────
@@ -79,7 +81,12 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
             <span style={{color:V.success}}>🟢 {mature} maîtrisées</span>
           </div>
         )}
-        <div className="learning-session-grid" style={{display:"flex",flexDirection:"column",gap:"0.5rem",marginBottom:"1rem"}}>
+        <div className="flashcard-answer-mode" role="group" aria-label="Mode de réponse">
+          <button type="button" aria-pressed={answerMode==="quick"} onClick={()=>setAnswerMode("quick")}>Révision rapide</button>
+          <button type="button" aria-pressed={answerMode==="active"} onClick={()=>setAnswerMode("active")}>Réponse écrite</button>
+        </div>
+        <p className="flashcard-answer-mode__hint">{answerMode==="quick" ? "Question → réponse → autoévaluation, sans clavier." : "Écris d’abord ta réponse avant de la comparer."}</p>
+        <div className="learning-session-grid">
           {due > 0 && <button className="learning-session-option" onClick={() => startSession("review")} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem",padding:"1rem",border:`2px solid ${V.primary}`,borderRadius:12,background:V.primaryLt,cursor:"pointer",width:"100%",position:"relative"}}><span style={{fontSize:"1.5rem"}}>🔄</span><span style={{fontSize:"1rem",fontWeight:700,color:V.text}}>Révision du jour</span><span style={{fontSize:"0.85rem",color:V.textSec}}>{due} carte(s) à revoir</span><span style={{position:"absolute",top:8,right:10,fontSize:"0.65rem",fontWeight:700,background:V.primary,color:"#fff",padding:"0.15rem 0.5rem",borderRadius:99}}>Recommandé</span></button>}
           {newC > 0 && <button className="learning-session-option" onClick={() => startSession("new")} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem",padding:"1rem",border:`2px solid ${V.border}`,borderRadius:12,background:V.bg,cursor:"pointer",width:"100%"}}><span style={{fontSize:"1.5rem"}}>✨</span><span style={{fontSize:"1rem",fontWeight:700,color:V.text}}>Nouvelles cartes</span><span style={{fontSize:"0.85rem",color:V.textSec}}>{Math.min(newC,20)} carte(s)</span></button>}
           <button className="learning-session-option" onClick={() => startSession("all")} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem",padding:"1rem",border:`2px solid ${V.border}`,borderRadius:12,background:V.bg,cursor:"pointer",width:"100%"}}><span style={{fontSize:"1.5rem"}}>📚</span><span style={{fontSize:"1rem",fontWeight:700,color:V.text}}>Toutes les cartes</span><span style={{fontSize:"0.85rem",color:V.textSec}}>{allCards.length} carte(s)</span></button>
@@ -132,7 +139,13 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
   const intervals = chapterId ? srs.getNextIntervalPreview(chapterId, cur.id) : {again:1,hard:1,good:3,easy:7};
 
   function handleReveal() {
-    if (!input.trim()) { if(inputRef.current){inputRef.current.style.borderColor=V.warning;setTimeout(()=>{if(inputRef.current)inputRef.current.style.borderColor=V.border},1000)} return; }
+    if (answerMode === "active" && !input.trim()) {
+      if(inputRef.current){
+        inputRef.current.style.borderColor=V.warning;
+        setTimeout(()=>{if(inputRef.current)inputRef.current.style.borderColor=V.border},1000);
+      }
+      return;
+    }
     setRevealed(true);
   }
 
@@ -175,18 +188,27 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
 
       {/* Input ou Revealed */}
       {!revealed ? (
-        <div style={{display:"flex",flexDirection:"column",gap:"0.75rem",marginBottom:"1rem"}}>
-          <textarea ref={inputRef} value={input} onChange={e=>setInput(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();handleReveal()}}}
-            placeholder="Tape ta réponse ici..." style={{width:"100%",padding:"0.75rem",border:`2px solid ${V.border}`,borderRadius:10,fontSize:"1rem",fontFamily:"inherit",resize:"vertical",outline:"none",transition:"border-color 0.2s",boxSizing:"border-box",background:V.bgPri,color:V.text}} rows={3} autoFocus/>
-          <button onClick={handleReveal} style={{padding:"0.65rem 1.5rem",background:input.trim()?V.purple:V.textDis,color:"#fff",border:"none",borderRadius:8,fontSize:"0.95rem",fontWeight:600,cursor:input.trim()?"pointer":"not-allowed",alignSelf:"flex-end"}}>Vérifier →</button>
-        </div>
+        answerMode === "active" ? (
+          <div className="flashcard-active-answer">
+            <label htmlFor="flashcard-active-input">Ta réponse</label>
+            <textarea id="flashcard-active-input" ref={inputRef} value={input} onChange={e=>setInput(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();handleReveal()}}}
+              placeholder="Écris ta réponse ici…" rows={3} autoFocus/>
+            <button type="button" onClick={handleReveal} disabled={!input.trim()}>Comparer ma réponse</button>
+          </div>
+        ) : (
+          <div className="flashcard-quick-reveal">
+            <button type="button" onClick={handleReveal}>Afficher la réponse</button>
+            <span>Pas besoin de clavier en mode rapide.</span>
+          </div>
+        )
       ) : (
         <div style={{marginBottom:"1rem"}}>
-          {/* Ta réponse */}
-          <div style={{padding:"0.75rem 1rem",background:V.bgSec,border:`1px solid ${V.border}`,borderRadius:8,marginBottom:"0.75rem"}}>
-            <span style={{fontSize:"0.75rem",fontWeight:700,color:V.textMut,textTransform:"uppercase"}}>📝 Ta réponse</span>
-            <p style={{fontSize:"0.95rem",color:V.textSec,margin:"0.25rem 0 0",lineHeight:1.5}}>{input}</p>
-          </div>
+          {answerMode === "active" && input && (
+            <div className="flashcard-user-answer">
+              <span>Ta réponse</span>
+              <p>{input}</p>
+            </div>
+          )}
 
           {/* Réponse attendue + TTS */}
           <div style={{padding:"0.75rem 1rem",background:V.successLt,border:`1px solid ${V.success}`,borderRadius:8,marginBottom:"0.5rem"}}>
@@ -197,9 +219,9 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
 
           {/* Boutons Anki */}
           <p style={{fontSize:"0.9rem",color:V.textSec,textAlign:"center",marginBottom:"0.5rem",fontWeight:500}}>Comment as-tu répondu ?</p>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr",gap:"0.4rem"}}>
+          <div className="flashcard-rating-grid">
             {([["again","😰","Oublié",V.danger,V.dangerLt],["hard","😕","Difficile",V.warning,V.warningLt],["good","🙂","Bien",V.success,V.successLt],["easy","😎","Facile",V.primary,V.primaryLt]] as const).map(([rating,emoji,label,color,bg])=>(
-              <button key={rating} onClick={()=>handleRate(rating)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.1rem",padding:"0.5rem 0.25rem",border:`2px solid ${color}`,borderRadius:10,background:bg,color,fontSize:"0.8rem",fontWeight:600,cursor:"pointer"}}>
+              <button key={rating} className="flashcard-rating-button" onClick={()=>handleRate(rating)} style={{borderColor:color,background:bg,color}}>
                 <span style={{fontSize:"1.3rem"}}>{emoji}</span>
                 <span style={{fontSize:"0.75rem",fontWeight:700}}>{label}</span>
                 <span style={{fontSize:"0.65rem",color:V.textMut}}>{formatInterval(intervals[rating])}</span>
