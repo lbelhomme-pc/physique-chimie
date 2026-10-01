@@ -11,18 +11,14 @@ const Tag = isAvailable && resource.href ? "a" : "article";
 ---
 
 <Tag
-  class:list={["math-resource-card", { disabled: !isAvailable }]}
+  class:list={["ui5-card", "ui5-resource-card", { "ui5-card--disabled": !isAvailable }]}
   href={isAvailable ? resource.href : undefined}
   aria-disabled={!isAvailable ? "true" : undefined}
 >
-  <p class="math-resource-title">
-    <span>{resource.title}</span>
-    {isAvailable && resource.href && <span aria-hidden="true">→</span>}
-  </p>
-  {resource.description && <p class="math-resource-description">{resource.description}</p>}
-  <div class="math-card-meta">
-    <span class:list={["math-badge", isAvailable ? "success" : "muted"]}>
-      {isAvailable ? "Disponible" : "A venir"}
-    </span>
+  <h3>{resource.title}</h3>
+  {resource.description && <p>{resource.description}</p>}
+  <div class="ui5-chapter-card__meta">
+    <em class="ui5-chip">{isAvailable ? "Disponible" : "À venir"}</em>
   </div>
+  {isAvailable && resource.href && <span class="ui5-card__cta">Ouvrir →</span>}
 </Tag>
