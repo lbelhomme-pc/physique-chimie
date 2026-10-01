@@ -461,48 +461,41 @@ const structuredData = buildPageJsonLd({
     <slot />
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer" id="apropos">
-    <div class="site-footer__inner">
-      <div class="site-footer__intro">
-        <a class="site-footer__brand" href="/" aria-label="Retour à l'accueil">
-          <span class="site-footer__brand-mark" aria-hidden="true">R</span>
-          <span>Révisions PC Maths</span>
+  <!-- Footer V5 -->
+  <footer class="ui5-footer" id="apropos">
+    <div class="ui5-footer__inner">
+      <div class="ui5-footer__intro">
+        <a class="ui5-footer__brand" href="/" aria-label="Retour à l'accueil">
+          <span class="ui5-nav__mark" aria-hidden="true">R</span>
+          <span><strong>Révisions PC Maths</strong><small>Sciences et mathématiques</small></span>
         </a>
-        <p>Révisions scientifiques du collège au lycée.</p>
+        <p>Une interface unique pour apprendre, s’entraîner et réviser du collège au lycée.</p>
       </div>
 
       <nav aria-label="Disciplines">
         <h2>Disciplines</h2>
-        <ul>
-          <li><a href="/mathematiques">Mathématiques</a></li>
-          <li><a href="/college">Physique-Chimie</a></li>
-          <li><a href="/lycee/1ere-ens-scientifique">Enseignement scientifique</a></li>
-        </ul>
+        <a href="/mathematiques">Mathématiques</a>
+        <a href="/physique-chimie">Physique-Chimie</a>
+        <a href="/lycee/1ere-ens-scientifique">Enseignement scientifique</a>
       </nav>
 
       <nav aria-label="Ressources">
         <h2>Ressources</h2>
-        <ul>
-          <li><a href="/memorisation/mega-quiz">QCM et quiz</a></li>
-          <li><a href="/memorisation/mega-flashcards">Flashcards</a></li>
-          <li><a href="/laboratoire">Laboratoire virtuel</a></li>
-          <li><a href="/outils-methodes">Méthodes et outils</a></li>
-        </ul>
+        <a href="/memorisation/mega-quiz">QCM et quiz</a>
+        <a href="/memorisation/mega-flashcards">Flashcards</a>
+        <a href="/laboratoire">Laboratoire</a>
+        <a href="/outils-methodes">Outils et méthodes</a>
       </nav>
 
-      <nav aria-label="Espace personnel et contact">
+      <nav aria-label="Espace personnel">
         <h2>Espace personnel</h2>
-        <ul>
-          <li><a href="/profil">Compte</a></li>
-          <li><a href={`mailto:${siteConfig.author.email}`}>Nous contacter</a></li>
-        </ul>
+        <a href="/profil">Compte</a>
+        <a href={`mailto:${siteConfig.author.email}`}>Nous contacter</a>
       </nav>
     </div>
-
-    <div class="site-footer__bottom">
-      <p>&copy; 2024 - 2026 <strong>{siteConfig.author.name}</strong></p>
-      <p>Tous droits réservés</p>
+    <div class="ui5-footer__bottom">
+      <span>© 2024–2026 {siteConfig.author.name}</span>
+      <span>Tous droits réservés</span>
     </div>
   </footer>
 
