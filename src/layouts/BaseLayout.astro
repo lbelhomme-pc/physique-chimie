@@ -16,6 +16,7 @@ import "../styles/design-system.css";
 import "../styles/landing-v3.css";
 import "../styles/learning-workspace.css";
 import "../styles/home-coherence.css";
+import "../ui-v5/index.css";
 
 interface Props {
   title: string;
@@ -113,19 +114,21 @@ const structuredData = buildPageJsonLd({
   <style>
     .analytics-consent {
       position: fixed;
-      right: 1rem;
+      left: 50%;
       bottom: 1rem;
       z-index: 1000;
-      display: grid;
-      gap: 0.75rem;
-      width: min(28rem, calc(100vw - 2rem));
-      padding: 1rem;
-      border: 1px solid color-mix(in srgb, var(--accent-primary) 22%, transparent);
-      border-radius: var(--radius-md);
-      background: var(--surface-elevated, #fff);
-      box-shadow: var(--shadow-lg, 0 18px 40px rgba(15, 23, 42, 0.16));
-      color: var(--text-primary, #111827);
-      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: min(760px, calc(100vw - 2rem));
+      padding: 0.8rem 0.9rem;
+      border: 1px solid var(--ui5-border, var(--border-color));
+      border-radius: var(--ui5-radius-md, var(--radius-md));
+      background: var(--ui5-surface, #fff);
+      box-shadow: var(--ui5-shadow, 0 8px 26px rgba(15, 32, 64, 0.12));
+      color: var(--ui5-text, var(--text-primary));
+      font-size: 0.88rem;
+      transform: translateX(-50%);
     }
 
     .analytics-consent[hidden] {
@@ -133,36 +136,40 @@ const structuredData = buildPageJsonLd({
     }
 
     .analytics-consent p {
+      flex: 1 1 auto;
       margin: 0;
+      line-height: 1.45;
     }
 
     .analytics-consent__actions {
       display: flex;
+      flex: 0 0 auto;
       justify-content: flex-end;
       gap: 0.5rem;
     }
 
     .analytics-consent button {
-      border: 1px solid var(--accent-primary);
-      border-radius: var(--radius-sm);
+      min-height: 44px;
+      border: 1px solid var(--ui5-action, var(--accent-primary));
+      border-radius: var(--ui5-radius-sm, var(--radius-sm));
       padding: 0.45rem 0.75rem;
       background: #fff;
-      color: var(--accent-primary);
-      font-weight: 700;
+      color: var(--ui5-action, var(--accent-primary));
+      font-weight: 800;
       cursor: pointer;
     }
 
     .analytics-consent button[data-analytics-consent="granted"] {
-      background: var(--accent-primary);
+      background: var(--ui5-action, var(--accent-primary));
       color: #fff;
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 620px) {
       .analytics-consent {
+        align-items: stretch;
+        flex-direction: column;
         bottom: 0.75rem;
-        left: 0.75rem;
-        right: 0.75rem;
-        width: auto;
+        width: calc(100vw - 1.5rem);
       }
 
       .analytics-consent__actions {
@@ -171,7 +178,6 @@ const structuredData = buildPageJsonLd({
       }
 
       .analytics-consent button {
-        min-height: 44px;
         min-width: 0;
       }
     }
