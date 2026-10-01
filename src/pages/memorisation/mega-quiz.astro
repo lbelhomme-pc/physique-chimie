@@ -35,12 +35,22 @@ const dataUrl = "/memorisation/mega-quiz-data.json";
   canonical={MEMORIZATION_CANONICAL_ROUTES.megaQuiz}
   subject="transversal"
 >
-  <div style="text-align:center;padding:1.5rem 0 0.5rem;">
-    <span style="font-size:2.5rem;">?</span>
-    <h1 style="font-size:1.6rem;font-weight:800;color:var(--accent-primary);margin:0.3rem 0;">Mega Quiz</h1>
-    <p style="color:var(--text-muted);font-size:0.95rem;">{totalQuestions} questions publiées · choisis ta discipline avant de lancer une session</p>
-  </div>
-  <div style="max-width:700px;margin:0 auto;padding:0 1rem 2rem;">
-    <MegaQuizPlayer client:idle dataUrl={dataUrl} totalQuestions={totalQuestions} />
+  <div class="ui5-page">
+    <nav class="ui5-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/memorisation">Mémorisation</a><span aria-hidden="true">/</span>
+      <strong>Méga quiz</strong>
+    </nav>
+    <header class="ui5-page-header">
+      <div class="ui5-page-header__copy">
+        <p class="ui5-kicker">Mémorisation</p>
+        <h1 class="ui5-title">Méga quiz</h1>
+        <p class="ui5-lead">Choisis ta discipline, lance une session et reprends en priorité les questions manquées.</p>
+      </div>
+      <p class="ui5-page-header__aside">{totalQuestions} questions publiées</p>
+    </header>
+    <section class="ui5-section ui5-memory-workspace">
+      <MegaQuizPlayer client:idle dataUrl={dataUrl} totalQuestions={totalQuestions} />
+    </section>
   </div>
 </BaseLayout>
