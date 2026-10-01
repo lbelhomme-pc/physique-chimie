@@ -54,3 +54,7 @@ La V5 devient l'unique système visuel. Toute nouvelle page doit utiliser les pr
 ## Règle de sortie
 
 La reconstruction n'est considérée terminée que lorsque les pages migrées n'ont plus besoin d'une correction visuelle locale pour ressembler au reste du site.
+
+## Nettoyage approfondi et validation du 1 octobre 2026
+
+Le lot suivant retire la cascade legacy chargée, centralise CourseReader, React, Python et les simulations, et valide les parcours desktop/tablette/mobile/DYS. Voir [le rapport de nettoyage](nettoyage-ui-v5-2026-10-01.md) pour l'inventaire, les résultats, les limites et la procédure de retour arrière. Les preuves proviennent du build local de la branche, pas d'un ancien déploiement Vercel.

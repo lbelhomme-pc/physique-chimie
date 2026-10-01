@@ -2,7 +2,7 @@
 // Lecteur d'exercices V3 : formats legacy conserves, aides progressives,
 // correction masquee par defaut, schemas SVG nettoyes et auto-evaluation.
 
-import { useMemo, useRef, useState, type CSSProperties, type Ref } from "react";
+import { useMemo, useRef, useState, useEffect, type Ref } from "react";
 import { getGamificationEngine } from "../../data/gamification/engine";
 import XPToast, { type ToastItem } from "./XPToast";
 import MathText from "./MathText";
@@ -99,17 +99,17 @@ interface ExercicesPlayerProps {
 }
 
 const V = {
-  bg: "var(--bg-card)",
-  bgSec: "var(--bg-secondary)",
-  bgTer: "var(--bg-tertiary)",
-  bgPri: "var(--bg-primary)",
-  text: "var(--text-primary)",
-  textSec: "var(--text-secondary)",
-  textMut: "var(--text-muted)",
+  bg: "var(--ui5-surface)",
+  bgSec: "var(--ui5-surface-soft)",
+  bgTer: "var(--ui5-surface-soft)",
+  bgPri: "var(--ui5-surface)",
+  text: "var(--ui5-text)",
+  textSec: "var(--ui5-text-2)",
+  textMut: "var(--ui5-text-3)",
   textDis: "var(--text-disabled)",
-  border: "var(--border-color)",
-  primary: "var(--accent-primary)",
-  primaryLt: "var(--accent-primary-light)",
+  border: "var(--ui5-border)",
+  primary: "var(--ui5-action)",
+  primaryLt: "var(--ui5-action-soft)",
   success: "var(--accent-success)",
   successLt: "var(--accent-success-light)",
   warning: "var(--accent-warning)",
@@ -120,12 +120,7 @@ const V = {
   purpleLt: "var(--accent-purple-light)",
 };
 
-const cardStyle: CSSProperties = {
-  background: V.bg,
-  border: `1px solid ${V.border}`,
-  borderRadius: 8,
-  boxShadow: "var(--shadow-card)",
-};
+
 
 function asLines(value?: string | string[]): string[] {
   if (Array.isArray(value)) return value.filter((item) => Boolean(String(item).trim()));
@@ -263,12 +258,12 @@ function renderExerciseBlock(block: ExerciseBlock, index: number) {
   if (svg && ["diagram", "graph", "schema", "svg"].includes(String(block.type ?? "diagram"))) {
     const trusted = sanitizeTrustedSvg(svg);
     return (
-      <figure key={blockId} style={{ margin: "0 0 1rem", padding: "1rem", background: V.bgPri, border: `1px solid ${V.border}`, borderRadius: 8 }}>
-        {title && <figcaption style={{ marginBottom: "0.6rem", color: V.textSec, fontWeight: 700 }}>{title}</figcaption>}
+      <figure key={blockId} className="ui5-u-margin-0-0-1rem ui5-u-padding-1rem ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm">
+        {title && <figcaption className="ui5-u-margin-bottom-0-6rem ui5-u-color-ui5-text-2 ui5-u-font-weight-700">{title}</figcaption>}
         <div
           role="img"
-          aria-label={altText}
-          style={{ display: "flex", justifyContent: "center", overflowX: "auto" }}
+         aria-label={altText}
+          className="ui5-u-display-flex ui5-u-justify-content-center ui5-u-overflow-x-auto"
           dangerouslySetInnerHTML={{ __html: trusted }}
         />
       </figure>
@@ -277,9 +272,9 @@ function renderExerciseBlock(block: ExerciseBlock, index: number) {
 
   if (text) {
     return (
-      <div key={blockId} style={{ ...cardStyle, padding: "0.85rem 1rem", marginBottom: "0.75rem" }}>
-        {title && <p style={{ margin: "0 0 0.35rem", color: V.text, fontWeight: 700 }}>{title}</p>}
-        <MathText text={text} block style={{ color: V.text, lineHeight: 1.6 }} />
+      <div key={blockId} className="ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-0-85rem-1rem ui5-u-margin-bottom-0-75rem">
+        {title && <p className="ui5-u-margin-0-0-0-35rem ui5-u-color-ui5-text ui5-u-font-weight-700">{title}</p>}
+        <MathText text={text} block className="ui5-u-color-ui5-text ui5-u-line-height-1-6" />
       </div>
     );
   }
@@ -293,13 +288,18 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
     return raw.map(normalizeExercice);
   }, [data]);
 
-  const [rewardedIds, setRewardedIds] = useState<Set<string>>(() => chapterId ? getRewardedIds(chapterId) : new Set());
+  const [rewardedIds, setRewardedIds] = useState<Set<string>>(() => new Set());
+  useEffect(() => {
+    const ids = chapterId ? getRewardedIds(chapterId) : new Set<string>();
+    setRewardedIds(ids);
+    setCompletedIds(new Set(ids));
+  }, [chapterId]);
   const [ci, setCi] = useState(0);
   const [answer, setAnswer] = useState("");
   const [selectedChoice, setSelectedChoice] = useState("");
   const [showCorr, setShowCorr] = useState(false);
   const [selfEval, setSelfEval] = useState<"correct" | "partial" | "incorrect" | null>(null);
-  const [completedIds, setCompletedIds] = useState<Set<string>>(() => chapterId ? getRewardedIds(chapterId) : new Set());
+  const [completedIds, setCompletedIds] = useState<Set<string>>(() => new Set());
   const [filterDiff, setFilterDiff] = useState<number | null>(null);
   const [visibleAideCount, setVisibleAideCount] = useState(0);
   const [toasts, setToasts] = useState<ToastItem[]>([]);
@@ -310,10 +310,10 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
   const filtered = useMemo(() => filterDiff === null ? exercices : exercices.filter((item) => item.difficulty === filterDiff), [exercices, filterDiff]);
   const diffs = useMemo(() => Array.from(new Set(exercices.map((item) => item.difficulty ?? 1))).sort((a, b) => a - b), [exercices]);
 
-  if (!total) return <p style={{ fontStyle: "italic", color: V.textMut }}>Aucun exercice disponible.</p>;
+  if (!total) return <p className="ui5-u-font-style-italic ui5-u-color-ui5-text-3">Aucun exercice disponible.</p>;
 
   const cur = filtered[ci];
-  if (!cur) return <p style={{ fontStyle: "italic", color: V.textMut }}>Aucun exercice ne correspond au filtre.</p>;
+  if (!cur) return <p className="ui5-u-font-style-italic ui5-u-color-ui5-text-3">Aucun exercice ne correspond au filtre.</p>;
 
   const ds = getDiffStyle(cur.difficulty);
   const rewarded = rewardedIds.has(cur.id);
@@ -415,8 +415,8 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
     <div data-exercices-player-v3 className="learning-player learning-player--exercises">
       {title && <h3 className="learning-player__title">{title}</h3>}
 
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.65rem", marginBottom: "0.85rem" }}>
-        <div aria-label="Filtrer par niveau" style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap" }}>
+      <div className="ui5-u-display-flex ui5-u-justify-content-space-between ui5-u-align-items-center ui5-u-flex-wrap-wrap ui5-u-gap-0-65rem ui5-u-margin-bottom-0-85rem">
+        <div aria-label="Filtrer par niveau" className="ui5-u-display-flex ui5-u-gap-0-35rem ui5-u-flex-wrap-wrap">
           {diffs.map((difficulty) => {
             const style = getDiffStyle(difficulty);
             const active = filterDiff === difficulty;
@@ -424,40 +424,30 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
               <button
                 key={difficulty}
                 type="button"
-                aria-pressed={active}
+               aria-pressed={active}
                 onClick={() => toggleFilter(difficulty)}
-                style={{
-                  minHeight: 36,
-                  padding: "0.35rem 0.7rem",
-                  border: `1px solid ${active ? style.color : V.border}`,
-                  borderRadius: 8,
-                  fontSize: "0.78rem",
-                  fontWeight: 700,
-                  cursor: "pointer",
-                  background: active ? style.bg : V.bg,
-                  color: active ? style.color : V.textSec,
-                }}
+                className="ui5-u-min-height-36px ui5-u-padding-0-35rem-0-7rem ui5-u-border-ui5-value-border ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-78rem ui5-u-font-weight-700 ui5-u-cursor-pointer ui5-u-background-ui5-value-background ui5-u-color-ui5-value-color" style={{ "--ui5-value-border": `1px solid ${active ? style.color : V.border}`, "--ui5-value-background": active ? style.bg : V.bg, "--ui5-value-color": active ? style.color : V.textSec } as React.CSSProperties}
               >
                 {style.text}
               </button>
             );
           })}
         </div>
-        <span style={{ color: V.textMut, fontSize: "0.86rem" }}>{completedIds.size}/{total} consultes</span>
+        <span className="ui5-u-color-ui5-text-3 ui5-u-font-size-0-86rem">{completedIds.size}/{total} consultes</span>
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
+      <div className="ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-0-75rem ui5-u-margin-bottom-1rem">
         <div
           role="progressbar"
-          aria-label="Progression dans les exercices"
-          aria-valuemin={1}
-          aria-valuemax={filtered.length}
-          aria-valuenow={ci + 1}
-          style={{ flex: 1, height: 8, background: V.bgTer, borderRadius: 99, overflow: "hidden" }}
+         aria-label="Progression dans les exercices"
+         aria-valuemin={1}
+         aria-valuemax={filtered.length}
+         aria-valuenow={ci + 1}
+          className="ui5-u-flex-1 ui5-u-height-8px ui5-u-background-ui5-surface-soft ui5-u-border-radius-999px ui5-u-overflow-hidden"
         >
-          <div style={{ height: "100%", background: V.warning, borderRadius: 99, transition: "width 0.4s", width: `${((ci + 1) / filtered.length) * 100}%` }} />
+          <div className="ui5-u-height-100 ui5-u-background-accent-warning ui5-u-border-radius-999px ui5-u-transition-width-0-4s ui5-u-width-ui5-value-width" style={{ "--ui5-value-width": `${((ci + 1) / filtered.length) * 100}%` } as React.CSSProperties} />
         </div>
-        <span style={{ fontSize: "0.86rem", color: V.textMut, fontWeight: 600, whiteSpace: "nowrap" }}>{ci + 1}/{filtered.length}</span>
+        <span className="ui5-u-font-size-0-86rem ui5-u-color-ui5-text-3 ui5-u-font-weight-600 ui5-u-white-space-nowrap">{ci + 1}/{filtered.length}</span>
       </div>
 
       <div className="exercise-workspace">
@@ -473,7 +463,7 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
                   index === ci ? "is-current" : "",
                   completedIds.has(exo.id) ? "is-complete" : "",
                 ].filter(Boolean).join(" ")}
-                aria-current={index === ci ? "step" : undefined}
+               aria-current={index === ci ? "step" : undefined}
                 onClick={() => goTo(index)}
               >
                 <span>{index + 1}</span>
@@ -495,38 +485,38 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
         </details>
 
         <div className="exercise-workspace__main">
-      <section className="learning-question-card learning-exercise-card" aria-labelledby={`${safeDomId(cur.id)}-title`} style={{ ...cardStyle, borderLeft: `5px solid ${ds.color}`, padding: "1.35rem", marginBottom: "1rem" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem", gap: "0.75rem" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
-            <span style={{ fontSize: "0.8rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: 0, color: V.textMut }}>
-              Exercice {ci + 1}{rewarded && <span style={{ color: V.success, marginLeft: 6 }}>termine</span>}
+      <section aria-labelledby={`${safeDomId(cur.id)}-title`} className="learning-question-card learning-exercise-card ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-border-left-ui5-value-border-left ui5-u-padding-1-35rem ui5-u-margin-bottom-1rem" style={{ "--ui5-value-border-left": `5px solid ${ds.color}` } as React.CSSProperties}>
+        <div className="ui5-u-display-flex ui5-u-justify-content-space-between ui5-u-align-items-flex-start ui5-u-margin-bottom-1rem ui5-u-gap-0-75rem">
+          <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-gap-0-2rem">
+            <span className="ui5-u-font-size-0-8rem ui5-u-font-weight-800 ui5-u-text-transform-uppercase ui5-u-letter-spacing-0 ui5-u-color-ui5-text-3">
+              Exercice {ci + 1}{rewarded && <span className="ui5-u-color-accent-success ui5-u-margin-left-6px">termine</span>}
             </span>
-            {cur.title && <h4 id={`${safeDomId(cur.id)}-title`} style={{ fontSize: "1.16rem", fontWeight: 800, color: V.text, margin: 0 }}>{cur.title}</h4>}
+            {cur.title && <h4 id={`${safeDomId(cur.id)}-title`} className="ui5-u-font-size-1-16rem ui5-u-font-weight-800 ui5-u-color-ui5-text ui5-u-margin-0">{cur.title}</h4>}
           </div>
-          <span style={{ padding: "0.3rem 0.7rem", borderRadius: 999, fontSize: "0.78rem", fontWeight: 700, border: `1px solid ${ds.border}`, whiteSpace: "nowrap", color: ds.color, background: ds.bg }}>
+          <span className="ui5-u-padding-0-3rem-0-7rem ui5-u-border-radius-999px ui5-u-font-size-0-78rem ui5-u-font-weight-700 ui5-u-border-ui5-value-border ui5-u-white-space-nowrap ui5-u-color-ui5-value-color ui5-u-background-ui5-value-background" style={{ "--ui5-value-border": `1px solid ${ds.border}`, "--ui5-value-color": ds.color, "--ui5-value-background": ds.bg } as React.CSSProperties}>
             {getDifficultyLabel(cur, ds)}
           </span>
         </div>
 
         {(cur.skills?.length || cur.estimatedTime || cur.answerType) && (
-          <div style={{ display: "flex", gap: "0.45rem", flexWrap: "wrap", marginBottom: "0.8rem" }}>
-            {cur.estimatedTime && <span style={metaPillStyle}>{cur.estimatedTime} min</span>}
-            <span style={metaPillStyle}>{getAnswerLabel(answerType)}</span>
-            {cur.skills?.slice(0, 3).map((skill) => <span key={skill} style={metaPillStyle}>{skill}</span>)}
+          <div className="ui5-u-display-flex ui5-u-gap-0-45rem ui5-u-flex-wrap-wrap ui5-u-margin-bottom-0-8rem">
+            {cur.estimatedTime && <span className="ui5-u-display-inline-flex ui5-u-align-items-center ui5-u-min-height-28px ui5-u-padding-0-2rem-0-55rem ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-999px ui5-u-background-ui5-surface-soft ui5-u-color-ui5-text-2 ui5-u-font-size-0-78rem ui5-u-font-weight-700">{cur.estimatedTime} min</span>}
+            <span className="ui5-u-display-inline-flex ui5-u-align-items-center ui5-u-min-height-28px ui5-u-padding-0-2rem-0-55rem ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-999px ui5-u-background-ui5-surface-soft ui5-u-color-ui5-text-2 ui5-u-font-size-0-78rem ui5-u-font-weight-700">{getAnswerLabel(answerType)}</span>
+            {cur.skills?.slice(0, 3).map((skill) => <span key={skill} className="ui5-u-display-inline-flex ui5-u-align-items-center ui5-u-min-height-28px ui5-u-padding-0-2rem-0-55rem ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-999px ui5-u-background-ui5-surface-soft ui5-u-color-ui5-text-2 ui5-u-font-size-0-78rem ui5-u-font-weight-700">{skill}</span>)}
           </div>
         )}
 
-        <div style={{ padding: "1rem", background: V.bgSec, borderRadius: 8, marginBottom: "0.75rem", borderLeft: `3px solid ${V.textDis}` }}>
-          <p style={{ margin: "0 0 0.45rem", color: V.textMut, fontSize: "0.78rem", fontWeight: 800, textTransform: "uppercase" }}>Énoncé</p>
-          <MathText text={cur.statement ?? cur.consigne} block style={{ fontSize: "1rem", color: V.text, lineHeight: 1.65, margin: 0 }} />
+        <div className="ui5-u-padding-1rem ui5-u-background-ui5-surface-soft ui5-u-border-radius-ui5-radius-sm ui5-u-margin-bottom-0-75rem ui5-u-border-left-3px-solid-text-disabled">
+          <p className="ui5-u-margin-0-0-0-45rem ui5-u-color-ui5-text-3 ui5-u-font-size-0-78rem ui5-u-font-weight-800 ui5-u-text-transform-uppercase">Énoncé</p>
+          <MathText text={cur.statement ?? cur.consigne} block className="ui5-u-font-size-1rem ui5-u-color-ui5-text ui5-u-line-height-1-65 ui5-u-margin-0" />
         </div>
 
         {cur.questions.length > 0 && (
-          <div style={{ ...cardStyle, padding: "0.95rem 1rem", marginBottom: "0.85rem", background: V.bgPri }}>
-            <p style={{ margin: "0 0 0.6rem", color: V.text, fontWeight: 800 }}>Questions</p>
-            <ol style={{ display: "grid", gap: "0.65rem", paddingLeft: "1.3rem", margin: 0, color: V.text }}>
+          <div className="ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-0-95rem-1rem ui5-u-margin-bottom-0-85rem">
+            <p className="ui5-u-margin-0-0-0-6rem ui5-u-color-ui5-text ui5-u-font-weight-800">Questions</p>
+            <ol className="ui5-u-display-grid ui5-u-gap-0-65rem ui5-u-padding-left-1-3rem ui5-u-margin-0 ui5-u-color-ui5-text">
               {cur.questions.map((question, index) => (
-                <li key={index} style={{ paddingLeft: "0.2rem", lineHeight: 1.6 }}>
+                <li key={index} className="ui5-u-padding-left-0-2rem ui5-u-line-height-1-6">
                   <MathText text={question} />
                 </li>
               ))}
@@ -535,22 +525,22 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
         )}
 
         {cur.consigne && cur.consigne !== cur.statement && (
-          <div style={{ padding: "0.8rem 0.95rem", background: V.primaryLt, border: `1px solid ${V.primary}`, borderRadius: 8, marginBottom: "0.85rem" }}>
-            <p style={{ margin: "0 0 0.3rem", color: V.primary, fontSize: "0.78rem", fontWeight: 800, textTransform: "uppercase" }}>Consigne de rédaction</p>
-            <MathText text={cur.consigne} block style={{ color: V.text, lineHeight: 1.55 }} />
+          <div className="ui5-u-padding-0-8rem-0-95rem ui5-u-background-ui5-action-soft ui5-u-border-1px-solid-ui5-action ui5-u-border-radius-ui5-radius-sm ui5-u-margin-bottom-0-85rem">
+            <p className="ui5-u-margin-0-0-0-3rem ui5-u-color-ui5-action ui5-u-font-size-0-78rem ui5-u-font-weight-800 ui5-u-text-transform-uppercase">Consigne de rédaction</p>
+            <MathText text={cur.consigne} block className="ui5-u-color-ui5-text ui5-u-line-height-1-55" />
           </div>
         )}
 
         {trustedSchemaSvg && (
-          <figure style={{ margin: "0 0 1rem", padding: "1rem", background: V.bgPri, border: `1px solid ${V.border}`, borderRadius: 8 }}>
+          <figure className="ui5-u-margin-0-0-1rem ui5-u-padding-1rem ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm">
             <div
               role="img"
-              aria-label={cur.schemaAlt ?? cur.schemaCaption ?? "Schema de l'exercice"}
-              style={{ display: "flex", justifyContent: "center", overflowX: "auto" }}
+             aria-label={cur.schemaAlt ?? cur.schemaCaption ?? "Schema de l'exercice"}
+              className="ui5-u-display-flex ui5-u-justify-content-center ui5-u-overflow-x-auto"
               dangerouslySetInnerHTML={{ __html: trustedSchemaSvg }}
             />
             {cur.schemaCaption && (
-              <figcaption style={{ marginTop: "0.6rem", fontSize: "0.86rem", color: V.textMut, textAlign: "center", lineHeight: 1.4 }}>
+              <figcaption className="ui5-u-margin-top-0-6rem ui5-u-font-size-0-86rem ui5-u-color-ui5-text-3 ui5-u-text-align-center ui5-u-line-height-1-4">
                 {cur.schemaCaption}
               </figcaption>
             )}
@@ -559,38 +549,29 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
 
         {cur.blocks?.map(renderExerciseBlock)}
 
-        <div style={{ marginBottom: "1rem" }}>
+        <div className="ui5-u-margin-bottom-1rem">
           <TextToSpeech compact text={stripHtmlForSpeech([cur.statement, ...cur.questions, cur.consigne].filter(Boolean).join(" "))} />
         </div>
 
         {aideItems.length > 0 && !showCorr && (
-          <div style={{ ...cardStyle, padding: "0.95rem", marginBottom: "1rem", background: V.bgPri }}>
-            <div style={{ display: "flex", justifyContent: "space-between", gap: "0.75rem", alignItems: "center", flexWrap: "wrap" }}>
-              <p style={{ fontSize: "0.9rem", fontWeight: 800, color: V.text, margin: 0 }}>Aides progressives</p>
+          <div className="ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-0-95rem ui5-u-margin-bottom-1rem">
+            <div className="ui5-u-display-flex ui5-u-justify-content-space-between ui5-u-gap-0-75rem ui5-u-align-items-center ui5-u-flex-wrap-wrap">
+              <p className="ui5-u-font-size-0-9rem ui5-u-font-weight-800 ui5-u-color-ui5-text ui5-u-margin-0">Aides progressives</p>
               <button
                 type="button"
                 onClick={() => setVisibleAideCount((value) => Math.min(value + 1, aideItems.length))}
                 disabled={visibleAideCount >= aideItems.length}
-                style={{
-                  minHeight: 36,
-                  padding: "0.4rem 0.75rem",
-                  border: `1px solid ${visibleAideCount >= aideItems.length ? V.border : V.primary}`,
-                  borderRadius: 8,
-                  background: visibleAideCount >= aideItems.length ? V.bgSec : V.primaryLt,
-                  color: visibleAideCount >= aideItems.length ? V.textMut : V.primary,
-                  fontWeight: 800,
-                  cursor: visibleAideCount >= aideItems.length ? "not-allowed" : "pointer",
-                }}
+                className={"ui5-u-min-height-36px ui5-u-padding-0-4rem-0-75rem ui5-u-border-ui5-value-border ui5-u-border-radius-ui5-radius-sm" + " " + (visibleAideCount >= aideItems.length ? "ui5-u-background-ui5-surface-soft" : "ui5-u-background-ui5-action-soft") + " " + (visibleAideCount >= aideItems.length ? "ui5-u-color-ui5-text-3" : "ui5-u-color-ui5-action") + " " + "ui5-u-font-weight-800" + " " + (visibleAideCount >= aideItems.length ? "ui5-u-cursor-not-allowed" : "ui5-u-cursor-pointer")} style={{ "--ui5-value-border": `1px solid ${visibleAideCount >= aideItems.length ? V.border : V.primary}` } as React.CSSProperties}
               >
                 Aide suivante
               </button>
             </div>
-            {visibleAides.length === 0 && <p style={{ margin: "0.65rem 0 0", color: V.textMut, fontSize: "0.9rem" }}>Essaie seul, puis debloque une aide si tu bloques.</p>}
-            <div style={{ display: "grid", gap: "0.55rem", marginTop: visibleAides.length ? "0.75rem" : 0 }}>
+            {visibleAides.length === 0 && <p className="ui5-u-margin-0-65rem-0-0 ui5-u-color-ui5-text-3 ui5-u-font-size-0-9rem">Essaie seul, puis debloque une aide si tu bloques.</p>}
+            <div className={"ui5-u-display-grid ui5-u-gap-0-55rem" + " " + (visibleAides.length ? "ui5-u-margin-top-0-75rem" : "ui5-u-margin-top-0")}>
               {visibleAides.map((item, index) => (
-                <div key={item.key} style={{ border: `1px solid ${V.border}`, borderRadius: 8, background: V.bg, padding: "0.8rem 0.9rem" }}>
-                  <p style={{ margin: "0 0 0.35rem", color: V.primary, fontWeight: 800 }}>Aide {index + 1} - {item.label}</p>
-                  <MathText text={item.content} block style={{ color: V.text, lineHeight: 1.55 }} />
+                <div key={item.key} className="ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-surface ui5-u-padding-0-8rem-0-9rem">
+                  <p className="ui5-u-margin-0-0-0-35rem ui5-u-color-ui5-action ui5-u-font-weight-800">Aide {index + 1} - {item.label}</p>
+                  <MathText text={item.content} block className="ui5-u-color-ui5-text ui5-u-line-height-1-55" />
                 </div>
               ))}
             </div>
@@ -598,13 +579,13 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
         )}
 
         {!showCorr ? (
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.55rem" }}>
+          <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-gap-0-55rem">
             {answerType === "qcm" ? (
-              <fieldset style={{ border: `1px solid ${V.border}`, borderRadius: 8, padding: "0.8rem 0.9rem", margin: 0 }}>
-                <legend style={{ fontSize: "0.88rem", fontWeight: 800, color: V.textSec, padding: "0 0.25rem" }}>{getAnswerLabel(answerType)}</legend>
-                <div style={{ display: "grid", gap: "0.5rem" }}>
+              <fieldset className="ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-padding-0-8rem-0-9rem ui5-u-margin-0">
+                <legend className="ui5-u-font-size-0-88rem ui5-u-font-weight-800 ui5-u-color-ui5-text-2 ui5-u-padding-0-0-25rem">{getAnswerLabel(answerType)}</legend>
+                <div className="ui5-u-display-grid ui5-u-gap-0-5rem">
                   {cur.choices.map((choice) => (
-                    <label key={choice.id} style={{ display: "flex", alignItems: "flex-start", gap: "0.55rem", padding: "0.65rem", border: `1px solid ${selectedChoice === choice.id ? V.primary : V.border}`, borderRadius: 8, background: selectedChoice === choice.id ? V.primaryLt : V.bgPri, cursor: "pointer" }}>
+                    <label key={choice.id} className={"ui5-u-display-flex ui5-u-align-items-flex-start ui5-u-gap-0-55rem ui5-u-padding-0-65rem ui5-u-border-ui5-value-border ui5-u-border-radius-ui5-radius-sm" + " " + (selectedChoice === choice.id ? "ui5-u-background-ui5-action-soft" : "ui5-u-background-ui5-surface") + " " + "ui5-u-cursor-pointer"} style={{ "--ui5-value-border": `1px solid ${selectedChoice === choice.id ? V.primary : V.border}` } as React.CSSProperties}>
                       <input
                         type="radio"
                         name={`${safeDomId(cur.id)}-choices`}
@@ -620,7 +601,7 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
               </fieldset>
             ) : answerType === "number" ? (
               <>
-                <label htmlFor={answerId} style={{ fontSize: "0.88rem", fontWeight: 800, color: V.textSec }}>{getAnswerLabel(answerType)}</label>
+                <label htmlFor={answerId} className="ui5-u-font-size-0-88rem ui5-u-font-weight-800 ui5-u-color-ui5-text-2">{getAnswerLabel(answerType)}</label>
                 <input
                   id={answerId}
                   ref={answerRef as Ref<HTMLInputElement>}
@@ -628,43 +609,32 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
                   onChange={(event) => setAnswer(event.target.value)}
                   placeholder="Ex. 13 ou 2,5"
                   inputMode="decimal"
-                  style={inputStyle}
+                  className="ui5-u-width-100 ui5-u-box-sizing-border-box ui5-u-padding-0-75rem ui5-u-border-2px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-surface ui5-u-color-ui5-text ui5-u-font-inherit ui5-u-font-size-1rem"
                   autoFocus
                 />
               </>
             ) : (
               <>
-                <label htmlFor={answerId} style={{ fontSize: "0.88rem", fontWeight: 800, color: V.textSec }}>{getAnswerLabel(answerType)}</label>
+                <label htmlFor={answerId} className="ui5-u-font-size-0-88rem ui5-u-font-weight-800 ui5-u-color-ui5-text-2">{getAnswerLabel(answerType)}</label>
                 <textarea
                   id={answerId}
                   ref={answerRef as Ref<HTMLTextAreaElement>}
                   value={answer}
                   onChange={(event) => setAnswer(event.target.value)}
                   placeholder="Ecris ta reponse ici..."
-                  style={{ ...inputStyle, resize: "vertical", minHeight: 116 }}
+                  className="ui5-u-width-100 ui5-u-box-sizing-border-box ui5-u-padding-0-75rem ui5-u-border-2px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-surface ui5-u-color-ui5-text ui5-u-font-inherit ui5-u-font-size-1rem ui5-u-resize-vertical ui5-u-min-height-116px"
                   rows={4}
                   autoFocus
                 />
               </>
             )}
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
-              {rewarded && <span style={{ fontSize: "0.82rem", color: V.textMut }}>Deja consulte - pas de nouvel XP.</span>}
+            <div className="ui5-u-display-flex ui5-u-justify-content-space-between ui5-u-align-items-center ui5-u-gap-0-75rem ui5-u-flex-wrap-wrap">
+              {rewarded && <span className="ui5-u-font-size-0-82rem ui5-u-color-ui5-text-3">Deja consulte - pas de nouvel XP.</span>}
               <button
                 type="button"
-                aria-disabled={!answerReady}
+               aria-disabled={!answerReady}
                 onClick={handleShowCorr}
-                style={{
-                  minHeight: 44,
-                  padding: "0.7rem 1.15rem",
-                  background: answerReady ? V.warning : V.textDis,
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: 8,
-                  fontSize: "0.95rem",
-                  fontWeight: 800,
-                  cursor: answerReady ? "pointer" : "not-allowed",
-                  marginLeft: "auto",
-                }}
+                className={"ui5-u-min-height-44px ui5-u-padding-0-7rem-1-15rem" + " " + (answerReady ? "ui5-u-background-ui5-action" : "ui5-u-background-ui5-surface-soft") + " " + "ui5-u-color-fff ui5-u-border-none ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-95rem ui5-u-font-weight-800" + " " + (answerReady ? "ui5-u-cursor-pointer" : "ui5-u-cursor-not-allowed") + " " + "ui5-u-margin-left-auto"}
               >
                 Voir la correction
               </button>
@@ -672,26 +642,26 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
           </div>
         ) : (
           <div>
-            <div style={{ padding: "0.85rem 1rem", background: V.bgSec, border: `1px solid ${V.border}`, borderRadius: 8, marginBottom: "0.85rem" }}>
-              <span style={{ fontSize: "0.78rem", fontWeight: 800, color: V.textMut, textTransform: "uppercase", letterSpacing: 0 }}>Ta reponse</span>
-              <p style={{ fontSize: "0.96rem", color: V.textSec, margin: "0.3rem 0 0", lineHeight: 1.5, whiteSpace: "pre-wrap" }}>{responseSummary}</p>
+            <div className="ui5-u-padding-0-85rem-1rem ui5-u-background-ui5-surface-soft ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-margin-bottom-0-85rem">
+              <span className="ui5-u-font-size-0-78rem ui5-u-font-weight-800 ui5-u-color-ui5-text-3 ui5-u-text-transform-uppercase ui5-u-letter-spacing-0">Ta reponse</span>
+              <p className="ui5-u-font-size-0-96rem ui5-u-color-ui5-text-2 ui5-u-margin-0-3rem-0-0 ui5-u-line-height-1-5 ui5-u-white-space-pre-wrap">{responseSummary}</p>
             </div>
 
-            <div style={{ padding: "1rem", background: V.successLt, border: `1px solid ${V.success}`, borderRadius: 8, marginBottom: "0.75rem" }}>
-              <p style={{ fontWeight: 800, fontSize: "0.98rem", color: V.success, margin: "0 0 0.55rem" }}>Correction essentielle</p>
+            <div className="ui5-u-padding-1rem ui5-u-background-accent-success-light ui5-u-border-1px-solid-accent-success ui5-u-border-radius-ui5-radius-sm ui5-u-margin-bottom-0-75rem">
+              <p className="ui5-u-font-weight-800 ui5-u-font-size-0-98rem ui5-u-color-accent-success ui5-u-margin-0-0-0-55rem">Correction essentielle</p>
               {correctionEssential.map((line, index) => (
-                <div key={index} style={{ fontSize: "0.96rem", color: V.text, lineHeight: 1.65, margin: "0.3rem 0" }}>
+                <div key={index} className="ui5-u-font-size-0-96rem ui5-u-color-ui5-text ui5-u-line-height-1-65 ui5-u-margin-0-3rem-0">
                   <MathText text={line} block />
                 </div>
               ))}
             </div>
 
             {correctionDetailed.length > 0 && (
-              <details style={{ ...cardStyle, padding: "0.9rem 1rem", marginBottom: "0.85rem" }}>
-                <summary style={{ color: V.text, fontWeight: 800, cursor: "pointer" }}>Correction detaillee</summary>
-                <div style={{ marginTop: "0.65rem" }}>
+              <details className="ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-0-9rem-1rem ui5-u-margin-bottom-0-85rem">
+                <summary className="ui5-u-color-ui5-text ui5-u-font-weight-800 ui5-u-cursor-pointer">Correction detaillee</summary>
+                <div className="ui5-u-margin-top-0-65rem">
                   {correctionDetailed.map((line, index) => (
-                    <div key={index} style={{ fontSize: "0.95rem", color: V.text, lineHeight: 1.65, margin: "0.35rem 0" }}>
+                    <div key={index} className="ui5-u-font-size-0-95rem ui5-u-color-ui5-text ui5-u-line-height-1-65 ui5-u-margin-0-35rem-0">
                       <MathText text={line} block />
                     </div>
                   ))}
@@ -699,16 +669,16 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
               </details>
             )}
 
-            <div style={{ marginBottom: "1rem" }}>
+            <div className="ui5-u-margin-bottom-1rem">
               <TextToSpeech compact text={stripHtmlForSpeech([...correctionEssential, ...correctionDetailed].join(". "))} label="Ecouter la correction" />
             </div>
 
             {selfEval === null ? (
-              <div style={{ marginTop: "0.5rem" }}>
-                <p style={{ fontSize: "0.92rem", color: V.textSec, textAlign: "center", marginBottom: "0.75rem", fontWeight: 700 }}>
+              <div className="ui5-u-margin-top-0-5rem">
+                <p className="ui5-u-font-size-0-92rem ui5-u-color-ui5-text-2 ui5-u-text-align-center ui5-u-margin-bottom-0-75rem ui5-u-font-weight-700">
                   Compare ta reponse avec la correction.
                 </p>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "0.5rem" }}>
+                <div className="ui5-u-display-grid ui5-u-grid-template-columns-repeat-3-minmax-0-1fr ui5-u-gap-0-5rem">
                   {([
                     ["incorrect", "Incorrect", V.danger, V.dangerLt, 1],
                     ["partial", "Partiel", V.warning, V.warningLt, 2],
@@ -718,28 +688,28 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
                       key={evaluation}
                       type="button"
                       onClick={() => handleEval(evaluation)}
-                      style={{ minHeight: 58, padding: "0.65rem 0.5rem", border: `2px solid ${color}`, borderRadius: 8, background: bg, color, fontSize: "0.86rem", fontWeight: 800, cursor: "pointer" }}
+                      className="ui5-u-min-height-58px ui5-u-padding-0-65rem-0-5rem ui5-u-border-ui5-value-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-value-background ui5-u-color-ui5-value-color ui5-u-font-size-0-86rem ui5-u-font-weight-800 ui5-u-cursor-pointer" style={{ "--ui5-value-border": `2px solid ${color}`, "--ui5-value-background": bg, "--ui5-value-color": color } as React.CSSProperties}
                     >
                       <span>{label}</span>
-                      {!rewarded && <span style={{ display: "block", marginTop: "0.18rem", fontSize: "0.72rem", color: V.textMut }}>+{xp} XP</span>}
+                      {!rewarded && <span className="ui5-u-display-block ui5-u-margin-top-0-18rem ui5-u-font-size-0-72rem ui5-u-color-ui5-text-3">+{xp} XP</span>}
                     </button>
                   ))}
                 </div>
               </div>
             ) : (
-              <div style={{ textAlign: "center", padding: "0.75rem", background: V.bgSec, borderRadius: 8, fontSize: "0.92rem", color: V.textSec }}>
-                {selfEval === "correct" && <p style={{ margin: 0 }}>Marque correct - bravo.</p>}
-                {selfEval === "partial" && <p style={{ margin: 0 }}>Marque partiellement correct - tu progresses.</p>}
-                {selfEval === "incorrect" && <p style={{ margin: 0 }}>Marque incorrect - relis la correction puis reessaie.</p>}
+              <div className="ui5-u-text-align-center ui5-u-padding-0-75rem ui5-u-background-ui5-surface-soft ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-92rem ui5-u-color-ui5-text-2">
+                {selfEval === "correct" && <p className="ui5-u-margin-0">Marque correct - bravo.</p>}
+                {selfEval === "partial" && <p className="ui5-u-margin-0">Marque partiellement correct - tu progresses.</p>}
+                {selfEval === "incorrect" && <p className="ui5-u-margin-0">Marque incorrect - relis la correction puis reessaie.</p>}
               </div>
             )}
           </div>
         )}
       </section>
 
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.85rem" }}>
-        <button type="button" onClick={() => ci > 0 && goTo(ci - 1)} disabled={ci === 0} style={navButtonStyle(ci > 0)}>Precedent</button>
-        <button type="button" onClick={() => ci + 1 < filtered.length && goTo(ci + 1)} disabled={ci + 1 >= filtered.length} style={navButtonStyle(ci + 1 < filtered.length)}>Suivant</button>
+      <div className="ui5-u-display-flex ui5-u-justify-content-space-between ui5-u-margin-bottom-0-85rem">
+        <button type="button" onClick={() => ci > 0 && goTo(ci - 1)} disabled={ci === 0} className={"ui5-u-min-height-44px ui5-u-padding-0-55rem-1rem ui5-u-border-none ui5-u-border-radius-ui5-radius-sm" + " " + ((ci > 0) ? "ui5-u-background-ui5-surface-soft" : "ui5-u-background-ui5-surface-soft") + " " + ((ci > 0) ? "ui5-u-color-ui5-text-2" : "ui5-u-color-text-disabled") + " " + "ui5-u-font-size-0-86rem ui5-u-font-weight-700" + " " + ((ci > 0) ? "ui5-u-cursor-pointer" : "ui5-u-cursor-not-allowed")}>Precedent</button>
+        <button type="button" onClick={() => ci + 1 < filtered.length && goTo(ci + 1)} disabled={ci + 1 >= filtered.length} className={"ui5-u-min-height-44px ui5-u-padding-0-55rem-1rem ui5-u-border-none ui5-u-border-radius-ui5-radius-sm" + " " + ((ci + 1 < filtered.length) ? "ui5-u-background-ui5-surface-soft" : "ui5-u-background-ui5-surface-soft") + " " + ((ci + 1 < filtered.length) ? "ui5-u-color-ui5-text-2" : "ui5-u-color-text-disabled") + " " + "ui5-u-font-size-0-86rem ui5-u-font-weight-700" + " " + ((ci + 1 < filtered.length) ? "ui5-u-cursor-pointer" : "ui5-u-cursor-not-allowed")}>Suivant</button>
       </div>
         </div>
       </div>
@@ -747,44 +717,4 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
       <XPToast toasts={toasts} onDismiss={dismissToast} />
     </div>
   );
-}
-
-const metaPillStyle: CSSProperties = {
-  display: "inline-flex",
-  alignItems: "center",
-  minHeight: 28,
-  padding: "0.2rem 0.55rem",
-  border: `1px solid ${V.border}`,
-  borderRadius: 999,
-  background: V.bgSec,
-  color: V.textSec,
-  fontSize: "0.78rem",
-  fontWeight: 700,
-};
-
-const inputStyle: CSSProperties = {
-  width: "100%",
-  boxSizing: "border-box",
-  padding: "0.75rem",
-  border: `2px solid ${V.border}`,
-  borderRadius: 8,
-  background: V.bgPri,
-  color: V.text,
-  font: "inherit",
-  fontSize: "1rem",
-  outline: "none",
-};
-
-function navButtonStyle(enabled: boolean): CSSProperties {
-  return {
-    minHeight: 44,
-    padding: "0.55rem 1rem",
-    border: "none",
-    borderRadius: 8,
-    background: enabled ? V.bgTer : V.bgSec,
-    color: enabled ? V.textSec : V.textDis,
-    fontSize: "0.86rem",
-    fontWeight: 700,
-    cursor: enabled ? "pointer" : "not-allowed",
-  };
 }

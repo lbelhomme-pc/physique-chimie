@@ -12,7 +12,7 @@ const files = {
   exercises: path.join(root, "src/components/pedagogie/ExercicesPlayer.tsx"),
   quiz: path.join(root, "src/components/pedagogie/QuizPlayer.tsx"),
   flashcards: path.join(root, "src/components/pedagogie/FlashcardsPlayer.tsx"),
-  learningStyles: path.join(root, "src/styles/learning-workspace.css"),
+  learningStyles: path.join(root, "src/ui-v5/learning.css"),
   explicitPcChapter: path.join(root, "src/pages/physique-chimie/[cycle]/[niveau]/[matiere]/[chapitre].astro"),
   mathCollegeChapter: path.join(root, "src/pages/mathematiques/college/[niveau]/[chapitre].astro"),
   mathLyceeChapter: path.join(root, "src/pages/mathematiques/lycee/[niveau]/[chapitre].astro"),
@@ -38,27 +38,26 @@ describe("chapter shell V4", () => {
   });
 
   it("keeps the course area aligned with the 1120px chapter hero width", () => {
-    const tabs = source("tabs");
-    const reader = source("courseReader");
-    const latex = source("latexCourse");
+    const tabs = readFileSync(path.join(root, "src/ui-v5/index.css"), "utf8");
+    const reader = readFileSync(path.join(root, "src/ui-v5/reader.css"), "utf8");
+    const latex = readFileSync(path.join(root, "src/ui-v5/tools/LatexCourse.css"), "utf8");
 
-    assert.match(tabs, /max-width: var\(--chapter-shell-max, 1120px\)/);
-    assert.match(reader, /max-width: var\(--chapter-shell-max, 1120px\)/);
-    assert.match(latex, /max-width: var\(--chapter-shell-max, 1120px\)/);
+    assert.match(tabs, /var\(--ui5-content\)/);
+    assert.match(reader, /var\(--ui5-content\)/);
+    assert.match(latex, /var\(--ui5-reading(?:, 70ch)?\)/);
     assert.doesNotMatch(tabs, /max-width: 900px;/);
     assert.doesNotMatch(reader, /max-width: 1040px;/);
     assert.doesNotMatch(latex, /width: min\(100%, 920px\);/);
   });
 
   it("uses one shared visual workspace for course, exercises, quiz and flashcards", () => {
-    const shell = source("shell");
     const exercises = source("exercises");
     const quiz = source("quiz");
     const flashcards = source("flashcards");
     const styles = source("learningStyles");
 
-    assert.match(shell, /--chapter-shell-max: 1120px/);
-    assert.match(styles, /--learning-max: 1120px/);
+    assert.match(readFileSync(path.join(root, "src/ui-v5/index.css"), "utf8"), /--ui5-content: 1120px/);
+    assert.match(styles, /--learning-max: var\(--ui5-content\)/);
     assert.match(exercises, /learning-player--exercises/);
     assert.match(quiz, /learning-player--quiz/);
     assert.match(quiz, /learning-question-card/);

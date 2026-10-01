@@ -49,34 +49,10 @@ export default function ReadingGuide() {
 
   return (
     <div className="reading-guide" aria-hidden="true">
-      <div className="reading-guide__shade" style={{ height: topHeight }} />
-      <div className="reading-guide__line" style={{ top: topHeight, height: guideHeight }} />
-      <div className="reading-guide__shade" style={{ top: topHeight + guideHeight, bottom: 0 }} />
-      <style>{`
-        .reading-guide {
-          inset: 0;
-          pointer-events: none;
-          position: fixed;
-          z-index: 9990;
-        }
+      <div className="reading-guide__shade" style={{ "--ui5-guide-height": `${topHeight}px` } as React.CSSProperties} />
+      <div className="reading-guide__line" style={{ "--ui5-guide-top": `${topHeight}px` } as React.CSSProperties} />
+      <div className="reading-guide__shade" style={{ "--ui5-guide-top": `${topHeight + guideHeight}px` } as React.CSSProperties} />
 
-        .reading-guide__shade,
-        .reading-guide__line {
-          left: 0;
-          position: absolute;
-          right: 0;
-        }
-
-        .reading-guide__shade {
-          background: rgba(15, 23, 42, 0.16);
-        }
-
-        .reading-guide__line {
-          background: color-mix(in srgb, var(--v3-color-action, #2563eb) 8%, transparent);
-          border-bottom: 2px solid color-mix(in srgb, var(--v3-color-action, #2563eb) 48%, transparent);
-          border-top: 2px solid color-mix(in srgb, var(--v3-color-action, #2563eb) 48%, transparent);
-        }
-      `}</style>
     </div>
   );
 }

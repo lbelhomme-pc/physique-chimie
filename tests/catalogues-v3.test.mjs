@@ -44,14 +44,14 @@ test("catalogues are ordered by programme metadata and do not cap chapter counts
 test("catalogues expose filters, focus states, empty states and V4 local search", () => {
   for (const name of ["collegeLevel", "lyceeLevel"]) {
     const page = source(name);
-    assert.match(page, /catalogue-filters/);
-    assert.match(page, /#catalogue-chimie/);
-    assert.match(page, /#catalogue-physique/);
-    assert.match(page, /catalogue-empty-large/);
+    assert.match(page, /ui5-filter-row/);
+    assert.match(page, /Chimie/);
+    assert.match(page, /Physique/);
+    assert.match(page, /ui5-empty/);
   }
 
   const component = source("catalogueList");
-  assert.match(component, /:focus-visible/);
+  assert.match(readFileSync(path.join(root, "src/ui-v5/index.css"), "utf8"), /:focus-visible/);
   assert.match(component, /aria-live="polite"/);
   assert.match(component, /data-catalogue-search/);
   assert.match(component, /data-catalogue-item/);
@@ -63,8 +63,9 @@ test("mathematics cycle catalogues show planned levels without creating planned 
     const page = source(name);
     assert.match(page, /getMathematicsLevelsByCycle/);
     assert.match(page, /MathLevelCard/);
-    assert.match(page, /V3LandingHero/);
-    assert.match(page, /stats=\{\[/);
+    assert.match(page, /ui5-page-header/);
+    assert.doesNotMatch(page, /V3LandingHero/);
+    assert.match(page, /ui5-page-header__aside/);
     assert.doesNotMatch(page, /getPublishedMathematicsLevels/);
   }
 
@@ -76,7 +77,7 @@ test("mathematics cycle catalogues show planned levels without creating planned 
 
 test("shared catalogue component keeps semantic chapter lists", () => {
   assert.match(source("catalogueTypes"), /CatalogueChapterItem/);
-  assert.match(source("catalogueList"), /<ol class="catalogue-list" data-catalogue-list>/);
+  assert.match(source("catalogueList"), /<ol class="ui5-chapter-list" data-catalogue-list>/);
   assert.match(source("catalogueList"), /<h2 id=\{`\$\{id\}-title`\}/);
   assert.doesNotMatch(source("catalogueList"), /catalogue-card__action/);
 });

@@ -1,3 +1,13 @@
+@import "./consent.css";
+@import "./tokens.css";
+@import "./preferences.css";
+@import "./reset.css";
+@import "./compat-components.css";
+@import "./compat-utilities.css";
+@import "./learning.css";
+@import "./reader.css";
+@import "./react-utilities.css";
+
 .page-container:has(.ui5-page),
 .page-container:has(.ui5-landing-hero) {
   max-width: none;
@@ -13,12 +23,14 @@
   --ui5-surface-soft: #f2f5fa;
   --ui5-text: #10203f;
   --ui5-text-2: #52617b;
-  --ui5-text-3: #73809a;
+  --ui5-text-3: #58677a;
   --ui5-border: #dbe3ef;
   --ui5-border-strong: #bdc9da;
   --ui5-action: #165dff;
   --ui5-action-hover: #0f4bd1;
+  --ui5-action-soft: #eef3ff;
   --ui5-focus: #165dff;
+  --ui5-on-action: #ffffff;
   --ui5-maths: #5b4ee8;
   --ui5-pc: #087f9b;
   --ui5-chem: #0b8a68;
@@ -165,7 +177,7 @@ body {
   padding: 0.25rem 0.6rem;
   border: 1px solid color-mix(in srgb, var(--ui5-subject) 28%, var(--ui5-border));
   border-radius: var(--ui5-radius-sm);
-  background: color-mix(in srgb, var(--ui5-subject) 8%, white);
+  background: color-mix(in srgb, var(--ui5-subject) 8%, var(--ui5-surface));
   color: var(--ui5-subject);
   font-weight: 850;
 }
@@ -207,11 +219,11 @@ body {
 .ui5-button--primary {
   border-color: var(--ui5-subject);
   background: var(--ui5-subject);
-  color: #fff;
+  color: var(--ui5-on-action);
 }
 .ui5-button--primary:hover {
   background: color-mix(in srgb, var(--ui5-subject) 88%, #000);
-  color: #fff;
+  color: var(--ui5-on-action);
 }
 
 .ui5-search {
@@ -321,7 +333,7 @@ body {
   height: 44px;
   border: 1px solid color-mix(in srgb, var(--ui5-subject) 28%, var(--ui5-border));
   border-radius: var(--ui5-radius-sm);
-  background: color-mix(in srgb, var(--ui5-subject) 8%, white);
+  background: color-mix(in srgb, var(--ui5-subject) 8%, var(--ui5-surface));
   color: var(--ui5-subject);
   font-size: 0.82rem;
   font-weight: 900;
@@ -483,7 +495,7 @@ body {
 .ui5-chapter-workspace .tab-pill.active {
   border-color: var(--ui5-subject);
   background: var(--ui5-subject);
-  color: #fff;
+  color: var(--ui5-on-action);
 }
 
 .ui5-chapter-before {
@@ -546,7 +558,7 @@ body {
   border: 1px solid var(--ui5-border);
   border-left: 3px solid var(--ui5-subject);
   border-radius: var(--ui5-radius-sm);
-  background: color-mix(in srgb, var(--ui5-subject) 6%, white);
+  background: color-mix(in srgb, var(--ui5-subject) 6%, var(--ui5-surface));
   box-shadow: none;
 }
 .ui5-course-content .course-special-heading,
@@ -658,7 +670,7 @@ body {
   padding: 0.15rem 0.4rem;
   border: 1px solid color-mix(in srgb, var(--ui5-subject) 28%, var(--ui5-border));
   border-radius: var(--ui5-radius-sm);
-  background: color-mix(in srgb, var(--ui5-subject) 8%, white);
+  background: color-mix(in srgb, var(--ui5-subject) 8%, var(--ui5-surface));
   color: var(--ui5-subject);
   font-size: 0.75rem;
   font-weight: 900;
@@ -708,7 +720,7 @@ body {
   padding: 0.6rem 0.85rem;
   border-radius: var(--ui5-radius-sm);
   background: var(--ui5-action);
-  color: #fff;
+  color: var(--ui5-on-action);
   font-weight: 800;
 }
 .ui5-skip-link:focus { transform: translateY(0); }
@@ -718,7 +730,7 @@ body {
   top: 0;
   z-index: 100;
   border-bottom: 1px solid var(--ui5-border);
-  background: rgba(255,255,255,0.97);
+  background: color-mix(in srgb, var(--ui5-surface) 97%, transparent);
   backdrop-filter: blur(12px);
 }
 .ui5-nav__inner {
@@ -758,7 +770,7 @@ body {
   height: 34px;
   border-radius: var(--ui5-radius-sm);
   background: var(--ui5-action);
-  color: #fff;
+  color: var(--ui5-on-action);
   font-weight: 900;
 }
 .ui5-nav__links {
@@ -1014,7 +1026,7 @@ body {
   height: 44px;
   border: 1px solid color-mix(in srgb, var(--ui5-subject) 25%, var(--ui5-border));
   border-radius: var(--ui5-radius-sm);
-  background: color-mix(in srgb, var(--ui5-subject) 8%, white);
+  background: color-mix(in srgb, var(--ui5-subject) 8%, var(--ui5-surface));
   color: var(--ui5-subject);
   font-weight: 900;
 }
@@ -1091,7 +1103,7 @@ body {
   padding: 0 .35rem;
   border: 1px solid color-mix(in srgb,var(--ui5-subject-card-accent) 28%,var(--ui5-border));
   border-radius: var(--ui5-radius-sm);
-  background: color-mix(in srgb,var(--ui5-subject-card-accent) 8%,white);
+  background: color-mix(in srgb,var(--ui5-subject-card-accent) 8%,var(--ui5-surface));
   color: var(--ui5-subject-card-accent);
   font-weight: 900;
 }
@@ -1188,7 +1200,7 @@ body {
   height: 44px;
   border: 1px solid color-mix(in srgb,var(--ui5-subject) 25%,var(--ui5-border));
   border-radius: var(--ui5-radius-sm);
-  background: color-mix(in srgb,var(--ui5-subject) 8%,white);
+  background: color-mix(in srgb,var(--ui5-subject) 8%,var(--ui5-surface));
   color: var(--ui5-subject);
   font-weight: 900;
 }
@@ -1261,7 +1273,7 @@ body {
   gap:.35rem;
 }
 .ui5-lab-filters__head .ui5-button {
-  min-height:36px;
+  min-height:44px;
   padding:.3rem .5rem;
   font-size:.72rem;
 }
@@ -1346,7 +1358,7 @@ body {
   height:46px;
   border:1px solid color-mix(in srgb,var(--ui5-subject) 25%,var(--ui5-border));
   border-radius:var(--ui5-radius-sm);
-  background:color-mix(in srgb,var(--ui5-subject) 8%,white);
+  background:color-mix(in srgb,var(--ui5-subject) 8%,var(--ui5-surface));
   color:var(--ui5-subject);
   font-size:1.15rem;
   font-weight:900;
@@ -1416,7 +1428,7 @@ body {
   height:54px;
   border:1px solid color-mix(in srgb,var(--ui5-subject) 25%,var(--ui5-border));
   border-radius:var(--ui5-radius-md);
-  background:color-mix(in srgb,var(--ui5-subject) 8%,white);
+  background:color-mix(in srgb,var(--ui5-subject) 8%,var(--ui5-surface));
   color:var(--ui5-subject);
   font-size:1.35rem;
   font-weight:900;
@@ -1545,7 +1557,7 @@ body {
 .ui5-tab.active {
   border-color: var(--ui5-subject);
   background: var(--ui5-subject);
-  color: #fff;
+  color: var(--ui5-on-action);
 }
 .ui5-tab__badge {
   display: inline-grid;
@@ -1561,7 +1573,7 @@ body {
 }
 .ui5-tab.active .ui5-tab__badge {
   background: rgba(255,255,255,0.2);
-  color: #fff;
+  color: var(--ui5-on-action);
 }
 .ui5-tabs__intro:empty { display: none; }
 .ui5-tab-panel,
@@ -1617,7 +1629,7 @@ body {
   width: min(100%, var(--ui5-content));
   margin-inline: auto;
 }
-.ui5-course-content :where(h2,h3,h4) {
+.ui5-course-content :is(h2,h3,h4) {
   color: var(--ui5-text);
   letter-spacing: 0;
   text-wrap: balance;
@@ -1700,14 +1712,14 @@ body {
 }
 .ui5-course-content .course-example-heading + :where(p,ul,ol,table,.katex-display,.katex-block) {
   border-left-color: var(--ui5-chem);
-  background: color-mix(in srgb, var(--ui5-chem) 4%, white);
+  background: color-mix(in srgb, var(--ui5-chem) 4%, var(--ui5-surface));
 }
 .ui5-course-content .course-warning-heading + :where(p,ul,ol,table,.katex-display,.katex-block) {
   border-left-color: #a33a23;
   background: #fff8f5;
 }
 
-.ui5-course-content :where(
+.ui5-course-content :is(
   .definition-box,.example-box,.info-box,.box-regle-or,.retenir-box,
   .formule-box,.formula-box,.methode-box,.méthode-box,.warning-box,.tip-box,
   .resultat-box,.box-pedagogie,.summary-box,.objectives-card,.box-objectif
@@ -1721,29 +1733,29 @@ body {
   background: var(--ui5-surface);
   box-shadow: none;
 }
-.ui5-course-content :where(.example-box,.tip-box) {
+.ui5-course-content :is(.example-box,.tip-box) {
   border-left-color: var(--ui5-chem);
-  background: color-mix(in srgb, var(--ui5-chem) 4%, white);
+  background: color-mix(in srgb, var(--ui5-chem) 4%, var(--ui5-surface));
 }
-.ui5-course-content :where(.methode-box,.méthode-box) {
+.ui5-course-content :is(.methode-box,.méthode-box) {
   border-left-color: var(--ui5-maths);
-  background: color-mix(in srgb, var(--ui5-maths) 4%, white);
+  background: color-mix(in srgb, var(--ui5-maths) 4%, var(--ui5-surface));
 }
-.ui5-course-content :where(.warning-box,.box-regle-or) {
+.ui5-course-content :is(.warning-box,.box-regle-or) {
   border-left-color: #a33a23;
   background: #fff8f5;
 }
-.ui5-course-content :where(.formule-box,.formula-box,.resultat-box)::before {
+.ui5-course-content :is(.formule-box,.formula-box,.resultat-box)::before {
   display: none;
 }
-.ui5-course-content :where(.formule-box,.formula-box) {
-  background: color-mix(in srgb, var(--ui5-subject) 4%, white);
+.ui5-course-content :is(.formule-box,.formula-box) {
+  background: color-mix(in srgb, var(--ui5-subject) 4%, var(--ui5-surface));
 }
-.ui5-course-content :where(.formule-box,.formula-box) .katex-display {
+.ui5-course-content :is(.formule-box,.formula-box) .katex-display {
   background: transparent;
 }
 
-.ui5-course-content :where(.schema-block,.svg-wrap,.math-figure) {
+.ui5-course-content :is(.schema-block,.svg-wrap,.math-figure) {
   border: 1px solid var(--ui5-border);
   border-radius: var(--ui5-radius-sm);
   background: var(--ui5-surface);
@@ -1756,7 +1768,7 @@ body {
 }
 .ui5-course-content thead th {
   background: var(--ui5-text);
-  color: #fff;
+  color: var(--ui5-surface);
 }
 
 .ui5-course-status {
@@ -1768,653 +1780,83 @@ body {
   padding: 0.25rem 0.55rem;
   border: 1px solid color-mix(in srgb, var(--ui5-chem) 35%, var(--ui5-border));
   border-radius: var(--ui5-radius-sm);
-  background: color-mix(in srgb, var(--ui5-chem) 7%, white);
+  background: color-mix(in srgb, var(--ui5-chem) 7%, var(--ui5-surface));
   color: var(--ui5-chem);
   font-size: 0.76rem;
   font-weight: 800;
 }
 
 
-/* Leane V5 compatibility */
-.ui5-leane-page .leane-svg-icon {
-  width: 1.15em;
-  height: 1.15em;
-  stroke: currentColor;
-  stroke-width: 1.9;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+/* V5 preferences: the historical a11y classes are the persisted public contract. */
+:root:is(.a11y-theme-gray-light,.a11y-theme-gray,.a11y-theme-dark,.a11y-theme-sepia,.a11y-theme-blue-light) {
+  --ui5-canvas: var(--bg-body);
+  --ui5-surface: var(--bg-card);
+  --ui5-surface-soft: var(--bg-secondary);
+  --ui5-text: var(--text-primary);
+  --ui5-text-2: var(--text-secondary);
+  --ui5-text-3: var(--text-muted);
+  --ui5-border: var(--border-color);
+  --ui5-border-strong: var(--border-hover);
 }
-.ui5-leane-nav {
-  width: min(100%, var(--ui5-content));
-  margin: 1rem auto 0;
+:root:is(.a11y-theme-gray,.a11y-theme-dark) {
+  --ui5-action: var(--accent-primary);
+  --ui5-action-hover: var(--accent-primary);
+  --ui5-action-soft: var(--accent-primary-light);
+  --ui5-focus: var(--accent-primary);
+  --ui5-on-action: var(--bg-primary);
+  --ui5-maths: #c4b5fd;
+  --ui5-pc: #67e8f9;
+  --ui5-chem: #6ee7b7;
 }
-.ui5-leane-toolbar {
-  display: grid;
-  grid-template-columns: minmax(0,1fr) auto;
-  gap: 0.75rem;
-  align-items: center;
+.ui5-button--primary,
+.ui5-page :is(button,a)[class*="ui5-u-background-ui5-action"][class*="ui5-u-color-fff"] {
+  color: var(--ui5-on-action);
 }
-.ui5-leane-memory {
+.ui5-page :where(button,select,input:not([type="checkbox"]):not([type="radio"]):not([type="range"])) {
   min-height: 44px;
-  text-decoration: none;
 }
-.ui5-leane-content {
-  display: grid;
-  gap: 1.2rem;
+.ui5-page :where(button,select,input,textarea,a,summary):focus-visible {
+  outline: 3px solid var(--ui5-focus);
+  outline-offset: 3px;
 }
-.ui5-leane-page .leane-grid,
-.ui5-leane-page .leane-two-col,
-.ui5-leane-page .leane-stat-grid,
-.ui5-leane-page .leane-card-grid {
-  display: grid;
-  gap: 1rem;
+.ui5-page button:disabled { cursor: not-allowed; }
+.ui5-page :where(.learning-player,.python-lab,.learning-question-card) { min-width: 0; }
+.ui5-math-block { text-align: center; margin: 1rem 0; }
+.ui5-course-content .cours-tracker__content > .spe-imported-content {
+  max-width: min(100%, var(--ui5-reading));
+  margin-inline: auto;
 }
-.ui5-leane-page .leane-stat-grid {
-  grid-template-columns: repeat(4,minmax(0,1fr));
+.ui5-tool-document > :not(.ui5-breadcrumb):not(.ui5-page-header) {
+  width: min(100%, var(--ui5-content));
+  margin-inline: auto;
 }
-.ui5-leane-page .leane-two-col {
-  grid-template-columns: minmax(0,1fr) minmax(280px,.45fr);
-  align-items: start;
-}
-.ui5-leane-page .leane-card-grid {
-  grid-template-columns: repeat(3,minmax(0,1fr));
-}
-.ui5-leane-page .leane-card-grid--courses {
-  grid-template-columns: repeat(2,minmax(0,1fr));
-}
-.ui5-leane-page :where(
-  .leane-panel,.leane-stat,.leane-level-card,.leane-course-card,
-  .leane-exercise-card,.leane-flashcard,.leane-question,.leane-mini-panel
-) {
+.ui5-tool-document .method-card {
+  margin-block: 1.5rem;
   border: 1px solid var(--ui5-border);
-  border-radius: var(--ui5-radius-md);
+  border-radius: var(--ui5-radius-sm);
+  padding: clamp(1rem, 3vw, 1.5rem);
   background: var(--ui5-surface);
   box-shadow: none;
 }
-.ui5-leane-page :where(.leane-panel,.leane-level-card,.leane-course-card,.leane-exercise-card,.leane-question,.leane-mini-panel) {
-  padding: 1rem;
-}
-.ui5-leane-page .leane-stat {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  min-height: 108px;
-  padding: 1rem;
-}
-.ui5-leane-page .leane-stat__icon {
-  display: inline-grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid currentColor;
-  border-radius: var(--ui5-radius-sm);
-}
-.ui5-leane-page .leane-stat strong {
-  display: block;
-  margin-top: 0.2rem;
-  color: var(--ui5-text);
-  font-size: 1.55rem;
-  line-height: 1;
-}
-.ui5-leane-page :where(.leane-stat span,.leane-stat small,.leane-card-muted,.leane-panel p,.leane-course-card p,.leane-exercise-card p) {
-  color: var(--ui5-text-2);
-}
-.ui5-leane-page :where(.leane-panel h2,.leane-level-card h2,.leane-course-card h2,.leane-exercise-card h2) {
-  margin: 0 0 0.65rem;
-  color: var(--ui5-text);
-  font-size: 1.05rem;
-}
-.ui5-leane-page .leane-eyebrow {
-  margin: 0 0 0.25rem;
-  color: var(--ui5-maths);
-  font-size: 0.76rem;
-  font-weight: 850;
-  text-transform: uppercase;
-}
-.ui5-leane-page .leane-level-card {
-  display: grid;
-  gap: 0.7rem;
-  border-top: 3px solid var(--level-accent,var(--ui5-maths));
-}
-.ui5-leane-page .leane-level-card__actions,
-.ui5-leane-page .leane-inline-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-}
-.ui5-leane-page .leane-level-card__actions {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-}
-.ui5-leane-page :where(.leane-chip,.leane-action-tile,.leane-outline-link,.leane-primary-link) {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 40px;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--ui5-border);
-  border-radius: var(--ui5-radius-sm);
-  background: var(--ui5-surface);
-  color: var(--ui5-text-2);
-  font-size: 0.84rem;
-  font-weight: 800;
-  text-decoration: none;
-}
-.ui5-leane-page .leane-chip {
-  min-height: 28px;
-  padding-block: 0.15rem;
-  background: var(--ui5-surface-soft);
-}
-.ui5-leane-page :where(.leane-action-tile,.leane-outline-link):hover,
-.ui5-leane-page :where(.leane-action-tile,.leane-outline-link):focus-visible {
-  border-color: var(--ui5-maths);
-  color: var(--ui5-maths);
-}
-.ui5-leane-page .leane-primary-link {
-  border-color: var(--ui5-maths);
-  background: var(--ui5-maths);
-  color: #fff;
-}
-.ui5-leane-page .leane-primary-link:hover,
-.ui5-leane-page .leane-primary-link:focus-visible {
-  background: color-mix(in srgb,var(--ui5-maths) 88%,#000);
-  color: #fff;
-}
-.ui5-leane-page .leane-progress {
-  height: 8px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: var(--ui5-surface-soft);
-}
-.ui5-leane-page .leane-progress span {
-  display: block;
-  height: 100%;
-  background: var(--ui5-maths);
-}
-.ui5-leane-page .leane-progress-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
-  color: var(--ui5-text-2);
-  font-size: 0.86rem;
-  font-weight: 750;
-}
-.ui5-leane-page .leane-progress-row strong { color: var(--ui5-text); }
-.ui5-leane-page .leane-list {
-  display: grid;
-  gap: 0.65rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.ui5-leane-page .leane-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding-top: 0.65rem;
-  border-top: 1px solid var(--ui5-border);
-}
-.ui5-leane-page .leane-exercise-step,
-.ui5-leane-page .leane-question {
-  display: grid;
-  gap: 0.65rem;
-}
-.ui5-leane-page :where(.leane-exercise-step details,.leane-exercise-card details,.leane-mini-panel details) {
-  padding: 0.65rem 0.75rem;
-  border: 1px solid var(--ui5-border);
-  border-radius: var(--ui5-radius-sm);
-  background: var(--ui5-surface-soft);
-}
-.ui5-leane-page :where(.leane-exercise-step summary,.leane-exercise-card summary,.leane-mini-panel summary) {
-  color: var(--ui5-maths);
-  font-weight: 800;
-  cursor: pointer;
-}
-.ui5-leane-page .leane-question label,
-.ui5-leane-page .leane-mini-quiz label {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.6rem 0.7rem;
-  border: 1px solid var(--ui5-border);
-  border-radius: var(--ui5-radius-sm);
-  background: var(--ui5-surface);
-}
-.ui5-leane-page .leane-question.is-correct { border-color: var(--ui5-chem); }
-.ui5-leane-page .leane-question.is-wrong { border-color: #b84b3a; }
-.ui5-leane-page .leane-result {
-  padding: 0.75rem;
-  border: 1px solid color-mix(in srgb,var(--ui5-maths) 30%,var(--ui5-border));
-  border-radius: var(--ui5-radius-sm);
-  background: color-mix(in srgb,var(--ui5-maths) 6%,white);
-  color: var(--ui5-maths);
-  font-weight: 850;
-}
-.ui5-leane-page .leane-flashcard {
-  min-height: 180px;
-  padding: 0;
-  perspective: 1000px;
-  cursor: pointer;
-}
-.ui5-leane-page .leane-flashcard__inner {
-  display: grid;
-  min-height: 180px;
-  transform-style: preserve-3d;
-  transition: transform 180ms ease;
-}
-.ui5-leane-page .leane-flashcard.is-flipped .leane-flashcard__inner {
-  transform: rotateY(180deg);
-}
-.ui5-leane-page .leane-flashcard__face {
-  grid-area: 1 / 1;
-  padding: 1rem;
-  backface-visibility: hidden;
-}
-.ui5-leane-page .leane-flashcard__face--back {
-  border-radius: var(--ui5-radius-md);
-  background: color-mix(in srgb,var(--ui5-chem) 5%,white);
-  transform: rotateY(180deg);
-}
-
-@media (max-width: 1000px) {
-  .ui5-leane-page .leane-stat-grid,
-  .ui5-leane-page .leane-card-grid,
-  .ui5-leane-page .leane-card-grid--courses,
-  .ui5-leane-page .leane-two-col {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-  }
-}
+.ui5-tool-document :where(pre,.table-wrap,.lab-output) { max-width: 100%; overflow-x: auto; }
+.ui5-tool-document :where(textarea,select,input) { max-width: 100%; }
 @media (max-width: 700px) {
-  .ui5-leane-toolbar {
-    grid-template-columns: 1fr;
-  }
-  .ui5-leane-page .leane-stat-grid,
-  .ui5-leane-page .leane-card-grid,
-  .ui5-leane-page .leane-card-grid--courses,
-  .ui5-leane-page .leane-two-col {
-    grid-template-columns: 1fr;
-  }
-  .ui5-leane-page .leane-level-card__actions {
-    grid-template-columns: 1fr;
-  }
+  .ui5-page :is(.learning-question-card,.learning-result-card,[data-quiz-result-v3],[data-flashcards-result-v3]) { padding: 1rem; }
+  .ui5-page :is(.ui5-u-grid-template-columns-repeat-3-minmax-0-1fr,.ui5-u-grid-template-columns-repeat-6-1fr) { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .ui5-page .ui5-u-grid-template-columns-repeat-2-minmax-0-1fr { grid-template-columns: 1fr; }
+  .ui5-page :is(.ui5-u-display-flex,.quiz-result-actions) { flex-wrap: wrap; }
 }
-
-
-/* Maths methods V5 */
-.ui5-methods-home,
-.ui5-method-page {
-  --ui5-subject: var(--ui5-maths);
+:root.a11y-reduced-motion *,
+:root.a11y-reduced-motion *::before,
+:root.a11y-reduced-motion *::after { animation: none; transition: none; scroll-behavior: auto; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none; transition: none; }
 }
-.ui5-methods-home .page-hero,
-.ui5-method-page .method-hero {
-  display: grid;
-  grid-template-columns: minmax(0,1fr) auto;
-  gap: 1rem 2rem;
-  align-items: end;
-  width: min(100%, var(--ui5-content));
-  margin: 0 auto 1.5rem;
-  padding: 1.25rem 0 1.5rem;
-  border-bottom: 1px solid var(--ui5-border);
-  text-align: left;
-}
-.ui5-methods-home .page-hero .eyebrow,
-.ui5-method-page .method-hero .eyebrow,
-.ui5-methods-home .section-heading p,
-.ui5-method-page .section-number,
-.ui5-methods-home .method-number {
-  margin: 0 0 0.35rem;
-  color: var(--ui5-maths);
-  font-size: 0.76rem;
-  font-weight: 850;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-.ui5-methods-home .page-hero h1,
-.ui5-method-page .method-hero h1 {
-  margin: 0;
-  color: var(--ui5-text);
-  font-size: clamp(2rem,4vw,3rem);
-  font-weight: 900;
-  line-height: 1.07;
-  text-wrap: balance;
-}
-.ui5-methods-home .page-hero > p:not(.eyebrow),
-.ui5-method-page .method-hero > p:not(.eyebrow) {
-  max-width: 72ch;
-  margin: 0.7rem 0 0;
-  color: var(--ui5-text-2);
-  line-height: 1.65;
-}
-.ui5-methods-home .hero-actions,
-.ui5-method-page .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-self: end;
-  justify-content: flex-end;
-}
-.ui5-methods-home .hero-actions a,
-.ui5-method-page .hero-actions a,
-.ui5-method-page .related-links a {
-  display: inline-flex;
-  min-height: 42px;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--ui5-border);
-  border-radius: var(--ui5-radius-sm);
-  background: var(--ui5-surface);
-  color: var(--ui5-text-2);
-  font-size: 0.84rem;
-  font-weight: 800;
-  text-decoration: none;
-}
-.ui5-methods-home .hero-actions a:hover,
-.ui5-method-page .hero-actions a:hover,
-.ui5-method-page .related-links a:hover {
-  border-color: var(--ui5-maths);
-  color: var(--ui5-maths);
-}
-
-.ui5-methods-home > :where(.intro-card,.diagnostic-card,.level-card,.guide-card,.cards-section),
-.ui5-method-page > :where(
-  .objective-card,.method-card,.examples-section,.warning-box,.tip-box,
-  .exercise-card,.remember-card,.related-card,.method-figure,.method-nav
-) {
-  width: min(100%, var(--ui5-content));
-  margin-left: auto;
-  margin-right: auto;
-}
-.ui5-methods-home :where(.intro-card,.diagnostic-card,.level-card,.guide-card),
-.ui5-method-page :where(.objective-card,.method-card,.examples-section,.warning-box,.tip-box,.exercise-card,.remember-card,.related-card) {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border: 1px solid var(--ui5-border);
-  border-radius: var(--ui5-radius-md);
-  background: var(--ui5-surface);
-  box-shadow: none;
-}
-.ui5-method-page .objective-card,
-.ui5-method-page .remember-card {
-  border-left: 3px solid var(--ui5-maths);
-  background: color-mix(in srgb,var(--ui5-maths) 5%,white);
-}
-.ui5-method-page .warning-box {
-  border-left: 3px solid #a33a23;
-  background: #fff8f5;
-}
-.ui5-method-page .tip-box {
-  border-left: 3px solid var(--ui5-chem);
-  background: color-mix(in srgb,var(--ui5-chem) 5%,white);
-}
-.ui5-methods-home :where(.intro-card,.diagnostic-card,.level-card,.guide-card) h2,
-.ui5-methods-home .section-heading h2,
-.ui5-methods-home .family-block h3,
-.ui5-method-page :where(.objective-card,.method-card,.examples-section,.warning-box,.tip-box,.exercise-card,.remember-card,.related-card) h2 {
-  margin: 0 0 0.7rem;
-  color: var(--ui5-text);
-  font-size: 1.25rem;
-  line-height: 1.25;
-}
-.ui5-methods-home .section-heading {
-  width: min(100%, var(--ui5-content));
-  margin: 2rem auto 0.8rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid var(--ui5-border);
-}
-.ui5-methods-home .base-grid,
-.ui5-methods-home .diagnostic-grid,
-.ui5-methods-home .level-list,
-.ui5-methods-home .method-grid,
-.ui5-method-page .formula-grid,
-.ui5-method-page .examples-grid,
-.ui5-method-page .method-focus {
-  display: grid;
-  gap: 0.8rem;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-}
-.ui5-methods-home .base-grid {
-  grid-template-columns: repeat(3,minmax(0,1fr));
-}
-.ui5-methods-home .base-grid article,
-.ui5-methods-home .diagnostic-grid article,
-.ui5-methods-home .level-list p,
-.ui5-method-page .formula-grid article,
-.ui5-method-page .example-card,
-.ui5-method-page .method-focus article {
-  margin: 0;
-  padding: 0.85rem;
-  border: 1px solid var(--ui5-border);
-  border-radius: var(--ui5-radius-sm);
-  background: var(--ui5-surface-soft);
-}
-.ui5-methods-home .method-grid {
-  width: min(100%, var(--ui5-content));
-  margin-inline: auto;
-}
-.ui5-methods-home .method-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  min-height: 180px;
-  padding: 1rem;
-  border: 1px solid var(--ui5-border);
-  border-radius: var(--ui5-radius-md);
-  background: var(--ui5-surface);
-  color: inherit;
-  text-decoration: none;
-}
-.ui5-methods-home .method-card:hover,
-.ui5-methods-home .method-card:focus-visible {
-  border-color: var(--ui5-maths);
-  box-shadow: none;
-  transform: translateY(-1px);
-}
-.ui5-methods-home .method-card strong {
-  color: var(--ui5-text);
-  font-size: 1.05rem;
-}
-.ui5-methods-home .method-card > span:not(.method-number):not(.level-badges) {
-  color: var(--ui5-text-2);
-  line-height: 1.55;
-}
-.ui5-methods-home .method-card :where(em,b) {
-  margin-top: auto;
-  color: var(--ui5-maths);
-  font-style: normal;
-  font-weight: 850;
-}
-.ui5-methods-home .family-list {
-  display: grid;
-  gap: 1.5rem;
-}
-.ui5-methods-home .family-block {
-  width: min(100%, var(--ui5-content));
-  margin-inline: auto;
-}
-.ui5-methods-home .level-badges,
-.ui5-method-page .level-badges,
-.ui5-method-page .competency-list,
-.ui5-method-page .related-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-.ui5-methods-home .level-badges em,
-.ui5-method-page .level-badges span,
-.ui5-method-page .competency-list span {
-  display: inline-flex;
-  min-height: 28px;
-  align-items: center;
-  padding: 0.15rem 0.5rem;
-  border: 1px solid var(--ui5-border);
-  border-radius: var(--ui5-radius-sm);
-  background: var(--ui5-surface-soft);
-  color: var(--ui5-text-2);
-  font-size: 0.74rem;
-  font-style: normal;
-  font-weight: 800;
-}
-.ui5-method-page :where(p,li) {
-  color: var(--ui5-text-2);
-  line-height: 1.65;
-}
-.ui5-method-page .lead {
-  color: var(--ui5-text);
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-.ui5-method-page .method-steps ol,
-.ui5-method-page .examples-section ol,
-.ui5-method-page .guide-card ol {
-  padding-left: 1.25rem;
-}
-.ui5-method-page .method-figure {
-  overflow-x: auto;
-  padding: 1rem;
-  border: 1px solid var(--ui5-border);
-  border-radius: var(--ui5-radius-md);
-  background: var(--ui5-surface);
-}
-.ui5-method-page .method-figure svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  min-width: 620px;
-}
-.ui5-method-page .method-figure figcaption {
-  margin-top: 0.6rem;
-  color: var(--ui5-text-3);
-  font-size: 0.82rem;
-  text-align: center;
-}
-.ui5-method-page .exercise-card details {
-  margin-top: 0.75rem;
-  padding: 0.7rem 0.8rem;
-  border: 1px solid var(--ui5-border);
-  border-radius: var(--ui5-radius-sm);
-  background: var(--ui5-surface-soft);
-}
-.ui5-method-page .exercise-card summary {
-  color: var(--ui5-maths);
-  font-weight: 850;
-  cursor: pointer;
-}
-.ui5-method-page .method-nav {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-}
-.ui5-method-page .method-nav a {
-  display: grid;
-  gap: 0.2rem;
-  min-height: 58px;
-  padding: 0.7rem 0.8rem;
-  border: 1px solid var(--ui5-border);
-  border-radius: var(--ui5-radius-sm);
-  background: var(--ui5-surface);
-  color: var(--ui5-text-2);
-  text-decoration: none;
-}
-.ui5-method-page .method-nav a:hover {
-  border-color: var(--ui5-maths);
-  color: var(--ui5-maths);
-}
-.ui5-method-page .method-nav a span {
-  color: var(--ui5-text-3);
-  font-size: 0.72rem;
-}
-.ui5-method-page .method-nav a strong {
-  color: var(--ui5-text);
-  font-size: 0.88rem;
-}
-
-@media (max-width: 820px) {
-  .ui5-methods-home .page-hero,
-  .ui5-method-page .method-hero {
-    grid-template-columns: 1fr;
-  }
-  .ui5-methods-home .hero-actions,
-  .ui5-method-page .hero-actions {
-    justify-content: flex-start;
-  }
-  .ui5-methods-home .base-grid,
-  .ui5-methods-home .diagnostic-grid,
-  .ui5-methods-home .level-list,
-  .ui5-methods-home .method-grid,
-  .ui5-method-page .formula-grid,
-  .ui5-method-page .examples-grid,
-  .ui5-method-page .method-focus,
-  .ui5-method-page .method-nav {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* Leane page-specific layouts centralized in V5 */
-.ui5-leane-page .leane-exercise-choice,
-.ui5-leane-page .leane-qcm-choice {
-  min-height: 240px;
-  color: inherit;
-  text-decoration: none;
-}
-.ui5-leane-page .leane-exercise-choice:hover,
-.ui5-leane-page .leane-exercise-choice:focus-visible,
-.ui5-leane-page .leane-qcm-choice:hover,
-.ui5-leane-page .leane-qcm-choice:focus-visible {
-  border-color: var(--ui5-maths);
-  box-shadow: none;
-  transform: translateY(-1px);
-  outline: none;
-}
-.ui5-leane-page .leane-exercise-choice .leane-primary-link,
-.ui5-leane-page .leane-qcm-choice .leane-primary-link {
-  justify-self: start;
-  margin-top: auto;
-}
-.ui5-leane-page .leane-qcm-choice-grid {
-  grid-template-columns: repeat(2,minmax(0,1fr));
-}
-.ui5-leane-page .leane-exercise-detail,
-.ui5-leane-page .leane-qcm-detail {
-  grid-template-columns: minmax(0,1fr) minmax(240px,.32fr);
-}
-.ui5-leane-page .leane-exercise-detail__top,
-.ui5-leane-page .leane-qcm-detail__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .75rem;
-  margin-bottom: .85rem;
-}
-.ui5-leane-page .leane-exercise-detail .leane-exercise-runner__stack {
-  min-height: 20rem;
-}
-.ui5-leane-page .leane-exercise-detail .leane-exercise-step h3 {
-  font-size: clamp(1.3rem,2vw,1.7rem);
-}
-.ui5-leane-page .leane-qcm-detail .leane-question {
-  min-height: 18rem;
-}
-.ui5-leane-page .leane-exercise-side,
-.ui5-leane-page .leane-qcm-side {
-  position: sticky;
-  top: 5.25rem;
-}
-@media (max-width: 1040px) {
-  .ui5-leane-page .leane-exercise-detail,
-  .ui5-leane-page .leane-qcm-detail {
-    grid-template-columns: 1fr;
-  }
-  .ui5-leane-page .leane-exercise-side,
-  .ui5-leane-page .leane-qcm-side {
-    position: static;
-  }
-}
-@media (max-width: 900px) {
-  .ui5-leane-page .leane-qcm-choice-grid {
-    grid-template-columns: 1fr;
-  }
-}
+:root.a11y-fontsize-large { font-size: 18.4px; --font-size-base: 1rem; }
+:root.a11y-fontsize-x-large { font-size: 21.6px; --font-size-base: 1rem; }
+:root:is(.a11y-linewidth-narrow,.a11y-linewidth-very-narrow) { --ui5-reading: var(--max-line-width); }
+:root:is(.a11y-lineheight-large,.a11y-lineheight-x-large) .ui5-page :where(p,li,.course-reader-v3__body) { line-height: var(--line-height-base); }
+.ui5-stat-section-title { margin-bottom: 0.75rem; color: var(--ui5-text); font-size: 1.15rem; font-weight: 700; }
+.ui5-page :where(button,input,select,textarea) { font-family: inherit; }
+.ui5-page button[aria-disabled="true"] { color: var(--ui5-text-3); }

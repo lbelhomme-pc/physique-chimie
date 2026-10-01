@@ -5,19 +5,11 @@ import { join } from "node:path";
 
 const root = process.cwd();
 const panelSource = readFileSync(join(root, "src/components/accessibility/AccessibilityPanel.tsx"), "utf8");
+const panelStyles = readFileSync(join(root, "src/ui-v5/accessibility.css"), "utf8");
 const guideSource = readFileSync(join(root, "src/components/accessibility/ReadingGuide.tsx"), "utf8");
 const engineSource = readFileSync(join(root, "src/data/accessibility/a11y-engine.ts"), "utf8");
-const designSystemSource = [
-  "design-system.css",
-  "tokens-v3.css",
-  "theme.css",
-  "core.css",
-  "components.css",
-  "course-content.css",
-  "utilities.css",
-  "reference-v3.css",
-]
-  .map((file) => readFileSync(join(root, "src/styles", file), "utf8"))
+const designSystemSource = ["index.css", "tokens.css", "preferences.css", "reset.css", "compat-components.css", "compat-content.css", "compat-utilities.css"]
+  .map((file) => readFileSync(join(root, "src/ui-v5", file), "utf8"))
   .join("\n");
 
 describe("Accessibilite et DYS systeme V3", () => {
@@ -38,10 +30,11 @@ describe("Accessibilite et DYS systeme V3", () => {
     }
   });
 
-  it("integre le panneau aux tokens V3 sans styles inline dominants", () => {
+  it("integre le panneau aux tokens V5 charges a la demande", () => {
     assert.match(panelSource, /className="a11y-panel-toggle"/);
-    assert.match(panelSource, /--v3-color-surface-raised/);
-    assert.match(panelSource, /--v3-shadow-focus/);
+    assert.match(panelStyles, /--ui5-surface/);
+    assert.doesNotMatch(panelSource, /<style>/);
+    assert.match(panelStyles, /--ui5-focus/);
     assert.doesNotMatch(panelSource, /style=\{\{[^}]+position:\s*"fixed"/);
   });
 

@@ -1,0 +1,791 @@
+/* V5 lab UI; scientific plot, apparatus and particle geometry retained. */
+.lab-results {
+  min-width: 0;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.lab-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+}
+
+.lab-panel {
+  background: var(--ui5-surface);
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-md);
+  box-shadow: none;
+  padding: 1.15rem;
+}
+
+.lab-panel + .lab-panel {
+  margin-top: 1rem;
+}
+
+.lab-panel__title {
+  align-items: center;
+  color: var(--ui5-text);
+  display: flex;
+  font-size: 1.02rem;
+  font-weight: 800;
+  gap: 0.45rem;
+  margin: 0 0 0.75rem;
+}
+
+.lab-panel__subtitle {
+  color: var(--ui5-text-3);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: -0.3rem 0 0.9rem;
+}
+
+.lab-access-question-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 0.9rem;
+}
+
+.lab-access-question-grid article {
+  background: var(--ui5-surface-soft);
+  border: 1px solid var(--ui5-border);
+  border-radius: 8px;
+  padding: 0.85rem;
+}
+
+.generic-lab__accessible-record {
+  grid-column: 1 / -1;
+}
+
+.lab-access-table-wrap {
+  overflow-x: auto;
+}
+
+.lab-access-table {
+  border-collapse: collapse;
+  min-width: 720px;
+  width: 100%;
+}
+
+.lab-access-table caption {
+  color: var(--ui5-text);
+  font-weight: 850;
+  margin-bottom: 0.45rem;
+  text-align: left;
+}
+
+.lab-access-table th,
+.lab-access-table td {
+  border: 1px solid var(--ui5-border);
+  color: var(--ui5-text-2);
+  padding: 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.lab-access-table th {
+  background: var(--ui5-surface-soft);
+  color: var(--ui5-text);
+}
+
+.lab-control {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.lab-control label {
+  color: var(--ui5-text-2);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.lab-control input[type="range"] {
+  accent-color: var(--ui5-action);
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+}
+
+.lab-control select {
+  width: 100%;
+}
+
+.lab-control input:focus-visible,
+.lab-control select:focus-visible,
+.lab-button:focus-visible {
+  outline: 3px solid var(--v3-color-focus-ring);
+  outline-offset: 3px;
+}
+
+.lab-value,
+.lab-readout strong {
+  color: var(--ui5-action);
+  font-weight: 900;
+}
+
+.lab-readout {
+  background: var(--accent-primary-light);
+  border: 1px solid rgba(79, 70, 229, 0.16);
+  border-radius: var(--ui5-radius-md);
+  color: var(--ui5-text-2);
+  line-height: 1.55;
+  padding: 0.85rem;
+}
+
+.lab-note {
+  background: var(--accent-warning-light);
+  border-left: 5px solid var(--accent-warning);
+  border-radius: 6px;
+  color: var(--ui5-text-2);
+  line-height: 1.6;
+  margin-top: 1rem;
+  padding: 0.95rem 1rem;
+}
+
+.lab-button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.lab-button {
+  align-items: center;
+  background: var(--ui5-surface);
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-md);
+  color: var(--ui5-text-2);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-weight: 800;
+  gap: 0.35rem;
+  justify-content: center;
+  min-height: 2.55rem;
+  padding: 0.55rem 0.85rem;
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
+}
+
+.lab-button:hover {
+  background: var(--bg-tertiary);
+  color: var(--ui5-text);
+  transform: translateY(-1px);
+}
+
+.lab-button.is-active,
+.lab-button.active {
+  background: var(--ui5-action);
+  border-color: var(--ui5-action);
+  color: #fff;
+}
+
+.lab-button.danger {
+  border-color: rgba(239, 68, 68, 0.35);
+  color: var(--accent-danger);
+}
+
+.lab-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+  transform: none;
+}
+
+.generic-lab {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+}
+
+.generic-lab__stage {
+  min-width: 0;
+}
+
+.generic-lab__canvas-wrap {
+  min-height: 430px;
+}
+
+.generic-lab__canvas {
+  height: 430px;
+}
+
+.generic-lab__actions {
+  margin-bottom: 1rem;
+}
+
+.solar-guide,
+.mixture-guide,
+.chrono-guide,
+.chain-guide,
+.decay-guide,
+.refraction-guide,
+.lens-guide,
+.scope-guide,
+.telescope-guide,
+.weight-guide,
+.ohm-guide,
+.power-guide,
+.thermal-guide,
+.titration-guide,
+.ions-guide,
+.mole-guide,
+.seasons-guide,
+.escape-guide {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(250, 204, 21, 0.1));
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  border-radius: 8px;
+  color: var(--ui5-text-2);
+  display: grid;
+  gap: 0.25rem;
+  line-height: 1.45;
+  margin: 0 0 1rem;
+  padding: 0.8rem;
+}
+
+.solar-guide strong,
+.mixture-guide strong,
+.chrono-guide strong,
+.chain-guide strong,
+.decay-guide strong,
+.refraction-guide strong,
+.lens-guide strong,
+.scope-guide strong,
+.telescope-guide strong,
+.weight-guide strong,
+.ohm-guide strong,
+.power-guide strong,
+.thermal-guide strong,
+.titration-guide strong,
+.ions-guide strong,
+.mole-guide strong,
+.seasons-guide strong,
+.escape-guide strong {
+  color: var(--ui5-text);
+}
+
+.mixture-guide {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(16, 185, 129, 0.1));
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.chrono-guide {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(16, 185, 129, 0.1));
+  border-color: rgba(79, 70, 229, 0.22);
+}
+
+.chain-guide {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(245, 158, 11, 0.1));
+  border-color: rgba(16, 185, 129, 0.22);
+}
+
+.decay-guide {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.11), rgba(79, 70, 229, 0.1));
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.refraction-guide {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(79, 70, 229, 0.1));
+  border-color: rgba(14, 165, 233, 0.22);
+}
+
+.lens-guide {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(245, 158, 11, 0.1));
+  border-color: rgba(79, 70, 229, 0.22);
+}
+
+.scope-guide {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.08), rgba(16, 185, 129, 0.1));
+  border-color: rgba(15, 23, 42, 0.16);
+}
+
+.telescope-guide {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(14, 165, 233, 0.1));
+  border-color: rgba(79, 70, 229, 0.2);
+}
+
+.weight-guide {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.13), rgba(239, 68, 68, 0.08));
+  border-color: rgba(245, 158, 11, 0.24);
+}
+
+.ohm-guide {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(79, 70, 229, 0.1));
+  border-color: rgba(14, 165, 233, 0.22);
+}
+
+.power-guide {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(16, 185, 129, 0.1));
+  border-color: rgba(79, 70, 229, 0.22);
+}
+
+.thermal-guide {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.11), rgba(59, 130, 246, 0.1));
+  border-color: rgba(239, 68, 68, 0.18);
+}
+
+.titration-guide {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(245, 158, 11, 0.1));
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.ions-guide {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(79, 70, 229, 0.1));
+  border-color: rgba(16, 185, 129, 0.22);
+}
+
+.mole-guide {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(16, 185, 129, 0.1));
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.seasons-guide {
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.14), rgba(59, 130, 246, 0.1));
+  border-color: rgba(250, 204, 21, 0.25);
+}
+
+.escape-guide {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(245, 158, 11, 0.1));
+  border-color: rgba(79, 70, 229, 0.22);
+}
+
+.generic-lab[data-slug="systeme-solaire"] .generic-lab__canvas-wrap {
+  background: #050816;
+  border-color: rgba(30, 41, 59, 0.28);
+  min-height: 520px;
+}
+
+.generic-lab[data-slug="systeme-solaire"] .generic-lab__canvas {
+  cursor: pointer;
+  height: 520px;
+}
+
+.generic-lab[data-slug="systeme-solaire"] .orbit-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.generic-lab[data-slug="melanges"] .generic-lab__canvas-wrap {
+  background: linear-gradient(135deg, #f8fbff, #eefcf8);
+  min-height: 520px;
+}
+
+.generic-lab[data-slug="melanges"] .generic-lab__canvas {
+  cursor: pointer;
+  height: 520px;
+}
+
+.generic-lab[data-slug="melanges"] .lab-context-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.generic-lab[data-slug="lunette-afocale"] .generic-lab__canvas-wrap {
+  background: linear-gradient(135deg, #f8fbff, #eef2ff);
+  min-height: 540px;
+}
+
+.generic-lab[data-slug="lunette-afocale"] .generic-lab__canvas {
+  height: 540px;
+}
+
+.generic-lab[data-slug="lunette-afocale"] .lab-context-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.generic-lab[data-slug="loi-ohm"] .generic-lab__canvas-wrap {
+  background: linear-gradient(135deg, #f8fbff, #eef7ff);
+  min-height: 500px;
+}
+
+.generic-lab[data-slug="loi-ohm"] .generic-lab__canvas {
+  height: 500px;
+}
+
+.generic-lab[data-slug="poids-masse"] .generic-lab__canvas-wrap {
+  background: linear-gradient(135deg, #f8fbff, #eef7ff);
+  min-height: 500px;
+}
+
+.generic-lab[data-slug="poids-masse"] .generic-lab__canvas {
+  height: 500px;
+}
+
+.generic-lab[data-slug="puissance-energie"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="bilans-thermiques"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="titrage-ph-metrique"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="titrage-conductimetrique"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="test-ions"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="chronophotographie"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="chaines-energetiques"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="decroissance-radioactive"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="refraction-lumiere"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="lentilles-images"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="oscilloscope"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="mole-pesee"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="simulateur-saisons"] .generic-lab__canvas-wrap,
+.generic-lab[data-slug="escape-energie"] .generic-lab__canvas-wrap {
+  background: linear-gradient(135deg, #f8fbff, #eef7ff);
+  min-height: 500px;
+}
+
+.generic-lab[data-slug="puissance-energie"] .generic-lab__canvas,
+.generic-lab[data-slug="bilans-thermiques"] .generic-lab__canvas,
+.generic-lab[data-slug="titrage-ph-metrique"] .generic-lab__canvas,
+.generic-lab[data-slug="titrage-conductimetrique"] .generic-lab__canvas,
+.generic-lab[data-slug="test-ions"] .generic-lab__canvas,
+.generic-lab[data-slug="chronophotographie"] .generic-lab__canvas,
+.generic-lab[data-slug="chaines-energetiques"] .generic-lab__canvas,
+.generic-lab[data-slug="decroissance-radioactive"] .generic-lab__canvas,
+.generic-lab[data-slug="refraction-lumiere"] .generic-lab__canvas,
+.generic-lab[data-slug="lentilles-images"] .generic-lab__canvas,
+.generic-lab[data-slug="oscilloscope"] .generic-lab__canvas,
+.generic-lab[data-slug="mole-pesee"] .generic-lab__canvas,
+.generic-lab[data-slug="simulateur-saisons"] .generic-lab__canvas,
+.generic-lab[data-slug="escape-energie"] .generic-lab__canvas {
+  height: 500px;
+}
+
+.generic-lab[data-slug="poids-masse"] .lab-context-metrics,
+.generic-lab[data-slug="loi-ohm"] .lab-context-metrics,
+.generic-lab[data-slug="puissance-energie"] .lab-context-metrics,
+.generic-lab[data-slug="bilans-thermiques"] .lab-context-metrics,
+.generic-lab[data-slug="titrage-ph-metrique"] .lab-context-metrics,
+.generic-lab[data-slug="titrage-conductimetrique"] .lab-context-metrics,
+.generic-lab[data-slug="test-ions"] .lab-context-metrics,
+.generic-lab[data-slug="chronophotographie"] .lab-context-metrics,
+.generic-lab[data-slug="chaines-energetiques"] .lab-context-metrics,
+.generic-lab[data-slug="decroissance-radioactive"] .lab-context-metrics,
+.generic-lab[data-slug="refraction-lumiere"] .lab-context-metrics,
+.generic-lab[data-slug="lentilles-images"] .lab-context-metrics,
+.generic-lab[data-slug="oscilloscope"] .lab-context-metrics,
+.generic-lab[data-slug="mole-pesee"] .lab-context-metrics,
+.generic-lab[data-slug="simulateur-saisons"] .lab-context-metrics,
+.generic-lab[data-slug="escape-energie"] .lab-context-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.orbit-metrics,
+.lab-context-metrics {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0.85rem 0;
+}
+
+.orbit-metrics div,
+.lab-context-metrics div {
+  background: var(--ui5-surface-soft);
+  border: 1px solid var(--ui5-border);
+  border-radius: 8px;
+  padding: 0.65rem;
+}
+
+.orbit-metrics span,
+.lab-context-metrics span {
+  color: var(--ui5-text-3);
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 850;
+  margin-bottom: 0.25rem;
+}
+
+.orbit-metrics strong,
+.lab-context-metrics strong {
+  color: var(--ui5-text);
+  display: block;
+  font-size: 0.96rem;
+  line-height: 1.15;
+}
+
+.lab-canvas-wrap {
+  background: linear-gradient(180deg, var(--ui5-surface-soft), var(--ui5-surface));
+  border: 1px solid var(--ui5-border);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.lab-canvas {
+  display: block;
+  height: 380px;
+  width: 100%;
+}
+
+.lab-sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Circuit RC */
+
+@keyframes rc-electron-pulse {
+  from {
+    filter: drop-shadow(0 0 3px rgba(37, 99, 235, 0.25));
+  }
+
+  to {
+    filter: drop-shadow(0 0 9px rgba(37, 99, 235, 0.58));
+  }
+}
+
+@keyframes rc-switch-start {
+  0% {
+    stroke-width: 9;
+  }
+
+  100% {
+    stroke-width: 5;
+  }
+}
+
+/* Kepler */
+
+/* Gaz parfaits */
+
+.pressure-warning {
+  color: var(--accent-danger);
+  font-size: 0.86rem;
+  font-weight: 900;
+  min-height: 1.2rem;
+  opacity: 0;
+  text-align: center;
+}
+
+/* Diffusion */
+
+.beaker {
+  align-self: end;
+  background: rgba(255,255,255,0.68);
+  border: 4px solid rgba(30, 41, 59, 0.42);
+  border-top: 0;
+  border-radius: 0 0 1.3rem 1.3rem;
+  height: 390px;
+  overflow: hidden;
+  position: relative;
+}
+
+.surface {
+  background: rgba(14, 165, 233, 0.36);
+  height: 6px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: transform 0.18s ease;
+}
+
+.is-diffusion-running .beaker {
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.14), var(--shadow-md);
+}
+
+.stirring-anim {
+  animation: stirrerDepthSpin 0.72s ease-in-out infinite;
+}
+
+@keyframes stirrerDepthSpin {
+  0%,
+  100% {
+    filter: brightness(1);
+    transform: translateX(-50%) scaleX(1) scaleY(1);
+  }
+
+  25% {
+    filter: brightness(0.86);
+    transform: translateX(-50%) scaleX(0.32) scaleY(1.22);
+  }
+
+  50% {
+    filter: brightness(1.08);
+    transform: translateX(-50%) scaleX(0.92) scaleY(1);
+  }
+
+  75% {
+    filter: brightness(0.86);
+    transform: translateX(-50%) scaleX(0.32) scaleY(1.22);
+  }
+}
+
+@media (max-width: 920px) {
+  .generic-lab,
+  .lab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-access-question-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-canvas,
+  .generic-lab__canvas,
+  .generic-lab__canvas-wrap {
+    height: 340px;
+    min-height: 340px;
+  }
+
+  .generic-lab[data-slug="systeme-solaire"] .generic-lab__canvas,
+  .generic-lab[data-slug="systeme-solaire"] .generic-lab__canvas-wrap {
+    height: 390px;
+    min-height: 390px;
+  }
+
+  .generic-lab[data-slug="melanges"] .generic-lab__canvas,
+  .generic-lab[data-slug="melanges"] .generic-lab__canvas-wrap {
+    height: 430px;
+    min-height: 430px;
+  }
+
+  .generic-lab[data-slug="lunette-afocale"] .generic-lab__canvas,
+  .generic-lab[data-slug="lunette-afocale"] .generic-lab__canvas-wrap {
+    height: 430px;
+    min-height: 430px;
+  }
+
+  .generic-lab[data-slug="poids-masse"] .generic-lab__canvas,
+  .generic-lab[data-slug="loi-ohm"] .generic-lab__canvas,
+  .generic-lab[data-slug="loi-ohm"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="puissance-energie"] .generic-lab__canvas,
+  .generic-lab[data-slug="puissance-energie"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="bilans-thermiques"] .generic-lab__canvas,
+  .generic-lab[data-slug="bilans-thermiques"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="titrage-ph-metrique"] .generic-lab__canvas,
+  .generic-lab[data-slug="titrage-ph-metrique"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="titrage-conductimetrique"] .generic-lab__canvas,
+  .generic-lab[data-slug="titrage-conductimetrique"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="test-ions"] .generic-lab__canvas,
+  .generic-lab[data-slug="test-ions"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="chronophotographie"] .generic-lab__canvas,
+  .generic-lab[data-slug="chronophotographie"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="chaines-energetiques"] .generic-lab__canvas,
+  .generic-lab[data-slug="chaines-energetiques"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="decroissance-radioactive"] .generic-lab__canvas,
+  .generic-lab[data-slug="decroissance-radioactive"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="refraction-lumiere"] .generic-lab__canvas,
+  .generic-lab[data-slug="refraction-lumiere"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="lentilles-images"] .generic-lab__canvas,
+  .generic-lab[data-slug="lentilles-images"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="oscilloscope"] .generic-lab__canvas,
+  .generic-lab[data-slug="oscilloscope"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="mole-pesee"] .generic-lab__canvas,
+  .generic-lab[data-slug="mole-pesee"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="simulateur-saisons"] .generic-lab__canvas,
+  .generic-lab[data-slug="simulateur-saisons"] .generic-lab__canvas-wrap,
+  .generic-lab[data-slug="escape-energie"] .generic-lab__canvas,
+  .generic-lab[data-slug="escape-energie"] .generic-lab__canvas-wrap {
+    height: 420px;
+    min-height: 420px;
+  }
+
+  .generic-lab[data-slug="poids-masse"] .generic-lab__canvas,
+  .generic-lab[data-slug="poids-masse"] .generic-lab__canvas-wrap {
+    height: 500px;
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 640px) {
+  .lab-panel {
+    padding: 1rem;
+  }
+
+  .orbit-metrics,
+  .lab-context-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .generic-lab[data-slug="systeme-solaire"] .orbit-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .generic-lab[data-slug="melanges"] .lab-context-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .generic-lab[data-slug="lunette-afocale"] .lab-context-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .generic-lab[data-slug="poids-masse"] .lab-context-metrics,
+  .generic-lab[data-slug="loi-ohm"] .lab-context-metrics,
+  .generic-lab[data-slug="puissance-energie"] .lab-context-metrics,
+  .generic-lab[data-slug="bilans-thermiques"] .lab-context-metrics,
+  .generic-lab[data-slug="titrage-ph-metrique"] .lab-context-metrics,
+  .generic-lab[data-slug="titrage-conductimetrique"] .lab-context-metrics,
+  .generic-lab[data-slug="test-ions"] .lab-context-metrics,
+  .generic-lab[data-slug="chronophotographie"] .lab-context-metrics,
+  .generic-lab[data-slug="chaines-energetiques"] .lab-context-metrics,
+  .generic-lab[data-slug="decroissance-radioactive"] .lab-context-metrics,
+  .generic-lab[data-slug="refraction-lumiere"] .lab-context-metrics,
+  .generic-lab[data-slug="lentilles-images"] .lab-context-metrics,
+  .generic-lab[data-slug="oscilloscope"] .lab-context-metrics,
+  .generic-lab[data-slug="mole-pesee"] .lab-context-metrics,
+  .generic-lab[data-slug="simulateur-saisons"] .lab-context-metrics,
+  .generic-lab[data-slug="escape-energie"] .lab-context-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .beaker {
+    height: 310px;
+  }
+}
+
+@media (max-width: 420px) {
+
+  .beaker {
+    height: 300px;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-button,
+  .stirring-anim {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   V4 — bibliothèque laboratoire cohérente avec la plateforme
+   ═══════════════════════════════════════════════════════════ */
+
+[data-lab-index] .lab-active-filter {
+  min-height: 36px;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--v3-color-action);
+  border-radius: var(--ui5-radius-sm);
+  background: var(--v3-color-action-subtle);
+  color: var(--v3-color-action);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+[data-lab-index] .lab-active-filter:focus-visible {
+  outline: 3px solid var(--v3-color-focus-ring);
+  outline-offset: 2px;
+}
+
+@media (max-width: 920px) {
+
+  [data-lab-index][data-lab-filters-open="true"]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 120;
+    background: rgba(6, 24, 73, 0.38);
+  }
+}
+
+/* Grid items must shrink around locally scrollable scientific media. */
+.ui5-lab-simulation,
+.ui5-lab-simulation :is(.crc-card,.ig-card,.kpl-card,.dt-card,.tph-card) {
+  min-width: 0;
+  max-width: 100%;
+}

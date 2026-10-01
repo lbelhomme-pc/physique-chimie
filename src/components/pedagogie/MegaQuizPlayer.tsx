@@ -122,9 +122,9 @@ export default function MegaQuizPlayer({ allQuestions, dataUrl, totalQuestions }
   }, [started]);
 
   const V = {
-    bg: "var(--bg-card)", bgS: "var(--bg-secondary)", bd: "var(--border-color)",
-    t: "var(--text-primary)", tm: "var(--text-muted)",
-    p: "var(--accent-primary)", pL: "var(--accent-primary-light)",
+    bg: "var(--ui5-surface)", bgS: "var(--ui5-surface-soft)", bd: "var(--ui5-border)",
+    t: "var(--ui5-text)", tm: "var(--ui5-text-3)",
+    p: "var(--ui5-action)", pL: "var(--ui5-action-soft)",
     s: "var(--accent-success)", sL: "var(--accent-success-light)",
     d: "var(--accent-danger)", dL: "var(--accent-danger-light)",
     pu: "var(--accent-purple)", puL: "var(--accent-purple-light)",
@@ -134,9 +134,9 @@ export default function MegaQuizPlayer({ allQuestions, dataUrl, totalQuestions }
   const P = ({ a, onClick, children }: { a: boolean; onClick: () => void; children: ReactNode }) => (
     <button
       type="button"
-      aria-pressed={a}
+     aria-pressed={a}
       onClick={onClick}
-      style={{ padding: "0.35rem 0.8rem", borderRadius: V.rp, border: "none", cursor: "pointer", fontWeight: 600, fontSize: "0.78rem", fontFamily: "inherit", background: a ? V.p : V.bgS, color: a ? "#fff" : V.tm, transition: "all 0.15s" }}
+      className={"ui5-u-padding-0-35rem-0-8rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-none ui5-u-cursor-pointer ui5-u-font-weight-600 ui5-u-font-size-0-78rem ui5-u-font-family-inherit" + " " + (a ? "ui5-u-background-ui5-action" : "ui5-u-background-ui5-surface-soft") + " " + (a ? "ui5-u-color-fff" : "ui5-u-color-ui5-text-3") + " " + "ui5-u-transition-all-0-15s"}
     >
       {children}
     </button>
@@ -151,55 +151,55 @@ export default function MegaQuizPlayer({ allQuestions, dataUrl, totalQuestions }
   };
 
   if (loading) {
-    return <div data-mega-quiz-player-v3="true" role="status" aria-live="polite" style={{ background: V.bg, borderRadius: V.r, boxShadow: V.sh, padding: "1.5rem", border: `1px solid ${V.bd}`, textAlign: "center", color: V.tm }}>Chargement de {totalQuestions ?? "la banque de"} questions...</div>;
+    return <div data-mega-quiz-player-v3="true" role="status" aria-live="polite" className="ui5-u-background-ui5-surface ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-1-5rem ui5-u-border-1px-solid-ui5-border ui5-u-text-align-center ui5-u-color-ui5-text-3">Chargement de {totalQuestions ?? "la banque de"} questions...</div>;
   }
 
   if (loadError) {
-    return <div data-mega-quiz-player-v3="true" role="alert" style={{ background: V.bg, borderRadius: V.r, boxShadow: V.sh, padding: "1.5rem", border: `1px solid ${V.bd}`, textAlign: "center", color: V.d }}>{loadError}</div>;
+    return <div data-mega-quiz-player-v3="true" role="alert" className="ui5-u-background-ui5-surface ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-1-5rem ui5-u-border-1px-solid-ui5-border ui5-u-text-align-center ui5-u-color-accent-danger">{loadError}</div>;
   }
 
   if (!started) {
     return (
-      <div data-mega-quiz-player-v3="true" style={{ background: V.bg, borderRadius: V.r, boxShadow: V.sh, padding: "1.5rem", border: `1px solid ${V.bd}` }}>
-        <h2 style={{ fontSize: "1.1rem", fontWeight: 700, color: V.t, textAlign: "center", marginBottom: "1rem" }}>⚙️ Configuration du Mega Quiz</h2>
-        <div style={{ marginBottom: "0.75rem" }}>
-          <p style={{ fontSize: "0.8rem", fontWeight: 600, color: V.tm, marginBottom: "0.4rem" }}>Discipline :</p>
-          <div data-discipline-filter="mega-quiz" style={{ display: "flex", gap: "0.3rem", flexWrap: "wrap" }}>
+      <div data-mega-quiz-player-v3="true" className="ui5-u-background-ui5-surface ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-1-5rem ui5-u-border-1px-solid-ui5-border">
+        <h2 className="ui5-u-font-size-1-1rem ui5-u-font-weight-700 ui5-u-color-ui5-text ui5-u-text-align-center ui5-u-margin-bottom-1rem">⚙️ Configuration du Mega Quiz</h2>
+        <div className="ui5-u-margin-bottom-0-75rem">
+          <p className="ui5-u-font-size-0-8rem ui5-u-font-weight-600 ui5-u-color-ui5-text-3 ui5-u-margin-bottom-0-4rem">Discipline :</p>
+          <div data-discipline-filter="mega-quiz" className="ui5-u-display-flex ui5-u-gap-0-3rem ui5-u-flex-wrap-wrap">
             <P a={fDiscipline === "physique-chimie"} onClick={() => selectDiscipline("physique-chimie")}>{disciplineLabel("physique-chimie")}</P>
             <P a={fDiscipline === "mathematiques"} onClick={() => selectDiscipline("mathematiques")}>{disciplineLabel("mathematiques")}</P>
             <P a={fDiscipline === "all"} onClick={() => selectDiscipline("all")}>{disciplineLabel("all")}</P>
           </div>
-          <p style={{ fontSize: "0.75rem", color: V.tm, margin: "0.4rem 0 0" }}>Le mélange des disciplines n’est activé que si tu choisis « Toutes les disciplines ».</p>
+          <p className="ui5-u-font-size-0-75rem ui5-u-color-ui5-text-3 ui5-u-margin-0-4rem-0-0">Le mélange des disciplines n’est activé que si tu choisis « Toutes les disciplines ».</p>
         </div>
-        <div style={{ marginBottom: "0.75rem" }}>
-          <p style={{ fontSize: "0.8rem", fontWeight: 600, color: V.tm, marginBottom: "0.4rem" }}>📚 Niveau :</p>
-          <div style={{ display: "flex", gap: "0.3rem", flexWrap: "wrap" }}>
+        <div className="ui5-u-margin-bottom-0-75rem">
+          <p className="ui5-u-font-size-0-8rem ui5-u-font-weight-600 ui5-u-color-ui5-text-3 ui5-u-margin-bottom-0-4rem">📚 Niveau :</p>
+          <div className="ui5-u-display-flex ui5-u-gap-0-3rem ui5-u-flex-wrap-wrap">
             <P a={fNiveau === "all"} onClick={() => { setFNiveau("all"); setFChapter("all"); }}>Tous</P>
             {niveaux.map((niveau) => <P key={niveau} a={fNiveau === niveau} onClick={() => { setFNiveau(niveau); setFChapter("all"); }}>{getLevelDisplayLabel(niveau)}</P>)}
           </div>
         </div>
-        <div style={{ marginBottom: "0.75rem" }}>
-          <p style={{ fontSize: "0.8rem", fontWeight: 600, color: V.tm, marginBottom: "0.4rem" }}>Matière :</p>
-          <div style={{ display: "flex", gap: "0.3rem", flexWrap: "wrap" }}>
+        <div className="ui5-u-margin-bottom-0-75rem">
+          <p className="ui5-u-font-size-0-8rem ui5-u-font-weight-600 ui5-u-color-ui5-text-3 ui5-u-margin-bottom-0-4rem">Matière :</p>
+          <div className="ui5-u-display-flex ui5-u-gap-0-3rem ui5-u-flex-wrap-wrap">
             <P a={fMatiere === "all"} onClick={() => { setFMatiere("all"); setFChapter("all"); }}>Toutes</P>
             {matieres.map((matiere) => <P key={matiere} a={fMatiere === matiere} onClick={() => { setFMatiere(matiere); setFChapter("all"); }}>{matterFilterLabel(matiere)}</P>)}
           </div>
         </div>
-        <div style={{ marginBottom: "0.75rem" }}>
-          <p style={{ fontSize: "0.8rem", fontWeight: 600, color: V.tm, marginBottom: "0.4rem" }}>📖 Chapitre :</p>
-          <div style={{ display: "flex", gap: "0.3rem", flexWrap: "wrap" }}>
+        <div className="ui5-u-margin-bottom-0-75rem">
+          <p className="ui5-u-font-size-0-8rem ui5-u-font-weight-600 ui5-u-color-ui5-text-3 ui5-u-margin-bottom-0-4rem">📖 Chapitre :</p>
+          <div className="ui5-u-display-flex ui5-u-gap-0-3rem ui5-u-flex-wrap-wrap">
             <P a={fChapter === "all"} onClick={() => setFChapter("all")}>Tous ({filtered.length})</P>
             {chapters.map((chapter) => <P key={chapter} a={fChapter === chapter} onClick={() => setFChapter(chapter)}>{chapter}</P>)}
           </div>
         </div>
-        <div style={{ marginBottom: "1rem" }}>
-          <p style={{ fontSize: "0.8rem", fontWeight: 600, color: V.tm, marginBottom: "0.4rem" }}>🔢 Questions :</p>
-          <div style={{ display: "flex", gap: "0.3rem", flexWrap: "wrap" }}>
+        <div className="ui5-u-margin-bottom-1rem">
+          <p className="ui5-u-font-size-0-8rem ui5-u-font-weight-600 ui5-u-color-ui5-text-3 ui5-u-margin-bottom-0-4rem">🔢 Questions :</p>
+          <div className="ui5-u-display-flex ui5-u-gap-0-3rem ui5-u-flex-wrap-wrap">
             {[5, 10, 15, 20, 30].map((count) => <P key={count} a={nb === count} onClick={() => setNb(count)}>{count}</P>)}
           </div>
         </div>
-        <p style={{ fontSize: "0.8rem", color: V.tm, textAlign: "center", marginBottom: "0.75rem" }}>{filtered.length} questions disponibles</p>
-        <button type="button" onClick={() => { if (filtered.length > 0) { setSessionSeed((seed) => seed + 1); setStarted(true); } }} style={{ display: "block", width: "100%", padding: "0.8rem", border: "none", borderRadius: V.rm, background: filtered.length > 0 ? V.p : V.bgS, color: filtered.length > 0 ? "#fff" : V.tm, fontWeight: 700, fontSize: "1rem", cursor: filtered.length > 0 ? "pointer" : "not-allowed", fontFamily: "inherit" }}>🚀 Lancer !</button>
+        <p className="ui5-u-font-size-0-8rem ui5-u-color-ui5-text-3 ui5-u-text-align-center ui5-u-margin-bottom-0-75rem">{filtered.length} questions disponibles</p>
+        <button type="button" onClick={() => { if (filtered.length > 0) { setSessionSeed((seed) => seed + 1); setStarted(true); } }} className={"ui5-u-display-block ui5-u-width-100 ui5-u-padding-0-8rem ui5-u-border-none ui5-u-border-radius-ui5-radius-sm" + " " + (filtered.length > 0 ? "ui5-u-background-ui5-action" : "ui5-u-background-ui5-surface-soft") + " " + (filtered.length > 0 ? "ui5-u-color-fff" : "ui5-u-color-ui5-text-3") + " " + "ui5-u-font-weight-700 ui5-u-font-size-1rem" + " " + (filtered.length > 0 ? "ui5-u-cursor-pointer" : "ui5-u-cursor-not-allowed") + " " + "ui5-u-font-family-inherit"}>🚀 Lancer !</button>
       </div>
     );
   }
@@ -208,18 +208,18 @@ export default function MegaQuizPlayer({ allQuestions, dataUrl, totalQuestions }
     const pct = pool.length ? Math.round((score / pool.length) * 100) : 0;
     const emoji = pct === 100 ? "🏆" : pct >= 80 ? "🌟" : pct >= 60 ? "👍" : pct >= 40 ? "💪" : "📚";
     return (
-      <div data-mega-quiz-result-v3="true" style={{ background: V.bg, borderRadius: V.r, boxShadow: V.sh, padding: "1.5rem", border: `1px solid ${V.bd}`, textAlign: "center" }}>
-        <span style={{ fontSize: "3rem" }}>{emoji}</span>
-        <h2 style={{ fontSize: "1.3rem", fontWeight: 800, color: V.t, margin: "0.5rem 0" }}>Mega Quiz terminé !</h2>
-        <p style={{ fontSize: "2rem", fontWeight: 900, color: pct >= 60 ? V.s : V.d }}>{score}/{pool.length}</p>
-        <p style={{ fontSize: "1rem", color: V.tm }}>{pct}%</p>
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0.3rem", margin: "1rem 0" }}>
-          {log.map((ok, index) => <span key={index} style={{ width: 24, height: 24, borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: "0.65rem", fontWeight: 700, background: ok ? V.sL : V.dL, color: ok ? V.s : V.d }}>{index + 1}</span>)}
+      <div data-mega-quiz-result-v3="true" className="ui5-u-background-ui5-surface ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-1-5rem ui5-u-border-1px-solid-ui5-border ui5-u-text-align-center">
+        <span className="ui5-u-font-size-3rem">{emoji}</span>
+        <h2 className="ui5-u-font-size-1-3rem ui5-u-font-weight-800 ui5-u-color-ui5-text ui5-u-margin-0-5rem-0">Mega Quiz terminé !</h2>
+        <p className={"ui5-u-font-size-2rem ui5-u-font-weight-900" + " " + (pct >= 60 ? "ui5-u-color-accent-success" : "ui5-u-color-accent-danger")}>{score}/{pool.length}</p>
+        <p className="ui5-u-font-size-1rem ui5-u-color-ui5-text-3">{pct}%</p>
+        <div className="ui5-u-display-flex ui5-u-flex-wrap-wrap ui5-u-justify-content-center ui5-u-gap-0-3rem ui5-u-margin-1rem-0">
+          {log.map((ok, index) => <span key={index} className={"ui5-u-width-24px ui5-u-height-24px ui5-u-border-radius-50 ui5-u-display-inline-flex ui5-u-align-items-center ui5-u-justify-content-center ui5-u-font-size-0-65rem ui5-u-font-weight-700" + " " + (ok ? "ui5-u-background-accent-success-light" : "ui5-u-background-accent-danger-light") + " " + (ok ? "ui5-u-color-accent-success" : "ui5-u-color-accent-danger")}>{index + 1}</span>)}
         </div>
-        {log.some((ok) => !ok) && <div style={{ marginTop: "1rem" }}><button type="button" onClick={() => { setRetryQuestions(pool.filter((_, index) => !log[index])); setStarted(true); setIdx(0); setSel(null); setRev(false); setScore(0); setLog([]); }} style={{ padding: "0.6rem 1.5rem", borderRadius: V.rm, border: `2px solid ${V.p}`, cursor: "pointer", background: "transparent", color: V.p, fontWeight: 600, fontSize: "0.9rem", fontFamily: "inherit" }}>Reprendre les erreurs</button></div>}
-        <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", marginTop: "1rem" }}>
-          <button type="button" onClick={() => { setStarted(false); setIdx(0); setSel(null); setRev(false); setScore(0); setLog([]); }} style={{ padding: "0.6rem 1.5rem", borderRadius: V.rm, border: "none", cursor: "pointer", background: V.p, color: "#fff", fontWeight: 600, fontSize: "0.9rem", fontFamily: "inherit" }}>🔄 Recommencer</button>
-          <a href="/" style={{ padding: "0.6rem 1.5rem", borderRadius: V.rm, border: `1px solid ${V.bd}`, background: V.bg, color: V.tm, fontWeight: 600, fontSize: "0.9rem", textDecoration: "none" }}>🏠 Accueil</a>
+        {log.some((ok) => !ok) && <div className="ui5-u-margin-top-1rem"><button type="button" onClick={() => { setRetryQuestions(pool.filter((_, index) => !log[index])); setStarted(true); setIdx(0); setSel(null); setRev(false); setScore(0); setLog([]); }} className="ui5-u-padding-0-6rem-1-5rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-2px-solid-ui5-action ui5-u-cursor-pointer ui5-u-background-transparent ui5-u-color-ui5-action ui5-u-font-weight-600 ui5-u-font-size-0-9rem ui5-u-font-family-inherit">Reprendre les erreurs</button></div>}
+        <div className="ui5-u-display-flex ui5-u-gap-0-75rem ui5-u-justify-content-center ui5-u-margin-top-1rem">
+          <button type="button" onClick={() => { setStarted(false); setIdx(0); setSel(null); setRev(false); setScore(0); setLog([]); }} className="ui5-u-padding-0-6rem-1-5rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-none ui5-u-cursor-pointer ui5-u-background-ui5-action ui5-u-color-fff ui5-u-font-weight-600 ui5-u-font-size-0-9rem ui5-u-font-family-inherit">🔄 Recommencer</button>
+          <a href="/" className="ui5-u-padding-0-6rem-1-5rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-1px-solid-ui5-border ui5-u-background-ui5-surface ui5-u-color-ui5-text-3 ui5-u-font-weight-600 ui5-u-font-size-0-9rem ui5-u-text-decoration-none">🏠 Accueil</a>
         </div>
       </div>
     );
@@ -230,29 +230,29 @@ export default function MegaQuizPlayer({ allQuestions, dataUrl, totalQuestions }
   const currentIsChemistry = cur.discipline === "physique-chimie" && cur.matiere === "chimie";
 
   return (
-    <div data-mega-quiz-player-v3="true" style={{ background: V.bg, borderRadius: V.r, boxShadow: V.sh, padding: "1.5rem", border: `1px solid ${V.bd}` }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
-        <span style={{ fontSize: "0.8rem", fontWeight: 700, color: V.tm }}>{idx + 1}/{pool.length}</span>
-        <div style={{ flex: 1, height: 6, background: V.bgS, borderRadius: 99, overflow: "hidden" }}><div style={{ height: "100%", background: V.p, borderRadius: 99, width: `${((idx + 1) / pool.length) * 100}%`, transition: "width 0.3s" }} /></div>
-        <span style={{ fontSize: "0.8rem", fontWeight: 700, color: V.s }}>✅ {score}</span>
+    <div data-mega-quiz-player-v3="true" className="ui5-u-background-ui5-surface ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-1-5rem ui5-u-border-1px-solid-ui5-border">
+      <div className="ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-0-75rem ui5-u-margin-bottom-1rem">
+        <span className="ui5-u-font-size-0-8rem ui5-u-font-weight-700 ui5-u-color-ui5-text-3">{idx + 1}/{pool.length}</span>
+        <div className="ui5-u-flex-1 ui5-u-height-6px ui5-u-background-ui5-surface-soft ui5-u-border-radius-999px ui5-u-overflow-hidden"><div className="ui5-u-height-100 ui5-u-background-ui5-action ui5-u-border-radius-999px ui5-u-width-ui5-value-width ui5-u-transition-width-0-3s" style={{ "--ui5-value-width": `${((idx + 1) / pool.length) * 100}%` } as React.CSSProperties} /></div>
+        <span className="ui5-u-font-size-0-8rem ui5-u-font-weight-700 ui5-u-color-accent-success">✅ {score}</span>
       </div>
-      <span style={{ display: "inline-block", fontSize: "0.7rem", fontWeight: 600, padding: "0.15rem 0.5rem", borderRadius: V.rp, marginBottom: "0.75rem", background: currentIsChemistry ? V.puL : V.pL, color: currentIsChemistry ? V.pu : V.p }}>{currentLabel} · {cur.chapterTitle}</span>
-      <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: V.t, marginBottom: "1rem", lineHeight: 1.4 }}><MathText text={cur.question} /></h3>
-      <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+      <span className={"ui5-u-display-inline-block ui5-u-font-size-0-7rem ui5-u-font-weight-600 ui5-u-padding-0-15rem-0-5rem ui5-u-border-radius-ui5-radius-sm ui5-u-margin-bottom-0-75rem" + " " + (currentIsChemistry ? "ui5-u-background-accent-purple-light" : "ui5-u-background-ui5-action-soft") + " " + (currentIsChemistry ? "ui5-u-color-accent-purple" : "ui5-u-color-ui5-action")}>{currentLabel} · {cur.chapterTitle}</span>
+      <h3 className="ui5-u-font-size-1-05rem ui5-u-font-weight-700 ui5-u-color-ui5-text ui5-u-margin-bottom-1rem ui5-u-line-height-1-4"><MathText text={cur.question} /></h3>
+      <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-gap-0-5rem">
         {cur.choices.map((choice, index) => {
           let bg = V.bgS; let bc = "transparent"; let co = V.t;
           if (rev) {
             if (index === cur.answer) { bg = V.sL; bc = V.s; co = V.s; }
             else if (index === sel && index !== cur.answer) { bg = V.dL; bc = V.d; co = V.d; }
           } else if (index === sel) { bg = V.pL; bc = V.p; co = V.p; }
-          return <button type="button" key={index} onClick={() => { if (!rev) setSel(index); }} style={{ padding: "0.7rem 1rem", borderRadius: V.rm, border: `2px solid ${bc}`, background: bg, color: co, fontWeight: 600, fontSize: "0.9rem", textAlign: "left", cursor: rev ? "default" : "pointer", fontFamily: "inherit", transition: "all 0.15s" }}><MathText text={choice} /></button>;
+          return <button type="button" key={index} onClick={() => { if (!rev) setSel(index); }} className={"ui5-u-padding-0-7rem-1rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-ui5-value-border ui5-u-background-ui5-value-background ui5-u-color-ui5-value-color ui5-u-font-weight-600 ui5-u-font-size-0-9rem ui5-u-text-align-left" + " " + (rev ? "ui5-u-cursor-default" : "ui5-u-cursor-pointer") + " " + "ui5-u-font-family-inherit ui5-u-transition-all-0-15s"} style={{ "--ui5-value-border": `2px solid ${bc}`, "--ui5-value-background": bg, "--ui5-value-color": co } as React.CSSProperties}><MathText text={choice} /></button>;
         })}
       </div>
-      {rev && cur.explanation && <div style={{ marginTop: "0.75rem", padding: "0.75rem 1rem", background: V.bgS, borderRadius: V.rm, fontSize: "0.85rem", color: V.tm }}>💡 <MathText text={cur.explanation} /></div>}
-      <div style={{ marginTop: "1rem", textAlign: "right" }}>
+      {rev && cur.explanation && <div className="ui5-u-margin-top-0-75rem ui5-u-padding-0-75rem-1rem ui5-u-background-ui5-surface-soft ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3">💡 <MathText text={cur.explanation} /></div>}
+      <div className="ui5-u-margin-top-1rem ui5-u-text-align-right">
         {!rev
-          ? <button type="button" onClick={() => { if (sel === null) return; setRev(true); if (sel === cur.answer) setScore((value) => value + 1); setLog((items) => [...items, sel === cur.answer]); }} disabled={sel === null} style={{ padding: "0.6rem 1.5rem", borderRadius: V.rm, border: "none", cursor: sel !== null ? "pointer" : "not-allowed", background: sel !== null ? V.p : V.bgS, color: sel !== null ? "#fff" : V.tm, fontWeight: 600, fontSize: "0.9rem", fontFamily: "inherit" }}>Valider ✓</button>
-          : <button type="button" onClick={() => { setSel(null); setRev(false); setIdx((value) => value + 1); }} style={{ padding: "0.6rem 1.5rem", borderRadius: V.rm, border: "none", cursor: "pointer", background: V.p, color: "#fff", fontWeight: 600, fontSize: "0.9rem", fontFamily: "inherit" }}>Suivant →</button>}
+          ? <button type="button" onClick={() => { if (sel === null) return; setRev(true); if (sel === cur.answer) setScore((value) => value + 1); setLog((items) => [...items, sel === cur.answer]); }} disabled={sel === null} className={"ui5-u-padding-0-6rem-1-5rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-none" + " " + (sel !== null ? "ui5-u-cursor-pointer" : "ui5-u-cursor-not-allowed") + " " + (sel !== null ? "ui5-u-background-ui5-action" : "ui5-u-background-ui5-surface-soft") + " " + (sel !== null ? "ui5-u-color-fff" : "ui5-u-color-ui5-text-3") + " " + "ui5-u-font-weight-600 ui5-u-font-size-0-9rem ui5-u-font-family-inherit"}>Valider ✓</button>
+          : <button type="button" onClick={() => { setSel(null); setRev(false); setIdx((value) => value + 1); }} className="ui5-u-padding-0-6rem-1-5rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-none ui5-u-cursor-pointer ui5-u-background-ui5-action ui5-u-color-fff ui5-u-font-weight-600 ui5-u-font-size-0-9rem ui5-u-font-family-inherit">Suivant →</button>}
       </div>
     </div>
   );

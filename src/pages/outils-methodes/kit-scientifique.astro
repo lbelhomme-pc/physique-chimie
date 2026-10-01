@@ -1,4 +1,5 @@
 ---
+import "../../ui-v5/tools/kit-scientifique.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { kitChapterLinks, kitMethodCards, kitMiniQuiz } from "../../data/kitScientifique";
 ---
@@ -255,97 +256,7 @@ import { kitChapterLinks, kitMethodCards, kitMiniQuiz } from "../../data/kitScie
   </div>
 </BaseLayout>
 
-<style>
-  .tool-page { max-width: 980px; margin: 0 auto; padding: 1rem; }
-  .tool-hero { text-align: center; margin: 1rem auto 1.4rem; max-width: 760px; }
-  .tool-eyebrow { color: var(--accent-primary); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 .35rem; }
-  .tool-hero h1 { color: var(--accent-primary); font-size: 1.7rem; margin: 0 0 .45rem; }
-  .tool-hero p, .panel-heading p, .method-note { color: var(--text-secondary); line-height: 1.65; }
-  .tool-tabs { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1rem; }
-  .tool-tab { border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-primary); border-radius: 999px; padding: .55rem .85rem; font-weight: 700; cursor: pointer; }
-  .tool-tab.is-active { border-color: var(--accent-primary); background: var(--accent-primary-light); color: var(--accent-primary); }
-  .tool-panel { display: none; background: var(--bg-card); border: 1px solid var(--border-color); border-left: 5px solid var(--accent-primary); border-radius: var(--radius-md); box-shadow: var(--shadow-card); padding: 1.15rem; }
-  .tool-panel.is-active { display: block; }
-  .panel-heading h2 { color: var(--accent-primary); margin: 0 0 .35rem; font-size: 1.25rem; }
-  .field-label, label { color: var(--text-primary); display: flex; flex-direction: column; gap: .35rem; font-weight: 700; }
-  .tool-input, .tool-textarea { background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); font: inherit; padding: .7rem .8rem; width: 100%; box-sizing: border-box; }
-  .tool-textarea { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; resize: vertical; }
-  .input-row { display: grid; grid-template-columns: 1fr auto; gap: .7rem; align-items: end; margin: .6rem 0; }
-  .primary-btn { background: var(--accent-primary); border: none; border-radius: 10px; color: #fff; cursor: pointer; font-weight: 800; padding: .72rem 1rem; }
-  .primary-btn:hover, .primary-btn:focus-visible { filter: brightness(.96); transform: translateY(-1px); }
-  .quick-row { display: flex; gap: .5rem; flex-wrap: wrap; margin: .65rem 0; }
-  .quick-row button { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 999px; color: var(--text-secondary); cursor: pointer; padding: .4rem .7rem; }
-  .result-box, .graph-box { display: block; margin-top: .8rem; min-height: 2.8rem; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); padding: .85rem; }
-  .formula-result { font-size: 1.12rem; font-weight: 800; }
-  .tool-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin: .7rem 0; }
-  .tool-grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin: .7rem 0; }
-  .solution-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-  .mini-tool { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem; }
-  .mini-tool h3 { margin-top: 0; color: var(--accent-primary); }
-  .graph-box svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
-  .measure-grid, .safety-grid, .method-card-grid, .chapter-link-grid, .mini-quiz-list {
-    display: grid;
-    gap: .8rem;
-  }
-  .measure-grid, .safety-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: .9rem 0; }
-  .method-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .chapter-link-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .mini-quiz-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .kit-methods, .kit-links, .kit-mini-quiz {
-    margin-top: 1rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
-    padding: 1.15rem;
-  }
-  .method-step, .safety-item, .method-card, .chapter-link-card, .mini-quiz-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: .85rem;
-  }
-  .method-step, .safety-item { display: flex; flex-direction: column; gap: .35rem; }
-  .method-step strong, .safety-item strong, .method-card h3, .chapter-link-card strong, .mini-quiz-card h3 { color: var(--text-primary); }
-  .method-step span, .safety-item span, .method-card p, .chapter-link-card small { color: var(--text-secondary); line-height: 1.55; }
-  .kit-table { width: 100%; border-collapse: collapse; margin-top: .85rem; background: var(--bg-primary); border-radius: 10px; overflow: hidden; }
-  .kit-table caption { text-align: left; font-weight: 800; color: var(--text-primary); margin-bottom: .4rem; }
-  .kit-table th, .kit-table td { border: 1px solid var(--border-color); padding: .65rem; text-align: left; }
-  .kit-table th { background: var(--bg-secondary); color: var(--text-primary); }
-  .method-tag, .chapter-link-card span {
-    display: inline-flex;
-    width: fit-content;
-    border-radius: 999px;
-    background: var(--accent-primary-light);
-    color: var(--accent-primary);
-    font-size: .72rem;
-    font-weight: 800;
-    padding: .2rem .55rem;
-  }
-  .method-card ol { margin: .5rem 0 .7rem; padding-left: 1.25rem; color: var(--text-secondary); }
-  .method-warning { border-left: 3px solid var(--accent-warning); padding-left: .65rem; }
-  .chapter-link-card { display: flex; flex-direction: column; gap: .35rem; text-decoration: none; }
-  .chapter-link-card:hover, .chapter-link-card:focus-visible { border-color: var(--accent-primary); transform: translateY(-1px); }
-  .mini-quiz-card h3 { font-size: .96rem; line-height: 1.45; }
-  .mini-quiz-choices { display: grid; gap: .4rem; margin-top: .65rem; }
-  .mini-quiz-choices button {
-    border: 1px solid var(--border-color);
-    background: var(--bg-primary);
-    border-radius: 8px;
-    color: var(--text-primary);
-    cursor: pointer;
-    font: inherit;
-    padding: .55rem .65rem;
-    text-align: left;
-  }
-  .mini-quiz-choices button.is-correct { border-color: var(--accent-success); background: var(--accent-success-light); color: var(--accent-success); }
-  .mini-quiz-choices button.is-wrong { border-color: var(--accent-danger); background: var(--accent-danger-light); color: var(--accent-danger); }
-  .mini-quiz-feedback { color: var(--text-secondary); line-height: 1.55; margin-bottom: 0; }
-  @media (max-width: 760px) {
-    .input-row, .tool-grid-2, .tool-grid-4, .solution-grid, .measure-grid, .safety-grid, .method-card-grid, .chapter-link-grid, .mini-quiz-list { grid-template-columns: 1fr; }
-    .primary-btn { width: 100%; }
-  }
-</style>
+
 
 <script>
   import { kitUnitFamilies } from "../../data/kitScientifique";

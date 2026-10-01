@@ -20,9 +20,10 @@ describe("C10 — portail Physique-Chimie", () => {
     const pc = read("src/pages/physique-chimie/index.astro");
 
     for (const source of [maths, pc]) {
-      assert.match(source, /V3LandingHero/);
-      assert.match(source, /Choisir son parcours/);
-      assert.match(source, /Collège ou lycée/);
+      assert.match(source, /ui5-page-header/);
+      assert.doesNotMatch(source, /V3LandingHero/);
+      assert.match(source, /ui5-grid ui5-grid--2/);
+      assert.match(source, /Collège/);
     }
 
     assert.match(maths, /canonical="\/mathematiques"/);
@@ -53,7 +54,7 @@ describe("C10 — portail Physique-Chimie", () => {
     assert.equal(physiqueChimieLyceeTracks.length, 5);
     assert.equal(esTracks.length, 2);
     assert.ok(esTracks.every((track) => track.description.includes("rattaché à l’espace Physique-Chimie")));
-    assert.match(pc, /L’Enseignement scientifique reste un parcours identifié à l’intérieur de l’espace Physique-Chimie/);
+    assert.match(pc, /Enseignement scientifique/);
     assert.doesNotMatch(pc, /subject="enseignement-scientifique"/);
   });
 

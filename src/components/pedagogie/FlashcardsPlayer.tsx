@@ -1,7 +1,7 @@
 // src/components/pedagogie/FlashcardsPlayer.tsx
 // v7 : CSS vars + SRS Anki + input + KaTeX + TTS sur question ET réponse
 
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { getGamificationEngine } from "../../data/gamification/engine";
 import { getSRSEngine, formatInterval, type SRSRating } from "../../data/gamification/srs";
 import XPToast, { type ToastItem } from "./XPToast";
@@ -14,10 +14,10 @@ type SessionMode = "review" | "new" | "all";
 type AnswerMode = "quick" | "active";
 
 const V = {
-  bg: "var(--bg-card)", bgSec: "var(--bg-secondary)", bgTer: "var(--bg-tertiary)", bgPri: "var(--bg-primary)",
-  text: "var(--text-primary)", textSec: "var(--text-secondary)", textMut: "var(--text-muted)", textDis: "var(--text-disabled)",
-  border: "var(--border-color)",
-  primary: "var(--accent-primary)", primaryLt: "var(--accent-primary-light)",
+  bg: "var(--ui5-surface)", bgSec: "var(--ui5-surface-soft)", bgTer: "var(--ui5-surface-soft)", bgPri: "var(--ui5-surface)",
+  text: "var(--ui5-text)", textSec: "var(--ui5-text-2)", textMut: "var(--ui5-text-3)", textDis: "var(--text-disabled)",
+  border: "var(--ui5-border)",
+  primary: "var(--ui5-action)", primaryLt: "var(--ui5-action-soft)",
   success: "var(--accent-success)", successLt: "var(--accent-success-light)",
   warning: "var(--accent-warning)", warningLt: "var(--accent-warning-light)",
   danger: "var(--accent-danger)", dangerLt: "var(--accent-danger-light)",
@@ -32,8 +32,11 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
     return raw.map(c => ({ ...c, front: c.front??c.recto??c.question??"", back: c.back??c.verso??c.answer??"" }));
   }, [data]);
 
+  const [ready, setReady] = useState(false);
+  useEffect(() => setReady(true), []);
+
   const srs = useMemo(() => getSRSEngine(), []);
-  const srsStats = useMemo(() => chapterId ? srs.getChapterStats(chapterId, allCards.map(c => c.id)) : null, [chapterId, allCards, srs]);
+  const srsStats = useMemo(() => ready && chapterId ? srs.getChapterStats(chapterId, allCards.map(c => c.id)) : null, [ready, chapterId, allCards, srs]);
 
   const [mode, setMode] = useState<SessionMode|null>(null);
   const [answerMode, setAnswerMode] = useState<AnswerMode>("quick");
@@ -92,13 +95,13 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
           <button className="learning-session-option" onClick={() => startSession("all")}><span className="learning-session-option__icon" aria-hidden="true">≡</span><span className="learning-session-option__title">Toutes les cartes</span><span className="learning-session-option__meta">{allCards.length} carte(s)</span></button>
         </div>
         {(learning > 0 || mature > 0) && (
-          <div style={{textAlign:"center"}}>
-            <p style={{fontSize:"0.8rem",fontWeight:600,color:V.textSec,marginBottom:"0.3rem"}}>Progression mémorisation</p>
-            <div style={{height:10,background:V.bgTer,borderRadius:99,overflow:"hidden",display:"flex"}}>
-              <div style={{height:"100%",background:V.success,width:`${(mature/allCards.length)*100}%`}}/>
-              <div style={{height:"100%",background:V.warning,width:`${(learning/allCards.length)*100}%`}}/>
+          <div className="ui5-u-text-align-center">
+            <p className="ui5-u-font-size-0-8rem ui5-u-font-weight-600 ui5-u-color-ui5-text-2 ui5-u-margin-bottom-0-3rem">Progression mémorisation</p>
+            <div className="ui5-u-height-10px ui5-u-background-ui5-surface-soft ui5-u-border-radius-999px ui5-u-overflow-hidden ui5-u-display-flex">
+              <div className="ui5-u-height-100 ui5-u-background-accent-success ui5-u-width-ui5-value-width" style={{ "--ui5-value-width": `${(mature/allCards.length)*100}%` } as React.CSSProperties}/>
+              <div className="ui5-u-height-100 ui5-u-background-accent-warning ui5-u-width-ui5-value-width" style={{ "--ui5-value-width": `${(learning/allCards.length)*100}%` } as React.CSSProperties}/>
             </div>
-            <p style={{fontSize:"0.8rem",color:V.textMut,marginTop:"0.3rem"}}>{mature} maîtrisée{mature>1?"s":""} · {learning} en apprentissage · {newC} nouvelle{newC>1?"s":""}</p>
+            <p className="ui5-u-font-size-0-8rem ui5-u-color-ui5-text-3 ui5-u-margin-top-0-3rem">{mature} maîtrisée{mature>1?"s":""} · {learning} en apprentissage · {newC} nouvelle{newC>1?"s":""}</p>
           </div>
         )}
       </div>
@@ -115,19 +118,19 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
       <div data-flashcards-result-v3="true" className="learning-player learning-result-card flashcard-result">
         <div className="flashcard-result__mark" aria-hidden="true">{total===0?"✓":go+ea>ha+ag?"★":"↻"}</div>
         <h3>{total===0?"Rien à revoir !":"Session terminée !"}</h3>
-        {total===0?<p style={{fontSize:"1rem",color:V.textSec,marginBottom:"1.5rem"}}>Toutes tes cartes sont à jour. Reviens demain !</p>:(
-          <div style={{display:"flex",justifyContent:"center",gap:"1rem",marginBottom:"1.5rem"}}>
+        {total===0?<p className="ui5-u-font-size-1rem ui5-u-color-ui5-text-2 ui5-u-margin-bottom-1-5rem">Toutes tes cartes sont à jour. Reviens demain !</p>:(
+          <div className="ui5-u-display-flex ui5-u-justify-content-center ui5-u-gap-1rem ui5-u-margin-bottom-1-5rem">
             {[[ag,"😰","Oublié",V.danger],[ha,"😕","Difficile",V.warning],[go,"🙂","Bien",V.success],[ea,"😎","Facile",V.primary]].map(([v,ico,lab,col])=>(
-              <div key={lab as string} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem"}}>
-                <span style={{fontSize:"1.8rem",fontWeight:800,color:col as string}}>{v as number}</span>
-                <span style={{fontSize:"0.75rem",color:V.textSec}}>{ico} {lab}</span>
+              <div key={lab as string} className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-align-items-center ui5-u-gap-0-2rem">
+                <span className="ui5-u-font-size-1-8rem ui5-u-font-weight-800 ui5-u-color-ui5-value-color" style={{ "--ui5-value-color": col as string } as React.CSSProperties}>{v as number}</span>
+                <span className="ui5-u-font-size-0-75rem ui5-u-color-ui5-text-2">{ico} {lab}</span>
               </div>
             ))}
           </div>
         )}
-        <div style={{display:"flex",flexDirection:"column",gap:"0.5rem",alignItems:"center"}}>
-          <button onClick={()=>setMode(null)} style={{padding:"0.6rem 1.5rem",background:V.purple,color:"#fff",border:"none",borderRadius:8,fontSize:"0.95rem",fontWeight:600,cursor:"pointer"}}>← Retour au menu</button>
-          {ag>0&&<button onClick={()=>{const ids=new Set(results.filter(r=>r.rating==="again").map(r=>r.cardId));setSessionCards(shuffleArray(sessionCards.filter(c=>ids.has(c.id))));setCi(0);setRevealed(false);setInput("");setResults([]);setFin(false);}} style={{padding:"0.6rem 1.5rem",background:"transparent",color:V.purple,border:`2px solid ${V.purple}`,borderRadius:8,fontSize:"0.9rem",fontWeight:500,cursor:"pointer"}}>🔄 Revoir les {ag} oubliée(s)</button>}
+        <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-gap-0-5rem ui5-u-align-items-center">
+          <button onClick={()=>setMode(null)} className="ui5-u-padding-0-6rem-1-5rem ui5-u-background-ui5-action ui5-u-color-fff ui5-u-border-none ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-95rem ui5-u-font-weight-600 ui5-u-cursor-pointer">← Retour au menu</button>
+          {ag>0&&<button onClick={()=>{const ids=new Set(results.filter(r=>r.rating==="again").map(r=>r.cardId));setSessionCards(shuffleArray(sessionCards.filter(c=>ids.has(c.id))));setCi(0);setRevealed(false);setInput("");setResults([]);setFin(false);}} className="ui5-u-padding-0-6rem-1-5rem ui5-u-background-transparent ui5-u-color-ui5-action ui5-u-border-2px-solid-ui5-action ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-9rem ui5-u-font-weight-500 ui5-u-cursor-pointer">🔄 Revoir les {ag} oubliée(s)</button>}
         </div>
         <XPToast toasts={toasts} onDismiss={disT}/>
       </div>
@@ -167,15 +170,15 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
     <div data-flashcards-player-v3="true" className="learning-player learning-player--flashcards">
       {title&&<h3 className="learning-player__title">{title}</h3>}
 
-      <div style={{display:"flex",alignItems:"center",gap:"0.75rem",marginBottom:"0.75rem"}}>
-        <div style={{flex:1,height:8,background:V.bgTer,borderRadius:99,overflow:"hidden"}}><div style={{height:"100%",background:V.purple,borderRadius:99,transition:"width 0.4s",width:`${((ci+1)/total)*100}%`}}/></div>
-        <span style={{fontSize:"0.85rem",color:V.textMut,fontWeight:500,whiteSpace:"nowrap"}}>{ci+1}/{total}</span>
+      <div className="ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-0-75rem ui5-u-margin-bottom-0-75rem">
+        <div className="ui5-u-flex-1 ui5-u-height-8px ui5-u-background-ui5-surface-soft ui5-u-border-radius-999px ui5-u-overflow-hidden"><div className="ui5-u-height-100 ui5-u-background-ui5-action ui5-u-border-radius-999px ui5-u-transition-width-0-4s ui5-u-width-ui5-value-width" style={{ "--ui5-value-width": `${((ci+1)/total)*100}%` } as React.CSSProperties}/></div>
+        <span className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3 ui5-u-font-weight-500 ui5-u-white-space-nowrap">{ci+1}/{total}</span>
       </div>
 
       {diffInfo && (
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"0.5rem"}}>
-          <span style={{fontSize:"0.75rem",fontWeight:600,color:V.textMut,textTransform:"uppercase"}}>{mode==="review"?"🔄 Révision":mode==="new"?"✨ Nouvelles":"📚 Toutes"}</span>
-          <span style={{padding:"0.2rem 0.6rem",borderRadius:99,fontSize:"0.75rem",fontWeight:600,color:diffInfo.color,background:diffInfo.bg}}>{diffInfo.text}</span>
+        <div className="ui5-u-display-flex ui5-u-justify-content-space-between ui5-u-align-items-center ui5-u-margin-bottom-0-5rem">
+          <span className="ui5-u-font-size-0-75rem ui5-u-font-weight-600 ui5-u-color-ui5-text-3 ui5-u-text-transform-uppercase">{mode==="review"?"🔄 Révision":mode==="new"?"✨ Nouvelles":"📚 Toutes"}</span>
+          <span className="ui5-u-padding-0-2rem-0-6rem ui5-u-border-radius-999px ui5-u-font-size-0-75rem ui5-u-font-weight-600 ui5-u-color-ui5-value-color ui5-u-background-ui5-value-background" style={{ "--ui5-value-color": diffInfo.color, "--ui5-value-background": diffInfo.bg } as React.CSSProperties}>{diffInfo.text}</span>
         </div>
       )}
 
@@ -202,7 +205,7 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
           </div>
         )
       ) : (
-        <div style={{marginBottom:"1rem"}}>
+        <div className="ui5-u-margin-bottom-1rem">
           {answerMode === "active" && input && (
             <div className="flashcard-user-answer">
               <span>Ta réponse</span>
@@ -215,10 +218,10 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
             <span>Réponse attendue</span>
             <p><MathText text={cur.back} /></p>
           </div>
-          <div style={{marginBottom:"1rem"}}><TextToSpeech compact text={cur.back} label="Écouter la réponse" /></div>
+          <div className="ui5-u-margin-bottom-1rem"><TextToSpeech compact text={cur.back} label="Écouter la réponse" /></div>
 
           {/* Boutons Anki */}
-          <p style={{fontSize:"0.9rem",color:V.textSec,textAlign:"center",marginBottom:"0.5rem",fontWeight:500}}>Comment as-tu répondu ?</p>
+          <p className="ui5-u-font-size-0-9rem ui5-u-color-ui5-text-2 ui5-u-text-align-center ui5-u-margin-bottom-0-5rem ui5-u-font-weight-500">Comment as-tu répondu ?</p>
           <div className="flashcard-rating-grid">
             {([["again","↻","À revoir"],["hard","!","Difficile"],["good","✓","Bien"],["easy","★","Facile"]] as const).map(([rating,icon,label])=>(
               <button key={rating} className="flashcard-rating-button" data-rating={rating} onClick={()=>handleRate(rating)}>
@@ -231,12 +234,12 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
         </div>
       )}
 
-      <div style={{display:"flex",justifyContent:"center",gap:"0.75rem",fontSize:"0.85rem",color:V.textMut,marginTop:"0.5rem"}}>
+      <div className="ui5-u-display-flex ui5-u-justify-content-center ui5-u-gap-0-75rem ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3 ui5-u-margin-top-0-5rem">
         {results.length>0&&<>
-          <span style={{color:V.danger}}>😰 {results.filter(r=>r.rating==="again").length}</span>
-          <span style={{color:V.warning}}>😕 {results.filter(r=>r.rating==="hard").length}</span>
-          <span style={{color:V.success}}>🙂 {results.filter(r=>r.rating==="good").length}</span>
-          <span style={{color:V.primary}}>😎 {results.filter(r=>r.rating==="easy").length}</span>
+          <span className="ui5-u-color-accent-danger">😰 {results.filter(r=>r.rating==="again").length}</span>
+          <span className="ui5-u-color-accent-warning">😕 {results.filter(r=>r.rating==="hard").length}</span>
+          <span className="ui5-u-color-accent-success">🙂 {results.filter(r=>r.rating==="good").length}</span>
+          <span className="ui5-u-color-ui5-action">😎 {results.filter(r=>r.rating==="easy").length}</span>
         </>}
       </div>
       <XPToast toasts={toasts} onDismiss={disT}/>

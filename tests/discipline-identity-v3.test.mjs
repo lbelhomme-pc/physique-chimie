@@ -22,7 +22,7 @@ const files = {
   pcPortal: path.join(root, "src/pages/physique-chimie/index.astro"),
   identities: path.join(root, "src/data/disciplineIdentity.ts"),
   publicMenu: path.join(root, "src/data/publicMenu.ts"),
-  tokens: path.join(root, "src/styles/tokens-v3.css"),
+  tokens: path.join(root, "src/ui-v5/tokens.css"),
 };
 
 test("V3 exposes exactly two public disciplines", () => {
@@ -71,14 +71,14 @@ test("public navigation folds Enseignement scientifique into Physique-Chimie", (
   assert.doesNotMatch(publicMenu, /Terminale — Enseignement scientifique/);
   assert.doesNotMatch(publicMenu, /discipline:\s*"enseignement-scientifique"/);
 
-  assert.match(home, /Deux matières, une seule expérience/);
-  assert.match(home, /data-subject-card=\{card\.tone === "maths" \? "mathematiques" : "physique-chimie"\}/);
+  assert.match(home, /Deux portes d’entrée, le même fonctionnement/);
+  assert.match(home, /data-subject=\{subject\.subject\}/);
   assert.doesNotMatch(home, /subject-card--science/);
   assert.match(home, /Enseignement scientifique/i);
 
-  assert.match(lycee, /data-discipline="physique-chimie"/);
+  assert.match(lycee, /data-subject="physique-chimie"/);
   assert.match(lycee, /data-track=\{level\.trackId\}/);
-  assert.match(lycee, /La discipline parente reste Physique-Chimie/);
+  assert.match(lycee, /subject="physique-chimie"/);
   assert.match(pcPortal, /Enseignement scientifique/);
   assert.match(pcPortal, /physiqueChimieLyceeTracks/);
 });
@@ -92,7 +92,7 @@ test("a11y color review: public discipline information is never color-only", () 
   const identities = readFileSync(files.identities, "utf8");
   const publicMenu = readFileSync(files.publicMenu, "utf8");
 
-  assert.match(nav, /data-discipline=\{section\.discipline\}/);
+  assert.match(nav, /\{section\.title\}/);
 
   for (const id of publicDisciplineIds) {
     const identity = disciplineIdentities[id];
@@ -106,7 +106,7 @@ test("a11y color review: public discipline information is never color-only", () 
     assert.match(lycee + home + nav + switcher + gateCard + identities, new RegExp(identity.microcopy.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
 
-  assert.match(lycee, /discipline-badge/);
+  assert.match(lycee, /ui5-level-card__badge/);
   assert.match(lycee, /Enseignement scientifique/);
 });
 

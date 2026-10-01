@@ -6,7 +6,7 @@ import path from "node:path";
 const root = process.cwd();
 const read = (file) => readFileSync(path.join(root, file), "utf8");
 
-const ui = read("src/ui-v5/index.css");
+const ui = read("src/ui-v5/index.css") + read("src/ui-v5/leane.css") + read("src/ui-v5/methods.css");
 const base = read("src/layouts/BaseLayout.astro");
 const college = read("src/pages/college/index.astro");
 const collegeLevel = read("src/pages/college/[niveau]/index.astro");

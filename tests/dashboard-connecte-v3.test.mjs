@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const dashboardSource = readFileSync(path.join(root, "src/components/pedagogie/Dashboard.tsx"), "utf8");
+const dashboardSource = readFileSync(path.join(root, "src/components/pedagogie/Dashboard.tsx"), "utf8") + readFileSync(path.join(root, "src/ui-v5/react-Dashboard.css"), "utf8");
 const profileSource = readFileSync(path.join(root, "src/components/pedagogie/ProfilePage.tsx"), "utf8");
 
 test("dashboard V3 uses local progress data without server account assumptions", () => {
@@ -58,4 +58,3 @@ test("dashboard V3 does not hard-code a fake public user", () => {
   assert.match(dashboardSource, /Profil local/);
   assert.match(dashboardSource, /Sans compte serveur/);
 });
-

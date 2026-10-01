@@ -4,9 +4,9 @@ import test from "node:test";
 
 import { V3_TOKEN_TABLE } from "../src/data/accessibility/tokens-v3.ts";
 
-const TOKENS_CSS = new URL("../src/styles/tokens-v3.css", import.meta.url);
-const DESIGN_SYSTEM_CSS = new URL("../src/styles/design-system.css", import.meta.url);
-const THEME_CSS = new URL("../src/styles/theme.css", import.meta.url);
+const TOKENS_CSS = new URL("../src/ui-v5/tokens.css", import.meta.url);
+const DESIGN_SYSTEM_CSS = new URL("../src/ui-v5/index.css", import.meta.url);
+const THEME_CSS = new URL("../src/ui-v5/preferences.css", import.meta.url);
 
 test("V3 token table references tokens declared in CSS", async () => {
   const css = await readFile(TOKENS_CSS, "utf8");
@@ -54,8 +54,8 @@ test("V3 target tokens do not load external font files", async () => {
 test("design system exposes V3 tokens before active declarations", async () => {
   const entry = await readFile(DESIGN_SYSTEM_CSS, "utf8");
   const theme = await readFile(THEME_CSS, "utf8");
-  const tokenImportIndex = entry.indexOf('@import "./tokens-v3.css";');
-  const themeImportIndex = entry.indexOf('@import "./theme.css";');
+  const tokenImportIndex = entry.indexOf('@import "./tokens.css";');
+  const themeImportIndex = entry.indexOf('@import "./preferences.css";');
 
   assert.ok(tokenImportIndex >= 0, "design-system.css should import tokens-v3.css");
   assert.ok(themeImportIndex >= 0, "design-system.css should import theme.css");

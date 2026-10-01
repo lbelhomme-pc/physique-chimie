@@ -1,0 +1,292 @@
+/* V5 — interaction-loaded accessibility panel and reading guide. */
+
+        .a11y-panel-toggle {
+          align-items: center;
+          background: var(--ui5-surface, #fff);
+          border: 1px solid var(--ui5-border, #e2e8f0);
+          border-radius: var(--ui5-radius-lg, 999px);
+          bottom: 1rem;
+          box-shadow: none;
+          color: var(--ui5-action, #2563eb);
+          cursor: pointer;
+          display: inline-flex;
+          font: 900 1rem/1 var(--font-family, sans-serif);
+          height: 3rem;
+          justify-content: center;
+          left: 1rem;
+          position: fixed;
+          width: 3rem;
+          z-index: 9998;
+        }
+
+        .a11y-panel-toggle:focus-visible,
+        .a11y-panel__close:focus-visible,
+        .a11y-panel__tabs button:focus-visible,
+        .a11y-profile:focus-visible,
+        .a11y-option:focus-visible,
+        .a11y-switch:focus-visible,
+        .a11y-panel__reset:focus-visible {
+          box-shadow: 0 0 0 3px var(--ui5-focus);
+          outline: none;
+        }
+
+        .a11y-panel-overlay {
+          background: rgba(15, 23, 42, 0.42);
+          border: 0;
+          inset: 0;
+          position: fixed;
+          z-index: 9997;
+        }
+
+        .a11y-panel {
+          background: var(--ui5-surface, #fff);
+          border-right: 1px solid var(--ui5-border, #e2e8f0);
+          box-shadow: none;
+          color: var(--ui5-text, #0f172a);
+          display: flex;
+          flex-direction: column;
+          height: 100vh;
+          left: 0;
+          max-width: min(26rem, 94vw);
+          position: fixed;
+          top: 0;
+          transform: translateX(-105%);
+          transition: transform var(--v3-motion-base, 180ms ease);
+          width: 26rem;
+          z-index: 9999;
+        }
+
+        .a11y-panel.is-open {
+          transform: translateX(0);
+        }
+
+        .a11y-panel__header {
+          align-items: center;
+          border-bottom: 1px solid var(--ui5-border, #e2e8f0);
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          padding: 1rem;
+        }
+
+        .a11y-panel__header p {
+          color: var(--ui5-action, #2563eb);
+          font-size: var(--v3-font-size-xs, 0.75rem);
+          font-weight: 900;
+          margin: 0 0 0.2rem;
+          text-transform: uppercase;
+        }
+
+        .a11y-panel__header h2 {
+          font-size: var(--v3-font-size-xl, 1.25rem);
+          letter-spacing: 0;
+          margin: 0;
+        }
+
+        .a11y-panel__close {
+          background: var(--ui5-surface-soft, #f5f7fa);
+          border: 1px solid var(--ui5-border, #e2e8f0);
+          border-radius: var(--ui5-radius-lg, 999px);
+          color: var(--ui5-text-2, #475569);
+          cursor: pointer;
+          font: inherit;
+          font-weight: 900;
+          height: 44px;
+          width: 44px;
+        }
+
+        .a11y-panel__status,
+        .a11y-panel__hint {
+          color: var(--ui5-text-2, #475569);
+          font-size: var(--v3-font-size-sm, 0.875rem);
+          margin: 0;
+        }
+
+        .a11y-panel__status {
+          padding: 0.75rem 1rem 0;
+        }
+
+        .a11y-panel__tabs {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.25rem;
+          padding: 0.75rem 1rem 0;
+        }
+
+        .a11y-panel__tabs button,
+        .a11y-option,
+        .a11y-switch,
+        .a11y-profile,
+        .a11y-panel__reset {
+          border-radius: var(--ui5-radius-sm, 8px);
+          cursor: pointer;
+          font: inherit;
+        }
+
+        .a11y-panel__tabs button {
+          background: var(--ui5-surface-soft, #f5f7fa);
+          border: 1px solid var(--ui5-border, #e2e8f0);
+          color: var(--ui5-text-2, #475569);
+          min-height: 44px;
+        }
+
+        .a11y-panel__tabs button[aria-selected="true"] {
+          background: var(--ui5-action, #2563eb);
+          border-color: var(--ui5-action, #2563eb);
+          color: var(--ui5-on-action);
+          font-weight: 850;
+        }
+
+        .a11y-panel__body {
+          overflow-y: auto;
+          padding: 1rem;
+        }
+
+        .a11y-panel__profiles,
+        .a11y-panel__settings {
+          display: grid;
+          gap: 0.75rem;
+        }
+
+        .a11y-profile {
+          align-items: center;
+          background: var(--ui5-surface-soft, #f5f7fa);
+          border: 1px solid var(--ui5-border, #e2e8f0);
+          color: inherit;
+          display: flex;
+          gap: 0.75rem;
+          justify-content: space-between;
+          min-height: 4.25rem;
+          padding: 0.75rem;
+          text-align: left;
+          width: 100%;
+        }
+
+        .a11y-profile.is-active {
+          background: var(--ui5-action-soft, #eff6ff);
+          border-color: var(--ui5-action, #2563eb);
+        }
+
+        .a11y-profile strong,
+        .a11y-profile small {
+          display: block;
+        }
+
+        .a11y-profile small {
+          color: var(--ui5-text-2, #475569);
+          margin-top: 0.2rem;
+        }
+
+        .a11y-profile b,
+        .a11y-switch b {
+          color: var(--ui5-action, #2563eb);
+          font-size: var(--v3-font-size-xs, 0.75rem);
+          white-space: nowrap;
+        }
+
+        .a11y-fieldset {
+          border: 0;
+          display: grid;
+          gap: 0.5rem;
+          margin: 0;
+          padding: 0;
+        }
+
+        .a11y-fieldset legend {
+          color: var(--ui5-text, #0f172a);
+          font-weight: 850;
+          margin-bottom: 0.4rem;
+        }
+
+        .a11y-option-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.35rem;
+        }
+
+        .a11y-option {
+          background: var(--ui5-surface-soft, #f5f7fa);
+          border: 1px solid var(--ui5-border, #e2e8f0);
+          color: var(--ui5-text-2, #475569);
+          min-height: 44px;
+          padding: 0.4rem 0.65rem;
+        }
+
+        .a11y-option[aria-pressed="true"] {
+          background: var(--ui5-action, #2563eb);
+          border-color: var(--ui5-action, #2563eb);
+          color: var(--ui5-on-action);
+          font-weight: 850;
+        }
+
+        .a11y-switch {
+          align-items: center;
+          background: var(--ui5-surface-soft, #f5f7fa);
+          border: 1px solid var(--ui5-border, #e2e8f0);
+          color: var(--ui5-text, #0f172a);
+          display: flex;
+          justify-content: space-between;
+          min-height: 2.75rem;
+          padding: 0.5rem 0.65rem;
+          text-align: left;
+          width: 100%;
+        }
+
+        .a11y-switch[aria-checked="true"] {
+          border-color: var(--ui5-action, #2563eb);
+        }
+
+        .a11y-panel__reset {
+          background: var(--ui5-surface, #fff);
+          border: 1px solid var(--ui5-border, #e2e8f0);
+          color: var(--ui5-text-2, #475569);
+          min-height: 2.75rem;
+          padding: 0.55rem 0.75rem;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .a11y-panel {
+            transition: none;
+          }
+        }
+
+        @media (max-width: 420px) {
+          .a11y-panel-toggle {
+            bottom: calc(9.75rem + env(safe-area-inset-bottom, 0px));
+            left: 0.75rem;
+          }
+
+          body:has(.analytics-consent:not([hidden])) .a11y-panel-toggle {
+            bottom: auto;
+            left: auto;
+            right: 0.75rem;
+            top: 0.75rem;
+          }
+        }
+      
+        .reading-guide {
+          inset: 0;
+          pointer-events: none;
+          position: fixed;
+          z-index: 9990;
+        }
+
+        .reading-guide__shade,
+        .reading-guide__line {
+          left: 0;
+          position: absolute;
+          right: 0;
+        }
+
+        .reading-guide__shade {
+          background: rgba(15, 23, 42, 0.16);
+        }
+
+        .reading-guide__line {
+          background: color-mix(in srgb, var(--ui5-action, #2563eb) 8%, transparent);
+          border-bottom: 2px solid color-mix(in srgb, var(--ui5-action, #2563eb) 48%, transparent);
+          border-top: 2px solid color-mix(in srgb, var(--ui5-action, #2563eb) 48%, transparent);
+        }
+      
+.reading-guide__shade { height: var(--ui5-guide-height, auto); top: var(--ui5-guide-top, auto); bottom: 0; }
+.reading-guide__line { top: var(--ui5-guide-top); height: 44px; }

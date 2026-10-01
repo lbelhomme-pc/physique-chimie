@@ -3,15 +3,15 @@ import { useMemo, useState } from "react";
 type ReactionId = "zn-cu" | "fe-cu" | "fe-ag" | "zn-ag";
 
 const V = {
-  bg: "var(--bg-card)",
-  bgSec: "var(--bg-secondary)",
-  bgTer: "var(--bg-tertiary)",
-  text: "var(--text-primary)",
-  textSec: "var(--text-secondary)",
-  textMut: "var(--text-muted)",
-  border: "var(--border-color)",
-  primary: "var(--accent-primary)",
-  primaryLt: "var(--accent-primary-light)",
+  bg: "var(--ui5-surface)",
+  bgSec: "var(--ui5-surface-soft)",
+  bgTer: "var(--ui5-surface-soft)",
+  text: "var(--ui5-text)",
+  textSec: "var(--ui5-text-2)",
+  textMut: "var(--ui5-text-3)",
+  border: "var(--ui5-border)",
+  primary: "var(--ui5-action)",
+  primaryLt: "var(--ui5-action-soft)",
   success: "var(--accent-success)",
   successLt: "var(--accent-success-light)",
   warning: "var(--accent-warning)",
@@ -111,83 +111,76 @@ export default function RedoxBuilder() {
 
   return (
     <section
-      aria-labelledby="redox-builder-title"
-      style={{
-        background: V.bg,
-        border: `1px solid ${V.border}`,
-        borderRadius: 12,
-        boxShadow: "var(--shadow-card)",
-        margin: "1.5rem 0",
-        padding: "1rem",
-      }}
+     aria-labelledby="redox-builder-title"
+      className="ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-margin-1-5rem-0 ui5-u-padding-1rem"
     >
-      <h3 id="redox-builder-title" style={{ color: V.primary, fontSize: "1rem", margin: "0 0 0.75rem" }}>
+      <h3 id="redox-builder-title" className="ui5-u-color-ui5-action ui5-u-font-size-1rem ui5-u-margin-0-0-0-75rem">
         Construire une réaction d'oxydoréduction
       </h3>
 
-      <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}>
-        <div style={{ display: "grid", gap: "0.75rem", alignContent: "start" }}>
-          <label style={{ display: "grid", gap: "0.35rem", color: V.textSec, fontWeight: 700 }}>
+      <div className="ui5-u-display-grid ui5-u-gap-1rem ui5-u-grid-template-columns-repeat-auto-fit-minmax-240px-1fr">
+        <div className="ui5-u-display-grid ui5-u-gap-0-75rem ui5-u-align-content-start">
+          <label className="ui5-u-display-grid ui5-u-gap-0-35rem ui5-u-color-ui5-text-2 ui5-u-font-weight-700">
             Transformation étudiée
             <select
               value={reactionId}
               onChange={(event) => changeReaction(event.target.value as ReactionId)}
-              style={{ border: `1px solid ${V.border}`, borderRadius: 8, background: V.bgSec, color: V.text, font: "inherit", padding: "0.6rem" }}
+              className="ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-surface-soft ui5-u-color-ui5-text ui5-u-font-inherit ui5-u-padding-0-6rem"
             >
               {REACTIONS.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
             </select>
           </label>
 
-          <label style={{ display: "grid", gap: "0.35rem", color: V.textSec, fontWeight: 700 }}>
+          <label className="ui5-u-display-grid ui5-u-gap-0-35rem ui5-u-color-ui5-text-2 ui5-u-font-weight-700">
             Espèce qui cède les électrons
             <select
               value={reducteur}
               onChange={(event) => { setReducteur(event.target.value); setSubmitted(false); }}
-              style={{ border: `1px solid ${V.border}`, borderRadius: 8, background: V.bgSec, color: V.text, font: "inherit", padding: "0.6rem" }}
+              className="ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-surface-soft ui5-u-color-ui5-text ui5-u-font-inherit ui5-u-padding-0-6rem"
             >
               {species.map((item) => <option key={item} value={item}>{item}</option>)}
             </select>
           </label>
 
-          <label style={{ display: "grid", gap: "0.35rem", color: V.textSec, fontWeight: 700 }}>
+          <label className="ui5-u-display-grid ui5-u-gap-0-35rem ui5-u-color-ui5-text-2 ui5-u-font-weight-700">
             Espèce qui capte les électrons
             <select
               value={oxydant}
               onChange={(event) => { setOxydant(event.target.value); setSubmitted(false); }}
-              style={{ border: `1px solid ${V.border}`, borderRadius: 8, background: V.bgSec, color: V.text, font: "inherit", padding: "0.6rem" }}
+              className="ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-surface-soft ui5-u-color-ui5-text ui5-u-font-inherit ui5-u-padding-0-6rem"
             >
               {species.map((item) => <option key={item} value={item}>{item}</option>)}
             </select>
           </label>
         </div>
 
-        <div style={{ display: "grid", gap: "0.55rem", alignContent: "start" }}>
-          <p style={{ color: V.textSec, fontWeight: 700, margin: 0 }}>Contrôles avant validation</p>
-          <label style={{ color: V.text, display: "flex", gap: "0.5rem", alignItems: "center" }}>
+        <div className="ui5-u-display-grid ui5-u-gap-0-55rem ui5-u-align-content-start">
+          <p className="ui5-u-color-ui5-text-2 ui5-u-font-weight-700 ui5-u-margin-0">Contrôles avant validation</p>
+          <label className="ui5-u-color-ui5-text ui5-u-display-flex ui5-u-gap-0-5rem ui5-u-align-items-center">
             <input type="checkbox" checked={chargesOk} onChange={(event) => { setChargesOk(event.target.checked); setSubmitted(false); }} />
             J'ai vérifié la conservation des charges.
           </label>
-          <label style={{ color: V.text, display: "flex", gap: "0.5rem", alignItems: "center" }}>
+          <label className="ui5-u-color-ui5-text ui5-u-display-flex ui5-u-gap-0-5rem ui5-u-align-items-center">
             <input type="checkbox" checked={electronsOk} onChange={(event) => { setElectronsOk(event.target.checked); setSubmitted(false); }} />
             Les électrons cédés et captés sont en même nombre.
           </label>
-          <label style={{ color: V.text, display: "flex", gap: "0.5rem", alignItems: "center" }}>
+          <label className="ui5-u-color-ui5-text ui5-u-display-flex ui5-u-gap-0-5rem ui5-u-align-items-center">
             <input type="checkbox" checked={finalNoElectrons} onChange={(event) => { setFinalNoElectrons(event.target.checked); setSubmitted(false); }} />
             L'équation finale ne contient plus d'électrons.
           </label>
 
-          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "0.25rem" }}>
+          <div className="ui5-u-display-flex ui5-u-gap-0-5rem ui5-u-flex-wrap-wrap ui5-u-margin-top-0-25rem">
             <button
               type="button"
               onClick={() => setHintLevel((value) => Math.min(progressiveHints.length, value + 1))}
-              style={{ border: `1px solid ${V.border}`, borderRadius: 8, background: V.bgSec, color: V.text, cursor: "pointer", font: "inherit", padding: "0.55rem 0.8rem" }}
+              className="ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-surface-soft ui5-u-color-ui5-text ui5-u-cursor-pointer ui5-u-font-inherit ui5-u-padding-0-55rem-0-8rem"
             >
               Obtenir un indice
             </button>
             <button
               type="button"
               onClick={() => setSubmitted(true)}
-              style={{ border: "none", borderRadius: 8, background: V.primary, color: "#fff", cursor: "pointer", font: "inherit", fontWeight: 700, padding: "0.55rem 0.8rem" }}
+              className="ui5-u-border-none ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-action ui5-u-color-fff ui5-u-cursor-pointer ui5-u-font-inherit ui5-u-font-weight-700 ui5-u-padding-0-55rem-0-8rem"
             >
               Valider
             </button>
@@ -196,41 +189,34 @@ export default function RedoxBuilder() {
       </div>
 
       {hintLevel > 0 && (
-        <div style={{ background: V.warningLt, border: `1px solid ${V.warning}`, borderRadius: 8, color: V.text, marginTop: "0.9rem", padding: "0.75rem" }}>
-          {progressiveHints.slice(0, hintLevel).map((hint, index) => <p key={index} style={{ margin: index === 0 ? 0 : "0.35rem 0 0" }}>{hint}</p>)}
+        <div className="ui5-u-background-accent-warning-light ui5-u-border-1px-solid-accent-warning ui5-u-border-radius-ui5-radius-sm ui5-u-color-ui5-text ui5-u-margin-top-0-9rem ui5-u-padding-0-75rem">
+          {progressiveHints.slice(0, hintLevel).map((hint, index) => <p key={index} className={(index === 0 ? "ui5-u-margin-0" : "ui5-u-margin-0-35rem-0-0")}>{hint}</p>)}
         </div>
       )}
 
       <div
         role="status"
-        aria-live="polite"
-        style={{
-          background: submitted ? (allOk ? V.successLt : V.warningLt) : V.bgSec,
-          border: `1px solid ${submitted ? (allOk ? V.success : V.warning) : V.border}`,
-          borderRadius: 8,
-          color: V.text,
-          marginTop: "0.9rem",
-          padding: "0.85rem",
-        }}
+       aria-live="polite"
+        className={(submitted ? (allOk ? "ui5-u-background-accent-success-light" : "ui5-u-background-accent-warning-light") : "ui5-u-background-ui5-surface-soft") + " " + "ui5-u-border-ui5-value-border ui5-u-border-radius-ui5-radius-sm ui5-u-color-ui5-text ui5-u-margin-top-0-9rem ui5-u-padding-0-85rem"} style={{ "--ui5-value-border": `1px solid ${submitted ? (allOk ? V.success : V.warning) : V.border}` } as React.CSSProperties}
       >
-        {!submitted && <p style={{ margin: 0 }}>Choisis les deux rôles, vérifie les demi-équations, puis valide.</p>}
+        {!submitted && <p className="ui5-u-margin-0">Choisis les deux rôles, vérifie les demi-équations, puis valide.</p>}
         {submitted && !choicesOk && (
-          <p style={{ margin: 0 }}>
+          <p className="ui5-u-margin-0">
             Revois les rôles : l'espèce qui cède les électrons est le réducteur, celle qui capte les électrons est l'oxydant.
           </p>
         )}
         {submitted && choicesOk && !methodOk && (
-          <p style={{ margin: 0 }}>
+          <p className="ui5-u-margin-0">
             Les rôles sont corrects. Il reste à cocher toutes les vérifications de méthode avant d'obtenir le bilan.
           </p>
         )}
         {submitted && allOk && (
-          <div style={{ display: "grid", gap: "0.35rem" }}>
-            <p style={{ margin: 0, fontWeight: 700 }}>Validation réussie.</p>
-            <p style={{ margin: 0 }}>Oxydation : {reaction.oxydation}</p>
-            <p style={{ margin: 0 }}>Réduction : {reaction.reduction}</p>
-            <p style={{ margin: 0 }}>{reaction.balance}</p>
-            <p style={{ margin: 0, fontWeight: 700 }}>Équation finale : {reaction.equation}</p>
+          <div className="ui5-u-display-grid ui5-u-gap-0-35rem">
+            <p className="ui5-u-margin-0 ui5-u-font-weight-700">Validation réussie.</p>
+            <p className="ui5-u-margin-0">Oxydation : {reaction.oxydation}</p>
+            <p className="ui5-u-margin-0">Réduction : {reaction.reduction}</p>
+            <p className="ui5-u-margin-0">{reaction.balance}</p>
+            <p className="ui5-u-margin-0 ui5-u-font-weight-700">Équation finale : {reaction.equation}</p>
           </div>
         )}
       </div>

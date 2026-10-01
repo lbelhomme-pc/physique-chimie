@@ -1,0 +1,63 @@
+
+        .resume-learning {
+          align-items: center;
+          background: var(--ui5-surface);
+          border: 1px solid var(--ui5-border);
+          border-radius: var(--ui5-radius-md);
+          box-shadow: none;
+          display: grid;
+          gap: 1rem;
+          grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.9fr);
+          padding: 1.25rem;
+        }
+
+        .resume-learning p {
+          color: var(--ui5-action);
+          font-size: 0.78rem;
+          font-weight: 900;
+          letter-spacing: 0.08em;
+          margin: 0 0 0.35rem;
+          text-transform: uppercase;
+        }
+
+        .resume-learning h2 {
+          color: var(--ui5-text);
+          font-size: clamp(1.25rem, 3vw, 1.75rem);
+          letter-spacing: 0;
+          margin: 0 0 0.35rem;
+        }
+
+        .resume-learning span,
+        .resume-learning small {
+          color: var(--ui5-text-2);
+        }
+
+        .resume-learning a {
+          background: var(--ui5-surface-soft);
+          border: 1px solid var(--ui5-border);
+          border-radius: var(--ui5-radius-md);
+          color: inherit;
+          display: grid;
+          gap: 0.25rem;
+          min-height: 76px;
+          padding: 0.9rem 1rem;
+          text-decoration: none;
+        }
+
+        .resume-learning a:hover,
+        .resume-learning a:focus-visible {
+          border-color: var(--ui5-action);
+          box-shadow: none;
+          outline: none;
+        }
+
+        .resume-learning strong {
+          color: var(--ui5-text);
+        }
+
+        @media (max-width: 760px) {
+          .resume-learning {
+            grid-template-columns: 1fr;
+          }
+        }
+      

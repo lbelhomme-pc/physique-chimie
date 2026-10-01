@@ -48,10 +48,10 @@ test("public navigation supports keyboard and screen reader basics", () => {
   const source = readFileSync(navFile, "utf8");
 
   assert.match(source, /href="#main-content"/);
-  assert.match(source, /aria-label="Navigation publique V4"/);
-  assert.match(source, /class=\{`public-nav__menu/);
-  assert.match(source, /<summary aria-label=/);
-  assert.match(source, /:focus-visible/);
+  assert.match(source, /aria-label="Navigation principale"/);
+  assert.match(source, /class="ui5-nav__menu"/);
+  assert.match(source, /<summary class:list=/);
+  assert.match(readFileSync(path.join(root, "src/ui-v5/index.css"), "utf8"), /:focus-visible/);
 });
 
 test("public navigation covers V4 information architecture", () => {
@@ -97,9 +97,9 @@ test("public navigation remains the single global menu source", () => {
   assert.doesNotMatch(homeSource, /feature-strip/);
   assert.doesNotMatch(menuSource, /label:\s*"Seconde"/);
   assert.doesNotMatch(menuSource, /label:\s*"Compte"/);
-  assert.match(navSource, /class:list=\{\["public-nav__global-link"/);
+  assert.match(navSource, /class:list=\{\["ui5-nav__link"/);
   assert.match(navSource, /href="\/profil"/);
-  assert.match(navSource, /data-menu-open/);
+  assert.match(navSource, /data-open/);
   assert.match(navSource, /aria-expanded="false"/);
   assert.match(navSource, /href="\/#global-search"/);
 });

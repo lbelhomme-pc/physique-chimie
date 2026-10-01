@@ -6,8 +6,8 @@ import test from "node:test";
 const root = process.cwd();
 const read = (relativePath) => readFileSync(path.join(root, relativePath), "utf8");
 
-const heroSource = read("src/components/home/V3LandingHero.astro");
-const charterSource = read("src/styles/landing-v3.css");
+const heroSource = read("src/pages/index.astro");
+const charterSource = read("src/ui-v5/index.css");
 const layoutSource = read("src/layouts/BaseLayout.astro");
 
 const fullWidthLandingPages = [
@@ -30,56 +30,33 @@ const containedLandingPages = [
   "src/components/outils/OutilsMethodesListing.astro",
 ];
 
-test("the public entry pages share one V3 landing hero", () => {
+test("the public entry pages share the V5 page header and shell", () => {
   for (const pagePath of [...fullWidthLandingPages, ...containedLandingPages]) {
     const page = read(pagePath);
-    assert.match(page, /V3LandingHero/, `${pagePath} must import the shared hero`);
-    assert.match(page, /<V3LandingHero/, `${pagePath} must render the shared hero`);
+    assert.match(page, /ui5-page-header/, pagePath);
+    assert.doesNotMatch(page, /V3LandingHero|<style/, pagePath);
   }
-
-  for (const pagePath of fullWidthLandingPages) {
-    assert.match(read(pagePath), /v3-landing-page/, `${pagePath} must use the full landing shell`);
-  }
+  for (const pagePath of fullWidthLandingPages) assert.match(read(pagePath), /ui5-page/, pagePath);
 });
-
-test("the shared hero keeps one accessible structure and a real visual asset", () => {
+test("the home keeps one accessible heading and text statistics", () => {
   assert.equal((heroSource.match(/<h1\b/g) ?? []).length, 1);
-  assert.match(heroSource, /data-v3-landing-hero/);
-  assert.match(heroSource, /<nav class="v3-landing-actions"/);
-  assert.match(heroSource, /<dl class="v3-landing-stats"/);
-  assert.match(heroSource, /alt=\{imageAlt\}/);
-  assert.match(heroSource, /accueil-v3-hero-sciences-2026-07-27\.webp/);
-  assert.match(heroSource, /markLabel/);
+  assert.match(heroSource, /ui5-home-hero/);
+  assert.match(heroSource, /<dl class="ui5-home-hero__stats"/);
+  assert.match(heroSource, /aria-labelledby="subjects-title"/);
 });
-
-test("discipline identities are visible through text, marks and distinct tones", () => {
-  const combinedPages = [...fullWidthLandingPages, ...containedLandingPages]
-    .map((pagePath) => read(pagePath))
-    .join("\n");
-
-  for (const tone of ["maths", "pc", "science", "memory", "kit", "mixed"]) {
-    assert.match(charterSource, new RegExp(`v3-landing-hero--${tone}`));
-  }
-
-  for (const tone of ["maths", "pc", "memory", "kit", "mixed"]) {
-    assert.match(combinedPages, new RegExp(`tone="${tone}"`));
-  }
-
-  const lyceeLevel = read("src/pages/lycee/[niveau]/index.astro");
-  assert.match(lyceeLevel, /isTeachingScience \? "science" : "pc"/);
-  assert.match(lyceeLevel, /tone=\{landingTone\}/);
-  assert.match(combinedPages, /mark=/);
-  assert.match(combinedPages, /markLabel=/);
+test("discipline identities use visible names and common theme tokens", () => {
+  for (const id of ["mathematiques", "physique-chimie"]) assert.match(charterSource, new RegExp(`data-subject="${id}"`));
+  const combined = fullWidthLandingPages.map(read).join("\n");
+  assert.match(combined, /Mathématiques/);
+  assert.match(combined, /Physique-Chimie/);
+  assert.match(read("src/pages/lycee/index.astro"), /data-track=\{level\.trackId\}/);
 });
-
-test("the charter is responsive, restrained and loaded globally", () => {
-  assert.match(layoutSource, /styles\/landing-v3\.css/);
-  assert.match(charterSource, /@media \(max-width: 760px\)/);
-  assert.match(charterSource, /@media \(prefers-reduced-motion: reduce\)/);
-  assert.match(charterSource, /\.v3-landing-card/);
-  assert.match(charterSource, /border-radius: 8px/);
-  assert.match(charterSource, /overflow: hidden/);
-  assert.doesNotMatch(charterSource, /font-size:\s*[^;]*vw/);
+test("the charter is responsive and loaded through a single stylesheet", () => {
+  assert.match(layoutSource, /ui-v5\/index\.css/);
+  assert.doesNotMatch(layoutSource, /styles\/(?:design-system|landing-v3|learning-workspace)\.css/);
+  assert.match(charterSource, /@media \(max-width:/);
+  assert.match(charterSource, /prefers-reduced-motion/);
+  assert.match(charterSource, /--ui5-radius-sm: 8px/);
 });
 
 test("landing refactors preserve the main learning entry points", () => {

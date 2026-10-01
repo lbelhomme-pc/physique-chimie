@@ -1,0 +1,287 @@
+
+  .python-lab .lab-eyebrow {
+    color: var(--ui5-action);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.45rem;
+    text-transform: uppercase;
+  }
+
+  .lab-page-note p,
+  .python-lab p,
+  .python-lab li {
+    color: var(--ui5-text-2);
+    line-height: 1.7;
+  }
+
+  .lab-page-note,
+  .python-lab .lab-panel {
+    background: var(--ui5-surface);
+    border: 1px solid var(--ui5-border);
+    border-radius: var(--ui5-radius-md);
+    box-shadow: none;
+  }
+
+  .lab-page-note {
+    border-left: 5px solid var(--accent-warning);
+    margin: 1rem 0 1.25rem;
+    padding: 1rem 1.15rem;
+  }
+
+  .lab-page-note h2 {
+    color: var(--ui5-text);
+    font-size: 1.05rem;
+    margin: 0 0 0.4rem;
+  }
+
+  .python-lab {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .python-lab .lab-panel {
+    padding: 1rem;
+  }
+
+  .python-lab .lab-intro {
+    border-left: 5px solid var(--ui5-action);
+  }
+
+  .python-lab h2,
+  .python-lab h3,
+  .python-lab h4 {
+    color: var(--ui5-text);
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .python-lab h2 {
+    font-size: 1.25rem;
+  }
+
+  .python-lab h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .python-lab h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .python-lab .lab-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .python-lab label {
+    color: var(--ui5-text);
+    display: grid;
+    font-weight: 800;
+    gap: 0.35rem;
+  }
+
+  .python-lab select,
+  .python-lab textarea {
+    background: var(--bg-input);
+    border: 1px solid var(--ui5-border);
+    border-radius: var(--ui5-radius-sm);
+    color: var(--ui5-text);
+    font: inherit;
+  }
+
+  .python-lab select {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .python-lab textarea {
+    font-family: Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    min-height: 28rem;
+    padding: 0.85rem;
+    resize: vertical;
+    width: 100%;
+  }
+
+  .python-lab select:focus-visible,
+  .python-lab textarea:focus-visible,
+  .python-lab button:focus-visible,
+  .python-lab .lab-output:focus-visible,
+  .python-lab summary:focus-visible {
+    outline: 3px solid var(--ui5-action);
+    outline-offset: 2px;
+  }
+
+  .python-lab .example-note {
+    background: var(--ui5-surface-soft);
+    border: 1px solid var(--ui5-border);
+    border-radius: var(--ui5-radius-sm);
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 0.9rem;
+    padding: 0.85rem;
+  }
+
+  .python-lab .example-note strong {
+    color: var(--ui5-action);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+  }
+
+  .python-lab .example-note p {
+    margin: 0 0 0.4rem;
+  }
+
+  .python-lab .lab-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 0.75rem;
+  }
+
+  .python-lab button {
+    background: var(--ui5-action);
+    border: 1px solid var(--ui5-action);
+    border-radius: var(--radius-pill);
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 800;
+    min-height: 2.55rem;
+    padding: 0.55rem 0.95rem;
+  }
+
+  .python-lab button:hover:not(:disabled) {
+    background: var(--ui5-action-hover);
+    border-color: var(--ui5-action-hover);
+  }
+
+  .python-lab button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .python-lab button:nth-child(3),
+  .python-lab button:nth-child(5) {
+    background: var(--ui5-surface);
+    color: var(--ui5-text);
+  }
+
+  .python-lab .results-header {
+    display: grid;
+    gap: 0.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .python-lab .results-header p {
+    background: var(--ui5-action-soft);
+    border-radius: var(--ui5-radius-sm);
+    color: var(--ui5-text);
+    font-weight: 750;
+    margin: 0;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .python-lab .output-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .python-lab .lab-output,
+  .python-lab .lab-error pre {
+    background: #0f172a;
+    border-radius: var(--ui5-radius-sm);
+    color: #e5e7eb;
+    font-family: Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin: 0;
+    min-height: 8rem;
+    overflow: auto;
+    padding: 0.85rem;
+    white-space: pre-wrap;
+  }
+
+  .python-lab .lab-stderr {
+    color: #fecaca;
+  }
+
+  .python-lab .lab-error {
+    background: var(--accent-danger-light);
+    border: 1px solid var(--accent-danger);
+    border-radius: var(--ui5-radius-sm);
+    color: var(--ui5-text);
+    margin: 0.8rem 0;
+    padding: 0.85rem;
+  }
+
+  .python-lab .lab-error strong {
+    color: var(--accent-danger);
+    display: block;
+    margin-bottom: 0.45rem;
+  }
+
+  .python-lab .graph-zone {
+    background: var(--ui5-surface-soft);
+    border: 1px solid var(--ui5-border);
+    border-radius: var(--ui5-radius-sm);
+    margin-top: 0.9rem;
+    overflow-x: auto;
+    padding: 0.85rem;
+  }
+
+  .python-lab .graph-zone img {
+    background: #fff;
+    border: 1px solid var(--ui5-border);
+    border-radius: var(--ui5-radius-sm);
+    display: block;
+    height: auto;
+    margin: 0.6rem auto 0;
+    max-width: 100%;
+  }
+
+  .python-lab details {
+    background: var(--ui5-surface-soft);
+    border: 1px solid var(--ui5-border);
+    border-radius: var(--ui5-radius-sm);
+    margin: 0.6rem 0 0;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .python-lab summary {
+    color: var(--ui5-text);
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  .python-lab details p {
+    margin: 0.55rem 0 0;
+  }
+
+  @media (max-width: 860px) {
+    .python-lab .lab-grid,
+    .python-lab .output-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .python-lab textarea {
+      min-height: 22rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+
+    .python-lab .lab-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .python-lab button {
+      width: 100%;
+    }
+  }

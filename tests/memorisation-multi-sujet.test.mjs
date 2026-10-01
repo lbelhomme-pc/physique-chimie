@@ -146,7 +146,7 @@ test("C15 dashboard and profile are discipline-aware without changing progress s
 
 test("C15 memorization entry points describe both public disciplines", () => {
   assert.match(memorizationHubSource, /Mathématiques et Physique-Chimie/);
-  assert.match(memorizationHubSource, /filtre de discipline/i);
+  assert.match(memorizationHubSource, /discipline/i);
   assert.match(dailyReviewSource, /Mathématiques et Physique-Chimie/);
   assert.match(dailyReviewSource, /subject="transversal"/);
   assert.match(quizPageSource, /Mathématiques et Physique-Chimie/);

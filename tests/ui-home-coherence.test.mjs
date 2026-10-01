@@ -7,30 +7,22 @@ const root=process.cwd();
 const read=(relative)=>readFileSync(path.join(root,relative),"utf8");
 
 describe("UI — cohérence avec la charte de la page d'accueil",()=>{
-  it("charge la couche de cohérence globale après les styles pédagogiques",()=>{
+  it("charge un seul système global pour toutes les pages",()=>{
     const layout=read("src/layouts/BaseLayout.astro");
-    const learning=layout.indexOf('import "../styles/learning-workspace.css";');
-    const coherence=layout.indexOf('import "../styles/home-coherence.css";');
-    assert.ok(learning>=0);
-    assert.ok(coherence>learning);
+    assert.match(layout,/ui-v5\/index\.css/);
+    assert.doesNotMatch(layout,/styles\/(?:design-system|learning-workspace|home-coherence)\.css/);
   });
-
   it("utilise les mêmes primitives visuelles que l'accueil",()=>{
-    const css=read("src/styles/home-coherence.css");
-    assert.match(css,/--ui-home-navy: #00184d/);
-    assert.match(css,/--ui-home-blue: #0f5bff/);
-    assert.match(css,/--ui-home-border: #d9e6fb/);
-    assert.match(css,/--ui-home-soft: #f4f8ff/);
-    assert.match(css,/--ui-home-radius: 8px/);
-    assert.match(css,/--ui-home-radius-sm: 6px/);
+    const css=read("src/ui-v5/index.css");
+    for (const token of ["--ui5-canvas", "--ui5-action", "--ui5-border", "--ui5-surface-soft", "--ui5-radius-sm"]) assert.ok(css.includes(token));
   });
-
-  it("supprime le style pill et les largeurs étroites des onglets pédagogiques",()=>{
+  it("centralise les onglets pédagogiques sans largeur locale",()=>{
     const tabs=read("src/components/pedagogie/ChapterTabs.astro");
-    assert.match(tabs,/border-radius: var\(--v3-radius-md\)/);
-    assert.match(tabs,/background: var\(--v3-color-action\)/);
-    assert.doesNotMatch(tabs,/border-radius: 18px/);
-    assert.doesNotMatch(tabs,/max-width: 900px/);
+    const css=read("src/ui-v5/index.css");
+    assert.match(tabs,/ui5-tabs/);
+    assert.doesNotMatch(tabs,/<style/);
+    assert.match(css,/\.ui5-tab-panel/);
+    assert.match(css,/--ui5-content: 1120px/);
   });
 
   it("aligne les onglets génériques V3 sur la charte d'accueil",()=>{
@@ -52,17 +44,17 @@ describe("UI — cohérence avec la charte de la page d'accueil",()=>{
 
   it("la recherche du laboratoire reprend la même icône et les mêmes contrôles",()=>{
     const page=read("src/pages/laboratoire.astro");
-    const css=read("src/styles/laboratoire/global-lab.css");
-    assert.match(page,/class="lab-search-icon"/);
+    const css=read("src/ui-v5/index.css");
+    assert.match(page,/class="ui5-search"/);
     assert.doesNotMatch(page,/🔍/);
-    assert.match(css,/border: 1px solid var\(--v3-color-border-default\)/);
-    assert.match(css,/border-color: var\(--v3-color-action\)/);
+    assert.match(css,/border: 1px solid var\(--ui5-border\)/);
+    assert.match(css,/\.ui5-search/);
   });
 
   it("les espaces pédagogiques restent sur 1120px avec la géométrie de l'accueil",()=>{
-    const css=read("src/styles/learning-workspace.css");
-    assert.match(css,/--learning-max: 1120px/);
-    assert.match(css,/--learning-radius: var\(--v3-radius-md, 8px\)/);
+    const css=read("src/ui-v5/learning.css");
+    assert.match(css,/--learning-max: var\(--ui5-content\)/);
+    assert.match(css,/--learning-radius: var\(--ui5-radius-sm\)/);
     assert.match(css,/min-height: 44px/);
     assert.doesNotMatch(css,/--learning-radius-lg: 20px/);
     assert.match(css,/grid-template-columns: 230px minmax\(0, 1fr\)/);

@@ -36,7 +36,8 @@ export function MathBlock({ formula, style }: { formula: string; style?: React.C
   const html = useMemo(() => renderKatexToTrustedHtml(asMathFormulaText(formula), true), [formula]);
   return (
     <div
-      style={{ textAlign: "center", margin: "1rem 0", ...style }}
+      className="ui5-math-block"
+      style={style}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

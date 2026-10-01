@@ -112,18 +112,10 @@ export default function MegaFlashcardsPlayer({ allCards, dataUrl, totalCards }: 
   const cur = pool[idx];
   const done = idx >= pool.length && started;
 
-  const V = {
-    bg: "var(--bg-card)", bgS: "var(--bg-secondary)", bd: "var(--border-color)",
-    t: "var(--text-primary)", tm: "var(--text-muted)",
-    p: "var(--accent-primary)", pL: "var(--accent-primary-light)",
-    s: "var(--accent-success)", sL: "var(--accent-success-light)",
-    d: "var(--accent-danger)", dL: "var(--accent-danger-light)",
-    pu: "var(--accent-purple)", puL: "var(--accent-purple-light)",
-    r: "var(--radius-lg)", rm: "var(--radius-md)", rp: "var(--radius-pill)", sh: "var(--shadow-card)", shM: "var(--shadow-md)",
-  };
+
 
   const P = ({ a, onClick, children }: { a: boolean; onClick: () => void; children: ReactNode }) => (
-    <button type="button" aria-pressed={a} onClick={onClick} style={{ padding: "0.35rem 0.8rem", borderRadius: V.rp, border: "none", cursor: "pointer", fontWeight: 600, fontSize: "0.78rem", fontFamily: "inherit", background: a ? V.p : V.bgS, color: a ? "#fff" : V.tm, transition: "all 0.15s" }}>{children}</button>
+    <button type="button" aria-pressed={a} onClick={onClick} className={"ui5-u-padding-0-35rem-0-8rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-none ui5-u-cursor-pointer ui5-u-font-weight-600 ui5-u-font-size-0-78rem ui5-u-font-family-inherit" + " " + (a ? "ui5-u-background-ui5-action" : "ui5-u-background-ui5-surface-soft") + " " + (a ? "ui5-u-color-fff" : "ui5-u-color-ui5-text-3") + " " + "ui5-u-transition-all-0-15s"}>{children}</button>
   );
 
   const restart = () => { setStarted(false); setIdx(0); setFlipped(false); setResults([]); };
@@ -135,55 +127,55 @@ export default function MegaFlashcardsPlayer({ allCards, dataUrl, totalCards }: 
   };
 
   if (loading) {
-    return <div data-mega-flashcards-player-v3="true" role="status" aria-live="polite" style={{ background: V.bg, borderRadius: V.r, boxShadow: V.sh, padding: "1.5rem", border: `1px solid ${V.bd}`, textAlign: "center", color: V.tm }}>Chargement de {totalCards ?? "la banque de"} cartes...</div>;
+    return <div data-mega-flashcards-player-v3="true" role="status" aria-live="polite" className="ui5-u-background-ui5-surface ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-1-5rem ui5-u-border-1px-solid-ui5-border ui5-u-text-align-center ui5-u-color-ui5-text-3">Chargement de {totalCards ?? "la banque de"} cartes...</div>;
   }
 
   if (loadError) {
-    return <div data-mega-flashcards-player-v3="true" role="alert" style={{ background: V.bg, borderRadius: V.r, boxShadow: V.sh, padding: "1.5rem", border: `1px solid ${V.bd}`, textAlign: "center", color: V.d }}>{loadError}</div>;
+    return <div data-mega-flashcards-player-v3="true" role="alert" className="ui5-u-background-ui5-surface ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-1-5rem ui5-u-border-1px-solid-ui5-border ui5-u-text-align-center ui5-u-color-accent-danger">{loadError}</div>;
   }
 
   if (!started) {
     return (
-      <div data-mega-flashcards-player-v3="true" style={{ background: V.bg, borderRadius: V.r, boxShadow: V.sh, padding: "1.5rem", border: `1px solid ${V.bd}` }}>
-        <h2 style={{ fontSize: "1.1rem", fontWeight: 700, color: V.t, textAlign: "center", marginBottom: "1rem" }}>⚙️ Mega Flashcards</h2>
-        <div style={{ marginBottom: "0.75rem" }}>
-          <p style={{ fontSize: "0.8rem", fontWeight: 600, color: V.tm, marginBottom: "0.4rem" }}>Discipline :</p>
-          <div data-discipline-filter="mega-flashcards" style={{ display: "flex", gap: "0.3rem", flexWrap: "wrap" }}>
+      <div data-mega-flashcards-player-v3="true" className="ui5-u-background-ui5-surface ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-1-5rem ui5-u-border-1px-solid-ui5-border">
+        <h2 className="ui5-u-font-size-1-1rem ui5-u-font-weight-700 ui5-u-color-ui5-text ui5-u-text-align-center ui5-u-margin-bottom-1rem">⚙️ Mega Flashcards</h2>
+        <div className="ui5-u-margin-bottom-0-75rem">
+          <p className="ui5-u-font-size-0-8rem ui5-u-font-weight-600 ui5-u-color-ui5-text-3 ui5-u-margin-bottom-0-4rem">Discipline :</p>
+          <div data-discipline-filter="mega-flashcards" className="ui5-u-display-flex ui5-u-gap-0-3rem ui5-u-flex-wrap-wrap">
             <P a={fDiscipline === "physique-chimie"} onClick={() => selectDiscipline("physique-chimie")}>{disciplineLabel("physique-chimie")}</P>
             <P a={fDiscipline === "mathematiques"} onClick={() => selectDiscipline("mathematiques")}>{disciplineLabel("mathematiques")}</P>
             <P a={fDiscipline === "all"} onClick={() => selectDiscipline("all")}>{disciplineLabel("all")}</P>
           </div>
-          <p style={{ fontSize: "0.75rem", color: V.tm, margin: "0.4rem 0 0" }}>Le mélange des disciplines n’est activé que si tu choisis « Toutes les disciplines ».</p>
+          <p className="ui5-u-font-size-0-75rem ui5-u-color-ui5-text-3 ui5-u-margin-0-4rem-0-0">Le mélange des disciplines n’est activé que si tu choisis « Toutes les disciplines ».</p>
         </div>
-        <div style={{ marginBottom: "0.75rem" }}>
-          <p style={{ fontSize: "0.8rem", fontWeight: 600, color: V.tm, marginBottom: "0.4rem" }}>📚 Niveau :</p>
-          <div style={{ display: "flex", gap: "0.3rem", flexWrap: "wrap" }}>
+        <div className="ui5-u-margin-bottom-0-75rem">
+          <p className="ui5-u-font-size-0-8rem ui5-u-font-weight-600 ui5-u-color-ui5-text-3 ui5-u-margin-bottom-0-4rem">📚 Niveau :</p>
+          <div className="ui5-u-display-flex ui5-u-gap-0-3rem ui5-u-flex-wrap-wrap">
             <P a={fNiveau === "all"} onClick={() => { setFNiveau("all"); setFChapter("all"); }}>Tous</P>
             {niveaux.map((niveau) => <P key={niveau} a={fNiveau === niveau} onClick={() => { setFNiveau(niveau); setFChapter("all"); }}>{getLevelDisplayLabel(niveau)}</P>)}
           </div>
         </div>
-        <div style={{ marginBottom: "0.75rem" }}>
-          <p style={{ fontSize: "0.8rem", fontWeight: 600, color: V.tm, marginBottom: "0.4rem" }}>Matière :</p>
-          <div style={{ display: "flex", gap: "0.3rem", flexWrap: "wrap" }}>
+        <div className="ui5-u-margin-bottom-0-75rem">
+          <p className="ui5-u-font-size-0-8rem ui5-u-font-weight-600 ui5-u-color-ui5-text-3 ui5-u-margin-bottom-0-4rem">Matière :</p>
+          <div className="ui5-u-display-flex ui5-u-gap-0-3rem ui5-u-flex-wrap-wrap">
             <P a={fMatiere === "all"} onClick={() => { setFMatiere("all"); setFChapter("all"); }}>Toutes</P>
             {matieres.map((matiere) => <P key={matiere} a={fMatiere === matiere} onClick={() => { setFMatiere(matiere); setFChapter("all"); }}>{matterFilterLabel(matiere)}</P>)}
           </div>
         </div>
-        <div style={{ marginBottom: "0.75rem" }}>
-          <p style={{ fontSize: "0.8rem", fontWeight: 600, color: V.tm, marginBottom: "0.4rem" }}>📖 Chapitre :</p>
-          <div style={{ display: "flex", gap: "0.3rem", flexWrap: "wrap" }}>
+        <div className="ui5-u-margin-bottom-0-75rem">
+          <p className="ui5-u-font-size-0-8rem ui5-u-font-weight-600 ui5-u-color-ui5-text-3 ui5-u-margin-bottom-0-4rem">📖 Chapitre :</p>
+          <div className="ui5-u-display-flex ui5-u-gap-0-3rem ui5-u-flex-wrap-wrap">
             <P a={fChapter === "all"} onClick={() => setFChapter("all")}>Tous ({filtered.length})</P>
             {chapters.map((chapter) => <P key={chapter} a={fChapter === chapter} onClick={() => setFChapter(chapter)}>{chapter}</P>)}
           </div>
         </div>
-        <div style={{ marginBottom: "1rem" }}>
-          <p style={{ fontSize: "0.8rem", fontWeight: 600, color: V.tm, marginBottom: "0.4rem" }}>🔢 Cartes :</p>
-          <div style={{ display: "flex", gap: "0.3rem", flexWrap: "wrap" }}>
+        <div className="ui5-u-margin-bottom-1rem">
+          <p className="ui5-u-font-size-0-8rem ui5-u-font-weight-600 ui5-u-color-ui5-text-3 ui5-u-margin-bottom-0-4rem">🔢 Cartes :</p>
+          <div className="ui5-u-display-flex ui5-u-gap-0-3rem ui5-u-flex-wrap-wrap">
             {[10, 15, 20, 30, 50].map((count) => <P key={count} a={nb === count} onClick={() => setNb(count)}>{count}</P>)}
           </div>
         </div>
-        <p style={{ fontSize: "0.8rem", color: V.tm, textAlign: "center", marginBottom: "0.75rem" }}>{filtered.length} cartes disponibles</p>
-        <button type="button" onClick={() => { if (filtered.length > 0) { setSessionSeed((seed) => seed + 1); setStarted(true); } }} style={{ display: "block", width: "100%", padding: "0.8rem", border: "none", borderRadius: V.rm, background: filtered.length > 0 ? V.p : V.bgS, color: filtered.length > 0 ? "#fff" : V.tm, fontWeight: 700, fontSize: "1rem", cursor: filtered.length > 0 ? "pointer" : "not-allowed", fontFamily: "inherit" }}>🚀 Lancer !</button>
+        <p className="ui5-u-font-size-0-8rem ui5-u-color-ui5-text-3 ui5-u-text-align-center ui5-u-margin-bottom-0-75rem">{filtered.length} cartes disponibles</p>
+        <button type="button" onClick={() => { if (filtered.length > 0) { setSessionSeed((seed) => seed + 1); setStarted(true); } }} className={"ui5-u-display-block ui5-u-width-100 ui5-u-padding-0-8rem ui5-u-border-none ui5-u-border-radius-ui5-radius-sm" + " " + (filtered.length > 0 ? "ui5-u-background-ui5-action" : "ui5-u-background-ui5-surface-soft") + " " + (filtered.length > 0 ? "ui5-u-color-fff" : "ui5-u-color-ui5-text-3") + " " + "ui5-u-font-weight-700 ui5-u-font-size-1rem" + " " + (filtered.length > 0 ? "ui5-u-cursor-pointer" : "ui5-u-cursor-not-allowed") + " " + "ui5-u-font-family-inherit"}>🚀 Lancer !</button>
       </div>
     );
   }
@@ -194,17 +186,17 @@ export default function MegaFlashcardsPlayer({ allCards, dataUrl, totalCards }: 
     const pct = pool.length ? Math.round((known / pool.length) * 100) : 0;
     const emoji = pct === 100 ? "🏆" : pct >= 80 ? "🌟" : pct >= 60 ? "👍" : "📚";
     return (
-      <div data-mega-flashcards-result-v3="true" style={{ background: V.bg, borderRadius: V.r, boxShadow: V.sh, padding: "1.5rem", border: `1px solid ${V.bd}`, textAlign: "center" }}>
-        <span style={{ fontSize: "3rem" }}>{emoji}</span>
-        <h2 style={{ fontSize: "1.3rem", fontWeight: 800, color: V.t, margin: "0.5rem 0" }}>Session terminée !</h2>
-        <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", margin: "1rem 0" }}>
-          <div><p style={{ fontSize: "2rem", fontWeight: 900, color: V.s }}>{known}</p><p style={{ fontSize: "0.8rem", color: V.tm }}>✅ Connues</p></div>
-          <div><p style={{ fontSize: "2rem", fontWeight: 900, color: V.d }}>{unknown}</p><p style={{ fontSize: "0.8rem", color: V.tm }}>❌ À revoir</p></div>
+      <div data-mega-flashcards-result-v3="true" className="ui5-u-background-ui5-surface ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-1-5rem ui5-u-border-1px-solid-ui5-border ui5-u-text-align-center">
+        <span className="ui5-u-font-size-3rem">{emoji}</span>
+        <h2 className="ui5-u-font-size-1-3rem ui5-u-font-weight-800 ui5-u-color-ui5-text ui5-u-margin-0-5rem-0">Session terminée !</h2>
+        <div className="ui5-u-display-flex ui5-u-justify-content-center ui5-u-gap-1-5rem ui5-u-margin-1rem-0">
+          <div><p className="ui5-u-font-size-2rem ui5-u-font-weight-900 ui5-u-color-accent-success">{known}</p><p className="ui5-u-font-size-0-8rem ui5-u-color-ui5-text-3">✅ Connues</p></div>
+          <div><p className="ui5-u-font-size-2rem ui5-u-font-weight-900 ui5-u-color-accent-danger">{unknown}</p><p className="ui5-u-font-size-0-8rem ui5-u-color-ui5-text-3">❌ À revoir</p></div>
         </div>
-        <p style={{ fontSize: "1rem", color: V.tm, marginBottom: "1rem" }}>{pct}%</p>
-        <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center" }}>
-          <button type="button" onClick={restart} style={{ padding: "0.6rem 1.5rem", borderRadius: V.rm, border: "none", cursor: "pointer", background: V.p, color: "#fff", fontWeight: 600, fontSize: "0.9rem", fontFamily: "inherit" }}>🔄 Recommencer</button>
-          <a href="/" style={{ padding: "0.6rem 1.5rem", borderRadius: V.rm, border: `1px solid ${V.bd}`, background: V.bg, color: V.tm, fontWeight: 600, fontSize: "0.9rem", textDecoration: "none" }}>🏠 Accueil</a>
+        <p className="ui5-u-font-size-1rem ui5-u-color-ui5-text-3 ui5-u-margin-bottom-1rem">{pct}%</p>
+        <div className="ui5-u-display-flex ui5-u-gap-0-75rem ui5-u-justify-content-center">
+          <button type="button" onClick={restart} className="ui5-u-padding-0-6rem-1-5rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-none ui5-u-cursor-pointer ui5-u-background-ui5-action ui5-u-color-fff ui5-u-font-weight-600 ui5-u-font-size-0-9rem ui5-u-font-family-inherit">🔄 Recommencer</button>
+          <a href="/" className="ui5-u-padding-0-6rem-1-5rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-1px-solid-ui5-border ui5-u-background-ui5-surface ui5-u-color-ui5-text-3 ui5-u-font-weight-600 ui5-u-font-size-0-9rem ui5-u-text-decoration-none">🏠 Accueil</a>
         </div>
       </div>
     );
@@ -215,31 +207,31 @@ export default function MegaFlashcardsPlayer({ allCards, dataUrl, totalCards }: 
 
   return (
     <div data-mega-flashcards-player-v3="true">
-      <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
-        <span style={{ fontSize: "0.8rem", fontWeight: 700, color: V.tm }}>{idx + 1}/{pool.length}</span>
-        <div style={{ flex: 1, height: 6, background: V.bgS, borderRadius: 99, overflow: "hidden" }}><div style={{ height: "100%", background: V.p, borderRadius: 99, width: `${((idx + 1) / pool.length) * 100}%`, transition: "width 0.3s" }} /></div>
-        <span style={{ fontSize: "0.75rem", color: V.s }}>✅ {results.filter((result) => result === "k").length}</span>
-        <span style={{ fontSize: "0.75rem", color: V.d }}>❌ {results.filter((result) => result === "u").length}</span>
+      <div className="ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-0-75rem ui5-u-margin-bottom-1rem">
+        <span className="ui5-u-font-size-0-8rem ui5-u-font-weight-700 ui5-u-color-ui5-text-3">{idx + 1}/{pool.length}</span>
+        <div className="ui5-u-flex-1 ui5-u-height-6px ui5-u-background-ui5-surface-soft ui5-u-border-radius-999px ui5-u-overflow-hidden"><div className="ui5-u-height-100 ui5-u-background-ui5-action ui5-u-border-radius-999px ui5-u-width-ui5-value-width ui5-u-transition-width-0-3s" style={{ "--ui5-value-width": `${((idx + 1) / pool.length) * 100}%` } as React.CSSProperties} /></div>
+        <span className="ui5-u-font-size-0-75rem ui5-u-color-accent-success">✅ {results.filter((result) => result === "k").length}</span>
+        <span className="ui5-u-font-size-0-75rem ui5-u-color-accent-danger">❌ {results.filter((result) => result === "u").length}</span>
       </div>
-      <div role="button" tabIndex={0} aria-pressed={flipped} onKeyDown={(event) => { if ((event.key === "Enter" || event.key === " ") && !flipped) { event.preventDefault(); setFlipped(true); } }} onClick={() => !flipped && setFlipped(true)} style={{ background: V.bg, borderRadius: V.r, boxShadow: V.shM, padding: "2rem 1.5rem", minHeight: 200, border: `1px solid ${V.bd}`, cursor: flipped ? "default" : "pointer", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", transition: "all 0.2s" }}>
-        <span style={{ fontSize: "0.7rem", fontWeight: 600, padding: "0.15rem 0.5rem", borderRadius: V.rp, marginBottom: "0.75rem", background: currentIsChemistry ? V.puL : V.pL, color: currentIsChemistry ? V.pu : V.p }}>{cardLabel(cur)} · {cur.chapterTitle}</span>
+      <div role="button" tabIndex={0} aria-pressed={flipped} onKeyDown={(event) => { if ((event.key === "Enter" || event.key === " ") && !flipped) { event.preventDefault(); setFlipped(true); } }} onClick={() => !flipped && setFlipped(true)} className={"ui5-u-background-ui5-surface ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-2rem-1-5rem ui5-u-min-height-200px ui5-u-border-1px-solid-ui5-border" + " " + (flipped ? "ui5-u-cursor-default" : "ui5-u-cursor-pointer") + " " + "ui5-u-display-flex ui5-u-flex-direction-column ui5-u-justify-content-center ui5-u-align-items-center ui5-u-text-align-center ui5-u-transition-all-0-2s"}>
+        <span className={"ui5-u-font-size-0-7rem ui5-u-font-weight-600 ui5-u-padding-0-15rem-0-5rem ui5-u-border-radius-ui5-radius-sm ui5-u-margin-bottom-0-75rem" + " " + (currentIsChemistry ? "ui5-u-background-accent-purple-light" : "ui5-u-background-ui5-action-soft") + " " + (currentIsChemistry ? "ui5-u-color-accent-purple" : "ui5-u-color-ui5-action")}>{cardLabel(cur)} · {cur.chapterTitle}</span>
         {!flipped ? (
           <>
-            <p style={{ fontSize: "1.1rem", fontWeight: 700, color: V.t, lineHeight: 1.5 }}><MathText text={cur.front} /></p>
-            <p style={{ fontSize: "0.8rem", color: V.tm, marginTop: "1rem" }}>👆 Clique pour voir la réponse</p>
+            <p className="ui5-u-font-size-1-1rem ui5-u-font-weight-700 ui5-u-color-ui5-text ui5-u-line-height-1-5"><MathText text={cur.front} /></p>
+            <p className="ui5-u-font-size-0-8rem ui5-u-color-ui5-text-3 ui5-u-margin-top-1rem">👆 Clique pour voir la réponse</p>
           </>
         ) : (
           <>
-            <p style={{ fontSize: "0.8rem", color: V.tm, marginBottom: "0.5rem" }}><MathText text={cur.front} /></p>
-            <div style={{ width: "60%", height: 1, background: V.bd, margin: "0.5rem 0" }} />
-            <p style={{ fontSize: "1.05rem", fontWeight: 600, color: V.s, lineHeight: 1.5, marginTop: "0.5rem" }}><MathText text={cur.back} /></p>
+            <p className="ui5-u-font-size-0-8rem ui5-u-color-ui5-text-3 ui5-u-margin-bottom-0-5rem"><MathText text={cur.front} /></p>
+            <div className="ui5-u-width-60 ui5-u-height-1px ui5-u-background-ui5-border ui5-u-margin-0-5rem-0" />
+            <p className="ui5-u-font-size-1-05rem ui5-u-font-weight-600 ui5-u-color-accent-success ui5-u-line-height-1-5 ui5-u-margin-top-0-5rem"><MathText text={cur.back} /></p>
           </>
         )}
       </div>
       {flipped && (
-        <div style={{ display: "flex", gap: "0.75rem", marginTop: "1rem", justifyContent: "center" }}>
-          <button type="button" onClick={() => { setResults((items) => [...items, "u"]); setFlipped(false); setIdx((value) => value + 1); }} style={{ flex: 1, padding: "0.7rem", borderRadius: V.rm, border: `2px solid ${V.d}`, background: V.dL, color: V.d, fontWeight: 700, fontSize: "0.9rem", cursor: "pointer", fontFamily: "inherit" }}>❌ À revoir</button>
-          <button type="button" onClick={() => { setResults((items) => [...items, "k"]); setFlipped(false); setIdx((value) => value + 1); }} style={{ flex: 1, padding: "0.7rem", borderRadius: V.rm, border: `2px solid ${V.s}`, background: V.sL, color: V.s, fontWeight: 700, fontSize: "0.9rem", cursor: "pointer", fontFamily: "inherit" }}>✅ Connue !</button>
+        <div className="ui5-u-display-flex ui5-u-gap-0-75rem ui5-u-margin-top-1rem ui5-u-justify-content-center">
+          <button type="button" onClick={() => { setResults((items) => [...items, "u"]); setFlipped(false); setIdx((value) => value + 1); }} className="ui5-u-flex-1 ui5-u-padding-0-7rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-2px-solid-accent-danger ui5-u-background-accent-danger-light ui5-u-color-accent-danger ui5-u-font-weight-700 ui5-u-font-size-0-9rem ui5-u-cursor-pointer ui5-u-font-family-inherit">❌ À revoir</button>
+          <button type="button" onClick={() => { setResults((items) => [...items, "k"]); setFlipped(false); setIdx((value) => value + 1); }} className="ui5-u-flex-1 ui5-u-padding-0-7rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-2px-solid-accent-success ui5-u-background-accent-success-light ui5-u-color-accent-success ui5-u-font-weight-700 ui5-u-font-size-0-9rem ui5-u-cursor-pointer ui5-u-font-family-inherit">✅ Connue !</button>
         </div>
       )}
     </div>

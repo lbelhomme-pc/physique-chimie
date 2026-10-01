@@ -25,15 +25,15 @@ const TARGETS: { id: Target; label: string }[] = [
 ];
 
 const V = {
-  bg: "var(--bg-card)",
-  bgSec: "var(--bg-secondary)",
-  bgTer: "var(--bg-tertiary)",
-  text: "var(--text-primary)",
-  textSec: "var(--text-secondary)",
-  textMut: "var(--text-muted)",
-  border: "var(--border-color)",
-  primary: "var(--accent-primary)",
-  primaryLt: "var(--accent-primary-light)",
+  bg: "var(--ui5-surface)",
+  bgSec: "var(--ui5-surface-soft)",
+  bgTer: "var(--ui5-surface-soft)",
+  text: "var(--ui5-text)",
+  textSec: "var(--ui5-text-2)",
+  textMut: "var(--ui5-text-3)",
+  border: "var(--ui5-border)",
+  primary: "var(--ui5-action)",
+  primaryLt: "var(--ui5-action-soft)",
   success: "var(--accent-success)",
   successLt: "var(--accent-success-light)",
   warning: "var(--accent-warning)",
@@ -179,26 +179,19 @@ export default function RelationChooser() {
 
   return (
     <section
-      aria-labelledby="relation-chooser-title"
-      style={{
-        background: V.bg,
-        border: `1px solid ${V.border}`,
-        borderRadius: 12,
-        boxShadow: "var(--shadow-card)",
-        padding: "1rem",
-        margin: "1.5rem 0",
-      }}
+     aria-labelledby="relation-chooser-title"
+      className="ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-padding-1rem ui5-u-margin-1-5rem-0"
     >
-      <h3 id="relation-chooser-title" style={{ color: V.primary, margin: "0 0 0.75rem", fontSize: "1rem" }}>
+      <h3 id="relation-chooser-title" className="ui5-u-color-ui5-action ui5-u-margin-0-0-0-75rem ui5-u-font-size-1rem">
         Choisir la relation adaptée
       </h3>
 
-      <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
-        <fieldset style={{ border: `1px solid ${V.border}`, borderRadius: 10, padding: "0.8rem" }}>
-          <legend style={{ color: V.textSec, fontWeight: 700, padding: "0 0.35rem" }}>Grandeurs connues</legend>
-          <div style={{ display: "grid", gap: "0.45rem" }}>
+      <div className="ui5-u-display-grid ui5-u-gap-1rem ui5-u-grid-template-columns-repeat-auto-fit-minmax-220px-1fr">
+        <fieldset className="ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-padding-0-8rem">
+          <legend className="ui5-u-color-ui5-text-2 ui5-u-font-weight-700 ui5-u-padding-0-0-35rem">Grandeurs connues</legend>
+          <div className="ui5-u-display-grid ui5-u-gap-0-45rem">
             {KNOWN.map((item) => (
-              <label key={item.id} style={{ display: "flex", gap: "0.5rem", alignItems: "center", color: V.text }}>
+              <label key={item.id} className="ui5-u-display-flex ui5-u-gap-0-5rem ui5-u-align-items-center ui5-u-color-ui5-text">
                 <input
                   type="checkbox"
                   checked={knownIds.includes(item.id)}
@@ -210,21 +203,13 @@ export default function RelationChooser() {
           </div>
         </fieldset>
 
-        <div style={{ display: "grid", gap: "0.8rem", alignContent: "start" }}>
-          <label style={{ display: "grid", gap: "0.35rem", color: V.textSec, fontWeight: 700 }}>
+        <div className="ui5-u-display-grid ui5-u-gap-0-8rem ui5-u-align-content-start">
+          <label className="ui5-u-display-grid ui5-u-gap-0-35rem ui5-u-color-ui5-text-2 ui5-u-font-weight-700">
             Grandeur recherchée
             <select
               value={target}
               onChange={(event) => setTarget(event.target.value as Target)}
-              style={{
-                width: "100%",
-                padding: "0.65rem 0.75rem",
-                border: `1px solid ${V.border}`,
-                borderRadius: 8,
-                background: V.bgSec,
-                color: V.text,
-                font: "inherit",
-              }}
+              className="ui5-u-width-100 ui5-u-padding-0-65rem-0-75rem ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-surface-soft ui5-u-color-ui5-text ui5-u-font-inherit"
             >
               {TARGETS.map((item) => (
                 <option key={item.id} value={item.id}>{item.label}</option>
@@ -232,7 +217,7 @@ export default function RelationChooser() {
             </select>
           </label>
 
-          <label style={{ display: "flex", gap: "0.5rem", alignItems: "center", color: V.textSec }}>
+          <label className="ui5-u-display-flex ui5-u-gap-0-5rem ui5-u-align-items-center ui5-u-color-ui5-text-2">
             <input
               type="checkbox"
               checked={solutionVolumeConverted}
@@ -241,7 +226,7 @@ export default function RelationChooser() {
             Volume de solution déjà converti en litre
           </label>
 
-          <label style={{ display: "flex", gap: "0.5rem", alignItems: "center", color: V.textSec }}>
+          <label className="ui5-u-display-flex ui5-u-gap-0-5rem ui5-u-align-items-center ui5-u-color-ui5-text-2">
             <input
               type="checkbox"
               checked={gasSameUnit}
@@ -254,25 +239,18 @@ export default function RelationChooser() {
 
       <div
         role="status"
-        aria-live="polite"
-        style={{
-          marginTop: "1rem",
-          padding: "0.9rem 1rem",
-          borderRadius: 10,
-          border: `1px solid ${tone.border}`,
-          background: tone.bg,
-          color: V.text,
-        }}
+       aria-live="polite"
+        className="ui5-u-margin-top-1rem ui5-u-padding-0-9rem-1rem ui5-u-border-radius-ui5-radius-sm ui5-u-border-ui5-value-border ui5-u-background-ui5-value-background ui5-u-color-ui5-text" style={{ "--ui5-value-border": `1px solid ${tone.border}`, "--ui5-value-background": tone.bg } as React.CSSProperties}
       >
-        <p style={{ margin: "0 0 0.35rem", color: tone.color, fontWeight: 800 }}>{result.title}</p>
-        <p style={{ margin: "0 0 0.35rem", color: V.textSec }}>{result.detail}</p>
-        <p style={{ margin: 0, color: V.textSec, fontWeight: 600 }}>{result.units}</p>
+        <p className="ui5-u-margin-0-0-0-35rem ui5-u-color-ui5-value-color ui5-u-font-weight-800" style={{ "--ui5-value-color": tone.color } as React.CSSProperties}>{result.title}</p>
+        <p className="ui5-u-margin-0-0-0-35rem ui5-u-color-ui5-text-2">{result.detail}</p>
+        <p className="ui5-u-margin-0 ui5-u-color-ui5-text-2 ui5-u-font-weight-600">{result.units}</p>
       </div>
 
       {warnings.length > 0 && (
-        <ul style={{ margin: "0.75rem 0 0", paddingLeft: "1.2rem", color: V.danger }}>
+        <ul className="ui5-u-margin-0-75rem-0-0 ui5-u-padding-left-1-2rem ui5-u-color-accent-danger">
           {warnings.map((warning) => (
-            <li key={warning} style={{ margin: "0.25rem 0" }}>{warning}</li>
+            <li key={warning} className="ui5-u-margin-0-25rem-0">{warning}</li>
           ))}
         </ul>
       )}

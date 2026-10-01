@@ -6,10 +6,10 @@ import { getGamificationEngine } from "../../data/gamification/engine";
 import { RANKS } from "../../data/gamification/config";
 
 const V = {
-  bg: "var(--bg-card)", bgSec: "var(--bg-secondary)", bgTer: "var(--bg-tertiary)",
-  text: "var(--text-primary)", textSec: "var(--text-secondary)", textMut: "var(--text-muted)",
-  border: "var(--border-color)",
-  primary: "var(--accent-primary)", primaryLt: "var(--accent-primary-light)",
+  bg: "var(--ui5-surface)", bgSec: "var(--ui5-surface-soft)", bgTer: "var(--ui5-surface-soft)",
+  text: "var(--ui5-text)", textSec: "var(--ui5-text-2)", textMut: "var(--ui5-text-3)",
+  border: "var(--ui5-border)",
+  primary: "var(--ui5-action)", primaryLt: "var(--ui5-action-soft)",
   success: "var(--accent-success)", successLt: "var(--accent-success-light)",
   warning: "var(--accent-warning)", danger: "var(--accent-danger)",
   purple: "var(--accent-purple)",
@@ -33,39 +33,39 @@ export default function StatsPage() {
   const badges = engine.getBadges();
 
   return (
-    <div style={{ maxWidth: 800, margin: "0 auto" }}>
-      <h1 style={{ fontSize: "1.5rem", fontWeight: 800, color: V.text, marginBottom: "1.5rem" }}>📈 Mes statistiques</h1>
+    <div className="ui5-u-max-width-800px ui5-u-margin-0-auto">
+      <h1 className="ui5-u-font-size-1-5rem ui5-u-font-weight-800 ui5-u-color-ui5-text ui5-u-margin-bottom-1-5rem">📈 Mes statistiques</h1>
 
       {/* Profil résumé */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0.75rem", marginBottom: "2rem" }}>
-        <div style={cardStyle}>
-          <span style={{ fontSize: "2rem" }}>{rank.icon}</span>
-          <span style={{ fontSize: "1.2rem", fontWeight: 800, color: V.text }}>{rank.name}</span>
-          <span style={{ fontSize: "0.85rem", color: V.textMut }}>{xp} XP total</span>
-          <div style={{ width: "100%", height: 6, background: V.bgTer, borderRadius: 99, overflow: "hidden", marginTop: "0.3rem" }}>
-            <div style={{ height: "100%", background: rank.color, borderRadius: 99, width: `${rp.percent}%` }} />
+      <div className="ui5-u-display-grid ui5-u-grid-template-columns-1fr-1fr-1fr ui5-u-gap-0-75rem ui5-u-margin-bottom-2rem">
+        <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-align-items-center ui5-u-gap-0-2rem ui5-u-padding-1rem ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-text-align-center">
+          <span className="ui5-u-font-size-2rem">{rank.icon}</span>
+          <span className="ui5-u-font-size-1-2rem ui5-u-font-weight-800 ui5-u-color-ui5-text">{rank.name}</span>
+          <span className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3">{xp} XP total</span>
+          <div className="ui5-u-width-100 ui5-u-height-6px ui5-u-background-ui5-surface-soft ui5-u-border-radius-999px ui5-u-overflow-hidden ui5-u-margin-top-0-3rem">
+            <div className="ui5-u-height-100 ui5-u-background-ui5-value-background ui5-u-border-radius-999px ui5-u-width-ui5-value-width" style={{ "--ui5-value-background": rank.color, "--ui5-value-width": `${rp.percent}%` } as React.CSSProperties} />
           </div>
-          {nextRank && <span style={{ fontSize: "0.7rem", color: V.textMut }}>{rp.max - rp.current} XP → {nextRank.icon} {nextRank.name}</span>}
+          {nextRank && <span className="ui5-u-font-size-0-7rem ui5-u-color-ui5-text-3">{rp.max - rp.current} XP → {nextRank.icon} {nextRank.name}</span>}
         </div>
 
-        <div style={cardStyle}>
-          <span style={{ fontSize: "2rem" }}>🔥</span>
-          <span style={{ fontSize: "1.8rem", fontWeight: 800, color: V.warning }}>{streak.current}</span>
-          <span style={{ fontSize: "0.85rem", color: V.textMut }}>Streak actuel</span>
-          <span style={{ fontSize: "0.75rem", color: V.textMut }}>Meilleur : {streak.best} jours</span>
+        <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-align-items-center ui5-u-gap-0-2rem ui5-u-padding-1rem ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-text-align-center">
+          <span className="ui5-u-font-size-2rem">🔥</span>
+          <span className="ui5-u-font-size-1-8rem ui5-u-font-weight-800 ui5-u-color-accent-warning">{streak.current}</span>
+          <span className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3">Streak actuel</span>
+          <span className="ui5-u-font-size-0-75rem ui5-u-color-ui5-text-3">Meilleur : {streak.best} jours</span>
         </div>
 
-        <div style={cardStyle}>
-          <span style={{ fontSize: "2rem" }}>🏆</span>
-          <span style={{ fontSize: "1.8rem", fontWeight: 800, color: V.purple }}>{badges.length}</span>
-          <span style={{ fontSize: "0.85rem", color: V.textMut }}>Badges débloqués</span>
-          <a href="/badges" style={{ fontSize: "0.75rem", color: V.primary }}>Voir tous →</a>
+        <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-align-items-center ui5-u-gap-0-2rem ui5-u-padding-1rem ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-text-align-center">
+          <span className="ui5-u-font-size-2rem">🏆</span>
+          <span className="ui5-u-font-size-1-8rem ui5-u-font-weight-800 ui5-u-color-accent-purple">{badges.length}</span>
+          <span className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3">Badges débloqués</span>
+          <a href="/badges" className="ui5-u-font-size-0-75rem ui5-u-color-ui5-action">Voir tous →</a>
         </div>
       </div>
 
       {/* Stats détaillées */}
-      <h2 style={sectionTitle}>📊 Activité globale</h2>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0.5rem", marginBottom: "2rem" }}>
+      <h2 className="ui5-stat-section-title">📊 Activité globale</h2>
+      <div className="ui5-u-display-grid ui5-u-grid-template-columns-repeat-3-1fr ui5-u-gap-0-5rem ui5-u-margin-bottom-2rem">
         {[
           ["📝", stats.totalQuizCompleted, "Quiz terminés", V.primary],
           ["🎯", stats.totalQuizPerfect, "Quiz parfaits", V.success],
@@ -74,20 +74,17 @@ export default function StatsPage() {
           ["📖", stats.totalCoursRead, "Cours lus", V.primary],
           ["📅", stats.totalDaysActive, "Jours actifs", V.success],
         ].map(([ico, val, label, color]) => (
-          <div key={label as string} style={{
-            display: "flex", flexDirection: "column", alignItems: "center", gap: "0.2rem",
-            padding: "1rem", background: V.bg, border: `1px solid ${V.border}`, borderRadius: 10,
-          }}>
-            <span style={{ fontSize: "1.3rem" }}>{ico}</span>
-            <span style={{ fontSize: "1.6rem", fontWeight: 800, color: color as string }}>{val as number}</span>
-            <span style={{ fontSize: "0.75rem", color: V.textMut, textAlign: "center" }}>{label}</span>
+          <div key={label as string} className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-align-items-center ui5-u-gap-0-2rem ui5-u-padding-1rem ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm">
+            <span className="ui5-u-font-size-1-3rem">{ico}</span>
+            <span className="ui5-u-font-size-1-6rem ui5-u-font-weight-800 ui5-u-color-ui5-value-color" style={{ "--ui5-value-color": color as string } as React.CSSProperties}>{val as number}</span>
+            <span className="ui5-u-font-size-0-75rem ui5-u-color-ui5-text-3 ui5-u-text-align-center">{label}</span>
           </div>
         ))}
       </div>
 
       {/* Progression XP */}
-      <h2 style={sectionTitle}>⚛️ Parcours de rangs</h2>
-      <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", marginBottom: "2rem" }}>
+      <h2 className="ui5-stat-section-title">⚛️ Parcours de rangs</h2>
+      <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-gap-0-4rem ui5-u-margin-bottom-2rem">
         {RANKS.map((r, i) => {
           const achieved = xp >= r.xpRequired;
           const isCurrent = r.id === rank.id;
@@ -97,56 +94,50 @@ export default function StatsPage() {
             : achieved ? 100 : 0;
 
           return (
-            <div key={r.id} style={{
-              display: "flex", alignItems: "center", gap: "0.75rem",
-              padding: "0.5rem 0.75rem",
-              background: isCurrent ? V.primaryLt : achieved ? V.bg : V.bgTer,
-              border: isCurrent ? `2px solid ${V.primary}` : `1px solid ${achieved ? V.border : "transparent"}`,
-              borderRadius: 8, opacity: achieved ? 1 : 0.4,
-            }}>
-              <span style={{ fontSize: "1.3rem", filter: achieved ? "none" : "grayscale(100%)" }}>{r.icon}</span>
-              <div style={{ flex: 1 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.15rem" }}>
-                  <span style={{ fontSize: "0.85rem", fontWeight: isCurrent ? 700 : 500, color: V.text }}>{r.name}</span>
-                  <span style={{ fontSize: "0.75rem", color: V.textMut }}>{r.xpRequired} XP</span>
+            <div key={r.id} className={"ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-0-75rem ui5-u-padding-0-5rem-0-75rem" + " " + (isCurrent ? "ui5-u-background-ui5-action-soft" : (achieved ? "ui5-u-background-ui5-surface" : "ui5-u-background-ui5-surface-soft")) + " " + "ui5-u-border-ui5-value-border ui5-u-border-radius-ui5-radius-sm" + " " + (achieved ? "ui5-u-opacity-1" : "ui5-u-opacity-0-4")} style={{ "--ui5-value-border": isCurrent ? `2px solid ${V.primary}` : `1px solid ${achieved ? V.border : "transparent"}` } as React.CSSProperties}>
+              <span className={"ui5-u-font-size-1-3rem" + " " + (achieved ? "ui5-u-filter-none" : "ui5-u-filter-grayscale-100")}>{r.icon}</span>
+              <div className="ui5-u-flex-1">
+                <div className="ui5-u-display-flex ui5-u-justify-content-space-between ui5-u-margin-bottom-0-15rem">
+                  <span className={"ui5-u-font-size-0-85rem" + " " + (isCurrent ? "ui5-u-font-weight-700" : "ui5-u-font-weight-500") + " " + "ui5-u-color-ui5-text"}>{r.name}</span>
+                  <span className="ui5-u-font-size-0-75rem ui5-u-color-ui5-text-3">{r.xpRequired} XP</span>
                 </div>
                 {(achieved || isCurrent) && (
-                  <div style={{ height: 4, background: V.bgTer, borderRadius: 99, overflow: "hidden" }}>
-                    <div style={{ height: "100%", background: r.color, borderRadius: 99, width: `${progress}%`, transition: "width 0.3s" }} />
+                  <div className="ui5-u-height-4px ui5-u-background-ui5-surface-soft ui5-u-border-radius-999px ui5-u-overflow-hidden">
+                    <div className="ui5-u-height-100 ui5-u-background-ui5-value-background ui5-u-border-radius-999px ui5-u-width-ui5-value-width ui5-u-transition-width-0-3s" style={{ "--ui5-value-background": r.color, "--ui5-value-width": `${progress}%` } as React.CSSProperties} />
                   </div>
                 )}
               </div>
-              {isCurrent && <span style={{ fontSize: "0.7rem", fontWeight: 700, color: V.primary }}>ACTUEL</span>}
-              {achieved && !isCurrent && <span style={{ fontSize: "0.8rem" }}>✅</span>}
+              {isCurrent && <span className="ui5-u-font-size-0-7rem ui5-u-font-weight-700 ui5-u-color-ui5-action">ACTUEL</span>}
+              {achieved && !isCurrent && <span className="ui5-u-font-size-0-8rem">✅</span>}
             </div>
           );
         })}
       </div>
 
       {/* Moyennes */}
-      <h2 style={sectionTitle}>📐 Moyennes</h2>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem", marginBottom: "2rem" }}>
-        <div style={cardStyle}>
-          <span style={{ fontSize: "0.85rem", color: V.textMut }}>XP moyen par jour actif</span>
-          <span style={{ fontSize: "1.5rem", fontWeight: 800, color: V.primary }}>
+      <h2 className="ui5-stat-section-title">📐 Moyennes</h2>
+      <div className="ui5-u-display-grid ui5-u-grid-template-columns-1fr-1fr ui5-u-gap-0-75rem ui5-u-margin-bottom-2rem">
+        <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-align-items-center ui5-u-gap-0-2rem ui5-u-padding-1rem ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-text-align-center">
+          <span className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3">XP moyen par jour actif</span>
+          <span className="ui5-u-font-size-1-5rem ui5-u-font-weight-800 ui5-u-color-ui5-action">
             {stats.totalDaysActive > 0 ? Math.round(xp / stats.totalDaysActive) : 0}
           </span>
         </div>
-        <div style={cardStyle}>
-          <span style={{ fontSize: "0.85rem", color: V.textMut }}>Taux de quiz parfaits</span>
-          <span style={{ fontSize: "1.5rem", fontWeight: 800, color: V.success }}>
+        <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-align-items-center ui5-u-gap-0-2rem ui5-u-padding-1rem ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-text-align-center">
+          <span className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3">Taux de quiz parfaits</span>
+          <span className="ui5-u-font-size-1-5rem ui5-u-font-weight-800 ui5-u-color-accent-success">
             {stats.totalQuizCompleted > 0 ? Math.round((stats.totalQuizPerfect / stats.totalQuizCompleted) * 100) : 0}%
           </span>
         </div>
-        <div style={cardStyle}>
-          <span style={{ fontSize: "0.85rem", color: V.textMut }}>Chapitres complétés</span>
-          <span style={{ fontSize: "1.5rem", fontWeight: 800, color: V.warning }}>
+        <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-align-items-center ui5-u-gap-0-2rem ui5-u-padding-1rem ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-text-align-center">
+          <span className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3">Chapitres complétés</span>
+          <span className="ui5-u-font-size-1-5rem ui5-u-font-weight-800 ui5-u-color-accent-warning">
             {stats.chaptersComplete}
           </span>
         </div>
-        <div style={cardStyle}>
-          <span style={{ fontSize: "0.85rem", color: V.textMut }}>Meilleur streak</span>
-          <span style={{ fontSize: "1.5rem", fontWeight: 800, color: V.danger }}>
+        <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-align-items-center ui5-u-gap-0-2rem ui5-u-padding-1rem ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-text-align-center">
+          <span className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3">Meilleur streak</span>
+          <span className="ui5-u-font-size-1-5rem ui5-u-font-weight-800 ui5-u-color-accent-danger">
             🔥 {streak.best} jours
           </span>
         </div>
@@ -154,13 +145,3 @@ export default function StatsPage() {
     </div>
   );
 }
-
-const cardStyle: React.CSSProperties = {
-  display: "flex", flexDirection: "column", alignItems: "center", gap: "0.2rem",
-  padding: "1rem", background: "var(--bg-card)", border: "1px solid var(--border-color)",
-  borderRadius: 12, textAlign: "center",
-};
-
-const sectionTitle: React.CSSProperties = {
-  fontSize: "1.15rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "0.75rem",
-};

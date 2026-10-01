@@ -1,0 +1,86 @@
+
+  .ui5-tool-document .panel-heading p, .ui5-tool-document .method-note { color: var(--ui5-text-2); line-height: 1.65; }
+  .ui5-tool-document .tool-tabs { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1rem; }
+  .ui5-tool-document .tool-tab { border: 1px solid var(--ui5-border); background: var(--ui5-surface); color: var(--ui5-text); border-radius: 999px; padding: .55rem .85rem; font-weight: 700; cursor: pointer; }
+  .ui5-tool-document .tool-tab.is-active { border-color: var(--ui5-action); background: var(--ui5-action-soft); color: var(--ui5-action); }
+  .ui5-tool-document .tool-panel { display: none; background: var(--ui5-surface); border: 1px solid var(--ui5-border); border-left: 5px solid var(--ui5-action); border-radius: var(--ui5-radius-md); box-shadow: none; padding: 1.15rem; }
+  .ui5-tool-document .tool-panel.is-active { display: block; }
+  .ui5-tool-document .panel-heading h2 { color: var(--ui5-action); margin: 0 0 .35rem; font-size: 1.25rem; }
+  .ui5-tool-document .field-label, .ui5-tool-document label { color: var(--ui5-text); display: flex; flex-direction: column; gap: .35rem; font-weight: 700; }
+  .ui5-tool-document .tool-input, .ui5-tool-document .tool-textarea { background: var(--ui5-surface); border: 1px solid var(--ui5-border); border-radius: 10px; color: var(--ui5-text); font: inherit; padding: .7rem .8rem; width: 100%; box-sizing: border-box; }
+  .ui5-tool-document .tool-textarea { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; resize: vertical; }
+  .ui5-tool-document .input-row { display: grid; grid-template-columns: 1fr auto; gap: .7rem; align-items: end; margin: .6rem 0; }
+  .ui5-tool-document .primary-btn { background: var(--ui5-action); border: none; border-radius: 10px; color: #fff; cursor: pointer; font-weight: 800; padding: .72rem 1rem; }
+  .ui5-tool-document .primary-btn:hover, .ui5-tool-document .primary-btn:focus-visible { filter: brightness(.96); transform: translateY(-1px); }
+  .ui5-tool-document .quick-row { display: flex; gap: .5rem; flex-wrap: wrap; margin: .65rem 0; }
+  .ui5-tool-document .quick-row button { background: var(--ui5-surface-soft); border: 1px solid var(--ui5-border); border-radius: 999px; color: var(--ui5-text-2); cursor: pointer; padding: .4rem .7rem; }
+  .ui5-tool-document .result-box, .ui5-tool-document .graph-box { display: block; margin-top: .8rem; min-height: 2.8rem; background: var(--ui5-surface-soft); border: 1px solid var(--ui5-border); border-radius: 10px; color: var(--ui5-text); padding: .85rem; }
+  .ui5-tool-document .formula-result { font-size: 1.12rem; font-weight: 800; }
+  .ui5-tool-document .tool-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin: .7rem 0; }
+  .ui5-tool-document .tool-grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin: .7rem 0; }
+  .ui5-tool-document .solution-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .ui5-tool-document .mini-tool { background: var(--ui5-surface-soft); border: 1px solid var(--ui5-border); border-radius: 12px; padding: 1rem; }
+  .ui5-tool-document .mini-tool h3 { margin-top: 0; color: var(--ui5-action); }
+  .ui5-tool-document .graph-box svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+  .ui5-tool-document .measure-grid, .ui5-tool-document .safety-grid, .ui5-tool-document .method-card-grid, .ui5-tool-document .chapter-link-grid, .ui5-tool-document .mini-quiz-list {
+    display: grid;
+    gap: .8rem;
+  }
+  .ui5-tool-document .measure-grid, .ui5-tool-document .safety-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: .9rem 0; }
+  .ui5-tool-document .method-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ui5-tool-document .chapter-link-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ui5-tool-document .mini-quiz-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ui5-tool-document .kit-methods, .ui5-tool-document .kit-links, .ui5-tool-document .kit-mini-quiz {
+    margin-top: 1rem;
+    background: var(--ui5-surface);
+    border: 1px solid var(--ui5-border);
+    border-radius: var(--ui5-radius-md);
+    box-shadow: none;
+    padding: 1.15rem;
+  }
+  .ui5-tool-document .method-step, .ui5-tool-document .safety-item, .ui5-tool-document .method-card, .ui5-tool-document .chapter-link-card, .ui5-tool-document .mini-quiz-card {
+    background: var(--ui5-surface-soft);
+    border: 1px solid var(--ui5-border);
+    border-radius: 10px;
+    padding: .85rem;
+  }
+  .ui5-tool-document .method-step, .ui5-tool-document .safety-item { display: flex; flex-direction: column; gap: .35rem; }
+  .ui5-tool-document .method-step strong, .ui5-tool-document .safety-item strong, .ui5-tool-document .method-card h3, .ui5-tool-document .chapter-link-card strong, .ui5-tool-document .mini-quiz-card h3 { color: var(--ui5-text); }
+  .ui5-tool-document .method-step span, .ui5-tool-document .safety-item span, .ui5-tool-document .method-card p, .ui5-tool-document .chapter-link-card small { color: var(--ui5-text-2); line-height: 1.55; }
+  .ui5-tool-document .kit-table { width: 100%; border-collapse: collapse; margin-top: .85rem; background: var(--ui5-surface); border-radius: 10px; overflow: hidden; }
+  .ui5-tool-document .kit-table caption { text-align: left; font-weight: 800; color: var(--ui5-text); margin-bottom: .4rem; }
+  .ui5-tool-document .kit-table th, .ui5-tool-document .kit-table td { border: 1px solid var(--ui5-border); padding: .65rem; text-align: left; }
+  .ui5-tool-document .kit-table th { background: var(--ui5-surface-soft); color: var(--ui5-text); }
+  .ui5-tool-document .method-tag, .ui5-tool-document .chapter-link-card span {
+    display: inline-flex;
+    width: fit-content;
+    border-radius: 999px;
+    background: var(--ui5-action-soft);
+    color: var(--ui5-action);
+    font-size: .72rem;
+    font-weight: 800;
+    padding: .2rem .55rem;
+  }
+  .ui5-tool-document .method-card ol { margin: .5rem 0 .7rem; padding-left: 1.25rem; color: var(--ui5-text-2); }
+  .ui5-tool-document .method-warning { border-left: 3px solid var(--accent-warning); padding-left: .65rem; }
+  .ui5-tool-document .chapter-link-card { display: flex; flex-direction: column; gap: .35rem; text-decoration: none; }
+  .ui5-tool-document .chapter-link-card:hover, .ui5-tool-document .chapter-link-card:focus-visible { border-color: var(--ui5-action); transform: translateY(-1px); }
+  .ui5-tool-document .mini-quiz-card h3 { font-size: .96rem; line-height: 1.45; }
+  .ui5-tool-document .mini-quiz-choices { display: grid; gap: .4rem; margin-top: .65rem; }
+  .ui5-tool-document .mini-quiz-choices button {
+    border: 1px solid var(--ui5-border);
+    background: var(--ui5-surface);
+    border-radius: 8px;
+    color: var(--ui5-text);
+    cursor: pointer;
+    font: inherit;
+    padding: .55rem .65rem;
+    text-align: left;
+  }
+  .ui5-tool-document .mini-quiz-choices button.is-correct { border-color: var(--accent-success); background: var(--accent-success-light); color: var(--accent-success); }
+  .ui5-tool-document .mini-quiz-choices button.is-wrong { border-color: var(--accent-danger); background: var(--accent-danger-light); color: var(--accent-danger); }
+  .ui5-tool-document .mini-quiz-feedback { color: var(--ui5-text-2); line-height: 1.55; margin-bottom: 0; }
+  @media (max-width: 760px) {
+    .ui5-tool-document .input-row, .ui5-tool-document .tool-grid-2, .ui5-tool-document .tool-grid-4, .ui5-tool-document .solution-grid, .ui5-tool-document .measure-grid, .ui5-tool-document .safety-grid, .ui5-tool-document .method-card-grid, .ui5-tool-document .chapter-link-grid, .ui5-tool-document .mini-quiz-list { grid-template-columns: 1fr; }
+    .ui5-tool-document .primary-btn { width: 100%; }
+  }

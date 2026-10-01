@@ -1,0 +1,315 @@
+
+  .ui5-tool-document .eyebrow,
+  .ui5-tool-document .module-number {
+    color: var(--ui5-action);
+    font-size: 0.76rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.35rem;
+    text-transform: uppercase;
+  }
+
+  .ui5-tool-document .intro-panel p,
+  .ui5-tool-document .module-card p,
+  .ui5-tool-document .practice-section p,
+  .ui5-tool-document .final-summary li {
+    color: var(--ui5-text-2);
+    line-height: 1.7;
+  }
+
+  .ui5-tool-document .link-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    justify-content: center;
+  }
+
+  .ui5-tool-document .link-row a {
+    background: var(--ui5-surface);
+    border: 1px solid var(--ui5-border);
+    border-radius: var(--radius-pill);
+    color: var(--ui5-text-2);
+    font-size: 0.86rem;
+    font-weight: 750;
+    padding: 0.45rem 0.8rem;
+    text-decoration: none;
+  }
+
+  .ui5-tool-document .link-row a:hover,
+  .ui5-tool-document .link-row a:focus-visible {
+    border-color: var(--ui5-action);
+    color: var(--ui5-action);
+    outline: 3px solid var(--ui5-action-soft);
+    outline-offset: 2px;
+  }
+
+  .ui5-tool-document .intro-panel,
+  .ui5-tool-document .module-card,
+  .ui5-tool-document .practice-section,
+  .ui5-tool-document .interactive-section,
+  .ui5-tool-document .final-summary {
+    background: var(--ui5-surface);
+    border: 1px solid var(--ui5-border);
+    border-radius: var(--ui5-radius-md);
+    box-shadow: none;
+    margin: 1rem 0 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .ui5-tool-document .intro-panel {
+    border-left: 5px solid var(--ui5-action);
+  }
+
+  .ui5-tool-document .course-special-card {
+    background: linear-gradient(135deg, var(--ui5-action-soft), var(--ui5-surface));
+    border: 1px solid var(--ui5-border);
+    border-left: 5px solid var(--ui5-action);
+  }
+
+  .ui5-tool-document .module-list > h2,
+  .ui5-tool-document .practice-section h2,
+  .ui5-tool-document .interactive-section h2,
+  .ui5-tool-document .final-summary h2 {
+    color: var(--ui5-action);
+    font-size: 1.2rem;
+    margin: 0 0 0.8rem;
+  }
+
+  .ui5-tool-document .intro-panel h2,
+  .ui5-tool-document .final-summary h2 {
+    align-items: center;
+    color: var(--ui5-action);
+    display: flex;
+    font-size: 0.95rem;
+    font-weight: 850;
+    gap: 0.55rem;
+    letter-spacing: 0.03em;
+    line-height: 1.35;
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .ui5-tool-document .intro-panel h2::before,
+  .ui5-tool-document .final-summary h2::before {
+    background: var(--ui5-action);
+    border-radius: 999px;
+    box-shadow: 0 0 0 5px var(--ui5-action-soft);
+    content: "";
+    flex: 0 0 auto;
+    height: 0.8rem;
+    width: 0.8rem;
+  }
+
+  .ui5-tool-document .module-list > h2 {
+    margin-top: 1.7rem;
+  }
+
+  .ui5-tool-document .course-main-heading {
+    align-items: center;
+    border-bottom: 1px solid var(--ui5-border);
+    color: var(--ui5-action);
+    display: flex;
+    font-size: 1.1rem;
+    font-weight: 850;
+    gap: 0.55rem;
+    letter-spacing: 0.02em;
+    line-height: 1.35;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .ui5-tool-document .course-main-heading::before {
+    background: var(--ui5-action);
+    border-radius: 999px;
+    box-shadow: 0 0 0 5px var(--ui5-action-soft);
+    content: "";
+    flex: 0 0 auto;
+    height: 0.8rem;
+    width: 0.8rem;
+  }
+
+  .ui5-tool-document .objective-list {
+    display: grid;
+    gap: 0.55rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+  }
+
+  .ui5-tool-document .objective-list li {
+    background: var(--ui5-surface-soft);
+    border: 1px solid var(--ui5-border);
+    border-radius: var(--ui5-radius-sm);
+    color: var(--ui5-text-2);
+    line-height: 1.5;
+    padding: 0.75rem 0.85rem 0.75rem 2.35rem;
+    position: relative;
+  }
+
+  .ui5-tool-document .objective-list li::before {
+    align-items: center;
+    background: var(--ui5-action-soft);
+    border-radius: 999px;
+    color: var(--ui5-action);
+    content: "✓";
+    display: inline-flex;
+    font-size: 0.8rem;
+    font-weight: 900;
+    height: 1.25rem;
+    justify-content: center;
+    left: 0.75rem;
+    position: absolute;
+    top: 0.82rem;
+    width: 1.25rem;
+  }
+
+  .ui5-tool-document .module-card {
+    scroll-margin-top: 6rem;
+  }
+
+  .ui5-tool-document .module-card h3 {
+    color: var(--ui5-text);
+    font-size: 1.24rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .ui5-tool-document code {
+    background: var(--ui5-surface-soft);
+    border-radius: 5px;
+    color: var(--ui5-text);
+    font-size: 0.92em;
+    padding: 0.08rem 0.3rem;
+  }
+
+  .ui5-tool-document .code-block {
+    background: #0f172a;
+    border-radius: var(--ui5-radius-sm);
+    color: #e5e7eb;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin: 1rem 0;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+
+  .ui5-tool-document .code-block code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+  }
+
+  .ui5-tool-document .method-box,
+  .ui5-tool-document .remember-box,
+  .ui5-tool-document .pitfall,
+  .ui5-tool-document .example-result,
+  .ui5-tool-document .correction {
+    border-radius: var(--ui5-radius-sm);
+    margin: 1rem 0;
+    padding: 0.85rem 1rem;
+  }
+
+  .ui5-tool-document .method-box,
+  .ui5-tool-document .example-result {
+    background: var(--ui5-action-soft);
+    border-left: 5px solid var(--ui5-action);
+    color: var(--ui5-text-2);
+  }
+
+  .ui5-tool-document .remember-box {
+    background: var(--ui5-action-soft);
+    border-left: 5px solid var(--ui5-action);
+    color: var(--ui5-text-2);
+  }
+
+  .ui5-tool-document .correction {
+    background: var(--accent-success-light);
+    border-left: 5px solid var(--accent-success);
+    color: var(--ui5-text-2);
+  }
+
+  .ui5-tool-document .pitfall {
+    background: var(--accent-warning-light);
+    border-left: 5px solid var(--accent-warning);
+    color: var(--ui5-text-2);
+  }
+
+  .ui5-tool-document .table-wrap {
+    margin: 1rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ui5-tool-document table {
+    border-collapse: collapse;
+    min-width: 640px;
+    width: 100%;
+  }
+
+  .ui5-tool-document th,
+  .ui5-tool-document td {
+    border: 1px solid var(--ui5-border);
+    color: var(--ui5-text-2);
+    line-height: 1.55;
+    padding: 0.6rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .ui5-tool-document th {
+    background: var(--ui5-action);
+    color: #fff;
+    font-weight: 800;
+  }
+
+  .ui5-tool-document .exercise-list {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .ui5-tool-document details {
+    background: var(--ui5-surface-soft);
+    border: 1px solid var(--ui5-border);
+    border-radius: var(--ui5-radius-sm);
+    padding: 0.8rem 0.95rem;
+  }
+
+  .ui5-tool-document summary {
+    color: var(--ui5-text);
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  .ui5-tool-document summary:focus-visible {
+    outline: 3px solid var(--ui5-action);
+    outline-offset: 3px;
+  }
+
+  .ui5-tool-document .final-summary ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .ui5-tool-document .final-summary li::marker {
+    color: var(--ui5-action);
+  }
+
+  @media (max-width: 720px) {
+
+    .ui5-tool-document .intro-panel,
+    .ui5-tool-document .module-card,
+    .ui5-tool-document .practice-section,
+    .ui5-tool-document .interactive-section,
+    .ui5-tool-document .final-summary {
+      padding: 1rem;
+    }
+
+    .ui5-tool-document table {
+      min-width: 580px;
+    }
+
+    .ui5-tool-document .objective-list {
+      grid-template-columns: 1fr;
+    }
+  }

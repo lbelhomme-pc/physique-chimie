@@ -16,11 +16,12 @@ const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
 
 const baseLayout = read("src/layouts/BaseLayout.astro");
 const globalTools = read("src/components/ui/GlobalClientTools.astro");
+const panelMount = read("src/components/accessibility/mountAccessibilityPanel.ts");
 const a11yBootstrap = read("src/components/accessibility/A11yHeadBootstrap.astro");
 const pyodideWorker = read("src/scripts/pyodide-worker.ts");
 const pyodideLab = read("src/components/pedagogie/PyodideLab.tsx");
-const designSystem = read("src/styles/design-system.css");
-const tokens = read("src/styles/tokens-v3.css");
+const designSystem = read("src/ui-v5/index.css");
+const tokens = read("src/ui-v5/tokens.css");
 const distAuditConfig = JSON.parse(read("tests/fixtures/dist-audit.config.json"));
 
 test("C16 BaseLayout no longer hydrates the four global React islands at load", () => {
@@ -39,9 +40,11 @@ test("C16 simple global behaviours are native and the accessibility React panel 
   assert.match(globalTools, /data-native-reading-guide/);
   assert.match(globalTools, /data-native-scroll-top/);
   assert.match(globalTools, /dailyLogin\(\)/);
-  assert.match(globalTools, /import\("\.\.\/accessibility\/AccessibilityPanel\.tsx"\)/);
-  assert.match(globalTools, /import\("react"\)/);
-  assert.match(globalTools, /import\("react-dom\/client"\)/);
+  assert.match(globalTools, /import\("\.\.\/accessibility\/mountAccessibilityPanel"\)/);
+  assert.match(panelMount, /import.*from "react"/);
+  assert.match(panelMount, /import.*from "react-dom\/client"/);
+  assert.match(panelMount, /initiallyOpen: true/);
+  assert.match(panelMount, /ui-v5\/accessibility\.css/);
   assert.match(globalTools, /launcher\?\.addEventListener\("click"/);
   assert.doesNotMatch(globalTools, /^import\s+React/m);
   assert.doesNotMatch(globalTools, /client:(?:load|idle|visible|only)/);

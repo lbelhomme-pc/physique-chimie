@@ -1,0 +1,30 @@
+/* Imported HTML keeps its document/media structure; V5 owns pedagogical blocks. */
+.spe-imported-content { color: var(--ui5-text); line-height: var(--line-height-base); }
+.spe-imported-content > * + * { margin-top: 1rem; }
+.spe-imported-content :is(h2,h3) { scroll-margin-top: 6rem; }
+.spe-imported-content :is(.objectives-title,.summary-label,.final-summary-title) {
+  display: block;
+  margin: 0 0 .75rem;
+  color: var(--ui5-text);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+.spe-imported-content .section-title { margin: 2rem 0 1rem; font-size: 1.35rem; font-weight: 800; }
+.spe-imported-content :is(.chapter-card,.card) {
+  margin: 1rem 0 1.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.spe-imported-content :is(.objectives-card,.summary-box) ul { padding-left: 1.35rem; }
+.spe-imported-content svg { max-width: 100%; height: auto; }
+.spe-imported-content :is(.text-center,.formula-wrapper-centered) { text-align: center; }
+.spe-imported-content :is(.formula-wrapper-centered,.katex-block,.table-responsive) {
+  max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: .35rem 0;
+}
+.spe-imported-content table { width: 100%; border-collapse: collapse; }
+.spe-imported-content :is(th,td) { border: 1px solid var(--ui5-border); padding: .55rem .7rem; vertical-align: top; }
+.spe-imported-content th { background: var(--ui5-text); color: var(--ui5-surface); font-weight: 700; }
+.spe-imported-content tr:nth-child(even) td { background: var(--ui5-surface-soft); }

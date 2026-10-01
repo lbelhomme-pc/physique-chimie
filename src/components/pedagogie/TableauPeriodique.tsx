@@ -197,21 +197,7 @@ function Cell({ el }: { el: El | undefined }) {
   return (
     <div
       onClick={() => el.z > 0 && setSel(el)}
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: c.bg,
-        border: `1.1px solid ${c.b}`,
-        borderRadius: 8,
-        cursor: el.z > 0 ? "pointer" : "default",
-        opacity: dim ? 0.2 : 1,
-        transition: "all 0.15s ease",
-        minWidth: 0,
-        minHeight: 44,
-        padding: "2px 3px",
-        overflow: "hidden",
-      }}
+      className={"ui5-u-display-flex ui5-u-align-items-center ui5-u-justify-content-center ui5-u-background-ui5-value-background ui5-u-border-ui5-value-border ui5-u-border-radius-ui5-radius-sm" + " " + (el.z > 0 ? "ui5-u-cursor-pointer" : "ui5-u-cursor-default") + " " + (dim ? "ui5-u-opacity-0-2" : "ui5-u-opacity-1") + " " + "ui5-u-transition-all-0-15s-ease ui5-u-min-width-0 ui5-u-min-height-44px ui5-u-padding-2px-3px ui5-u-overflow-hidden"} style={{ "--ui5-value-background": c.bg, "--ui5-value-border": `1.1px solid ${c.b}` } as React.CSSProperties}
       onMouseEnter={(e) => {
         if (el.z > 0) {
           e.currentTarget.style.transform = "scale(1.03)";
@@ -227,57 +213,25 @@ function Cell({ el }: { el: El | undefined }) {
     >
       {el.z === 0 ? (
         <span
-          style={{
-            fontSize: "0.44rem",
-            fontWeight: 700,
-            color: c.t,
-            textAlign: "center",
-            lineHeight: 1.05,
-            padding: "0 2px",
-          }}
+          className="ui5-u-font-size-0-44rem ui5-u-font-weight-700 ui5-u-color-ui5-value-color ui5-u-text-align-center ui5-u-line-height-1-05 ui5-u-padding-0-2px" style={{ "--ui5-value-color": c.t } as React.CSSProperties}
         >
           {el.sym}
         </span>
       ) : (
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 2,
-            width: "100%",
-            height: "100%",
-          }}
+          className="ui5-u-display-flex ui5-u-align-items-center ui5-u-justify-content-center ui5-u-gap-2px ui5-u-width-100 ui5-u-height-100"
         >
           {/* Colonne A / Z */}
 <div
-  style={{
-    width: 14,
-    minWidth: 14,
-    flexShrink: 0,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    lineHeight: 0.95,
-    gap: 1,
-  }}
+  className="ui5-u-width-14px ui5-u-min-width-14px ui5-u-flex-shrink-0 ui5-u-display-flex ui5-u-flex-direction-column ui5-u-align-items-center ui5-u-justify-content-center ui5-u-line-height-0-95 ui5-u-gap-1px"
 >
   <span
-    style={{
-      fontSize: "0.55rem",
-      fontWeight: 700,
-      color: "var(--text-secondary)",
-    }}
+    className="ui5-u-font-size-0-55rem ui5-u-font-weight-700 ui5-u-color-ui5-text-2"
   >
     {Math.round(el.mass)}
   </span>
   <span
-    style={{
-      fontSize: "0.55rem",
-      fontWeight: 700,
-      color: "var(--text-secondary)",
-    }}
+    className="ui5-u-font-size-0-55rem ui5-u-font-weight-700 ui5-u-color-ui5-text-2"
   >
     {el.z}
   </span>
@@ -285,15 +239,7 @@ function Cell({ el }: { el: El | undefined }) {
 
           {/* Symbole */}
           <span
-            style={{
-              fontSize: "0.76rem",
-              fontWeight: 800,
-              color: c.t,
-              lineHeight: 1,
-              letterSpacing: "-0.01em",
-              textAlign: "center",
-              flexShrink: 1,
-            }}
+            className="ui5-u-font-size-0-76rem ui5-u-font-weight-800 ui5-u-color-ui5-value-color ui5-u-line-height-1 ui5-u-letter-spacing-0-01em ui5-u-text-align-center ui5-u-flex-shrink-1" style={{ "--ui5-value-color": c.t } as React.CSSProperties}
           >
             {el.sym}
           </span>
@@ -307,45 +253,21 @@ function Cell({ el }: { el: El | undefined }) {
   const neutrons = sel ? massNumber - sel.z : 0;
 
   return (
-    <div style={{ margin: "1.5rem 0" }}>
+    <div className="ui5-u-margin-1-5rem-0">
       <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          maxWidth: 450,
-          margin: "0 auto 0.6rem",
-          padding: "0.4rem 0.8rem",
-          background: "var(--bg-card)",
-          border: "1px solid var(--border-color)",
-          borderRadius: "var(--radius-pill)",
-        }}
+        className="ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-0-5rem ui5-u-max-width-450px ui5-u-margin-0-auto-0-6rem ui5-u-padding-0-4rem-0-8rem ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm"
       >
         <span>🔍</span>
         <input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Chercher un nom, symbole ou numéro..."
-          style={{
-            flex: 1,
-            border: "none",
-            background: "transparent",
-            fontSize: "0.8rem",
-            color: "var(--text-primary)",
-            outline: "none",
-            fontFamily: "inherit",
-          }}
+          className="ui5-u-flex-1 ui5-u-border-none ui5-u-background-transparent ui5-u-font-size-0-8rem ui5-u-color-ui5-text ui5-u-font-family-inherit"
         />
         {search && (
           <button
             onClick={() => setSearch("")}
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              color: "var(--text-muted)",
-              fontSize: "0.8rem",
-            }}
+            className="ui5-u-background-none ui5-u-border-none ui5-u-cursor-pointer ui5-u-color-ui5-text-3 ui5-u-font-size-0-8rem"
           >
             ✕
           </button>
@@ -353,51 +275,24 @@ function Cell({ el }: { el: El | undefined }) {
       </div>
 
       <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "0.25rem",
-          justifyContent: "center",
-          marginBottom: "0.6rem",
-        }}
+        className="ui5-u-display-flex ui5-u-flex-wrap-wrap ui5-u-gap-0-25rem ui5-u-justify-content-center ui5-u-margin-bottom-0-6rem"
       >
         {Object.entries(C).map(([k, v]) => (
           <span
             key={k}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.15rem",
-              padding: "0.12rem 0.4rem",
-              borderRadius: 99,
-              background: v.bg,
-              border: `1px solid ${v.b}`,
-              fontSize: "0.55rem",
-              fontWeight: 600,
-              color: v.t,
-            }}
+            className="ui5-u-display-inline-flex ui5-u-align-items-center ui5-u-gap-0-15rem ui5-u-padding-0-12rem-0-4rem ui5-u-border-radius-999px ui5-u-background-ui5-value-background ui5-u-border-ui5-value-border ui5-u-font-size-0-55rem ui5-u-font-weight-600 ui5-u-color-ui5-value-color" style={{ "--ui5-value-background": v.bg, "--ui5-value-border": `1px solid ${v.b}`, "--ui5-value-color": v.t } as React.CSSProperties}
           >
             <span
-              style={{
-                width: 5,
-                height: 5,
-                borderRadius: "50%",
-                background: v.b,
-              }}
+              className="ui5-u-width-5px ui5-u-height-5px ui5-u-border-radius-50 ui5-u-background-ui5-value-background" style={{ "--ui5-value-background": v.b } as React.CSSProperties}
             />
             {v.l}
           </span>
         ))}
       </div>
 
-      <div style={{ overflowX: "auto" }}>
+      <div className="ui5-u-overflow-x-auto">
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(18,1fr)",
-            gap: 3,
-            minWidth: 620,
-          }}
+          className="ui5-u-display-grid ui5-u-grid-template-columns-repeat-18-1fr ui5-u-gap-3px ui5-u-min-width-620px"
         >
           {[1, 2, 3, 4, 5, 6, 7].map((r) =>
             Array.from({ length: 18 }, (_, i) => {
@@ -407,15 +302,10 @@ function Cell({ el }: { el: El | undefined }) {
           )}
         </div>
 
-        <div style={{ height: 8 }} />
+        <div className="ui5-u-height-8px" />
 
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(18,1fr)",
-            gap: 3,
-            minWidth: 620,
-          }}
+          className="ui5-u-display-grid ui5-u-grid-template-columns-repeat-18-1fr ui5-u-gap-3px ui5-u-min-width-620px"
         >
           {Array.from({ length: 18 }, (_, i) => {
             const c = i + 1;
@@ -425,13 +315,7 @@ function Cell({ el }: { el: El | undefined }) {
         </div>
 
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(18,1fr)",
-            gap: 3,
-            minWidth: 620,
-            marginTop: 3,
-          }}
+          className="ui5-u-display-grid ui5-u-grid-template-columns-repeat-18-1fr ui5-u-gap-3px ui5-u-min-width-620px ui5-u-margin-top-3px"
         >
           {Array.from({ length: 18 }, (_, i) => {
             const c = i + 1;
@@ -442,12 +326,7 @@ function Cell({ el }: { el: El | undefined }) {
       </div>
 
       <p
-        style={{
-          textAlign: "center",
-          fontSize: "0.65rem",
-          color: "var(--text-muted)",
-          marginTop: "0.4rem",
-        }}
+        className="ui5-u-text-align-center ui5-u-font-size-0-65rem ui5-u-color-ui5-text-3 ui5-u-margin-top-0-4rem"
       >
         Clique sur un élément pour voir ses détails
       </p>
@@ -456,146 +335,69 @@ function Cell({ el }: { el: El | undefined }) {
         <>
           <div
             onClick={() => setSel(null)}
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background: "rgba(0,0,0,0.3)",
-              zIndex: 9998,
-            }}
+            className="ui5-u-position-fixed ui5-u-top-0 ui5-u-left-0 ui5-u-right-0 ui5-u-bottom-0 ui5-u-background-rgba-0-0-0-0-3 ui5-u-z-index-9998"
           />
           <div
-            style={{
-              position: "fixed",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%,-50%)",
-              width: 420,
-              maxWidth: "92vw",
-              background: "var(--bg-card)",
-              borderRadius: "var(--radius-lg)",
-              boxShadow: "0 20px 60px rgba(0,0,0,0.15)",
-              zIndex: 9999,
-              padding: "1.5rem",
-              maxHeight: "90vh",
-              overflowY: "auto",
-            }}
+            className="ui5-u-position-fixed ui5-u-top-50 ui5-u-left-50 ui5-u-transform-translate-50-50 ui5-u-width-420px ui5-u-max-width-92vw ui5-u-background-ui5-surface ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-z-index-9999 ui5-u-padding-1-5rem ui5-u-max-height-90vh ui5-u-overflow-y-auto"
           >
             <button
               onClick={() => setSel(null)}
-              style={{
-                position: "absolute",
-                top: 12,
-                right: 12,
-                background: "none",
-                border: "none",
-                fontSize: "1.2rem",
-                cursor: "pointer",
-                color: "var(--text-muted)",
-              }}
+              className="ui5-u-position-absolute ui5-u-top-12px ui5-u-right-12px ui5-u-background-none ui5-u-border-none ui5-u-font-size-1-2rem ui5-u-cursor-pointer ui5-u-color-ui5-text-3"
             >
               ✕
             </button>
 
             <h3
-              style={{
-                fontSize: "1.3rem",
-                fontWeight: 800,
-                color: "var(--text-primary)",
-                marginBottom: "0.75rem",
-              }}
+              className="ui5-u-font-size-1-3rem ui5-u-font-weight-800 ui5-u-color-ui5-text ui5-u-margin-bottom-0-75rem"
             >
               {sel.name}
             </h3>
 
             <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "1rem",
-                marginBottom: "1rem",
-              }}
+              className="ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-1rem ui5-u-margin-bottom-1rem"
             >
               <div
-                style={{
-                  width: 76,
-                  height: 76,
-                  borderRadius: 12,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: C[sel.cat]?.bg,
-                  border: `3px solid ${C[sel.cat]?.b}`,
-                  flexShrink: 0,
-                }}
+                className="ui5-u-width-76px ui5-u-height-76px ui5-u-border-radius-ui5-radius-sm ui5-u-display-flex ui5-u-flex-direction-column ui5-u-align-items-center ui5-u-justify-content-center ui5-u-background-ui5-value-background ui5-u-border-ui5-value-border ui5-u-flex-shrink-0" style={{ "--ui5-value-background": C[sel.cat]?.bg, "--ui5-value-border": `3px solid ${C[sel.cat]?.b}` } as React.CSSProperties}
               >
-                <span style={{ fontSize: "0.55rem", color: "var(--text-muted)" }}>
+                <span className="ui5-u-font-size-0-55rem ui5-u-color-ui5-text-3">
                   {massNumber}
                 </span>
                 <span
-                  style={{
-                    fontSize: "1.8rem",
-                    fontWeight: 900,
-                    color: C[sel.cat]?.t,
-                    lineHeight: 1,
-                  }}
+                  className="ui5-u-font-size-1-8rem ui5-u-font-weight-900 ui5-u-color-ui5-value-color ui5-u-line-height-1" style={{ "--ui5-value-color": C[sel.cat]?.t } as React.CSSProperties}
                 >
                   {sel.sym}
                 </span>
-                <span style={{ fontSize: "0.5rem", color: "var(--text-muted)" }}>
+                <span className="ui5-u-font-size-0-5rem ui5-u-color-ui5-text-3">
                   {sel.z}
                 </span>
               </div>
 
               <div
-                style={{
-                  flex: 1,
-                  fontSize: "0.85rem",
-                  color: "var(--text-secondary)",
-                }}
+                className="ui5-u-flex-1 ui5-u-font-size-0-85rem ui5-u-color-ui5-text-2"
               >
-                <p style={{ margin: "0.15rem 0" }}>
+                <p className="ui5-u-margin-0-15rem-0">
                   <strong>Z : {sel.z}</strong> | <strong>A : {massNumber}</strong>
                 </p>
-                <p style={{ margin: "0.15rem 0" }}>Neutrons : {neutrons}</p>
-                <p style={{ margin: "0.15rem 0" }}>
+                <p className="ui5-u-margin-0-15rem-0">Neutrons : {neutrons}</p>
+                <p className="ui5-u-margin-0-15rem-0">
                   ⚡ Oxydation :{" "}
                   <span
-                    style={{
-                      padding: "0.1rem 0.3rem",
-                      background: C[sel.cat]?.bg,
-                      borderRadius: 4,
-                      fontWeight: 600,
-                    }}
+                    className="ui5-u-padding-0-1rem-0-3rem ui5-u-background-ui5-value-background ui5-u-border-radius-ui5-radius-sm ui5-u-font-weight-600" style={{ "--ui5-value-background": C[sel.cat]?.bg } as React.CSSProperties}
                   >
                     {fmt(sel.oxyd)}
                   </span>
                 </p>
-                <p style={{ margin: "0.15rem 0" }}>🌍 Abondance : {fmt(sel.abond)}</p>
+                <p className="ui5-u-margin-0-15rem-0">🌍 Abondance : {fmt(sel.abond)}</p>
               </div>
             </div>
 
             <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "0.4rem",
-                fontSize: "0.8rem",
-                color: "var(--text-secondary)",
-                marginBottom: "0.75rem",
-              }}
+              className="ui5-u-display-grid ui5-u-grid-template-columns-1fr-1fr ui5-u-gap-0-4rem ui5-u-font-size-0-8rem ui5-u-color-ui5-text-2 ui5-u-margin-bottom-0-75rem"
             >
               <div
-                style={{
-                  padding: "0.4rem 0.5rem",
-                  background: "var(--bg-secondary)",
-                  borderRadius: 8,
-                }}
+                className="ui5-u-padding-0-4rem-0-5rem ui5-u-background-ui5-surface-soft ui5-u-border-radius-ui5-radius-sm"
               >
-                <span style={{ fontSize: "0.6rem", color: "var(--text-muted)" }}>
+                <span className="ui5-u-font-size-0-6rem ui5-u-color-ui5-text-3">
                   Configuration
                 </span>
                 <br />
@@ -603,13 +405,9 @@ function Cell({ el }: { el: El | undefined }) {
               </div>
 
               <div
-                style={{
-                  padding: "0.4rem 0.5rem",
-                  background: "var(--bg-secondary)",
-                  borderRadius: 8,
-                }}
+                className="ui5-u-padding-0-4rem-0-5rem ui5-u-background-ui5-surface-soft ui5-u-border-radius-ui5-radius-sm"
               >
-                <span style={{ fontSize: "0.6rem", color: "var(--text-muted)" }}>
+                <span className="ui5-u-font-size-0-6rem ui5-u-color-ui5-text-3">
                   🌡️ Fusion
                 </span>
                 <br />
@@ -617,13 +415,9 @@ function Cell({ el }: { el: El | undefined }) {
               </div>
 
               <div
-                style={{
-                  padding: "0.4rem 0.5rem",
-                  background: "var(--bg-secondary)",
-                  borderRadius: 8,
-                }}
+                className="ui5-u-padding-0-4rem-0-5rem ui5-u-background-ui5-surface-soft ui5-u-border-radius-ui5-radius-sm"
               >
-                <span style={{ fontSize: "0.6rem", color: "var(--text-muted)" }}>
+                <span className="ui5-u-font-size-0-6rem ui5-u-color-ui5-text-3">
                   🔥 Ébullition
                 </span>
                 <br />
@@ -631,31 +425,21 @@ function Cell({ el }: { el: El | undefined }) {
               </div>
 
               <div
-                style={{
-                  padding: "0.4rem 0.5rem",
-                  background: "var(--bg-secondary)",
-                  borderRadius: 8,
-                }}
+                className="ui5-u-padding-0-4rem-0-5rem ui5-u-background-ui5-surface-soft ui5-u-border-radius-ui5-radius-sm"
               >
-                <span style={{ fontSize: "0.6rem", color: "var(--text-muted)" }}>
+                <span className="ui5-u-font-size-0-6rem ui5-u-color-ui5-text-3">
                   👥 Famille
                 </span>
                 <br />
-                <strong style={{ color: C[sel.cat]?.t }}>{C[sel.cat]?.l}</strong>
+                <strong className="ui5-u-color-ui5-value-color" style={{ "--ui5-value-color": C[sel.cat]?.t } as React.CSSProperties}>{C[sel.cat]?.l}</strong>
               </div>
             </div>
 
             <div
-              style={{
-                padding: "0.5rem 0.75rem",
-                background: "var(--bg-secondary)",
-                borderRadius: 8,
-                fontSize: "0.8rem",
-                color: "var(--text-secondary)",
-              }}
+              className="ui5-u-padding-0-5rem-0-75rem ui5-u-background-ui5-surface-soft ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-8rem ui5-u-color-ui5-text-2"
             >
-              <strong style={{ display: "block", marginBottom: 4 }}>Utilisation</strong>
-              <span style={{ fontStyle: "italic" }}>{fmt(sel.usage)}</span>
+              <strong className="ui5-u-display-block ui5-u-margin-bottom-4px">Utilisation</strong>
+              <span className="ui5-u-font-style-italic">{fmt(sel.usage)}</span>
             </div>
           </div>
         </>

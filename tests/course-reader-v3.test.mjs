@@ -14,17 +14,8 @@ const files = {
   mathFunctions: path.join(root, "src/data/mathematiques/chapters/lycee/2nde/fonctions-generalites/cours.mdx"),
 };
 
-const designStyles = [
-  "design-system.css",
-  "tokens-v3.css",
-  "theme.css",
-  "core.css",
-  "components.css",
-  "course-content.css",
-  "utilities.css",
-  "reference-v3.css",
-]
-  .map((file) => readFileSync(path.join(root, "src/styles", file), "utf8"))
+const designStyles = ["index.css", "tokens.css", "preferences.css", "reset.css", "compat-content.css", "reader.css"]
+  .map((file) => readFileSync(path.join(root, "src/ui-v5", file), "utf8"))
   .join("\n");
 
 function source(name) {
@@ -53,7 +44,7 @@ describe("course reader V3", () => {
     assert.match(rendered, /class="katex-mathml"/);
     assert.doesNotMatch(reader, /\.course-reader-v3 \.katex \.katex-mathml\s*\{[^}]*display:\s*none/is);
     assert.doesNotMatch(designStyles, /\.cours-content \.katex \.katex-mathml\s*\{[^}]*display:\s*none/is);
-    assert.match(reader, /clip-path:\s*inset\(50%\)/);
+    assert.match(designStyles, /clip-path:\s*inset\(50%\)/);
     assert.match(designStyles, /clip-path:\s*inset\(50%\)/);
   });
 
@@ -94,9 +85,9 @@ describe("course reader V3", () => {
 
   it("keeps long-form prose within the V4 reading measure and avoids card-everywhere styling", () => {
     assert.match(designStyles, /--v3-measure-readable:\s*70ch/);
-    assert.match(designStyles, /V4 document-first reading geometry/);
-    assert.match(designStyles, /max-width:\s*var\(--v3-measure-readable,\s*70ch\)/);
+    assert.match(designStyles, /Unified course reader V5/);
+    assert.match(designStyles, /var\(--ui5-reading\)/);
     assert.match(designStyles, /\.course-idea-heading\s*\{[\s\S]*?background:\s*transparent;[\s\S]*?box-shadow:\s*none;/);
-    assert.match(designStyles, /\.course-label-heading \+ p,[\s\S]*?border-left:\s*3px solid var\(--v3-color-pedagogy-definition\)/);
+    assert.match(designStyles, /\.course-label-heading \+[\s\S]*?border-left:\s*3px solid var\(--ui5-subject\)/);
   });
 });

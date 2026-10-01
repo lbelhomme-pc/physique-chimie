@@ -3,15 +3,15 @@ import { useMemo, useState } from "react";
 type Scenario = "normal" | "dirty" | "outlier" | "saturated";
 
 const V = {
-  bg: "var(--bg-card)",
-  bgSec: "var(--bg-secondary)",
-  bgTer: "var(--bg-tertiary)",
-  text: "var(--text-primary)",
-  textSec: "var(--text-secondary)",
-  textMut: "var(--text-muted)",
-  border: "var(--border-color)",
-  primary: "var(--accent-primary)",
-  primaryLt: "var(--accent-primary-light)",
+  bg: "var(--ui5-surface)",
+  bgSec: "var(--ui5-surface-soft)",
+  bgTer: "var(--ui5-surface-soft)",
+  text: "var(--ui5-text)",
+  textSec: "var(--ui5-text-2)",
+  textMut: "var(--ui5-text-3)",
+  border: "var(--ui5-border)",
+  primary: "var(--ui5-action)",
+  primaryLt: "var(--ui5-action-soft)",
   success: "var(--accent-success)",
   successLt: "var(--accent-success-light)",
   warning: "var(--accent-warning)",
@@ -78,35 +78,21 @@ export default function CalibrationSimulator() {
 
   return (
     <section
-      aria-labelledby="calibration-sim-title"
-      style={{
-        background: V.bg,
-        border: `1px solid ${V.border}`,
-        borderRadius: 12,
-        boxShadow: "var(--shadow-card)",
-        margin: "1.5rem 0",
-        padding: "1rem",
-      }}
+     aria-labelledby="calibration-sim-title"
+      className="ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-box-shadow-none ui5-u-margin-1-5rem-0 ui5-u-padding-1rem"
     >
-      <h3 id="calibration-sim-title" style={{ color: V.primary, fontSize: "1rem", margin: "0 0 0.8rem" }}>
+      <h3 id="calibration-sim-title" className="ui5-u-color-ui5-action ui5-u-font-size-1rem ui5-u-margin-0-0-0-8rem">
         Construire une gamme étalon
       </h3>
 
-      <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}>
-        <div style={{ display: "grid", gap: "0.75rem" }}>
-          <label style={{ display: "grid", gap: "0.35rem", color: V.textSec, fontWeight: 700 }}>
+      <div className="ui5-u-display-grid ui5-u-gap-1rem ui5-u-grid-template-columns-repeat-auto-fit-minmax-240px-1fr">
+        <div className="ui5-u-display-grid ui5-u-gap-0-75rem">
+          <label className="ui5-u-display-grid ui5-u-gap-0-35rem ui5-u-color-ui5-text-2 ui5-u-font-weight-700">
             Situation expérimentale
             <select
               value={scenario}
               onChange={(event) => setScenario(event.target.value as Scenario)}
-              style={{
-                border: `1px solid ${V.border}`,
-                borderRadius: 8,
-                background: V.bgSec,
-                color: V.text,
-                font: "inherit",
-                padding: "0.6rem 0.7rem",
-              }}
+              className="ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-surface-soft ui5-u-color-ui5-text ui5-u-font-inherit ui5-u-padding-0-6rem-0-7rem"
             >
               <option value="normal">mesures correctes</option>
               <option value="dirty">cuve avec traces</option>
@@ -115,14 +101,14 @@ export default function CalibrationSimulator() {
             </select>
           </label>
 
-          <div style={{ display: "grid", gap: "0.45rem" }}>
+          <div className="ui5-u-display-grid ui5-u-gap-0-45rem">
             {concentrations.map((c, index) => (
               index === 0 ? (
-                <p key={index} style={{ color: V.textSec, fontSize: "0.9rem", fontWeight: 700, margin: 0 }}>
+                <p key={index} className="ui5-u-color-ui5-text-2 ui5-u-font-size-0-9rem ui5-u-font-weight-700 ui5-u-margin-0">
                   Blanc : c = {fr(c, 3)} mmol.L-1, référence non modifiable
                 </p>
               ) : (
-                <label key={index} style={{ display: "grid", gap: "0.25rem", color: V.textSec, fontSize: "0.9rem" }}>
+                <label key={index} className="ui5-u-display-grid ui5-u-gap-0-25rem ui5-u-color-ui5-text-2 ui5-u-font-size-0-9rem">
                   Étalon E{index} : c = {fr(c, 3)} mmol.L-1
                   <input
                     type="range"
@@ -131,7 +117,7 @@ export default function CalibrationSimulator() {
                     step="0.005"
                     value={c}
                     onChange={(event) => setConcentration(index, Number(event.target.value))}
-                    aria-label={`Concentration de l'étalon E${index}`}
+                   aria-label={`Concentration de l'étalon E${index}`}
                   />
                 </label>
               )
@@ -143,8 +129,8 @@ export default function CalibrationSimulator() {
           <svg
             viewBox="0 0 520 360"
             role="img"
-            aria-labelledby="calibration-graph-title calibration-graph-desc"
-            style={{ display: "block", height: "auto", maxWidth: "100%" }}
+           aria-labelledby="calibration-graph-title calibration-graph-desc"
+            className="ui5-u-display-block ui5-u-height-auto ui5-u-max-width-100"
           >
             <title id="calibration-graph-title">Courbe d'étalonnage simulée</title>
             <desc id="calibration-graph-desc">
@@ -211,15 +197,15 @@ export default function CalibrationSimulator() {
         </div>
       </div>
 
-      <div role="status" aria-live="polite" style={{ background: V.bgSec, border: `1px solid ${V.border}`, borderRadius: 8, color: V.text, marginTop: "0.9rem", padding: "0.75rem 0.85rem" }}>
+      <div role="status" aria-live="polite" className="ui5-u-background-ui5-surface-soft ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-color-ui5-text ui5-u-margin-top-0-9rem ui5-u-padding-0-75rem-0-85rem">
         <strong>{summary}</strong>
         {isOutside && (
-          <p style={{ color: V.warning, margin: "0.4rem 0 0" }}>
+          <p className="ui5-u-color-accent-warning ui5-u-margin-0-4rem-0-0">
             La lecture sort de la gamme étalon : il faut diluer ou préparer une gamme adaptée avant de conclure.
           </p>
         )}
         {scenario !== "normal" && (
-          <p style={{ color: scenario === "dirty" ? V.warning : V.danger, margin: "0.4rem 0 0" }}>
+          <p className={(scenario === "dirty" ? "ui5-u-color-accent-warning" : "ui5-u-color-accent-danger") + " " + "ui5-u-margin-0-4rem-0-0"}>
             Observe l'effet du défaut : la droite ou certains points deviennent moins fiables, même si le calcul reste possible.
           </p>
         )}

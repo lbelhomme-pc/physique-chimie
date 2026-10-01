@@ -1,0 +1,305 @@
+/* ═══════════════════════════════════════════════════════════
+   NAVIGATION — Barre de pills avec emojis
+   ═══════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════
+   BARRE DE RECHERCHE
+   ═══════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════
+   FIL D'ARIANE
+   ═══════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════
+   STATS PILLS (streak, physique %, chimie %, rang)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════
+   CARTES
+   ═══════════════════════════════════════════════════════════ */
+
+.card {
+  background: var(--ui5-surface);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(15, 72, 160, 0.08);
+  padding: 1.25rem;
+  border: 1px solid var(--ui5-border);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  box-shadow: none;
+}
+
+/* Cartes matière (Chimie / Physique) — gradient */
+
+/* Carte chapitre */
+
+/* ═══════════════════════════════════════════════════════════
+   ONGLETS (style pills — Retour / Exercices / Quiz / Flashcards)
+   ═══════════════════════════════════════════════════════════ */
+
+.tab-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ui5-text-3);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.tab-pill:hover {
+  background: var(--ui5-surface-soft);
+  color: var(--ui5-text);
+}
+
+.tab-pill.active {
+  background: #0f5bff;
+  border-color: #0f5bff;
+  color: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTIONS / ENCADRÉS MDX
+   ═══════════════════════════════════════════════════════════ */
+
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ui5-text);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.definition-box {
+  background: var(--ui5-action-soft);
+  border-left: 5px solid var(--ui5-action);
+  border-radius: 6px;
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.definition-box h3 {
+  color: var(--ui5-action);
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.definition-box .katex-display {
+  font-size: 1.25em;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background: rgba(255,255,255,0.5);
+  border-radius: 6px;
+}
+
+.example-box {
+  background: var(--accent-success-light);
+  border-left: 5px solid var(--accent-success);
+  border-radius: 6px;
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.example-box h3 {
+  color: #047857;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.info-box {
+  background: var(--accent-warning-light);
+  border-left: 5px solid var(--accent-warning);
+  border-radius: 6px;
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.info-box h3 {
+  color: #b45309;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.box-regle-or {
+  background: var(--accent-danger-light);
+  border-left: 5px solid var(--accent-danger);
+  border-radius: 6px;
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.box-regle-or h3 {
+  color: var(--accent-danger);
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════════════════════ */
+
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+}
+
+.page-header {
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--ui5-action);
+  letter-spacing: -0.02em;
+}
+
+.page-header .subtitle {
+  font-size: 1.05rem;
+  color: var(--ui5-text-3);
+  margin-top: 0.3rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════ */
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  border-top: 2px dashed var(--ui5-border);
+  color: var(--ui5-text-3);
+  font-size: 0.85rem;
+}
+
+footer strong { color: var(--ui5-text-2); }
+
+footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: var(--ui5-surface);
+  border: 1px solid var(--ui5-border);
+  border-radius: 6px;
+  color: var(--ui5-text-2);
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BOUTONS
+   ═══════════════════════════════════════════════════════════ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--ui5-action);
+  color: #ffffff;
+  box-shadow: none;
+}
+.btn-primary:hover {
+  background: var(--ui5-action-hover);
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: var(--ui5-surface);
+  color: var(--ui5-text-2);
+  border: 1px solid var(--ui5-border);
+}
+.btn-secondary:hover {
+  background: var(--ui5-surface-soft);
+  color: var(--ui5-text);
+}
+
+/* Focus visible pour accessibilité clavier */
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--ui5-action);
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INPUTS
+   ═══════════════════════════════════════════════════════════ */
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  background: var(--bg-input);
+  color: var(--ui5-text);
+  border: 1px solid var(--ui5-border);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--ui5-action);
+  box-shadow: 0 0 0 3px var(--ui5-action-soft);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  .page-header h1 { font-size: 1.5rem; }
+
+  .grid-2 { grid-template-columns: 1fr; }
+  .tab-pill { padding: 0.5rem 0.8rem; font-size: 0.8rem; }
+
+  .formule-box,
+  .formula-box { padding: 1rem; }
+  .formule-box .katex-display,
+  .formula-box .katex-display { font-size: 1.15em; }
+  .retenir-box { padding: 1rem 1.1rem; }
+  .methode-box,
+  .méthode-box,
+  .m\00e9thode-box { padding: 0.9rem 1rem; }
+  .resultat-box { padding: 0.9rem 1rem; }
+}
+

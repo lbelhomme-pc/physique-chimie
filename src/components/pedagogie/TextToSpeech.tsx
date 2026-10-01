@@ -104,13 +104,13 @@ export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, com
   if (!supported) return null;
 
   const V = {
-    primary: "var(--accent-primary)",
-    primaryLt: "var(--accent-primary-light)",
-    text: "var(--text-primary)",
-    textSec: "var(--text-secondary)",
-    textMut: "var(--text-muted)",
-    border: "var(--border-color)",
-    bg: "var(--bg-card)",
+    primary: "var(--ui5-action)",
+    primaryLt: "var(--ui5-action-soft)",
+    text: "var(--ui5-text)",
+    textSec: "var(--ui5-text-2)",
+    textMut: "var(--ui5-text-3)",
+    border: "var(--ui5-border)",
+    bg: "var(--ui5-surface)",
   };
 
   // ─── Mode compact (petit bouton) ──────────────────────
@@ -118,18 +118,7 @@ export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, com
     return (
       <button
         onClick={isPlaying ? stop : speak}
-        style={{
-          padding: "0.35rem 0.7rem",
-          border: `1px solid ${V.border}`,
-          borderRadius: 6,
-          background: isPlaying ? V.primaryLt : V.bg,
-          color: isPlaying ? V.primary : V.textSec,
-          fontSize: "0.8rem",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          gap: "0.3rem",
-        }}
+        className={"ui5-u-padding-0-35rem-0-7rem ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm" + " " + (isPlaying ? "ui5-u-background-ui5-action-soft" : "ui5-u-background-ui5-surface") + " " + (isPlaying ? "ui5-u-color-ui5-action" : "ui5-u-color-ui5-text-2") + " " + "ui5-u-font-size-0-8rem ui5-u-cursor-pointer ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-0-3rem"}
         title={isPlaying ? "Arrêter la lecture" : "Lire à voix haute"}
       >
         <span>{isPlaying ? "⏹️" : "🔊"}</span>
@@ -140,55 +129,37 @@ export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, com
 
   // ─── Mode étendu (avec contrôles vitesse) ─────────────
   return (
-    <div style={{
-      display: "flex",
-      alignItems: "center",
-      gap: "0.5rem",
-      padding: "0.5rem 0.75rem",
-      background: V.primaryLt,
-      border: `1px solid ${V.border}`,
-      borderRadius: 8,
-      flexWrap: "wrap",
-    }}>
+    <div className="ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-0-5rem ui5-u-padding-0-5rem-0-75rem ui5-u-background-ui5-action-soft ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-flex-wrap-wrap">
       {/* Bouton play/pause/stop */}
       {!isPlaying && !isPaused && (
-        <button onClick={speak} style={{...btnStyle, background: V.primary, color: "#fff"}}>
+        <button onClick={speak} className="ui5-u-padding-0-4rem-0-8rem ui5-u-border-none ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-85rem ui5-u-font-weight-600 ui5-u-cursor-pointer ui5-u-background-ui5-action ui5-u-color-fff">
           🔊 {label}
         </button>
       )}
       {isPlaying && (
-        <button onClick={pause} style={{...btnStyle, background: V.primary, color: "#fff"}}>
+        <button onClick={pause} className="ui5-u-padding-0-4rem-0-8rem ui5-u-border-none ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-85rem ui5-u-font-weight-600 ui5-u-cursor-pointer ui5-u-background-ui5-action ui5-u-color-fff">
           ⏸️ Pause
         </button>
       )}
       {isPaused && (
-        <button onClick={speak} style={{...btnStyle, background: V.primary, color: "#fff"}}>
+        <button onClick={speak} className="ui5-u-padding-0-4rem-0-8rem ui5-u-border-none ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-85rem ui5-u-font-weight-600 ui5-u-cursor-pointer ui5-u-background-ui5-action ui5-u-color-fff">
           ▶️ Reprendre
         </button>
       )}
       {(isPlaying || isPaused) && (
-        <button onClick={stop} style={{...btnStyle, background: "transparent", color: V.textSec, border: `1px solid ${V.border}`}}>
+        <button onClick={stop} className="ui5-u-padding-0-4rem-0-8rem ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-85rem ui5-u-font-weight-600 ui5-u-cursor-pointer ui5-u-background-transparent ui5-u-color-ui5-text-2">
           ⏹️ Stop
         </button>
       )}
 
       {/* Vitesse */}
-      <div style={{ display: "flex", alignItems: "center", gap: "0.3rem", marginLeft: "auto" }}>
-        <span style={{ fontSize: "0.7rem", color: V.textMut }}>Vitesse :</span>
+      <div className="ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-0-3rem ui5-u-margin-left-auto">
+        <span className="ui5-u-font-size-0-7rem ui5-u-color-ui5-text-3">Vitesse :</span>
         {[0.7, 0.9, 1.1, 1.3].map((r) => (
           <button
             key={r}
             onClick={() => setCurrentRate(r)}
-            style={{
-              padding: "0.15rem 0.4rem",
-              border: `1px solid ${currentRate === r ? V.primary : V.border}`,
-              borderRadius: 4,
-              background: currentRate === r ? V.primaryLt : "transparent",
-              color: currentRate === r ? V.primary : V.textMut,
-              fontSize: "0.7rem",
-              fontWeight: currentRate === r ? 700 : 400,
-              cursor: "pointer",
-            }}
+            className={"ui5-u-padding-0-15rem-0-4rem ui5-u-border-ui5-value-border ui5-u-border-radius-ui5-radius-sm" + " " + (currentRate === r ? "ui5-u-background-ui5-action-soft" : "ui5-u-background-transparent") + " " + (currentRate === r ? "ui5-u-color-ui5-action" : "ui5-u-color-ui5-text-3") + " " + "ui5-u-font-size-0-7rem" + " " + (currentRate === r ? "ui5-u-font-weight-700" : "ui5-u-font-weight-400") + " " + "ui5-u-cursor-pointer"} style={{ "--ui5-value-border": `1px solid ${currentRate === r ? V.primary : V.border}` } as React.CSSProperties}
           >
             {r}x
           </button>
@@ -197,12 +168,3 @@ export default function TextToSpeech({ text, label = "Écouter", rate = 0.9, com
     </div>
   );
 }
-
-const btnStyle: React.CSSProperties = {
-  padding: "0.4rem 0.8rem",
-  border: "none",
-  borderRadius: 6,
-  fontSize: "0.85rem",
-  fontWeight: 600,
-  cursor: "pointer",
-};

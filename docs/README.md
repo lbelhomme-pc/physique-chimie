@@ -9,6 +9,7 @@ Ce dossier rassemble la documentation technique et historique de la plateforme. 
 - [`../README.md`](../README.md) — vue d’ensemble, commandes et structure du dépôt ;
 - [`../AGENTS.md`](../AGENTS.md) — règles permanentes de migration et critères de validation ;
 - [`../CLAUDE.md`](../CLAUDE.md) — consignes techniques synthétiques pour les assistants de code ;
+- [`nettoyage-ui-v5-2026-10-01.md`](nettoyage-ui-v5-2026-10-01.md) — nettoyage V5, résultats et captures du 1 octobre 2026 ;
 - [`architecture/`](architecture/) — décisions d’architecture ciblées ;
 - [`../.github/BRANCH_PROTECTION.md`](../.github/BRANCH_PROTECTION.md) — politique attendue de protection de `main`.
 

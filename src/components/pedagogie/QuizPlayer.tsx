@@ -71,9 +71,9 @@ function getStoredQuizProgress(c:string): QuizProgressRecord | null {if(typeof w
 function markQuizRewardedToday(c:string,s:number,t:number){if(typeof window==="undefined")return;try{const date=new Date().toISOString().slice(0,10);const progress=mergeQuizProgress(getStoredQuizProgress(c),{date,score:s,total:t});localStorage.setItem(getQuizRewardKey(c),JSON.stringify(progress))}catch{}}
 
 const V = {
-  bg: "var(--bg-card)", bgSec: "var(--bg-secondary)", bgTer: "var(--bg-tertiary)",
-  text: "var(--text-primary)", textSec: "var(--text-secondary)", textMut: "var(--text-muted)", textDis: "var(--text-disabled)",
-  border: "var(--border-color)", primary: "var(--accent-primary)", primaryLt: "var(--accent-primary-light)",
+  bg: "var(--ui5-surface)", bgSec: "var(--ui5-surface-soft)", bgTer: "var(--ui5-surface-soft)",
+  text: "var(--ui5-text)", textSec: "var(--ui5-text-2)", textMut: "var(--ui5-text-3)", textDis: "var(--text-disabled)",
+  border: "var(--ui5-border)", primary: "var(--ui5-action)", primaryLt: "var(--ui5-action-soft)",
   success: "var(--accent-success)", successLt: "var(--accent-success-light)",
   danger: "var(--accent-danger)", dangerLt: "var(--accent-danger-light)",
 };
@@ -117,7 +117,7 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
   }, [rawQ, chapterId]);
 
   const total = questions.length;
-  if(!total) return <p style={{fontStyle:"italic",color:V.textMut}}>Aucune question disponible.</p>;
+  if(!total) return <p className="ui5-u-font-style-italic ui5-u-color-ui5-text-3">Aucune question disponible.</p>;
   const cur = questions[ci];
   const isC = sel === cur.correctIndex;
 
@@ -142,9 +142,9 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
     const pct=Math.round((score/total)*100);
     const missedCount=questions.filter((q,i)=>answers[i]!==q.correctIndex).length;
     let emoji="🎉",msg="Excellent !";if(pct<40){emoji="💪";msg="Continue tes efforts !"}else if(pct<70){emoji="👍";msg="Pas mal, tu progresses !"}else if(pct<100){emoji="🌟";msg="Très bien !"}
-    return(<div data-quiz-result-v3="true" className="learning-player learning-result-card" style={{textAlign:"center"}}>
-      <div style={{fontSize:"3rem",marginBottom:"0.5rem"}}>{emoji}</div>
-      <h3 style={{fontSize:"1.4rem",fontWeight:700,color:V.text,marginBottom:"1rem"}}>{msg}</h3>
+    return(<div data-quiz-result-v3="true"  className="learning-player learning-result-card ui5-u-text-align-center">
+      <div className="ui5-u-font-size-3rem ui5-u-margin-bottom-0-5rem">{emoji}</div>
+      <h3 className="ui5-u-font-size-1-4rem ui5-u-font-weight-700 ui5-u-color-ui5-text ui5-u-margin-bottom-1rem">{msg}</h3>
       <div className="quiz-result-score" aria-label={`Score ${score} sur ${total}, soit ${pct} pour cent`}>
         <strong>{score}/{total}</strong>
         <span>{pct}% de bonnes réponses</span>
@@ -153,13 +153,13 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
         <strong>{missedCount === 0 ? "Toutes les notions de ce quiz sont validées." : `${missedCount} question${missedCount > 1 ? "s" : ""} à revoir`}</strong>
         <span>{missedCount === 0 ? "Tu peux passer à la ressource suivante." : "Relis les explications ci-dessous puis reprends uniquement tes erreurs."}</span>
       </div>
-      {xpE>0&&<p style={{fontSize:"1rem",fontWeight:700,color:V.primary,marginBottom:"0.5rem"}}>⚡ +{xpE} XP gagnés</p>}
-      {xpE===0&&alreadyToday&&<p style={{fontSize:"0.85rem",color:V.textMut,fontStyle:"italic",marginBottom:"0.5rem"}}>ℹ️ Quiz déjà récompensé aujourd'hui</p>}
-      <div style={{textAlign:"left",display:"flex",flexDirection:"column",gap:"0.5rem",marginBottom:"1.5rem"}}>
+      {xpE>0&&<p className="ui5-u-font-size-1rem ui5-u-font-weight-700 ui5-u-color-ui5-action ui5-u-margin-bottom-0-5rem">⚡ +{xpE} XP gagnés</p>}
+      {xpE===0&&alreadyToday&&<p className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3 ui5-u-font-style-italic ui5-u-margin-bottom-0-5rem">ℹ️ Quiz déjà récompensé aujourd'hui</p>}
+      <div className="ui5-u-text-align-left ui5-u-display-flex ui5-u-flex-direction-column ui5-u-gap-0-5rem ui5-u-margin-bottom-1-5rem">
         {questions.map((q,i)=>{const ua=answers[i];const ok=ua===q.correctIndex;return(
-          <div key={q.original.id} style={{padding:"0.6rem 0.75rem",borderLeft:`4px solid ${ok?"var(--accent-success)":"var(--accent-danger)"}`,borderRadius:"0 6px 6px 0",background:V.bgSec}}>
-            <div style={{display:"flex",gap:"0.5rem",fontSize:"0.9rem",color:V.text}}><span>{ok?"✅":"❌"}</span><span style={{flex:1}}><MathText text={q.original.question} /></span></div>
-            {!ok&&<p style={{fontSize:"0.85rem",color:V.textSec,marginTop:"0.25rem",paddingLeft:"1.5rem"}}>Bonne réponse : <strong><MathText text={q.shuffledChoices[q.correctIndex]} /></strong></p>}
+          <div key={q.original.id} className="ui5-u-padding-0-6rem-0-75rem ui5-u-border-left-ui5-value-border-left ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-surface-soft" style={{ "--ui5-value-border-left": `4px solid ${ok?"var(--accent-success)":"var(--accent-danger)"}` } as React.CSSProperties}>
+            <div className="ui5-u-display-flex ui5-u-gap-0-5rem ui5-u-font-size-0-9rem ui5-u-color-ui5-text"><span>{ok?"✅":"❌"}</span><span className="ui5-u-flex-1"><MathText text={q.original.question} /></span></div>
+            {!ok&&<p className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-2 ui5-u-margin-top-0-25rem ui5-u-padding-left-1-5rem">Bonne réponse : <strong><MathText text={q.shuffledChoices[q.correctIndex]} /></strong></p>}
           </div>)})}
       </div>
       <div className="quiz-result-actions">
@@ -173,46 +173,46 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
   // ─── Écran de question ────────────────────────────────
   return(<div data-quiz-player-v3="true" data-retry-mode={retryMode ? "true" : "false"} className="learning-player learning-player--quiz">
     {title&&<h3 className="learning-player__title">{title}</h3>}
-    {alreadyToday&&<p style={{fontSize:"0.85rem",color:V.textSec,background:V.bgSec,border:`1px solid ${V.border}`,borderRadius:8,padding:"0.5rem 0.75rem",marginBottom:"0.75rem",textAlign:"center"}}>ℹ️ Tu as déjà gagné des XP sur ce quiz aujourd'hui. Les XP seront disponibles demain.</p>}
-    <div style={{display:"flex",alignItems:"center",gap:"0.75rem",marginBottom:"1.25rem"}}>
-      <div style={{flex:1,height:8,background:V.bgTer,borderRadius:99,overflow:"hidden"}}><div style={{height:"100%",background:V.primary,borderRadius:99,transition:"width 0.4s",width:`${((ci+(answered?1:0))/total)*100}%`}}/></div>
-      <span style={{fontSize:"0.85rem",color:V.textMut,fontWeight:500,whiteSpace:"nowrap"}}>Question {ci+1}/{total}</span>
+    {alreadyToday&&<p className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-2 ui5-u-background-ui5-surface-soft ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-padding-0-5rem-0-75rem ui5-u-margin-bottom-0-75rem ui5-u-text-align-center">ℹ️ Tu as déjà gagné des XP sur ce quiz aujourd'hui. Les XP seront disponibles demain.</p>}
+    <div className="ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-0-75rem ui5-u-margin-bottom-1-25rem">
+      <div className="ui5-u-flex-1 ui5-u-height-8px ui5-u-background-ui5-surface-soft ui5-u-border-radius-999px ui5-u-overflow-hidden"><div className="ui5-u-height-100 ui5-u-background-ui5-action ui5-u-border-radius-999px ui5-u-transition-width-0-4s ui5-u-width-ui5-value-width" style={{ "--ui5-value-width": `${((ci+(answered?1:0))/total)*100}%` } as React.CSSProperties}/></div>
+      <span className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3 ui5-u-font-weight-500 ui5-u-white-space-nowrap">Question {ci+1}/{total}</span>
     </div>
-    <div className="learning-question-card" style={{background:V.bg,border:`1px solid ${V.border}`,borderRadius:12,padding:"1.5rem"}}>
+    <div  className="learning-question-card ui5-u-background-ui5-surface ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-padding-1-5rem">
       {/* Question + TTS tout lire */}
-      <p style={{fontSize:"1.1rem",fontWeight:600,color:V.text,marginBottom:"0.5rem",lineHeight:1.5}}><MathText text={cur.original.question} /></p>
-      <div style={{marginBottom:"1rem"}}><TextToSpeech compact text={fullQuestionText} label="Tout lire" /></div>
+      <p className="ui5-u-font-size-1-1rem ui5-u-font-weight-600 ui5-u-color-ui5-text ui5-u-margin-bottom-0-5rem ui5-u-line-height-1-5"><MathText text={cur.original.question} /></p>
+      <div className="ui5-u-margin-bottom-1rem"><TextToSpeech compact text={fullQuestionText} label="Tout lire" /></div>
 
       {/* Choix */}
-      <div style={{display:"flex",flexDirection:"column",gap:"0.5rem"}}>
+      <div className="ui5-u-display-flex ui5-u-flex-direction-column ui5-u-gap-0-5rem">
         {cur.shuffledChoices.map((ch,i)=>{
           let bg=V.bg,bc=V.border,col=V.text;
           if(answered){if(i===cur.correctIndex){bg=V.successLt;bc="var(--accent-success)";col="var(--accent-success)"}else if(i===sel&&!isC){bg=V.dangerLt;bc="var(--accent-danger)";col="var(--accent-danger)"}else{col=V.textDis}}
           else if(i===sel){bg=V.primaryLt;bc=V.primary;col=V.primary}
-          return(<div key={i} style={{display:"flex",alignItems:"center",gap:"0.4rem"}}>
-            <button className="learning-choice" onClick={()=>ready&&!answered&&setSel(i)} disabled={!ready||answered} style={{display:"flex",alignItems:"center",gap:"0.75rem",padding:"0.75rem 1rem",border:`2px solid ${bc}`,borderRadius:8,background:bg,cursor:(!ready||answered)?"default":"pointer",textAlign:"left",fontSize:"0.95rem",color:col,flex:1,transition:"all 0.15s"}}>
-              <span style={{display:"flex",alignItems:"center",justifyContent:"center",width:28,height:28,borderRadius:"50%",background:V.bgTer,fontSize:"0.8rem",fontWeight:700,flexShrink:0}}>{String.fromCharCode(65+i)}</span>
-              <span style={{flex:1}}><MathText text={ch} /></span>
+          return(<div key={i} className="ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-0-4rem">
+            <button  onClick={()=>ready&&!answered&&setSel(i)} disabled={!ready||answered} className={"learning-choice ui5-u-display-flex ui5-u-align-items-center ui5-u-gap-0-75rem ui5-u-padding-0-75rem-1rem ui5-u-border-ui5-value-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-value-background" + " " + ((!ready||answered) ? "ui5-u-cursor-default" : "ui5-u-cursor-pointer") + " " + "ui5-u-text-align-left ui5-u-font-size-0-95rem ui5-u-color-ui5-value-color ui5-u-flex-1 ui5-u-transition-all-0-15s"} style={{ "--ui5-value-border": `2px solid ${bc}`, "--ui5-value-background": bg, "--ui5-value-color": col } as React.CSSProperties}>
+              <span className="ui5-u-display-flex ui5-u-align-items-center ui5-u-justify-content-center ui5-u-width-28px ui5-u-height-28px ui5-u-border-radius-50 ui5-u-background-ui5-surface-soft ui5-u-font-size-0-8rem ui5-u-font-weight-700 ui5-u-flex-shrink-0">{String.fromCharCode(65+i)}</span>
+              <span className="ui5-u-flex-1"><MathText text={ch} /></span>
             </button>
             <TextToSpeech compact text={ch} label="Lire" />
           </div>)})}
       </div>
 
       {/* Feedback + TTS sur l'explication */}
-      {answered&&<div className="learning-feedback" style={{marginTop:"1rem",padding:"0.75rem 1rem",borderRadius:8,background:isC?V.successLt:V.dangerLt,border:`1px solid ${isC?"var(--accent-success)":"var(--accent-danger)"}`}}>
-        <p style={{fontWeight:600,fontSize:"0.95rem",marginBottom:"0.3rem"}}>{isC?"✅ Bonne réponse !":"❌ Mauvaise réponse"}</p>
+      {answered&&<div  className={"learning-feedback ui5-u-margin-top-1rem ui5-u-padding-0-75rem-1rem ui5-u-border-radius-ui5-radius-sm" + " " + (isC ? "ui5-u-background-accent-success-light" : "ui5-u-background-accent-danger-light") + " " + "ui5-u-border-ui5-value-border"} style={{ "--ui5-value-border": `1px solid ${isC?"var(--accent-success)":"var(--accent-danger)"}` } as React.CSSProperties}>
+        <p className="ui5-u-font-weight-600 ui5-u-font-size-0-95rem ui5-u-margin-bottom-0-3rem">{isC?"✅ Bonne réponse !":"❌ Mauvaise réponse"}</p>
         {cur.original.explanation&&<>
-          <p style={{fontSize:"0.9rem",color:V.textSec,lineHeight:1.5,marginBottom:"0.5rem"}}><MathText text={cur.original.explanation} /></p>
+          <p className="ui5-u-font-size-0-9rem ui5-u-color-ui5-text-2 ui5-u-line-height-1-5 ui5-u-margin-bottom-0-5rem"><MathText text={cur.original.explanation} /></p>
           <TextToSpeech compact text={cur.original.explanation} label="Écouter l'explication" />
         </>}
       </div>}
 
-      <div style={{marginTop:"1.25rem",display:"flex",justifyContent:"flex-end"}}>
-        {!answered?<button onClick={handleValidate} disabled={sel===null} style={{padding:"0.6rem 1.5rem",background:sel!==null?V.primary:V.textDis,color:"#fff",border:"none",borderRadius:8,fontSize:"0.95rem",fontWeight:600,cursor:sel!==null?"pointer":"not-allowed"}}>Valider</button>
-        :<button onClick={handleNext} style={{padding:"0.6rem 1.5rem",background:V.primary,color:"#fff",border:"none",borderRadius:8,fontSize:"0.95rem",fontWeight:600,cursor:"pointer"}}>{ci+1>=total?"Voir les résultats":"Question suivante →"}</button>}
+      <div className="ui5-u-margin-top-1-25rem ui5-u-display-flex ui5-u-justify-content-flex-end">
+        {!answered?<button onClick={handleValidate} disabled={sel===null} className={"ui5-u-padding-0-6rem-1-5rem" + " " + (sel!==null ? "ui5-u-background-ui5-action" : "ui5-u-background-text-disabled") + " " + "ui5-u-color-fff ui5-u-border-none ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-95rem ui5-u-font-weight-600" + " " + (sel!==null ? "ui5-u-cursor-pointer" : "ui5-u-cursor-not-allowed")}>Valider</button>
+        :<button onClick={handleNext} className="ui5-u-padding-0-6rem-1-5rem ui5-u-background-ui5-action ui5-u-color-fff ui5-u-border-none ui5-u-border-radius-ui5-radius-sm ui5-u-font-size-0-95rem ui5-u-font-weight-600 ui5-u-cursor-pointer">{ci+1>=total?"Voir les résultats":"Question suivante →"}</button>}
       </div>
     </div>
-    <div style={{marginTop:"0.75rem",textAlign:"center",fontSize:"0.85rem",color:V.textMut}}>Score : {score}/{ci+(answered?1:0)}</div>
+    <div className="ui5-u-margin-top-0-75rem ui5-u-text-align-center ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3">Score : {score}/{ci+(answered?1:0)}</div>
     <XPToast toasts={toasts} onDismiss={disT}/>
   </div>)
 }

@@ -1,0 +1,269 @@
+
+  .latex-course-document {
+    width: min(100%, var(--ui5-reading, 70ch));
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--ui5-text, var(--ui5-text));
+    box-shadow: none;
+    font-family: var(--font-family);
+  }
+
+  .latex-course-document__masthead {
+    margin: 0 0 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--ui5-border, var(--ui5-border));
+  }
+
+  .latex-course-document__subject {
+    margin: 0 0 0.35rem;
+    color: var(--ui5-subject, var(--ui5-action));
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 850;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .latex-course-document__masthead h2 {
+    margin: 0;
+    color: var(--ui5-text, var(--ui5-text));
+    font-family: inherit;
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-weight: 850;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  .latex-course-document__rule {
+    display: none;
+  }
+
+  .latex-course {
+    color: var(--ui5-text, var(--ui5-text));
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.72;
+    hyphens: auto;
+    text-rendering: optimizeLegibility;
+  }
+
+  .latex-course > p,
+  .latex-course .latex-course-box > p {
+    margin: 0 0 0.9rem;
+    text-align: left;
+  }
+
+  .latex-course .latex-course-heading {
+    color: var(--ui5-text, var(--ui5-text));
+    font-family: inherit;
+    font-weight: 850;
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+
+  .latex-course h2.latex-course-heading {
+    margin: 2.3rem 0 0.9rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--ui5-border, var(--ui5-border));
+    font-size: clamp(1.3rem, 2.3vw, 1.55rem);
+    line-height: 1.25;
+  }
+
+  .latex-course h2.latex-course-heading:first-child {
+    margin-top: 0;
+  }
+
+  .latex-course h3.latex-course-heading {
+    margin: 1.65rem 0 0.65rem;
+    font-size: clamp(1.08rem, 1.8vw, 1.22rem);
+    line-height: 1.3;
+  }
+
+  .latex-course h4.latex-course-heading {
+    margin: 1.25rem 0 0.5rem;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .latex-course .latex-course-list {
+    margin: 0.35rem 0 1rem 1rem;
+    padding-left: 1rem;
+  }
+
+  .latex-course .latex-course-list li {
+    margin: 0.28rem 0;
+    padding-left: 0.2rem;
+  }
+
+  .latex-course .latex-course-display,
+  .latex-course .katex-display {
+    max-width: 100%;
+    margin: 1.1rem auto;
+    padding: 0.2rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    text-align: center;
+  }
+
+  .latex-course .latex-course-box {
+    display: block;
+    margin: 1.15rem 0;
+    padding: 0.65rem 0 0.65rem 0.9rem;
+    border: 0;
+    border-left: 3px solid var(--ui5-subject, var(--ui5-action));
+    border-radius: 0;
+    background: transparent;
+    color: var(--ui5-text, var(--ui5-text));
+  }
+
+  .latex-course .latex-course-box.methode {
+    border-left-color: var(--v3-color-pedagogy-method, var(--ui5-subject));
+  }
+
+  .latex-course .latex-course-box.exemple {
+    border-left-color: var(--v3-color-pedagogy-example, var(--ui5-subject));
+    background: var(--ui5-surface-soft, var(--ui5-surface-soft));
+  }
+
+  .latex-course .latex-course-box.attention {
+    border: 0;
+    border-left: 3px solid var(--v3-color-warning-text, #92400e);
+    background: var(--v3-color-warning-subtle, #fffbeb);
+  }
+
+  .latex-course .latex-course-box.remarque {
+    border-left-color: var(--ui5-border-strong, var(--ui5-border));
+    color: var(--ui5-text-2, var(--ui5-text-2));
+  }
+
+  .latex-course .latex-course-box.aretenir {
+    border: 1px solid var(--ui5-border, var(--ui5-border));
+    border-left: 3px solid var(--ui5-subject, var(--ui5-action));
+    background: color-mix(in srgb, var(--ui5-subject, #165dff) 5%, white);
+  }
+
+  .latex-course .latex-course-box-title {
+    margin: 0 0 0.35rem !important;
+    color: var(--ui5-text, var(--ui5-text));
+    font-size: 0.82rem;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 850;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+
+  .latex-course .latex-course-figure {
+    display: block;
+    margin: 1.75rem auto;
+    padding: 0;
+    text-align: center;
+  }
+
+  .latex-course .latex-course-figure img {
+    display: block;
+    width: auto;
+    max-width: min(100%, 760px);
+    max-height: 520px;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .latex-course .latex-course-figure figcaption {
+    max-width: 66ch;
+    margin: 0.65rem auto 0;
+    color: var(--ui5-text-3, var(--ui5-text-3));
+    font-family: inherit;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  .latex-course .latex-course-code {
+    max-width: 100%;
+    margin: 1.1rem 0;
+    padding: 0.85rem 0.95rem;
+    overflow-x: auto;
+    border: 1px solid var(--ui5-border, var(--ui5-border));
+    border-radius: var(--ui5-radius-sm, 8px);
+    background: var(--ui5-surface-soft, var(--ui5-surface-soft));
+    color: var(--ui5-text, var(--ui5-text));
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .latex-course .latex-course-code code {
+    font: inherit;
+    white-space: pre;
+  }
+
+  .latex-course .latex-course-table-wrap {
+    max-width: 100%;
+    margin: 1.25rem 0;
+    overflow-x: auto;
+  }
+
+  .latex-course .latex-course-table {
+    width: max-content;
+    min-width: min(100%, 540px);
+    max-width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid var(--ui5-border, var(--ui5-border));
+    background: var(--ui5-surface, var(--ui5-surface));
+    color: var(--ui5-text, var(--ui5-text));
+    font-family: inherit;
+  }
+
+  .latex-course .latex-course-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--ui5-border, var(--ui5-border));
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .latex-course .latex-course-table tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .latex-course .latex-course-error {
+    display: inline-block;
+    padding: 0.08rem 0.2rem;
+    border: 1px solid var(--v3-color-danger-text, #b91c1c);
+    border-radius: var(--ui5-radius-sm, 8px);
+    color: var(--v3-color-danger-text, #b91c1c);
+    font-family: ui-monospace, monospace;
+  }
+
+  @media (max-width: 700px) {
+    .latex-course-document {
+      width: 100%;
+    }
+
+    .latex-course {
+      font-size: 0.98rem;
+      line-height: 1.66;
+    }
+
+    .latex-course h2.latex-course-heading {
+      margin-top: 2rem;
+    }
+  }
+
+  @media print {
+    .latex-course-document {
+      width: 100%;
+      max-width: none;
+    }
+
+    .latex-course h2.latex-course-heading,
+    .latex-course h3.latex-course-heading,
+    .latex-course .latex-course-box,
+    .latex-course .latex-course-figure,
+    .latex-course .latex-course-table-wrap {
+      break-inside: avoid;
+    }
+  }

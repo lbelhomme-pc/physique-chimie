@@ -13,10 +13,10 @@ test("laboratory V3 exposes an accessible exploitation guide on every lab route"
   const layout = read("src/components/laboratoire/LabAppLayout.astro");
 
   assert.match(layout, /data-lab-access-guide/);
-  assert.match(layout, /Hypothese/);
-  assert.match(layout, /Mesures a relever/);
+  assert.match(layout, /Hypothèse/);
+  assert.match(layout, /Mesures à relever/);
   assert.match(layout, /Conclusion attendue/);
-  assert.match(layout, /Questions de verification/);
+  assert.match(layout, /Questions de vérification/);
 
   for (const app of labApps) {
     const guide = getLabAccessibilityGuide(app.slug);

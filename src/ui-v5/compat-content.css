@@ -1,0 +1,615 @@
+/* ═══════════════════════════════════════════════════════════
+   COURS MDX — Contenu principal
+   ═══════════════════════════════════════════════════════════ */
+
+.cours-content {
+  width: 100%;
+  max-width: var(--chapter-shell-max, 1120px);
+  margin: 0 auto;
+  text-align: left;
+}
+
+.cours-content p {
+  margin: 0.75rem 0;
+  line-height: 1.75;
+}
+
+.cours-content ul, .cours-content ol {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+.cours-content li {
+  margin: 0.4rem 0;
+  line-height: 1.7;
+}
+
+.cours-content strong {
+  color: var(--ui5-text);
+  font-weight: 700;
+}
+
+.cours-content .chem-formula {
+  color: var(--ui5-text);
+  font-family: "Times New Roman", "STIX Two Text", serif;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.cours-content .chem-formula sub,
+.cours-content .chem-formula sup {
+  font-size: 0.72em;
+  line-height: 0;
+}
+
+/* Tableaux dans les cours */
+.cours-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+  background: var(--ui5-surface);
+  border-radius: var(--ui5-radius-sm);
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.cours-content thead th {
+  background: var(--ui5-action);
+  color: #ffffff;
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0;
+}
+
+.cours-content tbody td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--ui5-border);
+  vertical-align: top;
+}
+
+.cours-content tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cours-content tbody tr:nth-child(even) {
+  background: var(--ui5-surface-soft);
+}
+
+.cours-content svg,
+.cours-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.cours-content .katex-display,
+.cours-content .katex-block {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.25rem;
+}
+
+@media (max-width: 700px) {
+  .cours-content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cours-content thead th,
+  .cours-content tbody td {
+    white-space: nowrap;
+  }
+
+  .cours-content tbody td:nth-child(2),
+  .cours-content tbody td:nth-child(4) {
+    white-space: normal;
+    min-width: 11rem;
+  }
+}
+
+/* Séparateurs hr */
+.cours-content hr {
+  border: none;
+  height: 1px;
+  background: var(--ui5-border);
+  margin: 2rem 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FORMULES KaTeX — Mise en valeur
+   ═══════════════════════════════════════════════════════════ */
+
+/* Formules display ($$...$$) — toujours centrées et bien espacées */
+/* Objectifs et À retenir : charte commune pour tous les cours MDX */
+
+.cours-content .course-summary-card {
+  margin-top: 2rem;
+}
+
+.cours-content .course-special-card ul,
+.cours-content .course-special-card ol {
+  margin: 0.45rem 0 0;
+  padding-left: 1.35rem;
+}
+
+.cours-content .course-special-card li {
+  margin: 0.35rem 0;
+}
+
+.cours-content .course-special-card li::marker {
+  color: var(--ui5-action);
+}
+
+.cours-content .course-special-card p:first-of-type {
+  margin-top: 0;
+}
+
+.cours-content .course-special-card p:last-child,
+.cours-content .course-special-card ul:last-child,
+.cours-content .course-special-card ol:last-child {
+  margin-bottom: 0;
+}
+
+.cours-content .course-main-heading,
+.cours-content .spe-imported-content .course-main-heading {
+  align-items: center;
+  border-bottom: 1px solid var(--ui5-border);
+  color: var(--ui5-action);
+  display: flex;
+  font-size: 1.1rem;
+  font-weight: 850;
+  gap: 0.55rem;
+  letter-spacing: 0;
+  line-height: 1.35;
+  margin: 2rem 0 1rem;
+  padding: 0 0 0.65rem;
+}
+
+.cours-content .course-main-heading::before,
+.cours-content .spe-imported-content .course-main-heading::before {
+  background: var(--ui5-action);
+  border-radius: 999px;
+  box-shadow: 0 0 0 5px var(--ui5-action-soft);
+  content: "";
+  flex: 0 0 auto;
+  height: 0.8rem;
+  width: 0.8rem;
+}
+
+/* Objectifs et syntheses des cours importes de terminale */
+.cours-content .spe-imported-content .objectives-card,
+.cours-content .spe-imported-content .box-objectif {
+  background: linear-gradient(135deg, var(--ui5-action-soft), var(--ui5-surface));
+  border: 1px solid var(--ui5-border);
+  border-left: 5px solid var(--ui5-action);
+  border-radius: var(--ui5-radius-md);
+  box-shadow: none;
+  margin: 0 0 2rem;
+  padding: 1.1rem 1.25rem;
+}
+
+.cours-content .spe-imported-content .objectives-title,
+.cours-content .spe-imported-content .box-objectif > strong:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ui5-action);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.35;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border-bottom: 0;
+  text-transform: uppercase;
+}
+
+.cours-content .spe-imported-content .objectives-title::before,
+.cours-content .spe-imported-content .box-objectif > strong:first-child::before {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 999px;
+  background: var(--ui5-action);
+  box-shadow: 0 0 0 5px var(--ui5-action-soft);
+  flex: 0 0 auto;
+}
+
+.cours-content .spe-imported-content .objectives-card ul,
+.cours-content .spe-imported-content .box-objectif ul,
+.cours-content .spe-imported-content .objectives-title + ul {
+  margin: 0;
+  padding-left: 1.35rem;
+}
+
+.cours-content .spe-imported-content .summary-box,
+.cours-content .spe-imported-content .final-summary-title + .chapter-card,
+.cours-content .spe-imported-content .final-summary-title + .card,
+.cours-content .spe-imported-content .final-summary-title + ul {
+  background: linear-gradient(135deg, var(--ui5-action-soft), var(--ui5-surface));
+  border: 1px solid var(--ui5-border);
+  border-left: 5px solid var(--ui5-action);
+  border-radius: var(--ui5-radius-md);
+  box-shadow: none;
+  margin: 0 0 1.25rem;
+  padding: 1.1rem 1.25rem;
+}
+
+.cours-content .spe-imported-content .final-summary-title,
+.cours-content .spe-imported-content .summary-box > .summary-label:first-child,
+.cours-content .spe-imported-content .summary-box > strong:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ui5-action);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin: 2rem 0 0.75rem;
+  padding: 0;
+  border-bottom: 0;
+  text-transform: uppercase;
+}
+
+.cours-content .spe-imported-content .summary-box > .summary-label:first-child,
+.cours-content .spe-imported-content .summary-box > strong:first-child {
+  margin-top: 0;
+}
+
+.cours-content .spe-imported-content .final-summary-title::before,
+.cours-content .spe-imported-content .summary-box > .summary-label:first-child::before,
+.cours-content .spe-imported-content .summary-box > strong:first-child::before {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 999px;
+  background: var(--ui5-action);
+  box-shadow: 0 0 0 5px var(--ui5-action-soft);
+  flex: 0 0 auto;
+}
+
+.cours-content .katex-display {
+  margin: 1.5rem 0;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+/* Formules inline — légèrement plus grandes pour lisibilité */
+.cours-content .katex {
+  font-size: 1.05em;
+  max-width: 100%;
+}
+
+.cours-content .katex .katex-mathml {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Structures de cours partagees par les contenus MDX et les fragments importes */
+.cours-content .course-section {
+  margin: 1.75rem 0;
+}
+
+.cours-content .course-section > h2:first-child,
+.cours-content .course-section > .section-title:first-child {
+  margin-top: 0;
+}
+
+.cours-content .schema-block {
+  background: var(--ui5-surface);
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-md);
+  box-shadow: none;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.cours-content .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BLOCS PÉDAGOGIQUES — Formule, Méthode, Résultat, À retenir
+   ═══════════════════════════════════════════════════════════ */
+
+/* --- BLOC FORMULE : très visible, centré, fond distinctif --- */
+.formule-box,
+.formula-box {
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  border: 2px solid var(--ui5-action);
+  border-radius: var(--ui5-radius-md);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  text-align: left;
+  position: relative;
+}
+
+.formule-box::before,
+.formula-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ui5-action), var(--accent-secondary));
+  border-radius: var(--ui5-radius-md) var(--ui5-radius-md) 0 0;
+}
+
+.formule-box h3,
+.formula-box h3 {
+  color: var(--ui5-action);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.formule-box .katex-display,
+.formula-box .katex-display {
+  margin: 1rem 0;
+  padding: 0.75rem 0;
+  font-size: 1.35em;
+  background: rgba(255,255,255,0.6);
+  border-radius: var(--ui5-radius-sm);
+}
+
+.formule-box p,
+.formula-box p {
+  margin: 0.4rem 0;
+}
+
+/* Thèmes sombres */
+.a11y-theme-dark .formule-box,
+.a11y-theme-dark .formula-box,
+.a11y-theme-gray .formule-box,
+.a11y-theme-gray .formula-box,
+.a11y-theme-blue-light .formule-box,
+.a11y-theme-blue-light .formula-box {
+  background: linear-gradient(135deg, #1e1b4b, #1e293b);
+  border-color: var(--ui5-action);
+}
+
+.a11y-theme-dark .formule-box .katex-display,
+.a11y-theme-dark .formula-box .katex-display,
+.a11y-theme-gray .formule-box .katex-display,
+.a11y-theme-gray .formula-box .katex-display,
+.a11y-theme-blue-light .formule-box .katex-display,
+.a11y-theme-blue-light .formula-box .katex-display {
+  background: rgba(0,0,0,0.2);
+}
+
+.a11y-theme-sepia .formule-box,
+.a11y-theme-sepia .formula-box {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-color: var(--ui5-action);
+}
+
+/* --- BLOC SYMBOLES : explication des grandeurs d'une formule --- */
+.symboles-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0.25rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.symboles-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.symboles-list li::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--ui5-action);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.55em;
+}
+
+.symboles-list li:nth-child(odd) {
+  background: rgba(79, 70, 229, 0.04);
+}
+
+.symboles-list .katex {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+/* --- BLOC MÉTHODE : étapes à suivre --- */
+.methode-box,
+.méthode-box,
+.m\00e9thode-box {
+  background: var(--accent-purple-light);
+  border-left: 5px solid var(--accent-purple);
+  border-radius: var(--ui5-radius-sm);
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.methode-box h3,
+.méthode-box h3,
+.m\00e9thode-box h3 {
+  color: var(--accent-purple);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.methode-box ol, .methode-box ul, .méthode-box ol, .méthode-box ul, .m\00e9thode-box ol, .m\00e9thode-box ul {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.methode-box li,
+.méthode-box li,
+.m\00e9thode-box li {
+  margin: 0.35rem 0;
+  line-height: 1.7;
+}
+
+/* --- BLOC RÉSULTAT : conclusion d'un calcul / résultat final --- */
+.warning-box {
+  background: var(--accent-danger-light);
+  border-left: 5px solid var(--accent-danger);
+  border-radius: var(--ui5-radius-sm);
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.warning-box h3,
+.warning-box strong:first-child {
+  color: var(--accent-danger);
+  font-weight: 800;
+}
+
+.tip-box {
+  background: var(--accent-success-light);
+  border-left: 5px solid var(--accent-success);
+  border-radius: var(--ui5-radius-sm);
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.tip-box h3,
+.tip-box strong:first-child {
+  color: var(--accent-success);
+  font-weight: 800;
+}
+
+.resultat-box {
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  border: 2px solid var(--accent-success);
+  border-radius: var(--ui5-radius-md);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.resultat-box h3 {
+  color: var(--v3-color-success-text);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.resultat-box .katex-display {
+  font-size: 1.3em;
+  margin: 0.75rem 0;
+  padding: 0.5rem 0;
+  background: rgba(255,255,255,0.5);
+  border-radius: var(--ui5-radius-sm);
+}
+
+.a11y-theme-dark .resultat-box,
+.a11y-theme-gray .resultat-box,
+.a11y-theme-blue-light .resultat-box {
+  background: linear-gradient(135deg, #064e3b, #065f46);
+  border-color: var(--accent-success);
+}
+
+.a11y-theme-dark .resultat-box h3,
+.a11y-theme-gray .resultat-box h3,
+.a11y-theme-blue-light .resultat-box h3 {
+  color: var(--accent-success);
+}
+
+/* --- BLOC À RETENIR : résumé final du chapitre --- */
+.retenir-box {
+  background: linear-gradient(135deg, var(--ui5-action-soft), var(--ui5-surface));
+  border: 1px solid var(--ui5-border);
+  border-left: 5px solid var(--ui5-action);
+  border-radius: var(--ui5-radius-md);
+  box-shadow: none;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0 1rem;
+  text-align: left;
+  position: relative;
+}
+
+.cours-content .retenir-box:has(.course-special-card) {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  margin: 2rem 0 1rem;
+  padding: 0;
+}
+
+.cours-content .retenir-box:has(.course-special-card) .course-special-card {
+  margin: 0;
+}
+
+
+
+/* ═══════════════════════════════════════════════════════════
+   V4 — document d'abord
+   Les encadrés ne servent plus de décoration générale : ils portent
+   uniquement une sémantique pédagogique explicite.
+   ═══════════════════════════════════════════════════════════ */
+
+.cours-content {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.cours-content p {
+  margin: 0.8rem 0;
+  line-height: 1.7;
+}
+
+.cours-content table {
+  box-shadow: none;
+  border: 1px solid var(--ui5-border);
+}
+
+@media (max-width: 700px) {
+  .cours-content {
+    font-size: 1rem;
+    line-height: 1.68;
+  }
+}
+
+
+/* V4 document-first reading geometry */
+
+.cours-content > :where(table, figure, .schema-block, .katex-display, .katex-block) {
+  max-width: 100%;
+}
+
+/* V4: headings structure the document instead of creating a card for every notion. */

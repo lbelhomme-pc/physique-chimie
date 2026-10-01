@@ -150,9 +150,9 @@ export default function ColorimetricTitrationSimulator() {
 
   return (
     <section
-      className="methode-box"
-      aria-labelledby="titration-sim-title"
-      style={{ display: "grid", gap: "1rem" }}
+
+     aria-labelledby="titration-sim-title"
+      className="methode-box ui5-u-display-grid ui5-u-gap-1rem"
     >
       <div>
         <h3 id="titration-sim-title">Simulateur de titrage colorimétrique</h3>
@@ -163,11 +163,7 @@ export default function ColorimetricTitrationSimulator() {
       </div>
 
       <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
-          gap: "0.75rem",
-        }}
+        className="ui5-u-display-grid ui5-u-grid-template-columns-repeat-auto-fit-minmax-210px-1fr ui5-u-gap-0-75rem"
       >
         <label>
           Réaction support
@@ -206,27 +202,16 @@ export default function ColorimetricTitrationSimulator() {
       </div>
 
       <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          gap: "1rem",
-          alignItems: "center",
-        }}
+        className="ui5-u-display-grid ui5-u-grid-template-columns-repeat-auto-fit-minmax-260px-1fr ui5-u-gap-1rem ui5-u-align-items-center"
       >
         <figure
-          style={{
-            margin: 0,
-            padding: "1rem",
-            border: "1px solid var(--border-color)",
-            borderRadius: "12px",
-            background: "var(--bg-card)",
-          }}
+          className="ui5-u-margin-0 ui5-u-padding-1rem ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-surface"
         >
           <svg
             viewBox="0 0 300 260"
             role="img"
-            aria-labelledby="sim-titrage-title sim-titrage-desc"
-            style={{ width: "100%", height: "auto", display: "block" }}
+           aria-labelledby="sim-titrage-title sim-titrage-desc"
+            className="ui5-u-width-100 ui5-u-height-auto ui5-u-display-block"
           >
             <title id="sim-titrage-title">Simulation d'un titrage colorimétrique</title>
             <desc id="sim-titrage-desc">
@@ -248,12 +233,12 @@ export default function ColorimetricTitrationSimulator() {
               {status}
             </text>
           </svg>
-          <figcaption style={{ fontSize: "0.85rem", color: "var(--text-muted)", textAlign: "center" }}>
+          <figcaption className="ui5-u-font-size-0-85rem ui5-u-color-ui5-text-3 ui5-u-text-align-center">
             Couleur schématique : l'information importante est aussi écrite dans l'état du titrage.
           </figcaption>
         </figure>
 
-        <div style={{ display: "grid", gap: "0.75rem" }}>
+        <div className="ui5-u-display-grid ui5-u-gap-0-75rem">
           <p>
             <strong>Équation support :</strong> {preset.equation}
           </p>
@@ -266,10 +251,10 @@ export default function ColorimetricTitrationSimulator() {
               step="0.1"
               value={safeAdded}
               onChange={(event) => setAddedVolumeMl(Number(event.target.value))}
-              aria-label="Volume de solution titrante versé"
+             aria-label="Volume de solution titrante versé"
             />
           </label>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+          <div className="ui5-u-display-flex ui5-u-flex-wrap-wrap ui5-u-gap-0-5rem">
             <button type="button" onClick={() => addVolume(-1)}>
               -1,0 mL
             </button>
@@ -285,13 +270,8 @@ export default function ColorimetricTitrationSimulator() {
           </div>
           <div
             role="status"
-            aria-live="polite"
-            style={{
-              padding: "0.75rem",
-              border: "1px solid var(--border-color)",
-              borderRadius: "10px",
-              background: "var(--bg-secondary)",
-            }}
+           aria-live="polite"
+            className="ui5-u-padding-0-75rem ui5-u-border-1px-solid-ui5-border ui5-u-border-radius-ui5-radius-sm ui5-u-background-ui5-surface-soft"
           >
             <p>
               <strong>{status} :</strong> {limiting}.
@@ -311,7 +291,7 @@ export default function ColorimetricTitrationSimulator() {
               </p>
             )}
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+          <div className="ui5-u-display-flex ui5-u-flex-wrap-wrap ui5-u-gap-0-5rem">
             <button type="button" onClick={() => setShowEquivalent((value) => !value)}>
               {showEquivalent ? "Masquer V_E" : "Afficher V_E"}
             </button>

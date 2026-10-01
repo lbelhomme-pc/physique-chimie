@@ -43,10 +43,9 @@ test("content-model facade keeps V3 imports separate from raw data folders", () 
 });
 
 test("V3 style entrypoints are explicit and documented", () => {
-  const tokens = statSync(path.join(root, "src/styles/tokens-v3.css"));
-  const designSystem = readFileSync(path.join(root, "src/styles/design-system.css"), "utf8");
+  const tokens = statSync(path.join(root, "src/ui-v5/tokens.css"));
+  const designSystem = readFileSync(path.join(root, "src/ui-v5/index.css"), "utf8");
 
   assert.ok(tokens.size > 0, "tokens-v3.css should not be empty");
-  assert.match(designSystem, /@import "\.\/tokens-v3\.css";/);
+  assert.match(designSystem, /@import "\.\/tokens\.css";/);
 });
-

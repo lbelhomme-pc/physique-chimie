@@ -54,69 +54,7 @@ export default function ResumeLearning({ resources }: Props) {
         <small>{progress > 0 ? `${progress}% complete` : "Commencer un chapitre publie"}</small>
       </a>
 
-      <style>{`
-        .resume-learning {
-          align-items: center;
-          background: var(--bg-card);
-          border: 1px solid var(--border-color);
-          border-radius: var(--radius-md);
-          box-shadow: var(--shadow-card);
-          display: grid;
-          gap: 1rem;
-          grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.9fr);
-          padding: 1.25rem;
-        }
 
-        .resume-learning p {
-          color: var(--accent-primary);
-          font-size: 0.78rem;
-          font-weight: 900;
-          letter-spacing: 0.08em;
-          margin: 0 0 0.35rem;
-          text-transform: uppercase;
-        }
-
-        .resume-learning h2 {
-          color: var(--text-primary);
-          font-size: clamp(1.25rem, 3vw, 1.75rem);
-          letter-spacing: 0;
-          margin: 0 0 0.35rem;
-        }
-
-        .resume-learning span,
-        .resume-learning small {
-          color: var(--text-secondary);
-        }
-
-        .resume-learning a {
-          background: var(--bg-secondary);
-          border: 1px solid var(--border-color);
-          border-radius: var(--radius-md);
-          color: inherit;
-          display: grid;
-          gap: 0.25rem;
-          min-height: 76px;
-          padding: 0.9rem 1rem;
-          text-decoration: none;
-        }
-
-        .resume-learning a:hover,
-        .resume-learning a:focus-visible {
-          border-color: var(--accent-primary);
-          box-shadow: var(--shadow-xs);
-          outline: none;
-        }
-
-        .resume-learning strong {
-          color: var(--text-primary);
-        }
-
-        @media (max-width: 760px) {
-          .resume-learning {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
     </section>
   );
 }

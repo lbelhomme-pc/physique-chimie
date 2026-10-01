@@ -1,3 +1,6 @@
+---
+import "../../ui-v5/global-client.css";
+---
 <!--
   Shell client global C16.
   Les comportements simples restent natifs ; le panneau React d'accessibilité
@@ -27,156 +30,7 @@
 
 <div class="native-xp-toast-stack" data-native-xp-toasts aria-live="polite" aria-atomic="false"></div>
 
-<style>
-  .global-a11y-launcher {
-    align-items: center;
-    background: var(--v3-color-surface-raised, #fff);
-    border: 1px solid var(--v3-color-border-default, #e2e8f0);
-    border-radius: var(--v3-radius-pill, 999px);
-    bottom: 1rem;
-    box-shadow: var(--v3-shadow-md, 0 8px 18px rgba(15, 23, 42, 0.08));
-    color: var(--v3-color-action, #2563eb);
-    cursor: pointer;
-    display: inline-flex;
-    font: 900 1rem/1 var(--font-family, sans-serif);
-    height: 3rem;
-    justify-content: center;
-    left: 1rem;
-    position: fixed;
-    width: 3rem;
-    z-index: 9998;
-  }
 
-  .global-a11y-launcher:focus-visible,
-  .native-scroll-top:focus-visible {
-    box-shadow: var(--v3-shadow-focus, 0 0 0 3px rgba(37, 99, 235, 0.28));
-    outline: none;
-  }
-
-  .global-a11y-launcher[aria-busy="true"] {
-    cursor: progress;
-    opacity: 0.7;
-  }
-
-  .native-reading-guide {
-    inset: 0;
-    pointer-events: none;
-    position: fixed;
-    z-index: 9990;
-  }
-
-  .native-reading-guide__shade,
-  .native-reading-guide__line {
-    left: 0;
-    position: absolute;
-    right: 0;
-  }
-
-  .native-reading-guide__shade {
-    background: rgba(15, 23, 42, 0.16);
-  }
-
-  .native-reading-guide__line {
-    background: color-mix(in srgb, var(--v3-color-action, #2563eb) 8%, transparent);
-    border-bottom: 2px solid color-mix(in srgb, var(--v3-color-action, #2563eb) 48%, transparent);
-    border-top: 2px solid color-mix(in srgb, var(--v3-color-action, #2563eb) 48%, transparent);
-    height: 44px;
-  }
-
-  .native-scroll-top {
-    align-items: center;
-    background: var(--accent-primary);
-    border: 0;
-    border-radius: 50%;
-    bottom: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    color: #fff;
-    cursor: pointer;
-    display: inline-flex;
-    font: 900 1.25rem/1 var(--font-family, sans-serif);
-    height: 3rem;
-    justify-content: center;
-    position: fixed;
-    right: 1.5rem;
-    width: 3rem;
-    z-index: 9000;
-  }
-
-  .native-xp-toast-stack {
-    bottom: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    max-width: min(22rem, calc(100vw - 2rem));
-    pointer-events: none;
-    position: fixed;
-    right: 1.25rem;
-    z-index: 9996;
-  }
-
-  .native-xp-toast {
-    align-items: center;
-    background: var(--accent-primary);
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    color: #fff;
-    display: flex;
-    font-size: 0.9rem;
-    font-weight: 700;
-    gap: 0.5rem;
-    line-height: 1.35;
-    max-width: 100%;
-    opacity: 0;
-    padding: 0.65rem 1rem;
-    pointer-events: auto;
-    transform: translateX(100px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    width: max-content;
-  }
-
-  .native-xp-toast.is-visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .native-xp-toast[data-toast-type="rank_up"] { background: #d4af37; }
-  .native-xp-toast[data-toast-type="badge"] { background: var(--accent-purple); }
-  .native-xp-toast[data-toast-type="streak_bonus"] { background: var(--accent-warning); }
-  .native-xp-toast[data-toast-type="chapter_complete"] { background: var(--accent-success); }
-
-  .native-xp-toast__icon {
-    font-size: 1.2rem;
-  }
-
-  .native-xp-toast__message {
-    overflow-wrap: anywhere;
-  }
-
-  @media (max-width: 420px) {
-    .native-xp-toast-stack {
-      bottom: auto;
-      left: 0.75rem;
-      max-width: none;
-      right: 0.75rem;
-      top: 0.75rem;
-    }
-
-    .native-xp-toast {
-      justify-content: center;
-      width: 100%;
-    }
-
-    body:has(.analytics-consent:not([hidden])) .native-xp-toast-stack {
-      display: none;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .native-xp-toast {
-      transition: none;
-    }
-  }
-</style>
 
 <script>
   const launcher = document.querySelector<HTMLButtonElement>("[data-global-a11y-launcher]");
@@ -283,20 +137,10 @@
     launcher.setAttribute("aria-busy", "true");
 
     try {
-      const [{ default: AccessibilityPanel }, { createElement }, { createRoot }] = await Promise.all([
-        import("../accessibility/AccessibilityPanel.tsx"),
-        import("react"),
-        import("react-dom/client"),
-      ]);
-      const root = createRoot(panelMount);
-      root.render(createElement(AccessibilityPanel));
+      const { mountAccessibilityPanel } = await import("../accessibility/mountAccessibilityPanel");
+      await mountAccessibilityPanel(panelMount);
       panelMounted = true;
-
-      window.setTimeout(() => {
-        const reactToggle = panelMount.querySelector<HTMLButtonElement>(".a11y-panel-toggle");
-        launcher.hidden = true;
-        reactToggle?.click();
-      }, 0);
+      launcher.hidden = true;
     } catch (error) {
       launcher.disabled = false;
       launcher.removeAttribute("aria-busy");
