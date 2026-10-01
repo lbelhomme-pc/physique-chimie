@@ -33,10 +33,13 @@ import "../styles/laboratoire/global-lab.css";
 
     <div class="v3-landing-content v3-landing-content--wide">
       <div class="lab-library-layout" id="bibliotheque-laboratoire">
-      <aside class="lab-filter-panel" aria-labelledby="lab-filter-title">
+      <aside class="lab-filter-panel" aria-labelledby="lab-filter-title" data-lab-filter-panel>
         <div class="lab-filter-panel__head">
           <h2 id="lab-filter-title">Filtres</h2>
-          <button class="lab-clear-button is-hidden" type="button" data-lab-clear>Effacer</button>
+          <div class="lab-filter-panel__actions">
+            <button class="lab-clear-button is-hidden" type="button" data-lab-clear>Effacer</button>
+            <button class="lab-filter-close" type="button" data-lab-filter-close aria-label="Fermer les filtres">Fermer</button>
+          </div>
         </div>
 
         <fieldset class="lab-filter-group">
@@ -67,7 +70,13 @@ import "../styles/laboratoire/global-lab.css";
       </aside>
 
       <section class="lab-results" aria-live="polite">
-        <label class="lab-search-box">
+        <div class="lab-mobile-toolbar">
+          <button class="lab-filter-toggle" type="button" data-lab-filter-toggle aria-expanded="false" aria-controls="lab-filter-title">
+            Filtres <span data-lab-filter-count>0</span>
+          </button>
+        </div>
+
+        <label class="lab-search-box search-field">
           <span class="lab-search-icon" aria-hidden="true"></span>
           <span class="lab-sr-only">Rechercher une simulation</span>
           <input
@@ -76,6 +85,8 @@ import "../styles/laboratoire/global-lab.css";
             data-lab-search
           />
         </label>
+
+        <div class="lab-active-filters" data-lab-active-filters aria-label="Filtres actifs"></div>
 
         <div class="lab-results-head">
           <h2 data-lab-results-title>Toutes les simulations</h2>
