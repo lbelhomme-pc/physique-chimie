@@ -1,11 +1,5 @@
 ---
-// src/pages/college/[niveau]/index.astro
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import V3LandingHero from "../../../components/home/V3LandingHero.astro";
-import CatalogueChapterList from "../../../components/catalogue/CatalogueChapterList.astro";
-import type { CatalogueChapterItem } from "../../../components/catalogue/types";
-import Breadcrumb from "../../../components/ui/Breadcrumb.astro";
-import { disciplineIdentities } from "../../../data/disciplineIdentity";
 import { collegeLevels, getLevelLabel } from "../../../data/levels";
 import { getPhysicalScienceExplicitChapterPath, type PhysicalScienceSubject } from "../../../data/contentRoutes";
 
@@ -15,7 +9,6 @@ export function getStaticPaths() {
 
 const { niveau } = Astro.params;
 const niveauLabel = getLevelLabel(niveau!);
-const pcIdentity = disciplineIdentities["physique-chimie"];
 const isSixiemeSciencesTechnologie = niveau === "6eme";
 const pageTitle = isSixiemeSciencesTechnologie
   ? "Sciences et technologie 6e — Physique-Chimie"
@@ -23,15 +16,15 @@ const pageTitle = isSixiemeSciencesTechnologie
 const pageDescription = isSixiemeSciencesTechnologie
   ? "Ressources du parcours Physique-Chimie en Sciences et technologie de 6e, thème Matière, mouvement, énergie, information du programme de cycle 3 applicable en 2026-2027."
   : `Catalogue des chapitres de physique-chimie pour le niveau ${niveauLabel} au collège.`;
-const heroTitle = isSixiemeSciencesTechnologie ? "Sciences et technologie — 6e" : `${niveauLabel} au collège`;
-const heroDescription = isSixiemeSciencesTechnologie
-  ? "Parcours Physique-Chimie : les ressources publiées couvrent les notions de matière, mouvement, énergie et information du programme de Sciences et technologie du cycle 3. Elles ne constituent pas à elles seules l’intégralité du programme interdisciplinaire."
-  : "Les chapitres sont classés par matière et dans l’ordre du programme, avec les cours et les activités disponibles.";
 
 const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
 
-interface ChapterInfo extends CatalogueChapterItem {
+interface ChapterInfo {
+  title: string;
+  href: string;
   matiere: "chimie" | "physique";
+  order: number;
+  description: string;
 }
 
 const chapters: ChapterInfo[] = [];
@@ -46,278 +39,138 @@ for (const [path, mod] of Object.entries(allMeta)) {
       matiere,
       order: data.order ?? 99,
       description: data.description ?? "",
-      badges: [matiere === "chimie" ? "Chimie" : "Physique", `Chapitre ${data.order ?? "à placer"}`],
     });
   }
 }
 
-const chimie = chapters.filter((chapter) => chapter.matiere === "chimie");
-const physique = chapters.filter((chapter) => chapter.matiere === "physique");
+const chimie = chapters.filter((chapter) => chapter.matiere === "chimie").sort((a,b)=>a.order-b.order);
+const physique = chapters.filter((chapter) => chapter.matiere === "physique").sort((a,b)=>a.order-b.order);
 const total = chapters.length;
 ---
 
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
+  subject="physique-chimie"
+  cycle="college"
+  level={niveauLabel}
 >
-  <main class="catalogue-page">
-    <Breadcrumb
-      items={[
-        { label: "Accueil", href: "/" },
-        { label: "Collège", href: "/college" },
-        { label: isSixiemeSciencesTechnologie ? "6e — Sciences et technologie" : niveauLabel },
-      ]}
-    />
+  <div class="ui5-page" data-subject="physique-chimie" data-ui5-catalogue>
+    <nav class="ui5-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/college">Collège</a><span aria-hidden="true">/</span>
+      <strong>{isSixiemeSciencesTechnologie ? "6e — Sciences et technologie" : niveauLabel}</strong>
+    </nav>
 
-    <nav class="level-nav" aria-label="Niveaux collège">
+    <header class="ui5-page-header">
+      <div class="ui5-page-header__copy">
+        <p class="ui5-kicker">{isSixiemeSciencesTechnologie ? "Sciences et technologie · Cycle 3" : "Physique-Chimie · Collège"}</p>
+        <h1 class="ui5-title">{isSixiemeSciencesTechnologie ? "Sciences et technologie — 6e" : `${niveauLabel} au collège`}</h1>
+        <p class="ui5-lead">
+          {isSixiemeSciencesTechnologie
+            ? "Parcours Physique-Chimie du programme de Sciences et technologie : matière, mouvement, énergie et information."
+            : "Choisis un chapitre. Tous les chapitres utilisent ensuite la même interface pour le cours, les exercices, le quiz et les flashcards."}
+        </p>
+      </div>
+      <p class="ui5-page-header__aside">{total} chapitre{total > 1 ? "s" : ""} · {physique.length} physique · {chimie.length} chimie</p>
+    </header>
+
+    <nav class="ui5-filter-row" aria-label="Niveaux collège">
       {collegeLevels.map((level) => (
-        <a
-          href={`/college/${level.slug}`}
-          class:list={["nav-pill", { active: level.slug === niveau }]}
-          aria-current={level.slug === niveau ? "page" : undefined}
-        >
+        <a class="ui5-filter" href={`/college/${level.slug}`} aria-current={level.slug === niveau ? "true" : undefined}>
           {getLevelLabel(level.slug)}
         </a>
       ))}
     </nav>
 
-    <V3LandingHero
-      tone="pc"
-      eyebrow={isSixiemeSciencesTechnologie ? `${pcIdentity.label} · Cycle 3` : pcIdentity.label}
-      mark={pcIdentity.mark}
-      markLabel={pcIdentity.iconLabel}
-      title={heroTitle}
-      description={heroDescription}
-      actions={total > 0
-        ? [
-            { label: "Voir les chapitres", href: "#catalogue-tous" },
-            { label: "Outils du collège", href: "/outils-methodes/college", variant: "secondary" },
-          ]
-        : [
-            { label: "Retour aux niveaux", href: "/college" },
-            { label: "Outils du collège", href: "/outils-methodes/college", variant: "secondary" },
-          ]}
-      stats={[
-        { value: total, label: "chapitres" },
-        { value: chimie.length, label: "chimie" },
-        { value: physique.length, label: "physique" },
-      ]}
-      imageAlt={isSixiemeSciencesTechnologie
-        ? "Espace de travail du parcours Physique-Chimie en Sciences et technologie pour la 6e."
-        : `Espace de travail de physique-chimie pour le niveau ${niveauLabel}.`}
-      contained
-    />
+    {total > 0 ? (
+      <>
+        <section class="ui5-section">
+          <div class="ui5-toolbar">
+            <label for="ui5-level-search">Rechercher dans ce niveau</label>
+            <div class="ui5-search">
+              <input id="ui5-level-search" type="search" placeholder="Titre, notion ou thème…" autocomplete="off" data-ui5-search />
+            </div>
+            <p class="ui5-toolbar__summary" aria-live="polite" data-ui5-summary>{total} chapitre{total > 1 ? "s" : ""}</p>
+          </div>
+        </section>
 
-    {total > 0 && (
-      <nav class="catalogue-filters" aria-label="Filtres de catalogue">
-        <a href="#catalogue-tous">Tous</a>
-        <a href="#catalogue-chimie">Chimie</a>
-        <a href="#catalogue-physique">Physique</a>
-      </nav>
-    )}
+        {chimie.length > 0 && (
+          <section class="ui5-section" aria-labelledby="ui5-chimie-title">
+            <div class="ui5-section-head">
+              <h2 id="ui5-chimie-title">Chimie</h2>
+              <p>{chimie.length} chapitre{chimie.length > 1 ? "s" : ""}</p>
+            </div>
+            <ol class="ui5-chapter-list" data-ui5-list>
+              {chimie.map((chapter, index) => (
+                <li data-ui5-item data-search-text={`${chapter.title} ${chapter.description} chimie`.toLocaleLowerCase("fr-FR")}>
+                  <a class="ui5-card ui5-chapter-card" href={chapter.href}>
+                    <span class="ui5-chapter-card__index">{String(index + 1).padStart(2, "0")}</span>
+                    <span class="ui5-chapter-card__body">
+                      <strong>{chapter.title}</strong>
+                      {chapter.description && <span>{chapter.description}</span>}
+                      <span class="ui5-chapter-card__meta"><em class="ui5-chip">Chimie</em><em class="ui5-chip">Chapitre {chapter.order}</em></span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
 
-    {total === 0 ? (
-      <section class="catalogue-empty-large" id="catalogue-tous" aria-labelledby="empty-title">
-        <h2 id="empty-title">Cette partie est en préparation</h2>
-        <p>Les chapitres de {niveauLabel} ne sont pas encore publiés. Tu peux revenir aux niveaux ou travailler les méthodes utiles.</p>
-        <div class="catalogue-empty-large__actions">
-          <a class="primary" href="/college">Retour aux niveaux collège</a>
-          <a href="/outils-methodes/college">Voir les outils collège</a>
+        {physique.length > 0 && (
+          <section class="ui5-section" aria-labelledby="ui5-physique-title">
+            <div class="ui5-section-head">
+              <h2 id="ui5-physique-title">Physique</h2>
+              <p>{physique.length} chapitre{physique.length > 1 ? "s" : ""}</p>
+            </div>
+            <ol class="ui5-chapter-list" data-ui5-list>
+              {physique.map((chapter, index) => (
+                <li data-ui5-item data-search-text={`${chapter.title} ${chapter.description} physique`.toLocaleLowerCase("fr-FR")}>
+                  <a class="ui5-card ui5-chapter-card" href={chapter.href}>
+                    <span class="ui5-chapter-card__index">{String(index + 1).padStart(2, "0")}</span>
+                    <span class="ui5-chapter-card__body">
+                      <strong>{chapter.title}</strong>
+                      {chapter.description && <span>{chapter.description}</span>}
+                      <span class="ui5-chapter-card__meta"><em class="ui5-chip">Physique</em><em class="ui5-chip">Chapitre {chapter.order}</em></span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        <p class="ui5-no-results" data-ui5-no-results hidden>Aucun chapitre ne correspond à cette recherche.</p>
+      </>
+    ) : (
+      <section class="ui5-section">
+        <div class="ui5-card ui5-empty">
+          <h2>Cette partie est en préparation</h2>
+          <p>Les chapitres de {niveauLabel} ne sont pas encore publiés.</p>
+          <div><a class="ui5-button ui5-button--primary" href="/college">Retour aux niveaux</a></div>
         </div>
       </section>
-    ) : (
-      <div class="catalogue-layout" id="catalogue-tous">
-        <CatalogueChapterList
-          id="catalogue-chimie"
-          title="Chimie"
-          chapters={chimie}
-          accent="chemistry"
-          emptyTitle="Chimie en préparation"
-          emptyMessage={`Les chapitres de chimie ne sont pas encore publiés pour ${niveauLabel}.`}
-          emptyActions={[
-            { label: "Voir la physique", href: `/college/${niveau}/physique`, primary: true },
-            { label: "Méthodes collège", href: "/outils-methodes/college" },
-          ]}
-        />
-        <CatalogueChapterList
-          id="catalogue-physique"
-          title="Physique"
-          chapters={physique}
-          accent="physics"
-          emptyTitle="Physique en préparation"
-          emptyMessage={`Les chapitres de physique ne sont pas encore publiés pour ${niveauLabel}.`}
-          emptyActions={[
-            { label: "Voir la chimie", href: `/college/${niveau}/chimie`, primary: true },
-            { label: "Méthodes collège", href: "/outils-methodes/college" },
-          ]}
-        />
-      </div>
     )}
-  </main>
+  </div>
+
+  <script>
+    const root = document.querySelector<HTMLElement>("[data-ui5-catalogue]");
+    const input = root?.querySelector<HTMLInputElement>("[data-ui5-search]");
+    const items = Array.from(root?.querySelectorAll<HTMLElement>("[data-ui5-item]") ?? []);
+    const summary = root?.querySelector<HTMLElement>("[data-ui5-summary]");
+    const noResults = root?.querySelector<HTMLElement>("[data-ui5-no-results]");
+
+    input?.addEventListener("input", () => {
+      const query = input.value.trim().toLocaleLowerCase("fr-FR");
+      let visible = 0;
+      items.forEach((item) => {
+        const matches = !query || (item.dataset.searchText ?? "").includes(query);
+        item.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      if (summary) summary.textContent = `${visible} chapitre${visible > 1 ? "s" : ""}`;
+      if (noResults) noResults.hidden = visible > 0;
+    });
+  </script>
 </BaseLayout>
-
-<style>
-  .catalogue-page {
-    margin: 0 auto;
-    max-width: 1080px;
-    padding: 1rem 1rem 3rem;
-  }
-
-  .level-nav,
-  .catalogue-filters {
-    align-items: center;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-pill);
-    box-shadow: var(--shadow-card);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-    margin: 1rem auto;
-    padding: 0.75rem 1rem;
-  }
-
-  .catalogue-filters {
-    justify-content: flex-start;
-  }
-
-  .catalogue-filters a {
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-pill);
-    color: var(--text-secondary);
-    font-weight: 850;
-    min-height: 40px;
-    padding: 0.45rem 0.75rem;
-    text-decoration: none;
-  }
-
-  .catalogue-filters a:hover,
-  .catalogue-filters a:focus-visible {
-    border-color: var(--discipline-accent, var(--accent-primary));
-    box-shadow: var(--v3-shadow-focus);
-    outline: none;
-  }
-
-  .catalogue-hero {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-left: 5px solid var(--discipline-accent);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
-    display: grid;
-    gap: var(--v3-space-3);
-    margin: 1rem auto 1.25rem;
-    padding: clamp(1rem, 2.5vw, 1.5rem);
-  }
-
-  .discipline-badge {
-    align-items: center;
-    background: var(--discipline-surface);
-    border: 1px solid var(--discipline-border);
-    border-radius: var(--radius-pill);
-    color: var(--discipline-accent);
-    display: inline-flex;
-    font-size: 0.82rem;
-    font-weight: 900;
-    gap: 0.45rem;
-    justify-self: start;
-    min-height: 34px;
-    padding: 0.32rem 0.7rem;
-  }
-
-  .discipline-badge span {
-    background: var(--bg-card);
-    border-radius: var(--v3-radius-sm);
-    min-width: 26px;
-    padding: 0.08rem 0.22rem;
-    text-align: center;
-  }
-
-  .catalogue-hero h1,
-  .catalogue-empty-large h2 {
-    color: var(--text-primary);
-    font-size: clamp(1.65rem, 4vw, 2.35rem);
-    letter-spacing: 0;
-    margin: 0;
-  }
-
-  .catalogue-hero p,
-  .catalogue-empty-large p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0;
-    max-width: 78ch;
-  }
-
-  .catalogue-stats {
-    display: grid;
-    gap: var(--v3-space-3);
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin: 0;
-  }
-
-  .catalogue-stats div,
-  .catalogue-empty-large {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: var(--v3-space-3);
-  }
-
-  .catalogue-stats dt {
-    color: var(--discipline-accent);
-    font-size: 1.35rem;
-    font-weight: 950;
-  }
-
-  .catalogue-stats dd {
-    color: var(--text-secondary);
-    font-weight: 800;
-    margin: 0;
-  }
-
-  .catalogue-layout {
-    display: grid;
-    gap: var(--v3-space-4);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .catalogue-empty-large {
-    display: grid;
-    gap: var(--v3-space-3);
-    margin: 1rem auto;
-    max-width: 760px;
-    text-align: center;
-  }
-
-  .catalogue-empty-large__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--v3-space-2);
-    justify-content: center;
-  }
-
-  .catalogue-empty-large__actions a {
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-pill);
-    color: var(--accent-primary);
-    font-weight: 900;
-    min-height: 44px;
-    padding: 0.55rem 0.85rem;
-    text-decoration: none;
-  }
-
-  .catalogue-empty-large__actions a.primary {
-    background: var(--accent-primary);
-    border-color: var(--accent-primary);
-    color: #fff;
-  }
-
-  @media (max-width: 860px) {
-    .catalogue-layout,
-    .catalogue-stats {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
