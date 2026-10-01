@@ -424,3 +424,199 @@ body {
   color: var(--ui5-text-2);
   text-align: center;
 }
+
+
+/* Chapter shell */
+.ui5-chapter-page {
+  --chapter-shell-max: var(--ui5-content);
+}
+.ui5-chapter-header {
+  margin-bottom: 0.9rem;
+}
+.ui5-chapter-meta,
+.ui5-chapter-facts,
+.ui5-chapter-before__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.ui5-chapter-facts {
+  justify-content: flex-end;
+}
+.ui5-chapter-facts span,
+.ui5-chapter-before__facts span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-surface-soft);
+  color: var(--ui5-text-2);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+.ui5-chapter-workspace {
+  margin-top: 0.75rem;
+}
+.ui5-chapter-workspace .chapter-tabs-wrapper {
+  max-width: var(--ui5-content);
+}
+.ui5-chapter-workspace .chapter-tabs {
+  top: 92px;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-surface);
+  box-shadow: none;
+}
+.ui5-chapter-workspace .tab-pill {
+  border-radius: var(--ui5-radius-sm);
+  color: var(--ui5-text-2);
+}
+.ui5-chapter-workspace .tab-pill.active {
+  border-color: var(--ui5-subject);
+  background: var(--ui5-subject);
+  color: #fff;
+}
+
+.ui5-chapter-before {
+  margin: 0 0 1rem;
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-surface);
+}
+.ui5-chapter-before > summary {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  color: var(--ui5-text);
+  font-weight: 850;
+  cursor: pointer;
+}
+.ui5-chapter-before > summary small {
+  color: var(--ui5-text-3);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+.ui5-chapter-before__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1rem;
+  padding: 0.25rem 0.85rem 0.85rem;
+}
+.ui5-chapter-before__grid h2 {
+  margin: 0 0 0.35rem;
+  color: var(--ui5-text);
+  font-size: 0.9rem;
+}
+.ui5-chapter-before__grid ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--ui5-text-2);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+.ui5-chapter-before__facts {
+  padding: 0 0.85rem 0.85rem;
+}
+
+.ui5-course-content {
+  width: 100%;
+}
+.ui5-course-content .course-reader-v3__body,
+.ui5-course-content .cours-tracker__content {
+  color: var(--ui5-text);
+}
+.ui5-course-content .course-special-card,
+.ui5-course-content .spe-imported-content .objectives-card,
+.ui5-course-content .spe-imported-content .box-objectif {
+  max-width: var(--ui5-reading);
+  margin: 0 auto 1.25rem;
+  padding: 0.8rem 0.95rem;
+  border: 1px solid var(--ui5-border);
+  border-left: 3px solid var(--ui5-subject);
+  border-radius: var(--ui5-radius-sm);
+  background: color-mix(in srgb, var(--ui5-subject) 6%, white);
+  box-shadow: none;
+}
+.ui5-course-content .course-special-heading,
+.ui5-course-content .spe-imported-content .objectives-title {
+  color: var(--ui5-subject);
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+}
+.ui5-course-content .course-special-heading::before,
+.ui5-course-content .spe-imported-content .objectives-title::before {
+  width: 0.55rem;
+  height: 0.55rem;
+  box-shadow: none;
+  background: var(--ui5-subject);
+}
+
+.ui5-chapter-pagination {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
+  gap: 0.75rem;
+  align-items: center;
+  width: min(100%, var(--ui5-content));
+  margin: 1.5rem auto 0;
+}
+.ui5-chapter-pagination__link {
+  display: grid;
+  gap: 0.2rem;
+  min-height: 56px;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-surface);
+  color: var(--ui5-text-2);
+  text-decoration: none;
+}
+.ui5-chapter-pagination__link small {
+  color: var(--ui5-text-3);
+  font-size: 0.72rem;
+}
+.ui5-chapter-pagination__link strong {
+  color: var(--ui5-text);
+  font-size: 0.86rem;
+}
+.ui5-chapter-pagination__link--next {
+  justify-self: end;
+  text-align: right;
+}
+.ui5-chapter-pagination__index {
+  color: var(--ui5-text-2);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+.ui5-chapter-pagination a:hover,
+.ui5-chapter-pagination a:focus-visible {
+  border-color: var(--ui5-subject);
+  color: var(--ui5-subject);
+  outline: none;
+}
+
+@media (max-width: 820px) {
+  .ui5-chapter-before__grid { grid-template-columns: 1fr; }
+  .ui5-chapter-facts { justify-content: flex-start; }
+}
+@media (max-width: 640px) {
+  .ui5-chapter-before > summary {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .ui5-chapter-pagination { grid-template-columns: 1fr; }
+  .ui5-chapter-pagination__link,
+  .ui5-chapter-pagination__link--next,
+  .ui5-chapter-pagination__index {
+    justify-self: stretch;
+    text-align: center;
+  }
+  .ui5-chapter-pagination > span:empty { display: none; }
+}
