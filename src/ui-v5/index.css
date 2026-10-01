@@ -1583,3 +1583,193 @@ body {
     min-width: max-content;
   }
 }
+
+
+/* Unified course reader V5 */
+.ui5-course-content .course-reader-v3 {
+  width: 100%;
+  max-width: var(--ui5-content);
+  margin-inline: auto;
+}
+.ui5-course-content .course-reader-v3__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.ui5-course-content .course-reader-v3__body {
+  color: var(--ui5-text);
+  font-size: 1.05rem;
+  line-height: 1.72;
+}
+.ui5-course-content .cours-tracker__tools,
+.ui5-course-content .cours-tracker__content > :not(figure):not(table):not(.katex-display):not(.katex-block):not(.latex-course-document):not(.spe-imported-content) {
+  width: min(100%, var(--ui5-reading));
+  margin-inline: auto;
+}
+.ui5-course-content .cours-tracker__content > :where(figure,table,.katex-display,.katex-block,.schema-block,.svg-wrap) {
+  width: min(100%, var(--ui5-content));
+  margin-inline: auto;
+}
+.ui5-course-content :where(h2,h3,h4) {
+  color: var(--ui5-text);
+  letter-spacing: 0;
+  text-wrap: balance;
+  scroll-margin-top: 6rem;
+}
+.ui5-course-content h2 {
+  margin-top: 2.6rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--ui5-border);
+  font-size: clamp(1.55rem, 2.6vw, 1.8rem);
+  line-height: 1.25;
+}
+.ui5-course-content h3 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.55rem;
+  font-size: clamp(1.18rem, 2vw, 1.35rem);
+}
+.ui5-course-content p,
+.ui5-course-content li {
+  color: var(--ui5-text);
+  overflow-wrap: anywhere;
+}
+.ui5-course-content p { margin: 0.75rem 0; }
+.ui5-course-content ul,
+.ui5-course-content ol { margin: 0.75rem 0; padding-left: 1.4rem; }
+
+.ui5-course-content .course-idea-heading {
+  display: block;
+  margin: 2rem auto 0.8rem;
+  padding: 0 0 0.5rem;
+  border: 0;
+  border-bottom: 1px solid var(--ui5-border);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ui5-text);
+}
+.ui5-course-content .course-idea-heading::before { display: none; }
+
+.ui5-course-content .course-label-heading {
+  display: inline-flex;
+  margin: 1.2rem 0 0.35rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.ui5-course-content .course-label-heading::before {
+  width: 0.45rem;
+  height: 0.45rem;
+  box-shadow: none;
+}
+.ui5-course-content .course-definition-heading,
+.ui5-course-content .course-law-heading,
+.ui5-course-content .course-synthesis-heading,
+.ui5-course-content .course-vocabulary-heading {
+  color: var(--ui5-subject);
+}
+.ui5-course-content .course-method-heading { color: var(--ui5-maths); }
+.ui5-course-content .course-example-heading { color: var(--ui5-chem); }
+.ui5-course-content .course-warning-heading { color: #a33a23; }
+
+.ui5-course-content .course-label-heading + :where(p,ul,ol,table,.katex-display,.katex-block) {
+  margin-top: 0.25rem;
+  padding: 0.55rem 0 0.55rem 0.9rem;
+  border: 0;
+  border-left: 3px solid var(--ui5-subject);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.ui5-course-content .course-method-heading + :where(p,ul,ol,table,.katex-display,.katex-block) {
+  border-left-color: var(--ui5-maths);
+}
+.ui5-course-content .course-example-heading + :where(p,ul,ol,table,.katex-display,.katex-block) {
+  border-left-color: var(--ui5-chem);
+  background: color-mix(in srgb, var(--ui5-chem) 4%, white);
+}
+.ui5-course-content .course-warning-heading + :where(p,ul,ol,table,.katex-display,.katex-block) {
+  border-left-color: #a33a23;
+  background: #fff8f5;
+}
+
+.ui5-course-content :where(
+  .definition-box,.example-box,.info-box,.box-regle-or,.retenir-box,
+  .formule-box,.formula-box,.methode-box,.méthode-box,.warning-box,.tip-box,
+  .resultat-box,.box-pedagogie,.summary-box,.objectives-card,.box-objectif
+) {
+  max-width: var(--ui5-reading);
+  margin: 1.15rem auto;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--ui5-border);
+  border-left: 3px solid var(--ui5-subject);
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-surface);
+  box-shadow: none;
+}
+.ui5-course-content :where(.example-box,.tip-box) {
+  border-left-color: var(--ui5-chem);
+  background: color-mix(in srgb, var(--ui5-chem) 4%, white);
+}
+.ui5-course-content :where(.methode-box,.méthode-box) {
+  border-left-color: var(--ui5-maths);
+  background: color-mix(in srgb, var(--ui5-maths) 4%, white);
+}
+.ui5-course-content :where(.warning-box,.box-regle-or) {
+  border-left-color: #a33a23;
+  background: #fff8f5;
+}
+.ui5-course-content :where(.formule-box,.formula-box,.resultat-box)::before {
+  display: none;
+}
+.ui5-course-content :where(.formule-box,.formula-box) {
+  background: color-mix(in srgb, var(--ui5-subject) 4%, white);
+}
+.ui5-course-content :where(.formule-box,.formula-box) .katex-display {
+  background: transparent;
+}
+
+.ui5-course-content :where(.schema-block,.svg-wrap,.math-figure) {
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-surface);
+  box-shadow: none;
+}
+.ui5-course-content table {
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-sm);
+  box-shadow: none;
+}
+.ui5-course-content thead th {
+  background: var(--ui5-text);
+  color: #fff;
+}
+
+.ui5-course-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 34px;
+  margin: 0 auto 0.8rem;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--ui5-chem) 35%, var(--ui5-border));
+  border-radius: var(--ui5-radius-sm);
+  background: color-mix(in srgb, var(--ui5-chem) 7%, white);
+  color: var(--ui5-chem);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
