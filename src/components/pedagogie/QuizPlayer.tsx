@@ -145,10 +145,14 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
     return(<div data-quiz-result-v3="true" className="learning-player learning-result-card" style={{textAlign:"center"}}>
       <div style={{fontSize:"3rem",marginBottom:"0.5rem"}}>{emoji}</div>
       <h3 style={{fontSize:"1.4rem",fontWeight:700,color:V.text,marginBottom:"1rem"}}>{msg}</h3>
-      <div style={{display:"flex",alignItems:"baseline",justifyContent:"center",gap:"0.25rem",marginBottom:"0.5rem"}}>
-        <span style={{fontSize:"3rem",fontWeight:800,color:V.primary}}>{score}</span><span style={{fontSize:"1.5rem",color:V.textMut}}>/</span><span style={{fontSize:"1.5rem",fontWeight:600,color:V.textSec}}>{total}</span>
+      <div className="quiz-result-score" aria-label={`Score ${score} sur ${total}, soit ${pct} pour cent`}>
+        <strong>{score}/{total}</strong>
+        <span>{pct}% de bonnes réponses</span>
       </div>
-      <p style={{fontSize:"1rem",color:V.textSec,marginBottom:"0.5rem"}}>{pct}% de bonnes réponses</p>
+      <div className="quiz-remediation">
+        <strong>{missedCount === 0 ? "Toutes les notions de ce quiz sont validées." : `${missedCount} question${missedCount > 1 ? "s" : ""} à revoir`}</strong>
+        <span>{missedCount === 0 ? "Tu peux passer à la ressource suivante." : "Relis les explications ci-dessous puis reprends uniquement tes erreurs."}</span>
+      </div>
       {xpE>0&&<p style={{fontSize:"1rem",fontWeight:700,color:V.primary,marginBottom:"0.5rem"}}>⚡ +{xpE} XP gagnés</p>}
       {xpE===0&&alreadyToday&&<p style={{fontSize:"0.85rem",color:V.textMut,fontStyle:"italic",marginBottom:"0.5rem"}}>ℹ️ Quiz déjà récompensé aujourd'hui</p>}
       <div style={{textAlign:"left",display:"flex",flexDirection:"column",gap:"0.5rem",marginBottom:"1.5rem"}}>
@@ -158,8 +162,10 @@ export default function QuizPlayer({ data, title, chapterId, xpConfig }: QuizPla
             {!ok&&<p style={{fontSize:"0.85rem",color:V.textSec,marginTop:"0.25rem",paddingLeft:"1.5rem"}}>Bonne réponse : <strong><MathText text={q.shuffledChoices[q.correctIndex]} /></strong></p>}
           </div>)})}
       </div>
-      <button onClick={restart} style={{padding:"0.6rem 1.5rem",background:V.primary,color:"#fff",border:"none",borderRadius:8,fontSize:"0.95rem",fontWeight:600,cursor:"pointer"}}>🔄 Recommencer</button>
-      {missedCount>0&&<div style={{marginTop:"0.75rem"}}><button onClick={retryIncorrectQuestions} style={{padding:"0.6rem 1.5rem",background:"transparent",color:V.primary,border:`2px solid ${V.primary}`,borderRadius:8,fontSize:"0.95rem",fontWeight:600,cursor:"pointer"}}>Reprendre les erreurs</button></div>}
+      <div className="quiz-result-actions">
+        {missedCount>0&&<button className="quiz-result-action quiz-result-action--primary" onClick={retryIncorrectQuestions}>Reprendre mes erreurs</button>}
+        <button className="quiz-result-action" onClick={restart}>Recommencer le quiz</button>
+      </div>
       <XPToast toasts={toasts} onDismiss={disT}/>
     </div>)
   }
