@@ -71,32 +71,3 @@ const qcmNiveaux = [
   </LeaneShell>
 </BaseLayout>
 
-<style is:global>
-  .leane-qcm-choice-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .leane-qcm-choice {
-    color: inherit;
-    min-height: 250px;
-    text-decoration: none;
-  }
-
-  .leane-qcm-choice:hover,
-  .leane-qcm-choice:focus-visible {
-    border-color: #b9cef0;
-    box-shadow: 0 14px 30px rgba(16, 42, 92, 0.09);
-    transform: translateY(-1px);
-  }
-
-  .leane-qcm-choice .leane-primary-link {
-    justify-self: start;
-    margin-top: auto;
-  }
-
-  @media (max-width: 900px) {
-    .leane-qcm-choice-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
