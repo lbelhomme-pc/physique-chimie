@@ -34,7 +34,14 @@ const showContext = currentPath !== "/" && !isActive("/leane") && Boolean(cycleL
       </span>
     </a>
 
-    <nav class="public-nav__links" aria-label="Navigation publique V3">
+    <div class="public-nav__mobile-actions">
+      <a class="public-nav__search-link" href="/#global-search" aria-label="Ouvrir la recherche globale">Rechercher</a>
+      <button class="public-nav__mobile-toggle" type="button" aria-expanded="false" aria-controls="public-nav-links">
+        <span>Menu</span>
+      </button>
+    </div>
+
+    <nav id="public-nav-links" class="public-nav__links" aria-label="Navigation publique V4">
       {publicMenuSections.map((section) => (
         <details
           class={`public-nav__menu public-nav__menu--${section.tone}`}
@@ -86,7 +93,23 @@ const showContext = currentPath !== "/" && !isActive("/leane") && Boolean(cycleL
 
   if (publicNavigation) {
     const menus = Array.from(publicNavigation.querySelectorAll<HTMLDetailsElement>("details.public-nav__menu"));
+    const mobileToggle = publicNavigation.querySelector<HTMLButtonElement>(".public-nav__mobile-toggle");
     const closeMenus = () => menus.forEach((menu) => menu.removeAttribute("open"));
+    const closeMobileMenu = () => {
+      publicNavigation.removeAttribute("data-menu-open");
+      mobileToggle?.setAttribute("aria-expanded", "false");
+    };
+
+    mobileToggle?.addEventListener("click", () => {
+      const open = publicNavigation.getAttribute("data-menu-open") === "true";
+      if (open) {
+        closeMobileMenu();
+        closeMenus();
+      } else {
+        publicNavigation.setAttribute("data-menu-open", "true");
+        mobileToggle.setAttribute("aria-expanded", "true");
+      }
+    });
 
     menus.forEach((menu) => {
       menu.addEventListener("toggle", () => {
@@ -97,17 +120,27 @@ const showContext = currentPath !== "/" && !isActive("/leane") && Boolean(cycleL
       });
 
       menu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => menu.removeAttribute("open"));
+        link.addEventListener("click", () => {
+          menu.removeAttribute("open");
+          closeMobileMenu();
+        });
       });
     });
 
     document.addEventListener("click", (event) => {
       const target = event.target;
-      if (target instanceof Node && !publicNavigation.contains(target)) closeMenus();
+      if (target instanceof Node && !publicNavigation.contains(target)) {
+        closeMenus();
+        closeMobileMenu();
+      }
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeMenus();
+      if (event.key === "Escape") {
+        closeMenus();
+        closeMobileMenu();
+        mobileToggle?.focus();
+      }
     });
   }
 </script>
@@ -191,6 +224,31 @@ const showContext = currentPath !== "/" && !isActive("/leane") && Boolean(cycleL
     white-space: nowrap;
   }
 
+  .public-nav__mobile-actions {
+    display: none;
+  }
+
+  .public-nav__search-link,
+  .public-nav__mobile-toggle {
+    align-items: center;
+    border: 1px solid var(--v3-color-border-default);
+    border-radius: var(--v3-radius-md);
+    background: var(--v3-color-surface-page);
+    color: var(--v3-color-text-main);
+    display: inline-flex;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 850;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.45rem 0.7rem;
+    text-decoration: none;
+  }
+
+  .public-nav__mobile-toggle {
+    cursor: pointer;
+  }
+
   .public-nav__links {
     align-items: center;
     display: flex;
@@ -230,9 +288,9 @@ const showContext = currentPath !== "/" && !isActive("/leane") && Boolean(cycleL
     position: relative;
   }
 
-  .public-nav__menu--maths { --menu-accent: #135dff; --menu-soft: #eef5ff; }
-  .public-nav__menu--pc { --menu-accent: #6d4cff; --menu-soft: #f2efff; }
-  .public-nav__menu--science { --menu-accent: #008f78; --menu-soft: #eefbf8; }
+  .public-nav__menu--maths { --menu-accent: var(--v3-color-discipline-maths); --menu-soft: var(--v3-color-discipline-maths-bg); }
+  .public-nav__menu--pc { --menu-accent: var(--v3-color-discipline-pc); --menu-soft: var(--v3-color-discipline-pc-bg); }
+  .public-nav__menu--science { --menu-accent: var(--v3-color-discipline-science); --menu-soft: var(--v3-color-discipline-science-bg); }
   .public-nav__menu--memory { --menu-accent: #e85d04; --menu-soft: #fff7ee; }
   .public-nav__menu--kit { --menu-accent: #102a5c; --menu-soft: #f3f6fb; }
 
@@ -419,40 +477,72 @@ const showContext = currentPath !== "/" && !isActive("/leane") && Boolean(cycleL
 
   @media (max-width: 760px) {
     .public-nav {
-      position: static;
+      position: sticky;
     }
 
     .public-nav__inner {
       display: grid;
-      grid-template-columns: 1fr;
-      padding: 0.75rem 1rem;
+      grid-template-columns: minmax(0, 1fr) auto;
+      min-height: 60px;
+      padding: 0.45rem 0.75rem;
     }
 
     .public-nav__brand {
-      justify-content: center;
+      justify-content: flex-start;
+      min-width: 0;
+    }
+
+    .public-nav__brand-text small {
+      display: none;
+    }
+
+    .public-nav__mobile-actions {
+      align-items: center;
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .public-nav__search-link {
+      padding-inline: 0.6rem;
     }
 
     .public-nav__links {
+      align-content: start;
+      background: var(--v3-color-surface-page);
+      display: none;
+      gap: 0.5rem;
+      inset: 60px 0 0;
+      overflow-y: auto;
+      padding: 1rem;
+      position: fixed;
+      width: auto;
+      z-index: 89;
+    }
+
+    .public-nav[data-menu-open="true"] .public-nav__links {
       display: grid;
-      gap: 0.35rem;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
+    }
+
+    .public-nav[data-menu-open="true"] .public-nav__mobile-toggle {
+      background: var(--v3-color-action-subtle);
+      border-color: var(--v3-color-action);
+      color: var(--v3-color-action);
     }
 
     .public-nav__menu summary,
     .public-nav__global-link {
-      background: #f5f8fe;
+      background: var(--v3-color-surface-muted);
       grid-template-columns: auto minmax(0, 1fr) auto;
-      min-height: 42px;
-      padding: 0 0.7rem;
+      min-height: 48px;
+      padding: 0 0.85rem;
       width: 100%;
     }
 
-    .public-nav__menu[open] {
-      grid-column: 1 / -1;
-    }
-
     .public-nav__panel {
+      box-shadow: none;
       left: auto;
+      max-height: none;
       min-width: 0;
       position: static;
       right: auto;
@@ -460,5 +550,13 @@ const showContext = currentPath !== "/" && !isActive("/leane") && Boolean(cycleL
       width: 100%;
     }
 
+    .public-nav__context {
+      justify-content: flex-start;
+      min-height: 32px;
+      overflow: hidden;
+      padding: 0 0.75rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 </style>
