@@ -8,6 +8,11 @@ onLabReady("[data-lab-index]", (root) => {
   const title = root.querySelector("[data-lab-results-title]");
   const count = root.querySelector("[data-lab-results-count]");
   const noResults = root.querySelector("[data-lab-no-results]");
+  const activeFilters = root.querySelector("[data-lab-active-filters]");
+  const filterPanel = root.querySelector("[data-lab-filter-panel]");
+  const filterToggle = root.querySelector("[data-lab-filter-toggle]");
+  const filterClose = root.querySelector("[data-lab-filter-close]");
+  const filterCount = root.querySelector("[data-lab-filter-count]");
 
   if (!searchInput || cards.length === 0) return;
 
@@ -27,6 +32,7 @@ onLabReady("[data-lab-index]", (root) => {
     const selectedLevels = selectedValues("level");
     const selectedThemes = selectedValues("theme");
     const selectedTopics = selectedValues("topic");
+    const selectedInputs = filters.filter((input) => input.checked);
     let visible = 0;
 
     cards.forEach((card) => {
@@ -56,16 +62,91 @@ onLabReady("[data-lab-index]", (root) => {
     }
     clearButton?.classList.toggle("is-hidden", !hasFilters);
     noResults?.classList.toggle("is-hidden", visible > 0);
+
+    if (filterCount) {
+      filterCount.textContent = String(selectedInputs.length);
+    }
+
+    if (filterToggle) {
+      filterToggle.setAttribute(
+        "aria-label",
+        selectedInputs.length
+          ? `Ouvrir les filtres, ${selectedInputs.length} actif${selectedInputs.length > 1 ? "s" : ""}`
+          : "Ouvrir les filtres"
+      );
+    }
+
+    if (activeFilters) {
+      activeFilters.replaceChildren();
+      selectedInputs.forEach((input) => {
+        const label = input.closest("label")?.textContent?.trim() || input.value;
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "lab-active-filter";
+        chip.textContent = `${label} ×`;
+        chip.setAttribute("aria-label", `Retirer le filtre ${label}`);
+        chip.addEventListener("click", () => {
+          input.checked = false;
+          update();
+        });
+        activeFilters.appendChild(chip);
+      });
+
+      if (query) {
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "lab-active-filter";
+        chip.textContent = `Recherche : ${searchInput.value.trim()} ×`;
+        chip.setAttribute("aria-label", "Effacer la recherche");
+        chip.addEventListener("click", () => {
+          searchInput.value = "";
+          update();
+          searchInput.focus();
+        });
+        activeFilters.appendChild(chip);
+      }
+
+      activeFilters.classList.toggle("is-empty", activeFilters.childElementCount === 0);
+    }
   }
 
   searchInput.addEventListener("input", update);
   filters.forEach((input) => input.addEventListener("change", update));
+
+  function closeFilterPanel() {
+    root.removeAttribute("data-lab-filters-open");
+    filterToggle?.setAttribute("aria-expanded", "false");
+  }
+
+  filterToggle?.addEventListener("click", () => {
+    const open = root.getAttribute("data-lab-filters-open") === "true";
+    if (open) {
+      closeFilterPanel();
+    } else {
+      root.setAttribute("data-lab-filters-open", "true");
+      filterToggle.setAttribute("aria-expanded", "true");
+      filterPanel?.querySelector("input")?.focus();
+    }
+  });
+
+  filterClose?.addEventListener("click", () => {
+    closeFilterPanel();
+    filterToggle?.focus();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && root.getAttribute("data-lab-filters-open") === "true") {
+      closeFilterPanel();
+      filterToggle?.focus();
+    }
+  });
   clearButton?.addEventListener("click", () => {
     searchInput.value = "";
     filters.forEach((input) => {
       input.checked = false;
     });
     update();
+    closeFilterPanel();
     searchInput.focus();
   });
 
