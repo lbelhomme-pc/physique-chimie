@@ -1,23 +1,13 @@
 ---
 import type { LabApp } from "../../data/laboratoire/apps";
 
-interface Props {
-  app: LabApp;
-}
-
+interface Props { app: LabApp; }
 const { app } = Astro.props;
-const searchText = [
-  app.title,
-  app.level,
-  app.concept,
-  app.theme,
-  app.objective,
-  app.tags.join(" "),
-].join(" ");
+const searchText = [app.title, app.level, app.concept, app.theme, app.objective, app.tags.join(" ")].join(" ");
 ---
 
 <a
-  class={`lab-card lab-card--${app.theme}`}
+  class="ui5-card ui5-lab-card"
   href={app.route}
   data-lab-card
   data-app-slug={app.slug}
@@ -26,15 +16,13 @@ const searchText = [
   data-topics={app.topics.join(" ")}
   data-search={searchText.toLocaleLowerCase("fr-FR")}
 >
-  <span class="lab-card__visual" aria-hidden="true">
-    <span class="lab-card__icon">{app.icon}</span>
-  </span>
-  <span class="lab-card__body">
-    <span class="lab-card__tags">
-      {app.tags.map((tag) => <span>{tag}</span>)}
+  <span class="ui5-lab-card__icon" aria-hidden="true">{app.icon}</span>
+  <span class="ui5-lab-card__body">
+    <span class="ui5-lab-card__tags">
+      {app.tags.slice(0, 3).map((tag) => <em class="ui5-chip">{tag}</em>)}
     </span>
     <strong>{app.title}</strong>
     <span>{app.objective}</span>
-    <span class="lab-card__action">Lancer la simulation</span>
+    <b>Ouvrir la simulation →</b>
   </span>
 </a>
