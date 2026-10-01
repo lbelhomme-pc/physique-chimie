@@ -28,7 +28,7 @@ describe("UI — cohérence avec la charte de la page d'accueil",()=>{
   it("supprime le style pill et les largeurs étroites des onglets pédagogiques",()=>{
     const tabs=read("src/components/pedagogie/ChapterTabs.astro");
     assert.match(tabs,/border-radius: var\(--v3-radius-md\)/);
-    assert.match(tabs,/background: #0f5bff/);
+    assert.match(tabs,/background: var\(--v3-color-action\)/);
     assert.doesNotMatch(tabs,/border-radius: 18px/);
     assert.doesNotMatch(tabs,/max-width: 900px/);
   });
@@ -65,5 +65,7 @@ describe("UI — cohérence avec la charte de la page d'accueil",()=>{
     assert.match(css,/--learning-radius-lg: 8px/);
     assert.match(css,/--learning-radius-md: 6px/);
     assert.doesNotMatch(css,/--learning-radius-lg: 20px/);
+    assert.match(css,/grid-template-columns: 230px minmax\(0, 1fr\)/);
+    assert.match(css,/grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
   });
 });
