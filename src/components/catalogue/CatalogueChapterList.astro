@@ -36,9 +36,24 @@ const sortedChapters = [...chapters].sort((a, b) => (a.order ?? 99) - (b.order ?
   </div>
 
   {sortedChapters.length > 0 ? (
-    <ol class="catalogue-list">
+    <>
+      <div class="catalogue-toolbar" data-catalogue-toolbar>
+        <label for={`${id}-search`}>Rechercher dans ce niveau</label>
+        <div class="catalogue-search">
+          <span aria-hidden="true"></span>
+          <input
+            id={`${id}-search`}
+            type="search"
+            placeholder="Titre, notion ou thème…"
+            data-catalogue-search
+            autocomplete="off"
+          />
+        </div>
+        <p aria-live="polite" data-catalogue-summary>{sortedChapters.length} chapitre{sortedChapters.length > 1 ? "s" : ""}</p>
+      </div>
+      <ol class="catalogue-list" data-catalogue-list>
       {sortedChapters.map((chapter, index) => (
-        <li>
+        <li data-catalogue-item data-search-text={[chapter.title, chapter.description ?? "", ...(chapter.badges ?? [])].join(" ").toLocaleLowerCase("fr-FR")}>
           <a class="catalogue-card" href={chapter.href}>
             <span class="catalogue-card__index" aria-label={`Chapitre ${index + 1}`}>{String(index + 1).padStart(2, "0")}</span>
             <span class="catalogue-card__body">
@@ -46,15 +61,16 @@ const sortedChapters = [...chapters].sort((a, b) => (a.order ?? 99) - (b.order ?
               {chapter.description && <span>{chapter.description}</span>}
               {chapter.badges && chapter.badges.length > 0 && (
                 <span class="catalogue-card__badges" aria-label="Repères du chapitre">
-                  {chapter.badges.map((badge) => <em>{badge}</em>)}
+                  {chapter.badges.slice(0, 2).map((badge) => <em>{badge}</em>)}
                 </span>
               )}
             </span>
-            <span class="catalogue-card__action">Ouvrir</span>
           </a>
         </li>
       ))}
-    </ol>
+      </ol>
+      <p class="catalogue-no-results" data-catalogue-no-results hidden>Aucun chapitre ne correspond à cette recherche.</p>
+    </>
   ) : (
     <div class="catalogue-empty" aria-live="polite">
       <h3>{emptyTitle}</h3>
@@ -141,9 +157,77 @@ const sortedChapters = [...chapters].sort((a, b) => (a.order ?? 99) - (b.order ?
     padding: 0 var(--v3-space-2);
   }
 
+  .catalogue-toolbar {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .catalogue-toolbar > label {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    font-weight: 800;
+  }
+
+  .catalogue-search {
+    align-items: center;
+    display: flex;
+    gap: 0.65rem;
+    min-height: 48px;
+    padding: 0 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--v3-radius-md);
+    background: var(--bg-card);
+  }
+
+  .catalogue-search:focus-within {
+    border-color: var(--accent-primary);
+    box-shadow: var(--v3-shadow-focus);
+  }
+
+  .catalogue-search > span {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+  }
+
+  .catalogue-search > span::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    bottom: -3px;
+    width: 6px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent-primary);
+    transform: rotate(45deg);
+  }
+
+  .catalogue-search input {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--text-primary);
+    font: inherit;
+  }
+
+  .catalogue-toolbar > p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
   .catalogue-list {
     display: grid;
-    gap: var(--v3-space-2);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--v3-space-3);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -157,8 +241,10 @@ const sortedChapters = [...chapters].sort((a, b) => (a.order ?? 99) - (b.order ?
     color: inherit;
     display: grid;
     gap: var(--v3-space-3);
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    min-height: 86px;
+    align-content: start;
+    grid-template-columns: auto minmax(0, 1fr);
+    min-height: 100%;
+
     padding: var(--v3-space-3);
     text-decoration: none;
   }
@@ -204,7 +290,6 @@ const sortedChapters = [...chapters].sort((a, b) => (a.order ?? 99) - (b.order ?
     padding: 0.18rem 0.5rem;
   }
 
-  .catalogue-card__action,
   .catalogue-empty__action {
     align-items: center;
     border: 1px solid var(--border-color);
@@ -252,7 +337,26 @@ const sortedChapters = [...chapters].sort((a, b) => (a.order ?? 99) - (b.order ?
     color: #fff;
   }
 
-  @media (max-width: 640px) {
+  .catalogue-no-results {
+    margin: 0;
+    padding: 1rem;
+    border: 1px dashed var(--border-color);
+    border-radius: var(--v3-radius-md);
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  @media (max-width: 1279px) {
+    .catalogue-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 719px) {
+    .catalogue-list {
+      grid-template-columns: 1fr;
+    }
+
     .catalogue-section__head,
     .catalogue-card {
       align-items: start;
@@ -263,8 +367,29 @@ const sortedChapters = [...chapters].sort((a, b) => (a.order ?? 99) - (b.order ?
       display: grid;
     }
 
-    .catalogue-card__action {
-      justify-self: start;
-    }
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".catalogue-section").forEach((section) => {
+    const input = section.querySelector<HTMLInputElement>("[data-catalogue-search]");
+    const items = Array.from(section.querySelectorAll<HTMLElement>("[data-catalogue-item]"));
+    const summary = section.querySelector<HTMLElement>("[data-catalogue-summary]");
+    const noResults = section.querySelector<HTMLElement>("[data-catalogue-no-results]");
+    if (!input || items.length === 0) return;
+
+    const update = () => {
+      const query = input.value.trim().toLocaleLowerCase("fr-FR");
+      let visible = 0;
+      items.forEach((item) => {
+        const matches = !query || (item.dataset.searchText ?? "").includes(query);
+        item.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      if (summary) summary.textContent = `${visible} chapitre${visible > 1 ? "s" : ""}`;
+      if (noResults) noResults.hidden = visible > 0;
+    };
+
+    input.addEventListener("input", update);
+  });
+</script>
