@@ -92,6 +92,62 @@
   padding: clamp(1.25rem, 3vw, 2rem);
 }
 
+/* Quiz results: score is context, remediation is the main next action. */
+.quiz-result-score {
+  display: grid;
+  gap: 0.2rem;
+  justify-items: center;
+  margin: 0 0 0.8rem;
+}
+
+.quiz-result-score strong {
+  color: var(--accent-primary);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.quiz-result-score span {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.quiz-remediation {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0 auto 1rem;
+  max-width: 42rem;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--accent-primary);
+  background: var(--accent-primary-light);
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.quiz-remediation strong {
+  color: var(--text-primary);
+}
+
+.quiz-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.quiz-result-action {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--accent-primary);
+  background: var(--bg-card);
+  color: var(--accent-primary);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.quiz-result-action--primary {
+  background: var(--accent-primary);
+  color: #fff;
+}
+
 /* Exercises: spatial navigation on desktop, compact navigator elsewhere. */
 .exercise-workspace {
   display: grid;
