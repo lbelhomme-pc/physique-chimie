@@ -22,16 +22,17 @@ function source(name) {
   return readFileSync(files[name], "utf8");
 }
 
-describe("chapter shell V3", () => {
-  it("renders the overview and summary without a duplicate recommended path", () => {
+describe("chapter shell V4", () => {
+  it("enters learning directly after a compact hero and one disclosure", () => {
     const shell = source("shell");
 
-    assert.match(shell, /Vue d'ensemble/);
     assert.match(shell, /Avant de commencer/);
-    assert.match(shell, /Sommaire/);
+    assert.match(shell, /chapter-before/);
+    assert.doesNotMatch(shell, /Vue d'ensemble/);
+    assert.doesNotMatch(shell, /Sommaire/);
+    assert.doesNotMatch(shell, /data-chapter-summary-link/);
     assert.doesNotMatch(shell, /Parcours recommandé/);
-    assert.doesNotMatch(shell, /chapter-recommended/);
-    assert.match(shell, /Objectif/);
+    assert.match(shell, /Objectifs/);
     assert.match(shell, /Prérequis/);
     assert.match(shell, /Compétences/);
   });
@@ -82,15 +83,17 @@ describe("chapter shell V3", () => {
     assert.match(shell, /<FlashcardsPlayer client:load/);
   });
 
-  it("uses keyboard-friendly summary links with aria-current", () => {
+  it("keeps one keyboard-friendly resource selector without a duplicate summary", () => {
     const shell = source("shell");
     const tabs = source("tabs");
 
-    assert.match(shell, /data-chapter-summary-link=\{section\.id\}/);
-    assert.match(shell, /aria-current=\{section\.id === activeActivityId \? "step" : undefined\}/);
-    assert.match(tabs, /syncChapterSummary/);
-    assert.match(tabs, /setAttribute\("aria-current", "step"\)/);
-    assert.match(tabs, /removeAttribute\("aria-current"\)/);
+    assert.doesNotMatch(shell, /data-chapter-summary-link/);
+    assert.match(tabs, /role="tablist"/);
+    assert.match(tabs, /aria-selected/);
+    assert.match(tabs, /ArrowRight/);
+    assert.match(tabs, /ArrowLeft/);
+    assert.match(tabs, /Home/);
+    assert.match(tabs, /End/);
   });
 
   it("does not add new client hydration directives in the overview", () => {
