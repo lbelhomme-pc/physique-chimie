@@ -2351,3 +2351,70 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Leane page-specific layouts centralized in V5 */
+.ui5-leane-page .leane-exercise-choice,
+.ui5-leane-page .leane-qcm-choice {
+  min-height: 240px;
+  color: inherit;
+  text-decoration: none;
+}
+.ui5-leane-page .leane-exercise-choice:hover,
+.ui5-leane-page .leane-exercise-choice:focus-visible,
+.ui5-leane-page .leane-qcm-choice:hover,
+.ui5-leane-page .leane-qcm-choice:focus-visible {
+  border-color: var(--ui5-maths);
+  box-shadow: none;
+  transform: translateY(-1px);
+  outline: none;
+}
+.ui5-leane-page .leane-exercise-choice .leane-primary-link,
+.ui5-leane-page .leane-qcm-choice .leane-primary-link {
+  justify-self: start;
+  margin-top: auto;
+}
+.ui5-leane-page .leane-qcm-choice-grid {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+.ui5-leane-page .leane-exercise-detail,
+.ui5-leane-page .leane-qcm-detail {
+  grid-template-columns: minmax(0,1fr) minmax(240px,.32fr);
+}
+.ui5-leane-page .leane-exercise-detail__top,
+.ui5-leane-page .leane-qcm-detail__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-bottom: .85rem;
+}
+.ui5-leane-page .leane-exercise-detail .leane-exercise-runner__stack {
+  min-height: 20rem;
+}
+.ui5-leane-page .leane-exercise-detail .leane-exercise-step h3 {
+  font-size: clamp(1.3rem,2vw,1.7rem);
+}
+.ui5-leane-page .leane-qcm-detail .leane-question {
+  min-height: 18rem;
+}
+.ui5-leane-page .leane-exercise-side,
+.ui5-leane-page .leane-qcm-side {
+  position: sticky;
+  top: 5.25rem;
+}
+@media (max-width: 1040px) {
+  .ui5-leane-page .leane-exercise-detail,
+  .ui5-leane-page .leane-qcm-detail {
+    grid-template-columns: 1fr;
+  }
+  .ui5-leane-page .leane-exercise-side,
+  .ui5-leane-page .leane-qcm-side {
+    position: static;
+  }
+}
+@media (max-width: 900px) {
+  .ui5-leane-page .leane-qcm-choice-grid {
+    grid-template-columns: 1fr;
+  }
+}
