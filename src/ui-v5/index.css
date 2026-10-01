@@ -1158,3 +1158,70 @@ body {
   .ui5-home-hero__stats,
   .ui5-learning-steps { grid-template-columns: 1fr; }
 }
+
+
+/* Tools */
+.ui5-definition-card {
+  display: grid;
+  gap: .65rem;
+  padding: 1rem;
+}
+.ui5-definition-card .ui5-chip { justify-self: start; }
+.ui5-definition-card p {
+  margin: 0;
+  color: var(--ui5-text-2);
+  line-height: 1.55;
+}
+.ui5-tool-card {
+  display: grid;
+  grid-template-columns: 46px minmax(0,1fr);
+  gap: .9rem;
+  min-height: 160px;
+  padding: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+.ui5-tool-card__symbol {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid color-mix(in srgb,var(--ui5-subject) 25%,var(--ui5-border));
+  border-radius: var(--ui5-radius-sm);
+  background: color-mix(in srgb,var(--ui5-subject) 8%,white);
+  color: var(--ui5-subject);
+  font-weight: 900;
+}
+.ui5-tool-card__body {
+  display: grid;
+  gap: .3rem;
+}
+.ui5-tool-card__body small {
+  color: var(--ui5-subject);
+  font-size: .72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+.ui5-tool-card__body strong {
+  color: var(--ui5-text);
+  font-size: 1rem;
+}
+.ui5-tool-card__body > span {
+  color: var(--ui5-text-2);
+  font-size: .88rem;
+  line-height: 1.5;
+}
+.ui5-tool-card__body em {
+  align-self: end;
+  margin-top: auto;
+  color: var(--ui5-text-3);
+  font-size: .78rem;
+  font-style: normal;
+  line-height: 1.4;
+}
+.ui5-tool-card:hover,
+.ui5-tool-card:focus-visible {
+  border-color: var(--ui5-subject);
+  box-shadow: var(--ui5-shadow-hover);
+  outline: none;
+}
