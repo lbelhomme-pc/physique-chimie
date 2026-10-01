@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import V3LandingHero from "../../components/home/V3LandingHero.astro";
 import { kitChapterLinks, kitMethodCards, kitMiniQuiz } from "../../data/kitScientifique";
 ---
 
@@ -9,34 +8,24 @@ import { kitChapterLinks, kitMethodCards, kitMiniQuiz } from "../../data/kitScie
   description="Calculatrice, convertisseur, traceur graphique, équilibreur d'équations et préparation de solutions pour la physique-chimie."
   canonical="/outils-methodes/kit-scientifique"
   schemaType="SoftwareApplication"
+  subject="physique-chimie"
+  resourceType="tool"
 >
-  <main class="tool-page" aria-labelledby="page-title">
-    <nav aria-label="Fil d'Ariane" class="breadcrumb">
-      <a href="/">Accueil</a> &rsaquo;
-      <a href="/outils-methodes">Outils & Méthodes</a> &rsaquo;
+  <div class="ui5-page ui5-tool-document" data-subject="physique-chimie" aria-labelledby="page-title">
+    <nav class="ui5-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/outils-methodes">Outils et méthodes</a><span aria-hidden="true">/</span>
       <strong>Kit scientifique</strong>
     </nav>
 
-    <V3LandingHero
-      tone="kit"
-      eyebrow="Outils interactifs"
-      mark="K"
-      markLabel="Repère kit scientifique"
-      title="Kit scientifique"
-      titleId="page-title"
-      description="Des outils courts pour calculer, convertir, tracer, équilibrer et préparer une solution sans quitter le site."
-      actions={[
-        { label: "Choisir un outil", href: "#calculator" },
-        { label: "Laboratoire virtuel", href: "/laboratoire", variant: "secondary" },
-      ]}
-      stats={[
-        { value: 7, label: "outils" },
-        { value: kitMethodCards.length, label: "méthodes guidées" },
-        { value: kitMiniQuiz.length, label: "mini-quiz" },
-      ]}
-      imageAlt="Calculatrice, graphique et matériel scientifique réunis dans un espace de travail."
-      contained
-    />
+    <header class="ui5-page-header">
+      <div class="ui5-page-header__copy">
+        <p class="ui5-kicker">Outils interactifs</p>
+        <h1 class="ui5-title" id="page-title">Kit scientifique</h1>
+        <p class="ui5-lead">Calculer, convertir, tracer, équilibrer et préparer une solution avec des outils courts intégrés au même espace de travail.</p>
+      </div>
+      <p class="ui5-page-header__aside">7 outils · ${kitMethodCards.length} méthodes guidées · ${kitMiniQuiz.length} mini-quiz</p>
+    </header>
 
     <section class="tool-tabs" aria-label="Choisir un outil">
       <button type="button" class="tool-tab is-active" data-tool-tab="calculator">Calculatrice</button>
@@ -263,7 +252,7 @@ import { kitChapterLinks, kitMethodCards, kitMiniQuiz } from "../../data/kitScie
         ))}
       </div>
     </section>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>
