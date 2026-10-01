@@ -1027,3 +1027,134 @@ body {
   font-size: 0.78rem;
   line-height: 1.4;
 }
+
+
+/* Home */
+.ui5-home-hero {
+  display: grid;
+  grid-template-columns: minmax(0,1.35fr) minmax(280px,.65fr);
+  gap: 2rem;
+  align-items: end;
+  width: min(100%, var(--ui5-content));
+  margin-inline: auto;
+  padding: clamp(2rem,5vw,4rem) 0 2rem;
+  border-bottom: 1px solid var(--ui5-border);
+}
+.ui5-home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 1rem;
+}
+.ui5-home-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: .8rem;
+  margin: 0;
+}
+.ui5-home-hero__stats div {
+  padding: .9rem;
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-md);
+  background: var(--ui5-surface);
+}
+.ui5-home-hero__stats dt {
+  color: var(--ui5-action);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+.ui5-home-hero__stats dd {
+  margin: .2rem 0 0;
+  color: var(--ui5-text-3);
+  font-size: .72rem;
+  font-weight: 750;
+}
+.ui5-home-search { margin-top: 2rem; }
+.ui5-subject-card {
+  --ui5-subject-card-accent: var(--ui5-action);
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr);
+  gap: .45rem .9rem;
+  align-items: start;
+  min-height: 180px;
+  padding: 1.25rem;
+  text-decoration: none;
+}
+.ui5-subject-card[data-subject="mathematiques"] { --ui5-subject-card-accent: var(--ui5-maths); }
+.ui5-subject-card[data-subject="physique-chimie"] { --ui5-subject-card-accent: var(--ui5-pc); }
+.ui5-subject-card__mark {
+  grid-row: 1 / span 3;
+  display: grid;
+  place-items: center;
+  min-width: 46px;
+  height: 46px;
+  padding: 0 .35rem;
+  border: 1px solid color-mix(in srgb,var(--ui5-subject-card-accent) 28%,var(--ui5-border));
+  border-radius: var(--ui5-radius-sm);
+  background: color-mix(in srgb,var(--ui5-subject-card-accent) 8%,white);
+  color: var(--ui5-subject-card-accent);
+  font-weight: 900;
+}
+.ui5-subject-card strong {
+  color: var(--ui5-text);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+.ui5-subject-card > span:not(.ui5-subject-card__mark) {
+  color: var(--ui5-text-2);
+  line-height: 1.55;
+}
+.ui5-subject-card em {
+  align-self: end;
+  margin-top: auto;
+  color: var(--ui5-subject-card-accent);
+  font-size: .82rem;
+  font-style: normal;
+  font-weight: 850;
+}
+.ui5-subject-card:hover,
+.ui5-subject-card:focus-visible {
+  border-color: var(--ui5-subject-card-accent);
+  box-shadow: var(--ui5-shadow-hover);
+  outline: none;
+}
+.ui5-learning-steps {
+  display: grid;
+  grid-template-columns: repeat(5,minmax(0,1fr));
+  gap: .75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ui5-learning-steps li {
+  display: flex;
+  gap: .65rem;
+  align-items: center;
+  padding: .8rem;
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-md);
+  background: var(--ui5-surface);
+}
+.ui5-learning-steps li > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-surface-soft);
+  color: var(--ui5-action);
+  font-weight: 900;
+}
+.ui5-learning-steps strong { display:block; color:var(--ui5-text); font-size:.86rem; }
+.ui5-learning-steps small { display:block; color:var(--ui5-text-3); font-size:.72rem; line-height:1.35; }
+
+@media (max-width:900px) {
+  .ui5-home-hero { grid-template-columns: 1fr; }
+  .ui5-home-hero__stats { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .ui5-learning-steps { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:520px) {
+  .ui5-home-hero__stats,
+  .ui5-learning-steps { grid-template-columns: 1fr; }
+}
