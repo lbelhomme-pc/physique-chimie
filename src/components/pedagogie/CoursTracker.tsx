@@ -99,10 +99,10 @@ export default function CoursTracker({ chapterId, xpConfig, children }: CoursTra
   }, [hasTracked, rewardCoursRead]);
 
   return (
-    <div>
+    <div className="cours-tracker">
       {/* Barre TTS pour le cours */}
       {coursText.length > 50 && (
-        <div style={{ marginBottom: "1rem" }}>
+        <div className="cours-tracker__tools">
           <TextToSpeech text={coursText} label="Écouter le cours" />
         </div>
       )}
@@ -121,7 +121,7 @@ export default function CoursTracker({ chapterId, xpConfig, children }: CoursTra
       )}
 
       {/* Contenu MDX du cours */}
-      <div ref={containerRef}>
+      <div ref={containerRef} className="cours-tracker__content">
         {children}
       </div>
 
