@@ -1,16 +1,13 @@
 ---
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
-import V3LandingHero from "../../../../components/home/V3LandingHero.astro";
 import CatalogueChapterList from "../../../../components/catalogue/CatalogueChapterList.astro";
 import type { CatalogueChapterItem } from "../../../../components/catalogue/types";
-import Breadcrumb from "../../../../components/ui/Breadcrumb.astro";
 import MathEmptyState from "../../../../components/mathematiques/MathEmptyState.astro";
 import type { MathematicsChapterListItem, MathematicsLevel } from "../../../../data/mathematiques/types";
 import { mathematicsDomainLabels } from "../../../../data/mathematiques/types";
 import { getMathematicsLevelsByCycle } from "../../../../data/mathematiques/levels";
 import { chapterEntryFromGlob, sortMathematicsChapters } from "../../../../data/mathematiques/content";
 import { getPublishedMathematicsLevels } from "../../../../data/contentRoutes";
-import "../../../../styles/mathematiques/mathematics.css";
 
 export function getStaticPaths() {
   const allMeta = import.meta.glob("/src/data/mathematiques/chapters/**/meta.json", { eager: true });
@@ -50,35 +47,25 @@ const domainCount = new Set(chapters.map((chapter) => chapter.domain ?? chapter.
   description={`Catalogue des chapitres de mathématiques pour ${level.label}.`}
   canonical={level.path}
   subject="mathematiques"
+  cycle="college"
+  level={level.label}
 >
-  <Breadcrumb
-    items={[
-      { label: "Accueil", href: "/" },
-      { label: "Mathématiques", href: "/mathematiques" },
-      { label: "Collège", href: "/mathematiques/college" },
-      { label: level.label },
-    ]}
-  />
+  <div class="ui5-page" data-subject="mathematiques">
+    <nav class="ui5-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/mathematiques">Mathématiques</a><span aria-hidden="true">/</span>
+      <a href="/mathematiques/college">Collège</a><span aria-hidden="true">/</span>
+      <strong>{level.label}</strong>
+    </nav>
 
-  <div class="math-shell">
-    <V3LandingHero
-      tone="maths"
-      eyebrow="Mathématiques collège"
-      mark="∑"
-      markLabel="Symbole somme"
-      title={level.label}
-      description={level.description ?? "Retrouve les chapitres de mathématiques disponibles pour ce niveau."}
-      actions={[
-        { label: "Voir les chapitres", href: "#math-level-chapters" },
-        { label: "Tous les niveaux", href: "/mathematiques/college", variant: "secondary" },
-      ]}
-      stats={[
-        { value: chapters.length, label: "chapitres" },
-        { value: domainCount, label: "domaines" },
-      ]}
-      imageAlt={`Espace de travail en mathématiques pour le niveau ${level.label}.`}
-      contained
-    />
+    <header class="ui5-page-header">
+      <div class="ui5-page-header__copy">
+        <p class="ui5-kicker">Mathématiques · Collège</p>
+        <h1 class="ui5-title">{level.label}</h1>
+        <p class="ui5-lead">{level.description ?? "Retrouve les chapitres de mathématiques disponibles pour ce niveau."}</p>
+      </div>
+      <p class="ui5-page-header__aside">{chapters.length} chapitre{chapters.length > 1 ? "s" : ""} · {domainCount} domaine{domainCount > 1 ? "s" : ""}</p>
+    </header>
 
     {chapters.length > 0 ? (
       <CatalogueChapterList
@@ -88,13 +75,13 @@ const domainCount = new Set(chapters.map((chapter) => chapter.domain ?? chapter.
         accent="maths"
       />
     ) : (
-      <MathEmptyState
-        title="Aucun chapitre n'est encore disponible pour ce niveau."
-        message="Les contenus seront ajoutés progressivement."
-        actions={[
-          { label: "Retour au collège", href: "/mathematiques/college", primary: true },
-        ]}
-      />
+      <section class="ui5-section">
+        <MathEmptyState
+          title="Aucun chapitre n'est encore disponible pour ce niveau."
+          message="Les contenus seront ajoutés progressivement."
+          actions={[{ label: "Retour aux parcours", href: "/mathematiques/college", primary: true }]}
+        />
+      </section>
     )}
   </div>
 </BaseLayout>
