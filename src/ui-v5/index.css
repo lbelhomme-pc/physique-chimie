@@ -690,3 +690,194 @@ body {
 .ui5-catalogue-section[data-accent="chemistry"] { --ui5-subject: var(--ui5-chem); }
 .ui5-catalogue-section[data-accent="maths"] { --ui5-subject: var(--ui5-maths); }
 .ui5-catalogue-section[data-accent="science"] { --ui5-subject: #a06008; }
+
+
+/* Global navigation */
+.ui5-skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 1rem;
+  z-index: 1100;
+  transform: translateY(-180%);
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-action);
+  color: #fff;
+  font-weight: 800;
+}
+.ui5-skip-link:focus { transform: translateY(0); }
+
+.ui5-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--ui5-border);
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+}
+.ui5-nav__inner {
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  width: min(100%, var(--ui5-app));
+  min-height: 68px;
+  margin-inline: auto;
+  padding: 0 1.25rem;
+}
+.ui5-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: max-content;
+  color: var(--ui5-text);
+  text-decoration: none;
+}
+.ui5-nav__brand > span:last-child {
+  display: grid;
+  gap: 0.02rem;
+}
+.ui5-nav__brand strong {
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+.ui5-nav__brand small {
+  color: var(--ui5-text-3);
+  font-size: 0.68rem;
+}
+.ui5-nav__mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-action);
+  color: #fff;
+  font-weight: 900;
+}
+.ui5-nav__links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.25rem;
+}
+.ui5-nav__menu {
+  position: relative;
+}
+.ui5-nav__menu > summary,
+.ui5-nav__link {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid transparent;
+  border-radius: var(--ui5-radius-sm);
+  background: transparent;
+  color: var(--ui5-text-2);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  list-style: none;
+}
+.ui5-nav__menu > summary::-webkit-details-marker { display: none; }
+.ui5-nav__menu > summary:hover,
+.ui5-nav__menu > summary.active,
+.ui5-nav__menu[open] > summary,
+.ui5-nav__link:hover,
+.ui5-nav__link.active {
+  background: var(--ui5-surface-soft);
+  color: var(--ui5-text);
+}
+.ui5-nav__panel {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  left: 0;
+  z-index: 120;
+  display: grid;
+  gap: 0.15rem;
+  min-width: 220px;
+  padding: 0.45rem;
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-md);
+  background: var(--ui5-surface);
+  box-shadow: var(--ui5-shadow-hover);
+}
+.ui5-nav__overview,
+.ui5-nav__panel-link {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  padding: 0.45rem 0.6rem;
+  border-radius: var(--ui5-radius-sm);
+  color: var(--ui5-text-2);
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+.ui5-nav__overview {
+  color: var(--ui5-text);
+  font-weight: 900;
+}
+.ui5-nav__panel-link:hover,
+.ui5-nav__panel-link.active,
+.ui5-nav__overview:hover {
+  background: var(--ui5-surface-soft);
+  color: var(--ui5-action);
+}
+.ui5-nav__toggle {
+  display: none;
+  min-height: 42px;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-surface);
+  color: var(--ui5-text);
+  font: inherit;
+  font-weight: 800;
+}
+.ui5-nav__context {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  padding: 0.3rem 1rem;
+  border-top: 1px solid var(--ui5-border);
+  background: var(--ui5-surface-soft);
+  color: var(--ui5-text-3);
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.ui5-nav :where(a,summary,button):focus-visible {
+  outline: 3px solid var(--ui5-focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .ui5-nav__inner {
+    grid-template-columns: auto 1fr auto;
+  }
+  .ui5-nav__toggle { display: inline-flex; justify-self: end; }
+  .ui5-nav__links {
+    display: none;
+    grid-column: 1 / -1;
+    align-items: stretch;
+    padding-bottom: 0.8rem;
+  }
+  .ui5-nav[data-open="true"] .ui5-nav__links {
+    display: grid;
+    gap: 0.25rem;
+  }
+  .ui5-nav__menu > summary,
+  .ui5-nav__link {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .ui5-nav__panel {
+    position: static;
+    min-width: 0;
+    margin: 0.2rem 0 0.35rem;
+    box-shadow: none;
+  }
+}
