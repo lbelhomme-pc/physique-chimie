@@ -15,17 +15,18 @@ const availableLabel = chapterCount === 0
 ---
 
 <Tag
-  class:list={["math-card", "math-level-card", { disabled: !isAvailable }]}
+  class:list={["ui5-card", "ui5-level-card", "ui5-math-level-card", { "ui5-card--disabled": !isAvailable }]}
   href={isAvailable ? level.path : undefined}
   aria-disabled={!isAvailable ? "true" : undefined}
 >
-  <p class="math-card-title">
-    <span>{level.label}</span>
-    {isAvailable && <span aria-hidden="true">→</span>}
-  </p>
-  {level.description && <p class="math-card-description">{level.description}</p>}
-  <div class="math-card-meta">
-    <span class:list={["math-badge", chapterCount === 0 ? "muted" : "success"]}>{availableLabel}</span>
-    {level.shortLabel && <span class="math-badge muted">{level.shortLabel}</span>}
+  <div class="ui5-level-card__top">
+    <span class="ui5-level-card__badge">∑</span>
+    <h3>{level.label}</h3>
   </div>
+  {level.description && <p>{level.description}</p>}
+  <div class="ui5-chapter-card__meta">
+    <em class="ui5-chip">{availableLabel}</em>
+    {level.shortLabel && <em class="ui5-chip">{level.shortLabel}</em>}
+  </div>
+  {isAvailable && <span class="ui5-card__cta">Voir les chapitres →</span>}
 </Tag>
