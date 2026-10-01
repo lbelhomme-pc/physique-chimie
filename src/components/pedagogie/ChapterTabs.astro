@@ -11,8 +11,6 @@ interface Props {
   exercicesCount?: number;
   quizCount?: number;
   flashcardsCount?: number;
-  backUrl?: string;
-  backLabel?: string;
 }
 
 const {
@@ -24,8 +22,6 @@ const {
   exercicesCount = 0,
   quizCount = 0,
   flashcardsCount = 0,
-  backUrl = "",
-  backLabel = "Retour",
 } = Astro.props;
 
 const activeTab = hasCours
@@ -43,12 +39,6 @@ const activeTab = hasCours
 
 <div class="chapter-tabs-wrapper" data-chapter-tabs>
   <div class="chapter-tabs">
-    {backUrl && (
-      <a href={backUrl} class="tab-pill tab-back">
-        <span>{backLabel}</span>
-      </a>
-    )}
-
     <nav class="chapter-tablist" role="tablist" aria-label="Sections du chapitre">
       {hasCours && (
         <button
@@ -126,6 +116,10 @@ const activeTab = hasCours
     </nav>
   </div>
 
+  <div class="chapter-tabs-intro">
+    <slot name="intro" />
+  </div>
+
   <div class="tab-panels">
     {hasCours && (
       <div
@@ -198,100 +192,88 @@ const activeTab = hasCours
   }
 
   .chapter-tabs {
-    display: flex;
     align-items: center;
-    gap: 0.65rem;
-    padding: 0.4rem;
-    margin-bottom: 1.25rem;
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+    padding: 0.35rem;
+    position: sticky;
+    top: 120px;
+    z-index: 40;
     border: 1px solid var(--border-color);
     border-radius: var(--v3-radius-md);
-    background: #ffffff;
-    box-shadow: 0 8px 24px rgba(15, 72, 160, 0.08);
+    background: color-mix(in srgb, var(--bg-card) 96%, transparent);
+    box-shadow: var(--v3-shadow-sm);
+    backdrop-filter: blur(10px);
   }
 
   .chapter-tablist {
-    display: flex;
     align-items: center;
-    gap: 0.25rem;
+    display: flex;
     flex: 1 1 auto;
+    gap: 0.25rem;
     min-width: 0;
   }
 
   .tab-pill {
-    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    min-height: 46px;
-    padding: 0.6rem 1rem;
-    border: 1px solid transparent;
-    border-radius: 6px;
     background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--v3-radius-sm);
     color: var(--text-muted);
+    cursor: pointer;
+    display: inline-flex;
+    flex: 1 1 0;
     font: inherit;
     font-size: 0.9rem;
     font-weight: 750;
+    gap: 0.4rem;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 0;
+    padding: 0.55rem 0.85rem;
     text-decoration: none;
     white-space: nowrap;
-    cursor: pointer;
-    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
-  }
-
-  .chapter-tablist .tab-pill {
-    flex: 1 1 0;
-    min-width: 0;
+    transition: background var(--v3-motion-base), border-color var(--v3-motion-base), color var(--v3-motion-base);
   }
 
   .tab-pill:hover {
-    background: var(--bg-card);
+    background: var(--bg-secondary);
     color: var(--text-primary);
   }
 
   .tab-pill:focus-visible {
-    outline: 3px solid var(--accent-primary);
+    outline: 3px solid var(--v3-color-focus-ring);
     outline-offset: 2px;
   }
 
   .tab-pill.active {
-    border-color: #0f5bff;
-    background: #0f5bff;
-    color: #ffffff;
-    box-shadow: none;
-  }
-
-  .tab-back {
-    flex: 0 0 auto;
-    padding-inline: 0.9rem;
-    color: var(--text-secondary);
-  }
-
-  .tab-back::before {
-    content: "←";
-    font-size: 1rem;
-  }
-
-  .tab-back:hover {
-    background: var(--bg-card);
-    color: var(--text-primary);
+    border-color: var(--v3-color-action);
+    background: var(--v3-color-action);
+    color: #fff;
   }
 
   .tab-badge {
-    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    min-width: 22px;
-    height: 22px;
-    padding: 0 0.38rem;
-    border-radius: 999px;
     background: var(--bg-tertiary);
+    border-radius: var(--v3-radius-pill);
     color: var(--text-muted);
+    display: inline-flex;
     font-size: 0.72rem;
     font-weight: 800;
+    height: 22px;
+    justify-content: center;
+    min-width: 22px;
+    padding: 0 0.38rem;
   }
 
   .tab-pill.active .tab-badge {
     background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
+    color: #fff;
+  }
+
+  .chapter-tabs-intro:empty {
+    display: none;
   }
 
   .tab-panel,
@@ -301,7 +283,7 @@ const activeTab = hasCours
 
   .tab-panel.active {
     display: block;
-    animation: fadeIn 0.18s ease;
+    animation: fadeIn var(--v3-motion-base);
   }
 
   @keyframes fadeIn {
@@ -309,32 +291,35 @@ const activeTab = hasCours
     to { opacity: 1; transform: translateY(0); }
   }
 
+  @media (max-width: 1180px) {
+    .chapter-tabs {
+      top: 112px;
+    }
+  }
+
   @media (max-width: 700px) {
     .chapter-tabs {
-      align-items: stretch;
-      gap: 0.35rem;
-      padding: 0.35rem;
+      top: 92px;
+      margin-inline: -0.25rem;
       overflow-x: auto;
+      padding: 0.3rem;
+      box-shadow: var(--v3-shadow-sm), inset -22px 0 18px -22px rgba(6, 24, 73, 0.75);
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
     }
 
     .chapter-tablist {
       flex: 0 0 auto;
       gap: 0.2rem;
+      min-width: max-content;
     }
 
-    .chapter-tablist .tab-pill {
+    .tab-pill {
       flex: 0 0 auto;
       min-width: max-content;
+      min-height: 44px;
       padding-inline: 0.8rem;
-      font-size: 0.82rem;
-    }
-
-    .tab-back {
-      position: sticky;
-      left: 0;
-      z-index: 1;
-      background: #ffffff;
+      font-size: 0.84rem;
     }
   }
 </style>
@@ -444,18 +429,6 @@ const activeTab = hasCours
 
       const tabs = wrapper.querySelectorAll<HTMLButtonElement>(".tab-pill[data-tab]");
       const panels = wrapper.querySelectorAll<HTMLDivElement>(".tab-panel[data-panel]");
-      const summaryLinks = document.querySelectorAll<HTMLAnchorElement>("[data-chapter-summary-link]");
-
-      function syncChapterSummary(target: string) {
-        summaryLinks.forEach((link) => {
-          if (link.dataset.chapterSummaryLink === target) {
-            link.setAttribute("aria-current", "step");
-          } else {
-            link.removeAttribute("aria-current");
-          }
-        });
-      }
-
       function activateTab(tab: HTMLButtonElement) {
         const target = tab.dataset.tab;
         if (!target) return;
@@ -481,7 +454,6 @@ const activeTab = hasCours
           panel.classList.add("active");
         }
 
-        syncChapterSummary(target);
       }
 
       tabs.forEach((tab) => {
@@ -507,14 +479,6 @@ const activeTab = hasCours
             activateTab(tabsArray[next]);
             tabsArray[next].focus();
           }
-        });
-      });
-
-      summaryLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          const target = link.dataset.chapterSummaryLink;
-          const tab = target ? wrapper.querySelector<HTMLButtonElement>(`.tab-pill[data-tab="${target}"]`) : null;
-          if (tab) activateTab(tab);
         });
       });
     });
