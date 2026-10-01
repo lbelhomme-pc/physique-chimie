@@ -70,6 +70,9 @@ const showContext = currentPath !== "/" && !isActive("/leane") && Boolean(cycleL
           </div>
         </details>
       ))}
+      <a class="public-nav__global-link public-nav__desktop-search" href="/#global-search">
+        Recherche
+      </a>
       <a
         class:list={["public-nav__global-link", { active: isActive("/profil") }]}
         href="/profil"
@@ -226,6 +229,10 @@ const showContext = currentPath !== "/" && !isActive("/leane") && Boolean(cycleL
 
   .public-nav__mobile-actions {
     display: none;
+  }
+
+  .public-nav__desktop-search {
+    display: inline-flex;
   }
 
   .public-nav__search-link,
@@ -493,6 +500,10 @@ const showContext = currentPath !== "/" && !isActive("/leane") && Boolean(cycleL
     }
 
     .public-nav__brand-text small {
+      display: none;
+    }
+
+    .public-nav__desktop-search {
       display: none;
     }
 
