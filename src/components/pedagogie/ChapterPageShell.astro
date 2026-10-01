@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumb from "../ui/Breadcrumb.astro";
 import ChapterTabs from "./ChapterTabs.astro";
 import CourseReader from "./CourseReader.astro";
 import CoursTracker from "./CoursTracker.tsx";
@@ -105,7 +104,6 @@ const hasExercices = exercices.length > 0;
 const hasQuiz = quizData.length > 0;
 const hasFlashcards = flashData.length > 0;
 const hasAnyContent = hasCours || hasActivite || hasExercices || hasQuiz || hasFlashcards;
-const rootClass = ["chapter-shell", pageClass].filter(Boolean).join(" ");
 
 function cleanItems(items: unknown[]): string[] {
   return items
@@ -136,6 +134,7 @@ const toolItems = cleanItems(tools);
 const durationLabel = formatDuration(estimatedDuration);
 const xpLabel = formatXp(xpConfig);
 const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description;
+const subjectId = headerVariant === "math" ? "mathematiques" : "physique-chimie";
 ---
 
 <BaseLayout
@@ -145,394 +144,134 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
   ogImage={ogImage}
   schemaType={schemaType}
   noindex={noindex}
+  subject={subjectId}
+  level={levelLabel}
 >
-  <Breadcrumb items={breadcrumbItems} />
+  <article class:list={["ui5-page", "ui5-chapter-page", pageClass]} data-subject={subjectId}>
+    <nav class="ui5-breadcrumb" aria-label="Fil d’Ariane">
+      {breadcrumbItems.map((item, index) => (
+        <>
+          {item.href ? <a href={item.href}>{item.label}</a> : <strong>{item.label}</strong>}
+          {index < breadcrumbItems.length - 1 && <span aria-hidden="true">/</span>}
+        </>
+      ))}
+    </nav>
 
-  <article class={rootClass}>
-    {headerVariant === "math" ? (
-      <header class="math-chapter-header chapter-hero-v3">
-        {eyebrow && <p class="math-eyebrow chapter-eyebrow">{eyebrow}</p>}
-        <h1>{displayTitle}</h1>
-        {chapterDescription && <p class="math-chapter-description">{chapterDescription}</p>}
+    <header class="ui5-page-header ui5-chapter-header">
+      <div class="ui5-page-header__copy">
+        {eyebrow && <p class="ui5-kicker">{eyebrow}</p>}
+        <h1 class="ui5-title">{displayTitle}</h1>
+        {chapterDescription && <p class="ui5-lead">{chapterDescription}</p>}
         {badges.length > 0 && (
-          <div class="math-chapter-meta">
-            {badges.slice(0, 3).map((badge) => (
-              <span class:list={["math-badge", { muted: badge.muted }]}>{badge.label}</span>
-            ))}
+          <div class="ui5-chapter-meta" aria-label="Repères du chapitre">
+            {badges.slice(0, 3).map((badge) => <span class="ui5-chip">{badge.label}</span>)}
           </div>
         )}
-      </header>
-    ) : (
-      <header class="chapter-header chapter-hero-v3">
-        {eyebrow && <p class="chapter-eyebrow">{eyebrow}</p>}
-        <h1>{displayTitle}</h1>
-        {chapterDescription && <p class="chapter-description">{chapterDescription}</p>}
-        {theme && <p class="chapter-theme">{theme}</p>}
-        {badges.length > 0 && (
-          <div class="chapter-meta-badges">
-            {badges.slice(0, 3).map((badge) => (
-              <span class:list={["chapter-badge", { muted: badge.muted }]}>{badge.label}</span>
-            ))}
-          </div>
-        )}
-      </header>
-    )}
+      </div>
+      <div class="ui5-page-header__aside">
+        {theme && <p>{theme}</p>}
+        <div class="ui5-chapter-facts">
+          {subjectLabel && <span>{subjectLabel}</span>}
+          {levelLabel && <span>{levelLabel}</span>}
+          {durationLabel && <span>{durationLabel}</span>}
+        </div>
+      </div>
+    </header>
 
     {hasAnyContent ? (
-      <ChapterTabs
-        hasCours={hasCours}
-        hasActivite={hasActivite}
-        hasExercices={hasExercices}
-        hasQuiz={hasQuiz}
-        hasFlashcards={hasFlashcards}
-        exercicesCount={exercices.length}
-        quizCount={quizData.length}
-        flashcardsCount={flashData.length}
-      >
-        <details slot="intro" class="chapter-before">
-          <summary>
-            <span>Avant de commencer</span>
-            <small>Objectifs, prérequis et compétences</small>
-          </summary>
-          <div class="chapter-before__content">
-            <section>
-              <h2>Objectifs</h2>
-              <ul>{(objectiveItems.length ? objectiveItems : [overviewObjective]).slice(0, 4).map((item) => <li>{item}</li>)}</ul>
-            </section>
-            <section>
-              <h2>Prérequis</h2>
-              <ul>{(prerequisiteItems.length ? prerequisiteItems : ["Aucun prérequis spécifique indiqué."]).slice(0, 4).map((item) => <li>{item}</li>)}</ul>
-            </section>
-            <section>
-              <h2>Compétences</h2>
-              <ul>{(competencyItems.length ? competencyItems : ["Comprendre", "S’entraîner", "Vérifier ses acquis"]).slice(0, 4).map((item) => <li>{item}</li>)}</ul>
-            </section>
-          </div>
-          <div class="chapter-before__facts" aria-label="Repères du chapitre">
-            {subjectLabel && <span>{subjectLabel}</span>}
-            {levelLabel && <span>{levelLabel}</span>}
-            {durationLabel && <span>{durationLabel}</span>}
-            {xpLabel && <span>{xpLabel}</span>}
-            {toolItems.slice(0, 2).map((tool) => <span>{tool}</span>)}
-          </div>
-        </details>
+      <section class="ui5-section ui5-chapter-workspace">
+        <ChapterTabs
+          hasCours={hasCours}
+          hasActivite={hasActivite}
+          hasExercices={hasExercices}
+          hasQuiz={hasQuiz}
+          hasFlashcards={hasFlashcards}
+          exercicesCount={exercices.length}
+          quizCount={quizData.length}
+          flashcardsCount={flashData.length}
+        >
+          <details slot="intro" class="ui5-chapter-before">
+            <summary>
+              <span>Avant de commencer</span>
+              <small>Objectifs, prérequis et compétences</small>
+            </summary>
+            <div class="ui5-chapter-before__grid">
+              <section>
+                <h2>Objectifs</h2>
+                <ul>{(objectiveItems.length ? objectiveItems : [overviewObjective]).slice(0, 4).map((item) => <li>{item}</li>)}</ul>
+              </section>
+              <section>
+                <h2>Prérequis</h2>
+                <ul>{(prerequisiteItems.length ? prerequisiteItems : ["Aucun prérequis spécifique indiqué."]).slice(0, 4).map((item) => <li>{item}</li>)}</ul>
+              </section>
+              <section>
+                <h2>Compétences</h2>
+                <ul>{(competencyItems.length ? competencyItems : ["Comprendre", "S’entraîner", "Vérifier ses acquis"]).slice(0, 4).map((item) => <li>{item}</li>)}</ul>
+              </section>
+            </div>
+            <div class="ui5-chapter-before__facts">
+              {xpLabel && <span>{xpLabel}</span>}
+              {toolItems.slice(0, 2).map((tool) => <span>{tool}</span>)}
+            </div>
+          </details>
 
-        {hasCours && (
-          <div slot="cours" class="cours-content">
-            <CourseReader chapterId={chapterId} title={`Cours - ${displayTitle}`}>
-              <CoursTracker client:load chapterId={chapterId} xpConfig={xpConfig}>
-                {courseTex ? <LatexCourse source={courseTex} title={displayTitle} levelLabel={levelLabel} subjectLabel={subjectLabel} /> : <CoursContent />}
-              </CoursTracker>
-            </CourseReader>
-          </div>
-        )}
+          {hasCours && (
+            <div slot="cours" class="cours-content ui5-course-content">
+              <CourseReader chapterId={chapterId} title={`Cours - ${displayTitle}`}>
+                <CoursTracker client:load chapterId={chapterId} xpConfig={xpConfig}>
+                  {courseTex
+                    ? <LatexCourse source={courseTex} title={displayTitle} levelLabel={levelLabel} subjectLabel={subjectLabel} />
+                    : <CoursContent />}
+                </CoursTracker>
+              </CourseReader>
+            </div>
+          )}
 
-        {hasActivite && ActivityContent && (
-          <div slot="activite">
-            <ActivityContent />
-          </div>
-        )}
+          {hasActivite && ActivityContent && <div slot="activite"><ActivityContent /></div>}
 
-        {hasExercices && (
-          <div slot="exercices">
-            <ExercicesPlayer client:load data={exercices} title={exercicesTitle} chapterId={chapterId} xpConfig={xpConfig} />
-          </div>
-        )}
+          {hasExercices && (
+            <div slot="exercices">
+              <ExercicesPlayer client:load data={exercices} title={exercicesTitle} chapterId={chapterId} xpConfig={xpConfig} />
+            </div>
+          )}
 
-        {hasQuiz && (
-          <div slot="quiz">
-            <QuizPlayer client:load data={quizData} title={quizTitle} chapterId={chapterId} xpConfig={xpConfig} />
-          </div>
-        )}
+          {hasQuiz && (
+            <div slot="quiz">
+              <QuizPlayer client:load data={quizData} title={quizTitle} chapterId={chapterId} xpConfig={xpConfig} />
+            </div>
+          )}
 
-        {hasFlashcards && (
-          <div slot="flashcards">
-            <FlashcardsPlayer client:load data={flashData} title={flashcardsTitle} chapterId={chapterId} xpConfig={xpConfig} />
-          </div>
-        )}
-      </ChapterTabs>
+          {hasFlashcards && (
+            <div slot="flashcards">
+              <FlashcardsPlayer client:load data={flashData} title={flashcardsTitle} chapterId={chapterId} xpConfig={xpConfig} />
+            </div>
+          )}
+        </ChapterTabs>
+      </section>
     ) : (
-      <MathEmptyState
-        title={emptyStateTitle}
-        message={emptyStateMessage}
-        actions={[{ label: backLabel, href: backUrl, primary: true }]}
-      />
+      <section class="ui5-section">
+        <MathEmptyState
+          title={emptyStateTitle}
+          message={emptyStateMessage}
+          actions={[{ label: backLabel, href: backUrl, primary: true }]}
+        />
+      </section>
     )}
 
-    <nav class="chapter-pagination" aria-label="Navigation entre les chapitres">
+    <nav class="ui5-chapter-pagination" aria-label="Navigation entre les chapitres">
       {previousChapter ? (
-        <a href={previousChapter.href} class="chapter-pagination-link previous">
-          <span aria-hidden="true">←</span>
-          <span><small>Chapitre précédent</small>{previousChapter.title}</span>
+        <a href={previousChapter.href} class="ui5-chapter-pagination__link">
+          <small>Chapitre précédent</small>
+          <strong>← {previousChapter.title}</strong>
         </a>
       ) : <span />}
-      <a href={indexHref} class="chapter-pagination-index">{indexLabel}</a>
+      <a href={indexHref} class="ui5-chapter-pagination__index">{indexLabel}</a>
       {nextChapter ? (
-        <a href={nextChapter.href} class="chapter-pagination-link next">
-          <span><small>Chapitre suivant</small>{nextChapter.title}</span>
-          <span aria-hidden="true">→</span>
+        <a href={nextChapter.href} class="ui5-chapter-pagination__link ui5-chapter-pagination__link--next">
+          <small>Chapitre suivant</small>
+          <strong>{nextChapter.title} →</strong>
         </a>
       ) : <span />}
     </nav>
   </article>
 </BaseLayout>
-
-<style>
-  .chapter-shell {
-    --chapter-shell-max: 1120px;
-  }
-
-  .chapter-hero-v3 {
-    max-width: var(--chapter-shell-max);
-    margin-inline: auto;
-  }
-
-  .chapter-header,
-  .math-chapter-header {
-    margin-bottom: 0.9rem;
-    padding: clamp(1rem, 2.5vw, 1.65rem);
-    border: 1px solid var(--border-color);
-    border-radius: var(--v3-radius-lg);
-    background: var(--bg-card);
-    box-shadow: none;
-  }
-
-  .chapter-header h1,
-  .math-chapter-header h1 {
-    margin: 0;
-    color: var(--text-primary);
-    font-size: clamp(1.875rem, 3.5vw, 2.5rem);
-    font-weight: 850;
-    line-height: 1.12;
-    text-wrap: balance;
-  }
-
-  .chapter-eyebrow {
-    margin: 0 0 0.45rem;
-    color: var(--accent-primary);
-    font-size: 0.78rem;
-    font-weight: 850;
-    text-transform: uppercase;
-  }
-
-  .chapter-description,
-  .math-chapter-description {
-    max-width: 70ch;
-    margin: 0.65rem 0 0;
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  .chapter-theme {
-    margin: 0.6rem 0 0;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-  }
-
-  .chapter-meta-badges,
-  .math-chapter-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-top: 0.8rem;
-  }
-
-  .chapter-badge,
-  .math-badge {
-    align-items: center;
-    display: inline-flex;
-    min-height: 36px;
-    padding: 0.3rem 0.7rem;
-    border: 1px solid var(--border-color);
-    border-radius: var(--v3-radius-sm);
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
-    font-size: 0.78rem;
-    font-weight: 750;
-  }
-
-  .chapter-badge.muted,
-  .math-badge.muted {
-    color: var(--text-muted);
-  }
-
-  :global(.chapter-before) {
-    margin: 0 0 1rem;
-    border-block: 1px solid var(--border-color);
-    background: var(--bg-card);
-  }
-
-  :global(.chapter-before > summary) {
-    align-items: center;
-    cursor: pointer;
-    display: flex;
-    gap: 0.75rem;
-    justify-content: space-between;
-    min-height: 48px;
-    padding: 0.7rem 0.85rem;
-    color: var(--text-primary);
-    font-weight: 800;
-  }
-
-  :global(.chapter-before > summary small) {
-    color: var(--text-muted);
-    font-size: 0.78rem;
-    font-weight: 650;
-  }
-
-  :global(.chapter-before__content) {
-    display: grid;
-    gap: 1.25rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    padding: 0.5rem 0.85rem 1rem;
-  }
-
-  :global(.chapter-before__content section) {
-    min-width: 0;
-  }
-
-  :global(.chapter-before__content h2) {
-    margin: 0 0 0.45rem;
-    color: var(--text-primary);
-    font-size: 0.92rem;
-  }
-
-  :global(.chapter-before__content ul) {
-    margin: 0;
-    padding-left: 1.15rem;
-    color: var(--text-secondary);
-    font-size: 0.88rem;
-    line-height: 1.55;
-  }
-
-  :global(.chapter-before__facts) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    padding: 0 0.85rem 1rem;
-  }
-
-  :global(.chapter-before__facts span) {
-    display: inline-flex;
-    align-items: center;
-    min-height: 36px;
-    padding: 0.25rem 0.6rem;
-    border-radius: var(--v3-radius-sm);
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
-    font-size: 0.78rem;
-    font-weight: 700;
-  }
-
-  .chapter-pagination {
-    align-items: center;
-    display: grid;
-    gap: 0.75rem;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    max-width: var(--chapter-shell-max);
-    margin: 1.5rem auto 0;
-  }
-
-  .chapter-pagination-link,
-  .chapter-pagination-index {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    text-decoration: none;
-  }
-
-  .chapter-pagination-link {
-    align-items: center;
-    display: inline-flex;
-    gap: 0.6rem;
-    min-width: 0;
-    min-height: 44px;
-    padding: 0.65rem 0.8rem;
-    border: 1px solid var(--border-color);
-    border-radius: var(--v3-radius-md);
-    background: var(--bg-card);
-  }
-
-  .chapter-pagination-link span:not([aria-hidden]) {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-  }
-
-  .chapter-pagination-link small {
-    color: var(--text-muted);
-    font-size: 0.75rem;
-  }
-
-  .chapter-pagination-link.previous {
-    justify-self: start;
-    text-align: left;
-  }
-
-  .chapter-pagination-link.next {
-    justify-self: end;
-    text-align: right;
-  }
-
-  .chapter-pagination-index {
-    justify-self: center;
-    font-weight: 700;
-  }
-
-  .chapter-pagination a:hover {
-    color: var(--accent-primary);
-    text-decoration: underline;
-  }
-
-  .chapter-pagination a:focus-visible,
-  :global(.chapter-before > summary:focus-visible) {
-    outline: 3px solid var(--accent-primary);
-    outline-offset: 3px;
-  }
-
-  @media (max-width: 800px) {
-    :global(.chapter-before__content) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .chapter-header,
-    .math-chapter-header {
-      padding: 1rem;
-      border-radius: var(--v3-radius-md);
-    }
-
-    .chapter-header h1,
-    .math-chapter-header h1 {
-      font-size: clamp(1.75rem, 8vw, 2rem);
-    }
-
-    :global(.chapter-before > summary) {
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    .chapter-pagination {
-      grid-template-columns: 1fr;
-      justify-items: stretch;
-    }
-
-    .chapter-pagination-link.previous,
-    .chapter-pagination-link.next,
-    .chapter-pagination-index {
-      justify-self: stretch;
-      text-align: center;
-      justify-content: center;
-    }
-
-    .chapter-pagination-link span:not([aria-hidden]) {
-      align-items: center;
-    }
-
-    .chapter-pagination > span:empty {
-      display: none;
-    }
-  }
-</style>
