@@ -460,6 +460,41 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
         <span style={{ fontSize: "0.86rem", color: V.textMut, fontWeight: 600, whiteSpace: "nowrap" }}>{ci + 1}/{filtered.length}</span>
       </div>
 
+      <div className="exercise-workspace">
+        <aside className="exercise-rail" aria-label="Progression dans la série d’exercices">
+          <p>Progression</p>
+          <div className="exercise-rail__list">
+            {filtered.map((exo, index) => (
+              <button
+                key={exo.id}
+                type="button"
+                className={[
+                  "exercise-rail__item",
+                  index === ci ? "is-current" : "",
+                  completedIds.has(exo.id) ? "is-complete" : "",
+                ].filter(Boolean).join(" ")}
+                aria-current={index === ci ? "step" : undefined}
+                onClick={() => goTo(index)}
+              >
+                <span>{index + 1}</span>
+                <small>{completedIds.has(exo.id) ? "Terminé" : index === ci ? "En cours" : "À faire"}</small>
+              </button>
+            ))}
+          </div>
+        </aside>
+
+        <details className="exercise-mobile-navigator">
+          <summary>Exercice {ci + 1}/{filtered.length} · Voir la série</summary>
+          <div className="exercise-mobile-navigator__grid">
+            {filtered.map((exo, index) => (
+              <button key={exo.id} type="button" aria-current={index === ci ? "step" : undefined} onClick={() => goTo(index)}>
+                {index + 1}{completedIds.has(exo.id) ? " ✓" : ""}
+              </button>
+            ))}
+          </div>
+        </details>
+
+        <div className="exercise-workspace__main">
       <section className="learning-question-card learning-exercise-card" aria-labelledby={`${safeDomId(cur.id)}-title`} style={{ ...cardStyle, borderLeft: `5px solid ${ds.color}`, padding: "1.35rem", marginBottom: "1rem" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem", gap: "0.75rem" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
@@ -619,7 +654,7 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
                 aria-disabled={!answerReady}
                 onClick={handleShowCorr}
                 style={{
-                  minHeight: 42,
+                  minHeight: 44,
                   padding: "0.7rem 1.15rem",
                   background: answerReady ? V.warning : V.textDis,
                   color: "#fff",
@@ -706,33 +741,7 @@ export default function ExercicesPlayer({ data, title, chapterId, xpConfig }: Ex
         <button type="button" onClick={() => ci > 0 && goTo(ci - 1)} disabled={ci === 0} style={navButtonStyle(ci > 0)}>Precedent</button>
         <button type="button" onClick={() => ci + 1 < filtered.length && goTo(ci + 1)} disabled={ci + 1 >= filtered.length} style={navButtonStyle(ci + 1 < filtered.length)}>Suivant</button>
       </div>
-
-      <div aria-label="Choisir un exercice" style={{ display: "flex", justifyContent: "center", gap: "0.35rem", flexWrap: "wrap", marginBottom: "0.75rem" }}>
-        {filtered.map((exo, index) => (
-          <button
-            key={exo.id}
-            type="button"
-            aria-label={`Afficher l'exercice ${index + 1}`}
-            aria-current={index === ci ? "true" : undefined}
-            onClick={() => goTo(index)}
-            style={{
-              width: 32,
-              height: 32,
-              borderRadius: "50%",
-              border: "none",
-              fontSize: "0.78rem",
-              fontWeight: 800,
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: index === ci ? V.primary : completedIds.has(exo.id) ? V.successLt : V.bgTer,
-              color: index === ci ? "#fff" : V.textSec,
-            }}
-          >
-            {index + 1}
-          </button>
-        ))}
+        </div>
       </div>
 
       <XPToast toasts={toasts} onDismiss={dismissToast} />
@@ -768,7 +777,7 @@ const inputStyle: CSSProperties = {
 
 function navButtonStyle(enabled: boolean): CSSProperties {
   return {
-    minHeight: 40,
+    minHeight: 44,
     padding: "0.55rem 1rem",
     border: "none",
     borderRadius: 8,
