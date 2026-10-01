@@ -1,24 +1,15 @@
 ---
-// src/pages/college/[niveau]/[matiere]/index.astro
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import CatalogueChapterList from "../../../../components/catalogue/CatalogueChapterList.astro";
 import type { CatalogueChapterItem } from "../../../../components/catalogue/types";
-import Breadcrumb from "../../../../components/ui/Breadcrumb.astro";
 import { collegeLevels, matieres, getLevelLabel, getMatiereLabel } from "../../../../data/levels";
-import {
-  getPhysicalScienceExplicitChapterPath,
-  type PhysicalScienceSubject,
-} from "../../../../data/contentRoutes";
+import { getPhysicalScienceExplicitChapterPath, type PhysicalScienceSubject } from "../../../../data/contentRoutes";
 
 const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
 
 export function getStaticPaths() {
   const paths: { params: { niveau: string; matiere: string } }[] = [];
-  for (const level of collegeLevels) {
-    for (const matiere of matieres) {
-      paths.push({ params: { niveau: level.slug, matiere: matiere.slug } });
-    }
-  }
+  for (const level of collegeLevels) for (const matiere of matieres) paths.push({ params: { niveau: level.slug, matiere: matiere.slug } });
   return paths;
 }
 
@@ -30,11 +21,9 @@ const otherMatiere = matiere === "chimie" ? "physique" : "chimie";
 const otherMatiereLabel = getMatiereLabel(otherMatiere);
 
 const chapters: CatalogueChapterItem[] = [];
-
 for (const [path, mod] of Object.entries(allMeta)) {
   const segments = path.replace("/src/data/chapters/", "").replace("/meta.json", "").split("/");
   const [cycle, niv, mat, slug] = segments;
-
   if (cycle === "college" && niv === niveau && mat === matiere) {
     const data = (mod as any).default ?? mod;
     chapters.push({
@@ -51,26 +40,33 @@ for (const [path, mod] of Object.entries(allMeta)) {
 <BaseLayout
   title={`${matiereLabel} ${niveauLabel} — Collège`}
   description={`Catalogue des chapitres de ${matiereLabel.toLowerCase()} pour ${niveauLabel} au collège.`}
+  subject="physique-chimie"
+  cycle="college"
+  level={niveauLabel}
 >
-  <main class="catalogue-page">
-    <Breadcrumb
-      items={[
-        { label: "Accueil", href: "/" },
-        { label: "Collège", href: "/college" },
-        { label: niveauLabel, href: `/college/${niveau}` },
-        { label: matiereLabel },
-      ]}
-    />
+  <div class="ui5-page" data-subject="physique-chimie">
+    <nav class="ui5-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/college">Collège</a><span aria-hidden="true">/</span>
+      <a href={`/college/${niveau}`}>{niveauLabel}</a><span aria-hidden="true">/</span>
+      <strong>{matiereLabel}</strong>
+    </nav>
 
-    <header class="catalogue-hero">
-      <p class="catalogue-kicker">Collège · {matiereLabel}</p>
-      <h1>{matiereLabel} — {niveauLabel}</h1>
-      <p>Les chapitres sont présentés dans l'ordre du programme. Ouvre un chapitre pour accéder au lecteur complet.</p>
-      <div class="catalogue-actions" aria-label="Navigation de catalogue">
-        <a href={`/college/${niveau}`}>Toutes les matières</a>
-        <a href={`/college/${niveau}/${otherMatiere}`}>Voir {otherMatiereLabel.toLowerCase()}</a>
+    <header class="ui5-page-header">
+      <div class="ui5-page-header__copy">
+        <p class="ui5-kicker">Collège · {matiereLabel}</p>
+        <h1 class="ui5-title">{matiereLabel} — {niveauLabel}</h1>
+        <p class="ui5-lead">Les chapitres sont présentés dans l’ordre du programme. Ouvre un chapitre pour retrouver le même lecteur de cours et les mêmes outils d’entraînement.</p>
+      </div>
+      <div class="ui5-page-header__aside">
+        <strong>{chapters.length} chapitre{chapters.length > 1 ? "s" : ""}</strong>
       </div>
     </header>
+
+    <nav class="ui5-filter-row" aria-label="Navigation de catalogue">
+      <a class="ui5-filter" href={`/college/${niveau}`}>Toutes les matières</a>
+      <a class="ui5-filter" href={`/college/${niveau}/${otherMatiere}`}>Voir {otherMatiereLabel.toLowerCase()}</a>
+    </nav>
 
     <CatalogueChapterList
       id="chapitres"
@@ -84,70 +80,5 @@ for (const [path, mod] of Object.entries(allMeta)) {
         { label: "Voir les outils collège", href: "/outils-methodes/college" },
       ]}
     />
-  </main>
+  </div>
 </BaseLayout>
-
-<style>
-  .catalogue-page {
-    margin: 0 auto;
-    max-width: 900px;
-    padding: 1rem 1rem 3rem;
-  }
-
-  .catalogue-hero {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
-    display: grid;
-    gap: var(--v3-space-3);
-    margin: 1rem auto 1.25rem;
-    padding: clamp(1rem, 2.5vw, 1.5rem);
-  }
-
-  .catalogue-kicker {
-    color: var(--accent-primary);
-    font-size: 0.78rem;
-    font-weight: 900;
-    letter-spacing: 0;
-    margin: 0;
-    text-transform: uppercase;
-  }
-
-  .catalogue-hero h1 {
-    color: var(--text-primary);
-    font-size: clamp(1.55rem, 4vw, 2.2rem);
-    letter-spacing: 0;
-    margin: 0;
-  }
-
-  .catalogue-hero p {
-    color: var(--text-secondary);
-    line-height: 1.65;
-    margin: 0;
-  }
-
-  .catalogue-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--v3-space-2);
-  }
-
-  .catalogue-actions a {
-    align-items: center;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-pill);
-    color: var(--accent-primary);
-    display: inline-flex;
-    font-weight: 900;
-    min-height: 44px;
-    padding: 0.55rem 0.85rem;
-    text-decoration: none;
-  }
-
-  .catalogue-actions a:hover,
-  .catalogue-actions a:focus-visible {
-    box-shadow: var(--v3-shadow-focus);
-    outline: none;
-  }
-</style>
