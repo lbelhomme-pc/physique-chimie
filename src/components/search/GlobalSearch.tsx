@@ -304,11 +304,11 @@ export default function GlobalSearch({
 
       <style>{`
         .global-search {
-          background: #ffffff;
-          border: 1px solid #cbdcf7;
+          background: var(--v3-color-surface-page);
+          border: 1px solid var(--v3-color-border-default);
           border-radius: 8px;
           box-shadow: 0 18px 45px rgba(12, 48, 106, 0.09);
-          color: #061849;
+          color: var(--v3-color-text-main);
           display: grid;
           gap: 1.35rem;
           padding: 2rem;
@@ -322,7 +322,7 @@ export default function GlobalSearch({
         }
 
         .global-search__eyebrow {
-          color: #1765ff;
+          color: var(--v3-color-action);
           font-size: 0.75rem;
           font-weight: 950;
           letter-spacing: 0;
@@ -331,7 +331,7 @@ export default function GlobalSearch({
         }
 
         .global-search__header h2 {
-          color: #00184d;
+          color: var(--v3-color-text-main);
           font-size: 2rem;
           font-weight: 950;
           letter-spacing: 0;
@@ -340,7 +340,7 @@ export default function GlobalSearch({
         }
 
         .global-search__header div > span {
-          color: #52617c;
+          color: var(--v3-color-text-subtle);
           display: block;
           font-size: 0.95rem;
           font-weight: 650;
@@ -349,8 +349,8 @@ export default function GlobalSearch({
 
         .global-search__total {
           align-items: center;
-          background: #edf5ff;
-          border-left: 3px solid #1765ff;
+          background: var(--v3-color-action-subtle);
+          border-left: 3px solid var(--v3-color-action);
           color: #00184d;
           display: flex;
           font-size: 1.3rem;
@@ -372,7 +372,7 @@ export default function GlobalSearch({
 
         .global-search__field label,
         .global-search fieldset legend {
-          color: #1f355f;
+          color: var(--v3-color-text-subtle);
           font-size: 0.78rem;
           font-weight: 900;
         }
@@ -380,7 +380,7 @@ export default function GlobalSearch({
         .global-search__input-wrap {
           align-items: center;
           background: #ffffff;
-          border: 2px solid #a9c3ef;
+          border: 2px solid var(--v3-color-border-strong);
           border-radius: 8px;
           display: grid;
           grid-template-columns: auto minmax(0, 1fr) auto;
@@ -390,12 +390,12 @@ export default function GlobalSearch({
         }
 
         .global-search__input-wrap:focus-within {
-          border-color: #1765ff;
+          border-color: var(--v3-color-action);
           box-shadow: 0 0 0 4px rgba(23, 101, 255, 0.14);
         }
 
         .global-search__search-icon {
-          border: 2px solid #1765ff;
+          border: 2px solid var(--v3-color-action);
           border-radius: 50%;
           height: 15px;
           margin-right: 0.8rem;
@@ -404,7 +404,7 @@ export default function GlobalSearch({
         }
 
         .global-search__search-icon::after {
-          background: #1765ff;
+          background: var(--v3-color-action);
           bottom: -5px;
           content: "";
           height: 2px;
@@ -439,17 +439,17 @@ export default function GlobalSearch({
 
         .global-search__clear {
           align-items: center;
-          background: #edf3fb;
+          background: var(--v3-color-surface-muted);
           border: 0;
           border-radius: 50%;
           color: #1f355f;
           cursor: pointer;
           display: inline-flex;
           font-size: 1.15rem;
-          height: 34px;
+          height: 36px;
           justify-content: center;
           padding: 0;
-          width: 34px;
+          width: 36px;
         }
 
         .global-search__suggestions {
@@ -473,14 +473,14 @@ export default function GlobalSearch({
 
         .global-search__suggestions button {
           background: #ffffff;
-          border: 1px solid #bcd0ef;
+          border: 1px solid var(--v3-color-border-strong);
           border-radius: 6px;
-          color: #1765ff;
+          color: var(--v3-color-action);
           cursor: pointer;
           font: inherit;
           font-size: 0.76rem;
           font-weight: 850;
-          min-height: 34px;
+          min-height: 36px;
           padding: 0.35rem 0.65rem;
         }
 
@@ -506,7 +506,7 @@ export default function GlobalSearch({
 
         .global-search__filters {
           background: #edf3fb;
-          border: 1px solid #d3e0f2;
+          border: 1px solid var(--v3-color-border-default);
           border-radius: 8px;
           display: grid;
           gap: 0.25rem;
@@ -515,7 +515,7 @@ export default function GlobalSearch({
         }
 
         .global-search__filters button {
-          --filter-accent: #1765ff;
+          --filter-accent: var(--v3-color-action);
           background: transparent;
           border: 0;
           border-radius: 6px;
@@ -531,15 +531,15 @@ export default function GlobalSearch({
         }
 
         .global-search__filters button[data-tone="maths"] {
-          --filter-accent: #1765ff;
+          --filter-accent: var(--v3-color-discipline-maths);
         }
 
         .global-search__filters button[data-tone="pc"] {
-          --filter-accent: #7050ee;
+          --filter-accent: var(--v3-color-discipline-pc);
         }
 
         .global-search__filters button[data-tone="science"] {
-          --filter-accent: #008f78;
+          --filter-accent: var(--v3-color-discipline-science);
         }
 
         .global-search__filters button.active {
@@ -551,7 +551,7 @@ export default function GlobalSearch({
         .global-search__suggestions button:hover,
         .global-search__suggestions button:focus-visible {
           background: #edf5ff;
-          border-color: #1765ff;
+          border-color: var(--v3-color-action);
         }
 
         .global-search button:focus-visible {
@@ -593,7 +593,7 @@ export default function GlobalSearch({
         }
 
         .global-search__result {
-          --result-accent: #1765ff;
+          --result-accent: var(--v3-color-discipline-maths);
           align-items: flex-start;
           background: #fbfdff;
           border: 1px solid #d8e4f5;
@@ -609,11 +609,11 @@ export default function GlobalSearch({
         }
 
         .global-search__result[data-subject="physique-chimie"] {
-          --result-accent: #7050ee;
+          --result-accent: var(--v3-color-discipline-pc);
         }
 
         .global-search__result[data-subject="enseignement-scientifique"] {
-          --result-accent: #008f78;
+          --result-accent: var(--v3-color-discipline-science);
         }
 
         .global-search__result-main {
