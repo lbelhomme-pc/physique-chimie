@@ -13,13 +13,6 @@ import LatexCourse from "../mathematiques/LatexCourse.astro";
 type BreadcrumbItem = { label: string; href?: string };
 type ChapterLink = { title: string; href: string } | null;
 type ChapterBadge = { label: string; muted?: boolean };
-type ActivitySection = {
-  id: "cours" | "activite" | "exercices" | "quiz" | "flashcards";
-  label: string;
-  available: boolean;
-  count?: number;
-};
-
 interface Props {
   title: string;
   description: string;
@@ -142,15 +135,6 @@ const competencyItems = cleanItems(competencies);
 const toolItems = cleanItems(tools);
 const durationLabel = formatDuration(estimatedDuration);
 const xpLabel = formatXp(xpConfig);
-const activitySections: ActivitySection[] = [
-  { id: "cours", label: "Cours", available: hasCours },
-  { id: "activite", label: "Activite", available: hasActivite },
-  { id: "exercices", label: "Exercices", available: hasExercices, count: exercices.length },
-  { id: "quiz", label: "Quiz", available: hasQuiz, count: quizData.length },
-  { id: "flashcards", label: "Flashcards", available: hasFlashcards, count: flashData.length },
-];
-const availableSections = activitySections.filter((section) => section.available);
-const activeActivityId = availableSections[0]?.id;
 const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description;
 ---
 
@@ -172,7 +156,7 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
         {chapterDescription && <p class="math-chapter-description">{chapterDescription}</p>}
         {badges.length > 0 && (
           <div class="math-chapter-meta">
-            {badges.map((badge) => (
+            {badges.slice(0, 3).map((badge) => (
               <span class:list={["math-badge", { muted: badge.muted }]}>{badge.label}</span>
             ))}
           </div>
@@ -186,72 +170,12 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
         {theme && <p class="chapter-theme">{theme}</p>}
         {badges.length > 0 && (
           <div class="chapter-meta-badges">
-            {badges.map((badge) => (
+            {badges.slice(0, 3).map((badge) => (
               <span class:list={["chapter-badge", { muted: badge.muted }]}>{badge.label}</span>
             ))}
           </div>
         )}
       </header>
-    )}
-
-    {hasAnyContent && (
-      <section class="chapter-overview" aria-labelledby="chapter-overview-title">
-        <div class="chapter-overview-main">
-          <p class="chapter-overview-kicker">Vue d'ensemble</p>
-          <h2 id="chapter-overview-title">Avant de commencer</h2>
-          <p>{overviewObjective}</p>
-
-          <div class="chapter-overview-grid">
-            <div class="chapter-info-card">
-              <h3>Objectif</h3>
-              <ul>
-                {(objectiveItems.length ? objectiveItems : [overviewObjective]).slice(0, 3).map((item) => <li>{item}</li>)}
-              </ul>
-            </div>
-            <div class="chapter-info-card">
-              <h3>Prérequis</h3>
-              <ul>
-                {(prerequisiteItems.length ? prerequisiteItems : ["Aucun prérequis spécifique indiqué."]).slice(0, 4).map((item) => <li>{item}</li>)}
-              </ul>
-            </div>
-            <div class="chapter-info-card">
-              <h3>Compétences</h3>
-              <ul>
-                {(competencyItems.length ? competencyItems : ["Comprendre", "S'entrainer", "Vérifier ses acquis"]).slice(0, 4).map((item) => <li>{item}</li>)}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <aside class="chapter-overview-side" aria-labelledby="chapter-summary-title">
-          <div class="chapter-quick-facts" aria-label="Repères du chapitre">
-            {subjectLabel && <span>{subjectLabel}</span>}
-            {levelLabel && <span>{levelLabel}</span>}
-            {durationLabel && <span>{durationLabel}</span>}
-            {xpLabel && <span>{xpLabel}</span>}
-            {toolItems.slice(0, 3).map((tool) => <span>{tool}</span>)}
-          </div>
-
-          <nav class="chapter-summary" aria-labelledby="chapter-summary-title">
-            <h2 id="chapter-summary-title">Sommaire</h2>
-            <ol>
-              {availableSections.map((section) => (
-                <li>
-                  <a
-                    href={`#chapter-panel-${section.id}`}
-                    data-chapter-summary-link={section.id}
-                    aria-current={section.id === activeActivityId ? "step" : undefined}
-                  >
-                    <span>{section.label}</span>
-                    {section.count !== undefined && section.count > 0 && <small>{section.count}</small>}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </nav>
-
-        </aside>
-      </section>
     )}
 
     {hasAnyContent ? (
@@ -264,9 +188,35 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
         exercicesCount={exercices.length}
         quizCount={quizData.length}
         flashcardsCount={flashData.length}
-        backUrl={backUrl}
-        backLabel={backLabel}
       >
+        <details slot="intro" class="chapter-before">
+          <summary>
+            <span>Avant de commencer</span>
+            <small>Objectifs, prérequis et compétences</small>
+          </summary>
+          <div class="chapter-before__content">
+            <section>
+              <h2>Objectifs</h2>
+              <ul>{(objectiveItems.length ? objectiveItems : [overviewObjective]).slice(0, 4).map((item) => <li>{item}</li>)}</ul>
+            </section>
+            <section>
+              <h2>Prérequis</h2>
+              <ul>{(prerequisiteItems.length ? prerequisiteItems : ["Aucun prérequis spécifique indiqué."]).slice(0, 4).map((item) => <li>{item}</li>)}</ul>
+            </section>
+            <section>
+              <h2>Compétences</h2>
+              <ul>{(competencyItems.length ? competencyItems : ["Comprendre", "S’entraîner", "Vérifier ses acquis"]).slice(0, 4).map((item) => <li>{item}</li>)}</ul>
+            </section>
+          </div>
+          <div class="chapter-before__facts" aria-label="Repères du chapitre">
+            {subjectLabel && <span>{subjectLabel}</span>}
+            {levelLabel && <span>{levelLabel}</span>}
+            {durationLabel && <span>{durationLabel}</span>}
+            {xpLabel && <span>{xpLabel}</span>}
+            {toolItems.slice(0, 2).map((tool) => <span>{tool}</span>)}
+          </div>
+        </details>
+
         {hasCours && (
           <div slot="cours" class="cours-content">
             <CourseReader chapterId={chapterId} title={`Cours - ${displayTitle}`}>
@@ -332,51 +282,52 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
     --chapter-shell-max: 1120px;
   }
 
-  .chapter-hero-v3,
-  .chapter-overview {
+  .chapter-hero-v3 {
     max-width: var(--chapter-shell-max);
     margin-inline: auto;
   }
 
-  .chapter-header {
-    margin-bottom: 1rem;
-    padding: clamp(1.2rem, 3vw, 2rem);
+  .chapter-header,
+  .math-chapter-header {
+    margin-bottom: 0.9rem;
+    padding: clamp(1rem, 2.5vw, 1.65rem);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: var(--v3-radius-lg);
     background: var(--bg-card);
-    box-shadow: 0 8px 24px rgb(15 23 42 / 0.05);
+    box-shadow: none;
   }
 
-  .chapter-header h1 {
-    font-size: clamp(1.6rem, 3vw, 2.35rem);
-    font-weight: 800;
-    color: var(--text-primary);
+  .chapter-header h1,
+  .math-chapter-header h1 {
     margin: 0;
+    color: var(--text-primary);
+    font-size: clamp(1.875rem, 3.5vw, 2.5rem);
+    font-weight: 850;
     line-height: 1.12;
+    text-wrap: balance;
   }
 
-  .chapter-eyebrow,
-  .chapter-overview-kicker {
+  .chapter-eyebrow {
     margin: 0 0 0.45rem;
     color: var(--accent-primary);
     font-size: 0.78rem;
     font-weight: 850;
-    letter-spacing: 0;
     text-transform: uppercase;
   }
 
-  .chapter-description {
-    max-width: 760px;
-    margin: 0.75rem 0 0;
+  .chapter-description,
+  .math-chapter-description {
+    max-width: 70ch;
+    margin: 0.65rem 0 0;
     color: var(--text-secondary);
     font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.65;
   }
 
   .chapter-theme {
-    font-size: 0.85rem;
+    margin: 0.6rem 0 0;
     color: var(--text-muted);
-    margin: 0.75rem 0 0;
+    font-size: 0.85rem;
   }
 
   .chapter-meta-badges,
@@ -384,17 +335,18 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
     display: flex;
     flex-wrap: wrap;
     gap: 0.45rem;
-    margin-top: 0.9rem;
+    margin-top: 0.8rem;
   }
 
   .chapter-badge,
   .math-badge {
-    display: inline-flex;
     align-items: center;
-    min-height: 28px;
-    padding: 0.25rem 0.7rem;
-    border-radius: 99px;
-    background: var(--bg-tertiary);
+    display: inline-flex;
+    min-height: 36px;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--v3-radius-sm);
+    background: var(--bg-secondary);
     color: var(--text-secondary);
     font-size: 0.78rem;
     font-weight: 750;
@@ -405,187 +357,79 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
     color: var(--text-muted);
   }
 
-  .math-chapter-header {
-    padding: clamp(1.2rem, 3vw, 2rem);
-    border: 1px solid var(--v3-color-border, var(--border-color));
-    border-radius: 8px;
+  :global(.chapter-before) {
+    margin: 0 0 1rem;
+    border-block: 1px solid var(--border-color);
     background: var(--bg-card);
-    box-shadow: 0 8px 24px rgb(15 23 42 / 0.05);
-    margin-bottom: 1rem;
   }
 
-  .math-chapter-header h1 {
-    margin: 0;
-    font-size: clamp(1.6rem, 3vw, 2.35rem);
-    line-height: 1.12;
-  }
-
-  .math-chapter-description {
-    max-width: 760px;
-    margin: 0.75rem 0 0;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  .chapter-overview {
-    display: grid;
-    grid-template-columns: minmax(0, 1.65fr) minmax(260px, 0.7fr);
-    align-items: stretch;
-    gap: 0;
-    margin-bottom: 1.25rem;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    background: var(--bg-card);
-    box-shadow: 0 8px 24px rgb(15 23 42 / 0.05);
-  }
-
-  .chapter-overview-main,
-  .chapter-overview-side {
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-  }
-
-  .chapter-overview-main {
-    padding: clamp(1rem, 2vw, 1.35rem);
-  }
-
-  .chapter-overview-main h2,
-  .chapter-summary h2 {
-    margin: 0;
-    color: var(--text-primary);
-    font-size: 1rem;
-    line-height: 1.25;
-  }
-
-  .chapter-overview-main > p {
-    margin: 0.55rem 0 0;
-    color: var(--text-secondary);
-    line-height: 1.65;
-  }
-
-  .chapter-overview-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  :global(.chapter-before > summary) {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
     gap: 0.75rem;
-    margin-top: 1rem;
-  }
-
-  .chapter-info-card {
-    min-width: 0;
-    padding: 0.85rem;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    background: var(--bg-secondary);
-  }
-
-  .chapter-info-card h3 {
-    margin: 0 0 0.55rem;
+    justify-content: space-between;
+    min-height: 48px;
+    padding: 0.7rem 0.85rem;
     color: var(--text-primary);
-    font-size: 0.86rem;
+    font-weight: 800;
   }
 
-  .chapter-info-card ul {
+  :global(.chapter-before > summary small) {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 650;
+  }
+
+  :global(.chapter-before__content) {
     display: grid;
-    gap: 0.45rem;
-    padding-left: 1rem;
+    gap: 1.25rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0.5rem 0.85rem 1rem;
+  }
+
+  :global(.chapter-before__content section) {
+    min-width: 0;
+  }
+
+  :global(.chapter-before__content h2) {
+    margin: 0 0 0.45rem;
+    color: var(--text-primary);
+    font-size: 0.92rem;
+  }
+
+  :global(.chapter-before__content ul) {
     margin: 0;
+    padding-left: 1.15rem;
     color: var(--text-secondary);
-    font-size: 0.86rem;
-    line-height: 1.45;
+    font-size: 0.88rem;
+    line-height: 1.55;
   }
 
-  .chapter-overview-side {
-    display: grid;
-    gap: 0.9rem;
-    align-content: start;
-    padding: 1rem;
-    border-left: 1px solid var(--border-color);
-    background: var(--bg-secondary);
-  }
-
-  .chapter-quick-facts {
+  :global(.chapter-before__facts) {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
+    padding: 0 0.85rem 1rem;
   }
 
-  .chapter-quick-facts span {
+  :global(.chapter-before__facts span) {
     display: inline-flex;
     align-items: center;
-    min-height: 28px;
-    padding: 0.25rem 0.65rem;
-    border-radius: 99px;
-    background: var(--bg-tertiary);
+    min-height: 36px;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--v3-radius-sm);
+    background: var(--bg-secondary);
     color: var(--text-secondary);
     font-size: 0.78rem;
-    font-weight: 750;
+    font-weight: 700;
   }
-
-  .chapter-summary {
-    display: grid;
-    gap: 0.7rem;
-  }
-
-  .chapter-summary ol {
-    display: grid;
-    gap: 0.45rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .chapter-summary a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    min-height: 42px;
-    padding: 0.55rem 0.7rem;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    color: var(--text-secondary);
-    text-decoration: none;
-    background: var(--bg-primary);
-  }
-
-  .chapter-summary a:hover {
-    color: var(--accent-primary);
-    border-color: var(--accent-primary);
-    text-decoration: none;
-  }
-
-  .chapter-summary a:focus-visible {
-    outline: 3px solid var(--accent-primary);
-    outline-offset: 3px;
-  }
-
-  .chapter-summary a[aria-current="step"] {
-    color: var(--accent-primary);
-    border-color: var(--accent-primary);
-    background: var(--accent-primary-light);
-    font-weight: 800;
-  }
-
-  .chapter-summary small {
-    flex: 0 0 auto;
-    min-width: 24px;
-    padding: 0.1rem 0.35rem;
-    border-radius: 99px;
-    background: var(--bg-tertiary);
-    color: var(--text-muted);
-    text-align: center;
-    font-weight: 800;
-  }
-
 
   .chapter-pagination {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
+    display: grid;
     gap: 0.75rem;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     max-width: var(--chapter-shell-max);
     margin: 1.5rem auto 0;
   }
@@ -593,18 +437,19 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
   .chapter-pagination-link,
   .chapter-pagination-index {
     color: var(--text-secondary);
-    text-decoration: none;
     font-size: 0.85rem;
+    text-decoration: none;
   }
 
   .chapter-pagination-link {
-    display: inline-flex;
     align-items: center;
+    display: inline-flex;
     gap: 0.6rem;
     min-width: 0;
-    padding: 0.7rem 0.85rem;
+    min-height: 44px;
+    padding: 0.65rem 0.8rem;
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: var(--v3-radius-md);
     background: var(--bg-card);
   }
 
@@ -631,7 +476,7 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
 
   .chapter-pagination-index {
     justify-self: center;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .chapter-pagination a:hover {
@@ -639,41 +484,47 @@ const overviewObjective = objectiveItems[0] ?? chapterDescription ?? description
     text-decoration: underline;
   }
 
-  .chapter-pagination a:focus-visible {
+  .chapter-pagination a:focus-visible,
+  :global(.chapter-before > summary:focus-visible) {
     outline: 3px solid var(--accent-primary);
     outline-offset: 3px;
-    border-radius: 4px;
   }
 
-  @media (max-width: 900px) {
-    .chapter-overview,
-    .chapter-overview-grid {
+  @media (max-width: 800px) {
+    :global(.chapter-before__content) {
       grid-template-columns: 1fr;
     }
   }
 
   @media (max-width: 640px) {
     .chapter-header,
-    .math-chapter-header,
-    .chapter-overview {
-      border-radius: 8px;
+    .math-chapter-header {
+      padding: 1rem;
+      border-radius: var(--v3-radius-md);
     }
 
-    .chapter-overview-side {
-      border-left: 0;
-      border-top: 1px solid var(--border-color);
+    .chapter-header h1,
+    .math-chapter-header h1 {
+      font-size: clamp(1.75rem, 8vw, 2rem);
+    }
+
+    :global(.chapter-before > summary) {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.15rem;
     }
 
     .chapter-pagination {
       grid-template-columns: 1fr;
-      justify-items: center;
-      text-align: center;
+      justify-items: stretch;
     }
 
     .chapter-pagination-link.previous,
-    .chapter-pagination-link.next {
-      justify-self: center;
+    .chapter-pagination-link.next,
+    .chapter-pagination-index {
+      justify-self: stretch;
       text-align: center;
+      justify-content: center;
     }
 
     .chapter-pagination-link span:not([aria-hidden]) {
