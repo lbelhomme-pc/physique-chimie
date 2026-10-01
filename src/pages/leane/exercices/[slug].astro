@@ -90,39 +90,3 @@ const flashcardsHref = "/leane/flashcards";
   </LeaneShell>
 </BaseLayout>
 
-<style is:global>
-  .leane-exercise-detail {
-    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.32fr);
-  }
-
-  .leane-exercise-detail__top {
-    align-items: center;
-    display: flex;
-    gap: 0.75rem;
-    justify-content: space-between;
-    margin-bottom: 0.85rem;
-  }
-
-  .leane-exercise-detail .leane-exercise-runner__stack {
-    min-height: 20rem;
-  }
-
-  .leane-exercise-detail .leane-exercise-step h3 {
-    font-size: clamp(1.35rem, 2vw, 1.75rem);
-  }
-
-  .leane-exercise-side {
-    position: sticky;
-    top: 1rem;
-  }
-
-  @media (max-width: 1040px) {
-    .leane-exercise-detail {
-      grid-template-columns: 1fr;
-    }
-
-    .leane-exercise-side {
-      position: static;
-    }
-  }
-</style>
