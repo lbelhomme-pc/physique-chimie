@@ -91,4 +91,12 @@ describe("course reader V3", () => {
     assert.match(lyceeLight, /<svg[\s>]/);
     assert.match(mathFunctions, /<svg[\s>]/);
   });
+
+  it("keeps long-form prose within the V4 reading measure and avoids card-everywhere styling", () => {
+    assert.match(designStyles, /--v3-measure-readable:\s*70ch/);
+    assert.match(designStyles, /V4 document-first reading geometry/);
+    assert.match(designStyles, /max-width:\s*var\(--v3-measure-readable,\s*70ch\)/);
+    assert.match(designStyles, /\.course-idea-heading\s*\{[\s\S]*?background:\s*transparent;[\s\S]*?box-shadow:\s*none;/);
+    assert.match(designStyles, /\.course-label-heading \+ p,[\s\S]*?border-left:\s*3px solid var\(--v3-color-pedagogy-definition\)/);
+  });
 });
