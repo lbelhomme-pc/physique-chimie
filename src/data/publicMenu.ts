@@ -37,7 +37,7 @@ export const publicMenuSections = [
     ],
   },
   {
-    title: "Mémorisation",
+    title: "Réviser",
     href: "/memorisation",
     tone: "memory",
     discipline: "transversal",
@@ -48,18 +48,15 @@ export const publicMenuSections = [
     ],
   },
   {
-    title: "Kit scientifique",
+    title: "Outils",
     href: "/outils-methodes/kit-scientifique",
     tone: "kit",
     discipline: "transversal",
     links: [
       { label: "Laboratoire virtuel", href: "/laboratoire" },
+      { label: "Kit scientifique", href: "/outils-methodes/kit-scientifique" },
       { label: "Tableau périodique", href: "/outils-methodes/tableau-periodique" },
-      { label: "Calculatrice scientifique", href: "/outils-methodes/kit-scientifique#calculator" },
-      { label: "Convertisseur d'unités", href: "/outils-methodes/kit-scientifique#converter" },
-      { label: "Traceur graphique", href: "/outils-methodes/kit-scientifique#graph" },
-      { label: "Préparation d'une solution", href: "/outils-methodes/kit-scientifique#solution" },
-      { label: "Équilibrer une équation chimique", href: "/outils-methodes/kit-scientifique#balance" },
+      { label: "Méthodes", href: "/outils-methodes" },
     ],
   },
 ] as const satisfies readonly PublicMenuSection[];
