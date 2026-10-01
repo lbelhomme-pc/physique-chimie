@@ -1,10 +1,8 @@
 ---
-// src/pages/lycee/index.astro
+// UI V5 — page d'entrée lycée Physique-Chimie
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import V3LandingHero from "../../components/home/V3LandingHero.astro";
 import {
   getDisciplineIdentity,
-  getDisciplineStyle,
   getPhysiqueChimieTrackFromLevelSlug,
 } from "../../data/disciplineIdentity";
 import { lyceeLevels, getLevelLabel } from "../../data/levels";
@@ -30,18 +28,12 @@ function countChapters(levelSlug: string, matiere?: string) {
   }).length;
 }
 
-const parentDiscipline = getDisciplineIdentity("physique-chimie");
 const levelCards = lyceeLevels.map((level) => {
   const trackId = getPhysiqueChimieTrackFromLevelSlug(level.slug);
   const track = getDisciplineIdentity(trackId);
   const chimie = countChapters(level.slug, "chimie");
   const physique = countChapters(level.slug, "physique");
   const total = chimie + physique;
-  const countLabel =
-    trackId === "enseignement-scientifique"
-      ? `${total} chapitre(s) en ligne dans le parcours Enseignement scientifique.`
-      : `${total} chapitre(s) en ligne : ${physique} en physique et ${chimie} en chimie.`;
-
   return {
     ...level,
     label: getShortLabel(level.slug),
@@ -49,16 +41,10 @@ const levelCards = lyceeLevels.map((level) => {
     chimie,
     physique,
     total,
-    discipline: parentDiscipline,
     track,
     trackId,
-    countLabel,
   };
 });
-const totalChapterCount = levelCards.reduce((sum, level) => sum + level.total, 0);
-const scientificEducationLevels = levelCards.filter(
-  (level) => level.trackId === "enseignement-scientifique",
-).length;
 ---
 
 <BaseLayout
@@ -67,232 +53,68 @@ const scientificEducationLevels = levelCards.filter(
   subject="physique-chimie"
   cycle="lycee"
 >
-  <div class="v3-landing-page v3-landing-page--mixed level-home">
-    <V3LandingHero
-      tone="mixed"
-      eyebrow="Physique-Chimie au lycée"
-      mark="PC"
-      markLabel="Repère Physique-Chimie"
-      title="Choisir son parcours au lycée"
-      description="Retrouve dans un même espace la Seconde, la spécialité Physique-Chimie et l’Enseignement scientifique, de la première à la terminale."
-      actions={[
-        { label: "Voir les parcours", href: "#niveaux-lycee" },
-        { label: "Retour à Physique-Chimie", href: "/physique-chimie", variant: "secondary" },
-      ]}
-      stats={[
-        { value: levelCards.length, label: "parcours" },
-        { value: scientificEducationLevels, label: "parcours ES" },
-        { value: totalChapterCount, label: "chapitres publiés" },
-      ]}
-      imageAlt="Bureau scientifique pour travailler les parcours de physique-chimie au lycée, dont l’enseignement scientifique."
-    />
+  <div class="ui5-page" data-subject="physique-chimie">
+    <nav class="ui5-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/physique-chimie">Physique-Chimie</a><span aria-hidden="true">/</span>
+      <strong>Lycée</strong>
+    </nav>
 
-    <div class="v3-landing-content">
-      <section class="v3-landing-section" id="niveaux-lycee" aria-labelledby="lycee-levels-title">
-        <div class="v3-landing-section-header">
-          <div>
-            <p>Parcours lycée</p>
-            <h2 id="lycee-levels-title">Choisir un niveau et un parcours</h2>
-          </div>
-          <span>La discipline parente reste Physique-Chimie ; le badge précise le parcours suivi.</span>
-        </div>
+    <header class="ui5-page-header">
+      <div class="ui5-page-header__copy">
+        <p class="ui5-kicker">Parcours lycée</p>
+        <h1 class="ui5-title">Choisir un parcours</h1>
+        <p class="ui5-lead">Seconde, spécialité Physique-Chimie et Enseignement scientifique utilisent désormais la même structure de navigation et de travail.</p>
+      </div>
+      <p class="ui5-page-header__aside">{levelCards.length} parcours · {levelCards.reduce((sum, level) => sum + level.total, 0)} chapitres publiés</p>
+    </header>
 
-        <div class="level-card-grid v3-landing-grid" aria-label="Parcours Physique-Chimie au lycée">
-          {levelCards.map((level) => (
-            <article
-              class="level-card v3-landing-card"
-              data-discipline="physique-chimie"
-              data-track={level.trackId}
-              style={getDisciplineStyle(level.track)}
-            >
-              <div class="level-card-head">
-                <span class="discipline-badge" aria-label={level.track.iconLabel}>
-                  <span aria-hidden="true">{level.track.mark}</span>
-                  <strong>{level.track.label}</strong>
-                </span>
-                <div>
-                  <h2>{level.label}</h2>
-                  <p class="full-label">{level.fullLabel}</p>
-                </div>
+    <section class="ui5-section" aria-labelledby="lycee-levels-title">
+      <div class="ui5-section-head">
+        <h2 id="lycee-levels-title">Parcours disponibles</h2>
+        <p>Choisis d’abord le parcours, puis le chapitre.</p>
+      </div>
+
+      <div class="ui5-grid ui5-grid--2">
+        {levelCards.map((level) => (
+          <article class="ui5-card ui5-level-card" data-track={level.trackId}>
+            <div class="ui5-level-card__top">
+              <span class="ui5-level-card__badge" aria-hidden="true">{level.track.mark}</span>
+              <div>
+                <h3>{level.label}</h3>
+                {level.fullLabel !== level.label && <p class="ui5-level-card__sublabel">{level.fullLabel}</p>}
               </div>
-              <p>
-                {level.total > 0
-                  ? level.countLabel
-                  : "Cette partie est prévue, mais les chapitres ne sont pas encore publiés."}
-              </p>
-              <p class="discipline-microcopy">{level.track.microcopy}</p>
-              <div class="level-actions">
-                <a class="primary-action" href={`/lycee/${level.slug}`}>Voir le niveau</a>
-                {level.trackId === "physique-chimie" && level.chimie > 0 && <a href={`/lycee/${level.slug}/chimie`}>Chimie</a>}
-                {level.trackId === "physique-chimie" && level.physique > 0 && <a href={`/lycee/${level.slug}/physique`}>Physique</a>}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+            </div>
 
-      <section class="tools-callout v3-landing-callout" aria-labelledby="tools-title">
+            <p>{level.total > 0
+              ? level.trackId === "enseignement-scientifique"
+                ? `${level.total} chapitres publiés dans le parcours Enseignement scientifique.`
+                : `${level.total} chapitres : ${level.physique} en physique et ${level.chimie} en chimie.`
+              : "Cette partie est prévue, mais les chapitres ne sont pas encore publiés."}</p>
+
+            <div class="ui5-chapter-card__meta">
+              <em class="ui5-chip">{level.track.label}</em>
+              {level.total > 0 && <em class="ui5-chip">{level.total} chapitres</em>}
+            </div>
+
+            <div class="ui5-level-card__actions">
+              <a class="ui5-button ui5-button--primary" href={`/lycee/${level.slug}`}>Voir le parcours</a>
+              {level.trackId === "physique-chimie" && level.chimie > 0 && <a class="ui5-button" href={`/lycee/${level.slug}/chimie`}>Chimie</a>}
+              {level.trackId === "physique-chimie" && level.physique > 0 && <a class="ui5-button" href={`/lycee/${level.slug}/physique`}>Physique</a>}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="ui5-section">
+      <div class="ui5-card ui5-tools-row">
         <div>
-          <h2 id="tools-title">Outils et méthodes lycée</h2>
-          <p>Maths utiles, méthodes numériques, Python, laboratoire et ressources transversales.</p>
+          <h2>Outils et méthodes lycée</h2>
+          <p>Mathématiques utiles, méthodes numériques, Python, laboratoire et ressources transversales.</p>
         </div>
-        <a href="/outils-methodes/lycee">Voir les outils lycée</a>
-      </section>
-    </div>
+        <a class="ui5-button" href="/outils-methodes/lycee">Voir les outils</a>
+      </div>
+    </section>
   </div>
 </BaseLayout>
-
-<style>
-  .level-home {
-    margin: 0;
-    max-width: none;
-    padding: 0;
-  }
-
-  .level-hero {
-    margin: 1rem auto 1.5rem;
-    max-width: 760px;
-    text-align: center;
-  }
-
-  .level-hero h1 {
-    color: var(--accent-primary);
-    font-size: clamp(1.8rem, 4.4vw, 2.55rem);
-    letter-spacing: 0;
-    line-height: 1.12;
-    margin: 0 0 0.75rem;
-  }
-
-  .level-hero p,
-  .level-card p,
-  .tools-callout p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  .level-card-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .level-card,
-  .tools-callout {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-left: 5px solid var(--discipline-accent, var(--accent-primary));
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
-    padding: 1.15rem;
-  }
-
-  .level-card-head {
-    align-items: start;
-    display: grid;
-    gap: 0.75rem;
-    margin-bottom: 0.65rem;
-  }
-
-  .discipline-badge {
-    align-items: center;
-    background: var(--discipline-surface);
-    border: 1px solid var(--discipline-border);
-    border-radius: var(--radius-pill);
-    color: var(--discipline-accent);
-    display: inline-flex;
-    font-size: 0.78rem;
-    font-weight: 900;
-    gap: 0.45rem;
-    justify-self: start;
-    min-height: 34px;
-    padding: 0.32rem 0.7rem;
-  }
-
-  .discipline-badge span {
-    align-items: center;
-    background: var(--bg-card);
-    border-radius: var(--v3-radius-sm);
-    display: inline-flex;
-    justify-content: center;
-    min-width: 26px;
-    padding: 0.08rem 0.22rem;
-  }
-
-  .level-card h2,
-  .tools-callout h2 {
-    color: var(--text-primary);
-    font-size: 1.25rem;
-    letter-spacing: 0;
-    margin: 0;
-  }
-
-  .full-label {
-    color: var(--text-muted) !important;
-    font-size: 0.82rem;
-    margin-top: 0.15rem !important;
-  }
-
-  .discipline-microcopy {
-    color: color-mix(in srgb, var(--discipline-accent) 72%, var(--text-secondary)) !important;
-    font-size: 0.9rem;
-    font-weight: 850;
-    margin-top: 0.6rem !important;
-  }
-
-  .level-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-
-  .level-actions a,
-  .tools-callout a {
-    align-items: center;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-pill);
-    color: var(--text-secondary);
-    display: inline-flex;
-    font-weight: 800;
-    min-height: 44px;
-    padding: 0.5rem 0.8rem;
-    text-decoration: none;
-  }
-
-  .level-actions .primary-action,
-  .tools-callout a {
-    background: var(--discipline-accent, var(--accent-primary));
-    color: white;
-  }
-
-  .level-actions a:hover,
-  .level-actions a:focus-visible,
-  .tools-callout a:hover,
-  .tools-callout a:focus-visible {
-    border-color: var(--discipline-accent, var(--accent-primary));
-    outline: none;
-    text-decoration: none;
-  }
-
-  .tools-callout {
-    --discipline-accent: var(--accent-primary);
-    align-items: center;
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-    margin-top: 1.25rem;
-  }
-
-  @media (max-width: 760px) {
-    .level-card-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .tools-callout {
-      align-items: start;
-      flex-direction: column;
-    }
-  }
-</style>
