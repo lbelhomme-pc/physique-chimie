@@ -22,7 +22,7 @@ const expectedRouteFiles = {
   "/profil": "src/pages/profil.astro",
 };
 
-test("BaseLayout uses the public navigation V3 component", () => {
+test("BaseLayout uses the shared public navigation component", () => {
   const source = readFileSync(layoutFile, "utf8");
 
   assert.match(source, /PublicNavigationV3/);
@@ -48,31 +48,29 @@ test("public navigation supports keyboard and screen reader basics", () => {
   const source = readFileSync(navFile, "utf8");
 
   assert.match(source, /href="#main-content"/);
-  assert.match(source, /aria-label="Navigation publique V3"/);
+  assert.match(source, /aria-label="Navigation publique V4"/);
   assert.match(source, /class=\{`public-nav__menu/);
   assert.match(source, /<summary aria-label=/);
   assert.match(source, /:focus-visible/);
 });
 
-test("public navigation covers V3 information architecture", () => {
+test("public navigation covers V4 information architecture", () => {
   const globalSource = `${readFileSync(navFile, "utf8")}\n${readFileSync(menuFile, "utf8")}`;
   const pcPortalSource = `${readFileSync(pcPortalFile, "utf8")}\n${readFileSync(pcNavigationFile, "utf8")}`;
 
   for (const label of [
     "Mathématiques",
     "Physique-Chimie",
-    "Mémorisation",
-    "Kit scientifique",
+    "Réviser",
+    "Outils",
     "QCM et quiz",
     "Flashcards",
+    "Recherche",
     "Compte",
     "Laboratoire virtuel",
+    "Kit scientifique",
     "Tableau périodique",
-    "Calculatrice scientifique",
-    "Convertisseur d'unités",
-    "Traceur graphique",
-    "Préparation d'une solution",
-    "Équilibrer une équation chimique",
+    "Méthodes",
   ]) {
     assert.match(globalSource, new RegExp(label), `missing ${label}`);
   }
@@ -101,4 +99,7 @@ test("public navigation remains the single global menu source", () => {
   assert.doesNotMatch(menuSource, /label:\s*"Compte"/);
   assert.match(navSource, /class:list=\{\["public-nav__global-link"/);
   assert.match(navSource, /href="\/profil"/);
+  assert.match(navSource, /data-menu-open/);
+  assert.match(navSource, /aria-expanded="false"/);
+  assert.match(navSource, /href="\/#global-search"/);
 });
