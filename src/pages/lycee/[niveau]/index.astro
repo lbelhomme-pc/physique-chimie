@@ -1,10 +1,5 @@
 ---
-// src/pages/lycee/[niveau]/index.astro
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import V3LandingHero from "../../../components/home/V3LandingHero.astro";
-import CatalogueChapterList from "../../../components/catalogue/CatalogueChapterList.astro";
-import type { CatalogueChapterItem } from "../../../components/catalogue/types";
-import Breadcrumb from "../../../components/ui/Breadcrumb.astro";
 import {
   getDisciplineIdentity,
   getPhysiqueChimieTrackFromLevelSlug,
@@ -35,8 +30,12 @@ function getShortLabel(slug: string): string {
 
 const allMeta = import.meta.glob("/src/data/chapters/**/meta.json", { eager: true });
 
-interface ChapterInfo extends CatalogueChapterItem {
+interface ChapterInfo {
+  title: string;
+  href: string;
   matiere: "chimie" | "physique";
+  order: number;
+  description: string;
 }
 
 const chapters: ChapterInfo[] = [];
@@ -51,20 +50,15 @@ for (const [path, mod] of Object.entries(allMeta)) {
       matiere,
       order: data.order ?? 99,
       description: data.description ?? "",
-      badges: [
-        isTeachingScience ? track.label : matiere === "chimie" ? "Chimie" : "Physique",
-        `Chapitre ${data.order ?? "à placer"}`,
-      ],
     });
   }
 }
 
-const chimie = chapters.filter((chapter) => chapter.matiere === "chimie");
-const physique = chapters.filter((chapter) => chapter.matiere === "physique");
+const chimie = chapters.filter((chapter) => chapter.matiere === "chimie").sort((a,b)=>a.order-b.order);
+const physique = chapters.filter((chapter) => chapter.matiere === "physique").sort((a,b)=>a.order-b.order);
 const total = chapters.length;
-const chimieTitle = isTeachingScience ? "Repères chimie et vivant" : "Chimie";
-const physiqueTitle = isTeachingScience ? "Repères physique et Terre" : "Physique";
-const landingTone = isTeachingScience ? "science" : "pc";
+const chimieTitle = isTeachingScience ? "Chimie et vivant" : "Chimie";
+const physiqueTitle = isTeachingScience ? "Physique et Terre" : "Physique";
 ---
 
 <BaseLayout
@@ -72,257 +66,115 @@ const landingTone = isTeachingScience ? "science" : "pc";
   description={`Catalogue des chapitres pour ${niveauLabel} dans l’espace Physique-Chimie du lycée.`}
   subject="physique-chimie"
   cycle="lycee"
-  level={niveau}
+  level={niveauLabel}
 >
-  <main class="catalogue-page">
-    <Breadcrumb
-      items={[
-        { label: "Accueil", href: "/" },
-        { label: "Physique-Chimie", href: "/physique-chimie" },
-        { label: "Lycée", href: "/lycee" },
-        { label: niveauLabel },
-      ]}
-    />
+  <div class="ui5-page" data-subject="physique-chimie" data-ui5-catalogue>
+    <nav class="ui5-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/physique-chimie">Physique-Chimie</a><span aria-hidden="true">/</span>
+      <a href="/lycee">Lycée</a><span aria-hidden="true">/</span>
+      <strong>{niveauLabel}</strong>
+    </nav>
 
-    <nav class="level-nav" aria-label="Niveaux lycée">
+    <header class="ui5-page-header">
+      <div class="ui5-page-header__copy">
+        <p class="ui5-kicker">{isTeachingScience ? `${parentDiscipline.label} · ${track.label}` : parentDiscipline.label}</p>
+        <h1 class="ui5-title">{isTeachingScience ? niveauLabel : `${niveauLabel} — Physique-Chimie`}</h1>
+        <p class="ui5-lead">Les chapitres sont classés dans l’ordre du programme et utilisent tous la même interface de cours et d’entraînement.</p>
+      </div>
+      <div class="ui5-page-header__aside">
+        <strong>{track.label}</strong>
+        <p>{total} chapitre{total > 1 ? "s" : ""} · {physique.length} physique · {chimie.length} chimie</p>
+      </div>
+    </header>
+
+    <nav class="ui5-filter-row" aria-label="Parcours lycée">
       {lyceeLevels.map((level) => (
-        <a
-          href={`/lycee/${level.slug}`}
-          class:list={["nav-pill", { active: level.slug === niveau }]}
-          aria-current={level.slug === niveau ? "page" : undefined}
-        >
+        <a class="ui5-filter" href={`/lycee/${level.slug}`} aria-current={level.slug === niveau ? "true" : undefined}>
           {getShortLabel(level.slug)}
         </a>
       ))}
     </nav>
 
-    <V3LandingHero
-      tone={landingTone}
-      eyebrow={isTeachingScience ? `${parentDiscipline.label} · ${track.label}` : parentDiscipline.label}
-      mark={track.mark}
-      markLabel={track.iconLabel}
-      title={isTeachingScience ? niveauLabel : `${niveauLabel} - Physique-Chimie`}
-      description="Les chapitres sont classés dans l’ordre du programme pour accéder rapidement aux cours et aux activités."
-      actions={total > 0
-        ? [
-            { label: "Voir les chapitres", href: "#catalogue-tous" },
-            { label: "Outils du lycée", href: "/outils-methodes/lycee", variant: "secondary" },
-          ]
-        : [
-            { label: "Retour aux parcours", href: "/lycee" },
-            { label: "Outils du lycée", href: "/outils-methodes/lycee", variant: "secondary" },
-          ]}
-      stats={[
-        { value: total, label: "chapitres" },
-        { value: chimie.length, label: chimieTitle.toLowerCase() },
-        { value: physique.length, label: physiqueTitle.toLowerCase() },
-      ]}
-      imageAlt={`Espace de travail pour ${isTeachingScience ? track.label : parentDiscipline.label} au niveau ${niveauLabel}.`}
-      contained
-    />
+    {total > 0 ? (
+      <>
+        <section class="ui5-section">
+          <div class="ui5-toolbar">
+            <label for="ui5-level-search">Rechercher dans ce parcours</label>
+            <div class="ui5-search"><input id="ui5-level-search" type="search" placeholder="Titre, notion ou thème…" autocomplete="off" data-ui5-search /></div>
+            <p class="ui5-toolbar__summary" aria-live="polite" data-ui5-summary>{total} chapitre{total > 1 ? "s" : ""}</p>
+          </div>
+        </section>
 
-    {total > 0 && (
-      <nav class="catalogue-filters" aria-label="Filtres de catalogue">
-        <a href="#catalogue-tous">Tous</a>
-        <a href="#catalogue-chimie">{chimieTitle}</a>
-        <a href="#catalogue-physique">{physiqueTitle}</a>
-      </nav>
-    )}
+        {chimie.length > 0 && (
+          <section class="ui5-section ui5-catalogue-section" data-accent={isTeachingScience ? "science" : "chemistry"} aria-labelledby="ui5-chimie-title">
+            <div class="ui5-section-head"><h2 id="ui5-chimie-title">{chimieTitle}</h2><p>{chimie.length} chapitre{chimie.length > 1 ? "s" : ""}</p></div>
+            <ol class="ui5-chapter-list">
+              {chimie.map((chapter,index)=>(
+                <li data-ui5-item data-search-text={`${chapter.title} ${chapter.description} chimie`.toLocaleLowerCase("fr-FR")}>
+                  <a class="ui5-card ui5-chapter-card" href={chapter.href}>
+                    <span class="ui5-chapter-card__index">{String(index+1).padStart(2,"0")}</span>
+                    <span class="ui5-chapter-card__body">
+                      <strong>{chapter.title}</strong>
+                      {chapter.description && <span>{chapter.description}</span>}
+                      <span class="ui5-chapter-card__meta"><em class="ui5-chip">{chimieTitle}</em><em class="ui5-chip">Chapitre {chapter.order}</em></span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
 
-    {total === 0 ? (
-      <section class="catalogue-empty-large" id="catalogue-tous" aria-labelledby="empty-title">
-        <h2 id="empty-title">Cette partie est en préparation</h2>
-        <p>Les chapitres de {niveauLabel} ne sont pas encore publiés. Tu peux revenir aux niveaux lycée ou travailler les méthodes utiles en attendant.</p>
-        <div class="catalogue-empty-large__actions">
-          <a class="primary" href="/lycee">Retour aux niveaux lycée</a>
-          <a href="/outils-methodes/lycee">Voir les outils lycée</a>
+        {physique.length > 0 && (
+          <section class="ui5-section ui5-catalogue-section" data-accent={isTeachingScience ? "science" : "physics"} aria-labelledby="ui5-physique-title">
+            <div class="ui5-section-head"><h2 id="ui5-physique-title">{physiqueTitle}</h2><p>{physique.length} chapitre{physique.length > 1 ? "s" : ""}</p></div>
+            <ol class="ui5-chapter-list">
+              {physique.map((chapter,index)=>(
+                <li data-ui5-item data-search-text={`${chapter.title} ${chapter.description} physique`.toLocaleLowerCase("fr-FR")}>
+                  <a class="ui5-card ui5-chapter-card" href={chapter.href}>
+                    <span class="ui5-chapter-card__index">{String(index+1).padStart(2,"0")}</span>
+                    <span class="ui5-chapter-card__body">
+                      <strong>{chapter.title}</strong>
+                      {chapter.description && <span>{chapter.description}</span>}
+                      <span class="ui5-chapter-card__meta"><em class="ui5-chip">{physiqueTitle}</em><em class="ui5-chip">Chapitre {chapter.order}</em></span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        <p class="ui5-no-results" data-ui5-no-results hidden>Aucun chapitre ne correspond à cette recherche.</p>
+      </>
+    ) : (
+      <section class="ui5-section">
+        <div class="ui5-card ui5-empty">
+          <h2>Cette partie est en préparation</h2>
+          <p>Les chapitres de {niveauLabel} ne sont pas encore publiés.</p>
+          <div><a class="ui5-button ui5-button--primary" href="/lycee">Retour aux parcours</a></div>
         </div>
       </section>
-    ) : (
-      <div class="catalogue-layout" id="catalogue-tous">
-        <CatalogueChapterList
-          id="catalogue-chimie"
-          title={chimieTitle}
-          chapters={chimie}
-          accent={isTeachingScience ? "science" : "chemistry"}
-          emptyTitle={`${chimieTitle} en préparation`}
-          emptyMessage={`Aucun chapitre n'est encore publié dans ce regroupement pour ${niveauLabel}.`}
-          emptyActions={[
-            { label: `Voir ${physiqueTitle.toLowerCase()}`, href: `/lycee/${niveau}/physique`, primary: true },
-            { label: "Méthodes lycée", href: "/outils-methodes/lycee" },
-          ]}
-        />
-        <CatalogueChapterList
-          id="catalogue-physique"
-          title={physiqueTitle}
-          chapters={physique}
-          accent={isTeachingScience ? "science" : "physics"}
-          emptyTitle={`${physiqueTitle} en préparation`}
-          emptyMessage={`Aucun chapitre n'est encore publié dans ce regroupement pour ${niveauLabel}.`}
-          emptyActions={[
-            { label: `Voir ${chimieTitle.toLowerCase()}`, href: `/lycee/${niveau}/chimie`, primary: true },
-            { label: "Méthodes lycée", href: "/outils-methodes/lycee" },
-          ]}
-        />
-      </div>
     )}
-  </main>
+  </div>
+
+  <script>
+    const root = document.querySelector<HTMLElement>("[data-ui5-catalogue]");
+    const input = root?.querySelector<HTMLInputElement>("[data-ui5-search]");
+    const items = Array.from(root?.querySelectorAll<HTMLElement>("[data-ui5-item]") ?? []);
+    const summary = root?.querySelector<HTMLElement>("[data-ui5-summary]");
+    const noResults = root?.querySelector<HTMLElement>("[data-ui5-no-results]");
+    input?.addEventListener("input", () => {
+      const query = input.value.trim().toLocaleLowerCase("fr-FR");
+      let visible = 0;
+      items.forEach((item) => {
+        const matches = !query || (item.dataset.searchText ?? "").includes(query);
+        item.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      if (summary) summary.textContent = `${visible} chapitre${visible > 1 ? "s" : ""}`;
+      if (noResults) noResults.hidden = visible > 0;
+    });
+  </script>
 </BaseLayout>
-
-<style>
-  .catalogue-page {
-    margin: 0 auto;
-    max-width: 1080px;
-    padding: 1rem 1rem 3rem;
-  }
-
-  .level-nav,
-  .catalogue-filters {
-    align-items: center;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-pill);
-    box-shadow: var(--shadow-card);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-    margin: 1rem auto;
-    padding: 0.75rem 1rem;
-  }
-
-  .catalogue-filters {
-    justify-content: flex-start;
-  }
-
-  .catalogue-filters a,
-  .catalogue-empty-large__actions a {
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-pill);
-    color: var(--discipline-accent, var(--accent-primary));
-    font-weight: 850;
-    min-height: 40px;
-    padding: 0.45rem 0.75rem;
-    text-decoration: none;
-  }
-
-  .catalogue-filters a:hover,
-  .catalogue-filters a:focus-visible,
-  .catalogue-empty-large__actions a:hover,
-  .catalogue-empty-large__actions a:focus-visible {
-    box-shadow: var(--v3-shadow-focus);
-    outline: none;
-  }
-
-  .catalogue-hero {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-left: 5px solid var(--discipline-accent);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
-    display: grid;
-    gap: var(--v3-space-3);
-    margin: 1rem auto 1.25rem;
-    padding: clamp(1rem, 2.5vw, 1.5rem);
-  }
-
-  .discipline-badge {
-    align-items: center;
-    background: var(--discipline-surface);
-    border: 1px solid var(--discipline-border);
-    border-radius: var(--radius-pill);
-    color: var(--discipline-accent);
-    display: inline-flex;
-    font-size: 0.82rem;
-    font-weight: 900;
-    gap: 0.45rem;
-    justify-self: start;
-    min-height: 34px;
-    padding: 0.32rem 0.7rem;
-  }
-
-  .discipline-badge span {
-    background: var(--bg-card);
-    border-radius: var(--v3-radius-sm);
-    min-width: 26px;
-    padding: 0.08rem 0.22rem;
-    text-align: center;
-  }
-
-  .catalogue-hero h1,
-  .catalogue-empty-large h2 {
-    color: var(--text-primary);
-    font-size: clamp(1.65rem, 4vw, 2.35rem);
-    letter-spacing: 0;
-    margin: 0;
-  }
-
-  .catalogue-hero p,
-  .catalogue-empty-large p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0;
-    max-width: 78ch;
-  }
-
-  .catalogue-stats {
-    display: grid;
-    gap: var(--v3-space-3);
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin: 0;
-  }
-
-  .catalogue-stats div,
-  .catalogue-empty-large {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: var(--v3-space-3);
-  }
-
-  .catalogue-stats dt {
-    color: var(--discipline-accent);
-    font-size: 1.35rem;
-    font-weight: 950;
-  }
-
-  .catalogue-stats dd {
-    color: var(--text-secondary);
-    font-weight: 800;
-    margin: 0;
-  }
-
-  .catalogue-layout {
-    display: grid;
-    gap: var(--v3-space-4);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .catalogue-empty-large {
-    display: grid;
-    gap: var(--v3-space-3);
-    margin: 1rem auto;
-    max-width: 760px;
-    text-align: center;
-  }
-
-  .catalogue-empty-large__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--v3-space-2);
-    justify-content: center;
-  }
-
-  .catalogue-empty-large__actions a.primary {
-    background: var(--discipline-accent, var(--accent-primary));
-    border-color: var(--discipline-accent, var(--accent-primary));
-    color: #fff;
-  }
-
-  @media (max-width: 860px) {
-    .catalogue-layout,
-    .catalogue-stats {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
