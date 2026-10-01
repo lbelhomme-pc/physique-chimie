@@ -33,7 +33,7 @@ import "../styles/laboratoire/global-lab.css";
 
     <div class="v3-landing-content v3-landing-content--wide">
       <div class="lab-library-layout" id="bibliotheque-laboratoire">
-      <aside class="lab-filter-panel" aria-labelledby="lab-filter-title" data-lab-filter-panel>
+      <aside id="lab-filter-panel" class="lab-filter-panel" aria-labelledby="lab-filter-title" data-lab-filter-panel>
         <div class="lab-filter-panel__head">
           <h2 id="lab-filter-title">Filtres</h2>
           <div class="lab-filter-panel__actions">
@@ -71,7 +71,7 @@ import "../styles/laboratoire/global-lab.css";
 
       <section class="lab-results" aria-live="polite">
         <div class="lab-mobile-toolbar">
-          <button class="lab-filter-toggle" type="button" data-lab-filter-toggle aria-expanded="false" aria-controls="lab-filter-title">
+          <button class="lab-filter-toggle" type="button" data-lab-filter-toggle aria-expanded="false" aria-controls="lab-filter-panel">
             Filtres <span data-lab-filter-count>0</span>
           </button>
         </div>
