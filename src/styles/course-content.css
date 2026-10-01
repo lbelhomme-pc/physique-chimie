@@ -96,38 +96,38 @@
 
 .cours-content .course-method-heading {
   background: rgba(5, 150, 105, 0.1);
-  color: #047857;
+  color: var(--v3-color-success-text);
 }
 
 .cours-content .course-method-heading::before {
-  background: #059669;
+  background: var(--v3-color-pedagogy-example);
 }
 
 .cours-content .course-example-heading {
   background: rgba(245, 158, 11, 0.14);
-  color: #a16207;
+  color: var(--v3-color-warning-text);
 }
 
 .cours-content .course-example-heading::before {
-  background: #d97706;
+  background: var(--v3-color-warning-text);
 }
 
 .cours-content .course-warning-heading {
   background: rgba(220, 38, 38, 0.1);
-  color: #b91c1c;
+  color: var(--v3-color-danger-text);
 }
 
 .cours-content .course-warning-heading::before {
-  background: #dc2626;
+  background: var(--v3-color-danger);
 }
 
 .cours-content .course-law-heading {
   background: rgba(14, 116, 144, 0.1);
-  color: #0e7490;
+  color: var(--v3-color-pedagogy-definition);
 }
 
 .cours-content .course-law-heading::before {
-  background: #0e7490;
+  background: var(--v3-color-pedagogy-definition);
 }
 
 .cours-content .course-synthesis-heading,
@@ -160,7 +160,7 @@
 .cours-content .course-method-heading + ol,
 .cours-content .course-method-heading + table,
 .cours-content .course-method-heading + .katex-display {
-  border-left-color: #059669;
+  border-left-color: var(--v3-color-pedagogy-method);
 }
 
 .cours-content .course-example-heading + p,
@@ -168,7 +168,7 @@
 .cours-content .course-example-heading + ol,
 .cours-content .course-example-heading + table,
 .cours-content .course-example-heading + .katex-display {
-  border-left-color: #d97706;
+  border-left-color: var(--v3-color-warning-text);
 }
 
 .cours-content .course-warning-heading + p,
@@ -176,7 +176,7 @@
 .cours-content .course-warning-heading + ol,
 .cours-content .course-warning-heading + table,
 .cours-content .course-warning-heading + .katex-display {
-  border-left-color: #dc2626;
+  border-left-color: var(--v3-color-danger-text);
 }
 
 .cours-content .course-law-heading + p,
@@ -184,7 +184,7 @@
 .cours-content .course-law-heading + ol,
 .cours-content .course-law-heading + table,
 .cours-content .course-law-heading + .katex-display {
-  border-left-color: #0e7490;
+  border-left-color: var(--v3-color-pedagogy-definition);
 }
 
 .cours-content .course-synthesis-heading + p,
@@ -796,7 +796,7 @@
 }
 
 .resultat-box h3 {
-  color: #047857;
+  color: var(--v3-color-success-text);
   font-size: 0.95rem;
   font-weight: 700;
   margin: 0 0 0.4rem;
@@ -1080,4 +1080,105 @@
     margin-top: 2.25rem;
     font-size: 1.5rem;
   }
+}
+
+
+/* V4 document-first reading geometry */
+.cours-content > :where(
+  p,
+  ul,
+  ol,
+  blockquote,
+  h2,
+  h3,
+  h4,
+  hr,
+  .course-idea-heading,
+  .course-label-heading,
+  .course-special-card,
+  .course-main-heading
+) {
+  max-width: var(--v3-measure-readable, 70ch);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cours-content > :where(table, figure, .schema-block, .katex-display, .katex-block) {
+  max-width: 100%;
+}
+
+/* V4: headings structure the document instead of creating a card for every notion. */
+.cours-content .course-idea-heading {
+  background: transparent;
+  border: 0;
+  border-left: 3px solid var(--v3-color-action);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.25rem 0 0.25rem 0.9rem;
+}
+
+.cours-content .course-idea-heading::before {
+  display: none;
+}
+
+.cours-content .course-label-heading {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+.cours-content .course-label-heading::before {
+  box-shadow: none;
+}
+
+.cours-content .course-label-heading + p,
+.cours-content .course-label-heading + ul,
+.cours-content .course-label-heading + ol,
+.cours-content .course-label-heading + table,
+.cours-content .course-label-heading + .katex-display {
+  background: transparent;
+  border: 0;
+  border-left: 3px solid var(--v3-color-pedagogy-definition);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.45rem 0 0.45rem 1rem;
+}
+
+.cours-content .course-method-heading + p,
+.cours-content .course-method-heading + ul,
+.cours-content .course-method-heading + ol,
+.cours-content .course-method-heading + table,
+.cours-content .course-method-heading + .katex-display {
+  border-left-color: var(--v3-color-pedagogy-method);
+}
+
+.cours-content .course-example-heading + p,
+.cours-content .course-example-heading + ul,
+.cours-content .course-example-heading + ol,
+.cours-content .course-example-heading + table,
+.cours-content .course-example-heading + .katex-display {
+  background: var(--v3-color-surface-muted);
+  border-left-color: var(--v3-color-pedagogy-example);
+}
+
+.cours-content .course-warning-heading + p,
+.cours-content .course-warning-heading + ul,
+.cours-content .course-warning-heading + ol,
+.cours-content .course-warning-heading + table,
+.cours-content .course-warning-heading + .katex-display {
+  background: var(--v3-color-warning-subtle);
+  border-left-color: var(--v3-color-warning-text);
+}
+
+.cours-content .course-law-heading + p,
+.cours-content .course-law-heading + ul,
+.cours-content .course-law-heading + ol,
+.cours-content .course-law-heading + table,
+.cours-content .course-law-heading + .katex-display {
+  border-left-color: var(--v3-color-pedagogy-law);
+}
+
+.cours-content .course-special-card {
+  box-shadow: none;
 }
