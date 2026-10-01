@@ -74,11 +74,11 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
       <div data-flashcards-player-v3="true" className="learning-player learning-player--flashcards">
         {title && <h3 className="learning-player__title">{title}</h3>}
         {srsStats && (
-          <div style={{display:"flex",justifyContent:"center",gap:"0.5rem",fontSize:"0.8rem",marginBottom:"1rem",padding:"0.5rem",background:V.bgSec,borderRadius:8,flexWrap:"wrap"}}>
-            <span style={{color:V.danger}}>🔴 {due} à revoir</span><span style={{color:V.textMut}}>•</span>
-            <span style={{color:V.primary}}>🔵 {newC} nouvelles</span><span style={{color:V.textMut}}>•</span>
-            <span style={{color:V.warning}}>🟡 {learning} en apprentissage</span><span style={{color:V.textMut}}>•</span>
-            <span style={{color:V.success}}>🟢 {mature} maîtrisées</span>
+          <div className="flashcard-session-stats" aria-label="État de mémorisation">
+            <span data-state="due">À revoir : {due}</span>
+            <span data-state="new">Nouvelles : {newC}</span>
+            <span data-state="learning">En apprentissage : {learning}</span>
+            <span data-state="mature">Maîtrisées : {mature}</span>
           </div>
         )}
         <div className="flashcard-answer-mode" role="group" aria-label="Mode de réponse">
@@ -87,9 +87,9 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
         </div>
         <p className="flashcard-answer-mode__hint">{answerMode==="quick" ? "Question → réponse → autoévaluation, sans clavier." : "Écris d’abord ta réponse avant de la comparer."}</p>
         <div className="learning-session-grid">
-          {due > 0 && <button className="learning-session-option" onClick={() => startSession("review")} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem",padding:"1rem",border:`2px solid ${V.primary}`,borderRadius:12,background:V.primaryLt,cursor:"pointer",width:"100%",position:"relative"}}><span style={{fontSize:"1.5rem"}}>🔄</span><span style={{fontSize:"1rem",fontWeight:700,color:V.text}}>Révision du jour</span><span style={{fontSize:"0.85rem",color:V.textSec}}>{due} carte(s) à revoir</span><span style={{position:"absolute",top:8,right:10,fontSize:"0.65rem",fontWeight:700,background:V.primary,color:"#fff",padding:"0.15rem 0.5rem",borderRadius:99}}>Recommandé</span></button>}
-          {newC > 0 && <button className="learning-session-option" onClick={() => startSession("new")} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem",padding:"1rem",border:`2px solid ${V.border}`,borderRadius:12,background:V.bg,cursor:"pointer",width:"100%"}}><span style={{fontSize:"1.5rem"}}>✨</span><span style={{fontSize:"1rem",fontWeight:700,color:V.text}}>Nouvelles cartes</span><span style={{fontSize:"0.85rem",color:V.textSec}}>{Math.min(newC,20)} carte(s)</span></button>}
-          <button className="learning-session-option" onClick={() => startSession("all")} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:"0.2rem",padding:"1rem",border:`2px solid ${V.border}`,borderRadius:12,background:V.bg,cursor:"pointer",width:"100%"}}><span style={{fontSize:"1.5rem"}}>📚</span><span style={{fontSize:"1rem",fontWeight:700,color:V.text}}>Toutes les cartes</span><span style={{fontSize:"0.85rem",color:V.textSec}}>{allCards.length} carte(s)</span></button>
+          {due > 0 && <button className="learning-session-option learning-session-option--recommended" onClick={() => startSession("review")}><span className="learning-session-option__icon" aria-hidden="true">↻</span><span className="learning-session-option__title">Révision du jour</span><span className="learning-session-option__meta">{due} carte(s) à revoir</span><span className="learning-session-option__badge">Recommandé</span></button>}
+          {newC > 0 && <button className="learning-session-option" onClick={() => startSession("new")}><span className="learning-session-option__icon" aria-hidden="true">＋</span><span className="learning-session-option__title">Nouvelles cartes</span><span className="learning-session-option__meta">{Math.min(newC,20)} carte(s)</span></button>}
+          <button className="learning-session-option" onClick={() => startSession("all")}><span className="learning-session-option__icon" aria-hidden="true">≡</span><span className="learning-session-option__title">Toutes les cartes</span><span className="learning-session-option__meta">{allCards.length} carte(s)</span></button>
         </div>
         {(learning > 0 || mature > 0) && (
           <div style={{textAlign:"center"}}>
@@ -112,9 +112,9 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
     const go = results.filter(r=>r.rating==="good").length;
     const ea = results.filter(r=>r.rating==="easy").length;
     return (
-      <div data-flashcards-result-v3="true" className="learning-player learning-result-card" style={{textAlign:"center"}}>
-        <div style={{fontSize:"3rem",marginBottom:"0.5rem"}}>{total===0?"🎉":go+ea>ha+ag?"🌟":"💪"}</div>
-        <h3 style={{fontSize:"1.4rem",fontWeight:700,color:V.text,marginBottom:"1.25rem"}}>{total===0?"Rien à revoir !":"Session terminée !"}</h3>
+      <div data-flashcards-result-v3="true" className="learning-player learning-result-card flashcard-result">
+        <div className="flashcard-result__mark" aria-hidden="true">{total===0?"✓":go+ea>ha+ag?"★":"↻"}</div>
+        <h3>{total===0?"Rien à revoir !":"Session terminée !"}</h3>
         {total===0?<p style={{fontSize:"1rem",color:V.textSec,marginBottom:"1.5rem"}}>Toutes tes cartes sont à jour. Reviens demain !</p>:(
           <div style={{display:"flex",justifyContent:"center",gap:"1rem",marginBottom:"1.5rem"}}>
             {[[ag,"😰","Oublié",V.danger],[ha,"😕","Difficile",V.warning],[go,"🙂","Bien",V.success],[ea,"😎","Facile",V.primary]].map(([v,ico,lab,col])=>(
@@ -180,10 +180,10 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
       )}
 
       {/* Question + TTS */}
-      <div className="learning-flashcard-card" style={{position:"relative",padding:"1.5rem",background:V.bg,border:`2px solid ${V.border}`,borderRadius:16,marginBottom:"1rem",minHeight:80}}>
-        <span style={{position:"absolute",top:10,left:14,fontSize:"0.7rem",fontWeight:700,textTransform:"uppercase",letterSpacing:"0.05em",color:V.textMut}}>Question</span>
-        <p style={{fontSize:"1.15rem",fontWeight:500,color:V.text,textAlign:"center",lineHeight:1.6,margin:"0.5rem 0 0"}}><MathText text={cur.front} /></p>
-        <div style={{marginTop:"0.5rem",display:"flex",justifyContent:"center"}}><TextToSpeech compact text={cur.front} label="Lire" /></div>
+      <div className="learning-flashcard-card flashcard-question-card">
+        <span className="flashcard-question-card__label">Question</span>
+        <p className="flashcard-question-card__text"><MathText text={cur.front} /></p>
+        <div className="flashcard-question-card__tts"><TextToSpeech compact text={cur.front} label="Lire" /></div>
       </div>
 
       {/* Input ou Revealed */}
@@ -211,20 +211,20 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
           )}
 
           {/* Réponse attendue + TTS */}
-          <div style={{padding:"0.75rem 1rem",background:V.successLt,border:`1px solid ${V.success}`,borderRadius:8,marginBottom:"0.5rem"}}>
-            <span style={{fontSize:"0.75rem",fontWeight:700,color:V.textMut,textTransform:"uppercase"}}>✅ Réponse attendue</span>
-            <p style={{fontSize:"0.95rem",color:V.success,margin:"0.25rem 0 0",lineHeight:1.5,fontWeight:500}}><MathText text={cur.back} /></p>
+          <div className="flashcard-expected-answer">
+            <span>Réponse attendue</span>
+            <p><MathText text={cur.back} /></p>
           </div>
           <div style={{marginBottom:"1rem"}}><TextToSpeech compact text={cur.back} label="Écouter la réponse" /></div>
 
           {/* Boutons Anki */}
           <p style={{fontSize:"0.9rem",color:V.textSec,textAlign:"center",marginBottom:"0.5rem",fontWeight:500}}>Comment as-tu répondu ?</p>
           <div className="flashcard-rating-grid">
-            {([["again","😰","Oublié",V.danger,V.dangerLt],["hard","😕","Difficile",V.warning,V.warningLt],["good","🙂","Bien",V.success,V.successLt],["easy","😎","Facile",V.primary,V.primaryLt]] as const).map(([rating,emoji,label,color,bg])=>(
-              <button key={rating} className="flashcard-rating-button" onClick={()=>handleRate(rating)} style={{borderColor:color,background:bg,color}}>
-                <span style={{fontSize:"1.3rem"}}>{emoji}</span>
-                <span style={{fontSize:"0.75rem",fontWeight:700}}>{label}</span>
-                <span style={{fontSize:"0.65rem",color:V.textMut}}>{formatInterval(intervals[rating])}</span>
+            {([["again","↻","À revoir"],["hard","!","Difficile"],["good","✓","Bien"],["easy","★","Facile"]] as const).map(([rating,icon,label])=>(
+              <button key={rating} className="flashcard-rating-button" data-rating={rating} onClick={()=>handleRate(rating)}>
+                <span className="flashcard-rating-button__icon" aria-hidden="true">{icon}</span>
+                <span className="flashcard-rating-button__label">{label}</span>
+                <span className="flashcard-rating-button__interval">{formatInterval(intervals[rating])}</span>
               </button>
             ))}
           </div>
