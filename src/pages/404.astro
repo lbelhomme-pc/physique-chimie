@@ -1,17 +1,19 @@
 ---
-// src/pages/404.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../config/site";
 ---
 <BaseLayout title={`Page introuvable - ${siteConfig.shortName}`} noindex={true}>
-  <div style="text-align:center; padding: 4rem 1rem;">
-    <span style="font-size:4rem;">🔬</span>
-    <h1 style="font-size:2rem; font-weight:800; color:var(--accent-primary); margin:0.5rem 0;">404 — Page introuvable</h1>
-    <p style="color:var(--text-muted); font-size:1.1rem; margin-bottom:2rem;">
-      Cette page n'existe pas encore... ou a été déplacée.
-    </p>
-    <a href="/" style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.7rem 1.5rem; background:var(--accent-primary); color:#fff; border-radius:var(--radius-md); font-weight:600; text-decoration:none; font-size:0.95rem;">
-      🏠 Retour à l'accueil
-    </a>
+  <div class="ui5-page">
+    <section class="ui5-section">
+      <div class="ui5-card ui5-empty ui5-404">
+        <span class="ui5-empty__icon" aria-hidden="true">?</span>
+        <h1>404 — Page introuvable</h1>
+        <p>Cette page n’existe pas ou a été déplacée.</p>
+        <div class="ui5-filter-row">
+          <a class="ui5-button ui5-button--primary" href="/">Retour à l’accueil</a>
+          <a class="ui5-button" href="/#global-search">Rechercher</a>
+        </div>
+      </div>
+    </section>
   </div>
 </BaseLayout>
