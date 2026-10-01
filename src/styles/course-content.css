@@ -10,22 +10,22 @@
 }
 
 .cours-content h2 {
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--accent-primary);
-  font-size: 1.35rem;
-  font-weight: 800;
-  padding: 0.5rem 0 0.4rem;
-  border-bottom: 3px solid var(--accent-primary);
+  margin-top: 2.75rem;
+  margin-bottom: 0.9rem;
+  color: var(--text-primary);
+  font-size: clamp(1.625rem, 3vw, 1.75rem);
+  font-weight: 820;
+  padding: 0 0 0.55rem;
+  border-bottom: 1px solid var(--border-color);
   letter-spacing: 0;
 }
 
 .cours-content h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.55rem;
   color: var(--text-primary);
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: clamp(1.2rem, 2.5vw, 1.375rem);
+  font-weight: 780;
 }
 
 .cours-content h4 {
@@ -43,14 +43,14 @@
   border-left: 5px solid var(--accent-primary);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
-  color: var(--text-primary) !important;
+  color: var(--text-primary);
   display: flex;
-  font-size: clamp(1.08rem, 2.5vw, 1.25rem) !important;
-  font-weight: 850 !important;
+  font-size: clamp(1.08rem, 2.5vw, 1.25rem);
+  font-weight: 850;
   gap: 0.65rem;
   line-height: 1.35;
-  margin: 2rem 0 1rem !important;
-  padding: 0.9rem 1rem !important;
+  margin: 2rem 0 1rem;
+  padding: 0.9rem 1rem;
 }
 
 .cours-content .course-idea-heading::before {
@@ -68,13 +68,13 @@
   border: 1px solid var(--border-color);
   border-radius: var(--radius-pill);
   display: inline-flex;
-  font-size: 0.82rem !important;
-  font-weight: 850 !important;
+  font-size: 0.82rem;
+  font-weight: 850;
   gap: 0.45rem;
   letter-spacing: 0;
   line-height: 1.2;
-  margin: 1rem 0 0.35rem !important;
-  padding: 0.38rem 0.72rem !important;
+  margin: 1rem 0 0.35rem;
+  padding: 0.38rem 0.72rem;
 }
 
 .cours-content .course-label-heading::before {
@@ -87,7 +87,7 @@
 
 .cours-content .course-definition-heading {
   background: rgba(79, 70, 229, 0.1);
-  color: var(--accent-primary) !important;
+  color: var(--accent-primary);
 }
 
 .cours-content .course-definition-heading::before {
@@ -96,7 +96,7 @@
 
 .cours-content .course-method-heading {
   background: rgba(5, 150, 105, 0.1);
-  color: #047857 !important;
+  color: #047857;
 }
 
 .cours-content .course-method-heading::before {
@@ -105,7 +105,7 @@
 
 .cours-content .course-example-heading {
   background: rgba(245, 158, 11, 0.14);
-  color: #a16207 !important;
+  color: #a16207;
 }
 
 .cours-content .course-example-heading::before {
@@ -114,7 +114,7 @@
 
 .cours-content .course-warning-heading {
   background: rgba(220, 38, 38, 0.1);
-  color: #b91c1c !important;
+  color: #b91c1c;
 }
 
 .cours-content .course-warning-heading::before {
@@ -123,7 +123,7 @@
 
 .cours-content .course-law-heading {
   background: rgba(14, 116, 144, 0.1);
-  color: #0e7490 !important;
+  color: #0e7490;
 }
 
 .cours-content .course-law-heading::before {
@@ -133,7 +133,7 @@
 .cours-content .course-synthesis-heading,
 .cours-content .course-vocabulary-heading {
   background: rgba(79, 70, 229, 0.1);
-  color: var(--accent-primary) !important;
+  color: var(--accent-primary);
 }
 
 .cours-content .course-synthesis-heading::before,
@@ -334,16 +334,16 @@
 
 .cours-content .course-special-heading {
   align-items: center;
-  border-bottom: 0 !important;
-  color: var(--accent-primary) !important;
+  border-bottom: 0;
+  color: var(--accent-primary);
   display: flex;
-  font-size: 0.95rem !important;
+  font-size: 0.95rem;
   font-weight: 850;
   gap: 0.55rem;
   letter-spacing: 0;
   line-height: 1.35;
-  margin: 0 0 0.75rem !important;
-  padding: 0 !important;
+  margin: 0 0 0.75rem;
+  padding: 0;
   text-transform: uppercase;
 }
 
@@ -384,16 +384,16 @@
 .cours-content .course-main-heading,
 .cours-content .spe-imported-content .course-main-heading {
   align-items: center;
-  border-bottom: 1px solid var(--border-color) !important;
-  color: var(--accent-primary) !important;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--accent-primary);
   display: flex;
-  font-size: 1.1rem !important;
+  font-size: 1.1rem;
   font-weight: 850;
   gap: 0.55rem;
   letter-spacing: 0;
   line-height: 1.35;
-  margin: 2rem 0 1rem !important;
-  padding: 0 0 0.65rem !important;
+  margin: 2rem 0 1rem;
+  padding: 0 0 0.65rem;
 }
 
 .cours-content .course-main-heading::before,
@@ -424,14 +424,14 @@
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  color: var(--accent-primary) !important;
-  font-size: 0.95rem !important;
+  color: var(--accent-primary);
+  font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1.35;
-  margin: 0 0 0.75rem !important;
-  padding: 0 !important;
-  border-bottom: 0 !important;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border-bottom: 0;
   text-transform: uppercase;
 }
 
@@ -472,19 +472,19 @@
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  color: var(--accent-primary) !important;
-  font-size: 0.95rem !important;
+  color: var(--accent-primary);
+  font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 0;
-  margin: 2rem 0 0.75rem !important;
-  padding: 0 !important;
-  border-bottom: 0 !important;
+  margin: 2rem 0 0.75rem;
+  padding: 0;
+  border-bottom: 0;
   text-transform: uppercase;
 }
 
 .cours-content .spe-imported-content .summary-box > .summary-label:first-child,
 .cours-content .spe-imported-content .summary-box > strong:first-child {
-  margin-top: 0 !important;
+  margin-top: 0;
 }
 
 .cours-content .spe-imported-content .final-summary-title::before,
@@ -513,16 +513,16 @@
 }
 
 .cours-content .katex .katex-mathml {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  clip-path: inset(50%) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Structures de cours partagees par les contenus MDX et les fragments importes */
@@ -844,14 +844,14 @@
 
 .retenir-box h2 {
   align-items: center;
-  color: var(--accent-primary) !important;
+  color: var(--accent-primary);
   display: flex;
   gap: 0.55rem;
-  font-size: 0.95rem !important;
+  font-size: 0.95rem;
   font-weight: 800;
-  margin: 0 0 0.75rem !important;
-  padding: 0 !important;
-  border-bottom: none !important;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border-bottom: none;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -905,7 +905,7 @@
 .a11y-theme-dark .retenir-box h2,
 .a11y-theme-gray .retenir-box h2,
 .a11y-theme-blue-light .retenir-box h2 {
-  color: var(--accent-primary) !important;
+  color: var(--accent-primary);
 }
 
 .a11y-theme-sepia .retenir-box {
@@ -915,7 +915,7 @@
 }
 
 .a11y-theme-sepia .retenir-box h2 {
-  color: var(--accent-primary) !important;
+  color: var(--accent-primary);
 }
 
 .a11y-theme-sepia .retenir-box li::before {
@@ -934,3 +934,150 @@
   margin: 0;
 }
 
+
+
+/* ═══════════════════════════════════════════════════════════
+   V4 — document d'abord
+   Les encadrés ne servent plus de décoration générale : ils portent
+   uniquement une sémantique pédagogique explicite.
+   ═══════════════════════════════════════════════════════════ */
+
+.cours-content {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.cours-content p {
+  margin: 0.8rem 0;
+  line-height: 1.7;
+}
+
+.cours-content .course-idea-heading {
+  margin: 2.75rem 0 0.85rem;
+  padding: 0 0 0.6rem;
+  border: 0;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-primary);
+  font-size: clamp(1.2rem, 2.5vw, 1.375rem);
+}
+
+.cours-content .course-idea-heading::before {
+  width: 0.55rem;
+  height: 0.55rem;
+  box-shadow: none;
+}
+
+.cours-content .course-label-heading {
+  margin: 1.35rem 0 0.4rem;
+  padding: 0 0 0 0.7rem;
+  border: 0;
+  border-left: 3px solid currentColor;
+  border-radius: 0;
+  background: transparent;
+  font-size: 0.94rem;
+}
+
+.cours-content .course-definition-heading,
+.cours-content .course-law-heading,
+.cours-content .course-method-heading,
+.cours-content .course-example-heading,
+.cours-content .course-warning-heading,
+.cours-content .course-synthesis-heading,
+.cours-content .course-vocabulary-heading {
+  background: transparent;
+}
+
+.cours-content .course-label-heading::before {
+  display: none;
+}
+
+.cours-content .course-label-heading + p,
+.cours-content .course-label-heading + ul,
+.cours-content .course-label-heading + ol,
+.cours-content .course-label-heading + table,
+.cours-content .course-label-heading + .katex-display {
+  margin-top: 0.35rem;
+  padding: 0.25rem 0 0.25rem 0.95rem;
+  border: 0;
+  border-left: 2px solid var(--border-color);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.cours-content .course-method-heading + p,
+.cours-content .course-method-heading + ul,
+.cours-content .course-method-heading + ol,
+.cours-content .course-method-heading + table,
+.cours-content .course-method-heading + .katex-display {
+  border-left-color: var(--v3-color-success-text);
+}
+
+.cours-content .course-example-heading + p,
+.cours-content .course-example-heading + ul,
+.cours-content .course-example-heading + ol,
+.cours-content .course-example-heading + table,
+.cours-content .course-example-heading + .katex-display {
+  padding: 0.8rem 0.95rem;
+  border-left-color: var(--v3-color-warning-text);
+  background: var(--v3-color-slate-50);
+}
+
+.cours-content .course-warning-heading + p,
+.cours-content .course-warning-heading + ul,
+.cours-content .course-warning-heading + ol,
+.cours-content .course-warning-heading + table,
+.cours-content .course-warning-heading + .katex-display {
+  padding: 0.8rem 0.95rem;
+  border-left-color: var(--v3-color-danger-text);
+  background: var(--v3-color-danger-subtle);
+}
+
+.cours-content .course-law-heading + p,
+.cours-content .course-law-heading + ul,
+.cours-content .course-law-heading + ol,
+.cours-content .course-law-heading + table,
+.cours-content .course-law-heading + .katex-display {
+  border-left-color: var(--v3-color-discipline-pc);
+}
+
+.cours-content .course-synthesis-heading + p,
+.cours-content .course-synthesis-heading + ul,
+.cours-content .course-synthesis-heading + ol,
+.cours-content .course-vocabulary-heading + p,
+.cours-content .course-vocabulary-heading + ul,
+.cours-content .course-vocabulary-heading + ol {
+  padding: 0.85rem 1rem;
+  border-left-color: var(--accent-primary);
+  background: var(--accent-primary-light);
+}
+
+.cours-content .course-special-card {
+  margin: 0 0 1.75rem;
+  padding: 0.95rem 1rem;
+  border: 0;
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0;
+  background: var(--accent-primary-light);
+  box-shadow: none;
+}
+
+.cours-content table {
+  box-shadow: none;
+  border: 1px solid var(--border-color);
+}
+
+@media (max-width: 700px) {
+  .cours-content {
+    font-size: 1rem;
+    line-height: 1.68;
+  }
+
+  .cours-content h2 {
+    margin-top: 2.25rem;
+    font-size: 1.5rem;
+  }
+}
