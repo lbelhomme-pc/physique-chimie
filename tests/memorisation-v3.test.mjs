@@ -37,7 +37,7 @@ function installStorage(initial = {}) {
   return { store, calls };
 }
 
-describe("memorisation V3", () => {
+describe("memorisation V4 compatibility", () => {
   it("preserves legacy quiz progress and never lowers the best score", () => {
     const legacy = { date: "2026-07-27", score: 8, total: 10 };
     const lowerAttempt = mergeQuizProgress(legacy, { date: "2026-07-27", score: 4, total: 10, updatedAt: "test" });
@@ -77,9 +77,11 @@ describe("memorisation V3", () => {
   });
 
   it("keeps retry and accessibility affordances in the memorisation players", () => {
-    assert.match(sources.quiz, /Reprendre les erreurs/);
+    assert.match(sources.quiz, /Reprendre mes erreurs/);
     assert.match(sources.quiz, /scoreFromAnswers/);
     assert.match(sources.flashcards, /data-flashcards-result-v3/);
+    assert.match(sources.flashcards, /Révision rapide/);
+    assert.match(sources.flashcards, /answerMode === "active"/);
     assert.match(sources.megaQuiz, /retryQuestions/);
     assert.match(sources.megaQuiz, /Reprendre les erreurs/);
     assert.match(sources.megaFlashcards, /role="button"/);
