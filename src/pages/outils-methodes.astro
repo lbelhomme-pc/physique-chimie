@@ -1,77 +1,59 @@
 ---
-// src/pages/outils-methodes.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
-import V3LandingHero from "../components/home/V3LandingHero.astro";
 
 const spaces = [
-  {
-    mark: "C",
-    title: "Collège",
-    href: "/outils-methodes/college",
-    description: "Méthodes de calcul, conversions, formules et outils adaptés au collège.",
-    label: "Voir les outils collège",
-  },
-  {
-    mark: "L",
-    title: "Lycée",
-    href: "/outils-methodes/lycee",
-    description: "Méthodes numériques, Python, mathématiques utiles et ressources de lycée.",
-    label: "Voir les outils lycée",
-  },
-  {
-    mark: "T",
-    title: "Transverses",
-    href: "/outils-methodes/transverses",
-    description: "Ressources utilisables dans plusieurs niveaux, du collège au lycée.",
-    label: "Voir les ressources transverses",
-  },
+  { mark: "C", title: "Collège", href: "/outils-methodes/college", description: "Méthodes de calcul, conversions, formules et outils adaptés au collège.", label: "Voir les outils collège" },
+  { mark: "L", title: "Lycée", href: "/outils-methodes/lycee", description: "Méthodes numériques, Python, mathématiques utiles et ressources de lycée.", label: "Voir les outils lycée" },
+  { mark: "T", title: "Transverses", href: "/outils-methodes/transverses", description: "Ressources utilisables dans plusieurs niveaux, du collège au lycée.", label: "Voir les ressources transverses" },
 ];
 ---
 
 <BaseLayout
-  title="Outils & méthodes - Physique-Chimie"
-  description="Espace central pour les outils et méthodes de physique-chimie, séparés entre collège, lycée et ressources transverses."
+  title="Outils & méthodes"
+  description="Espace central pour les outils et méthodes, séparés entre collège, lycée et ressources transverses."
   canonical="/outils-methodes"
   resourceType="tool"
+  subject="transversal"
 >
-  <div class="v3-landing-page v3-landing-page--kit om-page">
-    <V3LandingHero
-      tone="kit"
-      eyebrow="Ressources de travail"
-      mark="K"
-      markLabel="Repère kit scientifique"
-      title="Outils et méthodes"
-      description="Les méthodes expliquent comment faire ; les outils permettent de calculer, vérifier, tracer ou manipuler."
-      actions={[
-        { label: "Choisir un espace", href: "#espaces-outils" },
-        { label: "Kit scientifique", href: "/outils-methodes/kit-scientifique", variant: "secondary" },
-      ]}
-      stats={[
-        { value: spaces.length, label: "espaces de ressources" },
-      ]}
-      imageAlt="Outils numériques, schémas et matériel scientifique réunis sur un bureau de travail."
-    />
+  <div class="ui5-page">
+    <nav class="ui5-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span><strong>Outils et méthodes</strong>
+    </nav>
 
-    <div class="v3-landing-content">
-      <section class="v3-landing-section om-section" id="espaces-outils" aria-labelledby="om-spaces-title">
-        <div class="v3-landing-section-header">
-          <div>
-            <p>Ressources organisées</p>
-            <h2 id="om-spaces-title">Choisir un espace</h2>
-          </div>
-          <span>Entre par ton niveau ou retrouve les ressources utiles dans plusieurs classes.</span>
+    <header class="ui5-page-header">
+      <div class="ui5-page-header__copy">
+        <p class="ui5-kicker">Ressources de travail</p>
+        <h1 class="ui5-title">Outils et méthodes</h1>
+        <p class="ui5-lead">Les méthodes expliquent comment faire ; les outils permettent de calculer, vérifier, tracer ou manipuler.</p>
+      </div>
+      <p class="ui5-page-header__aside">{spaces.length} espaces de ressources</p>
+    </header>
+
+    <section class="ui5-section" aria-labelledby="tools-spaces-title">
+      <div class="ui5-section-head">
+        <h2 id="tools-spaces-title">Choisir un espace</h2>
+        <p>Entre par ton niveau ou par une ressource transverse.</p>
+      </div>
+      <div class="ui5-grid ui5-grid--2">
+        {spaces.map((space) => (
+          <a class="ui5-card ui5-resource-card" href={space.href}>
+            <span class="ui5-level-card__badge" aria-hidden="true">{space.mark}</span>
+            <h3>{space.title}</h3>
+            <p>{space.description}</p>
+            <span class="ui5-card__cta">{space.label} →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="ui5-section">
+      <div class="ui5-card ui5-tools-row">
+        <div>
+          <h2>Kit scientifique</h2>
+          <p>Conversions, calculs, graphiques, mesures et méthodes de Physique-Chimie.</p>
         </div>
-        <div class="om-entry-grid v3-landing-grid">
-          {spaces.map((space) => (
-            <a class="om-entry-card v3-landing-card" href={space.href}>
-              <span class="v3-landing-card__mark" aria-hidden="true">{space.mark}</span>
-              <strong>{space.title}</strong>
-              <span>{space.description}</span>
-              <em>{space.label} →</em>
-            </a>
-          ))}
-        </div>
-      </section>
-    </div>
+        <a class="ui5-button ui5-button--primary" href="/outils-methodes/kit-scientifique">Ouvrir le kit</a>
+      </div>
+    </section>
   </div>
 </BaseLayout>
