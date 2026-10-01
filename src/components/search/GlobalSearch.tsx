@@ -119,7 +119,7 @@ export default function GlobalSearch({
   }
 
   return (
-    <section className="global-search" aria-labelledby="global-search-title">
+    <section id="global-search" className="global-search" aria-labelledby="global-search-title">
       <header className="global-search__header">
         <div>
           <p className="global-search__eyebrow">Recherche globale</p>
