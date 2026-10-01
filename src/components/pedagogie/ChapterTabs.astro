@@ -40,14 +40,14 @@ const activeTab = hasCours
           : "";
 ---
 
-<div class="chapter-tabs-wrapper" data-chapter-tabs>
-  <div class="chapter-tabs">
-    <nav class="chapter-tablist" role="tablist" aria-label="Sections du chapitre">
+<div class="chapter-tabs-wrapper ui5-tabs" data-chapter-tabs>
+  <div class="chapter-tabs ui5-tabs__bar">
+    <nav class="chapter-tablist ui5-tabs__list" role="tablist" aria-label="Sections du chapitre">
       {hasCours && (
         <button
           type="button"
           id="chapter-tab-cours"
-          class:list={["tab-pill", { active: activeTab === "cours" }]}
+          class:list={["tab-pill", "ui5-tab", { active: activeTab === "cours" }]}
           role="tab"
           aria-selected={activeTab === "cours" ? "true" : "false"}
           aria-controls="chapter-panel-cours"
@@ -61,7 +61,7 @@ const activeTab = hasCours
         <button
           type="button"
           id="chapter-tab-activite"
-          class:list={["tab-pill", { active: activeTab === "activite" }]}
+          class:list={["tab-pill", "ui5-tab", { active: activeTab === "activite" }]}
           role="tab"
           aria-selected={activeTab === "activite" ? "true" : "false"}
           aria-controls="chapter-panel-activite"
@@ -75,7 +75,7 @@ const activeTab = hasCours
         <button
           type="button"
           id="chapter-tab-exercices"
-          class:list={["tab-pill", { active: activeTab === "exercices" }]}
+          class:list={["tab-pill", "ui5-tab", { active: activeTab === "exercices" }]}
           role="tab"
           aria-selected={activeTab === "exercices" ? "true" : "false"}
           aria-controls="chapter-panel-exercices"
@@ -83,14 +83,14 @@ const activeTab = hasCours
           data-tab="exercices"
         >
           Exercices
-          {exercicesCount > 0 && <span class="tab-badge">{exercicesCount}</span>}
+          {exercicesCount > 0 && <span class="tab-badge ui5-tab__badge">{exercicesCount}</span>}
         </button>
       )}
       {hasQuiz && (
         <button
           type="button"
           id="chapter-tab-quiz"
-          class:list={["tab-pill", { active: activeTab === "quiz" }]}
+          class:list={["tab-pill", "ui5-tab", { active: activeTab === "quiz" }]}
           role="tab"
           aria-selected={activeTab === "quiz" ? "true" : "false"}
           aria-controls="chapter-panel-quiz"
@@ -98,14 +98,14 @@ const activeTab = hasCours
           data-tab="quiz"
         >
           Quiz
-          {quizCount > 0 && <span class="tab-badge">{quizCount}</span>}
+          {quizCount > 0 && <span class="tab-badge ui5-tab__badge">{quizCount}</span>}
         </button>
       )}
       {hasFlashcards && (
         <button
           type="button"
           id="chapter-tab-flashcards"
-          class:list={["tab-pill", { active: activeTab === "flashcards" }]}
+          class:list={["tab-pill", "ui5-tab", { active: activeTab === "flashcards" }]}
           role="tab"
           aria-selected={activeTab === "flashcards" ? "true" : "false"}
           aria-controls="chapter-panel-flashcards"
@@ -113,21 +113,21 @@ const activeTab = hasCours
           data-tab="flashcards"
         >
           Flashcards
-          {flashcardsCount > 0 && <span class="tab-badge">{flashcardsCount}</span>}
+          {flashcardsCount > 0 && <span class="tab-badge ui5-tab__badge">{flashcardsCount}</span>}
         </button>
       )}
     </nav>
   </div>
 
-  <div class="chapter-tabs-intro">
+  <div class="chapter-tabs-intro ui5-tabs__intro">
     <slot name="intro" />
   </div>
 
-  <div class="tab-panels">
+  <div class="tab-panels ui5-tabs__panels">
     {hasCours && (
       <div
         id="chapter-panel-cours"
-        class:list={["tab-panel", { active: activeTab === "cours" }]}
+        class:list={["tab-panel", "ui5-tab-panel", { active: activeTab === "cours" }]}
         data-panel="cours"
         role="tabpanel"
         aria-labelledby="chapter-tab-cours"
@@ -139,7 +139,7 @@ const activeTab = hasCours
     {hasActivite && (
       <div
         id="chapter-panel-activite"
-        class:list={["tab-panel", { active: activeTab === "activite" }]}
+        class:list={["tab-panel", "ui5-tab-panel", { active: activeTab === "activite" }]}
         data-panel="activite"
         role="tabpanel"
         aria-labelledby="chapter-tab-activite"
@@ -151,7 +151,7 @@ const activeTab = hasCours
     {hasExercices && (
       <div
         id="chapter-panel-exercices"
-        class:list={["tab-panel", { active: activeTab === "exercices" }]}
+        class:list={["tab-panel", "ui5-tab-panel", { active: activeTab === "exercices" }]}
         data-panel="exercices"
         role="tabpanel"
         aria-labelledby="chapter-tab-exercices"
@@ -163,7 +163,7 @@ const activeTab = hasCours
     {hasQuiz && (
       <div
         id="chapter-panel-quiz"
-        class:list={["tab-panel", { active: activeTab === "quiz" }]}
+        class:list={["tab-panel", "ui5-tab-panel", { active: activeTab === "quiz" }]}
         data-panel="quiz"
         role="tabpanel"
         aria-labelledby="chapter-tab-quiz"
@@ -175,7 +175,7 @@ const activeTab = hasCours
     {hasFlashcards && (
       <div
         id="chapter-panel-flashcards"
-        class:list={["tab-panel", { active: activeTab === "flashcards" }]}
+        class:list={["tab-panel", "ui5-tab-panel", { active: activeTab === "flashcards" }]}
         data-panel="flashcards"
         role="tabpanel"
         aria-labelledby="chapter-tab-flashcards"
@@ -186,146 +186,6 @@ const activeTab = hasCours
     )}
   </div>
 </div>
-
-<style>
-  .chapter-tabs-wrapper {
-    width: 100%;
-    max-width: var(--chapter-shell-max, 1120px);
-    margin: 0 auto;
-  }
-
-  .chapter-tabs {
-    align-items: center;
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.85rem;
-    padding: 0.35rem;
-    position: sticky;
-    top: 120px;
-    z-index: 40;
-    border: 1px solid var(--border-color);
-    border-radius: var(--v3-radius-md);
-    background: color-mix(in srgb, var(--bg-card) 96%, transparent);
-    box-shadow: var(--v3-shadow-sm);
-    backdrop-filter: blur(10px);
-  }
-
-  .chapter-tablist {
-    align-items: center;
-    display: flex;
-    flex: 1 1 auto;
-    gap: 0.25rem;
-    min-width: 0;
-  }
-
-  .tab-pill {
-    align-items: center;
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: var(--v3-radius-sm);
-    color: var(--text-muted);
-    cursor: pointer;
-    display: inline-flex;
-    flex: 1 1 0;
-    font: inherit;
-    font-size: 0.9rem;
-    font-weight: 750;
-    gap: 0.4rem;
-    justify-content: center;
-    min-height: 44px;
-    min-width: 0;
-    padding: 0.55rem 0.85rem;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background var(--v3-motion-base), border-color var(--v3-motion-base), color var(--v3-motion-base);
-  }
-
-  .tab-pill:hover {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-  }
-
-  .tab-pill:focus-visible {
-    outline: 3px solid var(--v3-color-focus-ring);
-    outline-offset: 2px;
-  }
-
-  .tab-pill.active {
-    border-color: var(--v3-color-action);
-    background: var(--v3-color-action);
-    color: #fff;
-  }
-
-  .tab-badge {
-    align-items: center;
-    background: var(--bg-tertiary);
-    border-radius: var(--v3-radius-pill);
-    color: var(--text-muted);
-    display: inline-flex;
-    font-size: 0.72rem;
-    font-weight: 800;
-    height: 22px;
-    justify-content: center;
-    min-width: 22px;
-    padding: 0 0.38rem;
-  }
-
-  .tab-pill.active .tab-badge {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-  }
-
-  .chapter-tabs-intro:empty {
-    display: none;
-  }
-
-  .tab-panel,
-  .tab-panel[hidden] {
-    display: none;
-  }
-
-  .tab-panel.active {
-    display: block;
-    animation: fadeIn var(--v3-motion-base);
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(3px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 1180px) {
-    .chapter-tabs {
-      top: 112px;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .chapter-tabs {
-      top: 92px;
-      margin-inline: -0.25rem;
-      overflow-x: auto;
-      padding: 0.3rem;
-      box-shadow: var(--v3-shadow-sm), inset -22px 0 18px -22px rgba(6, 24, 73, 0.75);
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-    }
-
-    .chapter-tablist {
-      flex: 0 0 auto;
-      gap: 0.2rem;
-      min-width: max-content;
-    }
-
-    .tab-pill {
-      flex: 0 0 auto;
-      min-width: max-content;
-      min-height: 44px;
-      padding-inline: 0.8rem;
-      font-size: 0.84rem;
-    }
-  }
-</style>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
