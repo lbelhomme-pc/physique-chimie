@@ -35,70 +35,43 @@ const {
   description,
   actions = [],
   stats = [],
-  imageAlt = "Bureau scientifique avec matériel de laboratoire, schémas et outils de travail.",
   contained = false,
   titleId,
 } = Astro.props;
 ---
 
 <header
-  class:list={[
-    "v3-landing-hero",
-    `v3-landing-hero--${tone}`,
-    { "v3-landing-hero--contained": contained },
-  ]}
-  data-v3-landing-hero
+  class:list={["ui5-landing-hero", `ui5-landing-hero--${tone}`, { "ui5-landing-hero--contained": contained }]}
+  data-v5-landing-hero
 >
-  <picture class="v3-landing-hero__media">
-    <source srcset="/images/accueil-v3-hero-sciences-2026-07-27.webp" type="image/webp" />
-    <img
-      src="/images/accueil-v3-hero-sciences-2026-07-27.png"
-      alt={imageAlt}
-      width="1600"
-      height="762"
-      loading="eager"
-      decoding="async"
-    />
-  </picture>
+  <div class="ui5-landing-hero__copy">
+    <p class="ui5-kicker ui5-landing-hero__identity">
+      <span class="ui5-landing-hero__mark" aria-hidden="true">{mark}</span>
+      <span>{eyebrow}</span>
+      <span class="sr-only">{markLabel}</span>
+    </p>
+    <h1 class="ui5-title" id={titleId}>{title}</h1>
+    <p class="ui5-lead">{description}</p>
 
-  <div class="v3-landing-hero__inner">
-    <div class="v3-landing-hero__copy">
-      <p class="v3-landing-identity">
-        <span aria-hidden="true">{mark}</span>
-        <strong>{eyebrow}</strong>
-        <span class="sr-only">{markLabel}</span>
-      </p>
-      <h1 id={titleId}>{title}</h1>
-      <p class="v3-landing-hero__description">{description}</p>
+    {actions.length > 0 && (
+      <nav class="ui5-landing-hero__actions" aria-label={`Accès rapides - ${title}`}>
+        {actions.map((action) => (
+          <a class:list={["ui5-button", { "ui5-button--primary": action.variant !== "secondary" }]} href={action.href}>
+            {action.label}
+          </a>
+        ))}
+      </nav>
+    )}
 
-      {actions.length > 0 && (
-        <nav class="v3-landing-actions" aria-label={`Accès rapides - ${title}`}>
-          {actions.map((action) => (
-            <a
-              class:list={[
-                "v3-landing-action",
-                action.variant === "secondary"
-                  ? "v3-landing-action--secondary"
-                  : "v3-landing-action--primary",
-              ]}
-              href={action.href}
-            >
-              {action.label}
-            </a>
-          ))}
-        </nav>
-      )}
-
-      {stats.length > 0 && (
-        <dl class="v3-landing-stats" aria-label={`Repères - ${title}`}>
-          {stats.map((stat) => (
-            <div>
-              <dt>{stat.value}</dt>
-              <dd>{stat.label}</dd>
-            </div>
-          ))}
-        </dl>
-      )}
-    </div>
+    {stats.length > 0 && (
+      <dl class="ui5-landing-hero__stats" aria-label={`Repères - ${title}`}>
+        {stats.map((stat) => (
+          <div>
+            <dt>{stat.value}</dt>
+            <dd>{stat.label}</dd>
+          </div>
+        ))}
+      </dl>
+    )}
   </div>
 </header>
