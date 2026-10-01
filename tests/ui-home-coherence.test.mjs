@@ -35,9 +35,9 @@ describe("UI — cohérence avec la charte de la page d'accueil",()=>{
 
   it("aligne les onglets génériques V3 sur la charte d'accueil",()=>{
     const tabs=read("src/components/design-system/V3Tabs.astro");
-    assert.match(tabs,/border: 1px solid #d9e6fb/);
+    assert.match(tabs,/border: 1px solid var\(--v3-color-border-default\)/);
     assert.match(tabs,/border-radius: var\(--v3-radius-md\)/);
-    assert.match(tabs,/background: #0f5bff/);
+    assert.match(tabs,/background: var\(--v3-color-action\)/);
   });
 
   it("la recherche historique n'utilise plus de styles inline ni d'emoji",()=>{
@@ -55,8 +55,8 @@ describe("UI — cohérence avec la charte de la page d'accueil",()=>{
     const css=read("src/styles/laboratoire/global-lab.css");
     assert.match(page,/class="lab-search-icon"/);
     assert.doesNotMatch(page,/🔍/);
-    assert.match(css,/border: 1px solid #d9e6fb/);
-    assert.match(css,/border-color: #0f5bff/);
+    assert.match(css,/border: 1px solid var\(--v3-color-border-default\)/);
+    assert.match(css,/border-color: var\(--v3-color-action\)/);
   });
 
   it("les espaces pédagogiques restent sur 1120px avec la géométrie de l'accueil",()=>{
