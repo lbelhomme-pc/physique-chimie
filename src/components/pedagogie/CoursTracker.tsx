@@ -109,14 +109,8 @@ export default function CoursTracker({ chapterId, xpConfig, children }: CoursTra
 
       {/* Indicateur si déjà lu */}
       {hasTracked && (
-        <div style={{
-          display: "inline-flex", alignItems: "center", gap: "0.4rem",
-          padding: "0.3rem 0.7rem", background: "var(--accent-success-light)",
-          border: "1px solid var(--accent-success)", borderRadius: 6,
-          fontSize: "0.75rem", fontWeight: 600, color: "var(--accent-success)",
-          marginBottom: "1rem",
-        }}>
-          ✅ Cours déjà lu
+        <div className="ui5-course-status" role="status">
+          <span aria-hidden="true">✓</span> Cours déjà lu
         </div>
       )}
 
