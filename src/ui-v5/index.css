@@ -1773,3 +1773,268 @@ body {
   font-size: 0.76rem;
   font-weight: 800;
 }
+
+
+/* Leane V5 compatibility */
+.ui5-leane-page .leane-svg-icon {
+  width: 1.15em;
+  height: 1.15em;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ui5-leane-nav {
+  width: min(100%, var(--ui5-content));
+  margin: 1rem auto 0;
+}
+.ui5-leane-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+.ui5-leane-memory {
+  min-height: 44px;
+  text-decoration: none;
+}
+.ui5-leane-content {
+  display: grid;
+  gap: 1.2rem;
+}
+.ui5-leane-page .leane-grid,
+.ui5-leane-page .leane-two-col,
+.ui5-leane-page .leane-stat-grid,
+.ui5-leane-page .leane-card-grid {
+  display: grid;
+  gap: 1rem;
+}
+.ui5-leane-page .leane-stat-grid {
+  grid-template-columns: repeat(4,minmax(0,1fr));
+}
+.ui5-leane-page .leane-two-col {
+  grid-template-columns: minmax(0,1fr) minmax(280px,.45fr);
+  align-items: start;
+}
+.ui5-leane-page .leane-card-grid {
+  grid-template-columns: repeat(3,minmax(0,1fr));
+}
+.ui5-leane-page .leane-card-grid--courses {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+.ui5-leane-page :where(
+  .leane-panel,.leane-stat,.leane-level-card,.leane-course-card,
+  .leane-exercise-card,.leane-flashcard,.leane-question,.leane-mini-panel
+) {
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-md);
+  background: var(--ui5-surface);
+  box-shadow: none;
+}
+.ui5-leane-page :where(.leane-panel,.leane-level-card,.leane-course-card,.leane-exercise-card,.leane-question,.leane-mini-panel) {
+  padding: 1rem;
+}
+.ui5-leane-page .leane-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 108px;
+  padding: 1rem;
+}
+.ui5-leane-page .leane-stat__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid currentColor;
+  border-radius: var(--ui5-radius-sm);
+}
+.ui5-leane-page .leane-stat strong {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--ui5-text);
+  font-size: 1.55rem;
+  line-height: 1;
+}
+.ui5-leane-page :where(.leane-stat span,.leane-stat small,.leane-card-muted,.leane-panel p,.leane-course-card p,.leane-exercise-card p) {
+  color: var(--ui5-text-2);
+}
+.ui5-leane-page :where(.leane-panel h2,.leane-level-card h2,.leane-course-card h2,.leane-exercise-card h2) {
+  margin: 0 0 0.65rem;
+  color: var(--ui5-text);
+  font-size: 1.05rem;
+}
+.ui5-leane-page .leane-eyebrow {
+  margin: 0 0 0.25rem;
+  color: var(--ui5-maths);
+  font-size: 0.76rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+.ui5-leane-page .leane-level-card {
+  display: grid;
+  gap: 0.7rem;
+  border-top: 3px solid var(--level-accent,var(--ui5-maths));
+}
+.ui5-leane-page .leane-level-card__actions,
+.ui5-leane-page .leane-inline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+.ui5-leane-page .leane-level-card__actions {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+}
+.ui5-leane-page :where(.leane-chip,.leane-action-tile,.leane-outline-link,.leane-primary-link) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-surface);
+  color: var(--ui5-text-2);
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+.ui5-leane-page .leane-chip {
+  min-height: 28px;
+  padding-block: 0.15rem;
+  background: var(--ui5-surface-soft);
+}
+.ui5-leane-page :where(.leane-action-tile,.leane-outline-link):hover,
+.ui5-leane-page :where(.leane-action-tile,.leane-outline-link):focus-visible {
+  border-color: var(--ui5-maths);
+  color: var(--ui5-maths);
+}
+.ui5-leane-page .leane-primary-link {
+  border-color: var(--ui5-maths);
+  background: var(--ui5-maths);
+  color: #fff;
+}
+.ui5-leane-page .leane-primary-link:hover,
+.ui5-leane-page .leane-primary-link:focus-visible {
+  background: color-mix(in srgb,var(--ui5-maths) 88%,#000);
+  color: #fff;
+}
+.ui5-leane-page .leane-progress {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--ui5-surface-soft);
+}
+.ui5-leane-page .leane-progress span {
+  display: block;
+  height: 100%;
+  background: var(--ui5-maths);
+}
+.ui5-leane-page .leane-progress-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--ui5-text-2);
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+.ui5-leane-page .leane-progress-row strong { color: var(--ui5-text); }
+.ui5-leane-page .leane-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ui5-leane-page .leane-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--ui5-border);
+}
+.ui5-leane-page .leane-exercise-step,
+.ui5-leane-page .leane-question {
+  display: grid;
+  gap: 0.65rem;
+}
+.ui5-leane-page :where(.leane-exercise-step details,.leane-exercise-card details,.leane-mini-panel details) {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-surface-soft);
+}
+.ui5-leane-page :where(.leane-exercise-step summary,.leane-exercise-card summary,.leane-mini-panel summary) {
+  color: var(--ui5-maths);
+  font-weight: 800;
+  cursor: pointer;
+}
+.ui5-leane-page .leane-question label,
+.ui5-leane-page .leane-mini-quiz label {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--ui5-border);
+  border-radius: var(--ui5-radius-sm);
+  background: var(--ui5-surface);
+}
+.ui5-leane-page .leane-question.is-correct { border-color: var(--ui5-chem); }
+.ui5-leane-page .leane-question.is-wrong { border-color: #b84b3a; }
+.ui5-leane-page .leane-result {
+  padding: 0.75rem;
+  border: 1px solid color-mix(in srgb,var(--ui5-maths) 30%,var(--ui5-border));
+  border-radius: var(--ui5-radius-sm);
+  background: color-mix(in srgb,var(--ui5-maths) 6%,white);
+  color: var(--ui5-maths);
+  font-weight: 850;
+}
+.ui5-leane-page .leane-flashcard {
+  min-height: 180px;
+  padding: 0;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.ui5-leane-page .leane-flashcard__inner {
+  display: grid;
+  min-height: 180px;
+  transform-style: preserve-3d;
+  transition: transform 180ms ease;
+}
+.ui5-leane-page .leane-flashcard.is-flipped .leane-flashcard__inner {
+  transform: rotateY(180deg);
+}
+.ui5-leane-page .leane-flashcard__face {
+  grid-area: 1 / 1;
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+.ui5-leane-page .leane-flashcard__face--back {
+  border-radius: var(--ui5-radius-md);
+  background: color-mix(in srgb,var(--ui5-chem) 5%,white);
+  transform: rotateY(180deg);
+}
+
+@media (max-width: 1000px) {
+  .ui5-leane-page .leane-stat-grid,
+  .ui5-leane-page .leane-card-grid,
+  .ui5-leane-page .leane-card-grid--courses,
+  .ui5-leane-page .leane-two-col {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+@media (max-width: 700px) {
+  .ui5-leane-toolbar {
+    grid-template-columns: 1fr;
+  }
+  .ui5-leane-page .leane-stat-grid,
+  .ui5-leane-page .leane-card-grid,
+  .ui5-leane-page .leane-card-grid--courses,
+  .ui5-leane-page .leane-two-col {
+    grid-template-columns: 1fr;
+  }
+  .ui5-leane-page .leane-level-card__actions {
+    grid-template-columns: 1fr;
+  }
+}
