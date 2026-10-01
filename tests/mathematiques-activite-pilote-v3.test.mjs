@@ -37,14 +37,14 @@ test("mathematics pilot activity is isolated to fonctions-generalites", async ()
   assert.equal(getMathematicsPilotActivity("droites-plan"), null);
 });
 
-test("chapter shell and tabs expose an optional interactive activity section", () => {
+test("chapter shell and tabs expose the V4 optional interactive activity section", () => {
   const shell = read("src/components/pedagogie/ChapterPageShell.astro");
   const tabs = read("src/components/pedagogie/ChapterTabs.astro");
   const mathPage = read("src/pages/mathematiques/lycee/[niveau]/[chapitre].astro");
 
   assert.match(shell, /ActivityContent\?: any/);
   assert.match(shell, /hasActivite/);
-  assert.match(shell, /id: "activite", label: "Activite"/);
+  assert.match(shell, /<div slot="activite">/);
   assert.match(tabs, /chapter-tab-activite/);
   assert.match(tabs, /chapter-panel-activite/);
   assert.match(tabs, /<slot name="activite" \/>/);
