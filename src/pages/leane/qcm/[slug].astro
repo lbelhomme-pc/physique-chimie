@@ -101,35 +101,3 @@ const questions = qcm.indices.map((index) => leaneQuiz[index]).filter(Boolean);
   </LeaneShell>
 </BaseLayout>
 
-<style is:global>
-  .leane-qcm-detail {
-    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.32fr);
-  }
-
-  .leane-qcm-detail__top {
-    align-items: center;
-    display: flex;
-    gap: 0.75rem;
-    justify-content: space-between;
-    margin-bottom: 0.85rem;
-  }
-
-  .leane-qcm-detail .leane-question {
-    min-height: 18rem;
-  }
-
-  .leane-qcm-side {
-    position: sticky;
-    top: 1rem;
-  }
-
-  @media (max-width: 1040px) {
-    .leane-qcm-detail {
-      grid-template-columns: 1fr;
-    }
-
-    .leane-qcm-side {
-      position: static;
-    }
-  }
-</style>
