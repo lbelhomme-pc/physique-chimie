@@ -1,11 +1,8 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import V3LandingHero from "../../../components/home/V3LandingHero.astro";
-import Breadcrumb from "../../../components/ui/Breadcrumb.astro";
 import MathLevelCard from "../../../components/mathematiques/MathLevelCard.astro";
 import { getMathematicsLevelsByCycle } from "../../../data/mathematiques/levels";
 import { chapterEntryFromGlob } from "../../../data/mathematiques/content";
-import "../../../styles/mathematiques/mathematics.css";
 
 const allMeta = import.meta.glob("/src/data/mathematiques/chapters/**/meta.json", { eager: true });
 const chapters = Object.entries(allMeta)
@@ -16,57 +13,39 @@ const levels = getMathematicsLevelsByCycle("lycee");
 function countChapters(levelSlug: string) {
   return chapters.filter((chapter) => chapter?.niveau === levelSlug).length;
 }
-
 const availableCount = levels.filter((level) => countChapters(level.slug) > 0 && level.status === "available").length;
 ---
 
 <BaseLayout
   title="Mathématiques lycée"
-  description="Niveaux lycée de l'espace mathématiques : accès aux chapitres publiés et aux niveaux prévus."
+  description="Parcours lycée de l'espace mathématiques : accès aux chapitres publiés et aux parcours prévus."
   canonical="/mathematiques/lycee"
   subject="mathematiques"
+  cycle="lycee"
 >
-  <div class="v3-landing-page v3-landing-page--maths">
-    <V3LandingHero
-      tone="maths"
-      eyebrow="Mathématiques"
-      mark="∑"
-      markLabel="Symbole somme"
-      title="Mathématiques au lycée"
-      description="Retrouve les parcours du lycée et accède aux chapitres publiés avec leurs ressources d’entraînement."
-      actions={[
-        { label: "Voir les parcours", href: "#niveaux-maths-lycee" },
-        { label: "Retour aux mathématiques", href: "/mathematiques", variant: "secondary" },
-      ]}
-      stats={[
-        { value: levels.length, label: "parcours prévus" },
-        { value: availableCount, label: "parcours publiés" },
-        { value: chapters.length, label: "chapitres" },
-      ]}
-      imageAlt="Espace de travail consacré aux mathématiques du lycée."
-    />
+  <div class="ui5-page" data-subject="mathematiques">
+    <nav class="ui5-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/mathematiques">Mathématiques</a><span aria-hidden="true">/</span><strong>Lycée</strong>
+    </nav>
 
-    <div class="v3-landing-content math-shell">
-      <Breadcrumb
-        items={[
-          { label: "Accueil", href: "/" },
-          { label: "Mathématiques", href: "/mathematiques" },
-          { label: "Lycée" },
-        ]}
-      />
+    <header class="ui5-page-header">
+      <div class="ui5-page-header__copy">
+        <p class="ui5-kicker">Mathématiques · Lycée</p>
+        <h1 class="ui5-title">Choisir un parcours</h1>
+        <p class="ui5-lead">Seconde, spécialité, mathématiques complémentaires ou expertes : chaque parcours ouvre sur le même catalogue et le même lecteur.</p>
+      </div>
+      <p class="ui5-page-header__aside">{availableCount} parcours publié{availableCount > 1 ? "s" : ""} · {chapters.length} chapitres</p>
+    </header>
 
-      <section class="v3-landing-section math-section" id="niveaux-maths-lycee" aria-labelledby="math-lycee-levels">
-        <div class="v3-landing-section-header">
-          <div>
-            <p>Parcours lycée</p>
-            <h2 id="math-lycee-levels">Choisir un niveau</h2>
-          </div>
-          <span>Les parcours publiés donnent directement accès aux chapitres disponibles.</span>
-        </div>
-        <div class="math-grid">
-          {levels.map((level) => <MathLevelCard level={level} chapterCount={countChapters(level.slug)} />)}
-        </div>
-      </section>
-    </div>
+    <section class="ui5-section" aria-labelledby="math-lycee-levels">
+      <div class="ui5-section-head">
+        <h2 id="math-lycee-levels">Parcours</h2>
+        <p>Les parcours prévus restent identifiés sans créer de pages vides trompeuses.</p>
+      </div>
+      <div class="ui5-grid ui5-grid--2">
+        {levels.map((level) => <MathLevelCard level={level} chapterCount={countChapters(level.slug)} />)}
+      </div>
+    </section>
   </div>
 </BaseLayout>
