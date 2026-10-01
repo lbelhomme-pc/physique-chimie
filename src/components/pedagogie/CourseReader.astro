@@ -41,8 +41,19 @@ const readerTitleId = `${chapterId.replace(/[^a-zA-Z0-9_-]/g, "-")}-course-reade
   .course-reader-v3__body {
     display: flow-root;
     color: var(--text-primary);
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  .course-reader-v3 .cours-tracker__tools,
+  .course-reader-v3 .cours-tracker__content > :not(figure):not(table):not(.katex-display):not(.katex-block):not(.latex-course-document):not(.spe-imported-content) {
+    width: min(100%, var(--v3-measure-readable, 70ch));
+    margin-inline: auto;
+  }
+
+  .course-reader-v3 .cours-tracker__content > :where(figure, table, .katex-display, .katex-block, .schema-block, .svg-wrap) {
+    width: min(100%, 1120px);
+    margin-inline: auto;
   }
 
   .course-reader-v3 :where(h2, h3, h4) {
@@ -186,8 +197,8 @@ const readerTitleId = `${chapterId.replace(/[^a-zA-Z0-9_-]/g, "-")}-course-reade
 
   @media (max-width: 700px) {
     .course-reader-v3__body {
-      font-size: 0.96rem;
-      line-height: 1.72;
+      font-size: 1rem;
+      line-height: 1.68;
     }
 
     .course-reader-v3 figure,
