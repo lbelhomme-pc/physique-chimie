@@ -1,108 +1,93 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import V3LandingHero from "../components/home/V3LandingHero.astro";
 import LabAppCard from "../components/laboratoire/LabAppCard.astro";
 import { labApps } from "../data/laboratoire/apps";
-import "../styles/laboratoire/global-lab.css";
 ---
 
 <BaseLayout
   title="Laboratoire — Physique-Chimie"
-  description="Simulations interactives de physique-chimie migrées dans le nouveau site Astro."
+  description="Simulations interactives de physique-chimie pour observer, mesurer et expérimenter."
   canonical="/laboratoire"
   subject="physique-chimie"
   resourceType="simulation"
 >
-  <div class="lab-index v3-landing-page v3-landing-page--pc" data-lab-index>
-    <V3LandingHero
-      tone="pc"
-      eyebrow="Laboratoire virtuel"
-      mark="PC"
-      markLabel="Initiales Physique-Chimie"
-      title="Expérimenter en laboratoire"
-      description="Manipule, mesure et observe les notions de physique-chimie avec des simulations accompagnées de consignes accessibles."
-      actions={[
-        { label: "Explorer les simulations", href: "#bibliotheque-laboratoire" },
-        { label: "Ouvrir le kit scientifique", href: "/outils-methodes/kit-scientifique", variant: "secondary" },
-      ]}
-      stats={[
-        { value: labApps.length, label: "simulations" },
-      ]}
-      imageAlt="Montage de laboratoire et outils numériques pour expérimenter en physique-chimie."
-    />
+  <div class="ui5-page ui5-lab-index" data-subject="physique-chimie" data-lab-index>
+    <nav class="ui5-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/physique-chimie">Physique-Chimie</a><span aria-hidden="true">/</span>
+      <strong>Laboratoire</strong>
+    </nav>
 
-    <div class="v3-landing-content v3-landing-content--wide">
-      <div class="lab-library-layout" id="bibliotheque-laboratoire">
-      <aside id="lab-filter-panel" class="lab-filter-panel" aria-labelledby="lab-filter-title" data-lab-filter-panel>
-        <div class="lab-filter-panel__head">
-          <h2 id="lab-filter-title">Filtres</h2>
-          <div class="lab-filter-panel__actions">
-            <button class="lab-clear-button is-hidden" type="button" data-lab-clear>Effacer</button>
-            <button class="lab-filter-close" type="button" data-lab-filter-close aria-label="Fermer les filtres">Fermer</button>
+    <header class="ui5-page-header">
+      <div class="ui5-page-header__copy">
+        <p class="ui5-kicker">Laboratoire virtuel</p>
+        <h1 class="ui5-title">Expérimenter en laboratoire</h1>
+        <p class="ui5-lead">Manipule, mesure et observe les notions de Physique-Chimie avec des simulations accessibles et reliées au programme.</p>
+      </div>
+      <p class="ui5-page-header__aside">{labApps.length} simulations disponibles</p>
+    </header>
+
+    <section class="ui5-section ui5-lab-layout" id="bibliotheque-laboratoire">
+      <aside id="ui5-lab-filter-panel" class="ui5-lab-filters" aria-labelledby="ui5-lab-filter-title" data-lab-filter-panel>
+        <div class="ui5-lab-filters__head">
+          <h2 id="ui5-lab-filter-title">Filtres</h2>
+          <div>
+            <button class="ui5-button ui5-lab-clear is-hidden" type="button" data-lab-clear>Effacer</button>
+            <button class="ui5-button ui5-lab-filter-close" type="button" data-lab-filter-close>Fermer</button>
           </div>
         </div>
 
-        <fieldset class="lab-filter-group">
-          <legend>🎒 Niveau scolaire</legend>
+        <fieldset class="ui5-lab-filter-group">
+          <legend>Niveau scolaire</legend>
           <label><input type="checkbox" value="college" data-lab-filter="level" /> Collège</label>
           <label><input type="checkbox" value="lycee" data-lab-filter="level" /> Lycée</label>
         </fieldset>
 
-        <fieldset class="lab-filter-group">
+        <fieldset class="ui5-lab-filter-group">
           <legend>Physique</legend>
           <label><input type="checkbox" value="physique" data-lab-filter="theme" /> Toute la physique</label>
-          <div class="lab-subfilters">
-            <label><input type="checkbox" value="mouvement" data-lab-filter="topic" /> Mouvement & gravitation</label>
-            <label><input type="checkbox" value="ondes" data-lab-filter="topic" /> Optique, son & ondes</label>
-            <label><input type="checkbox" value="electricite" data-lab-filter="topic" /> Électricité & énergie</label>
-          </div>
+          <label><input type="checkbox" value="mouvement" data-lab-filter="topic" /> Mouvement & gravitation</label>
+          <label><input type="checkbox" value="ondes" data-lab-filter="topic" /> Optique, son & ondes</label>
+          <label><input type="checkbox" value="electricite" data-lab-filter="topic" /> Électricité & énergie</label>
         </fieldset>
 
-        <fieldset class="lab-filter-group">
+        <fieldset class="ui5-lab-filter-group">
           <legend>Chimie</legend>
           <label><input type="checkbox" value="chimie" data-lab-filter="theme" /> Toute la chimie</label>
-          <div class="lab-subfilters">
-            <label><input type="checkbox" value="matiere" data-lab-filter="topic" /> Structure de la matière</label>
-            <label><input type="checkbox" value="transformations" data-lab-filter="topic" /> Transformations chimiques</label>
-            <label><input type="checkbox" value="acidebase" data-lab-filter="topic" /> Acide / base & pH</label>
-          </div>
+          <label><input type="checkbox" value="matiere" data-lab-filter="topic" /> Structure de la matière</label>
+          <label><input type="checkbox" value="transformations" data-lab-filter="topic" /> Transformations chimiques</label>
+          <label><input type="checkbox" value="acidebase" data-lab-filter="topic" /> Acide / base & pH</label>
         </fieldset>
       </aside>
 
-      <section class="lab-results" aria-live="polite">
-        <div class="lab-mobile-toolbar">
-          <button class="lab-filter-toggle" type="button" data-lab-filter-toggle aria-expanded="false" aria-controls="lab-filter-panel">
+      <div class="ui5-lab-results" aria-live="polite">
+        <div class="ui5-lab-mobile-toolbar">
+          <button class="ui5-button" type="button" data-lab-filter-toggle aria-expanded="false" aria-controls="ui5-lab-filter-panel">
             Filtres <span data-lab-filter-count>0</span>
           </button>
         </div>
 
-        <label class="lab-search-box search-field">
-          <span class="lab-search-icon" aria-hidden="true"></span>
-          <span class="lab-sr-only">Rechercher une simulation</span>
-          <input
-            type="search"
-            placeholder="Rechercher une simulation (ex: lentille, atome, condensateur...)"
-            data-lab-search
-          />
-        </label>
-
-        <div class="lab-active-filters" data-lab-active-filters aria-label="Filtres actifs"></div>
-
-        <div class="lab-results-head">
-          <h2 data-lab-results-title>Toutes les simulations</h2>
-          <span data-lab-results-count>{labApps.length} simulations</span>
+        <div class="ui5-toolbar">
+          <label for="ui5-lab-search">Rechercher une simulation</label>
+          <div class="ui5-search">
+            <input id="ui5-lab-search" type="search" placeholder="Lentille, atome, condensateur…" data-lab-search />
+          </div>
         </div>
 
-        <div class="lab-index-grid" aria-label="Applications disponibles">
+        <div class="ui5-lab-active-filters" data-lab-active-filters aria-label="Filtres actifs"></div>
+
+        <div class="ui5-section-head">
+          <h2 data-lab-results-title>Toutes les simulations</h2>
+          <p data-lab-results-count>{labApps.length} simulations</p>
+        </div>
+
+        <div class="ui5-lab-grid" aria-label="Applications disponibles">
           {labApps.map((app) => <LabAppCard app={app} />)}
         </div>
 
-        <p class="lab-no-results is-hidden" data-lab-no-results>
-          Aucune simulation ne correspond à cette recherche.
-        </p>
-      </section>
+        <p class="ui5-no-results is-hidden" data-lab-no-results>Aucune simulation ne correspond à cette recherche.</p>
       </div>
-    </div>
+    </section>
 
     <script>
       import "../scripts/laboratoire/filter-lab-index.js";
