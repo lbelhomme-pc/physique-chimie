@@ -62,8 +62,8 @@ describe("UI — cohérence avec la charte de la page d'accueil",()=>{
   it("les espaces pédagogiques restent sur 1120px avec la géométrie de l'accueil",()=>{
     const css=read("src/styles/learning-workspace.css");
     assert.match(css,/--learning-max: 1120px/);
-    assert.match(css,/--learning-radius-lg: 8px/);
-    assert.match(css,/--learning-radius-md: 6px/);
+    assert.match(css,/--learning-radius: var\(--v3-radius-md, 8px\)/);
+    assert.match(css,/min-height: 44px/);
     assert.doesNotMatch(css,/--learning-radius-lg: 20px/);
     assert.match(css,/grid-template-columns: 230px minmax\(0, 1fr\)/);
     assert.match(css,/grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
