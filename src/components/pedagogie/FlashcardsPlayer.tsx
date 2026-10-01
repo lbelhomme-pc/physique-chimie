@@ -157,7 +157,7 @@ export default function FlashcardsPlayer({ data, title, chapterId, xpConfig }: F
       const known = newResults.filter(r=>r.rating==="good"||r.rating==="easy").length;
       if(chapterId){try{const e=getGamificationEngine();const r=e.completeFlashcards(chapterId,known,total,xpConfig);if(r.xp>0)addT({type:"xp",message:`+${r.xp} XP 🎉`,icon:"⚡"});if(r.rankUp)addT({type:"rank_up",message:`Nouveau rang : ${r.rankUp.icon} ${r.rankUp.name} !`,icon:r.rankUp.icon});r.newBadges.forEach(b=>addT({type:"badge",message:`Badge : ${b.icon} ${b.name}`,icon:b.icon}))}catch(e){console.warn(e)}}
       setFin(true);
-    } else { setCi(i=>i+1); setRevealed(false); setInput(""); setTimeout(()=>inputRef.current?.focus(),100); }
+    } else { setCi(i=>i+1); setRevealed(false); setInput(""); if (answerMode === "active") setTimeout(()=>inputRef.current?.focus(),100); }
   }
 
   const diff = cur.difficulty;
