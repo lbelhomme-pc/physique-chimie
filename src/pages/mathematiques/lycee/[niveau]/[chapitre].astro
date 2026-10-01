@@ -19,7 +19,6 @@ import {
   getPublishedMathematicsLevels,
 } from "../../../../data/contentRoutes";
 import { getMathematicsPilotActivity } from "../../../../data/mathematiques/activities";
-import "../../../../styles/mathematiques/mathematics.css";
 
 const cycle = "lycee" as const;
 
@@ -111,7 +110,6 @@ const canonical = chapter.seo?.canonical ?? context.canonical;
   tools={chapter.tools ?? []}
   estimatedDuration={chapter.duration}
   headerVariant="math"
-  pageClass="math-shell"
   chapterId={chapterId}
   xpConfig={xpConfig}
   courseTex={courseTex}
