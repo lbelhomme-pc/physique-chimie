@@ -15,7 +15,7 @@ interface Props {
 
 const {
   title = "Aucun contenu n'est encore disponible.",
-  message = "Les contenus seront ajoutes progressivement.",
+  message = "Les contenus seront ajoutés progressivement.",
   icon = "∅",
   actions = [],
   headingLevel = "h2",
@@ -24,14 +24,14 @@ const {
 const HeadingTag = headingLevel;
 ---
 
-<section class="math-empty-state" aria-live="polite">
-  <span class="math-empty-icon" aria-hidden="true">{icon}</span>
+<section class="ui5-card ui5-empty" aria-live="polite">
+  <span class="ui5-empty__icon" aria-hidden="true">{icon}</span>
   <HeadingTag>{title}</HeadingTag>
   <p>{message}</p>
   {actions.length > 0 && (
-    <div class="math-empty-actions">
+    <div class="ui5-filter-row">
       {actions.map((action) => (
-        <a href={action.href} class:list={["math-action", { primary: action.primary }]}>
+        <a href={action.href} class:list={["ui5-button", { "ui5-button--primary": action.primary }]}>
           {action.label}
         </a>
       ))}
